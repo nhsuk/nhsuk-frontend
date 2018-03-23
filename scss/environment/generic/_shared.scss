@@ -1,0 +1,18 @@
+@import "../settings/colours";
+@import "../settings/typography";
+
+html,
+html *{
+  font-family: $nhs-font-stack;
+}
+
+html {
+  background-color: $grey;
+  color: $black;
+}
+
+body {
+  background-color: $grey;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}

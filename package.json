@@ -1,0 +1,43 @@
+{
+  "name": "round-darkness",
+  "version": "1.0.0",
+  "description": "My app description",
+  "scripts": {
+    "build": "gulp build",
+    "build:production": "gulp build --production",
+    "postinstall": "npm run build:production",
+    "start": "concurrently \"gulp watch\" \"nodemon -e html,css server.js\"",
+    "watch": "gulp"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.2.1",
+    "express-validator": "^2.20.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csso": "^1.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "nodemailer": "^2.3.0",
+    "nunjucks": "^2.4.1",
+    "vinyl-buffer": "^1.0.0",
+    "yargs": "^4.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "reload": "^2.2.2",
+    "run-sequence": "^2.2.1"
+  },
+  "engines": {
+    "node": "6.1.0"
+  }
+}

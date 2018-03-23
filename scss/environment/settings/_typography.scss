@@ -1,0 +1,78 @@
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-weight: $nhs-font-bold;
+  margin-bottom: 0;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2em;
+  line-height: 1.263em;
+  margin-top: 48px;
+}
+
+h2, .h2 {
+  font-size: 1.8em;
+  line-height: 1.333em;
+  margin-top: 48px;
+}
+
+h3, .h3 {
+  font-size: 1.6em;
+  line-height: 1.379em;
+  margin-top: 40px;
+}
+
+h4, .h4 {
+  font-size: 1.4em;
+  line-height: 1.44em;
+  margin-top: 24px;
+}
+
+h5, .h5 {
+  font-size: 1.2em;
+  line-height: 1.454em;
+  margin-top: 24px;
+}
+
+p {
+  font-size: 1em;
+  font-weight: $nhs-font-normal;
+  margin-top: 24px;
+  margin-bottom: 0;
+  line-height: 1.684em;
+}
+
+a {
+  color: $blue;
+  &:hover {
+    color: $link-hover-colour;
+  }
+  &:active {
+
+  }
+  &:visited {
+    
+  }
+}
+
+ul, ol {
+  font-size: 1em;
+  font-weight: $nhs-font-normal;
+  margin-top: 24px;
+  margin-bottom: 0;
+  padding-left: 20px;
+  li {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+}
+
+tr, th {
+  font-weight: $nhs-font-normal;
+  font-size: 1em;
+}
+
+strong {
+  font-weight: $nhs-font-bold;
+}
