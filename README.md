@@ -1,4 +1,4 @@
-# front-end library playground
+# nhsuk re-design
 
 A front-end library playground to test ideas and implementations.
 
@@ -16,21 +16,11 @@ When you're done with installing Node, you can install Gulp by using the followi
 
 ## Installation
 
-Clone the repo: `git clone https://github.com/AdamChrimes/frontend-library.git` and whilst in the project directory, install the required npm packages with: `npm install`
+Clone the repo: `git clone https://github.com/AdamChrimes/nhsuk-redesign.git` and whilst in the project directory, install the required npm packages with: `npm install`
 
 ## Usage
 
-Start the server in development mode: `gulp`
-
-View the site in a browser: `open http://localhost:3000`
-
 ## Deploying
-
-https://nhs-uk-redesign.herokuapp.com/index.html
-
-`git subtree push --prefix dist heroku master`
-
-Automatic deployments coming soon.
 
 ## Decisions
 
