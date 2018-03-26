@@ -16,6 +16,10 @@ Clone the repo: `git clone https://github.com/AdamChrimes/nhsuk-redesign.git` an
 
 ## Usage
 
+Run the server in development mode `npm run watch` 
+
+(Mac) If you get permissio denied error on the node_modules folder you will need to fix permissions for that folder `chmod -R 777 -directoryname-`
+
 ## Deploying
 
 ## Decisions
