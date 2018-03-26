@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var nunjucks = require('nunjucks');
-
-// Load environment variables from .env file
-dotenv.load();
+var reload = require('reload')
 
 // Controllers
 var HomeController = require('./controllers/home');
@@ -47,9 +45,11 @@ if (app.get('env') === 'production') {
   });
 }
 
+// Reload code here 
+reload(app);
+
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
-
 
 module.exports = app;
