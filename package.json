@@ -8,7 +8,7 @@
     "deploy": "git push heroku master",
     "postinstall": "npm run build:production",
     "start": "node server.js",
-    "watch": "concurrently \"gulp watch\" \"nodemon -e html,css server.js\""
+    "watch": "concurrently \"gulp watch\" \"nodemon -e html,css server.js\" \"start http://localhost:3000\""
   },
   "dependencies": {
     "body-parser": "^1.15.1",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "nodemon": "^1.17.2",
     "reload": "^2.2.2",
     "run-sequence": "^2.2.1"
   },
