@@ -45,8 +45,10 @@ if (app.get('env') === 'production') {
   });
 }
 
-// Reload code here 
-reload(app);
+if (app.get('env') !== 'production') {
+  // Reload code here 
+  reload(app);
+}
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
