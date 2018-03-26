@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var reload = require('reload');
 var logger = require('morgan');
 var compression = require('compression');
 var methodOverride = require('method-override');
@@ -51,8 +50,6 @@ if (app.get('env') === 'production') {
     res.sendStatus(err.status || 500);
   });
 }
-
-reload(app);
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
