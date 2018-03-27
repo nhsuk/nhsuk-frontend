@@ -4,11 +4,9 @@ A front-end library playground to test ideas and implementations.
 
 ## Prerequisites
 
-Install git to clone the repo, instructions: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+Install <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> to clone the repository.
 
-You need to have Node.js (Node) installed onto your computer before you can install Gulp.
-
-If you do not have Node installed already, you can get it by <a href="https://nodejs.org/">downloading the package installer from Node's website</a>.
+Install the long-term support (LTS) version of <a href="https://nodejs.org/en/">Node.js</a>, which includes NPM.
 
 ## Installation
 
@@ -18,10 +16,11 @@ Clone the repo: `git clone https://github.com/AdamChrimes/nhsuk-redesign.git` an
 
 Run the server in development mode `npm run watch` 
 
-(Mac) If you get permissio denied error on the node_modules folder you will need to fix permissions for that folder `chmod -R 777 -directoryname-`
-
 ## Deploying
 
 ## Decisions
 
-- We use the Bootstrap 3 grid system due to the popularity of the framework and support for earlier version of IE8.
+## Issues
+
+If you get permission denied error on the node_modules folder you will need to fix the permissions with `chmod -R 777 Project/Directory/node_modules`
+
