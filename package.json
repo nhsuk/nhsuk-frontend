@@ -13,10 +13,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
-    "dotenv": "^2.0.0",
     "express": "^4.13.4",
-    "express-flash": "0.0.2",
-    "express-session": "^1.2.1",
     "express-validator": "^2.20.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -28,7 +25,6 @@
     "gulp-uglify": "^1.5.3",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
-    "nodemailer": "^2.3.0",
     "nunjucks": "^2.4.1",
     "vinyl-buffer": "^1.0.0",
     "yargs": "^4.3.2",
@@ -37,8 +33,7 @@
   "devDependencies": {
     "concurrently": "^3.5.1",
     "nodemon": "^1.17.2",
-    "reload": "^2.2.2",
-    "run-sequence": "^2.2.1"
+    "reload": "^2.2.2"
   },
   "engines": {
     "node": "6.1.0"
