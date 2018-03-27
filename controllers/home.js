@@ -42,3 +42,9 @@ exports.page3 = function(req, res) {
     title: 'Page 3'
   });
 };
+
+exports.mobile = function(req, res) {
+  res.render('mobile', {
+    title: 'Mobile'
+  });
+};

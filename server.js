@@ -36,6 +36,7 @@ app.get('/page', HomeController.page)
 app.get('/page-1', HomeController.page1)
 app.get('/page-2', HomeController.page2)
 app.get('/page-3', HomeController.page3)
+app.get('/mobile', HomeController.mobile)
 
 // Production error handler
 if (app.get('env') === 'production') {
