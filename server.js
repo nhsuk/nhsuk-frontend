@@ -20,7 +20,7 @@ nunjucks.configure('views', {
   express: app
 });
 app.set('view engine', 'html');
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -30,13 +30,14 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
-app.get('/typography', HomeController.typography)
-app.get('/colours', HomeController.colours)
-app.get('/page', HomeController.page)
-app.get('/page-1', HomeController.page1)
-app.get('/page-2', HomeController.page2)
-app.get('/page-3', HomeController.page3)
-app.get('/mobile', HomeController.mobile)
+app.get('/layout', HomeController.layout);
+app.get('/typography', HomeController.typography);
+app.get('/colours', HomeController.colours);
+app.get('/page', HomeController.page);
+app.get('/page-1', HomeController.page1);
+app.get('/page-2', HomeController.page2);
+app.get('/page-3', HomeController.page3);
+app.get('/mobile', HomeController.mobile);
 
 // Production error handler
 if (app.get('env') === 'production') {

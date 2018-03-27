@@ -7,6 +7,12 @@ exports.index = function(req, res) {
   });
 };
 
+exports.layout = function(req, res) {
+  res.render('layout', {
+    title: 'Typography'
+  });
+};
+
 exports.typography = function(req, res) {
   res.render('typography', {
     title: 'Typography'
