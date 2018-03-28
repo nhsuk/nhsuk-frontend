@@ -70,7 +70,7 @@ $focus-colour: $yellow;
 @function tint($color, $percentage) {
     @return mix(white, $color, $percentage);
   }
-  
+
   /// Slightly darken a color
   /// @access public
   /// @param {Color} $color - color to shade
@@ -108,7 +108,7 @@ $nhs-red-aaa-lighter-50:tint($nhs-red-aaa,50%);
 $nhs-red-aaa-lighter-60:tint($nhs-red-aaa,60%);
 $nhs-red-aaa-lighter-70:tint($nhs-red-aaa,70%);
 $nhs-red-aaa-lighter-80:tint($nhs-red-aaa,80%);
-$nhs-red-aaa-lighter-90:tint($nhs-blue-aaa,90%);
+$nhs-red-aaa-lighter-90:tint($nhs-red-aaa,90%);
 
 //shades of $nhs-black
 $nhs-black-lighter-10:tint($nhs-black,10%);
@@ -120,7 +120,7 @@ $nhs-black-lighter-60:tint($nhs-black,60%);
 $nhs-black-lighter-70:tint($nhs-black,70%);
 $nhs-black-lighter-80:tint($nhs-black,80%);
 $nhs-black-lighter-90:tint($nhs-black,90%);
-    
+
 //shades of $nhs-grey
 $nhs-grey-lighter-10:tint($nhs-grey,10%);
 $nhs-grey-lighter-20:tint($nhs-grey,20%);
@@ -168,7 +168,7 @@ $nhs-green-aaa-lighter-90:tint($nhs-green-aaa,90%);
 //nhs redesign palette
 .colour-palette{
     margin:15px 0 45px -15px;
-    @media (min-width: 641px) {   
+    @media (min-width: 641px) {
         margin:15px 0 60px -15px;
     }
     .colour-palette_item{
@@ -262,6 +262,3 @@ $nhs-green-aaa-lighter-90:tint($nhs-green-aaa,90%);
 .nhs-red-aaa-lighten-90{
     background:$nhs-red-aaa-lighter-90;
 }
-
-
-  
