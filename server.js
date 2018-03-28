@@ -47,11 +47,12 @@ if (app.get('env') === 'production') {
   });
 }
 
+if (app.get('env') !== 'production') {
+  reload(app);
+}
+
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
-  if (app.get('env') !== 'production') {
-    reload(app);
-  }
 });
 
 module.exports = app;
