@@ -20,7 +20,7 @@ nunjucks.configure('views', {
   express: app
 });
 app.set('view engine', 'html');
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 3000);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -47,13 +47,11 @@ if (app.get('env') === 'production') {
   });
 }
 
-if (app.get('env') !== 'production') {
-  // Reload code here 
-  reload(app);
-}
-
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
+  if (app.get('env') !== 'production') {
+    reload(app);
+  }
 });
 
 module.exports = app;
