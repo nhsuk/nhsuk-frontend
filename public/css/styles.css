@@ -1621,7 +1621,8 @@ html {
 body {
   background-color: #E8EDEE;
   font-size: 19px;
-  line-height: 1.684; }
+  line-height: 1.684;
+  margin-bottom: 80px; }
 
 .square-container .square {
   padding: 15px; }

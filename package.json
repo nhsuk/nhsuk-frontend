@@ -8,7 +8,7 @@
     "deploy": "git push heroku master",
     "postinstall": "npm run build:production",
     "start": "node server.js",
-    "watch": "gulp watch & nodemon -e html,css server.js"
+    "watch": "gulp watch & nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
