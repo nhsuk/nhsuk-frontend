@@ -1300,6 +1300,94 @@ template {
 [hidden] {
   display: none; }
 
+.colour-palette {
+  margin: 15px 0 45px -15px; }
+  @media (min-width: 641px) {
+    .colour-palette {
+      margin: 15px 0 60px -15px; } }
+  .colour-palette .colour-palette_item {
+    width: 100% !important;
+    margin: 15px 0 0 15px;
+    float: left; }
+    @media (min-width: 641px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/2) - 15px) !important;
+        margin: 15px 0 0 15px; } }
+    @media (min-width: 990px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/4) - 15px) !important;
+        margin: 15px 0 0 15px; } }
+    .colour-palette .colour-palette_item .colour-palette_variant {
+      padding: 15px;
+      width: 100%;
+      color: white;
+      font-size: 16px; }
+      .colour-palette .colour-palette_item .colour-palette_variant.colour-palette_variant--base {
+        padding: 30px 15px;
+        font-size: 21px; }
+      .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
+        color: #231f20; }
+
+.nhs-blue-aaa {
+  background: #0058ad; }
+
+.nhs-blue-aaa-lighten-10 {
+  background: #1a69b5; }
+
+.nhs-blue-aaa-lighten-20 {
+  background: #3379bd; }
+
+.nhs-blue-aaa-lighten-30 {
+  background: #4d8ac6; }
+
+.nhs-blue-aaa-lighten-40 {
+  background: #669bce; }
+
+.nhs-blue-aaa-lighten-50 {
+  background: #80acd6; }
+
+.nhs-blue-aaa-lighten-60 {
+  background: #99bcde; }
+
+.nhs-blue-aaa-lighten-70 {
+  background: #b3cde6; }
+
+.nhs-blue-aaa-lighten-80 {
+  background: #ccdeef; }
+
+.nhs-blue-aaa-lighten-90 {
+  background: #e6eef7; }
+
+.nhs-red-aaa {
+  background: #ad1f15; }
+
+.nhs-red-aaa-lighten-10 {
+  background: #b5352c; }
+
+.nhs-red-aaa-lighten-20 {
+  background: #bd4c44; }
+
+.nhs-red-aaa-lighten-30 {
+  background: #c6625b; }
+
+.nhs-red-aaa-lighten-40 {
+  background: #ce7973; }
+
+.nhs-red-aaa-lighten-50 {
+  background: #d68f8a; }
+
+.nhs-red-aaa-lighten-60 {
+  background: #dea5a1; }
+
+.nhs-red-aaa-lighten-70 {
+  background: #e6bcb9; }
+
+.nhs-red-aaa-lighten-80 {
+  background: #efd2d0; }
+
+.nhs-red-aaa-lighten-90 {
+  background: #e6eef7; }
+
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-weight: 600;
@@ -1531,6 +1619,94 @@ strong {
   font-size: 1.272em;
   line-height: 1.5;
   margin: 1.280em 0 0; }
+
+.colour-palette {
+  margin: 15px 0 45px -15px; }
+  @media (min-width: 641px) {
+    .colour-palette {
+      margin: 15px 0 60px -15px; } }
+  .colour-palette .colour-palette_item {
+    width: 100% !important;
+    margin: 15px 0 0 15px;
+    float: left; }
+    @media (min-width: 641px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/2) - 15px) !important;
+        margin: 15px 0 0 15px; } }
+    @media (min-width: 990px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/4) - 15px) !important;
+        margin: 15px 0 0 15px; } }
+    .colour-palette .colour-palette_item .colour-palette_variant {
+      padding: 15px;
+      width: 100%;
+      color: white;
+      font-size: 16px; }
+      .colour-palette .colour-palette_item .colour-palette_variant.colour-palette_variant--base {
+        padding: 30px 15px;
+        font-size: 21px; }
+      .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
+        color: #231f20; }
+
+.nhs-blue-aaa {
+  background: #0058ad; }
+
+.nhs-blue-aaa-lighten-10 {
+  background: #1a69b5; }
+
+.nhs-blue-aaa-lighten-20 {
+  background: #3379bd; }
+
+.nhs-blue-aaa-lighten-30 {
+  background: #4d8ac6; }
+
+.nhs-blue-aaa-lighten-40 {
+  background: #669bce; }
+
+.nhs-blue-aaa-lighten-50 {
+  background: #80acd6; }
+
+.nhs-blue-aaa-lighten-60 {
+  background: #99bcde; }
+
+.nhs-blue-aaa-lighten-70 {
+  background: #b3cde6; }
+
+.nhs-blue-aaa-lighten-80 {
+  background: #ccdeef; }
+
+.nhs-blue-aaa-lighten-90 {
+  background: #e6eef7; }
+
+.nhs-red-aaa {
+  background: #ad1f15; }
+
+.nhs-red-aaa-lighten-10 {
+  background: #b5352c; }
+
+.nhs-red-aaa-lighten-20 {
+  background: #bd4c44; }
+
+.nhs-red-aaa-lighten-30 {
+  background: #c6625b; }
+
+.nhs-red-aaa-lighten-40 {
+  background: #ce7973; }
+
+.nhs-red-aaa-lighten-50 {
+  background: #d68f8a; }
+
+.nhs-red-aaa-lighten-60 {
+  background: #dea5a1; }
+
+.nhs-red-aaa-lighten-70 {
+  background: #e6bcb9; }
+
+.nhs-red-aaa-lighten-80 {
+  background: #efd2d0; }
+
+.nhs-red-aaa-lighten-90 {
+  background: #e6eef7; }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {

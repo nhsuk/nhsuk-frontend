@@ -58,3 +58,210 @@ $link-active-colour: #4c92d9;
 $link-active-reverse-polarity: #d4efff;
 
 $focus-colour: $yellow;
+
+
+//NHS redesign colours
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+  }
+  
+  /// Slightly darken a color
+  /// @access public
+  /// @param {Color} $color - color to shade
+  /// @param {Number} $percentage - percentage of `$color` in returned color
+  /// @return {Color}
+  @function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+  }
+
+//base colours
+$nhs-blue-aaa:#0058ad;
+$nhs-red-aaa:#ad1f15;
+$nhs-black:#231f20;
+$nhs-grey:#425563;
+$nhs-yellow-aaa:#fced66; //needs work DH/KG
+$nhs-green-aaa:#006644;
+
+//shades of $nhs-blue-aaa
+$nhs-blue-aaa-lighter-10:tint($nhs-blue-aaa,10%);
+$nhs-blue-aaa-lighter-20:tint($nhs-blue-aaa,20%);
+$nhs-blue-aaa-lighter-30:tint($nhs-blue-aaa,30%);
+$nhs-blue-aaa-lighter-40:tint($nhs-blue-aaa,40%);
+$nhs-blue-aaa-lighter-50:tint($nhs-blue-aaa,50%);
+$nhs-blue-aaa-lighter-60:tint($nhs-blue-aaa,60%);
+$nhs-blue-aaa-lighter-70:tint($nhs-blue-aaa,70%);
+$nhs-blue-aaa-lighter-80:tint($nhs-blue-aaa,80%);
+$nhs-blue-aaa-lighter-90:tint($nhs-blue-aaa,90%);
+
+//shades of $nhs-red-aaa
+$nhs-red-aaa-lighter-10:tint($nhs-red-aaa,10%);
+$nhs-red-aaa-lighter-20:tint($nhs-red-aaa,20%);
+$nhs-red-aaa-lighter-30:tint($nhs-red-aaa,30%);
+$nhs-red-aaa-lighter-40:tint($nhs-red-aaa,40%);
+$nhs-red-aaa-lighter-50:tint($nhs-red-aaa,50%);
+$nhs-red-aaa-lighter-60:tint($nhs-red-aaa,60%);
+$nhs-red-aaa-lighter-70:tint($nhs-red-aaa,70%);
+$nhs-red-aaa-lighter-80:tint($nhs-red-aaa,80%);
+$nhs-red-aaa-lighter-90:tint($nhs-blue-aaa,90%);
+
+//shades of $nhs-black
+$nhs-black-lighter-10:tint($nhs-black,10%);
+$nhs-black-lighter-20:tint($nhs-black,20%);
+$nhs-black-lighter-30:tint($nhs-black,30%);
+$nhs-black-lighter-40:tint($nhs-black,40%);
+$nhs-black-lighter-50:tint($nhs-black,50%);
+$nhs-black-lighter-60:tint($nhs-black,60%);
+$nhs-black-lighter-70:tint($nhs-black,70%);
+$nhs-black-lighter-80:tint($nhs-black,80%);
+$nhs-black-lighter-90:tint($nhs-black,90%);
+    
+//shades of $nhs-grey
+$nhs-grey-lighter-10:tint($nhs-grey,10%);
+$nhs-grey-lighter-20:tint($nhs-grey,20%);
+$nhs-grey-lighter-30:tint($nhs-grey,30%);
+$nhs-grey-lighter-40:tint($nhs-grey,40%);
+$nhs-grey-lighter-50:tint($nhs-grey,50%);
+$nhs-grey-lighter-60:tint($nhs-grey,60%);
+$nhs-grey-lighter-70:tint($nhs-grey,70%);
+$nhs-grey-lighter-80:tint($nhs-grey,80%);
+$nhs-grey-lighter-90:tint($nhs-grey,90%);
+
+//shades of $nhs-yellow-aaa
+$nhs-yellow-aaa-lighter-10:tint($nhs-yellow-aaa,10%);
+$nhs-yellow-aaa-lighter-20:tint($nhs-yellow-aaa,20%);
+$nhs-yellow-aaa-lighter-30:tint($nhs-yellow-aaa,30%);
+$nhs-yellow-aaa-lighter-40:tint($nhs-yellow-aaa,40%);
+$nhs-yellow-aaa-lighter-50:tint($nhs-yellow-aaa,50%);
+$nhs-yellow-aaa-lighter-60:tint($nhs-yellow-aaa,60%);
+$nhs-yellow-aaa-lighter-70:tint($nhs-yellow-aaa,70%);
+$nhs-yellow-aaa-lighter-80:tint($nhs-yellow-aaa,80%);
+$nhs-yellow-aaa-lighter-90:tint($nhs-yellow-aaa,90%);
+
+$nhs-yellow-aaa-darker-10:shade($nhs-yellow-aaa,10%);
+$nhs-yellow-aaa-darker-20:tint($nhs-yellow-aaa,20%);
+$nhs-yellow-aaa-darker-30:tint($nhs-yellow-aaa,30%);
+$nhs-yellow-aaa-darker-40:tint($nhs-yellow-aaa,40%);
+$nhs-yellow-aaa-darker-50:tint($nhs-yellow-aaa,50%);
+$nhs-yellow-aaa-darker-60:tint($nhs-yellow-aaa,60%);
+$nhs-yellow-aaa-darker-70:tint($nhs-yellow-aaa,70%);
+$nhs-yellow-aaa-darker-80:tint($nhs-yellow-aaa,80%);
+$nhs-yellow-aaa-darker-90:tint($nhs-yellow-aaa,90%);
+
+//shades of $nhs-green-aaa
+$nhs-green-aaa-lighter-10:tint($nhs-green-aaa,10%);
+$nhs-green-aaa-lighter-20:tint($nhs-green-aaa,20%);
+$nhs-green-aaa-lighter-30:tint($nhs-green-aaa,30%);
+$nhs-green-aaa-lighter-40:tint($nhs-green-aaa,40%);
+$nhs-green-aaa-lighter-50:tint($nhs-green-aaa,50%);
+$nhs-green-aaa-lighter-60:tint($nhs-green-aaa,60%);
+$nhs-green-aaa-lighter-70:tint($nhs-green-aaa,70%);
+$nhs-green-aaa-lighter-80:tint($nhs-green-aaa,80%);
+$nhs-green-aaa-lighter-90:tint($nhs-green-aaa,90%);
+
+
+//nhs redesign palette
+.colour-palette{
+    margin:15px 0 45px -15px;
+    @media (min-width: 641px) {   
+        margin:15px 0 60px -15px;
+    }
+    .colour-palette_item{
+        width: 100% !important;
+        margin:15px 0 0 15px;
+        float: left;
+        @media (min-width: 641px) {
+        width: calc(100% * (1/2) - 15px) !important;
+        margin:15px 0 0 15px;
+        }
+        @media (min-width: 990px) {
+        width: calc(100% * (1/4) - 15px) !important;
+        margin:15px 0 0 15px;
+        }
+        .colour-palette_variant{
+            padding:15px;
+            width:100%;
+            color:white;
+            font-size:16px;
+            &.colour-palette_variant--base{
+                padding:30px 15px;
+                font-size:21px;
+            }
+            &.font-colour-black{
+                color:$nhs-black;
+            }
+        }
+    }
+}
+
+//blue
+.nhs-blue-aaa{
+    background:$nhs-blue-aaa;
+}
+.nhs-blue-aaa-lighten-10{
+    background:$nhs-blue-aaa-lighter-10;
+}
+.nhs-blue-aaa-lighten-20{
+    background:$nhs-blue-aaa-lighter-20;
+}
+.nhs-blue-aaa-lighten-30{
+    background:$nhs-blue-aaa-lighter-30;
+}
+.nhs-blue-aaa-lighten-40{
+    background:$nhs-blue-aaa-lighter-40;
+}
+.nhs-blue-aaa-lighten-50{
+    background:$nhs-blue-aaa-lighter-50;
+}
+.nhs-blue-aaa-lighten-60{
+    background:$nhs-blue-aaa-lighter-60;
+}
+.nhs-blue-aaa-lighten-70{
+    background:$nhs-blue-aaa-lighter-70;
+}
+.nhs-blue-aaa-lighten-80{
+    background:$nhs-blue-aaa-lighter-80;
+}
+.nhs-blue-aaa-lighten-90{
+    background:$nhs-blue-aaa-lighter-90;
+}
+
+//red
+.nhs-red-aaa{
+    background:$nhs-red-aaa;
+}
+.nhs-red-aaa-lighten-10{
+    background:$nhs-red-aaa-lighter-10;
+}
+.nhs-red-aaa-lighten-20{
+    background:$nhs-red-aaa-lighter-20;
+}
+.nhs-red-aaa-lighten-30{
+    background:$nhs-red-aaa-lighter-30;
+}
+.nhs-red-aaa-lighten-40{
+    background:$nhs-red-aaa-lighter-40;
+}
+.nhs-red-aaa-lighten-50{
+    background:$nhs-red-aaa-lighter-50;
+}
+.nhs-red-aaa-lighten-60{
+    background:$nhs-red-aaa-lighter-60;
+}
+.nhs-red-aaa-lighten-70{
+    background:$nhs-red-aaa-lighter-70;
+}
+.nhs-red-aaa-lighten-80{
+    background:$nhs-red-aaa-lighter-80;
+}
+.nhs-red-aaa-lighten-90{
+    background:$nhs-red-aaa-lighter-90;
+}
+
+
+  
