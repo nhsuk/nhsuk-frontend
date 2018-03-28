@@ -4,7 +4,7 @@ $base-font-size-mobile: 16px;
 $footer-height: 80px;
 
  @media only screen and (max-width: 641px) {
- section.mobile {
+ .mobile {
     font-size: $base-font-size-mobile;
   }
  }

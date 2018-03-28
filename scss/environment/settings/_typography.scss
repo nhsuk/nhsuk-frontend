@@ -197,3 +197,92 @@ strong {
       margin:1.280em 0 0;
   }
 }
+
+//Golden Ditonic Scale
+.nhs-scale{
+  h1,
+  .h1{
+      font-size:2.6179em;
+      line-height:1.2;
+      margin:1.473em 0;
+      @media only screen and (max-width: 641px) {
+        font-size:2em;
+        line-height:1.263;
+        margin:1.473em 0;
+      }
+  }
+
+  h2,
+  .h2{
+      font-size:2.0581em;
+      line-height:1.333;
+      margin:1.697em 0 0;
+      @media only screen and (max-width: 641px) {
+        font-size:1.7411em;
+        line-height:1.333;
+        margin:1.697em 0 0;
+      }
+  }
+
+  h3,
+  .h3{
+      font-size:1.618em;
+      line-height:1.419;
+      margin:1.379em 0 0;
+      @media only screen and (max-width: 641px) {
+        font-size:1.5157em;
+        line-height:1.379;
+        margin:1.379em 0 0;
+      }
+  }
+
+  h4,
+  .h4{
+      font-size:1.272em;
+      line-height:1.5;
+      margin:1.280em 0 0;
+      @media only screen and (max-width: 641px) {
+        font-size:1.3195em;
+        line-height:1.44;
+        margin:1.280em 0 0;
+      }
+  }
+
+  h5,
+  .h5{
+      font-size:1em;
+      line-height:1.684;
+      margin:1.455em 0 0;
+      @media only screen and (max-width: 641px) {
+        font-size:1.1487em;
+        line-height:1.454;
+        margin:1.455em 0 0;
+      }
+  }
+
+  ul,
+  ol{
+      margin:0.842em 0 0;
+  }
+
+  ol li, ul li{
+      margin:0.421em 0 0;
+  }
+
+  p{
+      font-size:1em;
+      line-height:1.684;
+      margin:0.842em 0 0;
+  }
+
+  .lead{
+      font-size:1.272em;
+      line-height:1.5;
+      margin:1.280em 0 0;
+  }
+
+  //helper classses
+  .top-margin-0{
+    margin-top:0;
+  }
+}
