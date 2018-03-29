@@ -1346,7 +1346,8 @@
 
 @media only screen and (max-width: 641px) {
   .mobile {
-    font-size: 16px; } }
+    font-size: 16px;
+    line-height: 1.75; } }
 
 .colour-palette {
   display: -ms-flexbox;
@@ -1879,80 +1880,97 @@ strong {
 
 .nhs-scale h1,
 .nhs-scale .h1 {
-  font-size: 2.6179em;
-  line-height: 1.2;
-  margin: 1.473em 0 0; }
+  font-size: 2.5263em;
+  line-height: 1.25;
+  margin: 1.25em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h1,
     .nhs-scale .h1 {
-      font-size: 2em;
-      line-height: 1.263;
-      margin: 1.473em 0 0; } }
+      font-size: 2.25em;
+      line-height: 1.2222;
+      margin: 1.2222em 0 0; } }
 
 .nhs-scale h2,
 .nhs-scale .h2 {
-  font-size: 2.0581em;
+  font-size: 1.8947em;
   line-height: 1.333;
-  margin: 1.697em 0 0; }
+  margin: 1.6667em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h2,
     .nhs-scale .h2 {
-      font-size: 1.7411em;
-      line-height: 1.333;
-      margin: 1.697em 0 0; } }
+      font-size: 1.75em;
+      line-height: 1.4286;
+      margin: 1.5714em 0 0; } }
 
 .nhs-scale h3,
 .nhs-scale .h3 {
-  font-size: 1.618em;
-  line-height: 1.419;
-  margin: 1.379em 0 0; }
+  font-size: 1.4737em;
+  line-height: 1.4286;
+  margin: 1.5714em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h3,
     .nhs-scale .h3 {
-      font-size: 1.5157em;
-      line-height: 1.379;
-      margin: 1.379em 0 0; } }
+      font-size: 1.5em;
+      line-height: 1.5;
+      margin: 1.3333em 0 0; } }
 
 .nhs-scale h4,
 .nhs-scale .h4 {
-  font-size: 1.272em;
+  font-size: 1.2632em;
   line-height: 1.5;
-  margin: 1.280em 0 0; }
+  margin: 1.3333em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h4,
     .nhs-scale .h4 {
-      font-size: 1.3195em;
-      line-height: 1.44;
-      margin: 1.280em 0 0; } }
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin: 1.4em 0 0; } }
 
 .nhs-scale h5,
 .nhs-scale .h5 {
   font-size: 1em;
   line-height: 1.684;
-  margin: 1.455em 0 0; }
+  margin: 1.4737em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h5,
     .nhs-scale .h5 {
-      font-size: 1.1487em;
-      line-height: 1.454;
-      margin: 1.455em 0 0; } }
+      font-size: 1em;
+      line-height: 1.75;
+      margin: 1.5em 0 0; } }
 
 .nhs-scale ul,
 .nhs-scale ol {
   margin: 0.842em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale ul,
+    .nhs-scale ol {
+      margin: 1em 0 0; } }
 
 .nhs-scale ol li, .nhs-scale ul li {
   margin: 0.421em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale ol li, .nhs-scale ul li {
+      margin: 0.5em 0 0; } }
 
 .nhs-scale p {
   font-size: 1em;
   line-height: 1.684;
-  margin: 0.842em 0 0; }
+  margin: 1.0526em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale p {
+      font-size: 1em;
+      line-height: 1.75;
+      margin: 1em 0 0; } }
 
 .nhs-scale .lead {
-  font-size: 1.272em;
+  font-size: 1.2632em;
   line-height: 1.5;
-  margin: 1.280em 0 0; }
+  margin: 1.1667em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale .lead {
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin: 1.2em 0 0; } }
 
 .colour-palette {
   display: -ms-flexbox;
@@ -2485,80 +2503,97 @@ strong {
 
 .nhs-scale h1,
 .nhs-scale .h1 {
-  font-size: 2.6179em;
-  line-height: 1.2;
-  margin: 1.473em 0 0; }
+  font-size: 2.5263em;
+  line-height: 1.25;
+  margin: 1.25em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h1,
     .nhs-scale .h1 {
-      font-size: 2em;
-      line-height: 1.263;
-      margin: 1.473em 0 0; } }
+      font-size: 2.25em;
+      line-height: 1.2222;
+      margin: 1.2222em 0 0; } }
 
 .nhs-scale h2,
 .nhs-scale .h2 {
-  font-size: 2.0581em;
+  font-size: 1.8947em;
   line-height: 1.333;
-  margin: 1.697em 0 0; }
+  margin: 1.6667em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h2,
     .nhs-scale .h2 {
-      font-size: 1.7411em;
-      line-height: 1.333;
-      margin: 1.697em 0 0; } }
+      font-size: 1.75em;
+      line-height: 1.4286;
+      margin: 1.5714em 0 0; } }
 
 .nhs-scale h3,
 .nhs-scale .h3 {
-  font-size: 1.618em;
-  line-height: 1.419;
-  margin: 1.379em 0 0; }
+  font-size: 1.4737em;
+  line-height: 1.4286;
+  margin: 1.5714em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h3,
     .nhs-scale .h3 {
-      font-size: 1.5157em;
-      line-height: 1.379;
-      margin: 1.379em 0 0; } }
+      font-size: 1.5em;
+      line-height: 1.5;
+      margin: 1.3333em 0 0; } }
 
 .nhs-scale h4,
 .nhs-scale .h4 {
-  font-size: 1.272em;
+  font-size: 1.2632em;
   line-height: 1.5;
-  margin: 1.280em 0 0; }
+  margin: 1.3333em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h4,
     .nhs-scale .h4 {
-      font-size: 1.3195em;
-      line-height: 1.44;
-      margin: 1.280em 0 0; } }
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin: 1.4em 0 0; } }
 
 .nhs-scale h5,
 .nhs-scale .h5 {
   font-size: 1em;
   line-height: 1.684;
-  margin: 1.455em 0 0; }
+  margin: 1.4737em 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-scale h5,
     .nhs-scale .h5 {
-      font-size: 1.1487em;
-      line-height: 1.454;
-      margin: 1.455em 0 0; } }
+      font-size: 1em;
+      line-height: 1.75;
+      margin: 1.5em 0 0; } }
 
 .nhs-scale ul,
 .nhs-scale ol {
   margin: 0.842em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale ul,
+    .nhs-scale ol {
+      margin: 1em 0 0; } }
 
 .nhs-scale ol li, .nhs-scale ul li {
   margin: 0.421em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale ol li, .nhs-scale ul li {
+      margin: 0.5em 0 0; } }
 
 .nhs-scale p {
   font-size: 1em;
   line-height: 1.684;
-  margin: 0.842em 0 0; }
+  margin: 1.0526em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale p {
+      font-size: 1em;
+      line-height: 1.75;
+      margin: 1em 0 0; } }
 
 .nhs-scale .lead {
-  font-size: 1.272em;
+  font-size: 1.2632em;
   line-height: 1.5;
-  margin: 1.280em 0 0; }
+  margin: 1.1667em 0 0; }
+  @media only screen and (max-width: 641px) {
+    .nhs-scale .lead {
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin: 1.2em 0 0; } }
 
 html,
 html * {
