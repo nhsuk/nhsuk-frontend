@@ -88,6 +88,10 @@ $nhs-grey:#425563;
 $nhs-yellow-aaa:#fced66; //needs work DH/KG
 $nhs-green-aaa:#006644;
 
+//gov.uk $link-visited-colour
+$nhs-purple:#4c2c92;
+
+
 
 
 //tints of $nhs-blue-aaa
@@ -389,3 +393,16 @@ $nhs-green-aaa-darker-90:shade($nhs-green-aaa,90%);
 .nhs-green-aaa-darken-70{background:$nhs-green-aaa-darker-70;}
 .nhs-green-aaa-darken-80{background:$nhs-green-aaa-darker-80;}
 .nhs-green-aaa-darken-90{background:$nhs-green-aaa-darker-90;}
+
+
+
+
+
+//Text colours
+$text-color: $nhs-black;
+$secondary-text-colour: $nhs-grey;
+
+//Link Colours
+$link-colour: $nhs-blue-aaa;
+$link-hover-colour: $nhs-blue-aaa-lighter-30;
+$link-visited-colour: $nhs-purple;
