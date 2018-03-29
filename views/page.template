@@ -1,10 +1,19 @@
-    <div class="govuk-o-width-container">
-        <a href="/" class="govuk-c-back-link">Back</a>
+    <div class="govuk-o-width-container nhs-scale mobile">
+        <a href="/" class="nhsuk-logo"><img src="https://beta.nhs.uk/medicines/assets/images/logotype-nhs-colour__reverse.png"></a>
 
         <main class="govuk-o-main-wrapper">
 
             <div class="govuk-o-grid">
                 <div class="govuk-o-grid__item govuk-o-grid__item--full">
+
+                </div>
+            </div>
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+
                 </div>
             </div>
         </main>
