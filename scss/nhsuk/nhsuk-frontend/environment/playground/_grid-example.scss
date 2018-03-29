@@ -1,0 +1,15 @@
+.nhsuk-grid-example {
+    p {
+        display: block;
+        padding: 20px;
+        background-color: $blue;
+        color: white;
+        text-align: center;
+    }
+}
+
+span {
+    &.highlight {
+        color: $blue;
+    }
+}

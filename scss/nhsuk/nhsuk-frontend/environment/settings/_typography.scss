@@ -1,0 +1,127 @@
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-weight: $nhs-font-bold;
+  margin-bottom: 0;
+  color: inherit;
+}
+
+h1,
+.h1{
+    font-size:2.5263em;
+    line-height:1.25;
+    margin:1.25em 0 0;
+    @media only screen and (max-width: 641px) {
+      font-size:2.25em;
+      line-height:1.2222;
+      margin:1.2222em 0 0;
+    }
+}
+
+h2,
+.h2{
+    font-size:1.8947em;
+    line-height:1.333;
+    margin:1.6667em 0 0;
+    @media only screen and (max-width: 641px) {
+      font-size:1.75em;
+      line-height:1.4286;
+      margin:1.5714em 0 0;
+    }
+}
+
+h3,
+.h3{
+    font-size:1.4737em;
+    line-height:1.4286;
+    margin:1.5714em 0 0;
+    @media only screen and (max-width: 641px) {
+      font-size:1.5em;
+      line-height:1.5;
+      margin:1.3333em 0 0;
+    }
+}
+
+h4,
+.h4{
+    font-size:1.2632em;
+    line-height:1.5;
+    margin:1.3333em 0 0;
+    @media only screen and (max-width: 641px) {
+      font-size:1.25em;
+      line-height:1.6;
+      margin:1.4em 0 0;
+    }
+}
+
+h5,
+.h5{
+    font-size:1em;
+    line-height:1.684;
+    margin:1.4737em 0 0;
+    @media only screen and (max-width: 641px) {
+      font-size:1em;
+      line-height:1.75;
+      margin:1.5em 0 0;
+    }
+}
+
+p {
+  font-size: 1em;
+  font-weight: $nhs-font-normal;
+  line-height:1.684;
+  margin:1.0526em 0 0;
+  @media only screen and (max-width: 641px) {
+    font-size:1em;
+    line-height:1.75;
+    margin:1em 0 0;
+  }
+}
+
+.lead{
+  font-size:1.2632em;
+  line-height:1.5;
+  margin:1.3333em 0 0;
+  @media only screen and (max-width: 641px) {
+    font-size:1.25em;
+    line-height:1.6;
+    margin:1.4em 0 0;
+  }
+}
+
+a {
+  color: $blue;
+  &:hover {
+    color: $link-hover-colour;
+  }
+  &:active {
+
+  }
+  &:visited {
+    
+  }
+}
+
+ul, ol {
+  font-size: 1em;
+  font-weight: $nhs-font-normal;
+  padding-left: 20px;
+  margin:0.842em 0 0;
+  @media only screen and (max-width: 641px) {
+    margin:1em 0 0;
+  }
+  li {
+    margin:0.421em 0 0;
+    @media only screen and (max-width: 641px) {
+      margin:0.5em 0 0;
+    }
+  }
+}
+
+tr, th {
+  font-weight: $nhs-font-normal;
+  font-size: 1em;
+}
+
+strong {
+  font-weight: $nhs-font-bold;
+}

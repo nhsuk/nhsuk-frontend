@@ -1,0 +1,11 @@
+$base-font-size: 19px !default;
+$base-line-height: 1.684 !default;
+$base-font-size-mobile: 16px;
+$footer-height: 80px;
+
+ @media only screen and (max-width: 641px) {
+ .mobile {
+    font-size: $base-font-size-mobile;
+    line-height:1.75;
+  }
+ }
