@@ -8,10 +8,10 @@ h1, h2, h3, h4, h5,
 h1,
 .h1{
     font-size:2.5263em;
-    line-height:1.25;
-    margin:1.25em 0 0;
+    line-height:1.27;
+    margin:1.2500em 0 0;
     @media only screen and (max-width: 641px) {
-      font-size:2.25em;
+      font-size:2.25rem;
       line-height:1.2222;
       margin:1.2222em 0 0;
     }
@@ -20,7 +20,7 @@ h1,
 h2,
 .h2{
     font-size:1.8947em;
-    line-height:1.333;
+    line-height:1.34;
     margin:1.6667em 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1.75em;
@@ -56,7 +56,7 @@ h4,
 h5,
 .h5{
     font-size:1em;
-    line-height:1.684;
+    line-height:1.69;
     margin:1.4737em 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1em;
@@ -66,12 +66,9 @@ h5,
 }
 
 p {
-  font-size: 1em;
   font-weight: $nhs-font-normal;
-  line-height:1.684;
   margin:1.0526em 0 0;
   @media only screen and (max-width: 641px) {
-    font-size:1em;
     line-height:1.75;
     margin:1em 0 0;
   }
@@ -102,15 +99,14 @@ a {
 }
 
 ul, ol {
-  font-size: 1em;
   font-weight: $nhs-font-normal;
   padding-left: 20px;
-  margin:0.842em 0 0;
+  margin:1.0526em 0 0;
   @media only screen and (max-width: 641px) {
     margin:1em 0 0;
   }
   li {
-    margin:0.421em 0 0;
+    margin:0.6316em 0 0;
     @media only screen and (max-width: 641px) {
       margin:0.5em 0 0;
     }
