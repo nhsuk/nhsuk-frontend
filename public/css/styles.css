@@ -1369,14 +1369,6 @@
     width: 100% !important;
     margin: 15px 0 0 15px;
     float: left; }
-    @media (min-width: 641px) {
-      .colour-palette .colour-palette_item {
-        width: calc(100% * (1/2) - 15px) !important;
-        margin: 15px 0 0 15px; } }
-    @media (min-width: 990px) {
-      .colour-palette .colour-palette_item {
-        width: calc(100% * (1/4) - 15px) !important;
-        margin: 15px 0 0 15px; } }
     .colour-palette .colour-palette_item .colour-palette_variant {
       padding: 15px;
       width: 100%;
@@ -1983,14 +1975,6 @@ strong {
     width: 100% !important;
     margin: 15px 0 0 15px;
     float: left; }
-    @media (min-width: 641px) {
-      .colour-palette .colour-palette_item {
-        width: calc(100% * (1/2) - 15px) !important;
-        margin: 15px 0 0 15px; } }
-    @media (min-width: 990px) {
-      .colour-palette .colour-palette_item {
-        width: calc(100% * (1/4) - 15px) !important;
-        margin: 15px 0 0 15px; } }
     .colour-palette .colour-palette_item .colour-palette_variant {
       padding: 15px;
       width: 100%;
