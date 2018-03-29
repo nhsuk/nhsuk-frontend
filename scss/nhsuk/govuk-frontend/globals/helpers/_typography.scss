@@ -71,6 +71,7 @@
 // @param {Boolean} $important - Whether to mark declarations as important.
 //        Generally Used to create override classes.
 
+//commmented out from NHS redesign project as it was displaying an error
 @mixin govuk-typography-responsive($font-map, $override-line-height: false, $important: false) {
 
   // Ensure that $font-map is actually a map
