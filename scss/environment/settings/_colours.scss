@@ -227,8 +227,11 @@ $nhs-green-aaa-darker-90:shade($nhs-green-aaa,90%);
 
 //nhs redesign palette
 .colour-palette{
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
     margin:15px 0 45px -15px;
-    @media (min-width: 641px) {
+    @media (min-width: 641px) {   
         margin:15px 0 60px -15px;
     }
     .colour-palette_item{
