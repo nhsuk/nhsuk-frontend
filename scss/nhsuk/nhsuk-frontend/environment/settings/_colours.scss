@@ -229,6 +229,28 @@ $nhs-green-aaa-darker-80:shade($nhs-green-aaa,80%);
 $nhs-green-aaa-darker-90:shade($nhs-green-aaa,90%);
 
 
+//tints of $nhs-purple
+$nhs-purple-lighter-10:tint($nhs-purple,10%);
+$nhs-purple-lighter-20:tint($nhs-purple,20%);
+$nhs-purple-lighter-30:tint($nhs-purple,30%);
+$nhs-purple-lighter-40:tint($nhs-purple,40%);
+$nhs-purple-lighter-50:tint($nhs-purple,50%);
+$nhs-purple-lighter-60:tint($nhs-purple,60%);
+$nhs-purple-lighter-70:tint($nhs-purple,70%);
+$nhs-purple-lighter-80:tint($nhs-purple,80%);
+$nhs-purple-lighter-90:tint($nhs-purple,90%);
+//shades
+$nhs-purple-darker-10:shade($nhs-purple,10%);
+$nhs-purple-darker-20:shade($nhs-purple,20%);
+$nhs-purple-darker-30:shade($nhs-purple,30%);
+$nhs-purple-darker-40:shade($nhs-purple,40%);
+$nhs-purple-darker-50:shade($nhs-purple,50%);
+$nhs-purple-darker-60:shade($nhs-purple,60%);
+$nhs-purple-darker-70:shade($nhs-purple,70%);
+$nhs-purple-darker-80:shade($nhs-purple,80%);
+$nhs-purple-darker-90:shade($nhs-purple,90%);
+
+
 //nhs redesign palette
 .colour-palette{
     @include flexbox();
@@ -252,7 +274,7 @@ $nhs-green-aaa-darker-90:shade($nhs-green-aaa,90%);
                 font-size:21px;
             }
             &.font-colour-black{
-                color:$nhs-black;
+                color:$nhs-green-aaa;
             }
         }
     }
@@ -389,11 +411,32 @@ $nhs-green-aaa-darker-90:shade($nhs-green-aaa,90%);
 .nhs-green-aaa-darken-80{background:$nhs-green-aaa-darker-80;}
 .nhs-green-aaa-darken-90{background:$nhs-green-aaa-darker-90;}
 
+//purples
+.nhs-purple{background:$nhs-purple;}
+.nhs-purple-lighten-10{background:$nhs-purple-lighter-10;}
+.nhs-purple-lighten-20{background:$nhs-purple-lighter-20;}
+.nhs-purple-lighten-30{background:$nhs-purple-lighter-30;}
+.nhs-purple-lighten-40{background:$nhs-purple-lighter-40;}
+.nhs-purple-lighten-50{background:$nhs-purple-lighter-50;}
+.nhs-purple-lighten-60{background:$nhs-purple-lighter-60;}
+.nhs-purple-lighten-70{background:$nhs-purple-lighter-70;}
+.nhs-purple-lighten-80{background:$nhs-purple-lighter-80;}
+.nhs-purple-lighten-90{background:$nhs-purple-lighter-90;}
+.nhs-purple-darken-10{background:$nhs-purple-darker-10;}
+.nhs-purple-darken-20{background:$nhs-purple-darker-20;}
+.nhs-purple-darken-30{background:$nhs-purple-darker-30;}
+.nhs-purple-darken-40{background:$nhs-purple-darker-40;}
+.nhs-purple-darken-50{background:$nhs-purple-darker-50;}
+.nhs-purple-darken-60{background:$nhs-purple-darker-60;}
+.nhs-purple-darken-70{background:$nhs-purple-darker-70;}
+.nhs-purple-darken-80{background:$nhs-purple-darker-80;}
+.nhs-purple-darken-90{background:$nhs-purple-darker-90;}
 
 
 
 
-//Text colours
+
+//Text colourss
 $text-color: $nhs-black;
 $secondary-text-colour: $nhs-grey;
 
