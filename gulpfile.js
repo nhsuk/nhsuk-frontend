@@ -10,7 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 
 gulp.task('sass', function() {
-  return gulp.src('scss/styles.scss')
+  return gulp.src('scss/nhsuk/styles.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
@@ -19,7 +19,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss/**/*.scss', ['sass']);
+  gulp.watch('scss/nhsuk/**/*.scss', ['sass']);
 });
 
 gulp.task('build', ['sass']);

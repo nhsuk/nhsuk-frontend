@@ -1,0 +1,41 @@
+.square-container {
+  .square {
+    padding: 15px;
+  }
+  
+  .square-1 {
+    background-color: $blue;
+  }
+  
+  .square-2 {
+    background-color: $blue-50;
+  }
+  
+  .square-3 {
+    background-color: $blue-10;
+  }
+
+  .square-4 {
+    background-color: $dark-blue;
+  }
+
+  .square-5 {
+    background-color: $bright-blue;
+  }
+
+  .square-6 {
+    background-color: $nhs-light-blue;
+  }
+
+  .square-7 {
+    background-color: $nhs-aqua-blue;
+  }
+
+  .square-8 {
+    background-color: $grey-1;
+  }
+
+  &.square-container__white {
+    color: $white;
+  }
+}
