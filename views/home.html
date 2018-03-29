@@ -1,43 +1,45 @@
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>NHS.UK elements</h1>
-                <p>This is a guide to NHS.UK website components</p>
+    <div class="govuk-o-width-container">
+        <main class="govuk-o-main-wrapper">
+
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                    <h1>NHS.UK elements</h1>
+                    <p>This is a guide to NHS.UK website components</p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Layout</h2>
-                <p>Page width, grid and spacing.</p>
-                <p><a href="/layout">View</a></p>
+
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+                    <h2>Layout</h2>
+                    <p>Page width, grid and spacing.</p>
+                    <p><a href="/layout">View</a></p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+                    <h2>Typography</h2>
+                    <p>Headings, body text, links, lists.</p>
+                    <p><a href="/typography">View</a></p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+                    <h2>Color</h2>
+                    <p>Colour contrast, colour palettes.</p>
+                    <p><a href="/colours">View</a></p>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h2>Typography</h2>
-                <p>Headings, body text, links, lists.</p>
-                <p><a href="/typography">View</a></p>
+
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                    <h2>Page examples</h2>
+                    <ul>
+                        <li><a href="page">Medicines example</a></li>
+                        <li><a href="page-1">Behind the headlines example</a></li>
+                        <li><a href="page-2">Conditions example</a></li>
+                        <li><a href="page-3">Guides example</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h2>Color</h2>
-                <p>Colour contrast, colour palettes.</p>
-                <p><a href="/colours">View</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Page examples</h2>
-                <ul>
-                    <li><a href="page">Medicines example</a></li>
-                    <li><a href="page-1">Behind the headlines example</a></li>
-                    <li><a href="page-2">Conditions example</a></li>
-                    <li><a href="page-3">Guides example</a></li>
-                </ul>
-                <ul>
-                    <li><a href="mobile">Medicines (mobile typography)</a></li>
-                </ul>
-            </div>
-        </div>
+        </main>
     </div>
 {% endblock %}

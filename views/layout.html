@@ -1,148 +1,76 @@
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Layout</h1>
-        <p>NHS.UK re-design</p>
-        
-        <h3>Page width</h3>
-        <p>Max width: 1020px</p>
-        <p>Lines of text should be no longer than 70 to 80 characters.</p>
-      </div>
-    </div>
-  </div>
+    <div class="govuk-o-width-container">
+        <a href="/" class="govuk-c-back-link">Back</a>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>Grid</h3>
-        <br>
-      </div>
+        <main class="govuk-o-main-wrapper">
+
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                    <h1>Layout</h1>
+                    <p>NHS.UK re-design</p>
+                    
+                    <h3>Page width</h3>
+                    <p>The default maximum page width is 1020px, lines of text should be no longer than 70 to 80 characters.</p>
+                </div>
+            </div>
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                    <h3>Grid</h3>
+                    <p>NHS.UK uses GOV.UK grid</p>
+                </div>
+            </div>            
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                    <p>govuk-o-grid__item--full</p>
+                </div>
+            </div>
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+                    <p>govuk-o-grid__item--one-half</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+                    <p>govuk-o-grid__item--one-half</p>
+                </div>
+            </div>
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+                    <p>govuk-o-grid__item--two-thirds</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+                    <p>govuk-o-grid__item--one-third</p>
+                </div>
+            </div>
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+                    <p>govuk-o-grid__item--one-third</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+                    <p>govuk-o-grid__item--two-thirds</p>
+                </div>
+            </div>
+
+            <div class="govuk-o-grid nhsuk-grid-example">
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+                    <p>govuk-o-grid__item--one-quarter</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+                    <p>govuk-o-grid__item--one-quarter</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+                    <p>govuk-o-grid__item--one-quarter</p>
+                </div>
+                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+                    <p>govuk-o-grid__item--one-quarter</p>
+                </div>
+            </div>
+
+        </main>
     </div>
-    <div class="row grid-example">
-      <div class="col-md-12 col">
-          col-12
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-6 col">
-          col-6
-      </div>
-      <div class="col-md-6 col">
-          col-6
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-4 col">
-          col-4
-      </div>
-      <div class="col-md-4 col">
-          col-4
-      </div>
-      <div class="col-md-4 col">
-          col-4
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-3 col">
-          col-3
-      </div>
-      <div class="col-md-3 col">
-          col-3
-      </div>
-      <div class="col-md-3 col">
-          col-3
-      </div>
-      <div class="col-md-3 col">
-          col-3 
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-2 col">
-          col-2 
-      </div>
-      <div class="col-md-2 col">
-          col-2
-      </div>
-      <div class="col-md-2 col">
-          col-2
-      </div>
-      <div class="col-md-2 col">
-          col-2
-      </div>
-      <div class="col-md-2 col">
-          col-2
-      </div>
-      <div class="col-md-2 col">
-          col-2
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-      <div class="col-md-1 col">
-          col-1
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-4 col">
-          col-4
-      </div>
-      <div class="col-md-8 col">
-          col-8
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-12 col">
-        Level 1: .col-12
-        <div class="row">
-          <div class="col-md-8 col">
-            Level 2: .col-md-8 
-          </div>
-          <div class="col-md-4 col">
-            Level 2: .col-sm-6
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row grid-example">
-      <div class="col-md-8 col-md-offset-4 col">
-        col-8 offset-4
-      </div>
-    </div>
-    <br><br>
-  </div>
 {% endblock %}

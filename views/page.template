@@ -1,0 +1,11 @@
+    <div class="govuk-o-width-container">
+        <a href="/" class="govuk-c-back-link">Back</a>
+
+        <main class="govuk-o-main-wrapper">
+
+            <div class="govuk-o-grid">
+                <div class="govuk-o-grid__item govuk-o-grid__item--full">
+                </div>
+            </div>
+        </main>
+    </div>
