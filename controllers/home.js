@@ -48,3 +48,27 @@ exports.page3 = function(req, res) {
     title: 'Page 3'
   });
 };
+
+exports.page4 = function(req, res) {
+  res.render('page-4', {
+    title: 'Page 4'
+  });
+};
+
+exports.page5 = function(req, res) {
+  res.render('page-5', {
+    title: 'Page 5'
+  });
+};
+
+exports.page6 = function(req, res) {
+  res.render('page-6', {
+    title: 'Page 6'
+  });
+};
+
+exports.page7 = function(req, res) {
+  res.render('page-7', {
+    title: 'Page 7'
+  });
+};
