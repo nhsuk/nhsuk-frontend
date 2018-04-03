@@ -12,14 +12,14 @@ h1,
     margin:1.2500em 0 0;
     font-size:44px;
     line-height:52px;
-    margin:60px 0 0;
+    margin:56px 0 0;
     @media only screen and (max-width: 641px) {
       font-size:2.25rem;
       line-height:1.2222;
       margin:1.2222em 0 0;
       font-size:32px;
       line-height:36px;
-      margin:52px 0 0;
+      margin:48px 0 0;
     }
 }
 
@@ -30,14 +30,14 @@ h2,
     margin:1.6667em 0 0;
     font-size:32px;
     line-height:40px;
-    margin:60px 0 0;
+    margin:56px 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1.75em;
       line-height:1.4286;
       margin:1.5714em 0 0;
-      font-size:26px;
-      line-height:32px;
-      margin:44px 0 0;
+      font-size:24px;
+      line-height:28px;
+      margin:48px 0 0;
     }
 }
 
@@ -46,16 +46,16 @@ h3,
     font-size:1.4737em;
     line-height:1.4286;
     margin:1.5714em 0 0;
-    font-size:27px;
-    line-height:36px;
-    margin:44px 0 0;
+    font-size:24px;
+    line-height:32px;
+    margin:40px 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1.5em;
       line-height:1.5;
       margin:1.3333em 0 0;
-      font-size:22px;
-      line-height:28px;
-      margin:36px 0 0;
+      font-size:20px;
+      line-height:24px;
+      margin:32px 0 0;
     }
 }
 
@@ -64,16 +64,16 @@ h4,
     font-size:1.2632em;
     line-height:1.5;
     margin:1.3333em 0 0;
-    font-size:24px;
+    font-size:22px;
     line-height:32px;
-    margin:36px 0 0;
+    margin:32px 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1.25em;
       line-height:1.6;
       margin:1.4em 0 0;
-      font-size:22px;
-      line-height:28px;
-      margin:28px 0 0;
+      font-size:18px;
+      line-height:24px;
+      margin:24px 0 0;
     }
 }
 
@@ -82,14 +82,14 @@ h5,
     font-size:1em;
     line-height:1.69;
     margin:1.4737em 0 0;
-    font-size:22px;
-    line-height:32px;
+    font-size:19px;
+    line-height:28px;
     margin:32px 0 0;
     @media only screen and (max-width: 641px) {
       font-size:1em;
       line-height:1.75;
       margin:1.5em 0 0;
-      font-size:18px;
+      font-size:16px;
       line-height:24px;
       margin:24px 0 0;
     }
@@ -183,4 +183,41 @@ tr, th {
 
 strong {
   font-weight: $nhs-font-bold;
+}
+
+
+//custom style for new template design
+
+.nhs-page-heading{
+  margin:56px 0;
+  @media only screen and (max-width: 641px) {
+    margin:48px 0;
+  }
+  h1{
+    margin:0;
+  }
+}
+
+.nhs-page-nav{
+  *:first-child{
+    margin-top:0;
+  }
+  @media only screen and (max-width: 641px) {
+    margin-bottom:48px;
+  }
+}
+
+.nhs-page-content{
+ *:first-child{
+   margin-top:0;
+ }
+}
+
+.nhs-list-nav{
+  li{
+    margin:8px 0 0;
+    @media only screen and (max-width: 641px) {
+      margin:8px 0 0;
+    }
+  }
 }
