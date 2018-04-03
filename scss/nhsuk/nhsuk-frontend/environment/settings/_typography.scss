@@ -113,13 +113,13 @@ h6,
 p {
   font-weight: $nhs-font-normal;
   //margin:1.0526em 0 0;
-  line-height:28px;
-  margin:20px 0 0;
+  line-height:36px;
+  margin:24px 0 0;
   @media only screen and (max-width: 641px) {
     line-height:1.75;
     margin:1em 0 0;
     font-size:16px;
-    line-height:24px;
+    line-height:28px;
     margin:16px 0 0;
   }
 }
@@ -166,7 +166,7 @@ ul, ol {
   li {
     margin:0.6316em 0 0;
     margin:8px 0 0;
-    line-height:28px;
+    line-height:32px;
     @media only screen and (max-width: 641px) {
       margin:0.5em 0 0;
       font-size:16px;

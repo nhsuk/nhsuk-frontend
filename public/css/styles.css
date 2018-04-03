@@ -1893,14 +1893,14 @@ h6,
 
 p {
   font-weight: 400;
-  line-height: 28px;
-  margin: 20px 0 0; }
+  line-height: 36px;
+  margin: 24px 0 0; }
   @media only screen and (max-width: 641px) {
     p {
       line-height: 1.75;
       margin: 1em 0 0;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 16px 0 0; } }
 
 .lead {
@@ -1935,7 +1935,7 @@ ul, ol {
   ul li, ol li {
     margin: 0.6316em 0 0;
     margin: 8px 0 0;
-    line-height: 28px; }
+    line-height: 32px; }
     @media only screen and (max-width: 641px) {
       ul li, ol li {
         margin: 0.5em 0 0;
@@ -2518,14 +2518,14 @@ h6,
 
 p {
   font-weight: 400;
-  line-height: 28px;
-  margin: 20px 0 0; }
+  line-height: 36px;
+  margin: 24px 0 0; }
   @media only screen and (max-width: 641px) {
     p {
       line-height: 1.75;
       margin: 1em 0 0;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 16px 0 0; } }
 
 .lead {
@@ -2560,7 +2560,7 @@ ul, ol {
   ul li, ol li {
     margin: 0.6316em 0 0;
     margin: 8px 0 0;
-    line-height: 28px; }
+    line-height: 32px; }
     @media only screen and (max-width: 641px) {
       ul li, ol li {
         margin: 0.5em 0 0;
