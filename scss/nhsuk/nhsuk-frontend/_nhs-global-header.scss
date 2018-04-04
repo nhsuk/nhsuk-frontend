@@ -1,0 +1,21 @@
+header{
+    .nhs-global-header{
+        background:$nhs-blue-aaa;
+        .nhs-global-header__inner{
+            .nhs-global-header__inner--logo{
+                padding:20px 0;
+                a{
+                    display:block;
+                    margin:0;
+                    padding:0;
+                    line-height:0;
+                    img{
+                        height:40px;
+                        width:99px;
+                    }
+                } 
+            }
+        } 
+    }
+}
+

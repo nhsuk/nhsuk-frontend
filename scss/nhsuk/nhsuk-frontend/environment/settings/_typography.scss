@@ -19,7 +19,7 @@ h1,
       margin:1.2222em 0 0;
       font-size:32px;
       line-height:36px;
-      margin:48px 0 0;
+      margin:40px 0 0;
     }
 }
 
@@ -36,7 +36,7 @@ h2,
       line-height:1.4286;
       margin:1.5714em 0 0;
       font-size:24px;
-      line-height:28px;
+      line-height:32px;
       margin:48px 0 0;
     }
 }
@@ -54,7 +54,7 @@ h3,
       line-height:1.5;
       margin:1.3333em 0 0;
       font-size:20px;
-      line-height:24px;
+      line-height:28px;
       margin:32px 0 0;
     }
 }
@@ -72,7 +72,7 @@ h4,
       line-height:1.6;
       margin:1.4em 0 0;
       font-size:18px;
-      line-height:24px;
+      line-height:28px;
       margin:24px 0 0;
     }
 }
@@ -90,7 +90,7 @@ h5,
       line-height:1.75;
       margin:1.5em 0 0;
       font-size:16px;
-      line-height:24px;
+      line-height:28px;
       margin:24px 0 0;
     }
 }
@@ -113,8 +113,8 @@ h6,
 p {
   font-weight: $nhs-font-normal;
   //margin:1.0526em 0 0;
-  line-height:36px;
-  margin:24px 0 0;
+  line-height:32px;
+  margin:20px 0 0;
   @media only screen and (max-width: 641px) {
     line-height:1.75;
     margin:1em 0 0;
@@ -142,7 +142,7 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $nhs-blue-aaa;
   &:hover {
     color: $link-hover-colour;
   }
@@ -170,7 +170,7 @@ ul, ol {
     @media only screen and (max-width: 641px) {
       margin:0.5em 0 0;
       font-size:16px;
-      line-height:24px;
+      line-height:28px;
       margin:8px 0 0;
     }
   }
@@ -189,12 +189,33 @@ strong {
 //custom style for new template design
 
 .nhs-page-heading{
-  margin:56px 0;
+  margin:26px 0 56px; //margin top reduced by 30px due to padding on container
   @media only screen and (max-width: 641px) {
-    margin:48px 0;
+    margin:33px 0 48px; //margin top reduced by 15px due to padding on container
   }
   h1{
     margin:0;
+  }
+  span{
+    font-size:32px;
+    line-height:40px;
+    font-weight:400;
+    color:#4F4C4D;
+    @media only screen and (max-width: 641px) {
+      font-size:24px;
+      line-height:32px;
+    }
+  }
+  &:after{
+    content:'';
+    display:block;
+    width:150px;
+    height:3px;
+    background-color:$nhs-blue-aaa;
+    margin-top:56px;
+    @media only screen and (max-width: 641px) {
+      margin-top:40px;
+    }
   }
 }
 

@@ -1802,7 +1802,7 @@ h1,
       margin: 1.2222em 0 0;
       font-size: 32px;
       line-height: 36px;
-      margin: 48px 0 0; } }
+      margin: 40px 0 0; } }
 
 h2,
 .h2 {
@@ -1819,7 +1819,7 @@ h2,
       line-height: 1.4286;
       margin: 1.5714em 0 0;
       font-size: 24px;
-      line-height: 28px;
+      line-height: 32px;
       margin: 48px 0 0; } }
 
 h3,
@@ -1837,7 +1837,7 @@ h3,
       line-height: 1.5;
       margin: 1.3333em 0 0;
       font-size: 20px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 32px 0 0; } }
 
 h4,
@@ -1855,7 +1855,7 @@ h4,
       line-height: 1.6;
       margin: 1.4em 0 0;
       font-size: 18px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 h5,
@@ -1873,7 +1873,7 @@ h5,
       line-height: 1.75;
       margin: 1.5em 0 0;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 h6,
@@ -1893,8 +1893,8 @@ h6,
 
 p {
   font-weight: 400;
-  line-height: 36px;
-  margin: 24px 0 0; }
+  line-height: 32px;
+  margin: 20px 0 0; }
   @media only screen and (max-width: 641px) {
     p {
       line-height: 1.75;
@@ -1920,7 +1920,7 @@ p {
       margin: 28px 0 0; } }
 
 a {
-  color: #005eb8; }
+  color: #0058ad; }
   a:hover {
     color: #4d8ac6; }
 
@@ -1940,7 +1940,7 @@ ul, ol {
       ul li, ol li {
         margin: 0.5em 0 0;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 28px;
         margin: 8px 0 0; } }
 
 tr, th {
@@ -1951,12 +1951,31 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 56px 0; }
+  margin: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
-      margin: 48px 0; } }
+      margin: 33px 0 48px; } }
   .nhs-page-heading h1 {
     margin: 0; }
+  .nhs-page-heading span {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #4F4C4D; }
+    @media only screen and (max-width: 641px) {
+      .nhs-page-heading span {
+        font-size: 24px;
+        line-height: 32px; } }
+  .nhs-page-heading:after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 3px;
+    background-color: #0058ad;
+    margin-top: 56px; }
+    @media only screen and (max-width: 641px) {
+      .nhs-page-heading:after {
+        margin-top: 40px; } }
 
 .nhs-page-nav *:first-child {
   margin-top: 0; }
@@ -2427,7 +2446,7 @@ h1,
       margin: 1.2222em 0 0;
       font-size: 32px;
       line-height: 36px;
-      margin: 48px 0 0; } }
+      margin: 40px 0 0; } }
 
 h2,
 .h2 {
@@ -2444,7 +2463,7 @@ h2,
       line-height: 1.4286;
       margin: 1.5714em 0 0;
       font-size: 24px;
-      line-height: 28px;
+      line-height: 32px;
       margin: 48px 0 0; } }
 
 h3,
@@ -2462,7 +2481,7 @@ h3,
       line-height: 1.5;
       margin: 1.3333em 0 0;
       font-size: 20px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 32px 0 0; } }
 
 h4,
@@ -2480,7 +2499,7 @@ h4,
       line-height: 1.6;
       margin: 1.4em 0 0;
       font-size: 18px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 h5,
@@ -2498,7 +2517,7 @@ h5,
       line-height: 1.75;
       margin: 1.5em 0 0;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 h6,
@@ -2518,8 +2537,8 @@ h6,
 
 p {
   font-weight: 400;
-  line-height: 36px;
-  margin: 24px 0 0; }
+  line-height: 32px;
+  margin: 20px 0 0; }
   @media only screen and (max-width: 641px) {
     p {
       line-height: 1.75;
@@ -2545,7 +2564,7 @@ p {
       margin: 28px 0 0; } }
 
 a {
-  color: #005eb8; }
+  color: #0058ad; }
   a:hover {
     color: #4d8ac6; }
 
@@ -2565,7 +2584,7 @@ ul, ol {
       ul li, ol li {
         margin: 0.5em 0 0;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 28px;
         margin: 8px 0 0; } }
 
 tr, th {
@@ -2576,12 +2595,31 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 56px 0; }
+  margin: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
-      margin: 48px 0; } }
+      margin: 33px 0 48px; } }
   .nhs-page-heading h1 {
     margin: 0; }
+  .nhs-page-heading span {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #4F4C4D; }
+    @media only screen and (max-width: 641px) {
+      .nhs-page-heading span {
+        font-size: 24px;
+        line-height: 32px; } }
+  .nhs-page-heading:after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 3px;
+    background-color: #0058ad;
+    margin-top: 56px; }
+    @media only screen and (max-width: 641px) {
+      .nhs-page-heading:after {
+        margin-top: 40px; } }
 
 .nhs-page-nav *:first-child {
   margin-top: 0; }
@@ -2604,14 +2642,14 @@ html * {
   font-family: "Frutiger W01"; }
 
 html {
-  background-color: #E8EDEE;
+  background-color: #F3F6F6;
   color: #231f20; }
 
 body {
-  background-color: #E8EDEE;
+  background-color: #F3F6F6;
   font-size: 18px;
   line-height: 1.684;
-  margin-bottom: 80px; }
+  margin: 0 0 80px; }
 
 .square-container .square {
   padding: 15px; }
@@ -2677,3 +2715,16 @@ span.highlight {
 .sr-only,
 .hidden {
   display: none; }
+
+header .nhs-global-header {
+  background: #0058ad; }
+  header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo {
+    padding: 20px 0; }
+    header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a {
+      display: block;
+      margin: 0;
+      padding: 0;
+      line-height: 0; }
+      header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a img {
+        height: 40px;
+        width: 99px; }
