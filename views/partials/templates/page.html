@@ -1,35 +1,24 @@
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}   
-    <div class="govuk-o-width-container nhs-scale mobile">
+    <div class="govuk-o-width-container">
         <main class="govuk-o-main-wrapper">
             <div class="govuk-o-grid">
                 <div class="govuk-o-grid__item govuk-o-grid__item--full">
                     <div class="nhs-page-heading">
-                        <h1>{{Heading}}</h1>
+                          {% block header %}{% endblock %}
                     </div>
                 </div>
             </div>
             <div class="govuk-o-grid">
                 <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
                     <div class="nhs-page-nav">
-                        <h2 class="nhs-heading-xs">{{Heading}} contents</h2>
-                        <ol class="nhs-list-nav">
-                            <li><a href="#">{{Item1}}</a></li>
-                            <li><a href="#">{{Item2}}</a></li>
-                            <li><a href="#">{{Item3}}</a></li>
-                            <li><a href="#">{{Item4}}</a></li>
-                            <li><a href="#">{{Item5}}</a></li>
-                        </ol>
+                          {% block sidebar %}{% endblock %}    
                     </div>
                 </div>
                 <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
-                    <div class="nhs-page-content">
-                        <h2>{{Item1}}</h2>
-                        <p>{{Content1}}</p>
-
-                        <h2>{{Item2}}</h2>
-                        <p>{{Content1}}</p>                       
+                    <div class="nhs-page-content">     
+                          {% block content %}{% endblock %}    
                     </div>
                 </div>
             </div>
