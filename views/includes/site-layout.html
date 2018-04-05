@@ -7,26 +7,24 @@
     
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="">
+
+    <!--[if IE]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/images/favicon.png">
 		
     <title>NHS.UK</title>
 
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-      <header role="banner">
-        <div class="nhs-global-header">
-          <div class="govuk-o-width-container nhs-global-header__inner">
-              <div class="nhs-global-header__inner--logo">
-                <a href="/" class="global-header__link">
-                  <img src="/images/nhs-logo.svg" alt="NHS">
-                </a>
-            </div>
-          </div>
-        </div>
-    </header>
+
+    {% include "includes/header.html" %}   
 
     {% block body %}{% endblock %}
+
+    {% include "includes/footer.html" %}   
 
     <script src="/js/main.js"></script>
     <script src="/reload/reload.js"></script> 
