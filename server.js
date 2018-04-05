@@ -11,6 +11,8 @@ var reload = require('reload')
 
 // Controllers
 var HomeController = require('./controllers/home');
+var StylesController = require('./controllers/styles');
+var ExamplesController = require('./controllers/examples');
 
 var app = express();
 
@@ -19,6 +21,7 @@ nunjucks.configure('views', {
   autoescape: true,
   express: app
 });
+
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
 app.use(compression());
@@ -30,17 +33,18 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
-app.get('/layout', HomeController.layout);
-app.get('/typography', HomeController.typography);
-app.get('/colours', HomeController.colours);
-app.get('/page', HomeController.page);
-app.get('/page-1', HomeController.page1);
-app.get('/page-2', HomeController.page2);
-app.get('/page-3', HomeController.page3);
-app.get('/page-4', HomeController.page4);
-app.get('/page-5', HomeController.page5);
 app.get('/decisions', HomeController.decisions);
-app.get('/page-7', HomeController.page7);
+
+app.get('/styles/layout', StylesController.layout);
+app.get('/styles/typography', StylesController.typography);
+app.get('/styles/colours', StylesController.colours);
+
+app.get('/examples/page', ExamplesController.page);
+app.get('/examples/page-1', ExamplesController.page1);
+app.get('/examples/page-2', ExamplesController.page2);
+app.get('/examples/page-3', ExamplesController.page3);
+app.get('/examples/page-4', ExamplesController.page4);
+app.get('/examples/page-5', ExamplesController.page5);
 
 // Production error handler
 if (app.get('env') === 'production') {
