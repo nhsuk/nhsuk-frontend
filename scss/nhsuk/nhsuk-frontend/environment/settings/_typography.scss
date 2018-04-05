@@ -189,3 +189,13 @@ strong {
 .nhs-m-t-0{
   margin-top:0;
 }
+
+.reading-width{
+  @include reading-width();
+}
+
+hr.nhs-h-line{
+  border:0;
+  margin:56px 0 0;
+  border-top:1px solid $nhs-border-colour;
+}

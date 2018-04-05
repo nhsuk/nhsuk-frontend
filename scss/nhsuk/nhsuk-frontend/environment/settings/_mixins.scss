@@ -54,3 +54,8 @@
   -webkit-flex-direction: $val;  
   flex-direction: $val;
 }
+
+//reading width
+@mixin reading-width(){
+  max-width:37em;
+}

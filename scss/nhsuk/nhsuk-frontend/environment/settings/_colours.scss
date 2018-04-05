@@ -437,4 +437,4 @@ $focus-colour: $yellow;
 
 $nhs-body-background-colour:$grey;
 
-$nhs-border-colour:$nhs-grey-lighten-80;
+$nhs-border-colour:darken($nhs-body-background-colour,15%);

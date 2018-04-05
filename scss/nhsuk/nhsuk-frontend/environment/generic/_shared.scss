@@ -16,4 +16,8 @@ body {
   font-size: $base-font-size;
   line-height: $base-line-height;
   margin: 0 0 $footer-height;
+  @media only screen and (max-width: 641px) {
+       font-size: $base-font-size-mobile;
+       line-height: $base-line-height-mobile;
+    }
 }
