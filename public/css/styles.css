@@ -1346,7 +1346,7 @@
 
 @media only screen and (max-width: 641px) {
   .mobile {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.75; } }
 
 .colour-palette {
@@ -1842,7 +1842,7 @@ h5,
   @media only screen and (max-width: 641px) {
     h5,
     .nhs-heading-xs {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 28px;
       margin: 24px 0 0; } }
 
@@ -1861,12 +1861,12 @@ p,
 .nhs-body-l {
   font-size: 24px;
   line-height: 36px;
-  margin: 36px 0 0; }
+  margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-body-l {
       font-size: 20px;
       line-height: 32px;
-      margin: 28px 0 0; } }
+      margin: 24px 0 0; } }
 
 .nhs-body-s {
   font-size: 16px;
@@ -2433,7 +2433,7 @@ h5,
   @media only screen and (max-width: 641px) {
     h5,
     .nhs-heading-xs {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 28px;
       margin: 24px 0 0; } }
 
@@ -2452,12 +2452,12 @@ p,
 .nhs-body-l {
   font-size: 24px;
   line-height: 36px;
-  margin: 36px 0 0; }
+  margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     .nhs-body-l {
       font-size: 20px;
       line-height: 32px;
-      margin: 28px 0 0; } }
+      margin: 24px 0 0; } }
 
 .nhs-body-s {
   font-size: 16px;
@@ -2541,7 +2541,7 @@ html {
 
 body {
   background-color: #E8EDEE;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.684;
   margin: 0 0 80px; }
 
