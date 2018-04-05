@@ -1,21 +1,34 @@
-// GOV.UK
+// 
+// GOV.UK front-end
+//
 
 @import "govuk-frontend/globals/common";
 
-// NHS.UK
+// 
+// NHS.UK front-end
+//
 
+@import "nhsuk-frontend/overrrides";
 @import "nhsuk-frontend/variables";
+
+// Core
 
 @import "nhsuk-frontend/environment/settings/mixins";
 @import "nhsuk-frontend/environment/settings/fonts";
 @import "nhsuk-frontend/environment/settings/colours";
 @import "nhsuk-frontend/environment/settings/typography";
 
+// Shared
+
 @import "nhsuk-frontend/environment/generic/shared";
+
+// Pages
 
 @import "nhsuk-frontend/environment/playground/squares";
 @import "nhsuk-frontend/environment/playground/grid-example";
 @import "nhsuk-frontend/environment/playground/template-page";
+
+// Components
 
 @import "nhsuk-frontend/nhs-global-header";
 @import "nhsuk-frontend/nhs-care-cards";
