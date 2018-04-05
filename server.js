@@ -1,20 +1,13 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var compression = require('compression');
-var methodOverride = require('method-override');
-var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
-var dotenv = require('dotenv');
 var nunjucks = require('nunjucks');
-var reload = require('reload')
-
+var reload = require('reload');
+var app = express();
 // Controllers
 var HomeController = require('./controllers/home');
 var StylesController = require('./controllers/styles');
 var ExamplesController = require('./controllers/examples');
-
-var app = express();
 
 // view engine setup
 nunjucks.configure('views', {
