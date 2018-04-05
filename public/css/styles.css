@@ -1786,7 +1786,7 @@ h1,
   font-size: 44px;
   line-height: 52px;
   margin: 56px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h1,
     .nhs-heading-xl {
       font-size: 32px;
@@ -1798,7 +1798,7 @@ h2,
   font-size: 32px;
   line-height: 40px;
   margin: 56px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h2,
     .nhs-heading-l {
       font-size: 24px;
@@ -1810,7 +1810,7 @@ h3,
   font-size: 24px;
   line-height: 32px;
   margin: 40px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h3,
     .nhs-heading-m {
       font-size: 20px;
@@ -1822,7 +1822,7 @@ h4,
   font-size: 22px;
   line-height: 32px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h4,
     .nhs-heading-s {
       font-size: 18px;
@@ -1834,7 +1834,7 @@ h5,
   font-size: 19px;
   line-height: 28px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
@@ -1846,7 +1846,7 @@ p,
   font-weight: 400;
   line-height: 32px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
       line-height: 28px;
@@ -1856,7 +1856,7 @@ p,
   font-size: 24px;
   line-height: 36px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
       line-height: 32px;
@@ -1866,7 +1866,7 @@ p,
   font-size: 16px;
   line-height: 28px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-body-s {
       font-size: 14px;
       line-height: 24px;
@@ -1881,14 +1881,14 @@ ul, ol {
   font-weight: 400;
   padding-left: 20px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
       margin: 16px 0 0; } }
   ul li, ol li {
     margin: 8px 0 0;
     line-height: 32px; }
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       ul li, ol li {
         line-height: 28px;
         margin: 8px 0 0; } }
@@ -1902,7 +1902,7 @@ strong {
 
 .nhs-page-heading {
   margin: 26px 0 56px; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
   .nhs-page-heading h1 {
@@ -1911,7 +1911,7 @@ strong {
 .nhs-page-nav *:first-child {
   margin-top: 0; }
 
-@media only screen and (max-width: 641px) {
+@media only screen and (max-width: 481px) {
   .nhs-page-nav {
     margin-bottom: 40px; } }
 
@@ -1925,7 +1925,7 @@ strong {
   font-weight: 300;
   font-size: 24px;
   line-height: 32px; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-caption-xl {
       font-size: 20px;
       line-height: 28px; } }
@@ -1940,6 +1940,14 @@ hr.nhs-h-line {
   border: 0;
   margin: 56px 0 0;
   border-top: 1px solid #bccbcd; }
+  @media only screen and (max-width: 481px) {
+    hr.nhs-h-line {
+      margin: 40px 0 0; } }
+
+.nhs-notice {
+  background: #0058ad;
+  color: white;
+  padding: 8px 16px; }
 
 .colour-palette {
   display: -ms-flexbox;
@@ -2383,7 +2391,7 @@ h1,
   font-size: 44px;
   line-height: 52px;
   margin: 56px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h1,
     .nhs-heading-xl {
       font-size: 32px;
@@ -2395,7 +2403,7 @@ h2,
   font-size: 32px;
   line-height: 40px;
   margin: 56px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h2,
     .nhs-heading-l {
       font-size: 24px;
@@ -2407,7 +2415,7 @@ h3,
   font-size: 24px;
   line-height: 32px;
   margin: 40px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h3,
     .nhs-heading-m {
       font-size: 20px;
@@ -2419,7 +2427,7 @@ h4,
   font-size: 22px;
   line-height: 32px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h4,
     .nhs-heading-s {
       font-size: 18px;
@@ -2431,7 +2439,7 @@ h5,
   font-size: 19px;
   line-height: 28px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
@@ -2443,7 +2451,7 @@ p,
   font-weight: 400;
   line-height: 32px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
       line-height: 28px;
@@ -2453,7 +2461,7 @@ p,
   font-size: 24px;
   line-height: 36px;
   margin: 32px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
       line-height: 32px;
@@ -2463,7 +2471,7 @@ p,
   font-size: 16px;
   line-height: 28px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-body-s {
       font-size: 14px;
       line-height: 24px;
@@ -2478,14 +2486,14 @@ ul, ol {
   font-weight: 400;
   padding-left: 20px;
   margin: 20px 0 0; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
       margin: 16px 0 0; } }
   ul li, ol li {
     margin: 8px 0 0;
     line-height: 32px; }
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       ul li, ol li {
         line-height: 28px;
         margin: 8px 0 0; } }
@@ -2499,7 +2507,7 @@ strong {
 
 .nhs-page-heading {
   margin: 26px 0 56px; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
   .nhs-page-heading h1 {
@@ -2508,7 +2516,7 @@ strong {
 .nhs-page-nav *:first-child {
   margin-top: 0; }
 
-@media only screen and (max-width: 641px) {
+@media only screen and (max-width: 481px) {
   .nhs-page-nav {
     margin-bottom: 40px; } }
 
@@ -2522,7 +2530,7 @@ strong {
   font-weight: 300;
   font-size: 24px;
   line-height: 32px; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     .nhs-caption-xl {
       font-size: 20px;
       line-height: 28px; } }
@@ -2537,6 +2545,14 @@ hr.nhs-h-line {
   border: 0;
   margin: 56px 0 0;
   border-top: 1px solid #bccbcd; }
+  @media only screen and (max-width: 481px) {
+    hr.nhs-h-line {
+      margin: 40px 0 0; } }
+
+.nhs-notice {
+  background: #0058ad;
+  color: white;
+  padding: 8px 16px; }
 
 html,
 html * {
@@ -2551,7 +2567,7 @@ body {
   font-size: 19px;
   line-height: 1.684;
   margin: 0 0 80px; }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     body {
       font-size: 17px;
       line-height: 1.75; } }

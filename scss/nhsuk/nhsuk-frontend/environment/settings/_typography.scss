@@ -10,7 +10,7 @@ h1,
     font-size:44px;
     line-height:52px;
     margin:56px 0 0;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       font-size:32px;
       line-height:36px;
       margin:32px 0 0;
@@ -22,7 +22,7 @@ h2,
     font-size:32px;
     line-height:40px;
     margin:56px 0 0;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       font-size:24px;
       line-height:32px;
       margin:40px 0 0;
@@ -34,7 +34,7 @@ h3,
     font-size:24px;
     line-height:32px;
     margin:40px 0 0;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       font-size:20px;
       line-height:28px;
       margin:32px 0 0;
@@ -46,7 +46,7 @@ h4,
     font-size:22px;
     line-height:32px;
     margin:32px 0 0;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       font-size:18px;
       line-height:28px;
       margin:24px 0 0;
@@ -58,7 +58,7 @@ h5,
     font-size:19px;
     line-height:28px;
     margin:32px 0 0;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       font-size:17px;
       line-height:28px;
       margin:24px 0 0;
@@ -70,7 +70,7 @@ p,
   font-weight: $nhs-font-normal;
   line-height:32px;
   margin:20px 0 0;
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     line-height:28px;
     margin:16px 0 0;
   }
@@ -80,7 +80,7 @@ p,
   font-size:24px;
   line-height:36px;
   margin:32px 0 0;
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     font-size:20px;
     line-height:32px;
     margin:24px 0 0;
@@ -91,7 +91,7 @@ p,
   font-size:16px;
   line-height:28px;
   margin:20px 0 0;
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     font-size:14px;
     line-height:24px;
     margin:16px 0 0;
@@ -115,14 +115,14 @@ ul, ol {
   font-weight: $nhs-font-normal;
   padding-left: 20px;
   margin:20px 0 0;
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     margin:1em 0 0;
     margin:16px 0 0;
   }
   li {
     margin:8px 0 0;
     line-height:32px;
-    @media only screen and (max-width: 641px) {
+    @media only screen and (max-width: 481px) {
       line-height:28px;
       margin:8px 0 0;
     }
@@ -143,7 +143,7 @@ strong {
 
 .nhs-page-heading{
   margin:26px 0 56px; //margin top reduced by 30px due to padding on container
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     margin:25px 0 40px; //margin top reduced by 15px due to padding on container
   }
   h1{
@@ -156,7 +156,7 @@ strong {
   *:first-child{
     margin-top:0;
   }
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     margin-bottom:40px;
   }
 }
@@ -179,7 +179,7 @@ strong {
   @include caption;
   font-size:24px;
   line-height:32px;
-  @media only screen and (max-width: 641px) {
+  @media only screen and (max-width: 481px) {
     font-size:20px;
     line-height:28px;
   }
@@ -196,6 +196,15 @@ strong {
 
 hr.nhs-h-line{
   border:0;
-  margin:56px 0 0;
+  margin:56px 0 0;//same margin size as a h2
   border-top:1px solid $nhs-border-colour;
+  @media only screen and (max-width: 481px) {
+    margin:40px 0 0;//same margin size as a h2
+  }
+}
+
+.nhs-notice{
+  background:$nhs-blue-aaa;
+  color:white;
+  padding:8px 16px;
 }
