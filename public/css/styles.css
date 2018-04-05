@@ -1787,7 +1787,7 @@ h1, h2, h3, h4, h5,
   color: inherit; }
 
 h1,
-.h1 {
+.nhs-heading-xl {
   font-size: 2.5263em;
   line-height: 1.27;
   margin: 1.2500em 0 0;
@@ -1796,7 +1796,7 @@ h1,
   margin: 56px 0 0; }
   @media only screen and (max-width: 641px) {
     h1,
-    .h1 {
+    .nhs-heading-xl {
       font-size: 2.25rem;
       line-height: 1.2222;
       margin: 1.2222em 0 0;
@@ -1805,7 +1805,7 @@ h1,
       margin: 32px 0 0; } }
 
 h2,
-.h2 {
+.nhs-heading-l {
   font-size: 1.8947em;
   line-height: 1.34;
   margin: 1.6667em 0 0;
@@ -1814,7 +1814,7 @@ h2,
   margin: 56px 0 0; }
   @media only screen and (max-width: 641px) {
     h2,
-    .h2 {
+    .nhs-heading-l {
       font-size: 1.75em;
       line-height: 1.4286;
       margin: 1.5714em 0 0;
@@ -1823,7 +1823,7 @@ h2,
       margin: 40px 0 0; } }
 
 h3,
-.h3 {
+.nhs-heading-m {
   font-size: 1.4737em;
   line-height: 1.4286;
   margin: 1.5714em 0 0;
@@ -1832,7 +1832,7 @@ h3,
   margin: 40px 0 0; }
   @media only screen and (max-width: 641px) {
     h3,
-    .h3 {
+    .nhs-heading-m {
       font-size: 1.5em;
       line-height: 1.5;
       margin: 1.3333em 0 0;
@@ -1841,7 +1841,7 @@ h3,
       margin: 32px 0 0; } }
 
 h4,
-.h4 {
+.nhs-heading-s {
   font-size: 1.2632em;
   line-height: 1.5;
   margin: 1.3333em 0 0;
@@ -1850,7 +1850,7 @@ h4,
   margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     h4,
-    .h4 {
+    .nhs-heading-s {
       font-size: 1.25em;
       line-height: 1.6;
       margin: 1.4em 0 0;
@@ -1859,7 +1859,7 @@ h4,
       margin: 24px 0 0; } }
 
 h5,
-.h5 {
+.nhs-heading-xs {
   font-size: 1em;
   line-height: 1.69;
   margin: 1.4737em 0 0;
@@ -1868,7 +1868,7 @@ h5,
   margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     h5,
-    .h5 {
+    .nhs-heading-xs {
       font-size: 1em;
       line-height: 1.75;
       margin: 1.5em 0 0;
@@ -1893,15 +1893,15 @@ p {
   line-height: 1.5;
   margin: 1.3333em 0 0;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
   margin: 36px 0 0; }
   @media only screen and (max-width: 641px) {
     .lead {
       font-size: 1.25em;
       line-height: 1.6;
       margin: 1.4em 0 0;
-      font-size: 22px;
-      line-height: 28px;
+      font-size: 20px;
+      line-height: 32px;
       margin: 28px 0 0; } }
 
 a {
@@ -1936,29 +1936,7 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 26px 0 56px;
-  /*span{
-    display:block;
-    font-size:32px;
-    line-height:40px;
-    font-weight:300;
-    color:$secondary-text-colour;
-    @media only screen and (max-width: 641px) {
-      font-size:24px;
-      line-height:32px;
-    }
-  }*/
-  /*&:after{
-    content:'';
-    display:block;
-    width:150px;
-    height:3px;
-    background-color:$nhs-blue-aaa;
-    margin-top:56px;
-    @media only screen and (max-width: 641px) {
-      margin-top:32px;
-    }
-  }*/ }
+  margin: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
@@ -1974,12 +1952,6 @@ strong {
 
 .nhs-page-content *:first-child {
   margin-top: 0; }
-
-.nhs-list-nav li {
-  margin: 8px 0 0; }
-  @media only screen and (max-width: 641px) {
-    .nhs-list-nav li {
-      margin: 8px 0 0; } }
 
 .colour-palette {
   display: -ms-flexbox;
@@ -2419,7 +2391,7 @@ h1, h2, h3, h4, h5,
   color: inherit; }
 
 h1,
-.h1 {
+.nhs-heading-xl {
   font-size: 2.5263em;
   line-height: 1.27;
   margin: 1.2500em 0 0;
@@ -2428,7 +2400,7 @@ h1,
   margin: 56px 0 0; }
   @media only screen and (max-width: 641px) {
     h1,
-    .h1 {
+    .nhs-heading-xl {
       font-size: 2.25rem;
       line-height: 1.2222;
       margin: 1.2222em 0 0;
@@ -2437,7 +2409,7 @@ h1,
       margin: 32px 0 0; } }
 
 h2,
-.h2 {
+.nhs-heading-l {
   font-size: 1.8947em;
   line-height: 1.34;
   margin: 1.6667em 0 0;
@@ -2446,7 +2418,7 @@ h2,
   margin: 56px 0 0; }
   @media only screen and (max-width: 641px) {
     h2,
-    .h2 {
+    .nhs-heading-l {
       font-size: 1.75em;
       line-height: 1.4286;
       margin: 1.5714em 0 0;
@@ -2455,7 +2427,7 @@ h2,
       margin: 40px 0 0; } }
 
 h3,
-.h3 {
+.nhs-heading-m {
   font-size: 1.4737em;
   line-height: 1.4286;
   margin: 1.5714em 0 0;
@@ -2464,7 +2436,7 @@ h3,
   margin: 40px 0 0; }
   @media only screen and (max-width: 641px) {
     h3,
-    .h3 {
+    .nhs-heading-m {
       font-size: 1.5em;
       line-height: 1.5;
       margin: 1.3333em 0 0;
@@ -2473,7 +2445,7 @@ h3,
       margin: 32px 0 0; } }
 
 h4,
-.h4 {
+.nhs-heading-s {
   font-size: 1.2632em;
   line-height: 1.5;
   margin: 1.3333em 0 0;
@@ -2482,7 +2454,7 @@ h4,
   margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     h4,
-    .h4 {
+    .nhs-heading-s {
       font-size: 1.25em;
       line-height: 1.6;
       margin: 1.4em 0 0;
@@ -2491,7 +2463,7 @@ h4,
       margin: 24px 0 0; } }
 
 h5,
-.h5 {
+.nhs-heading-xs {
   font-size: 1em;
   line-height: 1.69;
   margin: 1.4737em 0 0;
@@ -2500,7 +2472,7 @@ h5,
   margin: 32px 0 0; }
   @media only screen and (max-width: 641px) {
     h5,
-    .h5 {
+    .nhs-heading-xs {
       font-size: 1em;
       line-height: 1.75;
       margin: 1.5em 0 0;
@@ -2525,15 +2497,15 @@ p {
   line-height: 1.5;
   margin: 1.3333em 0 0;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
   margin: 36px 0 0; }
   @media only screen and (max-width: 641px) {
     .lead {
       font-size: 1.25em;
       line-height: 1.6;
       margin: 1.4em 0 0;
-      font-size: 22px;
-      line-height: 28px;
+      font-size: 20px;
+      line-height: 32px;
       margin: 28px 0 0; } }
 
 a {
@@ -2568,29 +2540,7 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 26px 0 56px;
-  /*span{
-    display:block;
-    font-size:32px;
-    line-height:40px;
-    font-weight:300;
-    color:$secondary-text-colour;
-    @media only screen and (max-width: 641px) {
-      font-size:24px;
-      line-height:32px;
-    }
-  }*/
-  /*&:after{
-    content:'';
-    display:block;
-    width:150px;
-    height:3px;
-    background-color:$nhs-blue-aaa;
-    margin-top:56px;
-    @media only screen and (max-width: 641px) {
-      margin-top:32px;
-    }
-  }*/ }
+  margin: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
@@ -2606,12 +2556,6 @@ strong {
 
 .nhs-page-content *:first-child {
   margin-top: 0; }
-
-.nhs-list-nav li {
-  margin: 8px 0 0; }
-  @media only screen and (max-width: 641px) {
-    .nhs-list-nav li {
-      margin: 8px 0 0; } }
 
 html,
 html * {
