@@ -7,12 +7,12 @@ html *{
 }
 
 html {
-  background-color: $grey;
-  color: $black;
+  background-color: $nhs-body-background-colour;
+  color: $text-color;
 }
 
 body {
-  background-color: $grey;
+  background-color: $nhs-body-background-colour;
   font-size: $base-font-size;
   line-height: $base-line-height;
   margin: 0 0 $footer-height;

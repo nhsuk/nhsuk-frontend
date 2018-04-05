@@ -1,0 +1,84 @@
+.care-card{
+    width:100%;
+    margin:56px 0;
+    @media only screen and (max-width: 641px) {
+        margin:40px 0;   
+    }
+    .care-card-heading{
+        background:$nhs-blue-aaa;
+        color:white;
+        padding:24px;
+        position:relative;
+        margin:0;
+        @media only screen and (max-width: 641px) {
+            padding:16px;   
+        }
+        &:after{
+            content:"";
+            display:block;
+            position:absolute;
+            width: 0; 
+            height: 0; 
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 16px solid $nhs-blue-aaa;
+            bottom:-16px;
+        }
+    }
+    .care-card-content{
+        padding:40px 24px 32px;
+        background:white;
+        @media only screen and (max-width: 641px) {
+            padding:32px 16px 24px;
+        }
+    }
+    &.grey{
+        .care-card-heading{
+            background:$nhs-grey;
+            &:after{
+                content:"";
+                border-top: 16px solid $nhs-grey;
+            }
+        }
+    }
+    &.blue{
+        .care-card-heading{
+            background:$nhs-blue-aaa;
+            &:after{
+                content:"";
+                border-top: 16px solid $nhs-blue-aaa;
+            }
+        }
+        .care-card-content{
+            background:$nhs-blue-aaa-lighten-80;
+        }
+    }
+    &.red{
+        .care-card-heading{
+            background:$nhs-red-aaa;
+            &:after{
+                content:"";
+                border-top: 16px solid $nhs-red-aaa;
+            }
+        }
+        .care-card-content{
+            background:$nhs-red-aaa-lighten-80;
+        }
+    }
+    &.black{
+        .care-card-heading{
+            //background:$nhs-red-aaa;
+            background:$nhs-red-aaa-darken-70;
+            &:after{
+                content:"";
+                //border-top: 16px solid $nhs-red-aaa;
+                border-top: 16px solid $nhs-red-aaa-darken-70;
+            }
+        }
+        .care-card-content{
+            //background:$nhs-grey-darken-40;
+            background:$nhs-red-aaa;
+            color:#ffffff !important;
+        }
+    }
+}

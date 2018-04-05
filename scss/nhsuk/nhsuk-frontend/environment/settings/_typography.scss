@@ -19,7 +19,7 @@ h1,
       margin:1.2222em 0 0;
       font-size:32px;
       line-height:36px;
-      margin:40px 0 0;
+      margin:32px 0 0;
     }
 }
 
@@ -37,7 +37,7 @@ h2,
       margin:1.5714em 0 0;
       font-size:24px;
       line-height:32px;
-      margin:48px 0 0;
+      margin:40px 0 0;
     }
 }
 
@@ -95,21 +95,6 @@ h5,
     }
 }
 
-h6,
-.h6{
-    font-size:19px;
-    line-height:32px;
-    margin:24px 0 0;
-    @media only screen and (max-width: 641px) {
-      font-size:16px;
-      line-height:28px;
-      margin:20px;
-      font-size:16px;
-      line-height:24px;
-      margin:20px 0 0;
-    }
-}
-
 p {
   font-weight: $nhs-font-normal;
   //margin:1.0526em 0 0;
@@ -118,7 +103,7 @@ p {
   @media only screen and (max-width: 641px) {
     line-height:1.75;
     margin:1em 0 0;
-    font-size:16px;
+    font-size:17px;
     line-height:28px;
     margin:16px 0 0;
   }
@@ -142,7 +127,7 @@ p {
 }
 
 a {
-  color: $nhs-blue-aaa;
+  color: $link-colour;
   &:hover {
     color: $link-hover-colour;
   }
@@ -169,7 +154,7 @@ ul, ol {
     line-height:32px;
     @media only screen and (max-width: 641px) {
       margin:0.5em 0 0;
-      font-size:16px;
+      font-size:17px;
       line-height:28px;
       margin:8px 0 0;
     }
@@ -191,22 +176,28 @@ strong {
 .nhs-page-heading{
   margin:26px 0 56px; //margin top reduced by 30px due to padding on container
   @media only screen and (max-width: 641px) {
-    margin:33px 0 48px; //margin top reduced by 15px due to padding on container
+    margin:25px 0 40px; //margin top reduced by 15px due to padding on container
   }
   h1{
     margin:0;
+    //color:$nhs-blue-aaa;
   }
-  span{
+
+  //styling for h1 span (long medical terminology in particular)
+  /*span{
+    display:block;
     font-size:32px;
     line-height:40px;
-    font-weight:400;
-    color:#4F4C4D;
+    font-weight:300;
+    color:$secondary-text-colour;
     @media only screen and (max-width: 641px) {
       font-size:24px;
       line-height:32px;
     }
-  }
-  &:after{
+  }*/
+
+  //styling for blue line under header
+  /*&:after{
     content:'';
     display:block;
     width:150px;
@@ -214,9 +205,10 @@ strong {
     background-color:$nhs-blue-aaa;
     margin-top:56px;
     @media only screen and (max-width: 641px) {
-      margin-top:40px;
+      margin-top:32px;
     }
-  }
+  }*/
+
 }
 
 .nhs-page-nav{
@@ -224,7 +216,7 @@ strong {
     margin-top:0;
   }
   @media only screen and (max-width: 641px) {
-    margin-bottom:48px;
+    margin-bottom:40px;
   }
 }
 
