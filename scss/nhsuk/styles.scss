@@ -32,3 +32,31 @@
 
 @import "nhsuk-frontend/nhs-global-header";
 @import "nhsuk-frontend/nhs-care-cards";
+
+//to display code examples
+.example {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $nhs-border-colour;
+    padding: 64px 16px 16px;
+    margin:24px 0;
+    background:white;
+    @media (min-width: 641px) {
+        padding:64px 32px 32px;
+    }
+  
+    &:before {
+      content: "EXAMPLE";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 12px;
+      background: $nhs-grey;
+      color: white;
+      @media (min-width: 641px) {
+          font-size: 14px;
+      }
+    }
+  }
