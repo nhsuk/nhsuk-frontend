@@ -39,7 +39,7 @@ app.get('/page-2', HomeController.page2);
 app.get('/page-3', HomeController.page3);
 app.get('/page-4', HomeController.page4);
 app.get('/page-5', HomeController.page5);
-app.get('/page-6', HomeController.page6);
+app.get('/decisions', HomeController.decisions);
 app.get('/page-7', HomeController.page7);
 
 // Production error handler

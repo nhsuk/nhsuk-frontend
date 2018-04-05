@@ -61,9 +61,9 @@ exports.page5 = function(req, res) {
   });
 };
 
-exports.page6 = function(req, res) {
-  res.render('page-6', {
-    title: 'Page 6'
+exports.decisions = function(req, res) {
+  res.render('decisions', {
+    title: 'decisions'
   });
 };
 
