@@ -24,12 +24,7 @@ nunjucks.configure('views', {
 
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
-app.use(compression());
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(expressValidator());
-app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
