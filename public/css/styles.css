@@ -2714,8 +2714,7 @@ header .nhs-global-header {
     background: #0058ad;
     color: white;
     padding: 24px;
-    position: relative;
-    margin: 0; }
+    position: relative; }
     @media only screen and (max-width: 641px) {
       .care-card .care-card-heading {
         padding: 16px; } }
@@ -2729,6 +2728,11 @@ header .nhs-global-header {
       border-right: 16px solid transparent;
       border-top: 16px solid #0058ad;
       bottom: -16px; }
+    .care-card .care-card-heading h2,
+    .care-card .care-card-heading h3,
+    .care-card .care-card-heading h4,
+    .care-card .care-card-heading h5 {
+      margin: 0; }
   .care-card .care-card-content {
     padding: 40px 24px 32px;
     background: white; }
