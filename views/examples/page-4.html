@@ -1,48 +1,32 @@
-{% extends 'includes/site-layout.html' %}
+{% extends "includes/templates/page.html"%}
 
-{% block body %}   
-    <div class="govuk-o-width-container nhs-scale mobile">
-        <main class="govuk-o-main-wrapper">
+{% block header %}
+    <h1>Chlamydia</h1>
+    <p>Multi-page condition</p>
+{% endblock %}
 
-            <div class="govuk-o-grid">
-                <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                   <div class="nhsuk-page-header">
-                    <h1>Chlamydia</h1>
-                    <h2><span class="sr-only">Current page:</span> About</h2>
-                   </div>
-                </div>
-            </div>
-            <div class="govuk-o-grid">
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-                    <div class="nhsuk-page-sidebar">
-                        <div class="divider"></div>
-                        <ol>
-                            <li><a href="" class="active">About</a></li>
-                            <li><a href="">Check symptoms and who should get tested</a></li>
-                            <li><a href="">Treatment</a></li>
-                            <li><a href="">Telling your partner</a></li>
-                            <li><a href="">Protect yourself</a></li>
-                            <li><a href="">Causes</a></li>
-                            <li><a href="">If it's not treated</a></li>
-                            <li><a href="">Get tested</a></li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
-                    <div class="nhsuk-page-content">
-                        <h2>About chlamydia</h2>
-                        <p>Chlamydia is the most common sexually transmitted infection (STI). Anyone who has oral, vaginal or anal sex can get chlamydia or pass it on.</p>
-                        <p>You could have chlamydia even if you have no symptoms, or your symptoms go away.</p>
-                        <p>Chlamydia is easy to treat with medical help.</p>
-                        <p>If you don't treat it, chlamydia can lead to serious health problems such as pelvic inflammatory disease, lower fertility or infertility.</p>
-                        <p>The only way to know if you have chlamydia is to get tested.</p>
+{% block sidebar %}
+    <ol>
+        <li><a href="about" class="active">About</a></li>
+        <li><a href="">Check symptoms and who should get tested</a></li>
+        <li><a href="">Treatment</a></li>
+        <li><a href="">Telling your partner</a></li>
+        <li><a href="">Protect yourself</a></li>
+        <li><a href="">Causes</a></li>
+        <li><a href="">If it's not treated</a></li>
+        <li><a href="">Get tested</a></li>
+    </ol>
+{% endblock %}
 
-                        <div class="nhsuk-page__callout">
-                            <h3>Get tested for chlamydia</h3>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-        </main>
+{% block content %}
+    <h2 id="about">About chlamydia</h2>
+    <p>Chlamydia is the most common sexually transmitted infection (STI). Anyone who has oral, vaginal or anal sex can get chlamydia or pass it on.</p>
+    <p>You could have chlamydia even if you have no symptoms, or your symptoms go away.</p>
+    <p>Chlamydia is easy to treat with medical help.</p>
+    <p>If you don't treat it, chlamydia can lead to serious health problems such as pelvic inflammatory disease, lower fertility or infertility.</p>
+    <p>The only way to know if you have chlamydia is to get tested.</p>
+
+    <div class="nhsuk-page__callout">
+        <h3>Get tested for chlamydia</h3>
     </div>
 {% endblock %}
