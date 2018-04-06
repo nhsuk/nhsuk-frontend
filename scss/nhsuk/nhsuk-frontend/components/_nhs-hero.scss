@@ -1,0 +1,20 @@
+.nhs-hero{
+    background:$nhs-blue-aaa;
+    color:white !important;
+    .nhs-hero-container{
+        border-top:1px solid white;
+        .nhs-page-heading {
+            margin:0;
+            padding: 64px 0;
+            @media only screen and (max-width: 641px) {
+                padding: 40px 0;
+            }
+        }
+    }
+}
+
+.nhs-home-page{
+    .govuk-o-main-wrapper{
+        padding:0;
+    }
+}

@@ -1926,7 +1926,6 @@ strong {
   font-weight: 400;
   display: block;
   color: #3b4d59;
-  font-weight: 300;
   font-size: 24px;
   line-height: 32px; }
   @media only screen and (max-width: 481px) {
@@ -2560,7 +2559,6 @@ strong {
   font-weight: 400;
   display: block;
   color: #3b4d59;
-  font-weight: 300;
   font-size: 24px;
   line-height: 32px; }
   @media only screen and (max-width: 481px) {
@@ -2703,6 +2701,21 @@ header .nhs-global-header {
       header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a img {
         height: 40px;
         width: 99px; }
+
+.nhs-hero {
+  background: #0058ad;
+  color: white !important; }
+  .nhs-hero .nhs-hero-container {
+    border-top: 1px solid white; }
+    .nhs-hero .nhs-hero-container .nhs-page-heading {
+      margin: 0;
+      padding: 64px 0; }
+      @media only screen and (max-width: 641px) {
+        .nhs-hero .nhs-hero-container .nhs-page-heading {
+          padding: 40px 0; } }
+
+.nhs-home-page .govuk-o-main-wrapper {
+  padding: 0; }
 
 .care-card {
   width: 100%;
