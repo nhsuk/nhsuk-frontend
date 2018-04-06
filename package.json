@@ -1,7 +1,7 @@
 {
-  "name": "round-darkness",
+  "name": "nhsuk-frontend",
   "version": "1.0.0",
-  "description": "My app description",
+  "description": "NHS.UK front-end library and design system",
   "scripts": {
     "build": "gulp build",
     "build:production": "gulp build --production",
