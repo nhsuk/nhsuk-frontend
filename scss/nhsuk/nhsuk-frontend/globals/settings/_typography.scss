@@ -68,21 +68,19 @@ h5,
 p,
 .nhs-body {
   font-weight: $nhs-font-normal;
-  line-height:32px;
   margin:24px 0 0;
   @media only screen and (max-width: 481px) {
-    line-height:28px;
-    margin:16px 0 0;
+    margin:20px 0 0;
   }
 }
 
 .nhs-body-l{
   font-size:24px;
-  line-height:36px;
+  line-height:32px;
   margin:32px 0 0;
   @media only screen and (max-width: 481px) {
     font-size:20px;
-    line-height:32px;
+    line-height:28px;
     margin:24px 0 0;
   }
 }
@@ -117,13 +115,11 @@ ul, ol {
   margin:24px 0 0;
   @media only screen and (max-width: 481px) {
     margin:1em 0 0;
-    margin:16px 0 0;
+    margin:20px 0 0;
   }
   li {
     margin:12px 0 0;
-    line-height:32px;
     @media only screen and (max-width: 481px) {
-      line-height:28px;
       margin:8px 0 0;
     }
     &:first-child{

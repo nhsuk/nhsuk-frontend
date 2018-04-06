@@ -1844,22 +1844,20 @@ h5,
 p,
 .nhs-body {
   font-weight: 400;
-  line-height: 32px;
   margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
-      line-height: 28px;
-      margin: 16px 0 0; } }
+      margin: 20px 0 0; } }
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 32px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -1884,13 +1882,11 @@ ul, ol {
   @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
-      margin: 16px 0 0; } }
+      margin: 20px 0 0; } }
   ul li, ol li {
-    margin: 12px 0 0;
-    line-height: 32px; }
+    margin: 12px 0 0; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px;
         margin: 8px 0 0; } }
     ul li:first-child, ol li:first-child {
       margin-top: 0; }
@@ -2482,22 +2478,20 @@ h5,
 p,
 .nhs-body {
   font-weight: 400;
-  line-height: 32px;
   margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
-      line-height: 28px;
-      margin: 16px 0 0; } }
+      margin: 20px 0 0; } }
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 32px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -2522,13 +2516,11 @@ ul, ol {
   @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
-      margin: 16px 0 0; } }
+      margin: 20px 0 0; } }
   ul li, ol li {
-    margin: 12px 0 0;
-    line-height: 32px; }
+    margin: 12px 0 0; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px;
         margin: 8px 0 0; } }
     ul li:first-child, ol li:first-child {
       margin-top: 0; }
@@ -2631,14 +2623,14 @@ html {
 body {
   background-color: #E8EDEE;
   font-size: 19px;
-  line-height: 1.684;
+  line-height: 28px;
   margin: 0 0 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
   @media only screen and (max-width: 481px) {
     body {
-      font-size: 17px;
-      line-height: 1.75; } }
+      font-size: 16px;
+      line-height: 24px; } }
 
 .example {
   position: relative;
