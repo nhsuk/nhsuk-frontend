@@ -1791,7 +1791,7 @@ h1,
     .nhs-heading-xl {
       font-size: 32px;
       line-height: 36px;
-      margin: 32px 0 0; } }
+      margin: 40px 0 0; } }
 
 h2,
 .nhs-heading-l {
@@ -1833,13 +1833,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 32px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
       line-height: 28px;
-      margin: 24px 0 0; } }
+      margin: 20px 0 0; } }
 
 p,
 .nhs-body {
@@ -1890,8 +1890,7 @@ ul, ol {
     line-height: 32px; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px;
-        margin: 8px 0 0; } }
+        line-height: 28px; } }
 
 tr, th {
   font-weight: 400;
@@ -1911,9 +1910,15 @@ strong {
 .nhs-page-nav *:first-child {
   margin-top: 0; }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 641px) {
   .nhs-page-nav {
     margin-bottom: 40px; } }
+
+@media only screen and (min-width: 767px) {
+  .nhs-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px; } }
 
 .nhs-page-content *:first-child {
   margin-top: 0; }
@@ -2396,7 +2401,7 @@ h1,
     .nhs-heading-xl {
       font-size: 32px;
       line-height: 36px;
-      margin: 32px 0 0; } }
+      margin: 40px 0 0; } }
 
 h2,
 .nhs-heading-l {
@@ -2438,13 +2443,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 32px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
       line-height: 28px;
-      margin: 24px 0 0; } }
+      margin: 20px 0 0; } }
 
 p,
 .nhs-body {
@@ -2495,8 +2500,7 @@ ul, ol {
     line-height: 32px; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px;
-        margin: 8px 0 0; } }
+        line-height: 28px; } }
 
 tr, th {
   font-weight: 400;
@@ -2516,9 +2520,15 @@ strong {
 .nhs-page-nav *:first-child {
   margin-top: 0; }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 641px) {
   .nhs-page-nav {
     margin-bottom: 40px; } }
+
+@media only screen and (min-width: 767px) {
+  .nhs-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px; } }
 
 .nhs-page-content *:first-child {
   margin-top: 0; }
