@@ -2,7 +2,7 @@
 ===================
 - Add a <a href="https://nhsuk-redesign.herokuapp.com/decisions">decisions page</a> to log our decisions and findings.
 - General project and configuration improvements
-- Prepare Typography for testing
+- Prepare Typography and Grid for testing
 - Add page templates for the example pages using GOV.UK grid
 
 0.0.2 / 30-03-2018
