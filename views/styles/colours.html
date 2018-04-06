@@ -1,17 +1,18 @@
-{% extends 'includes/site-layout.html' %}
+{% extends "includes/templates/styles.html"%}
 
-{% block body %}
-  <div class="govuk-o-width-container">
-      <main class="govuk-o-main-wrapper">
+{% block header %}
+    <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Colour palette</h1>
+    <p class="nhs-body-s">Last updated: <strong>Friday 6 April 2018</strong></p>
+{% endblock %}
 
-          <div class="govuk-o-grid">
-              <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                <div class="nhs-page-heading">
-                    <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Colour palette</h1>
-                </div>
-              </div>
-          </div>
+{% block sidebar %}
+    <h2 class="nhs-heading-xs">Contents</h2>
+    <ul class="nhs-list">
+        <li><a href="#colours-palette">Colours</a></li>
+    </ul>
+{% endblock %}
 
+{% block content %}
           <div class="govuk-o-grid">
               <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
                 <div class="colour-palette">
@@ -486,9 +487,5 @@
                   </div>
                 </div>
               </div>
-
           </div>
-      </main>
-  </div>
-
 {% endblock %}

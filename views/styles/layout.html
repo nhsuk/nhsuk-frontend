@@ -1,79 +1,77 @@
-{% extends 'includes/site-layout.html' %}
+{% extends "includes/templates/styles.html"%}
 
-{% block body %}
-    <div class="govuk-o-width-container">
-        <main class="govuk-o-main-wrapper">
-            <div class="govuk-o-grid">
-                <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                    <div class="nhs-page-heading">
-                        <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Layout</h1>
-                    </div>
-                </div>
-            </div>
+{% block header %}
+    <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Layout</h1>
+    <p class="nhs-body-s">Last updated: <strong>Friday 6 April 2018</strong></p>
+{% endblock %}
 
-            <div class="govuk-o-grid">
-                <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                    <h2>Page width</h2>
-                    <p>The default maximum page width is 1020px, lines of text should be no longer than 70 to 80 characters.</p>
-                    <h2>Grid</h2>
-                    <p>NHS.UK uses GOV.UK grid. <a href="https://govuk-design-system-production.cloudapps.digital/styles/layout/" class="external">View GOV.UK grid documentation.</a></p>
-                    <p>Breakpoints:</p>
-                    <ul>
-                      <li>mobile:  320px</li>
-                      <li>tablet:  641px</li>
-                      <li>desktop: 769px</li>
-                    </ul>
-                </div>
-            </div>            
+{% block sidebar %}
+    <h2 class="nhs-heading-xs">Contents</h2>
+    <ul class="nhs-list">
+        <li><a href="#layout-width">Page width</a></li>
+        <li><a href="#layout-breakpoints">Breakpoints</a></li>
+        <li><a href="#layout-grid">Grid</a></li>
+    </ul>
+{% endblock %}
 
-            <div class="govuk-o-grid nhsuk-grid-example">
-                <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                    <p>govuk-o-grid__item--full</p>
-                </div>
-            </div>
+{% block content %}
+    <h2>Notes</h2>
+    <p>This page is still a work in progress.</p>
+    <p>NHS.UK uses <a href="https://govuk-design-system-production.cloudapps.digital/styles/layout/" class="external">GOV.UK grid</a> with some minor alterations to the breakpoints..
+    <h2 id="layout-width">Page width</h2>
+    <p>The default maximum page width is 1020px, lines of text should be no longer than 70 to 80 characters.</p>
+    <h2 id="layout-breakpoints">Breakpoints:</h2>
+    <ul>
+        <li>mobile:  320px</li>
+        <li>tablet:  641px</li>
+        <li>desktop: 769px</li>
+    </ul>
+    <h2 id="layout-grid">Grid</h2>    
+    <div class="govuk-o-grid nhsuk-grid-example">
+        <div class="govuk-o-grid__item govuk-o-grid__item--full">
+            <p>govuk-o-grid__item--full</p>
+        </div>
+    </div>
 
-            <div class="govuk-o-grid nhsuk-grid-example">
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
-                    <p>govuk-o-grid__item--one-half</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
-                    <p>govuk-o-grid__item--one-half</p>
-                </div>
-            </div>
+    <div class="govuk-o-grid nhsuk-grid-example">
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+            <p>govuk-o-grid__item--one-half</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+            <p>govuk-o-grid__item--one-half</p>
+        </div>
+    </div>
 
-            <div class="govuk-o-grid nhsuk-grid-example">
-                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
-                    <p>govuk-o-grid__item--two-thirds</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-                    <p>govuk-o-grid__item--one-third</p>
-                </div>
-            </div>
+    <div class="govuk-o-grid nhsuk-grid-example">
+        <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+            <p>govuk-o-grid__item--two-thirds</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+            <p>govuk-o-grid__item--one-third</p>
+        </div>
+    </div>
 
-            <div class="govuk-o-grid nhsuk-grid-example">
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-                    <p>govuk-o-grid__item--one-third</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
-                    <p>govuk-o-grid__item--two-thirds</p>
-                </div>
-            </div>
+    <div class="govuk-o-grid nhsuk-grid-example">
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+            <p>govuk-o-grid__item--one-third</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+            <p>govuk-o-grid__item--two-thirds</p>
+        </div>
+    </div>
 
-            <div class="govuk-o-grid nhsuk-grid-example">
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
-                    <p>govuk-o-grid__item--one-quarter</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
-                    <p>govuk-o-grid__item--one-quarter</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
-                    <p>govuk-o-grid__item--one-quarter</p>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
-                    <p>govuk-o-grid__item--one-quarter</p>
-                </div>
-            </div>
-
-        </main>
+    <div class="govuk-o-grid nhsuk-grid-example">
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+            <p>govuk-o-grid__item--one-quarter</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+            <p>govuk-o-grid__item--one-quarter</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+            <p>govuk-o-grid__item--one-quarter</p>
+        </div>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-quarter">
+            <p>govuk-o-grid__item--one-quarter</p>
+        </div>
     </div>
 {% endblock %}

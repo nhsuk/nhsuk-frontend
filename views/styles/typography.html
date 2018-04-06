@@ -1,138 +1,125 @@
-{% extends 'includes/site-layout.html' %}
+{% extends "includes/templates/styles.html"%}
 
-{% block body %}
-    <div class="govuk-o-width-container mobile">        
-        <main class="govuk-o-main-wrapper">
-            <div class="govuk-o-grid">
-                <div class="govuk-o-grid__item govuk-o-grid__item--full">
-                    <div class="nhs-page-heading">
-                        <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Typography</h1>
-                        <p class="nhs-body-s">Last updated: <strong>Friday 6 April 2018</strong></p>
-                    </div>
-                </div>
-                <div class="govuk-o-grid__item govuk-o-grid__item--one-third nhs-sticky">
-                    <div class="nhs-page-nav">
-                        <h2 class="nhs-heading-xs">Contents</h2>
-                        <ul class="nhs-list">
-                            <li><a href="#typography-headings">Headings</a></li>
-                            <li><a href="#typography-paragraphs">Paragraphs</a></li>
-                            <li><a href="#typography-lists">Lists</a></li>
-                            <li><a href="#typography-links">Links</a></li>
-                        </ul>
-                    </div>
-                </div>
+{% block header %}
+    <h1><span class="nhs-caption-xl">NHS.UK re-design</span>Typography</h1>
+    <p class="nhs-body-s">Last updated: <strong>Friday 6 April 2018</strong></p>
+{% endblock %}
 
-                <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
-                    <div class="nhs-page-content">
-                            <h2 id="typography-headings">Notes</h2>
-                            <p>Baseline grid = 4px</p>
-                            <p>All sizes (font, line-height and margins) are all currently in px, for testing purposes only. Sizes will need to be converted to em's.</p>
-                            <p>We have used single-direction margin declarations to easily define <a href="https://www.futurehosting.com/blog/web-design-basics-what-is-vertical-rhythm/" rel="external">vertical rhythm (external link)</a>.</p>
-                            <p>All typography has yet to be tested. Our user research plan will be available soon.</p>
-                            <h3 class="nhs-heading-xs">Breakpoints</h3>
-                            <ul>
-                                <li>Desktop: min. screen width 481px</li>
-                                <li>Mobile: max screen width 480px</li>
-                            </ul>
-                            <h2 id="typography-headings">Headings</h2>
-                            <h3 class="nhs-heading-xs">H1 (nhs-heading-xl) sizes:</h3> 
-                            <ul>
-                                <li>Desktop: 44 / 52 (1.166) - margin-top 56px</li>
-                                <li>Mobile: 32 / 36 (1.125) - margin-top 40px</li>
-                            </ul>
-                            <h3 class="nhs-heading-xs">H2 (nhs-heading-l) sizes:</h3> 
-                            <ul>
-                                <li>Desktop: 32 / 40 (1.25) - margin-top 56px</li>
-                                <li>Mobile: 24 / 32 (1.333) - margin-top 40px</li>
-                            </ul>
-                            <h3 class="nhs-heading-xs">H3 (nhs-heading-m) sizes:</h3> 
-                            <ul>
-                                <li>Desktop: 24 / 32 (1.333) - margin-top 40px</li>
-                                <li>Mobile: 20 / 28 (1.4) - margin-top 32px</li>
-                            </ul>
-                            <h3 class="nhs-heading-xs">H4 (nhs-heading-s) sizes:</h3> 
-                            <ul>
-                                <li>Desktop: 22 / 32 (1.454) - margin-top 32px</li>
-                                <li>Mobile: 18 / 28 (1.555) - margin-top 24px</li>
-                            </ul>
-                            <h3 class="nhs-heading-xs">H5 (nhs-heading-xs) sizes:</h3> 
-                            <ul>
-                                <li>Desktop: 19 / 28 (1.473) - margin-top 24px</li>
-                                <li>Mobile: 17 / 28 (1.647) - margin-top 20px</li>
-                            </ul>
-                            <div class="example">
-                                <h1 class="nhs-heading-xl">nhs-heading-xl</h1>
-                                <h2 class="nhs-heading-l">nhs-heading-l</h2>
-                                <h3 class="nhs-heading-m">nhs-heading-m</h3>
-                                <h4 class="nhs-heading-s">nhs-heading-s</h4>
-                                <h5 class="nhs-heading-xs">nhs-heading-xs</h5>
-                            </div>
-                            <h2 id="typography-paragraphs">Paragraphs</h2>
-                            <h3>Body paragraph</h3>
-                            <h4 class="nhs-heading-xs">Sizes:</h4> 
-                            <ul>
-                                <li>Desktop: 19 / 32 (1.684) - margin-top 20px</li>
-                                <li>Mobile: 17 / 28 (1.647) - margin-top 16px</li>
-                            </ul>
-                            <div class="example">
-                                <p class="nhs-body">Body copy</p>
-                            </div>
-                            <h3>Lead paragraph</h3>
-                            <h4 class="nhs-heading-xs">Sizes:</h4> 
-                            <ul>
-                                <li>Desktop: 24 / 36 (1.5) - margin-top 32px</li>
-                                <li>Mobile: 20 / 32 (1.6) - margin-top 24px</li>
-                            </ul>
-                            <div class="example">
-                                <p class="nhs-body-l">Lead paragraph</p>
-                            </div>
-                            <h3>Body small</h3>
-                            <h4 class="nhs-heading-xs">Sizes:</h4> 
-                            <ul>
-                                <li>Desktop: 16 / 28 (1.75) - margin-top 20px</li>
-                                <li>Mobile: 14 / 24 (1.714) - margin-top 16px</li>
-                            </ul>
-                            <div class="example">
-                                <p class="nhs-body-s">Body small</p>
-                            </div>
-        
-                            <h2 id="typography-lists">Lists</h2>
-                            <h3>Bulleted list</h3>
-                            <h4 class="nhs-heading-xs">Sizes:</h4> 
-                            <ul>
-                                <li>Desktop: ul - margin-top 20px / li - margin-top 8px</li>
-                                <li>Mobile: ul - margin-top 16px / li - margin-top 8px</li>
-                            </ul>
-                            <div class="example">
-                                <ul class="nhs-list nhs-list-bullet">
-                                    <li>national</li>
-                                    <li>health</li>
-                                    <li>service</li>
-                                </ul>
-                            </div>
-                            <h3>Numbered list</h3>
-                            <h4 class="nhs-heading-xs">Sizes:</h4> 
-                            <ul>
-                                <li>Desktop: ol - margin-top 20px / li - margin-top 8px</li>
-                                <li>Mobile: ol - margin-top 16px / li - margin-top 8px</li>
-                            </ul>
-                            <div class="example">
-                                <ol class="nhs-list nhs-list-number">
-                                    <li>one</li>
-                                    <li>two</li>
-                                    <li>three</li>
-                                </ol>
-                            </div>
-        
-                            <h2 id="typography-links">Links</h2>
-                            <p>Work in progress!</p>
-                            <div class="example">
-                                <p><a href="#squares">The quick brown fox jumps over the lazy dog</a></p>
-                                <p><a href="https://www.gov.uk/" target="_blank" class="external">The quick brown fox jumps over the lazy dog (external)</a></p>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+{% block sidebar %}
+    <h2 class="nhs-heading-xs">Contents</h2>
+    <ul class="nhs-list">
+        <li><a href="#typography-headings">Headings</a></li>
+        <li><a href="#typography-paragraphs">Paragraphs</a></li>
+        <li><a href="#typography-lists">Lists</a></li>
+        <li><a href="#typography-links">Links</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h2 id="typography-headings">Notes</h2>
+    <p>Baseline grid = 4px</p>
+    <p>All sizes (font, line-height and margins) are all currently in px, for testing purposes only. Sizes will need to be converted to em's.</p>
+    <p>We have used single-direction margin declarations to easily define <a href="https://www.futurehosting.com/blog/web-design-basics-what-is-vertical-rhythm/" rel="external">vertical rhythm (external link)</a>.</p>
+    <p>All typography has yet to be tested. Our user research plan will be available soon.</p>
+    <h3 class="nhs-heading-xs">Breakpoints</h3>
+    <ul>
+        <li>Desktop: min. screen width 481px</li>
+        <li>Mobile: max screen width 480px</li>
+    </ul>
+    <h2 id="typography-headings">Headings</h2>
+    <h3 class="nhs-heading-xs">H1 (nhs-heading-xl) sizes:</h3> 
+    <ul>
+        <li>Desktop: 44 / 52 (1.166) - margin-top 56px</li>
+        <li>Mobile: 32 / 36 (1.125) - margin-top 40px</li>
+    </ul>
+    <h3 class="nhs-heading-xs">H2 (nhs-heading-l) sizes:</h3> 
+    <ul>
+        <li>Desktop: 32 / 40 (1.25) - margin-top 56px</li>
+        <li>Mobile: 24 / 32 (1.333) - margin-top 40px</li>
+    </ul>
+    <h3 class="nhs-heading-xs">H3 (nhs-heading-m) sizes:</h3> 
+    <ul>
+        <li>Desktop: 24 / 32 (1.333) - margin-top 40px</li>
+        <li>Mobile: 20 / 28 (1.4) - margin-top 32px</li>
+    </ul>
+    <h3 class="nhs-heading-xs">H4 (nhs-heading-s) sizes:</h3> 
+    <ul>
+        <li>Desktop: 22 / 32 (1.454) - margin-top 32px</li>
+        <li>Mobile: 18 / 28 (1.555) - margin-top 24px</li>
+    </ul>
+    <h3 class="nhs-heading-xs">H5 (nhs-heading-xs) sizes:</h3> 
+    <ul>
+        <li>Desktop: 19 / 28 (1.473) - margin-top 24px</li>
+        <li>Mobile: 17 / 28 (1.647) - margin-top 20px</li>
+    </ul>
+    <div class="example">
+        <h1 class="nhs-heading-xl">nhs-heading-xl</h1>
+        <h2 class="nhs-heading-l">nhs-heading-l</h2>
+        <h3 class="nhs-heading-m">nhs-heading-m</h3>
+        <h4 class="nhs-heading-s">nhs-heading-s</h4>
+        <h5 class="nhs-heading-xs">nhs-heading-xs</h5>
+    </div>
+    <h2 id="typography-paragraphs">Paragraphs</h2>
+    <h3>Body paragraph</h3>
+    <h4 class="nhs-heading-xs">Sizes:</h4> 
+    <ul>
+        <li>Desktop: 19 / 32 (1.684) - margin-top 20px</li>
+        <li>Mobile: 17 / 28 (1.647) - margin-top 16px</li>
+    </ul>
+    <div class="example">
+        <p class="nhs-body">Body copy</p>
+    </div>
+    <h3>Lead paragraph</h3>
+    <h4 class="nhs-heading-xs">Sizes:</h4> 
+    <ul>
+        <li>Desktop: 24 / 36 (1.5) - margin-top 32px</li>
+        <li>Mobile: 20 / 32 (1.6) - margin-top 24px</li>
+    </ul>
+    <div class="example">
+        <p class="nhs-body-l">Lead paragraph</p>
+    </div>
+    <h3>Body small</h3>
+    <h4 class="nhs-heading-xs">Sizes:</h4> 
+    <ul>
+        <li>Desktop: 16 / 28 (1.75) - margin-top 20px</li>
+        <li>Mobile: 14 / 24 (1.714) - margin-top 16px</li>
+    </ul>
+    <div class="example">
+        <p class="nhs-body-s">Body small</p>
+    </div>
+
+    <h2 id="typography-lists">Lists</h2>
+    <h3>Bulleted list</h3>
+    <h4 class="nhs-heading-xs">Sizes:</h4> 
+    <ul>
+        <li>Desktop: ul - margin-top 20px / li - margin-top 8px</li>
+        <li>Mobile: ul - margin-top 16px / li - margin-top 8px</li>
+    </ul>
+    <div class="example">
+        <ul class="nhs-list nhs-list-bullet">
+            <li>national</li>
+            <li>health</li>
+            <li>service</li>
+        </ul>
+    </div>
+    <h3>Numbered list</h3>
+    <h4 class="nhs-heading-xs">Sizes:</h4> 
+    <ul>
+        <li>Desktop: ol - margin-top 20px / li - margin-top 8px</li>
+        <li>Mobile: ol - margin-top 16px / li - margin-top 8px</li>
+    </ul>
+    <div class="example">
+        <ol class="nhs-list nhs-list-number">
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ol>
+    </div>
+
+    <h2 id="typography-links">Links</h2>
+    <p>Work in progress!</p>
+    <div class="example">
+        <p><a href="#squares">The quick brown fox jumps over the lazy dog</a></p>
+        <p><a href="https://www.gov.uk/" target="_blank" class="external">The quick brown fox jumps over the lazy dog (external)</a></p>
     </div>
 {% endblock %}
