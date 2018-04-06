@@ -16,6 +16,8 @@ body {
   font-size: $base-font-size;
   line-height: $base-line-height;
   margin: 0 0 $footer-height;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   @media only screen and (max-width: 481px) {
        font-size: $base-font-size-mobile;
        line-height: $base-line-height-mobile;
