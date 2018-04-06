@@ -1909,9 +1909,10 @@ strong {
 
 .nhs-page-nav > *:first-child {
   margin-top: 0; }
-  @media only screen and (max-width: 641px) {
-    .nhs-page-nav > *:first-child {
-      margin-bottom: 40px; } }
+
+@media only screen and (max-width: 641px) {
+  .nhs-page-nav {
+    margin-bottom: 40px; } }
 
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
@@ -1933,6 +1934,31 @@ strong {
     .nhs-caption-xl {
       font-size: 20px;
       line-height: 28px; } }
+
+.nhs-list--dashed {
+  font-weight: 400;
+  padding-left: 20px;
+  margin: 20px 0 0;
+  list-style: none;
+  list-style-position: inside;
+  padding: 0; }
+  @media only screen and (max-width: 481px) {
+    .nhs-list--dashed {
+      margin: 1em 0 0;
+      margin: 16px 0 0; } }
+  .nhs-list--dashed li {
+    margin: 8px 0 0;
+    line-height: 32px; }
+    @media only screen and (max-width: 481px) {
+      .nhs-list--dashed li {
+        line-height: 28px; } }
+  .nhs-list--dashed li {
+    margin-left: 25px; }
+    .nhs-list--dashed li:before {
+      content: "- ";
+      color: #90a8ad;
+      margin-left: -25px;
+      padding-right: 5px; }
 
 .nhs-m-t-0 {
   margin-top: 0; }
@@ -2518,9 +2544,10 @@ strong {
 
 .nhs-page-nav > *:first-child {
   margin-top: 0; }
-  @media only screen and (max-width: 641px) {
-    .nhs-page-nav > *:first-child {
-      margin-bottom: 40px; } }
+
+@media only screen and (max-width: 641px) {
+  .nhs-page-nav {
+    margin-bottom: 40px; } }
 
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
@@ -2542,6 +2569,31 @@ strong {
     .nhs-caption-xl {
       font-size: 20px;
       line-height: 28px; } }
+
+.nhs-list--dashed {
+  font-weight: 400;
+  padding-left: 20px;
+  margin: 20px 0 0;
+  list-style: none;
+  list-style-position: inside;
+  padding: 0; }
+  @media only screen and (max-width: 481px) {
+    .nhs-list--dashed {
+      margin: 1em 0 0;
+      margin: 16px 0 0; } }
+  .nhs-list--dashed li {
+    margin: 8px 0 0;
+    line-height: 32px; }
+    @media only screen and (max-width: 481px) {
+      .nhs-list--dashed li {
+        line-height: 28px; } }
+  .nhs-list--dashed li {
+    margin-left: 25px; }
+    .nhs-list--dashed li:before {
+      content: "- ";
+      color: #90a8ad;
+      margin-left: -25px;
+      padding-right: 5px; }
 
 .nhs-m-t-0 {
   margin-top: 0; }
@@ -2568,7 +2620,7 @@ html * {
 
 html {
   background-color: #E8EDEE;
-  color: #28333b; }
+  color: #212b32; }
 
 body {
   background-color: #E8EDEE;
