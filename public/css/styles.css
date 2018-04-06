@@ -2632,7 +2632,9 @@ body {
   background-color: #E8EDEE;
   font-size: 19px;
   line-height: 1.684;
-  margin: 0 0 80px; }
+  margin: 0 0 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
   @media only screen and (max-width: 481px) {
     body {
       font-size: 17px;
