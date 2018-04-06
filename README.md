@@ -23,9 +23,13 @@ Run the server in development mode `npm run watch`
 
 ## Deploying
 
-Changes that are deployed to the master branch of this repository will automatically be deployed to herokuapp.
+Changes that are deployed to the master branch of this repository will automatically be deployed to the <a href="https://nhsuk-redesign.herokuapp.com/">NHS.UK re-design website</a>.
 
 ## Decisions
 
 Our <a href="https://nhsuk-redesign.herokuapp.com/decisions">design decisions and findings</a> document the decisions we've made on the stuff we've created.
+
+## Contributing
+
+
 
