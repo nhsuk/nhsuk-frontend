@@ -1845,7 +1845,7 @@ p,
 .nhs-body {
   font-weight: 400;
   line-height: 32px;
-  margin: 20px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
@@ -1880,17 +1880,20 @@ a {
 ul, ol {
   font-weight: 400;
   padding-left: 20px;
-  margin: 20px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
       margin: 16px 0 0; } }
   ul li, ol li {
-    margin: 8px 0 0;
+    margin: 12px 0 0;
     line-height: 32px; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px; } }
+        line-height: 28px;
+        margin: 8px 0 0; } }
+    ul li:first-child, ol li:first-child {
+      margin-top: 0; }
 
 tr, th {
   font-weight: 400;
@@ -2480,7 +2483,7 @@ p,
 .nhs-body {
   font-weight: 400;
   line-height: 32px;
-  margin: 20px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     p,
     .nhs-body {
@@ -2515,17 +2518,20 @@ a {
 ul, ol {
   font-weight: 400;
   padding-left: 20px;
-  margin: 20px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     ul, ol {
       margin: 1em 0 0;
       margin: 16px 0 0; } }
   ul li, ol li {
-    margin: 8px 0 0;
+    margin: 12px 0 0;
     line-height: 32px; }
     @media only screen and (max-width: 481px) {
       ul li, ol li {
-        line-height: 28px; } }
+        line-height: 28px;
+        margin: 8px 0 0; } }
+    ul li:first-child, ol li:first-child {
+      margin-top: 0; }
 
 tr, th {
   font-weight: 400;
@@ -2739,6 +2745,8 @@ header .nhs-global-header {
     @media only screen and (max-width: 641px) {
       .care-card .care-card-content {
         padding: 32px 16px 24px; } }
+    .care-card .care-card-content > *:first-child {
+      margin-top: 0; }
   .care-card.grey .care-card-heading {
     background: #425563; }
     .care-card.grey .care-card-heading:after {
@@ -2749,17 +2757,13 @@ header .nhs-global-header {
     .care-card.blue .care-card-heading:after {
       content: "";
       border-top: 16px solid #0058ad; }
-  .care-card.blue .care-card-content {
-    background: #ccdeef; }
   .care-card.red .care-card-heading {
     background: #ad1f15; }
     .care-card.red .care-card-heading:after {
       content: "";
       border-top: 16px solid #ad1f15; }
-  .care-card.red .care-card-content {
-    background: #efd2d0; }
   .care-card.black .care-card-heading {
-    background: #340906; }
+    background: #110302; }
     .care-card.black .care-card-heading:after {
       content: "";
       border-top: 16px solid #340906; }

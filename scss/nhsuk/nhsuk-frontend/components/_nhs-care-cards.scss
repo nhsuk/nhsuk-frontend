@@ -36,6 +36,9 @@
         @media only screen and (max-width: 641px) {
             padding:32px 16px 24px;
         }
+        & > *:first-child{
+            margin-top:0;
+        }
     }
     &.grey{
         .care-card-heading{
@@ -55,7 +58,7 @@
             }
         }
         .care-card-content{
-            background:$nhs-blue-aaa-lighten-80;
+            //background:$nhs-blue-aaa-lighten-80;
         }
     }
     &.red{
@@ -67,13 +70,13 @@
             }
         }
         .care-card-content{
-            background:$nhs-red-aaa-lighten-80;
+            //background:$nhs-red-aaa-lighten-80;
         }
     }
     &.black{
         .care-card-heading{
             //background:$nhs-red-aaa;
-            background:$nhs-red-aaa-darken-70;
+            background:$nhs-red-aaa-darken-90;
             &:after{
                 content:"";
                 //border-top: 16px solid $nhs-red-aaa;
