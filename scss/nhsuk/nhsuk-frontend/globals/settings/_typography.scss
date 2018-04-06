@@ -13,7 +13,7 @@ h1,
     @media only screen and (max-width: 481px) {
       font-size:32px;
       line-height:36px;
-      margin:32px 0 0;
+      margin:40px 0 0;
     }
 }
 
@@ -57,11 +57,11 @@ h5,
 .nhs-heading-xs{
     font-size:19px;
     line-height:28px;
-    margin:32px 0 0;
+    margin:24px 0 0;
     @media only screen and (max-width: 481px) {
       font-size:17px;
       line-height:28px;
-      margin:24px 0 0;
+      margin:20px 0 0;
     }
 }
 
@@ -124,7 +124,6 @@ ul, ol {
     line-height:32px;
     @media only screen and (max-width: 481px) {
       line-height:28px;
-      margin:8px 0 0;
     }
   }
 }
@@ -152,19 +151,24 @@ strong {
   }
 }
 
-.nhs-page-nav{
-  *:first-child{
+.nhs-page-nav > *:first-child{
     margin-top:0;
-  }
-  @media only screen and (max-width: 481px) {
+  @media only screen and (max-width: 641px) {
     margin-bottom:40px;
   }
 }
 
-.nhs-page-content{
- *:first-child{
+//
+.nhs-sticky{
+  @media only screen and (min-width: 767px) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+  }
+}
+
+.nhs-page-content > *:first-child{
    margin-top:0;
- }
 }
 
 //heading captions
@@ -183,6 +187,11 @@ strong {
     font-size:20px;
     line-height:28px;
   }
+}
+
+//new list styles
+.nhs-list{
+
 }
 
 //spacing overrides
