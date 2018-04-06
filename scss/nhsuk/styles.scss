@@ -8,55 +8,19 @@
 // NHS.UK front-end
 //
 
-@import "nhsuk-frontend/overrides";
-@import "nhsuk-frontend/variables";
+@import "nhsuk-frontend/globals/overrides/grid";
 
 // Core
 
-@import "nhsuk-frontend/environment/settings/mixins";
-@import "nhsuk-frontend/environment/settings/fonts";
-@import "nhsuk-frontend/environment/settings/colours";
-@import "nhsuk-frontend/environment/settings/typography";
+@import "nhsuk-frontend/globals/common";
 
-// Shared
+// Examples
 
-@import "nhsuk-frontend/environment/generic/shared";
-
-// Pages
-
-@import "nhsuk-frontend/environment/playground/squares";
-@import "nhsuk-frontend/environment/playground/grid-example";
-@import "nhsuk-frontend/environment/playground/template-page";
+@import "nhsuk-frontend/examples/code";
+@import "nhsuk-frontend/examples/page";
+@import "nhsuk-frontend/examples/grid";
 
 // Components
 
-@import "nhsuk-frontend/nhs-global-header";
-@import "nhsuk-frontend/nhs-care-cards";
-
-//to display code examples
-.example {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid $nhs-border-colour;
-    padding: 64px 16px 16px;
-    margin:24px 0;
-    background:white;
-    @media (min-width: 641px) {
-        padding:64px 32px 32px;
-    }
-  
-    &:before {
-      content: "EXAMPLE";
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      padding: 12px 16px;
-      font-weight: 600;
-      font-size: 12px;
-      background: $nhs-grey;
-      color: white;
-      @media (min-width: 641px) {
-          font-size: 14px;
-      }
-    }
-  }
+@import "nhsuk-frontend/components/nhs-global-header";
+@import "nhsuk-frontend/components/nhs-care-cards";
