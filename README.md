@@ -6,7 +6,7 @@ Code and styling examples of NHS.UK front-end components can be found on the <a 
 
 This repository generates shareable CSS and assets for use in NHS.UK websites and services. It also provides development environment for reviewing changes to those assets and the code for the <a href="https://nhsuk-redesign.herokuapp.com/">NHS.UK re-design website</a>.
 
-# Using NHS.UK front-end
+## Using NHS.UK front-end
 
 To use the NHS.UK in your websites and services there are currently 2 ways:
 
