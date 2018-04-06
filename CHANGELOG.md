@@ -3,9 +3,9 @@
 - Add a <a href="https://nhsuk-redesign.herokuapp.com/decisions">decisions page</a> to log our decisions and findings.
 - General project and configuration improvements
 - Prepare Typography and Grid for testing
-- Add page templates for the example pages using GOV.UK grid
-- Add page templates for the style and decision pages
-- Add page background colour changer for user research testing
+- Page templates for the example pages using GOV.UK grid
+- Page templates for the style and decision pages
+- Page background colour change functionality for user research testing
 
 0.0.2 / 30-03-2018
 ===================
