@@ -1907,12 +1907,11 @@ strong {
   .nhs-page-heading h1 {
     margin: 0; }
 
-.nhs-page-nav *:first-child {
+.nhs-page-nav > *:first-child {
   margin-top: 0; }
-
-@media only screen and (max-width: 641px) {
-  .nhs-page-nav {
-    margin-bottom: 40px; } }
+  @media only screen and (max-width: 641px) {
+    .nhs-page-nav > *:first-child {
+      margin-bottom: 40px; } }
 
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
@@ -1920,7 +1919,7 @@ strong {
     position: sticky;
     top: 40px; } }
 
-.nhs-page-content *:first-child {
+.nhs-page-content > *:first-child {
   margin-top: 0; }
 
 .nhs-caption-xl {
@@ -2517,12 +2516,11 @@ strong {
   .nhs-page-heading h1 {
     margin: 0; }
 
-.nhs-page-nav *:first-child {
+.nhs-page-nav > *:first-child {
   margin-top: 0; }
-
-@media only screen and (max-width: 641px) {
-  .nhs-page-nav {
-    margin-bottom: 40px; } }
+  @media only screen and (max-width: 641px) {
+    .nhs-page-nav > *:first-child {
+      margin-bottom: 40px; } }
 
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
@@ -2530,7 +2528,7 @@ strong {
     position: sticky;
     top: 40px; } }
 
-.nhs-page-content *:first-child {
+.nhs-page-content > *:first-child {
   margin-top: 0; }
 
 .nhs-caption-xl {
@@ -2582,45 +2580,29 @@ body {
       font-size: 17px;
       line-height: 1.75; } }
 
-.square-container .square {
-  padding: 15px; }
-
-.square-container .square-1 {
-  background-color: #005eb8; }
-
-.square-container .square-2 {
-  background-color: #76adda; }
-
-.square-container .square-3 {
-  background-color: #e6eff8; }
-
-.square-container .square-4 {
-  background-color: #003087; }
-
-.square-container .square-5 {
-  background-color: #0072ce; }
-
-.square-container .square-6 {
-  background-color: #41B6E6; }
-
-.square-container .square-7 {
-  background-color: #00A9CE; }
-
-.square-container .square-8 {
-  background-color: #425563; }
-
-.square-container.square-container__white {
-  color: #fff; }
-
-.nhsuk-grid-example p {
-  display: block;
-  padding: 20px;
-  background-color: #005eb8;
-  color: white;
-  text-align: center; }
-
-span.highlight {
-  color: #005eb8; }
+.example {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #bccbcd;
+  padding: 64px 16px 16px;
+  margin: 24px 0;
+  background: white; }
+  @media (min-width: 641px) {
+    .example {
+      padding: 64px 32px 32px; } }
+  .example:before {
+    content: "EXAMPLE";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 12px;
+    background: #425563;
+    color: white; }
+    @media (min-width: 641px) {
+      .example:before {
+        font-size: 14px; } }
 
 .nhsuk-page-header h2 {
   margin-top: 0;
@@ -2646,6 +2628,16 @@ span.highlight {
 .sr-only,
 .hidden {
   display: none; }
+
+.nhsuk-grid-example p {
+  display: block;
+  padding: 20px;
+  background-color: #005eb8;
+  color: white;
+  text-align: center; }
+
+span.highlight {
+  color: #005eb8; }
 
 header .nhs-global-header {
   background: #0058ad; }
@@ -2718,27 +2710,3 @@ header .nhs-global-header {
   .care-card.black .care-card-content {
     background: #ad1f15;
     color: #ffffff !important; }
-
-.example {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #bccbcd;
-  padding: 64px 16px 16px;
-  margin: 24px 0;
-  background: white; }
-  @media (min-width: 641px) {
-    .example {
-      padding: 64px 32px 32px; } }
-  .example:before {
-    content: "EXAMPLE";
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    padding: 12px 16px;
-    font-weight: 600;
-    font-size: 12px;
-    background: #425563;
-    color: white; }
-    @media (min-width: 641px) {
-      .example:before {
-        font-size: 14px; } }

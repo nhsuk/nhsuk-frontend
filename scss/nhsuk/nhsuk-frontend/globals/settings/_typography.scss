@@ -151,10 +151,8 @@ strong {
   }
 }
 
-.nhs-page-nav{
-  *:first-child{
+.nhs-page-nav > *:first-child{
     margin-top:0;
-  }
   @media only screen and (max-width: 641px) {
     margin-bottom:40px;
   }
@@ -169,10 +167,8 @@ strong {
   }
 }
 
-.nhs-page-content{
- *:first-child{
+.nhs-page-content > *:first-child{
    margin-top:0;
- }
 }
 
 //heading captions
