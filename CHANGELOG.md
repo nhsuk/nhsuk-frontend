@@ -4,6 +4,7 @@
 - General project and configuration improvements
 - Prepare Typography and Grid for testing
 - Add page templates for the example pages using GOV.UK grid
+- Add page templates for the style and decision pages
 
 0.0.2 / 30-03-2018
 ===================
