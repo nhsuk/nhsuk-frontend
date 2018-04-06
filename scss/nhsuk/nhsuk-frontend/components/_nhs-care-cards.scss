@@ -9,7 +9,6 @@
         color:white;
         padding:24px;
         position:relative;
-        margin:0;
         @media only screen and (max-width: 641px) {
             padding:16px;   
         }
@@ -23,6 +22,12 @@
             border-right: 16px solid transparent;
             border-top: 16px solid $nhs-blue-aaa;
             bottom:-16px;
+        }
+        h2,
+        h3,
+        h4,
+        h5{
+            margin:0;
         }
     }
     .care-card-content{
