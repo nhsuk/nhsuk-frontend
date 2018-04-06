@@ -1833,13 +1833,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 24px 0 0; }
+  margin: 28px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
       line-height: 28px;
-      margin: 20px 0 0; } }
+      margin: 24px 0 0; } }
 
 p,
 .nhs-body {
@@ -1900,7 +1900,7 @@ strong {
 
 .nhs-page-heading {
   margin: 26px 0 56px; }
-  @media only screen and (max-width: 481px) {
+  @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
   .nhs-page-heading h1 {
@@ -2467,13 +2467,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 24px 0 0; }
+  margin: 28px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
       font-size: 17px;
       line-height: 28px;
-      margin: 20px 0 0; } }
+      margin: 24px 0 0; } }
 
 p,
 .nhs-body {
@@ -2534,7 +2534,7 @@ strong {
 
 .nhs-page-heading {
   margin: 26px 0 56px; }
-  @media only screen and (max-width: 481px) {
+  @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       margin: 25px 0 40px; } }
   .nhs-page-heading h1 {
@@ -2760,7 +2760,7 @@ header .nhs-global-header {
     background: #110302; }
     .care-card.black .care-card-heading:after {
       content: "";
-      border-top: 16px solid #340906; }
+      border-top: 16px solid #110302; }
   .care-card.black .care-card-content {
     background: #ad1f15;
     color: #ffffff !important; }
