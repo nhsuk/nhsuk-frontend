@@ -1899,10 +1899,10 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 26px 0 56px; }
+  padding: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
-      margin: 25px 0 40px; } }
+      padding: 25px 0 40px; } }
   .nhs-page-heading h1 {
     margin: 0; }
 
@@ -2532,10 +2532,10 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  margin: 26px 0 56px; }
+  padding: 26px 0 56px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
-      margin: 25px 0 40px; } }
+      padding: 25px 0 40px; } }
   .nhs-page-heading h1 {
     margin: 0; }
 
@@ -2699,14 +2699,14 @@ header .nhs-global-header {
       padding: 0;
       line-height: 0; }
       header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a img {
-        height: 40px;
-        width: 99px; }
+        height: 32px;
+        width: 79px; }
 
 .nhs-hero {
   background: #0058ad;
   color: white !important; }
   .nhs-hero .nhs-hero-container {
-    border-top: 1px solid white; }
+    border-top: 1px solid rgba(255, 255, 255, 0.5); }
     .nhs-hero .nhs-hero-container .nhs-page-heading {
       margin: 0;
       padding: 64px 0; }
