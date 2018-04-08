@@ -1783,8 +1783,8 @@ h1, h2, h3, h4, h5,
 
 h1,
 .nhs-heading-xl {
-  font-size: 44px;
-  line-height: 52px;
+  font-size: 48px;
+  line-height: 56px;
   margin: 56px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
@@ -1852,12 +1852,12 @@ p,
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 28px;
+      line-height: 32px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -2416,8 +2416,8 @@ h1, h2, h3, h4, h5,
 
 h1,
 .nhs-heading-xl {
-  font-size: 44px;
-  line-height: 52px;
+  font-size: 48px;
+  line-height: 56px;
   margin: 56px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
@@ -2485,12 +2485,12 @@ p,
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 28px;
+      line-height: 32px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -2621,14 +2621,14 @@ html {
 body {
   background-color: #E8EDEE;
   font-size: 19px;
-  line-height: 28px;
+  line-height: 32px;
   margin: 0 0 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
   @media only screen and (max-width: 481px) {
     body {
       font-size: 16px;
-      line-height: 24px; } }
+      line-height: 28px; } }
 
 .example {
   position: relative;
@@ -2726,7 +2726,7 @@ header .nhs-global-header {
   .care-card .care-card-heading {
     background: #0058ad;
     color: white;
-    padding: 24px;
+    padding: 16px 24px;
     position: relative; }
     @media only screen and (max-width: 641px) {
       .care-card .care-card-heading {
@@ -2747,7 +2747,7 @@ header .nhs-global-header {
     .care-card .care-card-heading h5 {
       margin: 0; }
   .care-card .care-card-content {
-    padding: 40px 24px 32px;
+    padding: 36px 24px 28px;
     background: white; }
     @media only screen and (max-width: 641px) {
       .care-card .care-card-content {

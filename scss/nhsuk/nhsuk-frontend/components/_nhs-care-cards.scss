@@ -7,7 +7,7 @@
     .care-card-heading{
         background:$nhs-blue-aaa;
         color:white;
-        padding:24px;
+        padding:16px 24px;
         position:relative;
         @media only screen and (max-width: 641px) {
             padding:16px;   
@@ -31,7 +31,7 @@
         }
     }
     .care-card-content{
-        padding:40px 24px 32px;
+        padding:36px 24px 28px;
         background:white;
         @media only screen and (max-width: 641px) {
             padding:32px 16px 24px;
