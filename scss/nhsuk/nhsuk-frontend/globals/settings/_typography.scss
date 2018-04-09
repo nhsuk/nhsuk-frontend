@@ -160,7 +160,7 @@ strong {
     h3{
       & + ol,
       & + ul{
-        margin-top:16px;
+        margin-top:12px;
         @media only screen and (max-width: 641px) {
           margin-top:8px;
         }
