@@ -60,7 +60,7 @@ $yellow-10: #fdf2d5;
 //base colours
 $nhs-blue-aaa:#0058ad;
 $nhs-red-aaa:#ad1f15;
-$nhs-black:#231f20;
+$nhs-black:#212b32;
 $nhs-grey:#425563;
 $nhs-yellow-aaa:#fced66; //needs work DH/KG
 $nhs-green-aaa:#006644;
@@ -69,7 +69,7 @@ $nhs-green-aaa:#006644;
 $nhs-purple:#4c2c92;
 
 
-
+//COLOUR PALETTE GENERATOR
 
 //tints of $nhs-blue-aaa
 $nhs-blue-aaa-lighten-10:tint($nhs-blue-aaa,10%);
@@ -229,19 +229,26 @@ $nhs-purple-darken-80:shade($nhs-purple,80%);
 $nhs-purple-darken-90:shade($nhs-purple,90%);
 
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 //nhs redesign palette
 .colour-palette{
     @include flexbox();
     @include flex-direction(row);
     @include flex-wrap(wrap);
-    margin:0 0 45px -15px;
-    @media (min-width: 641px) {
-        margin:0 0 60px -15px;
-    }
+    margin:40px -8px 40px -8px;
     .colour-palette_item{
         width: 100% !important;
-        margin:15px 0 0 15px;
+        margin:0;
+        padding:8px;
         float: left;
+        @media (min-width: 641px) {
+            width: calc(100% * (1/2) - 15px) !important;
+        }
         .colour-palette_variant{
             padding:15px;
             width:100%;

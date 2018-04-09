@@ -1344,6 +1344,9 @@
     .govuk-\!-width-one-quarter {
       width: 25% !important; } }
 
+* {
+  box-sizing: border-box; }
+
 .colour-palette {
   display: -ms-flexbox;
   display: flex;
@@ -1357,14 +1360,15 @@
   -ms-flex-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 0 0 45px -15px; }
-  @media (min-width: 641px) {
-    .colour-palette {
-      margin: 0 0 60px -15px; } }
+  margin: 40px -8px 40px -8px; }
   .colour-palette .colour-palette_item {
     width: 100% !important;
-    margin: 15px 0 0 15px;
+    margin: 0;
+    padding: 8px;
     float: left; }
+    @media (min-width: 641px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/2) - 15px) !important; } }
     .colour-palette .colour-palette_item .colour-palette_variant {
       padding: 15px;
       width: 100%;
@@ -1374,7 +1378,7 @@
         padding: 30px 15px;
         font-size: 21px; }
       .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
-        color: #231f20; }
+        color: #212b32; }
 
 .nhs-blue-aaa {
   background: #0058ad; }
@@ -1491,61 +1495,61 @@
   background: #110302; }
 
 .nhs-black {
-  background: #231f20; }
+  background: #212b32; }
 
 .nhs-black-lighten-10 {
-  background: #393536; }
+  background: #374047; }
 
 .nhs-black-lighten-20 {
-  background: #4f4c4d; }
+  background: #4d555b; }
 
 .nhs-black-lighten-30 {
-  background: #656263; }
+  background: #646b70; }
 
 .nhs-black-lighten-40 {
-  background: #7b7979; }
+  background: #7a8084; }
 
 .nhs-black-lighten-50 {
-  background: #918f90; }
+  background: #909599; }
 
 .nhs-black-lighten-60 {
-  background: #a7a5a6; }
+  background: #a6aaad; }
 
 .nhs-black-lighten-70 {
-  background: #bdbcbc; }
+  background: #bcbfc2; }
 
 .nhs-black-lighten-80 {
-  background: #d3d2d2; }
+  background: #d3d5d6; }
 
 .nhs-black-lighten-90 {
-  background: #e9e9e9; }
+  background: #e9eaeb; }
 
 .nhs-black-darken-10 {
-  background: #201c1d; }
+  background: #1e272d; }
 
 .nhs-black-darken-20 {
-  background: #1c191a; }
+  background: #1a2228; }
 
 .nhs-black-darken-30 {
-  background: #191616; }
+  background: #171e23; }
 
 .nhs-black-darken-40 {
-  background: #151313; }
+  background: #141a1e; }
 
 .nhs-black-darken-50 {
-  background: #121010; }
+  background: #111619; }
 
 .nhs-black-darken-60 {
-  background: #0e0c0d; }
+  background: #0d1114; }
 
 .nhs-black-darken-70 {
-  background: #0b090a; }
+  background: #0a0d0f; }
 
 .nhs-black-darken-80 {
-  background: #070606; }
+  background: #07090a; }
 
 .nhs-black-darken-90 {
-  background: #040303; }
+  background: #030405; }
 
 .nhs-grey {
   background: #425563; }
@@ -1852,12 +1856,12 @@ p,
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 32px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -1977,6 +1981,9 @@ hr.nhs-h-line {
   color: white;
   padding: 8px 16px; }
 
+* {
+  box-sizing: border-box; }
+
 .colour-palette {
   display: -ms-flexbox;
   display: flex;
@@ -1990,14 +1997,15 @@ hr.nhs-h-line {
   -ms-flex-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 0 0 45px -15px; }
-  @media (min-width: 641px) {
-    .colour-palette {
-      margin: 0 0 60px -15px; } }
+  margin: 40px -8px 40px -8px; }
   .colour-palette .colour-palette_item {
     width: 100% !important;
-    margin: 15px 0 0 15px;
+    margin: 0;
+    padding: 8px;
     float: left; }
+    @media (min-width: 641px) {
+      .colour-palette .colour-palette_item {
+        width: calc(100% * (1/2) - 15px) !important; } }
     .colour-palette .colour-palette_item .colour-palette_variant {
       padding: 15px;
       width: 100%;
@@ -2007,7 +2015,7 @@ hr.nhs-h-line {
         padding: 30px 15px;
         font-size: 21px; }
       .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
-        color: #231f20; }
+        color: #212b32; }
 
 .nhs-blue-aaa {
   background: #0058ad; }
@@ -2124,61 +2132,61 @@ hr.nhs-h-line {
   background: #110302; }
 
 .nhs-black {
-  background: #231f20; }
+  background: #212b32; }
 
 .nhs-black-lighten-10 {
-  background: #393536; }
+  background: #374047; }
 
 .nhs-black-lighten-20 {
-  background: #4f4c4d; }
+  background: #4d555b; }
 
 .nhs-black-lighten-30 {
-  background: #656263; }
+  background: #646b70; }
 
 .nhs-black-lighten-40 {
-  background: #7b7979; }
+  background: #7a8084; }
 
 .nhs-black-lighten-50 {
-  background: #918f90; }
+  background: #909599; }
 
 .nhs-black-lighten-60 {
-  background: #a7a5a6; }
+  background: #a6aaad; }
 
 .nhs-black-lighten-70 {
-  background: #bdbcbc; }
+  background: #bcbfc2; }
 
 .nhs-black-lighten-80 {
-  background: #d3d2d2; }
+  background: #d3d5d6; }
 
 .nhs-black-lighten-90 {
-  background: #e9e9e9; }
+  background: #e9eaeb; }
 
 .nhs-black-darken-10 {
-  background: #201c1d; }
+  background: #1e272d; }
 
 .nhs-black-darken-20 {
-  background: #1c191a; }
+  background: #1a2228; }
 
 .nhs-black-darken-30 {
-  background: #191616; }
+  background: #171e23; }
 
 .nhs-black-darken-40 {
-  background: #151313; }
+  background: #141a1e; }
 
 .nhs-black-darken-50 {
-  background: #121010; }
+  background: #111619; }
 
 .nhs-black-darken-60 {
-  background: #0e0c0d; }
+  background: #0d1114; }
 
 .nhs-black-darken-70 {
-  background: #0b090a; }
+  background: #0a0d0f; }
 
 .nhs-black-darken-80 {
-  background: #070606; }
+  background: #07090a; }
 
 .nhs-black-darken-90 {
-  background: #040303; }
+  background: #030405; }
 
 .nhs-grey {
   background: #425563; }
@@ -2485,12 +2493,12 @@ p,
 
 .nhs-body-l {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin: 32px 0 0; }
   @media only screen and (max-width: 481px) {
     .nhs-body-l {
       font-size: 20px;
-      line-height: 32px;
+      line-height: 28px;
       margin: 24px 0 0; } }
 
 .nhs-body-s {
@@ -2621,14 +2629,14 @@ html {
 body {
   background-color: #E8EDEE;
   font-size: 19px;
-  line-height: 32px;
+  line-height: 28px;
   margin: 0 0 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
   @media only screen and (max-width: 481px) {
     body {
       font-size: 16px;
-      line-height: 28px; } }
+      line-height: 24px; } }
 
 .example {
   position: relative;
