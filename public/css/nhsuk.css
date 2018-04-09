@@ -2810,7 +2810,7 @@ header .nhs-global-header {
     background: #ad1f15;
     color: #ffffff !important; }
 
-.visually-hidden .sr-only {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
