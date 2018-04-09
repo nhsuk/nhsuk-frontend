@@ -9,11 +9,11 @@ h1,
 .nhs-heading-xl{
     font-size:48px;
     line-height:56px;
-    margin:56px 0 0;
+    margin:64px 0 0;
     @media only screen and (max-width: 481px) {
       font-size:32px;
       line-height:36px;
-      margin:40px 0 0;
+      margin:48px 0 0;
     }
 }
 
@@ -114,7 +114,6 @@ ul, ol {
   padding-left: 20px;
   margin:24px 0 0;
   @media only screen and (max-width: 481px) {
-    margin:1em 0 0;
     margin:20px 0 0;
   }
   li {
@@ -130,7 +129,6 @@ ul, ol {
 
 tr, th {
   font-weight: $nhs-font-normal;
-  font-size: 1em;
 }
 
 strong {

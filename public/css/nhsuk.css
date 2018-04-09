@@ -1789,13 +1789,13 @@ h1,
 .nhs-heading-xl {
   font-size: 48px;
   line-height: 56px;
-  margin: 56px 0 0; }
+  margin: 64px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
     .nhs-heading-xl {
       font-size: 32px;
       line-height: 36px;
-      margin: 40px 0 0; } }
+      margin: 48px 0 0; } }
 
 h2,
 .nhs-heading-l {
@@ -1885,7 +1885,6 @@ ul, ol {
   margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     ul, ol {
-      margin: 1em 0 0;
       margin: 20px 0 0; } }
   ul li, ol li {
     margin: 12px 0 0; }
@@ -1896,8 +1895,7 @@ ul, ol {
       margin-top: 0; }
 
 tr, th {
-  font-weight: 400;
-  font-size: 1em; }
+  font-weight: 400; }
 
 strong {
   font-weight: 600; }
@@ -2426,13 +2424,13 @@ h1,
 .nhs-heading-xl {
   font-size: 48px;
   line-height: 56px;
-  margin: 56px 0 0; }
+  margin: 64px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
     .nhs-heading-xl {
       font-size: 32px;
       line-height: 36px;
-      margin: 40px 0 0; } }
+      margin: 48px 0 0; } }
 
 h2,
 .nhs-heading-l {
@@ -2522,7 +2520,6 @@ ul, ol {
   margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     ul, ol {
-      margin: 1em 0 0;
       margin: 20px 0 0; } }
   ul li, ol li {
     margin: 12px 0 0; }
@@ -2533,8 +2530,7 @@ ul, ol {
       margin-top: 0; }
 
 tr, th {
-  font-weight: 400;
-  font-size: 1em; }
+  font-weight: 400; }
 
 strong {
   font-weight: 600; }
