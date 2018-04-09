@@ -1903,7 +1903,7 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  padding: 26px 0 56px; }
+  padding: 34px 0 64px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       padding: 25px 0 40px; } }
@@ -2540,7 +2540,7 @@ strong {
   font-weight: 600; }
 
 .nhs-page-heading {
-  padding: 26px 0 56px; }
+  padding: 34px 0 64px; }
   @media only screen and (max-width: 641px) {
     .nhs-page-heading {
       padding: 25px 0 40px; } }
