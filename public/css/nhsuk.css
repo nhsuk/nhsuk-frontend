@@ -1915,6 +1915,18 @@ strong {
   .nhs-page-nav {
     margin-bottom: 40px; } }
 
+.nhs-page-nav h2 + ol,
+.nhs-page-nav h2 + ul,
+.nhs-page-nav h3 + ol,
+.nhs-page-nav h3 + ul {
+  margin-top: 16px; }
+  @media only screen and (max-width: 641px) {
+    .nhs-page-nav h2 + ol,
+    .nhs-page-nav h2 + ul,
+    .nhs-page-nav h3 + ol,
+    .nhs-page-nav h3 + ul {
+      margin-top: 8px; } }
+
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
     position: -webkit-sticky;
@@ -2550,6 +2562,18 @@ strong {
   .nhs-page-nav {
     margin-bottom: 40px; } }
 
+.nhs-page-nav h2 + ol,
+.nhs-page-nav h2 + ul,
+.nhs-page-nav h3 + ol,
+.nhs-page-nav h3 + ul {
+  margin-top: 16px; }
+  @media only screen and (max-width: 641px) {
+    .nhs-page-nav h2 + ol,
+    .nhs-page-nav h2 + ul,
+    .nhs-page-nav h3 + ol,
+    .nhs-page-nav h3 + ul {
+      margin-top: 8px; } }
+
 @media only screen and (min-width: 767px) {
   .nhs-sticky {
     position: -webkit-sticky;
@@ -2697,11 +2721,15 @@ header .nhs-global-header {
   background: #0058ad; }
   header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo {
     padding: 20px 0; }
+    header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo:after {
+      content: "";
+      display: block;
+      clear: both; }
     header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a {
       display: block;
-      margin: 0;
-      padding: 0;
-      line-height: 0; }
+      float: left;
+      height: 32px;
+      width: 79px; }
       header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a img {
         height: 32px;
         width: 79px; }
@@ -2781,3 +2809,17 @@ header .nhs-global-header {
   .care-card.black .care-card-content {
     background: #ad1f15;
     color: #ffffff !important; }
+
+.visually-hidden .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+a:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #FFB81C; }

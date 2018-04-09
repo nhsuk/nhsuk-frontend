@@ -1,14 +1,23 @@
+@mixin clear(){
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
 header{
     .nhs-global-header{
         background:$nhs-blue-aaa;
         .nhs-global-header__inner{
             .nhs-global-header__inner--logo{
                 padding:20px 0;
+                @include clear();
                 a{
                     display:block;
-                    margin:0;
-                    padding:0;
-                    line-height:0;
+                    float:left;
+                    height:32px;
+                    width:79px;
                     img{
                         height:32px;
                         width:79px;

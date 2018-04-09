@@ -149,17 +149,25 @@ strong {
   }
 }
 
-.nhs-page-nav > *:first-child{
-    margin-top:0;
-}
-
 .nhs-page-nav{
+  & > *:first-child{
+    margin-top:0;
+  }
   @media only screen and (max-width: 641px) {
     margin-bottom:40px;
   }
-}
+    h2,
+    h3{
+      & + ol,
+      & + ul{
+        margin-top:16px;
+        @media only screen and (max-width: 641px) {
+          margin-top:8px;
+        }
+      }
+    }
+  }
 
-//
 .nhs-sticky{
   @media only screen and (min-width: 767px) {
     position: -webkit-sticky;
@@ -168,8 +176,10 @@ strong {
   }
 }
 
-.nhs-page-content > *:first-child{
-   margin-top:0;
+.nhs-page-content {
+  & > *:first-child{
+    margin-top:0;
+  }
 }
 
 //heading captions
