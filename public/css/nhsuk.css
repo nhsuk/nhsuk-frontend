@@ -1837,13 +1837,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 28px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 28px;
-      margin: 24px 0 0; } }
+      margin: 20px 0 0; } }
 
 p,
 .nhs-body {
@@ -2484,13 +2484,13 @@ h5,
 .nhs-heading-xs {
   font-size: 19px;
   line-height: 28px;
-  margin: 28px 0 0; }
+  margin: 24px 0 0; }
   @media only screen and (max-width: 481px) {
     h5,
     .nhs-heading-xs {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 28px;
-      margin: 24px 0 0; } }
+      margin: 20px 0 0; } }
 
 p,
 .nhs-body {
