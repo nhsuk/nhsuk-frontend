@@ -19,7 +19,7 @@ To use the NHS.UK in your websites and services there are currently 2 ways:
 
 Install the long-term support (LTS) version of <a href="https://nodejs.org/en/">Node.js</a>, which includes NPM.
 
-Clone the repo: `git clone https://github.com/nhsuk/nhsuk-redesign.git` and whilst in the project directory, install the required npm packages with: `npm install`
+Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
 
 Run the server in development mode `npm run watch` 
 
