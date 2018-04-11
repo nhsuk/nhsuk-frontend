@@ -10,35 +10,36 @@
     "prewatch": "git pull origin master",
     "watch": "gulp watch & nodemon server.js",
     "predeploy": "git pull origin master",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "linter": "./node_modules/.bin/eslint public/js/app.js"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
-    "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "express-flash": "0.0.2",
     "express-session": "^1.2.1",
-    "express-validator": "^2.20.4",
+    "express-validator": "^5.1.2",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-csso": "^1.1.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-csso": "^3.0.1",
     "gulp-if": "^2.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.3",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
-    "nunjucks": "^2.4.1",
+    "nunjucks": "^3.1.2",
     "reload": "^2.2.2",
     "sass-mq": "^4.0.2",
-    "vinyl-buffer": "^1.0.0",
-    "yargs": "^4.3.2"
+    "vinyl-buffer": "^1.0.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "eslint": "^4.19.1",
     "nodemon": "^1.17.2",
+    "npm-check-updates": "^2.14.1",
     "reload": "^2.2.2"
   },
   "engines": {
