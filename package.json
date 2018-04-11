@@ -5,11 +5,12 @@
   "scripts": {
     "build": "gulp build",
     "build:production": "gulp build --production",
-    "deploy": "git push heroku master",
     "postinstall": "npm run build:production",
     "start": "node server.js",
     "prewatch": "git pull origin master",
-    "watch": "gulp watch & nodemon server.js"
+    "watch": "gulp watch & nodemon server.js",
+    "predeploy": "git pull origin master",
+    "deploy": "git push heroku master"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
