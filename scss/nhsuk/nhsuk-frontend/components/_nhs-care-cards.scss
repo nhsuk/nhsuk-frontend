@@ -52,36 +52,29 @@
   }
   &.blue {
     .care-card-heading {
-        background: $nhs-blue-aaa;
-        &:after {
-          border-top: 16px solid $nhs-blue-aaa;
-          content: '';
-        }
-    }
-    .care-card-content {
-        //background:$nhs-blue-aaa-lighten-80;
+      background: $nhs-blue-aaa;
+      &:after {
+        border-top: 16px solid $nhs-blue-aaa;
+        content: '';
+      }
     }
   }
-  &.red{
+  &.red {
     .care-card-heading {
       background: $nhs-red-aaa;
       &:after {
-          content: '';
-          border-top: 16px solid $nhs-red-aaa;
+        border-top: 16px solid $nhs-red-aaa;
+        content: '';
       }
-    }
-    .care-card-content {
-        //background:$nhs-red-aaa-lighten-80;
     }
   }
   &.black {
     .care-card-heading {
-        //background:$nhs-red-aaa;
-        background:$nhs-red-aaa-darken-90;
-        &:after {
-          content: '';
-          border-top: 16px solid $nhs-red-aaa-darken-90;
-        }
+      background: $nhs-red-aaa-darken-90;
+      &:after {
+        border-top: 16px solid $nhs-red-aaa-darken-90;
+        content: '';
+      }
     }
     .care-card-content {
       background: $nhs-red-aaa;
