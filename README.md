@@ -1,4 +1,4 @@
-# NHS.UK front-end (IN DEVELOPMENT)
+# NHS.UK front-end (DEVELOPMENT)
 
 ** NHSUK front-end is in development. Do not use in production. **
 
@@ -10,10 +10,7 @@ This repository generates shareable CSS and assets for use in NHS.UK websites an
 
 ## Using NHS.UK front-end
 
-To use the NHS.UK frontend in your websites and services there are currently 2 ways:
-
-- You can use the generated and optimised CSS files directly in your application, by downloading the `public/css/nhsuk.css` file,
-- or you can download the SCSS files directly from the `scss` folder.
+NHS.UK front-end is in development, it's not quite ready to be used yet.
 
 ## Installation
 
