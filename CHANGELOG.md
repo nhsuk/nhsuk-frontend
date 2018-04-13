@@ -7,6 +7,8 @@
 - Page templates for the style and decision pages
 - Page background colour change functionality for user research testing
 - Move to <a href="https://github.com/nhsuk/frontend">NHS.UK git repository</a>
+- NHS.UK eslint configuration
+- sass-lint SCSS lint configuration
 
 0.0.2 / 2018-03-30
 ===================
