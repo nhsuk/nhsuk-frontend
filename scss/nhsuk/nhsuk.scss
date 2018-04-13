@@ -2,48 +2,26 @@
 // GOV.UK front-end
 //
 
-@import "govuk-frontend/globals/common";
+@import 'govuk-frontend/globals/common';
 
 // 
 // NHS.UK front-end
 //
 
-@import "nhsuk-frontend/globals/overrides/grid";
+@import 'nhsuk-frontend/globals/overrides/grid';
 
 // Core
 
-@import "nhsuk-frontend/globals/common";
+@import 'nhsuk-frontend/globals/common';
 
 // Examples
 
-@import "nhsuk-frontend/examples/code";
-@import "nhsuk-frontend/examples/page";
-@import "nhsuk-frontend/examples/grid";
+@import 'nhsuk-frontend/examples/code';
+@import 'nhsuk-frontend/examples/page';
+@import 'nhsuk-frontend/examples/grid';
 
 // Components
 
-@import "nhsuk-frontend/components/nhs-global-header";
-@import "nhsuk-frontend/components/nhs-hero";
-@import "nhsuk-frontend/components/nhs-care-cards";
-
-@mixin visually-hidden(){
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
-.visually-hidden{
-    @include visually-hidden();
-}
-
-a:focus {
-    outline: 0;
-    -webkit-box-shadow: 0 0 0 4px #FFB81C;
-    -moz-box-shadow: 0 0 0 4px #FFB81C;
-    box-shadow: 0 0 0 4px #FFB81C;
-  }
+@import 'nhsuk-frontend/components/nhs-global-header';
+@import 'nhsuk-frontend/components/nhs-hero';
+@import 'nhsuk-frontend/components/nhs-care-cards';

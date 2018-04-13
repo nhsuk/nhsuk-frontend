@@ -1,3 +1,4 @@
+// sass-lint:disable no-color-hex
 // Primary NHS blues
 // =================
 $blue: #005eb8;
@@ -6,8 +7,8 @@ $blue-10: #e6eff8;
 $dark-blue: #003087;
 $bright-blue: #0072ce;
 
-$nhs-light-blue: #41B6E6;
-$nhs-aqua-blue: #00A9CE;
+$nhs-light-blue: #41b6e6;
+$nhs-aqua-blue: #00a9ce;
 
 // NHS greyscale
 // =============
@@ -15,7 +16,7 @@ $nhs-aqua-blue: #00A9CE;
 // Uses NHS brand colours as a foundation for the first 2 steps
 // and adds three modified greys
 $black: #231f20;
-$grey: #E8EDEE;
+$grey: #e8edee;
 $grey-1: #425563;
 $grey-2: #768692;
 $grey-3: #aeb7bd;
@@ -45,19 +46,20 @@ $yellow-10: #fdf2d5;
 /// @param {Number} $percentage - percentage of `$color` in returned color
 /// @return {Color}
 @function tint($color, $percentage) {
-    @return mix(white, $color, $percentage);
-  }
+  @return mix(white, $color, $percentage);
+}
 
-  /// Slightly darken a color
-  /// @access public
-  /// @param {Color} $color - color to shade
-  /// @param {Number} $percentage - percentage of `$color` in returned color
-  /// @return {Color}
-  @function shade($color, $percentage) {
-    @return mix(black, $color, $percentage);
-  }
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
 
 //base colours
+<<<<<<< HEAD
 $nhs-blue-aaa:#0058ad;
 $nhs-red-aaa:#ad1f15;
 $nhs-black:#212b32;
@@ -68,355 +70,347 @@ $nhs-green-aaa:#006644;
 //gov.uk $link-visited-colour
 $nhs-purple:#330072;
 
+=======
+$nhs-blue-aaa: #0058ad;
+$nhs-red-aaa: #ad1f15;
+$nhs-black: #212b32;
+$nhs-grey: #425563;
+$nhs-yellow-aaa: #fced66;
+$nhs-green-aaa: #006644;
+
+//gov.uk $link-visited-colour
+$nhs-purple: #4c2c92;
+>>>>>>> 6bef4963305e78bcb744ebfcaa8fa431f2d42c7a
 
 //COLOUR PALETTE GENERATOR
 
 //tints of $nhs-blue-aaa
-$nhs-blue-aaa-lighten-10:tint($nhs-blue-aaa,10%);
-$nhs-blue-aaa-lighten-20:tint($nhs-blue-aaa,20%);
-$nhs-blue-aaa-lighten-30:tint($nhs-blue-aaa,30%);
-$nhs-blue-aaa-lighten-40:tint($nhs-blue-aaa,40%);
-$nhs-blue-aaa-lighten-50:tint($nhs-blue-aaa,50%);
-$nhs-blue-aaa-lighten-60:tint($nhs-blue-aaa,60%);
-$nhs-blue-aaa-lighten-70:tint($nhs-blue-aaa,70%);
-$nhs-blue-aaa-lighten-80:tint($nhs-blue-aaa,80%);
-$nhs-blue-aaa-lighten-90:tint($nhs-blue-aaa,90%);
+$nhs-blue-aaa-lighten-10: tint($nhs-blue-aaa, 10%);
+$nhs-blue-aaa-lighten-20: tint($nhs-blue-aaa, 20%);
+$nhs-blue-aaa-lighten-30: tint($nhs-blue-aaa, 30%);
+$nhs-blue-aaa-lighten-40: tint($nhs-blue-aaa, 40%);
+$nhs-blue-aaa-lighten-50: tint($nhs-blue-aaa, 50%);
+$nhs-blue-aaa-lighten-60: tint($nhs-blue-aaa, 60%);
+$nhs-blue-aaa-lighten-70: tint($nhs-blue-aaa, 70%);
+$nhs-blue-aaa-lighten-80: tint($nhs-blue-aaa, 80%);
+$nhs-blue-aaa-lighten-90: tint($nhs-blue-aaa, 90%);
 //shades
-$nhs-blue-aaa-darken-10:shade($nhs-blue-aaa,10%);
-$nhs-blue-aaa-darken-20:shade($nhs-blue-aaa,20%);
-$nhs-blue-aaa-darken-30:shade($nhs-blue-aaa,30%);
-$nhs-blue-aaa-darken-40:shade($nhs-blue-aaa,40%);
-$nhs-blue-aaa-darken-50:shade($nhs-blue-aaa,50%);
-$nhs-blue-aaa-darken-60:shade($nhs-blue-aaa,60%);
-$nhs-blue-aaa-darken-70:shade($nhs-blue-aaa,70%);
-$nhs-blue-aaa-darken-80:shade($nhs-blue-aaa,80%);
-$nhs-blue-aaa-darken-90:shade($nhs-blue-aaa,90%);
-
-
+$nhs-blue-aaa-darken-10: shade($nhs-blue-aaa, 10%);
+$nhs-blue-aaa-darken-20: shade($nhs-blue-aaa, 20%);
+$nhs-blue-aaa-darken-30: shade($nhs-blue-aaa, 30%);
+$nhs-blue-aaa-darken-40: shade($nhs-blue-aaa, 40%);
+$nhs-blue-aaa-darken-50: shade($nhs-blue-aaa, 50%);
+$nhs-blue-aaa-darken-60: shade($nhs-blue-aaa, 60%);
+$nhs-blue-aaa-darken-70: shade($nhs-blue-aaa, 70%);
+$nhs-blue-aaa-darken-80: shade($nhs-blue-aaa, 80%);
+$nhs-blue-aaa-darken-90: shade($nhs-blue-aaa, 90%);
 
 //tints of $nhs-red-aaa
-$nhs-red-aaa-lighten-10:tint($nhs-red-aaa,10%);
-$nhs-red-aaa-lighten-20:tint($nhs-red-aaa,20%);
-$nhs-red-aaa-lighten-30:tint($nhs-red-aaa,30%);
-$nhs-red-aaa-lighten-40:tint($nhs-red-aaa,40%);
-$nhs-red-aaa-lighten-50:tint($nhs-red-aaa,50%);
-$nhs-red-aaa-lighten-60:tint($nhs-red-aaa,60%);
-$nhs-red-aaa-lighten-70:tint($nhs-red-aaa,70%);
-$nhs-red-aaa-lighten-80:tint($nhs-red-aaa,80%);
-$nhs-red-aaa-lighten-90:tint($nhs-red-aaa,90%);
+$nhs-red-aaa-lighten-10: tint($nhs-red-aaa, 10%);
+$nhs-red-aaa-lighten-20: tint($nhs-red-aaa, 20%);
+$nhs-red-aaa-lighten-30: tint($nhs-red-aaa, 30%);
+$nhs-red-aaa-lighten-40: tint($nhs-red-aaa, 40%);
+$nhs-red-aaa-lighten-50: tint($nhs-red-aaa, 50%);
+$nhs-red-aaa-lighten-60: tint($nhs-red-aaa, 60%);
+$nhs-red-aaa-lighten-70: tint($nhs-red-aaa, 70%);
+$nhs-red-aaa-lighten-80: tint($nhs-red-aaa, 80%);
+$nhs-red-aaa-lighten-90: tint($nhs-red-aaa, 90%);
 //shades
-$nhs-red-aaa-darken-10:shade($nhs-red-aaa,10%);
-$nhs-red-aaa-darken-20:shade($nhs-red-aaa,20%);
-$nhs-red-aaa-darken-30:shade($nhs-red-aaa,30%);
-$nhs-red-aaa-darken-40:shade($nhs-red-aaa,40%);
-$nhs-red-aaa-darken-50:shade($nhs-red-aaa,50%);
-$nhs-red-aaa-darken-60:shade($nhs-red-aaa,60%);
-$nhs-red-aaa-darken-70:shade($nhs-red-aaa,70%);
-$nhs-red-aaa-darken-80:shade($nhs-red-aaa,80%);
-$nhs-red-aaa-darken-90:shade($nhs-red-aaa,90%);
-
+$nhs-red-aaa-darken-10: shade($nhs-red-aaa, 10%);
+$nhs-red-aaa-darken-20: shade($nhs-red-aaa, 20%);
+$nhs-red-aaa-darken-30: shade($nhs-red-aaa, 30%);
+$nhs-red-aaa-darken-40: shade($nhs-red-aaa, 40%);
+$nhs-red-aaa-darken-50: shade($nhs-red-aaa, 50%);
+$nhs-red-aaa-darken-60: shade($nhs-red-aaa, 60%);
+$nhs-red-aaa-darken-70: shade($nhs-red-aaa, 70%);
+$nhs-red-aaa-darken-80: shade($nhs-red-aaa, 80%);
+$nhs-red-aaa-darken-90: shade($nhs-red-aaa, 90%);
 
 //tints of $nhs-black
-$nhs-black-lighten-10:tint($nhs-black,10%);
-$nhs-black-lighten-20:tint($nhs-black,20%);
-$nhs-black-lighten-30:tint($nhs-black,30%);
-$nhs-black-lighten-40:tint($nhs-black,40%);
-$nhs-black-lighten-50:tint($nhs-black,50%);
-$nhs-black-lighten-60:tint($nhs-black,60%);
-$nhs-black-lighten-70:tint($nhs-black,70%);
-$nhs-black-lighten-80:tint($nhs-black,80%);
-$nhs-black-lighten-90:tint($nhs-black,90%);
+$nhs-black-lighten-10: tint($nhs-black, 10%);
+$nhs-black-lighten-20: tint($nhs-black, 20%);
+$nhs-black-lighten-30: tint($nhs-black, 30%);
+$nhs-black-lighten-40: tint($nhs-black, 40%);
+$nhs-black-lighten-50: tint($nhs-black, 50%);
+$nhs-black-lighten-60: tint($nhs-black, 60%);
+$nhs-black-lighten-70: tint($nhs-black, 70%);
+$nhs-black-lighten-80: tint($nhs-black, 80%);
+$nhs-black-lighten-90: tint($nhs-black, 90%);
 //shades
-$nhs-black-darken-10:shade($nhs-black,10%);
-$nhs-black-darken-20:shade($nhs-black,20%);
-$nhs-black-darken-30:shade($nhs-black,30%);
-$nhs-black-darken-40:shade($nhs-black,40%);
-$nhs-black-darken-50:shade($nhs-black,50%);
-$nhs-black-darken-60:shade($nhs-black,60%);
-$nhs-black-darken-70:shade($nhs-black,70%);
-$nhs-black-darken-80:shade($nhs-black,80%);
-$nhs-black-darken-90:shade($nhs-black,90%);
+$nhs-black-darken-10: shade($nhs-black, 10%);
+$nhs-black-darken-20: shade($nhs-black, 20%);
+$nhs-black-darken-30: shade($nhs-black, 30%);
+$nhs-black-darken-40: shade($nhs-black, 40%);
+$nhs-black-darken-50: shade($nhs-black, 50%);
+$nhs-black-darken-60: shade($nhs-black, 60%);
+$nhs-black-darken-70: shade($nhs-black, 70%);
+$nhs-black-darken-80: shade($nhs-black, 80%);
+$nhs-black-darken-90: shade($nhs-black, 90%);
 
 
 //tints of $nhs-grey
-$nhs-grey-lighten-10:tint($nhs-grey,10%);
-$nhs-grey-lighten-20:tint($nhs-grey,20%);
-$nhs-grey-lighten-30:tint($nhs-grey,30%);
-$nhs-grey-lighten-40:tint($nhs-grey,40%);
-$nhs-grey-lighten-50:tint($nhs-grey,50%);
-$nhs-grey-lighten-60:tint($nhs-grey,60%);
-$nhs-grey-lighten-70:tint($nhs-grey,70%);
-$nhs-grey-lighten-80:tint($nhs-grey,80%);
-$nhs-grey-lighten-90:tint($nhs-grey,90%);
-$nhs-grey-lighten-95:tint($nhs-grey,95%);
+$nhs-grey-lighten-10: tint($nhs-grey, 10%);
+$nhs-grey-lighten-20: tint($nhs-grey, 20%);
+$nhs-grey-lighten-30: tint($nhs-grey, 30%);
+$nhs-grey-lighten-40: tint($nhs-grey, 40%);
+$nhs-grey-lighten-50: tint($nhs-grey, 50%);
+$nhs-grey-lighten-60: tint($nhs-grey, 60%);
+$nhs-grey-lighten-70: tint($nhs-grey, 70%);
+$nhs-grey-lighten-80: tint($nhs-grey, 80%);
+$nhs-grey-lighten-90: tint($nhs-grey, 90%);
+$nhs-grey-lighten-95: tint($nhs-grey, 95%);
 //shades
-$nhs-grey-darken-10:shade($nhs-grey,10%);
-$nhs-grey-darken-20:shade($nhs-grey,20%);
-$nhs-grey-darken-30:shade($nhs-grey,30%);
-$nhs-grey-darken-40:shade($nhs-grey,40%);
-$nhs-grey-darken-50:shade($nhs-grey,50%);
-$nhs-grey-darken-60:shade($nhs-grey,60%);
-$nhs-grey-darken-70:shade($nhs-grey,70%);
-$nhs-grey-darken-80:shade($nhs-grey,80%);
-$nhs-grey-darken-90:shade($nhs-grey,90%);
-
-
+$nhs-grey-darken-10: shade($nhs-grey, 10%);
+$nhs-grey-darken-20: shade($nhs-grey, 20%);
+$nhs-grey-darken-30: shade($nhs-grey, 30%);
+$nhs-grey-darken-40: shade($nhs-grey, 40%);
+$nhs-grey-darken-50: shade($nhs-grey, 50%);
+$nhs-grey-darken-60: shade($nhs-grey, 60%);
+$nhs-grey-darken-70: shade($nhs-grey, 70%);
+$nhs-grey-darken-80: shade($nhs-grey, 80%);
+$nhs-grey-darken-90: shade($nhs-grey, 90%);
 
 //tints of $nhs-yellow-aaa
-$nhs-yellow-aaa-lighten-10:tint($nhs-yellow-aaa,10%);
-$nhs-yellow-aaa-lighten-20:tint($nhs-yellow-aaa,20%);
-$nhs-yellow-aaa-lighten-30:tint($nhs-yellow-aaa,30%);
-$nhs-yellow-aaa-lighten-40:tint($nhs-yellow-aaa,40%);
-$nhs-yellow-aaa-lighten-50:tint($nhs-yellow-aaa,50%);
-$nhs-yellow-aaa-lighten-60:tint($nhs-yellow-aaa,60%);
-$nhs-yellow-aaa-lighten-70:tint($nhs-yellow-aaa,70%);
-$nhs-yellow-aaa-lighten-80:tint($nhs-yellow-aaa,80%);
-$nhs-yellow-aaa-lighten-90:tint($nhs-yellow-aaa,90%);
+$nhs-yellow-aaa-lighten-10: tint($nhs-yellow-aaa, 10%);
+$nhs-yellow-aaa-lighten-20: tint($nhs-yellow-aaa, 20%);
+$nhs-yellow-aaa-lighten-30: tint($nhs-yellow-aaa, 30%);
+$nhs-yellow-aaa-lighten-40: tint($nhs-yellow-aaa, 40%);
+$nhs-yellow-aaa-lighten-50: tint($nhs-yellow-aaa, 50%);
+$nhs-yellow-aaa-lighten-60: tint($nhs-yellow-aaa, 60%);
+$nhs-yellow-aaa-lighten-70: tint($nhs-yellow-aaa, 70%);
+$nhs-yellow-aaa-lighten-80: tint($nhs-yellow-aaa, 80%);
+$nhs-yellow-aaa-lighten-90: tint($nhs-yellow-aaa, 90%);
 //shades
-$nhs-yellow-aaa-darken-10:shade($nhs-yellow-aaa,10%);
-$nhs-yellow-aaa-darken-20:shade($nhs-yellow-aaa,20%);
-$nhs-yellow-aaa-darken-30:shade($nhs-yellow-aaa,30%);
-$nhs-yellow-aaa-darken-40:shade($nhs-yellow-aaa,40%);
-$nhs-yellow-aaa-darken-50:shade($nhs-yellow-aaa,50%);
-$nhs-yellow-aaa-darken-60:shade($nhs-yellow-aaa,60%);
-$nhs-yellow-aaa-darken-70:shade($nhs-yellow-aaa,70%);
-$nhs-yellow-aaa-darken-80:shade($nhs-yellow-aaa,80%);
-$nhs-yellow-aaa-darken-90:shade($nhs-yellow-aaa,90%);
-
-
+$nhs-yellow-aaa-darken-10: shade($nhs-yellow-aaa, 10%);
+$nhs-yellow-aaa-darken-20: shade($nhs-yellow-aaa, 20%);
+$nhs-yellow-aaa-darken-30: shade($nhs-yellow-aaa, 30%);
+$nhs-yellow-aaa-darken-40: shade($nhs-yellow-aaa, 40%);
+$nhs-yellow-aaa-darken-50: shade($nhs-yellow-aaa, 50%);
+$nhs-yellow-aaa-darken-60: shade($nhs-yellow-aaa, 60%);
+$nhs-yellow-aaa-darken-70: shade($nhs-yellow-aaa, 70%);
+$nhs-yellow-aaa-darken-80: shade($nhs-yellow-aaa, 80%);
+$nhs-yellow-aaa-darken-90: shade($nhs-yellow-aaa, 90%);
 
 //tints of $nhs-green-aaa
-$nhs-green-aaa-lighten-10:tint($nhs-green-aaa,10%);
-$nhs-green-aaa-lighten-20:tint($nhs-green-aaa,20%);
-$nhs-green-aaa-lighten-30:tint($nhs-green-aaa,30%);
-$nhs-green-aaa-lighten-40:tint($nhs-green-aaa,40%);
-$nhs-green-aaa-lighten-50:tint($nhs-green-aaa,50%);
-$nhs-green-aaa-lighten-60:tint($nhs-green-aaa,60%);
-$nhs-green-aaa-lighten-70:tint($nhs-green-aaa,70%);
-$nhs-green-aaa-lighten-80:tint($nhs-green-aaa,80%);
-$nhs-green-aaa-lighten-90:tint($nhs-green-aaa,90%);
-//shades
-$nhs-green-aaa-darken-10:shade($nhs-green-aaa,10%);
-$nhs-green-aaa-darken-20:shade($nhs-green-aaa,20%);
-$nhs-green-aaa-darken-30:shade($nhs-green-aaa,30%);
-$nhs-green-aaa-darken-40:shade($nhs-green-aaa,40%);
-$nhs-green-aaa-darken-50:shade($nhs-green-aaa,50%);
-$nhs-green-aaa-darken-60:shade($nhs-green-aaa,60%);
-$nhs-green-aaa-darken-70:shade($nhs-green-aaa,70%);
-$nhs-green-aaa-darken-80:shade($nhs-green-aaa,80%);
-$nhs-green-aaa-darken-90:shade($nhs-green-aaa,90%);
+$nhs-green-aaa-lighten-10: tint($nhs-green-aaa, 10%);
+$nhs-green-aaa-lighten-20: tint($nhs-green-aaa, 20%);
+$nhs-green-aaa-lighten-30: tint($nhs-green-aaa, 30%);
+$nhs-green-aaa-lighten-40: tint($nhs-green-aaa, 40%);
+$nhs-green-aaa-lighten-50: tint($nhs-green-aaa, 50%);
+$nhs-green-aaa-lighten-60: tint($nhs-green-aaa, 60%);
+$nhs-green-aaa-lighten-70: tint($nhs-green-aaa, 70%);
+$nhs-green-aaa-lighten-80: tint($nhs-green-aaa, 80%);
+$nhs-green-aaa-lighten-90: tint($nhs-green-aaa, 90%);
 
+//shades
+$nhs-green-aaa-darken-10: shade($nhs-green-aaa, 10%);
+$nhs-green-aaa-darken-20: shade($nhs-green-aaa, 20%);
+$nhs-green-aaa-darken-30: shade($nhs-green-aaa, 30%);
+$nhs-green-aaa-darken-40: shade($nhs-green-aaa, 40%);
+$nhs-green-aaa-darken-50: shade($nhs-green-aaa, 50%);
+$nhs-green-aaa-darken-60: shade($nhs-green-aaa, 60%);
+$nhs-green-aaa-darken-70: shade($nhs-green-aaa, 70%);
+$nhs-green-aaa-darken-80: shade($nhs-green-aaa, 80%);
+$nhs-green-aaa-darken-90: shade($nhs-green-aaa, 90%);
 
 //tints of $nhs-purple
-$nhs-purple-lighten-10:tint($nhs-purple,10%);
-$nhs-purple-lighten-20:tint($nhs-purple,20%);
-$nhs-purple-lighten-30:tint($nhs-purple,30%);
-$nhs-purple-lighten-40:tint($nhs-purple,40%);
-$nhs-purple-lighten-50:tint($nhs-purple,50%);
-$nhs-purple-lighten-60:tint($nhs-purple,60%);
-$nhs-purple-lighten-70:tint($nhs-purple,70%);
-$nhs-purple-lighten-80:tint($nhs-purple,80%);
-$nhs-purple-lighten-90:tint($nhs-purple,90%);
+$nhs-purple-lighten-10: tint($nhs-purple, 10%);
+$nhs-purple-lighten-20: tint($nhs-purple, 20%);
+$nhs-purple-lighten-30: tint($nhs-purple, 30%);
+$nhs-purple-lighten-40: tint($nhs-purple, 40%);
+$nhs-purple-lighten-50: tint($nhs-purple, 50%);
+$nhs-purple-lighten-60: tint($nhs-purple, 60%);
+$nhs-purple-lighten-70: tint($nhs-purple, 70%);
+$nhs-purple-lighten-80: tint($nhs-purple, 80%);
+$nhs-purple-lighten-90: tint($nhs-purple, 90%);
+
 //shades
-$nhs-purple-darken-10:shade($nhs-purple,10%);
-$nhs-purple-darken-20:shade($nhs-purple,20%);
-$nhs-purple-darken-30:shade($nhs-purple,30%);
-$nhs-purple-darken-40:shade($nhs-purple,40%);
-$nhs-purple-darken-50:shade($nhs-purple,50%);
-$nhs-purple-darken-60:shade($nhs-purple,60%);
-$nhs-purple-darken-70:shade($nhs-purple,70%);
-$nhs-purple-darken-80:shade($nhs-purple,80%);
-$nhs-purple-darken-90:shade($nhs-purple,90%);
-
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+$nhs-purple-darken-10: shade($nhs-purple, 10%);
+$nhs-purple-darken-20: shade($nhs-purple, 20%);
+$nhs-purple-darken-30: shade($nhs-purple, 30%);
+$nhs-purple-darken-40: shade($nhs-purple, 40%);
+$nhs-purple-darken-50: shade($nhs-purple, 50%);
+$nhs-purple-darken-60: shade($nhs-purple, 60%);
+$nhs-purple-darken-70: shade($nhs-purple, 70%);
+$nhs-purple-darken-80: shade($nhs-purple, 80%);
+$nhs-purple-darken-90: shade($nhs-purple, 90%);
 
 //nhs redesign palette
-.colour-palette{
-    @include flexbox();
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    margin:40px -8px 40px -8px;
-    .colour-palette_item{
-        width: 100% !important;
-        margin:0;
-        padding:8px;
-        float: left;
-        @media (min-width: 641px) {
-            width: calc(100% * (1/2) - 15px) !important;
-        }
-        .colour-palette_variant{
-            padding:15px;
-            width:100%;
-            color:white;
-            font-size:16px;
-            &.colour-palette_variant--base{
-                padding:30px 15px;
-                font-size:21px;
-            }
-            &.font-colour-black{
-                color:$nhs-black;
-            }
-        }
+.colour-palette {
+  @include flexbox();
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  margin: 40px -8px;
+  .colour-palette_item {
+    float: left;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    @media (min-width: 641px) {
+      width: calc(100% * (1/2) - 15px);
     }
+    .colour-palette_variant {
+      color: $white;
+      font-size: 16px;
+      padding: 15px;
+      width: 100%;
+      &.colour-palette_variant--base {
+        font-size: 21px;
+        padding: 30px 15px;
+      }
+      &.font-colour-black {
+        color: $nhs-black;
+      }
+    }
+  }
 }
 
 //blues
-.nhs-blue-aaa{background:$nhs-blue-aaa;}
-.nhs-blue-aaa-lighten-10{background:$nhs-blue-aaa-lighten-10;}
-.nhs-blue-aaa-lighten-20{background:$nhs-blue-aaa-lighten-20;}
-.nhs-blue-aaa-lighten-30{background:$nhs-blue-aaa-lighten-30;}
-.nhs-blue-aaa-lighten-40{background:$nhs-blue-aaa-lighten-40;}
-.nhs-blue-aaa-lighten-50{background:$nhs-blue-aaa-lighten-50;}
-.nhs-blue-aaa-lighten-60{background:$nhs-blue-aaa-lighten-60;}
-.nhs-blue-aaa-lighten-70{background:$nhs-blue-aaa-lighten-70;}
-.nhs-blue-aaa-lighten-80{background:$nhs-blue-aaa-lighten-80;}
-.nhs-blue-aaa-lighten-90{background:$nhs-blue-aaa-lighten-90;}
-.nhs-blue-aaa-darken-10{background:$nhs-blue-aaa-darken-10;}
-.nhs-blue-aaa-darken-20{background:$nhs-blue-aaa-darken-20;}
-.nhs-blue-aaa-darken-30{background:$nhs-blue-aaa-darken-30;}
-.nhs-blue-aaa-darken-40{background:$nhs-blue-aaa-darken-40;}
-.nhs-blue-aaa-darken-50{background:$nhs-blue-aaa-darken-50;}
-.nhs-blue-aaa-darken-60{background:$nhs-blue-aaa-darken-60;}
-.nhs-blue-aaa-darken-70{background:$nhs-blue-aaa-darken-70;}
-.nhs-blue-aaa-darken-80{background:$nhs-blue-aaa-darken-80;}
-.nhs-blue-aaa-darken-90{background:$nhs-blue-aaa-darken-90;}
-
+.nhs-blue-aaa {background: $nhs-blue-aaa;}
+.nhs-blue-aaa-lighten-10 {background: $nhs-blue-aaa-lighten-10;}
+.nhs-blue-aaa-lighten-20 {background: $nhs-blue-aaa-lighten-20;}
+.nhs-blue-aaa-lighten-30 {background: $nhs-blue-aaa-lighten-30;}
+.nhs-blue-aaa-lighten-40 {background: $nhs-blue-aaa-lighten-40;}
+.nhs-blue-aaa-lighten-50 {background: $nhs-blue-aaa-lighten-50;}
+.nhs-blue-aaa-lighten-60 {background: $nhs-blue-aaa-lighten-60;}
+.nhs-blue-aaa-lighten-70 {background: $nhs-blue-aaa-lighten-70;}
+.nhs-blue-aaa-lighten-80 {background: $nhs-blue-aaa-lighten-80;}
+.nhs-blue-aaa-lighten-90 {background: $nhs-blue-aaa-lighten-90;}
+.nhs-blue-aaa-darken-10 {background: $nhs-blue-aaa-darken-10;}
+.nhs-blue-aaa-darken-20 {background: $nhs-blue-aaa-darken-20;}
+.nhs-blue-aaa-darken-30 {background: $nhs-blue-aaa-darken-30;}
+.nhs-blue-aaa-darken-40 {background: $nhs-blue-aaa-darken-40;}
+.nhs-blue-aaa-darken-50 {background: $nhs-blue-aaa-darken-50;}
+.nhs-blue-aaa-darken-60 {background: $nhs-blue-aaa-darken-60;}
+.nhs-blue-aaa-darken-70 {background: $nhs-blue-aaa-darken-70;}
+.nhs-blue-aaa-darken-80 {background: $nhs-blue-aaa-darken-80;}
+.nhs-blue-aaa-darken-90 {background: $nhs-blue-aaa-darken-90;}
 
 //reds
-.nhs-red-aaa{background:$nhs-red-aaa;}
-.nhs-red-aaa-lighten-10{background:$nhs-red-aaa-lighten-10;}
-.nhs-red-aaa-lighten-20{background:$nhs-red-aaa-lighten-20;}
-.nhs-red-aaa-lighten-30{background:$nhs-red-aaa-lighten-30;}
-.nhs-red-aaa-lighten-40{background:$nhs-red-aaa-lighten-40;}
-.nhs-red-aaa-lighten-50{background:$nhs-red-aaa-lighten-50;}
-.nhs-red-aaa-lighten-60{background:$nhs-red-aaa-lighten-60;}
-.nhs-red-aaa-lighten-70{background:$nhs-red-aaa-lighten-70;}
-.nhs-red-aaa-lighten-80{background:$nhs-red-aaa-lighten-80;}
-.nhs-red-aaa-lighten-90{background:$nhs-red-aaa-lighten-90;}
-.nhs-red-aaa-darken-10{background:$nhs-red-aaa-darken-10;}
-.nhs-red-aaa-darken-20{background:$nhs-red-aaa-darken-20;}
-.nhs-red-aaa-darken-30{background:$nhs-red-aaa-darken-30;}
-.nhs-red-aaa-darken-40{background:$nhs-red-aaa-darken-40;}
-.nhs-red-aaa-darken-50{background:$nhs-red-aaa-darken-50;}
-.nhs-red-aaa-darken-60{background:$nhs-red-aaa-darken-60;}
-.nhs-red-aaa-darken-70{background:$nhs-red-aaa-darken-70;}
-.nhs-red-aaa-darken-80{background:$nhs-red-aaa-darken-80;}
-.nhs-red-aaa-darken-90{background:$nhs-red-aaa-darken-90;}
-
+.nhs-red-aaa {background: $nhs-red-aaa;}
+.nhs-red-aaa-lighten-10 {background: $nhs-red-aaa-lighten-10;}
+.nhs-red-aaa-lighten-20 {background: $nhs-red-aaa-lighten-20;}
+.nhs-red-aaa-lighten-30 {background: $nhs-red-aaa-lighten-30;}
+.nhs-red-aaa-lighten-40 {background: $nhs-red-aaa-lighten-40;}
+.nhs-red-aaa-lighten-50 {background: $nhs-red-aaa-lighten-50;}
+.nhs-red-aaa-lighten-60 {background: $nhs-red-aaa-lighten-60;}
+.nhs-red-aaa-lighten-70 {background: $nhs-red-aaa-lighten-70;}
+.nhs-red-aaa-lighten-80 {background: $nhs-red-aaa-lighten-80;}
+.nhs-red-aaa-lighten-90 {background: $nhs-red-aaa-lighten-90;}
+.nhs-red-aaa-darken-10 {background: $nhs-red-aaa-darken-10;}
+.nhs-red-aaa-darken-20 {background: $nhs-red-aaa-darken-20;}
+.nhs-red-aaa-darken-30 {background: $nhs-red-aaa-darken-30;}
+.nhs-red-aaa-darken-40 {background: $nhs-red-aaa-darken-40;}
+.nhs-red-aaa-darken-50 {background: $nhs-red-aaa-darken-50;}
+.nhs-red-aaa-darken-60 {background: $nhs-red-aaa-darken-60;}
+.nhs-red-aaa-darken-70 {background: $nhs-red-aaa-darken-70;}
+.nhs-red-aaa-darken-80 {background: $nhs-red-aaa-darken-80;}
+.nhs-red-aaa-darken-90 {background: $nhs-red-aaa-darken-90;}
 
 //blacks
-.nhs-black{background:$nhs-black;}
-.nhs-black-lighten-10{background:$nhs-black-lighten-10;}
-.nhs-black-lighten-20{background:$nhs-black-lighten-20;}
-.nhs-black-lighten-30{background:$nhs-black-lighten-30;}
-.nhs-black-lighten-40{background:$nhs-black-lighten-40;}
-.nhs-black-lighten-50{background:$nhs-black-lighten-50;}
-.nhs-black-lighten-60{background:$nhs-black-lighten-60;}
-.nhs-black-lighten-70{background:$nhs-black-lighten-70;}
-.nhs-black-lighten-80{background:$nhs-black-lighten-80;}
-.nhs-black-lighten-90{background:$nhs-black-lighten-90;}
-.nhs-black-darken-10{background:$nhs-black-darken-10;}
-.nhs-black-darken-20{background:$nhs-black-darken-20;}
-.nhs-black-darken-30{background:$nhs-black-darken-30;}
-.nhs-black-darken-40{background:$nhs-black-darken-40;}
-.nhs-black-darken-50{background:$nhs-black-darken-50;}
-.nhs-black-darken-60{background:$nhs-black-darken-60;}
-.nhs-black-darken-70{background:$nhs-black-darken-70;}
-.nhs-black-darken-80{background:$nhs-black-darken-80;}
-.nhs-black-darken-90{background:$nhs-black-darken-90;}
-
+.nhs-black {background: $nhs-black;}
+.nhs-black-lighten-10 {background: $nhs-black-lighten-10;}
+.nhs-black-lighten-20 {background: $nhs-black-lighten-20;}
+.nhs-black-lighten-30 {background: $nhs-black-lighten-30;}
+.nhs-black-lighten-40 {background: $nhs-black-lighten-40;}
+.nhs-black-lighten-50 {background: $nhs-black-lighten-50;}
+.nhs-black-lighten-60 {background: $nhs-black-lighten-60;}
+.nhs-black-lighten-70 {background: $nhs-black-lighten-70;}
+.nhs-black-lighten-80 {background: $nhs-black-lighten-80;}
+.nhs-black-lighten-90 {background: $nhs-black-lighten-90;}
+.nhs-black-darken-10 {background: $nhs-black-darken-10;}
+.nhs-black-darken-20 {background: $nhs-black-darken-20;}
+.nhs-black-darken-30 {background: $nhs-black-darken-30;}
+.nhs-black-darken-40 {background: $nhs-black-darken-40;}
+.nhs-black-darken-50 {background: $nhs-black-darken-50;}
+.nhs-black-darken-60 {background: $nhs-black-darken-60;}
+.nhs-black-darken-70 {background: $nhs-black-darken-70;}
+.nhs-black-darken-80 {background: $nhs-black-darken-80;}
+.nhs-black-darken-90 {background: $nhs-black-darken-90;}
 
 //nhs-grey
-.nhs-grey{background:$nhs-grey;}
-.nhs-grey-lighten-10{background:$nhs-grey-lighten-10;}
-.nhs-grey-lighten-20{background:$nhs-grey-lighten-20;}
-.nhs-grey-lighten-30{background:$nhs-grey-lighten-30;}
-.nhs-grey-lighten-40{background:$nhs-grey-lighten-40;}
-.nhs-grey-lighten-50{background:$nhs-grey-lighten-50;}
-.nhs-grey-lighten-60{background:$nhs-grey-lighten-60;}
-.nhs-grey-lighten-70{background:$nhs-grey-lighten-70;}
-.nhs-grey-lighten-80{background:$nhs-grey-lighten-80;}
-.nhs-grey-lighten-90{background:$nhs-grey-lighten-90;}
-.nhs-grey-darken-10{background:$nhs-grey-darken-10;}
-.nhs-grey-darken-20{background:$nhs-grey-darken-20;}
-.nhs-grey-darken-30{background:$nhs-grey-darken-30;}
-.nhs-grey-darken-40{background:$nhs-grey-darken-40;}
-.nhs-grey-darken-50{background:$nhs-grey-darken-50;}
-.nhs-grey-darken-60{background:$nhs-grey-darken-60;}
-.nhs-grey-darken-70{background:$nhs-grey-darken-70;}
-.nhs-grey-darken-80{background:$nhs-grey-darken-80;}
-.nhs-grey-darken-90{background:$nhs-grey-darken-90;}
-
+.nhs-grey {background: $nhs-grey;}
+.nhs-grey-lighten-10 {background: $nhs-grey-lighten-10;}
+.nhs-grey-lighten-20 {background: $nhs-grey-lighten-20;}
+.nhs-grey-lighten-30 {background: $nhs-grey-lighten-30;}
+.nhs-grey-lighten-40 {background: $nhs-grey-lighten-40;}
+.nhs-grey-lighten-50 {background: $nhs-grey-lighten-50;}
+.nhs-grey-lighten-60 {background: $nhs-grey-lighten-60;}
+.nhs-grey-lighten-70 {background: $nhs-grey-lighten-70;}
+.nhs-grey-lighten-80 {background: $nhs-grey-lighten-80;}
+.nhs-grey-lighten-90 {background: $nhs-grey-lighten-90;}
+.nhs-grey-darken-10 {background: $nhs-grey-darken-10;}
+.nhs-grey-darken-20 {background: $nhs-grey-darken-20;}
+.nhs-grey-darken-30 {background: $nhs-grey-darken-30;}
+.nhs-grey-darken-40 {background: $nhs-grey-darken-40;}
+.nhs-grey-darken-50 {background: $nhs-grey-darken-50;}
+.nhs-grey-darken-60 {background: $nhs-grey-darken-60;}
+.nhs-grey-darken-70 {background: $nhs-grey-darken-70;}
+.nhs-grey-darken-80 {background: $nhs-grey-darken-80;}
+.nhs-grey-darken-90 {background: $nhs-grey-darken-90;}
 
 //yellow-aaa
-.nhs-yellow-aaa{background:$nhs-yellow-aaa;}
-.nhs-yellow-aaa-lighten-10{background:$nhs-yellow-aaa-lighten-10;}
-.nhs-yellow-aaa-lighten-20{background:$nhs-yellow-aaa-lighten-20;}
-.nhs-yellow-aaa-lighten-30{background:$nhs-yellow-aaa-lighten-30;}
-.nhs-yellow-aaa-lighten-40{background:$nhs-yellow-aaa-lighten-40;}
-.nhs-yellow-aaa-lighten-50{background:$nhs-yellow-aaa-lighten-50;}
-.nhs-yellow-aaa-lighten-60{background:$nhs-yellow-aaa-lighten-60;}
-.nhs-yellow-aaa-lighten-70{background:$nhs-yellow-aaa-lighten-70;}
-.nhs-yellow-aaa-lighten-80{background:$nhs-yellow-aaa-lighten-80;}
-.nhs-yellow-aaa-lighten-90{background:$nhs-yellow-aaa-lighten-90;}
-.nhs-yellow-aaa-darken-10{background:$nhs-yellow-aaa-darken-10;}
-.nhs-yellow-aaa-darken-20{background:$nhs-yellow-aaa-darken-20;}
-.nhs-yellow-aaa-darken-30{background:$nhs-yellow-aaa-darken-30;}
-.nhs-yellow-aaa-darken-40{background:$nhs-yellow-aaa-darken-40;}
-.nhs-yellow-aaa-darken-50{background:$nhs-yellow-aaa-darken-50;}
-.nhs-yellow-aaa-darken-60{background:$nhs-yellow-aaa-darken-60;}
-.nhs-yellow-aaa-darken-70{background:$nhs-yellow-aaa-darken-70;}
-.nhs-yellow-aaa-darken-80{background:$nhs-yellow-aaa-darken-80;}
-.nhs-yellow-aaa-darken-90{background:$nhs-yellow-aaa-darken-90;}
-
+.nhs-yellow-aaa {background: $nhs-yellow-aaa;}
+.nhs-yellow-aaa-lighten-10 {background: $nhs-yellow-aaa-lighten-10;}
+.nhs-yellow-aaa-lighten-20 {background: $nhs-yellow-aaa-lighten-20;}
+.nhs-yellow-aaa-lighten-30 {background: $nhs-yellow-aaa-lighten-30;}
+.nhs-yellow-aaa-lighten-40 {background: $nhs-yellow-aaa-lighten-40;}
+.nhs-yellow-aaa-lighten-50 {background: $nhs-yellow-aaa-lighten-50;}
+.nhs-yellow-aaa-lighten-60 {background: $nhs-yellow-aaa-lighten-60;}
+.nhs-yellow-aaa-lighten-70 {background: $nhs-yellow-aaa-lighten-70;}
+.nhs-yellow-aaa-lighten-80 {background: $nhs-yellow-aaa-lighten-80;}
+.nhs-yellow-aaa-lighten-90 {background: $nhs-yellow-aaa-lighten-90;}
+.nhs-yellow-aaa-darken-10 {background: $nhs-yellow-aaa-darken-10;}
+.nhs-yellow-aaa-darken-20 {background: $nhs-yellow-aaa-darken-20;}
+.nhs-yellow-aaa-darken-30 {background: $nhs-yellow-aaa-darken-30;}
+.nhs-yellow-aaa-darken-40 {background: $nhs-yellow-aaa-darken-40;}
+.nhs-yellow-aaa-darken-50 {background: $nhs-yellow-aaa-darken-50;}
+.nhs-yellow-aaa-darken-60 {background: $nhs-yellow-aaa-darken-60;}
+.nhs-yellow-aaa-darken-70 {background: $nhs-yellow-aaa-darken-70;}
+.nhs-yellow-aaa-darken-80 {background: $nhs-yellow-aaa-darken-80;}
+.nhs-yellow-aaa-darken-90 {background: $nhs-yellow-aaa-darken-90;}
 
 //greens
-.nhs-green-aaa{background:$nhs-green-aaa;}
-.nhs-green-aaa-lighten-10{background:$nhs-green-aaa-lighten-10;}
-.nhs-green-aaa-lighten-20{background:$nhs-green-aaa-lighten-20;}
-.nhs-green-aaa-lighten-30{background:$nhs-green-aaa-lighten-30;}
-.nhs-green-aaa-lighten-40{background:$nhs-green-aaa-lighten-40;}
-.nhs-green-aaa-lighten-50{background:$nhs-green-aaa-lighten-50;}
-.nhs-green-aaa-lighten-60{background:$nhs-green-aaa-lighten-60;}
-.nhs-green-aaa-lighten-70{background:$nhs-green-aaa-lighten-70;}
-.nhs-green-aaa-lighten-80{background:$nhs-green-aaa-lighten-80;}
-.nhs-green-aaa-lighten-90{background:$nhs-green-aaa-lighten-90;}
-.nhs-green-aaa-darken-10{background:$nhs-green-aaa-darken-10;}
-.nhs-green-aaa-darken-20{background:$nhs-green-aaa-darken-20;}
-.nhs-green-aaa-darken-30{background:$nhs-green-aaa-darken-30;}
-.nhs-green-aaa-darken-40{background:$nhs-green-aaa-darken-40;}
-.nhs-green-aaa-darken-50{background:$nhs-green-aaa-darken-50;}
-.nhs-green-aaa-darken-60{background:$nhs-green-aaa-darken-60;}
-.nhs-green-aaa-darken-70{background:$nhs-green-aaa-darken-70;}
-.nhs-green-aaa-darken-80{background:$nhs-green-aaa-darken-80;}
-.nhs-green-aaa-darken-90{background:$nhs-green-aaa-darken-90;}
+.nhs-green-aaa {background: $nhs-green-aaa;}
+.nhs-green-aaa-lighten-10 {background: $nhs-green-aaa-lighten-10;}
+.nhs-green-aaa-lighten-20 {background: $nhs-green-aaa-lighten-20;}
+.nhs-green-aaa-lighten-30 {background: $nhs-green-aaa-lighten-30;}
+.nhs-green-aaa-lighten-40 {background: $nhs-green-aaa-lighten-40;}
+.nhs-green-aaa-lighten-50 {background: $nhs-green-aaa-lighten-50;}
+.nhs-green-aaa-lighten-60 {background: $nhs-green-aaa-lighten-60;}
+.nhs-green-aaa-lighten-70 {background: $nhs-green-aaa-lighten-70;}
+.nhs-green-aaa-lighten-80 {background: $nhs-green-aaa-lighten-80;}
+.nhs-green-aaa-lighten-90 {background: $nhs-green-aaa-lighten-90;}
+.nhs-green-aaa-darken-10 {background: $nhs-green-aaa-darken-10;}
+.nhs-green-aaa-darken-20 {background: $nhs-green-aaa-darken-20;}
+.nhs-green-aaa-darken-30 {background: $nhs-green-aaa-darken-30;}
+.nhs-green-aaa-darken-40 {background: $nhs-green-aaa-darken-40;}
+.nhs-green-aaa-darken-50 {background: $nhs-green-aaa-darken-50;}
+.nhs-green-aaa-darken-60 {background: $nhs-green-aaa-darken-60;}
+.nhs-green-aaa-darken-70 {background: $nhs-green-aaa-darken-70;}
+.nhs-green-aaa-darken-80 {background: $nhs-green-aaa-darken-80;}
+.nhs-green-aaa-darken-90 {background: $nhs-green-aaa-darken-90;}
 
 //purples
-.nhs-purple{background:$nhs-purple;}
-.nhs-purple-lighten-10{background:$nhs-purple-lighten-10;}
-.nhs-purple-lighten-20{background:$nhs-purple-lighten-20;}
-.nhs-purple-lighten-30{background:$nhs-purple-lighten-30;}
-.nhs-purple-lighten-40{background:$nhs-purple-lighten-40;}
-.nhs-purple-lighten-50{background:$nhs-purple-lighten-50;}
-.nhs-purple-lighten-60{background:$nhs-purple-lighten-60;}
-.nhs-purple-lighten-70{background:$nhs-purple-lighten-70;}
-.nhs-purple-lighten-80{background:$nhs-purple-lighten-80;}
-.nhs-purple-lighten-90{background:$nhs-purple-lighten-90;}
-.nhs-purple-darken-10{background:$nhs-purple-darken-10;}
-.nhs-purple-darken-20{background:$nhs-purple-darken-20;}
-.nhs-purple-darken-30{background:$nhs-purple-darken-30;}
-.nhs-purple-darken-40{background:$nhs-purple-darken-40;}
-.nhs-purple-darken-50{background:$nhs-purple-darken-50;}
-.nhs-purple-darken-60{background:$nhs-purple-darken-60;}
-.nhs-purple-darken-70{background:$nhs-purple-darken-70;}
-.nhs-purple-darken-80{background:$nhs-purple-darken-80;}
-.nhs-purple-darken-90{background:$nhs-purple-darken-90;}
-
+.nhs-purple {background: $nhs-purple;}
+.nhs-purple-lighten-10 {background: $nhs-purple-lighten-10;}
+.nhs-purple-lighten-20 {background: $nhs-purple-lighten-20;}
+.nhs-purple-lighten-30 {background: $nhs-purple-lighten-30;}
+.nhs-purple-lighten-40 {background: $nhs-purple-lighten-40;}
+.nhs-purple-lighten-50 {background: $nhs-purple-lighten-50;}
+.nhs-purple-lighten-60 {background: $nhs-purple-lighten-60;}
+.nhs-purple-lighten-70 {background: $nhs-purple-lighten-70;}
+.nhs-purple-lighten-80 {background: $nhs-purple-lighten-80;}
+.nhs-purple-lighten-90 {background: $nhs-purple-lighten-90;}
+.nhs-purple-darken-10 {background: $nhs-purple-darken-10;}
+.nhs-purple-darken-20 {background: $nhs-purple-darken-20;}
+.nhs-purple-darken-30 {background: $nhs-purple-darken-30;}
+.nhs-purple-darken-40 {background: $nhs-purple-darken-40;}
+.nhs-purple-darken-50 {background: $nhs-purple-darken-50;}
+.nhs-purple-darken-60 {background: $nhs-purple-darken-60;}
+.nhs-purple-darken-70 {background: $nhs-purple-darken-70;}
+.nhs-purple-darken-80 {background: $nhs-purple-darken-80;}
+.nhs-purple-darken-90 {background: $nhs-purple-darken-90;}
 
 // Semantic colour names
 // =====================
@@ -442,6 +436,6 @@ $link-visited-colour: $nhs-purple;
 
 $focus-colour: $yellow;
 
-$nhs-body-background-colour:$grey;
+$nhs-body-background-colour: $grey;
 
-$nhs-border-colour:darken($nhs-body-background-colour,15%);
+$nhs-border-colour: darken($nhs-body-background-colour, 15%);

@@ -1,7 +1,7 @@
 .nhsuk-page-header {
   h2 {
-    margin-top: 0;
     font-weight: 300;
+    margin-top: 0;
   }
 }
 
@@ -9,24 +9,12 @@
   .divider {
     background-color: $nhs-blue;
     height: 3px;
-    width: 50%;
     margin: 35px 0;
+    width: 50%;
   }
   a {
     &.active {
       color: $black;
-    }
-  }
-}
-
-.nhsuk-page-content {
-  .nhsuk-page__callout {
-    background-color: $white;
-    margin: 62px 0 32px 0;
-    h3 {
-      background-color: #333;
-      color: $white;
-      padding: 10px 20px;
     }
   }
 }

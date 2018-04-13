@@ -1,8 +1,8 @@
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
+h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
+.h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
+  color: inherit;
   font-weight: $nhs-font-bold;
   margin-bottom: 0;
-  color: inherit;
 }
 
 h1,
@@ -15,84 +15,84 @@ h1,
       line-height:36px;
       margin:48px 0 0;
     }
-}
-
+  }
+  
 h2,
-.nhs-heading-l{
-    font-size:32px;
-    line-height:40px;
-    margin:56px 0 0;
-    @media only screen and (max-width: 481px) {
-      font-size:24px;
-      line-height:32px;
-      margin:40px 0 0;
-    }
+.nhs-heading-l {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 56px 0 0;
+  @media only screen and (max-width: 481px) {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 40px 0 0;
+  }
 }
 
 h3,
-.nhs-heading-m{
-    font-size:24px;
-    line-height:32px;
-    margin:40px 0 0;
-    @media only screen and (max-width: 481px) {
-      font-size:20px;
-      line-height:28px;
-      margin:32px 0 0;
-    }
+.nhs-heading-m {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 40px 0 0;
+  @media only screen and (max-width: 481px) {
+    font-size: 20px;
+    line-height: 28px;
+    margin: 32px 0 0;
+  }
 }
 
 h4,
-.nhs-heading-s{
-    font-size:22px;
-    line-height:32px;
-    margin:32px 0 0;
-    @media only screen and (max-width: 481px) {
-      font-size:18px;
-      line-height:28px;
-      margin:24px 0 0;
-    }
+.nhs-heading-s {
+  font-size: 22px;
+  line-height: 32px;
+  margin: 32px 0 0;
+  @media only screen and (max-width: 481px) {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 24px 0 0;
+  }
 }
 
 h5,
-.nhs-heading-xs{
-    font-size:19px;
-    line-height:28px;
-    margin:24px 0 0;
-    @media only screen and (max-width: 481px) {
-      font-size:16px;
-      line-height:28px;
-      margin:20px 0 0;
-    }
+.nhs-heading-xs {
+  font-size: 19px;
+  line-height: 28px;
+  margin: 24px 0 0;
+  @media only screen and (max-width: 481px) {
+    font-size: 16px;
+    line-height: 28px;
+    margin: 20px 0 0;
+  }
 }
 
 p,
 .nhs-body {
   font-weight: $nhs-font-normal;
-  margin:24px 0 0;
+  margin: 24px 0 0;
   @media only screen and (max-width: 481px) {
-    margin:20px 0 0;
+    margin: 20px 0 0;
   }
 }
 
-.nhs-body-l{
-  font-size:24px;
-  line-height:32px;
-  margin:32px 0 0;
+.nhs-body-l {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 32px 0 0;
   @media only screen and (max-width: 481px) {
-    font-size:20px;
-    line-height:28px;
-    margin:24px 0 0;
+    font-size: 20px;
+    line-height: 28px;
+    margin: 24px 0 0;
   }
 }
 
-.nhs-body-s{
-  font-size:16px;
-  line-height:28px;
-  margin:20px 0 0;
+.nhs-body-s {
+  font-size: 16px;
+  line-height: 28px;
+  margin: 20px 0 0;
   @media only screen and (max-width: 481px) {
-    font-size:14px;
-    line-height:24px;
-    margin:16px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 16px 0 0;
   }
 }
 
@@ -101,33 +101,33 @@ a {
   &:hover {
     color: $link-hover-colour;
   }
-  &:active {
-
-  }
-  &:visited {
-    
+  &:focus {
+    box-shadow: 0 0 0 4px $yellow;
+    outline: 0;
   }
 }
 
-ul, ol {
+ul,
+ol {
   font-weight: $nhs-font-normal;
+  margin: 24px 0 0;
   padding-left: 20px;
-  margin:24px 0 0;
   @media only screen and (max-width: 481px) {
-    margin:20px 0 0;
+    margin: 20px 0 0;
   }
   li {
-    margin:12px 0 0;
+    margin: 12px 0 0;
     @media only screen and (max-width: 481px) {
-      margin:8px 0 0;
+      margin: 8px 0 0;
     }
-    &:first-child{
-      margin-top:0;
+    &:first-child {
+      margin-top: 0;
     }
   }
 }
 
-tr, th {
+tr,
+th {
   font-weight: $nhs-font-normal;
 }
 
@@ -135,124 +135,117 @@ strong {
   font-weight: $nhs-font-bold;
 }
 
-
-//custom style for new template design
-
-.nhs-page-heading{
-  padding:34px 0 64px; //margin top reduced by 30px due to padding on container
+.nhs-page-heading {
+  padding: 34px 0 64px;
   @media only screen and (max-width: 641px) {
-    padding:25px 0 40px; //margin top reduced by 15px due to padding on container
+    padding: 25px 0 40px;
   }
-  h1{
-    margin:0;
-    //color:$nhs-blue-aaa;
+  h1 {
+    margin: 0;
   }
 }
 
-.nhs-page-nav{
-  & > *:first-child{
-    margin-top:0;
+.nhs-page-nav {
+  & > *:first-child {
+    margin-top: 0;
   }
   @media only screen and (max-width: 641px) {
-    margin-bottom:44px;
+    margin-bottom: 44px;
   }
-    h2,
-    h3{
-      & + ol,
-      & + ul{
-        margin-top:12px;
-        @media only screen and (max-width: 641px) {
-          margin-top:8px;
-        }
+  h2,
+  h3 {
+    & + ol,
+    & + ul {
+      margin-top: 12px;
+      @media only screen and (max-width: 641px) {
+        margin-top: 8px;
       }
     }
   }
+}
 
-.nhs-sticky{
+.nhs-sticky {
   @media only screen and (min-width: 767px) {
-    position: -webkit-sticky;
     position: sticky;
     top: 40px;
   }
 }
 
 .nhs-page-content {
-  & > *:first-child{
-    margin-top:0;
+  & > *:first-child {
+    margin-top: 0;
   }
 }
 
-//heading captions
-@mixin caption(){
-  font-weight:400;
-  display:block;
-  color:$secondary-text-colour;
+@mixin caption() {
+  color: $secondary-text-colour;
+  display: block;
+  font-weight: 400;
 }
 
-.nhs-caption-xl{
+.nhs-caption-xl {
   @include caption;
-  font-size:24px;
-  line-height:32px;
+  font-size: 24px;
+  line-height: 32px;
   @media only screen and (max-width: 481px) {
-    font-size:20px;
-    line-height:28px;
+    font-size: 20px;
+    line-height: 28px;
   }
 }
 
-//new list styles
-@mixin nhs-list(){
+@mixin nhs-list() {
   font-weight: $nhs-font-normal;
+  margin: 20px 0 0;
   padding-left: 20px;
-  margin:20px 0 0;
   @media only screen and (max-width: 481px) {
-    margin:1em 0 0;
-    margin:16px 0 0;
+    margin: 16px 0 0;
   }
   li {
-    margin:8px 0 0;
-    line-height:32px;
+    line-height: 32px;
+    margin: 8px 0 0;
     @media only screen and (max-width: 481px) {
-      line-height:28px;
+      line-height: 28px;
     }
   }
 }
 
-.nhs-list--dashed{
+.nhs-list--dashed {
   @include nhs-list();
-  list-style:none;
+  list-style: none;
   list-style-position: inside;
-  padding:0;
-  li{
+  padding: 0;
+  li {
     margin-left: 25px;
     &:before {
-      content: "- ";
-      color:darken($nhs-border-colour,15%);
+      color: darken($nhs-border-colour, 15%);
+      content: '- ';
       margin-left: -25px;
       padding-right: 5px;
     }
   }
 }
 
-//spacing overrides
-.nhs-m-t-0{
-  margin-top:0;
+.nhs-m-t-0 {
+  margin-top: 0;
 }
 
-.reading-width{
+.reading-width {
   @include reading-width();
 }
 
-hr.nhs-h-line{
-  border:0;
-  margin:56px 0 0;//same margin size as a h2
-  border-top:1px solid $nhs-border-colour;
-  @media only screen and (max-width: 481px) {
-    margin:40px 0 0;//same margin size as a h2
+hr {
+  &.nhs-h-line {
+    border: 0;
+    border-top: 1px solid $nhs-border-colour;
+    margin: 56px 0 0;
+    @media only screen and (max-width: 481px) {
+      margin: 40px 0 0;
+    }
   }
 }
 
-.nhs-notice{
-  background:$nhs-blue-aaa;
-  color:white;
-  padding:8px 16px;
+.nhs-notice {
+  background: $nhs-blue-aaa;
+  color: $white;
+  padding: 8px 16px;
 }

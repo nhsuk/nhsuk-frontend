@@ -1,14 +1,17 @@
 // Settings
-@import "settings/variables";
-@import "settings/mixins";
-@import "settings/fonts";
-@import "settings/colours";
-@import "settings/typography";
-
+@import 'settings/variables';
+@import 'settings/mixins';
+@import 'settings/fonts';
+@import 'settings/colours';
+@import 'settings/typography';
 
 // Core
-@import "core/shared";
+@import 'core/shared';
+
+// Helpers
+@import 'helpers/visually-hidden';
+@import 'helpers/clearfix';
 
 // Overrides
-@import "overrides/grid";
+@import 'overrides/grid';
 

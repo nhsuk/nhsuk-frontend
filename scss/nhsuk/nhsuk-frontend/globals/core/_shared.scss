@@ -1,8 +1,14 @@
-@import "../settings/colours";
-@import "../settings/typography";
+@import '../settings/colours';
+@import '../settings/typography';
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 html,
-html *{
+html * {
   font-family: $nhs-font-stack;
 }
 
@@ -12,14 +18,14 @@ html {
 }
 
 body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background-color: $nhs-body-background-colour;
   font-size: $base-font-size;
   line-height: $base-line-height;
   margin: 0 0 $footer-height;
-  -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   @media only screen and (max-width: 481px) {
-       font-size: $base-font-size-mobile;
-       line-height: $base-line-height-mobile;
-    }
+    font-size: $base-font-size-mobile;
+    line-height: $base-line-height-mobile;
+  }
 }

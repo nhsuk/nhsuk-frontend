@@ -1,30 +1,22 @@
-@mixin clear(){
-    &:after{
-        content: "";
-        display: block;
-        clear: both;
+header {
+  .nhs-global-header {
+    background: $nhs-blue-aaa;
+    .nhs-global-header__inner {
+      .nhs-global-header__inner--logo {
+        @include clear();
+        padding: 20px 0;
+        a {
+          display: block;
+          float: left;
+          height: 32px;
+          width: 79px;
+          img {
+            height: 32px;
+            width: 79px;
+          }
+        }
+      }
     }
-}
-
-header{
-    .nhs-global-header{
-        background:$nhs-blue-aaa;
-        .nhs-global-header__inner{
-            .nhs-global-header__inner--logo{
-                padding:20px 0;
-                @include clear();
-                a{
-                    display:block;
-                    float:left;
-                    height:32px;
-                    width:79px;
-                    img{
-                        height:32px;
-                        width:79px;
-                    }
-                } 
-            }
-        } 
-    }
+  }
 }
 
