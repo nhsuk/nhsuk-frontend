@@ -6,17 +6,17 @@ h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 }
 
 h1,
-.nhs-heading-xl{
-    font-size:44px;
-    line-height:52px;
-    margin:64px 0 0;
-    @media only screen and (max-width: 481px) {
-      font-size:32px;
-      line-height:36px;
-      margin:48px 0 0;
-    }
+.nhs-heading-xl {
+  font-size: 44px;
+  line-height: 52px;
+  margin: 64px 0 0;
+  @media only screen and (max-width: 481px) {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 48px 0 0;
   }
-  
+}
+
 h2,
 .nhs-heading-l {
   font-size: 32px;
