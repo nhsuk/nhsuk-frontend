@@ -11,7 +11,7 @@
     "watch": "gulp watch & nodemon server.js",
     "predeploy": "git pull origin master",
     "deploy": "git push heroku master",
-    "linter": "./node_modules/.bin/eslint public/js/app.js"
+    "lint-js": "./node_modules/.bin/eslint public/js/*.js"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
@@ -38,6 +38,10 @@
   "devDependencies": {
     "concurrently": "^3.5.1",
     "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-nhsuk": "^0.15.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-mocha": "^5.0.0",
     "nodemon": "^1.17.2",
     "npm-check-updates": "^2.14.1",
     "reload": "^2.2.2"
