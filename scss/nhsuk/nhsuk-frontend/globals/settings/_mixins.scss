@@ -1,61 +1,33 @@
-//mixins for flexbox
+// sass-lint:disable no-duplicate-properties, property-sort-order
+
 @mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
 }
 
 @mixin flex($values) {
-  -webkit-box-flex: $values;
-  -moz-box-flex:  $values;
-  -webkit-flex:  $values;
-  -ms-flex:  $values;
   flex:  $values;
 }
 
 @mixin justify-content($val) {
-  -webkit-box-justify-content: $val;  
-  -moz-box-justify-content: $val;     
-  -ms-flex-justify-content: $val;     
-  -webkit-justify-content: $val;  
   justify-content: $val;
 }
 
 @mixin align-items($val) {
-  -webkit-box-align-items: $val;  
-  -moz-box-align-items: $val;     
-  -ms-flex-align-items: $val;     
-  -webkit-align-items: $val;  
   align-items: $val;
 }
 
 @mixin align-content($val) {
-  -webkit-box-align-content: $val;  
-  -moz-box-align-content: $val;     
-  -ms-flex-align-content: $val;     
-  -webkit-align-content: $val;  
   align-content: $val;
 }
 
 @mixin flex-wrap($val) {
-  -webkit-box-flex-wrap: $val;  
-  -moz-box-flex-wrap: $val;     
-  -ms-flex-flex-wrap: $val;     
-  -webkit-flex-wrap: $val;  
   flex-wrap: $val;
 }
 
 @mixin flex-direction($val) {
-  -webkit-box-flex-direction: $val;  
-  -moz-box-flex-direction: $val;     
-  -ms-flex-flex-direction: $val;     
-  -webkit-flex-direction: $val;  
   flex-direction: $val;
 }
 
-//reading width
-@mixin reading-width(){
-  max-width:37em;
+@mixin reading-width() {
+  max-width: 37em;
 }
