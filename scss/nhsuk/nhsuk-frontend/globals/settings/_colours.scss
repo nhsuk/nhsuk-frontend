@@ -60,6 +60,18 @@ $yellow-10: #fdf2d5;
 }
 
 //base colours
+<<<<<<< HEAD
+$nhs-blue-aaa:#0058ad;
+$nhs-red-aaa:#ad1f15;
+$nhs-black:#212b32;
+$nhs-grey:#425563;
+$nhs-yellow-aaa:#FFB81C; //needs work DH/KG
+$nhs-green-aaa:#006644;
+
+//gov.uk $link-visited-colour
+$nhs-purple:#330072;
+
+=======
 $nhs-blue-aaa: #0058ad;
 $nhs-red-aaa: #ad1f15;
 $nhs-black: #212b32;
@@ -69,6 +81,7 @@ $nhs-green-aaa: #006644;
 
 //gov.uk $link-visited-colour
 $nhs-purple: #4c2c92;
+>>>>>>> 6bef4963305e78bcb744ebfcaa8fa431f2d42c7a
 
 //COLOUR PALETTE GENERATOR
 
@@ -408,7 +421,7 @@ $emergency-services-red: $red;
 $text-color: $nhs-grey-darken-50;
 $secondary-text-colour: $nhs-grey-darken-10;
 
-$link-colour: $nhs-blue-aaa;
+$link-colour: $nhs-blue-aaa; //aaa on white background
 $link-reverse-polarity: $white;
 
 $link-visited-colour: $dark-blue;

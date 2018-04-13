@@ -1650,61 +1650,61 @@
   background: #07090a; }
 
 .nhs-yellow-aaa {
-  background: #fced66; }
+  background: #FFB81C; }
 
 .nhs-yellow-aaa-lighten-10 {
-  background: #fcef75; }
+  background: #ffbf33; }
 
 .nhs-yellow-aaa-lighten-20 {
-  background: #fdf185; }
+  background: #ffc649; }
 
 .nhs-yellow-aaa-lighten-30 {
-  background: #fdf294; }
+  background: #ffcd60; }
 
 .nhs-yellow-aaa-lighten-40 {
-  background: #fdf4a3; }
+  background: #ffd477; }
 
 .nhs-yellow-aaa-lighten-50 {
-  background: #fef6b3; }
+  background: #ffdc8e; }
 
 .nhs-yellow-aaa-lighten-60 {
-  background: #fef8c2; }
+  background: #ffe3a4; }
 
 .nhs-yellow-aaa-lighten-70 {
-  background: #fefad1; }
+  background: #ffeabb; }
 
 .nhs-yellow-aaa-lighten-80 {
-  background: #fefbe0; }
+  background: #fff1d2; }
 
 .nhs-yellow-aaa-lighten-90 {
-  background: #fffdf0; }
+  background: #fff8e8; }
 
 .nhs-yellow-aaa-darken-10 {
-  background: #e3d55c; }
+  background: #e6a619; }
 
 .nhs-yellow-aaa-darken-20 {
-  background: #cabe52; }
+  background: #cc9316; }
 
 .nhs-yellow-aaa-darken-30 {
-  background: #b0a647; }
+  background: #b38114; }
 
 .nhs-yellow-aaa-darken-40 {
-  background: #978e3d; }
+  background: #996e11; }
 
 .nhs-yellow-aaa-darken-50 {
-  background: #7e7733; }
+  background: #805c0e; }
 
 .nhs-yellow-aaa-darken-60 {
-  background: #655f29; }
+  background: #664a0b; }
 
 .nhs-yellow-aaa-darken-70 {
-  background: #4c471f; }
+  background: #4d3708; }
 
 .nhs-yellow-aaa-darken-80 {
-  background: #322f14; }
+  background: #332506; }
 
 .nhs-yellow-aaa-darken-90 {
-  background: #19180a; }
+  background: #1a1203; }
 
 .nhs-green-aaa {
   background: #006644; }
@@ -1764,61 +1764,61 @@
   background: #000a07; }
 
 .nhs-purple {
-  background: #4c2c92; }
+  background: #330072; }
 
 .nhs-purple-lighten-10 {
-  background: #5e419d; }
+  background: #471a80; }
 
 .nhs-purple-lighten-20 {
-  background: #7056a8; }
+  background: #5c338e; }
 
 .nhs-purple-lighten-30 {
-  background: #826bb3; }
+  background: #704d9c; }
 
 .nhs-purple-lighten-40 {
-  background: #9480be; }
+  background: #8566aa; }
 
 .nhs-purple-lighten-50 {
-  background: #a696c9; }
+  background: #9980b9; }
 
 .nhs-purple-lighten-60 {
-  background: #b7abd3; }
+  background: #ad99c7; }
 
 .nhs-purple-lighten-70 {
-  background: #c9c0de; }
+  background: #c2b3d5; }
 
 .nhs-purple-lighten-80 {
-  background: #dbd5e9; }
+  background: #d6cce3; }
 
 .nhs-purple-lighten-90 {
-  background: #edeaf4; }
+  background: #ebe6f1; }
 
 .nhs-purple-darken-10 {
-  background: #442883; }
+  background: #2e0067; }
 
 .nhs-purple-darken-20 {
-  background: #3d2375; }
+  background: #29005b; }
 
 .nhs-purple-darken-30 {
-  background: #351f66; }
+  background: #240050; }
 
 .nhs-purple-darken-40 {
-  background: #2e1a58; }
+  background: #1f0044; }
 
 .nhs-purple-darken-50 {
-  background: #261649; }
+  background: #1a0039; }
 
 .nhs-purple-darken-60 {
-  background: #1e123a; }
+  background: #14002e; }
 
 .nhs-purple-darken-70 {
-  background: #170d2c; }
+  background: #0f0022; }
 
 .nhs-purple-darken-80 {
-  background: #0f091d; }
+  background: #0a0017; }
 
 .nhs-purple-darken-90 {
-  background: #08040f; }
+  background: #05000b; }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
@@ -1828,8 +1828,8 @@ h1, h2, h3, h4, h5,
 
 h1,
 .nhs-heading-xl {
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 44px;
+  line-height: 52px;
   margin: 64px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
@@ -2296,61 +2296,61 @@ hr.nhs-h-line {
   background: #07090a; }
 
 .nhs-yellow-aaa {
-  background: #fced66; }
+  background: #FFB81C; }
 
 .nhs-yellow-aaa-lighten-10 {
-  background: #fcef75; }
+  background: #ffbf33; }
 
 .nhs-yellow-aaa-lighten-20 {
-  background: #fdf185; }
+  background: #ffc649; }
 
 .nhs-yellow-aaa-lighten-30 {
-  background: #fdf294; }
+  background: #ffcd60; }
 
 .nhs-yellow-aaa-lighten-40 {
-  background: #fdf4a3; }
+  background: #ffd477; }
 
 .nhs-yellow-aaa-lighten-50 {
-  background: #fef6b3; }
+  background: #ffdc8e; }
 
 .nhs-yellow-aaa-lighten-60 {
-  background: #fef8c2; }
+  background: #ffe3a4; }
 
 .nhs-yellow-aaa-lighten-70 {
-  background: #fefad1; }
+  background: #ffeabb; }
 
 .nhs-yellow-aaa-lighten-80 {
-  background: #fefbe0; }
+  background: #fff1d2; }
 
 .nhs-yellow-aaa-lighten-90 {
-  background: #fffdf0; }
+  background: #fff8e8; }
 
 .nhs-yellow-aaa-darken-10 {
-  background: #e3d55c; }
+  background: #e6a619; }
 
 .nhs-yellow-aaa-darken-20 {
-  background: #cabe52; }
+  background: #cc9316; }
 
 .nhs-yellow-aaa-darken-30 {
-  background: #b0a647; }
+  background: #b38114; }
 
 .nhs-yellow-aaa-darken-40 {
-  background: #978e3d; }
+  background: #996e11; }
 
 .nhs-yellow-aaa-darken-50 {
-  background: #7e7733; }
+  background: #805c0e; }
 
 .nhs-yellow-aaa-darken-60 {
-  background: #655f29; }
+  background: #664a0b; }
 
 .nhs-yellow-aaa-darken-70 {
-  background: #4c471f; }
+  background: #4d3708; }
 
 .nhs-yellow-aaa-darken-80 {
-  background: #322f14; }
+  background: #332506; }
 
 .nhs-yellow-aaa-darken-90 {
-  background: #19180a; }
+  background: #1a1203; }
 
 .nhs-green-aaa {
   background: #006644; }
@@ -2410,61 +2410,61 @@ hr.nhs-h-line {
   background: #000a07; }
 
 .nhs-purple {
-  background: #4c2c92; }
+  background: #330072; }
 
 .nhs-purple-lighten-10 {
-  background: #5e419d; }
+  background: #471a80; }
 
 .nhs-purple-lighten-20 {
-  background: #7056a8; }
+  background: #5c338e; }
 
 .nhs-purple-lighten-30 {
-  background: #826bb3; }
+  background: #704d9c; }
 
 .nhs-purple-lighten-40 {
-  background: #9480be; }
+  background: #8566aa; }
 
 .nhs-purple-lighten-50 {
-  background: #a696c9; }
+  background: #9980b9; }
 
 .nhs-purple-lighten-60 {
-  background: #b7abd3; }
+  background: #ad99c7; }
 
 .nhs-purple-lighten-70 {
-  background: #c9c0de; }
+  background: #c2b3d5; }
 
 .nhs-purple-lighten-80 {
-  background: #dbd5e9; }
+  background: #d6cce3; }
 
 .nhs-purple-lighten-90 {
-  background: #edeaf4; }
+  background: #ebe6f1; }
 
 .nhs-purple-darken-10 {
-  background: #442883; }
+  background: #2e0067; }
 
 .nhs-purple-darken-20 {
-  background: #3d2375; }
+  background: #29005b; }
 
 .nhs-purple-darken-30 {
-  background: #351f66; }
+  background: #240050; }
 
 .nhs-purple-darken-40 {
-  background: #2e1a58; }
+  background: #1f0044; }
 
 .nhs-purple-darken-50 {
-  background: #261649; }
+  background: #1a0039; }
 
 .nhs-purple-darken-60 {
-  background: #1e123a; }
+  background: #14002e; }
 
 .nhs-purple-darken-70 {
-  background: #170d2c; }
+  background: #0f0022; }
 
 .nhs-purple-darken-80 {
-  background: #0f091d; }
+  background: #0a0017; }
 
 .nhs-purple-darken-90 {
-  background: #08040f; }
+  background: #05000b; }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
@@ -2474,8 +2474,8 @@ h1, h2, h3, h4, h5,
 
 h1,
 .nhs-heading-xl {
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 44px;
+  line-height: 52px;
   margin: 64px 0 0; }
   @media only screen and (max-width: 481px) {
     h1,
