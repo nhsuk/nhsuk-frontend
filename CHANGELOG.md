@@ -1,3 +1,9 @@
+0.0.4 / 2018-04-13
+==================
+- Move to <a href="https://github.com/nhsuk/frontend">NHS.UK organisation git repository</a>
+- NHS.UK eslint configuration
+- sass-lint SCSS lint configuration
+
 0.0.3 / 2018-04-06
 ===================
 - Add a <a href="https://nhsuk-redesign.herokuapp.com/decisions">decisions page</a> to log our decisions and findings.
@@ -6,9 +12,6 @@
 - Page templates for the example pages using GOV.UK grid
 - Page templates for the style and decision pages
 - Page background colour change functionality for user research testing
-- Move to <a href="https://github.com/nhsuk/frontend">NHS.UK git repository</a>
-- NHS.UK eslint configuration
-- sass-lint SCSS lint configuration
 
 0.0.2 / 2018-03-30
 ===================
