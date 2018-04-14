@@ -2,8 +2,6 @@
 @import '../settings/typography';
 
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -18,8 +16,6 @@ html {
 }
 
 body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   background-color: $nhs-body-background-colour;
   font-size: $base-font-size;
   line-height: $base-line-height;

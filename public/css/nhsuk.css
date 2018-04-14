@@ -614,6 +614,8 @@
     clear: both; }
 
 .govuk-o-grid__item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 15px; }
   @media (min-width: 40.0625em) {
@@ -1394,30 +1396,36 @@
     .govuk-\!-width-one-quarter {
       width: 25% !important; } }
 
-* {
-  box-sizing: border-box; }
-
 .colour-palette {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 40px -8px 40px -8px; }
+  margin: 40px -8px; }
   .colour-palette .colour-palette_item {
-    width: 100% !important;
+    float: left;
     margin: 0;
     padding: 8px;
-    float: left; }
+    width: 100%; }
     @media (min-width: 641px) {
       .colour-palette .colour-palette_item {
-        width: calc(100% * (1/2) - 15px) !important; } }
+        width: calc(100% * (1/2) - 15px); } }
     .colour-palette .colour-palette_item .colour-palette_variant {
+      color: #fff;
+      font-size: 16px;
       padding: 15px;
-      width: 100%;
-      color: white;
-      font-size: 16px; }
+      width: 100%; }
       .colour-palette .colour-palette_item .colour-palette_variant.colour-palette_variant--base {
-        padding: 30px 15px;
-        font-size: 21px; }
+        font-size: 21px;
+        padding: 30px 15px; }
       .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
         color: #212b32; }
 
@@ -1650,7 +1658,7 @@
   background: #07090a; }
 
 .nhs-yellow-aaa {
-  background: #FFB81C; }
+  background: #ffb81c; }
 
 .nhs-yellow-aaa-lighten-10 {
   background: #ffbf33; }
@@ -1920,6 +1928,7 @@ a {
   a:hover {
     color: #4d8ac6; }
   a:focus {
+    -webkit-box-shadow: 0 0 0 4px #ffb81c;
     box-shadow: 0 0 0 4px #ffb81c;
     outline: 0; }
 
@@ -2040,30 +2049,36 @@ hr.nhs-h-line {
   color: #fff;
   padding: 8px 16px; }
 
-* {
-  box-sizing: border-box; }
-
 .colour-palette {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 40px -8px 40px -8px; }
+  margin: 40px -8px; }
   .colour-palette .colour-palette_item {
-    width: 100% !important;
+    float: left;
     margin: 0;
     padding: 8px;
-    float: left; }
+    width: 100%; }
     @media (min-width: 641px) {
       .colour-palette .colour-palette_item {
-        width: calc(100% * (1/2) - 15px) !important; } }
+        width: calc(100% * (1/2) - 15px); } }
     .colour-palette .colour-palette_item .colour-palette_variant {
+      color: #fff;
+      font-size: 16px;
       padding: 15px;
-      width: 100%;
-      color: white;
-      font-size: 16px; }
+      width: 100%; }
       .colour-palette .colour-palette_item .colour-palette_variant.colour-palette_variant--base {
-        padding: 30px 15px;
-        font-size: 21px; }
+        font-size: 21px;
+        padding: 30px 15px; }
       .colour-palette .colour-palette_item .colour-palette_variant.font-colour-black {
         color: #212b32; }
 
@@ -2296,7 +2311,7 @@ hr.nhs-h-line {
   background: #07090a; }
 
 .nhs-yellow-aaa {
-  background: #FFB81C; }
+  background: #ffb81c; }
 
 .nhs-yellow-aaa-lighten-10 {
   background: #ffbf33; }
@@ -2566,6 +2581,7 @@ a {
   a:hover {
     color: #4d8ac6; }
   a:focus {
+    -webkit-box-shadow: 0 0 0 4px #ffb81c;
     box-shadow: 0 0 0 4px #ffb81c;
     outline: 0; }
 
@@ -2685,31 +2701,36 @@ hr.nhs-h-line {
   background: #0058ad;
   color: #fff;
   padding: 8px 16px; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 html,
 html * {
   font-family: "Frutiger W01"; }
 
 html {
-  background-color: #E8EDEE;
+  background-color: #e8edee;
   color: #212b32; }
 
 body {
-  background-color: #E8EDEE;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #e8edee;
   font-size: 19px;
   line-height: 28px;
-  margin: 0 0 80px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  margin: 0 0 80px; }
   @media only screen and (max-width: 481px) {
     body {
       font-size: 16px;
       line-height: 24px; } }
 
 .visually-hidden {
+  border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
-  border: 0;
   margin: -1px;
   overflow: hidden;
   padding: 0;
@@ -2717,59 +2738,51 @@ body {
   width: 1px; }
 
 .example {
-  position: relative;
-  overflow: hidden;
+  background: #fff;
   border: 1px solid #bccbcd;
-  padding: 64px 16px 16px;
   margin: 24px 0;
-  background: white; }
+  overflow: hidden;
+  padding: 64px 16px 16px;
+  position: relative; }
   @media (min-width: 641px) {
     .example {
       padding: 64px 32px 32px; } }
   .example:before {
-    content: "EXAMPLE";
-    position: absolute;
-    top: -1px;
+    background: #425563;
+    color: #fff;
+    content: 'EXAMPLE';
+    font-size: 12px;
+    font-weight: 600;
     left: -1px;
     padding: 12px 16px;
-    font-weight: 600;
-    font-size: 12px;
-    background: #425563;
-    color: white; }
+    position: absolute;
+    top: -1px; }
     @media (min-width: 641px) {
       .example:before {
         font-size: 14px; } }
 
 .nhsuk-page-header h2 {
-  margin-top: 0;
-  font-weight: 300; }
+  font-weight: 300;
+  margin-top: 0; }
 
 .nhsuk-page-sidebar .divider {
   background-color: #005eb8;
   height: 3px;
-  width: 50%;
-  margin: 35px 0; }
+  margin: 35px 0;
+  width: 50%; }
 
 .nhsuk-page-sidebar a.active {
   color: #231f20; }
-
-.nhsuk-page-content .nhsuk-page__callout {
-  background-color: #fff;
-  margin: 62px 0 32px 0; }
-  .nhsuk-page-content .nhsuk-page__callout h3 {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px; }
 
 .sr-only,
 .hidden {
   display: none; }
 
 .nhsuk-grid-example p {
+  background-color: #005eb8;
+  color: #fff;
   display: block;
   padding: 20px;
-  background-color: #005eb8;
-  color: white;
   text-align: center; }
 
 span.highlight {
@@ -2780,9 +2793,9 @@ header .nhs-global-header {
   header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo {
     padding: 20px 0; }
     header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo:after {
-      content: "";
-      display: block;
-      clear: both; }
+      clear: both;
+      content: '';
+      display: block; }
     header .nhs-global-header .nhs-global-header__inner .nhs-global-header__inner--logo a {
       display: block;
       float: left;
@@ -2794,7 +2807,7 @@ header .nhs-global-header {
 
 .nhs-hero {
   background: #0058ad;
-  color: white !important; }
+  color: #fff; }
   .nhs-hero .nhs-hero-container {
     border-top: 1px solid rgba(255, 255, 255, 0.5); }
     .nhs-hero .nhs-hero-container .nhs-page-heading {
@@ -2808,37 +2821,37 @@ header .nhs-global-header {
   padding: 0; }
 
 .care-card {
-  width: 100%;
-  margin: 56px 0; }
+  margin: 56px 0;
+  width: 100%; }
   @media only screen and (max-width: 641px) {
     .care-card {
       margin: 40px 0; } }
   .care-card .care-card-heading {
     background: #0058ad;
-    color: white;
+    color: #fff;
     padding: 16px 24px;
     position: relative; }
     @media only screen and (max-width: 641px) {
       .care-card .care-card-heading {
         padding: 16px; } }
     .care-card .care-card-heading:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 0;
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
       border-top: 16px solid #0058ad;
-      bottom: -16px; }
+      bottom: -16px;
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0; }
     .care-card .care-card-heading h2,
     .care-card .care-card-heading h3,
     .care-card .care-card-heading h4,
     .care-card .care-card-heading h5 {
       margin: 0; }
   .care-card .care-card-content {
-    padding: 36px 24px 28px;
-    background: white; }
+    background: #fff;
+    padding: 36px 24px 28px; }
     @media only screen and (max-width: 641px) {
       .care-card .care-card-content {
         padding: 32px 16px 24px; } }
@@ -2847,23 +2860,23 @@ header .nhs-global-header {
   .care-card.grey .care-card-heading {
     background: #425563; }
     .care-card.grey .care-card-heading:after {
-      content: "";
-      border-top: 16px solid #425563; }
+      border-top: 16px solid #425563;
+      content: ''; }
   .care-card.blue .care-card-heading {
     background: #0058ad; }
     .care-card.blue .care-card-heading:after {
-      content: "";
-      border-top: 16px solid #0058ad; }
+      border-top: 16px solid #0058ad;
+      content: ''; }
   .care-card.red .care-card-heading {
     background: #ad1f15; }
     .care-card.red .care-card-heading:after {
-      content: "";
-      border-top: 16px solid #ad1f15; }
+      border-top: 16px solid #ad1f15;
+      content: ''; }
   .care-card.black .care-card-heading {
     background: #110302; }
     .care-card.black .care-card-heading:after {
-      content: "";
-      border-top: 16px solid #110302; }
+      border-top: 16px solid #110302;
+      content: ''; }
   .care-card.black .care-card-content {
     background: #ad1f15;
-    color: #ffffff !important; }
+    color: #fff; }

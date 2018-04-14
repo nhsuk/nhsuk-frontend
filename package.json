@@ -8,7 +8,7 @@
     "build:production": "gulp build --production",
     "postinstall": "npm run build:production",
     "start": "node server.js",
-    "prewatch": "git pull origin master",
+    "prewatch": "concurrently \"git pull origin master\" \"gulp build\"",
     "watch": "concurrently \"gulp watch\" \"nodemon server.js\"",
     "deploy": "git push heroku master",
     "lint-js": "./node_modules/.bin/eslint public/js/*.js",
@@ -43,9 +43,11 @@
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-mocha": "^5.0.0",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-cssnano": "^2.1.3",
     "nodemon": "^1.17.2",
     "npm-check-updates": "^2.14.1",
     "reload": "^2.2.2",
+    "run-sequence": "^2.2.1",
     "sass-lint": "^1.12.1"
   },
   "engines": {

@@ -1,25 +1,34 @@
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
-var argv = require('yargs').argv;
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
-var csso = require('gulp-csso');
-var buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 
 gulp.task('sass', function() {
   return gulp.src('scss/nhsuk/nhsuk.scss')
     .pipe(plumber())
     .pipe(sass())
-    .pipe(autoprefixer())
     .pipe(gulp.dest('public/css'));
 });
+
+// Autoprefix config browsers https://github.com/browserslist/browserslist#queries
+
+gulp.task('autoprefix', () =>
+	gulp.src('public/css/nhsuk.css')
+		.pipe(autoprefixer({
+			browsers: [
+        'last 2 versions',
+        'Firefox > 20',
+        'ie 8-10'
+      ],
+			cascade: false
+		}))
+		.pipe(gulp.dest('public/css'))
+);
 
 gulp.task('watch', function() {
   gulp.watch('scss/nhsuk/**/*.scss', ['sass']);
 });
 
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass', 'autoprefix']);
 gulp.task('default', ['build', 'watch']);
