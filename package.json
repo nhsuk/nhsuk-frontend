@@ -9,8 +9,7 @@
     "postinstall": "npm run build:production",
     "start": "node server.js",
     "prewatch": "git pull origin master",
-    "watch": "gulp watch & nodemon server.js",
-    "predeploy": "git pull origin master",
+    "watch": "concurrently \"gulp watch\" \"nodemon server.js\"",
     "deploy": "git push heroku master",
     "lint-js": "./node_modules/.bin/eslint public/js/*.js",
     "lint-css": "./node_modules/.bin/sass-lint -c .sass-lint.yml '**/*.scss' -v -q"
