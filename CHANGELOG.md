@@ -1,6 +1,6 @@
 0.0.5 / TBA
 ==================
-- gulp autoprefix css
+- autoprefix & minify css
 
 0.0.4 / 2018-04-13
 ==================
