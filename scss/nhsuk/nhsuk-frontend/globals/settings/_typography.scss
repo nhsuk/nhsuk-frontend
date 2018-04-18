@@ -98,12 +98,23 @@ p,
 
 a {
   color: $link-colour;
-  &:hover {
-    color: $link-hover-colour;
-  }
+  cursor: pointer;
   &:focus {
     box-shadow: 0 0 0 4px $yellow;
     outline: 0;
+    background:$yellow;
+    color:$nhs-black;
+  }
+  &:hover {
+    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-30;
+    color: $nhs-black;
+    background:$nhs-yellow-aaa-lighten-30;
+    text-decoration:none;
+  }
+  &:active{
+    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-40;
+    color: $nhs-blue-aaa-darken-40;
+    background:$nhs-yellow-aaa-lighten-40;
   }
 }
 
