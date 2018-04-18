@@ -1,6 +1,7 @@
 0.0.5 / TBA
 ==================
 - autoprefix & minify css
+- travis CI implementation
 
 0.0.4 / 2018-04-13
 ==================
