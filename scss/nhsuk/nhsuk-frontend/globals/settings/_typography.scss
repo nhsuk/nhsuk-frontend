@@ -112,9 +112,9 @@ a {
     text-decoration:none;
   }
   &:active{
-    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-40;
-    color: $nhs-blue-aaa-darken-40;
-    background:$nhs-yellow-aaa-lighten-40;
+    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-10;
+    color: $nhs-black-lighten-10;
+    background:$nhs-yellow-aaa-lighten-10;
   }
 }
 
