@@ -2,7 +2,7 @@
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>Design decisions and findings</h1>
+    <h1>Problems, decisions and findings</h1>
     <p class="nhs-body-s">Last updated: <strong>Tuesday 10 April 2018</strong></p>
 {% endblock %}
 
@@ -16,47 +16,64 @@
 {% endblock %}
 
 {% block content %}
-    <h2 id="grid">Layout / Grid</h2>
+    <h2 id="grid">Grid</h2>
     <h3>The problem</h3>
-    <p>The current NHS.UK grid is a stripped back version of the first GOV.UK grid, therefore had some limitations. These limitations included lack of nesting and offsets, inconsistence break points with widths and gutter spacing inappropriate for the NHS.UK font and sizing.</p>
-    <h3>Our thinking</h3>
-    <p>We wanted a grid system that would give us more flexibility and would support earlier versions of Internet Explorer (IE). We had a look at the first version of the GOV.UK grid, then had a look at various CSS grids until we came to Bootstrap. Bootstrap is a popular, tried and tested front-end framework, our first iteration of the NHS.UK grid system used the Bootstrap 3 grid due to its support for earlier versions of IE and the familiarity that a lot of developers and designers will have with it (despite their level of front-end development).</p>
-    <p>After further thinking about the grid, we discovered that GOV.UK are currently in BETA with their new front-end design system which included a new grid system. This grid system solved a lot of the problems we were trying to solve aswell as;</p>
+    <p>The current NHS.UK grid is a stripped-back version of the first GOV.UK grid.</p>
+    <p>It had some limitations. These included:</p>
     <ul>
-        <li>Adhering to GDS design guidelines as much as we can,</li>
-        <li>Widths, spacing and breakpoints being closer to what we require,</li>
-        <li>The grid will be maintained by GDS and we can work collaboratively across Government organisations to improve it,</li>
-        <li>It's not Bootstrap.</li>
+        <li>a lack of nesting and offsets, and</li>
+        <li>inconsistent break points</li>
     </ul>
-    <p>Some of the HTML markup for the grid system and its columns will take a bit of practice but it follows a sensible naming convention and pattern.</p>
-    <p>We are currently thinking about changing some of the breakpoints for tablet and mobile, due to GDS mobile breakpoints being quite small and due to the increase of larger phones.</p>
-    <p><a href="/styles/layout">View our progress on layout</a></p>
+    <p>Widths and gutter spacing were not appropriate for the NHS.UK font and sizing.</p>
+    <h3>Our thinking</h3>
+    <p>We wanted a grid system that would give us more flexibility and would support earlier versions of Internet Explorer (IE).</p>
+    <p>We had a look at the first version of the GOV.UK grid and then had a look at various CSS grids, until we came to Bootstrap.</p>
+    <p>Bootstrap is a popular, tried and tested front-end framework. Our first iteration of the NHS.UK grid system used the Bootstrap 3 grid.</p>
+    <p>This was due to its support for earlier versions of IE and the familiarity that a lot of developers and designers will have with it (despite their level of front-end development).</p>
+    <p>We discovered that GOV.UK is currently in BETA with its new front-end design system. This solves a lot of the problems we were trying to address, as well as:</p>
+    <ul>
+        <li>allowing us to match GDS design guidelines as much as we can</li>
+        <li>the widths, spacing and breakpoints being closer to what we need</li>
+        <li>to work together with GDS to improve it, as the new GOV.UK design system is based on two-way collaboration, not ultimatum</li>
+        <li>it's not Bootstrap.</li>
+    </ul>
+    <p>Some of the HTML markup for the grid system and its columns will take a bit of practice, but it follows a sensible naming convention and pattern.</p>
+    <p>We are currently thinking about changing some of the breakpoints for tablet and mobile, due to:</p>
+    <ul>
+        <li>GDS mobile breakpoints being quite small, and
+        </li>
+        <li>the increase of larger phones.</li>
+    </ul>
+    <p><a href="/styles/layout">Visit our progress on layout</a></p>
     <h3>Findings</h3>
     <p>The grid is currently in testing.</p>
 
     <h2 id="typography">Typography</h2>
     <h3>The problems</h3>
+    <p>We found:</p>
     <ul>
-        <li>no clear defined sections of content due to equal spacing between all elements on the page - <a href="https://www.nhs.uk/Conditions/pregnancy-and-baby/">example on NHS.UK <span class="visually-hidden">of page elements spacing</span></a></li>
+        <li>there was no clear defined sections of content, due to <a href="https://www.nhs.uk/Conditions/pregnancy-and-baby/">equal spacing between all elements on the page</a></li>
         <li>body copy on mobile devices is rather large (same size as on desktop)</li>
-        <li>longer page headings are escaping the container on mobile devices - <a href="https://www.nhs.uk/conditions/overactive-thyroid-hyperthyroidism/">example on NHS.UK <span class="visually-hidden">of a large header</span></a></li>
+        <li>longer page headings are <a href="https://www.nhs.uk/conditions/overactive-thyroid-hyperthyroidism/">escaping the container on mobile devices</a></li>
     </ul>
     <h3>Our thinking</h3>
+    <p>We might:</p>
     <ul>
-        <li>implementing single-direction margin declarations will create clear defined sections of content, resulting in the page being easier to scan through</li>
-        <li>by scaling down the font size on mobile devices, we will make the page a more comfortable read</li>
+        <li>use single-direction margin declarations, to create clear defined sections of content. This will make the page easier to scan</li>
+        <li>scale down the font size on mobile devices, to make the page a more comfortable read.</li>
     </ul>
-    <p><a href="/styles/typography">View our progress on typography</a></p>
-    <p><a href="/#test-pages">View our test pages</a></p>
+    <p><a href="/styles/typography">Visit our progress on typography</a></p>
+    <p><a href="/#test-pages">Visit our test pages</a></p>
     <h3>Findings</h3>
-    <p>User research plan TBC</p>
+    <p>Our user research plan for typography has not yet been  confirmed.</p>
 
     <h2 id="colours">Colours</h2>
     <h3>The problems</h3>
     <p>The current NHS colour palette does not conform to <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">AAA WCAG guidelines 2.0</a> (including NHS blue).</p>
     <h3>Our thinking</h3>
-    <p>Tweaking the colour palette will provide enough contrast between text and its background so that it can be read by people with moderately low vision.</p>
+    <p>Tweaking the colour palette will improve contrast between text and its background.</p>
+    <p>This will allow text to be read more easily by people with moderately low vision.</p>
     <p><a href="/styles/colours">View our progress on colours</a></p>
     <h3>Findings</h3>
-    <p>User research plan TBC</p>
+    <p>Our user research plan for colours has not yet been  confirmed.</p>
 {% endblock %}
