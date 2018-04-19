@@ -4,9 +4,9 @@
 
 NHS.UK front-end contains the code you need to start building user interfaces for NHS.UK websites and services.
 
-Code and styling examples of NHS.UK front-end components and elements can be found on the <a href="https://nhsuk-redesign.herokuapp.com/">NHS.UK design system</a>.
+Code and styling examples of NHS.UK front-end components and elements can be found on the <a href="https://nhsuk-redesign.azurewebsites.net">NHS.UK design system</a>.
 
-This repository generates shareable CSS and assets for use in NHS.UK websites and services. It also provides a development environment for reviewing changes to those files and the code for the <a href="https://nhsuk-redesign.herokuapp.com/">NHS.UK design system</a> pages.
+This repository generates shareable CSS and assets for use in NHS.UK websites and services. It also provides a development environment for reviewing changes to those files and the code for the <a href="https://nhsuk-redesign.azurewebsites.net">NHS.UK design system</a> pages.
 
 ## Using NHS.UK front-end
 
@@ -26,7 +26,7 @@ TBA
 
 ## Decisions
 
-Our <a href="https://nhsuk-redesign.herokuapp.com/decisions">design decisions and findings</a> document the decisions we've made on the stuff we've created.
+Our <a href="https://nhsuk-redesign.azurewebsites.net/decisions">design decisions and findings</a> document the decisions we've made on the stuff we've created.
 
 ## Contributing
 
