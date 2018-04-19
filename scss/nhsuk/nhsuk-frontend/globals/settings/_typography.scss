@@ -100,21 +100,21 @@ a {
   color: $link-colour;
   cursor: pointer;
   &:focus {
+    background: $yellow;
     box-shadow: 0 0 0 4px $yellow;
+    color: $nhs-black;
     outline: 0;
-    background:$yellow;
-    color:$nhs-black;
   }
   &:hover {
+    background: $nhs-yellow-aaa-lighten-30;
     box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-30;
     color: $nhs-black;
-    background:$nhs-yellow-aaa-lighten-30;
-    text-decoration:none;
+    text-decoration: none;
   }
-  &:active{
+  &:active {
+    background: $nhs-yellow-aaa-lighten-30;
     box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-10;
     color: $nhs-black-lighten-10;
-    background:$nhs-yellow-aaa-lighten-10;
   }
 }
 
