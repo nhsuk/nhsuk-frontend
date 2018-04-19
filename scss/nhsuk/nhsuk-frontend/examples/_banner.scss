@@ -1,0 +1,29 @@
+.nhsuk-global-notice {
+  background-color: $white;
+  .nhsuk-notice-banner {
+    padding: 15px 0 10px 0;
+    .nhsuk-notice-banner__content {
+      display: table;
+      margin: 0;
+      p {
+        margin: 0;
+      }
+    }
+    .nhsuk-notice-banner__tag {
+      margin-right: 15px;
+      margin-bottom: 5px;
+    }
+    .nhsuk-development-tag {
+      color: $white;
+      padding: 5px 10px;
+      background-color: $green;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .nhsuk-notice-banner__text {
+      display: inline-block;
+      vertical-align: baseline;
+    }
+  }
+}
