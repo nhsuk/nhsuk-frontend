@@ -1,3 +1,5 @@
+// sass-lint:disable quotes
+
 // Create responsive spacing, with media query for each breakpoint as set
 // in settings/spacing,
 
@@ -39,16 +41,16 @@
     @if $breakpoint == null {
 
       @if $value == all {
-        #{$property}: $breakpoint-value iff($important, !important);
+        #{$property}: $breakpoint-value iff($important, !important); // sass-lint:disable-line no-important
       } @else {
-        #{$property}-#{$value}: $breakpoint-value iff($important, !important);
+        #{$property}-#{$value}: $breakpoint-value iff($important, !important); // sass-lint:disable-line no-important
       }
     } @else {
       @include mq($from: $breakpoint) {
         @if $value == all {
-          #{$property}: $breakpoint-value iff($important, !important);
+          #{$property}: $breakpoint-value iff($important, !important); // sass-lint:disable-line no-important
         } @else {
-          #{$property}-#{$value}: $breakpoint-value iff($important, !important);
+          #{$property}-#{$value}: $breakpoint-value iff($important, !important); // sass-lint:disable-line no-important
         }
       }
     }

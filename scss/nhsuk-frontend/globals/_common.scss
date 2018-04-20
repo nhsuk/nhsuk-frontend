@@ -1,6 +1,6 @@
 // Settings
-@import "settings/measurements";
-@import "settings/media-queries";
+@import 'settings/measurements';
+@import 'settings/media-queries';
 @import 'settings/variables';
 @import 'settings/mixins';
 @import 'settings/fonts';
@@ -8,22 +8,22 @@
 @import 'settings/typography';
 
 // Tools
-@import "tools/exports";
-@import "tools/legacy-ie";
+@import 'tools/exports';
+@import 'tools/legacy-ie';
 
 // Core
 @import 'core/shared';
 
 // Helpers
 @import 'helpers/visually-hidden';
-@import "helpers/clearfix";
-@import "helpers/media-queries";
-@import "helpers/spacing";
+@import 'helpers/clearfix';
+@import 'helpers/media-queries';
+@import 'helpers/spacing';
 
 // Objects
-@import "objects/grid";
-@import "objects/main-wrapper";
-@import "objects/width-container";
+@import 'objects/grid';
+@import 'objects/main-wrapper';
+@import 'objects/width-container';
 
 // Overrides
-@import "overrides/width";
+@import 'overrides/width';

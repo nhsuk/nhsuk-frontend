@@ -15,7 +15,7 @@
   }
 }
 
-@include govuk-exports("main-wrapper") {
+@include govuk-exports('main-wrapper') {
   .nhsuk-o-main-wrapper {
     @include govuk-main-wrapper;
   }

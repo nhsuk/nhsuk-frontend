@@ -1,4 +1,6 @@
-@include govuk-exports("width-overrides") {
+// sass-lint:disable-all
+
+@include govuk-exports('width-overrides') {
   .govuk-\!-width-three-quarters {
     width: 100% !important;
 
