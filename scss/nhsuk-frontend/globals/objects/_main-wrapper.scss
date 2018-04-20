@@ -8,10 +8,10 @@
 // </div>
 
 @mixin govuk-main-wrapper {
-  padding: $govuk-spacing-scale-3 0;
+  padding: 15px 0;
 
   @include mq($from: tablet) {
-    padding: $govuk-spacing-scale-6 0;
+    padding: 30px 0;
   }
 }
 

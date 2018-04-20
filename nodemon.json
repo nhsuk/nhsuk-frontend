@@ -12,7 +12,8 @@
         "restart": "osascript -e 'display notification \"App restarted\"'"
     },
     "watch": [
-        "views/"
+        "views/",
+        "public/css/nhsuk.css"
     ],
     "env": {
         "NODE_ENV": "development"
