@@ -17,7 +17,6 @@ nunjucks.configure('views', {
 
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
-app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
@@ -44,7 +43,6 @@ if (app.get('env') === 'production') {
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
-
   if (app.get('env') !== 'production') {
     reload(app);
   }
