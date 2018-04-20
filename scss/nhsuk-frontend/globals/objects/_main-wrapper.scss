@@ -1,7 +1,7 @@
 // Example usage:
-// <div class="govuk-o-width-container">
+// <div class="nhsuk-o-width-container">
 //   <!-- Breadcrumbs, phase banners, back links are placed in here. -->
-//   <div class="govuk-o-main-wrapper">
+//   <div class="nhsuk-o-main-wrapper">
 //       <!-- Wrapper for the main content of your page which applies padding
 //            to the top / bottom -->
 //   </div>
@@ -16,7 +16,7 @@
 }
 
 @include govuk-exports("main-wrapper") {
-  .govuk-o-main-wrapper {
+  .nhsuk-o-main-wrapper {
     @include govuk-main-wrapper;
   }
 }

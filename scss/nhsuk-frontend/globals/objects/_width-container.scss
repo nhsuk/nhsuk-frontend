@@ -22,7 +22,7 @@
 }
 
 @include govuk-exports("width-container") {
-  .govuk-o-width-container {
+  .nhsuk-o-width-container {
     @include govuk-width-container;
   }
 }
