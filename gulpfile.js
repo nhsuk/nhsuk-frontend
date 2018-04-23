@@ -7,7 +7,7 @@ var cssnano = require('gulp-cssnano');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function() {
-  return gulp.src('scss/nhsuk/nhsuk.scss')
+  return gulp.src('scss/nhsuk-frontend/nhsuk.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(gulp.dest('public/css'));
@@ -35,7 +35,7 @@ gulp.task('minify', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss/nhsuk/**/*.scss', ['sass']);
+  gulp.watch('scss/nhsuk-frontend/**/*.scss', ['sass']);
 });
 
 gulp.task('build', function (callback) {

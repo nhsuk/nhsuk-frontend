@@ -3,7 +3,6 @@ options:
 files:
   include: 'scss/nhsuk/nhsuk-frontend/**/*.scss'
   ignore: 
-    - 'scss/nhsuk/govuk-frontend/**/*.scss'
     - 'node_modules/**/*'
 rules:
   # Rules explanations can be found: https://github.com/sasstools/sass-lint/tree/master/docs/rules
