@@ -50,7 +50,7 @@
     "sass-lint": "^1.12.1"
   },
   "engines": {
-    "node": "9"
+    "node": "8.11.1"
   },
   "repository": {
     "type": "git",
