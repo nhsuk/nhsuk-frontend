@@ -1,7 +1,7 @@
 options:
   formatter: stylish
 files:
-  include: 'scss/nhsuk/nhsuk-frontend/**/*.scss'
+  include: 'scss/nhsuk/**/**/*.scss'
   ignore: 
     - 'node_modules/**/*'
 rules:

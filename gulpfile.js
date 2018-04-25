@@ -7,7 +7,7 @@ var cssnano = require('gulp-cssnano');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function() {
-  return gulp.src('scss/nhsuk-frontend/nhsuk.scss')
+  return gulp.src(['scss/nhsuk-frontend/nhsuk.scss', 'scss/nhsuk-design-system/styles.scss'])
     .pipe(plumber())
     .pipe(sass())
     .pipe(gulp.dest('public/css'));
@@ -16,7 +16,7 @@ gulp.task('sass', function() {
 // Autoprefix config browsers https://github.com/browserslist/browserslist#queries
 
 gulp.task('autoprefix', () =>
-	gulp.src('public/css/nhsuk.css')
+	gulp.src('public/css/*.css')
 		.pipe(autoprefixer({
 			browsers: [
         'last 2 versions',
@@ -29,13 +29,13 @@ gulp.task('autoprefix', () =>
 );
 
 gulp.task('minify', function() {
-	gulp.src('public/css/nhsuk.css')
+	gulp.src('public/css/*.css')
       .pipe(cssnano())
       .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss/nhsuk-frontend/**/*.scss', ['sass']);
+  gulp.watch('scss/**/**/*.scss', ['build']);
 });
 
 gulp.task('build', function (callback) {

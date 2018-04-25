@@ -9,6 +9,7 @@
     "build:production": "gulp build --production",
     "test": "npm run lint-css",
     "start": "node server.js",
+    "prewatch": "npm build",
     "watch": "concurrently \"gulp watch\" \"nodemon server.js -q\"",
     "lint-js": "./node_modules/.bin/eslint public/js/*.js",
     "lint-css": "./node_modules/.bin/sass-lint -c .sass-lint.yml '**/*.scss' -v -q"

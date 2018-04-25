@@ -13,10 +13,10 @@
     },
     "watch": [
         "views/",
-        "public/css/nhsuk.css"
+        "public/css/"
     ],
     "env": {
         "NODE_ENV": "development"
     },
-    "ext": "js json html scss"
+    "ext": "js json html scss css"
 }

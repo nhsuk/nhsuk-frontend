@@ -27,7 +27,3 @@
 @mixin flex-direction($val) {
   flex-direction: $val;
 }
-
-@mixin reading-width() {
-  max-width: 37em;
-}
