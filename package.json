@@ -22,6 +22,7 @@
     "express-session": "^1.2.1",
     "express-validator": "^5.1.2",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-csso": "^3.0.1",
     "gulp-if": "^2.0.0",
     "gulp-plumber": "^1.1.0",
