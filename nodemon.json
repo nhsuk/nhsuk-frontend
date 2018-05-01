@@ -13,10 +13,10 @@
     },
     "watch": [
         "views/",
-        "public/css/"
+        "scss/"
     ],
     "env": {
         "NODE_ENV": "development"
     },
-    "ext": "js json html scss css"
+    "ext": "js, html, scss"
 }

@@ -1,4 +1,10 @@
-0.0.5 / TBA
+0.0.6 / TBA
+==================
+- Layout page examples and code snippets
+- Progress table
+- App config clean up
+
+0.0.5 / 2018-04-20
 ==================
 - autoprefix & minify css
 - travis CI implementation
