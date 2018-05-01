@@ -1,3 +1,9 @@
+exports.index = function(req, res) {
+  res.render('examples/index', {
+    title: 'Examples index'
+  });
+};
+
 exports.page = function(req, res) {
   res.render('examples/page', {
     title: 'Page'

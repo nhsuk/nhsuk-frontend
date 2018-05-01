@@ -26,6 +26,7 @@ app.get('/styles/layout', StylesController.layout);
 app.get('/styles/typography', StylesController.typography);
 app.get('/styles/colours', StylesController.colours);
 
+app.get('/examples/', ExamplesController.index);
 app.get('/examples/page', ExamplesController.page);
 app.get('/examples/page-1', ExamplesController.page1);
 app.get('/examples/page-2', ExamplesController.page2);
