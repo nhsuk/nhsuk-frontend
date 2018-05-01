@@ -1,0 +1,29 @@
+// sass-lint:disable mixins-before-declarations, quotes, property-sort-order, single-line-per-selector
+@import '../nhsuk-frontend/globals/tools/exports';
+@import '../nhsuk-frontend/globals/tools/legacy-ie';
+@import '../nhsuk-frontend/globals/settings/measurements';
+@import '../nhsuk-frontend/globals/helpers/reading-width';
+
+@mixin govuk-width-container-fluid {
+  max-width: 100%;
+
+  @include govuk-ie-lte(8) {
+    width: $govuk-page-width;
+  }
+
+  margin: 0 $govuk-gutter;
+}
+
+@include govuk-exports("width-container-fluid") {
+  .nhsuk-o-width-container-fluid {
+    @include govuk-width-container-fluid;
+    h1, h2, h3, h4, h5, p, span, a {
+      @include reading-width();
+    }
+    .example {
+      h1, h2, h3, h4, h5, p, span, a {
+        max-width: 100%;
+      }
+    }
+  }
+}
