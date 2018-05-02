@@ -188,22 +188,6 @@ strong {
   }
 }
 
-@mixin caption() {
-  color: $secondary-text-colour;
-  display: block;
-  font-weight: 400;
-}
-
-.nhsuk-caption-xl {
-  @include caption;
-  font-size: 24px;
-  line-height: 32px;
-  @media only screen and (max-width: 481px) {
-    font-size: 20px;
-    line-height: 28px;
-  }
-}
-
 @mixin nhsuk-list() {
   font-weight: $nhs-font-normal;
   margin: 20px 0 0;
@@ -220,26 +204,6 @@ strong {
   }
 }
 
-.nhsuk-list--dashed {
-  @include nhsuk-list();
-  list-style: none;
-  list-style-position: inside;
-  padding: 0;
-  li {
-    margin-left: 25px;
-    &:before {
-      color: darken($nhs-border-colour, 15%);
-      content: '- ';
-      margin-left: -25px;
-      padding-right: 5px;
-    }
-  }
-}
-
-.reading-width {
-  @include reading-width();
-}
-
 hr {
   &.nhsuk-h-line {
     border: 0;
@@ -249,4 +213,8 @@ hr {
       margin: 48px 0 0;
     }
   }
+}
+
+.reading-width {
+  @include reading-width();
 }
