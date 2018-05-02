@@ -67,13 +67,10 @@
 
 .nhsuk-tag {
   color: $white;
-  display: block;
   font-size: 16px;
-  max-width: 90%;
   overflow-x: auto;
   padding: 5px 10px;
   text-align: center;
-  width: 100%;
   @media only screen and (max-width: 481px) {
     font-size: 14px;
   }
