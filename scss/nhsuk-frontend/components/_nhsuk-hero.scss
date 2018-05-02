@@ -1,9 +1,9 @@
-.nhs-hero {
+.nhsuk-hero {
   background: $nhs-blue-aaa;
   color: $white;
-  .nhs-hero-container {
+  .nhsuk-hero-container {
     border-top: 1px solid $white-05;
-    .nhs-page-heading {
+    .nhsuk-page-heading {
       margin: 0;
       padding: 64px 0;
       @media only screen and (max-width: 641px) {
@@ -16,7 +16,7 @@
   }
 }
 
-.nhs-home-page {
+.nhsuk-home-page {
   .nhsuk-o-main-wrapper {
     padding: 0;
   }

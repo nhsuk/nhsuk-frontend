@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 }
 
 h1,
-.nhs-heading-xl {
+.nhsuk-heading-xl {
   font-size: 48px;
   line-height: 56px;
   margin: 64px 0 0;
@@ -18,7 +18,7 @@ h1,
 }
 
 h2,
-.nhs-heading-l {
+.nhsuk-heading-l {
   font-size: 32px;
   line-height: 40px;
   margin: 72px 0 0;
@@ -30,7 +30,7 @@ h2,
 }
 
 h3,
-.nhs-heading-m {
+.nhsuk-heading-m {
   font-size: 24px;
   line-height: 32px;
   margin: 44px 0 0;
@@ -42,7 +42,7 @@ h3,
 }
 
 h4,
-.nhs-heading-s {
+.nhsuk-heading-s {
   font-size: 22px;
   line-height: 32px;
   margin: 36px 0 0;
@@ -54,7 +54,7 @@ h4,
 }
 
 h5,
-.nhs-heading-xs {
+.nhsuk-heading-xs {
   font-size: 19px;
   line-height: 28px;
   margin: 32px 0 0;
@@ -66,7 +66,7 @@ h5,
 }
 
 p,
-.nhs-body {
+.nhsuk-body {
   font-weight: $nhs-font-normal;
   margin: 28px 0 0;
   @media only screen and (max-width: 481px) {
@@ -74,7 +74,7 @@ p,
   }
 }
 
-.nhs-body-l {
+.nhsuk-body-l {
   font-size: 24px;
   line-height: 32px;
   margin: 32px 0 0;
@@ -85,7 +85,7 @@ p,
   }
 }
 
-.nhs-body-s {
+.nhsuk-body-s {
   font-size: 16px;
   line-height: 28px;
   margin: 20px 0 0;
@@ -146,7 +146,7 @@ strong {
   font-weight: $nhs-font-bold;
 }
 
-.nhs-page-heading {
+.nhsuk-page-heading {
   padding: 34px 0 64px;
   @media only screen and (max-width: 641px) {
     padding: 25px 0 40px;
@@ -156,7 +156,7 @@ strong {
   }
 }
 
-.nhs-page-nav {
+.nhsuk-page-nav {
   & > *:first-child {
     margin-top: 0;
   }
@@ -175,14 +175,14 @@ strong {
   }
 }
 
-.nhs-sticky {
+.nhsuk-sticky {
   @media only screen and (min-width: 767px) {
     position: sticky;
     top: 40px;
   }
 }
 
-.nhs-page-content {
+.nhsuk-page-content {
   & > *:first-child {
     margin-top: 0;
   }
@@ -194,7 +194,7 @@ strong {
   font-weight: 400;
 }
 
-.nhs-caption-xl {
+.nhsuk-caption-xl {
   @include caption;
   font-size: 24px;
   line-height: 32px;
@@ -204,7 +204,7 @@ strong {
   }
 }
 
-@mixin nhs-list() {
+@mixin nhsuk-list() {
   font-weight: $nhs-font-normal;
   margin: 20px 0 0;
   padding-left: 20px;
@@ -220,8 +220,8 @@ strong {
   }
 }
 
-.nhs-list--dashed {
-  @include nhs-list();
+.nhsuk-list--dashed {
+  @include nhsuk-list();
   list-style: none;
   list-style-position: inside;
   padding: 0;
@@ -236,16 +236,12 @@ strong {
   }
 }
 
-.nhs-m-t-0 {
-  margin-top: 0;
-}
-
 .reading-width {
   @include reading-width();
 }
 
 hr {
-  &.nhs-h-line {
+  &.nhsuk-h-line {
     border: 0;
     border-top: 1px solid $nhs-border-colour;
     margin: 72px 0 0;
@@ -253,10 +249,4 @@ hr {
       margin: 48px 0 0;
     }
   }
-}
-
-.nhs-notice {
-  background: $nhs-blue-aaa;
-  color: $white;
-  padding: 8px 16px;
 }
