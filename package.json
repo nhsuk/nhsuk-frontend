@@ -7,7 +7,7 @@
     "postinstall": "npm run build",
     "build": "gulp build",
     "start": "node app.js",
-    "prewatch": "npm build",
+    "prewatch": "gulp build",
     "watch": "concurrently \"gulp watch\" \"nodemon app.js -q\"",
     "test": "npm run lint-css",
     "lint-js": "./node_modules/.bin/eslint public/js/*.js",
