@@ -16,5 +16,5 @@ nunjucks.configure('views', {
 app.use('/', router)
 
 app.listen(3000, () => {
-  console.log('App listening at http://localhost:3000');
+  console.log('App watching for changes at http://localhost:3000');
 });

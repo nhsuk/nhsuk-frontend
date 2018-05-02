@@ -8,9 +8,6 @@
     "execMap": {
         "js": "node --harmony"
     },
-    "events": {
-        "restart": "osascript -e 'display notification \"App restarted\"'"
-    },
     "watch": [
         "views/",
         "scss/"
