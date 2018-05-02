@@ -1,7 +1,7 @@
 .example {
   background: $white;
   border: 1px solid $nhs-border-colour;
-  margin: 24px 0;
+  margin: 24px 0 0;
   overflow: hidden;
   padding: 64px 16px 16px;
   position: relative;
@@ -21,5 +21,23 @@
     @media (min-width: 641px) {
       font-size: 14px;
     }
+  }
+}
+
+.example-snippet {
+  position: relative;
+  &__empty-example {
+    margin-top: 24px;
+  }
+  .nhsuk-btn-copy {
+    background-color: $green;
+    border: 0;
+    color: $white;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+    text-transform: uppercase;
+    top: 10px;
   }
 }

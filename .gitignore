@@ -29,6 +29,5 @@ bower_components
 .DS_Store
 Thumbs.db
 
-public/css
-*.css
-*.css.map
+public/css/styles.css
+public/css/nhsuk.css
