@@ -3,6 +3,8 @@
 - Layout page examples and code snippets
 - Progress table
 - App config clean up
+- Remove global banner
+- Remove components header from homepage
 
 0.0.5 / 2018-04-20
 ==================
