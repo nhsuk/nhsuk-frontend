@@ -6,6 +6,7 @@ const path = require('path');
 const reload = require('reload');
 
 app.set('view engine', 'html');
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
 nunjucks.configure('views', {
@@ -15,6 +16,15 @@ nunjucks.configure('views', {
 
 app.use('/', router)
 
-app.listen(3000, () => {
-  console.log('App watching for changes at http://localhost:3000');
+if (app.get('env') === 'production') {
+  app.use(function(err, req, res, next) {
+    console.error(err.stack);
+    res.sendStatus(err.status || 500);
+  });
+}
+
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port'));
 });
+
+module.exports = app;
