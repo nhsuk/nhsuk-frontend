@@ -4,13 +4,12 @@
   "description": "NHS.UK front-end library and design system",
   "sasslintConfig": "sass-lint.yml",
   "scripts": {
-    "postinstall": "npm run build:production",
+    "postinstall": "npm run build",
     "build": "gulp build",
-    "build:production": "gulp build --production",
+    "start": "node app.js",
+    "prewatch": "gulp build",
+    "watch": "concurrently \"gulp watch\" \"nodemon app.js -q\"",
     "test": "npm run lint-css",
-    "start": "node server.js",
-    "prewatch": "npm build",
-    "watch": "concurrently \"gulp watch\" \"nodemon server.js -q\"",
     "lint-js": "./node_modules/.bin/eslint public/js/*.js",
     "lint-css": "./node_modules/.bin/sass-lint -c .sass-lint.yml '**/*.scss' -v -q"
   },

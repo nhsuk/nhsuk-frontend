@@ -8,15 +8,12 @@
     "execMap": {
         "js": "node --harmony"
     },
-    "events": {
-        "restart": "osascript -e 'display notification \"App restarted\"'"
-    },
     "watch": [
         "views/",
-        "public/css/"
+        "scss/"
     ],
     "env": {
         "NODE_ENV": "development"
     },
-    "ext": "js json html scss css"
+    "ext": "js, html, scss"
 }

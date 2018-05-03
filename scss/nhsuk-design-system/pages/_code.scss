@@ -1,3 +1,5 @@
+@import '../nhsuk-frontend/globals/settings/colours';
+
 .example {
   background: $white;
   border: 1px solid $nhs-border-colour;
@@ -39,5 +41,52 @@
     right: 10px;
     text-transform: uppercase;
     top: 10px;
+  }
+}
+
+.progress-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 24px 0;
+  width: 100%;
+  th,
+  td {
+    border-bottom: 1px solid $nhs-border-colour;
+    padding: 8px;
+    text-align: left;
+    text-transform: none;
+    &.td__status,
+    &.th__status {
+      width: 150px;
+    }
+  }
+  th {
+    font-weight: 600;
+  }
+}
+
+.nhsuk-tag {
+  color: $white;
+  font-size: 16px;
+  overflow-x: auto;
+  padding: 5px 10px;
+  text-align: center;
+  @media only screen and (max-width: 481px) {
+    font-size: 14px;
+  }
+  &__backlog {
+    background-color: $nhs-grey;
+  }
+  &__design {
+    background-color: $nhs-blue;
+  }
+  &__development {
+    background-color: $nhs-purple;
+  }
+  &__testing {
+    background-color: $nhs-red-aaa;
+  }
+  &__ready {
+    background-color: $nhs-green-aaa;
   }
 }
