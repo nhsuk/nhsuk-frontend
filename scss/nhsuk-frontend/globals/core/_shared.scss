@@ -19,11 +19,11 @@ html {
 
 body {
   background-color: $nhs-body-background-colour;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
+  font-size: $base-font-size-mobile;
+  line-height: $base-line-height-mobile;
   margin: 0 0 $footer-height;
-  @media only screen and (max-width: 481px) {
-    font-size: $base-font-size-mobile;
-    line-height: $base-line-height-mobile;
+  @include mq($from: tablet) {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
   }
 }

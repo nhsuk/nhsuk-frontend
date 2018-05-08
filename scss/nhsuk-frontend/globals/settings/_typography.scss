@@ -7,92 +7,92 @@ h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 
 h1,
 .nhsuk-heading-xl {
-  font-size: govuk-em(48px, $base-font-size);
-  line-height: 56px;
-  margin: 64px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(32px, $base-font-size-mobile);
-    line-height: 36px;
-    margin: 48px 0 0;
+  font-size: govuk-em(32px, $base-font-size-mobile);
+  line-height: 36px;
+  margin: 48px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(48px, $base-font-size);
+    line-height: 56px;
+    margin: 64px 0 0;
   }
 }
 
 h2,
 .nhsuk-heading-l {
-  font-size: govuk-em(32px, $base-font-size);
-  line-height: 40px;
-  margin: 72px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(24px, $base-font-size-mobile);
-    line-height: 32px;
-    margin: 48px 0 0;
+  font-size: govuk-em(24px, $base-font-size-mobile);
+  line-height: 32px;
+  margin: 48px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(32px, $base-font-size);
+    line-height: 40px;
+    margin: 72px 0 0;
   }
 }
 
 h3,
 .nhsuk-heading-m {
-  font-size: govuk-em(24px, $base-font-size);
-  line-height: 32px;
-  margin: 44px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(20px, $base-font-size-mobile);
-    line-height: 28px;
-    margin: 36px 0 0;
+  font-size: govuk-em(20px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 36px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(24px, $base-font-size);
+    line-height: 32px;
+    margin: 44px 0 0;
   }
 }
 
 h4,
 .nhsuk-heading-s {
-  font-size: govuk-em(22px, $base-font-size);
-  line-height: 32px;
-  margin: 36px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(18px, $base-font-size-mobile);
-    line-height: 28px;
-    margin: 32px 0 0;
+  font-size: govuk-em(18px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 32px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(22px, $base-font-size);
+    line-height: 32px;
+    margin: 36px 0 0;
   }
 }
 
 h5,
 .nhsuk-heading-xs {
-  font-size: govuk-em(19px, $base-font-size);
+  font-size: govuk-em(16px, $base-font-size-mobile);
   line-height: 28px;
-  margin: 32px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(16px, $base-font-size-mobile);
+  margin: 28px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(19px, $base-font-size);
     line-height: 28px;
-    margin: 28px 0 0;
+    margin: 32px 0 0;
   }
 }
 
 p,
 .nhsuk-body {
   font-weight: $nhs-font-normal;
-  margin: 28px 0 0;
-  @media only screen and (max-width: 481px) {
-    margin: 24px 0 0;
+  margin: 24px 0 0;
+  @include mq($from: tablet) {
+    margin: 28px 0 0;
   }
 }
 
 .nhsuk-body-l {
-  font-size: govuk-em(24px, $base-font-size);
-  line-height: 32px;
-  margin: 32px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(20px, $base-font-size-mobile);
-    line-height: 28px;
-    margin: 24px 0 0;
+  font-size: govuk-em(20px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 24px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(24px, $base-font-size);
+    line-height: 32px;
+    margin: 32px 0 0;
   }
 }
 
 .nhsuk-body-s {
-  font-size: govuk-em(16px, $base-font-size);
-  line-height: 28px;
-  margin: 20px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: govuk-em(14px, $base-font-size-mobile);
-    line-height: 24px;
-    margin: 16px 0 0;
+  font-size: govuk-em(14px, $base-font-size-mobile);
+  line-height: 24px;
+  margin: 16px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(16px, $base-font-size);
+    line-height: 28px;
+    margin: 20px 0 0;
   }
 }
 
@@ -121,15 +121,15 @@ a {
 ul,
 ol {
   font-weight: $nhs-font-normal;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   padding-left: 20px;
-  @media only screen and (max-width: 481px) {
-    margin: 24px 0 0;
+  @include mq($from: tablet) {
+    margin: 28px 0 0;
   }
   li {
-    margin: 12px 0 0;
-    @media only screen and (max-width: 481px) {
-      margin: 8px 0 0;
+    margin: 8px 0 0;
+    @include mq($from: tablet) {
+      margin: 12px 0 0;
     }
     &:first-child {
       margin-top: 0;
@@ -147,9 +147,9 @@ strong {
 }
 
 .nhsuk-page-heading {
-  padding: 34px 0 64px;
-  @media only screen and (max-width: 641px) {
-    padding: 25px 0 40px;
+  padding: 25px 0 40px;
+  @include mq($from: tablet) {
+    padding: 34px 0 64px;
   }
   h1 {
     margin: 0;
@@ -160,23 +160,23 @@ strong {
   & > *:first-child {
     margin-top: 0;
   }
-  @media only screen and (max-width: 641px) {
+  @include mq($until: tablet) {
     margin-bottom: 44px;
   }
   h2,
   h3 {
     & + ol,
     & + ul {
-      margin-top: 12px;
-      @media only screen and (max-width: 641px) {
-        margin-top: 8px;
+      margin-top: 8px;
+      @include mq($from: tablet) {
+        margin-top: 12px;
       }
     }
   }
 }
 
 .nhsuk-sticky {
-  @media only screen and (min-width: 767px) {
+  @include mq($until: tablet) {
     position: sticky;
     top: 40px;
   }
@@ -190,16 +190,16 @@ strong {
 
 @mixin nhsuk-list() {
   font-weight: $nhs-font-normal;
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   padding-left: 20px;
-  @media only screen and (max-width: 481px) {
-    margin: 16px 0 0;
+  @include mq($from: tablet) {
+    margin: 20px 0 0;
   }
   li {
-    line-height: 32px;
+    line-height: 28px;
     margin: 8px 0 0;
-    @media only screen and (max-width: 481px) {
-      line-height: 28px;
+    @include mq($from: tablet) {
+      line-height: 32px;
     }
   }
 }
@@ -208,9 +208,9 @@ hr {
   &.nhsuk-h-line {
     border: 0;
     border-top: 1px solid $nhs-border-colour;
-    margin: 72px 0 0;
-    @media only screen and (max-width: 481px) {
-      margin: 48px 0 0;
+    margin: 48px 0 0;
+    @include mq($from: tablet) {
+      margin: 72px 0 0;
     }
   }
 }

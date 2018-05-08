@@ -1,16 +1,16 @@
 .care-card {
-  margin: 56px 0;
+  margin: 40px 0;
   width: 100%;
-  @media only screen and (max-width: 641px) {
-    margin: 40px 0;
+  @include mq($from: tablet) {
+    margin: 56px 0;
   }
   .care-card-heading {
     background: $nhs-blue-aaa;
     color: $white;
-    padding: 16px 24px;
+    padding: 16px;
     position: relative;
-    @media only screen and (max-width: 641px) {
-      padding: 16px;
+    @include mq($from: tablet) {
+      padding: 16px 24px;
     }
     &:after {
       border-left: 16px solid transparent;
@@ -33,9 +33,9 @@
 
   .care-card-content {
     background: $white;
-    padding: 36px 24px 28px;
-    @media only screen and (max-width: 641px) {
-      padding: 32px 16px 24px;
+    padding: 32px 16px 24px;
+    @include mq($from: tablet) {
+      padding: 36px 24px 28px;
     }
     & > *:first-child {
       margin-top: 0;

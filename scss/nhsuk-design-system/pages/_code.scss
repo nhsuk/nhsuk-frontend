@@ -7,7 +7,7 @@
   overflow: hidden;
   padding: 64px 16px 16px;
   position: relative;
-  @media (min-width: 641px) {
+  @include mq($from: tablet) {
     padding: 64px 32px 32px;
   }
   &:before {
@@ -20,7 +20,7 @@
     padding: 12px 16px;
     position: absolute;
     top: -1px;
-    @media (min-width: 641px) {
+    @include mq($from: tablet) {
       font-size: 14px;
     }
   }
@@ -67,12 +67,12 @@
 
 .nhsuk-tag {
   color: $white;
-  font-size: 16px;
+  font-size: 14px;
   overflow-x: auto;
   padding: 5px 10px;
   text-align: center;
-  @media only screen and (max-width: 481px) {
-    font-size: 14px;
+  @include mq($from: tablet) {
+    font-size: 16px;
   }
   &__backlog {
     background-color: $nhs-grey;
