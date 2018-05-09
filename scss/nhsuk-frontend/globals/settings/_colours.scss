@@ -1,4 +1,52 @@
 // sass-lint:disable no-color-hex
+
+// Primary colours
+
+$nhsuk-blue: #0058AD;
+$nhsuk-white: #FFFFFF;
+$nhsuk-black: #212B32;
+$nhsuk-green: #007F3B;
+$nhsuk-red: #AD1F19;
+$nhsuk-yellow: #FFB81C;
+$nhsuk-purple: #330072;
+
+// Text colours
+
+$nhsuk-text-colour: $nhsuk-black;
+$nhsuk-secondary-text-colour: #3B4C58;
+
+// Link colours
+
+$nhsuk-link-colour: $nhsuk-blue;
+$nhsuk-link-hover-colour: $nhsuk-black;
+$nhsuk-link-focus-colour: $nhsuk-black;
+$nhsuk-link-active-colour: #374047;
+$nhsuk-link-visited-colour: $nhsuk-purple;
+$nhsuk-link-hover-background-colour: #FFCD60;
+$nhsuk-link-focus-background-colour: $nhsuk-yellow;
+$nhsuk-link-active-background-colour: #FFBF33;
+
+// Border colours
+
+$nhsuk-border-colour: #CED4D6;
+
+// Button colours
+
+$nhsuk-button-background-colour: #007F3B;
+$nhsuk-button-hover-colour: #005929;
+
+// Focus colours
+
+$nhsuk-focus-colour: $nhsuk-yellow;
+
+// Greyscale
+
+$nhsuk-grey-1: #425462;
+$nhsuk-grey-2: #CED4D6;
+$nhsuk-grey-3: #DFE4E5;
+$nhsuk-grey-4: #E8EDEE;
+
+
 // Primary NHS blues
 // =================
 $blue: #005eb8;

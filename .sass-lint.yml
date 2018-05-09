@@ -2,7 +2,7 @@ options:
   formatter: stylish
 files:
   include: 'scss/nhsuk/**/**/*.scss'
-  ignore: 
+  ignore:
     - 'node_modules/**/*'
 rules:
   # Rules explanations can be found: https://github.com/sasstools/sass-lint/tree/master/docs/rules
@@ -69,7 +69,7 @@ rules:
   clean-import-paths: 1
   empty-args: 0
   hex-length: 0
-  hex-notation: 1
+  hex-notation: 0
   indentation: 1
   leading-zero: 1
   max-line-length: 0

@@ -3,469 +3,154 @@
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>Colour palette</h1>
-    <p class="nhsuk-body-s">Last updated: <strong>Monday 9 April 2018</strong></p>
+    <h1>Colours</h1>
+    <p class="nhs-body-s"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></p>
 {% endblock %}
 
 {% block sidebar %}
     <h2 class="nhsuk-heading-xs">Contents</h2>
     <ul class="nhsuk-list">
-        <li><a href="#genarated-color-palette">Generated colour palette</a></li>
+        <li><a href="#contrast">Colour contrast</a></li>
+        <li><a href="#variables">Sass variables</a></li>
+        <li><a href="#colours">Main colours</a></li>
+        <li><a href="#other">Other colours</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-                  <h2 id="genarated-color-palette">Generated colour palette</h2>
-                  <p>Generated using Sass tint and shade.</p>
-                <div class="colour-palette">
-                  <div class="colour-palette_item blue-lighten">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-blue-aaa">
-                          $nhs-blue-aaa
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-10">
-                          $nhs-blue-aaa-lighten-10
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-20">
-                          $nhs-blue-aaa-lighten-20
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-30">
-                        $nhs-blue-aaa-lighten-30
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-40 font-colour-black">
-                          $nhs-blue-aaa-lighten-40
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-50 font-colour-black">
-                          $nhs-blue-aaa-lighten-50
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-60 font-colour-black">
-                          $nhs-blue-aaa-lighten-60
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-70 font-colour-black">
-                        $nhs-blue-aaa-lighten-70
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-80 font-colour-black">
-                        $nhs-blue-aaa-lighten-80
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-lighten-90 font-colour-black">
-                        $nhs-blue-aaa-lighten-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item blue-darken">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-blue-aaa">
-                          $nhs-blue-aaa
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-10">
-                          $nhs-blue-aaa-darken-10
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-20">
-                          $nhs-blue-aaa-darken-20
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-30">
-                        $nhs-blue-aaa-darken-30
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-40">
-                          $nhs-blue-aaa-darken-40
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-50">
-                          $nhs-blue-aaa-darken-50
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-60">
-                          $nhs-blue-aaa-darken-60
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-70">
-                        $nhs-blue-aaa-darken-70
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-80">
-                        $nhs-blue-aaa-darken-80
-                      </div>
-                      <div class="colour-palette_variant nhs-blue-aaa-darken-90">
-                        $nhs-blue-aaa-darken-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item red-lighten">
-                    <div class="colour-palette_variant colour-palette_variant--base nhs-red-aaa">
-                        $nhs-red-aaa
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-10">
-                        $nhs-red-aaa-lighten-10
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-20">
-                        $nhs-red-aaa-lighten-20
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-30">
-                      $nhs-red-aaa-lighten-30
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-40 font-colour-black">
-                        $nhs-red-aaa-lighten-40
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-50 font-colour-black">
-                        $nhs-red-aaa-lighten-50
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-60 font-colour-black">
-                        $nhs-red-aaa-lighten-60
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-70 font-colour-black">
-                      $nhs-red-aaa-lighten-70
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-80 font-colour-black">
-                      $nhs-red-aaa-lighten-80
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-lighten-90 font-colour-black">
-                      $nhs-red-aaa-lighten-90
-                    </div>
-                  </div>
-                  <div class="colour-palette_item red-darken">
-                    <div class="colour-palette_variant colour-palette_variant--base nhs-red-aaa">
-                        $nhs-red-aaa
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-10">
-                        $nhs-red-aaa-darken-10
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-20">
-                        $nhs-red-aaa-darken-20
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-30">
-                      $nhs-red-aaa-darken-30
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-40">
-                        $nhs-red-aaa-darken-40
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-50">
-                        $nhs-red-aaa-darken-50
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-60">
-                        $nhs-red-aaa-darken-60
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-70">
-                      $nhs-red-aaa-darken-70
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-80">
-                      $nhs-red-aaa-darken-80
-                    </div>
-                    <div class="colour-palette_variant nhs-red-aaa-darken-90">
-                      $nhs-red-aaa-darken-90
-                    </div>
-                  </div>
-                  <div class="colour-palette_item black-lighten">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-black">
-                          $nhs-black
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-10">
-                          $nhs-black-lighten-10
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-20">
-                          $nhs-black-lighten-20
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-30">
-                        $nhs-black-lighten-30
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-40 font-colour-black">
-                          $nhs-black-lighten-40
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-50 font-colour-black">
-                          $nhs-black-lighten-50
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-60 font-colour-black">
-                          $nhs-black-lighten-60
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-70 font-colour-black">
-                        $nhs-black-lighten-70
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-80 font-colour-black">
-                        $nhs-black-lighten-80
-                      </div>
-                      <div class="colour-palette_variant nhs-black-lighten-90 font-colour-black">
-                        $nhs-black-lighten-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item black-darken">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-black">
-                          $nhs-black
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-10">
-                          $nhs-black-darken-10
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-20">
-                          $nhs-black-darken-20
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-30">
-                        $nhs-black-darken-30
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-40">
-                          $nhs-black-darken-40
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-50">
-                          $nhs-black-darken-50
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-60">
-                          $nhs-black-darken-60
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-70">
-                        $nhs-black-darken-70
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-80">
-                        $nhs-black-darken-80
-                      </div>
-                      <div class="colour-palette_variant nhs-black-darken-90">
-                        $nhs-black-darken-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item nhs-grey-lighten">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-grey">
-                          $nhs-grey
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-10">
-                          $nhs-grey-lighten-10
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-20">
-                          $nhs-grey-lighten-20
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-30">
-                        $nhs-grey-lighten-30
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-40 font-colour-black">
-                          $nhs-grey-lighten-40
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-50 font-colour-black">
-                          $nhs-grey-lighten-50
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-60 font-colour-black">
-                          $nhs-grey-lighten-60
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-70 font-colour-black">
-                        $nhs-grey-lighten-70
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-80 font-colour-black">
-                        $nhs-grey-lighten-80
-                      </div>
-                      <div class="colour-palette_variant nhs-grey-lighten-90 font-colour-black">
-                        $nhs-grey-lighten-90
-                      </div>
-                  </div>
-                    <div class="colour-palette_item nhs-grey-darken">
-                        <div class="colour-palette_variant colour-palette_variant--base nhs-grey">
-                            $nhs-grey
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-10">
-                            $nhs-grey-darken-10
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-20">
-                            $nhs-grey-darken-20
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-30">
-                          $nhs-grey-darken-30
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-40">
-                            $nhs-grey-darken-40
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-50">
-                            $nhs-grey-darken-50
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-60">
-                            $nhs-grey-darken-60
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-70">
-                          $nhs-grey-darken-70
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-80">
-                          $nhs-grey-darken-80
-                        </div>
-                        <div class="colour-palette_variant nhs-grey-darken-90">
-                          $nhs-grey-darken-90
-                        </div>
-                    </div>
-                  <div class="colour-palette_item yellow-lighten">
-                    <div class="colour-palette_variant colour-palette_variant--base nhs-yellow-aaa font-colour-black">
-                        $nhs-yellow-aaa
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-10 font-colour-black">
-                        $nhs-yellow-aaa-lighten-10
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-20 font-colour-black">
-                        $nhs-yellow-aaa-lighten-20
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-30 font-colour-black">
-                      $nhs-yellow-aaa-lighten-30
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-40 font-colour-black">
-                        $nhs-yellow-aaa-lighten-40
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-50 font-colour-black">
-                        $nhs-yellow-aaa-lighten-50
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-60 font-colour-black">
-                        $nhs-yellow-aaa-lighten-60
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-70 font-colour-black">
-                      $nhs-yellow-aaa-lighten-70
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-80 font-colour-black">
-                      $nhs-yellow-aaa-lighten-80
-                    </div>
-                    <div class="colour-palette_variant nhs-yellow-aaa-lighten-90 font-colour-black">
-                      $nhs-yellow-aaa-lighten-90
-                    </div>
-                </div>
-                  <div class="colour-palette_item yellow-darken">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-yellow-aaa font-colour-black">
-                          $nhs-yellow-aaa
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-10 font-colour-black">
-                          $nhs-yellow-aaa-darken-10
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-20 font-colour-black">
-                          $nhs-yellow-aaa-darken-20
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-30 font-colour-black">
-                        $nhs-yellow-aaa-darken-30
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-40 font-colour-black">
-                          $nhs-yellow-aaa-darken-40
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-50">
-                          $nhs-yellow-aaa-darken-50
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-60">
-                          $nhs-yellow-aaa-darken-60
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-70">
-                        $nhs-yellow-aaa-darken-70
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-80">
-                        $nhs-yellow-aaa-darken-80
-                      </div>
-                      <div class="colour-palette_variant nhs-yellow-aaa-darken-90">
-                        $nhs-yellow-aaa-darken-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item green-lighten">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-green-aaa">
-                          $nhs-green-aaa
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-10">
-                          $nhs-green-aaa-lighten-10
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-20 font-colour-black">
-                          $nhs-green-aaa-lighten-20
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-30 font-colour-black">
-                        $nhs-green-aaa-lighten-30
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-40 font-colour-black">
-                          $nhs-green-aaa-lighten-40
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-50 font-colour-black">
-                          $nhs-green-aaa-lighten-50
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-60 font-colour-black">
-                          $nhs-green-aaa-lighten-60
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-70 font-colour-black">
-                        $nhs-green-aaa-lighten-70
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-80 font-colour-black">
-                        $nhs-green-aaa-lighten-80
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-lighten-90 font-colour-black">
-                        $nhs-green-aaa-lighten-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item green-darken">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-green-aaa">
-                          $nhs-green-aaa
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-10">
-                          $nhs-green-aaa-darken-10
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-20">
-                          $nhs-green-aaa-darken-20
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-30">
-                        $nhs-green-aaa-darken-30
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-40">
-                          $nhs-green-aaa-darken-40
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-50">
-                          $nhs-green-aaa-darken-50
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-60">
-                          $nhs-green-aaa-darken-60
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-70">
-                        $nhs-green-aaa-darken-70
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-80">
-                        $nhs-green-aaa-darken-80
-                      </div>
-                      <div class="colour-palette_variant nhs-green-aaa-darken-90">
-                        $nhs-green-aaa-darken-90
-                      </div>
-                  </div>
-                  <div class="colour-palette_item purple-lighten">
-                    <div class="colour-palette_variant colour-palette_variant--base nhs-purple">
-                        $nhs-purple
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-10">
-                        $nhs-purple-lighten-10
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-20">
-                        $nhs-purple-lighten-20
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-30">
-                      $nhs-purple-lighten-30
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-40">
-                        $nhs-purple-lighten-40
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-50">
-                        $nhs-purple-lighten-50
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-60">
-                        $nhs-purple-lighten-60
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-70">
-                      $nhs-purple-lighten-70
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-80">
-                      $nhs-purple-lighten-80
-                    </div>
-                    <div class="colour-palette_variant nhs-purple-lighten-90">
-                      $nhs-purple-lighten-90
-                    </div>
-                </div>
-                  <div class="colour-palette_item purple-darken">
-                      <div class="colour-palette_variant colour-palette_variant--base nhs-purple">
-                          $nhs-purple
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-10">
-                          $nhs-purple-darken-10
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-20">
-                          $nhs-purple-darken-20
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-30">
-                        $nhs-purple-darken-30
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-40">
-                          $nhs-purple-darken-40
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-50">
-                          $nhs-purple-darken-50
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-60">
-                          $nhs-purple-darken-60
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-70">
-                        $nhs-purple-darken-70
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-80">
-                        $nhs-purple-darken-80
-                      </div>
-                      <div class="colour-palette_variant nhs-purple-darken-90">
-                        $nhs-purple-darken-90
-                      </div>
-                  </div>
+    <h2 id="contrast" class="nhsuk-heading-l">Colour contrast</h2>
+    <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a>
 
-                </div>
+    <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
+    <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
+
+    <h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
+
+    <h3 class="nhsuk-heading-m">Text</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-text-colour"></div>
+      <span class="colour-label">$nhsuk-text-colour</span>
+      <span class="colour-hex">#212B33</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-secondary-text-colour"></div>
+      <span class="colour-label">$nhsuk-secondary-text-colour</span>
+      <span class="colour-hex">#3B4C58</span>
+    </div>
+
+    <h3 class="nhsuk-heading-m">Links</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-link-colour"></div>
+      <span class="colour-label">$nhsuk-link-colour</span>
+      <span class="colour-hex">#0058AD</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-hover-colour"></div>
+      <span class="colour-label">$nhsuk-link-hover-colour</span>
+      <span class="colour-hex">#212B32</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-hover-background-colour"></div>
+      <span class="colour-label">$nhsuk-link-hover-background-colour</span>
+      <span class="colour-hex">#FFCD60</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-focus-colour"></div>
+      <span class="colour-label">$nhsuk-link-focus-colour</span>
+      <span class="colour-hex">#212B32</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-focus-background-colour"></div>
+      <span class="colour-label">$nhsuk-link-focus-background-colour</span>
+      <span class="colour-hex">#FFB81C</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-active-colour"></div>
+      <span class="colour-label">$nhsuk-link-active-colour</span>
+      <span class="colour-hex">#374047</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-active-background-colour"></div>
+      <span class="colour-label">$nhsuk-link-active-background-colour</span>
+      <span class="colour-hex">#FFBF33</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-link-visited-colour"></div>
+      <span class="colour-label">$nhsuk-link-visited-colour</span>
+      <span class="colour-hex">#330072</span>
+    </div>
+
+    <h3 class="nhsuk-heading-m">Border</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-border-colour"></div>
+      <span class="colour-label">$nhsuk-border-colour</span>
+      <span class="colour-hex">#CED4D6</span>
+    </div>
+
+    <h3 class="nhsuk-heading-m">Buttons</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-button-background-colour"></div>
+      <span class="colour-label">$nhsuk-button-background-colour</span>
+      <span class="colour-hex">#007F3B</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-button-hover-colour"></div>
+      <span class="colour-label">$nhsuk-button-hover-colour</span>
+      <span class="colour-hex">#005929</span>
+    </div>
+
+    <h3 class="nhsuk-heading-m">Focus</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-focus-colour"></div>
+      <span class="colour-label">$nhsuk-focus-colour</span>
+      <span class="colour-hex">#FFB81C</span>
+    </div>
+
+    <h3 class="nhsuk-heading-m">Greyscale</h3>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-black"></div>
+      <span class="colour-label">$nhsuk-black</span>
+      <span class="colour-hex">#212B32</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-grey-1"></div>
+      <span class="colour-label">$nhsuk-grey-1</span>
+      <span class="colour-hex">#425462</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-grey-2"></div>
+      <span class="colour-label">$nhsuk-grey-2</span>
+      <span class="colour-hex">#CED4D6</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-grey-3"></div>
+      <span class="colour-label">$nhsuk-grey-3</span>
+      <span class="colour-hex">#DFE4E5</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-grey-4"></div>
+      <span class="colour-label">$nhsuk-grey-4</span>
+      <span class="colour-hex">#E8EDEE</span>
+    </div>
+
+    <h2 id="other" class="nhsuk-heading-l">Other colours</h2>
+
+    <div class="colour-palette">
+      <div class="colour-swatch colour-swatch__nhsuk-blue"></div>
+      <span class="colour-label">$nhsuk-blue</span>
+      <span class="colour-hex">#0058AD</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-white"></div>
+      <span class="colour-label">$nhsuk-white</span>
+      <span class="colour-hex">#FFFFFF</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-green"></div>
+      <span class="colour-label">$nhsuk-green</span>
+      <span class="colour-hex">#007F3B</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-red"></div>
+      <span class="colour-label">$nhsuk-red</span>
+      <span class="colour-hex">#AD1F19</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-yellow"></div>
+      <span class="colour-label">$nhsuk-yellow</span>
+      <span class="colour-hex">#FFB81C</span>
+
+      <div class="colour-swatch colour-swatch__nhsuk-purple"></div>
+      <span class="colour-label">$nhsuk-purple</span>
+      <span class="colour-hex">#330072</span>
+    </div>
 {% endblock %}

@@ -1,4 +1,12 @@
-0.0.6 / TBA
+0.0.7 / 2018-05-11
+==================
+- Home page backlog and progress table
+- Grid & Typography examples and code snippets
+- Grid now ready to test
+- Colour palette defined and examples
+- Colour palette ready to test
+
+0.0.6 / 2018-04-27
 ==================
 - Layout page examples and code snippets
 - Progress table
