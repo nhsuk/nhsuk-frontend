@@ -9,7 +9,7 @@
     margin: 0;
     padding: 8px;
     width: 100%;
-    @media (min-width: 641px) {
+    @include mq($from: tablet) {
       width: calc(100% * (1/2) - 15px);
     }
     .colour-palette_variant {

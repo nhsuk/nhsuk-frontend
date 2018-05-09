@@ -5,6 +5,11 @@
 @import 'helpers/spacing';
 @import 'helpers/reading-width';
 
+// Tools
+@import 'tools/exports';
+@import 'tools/legacy-ie';
+@import 'tools/px-to-em';
+
 // Settings
 @import 'settings/measurements';
 @import 'settings/media-queries';
@@ -12,10 +17,6 @@
 @import 'settings/fonts';
 @import 'settings/colours';
 @import 'settings/typography';
-
-// Tools
-@import 'tools/exports';
-@import 'tools/legacy-ie';
 
 // Core
 @import 'core/shared';

@@ -18,19 +18,16 @@ Install the long-term support (LTS) version of <a href="https://nodejs.org/en/">
 
 Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
 
-Run the server in development mode `npm run watch` 
-
-## Deploying
-
-TBA
-
-## Decisions
-
-Our <a href="https://nhsuk-redesign.azurewebsites.net/decisions">design decisions and findings</a> document the decisions we've made on the stuff we've created.
+Run the server in development mode `npm run watch`
 
 ## Contributing
 
 TBA
+
+## Deploying
+
+Following a successful pull request and merge, the code will automatically be deployed to <a href="https://nhsuk-redesign.azurewebsites.net">NHS.UK design system</a> pages.
+
 
 
 

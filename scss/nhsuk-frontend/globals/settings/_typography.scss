@@ -6,93 +6,93 @@ h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 }
 
 h1,
-.nhs-heading-xl {
-  font-size: 48px;
-  line-height: 56px;
-  margin: 64px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 32px;
-    line-height: 36px;
-    margin: 48px 0 0;
+.nhsuk-heading-xl {
+  font-size: govuk-em(32px, $base-font-size-mobile);
+  line-height: 36px;
+  margin: 48px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(48px, $base-font-size);
+    line-height: 56px;
+    margin: 64px 0 0;
   }
 }
 
 h2,
-.nhs-heading-l {
-  font-size: 32px;
-  line-height: 40px;
-  margin: 72px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 48px 0 0;
+.nhsuk-heading-l {
+  font-size: govuk-em(24px, $base-font-size-mobile);
+  line-height: 32px;
+  margin: 48px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(32px, $base-font-size);
+    line-height: 40px;
+    margin: 72px 0 0;
   }
 }
 
 h3,
-.nhs-heading-m {
-  font-size: 24px;
-  line-height: 32px;
-  margin: 44px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 20px;
-    line-height: 28px;
-    margin: 36px 0 0;
+.nhsuk-heading-m {
+  font-size: govuk-em(20px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 36px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(24px, $base-font-size);
+    line-height: 32px;
+    margin: 44px 0 0;
   }
 }
 
 h4,
-.nhs-heading-s {
-  font-size: 22px;
-  line-height: 32px;
-  margin: 36px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 18px;
+.nhsuk-heading-s {
+  font-size: govuk-em(18px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 32px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(22px, $base-font-size);
+    line-height: 32px;
+    margin: 36px 0 0;
+  }
+}
+
+h5,
+.nhsuk-heading-xs {
+  font-size: govuk-em(16px, $base-font-size-mobile);
+  line-height: 28px;
+  margin: 28px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(19px, $base-font-size);
     line-height: 28px;
     margin: 32px 0 0;
   }
 }
 
-h5,
-.nhs-heading-xs {
-  font-size: 19px;
-  line-height: 28px;
-  margin: 32px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 16px;
-    line-height: 28px;
+p,
+.nhsuk-body {
+  font-weight: $nhs-font-normal;
+  margin: 24px 0 0;
+  @include mq($from: tablet) {
     margin: 28px 0 0;
   }
 }
 
-p,
-.nhs-body {
-  font-weight: $nhs-font-normal;
-  margin: 28px 0 0;
-  @media only screen and (max-width: 481px) {
-    margin: 24px 0 0;
-  }
-}
-
-.nhs-body-l {
-  font-size: 24px;
-  line-height: 32px;
-  margin: 32px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 20px;
-    line-height: 28px;
-    margin: 24px 0 0;
-  }
-}
-
-.nhs-body-s {
-  font-size: 16px;
+.nhsuk-body-l {
+  font-size: govuk-em(20px, $base-font-size-mobile);
   line-height: 28px;
-  margin: 20px 0 0;
-  @media only screen and (max-width: 481px) {
-    font-size: 14px;
-    line-height: 24px;
-    margin: 16px 0 0;
+  margin: 24px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(24px, $base-font-size);
+    line-height: 32px;
+    margin: 32px 0 0;
+  }
+}
+
+.nhsuk-body-s {
+  font-size: govuk-em(14px, $base-font-size-mobile);
+  line-height: 24px;
+  margin: 16px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(16px, $base-font-size);
+    line-height: 28px;
+    margin: 20px 0 0;
   }
 }
 
@@ -121,15 +121,15 @@ a {
 ul,
 ol {
   font-weight: $nhs-font-normal;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   padding-left: 20px;
-  @media only screen and (max-width: 481px) {
-    margin: 24px 0 0;
+  @include mq($from: tablet) {
+    margin: 28px 0 0;
   }
   li {
-    margin: 12px 0 0;
-    @media only screen and (max-width: 481px) {
-      margin: 8px 0 0;
+    margin: 8px 0 0;
+    @include mq($from: tablet) {
+      margin: 12px 0 0;
     }
     &:first-child {
       margin-top: 0;
@@ -146,117 +146,75 @@ strong {
   font-weight: $nhs-font-bold;
 }
 
-.nhs-page-heading {
-  padding: 34px 0 64px;
-  @media only screen and (max-width: 641px) {
-    padding: 25px 0 40px;
+.nhsuk-page-heading {
+  padding: 25px 0 40px;
+  @include mq($from: tablet) {
+    padding: 34px 0 64px;
   }
   h1 {
     margin: 0;
   }
 }
 
-.nhs-page-nav {
+.nhsuk-page-nav {
   & > *:first-child {
     margin-top: 0;
   }
-  @media only screen and (max-width: 641px) {
+  @include mq($until: tablet) {
     margin-bottom: 44px;
   }
   h2,
   h3 {
     & + ol,
     & + ul {
-      margin-top: 12px;
-      @media only screen and (max-width: 641px) {
-        margin-top: 8px;
+      margin-top: 8px;
+      @include mq($from: tablet) {
+        margin-top: 12px;
       }
     }
   }
 }
 
-.nhs-sticky {
-  @media only screen and (min-width: 767px) {
+.nhsuk-sticky {
+  @include mq($until: tablet) {
     position: sticky;
     top: 40px;
   }
 }
 
-.nhs-page-content {
+.nhsuk-page-content {
   & > *:first-child {
     margin-top: 0;
   }
 }
 
-@mixin caption() {
-  color: $secondary-text-colour;
-  display: block;
-  font-weight: 400;
-}
-
-.nhs-caption-xl {
-  @include caption;
-  font-size: 24px;
-  line-height: 32px;
-  @media only screen and (max-width: 481px) {
-    font-size: 20px;
-    line-height: 28px;
-  }
-}
-
-@mixin nhs-list() {
+@mixin nhsuk-list() {
   font-weight: $nhs-font-normal;
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   padding-left: 20px;
-  @media only screen and (max-width: 481px) {
-    margin: 16px 0 0;
+  @include mq($from: tablet) {
+    margin: 20px 0 0;
   }
   li {
-    line-height: 32px;
+    line-height: 28px;
     margin: 8px 0 0;
-    @media only screen and (max-width: 481px) {
-      line-height: 28px;
+    @include mq($from: tablet) {
+      line-height: 32px;
     }
   }
 }
 
-.nhs-list--dashed {
-  @include nhs-list();
-  list-style: none;
-  list-style-position: inside;
-  padding: 0;
-  li {
-    margin-left: 25px;
-    &:before {
-      color: darken($nhs-border-colour, 15%);
-      content: '- ';
-      margin-left: -25px;
-      padding-right: 5px;
+hr {
+  &.nhsuk-h-line {
+    border: 0;
+    border-top: 1px solid $nhs-border-colour;
+    margin: 48px 0 0;
+    @include mq($from: tablet) {
+      margin: 72px 0 0;
     }
   }
-}
-
-.nhs-m-t-0 {
-  margin-top: 0;
 }
 
 .reading-width {
   @include reading-width();
-}
-
-hr {
-  &.nhs-h-line {
-    border: 0;
-    border-top: 1px solid $nhs-border-colour;
-    margin: 72px 0 0;
-    @media only screen and (max-width: 481px) {
-      margin: 48px 0 0;
-    }
-  }
-}
-
-.nhs-notice {
-  background: $nhs-blue-aaa;
-  color: $white;
-  padding: 8px 16px;
 }
