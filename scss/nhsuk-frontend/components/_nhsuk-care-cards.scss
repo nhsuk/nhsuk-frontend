@@ -5,8 +5,8 @@
     margin: 56px 0;
   }
   .care-card-heading {
-    background: $nhs-blue-aaa;
-    color: $white;
+    background: $nhsuk-blue;
+    color: $nhsuk-white;
     padding: 16px;
     position: relative;
     @include mq($from: tablet) {
@@ -15,7 +15,7 @@
     &:after {
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
-      border-top: 16px solid $nhs-blue-aaa;
+      border-top: 16px solid $nhsuk-blue;
       bottom: -16px;
       content: '';
       display: block;
@@ -32,7 +32,7 @@
   }
 
   .care-card-content {
-    background: $white;
+    background: $nhsuk-white;
     padding: 32px 16px 24px;
     @include mq($from: tablet) {
       padding: 36px 24px 28px;
@@ -43,42 +43,42 @@
   }
   &.grey {
     .care-card-heading {
-      background: $nhs-grey;
+      background: $nhsuk-grey-1;
       &:after {
-        border-top: 16px solid $nhs-grey;
+        border-top: 16px solid $nhsuk-grey-1;
         content: '';
       }
     }
   }
   &.blue {
     .care-card-heading {
-      background: $nhs-blue-aaa;
+      background: $nhsuk-blue;
       &:after {
-        border-top: 16px solid $nhs-blue-aaa;
+        border-top: 16px solid $nhsuk-blue;
         content: '';
       }
     }
   }
   &.red {
     .care-card-heading {
-      background: $nhs-red-aaa;
+      background: $nhsuk-red;
       &:after {
-        border-top: 16px solid $nhs-red-aaa;
+        border-top: 16px solid $nhsuk-red;
         content: '';
       }
     }
   }
   &.black {
     .care-card-heading {
-      background: $nhs-red-aaa-darken-90;
+      background: $nhsuk-red;
       &:after {
-        border-top: 16px solid $nhs-red-aaa-darken-90;
+        border-top: 16px solid $nhsuk-red;
         content: '';
       }
     }
     .care-card-content {
-      background: $nhs-red-aaa;
-      color: $white;
+      background: $nhsuk-red;
+      color: $nhsuk-white;
     }
   }
 }

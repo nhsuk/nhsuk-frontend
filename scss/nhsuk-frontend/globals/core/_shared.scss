@@ -7,18 +7,18 @@
 
 html,
 html * {
-  font-family: $nhs-font-stack;
+  font-family: $nhsuk-font-stack;
 }
 
 html {
   -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
   -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-  background-color: $nhs-body-background-colour;
-  color: $text-color;
+  background-color: $nhsuk-grey-4;
+  color: $nhsuk-text-colour;
 }
 
 body {
-  background-color: $nhs-body-background-colour;
+  background-color: $nhsuk-grey-4;
   font-size: $base-font-size-mobile;
   line-height: $base-line-height-mobile;
   margin: 0 0 $footer-height;

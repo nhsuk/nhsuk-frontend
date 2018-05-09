@@ -1,7 +1,7 @@
 h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 .h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
   color: inherit;
-  font-weight: $nhs-font-bold;
+  font-weight: $nhsuk-font-bold;
   margin-bottom: 0;
 }
 
@@ -67,7 +67,7 @@ h5,
 
 p,
 .nhsuk-body {
-  font-weight: $nhs-font-normal;
+  font-weight: $nhsuk-font-normal;
   margin: 24px 0 0;
   @include mq($from: tablet) {
     margin: 28px 0 0;
@@ -97,30 +97,33 @@ p,
 }
 
 a {
-  color: $link-colour;
+  color: $nhsuk-link-colour;
   cursor: pointer;
   &:focus {
-    background: $yellow;
-    box-shadow: 0 0 0 4px $yellow;
-    color: $nhs-black;
+    background: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
     outline: 0;
   }
   &:hover {
-    background: $nhs-yellow-aaa-lighten-30;
-    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-30;
-    color: $nhs-black;
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-hover-colour;
     text-decoration: none;
   }
   &:active {
-    background: $nhs-yellow-aaa-lighten-30;
-    box-shadow: 0 0 0 4px $nhs-yellow-aaa-lighten-10;
-    color: $nhs-black-lighten-10;
+    background: $nhsuk-link-active-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
+    color: $nhsuk-link-active-colour;
+  }
+  &:visited {
+    color: $nhsuk-link-visited-colour;
   }
 }
 
 ul,
 ol {
-  font-weight: $nhs-font-normal;
+  font-weight: $nhsuk-font-normal;
   margin: 24px 0 0;
   padding-left: 20px;
   @include mq($from: tablet) {
@@ -139,11 +142,11 @@ ol {
 
 tr,
 th {
-  font-weight: $nhs-font-normal;
+  font-weight: $nhsuk-font-normal;
 }
 
 strong {
-  font-weight: $nhs-font-bold;
+  font-weight: $nhsuk-font-bold;
 }
 
 .nhsuk-page-heading {
@@ -189,7 +192,7 @@ strong {
 }
 
 @mixin nhsuk-list() {
-  font-weight: $nhs-font-normal;
+  font-weight: $nhsuk-font-normal;
   margin: 16px 0 0;
   padding-left: 20px;
   @include mq($from: tablet) {
@@ -207,7 +210,7 @@ strong {
 hr {
   &.nhsuk-h-line {
     border: 0;
-    border-top: 1px solid $nhs-border-colour;
+    border-top: 1px solid $nhsuk-border-colour;
     margin: 48px 0 0;
     @include mq($from: tablet) {
       margin: 72px 0 0;

@@ -1,8 +1,8 @@
 .nhsuk-hero {
-  background: $nhs-blue-aaa;
-  color: $white;
+  background: $nhsuk-blue;
+  color: $nhsuk-white;
   .nhsuk-hero-container {
-    border-top: 1px solid $white-05;
+    border-top: 1px solid $nhsuk-white;
     .nhsuk-page-heading {
       margin: 0;
       padding: 40px 0;
@@ -10,7 +10,7 @@
         padding: 64px 0;
       }
       h1 {
-        color: $white;
+        color: $nhsuk-white;
       }
     }
   }
