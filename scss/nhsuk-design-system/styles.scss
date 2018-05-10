@@ -135,7 +135,7 @@ ul ul, ol ul {
 .nhsuk-page-nav {
     h2,
     h3,
-    h4{ 
+    h4{
         &.test {
             font-size: 16px;
             @media(max-width: 641px) {
@@ -165,7 +165,7 @@ ul ul, ol ul {
     @include top-and-bottom;
     background: $callout-background;
     border-top: 4px solid $callout-border;
-    color: $nhs-black;
+    color: $nhsuk-black;
     margin: 90px 0 44px;
     padding: 24px;
     position:relative;
@@ -226,7 +226,7 @@ ul ul, ol ul {
 //inset text
 .nhsuk-inset-text {
     @include top-and-bottom;
-    border-left: 8px solid rgba($nhs-blue-aaa,1);
+    border-left: 8px solid rgba($nhsuk-blue,1);
     margin: 40px 0;
     padding: 16px 0 16px 24px;
 }
