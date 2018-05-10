@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
-    <title>callout-icon-info</title>
+    <title>Group 13</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="NHS-Redesign---Components-v0.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="NHS-Redesign---Callout-Box-Ideas-v3" transform="translate(-636.000000, -304.000000)">
-            <g id="callout-icon-info" transform="translate(636.000000, 304.000000)">
-                <rect id="Rectangle-3" fill="#0058AD" fill-rule="evenodd" x="0" y="0" width="80" height="80"></rect>
-                <path d="M40,57.6 C38.4,57.6 36.8,56.4 36.8,54.4 L36.8,36 C36.8,34.4 38,32.8 40,32.8 C42,32.8 43.2,34 43.2,36 L43.2,54.4 C43.2,56 41.6,57.6 40,57.6 Z M40,30 C37.790861,30 36,28.209139 36,26 C36,23.790861 37.790861,22 40,22 C42.209139,22 44,23.790861 44,26 C44,28.209139 42.209139,30 40,30 Z" id="nhsuk-icon-info" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <g id="NHS-Redesign---Callout-Box-Ideas-v2" transform="translate(-1281.000000, -256.000000)">
+            <g id="Group-13" transform="translate(1281.000000, 256.000000)">
+                <rect id="Rectangle-3" fill="#0058AD" x="0" y="0" width="50" height="50"></rect>
+                <g id="Group-4" transform="translate(23.000000, 15.000000)" fill="#FFFFFF">
+                    <polygon id="Path" points="4 20 0 20 0 8 4 8"></polygon>
+                    <polygon id="Path" points="4 4 0 4 0 0 4 0"></polygon>
+                </g>
             </g>
         </g>
     </g>

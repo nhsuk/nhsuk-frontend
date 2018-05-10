@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
-    <title>callout-icon-info</title>
+    <title>Group 11</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="NHS-Redesign---Components-v0.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="NHS-Redesign---Callout-Box-Ideas-v3" transform="translate(-1386.000000, -304.000000)">
-            <g id="callout-icon-warning-yellow" transform="translate(1386.000000, 304.000000)">
-                <rect id="Rectangle-3" fill="#FFB81C" fill-rule="evenodd" x="0" y="0" width="80" height="80"></rect>
-                <path d="M40.0011489,64.0002719 C37.7920099,64.0002719 36.0011489,62.2094109 36.0011489,60.0002719 C36.0011489,57.7911329 37.7920099,56.0002719 40.0011489,56.0002719 C42.2102879,56.0002719 44.0011489,57.7911329 44.0011489,60.0002719 C44.0011489,62.2094109 42.2102879,64.0002719 40.0011489,64.0002719 Z M43.7211489,16.3202719 C43.9133468,16.5253603 44.0143495,16.7995103 44.0011489,17.0802719 L41.0011489,50.6802719 C41.0011489,51.2325566 40.5534336,51.6802719 40.0011489,51.6802719 C39.4488641,51.6802719 39.0011489,51.2325566 39.0011489,50.6802719 L36.0011489,17.0802719 C35.9879483,16.7995103 36.0889509,16.5253603 36.2811489,16.3202719 C36.4610185,16.1110317 36.7253053,15.9935709 37.0011489,16.0002719 L43.0011489,16.0002719 C43.2769924,15.9935709 43.5412792,16.1110317 43.7211489,16.3202719 Z" id="nhsuk-icon-warning" fill="#212B32" fill-rule="nonzero"></path>
+        <g id="NHS-Redesign---Callout-Box-Ideas-v2" transform="translate(-1281.000000, -411.000000)">
+            <g id="Group-11" transform="translate(1281.000000, 411.000000)">
+                <rect id="Rectangle-3" fill="#FFB81C" x="0" y="0" width="50" height="50"></rect>
+                <g id="Group" transform="translate(9.000000, 8.000000)">
+                    <circle id="Oval-2" fill="#212B32" cx="16.5" cy="16.5" r="12.5"></circle>
+                    <path d="M16.4473684,0 C7.36842105,0 0,7.36842105 0,16.4473684 C0,25.5263158 7.36842105,32.8947368 16.4473684,32.8947368 C25.5263158,32.8947368 32.8947368,25.5263158 32.8947368,16.4473684 C32.8947368,7.36842105 25.5263158,0 16.4473684,0 L16.4473684,0 Z M18.4210526,25 L15.1315789,25 L15.1315789,15.1315789 L18.4210526,15.1315789 L18.4210526,25 L18.4210526,25 Z M18.4210526,11.8421053 L15.1315789,11.8421053 L15.1315789,8.55263158 L18.4210526,8.55263158 L18.4210526,11.8421053 L18.4210526,11.8421053 Z" id="Shape" fill="#FFFFFF" transform="translate(16.447368, 16.447368) rotate(180.000000) translate(-16.447368, -16.447368) "></path>
+                </g>
             </g>
         </g>
     </g>

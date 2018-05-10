@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
-    <title>callout-icon-info</title>
+    <title>Group 8</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="NHS-Redesign---Components-v0.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="NHS-Redesign---Callout-Box-Ideas-v3" transform="translate(-2156.000000, -304.000000)">
-            <g id="callout-icon-warning-red" transform="translate(2156.000000, 304.000000)">
-                <rect id="Rectangle-3" fill="#AD1F19" fill-rule="evenodd" x="0" y="0" width="80" height="80"></rect>
-                <path d="M40.0011489,64.0002719 C37.7920099,64.0002719 36.0011489,62.2094109 36.0011489,60.0002719 C36.0011489,57.7911329 37.7920099,56.0002719 40.0011489,56.0002719 C42.2102879,56.0002719 44.0011489,57.7911329 44.0011489,60.0002719 C44.0011489,62.2094109 42.2102879,64.0002719 40.0011489,64.0002719 Z M43.7211489,16.3202719 C43.9133468,16.5253603 44.0143495,16.7995103 44.0011489,17.0802719 L41.0011489,50.6802719 C41.0011489,51.2325566 40.5534336,51.6802719 40.0011489,51.6802719 C39.4488641,51.6802719 39.0011489,51.2325566 39.0011489,50.6802719 L36.0011489,17.0802719 C35.9879483,16.7995103 36.0889509,16.5253603 36.2811489,16.3202719 C36.4610185,16.1110317 36.7253053,15.9935709 37.0011489,16.0002719 L43.0011489,16.0002719 C43.2769924,15.9935709 43.5412792,16.1110317 43.7211489,16.3202719 Z" id="nhsuk-icon-warning" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <g id="NHS-Redesign---Callout-Box-Ideas-v2" transform="translate(-227.000000, -1260.000000)">
+            <g id="Group-8" transform="translate(227.000000, 1260.000000)">
+                <g id="Group-9">
+                    <rect id="Rectangle-3" fill="#AD1F19" x="0" y="0" width="50" height="50"></rect>
+                    <g id="Group-7" transform="translate(10.000000, 12.000000)" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2">
+                        <path d="M28.6207444,26.4039642 L0.617051739,26.4039642 C-0.70307874,26.4039642 -1.40954682,25.1845055 -0.74745139,24.0408861 L13.2543949,-0.144121183 C13.9149573,-1.28509254 15.3226067,-1.2854934 15.9834012,-0.144121183 L29.9852475,24.0408861 C30.6471095,25.1841022 29.9413393,26.4039642 28.6207444,26.4039642 Z" id="Shape"></path>
+                    </g>
+                </g>
+                <polygon id="Path" fill="#212B32" transform="translate(24.592105, 22.302632) rotate(180.000000) translate(-24.592105, -22.302632) " points="26.2368421 27.2368421 22.9473684 27.2368421 22.9473684 17.3684211 26.2368421 17.3684211"></polygon>
+                <polygon id="Path" fill="#212B32" transform="translate(24.592105, 32.592105) rotate(180.000000) translate(-24.592105, -32.592105) " points="26.2368421 34.2368421 22.9473684 34.2368421 22.9473684 30.9473684 26.2368421 30.9473684"></polygon>
             </g>
         </g>
     </g>
