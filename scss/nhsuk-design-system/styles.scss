@@ -165,12 +165,12 @@ ul ul, ol ul {
     @include top-and-bottom;
     background: $callout-background;
     color: $nhs-black;
-    margin: 60px 0 44px;
+    margin: 56px 0 48px;
     padding: 32px 24px 32px 76px;
     position:relative;
     @media(max-width: 641px) {
-        margin: 68px 0 32px;
-        padding: 24px 24px 24px 32px;
+        margin: 40px 0 32px;
+        padding: 24px 24px 24px 44px;
     }
     &:before {
         content: '';
@@ -183,10 +183,10 @@ ul ul, ol ul {
         top: -12px;
         width: 64px;
         @media(max-width: 641px) {
-            height: 32px;
+            height: 40px;
             left: -8px;
             top: -8px;
-            width: 32px;
+            width: 40px;
         }
     }
 }
@@ -226,7 +226,7 @@ ul ul, ol ul {
 //inset text
 .nhsuk-inset-text {
     @include top-and-bottom;
-    border-left: 8px solid rgba($nhs-blue-aaa,1);
+    border-left: 8px solid lighten($nhs-blue-aaa,5%);
     margin: 40px 0;
     padding: 16px 0 16px 24px;
 }

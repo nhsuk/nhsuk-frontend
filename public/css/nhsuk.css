@@ -520,19 +520,16 @@ body {
   padding: 0; }
 
 .care-card {
-  margin: 40px 0;
+  margin: 32px 0;
   width: 100%; }
   @media (min-width: 40.0625em) {
     .care-card {
-      margin: 56px 0; } }
+      margin: 48px 0; } }
   .care-card .care-card-heading {
     background: #0058ad;
     color: #fff;
-    padding: 16px;
+    padding: 16px 24px;
     position: relative; }
-    @media (min-width: 40.0625em) {
-      .care-card .care-card-heading {
-        padding: 16px 24px; } }
     .care-card .care-card-heading:after {
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
@@ -550,7 +547,7 @@ body {
       margin: 0; }
   .care-card .care-card-content {
     background: #fff;
-    padding: 32px 16px 24px; }
+    padding: 32px 24px 24px; }
     @media (min-width: 40.0625em) {
       .care-card .care-card-content {
         padding: 36px 24px 28px; } }
