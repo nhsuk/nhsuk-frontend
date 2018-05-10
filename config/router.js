@@ -53,8 +53,4 @@ router.get('/examples/test-medicine', (req, res) => {
   res.render('examples/test-medicine', {});
 });
 
-router.get('/examples/test-medicine-white', (req, res) => {
-  res.render('examples/test-medicine-white', {});
-});
-
 module.exports = router;
