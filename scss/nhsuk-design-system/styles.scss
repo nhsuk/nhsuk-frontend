@@ -164,34 +164,36 @@ ul ul, ol ul {
 @mixin nhsuk-c-callout($callout-background,$callout-border) {
     @include top-and-bottom;
     background: $callout-background;
-    border-top: 4px solid $callout-border;
     color: $nhsuk-black;
-    margin: 90px 0 44px;
-    padding: 24px;
+    margin: 60px 0 44px;
+    padding: 32px 24px 32px 76px;
     position:relative;
     @media(max-width: 641px) {
         margin: 68px 0 32px;
+        padding: 24px 24px 24px 32px;
     }
     &:before {
         content: '';
         background-image: url(../images/callout-danger.svg);
         background-size: cover;
         display: block;
-        height: 50px;
-        left: 0;
+        height: 64px;
+        left: -12px;
         position: absolute;
-        top: -50px;
-        width: 50px;
+        top: -12px;
+        width: 64px;
         @media(max-width: 641px) {
-            height: 40px;
-            top: -40px;
-            width: 40px;
+            height: 32px;
+            left: -8px;
+            top: -8px;
+            width: 32px;
         }
     }
 }
 
 .nhsuk-c-callout__info {
     @include nhsuk-c-callout(white,#0058AD);
+    //border: 4px solid #0058AD;
     &:before {
         background-image: url(../images/callout-info.svg);
     }
@@ -202,7 +204,6 @@ ul ul, ol ul {
     border: 4px solid #FFB81C;
     &:before {
         background-image: url(../images/callout-warning.svg);
-        left: -4px;
     }
 }
 
@@ -211,7 +212,6 @@ ul ul, ol ul {
     border: 4px solid #AD1F19;
     &:before {
         background-image: url(../images/callout-danger.svg);
-        left: -4px;
     }
 }
 
