@@ -49,4 +49,12 @@ router.get('/examples/page-5', (req, res) => {
   res.render('examples/page-5', {});
 });
 
+router.get('/examples/test-medicine', (req, res) => {
+  res.render('examples/test-medicine', {});
+});
+
+router.get('/examples/test-medicine-white', (req, res) => {
+  res.render('examples/test-medicine-white', {});
+});
+
 module.exports = router;
