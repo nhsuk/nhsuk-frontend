@@ -1,23 +1,17 @@
 .nhsuk-hero {
-  background: $nhs-blue-aaa;
-  color: $white;
+  background-color: $nhsuk-blue;
+  color: $nhsuk-white;
   .nhsuk-hero-container {
-    border-top: 1px solid $white-05;
+    border-top: 1px solid $nhsuk-white;
+    &.nhsuk-o-main-wrapper {
+      padding: 0;
+    }
     .nhsuk-page-heading {
       margin: 0;
       padding: 40px 0;
       @include mq($from: tablet) {
-        padding: 64px 0;
-      }
-      h1 {
-        color: $white;
+        padding: 60px 0;
       }
     }
-  }
-}
-
-.nhsuk-home-page {
-  .nhsuk-o-main-wrapper {
-    padding: 0;
   }
 }

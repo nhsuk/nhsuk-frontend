@@ -7,14 +7,14 @@
 
 .nhsuk-page-sidebar {
   .divider {
-    background-color: $nhs-blue;
+    background-color: $nhsuk-blue;
     height: 3px;
     margin: 35px 0;
     width: 50%;
   }
   a {
     &.active {
-      color: $black;
+      color: $nhsuk-link-active-colour;
     }
   }
 }

@@ -1,176 +1,91 @@
-//nhs redesign palette
 .colour-palette {
-  @include flexbox();
-  @include flex-direction(row);
-  @include flex-wrap(wrap);
-  margin: 40px -8px;
-  .colour-palette_item {
-    float: left;
-    margin: 0;
-    padding: 8px;
-    width: 100%;
-    @include mq($from: tablet) {
-      width: calc(100% * (1/2) - 15px);
+  .colour-swatch {
+    border-radius: 50px;
+    height: 50px;
+    margin: 20px 20px 20px 0;
+    width: 50px;
+    &__nhsuk-text-colour {
+      background-color: $nhsuk-text-colour;
     }
-    .colour-palette_variant {
-      color: $white;
-      font-size: 16px;
-      padding: 15px;
-      width: 100%;
-      &.colour-palette_variant--base {
-        font-size: 21px;
-        padding: 30px 15px;
-      }
-      &.font-colour-black {
-        color: $nhs-black;
-      }
+    &__nhsuk-secondary-text-colour {
+      background-color: $nhsuk-secondary-text-colour;
+    }
+    &__nhsuk-link-colour {
+      background-color: $nhsuk-link-colour;
+    }
+    &__nhsuk-link-hover-colour {
+      background-color: $nhsuk-link-hover-colour;
+    }
+    &__nhsuk-link-hover-background-colour {
+      background-color: $nhsuk-link-hover-background-colour;
+    }
+    &__nhsuk-link-focus-colour {
+      background-color: $nhsuk-link-focus-colour;
+    }
+    &__nhsuk-link-focus-background-colour {
+      background-color: $nhsuk-link-focus-background-colour;
+    }
+    &__nhsuk-link-active-colour {
+      background-color: $nhsuk-link-active-colour;
+    }
+    &__nhsuk-link-active-background-colour {
+      background-color: $nhsuk-link-active-background-colour;
+    }
+    &__nhsuk-link-visited-colour {
+      background-color: $nhsuk-link-visited-colour;
+    }
+    &__nhsuk-border-colour {
+      background-color: $nhsuk-border-colour;
+    }
+    &__nhsuk-button-background-colour {
+      background-color: $nhsuk-button-background-colour;
+    }
+    &__nhsuk-button-hover-colour {
+      background-color: $nhsuk-button-hover-colour;
+    }
+    &__nhsuk-focus-colour {
+      background-color: $nhsuk-focus-colour;
+    }
+    &__nhsuk-black {
+      background-color: $nhsuk-black;
+    }
+    &__nhsuk-grey-1 {
+      background-color: $nhsuk-grey-1;
+    }
+    &__nhsuk-grey-2 {
+      background-color: $nhsuk-grey-2;
+    }
+    &__nhsuk-grey-3 {
+      background-color: $nhsuk-grey-3;
+    }
+    &__nhsuk-grey-4 {
+      background-color: $nhsuk-grey-4;
+      border: 2px solid $nhsuk-border-colour;
+    }
+    &__nhsuk-blue {
+      background-color: $nhsuk-blue;
+    }
+    &__nhsuk-white {
+      background-color: $nhsuk-white;
+    }
+    &__nhsuk-green {
+      background-color: $nhsuk-green;
+    }
+    &__nhsuk-red {
+      background-color: $nhsuk-red;
+    }
+    &__nhsuk-yellow {
+      background-color: $nhsuk-yellow;
+    }
+    &__nhsuk-purple {
+      background-color: $nhsuk-purple;
+    }
+  }
+  span {
+    &.colour-label,
+    &.colour-hex {
+      display: block;
     }
   }
 }
 
-//blues
-.nhs-blue-aaa {background: $nhs-blue-aaa;}
-.nhs-blue-aaa-lighten-10 {background: $nhs-blue-aaa-lighten-10;}
-.nhs-blue-aaa-lighten-20 {background: $nhs-blue-aaa-lighten-20;}
-.nhs-blue-aaa-lighten-30 {background: $nhs-blue-aaa-lighten-30;}
-.nhs-blue-aaa-lighten-40 {background: $nhs-blue-aaa-lighten-40;}
-.nhs-blue-aaa-lighten-50 {background: $nhs-blue-aaa-lighten-50;}
-.nhs-blue-aaa-lighten-60 {background: $nhs-blue-aaa-lighten-60;}
-.nhs-blue-aaa-lighten-70 {background: $nhs-blue-aaa-lighten-70;}
-.nhs-blue-aaa-lighten-80 {background: $nhs-blue-aaa-lighten-80;}
-.nhs-blue-aaa-lighten-90 {background: $nhs-blue-aaa-lighten-90;}
-.nhs-blue-aaa-darken-10 {background: $nhs-blue-aaa-darken-10;}
-.nhs-blue-aaa-darken-20 {background: $nhs-blue-aaa-darken-20;}
-.nhs-blue-aaa-darken-30 {background: $nhs-blue-aaa-darken-30;}
-.nhs-blue-aaa-darken-40 {background: $nhs-blue-aaa-darken-40;}
-.nhs-blue-aaa-darken-50 {background: $nhs-blue-aaa-darken-50;}
-.nhs-blue-aaa-darken-60 {background: $nhs-blue-aaa-darken-60;}
-.nhs-blue-aaa-darken-70 {background: $nhs-blue-aaa-darken-70;}
-.nhs-blue-aaa-darken-80 {background: $nhs-blue-aaa-darken-80;}
-.nhs-blue-aaa-darken-90 {background: $nhs-blue-aaa-darken-90;}
-
-//reds
-.nhs-red-aaa {background: $nhs-red-aaa;}
-.nhs-red-aaa-lighten-10 {background: $nhs-red-aaa-lighten-10;}
-.nhs-red-aaa-lighten-20 {background: $nhs-red-aaa-lighten-20;}
-.nhs-red-aaa-lighten-30 {background: $nhs-red-aaa-lighten-30;}
-.nhs-red-aaa-lighten-40 {background: $nhs-red-aaa-lighten-40;}
-.nhs-red-aaa-lighten-50 {background: $nhs-red-aaa-lighten-50;}
-.nhs-red-aaa-lighten-60 {background: $nhs-red-aaa-lighten-60;}
-.nhs-red-aaa-lighten-70 {background: $nhs-red-aaa-lighten-70;}
-.nhs-red-aaa-lighten-80 {background: $nhs-red-aaa-lighten-80;}
-.nhs-red-aaa-lighten-90 {background: $nhs-red-aaa-lighten-90;}
-.nhs-red-aaa-darken-10 {background: $nhs-red-aaa-darken-10;}
-.nhs-red-aaa-darken-20 {background: $nhs-red-aaa-darken-20;}
-.nhs-red-aaa-darken-30 {background: $nhs-red-aaa-darken-30;}
-.nhs-red-aaa-darken-40 {background: $nhs-red-aaa-darken-40;}
-.nhs-red-aaa-darken-50 {background: $nhs-red-aaa-darken-50;}
-.nhs-red-aaa-darken-60 {background: $nhs-red-aaa-darken-60;}
-.nhs-red-aaa-darken-70 {background: $nhs-red-aaa-darken-70;}
-.nhs-red-aaa-darken-80 {background: $nhs-red-aaa-darken-80;}
-.nhs-red-aaa-darken-90 {background: $nhs-red-aaa-darken-90;}
-
-//blacks
-.nhs-black {background: $nhs-black;}
-.nhs-black-lighten-10 {background: $nhs-black-lighten-10;}
-.nhs-black-lighten-20 {background: $nhs-black-lighten-20;}
-.nhs-black-lighten-30 {background: $nhs-black-lighten-30;}
-.nhs-black-lighten-40 {background: $nhs-black-lighten-40;}
-.nhs-black-lighten-50 {background: $nhs-black-lighten-50;}
-.nhs-black-lighten-60 {background: $nhs-black-lighten-60;}
-.nhs-black-lighten-70 {background: $nhs-black-lighten-70;}
-.nhs-black-lighten-80 {background: $nhs-black-lighten-80;}
-.nhs-black-lighten-90 {background: $nhs-black-lighten-90;}
-.nhs-black-darken-10 {background: $nhs-black-darken-10;}
-.nhs-black-darken-20 {background: $nhs-black-darken-20;}
-.nhs-black-darken-30 {background: $nhs-black-darken-30;}
-.nhs-black-darken-40 {background: $nhs-black-darken-40;}
-.nhs-black-darken-50 {background: $nhs-black-darken-50;}
-.nhs-black-darken-60 {background: $nhs-black-darken-60;}
-.nhs-black-darken-70 {background: $nhs-black-darken-70;}
-.nhs-black-darken-80 {background: $nhs-black-darken-80;}
-.nhs-black-darken-90 {background: $nhs-black-darken-90;}
-
-//nhs-grey
-.nhs-grey {background: $nhs-grey;}
-.nhs-grey-lighten-10 {background: $nhs-grey-lighten-10;}
-.nhs-grey-lighten-20 {background: $nhs-grey-lighten-20;}
-.nhs-grey-lighten-30 {background: $nhs-grey-lighten-30;}
-.nhs-grey-lighten-40 {background: $nhs-grey-lighten-40;}
-.nhs-grey-lighten-50 {background: $nhs-grey-lighten-50;}
-.nhs-grey-lighten-60 {background: $nhs-grey-lighten-60;}
-.nhs-grey-lighten-70 {background: $nhs-grey-lighten-70;}
-.nhs-grey-lighten-80 {background: $nhs-grey-lighten-80;}
-.nhs-grey-lighten-90 {background: $nhs-grey-lighten-90;}
-.nhs-grey-darken-10 {background: $nhs-grey-darken-10;}
-.nhs-grey-darken-20 {background: $nhs-grey-darken-20;}
-.nhs-grey-darken-30 {background: $nhs-grey-darken-30;}
-.nhs-grey-darken-40 {background: $nhs-grey-darken-40;}
-.nhs-grey-darken-50 {background: $nhs-grey-darken-50;}
-.nhs-grey-darken-60 {background: $nhs-grey-darken-60;}
-.nhs-grey-darken-70 {background: $nhs-grey-darken-70;}
-.nhs-grey-darken-80 {background: $nhs-grey-darken-80;}
-.nhs-grey-darken-90 {background: $nhs-grey-darken-90;}
-
-//yellow-aaa
-.nhs-yellow-aaa {background: $nhs-yellow-aaa;}
-.nhs-yellow-aaa-lighten-10 {background: $nhs-yellow-aaa-lighten-10;}
-.nhs-yellow-aaa-lighten-20 {background: $nhs-yellow-aaa-lighten-20;}
-.nhs-yellow-aaa-lighten-30 {background: $nhs-yellow-aaa-lighten-30;}
-.nhs-yellow-aaa-lighten-40 {background: $nhs-yellow-aaa-lighten-40;}
-.nhs-yellow-aaa-lighten-50 {background: $nhs-yellow-aaa-lighten-50;}
-.nhs-yellow-aaa-lighten-60 {background: $nhs-yellow-aaa-lighten-60;}
-.nhs-yellow-aaa-lighten-70 {background: $nhs-yellow-aaa-lighten-70;}
-.nhs-yellow-aaa-lighten-80 {background: $nhs-yellow-aaa-lighten-80;}
-.nhs-yellow-aaa-lighten-90 {background: $nhs-yellow-aaa-lighten-90;}
-.nhs-yellow-aaa-darken-10 {background: $nhs-yellow-aaa-darken-10;}
-.nhs-yellow-aaa-darken-20 {background: $nhs-yellow-aaa-darken-20;}
-.nhs-yellow-aaa-darken-30 {background: $nhs-yellow-aaa-darken-30;}
-.nhs-yellow-aaa-darken-40 {background: $nhs-yellow-aaa-darken-40;}
-.nhs-yellow-aaa-darken-50 {background: $nhs-yellow-aaa-darken-50;}
-.nhs-yellow-aaa-darken-60 {background: $nhs-yellow-aaa-darken-60;}
-.nhs-yellow-aaa-darken-70 {background: $nhs-yellow-aaa-darken-70;}
-.nhs-yellow-aaa-darken-80 {background: $nhs-yellow-aaa-darken-80;}
-.nhs-yellow-aaa-darken-90 {background: $nhs-yellow-aaa-darken-90;}
-
-//greens
-.nhs-green-aaa {background: $nhs-green-aaa;}
-.nhs-green-aaa-lighten-10 {background: $nhs-green-aaa-lighten-10;}
-.nhs-green-aaa-lighten-20 {background: $nhs-green-aaa-lighten-20;}
-.nhs-green-aaa-lighten-30 {background: $nhs-green-aaa-lighten-30;}
-.nhs-green-aaa-lighten-40 {background: $nhs-green-aaa-lighten-40;}
-.nhs-green-aaa-lighten-50 {background: $nhs-green-aaa-lighten-50;}
-.nhs-green-aaa-lighten-60 {background: $nhs-green-aaa-lighten-60;}
-.nhs-green-aaa-lighten-70 {background: $nhs-green-aaa-lighten-70;}
-.nhs-green-aaa-lighten-80 {background: $nhs-green-aaa-lighten-80;}
-.nhs-green-aaa-lighten-90 {background: $nhs-green-aaa-lighten-90;}
-.nhs-green-aaa-darken-10 {background: $nhs-green-aaa-darken-10;}
-.nhs-green-aaa-darken-20 {background: $nhs-green-aaa-darken-20;}
-.nhs-green-aaa-darken-30 {background: $nhs-green-aaa-darken-30;}
-.nhs-green-aaa-darken-40 {background: $nhs-green-aaa-darken-40;}
-.nhs-green-aaa-darken-50 {background: $nhs-green-aaa-darken-50;}
-.nhs-green-aaa-darken-60 {background: $nhs-green-aaa-darken-60;}
-.nhs-green-aaa-darken-70 {background: $nhs-green-aaa-darken-70;}
-.nhs-green-aaa-darken-80 {background: $nhs-green-aaa-darken-80;}
-.nhs-green-aaa-darken-90 {background: $nhs-green-aaa-darken-90;}
-
-//purples
-.nhs-purple {background: $nhs-purple;}
-.nhs-purple-lighten-10 {background: $nhs-purple-lighten-10;}
-.nhs-purple-lighten-20 {background: $nhs-purple-lighten-20;}
-.nhs-purple-lighten-30 {background: $nhs-purple-lighten-30;}
-.nhs-purple-lighten-40 {background: $nhs-purple-lighten-40;}
-.nhs-purple-lighten-50 {background: $nhs-purple-lighten-50;}
-.nhs-purple-lighten-60 {background: $nhs-purple-lighten-60;}
-.nhs-purple-lighten-70 {background: $nhs-purple-lighten-70;}
-.nhs-purple-lighten-80 {background: $nhs-purple-lighten-80;}
-.nhs-purple-lighten-90 {background: $nhs-purple-lighten-90;}
-.nhs-purple-darken-10 {background: $nhs-purple-darken-10;}
-.nhs-purple-darken-20 {background: $nhs-purple-darken-20;}
-.nhs-purple-darken-30 {background: $nhs-purple-darken-30;}
-.nhs-purple-darken-40 {background: $nhs-purple-darken-40;}
-.nhs-purple-darken-50 {background: $nhs-purple-darken-50;}
-.nhs-purple-darken-60 {background: $nhs-purple-darken-60;}
-.nhs-purple-darken-70 {background: $nhs-purple-darken-70;}
-.nhs-purple-darken-80 {background: $nhs-purple-darken-80;}
-.nhs-purple-darken-90 {background: $nhs-purple-darken-90;}

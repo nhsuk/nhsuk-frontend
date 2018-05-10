@@ -1,8 +1,8 @@
 @import '../nhsuk-frontend/globals/settings/colours';
 
 .example {
-  background: $white;
-  border: 1px solid $nhs-border-colour;
+  background: $nhsuk-white;
+  border: 1px solid $nhsuk-border-colour;
   margin: 24px 0 0;
   overflow: hidden;
   padding: 64px 16px 16px;
@@ -11,8 +11,8 @@
     padding: 64px 32px 32px;
   }
   &:before {
-    background: $nhs-grey;
-    color: $white;
+    background: $nhsuk-grey-1;
+    color: $nhsuk-white;
     content: 'EXAMPLE';
     font-size: 12px;
     font-weight: 600;
@@ -32,9 +32,9 @@
     margin-top: 24px;
   }
   .nhsuk-btn-copy {
-    background-color: $green;
+    background-color: $nhsuk-green;
     border: 0;
-    color: $white;
+    color: $nhsuk-white;
     font-size: 14px;
     padding: 5px 10px;
     position: absolute;
@@ -51,7 +51,7 @@
   width: 100%;
   th,
   td {
-    border-bottom: 1px solid $nhs-border-colour;
+    border-bottom: 1px solid $nhsuk-border-colour;
     padding: 8px;
     text-align: left;
     text-transform: none;
@@ -66,7 +66,7 @@
 }
 
 .nhsuk-tag {
-  color: $white;
+  color: $nhsuk-white;
   font-size: 14px;
   overflow-x: auto;
   padding: 5px 10px;
@@ -75,18 +75,18 @@
     font-size: 16px;
   }
   &__backlog {
-    background-color: $nhs-grey;
+    background-color: $nhsuk-grey-1;
   }
   &__design {
-    background-color: $nhs-blue;
+    background-color: $nhsuk-blue;
   }
   &__development {
-    background-color: $nhs-purple;
+    background-color: $nhsuk-purple;
   }
   &__testing {
-    background-color: $nhs-red-aaa;
+    background-color: $nhsuk-red;
   }
   &__ready {
-    background-color: $nhs-green-aaa;
+    background-color: $nhsuk-green;
   }
 }

@@ -1,7 +1,7 @@
 .nhsuk-grid-example {
   p {
-    background-color: $blue;
-    color: $white;
+    background-color: $nhsuk-blue;
+    color: $nhsuk-white;
     display: block;
     padding: 20px;
     text-align: center;
@@ -10,6 +10,6 @@
 
 span {
   &.highlight {
-    color: $blue;
+    color: $nhsuk-blue;
   }
 }
