@@ -8,7 +8,8 @@
 @import 'pages/grid';
 @import 'pages/colours';
 
-//mixin for removing first and last element margin
+//mixins
+
 @mixin top-and-bottom(){
     & > *:first-child {
         margin-top: 0;
@@ -18,8 +19,26 @@
     }
 }
 
-//css for medicines page - lifted from beta.nhs.uk
+@mixin nhsuk-tab() {
+    left: -8px;
+    position: absolute;
+    top: -12px;
+    @include mq($until: tablet) {
+        left: -4px;
+        top: -8px;
+    }
+}
 
+@mixin nhsuk-component-center(){
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 90%;
+    @include mq($until: tablet) {
+        width: 95%;
+    }
+}
+
+//css for medicines page - lifted from beta.nhs.uk
 
 .o-list-sections {
     padding-left: 2em;
@@ -31,71 +50,23 @@
     display: block;
 }
 
-
-
-
-
-
 //custom style for meds page
+
 ul ul, ol ul {
     list-style-type: disc;
 }
-.o-list-sections__item--first {
-    margin-top: 0px !important;
-    .o-section{
-        margin-top: 0;
-    }
-}
-
-
-//test css
-.nhsuk-page-nav {
-    h2,
-    h3,
-    h4{
-        &.test {
-            font-size: 16px;
-            @media(max-width: 641px) {
-                font-size: 14px;
-                line-height: 24px;
-            }
-        }
-    }
-}
-.nhsuk-list-nav.test {
-    li {
-        font-size: 16px;
-        line-height: 24px;
-        @media(max-width: 641px) {
-            font-size: 14px;
-            line-height: 24px;
-        }
-    }
-}
-
-.white{
-    background: white;
-}
-
-@mixin nhsuk-tab() {
-    left: -8px;
-    position: absolute;
-    top: -12px;
-    @media(max-width: 641px) {
-        left: -4px;
-        top: -8px;
-    }
-}
 
 //callouts
+
 @mixin nhsuk-c-callout($callout-background,$callout-border) {
-    @include top-and-bottom;
+    @include nhsuk-component-center();
+    @include top-and-bottom();
     background: $callout-background;
     color: $nhsuk-black;
     margin: 56px 0 48px;
     padding: 32px 24px 32px 76px;
     position:relative;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         margin: 40px 0 32px;
         padding: 24px 24px 24px 44px;
     }
@@ -107,7 +78,7 @@ ul ul, ol ul {
         display: block;
         height: 64px;
         width: 64px;
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             height: 40px;
             width: 40px;  
         }
@@ -117,6 +88,7 @@ ul ul, ol ul {
 .nhsuk-c-callout__info {
     @include nhsuk-c-callout(white,$nhsuk-blue);
     border-top: 4px solid $nhsuk-blue;
+    color: $nhsuk-secondary-text-colour;
     &:before {
         background-image: url(../images/callout-info.svg);
     }
@@ -128,7 +100,7 @@ ul ul, ol ul {
     &:before {
         background-image: url(../images/callout-warning.svg);
         left: -12px; 
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             left: -8px; 
         }
     }
@@ -140,35 +112,41 @@ ul ul, ol ul {
     &:before {
         background-image: url(../images/callout-danger.svg);
         left: -12px; 
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             left: -8px; 
         }
     }
 }
 
-//do and don't list
+.warning-title{
+    font-weight: 700;
+}
+
+//do and don't list * needs re-engineering *
+
 .nhsuk-c-panel {
-    @include top-and-bottom;
+    @include nhsuk-component-center();
+    @include top-and-bottom();
     background: white;
     border-top: 4px solid $nhsuk-blue;
-    color: $nhsuk-black;
+    color: $nhsuk-secondary-text-colour;
     margin: 48px 0;
     padding: 32px 24px;
     position:relative;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         margin: 32px 0;
         padding: 24px;
     }
-    &.nhsuk-c-panel__do-and-dont {
-        position: relative;
-        h3 {
-            @include nhsuk-tab();
-            background: $nhsuk-blue;
-            color: white;
-            padding: 8px 24px;
-            @media(max-width: 641px) {
-                padding: 4px 16px;
-            }
+}
+
+.nhsuk-c-panel__with-header {
+    h3 {
+        @include nhsuk-tab();
+        background: $nhsuk-blue;
+        color: white;
+        padding: 8px 24px;
+        @include mq($until: tablet) {
+            padding: 4px 16px;
         }
     }
 }
@@ -214,7 +192,7 @@ ul ul, ol ul {
     top: 10px;
     transform: rotate(45deg);
     width: 24px;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         top: 9px;
     }
 }
@@ -224,6 +202,7 @@ ul ul, ol ul {
 }
 
 //inset text
+
 .nhsuk-inset-text {
     @include top-and-bottom;
     border-left: 8px solid darken($nhsuk-grey-4,10%);
@@ -234,20 +213,46 @@ ul ul, ol ul {
     }
 }
 
-//h2 test
-h2,
-.nhsuk-heading-l {
-  font-size: 24px;
-  line-height: 32px;
-  margin: 48px 0 0;
-  @include mq($from: tablet) {
-    font-size: 36px;
-    line-height: 44px;
-    margin: 72px 0 0;
-  }
-}
-
 //added a class of nhsuk-page-content__section-one to remove margin-top from first element within the section
+
 .nhsuk-page-content__section-one > *:first-child {
     margin-top: 0;
+}
+
+//in page nav
+
+.nhsuk-page-nav{
+    @include mq($from: tablet) {
+        padding-right:32px;
+    }
+}
+
+//intro paragraph
+
+.nhsuk-page-intro {
+    color: $nhsuk-secondary-text-colour;
+    margin-top: 24px;
+}
+
+//breadcrumb
+
+.nhsuk-breadcrumb {
+    background: white;
+    ol{  
+        margin: 0;
+        padding: 0;
+        li{
+            display: inline-block;
+            list-style: none;
+            margin: 0 0 0 16px;
+            padding: 12px 0;
+            &:first-child {
+                margin: 0;
+            }
+            a{
+                display: block;
+                text-decoration: underline;
+            }
+        }
+    }
 }
