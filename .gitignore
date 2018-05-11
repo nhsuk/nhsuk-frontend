@@ -28,6 +28,3 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
-
-public/css/styles.css
-public/css/nhsuk.css
