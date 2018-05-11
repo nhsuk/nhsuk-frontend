@@ -32,7 +32,7 @@
     background: $white;
     padding: 32px 24px 24px;
     @include mq($from: tablet) {
-      padding: 36px 24px 28px;
+      padding: 36px 24px 32px;
     }
     & > *:first-child {
       margin-top: 0;
