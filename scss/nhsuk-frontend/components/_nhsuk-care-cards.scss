@@ -5,8 +5,8 @@
     margin: 48px 0;
   }
   .care-card-heading {
-    background: $nhs-blue-aaa;
-    color: $white;
+    background: $nhsuk-blue;
+    color: $nhsuk-white;
     padding: 16px 24px;
     position: relative;
     &:after {
@@ -29,7 +29,7 @@
   }
 
   .care-card-content {
-    background: $white;
+    background: $nhsuk-white;
     padding: 32px 24px 24px;
     @include mq($from: tablet) {
       padding: 36px 24px 32px;

@@ -164,7 +164,7 @@ ul ul, ol ul {
 @mixin nhsuk-c-callout($callout-background,$callout-border) {
     @include top-and-bottom;
     background: $callout-background;
-    color: $nhs-black;
+    color: $nhsuk-black;
     margin: 56px 0 48px;
     padding: 32px 24px 32px 76px;
     position:relative;
@@ -226,7 +226,7 @@ ul ul, ol ul {
 //inset text
 .nhsuk-inset-text {
     @include top-and-bottom;
-    border-left: 8px solid lighten($nhs-blue-aaa,5%);
+    border-left: 8px solid lighten($nhsuk-blue,5%);
     margin: 40px 0;
     padding: 16px 0 16px 24px;
 }
