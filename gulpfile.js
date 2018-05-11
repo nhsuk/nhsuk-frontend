@@ -10,13 +10,13 @@ gulp.task('sass', function() {
   return gulp.src(['scss/nhsuk-frontend/nhsuk.scss', 'scss/nhsuk-design-system/styles.scss'])
     .pipe(plumber())
     .pipe(sass())
-    .pipe(gulp.dest('public/css'));
+    .pipe(gulp.dest('dist/css'));
 });
 
 // Autoprefix config browsers https://github.com/browserslist/browserslist#queries
 
 gulp.task('autoprefix', () =>
-	gulp.src('public/css/*.css')
+	gulp.src('dist/css/*.css')
 		.pipe(autoprefixer({
 			browsers: [
         'last 2 versions',
@@ -25,13 +25,13 @@ gulp.task('autoprefix', () =>
       ],
 			cascade: false
 		}))
-		.pipe(gulp.dest('public/css'))
+		.pipe(gulp.dest('dist/css'))
 );
 
 gulp.task('minify', function() {
-	gulp.src('public/css/*.css')
+	gulp.src('dist/css/*.css')
       .pipe(cssnano())
-      .pipe(gulp.dest('public/css'))
+      .pipe(gulp.dest('dist/css'))
 });
 
 gulp.task('watch', function() {

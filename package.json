@@ -10,7 +10,7 @@
     "prewatch": "gulp build",
     "watch": "concurrently \"gulp watch\" \"nodemon app.js -q\"",
     "test": "npm run lint-css",
-    "lint-js": "./node_modules/.bin/eslint public/js/*.js",
+    "lint-js": "./node_modules/.bin/eslint dist/js/*.js",
     "lint-css": "./node_modules/.bin/sass-lint -c .sass-lint.yml '**/*.scss' -v -q"
   },
   "dependencies": {
