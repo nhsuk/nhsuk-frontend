@@ -256,3 +256,32 @@ ul ul, ol ul {
         }
     }
 }
+
+//footer
+
+footer {
+    background: $nhsuk-blue;
+    //border-top: 4px solid #003E79;
+    padding: 40px 0;
+    a {
+        color: white;
+    }
+}
+
+//remove body bottom margin
+
+body {
+    margin: 0;
+}
+
+//page background
+
+html {
+    background: $nhsuk-blue;
+}
+
+//main
+
+main {
+    padding-bottom: 30px;
+}
