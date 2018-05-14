@@ -35,7 +35,7 @@ gulp.task('minify', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['src/**/*.scss', 'nhsuk-design-system/scss/**/*.scss'], ['sass']);
+  gulp.watch(['src/**/*.scss', 'nhsuk-design-system/scss/**/*.scss'], ['build']);
 });
 
 gulp.task('build', function (callback) {
