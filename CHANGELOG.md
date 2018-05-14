@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 0.0.8 / 2018-05-15
 ==================
 - New header styling and markup added to example pages
+=======
+0.0.8 / 2018-08-18
+==================
+- Improve frontend library folder structure
+>>>>>>> :construction: scss file structure
 
 0.0.7 / 2018-05-11
 ==================
