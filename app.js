@@ -9,7 +9,7 @@ app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'dist')));
 
-nunjucks.configure('views', {
+nunjucks.configure('nhsuk-design-system/views', {
   autoescape: true,
   express: app
 });
