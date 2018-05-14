@@ -1,6 +1,6 @@
 const app = require('express')();
 const express = require('express');
-const router = require('./config/router');
+const router = require('./nhsuk-design-system/config/router');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const reload = require('reload');
