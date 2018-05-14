@@ -2,15 +2,17 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
-var plumber = require('gulp-plumber');
 var cssnano = require('gulp-cssnano');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function() {
   return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss'])
-    .pipe(plumber())
     .pipe(sass())
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('dist/css'))
+    .on('error', (err) => {
+      console.log(err)
+      process.exit(1)
+    })
 });
 
 // Autoprefix config browsers https://github.com/browserslist/browserslist#queries
