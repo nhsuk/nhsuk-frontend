@@ -8,7 +8,8 @@
 @import 'pages/grid';
 @import 'pages/colours';
 
-//mixin for removing first and last element margin
+//mixins
+
 @mixin top-and-bottom(){
     & > *:first-child {
         margin-top: 0;
@@ -18,8 +19,34 @@
     }
 }
 
-//css for medicines page - lifted from beta.nhs.uk
+@mixin nhsuk-tab() {
+    left: -8px;
+    position: absolute;
+    top: -12px;
+    @include mq($until: tablet) {
+        left: -4px;
+        top: -8px;
+    }
+}
 
+@mixin nhsuk-component-center(){
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 90%;
+    @include mq($until: tablet) {
+        width: 95%;
+    }
+}
+
+@mixin reading-width-content() {
+    p,
+    li {
+        max-width: 37em;
+    }
+
+}
+
+//css for medicines page - lifted from beta.nhs.uk
 
 .o-list-sections {
     padding-left: 2em;
@@ -31,71 +58,24 @@
     display: block;
 }
 
-
-
-
-
-
 //custom style for meds page
+
 ul ul, ol ul {
     list-style-type: disc;
 }
-.o-list-sections__item--first {
-    margin-top: 0px !important;
-    .o-section{
-        margin-top: 0;
-    }
-}
-
-
-//test css
-.nhsuk-page-nav {
-    h2,
-    h3,
-    h4{
-        &.test {
-            font-size: 16px;
-            @media(max-width: 641px) {
-                font-size: 14px;
-                line-height: 24px;
-            }
-        }
-    }
-}
-.nhsuk-list-nav.test {
-    li {
-        font-size: 16px;
-        line-height: 24px;
-        @media(max-width: 641px) {
-            font-size: 14px;
-            line-height: 24px;
-        }
-    }
-}
-
-.white{
-    background: white;
-}
-
-@mixin nhsuk-tab() {
-    left: -8px;
-    position: absolute;
-    top: -12px;
-    @media(max-width: 641px) {
-        left: -4px;
-        top: -8px;
-    }
-}
 
 //callouts
+
 @mixin nhsuk-c-callout($callout-background,$callout-border) {
-    @include top-and-bottom;
+    //@include nhsuk-component-center();
+    @include reading-width-content();
+    @include top-and-bottom();
     background: $callout-background;
     color: $nhsuk-black;
     margin: 56px 0 48px;
     padding: 32px 24px 32px 76px;
     position:relative;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         margin: 40px 0 32px;
         padding: 24px 24px 24px 44px;
     }
@@ -107,7 +87,7 @@ ul ul, ol ul {
         display: block;
         height: 64px;
         width: 64px;
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             height: 40px;
             width: 40px;  
         }
@@ -117,18 +97,19 @@ ul ul, ol ul {
 .nhsuk-c-callout__info {
     @include nhsuk-c-callout(white,$nhsuk-blue);
     border-top: 4px solid $nhsuk-blue;
+    color: $nhsuk-secondary-text-colour;
     &:before {
         background-image: url(../images/callout-info.svg);
     }
 }
 
 .nhsuk-c-callout__warning {
-    @include nhsuk-c-callout(white,$nhsuk-yellow);
-    border: 4px solid $nhsuk-yellow;
+    @include nhsuk-c-callout(#FEFCE5,#FAE200);
+    border: 4px solid #FAE200;
     &:before {
         background-image: url(../images/callout-warning.svg);
         left: -12px; 
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             left: -8px; 
         }
     }
@@ -140,35 +121,100 @@ ul ul, ol ul {
     &:before {
         background-image: url(../images/callout-danger.svg);
         left: -12px; 
-        @media(max-width: 641px) {
+        @include mq($until: tablet) {
             left: -8px; 
         }
     }
 }
 
-//do and don't list
+.warning-title{
+    font-weight: 700;
+}
+
+//callouts v2
+
+@mixin nhsuk-c-callout-v2($callout-background,$callout-border) {
+    //@include nhsuk-component-center();
+    @include reading-width-content();
+    @include top-and-bottom();
+    background: $callout-background;
+    color: $nhsuk-black;
+    margin: 48px 0;
+    padding: 36px 24px 36px 96px;
+    position:relative;
+    @include mq($until: tablet) {
+        margin: 32px 0;
+        padding: 60px 16px 16px;
+    }
+    &:before {
+        content: '';
+        background-image: url(../images/callout-danger.svg);
+        background-size: 100% 100%;
+        display: block;
+        height: 50px;
+        left: 24px;
+        position: absolute;
+        top: 24px;
+        width: 50px;
+        @include mq($until: tablet) {
+            height: 32px;
+            left: 16px;
+            top: 16px;
+            width: 32px;  
+        }
+    }
+}
+
+.nhsuk-c-callout__info-v2 {
+    @include nhsuk-c-callout-v2(white,$nhsuk-blue);
+    border: 4px solid $nhsuk-blue;
+    color: $nhsuk-secondary-text-colour;
+    &:before {
+        background-image: url(../images/callout-info-v2.svg);
+    }
+}
+
+.nhsuk-c-callout__warning-v2 {
+    @include nhsuk-c-callout-v2(#FEFCE5,#FAE200);
+    border: 4px solid #FAE200;
+    &:before {
+        background-image: url(../images/callout-warning-v2.svg);
+    }
+}
+
+.nhsuk-c-callout__warning-v3 {
+    @include nhsuk-c-callout-v2(#FAE200,#FAE200);
+    border: 4px solid #FAE200;
+    &:before {
+        background-image: url(../images/callout-warning-v2.svg);
+    }
+}
+
+//do and don't list * needs re-engineering *
+
 .nhsuk-c-panel {
-    @include top-and-bottom;
+    @include nhsuk-component-center();
+    @include top-and-bottom();
     background: white;
     border-top: 4px solid $nhsuk-blue;
-    color: $nhsuk-black;
+    color: $nhsuk-secondary-text-colour;
     margin: 48px 0;
     padding: 32px 24px;
     position:relative;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         margin: 32px 0;
         padding: 24px;
     }
-    &.nhsuk-c-panel__do-and-dont {
-        position: relative;
-        h3 {
-            @include nhsuk-tab();
-            background: $nhsuk-blue;
-            color: white;
-            padding: 8px 24px;
-            @media(max-width: 641px) {
-                padding: 4px 16px;
-            }
+}
+
+.nhsuk-c-panel__with-header {
+    h3 {
+        @include nhsuk-tab();
+        background: $nhsuk-blue;
+        color: white;
+        padding: 8px 24px;
+        @include mq($until: tablet) {
+            padding: 4px 16px;
         }
     }
 }
@@ -214,7 +260,7 @@ ul ul, ol ul {
     top: 10px;
     transform: rotate(45deg);
     width: 24px;
-    @media(max-width: 641px) {
+    @include mq($until: tablet) {
         top: 9px;
     }
 }
@@ -224,9 +270,10 @@ ul ul, ol ul {
 }
 
 //inset text
+
 .nhsuk-inset-text {
     @include top-and-bottom;
-    border-left: 8px solid darken($nhsuk-grey-4,10%);
+    border-left: 8px solid darken($nhsuk-grey-4,20%);
     margin: 32px 0;
     padding: 16px 0 16px 24px;
     @include mq($from: tablet) {
@@ -234,20 +281,110 @@ ul ul, ol ul {
     }
 }
 
-//h2 test
-h2,
-.nhsuk-heading-l {
-  font-size: 24px;
-  line-height: 32px;
-  margin: 48px 0 0;
-  @include mq($from: tablet) {
-    font-size: 36px;
-    line-height: 44px;
-    margin: 72px 0 0;
-  }
-}
-
 //added a class of nhsuk-page-content__section-one to remove margin-top from first element within the section
+
 .nhsuk-page-content__section-one > *:first-child {
     margin-top: 0;
+}
+
+//in page nav
+
+.nhsuk-page-nav{
+    @include mq($from: tablet) {
+        padding-right:32px;
+    }
+}
+
+//intro paragraph
+
+.nhsuk-page-intro {
+    color: $nhsuk-secondary-text-colour;
+    margin-top: 24px;
+}
+
+//breadcrumb
+
+.nhsuk-breadcrumb {
+    background: white;
+    ol{  
+        margin: 0;
+        padding: 0;
+        li{
+            display: inline-block;
+            list-style: none;
+            margin: 0 0 0 6px;
+            padding: 12px 0;
+            &:after {
+                content: '\00A0\00A0\203A';
+                color: $nhsuk-grey-2;
+            }
+            &:first-child {
+                margin: 0;
+            }
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+//footer
+
+footer {
+    background: $nhsuk-blue;
+    //border-top: 4px solid #003E79;
+    padding: 40px 0;
+    a {
+        color: white;
+        &:visited {
+            color: rgba(white,0.8);
+        }
+        &:hover {
+            color: $nhsuk-link-hover-colour;
+        }
+    }
+}
+
+//remove body bottom margin
+
+body {
+    margin: 0;
+}
+
+//page background
+
+html {
+    background: $nhsuk-blue;
+}
+
+//main
+
+main {
+    padding-bottom: 40px !important;
+    @include mq($from: tablet) {
+        padding-bottom: 64px !important;
+    }
+}
+
+//h2 margin adjustment
+
+@media (min-width: 40.0625em) {
+    h2, .nhsuk-heading-l {
+        margin: 64px 0 0;
+    }
+}
+
+//care card - include mixin for reading width
+
+.care-card {
+    //@include nhsuk-component-center();
+}
+
+.care-card-content{
+    @include reading-width-content();
 }

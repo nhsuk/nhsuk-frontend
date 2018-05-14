@@ -1,14 +1,16 @@
 .care-card {
   margin: 32px 0;
-  width: 100%;
   @include mq($from: tablet) {
     margin: 48px 0;
   }
   .care-card-heading {
     background: $nhsuk-blue;
     color: $nhsuk-white;
-    padding: 16px 24px;
+    padding: 8px 16px;
     position: relative;
+    @include mq($from: tablet) {
+      padding: 16px 24px;
+    }
     &:after {
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
@@ -30,7 +32,7 @@
 
   .care-card-content {
     background: $nhsuk-white;
-    padding: 32px 24px 24px;
+    padding: 32px 16px 24px;
     @include mq($from: tablet) {
       padding: 36px 24px 32px;
     }
@@ -57,6 +59,8 @@
     }
   }
   &.red {
+    border: 4px solid $nhsuk-red;
+    border-top: 0;
     .care-card-heading {
       background: $nhsuk-red;
       &:after {
@@ -64,6 +68,9 @@
         content: '';
       }
     }
+    /*.care-card-content {
+      background: #F6E8E8;
+    }*/
   }
   &.black {
     .care-card-heading {
