@@ -1,16 +1,4 @@
-
-//mixin placed here temporarily
-@mixin nhsuk-component-center(){
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 90%;
-  @include mq($until: tablet) {
-      width: 95%;
-  }
-}
-
 .care-card {
-  @include nhsuk-component-center();
   margin: 32px 0;
   @include mq($from: tablet) {
     margin: 48px 0;
@@ -18,10 +6,10 @@
   .care-card-heading {
     background: $nhsuk-blue;
     color: $nhsuk-white;
-    padding: 16px 24px;
+    padding: 8px 16px;
     position: relative;
     @include mq($from: tablet) {
-      padding: 16px 32px;
+      padding: 16px 24px;
     }
     &:after {
       border-left: 16px solid transparent;
@@ -44,9 +32,9 @@
 
   .care-card-content {
     background: $nhsuk-white;
-    padding: 32px 24px 24px;
+    padding: 32px 16px 24px;
     @include mq($from: tablet) {
-      padding: 36px 32px 32px;
+      padding: 36px 24px 32px;
     }
     & > *:first-child {
       margin-top: 0;
@@ -72,6 +60,7 @@
   }
   &.red {
     border: 4px solid $nhsuk-red;
+    border-top: 0;
     .care-card-heading {
       background: $nhsuk-red;
       &:after {
@@ -79,6 +68,9 @@
         content: '';
       }
     }
+    /*.care-card-content {
+      background: #F6E8E8;
+    }*/
   }
   &.black {
     .care-card-heading {
