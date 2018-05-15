@@ -47,7 +47,8 @@ $mq-breakpoints: (
   // Support max-width value from FET ?
   // mobile: 640px,
   tablet:  641px,
-  desktop: 769px
+  desktop: 769px,
+  large-desktop: 990px
 );
 
 // Define the breakpoint from the $mq-breakpoints list that should

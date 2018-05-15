@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if IE]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/images/favicon.png">
+
+    <title>NHS.UK redesign - {{ title }}</title>
+
+    <link rel="stylesheet" href="/css/nhsuk.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/prism.css">
+
+    <script src="/js/clipboard.min.js"></script>
+
+  </head>
+  <body>
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {% include "includes/header-v1/header.html" %}
+    {% include "includes/header-v1/nav.html" %}
+
+    {% block body %}{% endblock %}
+
+    {% include "includes/footer.html" %}
+
+    <script src="/js/main.js"></script>
+    <script src="/js/prism.min.js"></script>
+    <script>
+    var clipboard = new ClipboardJS('.nhsuk-btn-copy');
+      clipboard.on('success', function(e) {
+        e.clearSelection();
+        e.trigger.textContent = 'Copied';
+        setTimeout(function() {
+          e.trigger.textContent = 'Copy';
+        }, 2500);
+      });
+    </script>
+  </body>
+</html>
