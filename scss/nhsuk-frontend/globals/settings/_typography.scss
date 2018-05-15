@@ -179,7 +179,7 @@ strong {
 }
 
 .nhsuk-sticky {
-  @include mq($until: tablet) {
+  @include mq($from: tablet) {
     position: sticky;
     top: 40px;
   }

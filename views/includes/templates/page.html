@@ -1,6 +1,7 @@
 {% extends 'includes/header-v1/site-layout.html' %}
 
 {% block body %}
+    {% block breadcrumb %}{% endblock %}
     <div class="nhsuk-o-width-container">
         <main class="nhsuk-o-main-wrapper">
             <div class="nhsuk-o-grid">
@@ -11,7 +12,7 @@
                 </div>
             </div>
             <div class="nhsuk-o-grid">
-                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third nhsuk-sticky">
                     <div class="nhsuk-page-nav">
                           {% block sidebar %}{% endblock %}
                     </div>
