@@ -79,7 +79,7 @@ rules:
   pseudo-element: 0
   quotes: 1
   shorthand-values: 1
-  url-quotes: 1
+  url-quotes: 0
   variable-for-property: 1
   zero-unit: 1
 

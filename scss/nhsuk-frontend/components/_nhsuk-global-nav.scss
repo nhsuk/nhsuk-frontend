@@ -1,7 +1,7 @@
 .c-nav-primary {
 
   @include mq($until: large-desktop) {
-    background: #fff;
+    background: $nhsuk-white;
     display: none;
 
     &.js-show {
@@ -86,7 +86,7 @@
     }
 
     &__list {
-      border-top: 1px solid #5a80c0;
+      border-top: 1px solid $nhsuk-secondary-border-colour;
       display: table;
       list-style: none;
       margin: 0;
@@ -100,19 +100,20 @@
     }
 
     &__link {
-      color: #fff;
+      color: $nhsuk-white;
       display: block;
       padding: 15px;
       text-decoration: none;
 
       &:visited {
-        color: #fff;
+        color: $nhsuk-white;
       }
 
-      &:hover, &:focus {
-        background: #fff;
-        color: $nhsuk-blue;
+      &:hover,
+      &:focus {
+        background: $nhsuk-white;
         box-shadow: none;
+        color: $nhsuk-blue;
       }
 
     }
