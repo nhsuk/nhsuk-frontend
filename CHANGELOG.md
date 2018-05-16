@@ -1,3 +1,7 @@
+0.0.8 / 2018-05-15
+==================
+- New header styling and markup added to example pages
+
 0.0.7 / 2018-05-11
 ==================
 - Home page backlog and progress table
