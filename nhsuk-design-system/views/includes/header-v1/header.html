@@ -1,3 +1,34 @@
+<style>
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+  height: 100px;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  var availableTags = [
+    "Parade",
+    "Paracetamol",
+    "Paramedics",
+    "Paramount"
+  ];
+  $( "#search-field" ).autocomplete({
+    source: availableTags
+  });
+} );
+</script>
+
 <header role="banner">
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container">
