@@ -3,8 +3,6 @@
 
 // Components
 
-@import 'components/nhsuk-global-header';
-@import 'components/nhsuk-global-nav';
-@import 'components/nhsuk-hero';
-@import 'components/nhsuk-care-cards';
+@import 'global-header/global-header';
+@import 'global-navigation/global-navigation';
 @import 'care-cards/care-cards';
