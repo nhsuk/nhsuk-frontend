@@ -5,6 +5,8 @@
 
 @import 'components/care-card/care-card';
 @import 'components/hero/hero';
+@import 'components/breadcrumbs/breadcrumbs';
+@import 'components/footer/footer';
 
 @import 'pages/code';
 @import 'pages/page';
@@ -97,13 +99,6 @@ ul ul, ol ul {
     }
 }
 
-.nhsuk-c-callout__info {
-    @include nhsuk-c-callout(white,$nhsuk-blue);
-    &:before {
-        background-image: url(../images/callout-info.svg);
-    }
-}
-
 .nhsuk-c-callout__warning {
     @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
     border-top: 8px solid $nhsuk-yellow;
@@ -111,9 +106,18 @@ ul ul, ol ul {
     &:before {
         background-image: url(../images/callout-warning.svg);
         left: -12px;
+        top: -20px;
         @include mq($until: tablet) {
             left: -8px;
+            top: -16px;
         }
+    }
+}
+
+.nhsuk-c-callout__info {
+    @include nhsuk-c-callout(white,$nhsuk-blue);
+    &:before {
+        background-image: url(../images/callout-info.svg);
     }
 }
 
@@ -320,54 +324,6 @@ ul ul, ol ul {
 .nhsuk-page-intro {
     color: $nhsuk-secondary-text-colour;
     margin-top: 24px;
-}
-
-//breadcrumb
-
-.nhsuk-breadcrumb {
-    background: white;
-    ol{
-        margin: 0;
-        padding: 0;
-        li{
-            display: inline-block;
-            list-style: none;
-            margin: 0 0 0 6px;
-            padding: 12px 0;
-            &:after {
-                content: '\00A0\00A0\203A';
-                color: $nhsuk-grey-2;
-            }
-            &:first-child {
-                margin: 0;
-            }
-            &:last-child {
-                &:after {
-                    display: none;
-                }
-            }
-            a{
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-//footer
-
-footer {
-    background: $nhsuk-blue;
-    //border-top: 4px solid #003E79;
-    padding: 40px 0;
-    a {
-        color: white;
-        &:visited {
-            color: rgba(white,0.8);
-        }
-        &:hover {
-            color: $nhsuk-link-hover-colour;
-        }
-    }
 }
 
 //remove body bottom margin

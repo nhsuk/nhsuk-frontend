@@ -1,0 +1,14 @@
+footer {
+    background: $nhsuk-blue;
+    //border-top: 4px solid #003E79;
+    padding: 40px 0;
+    a {
+        color: white;
+        &:visited {
+            color: rgba(white,0.8);
+        }
+        &:hover {
+            color: $nhsuk-link-hover-colour;
+        }
+    }
+}

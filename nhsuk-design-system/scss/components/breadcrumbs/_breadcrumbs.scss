@@ -1,0 +1,28 @@
+.nhsuk-breadcrumb {
+    background: white;
+    ol{
+        margin: 0;
+        padding: 0;
+        li{
+            display: inline-block;
+            list-style: none;
+            margin: 0 0 0 6px;
+            padding: 12px 0;
+            &:after {
+                content: '\00A0\00A0\203A';
+                color: $nhsuk-grey-2;
+            }
+            &:first-child {
+                margin: 0;
+            }
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}
