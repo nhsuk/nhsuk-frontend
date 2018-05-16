@@ -57,10 +57,6 @@ router.get('/examples/test-medicine-v2', (req, res) => {
   res.render('examples/test-medicine-v2', {});
 });
 
-router.get('/examples/test-medicine-v3', (req, res) => {
-  res.render('examples/test-medicine-v3', {});
-});
-
 router.get('/examples/test-gout', (req, res) => {
   res.render('examples/test-gout', {});
 });

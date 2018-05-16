@@ -59,8 +59,7 @@
     }
   }
   &.red {
-    border: 4px solid $nhsuk-red;
-    border-top: 0;
+    border-bottom: 4px solid $nhsuk-red;
     .care-card-heading {
       background: $nhsuk-red;
       &:after {
@@ -68,9 +67,6 @@
         content: '';
       }
     }
-    /*.care-card-content {
-      background: #F6E8E8;
-    }*/
   }
   &.black {
     .care-card-heading {
