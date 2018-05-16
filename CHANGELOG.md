@@ -1,5 +1,6 @@
-0.0.8 / 2018-05-15
+0.0.8 / 2018-08-18
 ==================
+- Improve frontend library folder structure
 - New header styling and markup added to example pages
 
 0.0.7 / 2018-05-11

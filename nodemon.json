@@ -9,8 +9,9 @@
         "js": "node --harmony"
     },
     "watch": [
-        "views/",
-        "scss/"
+        "nhsuk-design-system/views/",
+        "nhsuk-design-system/scss/",
+        "src/"
     ],
     "env": {
         "NODE_ENV": "development"

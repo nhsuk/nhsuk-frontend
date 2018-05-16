@@ -2,21 +2,23 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
-var plumber = require('gulp-plumber');
 var cssnano = require('gulp-cssnano');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function() {
-  return gulp.src(['scss/nhsuk-frontend/nhsuk.scss', 'scss/nhsuk-design-system/styles.scss'])
-    .pipe(plumber())
+  return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss'])
     .pipe(sass())
-    .pipe(gulp.dest('public/css'));
+    .pipe(gulp.dest('dist/css'))
+    .on('error', (err) => {
+      console.log(err)
+      process.exit(1)
+    })
 });
 
 // Autoprefix config browsers https://github.com/browserslist/browserslist#queries
 
 gulp.task('autoprefix', () =>
-	gulp.src('public/css/*.css')
+	gulp.src('dist/css/*.css')
 		.pipe(autoprefixer({
 			browsers: [
         'last 2 versions',
@@ -25,17 +27,17 @@ gulp.task('autoprefix', () =>
       ],
 			cascade: false
 		}))
-		.pipe(gulp.dest('public/css'))
+		.pipe(gulp.dest('dist/css'))
 );
 
 gulp.task('minify', function() {
-	gulp.src('public/css/*.css')
+	gulp.src('dist/css/*.css')
       .pipe(cssnano())
-      .pipe(gulp.dest('public/css'))
+      .pipe(gulp.dest('dist/css'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch('scss/**/**/*.scss', ['sass']);
+  gulp.watch(['src/**/*.scss', 'nhsuk-design-system/scss/**/*.scss'], ['build']);
 });
 
 gulp.task('build', function (callback) {

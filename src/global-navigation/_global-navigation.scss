@@ -1,0 +1,126 @@
+// Import anything from globals required for this component (as little as possible)
+// @import "../globals/helpers/typography";
+
+.c-nav-primary {
+
+  @include mq($until: large-desktop) {
+    background: $nhsuk-white;
+    display: none;
+
+    &.js-show {
+      display: block;
+    }
+
+    .nhsuk-o-width-container {
+      margin: 0;
+    }
+
+    &__title {
+      font-weight: $nhsuk-font-bold;
+      margin: 0;
+      padding: 12px 38px 12px 30px;
+
+      @include mq($until: tablet) {
+        margin: 0 24px 0 0;
+        padding: 12px 0 12px 15px;
+      }
+
+      .js-menu-close {
+        background: url(/images/icon-close.svg) center no-repeat;
+        float: right;
+        height: 26px;
+        text-indent: -9999px;
+        width: 26px;
+      }
+    }
+
+    &__list {
+      border-bottom: 1px solid $nhsuk-grey-4;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__item {
+      border-top: 1px solid $nhsuk-grey-4;
+      margin: 0;
+    }
+
+    &__link {
+      background: url(/images/icon-arrow-right.svg) right no-repeat;
+      color: $nhsuk-blue;
+      display: block;
+      margin-right: 30px;
+      padding: 12px 30px;
+
+      @include mq($until: tablet) {
+        margin-right: 15px;
+        padding: 12px 15px;
+      }
+
+      text-decoration: none;
+
+      &:visited {
+        color: $nhsuk-blue;
+      }
+
+      &:hover {
+        background: url(/images/icon-arrow-right.svg) right no-repeat;
+        box-shadow: none;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        box-shadow: none;
+        color: $nhsuk-link-focus-colour;
+        text-decoration: underline;
+      }
+
+    }
+
+  }
+
+  @include mq($from: large-desktop) {
+
+    @include clear();
+    background: $nhsuk-blue;
+
+    &__title {
+      display: none;
+    }
+
+    &__list {
+      border-top: 1px solid $nhsuk-secondary-border-colour;
+      display: table;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    &__item {
+      display: table-cell;
+      text-align: center;
+    }
+
+    &__link {
+      color: $nhsuk-white;
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+
+      &:visited {
+        color: $nhsuk-white;
+      }
+
+      &:hover,
+      &:focus {
+        background: $nhsuk-white;
+        box-shadow: none;
+        color: $nhsuk-blue;
+      }
+
+    }
+  }
+
+}

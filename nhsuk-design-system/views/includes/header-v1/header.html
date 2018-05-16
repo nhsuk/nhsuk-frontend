@@ -1,0 +1,44 @@
+<header role="banner">
+  <div class="nhsuk-global-header">
+    <div class="nhsuk-o-width-container">
+      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt="NHS"></a></div>
+      <div class="nhsuk-global-header__menusearch">
+        <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle" role="button">Menu</a></div>
+        <div class="nhsuk-global-header__search">
+          <div class="search-toggle"><a href="" class="search-toggle__button"><span class="search-toggle__icon">Search</span></a></div>
+          <div class="search-container">
+            <form class="c-search" action="" method="post" role="search">
+              <div class="c-search__container">
+                <label class="c-search__label visually-hidden" for="search-field">Search</label>
+                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
+              </div>
+              <!-- inserted by javascript? -->
+            </form>
+            <div class="search-close"><a href="#close" class="search-close-link">Close search box</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+(function() {
+
+	var searchToggle = {
+		searchToggleButton: document.querySelector('.search-toggle'),
+		searchClose: document.querySelector('.search-close'),
+  	search: document.querySelector('.search-container'),
+
+		doToggle: function(e) {
+			e.preventDefault();
+			this.searchToggleButton.classList.toggle('expanded');
+			this.search.classList.toggle('js-show');
+		}
+	};
+
+	searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+	searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+
+}());
+</script>
