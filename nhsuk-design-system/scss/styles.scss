@@ -205,12 +205,20 @@ ul ul, ol ul {
     @include reading-width-content();
     @include top-and-bottom();
     //background: rgba(white, 0.5);
-    border-left: 16px solid #41B6E6;
+    border-left: 16px solid $nhsuk-grey-2;
     margin: 48px 0;
-    padding: 16px 0 16px 24px;
+    padding: 16px 24px 16px 24px;
     @include mq($until: tablet) {
         margin: 32px 0;
         padding: 16px;
+    }
+    h2,
+    h3,
+    h4 {
+        + p,
+        + ul {
+            margin-top: 16px;
+        }
     }
 }
 
