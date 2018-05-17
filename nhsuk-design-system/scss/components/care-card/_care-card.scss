@@ -1,7 +1,7 @@
 .care-card {
   margin: 32px 0;
   @include mq($from: tablet) {
-    margin: 48px 0;
+    margin: 40px 0;
   }
   .care-card-heading {
     background: $nhsuk-blue;

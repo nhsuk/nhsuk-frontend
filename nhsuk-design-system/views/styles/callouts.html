@@ -1,0 +1,33 @@
+{% set title = 'Callouts' %}
+{% set navigation = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Callouts</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul class="">
+        <li><a href="#callout_warning">Warning</a></li>
+        <li><a href="#callout_keypoint">Key advice</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h2 id="callout_warning">Warning</h2>
+    <ul>
+        <li>Time critical</li>
+        <li>May have a significant health impact soon</li>
+        <li>Addresses a common and significant misconception or patient mistake</li>
+    </ul>
+
+    <div class="nhsuk-c-callout__warning"><p>Carry on taking this medicine until you've completed the course, even if you feel better. If you stop your treatment early, the infection could come back.</p></div>
+
+    <h2 id="callout_keypoint">Key point</h2>
+    <p>Key point / info / advice which needs to be highlighted so that the user is more likely to read and remember it over the body copy.</p>
+
+    <div class="nhsuk-c-keypoint"><p>You can report any suspected side effect to the&nbsp;<a href="https://yellowcard.mhra.gov.uk/">UK safety scheme</a>.</p></div>
+
+{% endblock %}
