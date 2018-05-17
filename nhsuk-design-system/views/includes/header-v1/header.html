@@ -4,12 +4,13 @@
   overflow-y: auto;
   /* prevent horizontal scrollbar */
   overflow-x: hidden;
+  position: absolute !important;
 }
 /* IE 6 doesn't support max-height
  * we use height instead, but this forces the menu to always be this tall
  */
 * html .ui-autocomplete {
-  height: 100px;
+  height: 200px;
 }
 </style>
 
@@ -24,7 +25,14 @@ $( function() {
     "Paramount"
   ];
   $( "#search-field" ).autocomplete({
-    source: availableTags
+    source: availableTags,
+    open: function( event, ui ) {
+      $(".ui-autocomplete").css("width", $(".c-search").width());
+      $(".c-search__input").addClass("js-search-open")
+    },
+    close: function( event, ui ) {
+      $(".c-search__input").removeClass("js-search-open")
+    }
   });
 } );
 </script>
@@ -37,7 +45,7 @@ $( function() {
         <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle" role="button">Menu</a></div>
         <div class="nhsuk-global-header__search">
           <div class="search-toggle"><a href="" class="search-toggle__button"><span class="search-toggle__icon">Search</span></a></div>
-          <div class="search-container">
+          <div class="search-container ui-front">
             <form class="c-search" action="" method="post" role="search">
               <div class="c-search__container">
                 <label class="c-search__label visually-hidden" for="search-field">Search</label>
