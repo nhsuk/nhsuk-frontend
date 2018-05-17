@@ -21,6 +21,10 @@ router.get('/styles/colours', (req, res) => {
   res.render('styles/colours', {});
 });
 
+router.get('/styles/callouts', (req, res) => {
+  res.render('styles/callouts', {});
+});
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });

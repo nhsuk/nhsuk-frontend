@@ -27,10 +27,10 @@
 @mixin nhsuk-tab() {
     left: -8px;
     position: absolute;
-    top: -8px;
+    top: -16px;
     @include mq($until: tablet) {
         left: -4px;
-        top: -4px;
+        top: -12px;
     }
 }
 
@@ -77,8 +77,8 @@ ul ul, ol ul {
     @include top-and-bottom();
     background: $callout-background;
     color: $nhsuk-black;
-    margin: 56px 0 48px;
-    padding: 32px 24px 32px 76px;
+    margin: 48px 0 40px;
+    padding: 32px 24px 32px 68px;
     position:relative;
     @include mq($until: tablet) {
         margin: 40px 0 32px;
@@ -90,8 +90,8 @@ ul ul, ol ul {
         background-image: url(../images/callout-danger.svg);
         background-size: 100% 100%;
         display: block;
-        height: 64px;
-        width: 64px;
+        height: 56px;
+        width: 56px;
         @include mq($until: tablet) {
             height: 40px;
             width: 40px;
@@ -105,10 +105,10 @@ ul ul, ol ul {
     color: $nhsuk-black;
     &:before {
         background-image: url(../images/callout-warning.svg);
-        left: -12px;
-        top: -20px;
+        left: -8px;
+        top: -16px;
         @include mq($until: tablet) {
-            left: -8px;
+            left: -4px;
             top: -16px;
         }
     }
@@ -206,7 +206,7 @@ ul ul, ol ul {
     @include top-and-bottom();
     //background: rgba(white, 0.5);
     border-left: 16px solid $nhsuk-grey-2;
-    margin: 48px 0;
+    margin: 40px 0;
     padding: 16px 24px 16px 24px;
     @include mq($until: tablet) {
         margin: 32px 0;
@@ -228,9 +228,9 @@ ul ul, ol ul {
     @include nhsuk-component-center();
     @include top-and-bottom();
     background: white;
-    border-top: 4px solid $nhsuk-blue;
+    border-top: 8px solid $nhsuk-blue;
     color: $nhsuk-secondary-text-colour;
-    margin: 48px 0;
+    margin: 40px 0;
     padding: 32px 24px;
     position:relative;
     @include mq($until: tablet) {
