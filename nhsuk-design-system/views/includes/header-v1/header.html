@@ -1,19 +1,9 @@
-<style>
-.ui-autocomplete {
-  max-height: 200px;
-  overflow-y: auto;
-  /* prevent horizontal scrollbar */
-  overflow-x: hidden;
-  position: absolute !important;
-}
-/* IE 6 doesn't support max-height
- * we use height instead, but this forces the menu to always be this tall
- */
-* html .ui-autocomplete {
-  height: 200px;
-}
-</style>
-
+<!--
+// temporary (jquery ui) javascript and html for the search autocomplete functionality,
+// just to demonstrate the look and feel.
+// Any class name with a 'ui-' prefix can be removed when integrated into the live website.
+// We will be using Funnelback but we may be able to reuse the styling
+-->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -28,10 +18,24 @@ $( function() {
     source: availableTags,
     open: function( event, ui ) {
       $(".ui-autocomplete").css("width", $(".c-search").width());
-      $(".c-search__input").addClass("js-search-open")
+      $(".c-search__input").addClass("js-search-open");
+      $(".c-search__submit").addClass("js-search-open");
+      var acData = $(this).data('ui-autocomplete');
+      acData
+        .menu
+        .element
+        .find('li div')
+        .each(function () {
+          var me = $(this);
+          var keywords = acData.term.split(' ').join('|');
+          me.html(me.text().replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>'));
+       });
+       $(".ui-autocomplete").prepend('<li class="ui-prepend"><strong>Seach suggestions</strong></li>');
+
     },
     close: function( event, ui ) {
-      $(".c-search__input").removeClass("js-search-open")
+      $(".c-search__input").removeClass("js-search-open");
+      $(".c-search__submit").removeClass("js-search-open");
     }
   });
 } );
@@ -41,18 +45,18 @@ $( function() {
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container">
       <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt="NHS"></a></div>
-      <div class="nhsuk-global-header__menusearch">
+      <div class="nhsuk-global-header__menusearch ui-front">
         <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle" role="button">Menu</a></div>
         <div class="nhsuk-global-header__search">
           <div class="search-toggle"><a href="" class="search-toggle__button"><span class="search-toggle__icon">Search</span></a></div>
-          <div class="search-container ui-front">
+          <div class="search-container">
             <form class="c-search" action="" method="post" role="search">
               <div class="c-search__container">
                 <label class="c-search__label visually-hidden" for="search-field">Search</label>
                 <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
               </div>
-              <!-- inserted by javascript? -->
             </form>
+            <!-- inserted by javascript? -->
             <div class="search-close"><a href="#close" class="search-close-link">Close search box</a></div>
           </div>
         </div>
@@ -68,12 +72,14 @@ $( function() {
 		searchToggleButton: document.querySelector('.search-toggle'),
 		searchClose: document.querySelector('.search-close'),
   	search: document.querySelector('.search-container'),
+    menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
 
 		doToggle: function(e) {
 			e.preventDefault();
 			this.searchToggleButton.classList.toggle('expanded');
 			this.search.classList.toggle('js-show');
-		}
+      this.menuSearchContainer.classList.toggle('js-show')
+    }
 	};
 
 	searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
