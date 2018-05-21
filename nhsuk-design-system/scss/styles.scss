@@ -199,6 +199,20 @@ ul ul, ol ul {
     }
 }
 
+.nhsuk-c-callout__warning-v4 {
+	padding: 28px;
+	margin: 40px 0;
+    background:$nhsuk-light-yellow;
+    border-left: 16px solid $nhsuk-yellow;
+    color: $nhsuk-black;
+	.nhsuk-heading-xs{
+		margin-top: 0;
+	}
+	p {
+		margin-top: 12px;
+	}
+}
+
 //keypoint
 
 .nhsuk-c-keypoint {
@@ -311,6 +325,20 @@ ul ul, ol ul {
     @include mq($from: tablet) {
         margin: 40px 0;
     }
+}
+
+.nhsuk-inset-text-v2 {
+    @include top-and-bottom;
+    border-left: 16px solid $nhsuk-blue;
+	background: $nhsuk-white;
+    margin: 32px 0;
+    padding: 28px;
+    @include mq($from: tablet) {
+        margin: 40px 0;
+    }
+	p {
+		margin-top: 12px;
+	}
 }
 
 //added a class of nhsuk-page-content__section-one to remove margin-top from first element within the section
