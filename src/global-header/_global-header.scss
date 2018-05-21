@@ -110,7 +110,7 @@
 
   @include mq($until: tablet) {
 
-    .nhsuk-o-width-container {
+    .nhsuk-o-width-container--global-header {
       margin: 0;
     }
 
