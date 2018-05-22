@@ -10,8 +10,8 @@
 
 ### Running the code
 
-- Open terminal (Mac), or command prompt (Windows)
-- Clone the repo: `git clone https://github.com/nhsuk/frontend.git frontend` and whilst in the project directory `cd frontend`, install the required npm packages with: `npm install`
+- Open terminal.app (Mac), or Command Prompt (Windows)
+- Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
 - Run the project in development mode `npm run watch` and visit <a href="http://localhost:3000">http://localhost:3000</a>
 
 ### Making changes
