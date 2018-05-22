@@ -27,3 +27,40 @@
 @mixin flex-direction($val) {
   flex-direction: $val;
 }
+
+//mixins
+
+@mixin top-and-bottom(){
+  & > *:first-child {
+      margin-top: 0;
+  }
+  & > *:last-child {
+      margin-bottom: 0;
+  }
+}
+
+@mixin nhsuk-tab() {
+  left: -8px;
+  position: absolute;
+  top: -16px;
+  @include mq($until: tablet) {
+      left: -4px;
+      top: -12px;
+  }
+}
+
+@mixin nhsuk-component-center(){
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+  @include mq($until: tablet) {
+      width: 100%;
+  }
+}
+
+@mixin reading-width-content() {
+  p,
+  li {
+      max-width: 37em;
+  }
+}
