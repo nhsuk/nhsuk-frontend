@@ -15,6 +15,8 @@ html {
   -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
   background-color: $nhsuk-grey-4;
   color: $nhsuk-text-colour;
+  position: relative;
+  min-height: 100%;
 }
 
 body {

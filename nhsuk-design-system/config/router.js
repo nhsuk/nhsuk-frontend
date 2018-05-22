@@ -29,6 +29,10 @@ router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
 
+router.get('/styles/footer', (req, res) => {
+  res.render('styles/footer', {});
+});
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
