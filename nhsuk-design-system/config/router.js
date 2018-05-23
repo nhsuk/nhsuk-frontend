@@ -33,6 +33,10 @@ router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
 
+router.get('/examples/chickenpox', (req, res) => {
+  res.render('examples/chickenpox', {});
+});
+
 router.get('/examples/page', (req, res) => {
   res.render('examples/page', {});
 });
@@ -68,5 +72,7 @@ router.get('/examples/test-medicine-v2', (req, res) => {
 router.get('/examples/test-gout', (req, res) => {
   res.render('examples/test-gout', {});
 });
+
+
 
 module.exports = router;
