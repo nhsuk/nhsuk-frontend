@@ -65,4 +65,24 @@ router.get('/examples/test-gout', (req, res) => {
   res.render('examples/test-gout', {});
 });
 
+router.get('/examples/medicines', (req, res) => {
+  res.render('examples/medicines/index', {});
+});
+
+router.get('/examples/medicines/propranolol', (req, res) => {
+  res.render('examples/medicines/propranolol/index', {});
+});
+
+router.get('/examples/medicines/propranolol/page-1', (req, res) => {
+  res.render('examples/medicines/propranolol/page-1', {});
+});
+
+router.get('/examples/medicines/propranolol/page-2', (req, res) => {
+  res.render('examples/medicines/propranolol/page-2', {});
+});
+
+router.get('/examples/medicines/propranolol/page-3', (req, res) => {
+  res.render('examples/medicines/propranolol/page-3', {});
+});
+
 module.exports = router;
