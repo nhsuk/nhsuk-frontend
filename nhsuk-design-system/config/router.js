@@ -37,6 +37,10 @@ router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
 
+router.get('/examples/chickenpox', (req, res) => {
+  res.render('examples/chickenpox', {});
+});
+
 router.get('/examples/page', (req, res) => {
   res.render('examples/page', {});
 });
