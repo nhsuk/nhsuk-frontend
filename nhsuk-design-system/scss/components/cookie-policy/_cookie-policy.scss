@@ -159,6 +159,7 @@
     top: -10%;
   }
   form {
+    display: block;
     margin-top: 16px;
     .CybotCookiebotDialogBodyLevelButtonWrapper {
       display: block;
@@ -215,9 +216,9 @@
         border-width: 0 0 5px 5px;
         background: transparent;
         width: 16px;
-        height: 10px;
+        height: 9px;
         position: absolute;
-        top: 6px;
+        top: 7px;
         left: 6px;
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
