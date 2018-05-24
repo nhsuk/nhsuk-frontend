@@ -1,0 +1,78 @@
+//do and don't list * needs re-engineering *
+
+.nhsuk-c-panel {
+  @include nhsuk-component-center();
+  @include top-and-bottom();
+  background: white;
+  border-top: 8px solid $nhsuk-blue;
+  color: $nhsuk-secondary-text-colour;
+  margin: 40px 0;
+  padding: 32px 24px;
+  position:relative;
+  @include mq($until: tablet) {
+      margin: 32px 0;
+      padding: 24px;
+  }
+}
+
+.nhsuk-c-panel__with-header {
+  h3 {
+      @include nhsuk-tab();
+      background: $nhsuk-blue;
+      color: white;
+      padding: 8px 24px;
+      @include mq($until: tablet) {
+          padding: 4px 16px;
+      }
+  }
+}
+
+.list--check,
+.list--cross {
+  list-style: none;
+  padding-left: 32px;
+}
+
+.list--check li::before, .list--check li::after, .list--cross li::before, .list--cross li::after {
+  content: "";
+  left: -32px;
+  position: absolute;
+  zoom: 1;
+}
+
+.list--check,
+.list--cross{
+  li{
+      margin-top: 16px;
+      padding-left: 8px;
+      position:relative;
+  }
+}
+.list--check li{
+  &:before {
+      background: transparent;
+      border: solid;
+      border-color: $nhsuk-green;
+      border-width: 0 0 5px 5px;
+      height: 8px;
+      top: 5px;
+      transform: rotate(-45deg);
+      width: 16px;
+  }
+}
+
+.list--cross li::before,
+.list--cross li::after {
+  background: #da291c;
+  height: 5px;
+  top: 10px;
+  transform: rotate(45deg);
+  width: 24px;
+  @include mq($until: tablet) {
+      top: 9px;
+  }
+}
+
+.list--cross li::after {
+  transform: rotate(-45deg);
+}

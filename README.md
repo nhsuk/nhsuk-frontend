@@ -1,7 +1,5 @@
 # NHS.UK front-end (DEVELOPMENT)
 
-** NHSUK front-end is in development. Do not use in production. **
-
 NHS.UK front-end contains the code you need to start building user interfaces for NHS.UK websites and services.
 
 Code and styling examples of NHS.UK front-end components and elements can be found on the <a href="https://nhsuk-redesign.azurewebsites.net">NHS.UK design system</a>.
@@ -18,11 +16,11 @@ Install the long-term support (LTS) version of <a href="https://nodejs.org/en/">
 
 Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
 
-Run the server in development mode `npm run watch`
+Run the project in development mode `npm run watch` and visit <a href="http://localhost:3000">http://localhost:3000</a>.
 
 ## Contributing
 
-TBA
+Follow our [contributing guide](https://github.com/nhsuk/frontend/blob/refactor/contributing-guidelines/.github/CONTRIBUTING.md). to make changes to NHS.UK front-end.
 
 ## Deploying
 

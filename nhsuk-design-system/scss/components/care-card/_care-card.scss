@@ -33,6 +33,7 @@
   .care-card-content {
     background: $nhsuk-white;
     padding: 32px 16px 24px;
+    @include reading-width-content();
     @include mq($from: tablet) {
       padding: 36px 24px 32px;
     }
@@ -81,4 +82,14 @@
       color: $nhsuk-white;
     }
   }
+}
+
+//care card - include mixin for reading width
+
+.care-card {
+  //@include nhsuk-component-center();
+}
+
+.care-card-content{
+  @include reading-width-content();
 }
