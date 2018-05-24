@@ -3,13 +3,19 @@
   @include mq($from: tablet) {
     margin: 40px 0;
   }
+  &.care-card__extra-spacing {
+    margin: 64px 0;
+    @include mq($from: tablet) {
+      margin: 80px 0;
+    }
+  }
   .care-card-heading {
     background: $nhsuk-blue;
     color: $nhsuk-white;
-    padding: 8px 16px;
+    padding: 16px;
     position: relative;
     @include mq($from: tablet) {
-      padding: 16px 24px;
+      padding: 24px;
     }
     &:after {
       border-left: 16px solid transparent;
@@ -33,6 +39,7 @@
   .care-card-content {
     background: $nhsuk-white;
     padding: 32px 16px 24px;
+    @include reading-width-content();
     @include mq($from: tablet) {
       padding: 36px 24px 32px;
     }
@@ -59,7 +66,7 @@
     }
   }
   &.red {
-    border-bottom: 8px solid $nhsuk-red;
+    //border-bottom: 8px solid $nhsuk-red;
     .care-card-heading {
       background: $nhsuk-red;
       &:after {
@@ -81,4 +88,14 @@
       color: $nhsuk-white;
     }
   }
+}
+
+//care card - include mixin for reading width
+
+.care-card {
+  //@include nhsuk-component-center();
+}
+
+.care-card-content{
+  @include reading-width-content();
 }

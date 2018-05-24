@@ -25,8 +25,20 @@ router.get('/styles/callouts', (req, res) => {
   res.render('styles/callouts', {});
 });
 
+router.get('/styles/icons', (req, res) => {
+  res.render('styles/icons', {});
+});
+
+router.get('/styles/footer', (req, res) => {
+  res.render('styles/footer', {});
+});
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
+});
+
+router.get('/examples/chickenpox', (req, res) => {
+  res.render('examples/chickenpox', {});
 });
 
 router.get('/examples/page', (req, res) => {
@@ -63,6 +75,10 @@ router.get('/examples/test-medicine-v2', (req, res) => {
 
 router.get('/examples/test-gout', (req, res) => {
   res.render('examples/test-gout', {});
+});
+
+router.get('/examples/test-sciatica', (req, res) => {
+  res.render('examples/test-sciatica', {});
 });
 
 router.get('/examples/medicines', (req, res) => {

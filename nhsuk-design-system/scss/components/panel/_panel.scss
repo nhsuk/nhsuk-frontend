@@ -1,0 +1,80 @@
+//do and don't list * needs re-engineering *
+
+.nhsuk-c-panel {
+  @include nhsuk-component-center();
+  @include top-and-bottom();
+  background: white;
+  //border-top: 8px solid $nhsuk-blue;
+  color: $nhsuk-secondary-text-colour;
+  margin: 40px 0;
+  padding: 36px 24px 32px 24px;
+  position:relative;
+  @include mq($until: tablet) {
+      margin: 32px 0;
+      padding: 32px 24px 24px;
+  }
+}
+
+.nhsuk-c-panel__with-header {
+  h3 {
+      @include nhsuk-tab();
+      background: $nhsuk-blue;
+      color: white;
+      padding: 8px 24px;
+      top: -8px;
+      @include mq($until: tablet) {
+          padding: 4px 16px;
+          top: -4px;
+      }
+      &.green{
+        background: $nhsuk-green;
+      }
+      &.red{
+        background: $nhsuk-red;
+      }
+  }
+}
+
+.list--check,
+.list--cross {
+  list-style: none;
+  padding-left: 32px;
+}
+
+.list--check li::before, .list--check li::after, .list--cross li::before, .list--cross li::after {
+  content: "";
+  position: absolute;
+}
+
+.list--check,
+.list--cross{
+  li{
+      margin-top: 16px;
+      padding-left: 8px;
+      position:relative;
+  }
+}
+.list--check li {
+  &:before {
+    content:url('../../../../images/Icon-tick-v4.svg');
+    width: 34px;
+    height: 34px;
+    left: -43px;
+    top: -4px;
+    color: $nhsuk-green;
+  }
+}
+
+.list--cross li {
+  &:before {
+    content:url('../../../../images/Icon-cross_v2.svg');
+    width: 40px;
+    height: 40px;
+    left: -43px;
+    top: -6px;
+ }
+}
+
+.list--cross li::after {
+  transform: rotate(-45deg);
+}
