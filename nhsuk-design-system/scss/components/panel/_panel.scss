@@ -56,18 +56,18 @@
 }
 .list--check li {
   &:before {
-    content:url('../../../../images/Icon-tick-do_v2.svg');
-    width: 40px;
-    height: 40px;
+    content:url('../../../../images/Icon-tick-v4.svg');
+    width: 34px;
+    height: 34px;
     left: -43px;
-    top: -6px;
+    top: -4px;
     color: $nhsuk-green;
   }
 }
 
 .list--cross li {
   &:before {
-    content:url('../../../../images/Icon-close_v2.svg');
+    content:url('../../../../images/Icon-cross_v2.svg');
     width: 40px;
     height: 40px;
     left: -43px;
