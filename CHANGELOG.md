@@ -3,6 +3,7 @@
 - Improve frontend library folder structure
 - New header styling and markup added to example pages
 - Chickenpox examples page with new elements
+- Make the grid guttering a multiple of 4 and increase page width to 1024px
 
 0.0.7 / 2018-05-11
 ==================
