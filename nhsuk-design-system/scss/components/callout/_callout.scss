@@ -149,7 +149,6 @@ p {
   @include top-and-bottom();
   background: white;
   border-left: 8px solid #00A499;
-  color: $nhsuk-secondary-text-colour;
   margin: 40px 0;
   padding: 24px;
   @include mq($until: tablet) {
