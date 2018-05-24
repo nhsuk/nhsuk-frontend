@@ -2,6 +2,7 @@
 ==================
 - Improve frontend library folder structure
 - New header styling and markup added to example pages
+- Chickenpox examples page with new elements
 
 0.0.7 / 2018-05-11
 ==================
