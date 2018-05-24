@@ -35,9 +35,7 @@
 
 .list--check li::before, .list--check li::after, .list--cross li::before, .list--cross li::after {
   content: "";
-  left: -32px;
   position: absolute;
-  zoom: 1;
 }
 
 .list--check,
@@ -48,29 +46,25 @@
       position:relative;
   }
 }
-.list--check li{
+.list--check li {
   &:before {
-      background: transparent;
-      border: solid;
-      border-color: $nhsuk-green;
-      border-width: 0 0 5px 5px;
-      height: 8px;
-      top: 5px;
-      transform: rotate(-45deg);
-      width: 16px;
+    content:url('../../../../images/Icon-tick-do_v2.svg');
+    width: 40px;
+    height: 40px;
+    left: -43px;
+    top: -6px;
+    color: $nhsuk-green;
   }
 }
 
-.list--cross li::before,
-.list--cross li::after {
-  background: #da291c;
-  height: 5px;
-  top: 10px;
-  transform: rotate(45deg);
-  width: 24px;
-  @include mq($until: tablet) {
-      top: 9px;
-  }
+.list--cross li {
+  &:before {
+    content:url('../../../../images/Icon-close_v2.svg');
+    width: 40px;
+    height: 40px;
+    left: -43px;
+    top: -6px;
+ }
 }
 
 .list--cross li::after {
