@@ -11,7 +11,7 @@ h1,
   line-height: 36px;
   margin: 56px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(40px, $base-font-size);
+    font-size: govuk-em(48px, $base-font-size);
     line-height: 56px;
     margin: 72px 0 0;
   }
@@ -205,7 +205,7 @@ hr {
   &.nhsuk-h-line {
     border: 0;
     border-top: 1px solid $nhsuk-border-colour;
-    margin: 40px 0 0;
+    margin: 48px 0 0;
     @include mq($from: tablet) {
       margin: 72px 0 0;
     }
