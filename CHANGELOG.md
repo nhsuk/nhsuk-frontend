@@ -4,6 +4,11 @@
 - New header styling and markup added to example pages
 - Chickenpox examples page with new elements
 - Make the grid guttering a multiple of 4 and increase page width to 1024px
+- Header v1 build with navigation and auto complete
+- Review branch deployments on pull requests
+- Call out boxes for user testing
+- First version of an icon set and example pages
+- Contributing guidelines and documentation
 
 0.0.7 / 2018-05-11
 ==================

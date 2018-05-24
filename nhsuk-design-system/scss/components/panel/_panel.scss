@@ -4,14 +4,14 @@
   @include nhsuk-component-center();
   @include top-and-bottom();
   background: white;
-  border-top: 8px solid $nhsuk-blue;
+  //border-top: 8px solid $nhsuk-blue;
   color: $nhsuk-secondary-text-colour;
   margin: 40px 0;
-  padding: 32px 24px;
+  padding: 36px 24px 32px 24px;
   position:relative;
   @include mq($until: tablet) {
       margin: 32px 0;
-      padding: 24px;
+      padding: 32px 24px 24px;
   }
 }
 
@@ -21,8 +21,16 @@
       background: $nhsuk-blue;
       color: white;
       padding: 8px 24px;
+      top: -8px;
       @include mq($until: tablet) {
           padding: 4px 16px;
+          top: -4px;
+      }
+      &.green{
+        background: $nhsuk-green;
+      }
+      &.red{
+        background: $nhsuk-red;
       }
   }
 }

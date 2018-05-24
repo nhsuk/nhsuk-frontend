@@ -10,8 +10,8 @@
 
 ### Running the code
 
-- Open terminal.app (Mac), or Command Prompt (Windows)
-- Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
+- Open terminal (Mac), or command prompt (Windows)
+- Clone the repo: `git clone https://github.com/nhsuk/frontend.git frontend` and whilst in the project directory `cd frontend`, install the required npm packages with: `npm install`
 - Run the project in development mode `npm run watch` and visit <a href="http://localhost:3000">http://localhost:3000</a>
 
 ### Making changes
@@ -20,6 +20,7 @@
 
 #### Contributing changes
 
+- Always make sure you have the latest code `git checkout master && git pull`
 - Make a feature branch, ideally in the format of `feature/summary-of-change`, `bug/summary-of-change`, `refactor/summary-of-change` with `git checkout -b feature/summary-of-change`
 - Stage your changes to commit `git add .`
 - Add a commit message to your commit `git commit -m "Informative commit message"`, follow our [Git styleguide](https://github.com/nhsuk/styleguides/blob/master/git.md) for writing good commit messages
@@ -27,12 +28,9 @@
 - Visit the [GitHub project](https://github.com/nhsuk/frontend) and make a new pull request with your branch
 - Fill in the required fields and request a review from a colleague
 
-### Advanced
-
-- See below for more information on Git workflow
-
 ## Git workflow
 
+- Always make sure you have the latest code `git checkout master && git pull`
 - Pull requests must contain a succinct, clear summary of what the user need is driving this feature change
 - Follow our [Git styleguide](https://github.com/nhsuk/styleguides/blob/master/git.md)
 - Make a feature branch, ideally in the format `feature/summary-of-change`, `bug/summary-of-change`, `refactor/summary-of-change` e.g. `feature/add-login`

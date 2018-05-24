@@ -38,7 +38,7 @@
       top: -16px;
       @include mq($until: tablet) {
           left: -4px;
-          top: -16px;
+          top: -12px;
       }
   }
 }
@@ -147,10 +147,11 @@ p {
 .nhsuk-c-keypoint {
   @include reading-width-content();
   @include top-and-bottom();
-  //background: rgba(white, 0.5);
-  border-left: 16px solid $nhsuk-grey-2;
+  background: white;
+  border-left: 8px solid #00A499;
+  color: $nhsuk-secondary-text-colour;
   margin: 40px 0;
-  padding: 16px 24px 16px 24px;
+  padding: 24px;
   @include mq($until: tablet) {
       margin: 32px 0;
       padding: 16px;

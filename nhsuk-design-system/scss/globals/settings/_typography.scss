@@ -10,3 +10,8 @@
   color: $nhsuk-secondary-text-colour;
   margin-top: 24px;
 }
+
+//remove top margin from the top section first element
+.nhsuk-page-content section:first-child > :first-child {
+  margin-top: 0;
+}

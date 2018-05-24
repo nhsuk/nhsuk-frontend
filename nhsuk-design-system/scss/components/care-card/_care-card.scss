@@ -3,13 +3,19 @@
   @include mq($from: tablet) {
     margin: 40px 0;
   }
+  &.care-card__extra-spacing {
+    margin: 64px 0;
+    @include mq($from: tablet) {
+      margin: 80px 0;
+    }
+  }
   .care-card-heading {
     background: $nhsuk-blue;
     color: $nhsuk-white;
-    padding: 8px 16px;
+    padding: 16px;
     position: relative;
     @include mq($from: tablet) {
-      padding: 16px 24px;
+      padding: 24px;
     }
     &:after {
       border-left: 16px solid transparent;
@@ -60,7 +66,7 @@
     }
   }
   &.red {
-    border-bottom: 8px solid $nhsuk-red;
+    //border-bottom: 8px solid $nhsuk-red;
     .care-card-heading {
       background: $nhsuk-red;
       &:after {
