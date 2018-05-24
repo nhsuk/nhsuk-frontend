@@ -73,4 +73,9 @@ router.get('/examples/test-gout', (req, res) => {
   res.render('examples/test-gout', {});
 });
 
+router.get('/examples/test-sciatica', (req, res) => {
+  res.render('examples/test-sciatica', {});
+});
+
+
 module.exports = router;
