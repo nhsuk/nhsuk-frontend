@@ -1,16 +1,22 @@
 .nhsuk-breadcrumb {
-    background: white;
+    background: $nhsuk-white;
+	padding: 12px 0;
     ol{
         margin: 0;
         padding: 0;
+		list-style: none;
         li{
             display: inline-block;
-            list-style: none;
-            margin: 0 0 0 6px;
-            padding: 12px 0;
+            margin: 0;
+			font-size: 16px;
             &:after {
-                content: '\00A0\00A0\203A';
-                color: $nhsuk-grey-2;
+                content: '';
+				width: 6px;
+				height: 9px;
+				margin: 0 10px 0 15px;
+				display: inline-block;
+                background: url(../images/icon-chevron-right-grey.svg) 0 0 no-repeat;
+				background-size: 6px 9px;
             }
             &:first-child {
                 margin: 0;
@@ -20,9 +26,29 @@
                     display: none;
                 }
             }
-            a{
-                text-decoration: underline;
-            }
+			@media screen and (max-width: 989px) {
+				font-size: 14px;
+				&:after {
+					margin: 0 5px 0 10px;
+				}
+			}
+			@media screen and (max-width: 640px) {
+				display: none;
+			}
         }
     }
+	p{
+		padding: 0 0 0 16px;
+		margin: 0;
+		background: url(../images/icon-chevron-left-grey.svg) left 3px no-repeat;
+		background-size: 7px 12px;
+		font-size: 14px;
+		display: none;
+		@media screen and (max-width: 640px) {
+			display: inline;
+		}
+	}
+	a{
+		text-decoration: underline;
+	}
 }
