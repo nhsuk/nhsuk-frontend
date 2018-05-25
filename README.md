@@ -20,7 +20,7 @@ Run the project in development mode `npm run watch` and visit <a href="http://lo
 
 ## Contributing
 
-Follow our [contributing guide](https://github.com/nhsuk/frontend/blob/refactor/contributing-guidelines/.github/CONTRIBUTING.md) to make changes to the NHS.UK front-end code base.
+Follow our [contributing guide](https://github.com/nhsuk/frontend/blob/master/.github/CONTRIBUTING.md) to make changes to the NHS.UK front-end code base.
 
 ## Deploying
 
