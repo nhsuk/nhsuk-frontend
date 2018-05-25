@@ -20,7 +20,7 @@
 
 #### Contributing changes
 
-- Always make sure you have the latest code `git checkout master && git pull`
+- Always make sure you have the latest code `git checkout master && git pull origin master`
 - Make a feature branch, ideally in the format of `feature/summary-of-change`, `bug/summary-of-change`, `refactor/summary-of-change` with `git checkout -b feature/summary-of-change`
 - Stage your changes to commit `git add .`
 - Add a commit message to your commit `git commit -m "Informative commit message"`, follow our [Git styleguide](https://github.com/nhsuk/styleguides/blob/master/git.md) for writing good commit messages
@@ -30,7 +30,7 @@
 
 ## Git workflow
 
-- Always make sure you have the latest code `git checkout master && git pull`
+- Always make sure you have the latest code `git checkout master && git pull origin master`
 - Pull requests must contain a succinct, clear summary of what the user need is driving this feature change
 - Follow our [Git styleguide](https://github.com/nhsuk/styleguides/blob/master/git.md)
 - Make a feature branch, ideally in the format `feature/summary-of-change`, `bug/summary-of-change`, `refactor/summary-of-change` e.g. `feature/add-login`
