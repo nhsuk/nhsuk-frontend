@@ -145,4 +145,12 @@ router.get('/examples/test-condition-slipped-disc', (req, res) => {
   res.render('examples/test-condition-slipped-disc', {});
 });
 
+router.get('/examples/test-condition-heel-pain-v1', (req, res) => {
+  res.render('examples/test-condition-heel-pain-v1', {});
+});
+
+router.get('/examples/test-condition-blisters-v1', (req, res) => {
+  res.render('examples/test-condition-blisters-v1', {});
+});
+
 module.exports = router;
