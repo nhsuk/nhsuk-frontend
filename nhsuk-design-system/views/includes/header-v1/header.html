@@ -42,7 +42,7 @@ $( function() {
 </script>
 
 {% if cookieBanner == 'active' %}
-<script>
+<script type="text/javascript">
   function hideCookieBanner() {
       var cookiebanner = document.getElementById("cookiebanner");
       var cookiebannerstart = document.getElementById("cookiebanner-info");
@@ -52,8 +52,17 @@ $( function() {
   }
 
   function showToggle() {
-    var element = document.getElementById("panel");
+    var element = document.getElementById("nhsuk-cookie-panel");
+    var toggle = document.getElementById("nhsuk-cookie-toggle");
+    var content = document.getElementById("nhsuk-cookie-content");
     element.classList.toggle("open");
+    if(element.classList.contains("open")) {
+      toggle.setAttribute("aria-expanded", "true");
+      content.setAttribute("aria-hidden", "false");
+    } else {
+      toggle.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
+    }
   }
 </script>
 
@@ -64,9 +73,9 @@ $( function() {
       <!-- CookieBot <h2>[#TITLE#]</h2> -->
       <p class="mt-0">We use files called 'cookies' across our websites. Some are essential. For others you have a choice.</p>
       <!-- CookieBot <p class="mt-0">[#TEXT#]</p> -->
-      <div class="nhsuk-cookie-banner-details" id="panel">
-        <a href="javascript:void(0)" class="details__toggle" onclick="showToggle()" aria-expanded="false"><span class="caret"></span>Which cookies we use and why</a>
-        <div class="details__content">
+      <div class="nhsuk-cookie-banner-details" id="nhsuk-cookie-panel">
+        <a href="javascript:void(0)" class="details__toggle" onclick="showToggle()" aria-expanded="false" aria-controls="nhsuk-cookie-content" id="nhsuk-cookie-toggle"><span class="caret"></span>Which cookies we use and why</a>
+        <div class="details__content" id="nhsuk-cookie-content" aria-hidden="true">
           <p>We use cookies for the following reasons:</p>
           <h3>Site preferences</h3>
           <!-- CookieBot <h3>[#COOKIETYPE_PREFERENCE_RAW#]</h3> -->
@@ -95,21 +104,21 @@ $( function() {
             </label>
           </div>
           <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="These types of cookies remember the notifications you&rsquo;ve seen so that we don&rsquo;t show them to you again.">
-            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonPreferences" class="multiple-choice--checkbox checkbox-blue" checked="checked" tabindex="1">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonPreferences" class="multiple-choice--checkbox checkbox-blue" checked="checked">
             <label for="CybotCookiebotDialogBodyLevelButtonPreferences">
               Site preferences
               <!-- [#COOKIETYPE_PREFERENCE_RAW#] -->
             </label>
           </div>
           <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="These types of cookies measure how you use the website, like where you click, so it can be updated and improved based on your needs.">
-            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonStatistics" class="multiple-choice--checkbox checkbox-blue" checked="checked" tabindex="1">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonStatistics" class="multiple-choice--checkbox checkbox-blue" checked="checked">
             <label for="CybotCookiebotDialogBodyLevelButtonStatistics">
               Website usage
               <!-- [#COOKIETYPE_STATISTICS_RAW#] -->
             </label>
           </div>
           <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="We run health awareness campaigns with trusted partners. These cookies see how they perform across the internet and social media. Such as whether you clicked an advert to come to our site.">
-            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonMarketing" class="multiple-choice--checkbox checkbox-blue" checked="checked" tabindex="1">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonMarketing" class="multiple-choice--checkbox checkbox-blue" checked="checked">
             <label for="CybotCookiebotDialogBodyLevelButtonMarketing">
               Health campaigns
               <!-- [#COOKIETYPE_ADVERTISING_RAW#] -->
