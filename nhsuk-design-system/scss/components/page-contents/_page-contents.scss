@@ -1,0 +1,18 @@
+.page-contents{
+	padding: 30px;
+	margin: 40px 0;
+	background: $nhsuk-white;
+	border-bottom: 2px solid $nhsuk-secondary-text-colour;
+	h2{
+		margin-top: 0;
+	}
+	ul,ol{
+		display: block;
+		-moz-column-count: 2;
+		-moz-column-gap: 80px;
+		-webkit-column-count: 2;
+		-webkit-column-gap: 80px;
+		column-count: 2;
+		column-gap: 80px;
+	}
+}

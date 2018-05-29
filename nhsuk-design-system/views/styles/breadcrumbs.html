@@ -8,26 +8,31 @@
 {% endblock %}
 
 {% block sidebar %}
-    <!--<h2 class="nhsuk-heading-xs">Contents</h2>
-    <ul class="">
-        <li><a href="#breadcrumb_desktop">Desktop</a></li>
-        <li><a href="#breadcrumb_tablet">Tablet</a></li>
-		<li><a href="#breadcrumb_mobile">Mobile</a></li>
-    </ul>-->
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+        <li><a href="#user-needs">User needs</a></li>
+		<li><a href="#breakpoints">Breakpoints</a></li>
+        <li><a href="#example">Example</a></li>
+    </ul>
 {% endblock %}
 
 {% block content %}
 
-    <h3>User need</h3>
+    <h2 id="user-needs">User needs</h2>
     <ul>
 		<li>As a user I NEED to know which section of the website I am in SO THAT I am orientated and am aware of other sections.</li>
     	<li>As a user I NEED to know what other sections exist on the website SO THAT I can continue information seeking if the current page doesn't contain the information that I require.</li>
     	<li>As a user I NEED to be able to quickly navigate to a different page in the section SO THAT I can find the most relevant information for my situation.</li>
 	</ul>
+
+	<h2 id="breakpoints">Breakpoints</h2>
+    <ul>
+        <li>mobile:  640px or below</li>
+        <li>tablet:  990px or below</li>
+    </ul>
     
-	<h3 id="breadcrumb_desktop">Example</h3>
-	<p>Change your browser width to see how the breadcrumbs react to fit on different screen sizes.</p>
-	<p>&nbsp;</p>
+	<h2 id="example">Example</h2>
+	<div class="example grey-background">
 		<div class="nhsuk-breadcrumb">
 				<ol>
 					<li><a href="#">Home</a></li>
@@ -37,4 +42,19 @@
 				</ol>
 				<p><a href="#">Back to Your guide to care and support</a></p>
 		</div>
+	</div>
+
+	<div class="example-snippet">
+		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
+		<pre id="clipboard-1" class="  language-markup"><code class="  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-breadcrumb<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Health A-Z<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Your guide to care and support<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>What social care services are available?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Back to Your guide to care and support<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+    </div>
+
 {% endblock %}

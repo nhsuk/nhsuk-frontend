@@ -113,4 +113,8 @@ router.get('/examples/header-cookie', (req, res) => {
   res.render('examples/header-cookie', {});
 });
 
+router.get('/examples/test-depression', (req, res) => {
+  res.render('examples/test-depression', {});
+});
+
 module.exports = router;
