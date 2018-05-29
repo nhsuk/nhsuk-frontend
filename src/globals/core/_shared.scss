@@ -23,9 +23,10 @@ body {
   background-color: $nhsuk-grey-4;
   font-size: $base-font-size-mobile;
   line-height: $base-line-height-mobile;
-  margin: 0 0 $footer-height;
+  margin: 0 0 $footer-height-mobile+40;
   @include mq($from: tablet) {
     font-size: $base-font-size;
     line-height: $base-line-height;
+    margin: 0 0 $footer-height+64;
   }
 }

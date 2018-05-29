@@ -1,6 +1,45 @@
-footer {
+.nhsuk-global-footer {
   background-color: $nhsuk-blue;
-  position: absolute;
   bottom: 0;
+  color: $nhsuk-white;
+  position: absolute;
   width: 100%;
+  &__logo {
+    padding-bottom: 15px;
+    @include mq($from: tablet) {
+      padding-bottom: 0;
+    }
+    a {
+      display: block;
+      height: 40px;
+      width: 99px;
+      img {
+        border: 0;
+        max-width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+  ul {
+    border-bottom: 1px solid $nhsuk-secondary-border-colour;
+    list-style-type: none;
+    margin: 0;
+    padding: 25px 0;
+    &:last-child {
+      border-bottom: 0;
+    }
+    li {
+      @include mq($from: tablet) {
+        display: inline-block;
+        padding-right: 25px;
+      }
+      a {
+        color: $nhsuk-white;
+        &:focus,
+        &:hover {
+          color: $nhsuk-link-focus-colour;
+        }
+      }
+    }
+  }
 }
