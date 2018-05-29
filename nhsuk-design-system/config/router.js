@@ -137,4 +137,12 @@ router.get('/examples/medicines/propranolol/page-3', (req, res) => {
   res.render('examples/medicines/propranolol/page-3', {});
 });
 
+router.get('/examples/test-condition-vertigo', (req, res) => {
+  res.render('examples/test-condition-vertigo', {});
+});
+
+router.get('/examples/test-condition-slipped-disc', (req, res) => {
+  res.render('examples/test-condition-slipped-disc', {});
+});
+
 module.exports = router;
