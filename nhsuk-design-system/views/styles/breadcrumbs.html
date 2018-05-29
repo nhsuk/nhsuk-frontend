@@ -1,23 +1,40 @@
-{% set title = 'Breadcrumbs example' %}
-{% extends "includes/templates/page.html"%}
-
-{% block breadcrumb %}
-    <div class="nhsuk-breadcrumb">
-        <div class="nhsuk-o-width-container">
-            <ol>
-                <li><a href="#">Home</a></li>
-				<li><a href="#">Health A-Z</a></li>
-				<li><a href="#">Your guide to care and support</a></li>
-				<li>What social care services are available?</li>
-            </ol>
-			<p><a href="#">Back to Your guide to care and support</a></p>
-        </div>
-    </div>
-{% endblock %}
+{% set title = 'Breadcrumbs' %}
+{% set navigation = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>What social care services are available?</h1>
-    <div class="reading-width">
-        <p class="nhsuk-body-l nhsuk-page-intro">Many people's first impression or thoughts of social care might be a residential care home. In fact, there's a wide variety of social care services available and most people will be able to have care provided in their home.</p>
-    </div>
+    <h1>Breadcrumbs</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <!--<h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul class="">
+        <li><a href="#breadcrumb_desktop">Desktop</a></li>
+        <li><a href="#breadcrumb_tablet">Tablet</a></li>
+		<li><a href="#breadcrumb_mobile">Mobile</a></li>
+    </ul>-->
+{% endblock %}
+
+{% block content %}
+
+    <h3>User need</h3>
+    <ul>
+		<li>As a user I NEED to know which section of the website I am in SO THAT I am orientated and am aware of other sections.</li>
+    	<li>As a user I NEED to know what other sections exist on the website SO THAT I can continue information seeking if the current page doesn't contain the information that I require.</li>
+    	<li>As a user I NEED to be able to quickly navigate to a different page in the section SO THAT I can find the most relevant information for my situation.</li>
+	</ul>
+    
+	<h3 id="breadcrumb_desktop">Example</h3>
+	<p>Change your browser width to see how the breadcrumbs react to fit on different screen sizes.</p>
+	<p>&nbsp;</p>
+		<div class="nhsuk-breadcrumb">
+				<ol>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Health A-Z</a></li>
+					<li><a href="#">Your guide to care and support</a></li>
+					<li>What social care services are available?</li>
+				</ol>
+				<p><a href="#">Back to Your guide to care and support</a></p>
+		</div>
 {% endblock %}
