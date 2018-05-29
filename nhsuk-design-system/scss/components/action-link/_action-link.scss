@@ -1,0 +1,13 @@
+.action-link{
+	min-height: 28px;
+	background: url(../images/Icon-arrow1-right-ALT-circle_v2.svg) top left no-repeat;
+	background-size: 28px 28px;
+	padding: 1px 0 0 36px;
+	margin:16px 0 0 0;
+	p{
+		margin:0;
+	}
+	@media screen and (max-width: 640px) {
+		padding-top:3px;
+	}
+}
