@@ -12,10 +12,15 @@
     <ul class="">
         <li><a href="#callout_warning">Warning</a></li>
         <li><a href="#callout_keypoint">Key point</a></li>
+		<li><a href="#care_card_111">111 Care Card</a></li>
+		<li><a href="#care_card_primary">Primary Care Card</a></li>
+		<li><a href="#care_card_urgent">Urgent Care Card</a></li>
+		<li><a href="#care_card_emergency">Emergency Care Card</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
+
     <h2 id="callout_warning">Warning</h2>
 	<p>The warning callout can be used to display information that is:</p>
     <ul>
@@ -27,13 +32,95 @@
     <h3>User need</h3>
     <p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation and don't endanger my health.</p>
     <h3>Example</h3>
-    <div class="nhsuk-c-callout__warning"><p>Carry on taking this medicine until you've completed the course, even if you feel better. If you stop your treatment early, the infection could come back.</p></div>
+    <div class="nhsuk-c-callout__warning">
+		<p>Carry on taking this medicine until you've completed the course, even if you feel better. If you stop your treatment early, the infection could come back.</p>
+	</div>
+
 
     <h2 id="callout_keypoint">Key point</h2>
     <p>The key point callout can be used to highlight a significant point, some important information or advice so that the user is more likely to read and remember it over the body copy.</p>
     <h3>User need</h3>
     <p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation.</p>
     <h3>Example</h3>
-    <div class="nhsuk-c-keypoint"><p>You can report any suspected side effect to the&nbsp;<a href="https://yellowcard.mhra.gov.uk/">UK safety scheme</a>.</p></div>
+    <div class="nhsuk-c-keypoint">
+		<p>You can report any suspected side effect to the&nbsp;<a href="https://yellowcard.mhra.gov.uk/">UK safety scheme</a>.</p>
+	</div>
+
+
+	<h2 id="care_card_111">111 Care Card</h2>
+    <p>The 111 care card can be used to direct users to the NHS 111 helpline if they need non-emergency help or advice and don't have access to a health professional or GP.</p>
+    <h3>User need</h3>
+    <p>As a user I NEED to understand my options if I don't know what to do and I can't speak to my GP, SO THAT I can get the best outcome for my situation.</p>
+    <h3>Example</h3>
+    <div class="care-card grey">
+		<div class="care-card-heading">
+			<h4 class="nhsuk-heading-m">Call 111</h4>
+		</div>
+		<div class="care-card-content">
+			<p>If you can't speak to your GP and don't know what to do next.</p>
+		</div>
+	</div>
+
+
+	<h2 id="care_card_primary">Primary Care Card</h2>
+    <p>The primary care card can be used to instruct users to visit a health professional or GP if appropriate to their situation.</p>
+    <h3>User need</h3>
+    <p>As a user I NEED to understand what to do if my symptoms indicate I need to see a GP, SO THAT I can get the best outcome for my situation.</p>
+    <h3>Example</h3>
+    <div class="care-card blue">
+		<div class="care-card-heading">
+			<h4 class="nhsuk-heading-m">Speak to a GP if:</h4>
+		</div>
+		<div class="care-card-content">
+			<ul>
+				<li>you're not sure it's chickenpox</li>
+				<li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+				<li>your child is <a href="#">dehydrated</a></li>
+				<li>you're concerned about your child or they get worse</li>
+			</ul>
+			<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+		</div>
+	</div>
+
+
+	<h2 id="care_card_urgent">Urgent Care Card</h2>
+    <p>The urgent care card can be used to instruct users to visit a GP or hospital urgently if appropriate to their situation.</p>
+    <h3>User need</h3>
+    <p>As a user I NEED to understand what to do if my symptoms indicate I need urgent GP care SO THAT I can get the best outcome for my situation.</p>
+    <h3>Example</h3>
+    <div class="care-card red">
+		<div class="care-card-heading">
+			<h4 class="nhsuk-heading-m">Ask for an urgent GP appointment if:</h4>
+		</div>
+		<div class="care-card-content">
+			<ul>
+				<li>you're an adult and have chickenpox</li>
+				<li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+				<li>you have a weakened immune system and you've been near someone with chickenpox</li>
+				<li>you think your newborn baby has chickenpox</li>
+			</ul>
+			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+		</div>
+	</div>
+
+
+	<h2 id="care_card_emergency">Emergency Care Card</h2>
+    <p>The emergency care card can be used to instruct users to immediately seek emergency help if appropriate to their situation.</p>
+    <h3>User need</h3>
+    <p>As a user I NEED to understand what to do if my symptoms indicate I need to go straight to hospital SO THAT I can get the best outcome for my situation.</p>
+    <h3>Example</h3>
+    <div class="care-card black">
+		<div class="care-card-heading">
+			<h4 class="nhsuk-heading-m">Call 999 if you have sudden chest pain that:</h4>
+		</div>
+		<div class="care-card-content">
+			<ul>
+				<li>spreads to your arms, back, neck or jaw</li>
+				<li>makes your chest feel tight or heavy</li>
+				<li>also started with shortness of breath, sweating and feeling or being sick</li>
+			</ul>
+			<p>You could be having a <a href="#">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+		</div>
+	</div>
 
 {% endblock %}

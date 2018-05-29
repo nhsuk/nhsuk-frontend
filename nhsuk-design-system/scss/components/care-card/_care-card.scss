@@ -85,8 +85,14 @@
       }
     }
     .care-card-content {
-      background: $nhsuk-red;
+      background: $nhsuk-black;
       color: $nhsuk-white;
+		a{
+			color: $nhsuk-white;
+			&:hover{
+				color:$nhsuk-black;
+			}
+		}
     }
   }
 }
