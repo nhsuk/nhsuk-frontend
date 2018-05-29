@@ -9,6 +9,7 @@
 - Call out boxes for user testing
 - First version of an icon set and example pages
 - Contributing guidelines and documentation
+- Cookie banner for cookie and online tracking compliance with GDPR
 
 0.0.7 / 2018-05-11
 ==================

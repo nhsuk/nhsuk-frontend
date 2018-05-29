@@ -1,0 +1,33 @@
+{% set title = 'Header and Footer example' %}
+{% set cookieBanner = 'active' %}
+{% extends "includes/templates/page.html"%}
+
+{% block breadcrumb %}
+    <div class="nhsuk-breadcrumb">
+        <div class="nhsuk-o-width-container">
+            <ol>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Header</a></li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <h1>Header</h1>
+    <div class="reading-width">
+        <p class="nhsuk-body-l nhsuk-page-intro">Header with Guide to the General Data Protection Regulation (GDPR) compliant cookie and online consent.</p>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Page contents</h2>
+    <ol class="nhsuk-list-nav">
+        <li><a href="#">Placeholder</a></li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <h3>Page content</h3>
+{% endblock %}
+

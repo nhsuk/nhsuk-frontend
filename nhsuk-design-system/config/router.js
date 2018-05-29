@@ -29,8 +29,8 @@ router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
 
-router.get('/styles/footer', (req, res) => {
-  res.render('styles/footer', {});
+router.get('/styles/header-footer', (req, res) => {
+  res.render('styles/header-footer', {});
 });
 
 router.get('/examples', (req, res) => {
@@ -107,6 +107,10 @@ router.get('/examples/medicines/propranolol/page-2', (req, res) => {
 
 router.get('/examples/medicines/propranolol/page-3', (req, res) => {
   res.render('examples/medicines/propranolol/page-3', {});
+});
+
+router.get('/examples/header-cookie', (req, res) => {
+  res.render('examples/header-cookie', {});
 });
 
 module.exports = router;
