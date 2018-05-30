@@ -6,11 +6,11 @@
   background: white;
   //border-top: 8px solid $nhsuk-blue;
   color: $nhsuk-secondary-text-colour;
-  margin: 40px 0;
+  margin: 56px 0;
   padding: 36px 24px 32px 24px;
   position:relative;
   @include mq($until: tablet) {
-      margin: 32px 0;
+    margin: 40px 0;
       padding: 32px 24px 24px;
   }
 }
@@ -50,7 +50,6 @@
 .list--cross{
   li{
       margin-top: 16px;
-      padding-left: 8px;
       position:relative;
   }
 }
