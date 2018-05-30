@@ -1,1 +1,17 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:none;stroke:#ad1f19;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs><title>Icon-cross-v2_v2</title><line class="cls-1" x1="6.97" y1="7.02" x2="16.97" y2="17.02"/><line class="cls-1" x1="6.97" y1="17.02" x2="16.97" y2="7.03"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#AD1F19;}
+</style>
+<title>Icon-cross-v2_v2</title>
+<g>
+	<path class="st0" d="M17,18.5c-0.4,0-0.8-0.1-1.1-0.4l-10-10C5.3,7.5,5.3,6.5,5.9,6C6.5,5.4,7.4,5.4,8,6l10,10
+		c0.6,0.6,0.6,1.5,0,2.1C17.7,18.4,17.4,18.5,17,18.5z"/>
+</g>
+<g>
+	<path class="st0" d="M7,18.5c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l10-10c0.6-0.6,1.5-0.6,2.1,0c0.6,0.6,0.6,1.5,0,2.1
+		l-10,10C7.7,18.4,7.4,18.5,7,18.5z"/>
+</g>
+</svg>
