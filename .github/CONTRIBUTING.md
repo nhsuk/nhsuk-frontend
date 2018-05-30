@@ -10,8 +10,8 @@
 
 ### Running the code
 
-- Open terminal.app (Mac), or Command Prompt (Windows)
-- Clone the repo: `git clone https://github.com/nhsuk/frontend.git` and whilst in the project directory, install the required npm packages with: `npm install`
+- Open terminal (Mac), or command prompt (Windows)
+- Clone the repo: `git clone https://github.com/nhsuk/frontend.git frontend` and whilst in the project directory `cd frontend`, install the required npm packages with: `npm install`
 - Run the project in development mode `npm run watch` and visit <a href="http://localhost:3000">http://localhost:3000</a>
 
 ### Making changes
@@ -27,6 +27,14 @@
 - Push your changes to your branch `git push origin feature/summary-of-change`
 - Visit the [GitHub project](https://github.com/nhsuk/frontend) and make a new pull request with your branch
 - Fill in the required fields and request a review from a colleague
+
+### Rebasing your branch with master
+
+- If your branch is outdated or has any conflicts, you will need to rebase your branch with master before it can be merged
+- `git pull --rebase origin master` then resolve any conflicts in your text editor (VSCode has a good feature to help with this)
+- Once you've resolved conflicts, stage your changes `git add .`
+- Finish rebasing and make sure there are no other conflicts `git rebase  --continue`
+- Finally force push your changes to your branch `git push origin feature/summary-of-change -f`
 
 ## Git workflow
 
