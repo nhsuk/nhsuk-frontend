@@ -1,4 +1,4 @@
-.action-link{
+/*.action-link{
 	min-height: 28px;
 	background: url(../images/Icon-arrow1-right-ALT-circle_v2.svg) top left no-repeat;
 	background-size: 28px 28px;
@@ -6,6 +6,27 @@
 	margin:24px 0;
 	p{
 		margin:0;
+	}
+	@media screen and (max-width: 640px) {
+		padding-top:3px;
+	}
+}*/
+
+.action-link{
+	display: inline-block;
+	&:before{
+		content:'';
+		width: 28px;
+		height: 28px;
+		margin:0 8px -7px 0;
+		display: inline-block;
+		background: url(../images/Icon-arrow1-right-ALT-circle_v2.svg) top left no-repeat;
+		background-size: 28px 28px;
+	}
+	&:hover,
+	&:active,
+	&:focus{
+		background: none;
 	}
 	@media screen and (max-width: 640px) {
 		padding-top:3px;
