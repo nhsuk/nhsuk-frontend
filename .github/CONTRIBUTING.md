@@ -28,6 +28,14 @@
 - Visit the [GitHub project](https://github.com/nhsuk/frontend) and make a new pull request with your branch
 - Fill in the required fields and request a review from a colleague
 
+### Rebasing your branch with master
+
+- If your branch is outdated or has any conflicts, you will need to rebase your branch with master before it can be merged
+- `git pull --rebase origin master` then resolve any conflicts in your text editor (VSCode has a good feature to help with this)
+- Once you've resolved conflicts, stage your changes `git add .`
+- Finish rebasing and make sure there are no other conflicts `git rebase  --continue`
+- Finally force push your changes to your branch `git push origin feature/summary-of-change -f`
+
 ## Git workflow
 
 - Always make sure you have the latest code `git checkout master && git pull origin master`
