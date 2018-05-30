@@ -1,7 +1,7 @@
 .care-card {
-  margin: 32px 0;
+  margin: 40px 0;
   @include mq($from: tablet) {
-    margin: 40px 0;
+    margin: 56px 0;
   }
   //to be used on the 111 care card at the bottom of the pages
   &.care-card__extra-spacing {

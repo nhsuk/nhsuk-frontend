@@ -53,6 +53,10 @@ router.get('/examples/test-condition-chickenpox', (req, res) => {
   res.render('examples/test-condition-chickenpox', {});
 });
 
+router.get('/examples/test-condition-chickenpox-v2', (req, res) => {
+  res.render('examples/test-condition-chickenpox-v2', {});
+});
+
 router.get('/examples/test-condition-chlamydia', (req, res) => {
   res.render('examples/test-condition-chlamydia', {});
 });
