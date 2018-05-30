@@ -1,17 +1,9 @@
 {% set title = 'Vertigo' %}
+{% set parent = 'Conditions' %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
-    <div class="nhsuk-breadcrumb">
-        <div class="nhsuk-o-width-container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Health A-Z</a></li>
-				<li>Vertigo</li>
-            </ol>
-			<p><a href="#">Back to Health A-Z</a></p>
-        </div>
-    </div>
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
