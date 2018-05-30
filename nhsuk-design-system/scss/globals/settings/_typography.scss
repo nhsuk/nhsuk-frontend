@@ -10,3 +10,81 @@
   color: $nhsuk-secondary-text-colour;
   margin-top: 24px;
 }
+
+.nhsuk-page-intro-v2 {
+  border-left: 4px solid $nhsuk-blue;
+  margin-top: 24px;
+  padding: 8px 24px;
+}
+
+//testing out new bullet list style
+
+.nhsuk-list-bullet {
+  padding-left: 36px;
+  li {
+    list-style: none;
+    position:relative;
+    &:before{
+      position: absolute;
+      left: -24px;
+      color: $nhsuk-blue;
+      font-size: 1em;
+      content: '\25A0';
+    }
+  }
+}
+
+.red {
+  .nhsuk-list-bullet {
+    li {
+      &:before{
+        color: $nhsuk-red;
+      }
+    }
+  }
+}
+
+//testing out new page nav style
+
+.nhsuk-page-nav.v2 {
+  h2,
+  h3 {
+    border-bottom: 1px solid $nhsuk-grey-2;
+    font-weight: 400;
+    margin-top:0;
+    padding-bottom: 16px;
+  }
+  ol {
+    margin: 0 !important;
+    padding: 0;
+    li {
+      border-bottom: 1px solid $nhsuk-grey-2;
+      list-style: none;
+      margin: 0;
+      padding:16px 0;
+      .active {
+        border-left: 4px solid $nhsuk-blue;
+        color: $nhsuk-black;
+        font-weight: 600;
+        padding-left: 12px;
+        text-decoration: none;
+        &:before {
+          
+        }
+      }
+    }
+  }
+}
+
+//test out new page heading style
+.nhsuk-page-heading.v2 {
+  padding: 17px 0 32px;
+  @include mq($from: tablet) {
+    padding: 18px 0 48px;
+  }
+  h1 {
+    margin: 0;
+  }
+}
+
+

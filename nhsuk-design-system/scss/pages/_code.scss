@@ -47,7 +47,7 @@
   }
 }
 
-.progress-table {
+.nhsuk-table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 24px 0;
@@ -55,7 +55,7 @@
   th,
   td {
     border-bottom: 1px solid $nhsuk-border-colour;
-    padding: 8px;
+    padding: 16px 8px 16px 0;
     text-align: left;
     text-transform: none;
     &.td__status,
