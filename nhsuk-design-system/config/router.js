@@ -89,12 +89,12 @@ router.get('/examples/test-condition-sciatica', (req, res) => {
   res.render('examples/test-condition-sciatica', {});
 });
 
-router.get('/examples/test-condition-chestpain', (req, res) => {
-  res.render('examples/test-condition-chestpain', {});
+router.get('/examples/test-condition-chest-pain', (req, res) => {
+  res.render('examples/test-condition-chest-pain', {});
 });
 
-router.get('/examples/test-condition-kneepain', (req, res) => {
-  res.render('examples/test-condition-kneepain', {});
+router.get('/examples/test-condition-knee-pain', (req, res) => {
+  res.render('examples/test-condition-knee-pain', {});
 });
 
 router.get('/examples/test-condition-slipped-disc', (req, res) => {
