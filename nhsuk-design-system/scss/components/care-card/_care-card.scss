@@ -50,9 +50,10 @@
   }
   &.grey {
     .care-card-heading {
-      background: $nhsuk-grey-1;
+      background: $nhsuk-grey-2;
+      color: $nhsuk-black;
       &:after {
-        border-top: 16px solid $nhsuk-grey-1;
+        border-top: 16px solid $nhsuk-grey-2;
         content: '';
       }
     }
