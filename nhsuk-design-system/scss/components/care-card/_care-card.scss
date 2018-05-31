@@ -95,13 +95,3 @@
     }
   }
 }
-
-//care card - include mixin for reading width
-
-.care-card {
-  //@include nhsuk-component-center();
-}
-
-.care-card-content{
-  @include reading-width-content();
-}

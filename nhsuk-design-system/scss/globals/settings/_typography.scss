@@ -21,49 +21,6 @@
   margin-top: 0;
 }
 
-//testing out new bullet list style
-
-.nhsuk-list-bullet {
-  padding-left: 34px;
-  li {
-    list-style: none;
-    position:relative;
-    &:before{
-      background: #0072CE;
-      content: '';
-      display: inline-block;
-      height: 6px;
-      left: -20px;
-      position: absolute;
-      top: 9px;
-      width: 6px; 
-      @include mq($from: tablet) {
-        top: 11px;
-      }
-    }
-  }
-}
-
-.red {
-  .nhsuk-list-bullet {
-    li {
-      &:before{
-        background: #DA291C;
-      }
-    }
-  }
-}
-
-.black {
-  .nhsuk-list-bullet {
-    li {
-      &:before{
-        background: white;
-      }
-    }
-  }
-}
-
 //testing out new page nav style
 
 .nhsuk-page-nav.v2 {
