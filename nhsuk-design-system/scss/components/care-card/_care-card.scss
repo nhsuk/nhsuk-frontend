@@ -41,11 +41,9 @@
     background: $nhsuk-white;
     padding: 32px 16px 24px;
     @include reading-width-content();
+    @include top-and-bottom();
     @include mq($from: tablet) {
       padding: 36px 24px 32px;
-    }
-    & > *:first-child {
-      margin-top: 0;
     }
   }
   &.grey {
@@ -96,14 +94,4 @@
 		}
     }
   }
-}
-
-//care card - include mixin for reading width
-
-.care-card {
-  //@include nhsuk-component-center();
-}
-
-.care-card-content{
-  @include reading-width-content();
 }

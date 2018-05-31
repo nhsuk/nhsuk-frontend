@@ -21,33 +21,6 @@
   margin-top: 0;
 }
 
-//testing out new bullet list style
-
-.nhsuk-list-bullet {
-  padding-left: 36px;
-  li {
-    list-style: none;
-    position:relative;
-    &:before{
-      position: absolute;
-      left: -24px;
-      color: $nhsuk-blue;
-      font-size: 1em;
-      content: '\25A0';
-    }
-  }
-}
-
-.red {
-  .nhsuk-list-bullet {
-    li {
-      &:before{
-        color: $nhsuk-red;
-      }
-    }
-  }
-}
-
 //testing out new page nav style
 
 .nhsuk-page-nav.v2 {
@@ -91,4 +64,28 @@
   }
 }
 
+//review dates - bottom of each page in wagtail
 
+.review-dates {
+  margin-top:72px;
+  &:before {
+    content: '';
+    border-top: 4px solid #41B6E6;
+    display: block;
+    width: 25%;
+  }
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 32px 0 0;
+    @include mq($from: tablet) {
+      font-size: 16px;
+      line-height: 28px;
+      margin: 32px 0 0;
+    }
+  }
+}
+
+.care-card + .review-dates {
+  margin: 0;
+}
