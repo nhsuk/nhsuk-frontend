@@ -167,6 +167,8 @@
     .nhsuk-global-header__logo {
       padding-left: 15px;
       padding-right: 15px;
+      position: relative;
+      z-index: 1;
     }
 
     .nhsuk-global-header__menusearch {
