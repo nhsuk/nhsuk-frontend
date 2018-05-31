@@ -13,7 +13,7 @@
                 content: '';
 				width: 6px;
 				height: 9px;
-				margin: 0 10px 0 15px;
+				margin: 0 11px 0 16px;
 				display: inline-block;
                 background: url(../images/icon-chevron-right-grey.svg) 0 0 no-repeat;
 				background-size: 6px 9px;
@@ -27,9 +27,9 @@
                 }
             }
 			@media screen and (max-width: 989px) {
-				font-size: 14px;
+				/*font-size: 14px;*/
 				&:after {
-					margin: 0 5px 0 10px;
+					margin: 0 6px 0 11px;
 				}
 			}
 			@media screen and (max-width: 640px) {
@@ -40,8 +40,8 @@
 	p{
 		padding: 0 0 0 16px;
 		margin: 0;
-		background: url(../images/icon-chevron-left-grey.svg) left 3px no-repeat;
-		background-size: 7px 12px;
+		background: url(../images/Icon-chevron-left-blue.svg) left 3px no-repeat;
+		background-size: 8px 12px;
 		font-size: 14px;
 		display: none;
 		@media screen and (max-width: 640px) {

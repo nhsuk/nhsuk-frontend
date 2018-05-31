@@ -1,27 +1,29 @@
 {% set title = 'Clinical Depression' %}
-{% set parent = 'Conditions' %}
-{% extends "includes/templates/page.html"%}
+{% set parent = 'Health A-Z' %}
+{% extends "includes/templates/page-v3.html"%}
 
 {% block breadcrumb %}
     {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
+<h2 class="nhsuk-heading-s">In this section</h2>
     <ul class="nhsuk-list-nav">
-        <li><a href="#" class="">Overview</a></li>
-        <li><a href="#" class="">Symptoms</a></li>
-        <li><a href="#" class="">Causes</a></li>
-        <li><a href="#" class="">Diagnosis</a></li>
-        <li><a href="#" class="">Treatment</a></li>
-        <li><a href="#" class="">Living with</a></li>
-        <li><a href="#" class="">Psychotic depression</a></li>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Symptoms</a></li>
+        <li><strong>Causes</strong></li>
+        <li><a href="#">Diagnosis</a></li>
+        <li><a href="#">Treatment</a></li>
+        <li><a href="#">Living with</a></li>
+        <li><a href="#">Psychotic depression</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
 		
-		<h1>Clinical Depression</h1>
+		<h1>Clinical Depression<br />
+		<span style="font-size: 0.8em; font-weight: 400;">Causes</span></h1>
 		
 		<p class="nhsuk-body-l nhsuk-page-intro">There's no single cause of depression. It can occur for a variety of reasons and it has many different triggers.</p>
 		

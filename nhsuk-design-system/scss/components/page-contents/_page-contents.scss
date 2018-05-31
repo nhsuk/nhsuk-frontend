@@ -2,9 +2,10 @@
 	padding: 30px;
 	margin: 40px 0;
 	background: $nhsuk-white;
-	border-bottom: 2px solid $nhsuk-secondary-text-colour;
+	border-bottom: 1px solid $nhsuk-border-colour;
 	h2{
 		margin-top: 0;
+		font-weight: 400;
 	}
 	ul,ol{
 		display: block;
