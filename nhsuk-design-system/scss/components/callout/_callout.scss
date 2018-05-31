@@ -11,7 +11,7 @@
   position:relative;
   @include mq($until: tablet) {
       margin: 40px 0 32px;
-      padding: 24px 24px 24px 44px;
+      padding: 24px 24px 24px 52px;
   }
   &:before {
       @include nhsuk-tab();
@@ -187,12 +187,12 @@ p {
 .nhsuk-c-keypoint-v2 {
     @include reading-width-content();
     @include top-and-bottom();
-    border-left: 8px solid #00A499;
-    margin: 56px 0;
-    padding: 24px;
+    border-left: 8px solid #41B6E6;
+    margin: 40px 0;
+    padding: 8px 24px;
     @include mq($until: tablet) {
         margin: 40px 0;
-        padding: 16px;
+        padding: 4px 16px;
     }
     h2,
     h3,

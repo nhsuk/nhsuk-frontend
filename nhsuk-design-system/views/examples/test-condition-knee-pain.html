@@ -1,21 +1,15 @@
 {% set title = 'Test page - Knee Pain' %}
+{% set parent = 'Conditions' %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
-    <div class="nhsuk-breadcrumb">
-        <div class="nhsuk-o-width-container">
-            <ol>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Health A-Z</a></li>
-            </ol>
-        </div>
-    </div>
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
     <h1>Knee pain</h1>
     <div class="reading-width">
-        <p class="nhsuk-body-l nhsuk-page-intro-v2">Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.</p>
+        <p class="nhsuk-body-l nhsuk-page-intro">Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.</p>
     </div>
 {% endblock %}
 
@@ -79,7 +73,7 @@
                         <li>you have a very high temperature, feel hot and shivery, and have redness or heat around the knee – this can be a sign of infection</li>
                     </ul>
                     
-                    <p><a href="/service-search/minor-injuries-unit/locationsearch/551">Find a minor injuries unit</a></p>             
+                    <p><a href="/service-search/minor-injuries-unit/locationsearch/551" class="action-link">Find a minor injuries unit</a></p>            
                 </div>
             </div> 
 
