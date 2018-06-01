@@ -12,30 +12,3 @@
     }
   }
 }
-
-
-.nhsuk-page-header {
-  h2 {
-    font-weight: 300;
-    margin-top: 0;
-  }
-}
-
-.nhsuk-page-sidebar {
-  .divider {
-    background-color: $nhsuk-blue;
-    height: 3px;
-    margin: 35px 0;
-    width: 50%;
-  }
-  a {
-    &.active {
-      color: $nhsuk-link-active-colour;
-    }
-  }
-}
-
-.sr-only,
-.hidden {
-  display: none;
-}
