@@ -6,11 +6,11 @@
   @include top-and-bottom();
   background: $callout-background;
   color: $nhsuk-black;
-  margin: 48px 0 40px;
+  margin: 56px 0;
   padding: 32px 24px 32px 68px;
   position:relative;
   @include mq($until: tablet) {
-      margin: 40px 0 32px;
+      margin: 40px 0;
       padding: 24px 24px 24px 52px;
   }
   &:before {
@@ -62,10 +62,150 @@
     }
   }
 
+  .nhsuk-c-callout__warning-v6 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    background: lighten(#FAE200,35%);
+    border-top: 8px solid #FAE200;
+    color: $nhsuk-black;
+    margin: 56px 0;
+    @include mq($until: tablet) {
+        margin: 40px 0;
+    }
+    &:before {
+        background-image: url(../images/callout-warning-icon-yellow.svg);
+        left: -8px;
+        top: -16px;
+        @include mq($until: tablet) {
+            left: -4px;
+            top: -12px;
+        }
+    }
+  }
+
+  .nhsuk-c-callout__warning-v7 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    background: white;
+    border-top: 8px solid $nhsuk-red;
+    color: $nhsuk-black;
+    margin: 56px 0;
+    @include mq($until: tablet) {
+        margin: 40px 0;
+    }
+    &:before {
+        background-image: url(../images/callout-danger.svg);
+        left: -8px;
+        top: -16px;
+        @include mq($until: tablet) {
+            left: -4px;
+            top: -12px;
+        }
+    }
+  }
+
+  .nhsuk-c-callout__warning-v8 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    background: transparent;
+    color: $nhsuk-black;
+    margin: 56px 0;
+    padding: 0 0 0 64px;
+    @include mq($until: tablet) {
+        margin: 40px 0;
+        padding: 0 0 0 56px;
+    }
+    &:before {
+        background-image: url(../images/callout-warning-v2.svg);
+        height: 48px;
+        left: 0;
+        margin-top: -24px;
+        top: 50%;
+        width: 48px;
+        @include mq($until: tablet) {
+            height: 40px;
+            left: 0;
+            margin-top: -20px;
+            top: 50%;
+            width: 40px;
+        }
+    }
+    p {
+        font-weight: 600;
+    }
+  }
+
+  .nhsuk-c-callout__warning-v9 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    background: white;
+    color: $nhsuk-black;
+    margin: 56px 0;
+    padding: 32px 32px 32px 104px;
+    @include mq($until: tablet) {
+        margin: 40px 0;
+        padding: 24px 24px 24px 72px;
+    }
+    &:before {
+        background-image: url(../images/callout-warning-v2.svg);
+        height: 48px;
+        left: 32px;
+        margin-top: -24px;
+        top: 50%;
+        width: 48px;
+        @include mq($until: tablet) {
+            height: 32px;
+            left: 24px;
+            margin-top: -20px;
+            top: 50%;
+            width: 32px;
+        }
+    }
+    p {
+        font-weight: 600;
+    }
+  }
+
+  .nhsuk-c-callout__warning-v10 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    border-top: 8px solid $nhsuk-yellow;
+    color: $nhsuk-black;
+    &:before {
+        background-image: url(../images/callout-warning.svg);
+        left: -8px;
+        top: -16px;
+        @include mq($until: tablet) {
+            left: -4px;
+            top: -12px;
+        }
+    }
+    p {
+        font-weight: 600;
+    }
+  }
+
+  .nhsuk-c-callout__warning-v11 {
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    border-top: 8px solid #FAE200;
+    color: $nhsuk-black;
+    &:before {
+        background-image: url(../images/callout-warning-icon-yellow.svg);
+        left: -8px;
+        top: -16px;
+        @include mq($until: tablet) {
+            left: -4px;
+            top: -12px;
+        }
+    }
+    p {
+        font-weight: 600;
+    }
+  }
+
 .nhsuk-c-callout__info {
   @include nhsuk-c-callout(white,$nhsuk-blue);
   &:before {
       background-image: url(../images/callout-info.svg);
+      top: -8px;
+    @include mq($until: tablet) {
+        top: -4px;
+    }
   }
 }
 
@@ -94,11 +234,11 @@
   @include top-and-bottom();
   background: $callout-background;
   color: $nhsuk-black;
-  margin: 40px 0;
+  margin: 56px 0;
   padding: 36px 24px 36px 96px;
   position:relative;
   @include mq($until: tablet) {
-      margin: 32px 0;
+      margin: 40px 0;
       padding: 60px 16px 16px;
   }
   &:before {
@@ -148,17 +288,20 @@
 }
 
 .nhsuk-c-callout__warning-v4 {
-padding: 28px;
-margin: 40px 0;
-  background:$nhsuk-light-yellow;
-  border-left: 16px solid $nhsuk-yellow;
-  color: $nhsuk-black;
-.nhsuk-heading-xs{
-  margin-top: 0;
-}
-p {
-  margin-top: 12px;
-}
+    @include reading-width-content();
+    @include top-and-bottom();
+    padding: 32px;
+    margin: 56px 0;
+    background: lighten($nhsuk-yellow,35%);
+    border-left: 16px solid $nhsuk-yellow;
+    color: $nhsuk-black;
+    @include mq($until: tablet) {
+        padding: 24px;
+        margin: 40px 0;
+    }
+    p {
+        margin-top: 12px;
+    }
 }
 
 //keypoint
@@ -167,12 +310,12 @@ p {
   @include reading-width-content();
   @include top-and-bottom();
   background: white;
-  border-left: 8px solid #00A499;
+  border-left: 16px solid #00A499;
   margin: 48px 0;
-  padding: 24px;
+  padding: 32px;
   @include mq($until: tablet) {
       margin: 32px 0;
-      padding: 16px;
+      padding: 24px;
   }
   h2,
   h3,
@@ -183,6 +326,27 @@ p {
       }
   }
 }
+
+.nhsuk-c-keypoint-v1 {
+    @include reading-width-content();
+    @include top-and-bottom();
+    background: white;
+    border-left: 16px solid $nhsuk-blue;
+    margin: 48px 0;
+    padding: 32px;
+    @include mq($until: tablet) {
+        margin: 32px 0;
+        padding: 24px;
+    }
+    h2,
+    h3,
+    h4 {
+        + p,
+        + ul {
+            margin-top: 16px;
+        }
+    }
+  }
 
 .nhsuk-c-keypoint-v2 {
     @include reading-width-content();
