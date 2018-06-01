@@ -41,6 +41,14 @@ router.get('/styles/action-link', (req, res) => {
   res.render('styles/action-link', {});
 });
 
+router.get('/styles/do-dont-lists', (req, res) => {
+  res.render('styles/do-dont-lists', {});
+});
+
+router.get('/styles/images', (req, res) => {
+  res.render('styles/images', {});
+});
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
