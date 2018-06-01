@@ -26,7 +26,10 @@
   }
 	&.grey-background{
 		background: $nhsuk-grey-4;
-	}
+  }
+  .nhsuk-breadcrumb{
+    padding-left: 16px;
+  }
 }
 
 .example-snippet {
