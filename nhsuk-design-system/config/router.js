@@ -173,4 +173,24 @@ router.get('/examples/test-image-v1', (req, res) => {
   res.render('examples/test-image-v1', {});
 });
 
+router.get('/examples/epilepsy', (req, res) => {
+  res.render('examples/epilepsy/index', {});
+});
+
+router.get('/examples/epilepsy/symptoms', (req, res) => {
+  res.render('examples/epilepsy/symptoms', {});
+});
+
+router.get('/examples/epilepsy/diagnosis', (req, res) => {
+  res.render('examples/epilepsy/diagnosis', {});
+});
+
+router.get('/examples/epilepsy/treatment', (req, res) => {
+  res.render('examples/epilepsy/treatment', {});
+});
+
+router.get('/examples/epilepsy/living-with', (req, res) => {
+  res.render('examples/epilepsy/living-with', {});
+});
+
 module.exports = router;

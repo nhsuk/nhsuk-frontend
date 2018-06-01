@@ -49,3 +49,20 @@ ul ul, ol ul {
         padding-right:32px;
     }
 }
+
+// Epilepsy multi-page navigation
+
+.nhsuk-list-nav {
+  &__two-column {
+    display: block;
+    -moz-column-count: 2;
+    -moz-column-gap: 40px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 40px;
+    column-count: 2;
+    column-gap: 40px;
+    li {
+      margin: 15px 0;
+    }
+  }
+}
