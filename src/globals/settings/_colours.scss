@@ -18,32 +18,64 @@ $nhsuk-grey-3: #AEB7BD;
 $nhsuk-grey-4: #D8DDE0;
 $nhsuk-grey-5: #E8EDEE;
 
+// Colour functions for tint and shade
+
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+  
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+// nhsuk-black variations
+
+$nhsuk-black-tint-10: tint($nhsuk-black, 10%); // used for link :active states
+$nhsuk-black-tint-15: tint($nhsuk-black, 15%); // used for link :active states
+
+// nhsuk-blue variations
+
+$nhsuk-blue-shade-20: shade($nhsuk-blue, 20%); // used for .active state on main nav
+$nhsuk-blue-shade-35: shade($nhsuk-blue, 35%); // used for :hover states on main nav
+$nhsuk-blue-shade-50: shade($nhsuk-blue, 50%); // used for :active states on main nav
+
+// nhsuk-green variations
+
+$nhsuk-green-shade-35: shade($nhsuk-green, 35%); // used for primary button :hover states
+$nhsuk-green-shade-50: shade($nhsuk-green, 50%); // used for primary button :active states
+
+// nhsuk-yellow variations
+
+$nhsuk-yellow-tint-30: tint($nhsuk-yellow, 30%); // used for link :hover states
+$nhsuk-yellow-tint-10: tint($nhsuk-yellow, 10%); // used for link :active states
+
 // Text colours
 
 $nhsuk-text-colour: $nhsuk-black;
-$nhsuk-secondary-text-colour: #3B4C58;
+$nhsuk-secondary-text-colour: $nhsuk-black-tint-15; //used for secondary text colour
 
 // Link colours
 
 $nhsuk-link-colour: $nhsuk-blue;
 $nhsuk-link-hover-colour: $nhsuk-black;
 $nhsuk-link-focus-colour: $nhsuk-black;
-$nhsuk-link-active-colour: #374047;
+$nhsuk-link-active-colour: $nhsuk-black-tint-10;
 $nhsuk-link-visited-colour: $nhsuk-purple;
-$nhsuk-link-hover-background-colour: #FFCD60;
+$nhsuk-link-hover-background-colour: $nhsuk-yellow-tint-30;
 $nhsuk-link-focus-background-colour: $nhsuk-yellow;
-$nhsuk-link-active-background-colour: #FFBF33;
+$nhsuk-link-active-background-colour: $nhsuk-yellow-tint-10;
 
 // Border colours
 
 $nhsuk-border-colour: $nhsuk-grey-4;
-$nhsuk-secondary-border-colour: #5A80C0;
+$nhsuk-secondary-border-colour: rgba(255,255,255,0.25); // used for header and footer dividing line
 
 // Button colours
 
-$nhsuk-button-background-colour: #007F3B;
-$nhsuk-button-hover-colour: #005929;
-$nhsuk-secondary-button-hover-colour: #203E78;
+$nhsuk-button-background-colour: $nhsuk-green;
+$nhsuk-button-hover-colour: $nhsuk-green-shade-35;
+$nhsuk-button-active-colour: $nhsuk-green-shade-50;
+$nhsuk-secondary-button-hover-colour: $nhsuk-blue-shade-35;
 
 // Focus colours
 
