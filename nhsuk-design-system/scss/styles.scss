@@ -1,5 +1,4 @@
 @import 'globals/helpers/mixins';
-@import 'globals/objects/grid';
 @import 'globals/objects/width-container';
 @import 'globals/settings/typography';
 
@@ -11,6 +10,7 @@
 @import 'components/cookie-policy/cookie-policy';
 @import 'components/page-contents/page-contents';
 @import 'components/action-link/action-link';
+@import 'components/table/table';
 
 @import 'pages/code';
 @import 'pages/page';
@@ -48,8 +48,4 @@ ul ul, ol ul {
     @include mq($from: tablet) {
         padding-right:32px;
     }
-}
-
-section:focus {
-    outline: 0;
 }

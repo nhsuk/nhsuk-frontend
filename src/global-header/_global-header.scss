@@ -2,6 +2,9 @@
 // @import "../globals/helpers/typography";
 @import '../../src/globals/helpers/clearfix';
 
+$nhsuk-grey-1-rgb: rgb(66, 84, 98);
+$alpha: .5;
+
 .nhsuk-global-header {
   @include clear();
   background: $nhsuk-blue;
