@@ -37,6 +37,10 @@ router.get('/styles/breadcrumbs', (req, res) => {
   res.render('styles/breadcrumbs', {});
 });
 
+router.get('/styles/action-link', (req, res) => {
+  res.render('styles/action-link', {});
+});
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });

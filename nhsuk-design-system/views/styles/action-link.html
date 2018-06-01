@@ -1,0 +1,41 @@
+{% set title = 'Action link' %}
+{% set navigation = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Action link</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+		<li><a href="#rules">Rules</a></li>
+		<li><a href="#user-needs">User needs</a></li>
+        <li><a href="#example">Example</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+	<h2 id="rules">Rules</h2>
+	<ul>
+		<li>Should only be used for links to start important or transactional journeys e.g. finding a pharmacy (using the tool) on the slipped disc page, or finding a walk-in clinic (using the service search) on the chest pain page.</li>
+	</ul>
+
+	<h2 id="user-needs">User needs</h2>
+    <ul>
+		<li>As a user I NEED to know which links on the page can take me to important information or useful tools SO THAT I can continue to find important information relevant to my situation.</li>
+	</ul>
+    
+	<h2 id="example">Example</h2>
+	<div class="example">
+		<p><a href="https://beta.nhs.uk/find-a-pharmacy/" class="action-link">Find a pharmacy</a></p>
+	</div>
+
+	<div class="example-snippet">
+		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
+		<pre id="clipboard-1" class="  language-markup"><code class="  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://beta.nhs.uk/find-a-pharmacy/<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>action-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Find a pharmacy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+	</div>
+
+{% endblock %}
