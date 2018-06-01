@@ -161,4 +161,8 @@ router.get('/examples/test-news-52-diet', (req, res) => {
   res.render('examples/test-news-52-diet', {});
 });
 
+router.get('/examples/test-image-v1', (req, res) => {
+  res.render('examples/test-image-v1', {});
+});
+
 module.exports = router;
