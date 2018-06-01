@@ -1,4 +1,5 @@
 //callouts
+$nhsuk-light-yellow: #FFF7E8;
 
 @mixin nhsuk-c-callout($callout-background,$callout-border) {
   @include nhsuk-component-center();
