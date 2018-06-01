@@ -10,6 +10,14 @@ $nhsuk-red: #AD1F19;
 $nhsuk-yellow: #FFB81C;
 $nhsuk-purple: #330072;
 
+// Greyscale
+
+$nhsuk-grey-1: #425462;
+$nhsuk-grey-2: #768692;
+$nhsuk-grey-3: #AEB7BD;
+$nhsuk-grey-4: #D8DDE0;
+$nhsuk-grey-5: #E8EDEE;
+
 // Text colours
 
 $nhsuk-text-colour: $nhsuk-black;
@@ -28,7 +36,7 @@ $nhsuk-link-active-background-colour: #FFBF33;
 
 // Border colours
 
-$nhsuk-border-colour: #CED4D6;
+$nhsuk-border-colour: $nhsuk-grey-4;
 $nhsuk-secondary-border-colour: #5A80C0;
 
 // Button colours
@@ -40,10 +48,3 @@ $nhsuk-secondary-button-hover-colour: #203E78;
 // Focus colours
 
 $nhsuk-focus-colour: $nhsuk-yellow;
-
-// Greyscale
-
-$nhsuk-grey-1: #425462;
-$nhsuk-grey-2: #CED4D6;
-$nhsuk-grey-3: #DFE4E5;
-$nhsuk-grey-4: #E8EDEE;

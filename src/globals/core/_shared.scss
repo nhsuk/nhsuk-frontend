@@ -13,14 +13,14 @@ html * {
 html {
   -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
   -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-  background-color: $nhsuk-grey-4;
+  background-color: $nhsuk-grey-5;
   color: $nhsuk-text-colour;
   min-height: 100%;
   position: relative;
 }
 
 body {
-  background-color: $nhsuk-grey-4;
+  background-color: $nhsuk-grey-5;
   font-size: $base-font-size-mobile;
   line-height: $base-line-height-mobile;
   margin: 0 0 $footer-height-mobile + 40;
