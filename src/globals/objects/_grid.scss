@@ -51,4 +51,10 @@
       width: percentage(1 / 4);
     }
   }
+
+  .nhsuk-o-grid__item--three-quarters {
+    @include mq($from: tablet) {
+      width: percentage(3 / 4);
+    }
+  }
 }

@@ -1,8 +1,0 @@
-@import './node_modules/sass-mq/mq';
-@import '../../src/globals/settings/media-queries';
-
-.nhsuk-o-grid__item--three-quarters {
-  @include mq($from: tablet) {
-    width: percentage(3 / 4);
-  }
-}
