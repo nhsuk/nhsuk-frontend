@@ -1,11 +1,189 @@
+<!--
+// temporary (jquery ui) javascript and html for the search autocomplete functionality,
+// just to demonstrate the look and feel.
+// Any class name with a 'ui-' prefix can be removed when integrated into the live website.
+// We will be using Funnelback but we may be able to reuse the styling
+-->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  var availableTags = [
+    "Parade",
+    "Paracetamol",
+    "Paramedics",
+    "Paramount"
+  ];
+  $( "#search-field" ).autocomplete({
+    source: availableTags,
+    open: function( event, ui ) {
+      $(".ui-autocomplete").css("width", $(".c-search").width());
+      $(".c-search__input").addClass("js-search-open");
+      $(".c-search__submit").addClass("js-search-open");
+      var acData = $(this).data('ui-autocomplete');
+      acData
+        .menu
+        .element
+        .find('li div')
+        .each(function () {
+          var me = $(this);
+          var keywords = acData.term.split(' ').join('|');
+          me.html(me.text().replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>'));
+       });
+       $(".ui-autocomplete").prepend('<li class="ui-prepend"><strong>Seach suggestions</strong></li>');
+
+    },
+    close: function( event, ui ) {
+      $(".c-search__input").removeClass("js-search-open");
+      $(".c-search__submit").removeClass("js-search-open");
+    }
+  });
+} );
+</script>
+
+{% if cookieBanner == 'active' %}
+<script type="text/javascript">
+  function hideCookieBanner() {
+      var cookiebanner = document.getElementById("cookiebanner");
+      var cookiebannerstart = document.getElementById("cookiebanner-info");
+      var cookiebannerend = document.getElementById("cookiebanner-close");
+      cookiebannerstart.style.display = "none";
+      cookiebannerend.style.display = "block";
+  }
+
+  function showToggle() {
+    var element = document.getElementById("nhsuk-cookie-panel");
+    var toggle = document.getElementById("nhsuk-cookie-toggle");
+    var content = document.getElementById("nhsuk-cookie-content");
+    element.classList.toggle("open");
+    if(element.classList.contains("open")) {
+      toggle.setAttribute("aria-expanded", "true");
+      content.setAttribute("aria-hidden", "false");
+    } else {
+      toggle.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
+    }
+  }
+</script>
+
+<div class="nhsuk-cookie-banner" id="cookiebanner" lang="[#LANGUAGE#]" dir="[#TEXTDIRECTION#]" role="alert" ng-non-bindable>
+  <div class="nhsuk-cookie-banner__container" id="cookiebanner-info">
+    <div class="nhsuk-reading-width">
+      <h2>This website uses cookies</h2>
+      <!-- CookieBot <h2>[#TITLE#]</h2> -->
+      <p class="mt-0">We use files called 'cookies' across our websites. Some are essential. For others you have a choice.</p>
+      <!-- CookieBot <p class="mt-0">[#TEXT#]</p> -->
+      <div class="nhsuk-cookie-banner-details" id="nhsuk-cookie-panel">
+        <a href="javascript:void(0)" class="details__toggle" onclick="showToggle()" aria-expanded="false" aria-controls="nhsuk-cookie-content" id="nhsuk-cookie-toggle"><span class="caret"></span>Which cookies we use and why</a>
+        <div class="details__content" id="nhsuk-cookie-content" aria-hidden="true">
+          <p>We use cookies for the following reasons:</p>
+          <h3>Site preferences</h3>
+          <!-- CookieBot <h3>[#COOKIETYPE_PREFERENCE_RAW#]</h3> -->
+          <p>These types of cookies remember the notifications you’ve seen so that we don’t show them to you again.</p>
+          <!-- CookieBot<p>[#COOKIETYPEINTRO_PREFERENCE#]</p> -->
+          <h3>Website usage</h3>
+          <!-- CookieBot <h3>[#COOKIETYPE_STATISTICS_RAW#]</h3> -->
+          <p>These types of cookies measure how you use the website, like where you click, so it can be updated and improved based on your needs.</p>
+          <!-- CookieBot<p>[#COOKIETYPEINTRO_STATISTICS#]</p> -->
+          <h3>Health campaigns</h3>
+          <!-- CookieBot <h3>[#COOKIETYPE_ADVERTISING_RAW#]</h3> -->
+          <p>We run health awareness campaigns with trusted partners. These cookies see how they perform across the internet and social media. Such as whether you clicked an advert to come to our site.</p>
+          <!-- CookieBot<p>[#COOKIETYPEINTRO_ADVERTISING#]</p> -->
+          <p>Find out more about cookies and see our detailed list of cookies on our <a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">cookie policy page</a>.</p>
+        </div>
+      </div>
+
+      <form>
+        <legend>Cookies you are happy for us to use:</legend>
+        <div id="CybotCookiebotDialogBodyLevelButtonsSelectPane">
+          <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="Mandatory - can not be deselected." style="display: none !important;">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonNecessary" class="multiple-choice--checkbox checkbox-blue CybotCookiebotDialogBodyLevelButtonDisabled" disabled="disabled" checked="checked">
+            <label for="CybotCookiebotDialogBodyLevelButtonNecessary">
+              Required
+              <!-- CookieBot [#COOKIETYPE_NECESSARY_RAW#] -->
+            </label>
+          </div>
+          <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="These types of cookies remember the notifications you&rsquo;ve seen so that we don&rsquo;t show them to you again.">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonPreferences" class="multiple-choice--checkbox checkbox-blue" checked="checked">
+            <label for="CybotCookiebotDialogBodyLevelButtonPreferences">
+              Site preferences
+              <!-- [#COOKIETYPE_PREFERENCE_RAW#] -->
+            </label>
+          </div>
+          <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="These types of cookies measure how you use the website, like where you click, so it can be updated and improved based on your needs.">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonStatistics" class="multiple-choice--checkbox checkbox-blue" checked="checked">
+            <label for="CybotCookiebotDialogBodyLevelButtonStatistics">
+              Website usage
+              <!-- [#COOKIETYPE_STATISTICS_RAW#] -->
+            </label>
+          </div>
+          <div class="CybotCookiebotDialogBodyLevelButtonWrapper" title="We run health awareness campaigns with trusted partners. These cookies see how they perform across the internet and social media. Such as whether you clicked an advert to come to our site.">
+            <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonMarketing" class="multiple-choice--checkbox checkbox-blue" checked="checked">
+            <label for="CybotCookiebotDialogBodyLevelButtonMarketing">
+              Health campaigns
+              <!-- [#COOKIETYPE_ADVERTISING_RAW#] -->
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <a href="javascript:void(0)" onclick="hideCookieBanner()" class="button nhsuk-cookie-banner__button" role="button">
+        Agree and continue
+        <!-- [#ACCEPT#] -->
+      </a>
+
+    </div>
+  </div>
+  <div class="nhsuk-cookie-banner__container" id="cookiebanner-close" style="display: none;">
+    <p class="mt-0">Thank you. Your cookie preferences have been updated.</p>
+    <p>You can find out more about cookies on our <a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">cookie policy page</a>.</p>
+  </div>
+</div>
+{% endif %}
+
 <header role="banner">
   <div class="nhsuk-global-header">
-    {% if navigation == 'fluid' %}
-    <div class="nhsuk-o-width-container-fluid nhsuk-o-width-container--global-header">
-    {% else %}
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
-    {% endif %}
       <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt="NHS"></a></div>
+      <div class="nhsuk-global-header__menusearch ui-front">
+        <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle" role="button">Menu</a></div>
+        <div class="nhsuk-global-header__search">
+          <div class="search-toggle"><a href="" class="search-toggle__button"><span class="search-toggle__icon">Search</span></a></div>
+          <div class="search-container">
+            <form class="c-search" action="" method="post" role="search">
+              <div class="c-search__container">
+                <label class="c-search__label visually-hidden" for="search-field">Search</label>
+                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
+              </div>
+            </form>
+            <!-- inserted by javascript? -->
+            <div class="search-close"><a href="#close" class="search-close-link">Close search box</a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+(function() {
+
+	var searchToggle = {
+		searchToggleButton: document.querySelector('.search-toggle'),
+		searchClose: document.querySelector('.search-close'),
+  	search: document.querySelector('.search-container'),
+    menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
+
+		doToggle: function(e) {
+			e.preventDefault();
+			this.searchToggleButton.classList.toggle('expanded');
+			this.search.classList.toggle('js-show');
+      this.menuSearchContainer.classList.toggle('js-show')
+    }
+	};
+
+	searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+	searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+
+}());
+</script>
