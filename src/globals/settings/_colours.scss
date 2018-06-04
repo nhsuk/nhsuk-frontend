@@ -21,11 +21,11 @@ $nhsuk-grey-5: #E8EDEE;
 // Colour functions for tint and shade
 
 @function tint($color, $percentage) {
-    @return mix(white, $color, $percentage);
+  @return mix(white, $color, $percentage);
 }
-  
+
 @function shade($color, $percentage) {
-    @return mix(black, $color, $percentage);
+  @return mix(black, $color, $percentage);
 }
 
 // nhsuk-black variations
