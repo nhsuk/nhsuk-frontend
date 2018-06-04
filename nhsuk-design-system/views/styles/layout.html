@@ -10,9 +10,9 @@
 {% block sidebar %}
     <h2 class="nhsuk-heading-xs">Contents</h2>
     <ul class="nhsuk-list">
-        <li><a href="#layout-width">Page width</a></li>
-        <li><a href="#layout-breakpoints">Breakpoints</a></li>
-        <li><a href="#layout-grid">Grid</a></li>
+        <li><a href="#breakpoints">Breakpoints</a></li>
+        <li><a href="#structure">Page structure</a></li>
+        <li><a href="#grid">Grid</a></li>
     </ul>
 {% endblock %}
 
@@ -20,24 +20,20 @@
     <h2>Notes</h2>
     <p>NHS.UK uses <a href="https://govuk-design-system-production.cloudapps.digital/styles/layout/" class="external">GOV.UK grid</a> with some minor alterations to the mobile and tablet breakpoints to support the NHS Frutiger font.
 
-    <h2 id="layout-width">Page width</h2>
-    <p>The default maximum page width is 1024px, lines of text should be no longer than 70 to 80 characters.</p>
-
-    <h2 id="layout-breakpoints">Breakpoints</h2>
+    <h2 id="breakpoints">Breakpoints</h2>
     <ul>
         <li>mobile:  320px</li>
         <li>tablet:  641px</li>
         <li>desktop: 769px</li>
     </ul>
 
-    <h2 id="layout-grid">Grid</h2>
+    <h2 id="structure">Page structure</h2>
 
     <h3>Page wrappers</h3>
 
     <p>To set up your layout you will need to create 2 wrappers. The first should have the class <span class="example-code-snippet">nhsuk-o-width-container</span>, which sets the maximum width of the content but doesn’t add any vertical margin or padding.</p>
     <p>Within <span class="example-code-snippet">nhsuk-o-width-container</span> you should add the <span class="example-code-snippet">nhsuk-o-width-wrapper</span> class to your <span class="example-code-snippet">&#x3C;main&#x3E;</span> element.</p>
     <p>This adds responsive padding to the top and bottom of the page and will be the container for your main content.</p>
-
 
     <div class="example-snippet example-snippet__empty-example">
      <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
@@ -48,6 +44,38 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
     </div>
+
+    <h3>Page width</h3>
+
+    <p>The default maximum page width is 1024px, lines of text should be no longer than 70 to 80 characters to improve readability of text.</p>
+    <p>When using a wider grid item, text content can be wrapped with the class <span class="example-code-snippet">nhsuk-reading-width</span> to limit number of characters per line.</p>
+
+    <div class="example">
+      <div class="nhsuk-o-grid">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+          <div class="nhsuk-reading-width">
+            <p>You can't catch shingles from someone with chickenpox. You can catch chickenpox from someone with shingles if you haven't had chickenpox before.</p>
+            <p>When you get chickenpox, the virus stays in your body. It can be triggered again if your immune system is low and cause shingles. </p>
+            <p>This can be because of stress, certain conditions, or treatments like chemotherapy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-snippet">
+     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-12">Copy</button>
+<pre class="language-markup" id="clipboard-12"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--full<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-reading-width<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>You can't catch shingles from someone with chickenpox. You can catch chickenpox from someone with shingles if you haven't had chickenpox before.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>When you get chickenpox, the virus stays in your body. It can be triggered again if your immune system is low and cause shingles. <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>This can be because of stress, certain conditions, or treatments like chemotherapy.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+    </div>
+
+    <h2 id="grid">Grid</h2>
 
     <h3>Full width</h3>
 
