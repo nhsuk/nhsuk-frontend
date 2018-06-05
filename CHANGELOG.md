@@ -10,6 +10,7 @@
 - First version of an icon set and example pages
 - Contributing guidelines and documentation
 - Cookie banner for cookie and online tracking compliance with GDPR
+- Inline SVG icons with examples
 
 0.0.7 / 2018-05-11
 ==================

@@ -1,4 +1,5 @@
 {% set title = 'Home' %}
+{% set navigation = 'transactional' %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -55,14 +56,14 @@
                         <td>Colour palettes.</td>
                       </tr>
                       <tr>
-                        <td><a href="/styles/header-footer">Header &amp; Footer</a></td>
-                        <td class="td__status"><span class="nhsuk-tag nhsuk-tag__development">Development</span></td>
-                        <td>Site navigation and search &amp; Footer information and links.</td>
-                      </tr>
-                      <tr>
 						            <td><a href="/styles/icons">Icons</a></td>
                         <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
                         <td>Iconography, SVG images and fallbacks.</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/styles/header-footer">Header &amp; Footer</a></td>
+                        <td class="td__status"><span class="nhsuk-tag nhsuk-tag__development">Development</span></td>
+                        <td>Site navigation and search &amp; Footer information and links.</td>
                       </tr>
                       <tr>
                         <td><a href="/styles/callouts">Callouts &amp; Care Cards</a></td>
@@ -92,7 +93,7 @@
                       </tbody>
                     </table>
 
-                    <div class="reading-width">
+                    <div class="nhsuk-reading-width">
                         <h2>Useful information</h2>
                         <ul>
 							              <li>our <a href="examples">example pages</a> for user testing and visual examples.</li>

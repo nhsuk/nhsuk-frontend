@@ -58,3 +58,7 @@
     }
   }
 }
+
+.nhsuk-reading-width {
+  @include reading-width();
+}

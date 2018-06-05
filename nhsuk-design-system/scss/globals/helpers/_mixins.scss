@@ -1,35 +1,5 @@
 // sass-lint:disable no-duplicate-properties, property-sort-order
 
-@mixin flexbox() {
-  display: flex;
-}
-
-@mixin flex($values) {
-  flex:  $values;
-}
-
-@mixin justify-content($val) {
-  justify-content: $val;
-}
-
-@mixin align-items($val) {
-  align-items: $val;
-}
-
-@mixin align-content($val) {
-  align-content: $val;
-}
-
-@mixin flex-wrap($val) {
-  flex-wrap: $val;
-}
-
-@mixin flex-direction($val) {
-  flex-direction: $val;
-}
-
-//mixins
-
 @mixin top-and-bottom(){
   & > *:first-child {
       margin-top: 0;
@@ -57,6 +27,8 @@
       width: 100%;
   }
 }
+
+// Can we remove this mixin and replace with @reading-width() from library?
 
 @mixin reading-width-content() {
   p,

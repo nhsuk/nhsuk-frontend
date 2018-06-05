@@ -1,7 +1,6 @@
 // Helpers
 @import 'helpers/visually-hidden';
 @import 'helpers/clearfix';
-@import 'helpers/colour-mixings';
 @import 'helpers/media-queries';
 @import 'helpers/spacing';
 @import 'helpers/reading-width';
@@ -18,6 +17,7 @@
 @import 'settings/fonts';
 @import 'settings/colours';
 @import 'settings/typography';
+@import 'settings/icons';
 
 // Core
 @import 'core/shared';
