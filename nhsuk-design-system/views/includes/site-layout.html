@@ -38,6 +38,7 @@
     {% include "includes/footer.html" %}
 
     <script src="/js/main.js"></script>
+    <script src="/js/stickyfill.js"></script>
     <script src="/js/prism.min.js"></script>
     <script>
     var clipboard = new ClipboardJS('.nhsuk-btn-copy');
@@ -48,6 +49,10 @@
           e.trigger.textContent = 'Copy';
         }, 2500);
       });
+    </script>
+    <script>
+      var elements = document.querySelectorAll('.nhsuk-sticky');
+      Stickyfill.add(elements);
     </script>
   </body>
 </html>

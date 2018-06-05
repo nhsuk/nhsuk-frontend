@@ -177,6 +177,11 @@ strong {
     position: sticky;
     top: 40px;
   }
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
 }
 
 .nhsuk-page-content {
