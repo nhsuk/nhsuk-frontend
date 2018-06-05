@@ -177,6 +177,11 @@ strong {
     position: sticky;
     top: 40px;
   }
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
 }
 
 .nhsuk-page-content {
@@ -210,8 +215,4 @@ hr {
       margin: 72px 0 0;
     }
   }
-}
-
-.reading-width {
-  @include reading-width();
 }

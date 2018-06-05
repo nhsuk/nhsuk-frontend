@@ -20,21 +20,25 @@
     <link rel="stylesheet" href="/css/styles.css">
 
     <script src="/js/clipboard.min.js"></script>
-	<script
-	src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   </head>
   <body>
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    {% include "includes/header.html" %}
+    {% if navigation == 'transactional' %}
+      {% include "includes/header-transactional.html" %}
+    {% else %}
+      {% include "includes/header.html" %}
+      {% include "includes/nav.html" %}
+    {% endif %}
 
     {% block body %}{% endblock %}
 
     {% include "includes/footer.html" %}
 
     <script src="/js/main.js"></script>
+    <script src="/js/stickyfill.js"></script>
     <script src="/js/prism.min.js"></script>
     <script>
     var clipboard = new ClipboardJS('.nhsuk-btn-copy');
@@ -45,6 +49,10 @@
           e.trigger.textContent = 'Copy';
         }, 2500);
       });
+    </script>
+    <script>
+      var elements = document.querySelectorAll('.nhsuk-sticky');
+      Stickyfill.add(elements);
     </script>
   </body>
 </html>
