@@ -35,7 +35,7 @@
     }
 
     &__list {
-      border-bottom: 1px solid $nhsuk-grey-5;
+      border-bottom: 1px solid $nhsuk-secondary-border-colour;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -106,18 +106,34 @@
     &__link {
       color: $nhsuk-white;
       display: block;
-      padding: 15px;
+      font-size: 17px;
+      line-height: 20px;
+      padding: 16px 0;
       text-decoration: none;
 
       &:visited {
         color: $nhsuk-white;
       }
 
-      &:hover,
-      &:focus {
-        background: $nhsuk-white;
+      &:hover {
+        background: $nhsuk-blue-shade-35;
         box-shadow: none;
-        color: $nhsuk-blue;
+        color: $nhsuk-white;
+      }
+
+      &:focus {
+        background: $nhsuk-blue;
+        box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+      }
+
+      &:active {
+        background: $nhsuk-blue-shade-50;
+        box-shadow: none;
+        color: $nhsuk-grey-5;
+      }
+
+      &.active {
+        background: $nhsuk-blue-shade-20;
       }
 
     }
