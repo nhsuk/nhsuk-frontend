@@ -7,11 +7,11 @@ h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 
 h1,
 .nhsuk-heading-xl {
-  font-size: govuk-em(32px, $base-font-size-mobile);
+  font-size: govuk-em(32px, $nhsuk-base-font-size-mobile);
   line-height: 36px;
   margin: 56px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(40px, $base-font-size);
+    font-size: govuk-em(40px, $nhsuk-base-font-size);
     line-height: 56px;
     margin: 72px 0 0;
   }
@@ -19,11 +19,11 @@ h1,
 
 h2,
 .nhsuk-heading-l {
-  font-size: govuk-em(24px, $base-font-size-mobile);
+  font-size: govuk-em(24px, $nhsuk-base-font-size-mobile);
   line-height: 32px;
   margin: 56px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(32px, $base-font-size);
+    font-size: govuk-em(32px, $nhsuk-base-font-size);
     line-height: 40px;
     margin: 72px 0 0;
   }
@@ -31,11 +31,11 @@ h2,
 
 h3,
 .nhsuk-heading-m {
-  font-size: govuk-em(20px, $base-font-size-mobile);
+  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
   line-height: 28px;
   margin: 32px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(24px, $base-font-size);
+    font-size: govuk-em(24px, $nhsuk-base-font-size);
     line-height: 32px;
     margin: 40px 0 0;
   }
@@ -43,11 +43,11 @@ h3,
 
 h4,
 .nhsuk-heading-s {
-  font-size: govuk-em(18px, $base-font-size-mobile);
+  font-size: govuk-em(18px, $nhsuk-base-font-size-mobile);
   line-height: 28px;
   margin: 24px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(22px, $base-font-size);
+    font-size: govuk-em(22px, $nhsuk-base-font-size);
     line-height: 32px;
     margin: 32px 0 0;
   }
@@ -55,11 +55,11 @@ h4,
 
 h5,
 .nhsuk-heading-xs {
-  font-size: govuk-em(16px, $base-font-size-mobile);
+  font-size: govuk-em(16px, $nhsuk-base-font-size-mobile);
   line-height: 28px;
   margin: 16px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(19px, $base-font-size);
+    font-size: govuk-em(19px, $nhsuk-base-font-size);
     line-height: 28px;
     margin: 24px 0 0;
   }
@@ -75,22 +75,22 @@ p,
 }
 
 .nhsuk-body-l {
-  font-size: govuk-em(20px, $base-font-size-mobile);
+  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
   line-height: 28px;
   margin: 24px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(24px, $base-font-size);
+    font-size: govuk-em(24px, $nhsuk-base-font-size);
     line-height: 32px;
     margin: 32px 0 0;
   }
 }
 
 .nhsuk-body-s {
-  font-size: govuk-em(14px, $base-font-size-mobile);
+  font-size: govuk-em(14px, $nhsuk-base-font-size-mobile);
   line-height: 24px;
   margin: 16px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(16px, $base-font-size);
+    font-size: govuk-em(16px, $nhsuk-base-font-size);
     line-height: 28px;
     margin: 24px 0 0;
   }
