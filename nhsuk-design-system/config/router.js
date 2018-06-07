@@ -193,4 +193,8 @@ router.get('/examples/epilepsy/living-with', (req, res) => {
   res.render('examples/epilepsy/living-with', {});
 });
 
+router.get('/examples/test-image-v2', (req, res) => {
+  res.render('examples/test-image-v2', {});
+});
+
 module.exports = router;
