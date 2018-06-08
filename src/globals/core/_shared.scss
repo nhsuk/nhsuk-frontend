@@ -21,12 +21,12 @@ html {
 
 body {
   background-color: $nhsuk-grey-5;
-  font-size: $base-font-size-mobile;
-  line-height: $base-line-height-mobile;
-  margin: 0 0 $footer-height-mobile + 40;
+  font-size: $nhsuk-base-font-size-mobile;
+  line-height: $nhsuk-base-line-height-mobile;
+  margin: 0 0 $nhsuk-footer-height-mobile + 40;
   @include mq($from: tablet) {
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    margin: 0 0 $footer-height + 64;
+    font-size: $nhsuk-base-font-size;
+    line-height: $nhsuk-base-line-height;
+    margin: 0 0 $nhsuk-footer-height + 64;
   }
 }
