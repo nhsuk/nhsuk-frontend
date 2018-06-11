@@ -1,1 +1,542 @@
-<h1>Test Header here!!</h1>
+<style>
+.site-header {
+  position: relative;
+  padding-top: 15px;
+  margin-bottom: 10px; }
+  @media (min-width: 925px) {
+    .site-header {
+      margin-bottom: 0px; } }
+  .site-header__brand a {
+    text-decoration: none; }
+  .site-header__top {
+    margin: 0 16px;
+    max-width: 960px; }
+    @media (min-width: 925px) {
+      .site-header__top {
+        margin: 0 32px; } }
+    @media (min-width: 1024px) {
+      .site-header__top {
+        margin: 0 auto; } }
+  .site-header__search, .site-header__menu-icon {
+    display: inline-block;
+    vertical-align: top; }
+  .site-header__menu-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px; }
+  .site-header__search {
+    width: 100%; }
+  .site-header__user-links {
+    display: none; }
+  @media (min-width: 700px) {
+    .site-header__brand {
+      float: left; }
+    .site-header__controls {
+      float: right; }
+    .site-header__menu-icon {
+      position: relative;
+      top: 0px;
+      right: 0px; }
+    .site-header__search {
+      width: 300px;
+      top: 0px !important; }
+    .site-header__nav {
+      top: 0px !important; } }
+  @media (min-width: 925px) {
+    .site-header__user-links {
+      display: block;
+      overflow: hidden; }
+    .site-header .nhs-choices-logo {
+      margin-top: 2em; } }
+  .site-header .nhs-choices-logo {
+    height: 55px;
+    vertical-align: bottom;
+    padding-bottom: 20px; }
+    @media (min-width: 925px) {
+      .site-header .nhs-choices-logo {
+        height: 35px;
+        padding-bottom: 0px; } }
+  .site-header__tagline {
+    vertical-align: baseline;
+    color: #ff6600;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 0.5em;
+    padding-bottom: 1px;
+    display: none; }
+    @media (min-width: 925px) {
+      .site-header__tagline {
+        display: inline; } }
+  @media (min-width: 925px) {
+    .site-header__nav {
+      margin-top: 10px; } }
+
+.main-nav {
+  background-color: #005eb8;
+  color: #fff; }
+  .main-nav a:hover {
+    text-decoration: underline; }
+  .main-nav--open {
+    position: relative;
+    top: -50px; }
+    @media (min-width: 925px) {
+      .main-nav--open {
+        top: 0px; } }
+  .main-nav__items {
+    margin: 0 16px;
+    max-width: 960px;
+    padding-bottom: 15px;
+    display: none; }
+    @media (min-width: 925px) {
+      .main-nav__items {
+        margin: 0 32px; } }
+    @media (min-width: 1024px) {
+      .main-nav__items {
+        margin: 0 auto; } }
+    .main-nav--open .main-nav__items {
+      display: block; }
+  .main-nav__page-menu, .main-nav__account-menu {
+    margin: 0px;
+    padding: 0px; }
+    .main-nav__page-menu li, .main-nav__account-menu li {
+      list-style-type: none;
+      font-size: 18px;
+      margin: 0px; }
+    .main-nav__page-menu a, .main-nav__page-menu span, .main-nav__account-menu a, .main-nav__account-menu span {
+      display: block;
+      padding: 15px 0px;
+      line-height: initial; }
+  .main-nav__page-menu a {
+    color: inherit;
+    text-decoration: none; }
+  .main-nav__account-menu {
+    background-color: white;
+    color: #005eb8; }
+    .main-nav__account-menu a {
+      text-decoration: underline;
+      padding-left: 15px;
+      padding-right: 15px; }
+  .main-nav ul li ul {
+    display: none; }
+  @media (min-width: 925px) {
+    .main-nav__menu-icon {
+      display: none; }
+    .main-nav__items {
+      position: relative;
+      display: block;
+      padding: 4px 0 0 0; }
+    .main-nav__page-menu {
+      display: flex;
+      justify-content: space-between; }
+      .main-nav__page-menu > li > a:after {
+        content: "";
+        /* use !important to prevent issues with browser extensions that change fonts */
+        font-family: 'NHS-icons' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        padding-left: 0.5em;
+        font-size: 0.7em; }
+      .main-nav__page-menu .nodrop:hover {
+        background-color: inherit;
+        color: inherit;
+        text-decoration: underline; }
+      .main-nav__page-menu .nodrop a:after {
+        content: none; }
+      .main-nav__page-menu .active {
+        text-decoration: underline; }
+      .main-nav__page-menu li:hover {
+        background-color: #fff;
+        color: #005eb8; }
+        .main-nav__page-menu li:hover ul {
+          margin-top: 0;
+          display: block; }
+        .main-nav__page-menu li:hover a {
+          background-color: inherit;
+          position: relative;
+          z-index: 200; }
+      .main-nav__page-menu li:focus-within {
+        background-color: #fff;
+        color: #005eb8; }
+        .main-nav__page-menu li:focus-within ul {
+          display: block; }
+        .main-nav__page-menu li:focus-within a {
+          background-color: inherit;
+          position: relative;
+          z-index: 200; }
+      .main-nav__page-menu li.main-nav__page-menu--open {
+        background-color: #fff;
+        color: #005eb8; }
+        .main-nav__page-menu li.main-nav__page-menu--open ul {
+          display: block; }
+        .main-nav__page-menu li.main-nav__page-menu--open a {
+          background-color: inherit;
+          position: relative;
+          z-index: 200; }
+      .main-nav__page-menu a, .main-nav__page-menu span {
+        padding: 15px 15px 18px 15px; }
+    .main-nav__account-menu {
+      display: none; }
+    .main-nav ul {
+      width: 100%; }
+      .main-nav ul li {
+        display: inline-block; }
+        .main-nav ul li:last-child ul {
+          right: 0px; }
+        .main-nav ul li ul {
+          display: none;
+          width: auto;
+          position: absolute;
+          z-index: 100;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+          padding-left: 0px;
+          padding-top: 0.5em;
+          background-color: #fff; }
+          .main-nav ul li ul li {
+            display: block;
+            text-align: left;
+            margin: 0px; }
+            .main-nav ul li ul li:hover {
+              text-decoration: underline; }
+            .main-nav ul li ul li a, .main-nav ul li ul li span {
+              padding: 7px 15px; }
+            .main-nav ul li ul li span {
+              color: #231f20;
+              font-weight: bold; }
+            .main-nav ul li ul li:last-child {
+              font-weight: bold;
+              border-top: #d8dde0 1px solid;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              margin-top: 5px; } }
+
+.menu-icon {
+  background-color: #005eb8;
+  color: #fff;
+  height: 42px; }
+  @media (min-width: 925px) {
+    .menu-icon {
+      display: none; } }
+  .menu-icon a {
+    color: #fff;
+    text-decoration: none; }
+  /* Header 2018-06-11 Bug fixes */
+  .menu-icon a:hover, .menu-icon a:focus,
+  .main-nav__page-menu a:hover, .main-nav__page-menu a:focus,
+  .main-nav__account-menu a:hover, .main-nav__account-menu a:focus {
+    background-color: inherit;
+    box-shadow: none;
+  }
+  .menu-icon__link {
+    line-height: 42px;
+    padding: 0px 0.5em; }
+    .menu-icon__link:after {
+      content: '\00A0\25BC';
+      font-size: 0.7em; }
+      .menu-icon--open .menu-icon__link:after {
+        content: '\00A0\25B2'; }
+
+.search {
+  position: relative; }
+  .search__input {
+    width: 100%;
+    border: 2px solid #005eb8;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: 42px;
+    padding: 8px 12px;
+    font-size: 18px;
+    padding-right: 42px; }
+    .search__input:focus {
+      outline: 3px solid #ffb81c;
+      outline-offset: 0; }
+  .search__button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: #005eb8;
+    color: #fff; }
+    .search__button:after {
+      content: "";
+      /* use !important to prevent issues with browser extensions that change fonts */
+      font-family: 'NHS-icons' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      top: 0;
+      font-size: 1.5em;
+      padding: 10px; }
+    .search__button input[type="submit"] {
+      cursor: pointer;
+      padding: 0px;
+      margin: 0px;
+      border: none;
+      background-color: transparent;
+      height: 42px;
+      width: 42px;
+      font-size: 21px; }
+      .search__button input[type="submit"]:focus {
+        outline: 3px solid #ffb81c;
+        outline-offset: 0; }
+
+.user-links {
+  padding-bottom: 0.5em; }
+  .user-links__right-align {
+    float: right; }
+  .user-links a {
+    color: #435562;
+    text-decoration: none; }
+    .user-links a:hover {
+      text-decoration: underline; }
+  .user-links__login {
+    padding-right: 1em; }
+    .user-links__login:before {
+      content: '\1F464\00A0';
+      font-size: 0.7em;
+      display: inline-block; }
+
+.tt-menu {
+  background: #fff;
+  border: 2px solid #005eb8 !important;
+  padding: 10px;
+  position: absolute;
+  top: 36px !important;
+  width: 100%; }
+  .tt-menu.tt-open {
+    top: 40px !important;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3); }
+  .tt-menu a {
+    color: #005eb8;
+    padding: 5px 0;
+    font-size: 18px;
+    line-height: 22.4px;
+    display: block;
+    width: 100%;
+    float: left;
+    text-align: left; }
+    .tt-menu a:hover {
+      text-decoration: underline; }
+    .tt-menu a:focus {
+      text-decoration: underline; }
+    .clearfix {
+      clear:both;
+    }
+</style>
+<header class="site-header">
+  <div class="site-header__top">
+    <div class="site-header__brand">
+      <!-- noindex -->
+      <a href="https://www.nhs.uk">
+        <img srcset="
+            /images/choices-logo.png 1x,
+            /images/choices-logo@2x.png 2x,
+            /images/choices-logo@3x.png 3x
+          " src="/images/choices-logo.png" class="nhs-choices-logo" alt="Go to NHS.UK homepage">
+      </a>
+      <span class="site-header__tagline">Your health, your choices</span>
+    </div>
+
+    <div class="site-header__controls">
+      <div class="site-header__user-links user-links">
+        <span class="user-links__right-align">
+          <a class="user-links__account" href="https://www.nhs.uk/Personalisation/MyNHSChoices.aspx">User Accounts</a>
+        </span>
+      </div>
+      <div id="search" class="site-header__search search">
+        <form id="gs" method="get" action="https://www.nhs.uk/Search">
+          <input id="query" name="query" class="search__input" placeholder="Enter a search term" type="text">
+          <div class="search__button icon-Search">
+            <input value="" type="submit">
+          </div>
+        </form>
+      </div>
+      <div id="menu-icon" class="site-header__menu-icon menu-icon">
+          <a id="main-nav-toggle" class="menu-icon__link" href="#">Menu</a>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <nav id="main-nav" class="site-header__nav main-nav main-nav">
+
+    <div id="main-nav-items" class="main-nav__items">
+      <ul class="main-nav__page-menu">
+
+
+
+            <li class="">
+                <a href="https://www.nhs.uk/Conditions/Pages/hub.aspx">Health A-Z</a>
+                  <ul>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Arthritis">Arthritis</a></li>
+
+                      <li><a href="https://www.nhs.uk/conditions/asthma">Asthma</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Back-pain">Back pain</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/stress-anxiety-depression/">Stress, anxiety, depression</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Cancer-of-the-breast-female">Breast cancer</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/pregnancy-and-baby/">Pregnancy and baby</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Diabetes/">Diabetes</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/dementia/about/">Dementia</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Coronary-heart-disease">Heart disease</a></li>
+
+                      <li><a href="https://www.nhs.uk/conditions/measles">Measles</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/nhs-health-check/">NHS Health Check</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/vaccinations/">Vaccinations</a></li>
+
+                      <li><a href="https://www.nhs.uk/CHQ/Pages/home.aspx">Common health questions</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/Pages/BodyMap.aspx?Index=A">All A-Z topics</a></li>
+
+                  </ul>
+
+            </li>
+
+
+
+
+            <li class="">
+                <a href="https://www.nhs.uk/livewell/Pages/Livewellhub.aspx">Live Well</a>
+                  <ul>
+
+                      <li><a href="https://www.nhs.uk/live-well/eat-well">Eat well</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/healthy-weight">Healthy weight</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/exercise">Fitness and exercise</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/sleep-and-tiredness">Sleep and tiredness</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/sexual-health">Sexual health</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/alcohol-support">Alcohol support</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/quit-smoking">Quit smoking</a></li>
+
+                      <li><a href="https://www.nhs.uk/live-well/healthy-body">Healthy body</a></li>
+
+                      <li><a href="https://www.nhs.uk/conditions/stress-anxiety-depression">Mental health</a></li>
+
+                      <li><a href="https://www.nhs.uk/livewell/pages/topics.aspx">All Live Well topics</a></li>
+
+                  </ul>
+
+            </li>
+
+
+
+
+            <li class="">
+                <a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/what-is-social-care.aspx">Care and support</a>
+                  <ul>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/how-can-i-get-social-care-support.aspx">Your rights to care and support</a></li>
+
+                      <li><a href="https://www.nhs.uk/conditions/social-care-and-support-guide/Pages/choosing-care-services.aspx">Choosing care services</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/assessment-care-needs.aspx">Social care assessments </a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/nhs-continuing-care.aspx">NHS continuing care </a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/mental-capacity.aspx">Mental capacity </a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/home-care.aspx">Home care</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/care-homes.aspx">Care homes</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/breaks-for-carers-respite-care.aspx">Breaks from caring</a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/carers-rights-care-act-2014.aspx">Carers’ rights </a></li>
+
+                      <li><a href="https://www.nhs.uk/Conditions/social-care-and-support-guide/Pages/young-carers-rights.aspx">Young carers </a></li>
+
+                      <li><a href="https://www.nhs.uk/conditions/social-care-and-support/">All care and support topics</a></li>
+
+                  </ul>
+
+            </li>
+
+
+
+
+            <li class="nodrop">
+            <a href="https://www.nhs.uk/news/">Health news</a>
+
+            </li>
+
+
+
+
+            <li class="">
+                <a href="https://www.nhs.uk/service-search">Services near you</a>
+                  <ul>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Accident-and-emergency-services/LocationSearch/428">A&amp;E</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Hospital/LocationSearch/7/Hospitals">Hospitals</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/GP/LocationSearch/4">GPs</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Dentist/LocationSearch/3">Dentists</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Pharmacy/LocationSearch/10">Pharmacies</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Care at home/LocationSearch/1833">Homecare and care homes</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Depression/LocationSearch/288">Depression</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Maternity-service/LocationSearch/1802">Maternity</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Alcohol-addiction/LocationSearch/1805">Alcohol</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Sexual-health-services/LocationSearch/1847">Sexual health</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Hospital/LocationSearch/7/Consultants">Consultants</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Stop-smoking-services/LocationSearch/1846">Stop smoking services</a></li>
+
+                      <li><a href="https://www.nhs.uk/Service-Search/Urgent-Care/LocationSearch/1824">Urgent care services</a></li>
+
+                      <li><a href="https://www.nhs.uk/service-search">All directories</a></li>
+
+                  </ul>
+
+            </li>
+
+
+      </ul>
+      <ul class="main-nav__account-menu account-menu">
+        <li><a href="https://www.nhs.uk//Personalisation/Login.aspx">Log in</a></li>
+
+        <li><a href="https://www.nhs.uk/Personalisation/Registration.aspx?ReturnUrl=https%3A//beta.nhs.uk/conditions/type-1-diabetes/">Create an account</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- endnoindex -->
+</header>

@@ -1,0 +1,79 @@
+<style>
+.footer {
+  font-size: 18px;
+  background-color: #005eb8;
+  color: #fff; }
+  .footer ul {
+    font-size: 18px; }
+  .footer a {
+    color: inherit; }
+  .footer ul {
+    list-style-type: none;
+    padding: 20px 0px; }
+    @media (min-width: 925px) {
+      .footer ul li {
+        display: inline-block;
+        padding-right: 20px; } }
+  .footer__logo {
+    margin-bottom: 10px; }
+    @media (min-width: 925px) {
+      .footer__logo {
+        margin-bottom: 0px; } }
+  .footer__content {
+    margin: 0 16px;
+    max-width: 960px; }
+    @media (min-width: 925px) {
+      .footer__content {
+        margin: 0 32px; } }
+    @media (min-width: 1024px) {
+      .footer__content {
+        margin: 0 auto; } }
+  .footer__main-links ul {
+    padding: 25px 0px; }
+  .footer__utility-links {
+    background-color: #425563; }
+  </style>
+<footer class="footer">
+  <div class="footer__main-links">
+    <div class="footer__content">
+      <ul>
+        <li>
+          <a href="https://www.nhs.uk">
+            <img class="footer__logo" alt="Go to NHS.UK homepage" src="/images/nhs-logo.png" srcset="
+                /images/nhs-logo.png 1x,
+                /images/nhs-logo@2x.png 2x,
+                /images/nhs-logo@3x.png 3x,
+              ">
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__utility-links">
+    <div class="footer__content">
+      <ul>
+
+        <li>© Crown Copyright</li>
+      </ul>
+    </div>
+  </div>
+  <!-- endnoindex -->
+</footer>
+<script>
+var $ = jQuery;
+var $search = $('#search');
+var $menuButton = $('#menu-icon');
+var $menu = $('#main-nav');
+$menuButton.on('click', function(e) {
+e.preventDefault();
+$menuButton.toggleClass('menu-icon--open');
+$menu.toggleClass('main-nav--open');
+
+// measure menu and position search underneath
+var menuHeight = $menu.height();
+$search.css('top', menuHeight);
+});
+
+</script>

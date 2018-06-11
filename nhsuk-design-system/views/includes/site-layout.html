@@ -36,8 +36,11 @@
     {% endif %}
 
     {% block body %}{% endblock %}
-
-    {% include "includes/footer.html" %}
+    {% if navigation == 'test-2018-06-11' %}
+      {% include "includes/footer-test-2018-06-11.html" %}
+    {% else %}
+      {% include "includes/footer.html" %}
+    {% endif %}
 
     <script src="/js/main.js"></script>
     <script src="/js/stickyfill.js"></script>
