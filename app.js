@@ -8,6 +8,7 @@ const reload = require('reload');
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'nhsuk-design-system/public')));
 
 nunjucks.configure('nhsuk-design-system/views', {
   autoescape: true,
