@@ -1,3 +1,7 @@
+0.0.9 / 2018-06-11
+==================
+- Added updated header and footer to example page to demo to Medicines team
+
 0.0.8 / 2018-08-18
 ==================
 - Improve frontend library folder structure
