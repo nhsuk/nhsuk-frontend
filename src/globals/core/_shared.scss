@@ -16,17 +16,15 @@ html {
   background-color: $nhsuk-grey-5;
   color: $nhsuk-text-colour;
   min-height: 100%;
-  position: relative;
 }
 
 body {
   background-color: $nhsuk-grey-5;
   font-size: $nhsuk-base-font-size-mobile;
   line-height: $nhsuk-base-line-height-mobile;
-  margin: 0 0 $nhsuk-footer-height-mobile + 40;
+  margin: 0;
   @include mq($from: tablet) {
     font-size: $nhsuk-base-font-size;
     line-height: $nhsuk-base-line-height;
-    margin: 0 0 $nhsuk-footer-height + 64;
   }
 }
