@@ -28,19 +28,13 @@
 
     {% if navigation == 'transactional' %}
       {% include "includes/header-transactional.html" %}
-    {% elif navigation == 'test-2018-06-11' %}
-      {% include "includes/header-test-2018-06-11.html" %}
     {% else %}
       {% include "includes/header.html" %}
       {% include "includes/nav.html" %}
     {% endif %}
 
     {% block body %}{% endblock %}
-    {% if navigation == 'test-2018-06-11' %}
-      {% include "includes/footer-test-2018-06-11.html" %}
-    {% else %}
-      {% include "includes/footer.html" %}
-    {% endif %}
+    {% include "includes/footer.html" %}
 
     <script src="/js/main.js"></script>
     <script src="/js/stickyfill.js"></script>
