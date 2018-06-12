@@ -3,7 +3,7 @@
 .nhsuk-c-panel {
   @include nhsuk-component-center();
   @include top-and-bottom();
-  background: white;
+  background: rgba(255,255,255,0.6);
   //border-top: 8px solid $nhsuk-blue;
   color: $nhsuk-secondary-text-colour;
   margin: 56px 0;

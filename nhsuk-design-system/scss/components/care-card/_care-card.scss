@@ -55,6 +55,10 @@
         content: '';
       }
     }
+    .care-card-content {
+      background: rgba(255,255,255,0.6);
+      color: $nhsuk-secondary-text-colour;
+    }
   }
   &.blue {
     .care-card-heading {
@@ -63,6 +67,9 @@
         border-top: 16px solid $nhsuk-blue;
         content: '';
       }
+    }
+    .care-card-content {
+      background: rgba(255,255,255,0.75);
     }
   }
   &.red {
