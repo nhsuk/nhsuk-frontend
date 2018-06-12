@@ -38,6 +38,7 @@ $nhsuk-black-tint-15: tint($nhsuk-black, 15%); // used for link :active states
 $nhsuk-blue-shade-20: shade($nhsuk-blue, 20%); // used for .active state on main nav
 $nhsuk-blue-shade-35: shade($nhsuk-blue, 35%); // used for :hover states on main nav
 $nhsuk-blue-shade-50: shade($nhsuk-blue, 50%); // used for :active states on main nav
+$nhsuk-blue-tint-90: tint($nhsuk-blue, 90%); // used callout backgrounds
 
 // nhsuk-green variations
 
@@ -46,8 +47,17 @@ $nhsuk-green-shade-50: shade($nhsuk-green, 50%); // used for primary button :act
 
 // nhsuk-yellow variations
 
+$nhsuk-yellow-tint-90: tint($nhsuk-yellow, 90%); // used for link :hover states
 $nhsuk-yellow-tint-30: tint($nhsuk-yellow, 30%); // used for link :hover states
 $nhsuk-yellow-tint-10: tint($nhsuk-yellow, 10%); // used for link :active states
+
+// nhsuk-red variations
+
+$nhsuk-red-tint-90: tint($nhsuk-red, 90%); // used callout backgrounds
+
+// nhsuk-grey-4 variations
+
+$nhsuk-grey-4-tint-50: tint($nhsuk-grey-4, 50%); // used callout backgrounds on white background
 
 // Text colours
 
