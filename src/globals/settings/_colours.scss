@@ -28,8 +28,6 @@ $nhsuk-grey-5: #E8EDEE;
   @return mix(black, $color, $percentage);
 }
 
-$nhsuk-grey-5: tint(#E8EDEE,30%);
-
 // nhsuk-black variations
 
 $nhsuk-black-tint-10: tint($nhsuk-black, 10%); // used for link :active states
