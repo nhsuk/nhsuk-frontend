@@ -1,4 +1,4 @@
-.nhsuk-c-promo{
+.nhsuk-c-promo-v1{
     margin-bottom: 48px;
     .nhsuk-heading-s{
         margin-top:0;
@@ -9,6 +9,29 @@
     img{
         width: 100%;
         margin-top:16px;
+        display: block;
+    }
+}
+
+.nhsuk-c-promo-v2{
+    margin-bottom: 48px;
+    border: $nhsuk-white 10px solid;
+    border-bottom-width: 20px;
+    background:$nhsuk-white;
+    display: inline-block;
+    text-decoration: none;
+    &:hover{
+        background: $nhsuk-white;
+    }
+    .nhsuk-heading-s{
+        margin-top:0;
+    }
+    p{
+        margin-top: 16px;
+    }
+    img{
+        width: 100%;
+        margin-bottom:16px;
         display: block;
     }
 }
