@@ -203,4 +203,28 @@ router.get('/examples/test-image-v2', (req, res) => {
   res.render('examples/test-image-v2', {});
 });
 
+router.get('/examples/test-hub-live-well-parent', (req, res) => {
+  res.render('examples/test-hub-live-well-parent', {});
+});
+
+router.get('/examples/test-hub-live-well-child', (req, res) => {
+  res.render('examples/test-hub-live-well-child', {});
+});
+
+router.get('/examples/test-hub-nhs-in-england-parent', (req, res) => {
+  res.render('examples/test-hub-nhs-in-england-parent', {});
+});
+
+router.get('/examples/test-hub-nhs-in-england-child', (req, res) => {
+  res.render('examples/test-hub-nhs-in-england-child', {});
+});
+
+router.get('/examples/test-general-eye-care', (req, res) => {
+  res.render('examples/test-general-eye-care', {});
+});
+
+router.get('/examples/test-general-prescription-costs', (req, res) => {
+  res.render('examples/test-general-prescription-costs', {});
+});
+
 module.exports = router;
