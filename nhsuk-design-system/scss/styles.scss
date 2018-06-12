@@ -65,3 +65,48 @@ ul ul, ol ul {
     }
   }
 }
+
+// white page background
+
+.white-page-background {
+    background-color: white;
+
+    //care cards
+    .care-card {
+      &.grey {
+        .care-card-content {
+          background: $nhsuk-grey-4-tint-50;
+        }
+      }
+      &.blue {
+        .care-card-content {
+          background: $nhsuk-blue-tint-90;
+        }
+      }
+      &.red {
+        .care-card-content {
+          background: $nhsuk-red-tint-90;
+        }
+      }
+    }
+
+    //callouts
+    .nhsuk-c-callout__warning {
+        background: $nhsuk-yellow-tint-90;
+    }
+
+    //panels
+    .nhsuk-c-panel {
+        background: tint($nhsuk-grey-5,50%);
+    }
+
+    //breadcrumb
+    .nhsuk-breadcrumb {
+        border-bottom: 1px solid $nhsuk-grey-5;
+    }
+
+    //intro text
+    .nhsuk-page-intro {
+        color: $nhsuk-grey-1;
+    }
+  }
