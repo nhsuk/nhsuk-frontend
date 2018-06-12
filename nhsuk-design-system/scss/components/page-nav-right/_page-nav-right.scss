@@ -1,0 +1,10 @@
+.nhsuk-page-nav-right{
+	.nhsuk-list-nav{
+		margin-top:0;
+	}
+	@media screen and (max-width: 640px) {
+		padding: 24px;
+		margin:48px 0 24px 0;
+		background: $nhsuk-white;
+	}
+}
