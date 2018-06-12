@@ -6,6 +6,7 @@
 		position: relative;
 		padding: 0 0 0 24px;
 		display: block;
+		font-weight: 600;
 
 		&:before{
 			content: '';
@@ -28,5 +29,13 @@
 	}
 	.nhsuk-c-page-contents-v2-content{
 		display: none;
+		list-style: none;
+		padding-left: 24px;
+		li{
+			&:last-child{
+				margin-bottom: 0;
+			}
+			margin: 0 0 16px 0;
+		}
 	}
 }

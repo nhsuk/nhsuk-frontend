@@ -1,10 +1,24 @@
 .nhsuk-page-nav-right{
 	.nhsuk-list-nav{
 		margin-top:0;
+		list-style: none;
+		li{
+			&:last-child{
+				margin-bottom: 0;
+			}
+			margin: 0 0 16px 0;
+		}
+		.nhsuk-heading-m{
+			font-weight: 600;
+			margin: 0;
+		}
 	}
 	@media screen and (max-width: 640px) {
 		padding: 24px;
 		margin:48px 0 24px 0;
 		background: $nhsuk-white;
+		ul{
+			padding:0;
+		}
 	}
 }
