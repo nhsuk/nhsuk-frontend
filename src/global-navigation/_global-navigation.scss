@@ -19,23 +19,46 @@
       font-weight: $nhsuk-font-bold;
       margin: 0;
       padding: 12px 38px 12px 30px;
+      position: relative;
 
       @include mq($until: tablet) {
         margin: 0 24px 0 0;
-        padding: 12px 0 12px 15px;
+        padding: 16px;
       }
 
-      .js-menu-close {
-        background: url(/images/icon-close.svg) center no-repeat;
-        float: right;
-        height: 26px;
+      .c-nav-primary__close-link {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%230058AD;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 40px;
+        position: absolute;
+        right: 24px;
         text-indent: -9999px;
-        width: 26px;
+        top: 8px;
+        width: 40px;
+
+        @include mq($until: tablet) {
+          right: -8px;
+        }
+
+        &:hover {
+          background-color: transparent;
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%23002c57;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+          box-shadow: none;
+        }
+
+        &:focus {
+          background-color: transparent;
+          border-radius: 4px;
+        }
+
       }
+
+
     }
 
     &__list {
-      border-bottom: 1px solid $nhsuk-secondary-border-colour;
+      border-bottom: 4px solid $nhsuk-grey-5;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -44,18 +67,20 @@
     &__item {
       border-top: 1px solid $nhsuk-grey-5;
       margin: 0;
+
     }
 
     &__link {
-      background: url(/images/icon-arrow-right.svg) right no-repeat;
+      background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+      background-position: center right;
+      background-repeat: no-repeat;
       color: $nhsuk-blue;
       display: block;
-      margin-right: 30px;
       padding: 12px 30px;
 
       @include mq($until: tablet) {
-        margin-right: 15px;
-        padding: 12px 15px;
+        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        padding: 16px;
       }
 
       text-decoration: none;
@@ -65,15 +90,45 @@
       }
 
       &:hover {
-        background: url(/images/icon-arrow-right.svg) right no-repeat;
+        background-color: $nhsuk-blue;
+        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+
+        @include mq($until: tablet) {
+          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        }
+
+        background-position: center right;
+        background-repeat: no-repeat;
         box-shadow: none;
-        text-decoration: underline;
+        color: $nhsuk-white;
+      }
+
+      &:active {
+        background-color: $nhsuk-blue-shade-35;
+        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+
+        @include mq($until: tablet) {
+          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        }
+
+        background-position: center right;
+        background-repeat: no-repeat;
+        box-shadow: none;
+        color: $nhsuk-white;
       }
 
       &:focus {
-        box-shadow: none;
-        color: $nhsuk-link-focus-colour;
-        text-decoration: underline;
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+
+        @include mq($until: tablet) {
+          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        }
+
+        background-position: center right;
+        background-repeat: no-repeat;
+        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
+        color: $nhsuk-blue;
       }
 
     }
@@ -124,6 +179,7 @@
       &:focus {
         background: $nhsuk-blue;
         box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+        color: $nhsuk-white;
       }
 
       &:active {
