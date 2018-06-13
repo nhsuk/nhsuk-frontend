@@ -1,0 +1,78 @@
+{% set title = 'Reveals' %}
+{% set navigation = 'transactional' %}
+{% set navigationWidth = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Reveals</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+		<li><a href="#rules">Rules</a></li>
+		<li><a href="#user-needs">User needs</a></li>
+    <li><a href="#example">Example</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+  <h2 id="rules">Rules</h2>
+  
+
+  <ul>
+    <li>consider the context</li>
+
+
+
+  </ul>
+
+
+  <h2 id="user-needs">User needs</h2>
+
+
+  <ul>
+    <li>As a user I WANT further related information (on a specific point), so that I can quickly identify my health problem / manage my health</li>
+  </ul>
+  
+
+	<h2 id="example">Example</h2>
+
+  <div class="example">
+   
+    <div class="c-common-questions">
+
+      <details class="c-common-questions__details" role="group" >
+        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+          <h3 class="c-common-questions__header">Will it affect my contraception?</h3>
+        </summary>
+        <div class="c-common-questions__content" id="question-13" aria-hidden="true">
+          <p>Propranolol won't stop your contraception working.</p>
+          <p>However, some types of hormonal methods of contraception, like the <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/combined-contraceptive-pill.aspx">combined contraceptive pill</a> and <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/contraceptive-patch.aspx">contraceptive patch</a>, aren't usually recommended for women taking propranolol and other medicines for <a href="https://www.nhs.uk/conditions/Blood-pressure-(high)/Pages/Introduction.aspx">high blood pressure</a>. This is because some hormonal contraceptives can raise your blood pressure and stop propranolol working properly.</p>
+          <p>Talk to your doctor if you're taking a hormonal contraceptive.</p>
+        </div>
+      </details>
+
+
+      <details class="c-common-questions__details" role="group" >
+        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-14" role="button">
+          <h3 class="c-common-questions__header">Will it affect my fertility?</h3>
+        </summary>
+        <div class="c-common-questions__content" id="question-14" aria-hidden="true">
+          <p>It's unlikely that propranolol affects fertility in men or women. However there's not enough evidence to say for certain.</p>
+          <p>If you're trying for a baby, or you're having problems getting pregnant while on propranolol, speak to your doctor.</p>
+        </div>
+      </details>
+
+    </div>
+
+  
+  </div>
+
+  <div class="example-snippet">
+
+  </div>
+
+{% endblock %}
