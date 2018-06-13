@@ -22,6 +22,11 @@ $alpha: .5;
         height: 40px;
         width: 99px;
       }
+
+      &:hover {
+        box-shadow: 0 0 0 4px $nhsuk-blue-shade-50;
+      }
+
     }
   }
 
@@ -38,7 +43,7 @@ $alpha: .5;
     float: left;
     margin: 20px;
 
-    .menu-toggle {
+    .menu-toggle__button {
       border: 1px solid $nhsuk-white;
       border-radius: 4px;
       color: $nhsuk-white;
@@ -61,7 +66,8 @@ $alpha: .5;
         box-shadow: 0 0 0 3px $nhsuk-focus-colour;
       }
 
-      &:active {
+      &:active,
+      &.active {
         background: $nhsuk-blue-shade-50;
         border-color: $nhsuk-grey-5;
         color: $nhsuk-grey-5;
@@ -79,7 +85,7 @@ $alpha: .5;
 
     &__search {
       float: left;
-      margin: 19px 0;
+      margin: 20px 0;
 
       .c-search__input {
         -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
@@ -111,7 +117,10 @@ $alpha: .5;
       }
 
       .c-search__submit {
-        background: $nhsuk-grey-5 url(/images/icon-search-small-blue.svg) center no-repeat;
+        background-color: $nhsuk-grey-5;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" height="20px" width="20px"><defs><style>.cls-1{fill:%230058ad;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M16.71,15.29l-4.11-4.1a7,7,0,1,0-1.41,1.41l4.1,4.11a1,1,0,0,0,1.42,0A1,1,0,0,0,16.71,15.29ZM2,7a5,5,0,1,1,5,5A5,5,0,0,1,2,7Z"/></g></g></svg>');
+        background-position: center;
+        background-repeat: no-repeat;
         border: 0;
         border-bottom-right-radius: 4px;
         border-top-right-radius: 4px;
@@ -137,7 +146,9 @@ $alpha: .5;
         }
 
         &:hover {
-          background: $nhsuk-blue-shade-35 url(/images/icon-search-small-white.svg) center no-repeat;
+          background-color: $nhsuk-blue-shade-35;
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" height="20px" width="20px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M16.71,15.29l-4.11-4.1a7,7,0,1,0-1.41,1.41l4.1,4.11a1,1,0,0,0,1.42,0A1,1,0,0,0,16.71,15.29ZM2,7a5,5,0,1,1,5,5A5,5,0,0,1,2,7Z"/></g></g></svg>');
+          cursor: pointer;
         }
 
         &:active {
@@ -199,11 +210,11 @@ $alpha: .5;
       }
 
       &__submit {
-        background: $nhsuk-green url(/images/icon-search-large.svg) center no-repeat;
+        background: $nhsuk-green url(/images/icon-search-small-white.svg) center no-repeat;
+        background-size: 28px 28px;
         border: 0;
         border-bottom-right-radius: 4px;
         border-top-right-radius: 4px;
-        cursor: pointer;
         float: right;
         font-size: inherit;
         line-height: inherit;
@@ -217,6 +228,7 @@ $alpha: .5;
 
         &:hover {
           background-color: $nhsuk-button-hover-colour;
+          cursor: pointer;
         }
 
         &:focus {
@@ -243,7 +255,7 @@ $alpha: .5;
       text-align: right;
 
       &.js-show {
-        border-bottom: 1px solid $nhsuk-grey-4;
+        border-bottom: 4px solid $nhsuk-grey-5;
       }
     }
 
@@ -252,8 +264,8 @@ $alpha: .5;
       display: inline-block;
       float: none;
 
-      .menu-toggle {
-        margin-right: 55px;
+      .menu-toggle__button {
+        margin-right: 52px;
       }
 
     }
@@ -265,15 +277,16 @@ $alpha: .5;
 
       .search-toggle__button {
         background: url(/images/icon-search-small-white.svg) center no-repeat;
+        background-size: 16px 16px;
         border: 1px solid $nhsuk-white;
         border-radius: 4px;
         color: $nhsuk-white;
         cursor: pointer;
         margin: 20px 0;
         min-height: 40px;
-        padding: 5px 22px;
+        padding: 5px 19px;
         position: absolute;
-        right: 15px;
+        right: 16px;
         text-align: left;
         text-indent: -9999px;
         top: 0;
@@ -290,7 +303,8 @@ $alpha: .5;
           box-shadow: 0 0 0 3px $nhsuk-focus-colour;
         }
 
-        &:active {
+        &:active,
+        &.active {
           background-color: $nhsuk-blue-shade-50;
           border-color: $nhsuk-grey-5;
           color: $nhsuk-grey-5;
@@ -301,8 +315,10 @@ $alpha: .5;
 
     }
 
-    .search-close-link {
-      background: url(/images/icon-close_v2.svg) center no-repeat;
+    .search-close__link {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%230058AD;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+      background-position: center;
+      background-repeat: no-repeat;
       cursor: pointer;
       display: block;
       float: right;
@@ -315,10 +331,13 @@ $alpha: .5;
       width: 40px;
 
       &:hover {
-
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%23003970;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+        box-shadow: none;
       }
 
       &:focus {
+        background-color: transparent;
         border-radius: 4px;
       }
 
@@ -373,7 +392,9 @@ $alpha: .5;
 }
 
 .ui-menu-item {
-  background: url(/images/icon-search-small-grey.svg) left 5px no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" height="16px" width="16px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M16.71,15.29l-4.11-4.1a7,7,0,1,0-1.41,1.41l4.1,4.11a1,1,0,0,0,1.42,0A1,1,0,0,0,16.71,15.29ZM2,7a5,5,0,1,1,5,5A5,5,0,0,1,2,7Z"/></g></g></svg>');
+  background-position: left 5px;
+  background-repeat: no-repeat;
   border-bottom: 1px solid $nhsuk-grey-5;
   color: $nhsuk-blue;
   cursor: pointer;
