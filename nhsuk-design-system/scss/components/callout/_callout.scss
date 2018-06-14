@@ -199,6 +199,38 @@ $nhsuk-light-yellow: #FFF7E8;
     }
   }
 
+  .nhsuk-c-callout__warning-v12 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    background: #fff;
+    margin: 56px 0;
+    padding: 32px 24px;
+    position: relative;
+    /*border-top: 8px solid #FAE200;*/
+    color: $nhsuk-black;
+
+    @include mq($until: tablet) {
+        padding:44px 24px 32px 24px
+    }
+
+    &:before {
+        content:'Important';
+        position: absolute;
+        left: -8px;
+        top: -16px;
+        padding: 10px 18px;
+        background: #FAE200;
+        font-size: 1.25em;
+        font-weight: 600;
+
+        @include mq($until: tablet) {
+            left:-4px;
+            top: -4px;
+        }
+    }
+  }
+
 .nhsuk-c-callout__info {
   @include nhsuk-c-callout(white,$nhsuk-blue);
   &:before {
