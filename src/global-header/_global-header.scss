@@ -195,17 +195,19 @@ $alpha: .5;
         -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
         border-bottom: 1px solid $nhsuk-grey-3;
         border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 0;
         border-left: 1px solid $nhsuk-grey-3;
         border-right: 0;
         border-top: 1px solid $nhsuk-grey-3;
         border-top-left-radius: 4px;
+        border-top-right-radius: 0;
         flex-grow: 2;
         font-size: inherit;
         height: 52px;
         margin: 0;
         outline: none;
         padding: 0 10px;
-
+        width: 100%;
 
         &:focus {
           box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
