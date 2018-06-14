@@ -384,6 +384,7 @@ $alpha: .5;
   overflow-y: auto;
   padding: 10px 15px 18px;
   position: absolute;
+  z-index: 1;
 }
 
 @include mq($until: tablet) {
