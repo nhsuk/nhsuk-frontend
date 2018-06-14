@@ -24,7 +24,7 @@ $alpha: .5;
       }
 
       &:hover {
-        box-shadow: 0 0 0 4px $nhsuk-blue-shade-50;
+        box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
       }
 
     }
@@ -88,10 +88,12 @@ $alpha: .5;
       margin: 20px 0;
 
       .c-search__input {
-        -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: textfield; // sass-lint:disable-line no-vendor-prefixes
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 0;
         border-top-left-radius: 4px;
+        border-top-right-radius: 0;
         display: block;
         float: left;
         font-size: 16px;
@@ -102,6 +104,10 @@ $alpha: .5;
         &::placeholder {
           color: $nhsuk-grey-2;
           font-size: 16px;
+        }
+
+        &::-webkit-search-decoration {
+          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
         }
 
         &.js-search-open {
@@ -122,7 +128,9 @@ $alpha: .5;
         background-position: center;
         background-repeat: no-repeat;
         border: 0;
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
+        border-top-left-radius: 0;
         border-top-right-radius: 4px;
         display: block;
         float: left;
@@ -194,6 +202,7 @@ $alpha: .5;
         flex-grow: 2;
         font-size: inherit;
         height: 52px;
+        margin: 0;
         outline: none;
         padding: 0 10px;
 
@@ -213,11 +222,14 @@ $alpha: .5;
         background: $nhsuk-green url(/images/icon-search-small-white.svg) center no-repeat;
         background-size: 28px 28px;
         border: 0;
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
+        border-top-left-radius: 0;
         border-top-right-radius: 4px;
         float: right;
         font-size: inherit;
         line-height: inherit;
+        margin: 0;
         outline: none;
         padding: 0 26px;
         text-indent: -9999px;
