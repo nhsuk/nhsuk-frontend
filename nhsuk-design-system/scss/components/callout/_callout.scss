@@ -211,21 +211,25 @@ $nhsuk-light-yellow: #FFF7E8;
     color: $nhsuk-black;
 
     @include mq($until: tablet) {
-        padding:44px 24px 32px 24px
+        padding:36px 24px 24px 24px
     }
 
     &:before {
         content:'Important';
-        position: absolute;
-        left: -8px;
-        top: -16px;
-        padding: 10px 18px;
         background: #FAE200;
-        font-size: 1.25em;
+        font-size: 1.26316em;
         font-weight: 600;
+        left: -8px;
+        line-height: 32px;
+        position: absolute;
+        padding: 8px 30px;
+        top: -8px;
 
         @include mq($until: tablet) {
+            font-size: 1.25em;
             left:-4px;
+            line-height: 28px;
+            padding: 4px 28px;
             top: -4px;
         }
     }

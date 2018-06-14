@@ -20,10 +20,10 @@
       @include nhsuk-tab();
       background: $nhsuk-blue;
       color: white;
-      padding: 8px 24px;
+      padding: 8px 30px;
       top: -8px;
       @include mq($until: tablet) {
-          padding: 4px 16px;
+          padding: 4px 28px;
           top: -4px;
       }
       &.green{
@@ -38,7 +38,7 @@
 .list--check,
 .list--cross {
   list-style: none;
-  padding-left: 32px;
+  padding-left: 40px;
 }
 
 .list--check li::before, .list--check li::after, .list--cross li::before, .list--cross li::after {
@@ -58,7 +58,7 @@
     content:url('../../../../images/Icon-tick-v4.svg');
     width: 34px;
     height: 34px;
-    left: -43px;
+    left: -44px;
     top: -4px;
     color: $nhsuk-green;
     @include mq($until: tablet) {
@@ -72,7 +72,7 @@
     content:url('../../../../images/Icon-cross_v2.svg');
     width: 40px;
     height: 40px;
-    left: -43px;
+    left: -48px;
     top: -6px;
     @include mq($until: tablet) {
       top: -8px;
