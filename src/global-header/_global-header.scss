@@ -88,7 +88,7 @@ $alpha: .5;
       margin: 20px 0;
 
       .c-search__input {
-        -webkit-appearance: textfield; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -106,7 +106,7 @@ $alpha: .5;
           font-size: 16px;
         }
 
-        &::-webkit-search-decoration {
+        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
           -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
         }
 
@@ -192,7 +192,7 @@ $alpha: .5;
       }
 
       &__input {
-        -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
         border-bottom: 1px solid $nhsuk-grey-3;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -208,6 +208,10 @@ $alpha: .5;
         outline: none;
         padding: 0 10px;
         width: 100%;
+
+        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
+          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        }
 
         &:focus {
           box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
