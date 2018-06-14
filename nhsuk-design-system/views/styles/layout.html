@@ -20,7 +20,7 @@
 
 {% block content %}
     <h2>Notes</h2>
-    <p>NHS.UK uses <a href="https://govuk-design-system-production.cloudapps.digital/styles/layout/" class="external">GOV.UK grid</a> with some minor alterations to the mobile and tablet breakpoints to support the NHS Frutiger font.
+    <p>NHS.UK uses <a href="https://govuk-design-system-production.cloudapps.digital/styles/layout/" class="external">GOV.UK grid</a> with some minor alterations to the breakpoints, page width and spacing to support the larger NHS Frutiger font. We've also added some extra grid item widths to support teams design requirements.</p>
 
     <h2 id="breakpoints">Breakpoints</h2>
     <ul>
@@ -47,10 +47,56 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
     </div>
 
+    <h3>Page rows</h3>
+
+    <p><span class="example-code-snippet">nhsuk-o-grid</span> acts as a wrapper around grid items. It nullifies the padding set by the <span class="example-code-snippet">nhsuk-o-width-wrapper</span> element by using a negative margin value of -16px on both the left and right sides. It also makes sure the grid items stay on the same row and do not spill over onto the next.</p>
+
+    <p>When you fill a page width with grid items, you must wrap the next set of grid items with the <span class="example-code-snippet">nhsuk-o-grid</span> wrapper.</p>
+
+    <div class="example">
+      <div class="nhsuk-o-grid nhsuk-grid-example">
+          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half">
+              <p>nhsuk-o-grid__item--one-half</p>
+          </div>
+          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half">
+              <p>nhsuk-o-grid__item--one-half</p>
+          </div>
+      </div>
+      <div class="nhsuk-o-grid nhsuk-grid-example">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          <p>nhsuk-o-grid__item--one-third</p>
+        </div>
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+          <p>nhsuk-o-grid__item--two-thirds</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-snippet">
+    <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-14">Copy</button>
+<pre class="language-markup" id="clipboard-14"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-half<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-half<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-half<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-half<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-third<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-third<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--two-thirds<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+    </div>
+
     <h3>Page width</h3>
 
     <p>The default maximum page width is 1024px, lines of text should be no longer than 70 to 80 characters to improve readability of text.</p>
     <p>When using a wider grid item, text content can be wrapped with the class <span class="example-code-snippet">nhsuk-reading-width</span> to limit number of characters per line.</p>
+
 
     <div class="example">
       <div class="nhsuk-o-grid">
