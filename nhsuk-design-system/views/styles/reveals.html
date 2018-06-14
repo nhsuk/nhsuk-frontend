@@ -1,0 +1,602 @@
+{% set title = 'Reveals' %}
+{% set navigation = 'transactional' %}
+{% set navigationWidth = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Reveals</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+		<li><a href="#rules">Rules</a></li>
+		<li><a href="#user-needs">User needs</a></li>
+    <li><a href="#example">Example</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+  <h2 id="rules">Rules</h2>
+  
+
+  <ul>
+    <li>consider the context</li>
+    <li>don’t over do it</li>
+    <li>don't hide important content from people</li>
+    <li>don't force users to interact needlessly with the page</li>
+    <li>If a majority of users need that content, <strong>don’t hide it.</strong></li>
+
+
+
+  </ul>
+  <p>Done well, reveals:</p>
+      <ul>
+        <li>keep a page focussed and uncluttered</li>
+        <li>deliver targeted content to those people who need it</li>
+        <li>reduce the cognitive load on your users</li>
+      </ul>
+
+      <p>From the Android design principles:</p>
+ 
+      <p>"Only show what I need when I need it. People get overwhelmed when they see too much at once. Break tasks and information into small, digestible chunks. Hide options that aren't essential at the moment, and teach people as they go." http://developer.android.com/design/get-started/principles.html</p>
+
+
+
+  <h2 id="user-needs">User needs</h2>
+
+
+  <ul>
+    <li>As a user I WANT further related information (on a specific point), so that I can quickly identify my health problem / manage my health</li>
+  </ul>
+  
+
+  <h2 id="example">Example</h2>
+  
+
+  <script>
+    // <details> polyfill
+    // http://caniuse.com/#feat=details
+    // FF Support for HTML5's <details> and <summary>
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=591737
+    // http://www.sitepoint.com/fixing-the-details-element/
+    ; (function () {
+      'use strict'
+      var NATIVE_DETAILS = typeof document.createElement('details').open === 'boolean'
+      // Add event construct for modern browsers or IE
+      // which fires the callback with a pre-converted target reference
+      function addEvent(node, type, callback) {
+        if (node.addEventListener) {
+          node.addEventListener(type, function (e) {
+            callback(e, e.target)
+          }, false)
+        } else if (node.attachEvent) {
+          node.attachEvent('on' + type, function (e) {
+            callback(e, e.srcElement)
+          })
+        }
+      }
+      // Handle cross-modal click events
+      function addClickEvent(node, callback) {
+        // Prevent space(32) from scrolling the page
+        addEvent(node, 'keypress', function (e, target) {
+          if (target.nodeName === 'SUMMARY') {
+            if (e.keyCode === 32) {
+              if (e.preventDefault) {
+                e.preventDefault()
+              } else {
+                e.returnValue = false
+              }
+            }
+          }
+        })
+        // When the key comes up - check if it is enter(13) or space(32)
+        addEvent(node, 'keyup', function (e, target) {
+          if (e.keyCode === 13 || e.keyCode === 32) { callback(e, target) }
+        })
+        addEvent(node, 'mouseup', function (e, target) {
+          callback(e, target)
+        })
+      }
+      // Get the nearest ancestor element of a node that matches a given tag name
+      function getAncestor(node, match) {
+        do {
+          if (!node || node.nodeName.toLowerCase() === match) {
+            break
+          }
+          node = node.parentNode
+        } while (node)
+        return node
+      }
+      // Create a started flag so we can prevent the initialisation
+      // function firing from both DOMContentLoaded and window.onload
+      var started = false
+      // Initialisation function
+      function addDetailsPolyfill(list) {
+        // If this has already happened, just return
+        // else set the flag so it doesn't happen again
+        if (started) {
+          return
+        }
+        started = true
+        // Get the collection of details elements, but if that's empty
+        // then we don't need to bother with the rest of the scripting
+        if ((list = document.getElementsByTagName('details')).length === 0) {
+          return
+        }
+        // else iterate through them to apply their initial state
+        var n = list.length
+        var i = 0
+        for (i; i < n; i++) {
+          var details = list[i]
+          // Save shortcuts to the inner summary and content elements
+          details.__summary = details.getElementsByTagName('summary').item(0)
+          details.__content = details.getElementsByTagName('div').item(0)
+          // If the content doesn't have an ID, assign it one now
+          // which we'll need for the summary's aria-controls assignment
+          if (!details.__content.id) {
+            details.__content.id = 'details-content-' + i
+          }
+          // Add ARIA role="group" to details
+          details.setAttribute('role', 'group')
+          // Add role=button to summary
+          details.__summary.setAttribute('role', 'button')
+          // Add aria-controls
+          details.__summary.setAttribute('aria-controls', details.__content.id)
+          // Set tabIndex so the summary is keyboard accessible for non-native elements
+          // http://www.saliences.com/browserBugs/tabIndex.html
+          if (!NATIVE_DETAILS) {
+            details.__summary.tabIndex = 0
+          }
+          // Detect initial open state
+          var openAttr = details.getAttribute('open') !== null
+          if (openAttr === true) {
+            details.__summary.setAttribute('aria-expanded', 'true')
+            details.__content.setAttribute('aria-hidden', 'false')
+          } else {
+            details.__summary.setAttribute('aria-expanded', 'false')
+            details.__content.setAttribute('aria-hidden', 'true')
+            if (!NATIVE_DETAILS) {
+              details.__content.style.display = 'none'
+            }
+          }
+          // Create a circular reference from the summary back to its
+          // parent details element, for convenience in the click handler
+          details.__summary.__details = details
+          // If this is not a native implementation, create an arrow
+          // inside the summary
+          if (!NATIVE_DETAILS) {
+            var twisty = document.createElement('i')
+            if (openAttr === true) {
+              twisty.className = 'details__arrow is-open'
+              twisty.appendChild(document.createTextNode('\u25bc'))
+            } else {
+              twisty.className = 'details__arrow is-closed'
+              twisty.appendChild(document.createTextNode('\u25ba'))
+            }
+            details.__summary.__twisty = details.__summary.insertBefore(twisty, details.__summary.firstChild)
+            details.__summary.__twisty.setAttribute('aria-hidden', 'true')
+          }
+        }
+        // Define a statechange function that updates aria-expanded and style.display
+        // Also update the arrow position
+        function statechange(summary) {
+          var expanded = summary.__details.__summary.getAttribute('aria-expanded') === 'true'
+          var hidden = summary.__details.__content.getAttribute('aria-hidden') === 'true'
+          // using a slight delay due to weird bug in Firefox not detecting click on the '+' or '-' correctly
+          var ariaPause = setTimeout(function () {
+            summary.__details.__summary.setAttribute('aria-expanded', (expanded ? 'false' : 'true'))
+            summary.__details.__content.setAttribute('aria-hidden', (hidden ? 'false' : 'true'))
+          }, 50);
+          if (!NATIVE_DETAILS) {
+            summary.__details.__content.style.display = (expanded ? 'none' : '')
+            var hasOpenAttr = summary.__details.getAttribute('open') !== null
+            if (!hasOpenAttr) {
+              summary.__details.setAttribute('open', 'open')
+            } else {
+              summary.__details.removeAttribute('open')
+            }
+          }
+          if (summary.__twisty) {
+            summary.__twisty.firstChild.nodeValue = (expanded ? '\u25ba' : '\u25bc')
+            summary.__twisty.setAttribute('class', (expanded ? 'details__arrow is-closed' : 'details__arrow is-open'))
+          }
+          return true
+        }
+        // Bind a click event to handle summary elements
+        addClickEvent(document, function (e, summary) {
+          if (!(summary = getAncestor(summary, 'summary'))) {
+            return true
+          }
+          return statechange(summary)
+        })
+      }
+      // Bind two load events for modern and older browsers
+      // If the first one fires it will set a flag to block the second one
+      // but if it's not supported then the second one will fire
+      addEvent(document, 'DOMContentLoaded', addDetailsPolyfill)
+      addEvent(window, 'load', addDetailsPolyfill)
+    })()
+    </script>
+    <style>
+    .o-list-sections {
+      margin-top: 0;
+    }
+    .o-section__header:focus {
+      outline: 0;
+    }
+    .c-common-questions__summary::-webkit-details-marker {
+      display: none;
+    }
+    .c-common-questions {
+      border: 2px #aeb7bd solid;
+      border-radius: 15px;
+      margin-top: 30px;
+      padding: 8px 16px;
+    }
+    .c-common-questions__summary {
+      display: block;
+    }
+    .c-common-questions__header {
+      background: url(/images/icon-chevron-down-circle.svg) left no-repeat;
+      border-top: 1px solid #ccc;
+      color: #0058ad;
+      cursor: pointer;
+      font-size: 19px;
+      font-weight: normal;
+      line-height: 1.4em;
+      margin-top: 0;
+      padding: 18px 8px 18px 48px;
+    }
+    .c-common-questions__header:hover,
+    .c-common-questions__header:focus {
+      text-decoration: underline;
+    }
+    .c-common-questions__details:first-child .c-common-questions__header {
+      border-top: 0;
+    }
+    .c-common-questions__summary[aria-expanded="true"] .c-common-questions__header {
+      background: url(/images/icon-chevron-up-circle.svg) left no-repeat;
+    }
+    .c-common-questions__content {
+      background: #fff;
+      margin-bottom: 1em;
+      padding: 1em;
+    }
+    .c-common-questions__content p:first-child {
+      margin-top: 0;
+    }
+    .c-pain__header {
+      border-top: none;
+      color: #0058ad;
+      cursor: pointer;
+      font-size: 19px;
+      font-weight: normal;
+      line-height: 1.4em;
+      margin-top: 0;
+      padding: 18px 8px 18px 48px;
+    }
+
+    .expand-help__button[aria-expanded="false"]::before {
+      content: '\25b6\00a0';
+      speak: none;
+    }
+
+    .expand-help__button {
+      font-size: 19px;
+      line-height: 1.3157894737;
+      color: #005ea5;
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+      font-family: "nta", Arial, sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      font-size: 16px;
+      line-height: 1.25;
+      text-decoration: underline;
+      padding: 0;
+      align-items: flex-start;
+text-align: center;
+    }
+
+.expand-help__button[aria-expanded="false"]::before{
+      content: '\25b6\00a0';
+    speak: none;
+
+}
+
+.expand-help__heading {
+
+  font-weight: bold
+}
+
+.form-group:after {
+  content: "";
+display: block;
+clear: both;
+
+
+}
+
+details summary:focus {
+    outline: 3px solid #ffb81c;
+}
+
+ul.painscale  {
+    list-style-image:url('/images/icon-information.svg');
+    margin-top:0px;
+
+}
+
+summary.pain::-webkit-details-marker {
+  display: none
+}
+summary.pain:after {
+  background: #0058ad; 
+  border-radius: 25px; 
+  content: "i"; 
+  color: #fff; 
+  float: left; 
+line-height:1.4em;
+  font-weight: bold; 
+  margin: -1px 20px 10px 0; 
+  padding: 0; 
+  text-align: center; 
+  width: 30px;
+  height: 30px;
+}
+details.pain[open] summary.pain:after {
+  content: "-";
+}
+
+
+
+    </style>
+
+  <div class="example" style="background-color: #e8edee;">
+
+      <h3>Find a pharmacy</h3>
+
+      <ul>
+        <li>Supporting information</li>
+        <li>Sat beneath primary information (e.g. Open until 6pm today)</li>
+      </ul>
+
+      <div  style="background-color: #fff;padding:1em;margin-top:1em;">
+
+          <details class="c-common-questions__details" role="group" >
+            <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+              <h3 class="c-common-questions__header" style="text-decoration:underline ;font-weight: 400;font-size: 20px;">Opening times</h3>
+            </summary>
+            <div class="c-common-questions__content" id="question-1" aria-hidden="true">
+                <table class="openingTimes">
+                    <tbody><tr><th>Day of the week</th><th>Opening hours</th></tr>
+                      <tr>
+                            <th rowspan="1">Monday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1">Tuesday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1">Wednesday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1">Thursday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1">Friday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1">Saturday</th>
+                            <td>9am to 1pm</td>
+                          </tr>
+                          <tr>
+                          <th>Sunday</th>
+                          <td>Closed</td>
+                        </tr>
+                      </tbody></table>
+            </div>
+          </details>
+    
+        </div>
+
+<hr style="margin-top:2em;" />
+
+        <h3>Type 1 Diabetes</h3>
+        <ul>
+          <li>Main page content</li>
+          <li>Primary focus</li>
+          <li>Needs to be prominent</li>
+        </ul>
+
+        <div style="background-color: #fff;padding:1em;margin-top:1em;border: 4px solid #005eb8;">
+  
+            <details class="c-common-questions__details" role="group" >
+              <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+                <h3 class="c-common-questions__header" style="text-decoration:none ;font-weight: 400;font-size: 20px;">When to check your blood glucose level</h3>
+              </summary>
+              <div class="c-common-questions__content" id="question-13" aria-hidden="true" style="padding-left:1em;">
+                  <p>Try to check your blood:</p>
+                    <ul>
+                        <li>before meals</li>
+                        <li>2 to 3 hours after meals</li>
+                        <li>before, during (take a break) and after exercise</li>
+
+
+                    </ul>
+
+
+                  <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+
+
+              </div>
+            </details>
+      
+          </div>
+          <hr style="margin-top:2em;" />
+
+    <h3>Medicines (frequently asked questions)</h3>
+     <ul>
+        <li>Supporting (secondary) information</li>
+        <li>Sat within content, next to related content</li>
+
+     </ul>
+   
+    <div class="c-common-questions">
+
+      <details class="c-common-questions__details" role="group" >
+        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+          <h3 class="c-common-questions__header">Will it affect my contraception?</h3>
+        </summary>
+        <div class="c-common-questions__content" id="question-13" aria-hidden="true">
+          <p>Propranolol won't stop your contraception working.</p>
+          <p>However, some types of hormonal methods of contraception, like the <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/combined-contraceptive-pill.aspx">combined contraceptive pill</a> and <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/contraceptive-patch.aspx">contraceptive patch</a>, aren't usually recommended for women taking propranolol and other medicines for <a href="https://www.nhs.uk/conditions/Blood-pressure-(high)/Pages/Introduction.aspx">high blood pressure</a>. This is because some hormonal contraceptives can raise your blood pressure and stop propranolol working properly.</p>
+          <p>Talk to your doctor if you're taking a hormonal contraceptive.</p>
+        </div>
+      </details>
+
+    </div>
+    <hr style="margin-top:2em;" />
+
+    <h3>Find a chlamydia test</h3>
+    <ul>
+      <li>Supporting information</li>
+      <li>Sat beneath main information</li>
+
+    </ul>
+
+
+      <div style="padding:32px;background-color: #fff;margin-top:1em;">
+    
+        <details >
+
+      
+          <summary style="font-size: 24px;margin-top: 0;padding-top: 0;font-weight: 600;text-decoration:underline;    color: #005eb8;">Scotland</summary>
+          <p>To find a chlamydia test in Scotland:</p>
+
+          <ul>
+            <li>use the <a href="http://www.sexualhealthscotland.co.uk/get-help/sexual-health-service-finder" class="scotland_finder_tracking">Sexual Health Scotland website</a></li>
+            <li>call Sexual Health Scotland on <a href="tel:0800224488" class="scotland_helpline_tracking">0800 22 44 88</a> (open Monday to Friday, 8am to 10pm; Saturday and Sunday, 9am to 5pm)</li>
+          </ul>
+          <p><a href="https://www.gov.uk/call-charges" class="details__call-charges">Find out about call charges on GOV.UK</a></p>
+        </details>
+
+      </div>
+
+
+      <hr style="margin-top:2em;" />
+
+<h3>Your NHS data matters</h3>
+<ul>
+    <li>Supporting information</li>
+    <li>Sat beneath main content</li>
+    <li>Transational service</li>
+
+  </ul>
+
+      <div>
+    
+          <details style="padding-top:2em;">
+  
+        
+            <summary style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Where can I find my NHS number?</summary>
+            <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+
+            <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+            
+            <ul>
+            <li>prescriptions</li>
+            <li>test results</li>
+            <li>hospital referral letters</li>
+            <li>appointment letters</li>
+            <li>your NHS medical card</li>
+            </ul>
+            
+            <p>Ask your GP practice for help if you can't find your NHS number.</p>
+          </details>
+  
+        </div>
+
+
+
+        <hr style="margin-top:2em;" />
+
+        <h3>Pain scale</h3>
+        <ul>
+            <li>Supporting information</li>
+            <li>Sat beneath main content</li>
+        </ul>
+
+        <details style="padding-top:2em;" class="pain">
+  
+        
+            <summary class="pain" style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Pain scale</summary>
+            <div class="pain-scale-table" style="margin-top: 0px; display: block;">
+                <ul class="pain-scale-table_inner">
+                    <li class="pain-type severe-pain">
+                        <div class="pain-left">
+                            <img class="severe-pain-point" src="/static/nhsuk/img/icon-bullet-pain-scale.svg"> Severe pain:
+                        </div>
+                        <div class="pain-right">
+                            <ul>
+                                <li>always there and so bad it’s hard to think or talk</li>
+                                <li>you can’t sleep</li>
+                                <li>it’s very hard to move, get out of bed, go to the bathroom, wash or dress</li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li class="pain-type">
+                        <div class="pain-left">
+                            <img class="moderate-pain-point" src="/static/nhsuk/img/icon-bullet-pain-scale.svg"> Moderate pain:
+                        </div>
+                        <div class="pain-right">
+                            <ul>
+                                <li>always there</li>
+                                <li>makes it hard to concentrate or sleep</li>
+                                <li>you can manage to get up, wash or dress</li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li class="pain-type mild-pain">
+                        <div class="pain-left">
+                            <img class="mild-pain-point" src="/static/nhsuk/img/icon-bullet-pain-scale.svg"> Mild pain:
+                        </div>
+                        <div class="pain-right">
+                        <ul>
+                            <li>comes and goes</li>
+                            <li>is annoying but doesn’t stop you doing things like going to work</li>
+                        </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </div>
+
+
+          </details>
+
+
+
+
+
+
+
+
+  
+  </div>
+
+  <div class="example-snippet">
+
+  </div>
+
+{% endblock %}

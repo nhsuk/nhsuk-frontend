@@ -49,6 +49,12 @@ router.get('/styles/images', (req, res) => {
   res.render('styles/images', {});
 });
 
+router.get('/styles/reveals', (req, res) => {
+  res.render('styles/reveals', {});
+});
+
+
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
