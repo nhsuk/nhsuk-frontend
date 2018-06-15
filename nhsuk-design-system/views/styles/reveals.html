@@ -20,7 +20,7 @@
 {% block content %}
 
   <h2 id="rules">Rules</h2>
-  
+
 
   <ul>
     <li>consider the context</li>
@@ -40,7 +40,7 @@
       </ul>
 
       <p>From the Android design principles:</p>
- 
+
       <p>"Only show what I need when I need it. People get overwhelmed when they see too much at once. Break tasks and information into small, digestible chunks. Hide options that aren't essential at the moment, and teach people as they go." http://developer.android.com/design/get-started/principles.html</p>
 
 
@@ -51,10 +51,10 @@
   <ul>
     <li>As a user I WANT further related information (on a specific point), so that I can quickly identify my health problem / manage my health</li>
   </ul>
-  
+
 
   <h2 id="example">Example</h2>
-  
+
 
   <script>
     // <details> polyfill
@@ -335,16 +335,16 @@ summary.pain::-webkit-details-marker {
   display: none
 }
 summary.pain:after {
-  background: #0058ad; 
-  border-radius: 25px; 
-  content: "i"; 
-  color: #fff; 
-  float: left; 
+  background: #0058ad;
+  border-radius: 25px;
+  content: "i";
+  color: #fff;
+  float: left;
 line-height:1.4em;
-  font-weight: bold; 
-  margin: -1px 20px 10px 0; 
-  padding: 0; 
-  text-align: center; 
+  font-weight: bold;
+  margin: -1px 20px 10px 0;
+  padding: 0;
+  text-align: center;
   width: 30px;
   height: 30px;
 }
@@ -368,7 +368,7 @@ details.pain[open] summary.pain:after {
       <div  style="background-color: #fff;padding:1em;margin-top:1em;">
 
           <details class="c-common-questions__details" role="group" >
-            <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+            <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
               <h3 class="c-common-questions__header" style="text-decoration:underline ;font-weight: 400;font-size: 20px;">Opening times</h3>
             </summary>
             <div class="c-common-questions__content" id="question-1" aria-hidden="true">
@@ -405,7 +405,7 @@ details.pain[open] summary.pain:after {
                       </tbody></table>
             </div>
           </details>
-    
+
         </div>
 
 <hr style="margin-top:2em;" />
@@ -418,12 +418,12 @@ details.pain[open] summary.pain:after {
         </ul>
 
         <div style="background-color: #fff;padding:1em;margin-top:1em;border: 4px solid #005eb8;">
-  
+
             <details class="c-common-questions__details" role="group" >
-              <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+              <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-2" role="button">
                 <h3 class="c-common-questions__header" style="text-decoration:none ;font-weight: 400;font-size: 20px;">When to check your blood glucose level</h3>
               </summary>
-              <div class="c-common-questions__content" id="question-13" aria-hidden="true" style="padding-left:1em;">
+              <div class="c-common-questions__content" id="question-2" aria-hidden="true" style="padding-left:1em;">
                   <p>Try to check your blood:</p>
                     <ul>
                         <li>before meals</li>
@@ -439,7 +439,7 @@ details.pain[open] summary.pain:after {
 
               </div>
             </details>
-      
+
           </div>
           <hr style="margin-top:2em;" />
 
@@ -449,14 +449,14 @@ details.pain[open] summary.pain:after {
         <li>Sat within content, next to related content</li>
 
      </ul>
-   
+
     <div class="c-common-questions">
 
       <details class="c-common-questions__details" role="group" >
-        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-13" role="button">
+        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-3" role="button">
           <h3 class="c-common-questions__header">Will it affect my contraception?</h3>
         </summary>
-        <div class="c-common-questions__content" id="question-13" aria-hidden="true">
+        <div class="c-common-questions__content" id="question-3" aria-hidden="true">
           <p>Propranolol won't stop your contraception working.</p>
           <p>However, some types of hormonal methods of contraception, like the <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/combined-contraceptive-pill.aspx">combined contraceptive pill</a> and <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/contraceptive-patch.aspx">contraceptive patch</a>, aren't usually recommended for women taking propranolol and other medicines for <a href="https://www.nhs.uk/conditions/Blood-pressure-(high)/Pages/Introduction.aspx">high blood pressure</a>. This is because some hormonal contraceptives can raise your blood pressure and stop propranolol working properly.</p>
           <p>Talk to your doctor if you're taking a hormonal contraceptive.</p>
@@ -475,11 +475,13 @@ details.pain[open] summary.pain:after {
 
 
       <div style="padding:32px;background-color: #fff;margin-top:1em;">
-    
+
         <details >
 
-      
-          <summary style="font-size: 24px;margin-top: 0;padding-top: 0;font-weight: 600;text-decoration:underline;    color: #005eb8;">Scotland</summary>
+
+          <summary aria-expanded="false" tabindex="0" aria-controls="question-4" role="button" style="font-size: 24px;margin-top: 0;padding-top: 0;font-weight: 600;text-decoration:underline;    color: #005eb8;">Scotland</summary>
+
+          <div id="question-4" aria-hidden="true">
           <p>To find a chlamydia test in Scotland:</p>
 
           <ul>
@@ -487,6 +489,7 @@ details.pain[open] summary.pain:after {
             <li>call Sexual Health Scotland on <a href="tel:0800224488" class="scotland_helpline_tracking">0800 22 44 88</a> (open Monday to Friday, 8am to 10pm; Saturday and Sunday, 9am to 5pm)</li>
           </ul>
           <p><a href="https://www.gov.uk/call-charges" class="details__call-charges">Find out about call charges on GOV.UK</a></p>
+        </div>
         </details>
 
       </div>
@@ -503,15 +506,16 @@ details.pain[open] summary.pain:after {
   </ul>
 
       <div>
-    
+
           <details style="padding-top:2em;">
-  
-        
-            <summary style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Where can I find my NHS number?</summary>
+
+
+            <summary aria-expanded="false" tabindex="0" aria-controls="question-5" role="button" style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Where can I find my NHS number?</summary>
+            <div id="question-5" aria-hidden="true">
             <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
 
             <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-            
+
             <ul>
             <li>prescriptions</li>
             <li>test results</li>
@@ -519,10 +523,11 @@ details.pain[open] summary.pain:after {
             <li>appointment letters</li>
             <li>your NHS medical card</li>
             </ul>
-            
+
             <p>Ask your GP practice for help if you can't find your NHS number.</p>
+          </div>
           </details>
-  
+
         </div>
 
 
@@ -536,9 +541,10 @@ details.pain[open] summary.pain:after {
         </ul>
 
         <details style="padding-top:2em;" class="pain">
-  
-        
-            <summary class="pain" style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Pain scale</summary>
+
+
+            <summary aria-expanded="false" tabindex="0" aria-controls="question-6" role="button" class="pain" style="font-size: 20px;margin-top: 0;padding-top: 0;text-decoration:underline;    color: #005eb8;font-weight: 400;line-height: 32px;">Pain scale</summary>
+            <div id="question-6" aria-hidden="true">
             <div class="pain-scale-table" style="margin-top: 0px; display: block;">
                 <ul class="pain-scale-table_inner">
                     <li class="pain-type severe-pain">
@@ -582,7 +588,7 @@ details.pain[open] summary.pain:after {
                 </ul>
             </div>
 
-
+          </div>
           </details>
 
 
@@ -592,7 +598,7 @@ details.pain[open] summary.pain:after {
 
 
 
-  
+
   </div>
 
   <div class="example-snippet">
