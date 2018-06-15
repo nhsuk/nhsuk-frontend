@@ -30,8 +30,8 @@ $nhsuk-light-yellow: #FFF7E8;
 }
 
 .nhsuk-c-callout__warning {
-  @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
-  border-top: 8px solid $nhsuk-yellow;
+  @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
+  border-top: 8px solid $nhsuk-warm-yellow;
   color: $nhsuk-black;
   &:before {
       background-image: url(../images/callout-warning.svg);
@@ -45,8 +45,8 @@ $nhsuk-light-yellow: #FFF7E8;
 }
 
 .nhsuk-c-callout__warning-v5 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
-    background: #FAE200;
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
+    background: $nhsuk-yellow;
     color: $nhsuk-black;
     margin: 56px 0;
     @include mq($until: tablet) {
@@ -64,9 +64,9 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v6 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
-    background: lighten(#FAE200,35%);
-    border-top: 8px solid #FAE200;
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
+    background: lighten($nhsuk-yellow,35%);
+    border-top: 8px solid $nhsuk-yellow;
     color: $nhsuk-black;
     margin: 56px 0;
     @include mq($until: tablet) {
@@ -84,7 +84,7 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v7 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
     background: white;
     border-top: 8px solid $nhsuk-red;
     color: $nhsuk-black;
@@ -104,7 +104,7 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v8 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
     background: transparent;
     color: $nhsuk-black;
     margin: 56px 0;
@@ -134,7 +134,7 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v9 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
     background: white;
     color: $nhsuk-black;
     margin: 56px 0;
@@ -164,8 +164,8 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v10 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
-    border-top: 8px solid $nhsuk-yellow;
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
+    border-top: 8px solid $nhsuk-warm-yellow;
     color: $nhsuk-black;
     &:before {
         background-image: url(../images/callout-warning.svg);
@@ -182,8 +182,8 @@ $nhsuk-light-yellow: #FFF7E8;
   }
 
   .nhsuk-c-callout__warning-v11 {
-    @include nhsuk-c-callout(#FFFFFF,$nhsuk-yellow);
-    border-top: 8px solid #FAE200;
+    @include nhsuk-c-callout(#FFFFFF,$nhsuk-warm-yellow);
+    border-top: 8px solid $nhsuk-yellow;
     color: $nhsuk-black;
     &:before {
         background-image: url(../images/callout-warning-icon-yellow.svg);
@@ -203,11 +203,11 @@ $nhsuk-light-yellow: #FFF7E8;
     margin-left: auto !important;
     margin-right: auto !important;
     width: 100%;
-    background: #fff;
+    background: tint($nhsuk-yellow, 60%);
     margin: 56px 0;
     padding: 32px 24px;
     position: relative;
-    /*border-top: 8px solid #FAE200;*/
+    /*border-top: 8px solid $nhsuk-yellow;*/
     color: $nhsuk-black;
 
     @include mq($until: tablet) {
@@ -216,7 +216,7 @@ $nhsuk-light-yellow: #FFF7E8;
 
     &:before {
         content:'Important';
-        background: #FAE200;
+        background: $nhsuk-yellow;
         font-size: 1.26316em;
         font-weight: 600;
         left: -8px;
@@ -229,7 +229,7 @@ $nhsuk-light-yellow: #FFF7E8;
             font-size: 1.25em;
             left:-4px;
             line-height: 28px;
-            padding: 4px 28px;
+            padding: 4px 16px;
             top: -4px;
         }
     }
@@ -307,8 +307,8 @@ $nhsuk-light-yellow: #FFF7E8;
 }
 
 .nhsuk-c-callout__warning-v2 {
-  @include nhsuk-c-callout-v2(#FFFFFF,$nhsuk-yellow);
-  border: 4px solid $nhsuk-yellow;
+  @include nhsuk-c-callout-v2(#FFFFFF,$nhsuk-warm-yellow);
+  border: 4px solid $nhsuk-warm-yellow;
   color: $nhsuk-black;
   &:before {
       background-image: url(../images/callout-warning-v2.svg);
@@ -316,8 +316,8 @@ $nhsuk-light-yellow: #FFF7E8;
 }
 
 .nhsuk-c-callout__warning-v3 {
-  @include nhsuk-c-callout-v2(#FAE200,#FAE200);
-  border: 4px solid #FAE200;
+  @include nhsuk-c-callout-v2($nhsuk-yellow,$nhsuk-yellow);
+  border: 4px solid $nhsuk-yellow;
   color: $nhsuk-black;
   &:before {
       background-image: url(../images/callout-warning-v2-black.svg);
@@ -329,8 +329,8 @@ $nhsuk-light-yellow: #FFF7E8;
     @include top-and-bottom();
     padding: 32px;
     margin: 56px 0;
-    background: lighten($nhsuk-yellow,35%);
-    border-left: 16px solid $nhsuk-yellow;
+    background: lighten($nhsuk-warm-yellow,35%);
+    border-left: 16px solid $nhsuk-warm-yellow;
     color: $nhsuk-black;
     @include mq($until: tablet) {
         padding: 24px;
@@ -388,7 +388,7 @@ $nhsuk-light-yellow: #FFF7E8;
 .nhsuk-c-keypoint-v2 {
     @include reading-width-content();
     @include top-and-bottom();
-    border-left: 8px solid #41B6E6;
+    border-left: 8px solid $nhsuk-light-blue;
     margin: 40px 0;
     padding: 8px 24px;
     @include mq($until: tablet) {

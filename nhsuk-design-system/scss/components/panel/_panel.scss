@@ -1,43 +1,62 @@
 //do and don't list * needs re-engineering *
 
 .nhsuk-c-panel {
-  @include nhsuk-component-center();
   @include top-and-bottom();
   background: rgba(255,255,255,0.6);
-  //border-top: 8px solid $nhsuk-blue;
   color: $nhsuk-secondary-text-colour;
   margin: 56px 0;
-  padding: 36px 24px 32px 24px;
+  padding: 24px;
   position:relative;
   @include mq($until: tablet) {
     margin: 40px 0;
-      padding: 32px 24px 24px;
   }
 }
 
-.nhsuk-c-panel__with-header {
+.nhsuk-c-panel__with-header-tab {
+  padding-top:0;
   h3 {
-      @include nhsuk-tab();
       background: $nhsuk-blue;
       color: white;
+      display: inline-block;
+      margin: 0 -12px 16px -32px;
       padding: 8px 30px;
+      position: relative;
       top: -8px;
       @include mq($until: tablet) {
-          padding: 4px 28px;
-          top: -4px;
+        margin: 0 -16px 16px -28px;
+        padding: 4px 16px;
+        top: -4px;
       }
-      &.green{
-        background: $nhsuk-green;
+
+      & + p {
+        margin-top: 0;
       }
-      &.red{
-        background: $nhsuk-red;
-      }
+  }
+  &.green {
+    h3 {
+      background: $nhsuk-green;
+    }
+  }
+  &.red {
+    h3 {
+      background: $nhsuk-red;
+    }
+  }
+}
+
+.nhsuk-c-panel__warning {
+  background: $nhsuk-yellow-tint-60;
+  color: $nhsuk-text-colour;
+  h3 {
+    background: $nhsuk-yellow;
+    color: $nhsuk-text-colour;
   }
 }
 
 .list--check,
 .list--cross {
   list-style: none;
+  margin-top: 0;
   padding-left: 40px;
 }
 
