@@ -20,23 +20,29 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Our rules are</h2>
-    <ul>
-        <li>spacing is multiples of 8px</li>
-        <li>line heights are multiples of 4px</li>
-    </ul>
-    <h2 id="typography_spacing">Spacing</h2>
+    <h2 id="typograph-spacing">Spacing</h2>
+
     <p>We have used single-direction margin declarations to easily define <a href="https://www.futurehosting.com/blog/web-design-basics-what-is-vertical-rhythm/" rel="external">vertical rhythm (external link)</a>.</p>
+
     <p>We currently use pixels (px) for margin spacing however these will be converted to ems after testing.</p>
-    </h2>
+
+    <h3>Spacing rules</h3>
+
+    <ul>
+      <li>spacing is multiples of 8px</li>
+      <li>line heights are multiples of 4px</li>
+    </ul>
 
     <h2 id="typography-headings">Headings</h2>
+
     <h3>H1 (nhsuk-heading-xl) sizes:</h3>
+
     <ul>
         <li>Desktop: 48 / 56 - margin 72px</li>
         <li>Mobile: 32 / 36 - margin 56px</li>
     </ul>
-    <h3 class="nhsuk-heading-xs">H2 (nhsuk-heading-l) sizes:</h3>
+
+    <p>You can use the utility class <span class="example-code-snippet">nhsuk-heading-xl</span> to get the sizing of H1 on non H1 elements.</p>
 
     <div class="example">
       <h1>The quick brown fox jumps over the lazy dog</h1>
@@ -52,7 +58,8 @@
         <li>Desktop: 32 / 40 - margin 72px</li>
         <li>Mobile: 24 / 32 - margin 56px</li>
     </ul>
-    <h3 class="nhsuk-heading-xs">H3 (nhsuk-heading-m) sizes:</h3>
+
+    <p>You can use the utility class <span class="example-code-snippet">nhsuk-heading-l</span> to get the sizing of H2 on non H2 elements.</p>
 
     <div class="example">
       <h2>The quick brown fox jumps over the lazy dog</h2>
@@ -68,7 +75,8 @@
         <li>Desktop: 24 / 32 - margin 40px</li>
         <li>Mobile: 20 / 28 - margin 32px</li>
     </ul>
-    <h3 class="nhsuk-heading-xs">H4 (nhsuk-heading-s) sizes:</h3>
+
+    <p>You can use the utility class <span class="example-code-snippet">nhsuk-heading-m</span> to get the sizing of H3 on non H3 elements.</p>
 
     <div class="example">
       <h3>The quick brown fox jumps over the lazy dog</h3>
@@ -84,7 +92,8 @@
         <li>Desktop: 22 / 32 - margin 32px</li>
         <li>Mobile: 18 / 28 - margin 24px</li>
     </ul>
-    <h3 class="nhsuk-heading-xs">H5 (nhsuk-heading-xs) sizes:</h3>
+
+    <p>You can use the utility class <span class="example-code-snippet">nhsuk-heading-s</span> to get the sizing of H4 on non H4 elements.</p>
 
     <div class="example">
       <h4>The quick brown fox jumps over the lazy dog</h4>
@@ -100,6 +109,9 @@
         <li>Desktop: 19 / 28 - margin 24px</li>
         <li>Mobile: 16 / 24 - margin 16px</li>
     </ul>
+
+    <p>You can use the utility class <span class="example-code-snippet">nhsuk-heading-xs</span> to get the sizing of H5 on non H5 elements.</p>
+
     <div class="example">
       <h5>The quick brown fox jumps over the lazy dog</h5>
     </div>
@@ -195,7 +207,7 @@
 
     <div class="example-snippet">
      <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-9">Copy</button>
-     <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-list nhsuk-list-bullet<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+     <pre class="language-markup" id="clipboard-9"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-list nhsuk-list-bullet<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>national<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>health<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>service<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>

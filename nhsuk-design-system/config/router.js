@@ -49,6 +49,12 @@ router.get('/styles/images', (req, res) => {
   res.render('styles/images', {});
 });
 
+router.get('/styles/reveals', (req, res) => {
+  res.render('styles/reveals', {});
+});
+
+
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
@@ -225,6 +231,10 @@ router.get('/examples/test-general-eye-care', (req, res) => {
 
 router.get('/examples/test-general-prescription-costs', (req, res) => {
   res.render('examples/test-general-prescription-costs', {});
+});
+
+router.get('/examples/test-general-dental-costs', (req, res) => {
+  res.render('examples/test-general-dental-costs', {});
 });
 
 router.get('/examples/test-home', (req, res) => {
