@@ -2,12 +2,14 @@
 	padding: 30px;
 	margin: 40px 0;
 	background: $nhsuk-white;
-	border-bottom: 1px solid $nhsuk-border-colour;
-	h2{
+	border-bottom:$nhsuk-grey-3 2px solid;
+	
+	.nhsuk-heading-s{
 		margin-top: 0;
 		font-weight: 400;
 	}
 	ul,ol{
+		margin-top:16px;
 		display: block;
 		-moz-column-count: 2;
 		-moz-column-gap: 80px;
@@ -15,5 +17,28 @@
 		-webkit-column-gap: 80px;
 		column-count: 2;
 		column-gap: 80px;
+
+		@media screen and (max-width: 990px) {
+			-moz-column-count: 1;
+			-webkit-column-count: 1;
+			column-count: 1;
+		}
+
+		li{
+			list-style: none;
+			position: relative;
+
+			a{
+				display: inline-block;
+				padding: 0 0 0 28px;
+			}
+
+			&:before{
+				content: '\2014';
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
 	}
 }
