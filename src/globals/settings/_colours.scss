@@ -2,12 +2,15 @@
 
 // Primary colours
 
-$nhsuk-blue: #0058AD;
+$nhsuk-blue: #005EB8;
+$nhsuk-light-blue: #41B6E6;
+$nhsuk-aqua-blue: #00A9CE;
 $nhsuk-white: #FFFFFF;
 $nhsuk-black: #212B32;
 $nhsuk-green: #007F3B;
 $nhsuk-red: #AD1F19;
-$nhsuk-yellow: #FFB81C;
+$nhsuk-yellow: #FAE200;
+$nhsuk-warm-yellow: #FFB81C;
 $nhsuk-purple: #330072;
 
 // Greyscale
@@ -49,9 +52,13 @@ $nhsuk-green-shade-50: shade($nhsuk-green, 50%); // used for primary button :act
 
 // nhsuk-yellow variations
 
-$nhsuk-yellow-tint-90: tint($nhsuk-yellow, 90%); // used for link :hover states
-$nhsuk-yellow-tint-30: tint($nhsuk-yellow, 30%); // used for link :hover states
-$nhsuk-yellow-tint-10: tint($nhsuk-yellow, 10%); // used for link :active states
+$nhsuk-yellow-tint-60: tint($nhsuk-yellow, 60%); // used for warning callout background
+
+// nhsuk-warm-yellow variations
+
+$nhsuk-warm-yellow-tint-90: tint($nhsuk-warm-yellow, 90%); // used for link :hover states
+$nhsuk-warm-yellow-tint-30: tint($nhsuk-warm-yellow, 30%); // used for link :hover states
+$nhsuk-warm-yellow-tint-10: tint($nhsuk-warm-yellow, 10%); // used for link :active states
 
 // nhsuk-red variations
 
@@ -74,9 +81,9 @@ $nhsuk-link-hover-colour: $nhsuk-black;
 $nhsuk-link-focus-colour: $nhsuk-black;
 $nhsuk-link-active-colour: $nhsuk-black-tint-10;
 $nhsuk-link-visited-colour: $nhsuk-purple;
-$nhsuk-link-hover-background-colour: $nhsuk-yellow-tint-30;
-$nhsuk-link-focus-background-colour: $nhsuk-yellow;
-$nhsuk-link-active-background-colour: $nhsuk-yellow-tint-10;
+$nhsuk-link-hover-background-colour: $nhsuk-warm-yellow-tint-30;
+$nhsuk-link-focus-background-colour: $nhsuk-warm-yellow;
+$nhsuk-link-active-background-colour: $nhsuk-warm-yellow-tint-10;
 
 // Border colours
 
@@ -92,4 +99,4 @@ $nhsuk-secondary-button-hover-colour: $nhsuk-blue-shade-35;
 
 // Focus colours
 
-$nhsuk-focus-colour: $nhsuk-yellow;
+$nhsuk-focus-colour: $nhsuk-warm-yellow;
