@@ -241,4 +241,28 @@ router.get('/examples/test-home', (req, res) => {
   res.render('examples/test-home', {});
 });
 
+router.get('/examples/allergies', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-overview', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-overview', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-overview', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-symptoms', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-symptoms', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-diagnosis', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-diagnosis', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-treatment', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-treatment', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-prevention', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-prevention', {});
+});
+
 module.exports = router;

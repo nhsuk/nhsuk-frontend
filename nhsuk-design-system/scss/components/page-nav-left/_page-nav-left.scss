@@ -1,0 +1,45 @@
+.nhsuk-c-page-nav-left{
+    padding: 0 0 24px 0;
+    .nhsuk-heading-s{
+        margin-top: 0;
+        padding: 0 0 16px 0;
+        font-weight: 400;
+        border-bottom: $nhsuk-grey-3 1px solid;
+        position: relative;
+        
+        @media screen and (max-width: 640px) {
+            padding: 0 0 16px 42px;
+            color: $nhsuk-link-colour;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:before{
+                content: '';
+                width: 36px;
+                height: 36px;
+                display: block;
+                background: url(../images/icon-chevron-down-circle.svg) left center no-repeat;
+                background-size: 36px 36px;
+                position: absolute;
+                top: -4px;
+                left: 0;
+            }
+
+            &.open:before{
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+    }
+    ul,ol{
+        list-style: none;
+        padding-left:0;
+    }
+    @media screen and (max-width: 640px) {
+        padding: 16px 0 24px 0;
+
+        .nhsuk-list-nav{
+            display:none;
+        }
+    }
+}
