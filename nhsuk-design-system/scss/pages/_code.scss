@@ -7,7 +7,7 @@
   overflow: hidden;
   padding: 64px 16px 16px;
   position: relative;
-  @include mq($from: tablet) {
+  @include mq($from: grid-collapse) {
     padding: 64px 32px 32px;
   }
   &:before {

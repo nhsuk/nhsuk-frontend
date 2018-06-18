@@ -13,7 +13,7 @@
   left: -8px;
   position: absolute;
   top: -16px;
-  @include mq($until: tablet) {
+  @include mq($until: grid-collapse) {
       left: -4px;
       top: -12px;
   }
@@ -23,7 +23,7 @@
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100%;
-  @include mq($until: tablet) {
+  @include mq($until: grid-collapse) {
       width: 100%;
   }
 }
