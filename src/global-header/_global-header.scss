@@ -22,6 +22,11 @@ $alpha: .5;
         height: 40px;
         width: 99px;
       }
+
+      &:hover {
+        box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+      }
+
     }
   }
 
@@ -38,21 +43,37 @@ $alpha: .5;
     float: left;
     margin: 20px;
 
-    .menu-toggle {
+    .menu-toggle__button {
       border: 1px solid $nhsuk-white;
       border-radius: 4px;
       color: $nhsuk-white;
       display: block;
-      font-size: $nhsuk-base-font-size;
+      font-size: 18px;
+      font-weight: 400;
       line-height: $nhsuk-base-line-height;
       padding: 5px 15px;
       text-decoration: none;
 
-      &:hover,
-      &:focus {
-        background: $nhsuk-secondary-button-hover-colour;
+      &:hover {
+        background: $nhsuk-blue-shade-35;
+        border-color: $nhsuk-grey-5;
         box-shadow: none;
       }
+
+      &:focus {
+        background-color: transparent;
+        border-color: $nhsuk-focus-colour;
+        box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+      }
+
+      &:active,
+      &.active {
+        background: $nhsuk-blue-shade-50;
+        border-color: $nhsuk-grey-5;
+        box-shadow: none;
+        color: $nhsuk-grey-5;
+      }
+
     }
   }
 
@@ -64,49 +85,84 @@ $alpha: .5;
 
     &__search {
       float: left;
-      margin: 19px 0;
+      margin: 20px 0;
 
       .c-search__input {
-        -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 0;
         border-top-left-radius: 4px;
+        border-top-right-radius: 0;
         display: block;
         float: left;
-        font-size: inherit;
+        font-size: 16px;
         height: 40px;
-        padding: 0 15px 0 10px;
+        padding: 0 15px 0 12px;
+        width: 235px;
+
+        &::placeholder {
+          color: $nhsuk-grey-2;
+          font-size: 16px;
+        }
+
+        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
+          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        }
 
         &.js-search-open {
           border-bottom-left-radius: 0;
         }
+
+        &:focus {
+          border: 1px solid $nhsuk-focus-colour;
+          box-shadow: 0 0 0 3px inset $nhsuk-focus-colour;
+          outline: none;
+        }
+
       }
 
-
-
       .c-search__submit {
-        background: $nhsuk-white url(/images/icon-search-small-blue.svg) center no-repeat;
+        background-color: $nhsuk-grey-5;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='27px' width='27px'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+        background-position: center;
+        background-repeat: no-repeat;
         border: 0;
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
-        border-left: 2px solid $nhsuk-blue;
+        border-top-left-radius: 0;
         border-top-right-radius: 4px;
         display: block;
         float: left;
         font-size: inherit;
         height: 40px;
         line-height: inherit;
-        padding: 0 20px;
+        outline: none;
         text-indent: -9999px;
-        width: 40px;
+        width: 44px;
+
+        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+          border: 0;
+        }
 
         &.js-search-open {
           border-bottom-right-radius: 0;
         }
 
-        &:hover,
         &:focus {
-          background: $nhsuk-secondary-button-hover-colour url(/images/icon-search-small-white.svg) center no-repeat;
+          box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
         }
+
+        &:hover {
+          background-color: $nhsuk-blue-shade-35;
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='27px' width='27px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 converts single to double quotes
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: $nhsuk-blue-shade-50;
+        }
+
       }
     }
 
@@ -125,6 +181,7 @@ $alpha: .5;
       &.js-show {
         display: flex;
       }
+
     }
 
     .c-search {
@@ -133,37 +190,77 @@ $alpha: .5;
       text-align: left;
 
       &__container {
-        border: 1px solid $nhsuk-grey-3;
-        border-radius: 4px;
         display: flex;
       }
 
       &__input {
-        -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-        border: 0;
+        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
+        border-bottom: 1px solid $nhsuk-grey-3;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 0;
+        border-left: 1px solid $nhsuk-grey-3;
+        border-right: 0;
+        border-top: 1px solid $nhsuk-grey-3;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 0;
         flex-grow: 2;
         font-size: inherit;
-        margin: 1px;
-        padding: 10px;
+        height: 52px;
+        margin: 0;
+        outline: none;
+        padding: 0 10px;
+        width: 100%;
+
+        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
+          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+        }
+
+      }
+
+      &::placeholder {
+        color: $nhsuk-grey-2;
+        font-size: 16px;
       }
 
       &__submit {
-        background: $nhsuk-green url(/images/icon-search-large.svg) center no-repeat;
+        background-color: $nhsuk-green;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='38px' width='38px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+        background-position: center;
+        background-repeat: no-repeat;
         border: 0;
-        border-bottom-right-radius: 2px;
-        border-top-right-radius: 2px;
-        cursor: pointer;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 4px;
         float: right;
         font-size: inherit;
         line-height: inherit;
-        min-height: 42px;
-        padding: 0 24px;
+        margin: 0;
+        outline: none;
+        padding: 0 26px;
         text-indent: -9999px;
 
-        &:hover,
-        &:focus {
-          background: $nhsuk-secondary-button-hover-colour url(/images/icon-search-small-white.svg) center no-repeat;
+        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+          border: 0;
         }
+
+        &:hover {
+          background-color: $nhsuk-button-hover-colour;
+          cursor: pointer;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+        }
+
+        &:active {
+          background-color: $nhsuk-button-active-colour;
+        }
+
       }
     }
 
@@ -180,8 +277,9 @@ $alpha: .5;
       text-align: right;
 
       &.js-show {
-        border-bottom: 1px solid $nhsuk-grey-4;
+        border-bottom: 4px solid $nhsuk-grey-5;
       }
+      
     }
 
     .nhsuk-global-header__menu {
@@ -189,8 +287,8 @@ $alpha: .5;
       display: inline-block;
       float: none;
 
-      .menu-toggle {
-        margin-right: 55px;
+      .menu-toggle__button {
+        margin-right: 52px;
       }
 
     }
@@ -201,42 +299,72 @@ $alpha: .5;
       display: flex;
 
       .search-toggle__button {
-        background: url(/images/icon-search-small-white.svg) center no-repeat;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='21px' width='21px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+        background-position: center;
+        background-repeat: no-repeat;
         border: 1px solid $nhsuk-white;
         border-radius: 4px;
         color: $nhsuk-white;
         cursor: pointer;
         margin: 20px 0;
         min-height: 40px;
-        padding: 5px 22px;
+        padding: 5px 19px;
         position: absolute;
-        right: 15px;
+        right: 16px;
         text-align: left;
         text-indent: -9999px;
         top: 0;
 
-        &:hover,
-        &:focus {
-          background-color: $nhsuk-secondary-button-hover-colour;
+        &:hover {
+          background-color: $nhsuk-blue-shade-35;
+          border-color: $nhsuk-grey-5;
           box-shadow: none;
+        }
+
+        &:focus {
+          background-color: transparent;
+          border-color: $nhsuk-focus-colour;
+          box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+        }
+
+        &:active,
+        &.active {
+          background-color: $nhsuk-blue-shade-50;
+          border-color: $nhsuk-grey-5;
+          box-shadow: none;
+          color: $nhsuk-grey-5;
         }
 
       }
 
     }
 
-    .search-close-link {
-      background: url(/images/icon-close.svg) center no-repeat;
+    .search-close__link {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+      background-position: center;
+      background-repeat: no-repeat;
       cursor: pointer;
       display: block;
       float: right;
-      height: 26px;
-      margin-left: 15px;
-      margin-right: 23px;
-      margin-top: 25px;
+      height: 40px;
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 22px;
       text-align: left;
       text-indent: -9999px;
-      width: 26px;
+      width: 40px;
+
+      &:hover {
+        background-color: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%23003970;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+        box-shadow: none;
+      }
+
+      &:focus {
+        background-color: transparent;
+        border-radius: 4px;
+      }
+
     }
 
   }
@@ -254,14 +382,15 @@ $alpha: .5;
   border-left: 1px solid $nhsuk-grey-4;
   border-right: 1px solid $nhsuk-grey-4;
   border-top: 2px solid $nhsuk-blue;
-  box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
+  box-shadow: 0 0 3px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
   height: auto;
   list-style: none;
   max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 10px 15px;
+  padding: 10px 15px 18px;
   position: absolute;
+  z-index: 1;
 }
 
 @include mq($until: tablet) {
@@ -280,19 +409,31 @@ $alpha: .5;
 
 .ui-prepend {
   border-bottom: 1px solid $nhsuk-grey-4;
-  padding-bottom: 10px;
+  color: $nhsuk-text-colour;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 12px;
   text-align: left;
 }
 
 .ui-menu-item {
-  background: url(/images/icon-search-small-grey.svg) left 5px no-repeat;
-  border-bottom: 1px solid $nhsuk-grey-4;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='1 2 24 24' height='21px' width='21px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+  background-position: left 5px;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $nhsuk-grey-5;
   color: $nhsuk-blue;
   cursor: pointer;
-  padding-bottom: 10px;
-  padding-left: 35px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-bottom: 12px;
+  padding-left: 23px;
   text-align: left;
   text-decoration: underline;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
 
   &:hover,
   &:focus {
@@ -301,8 +442,11 @@ $alpha: .5;
       box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
       color: $nhsuk-black;
       display: inline;
-      text-decoration: none;
     }
+  }
+
+  b {
+    font-weight: 600;
   }
 
   .ui-state-active {

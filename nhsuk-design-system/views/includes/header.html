@@ -144,9 +144,9 @@ $( function() {
 <header role="banner">
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
-      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.svg" alt="NHS"></a></div>
+      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt="NHS"></a></div>
       <div class="nhsuk-global-header__menusearch ui-front">
-        <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle" role="button">Menu</a></div>
+        <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle__button" role="button">Menu</a></div>
         <div class="nhsuk-global-header__search">
           <div class="search-toggle"><a href="" class="search-toggle__button"><span class="search-toggle__icon">Search</span></a></div>
           <div class="search-container">
@@ -156,8 +156,7 @@ $( function() {
                 <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
               </div>
             </form>
-            <!-- inserted by javascript? -->
-            <div class="search-close"><a href="#close" class="search-close-link">Close search box</a></div>
+            <div class="search-close"><a href="#close" class="search-close__link">Close search</a></div>
           </div>
         </div>
       </div>
@@ -169,16 +168,29 @@ $( function() {
 (function() {
 
 	var searchToggle = {
-		searchToggleButton: document.querySelector('.search-toggle'),
+		searchToggleButton: document.querySelector('.search-toggle__button'),
 		searchClose: document.querySelector('.search-close'),
   	search: document.querySelector('.search-container'),
     menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
 
-		doToggle: function(e) {
-			e.preventDefault();
-			this.searchToggleButton.classList.toggle('expanded');
-			this.search.classList.toggle('js-show');
-      this.menuSearchContainer.classList.toggle('js-show')
+    doToggle: function(e) {
+      e.preventDefault();
+
+      function toggleClass(ele, class1) {
+        var classes = ele.className;
+        var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
+        var hasOne = classes.match(regex);
+        class1 = class1.replace(/\s+/g, '');
+        if (hasOne)
+          ele.className = classes.replace(regex, '');
+        else
+          ele.className = classes + ' ' + class1;
+      }
+
+      toggleClass(this.searchToggleButton, 'active');
+      toggleClass(this.search, 'js-show');
+      toggleClass(this.menuSearchContainer, 'js-show');
+
     }
 	};
 
