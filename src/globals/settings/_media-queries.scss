@@ -44,10 +44,9 @@ $mq-responsive: true;
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
   mobile:  320px,
-  // Support max-width value from FET ?
-  // mobile: 640px,
   tablet:  641px,
   desktop: 769px,
+  grid-collapse: 990px, // Grid only breakpoint, so doesn't affect typography.
   large-desktop: 990px
 );
 

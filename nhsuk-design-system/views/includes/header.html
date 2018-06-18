@@ -30,7 +30,7 @@ $( function() {
           var keywords = acData.term.split(' ').join('|');
           me.html(me.text().replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>'));
        });
-       $(".ui-autocomplete").prepend('<li class="ui-prepend"><strong>Seach suggestions</strong></li>');
+       $(".ui-autocomplete").prepend('<li class="ui-prepend"><strong>Search suggestions</strong></li>');
 
     },
     close: function( event, ui ) {

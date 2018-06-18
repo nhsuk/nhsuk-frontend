@@ -148,7 +148,7 @@ strong {
 
 .nhsuk-page-heading {
   padding: 25px 0 40px;
-  @include mq($from: tablet) {
+  @include mq($from: grid-collapse) {
     padding: 34px 0 64px;
   }
   h1 {
@@ -160,7 +160,7 @@ strong {
   & > *:first-child {
     margin-top: 0;
   }
-  @include mq($until: tablet) {
+  @include mq($until: grid-collapse) {
     margin-bottom: 44px;
   }
   h2,
@@ -173,7 +173,7 @@ strong {
 }
 
 .nhsuk-sticky {
-  @include mq($from: tablet) {
+  @include mq($from: grid-collapse) {
     position: sticky;
     top: 40px;
   }

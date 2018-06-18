@@ -9,7 +9,7 @@
   box-sizing: border-box;
   padding: 0 $govuk-gutter-half;
 
-  @include mq($from: tablet) {
+  @include mq($from: grid-collapse) {
     float: left;
   }
 }
@@ -29,31 +29,31 @@
   }
 
   .nhsuk-o-grid__item--one-half {
-    @include mq($from: tablet) {
+    @include mq($from: grid-collapse) {
       width: percentage(1 / 2);
     }
   }
 
   .nhsuk-o-grid__item--one-third {
-    @include mq($from: tablet) {
+    @include mq($from: grid-collapse) {
       width: percentage(1 / 3);
     }
   }
 
   .nhsuk-o-grid__item--two-thirds {
-    @include mq($from: tablet) {
+    @include mq($from: grid-collapse) {
       width: percentage(2 / 3);
     }
   }
 
   .nhsuk-o-grid__item--one-quarter {
-    @include mq($from: tablet) {
+    @include mq($from: grid-collapse) {
       width: percentage(1 / 4);
     }
   }
 
   .nhsuk-o-grid__item--three-quarters {
-    @include mq($from: tablet) {
+    @include mq($from: grid-collapse) {
       width: percentage(3 / 4);
     }
   }
