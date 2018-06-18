@@ -15,6 +15,8 @@
 @import 'components/promo/promo';
 @import 'components/intro-image/intro-image';
 @import 'components/page-nav-right/page-nav-right';
+@import 'components/page-nav-left/page-nav-left';
+@import 'components/images/images';
 
 @import 'pages/code';
 @import 'pages/grid';
@@ -96,7 +98,7 @@ ul ul, ol ul {
 
     //callouts
     .nhsuk-c-callout__warning {
-        background: $nhsuk-yellow-tint-90;
+        background: $nhsuk-warm-yellow-tint-90;
     }
 
     //panels
@@ -114,6 +116,3 @@ ul ul, ol ul {
         color: $nhsuk-grey-1;
     }
   }
-
-  //testing out new bckground colour
-  $nhsuk-grey-5: tint(#E8EDEE,30%); //

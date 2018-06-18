@@ -1,0 +1,146 @@
+{% set title = 'Allergies' %}
+{% set parent = 'Health A-Z' %}
+{% extends "includes/templates/page-v4.html"%}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
+{% endblock %}
+
+{% block sidebar %}
+<h2 class="nhsuk-heading-s">Pages in this section</h2>
+    <ul class="nhsuk-list-nav">
+        <li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+        <li><strong>Treatment</strong></li>
+        <li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
+	</ul>
+	
+	<script>
+		$( ".nhsuk-c-page-nav-left .nhsuk-heading-s" ).click(function() {
+			$( ".nhsuk-list-nav" ).toggle();
+			$(this).toggleClass("open");
+			return false;
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+    <section class="nhsuk-page-content__section-one">
+		
+		<h1>Allergies - Treatment</h1>
+		
+		<p class="nhsuk-body-l nhsuk-page-intro">The treatment for an allergy depends on what you're allergic to. In many cases, your GP will be able to offer advice and treatment.</p>
+		
+		<div class="page-contents">
+			<h2 class="nhsuk-heading-s">On this page</h2>
+			<ul>
+				<li><a href="#avoiding-exposure-to-allergens">Avoiding exposure to allergens</a></li>
+				<li><a href="#allergy-medications">Allergy medications</a></li>
+				<li><a href="#immunotherapy-desensitisation">Immunotherapy (desensitisation)</a></li>
+				<li><a href="#treating-severe-allergic-reactions-anaphylaxis">Treating severe allergic reactions (anaphylaxis)</a></li>
+				<li><a href="#treating-specific-allergic-conditions">Treating specific allergic conditions</a></li>
+			</ul>
+		</div>
+					
+		<p>They'll advise you about taking steps to avoid exposure to the substance you're allergic to, and can recommend medication to control your symptoms.</p>
+
+		<h2 id="avoiding-exposure-to-allergens">Avoiding exposure to allergens</h2>
+
+		<p>The best way to keep your symptoms under control is often to avoid the things you're allergic to, although this isn't always practical.</p>
+
+		<p>For example, you may be able to help manage: </p>
+
+		<ul>
+		<li><a href="/Conditions/food-allergy/Pages/Intro1.aspx">food allergies</a> by being careful about what you eat </li>
+		<li>animal allergies by keeping pets outside as much as possible and washing them regularly </li>
+		<li>mould allergies by keeping your home dry and well-ventilated, and dealing with any damp and condensation </li>
+		<li><a href="/Conditions/Hay-fever/Pages/Introduction.aspx">hay fever</a> by staying indoors and avoiding grassy areas when the pollen count is high </li>
+		<li>dust mite allergies by using allergy-proof duvets and pillows, and fitting wooden floors rather than carpets </li>
+		</ul>
+
+		<p>Read more about <a href="/Conditions/Allergies/Pages/Prevention.aspx">preventing allergic reactions</a>.</p>
+
+		<h2 id="allergy-medications">Allergy medications</h2>
+
+		<p>Medications for mild allergies are available from pharmacies without a prescription, but always ask your pharmacist or GP for advice before starting any new medicine, as they're not suitable for everyone.</p>
+
+		<h4>Antihistamines</h4>
+
+		<p><a href="/conditions/antihistamines/Pages/Introduction.aspx">Antihistamines</a> are the main medicines for allergies. They can be used:</p>
+
+		<ul>
+		<li>as and when you notice the symptoms of an allergic reaction </li>
+		<li>to prevent allergic reactions – for example, you may take them in the morning if you have hay fever and you know the pollen count is high that day </li>
+		</ul>
+
+		<p>Antihistamines can be taken as tablets, capsules, creams, liquids, eye drops or nasal sprays, depending on which part of your body is affected by your allergy.</p>
+
+		<h4>Decongestants</h4>
+
+		<p><a href="/conditions/decongestant-drugs/pages/introduction.aspx">Decongestants</a> can be used as a short-term treatment for a blocked nose caused by an allergic reaction.</p>
+
+		<p>They can be taken as tablets, capsules, nasal sprays or liquids. Don't use them for more than a week at a time, as using them for long periods can make your symptoms worse.</p>
+
+		<h4>Lotions and creams</h4>
+
+		<p>Red and itchy skin caused by an allergic reaction can sometimes be treated with over-the-counter creams and lotions, such as:</p>
+
+		<ul>
+		<li><a href="/conditions/emollients/Pages/Introduction.aspx">emollients (moisturising creams)</a> to keep the skin moist and protect it from allergens </li>
+		<li>calamine lotion to reduce itchiness </li>
+		<li>steroids to reduce inflammation (see below) </li>
+		</ul>
+
+		<h4>Steroids</h4>
+
+		<p><a href="/conditions/Corticosteroid-(drugs)/Pages/Introduction.aspx">Steroid medications</a> can help reduce inflammation caused by an allergic reaction. They're available as:</p>
+
+		<ul>
+		<li>nasal sprays and eye drops for an inflamed nose and eyes </li>
+		<li>creams for <a href="/conditions/eczema-(atopic)/pages/introduction.aspx">eczema</a> and <a href="/Conditions/Eczema-(contact-dermatitis)/Pages/Introduction.aspx">contact dermatitis</a></li>
+		<li>inhalers for <a href="/Conditions/Asthma/Pages/Introduction.aspx">asthma</a></li>
+		<li>tablets for <a href="/conditions/Nettle-rash/Pages/Introduction.aspx">hives (urticaria)</a></li>
+		</ul>
+
+		<p>Sprays, drops and weak steroid creams are available without a prescription. Stronger creams, inhalers and tablets are available on prescription from your GP.</p>
+
+		<h2 id="immunotherapy-desensitisation">Immunotherapy (desensitisation) </h2>
+
+		<p>Immunotherapy may be an option for a small number of people with certain severe and persistent allergies who are unable to control their symptoms using the measures above.</p>
+
+		<p>The treatment involves being given occasional small doses of the allergen – either as an injection, or as drops or tablets under the tongue – over the course of several years.</p>
+
+		<p>The injection can only be performed in a specialist clinic under the supervision of a doctor, as there is a small risk of a severe reaction. The drops or tablets can usually be taken at home.</p>
+
+		<p>The aim of treatment is to help your body get used to the allergen so it doesn't react to it so severely. This won't necessarily cure your allergy, but it will make it milder and mean you can take less medication.</p>
+
+		<h2 id="treating-severe-allergic-reactions-anaphylaxis">Treating severe allergic reactions (anaphylaxis)</h2>
+
+		<p>Some people with severe allergies may experience life-threatening reactions, known as <a href="/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a> or anaphylactic shock.</p>
+
+		<p>If you're at risk of this, you'll be given special injectors containing a medicine called adrenaline to use in an emergency.</p>
+
+		<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help. </p>
+
+		<p>Read more about the <a href="/Conditions/Anaphylaxis/Pages/Treatment.aspx">treating anaphylaxis</a>.</p>
+
+		<h2 id="treating-specific-allergic-conditions">Treating specific allergic conditions</h2>
+
+		<p>Use the links below to find information about how specific allergies and related conditions are treated:</p>
+
+		<ul>
+		<li><a href="/Conditions/Hay-fever/Pages/Treatment.aspx">hay fever</a></li>
+		<li><a href="/Conditions/food-allergy/Pages/Treatment.aspx">food allergies</a></li>
+		<li><a href="/Conditions/Rhinitis---allergic/Pages/Treatment.aspx">allergic rhinitis</a></li>
+		<li><a href="/Conditions/Conjunctivitis-infective/Pages/Treatment.aspx">conjunctivitis</a></li>
+		<li><a href="/Conditions/Nettle-rash/Pages/Treatment.aspx">hives (urticaria)</a></li>
+		<li><a href="/Conditions/Eczema-(atopic)/Pages/Treatment.aspx">eczema</a></li>
+		<li><a href="/Conditions/Eczema-(contact-dermatitis)/Pages/Introduction.aspx">contact dermatitis</a></li>
+		<li><a href="/Conditions/Asthma/Pages/Treatment.aspx">asthma</a></li>
+		</ul>
+
+
+    </section>
+
+{% endblock %}

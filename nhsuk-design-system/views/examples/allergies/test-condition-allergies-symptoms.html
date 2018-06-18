@@ -1,0 +1,144 @@
+{% set title = 'Allergies' %}
+{% set parent = 'Health A-Z' %}
+{% extends "includes/templates/page-v4.html"%}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
+{% endblock %}
+
+{% block sidebar %}
+<h2 class="nhsuk-heading-s">Pages in this section</h2>
+    <ul class="nhsuk-list-nav">
+        <li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
+        <li><strong>Symptoms</strong></li>
+        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
+	</ul>
+	
+	<script>
+		$( ".nhsuk-c-page-nav-left .nhsuk-heading-s" ).click(function() {
+			$( ".nhsuk-list-nav" ).toggle();
+			$(this).toggleClass("open");
+			return false;
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+    <section class="nhsuk-page-content__section-one">
+		
+		<h1>Allergies - Symptoms</h1>
+		
+		<p class="nhsuk-body-l nhsuk-page-intro">Symptoms of an allergic reaction usually develop within a few minutes of being exposed to something you're allergic to, although occasionally they can develop gradually over a few hours.</p>
+		
+		<div class="page-contents">
+			<h2 class="nhsuk-heading-s">On this page</h2>
+			<ul>
+				<li><a href="#main-symptoms">Main allergy symptoms</a></li>
+				<li><a href="#severe-reaction">Severe allergic reaction (anaphylaxis)</a></li>
+			</ul>
+		</div>
+					
+		<p>Although allergic reactions can be a nuisance and hamper your normal activities, most are mild. Very occasionally, a severe reaction called <a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a> can occur.</p>
+
+		<h2 id="main-symptoms">Main allergy symptoms</h2>
+
+		<p>Common symptoms of an allergic reaction include: </p>
+
+		<ul>
+		<li>sneezing and an itchy, runny or blocked nose (<a href="/conditions/rhinitis---allergic/Pages/Introduction.aspx">allergic rhinitis</a>) </li>
+		<li>itchy, red, watering eyes (<a href="/Conditions/Conjunctivitis-infective/Pages/Introduction.aspx">conjunctivitis</a>) </li>
+		<li>wheezing, chest tightness, <a href="/Conditions/shortness-of-breath/Pages/Introduction.aspx">shortness of breath</a> and a <a href="/conditions/cough/pages/introduction.aspx">cough</a></li>
+		<li>a raised, itchy, red rash (<a href="/conditions/nettle-rash/pages/introduction.aspx">hives</a>) </li>
+		<li><a href="/conditions/Angioedema/Pages/Introduction.aspx">swollen lips, tongue, eyes or face</a></li>
+		<li><a href="/conditions/stomach-ache-abdominal-pain/Pages/Introduction.aspx">tummy pain</a>, feeling sick, <a href="/conditions/vomiting-adults/Pages/Introduction.aspx">vomiting</a> or <a href="/Conditions/Diarrhoea/Pages/Introduction.aspx">diarrhoea</a></li>
+		<li>dry, red and cracked skin</li>
+		</ul>
+
+		<div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
+			<img
+				alt="Picture of allergic conjunctivitis"
+				src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
+				sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
+				srcset="
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg 320w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-510x340.jpg 510w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1019x679.jpg 1019w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1125x750.jpg 1125w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M.2e16d0ba.fill-1534x1023.jpg 1534w,
+				
+				"
+			/>
+			<div class="nhsuk-c-image-caption">
+				<p>Credit: DR P. MARAZZI/SCIENCE PHOTO LIBRARY</p>
+			</div>
+		</div>
+
+		<div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
+			<img
+				alt="Picture of hives"
+				src="https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg"
+				sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
+				srcset="
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg 320w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-510x340.jpg 510w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-640x427.jpg 640w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-767x511.jpg 767w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1019x679.jpg 1019w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1125x750.jpg 1125w,
+				
+					https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1534x1023.jpg 1534w,
+				
+				"
+			/>
+			<div class="nhsuk-c-image-caption">
+				<p>Credit: DR P. MARAZZI/SCIENCE PHOTO LIBRARY</p>
+			</div>
+		</div>
+
+		<p>The symptoms vary depending on what you're allergic to and how you come into contact with it. For example, you may have a runny nose if exposed to pollen, develop a rash if you have a skin allergy, or feel sick if you eat something you're allergic to.</p>
+
+		<p>See your GP if you or your child might have had an allergic reaction to something. They can help determine whether the symptoms are caused by an allergy or another condition. Read more about <a href="/Conditions/Allergies/Pages/Diagnosis.aspx">diagnosing allergies</a>.</p>
+
+		<h2 id="severe-reaction">Severe allergic reaction (anaphylaxis)</h2>
+
+		<p>In rare cases, an allergy can lead to a severe allergic reaction, called anaphylaxis or anaphylactic shock, which can be life-threatening.</p>
+
+		<p>This affects the whole body and usually develops within minutes of exposure to something you're allergic to.</p>
+
+		<div class="care-card black">
+			<div class="care-card-heading">
+				<h4 class="nhsuk-heading-m">Call 999 if you have any of the main allergy symptoms as well as:</h4>
+			</div>
+			<div class="care-card-content">
+				<ul>
+					<li>swelling of the throat and mouth </li>
+					<li>difficulty breathing </li>
+					<li><a href="/conditions/dizziness/pages/introduction.aspx">lightheadedness</a></li>
+					<li>confusion </li>
+					<li><a href="/conditions/cyanosis/pages/introduction.aspx">blue skin or lips</a></li>
+					<li>collapsing and losing consciousness </li>
+				</ul>
+				<p><a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">Read more about anaphylaxis</a> for information about what to do if it occurs.</p>
+			</div>
+		</div>
+
+    </section>
+
+{% endblock %}

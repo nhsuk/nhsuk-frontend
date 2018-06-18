@@ -438,8 +438,8 @@ $alpha: .5;
   &:hover,
   &:focus {
     div {
-      background: $nhsuk-yellow;
-      box-shadow: 0 0 0 4px $nhsuk-yellow;
+      background: $nhsuk-warm-yellow;
+      box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
       color: $nhsuk-black;
       display: inline;
     }
@@ -450,8 +450,8 @@ $alpha: .5;
   }
 
   .ui-state-active {
-    background: $nhsuk-yellow;
-    box-shadow: 0 0 0 4px $nhsuk-yellow;
+    background: $nhsuk-warm-yellow;
+    box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
     color: $nhsuk-black;
     display: inline;
     text-decoration: none;

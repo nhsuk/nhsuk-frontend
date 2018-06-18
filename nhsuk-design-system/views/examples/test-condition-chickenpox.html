@@ -1,6 +1,6 @@
 {% set title = 'Chickenpox' %}
 {% set parent = 'Health A-Z' %}
-{% set body_class = 'white-page-background' %}
+{% set body_class = '' %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -9,9 +9,6 @@
 
 {% block header %}
     <h1>Chickenpox</h1>
-    <div class="nhsuk-reading-width">
-        <p class="nhsuk-body-l nhsuk-page-intro">Chickenpox is common and mostly affects children, although you can get it at any age. It usually gets better by itself within a week without needing to see a GP.</p>
-    </div>
 {% endblock %}
 
 {% block sidebar %}
@@ -28,7 +25,10 @@
 {% endblock %}
 
 {% block content %}
-    <section id="when-to-get-medical-help" class="nhsuk-page-content__section-one" style="clear:content;display:table;display:block;">
+<div class="nhsuk-reading-width nhsuk-page-content__section-one">
+    <p class="nhsuk-body-l nhsuk-page-intro">Chickenpox is common and mostly affects children, although you can get it at any age. It usually gets better by itself within a week without needing to see a GP.</p>
+</div>
+    <section id="when-to-get-medical-help" class="" style="clear:content;display:table;display:block;">
 		<h2>Check if it's chickenpox</h2>
 
 
@@ -86,19 +86,17 @@
 
 
 
-<div class="nhsuk-c-callout__warning">
-
-
+<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
+    <h3>School, nursery or work</h3>
     <p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
-
 </div>
 
 
 
 
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header">
-            <h3 id="do" class="green">Do</h3>
+        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
+            <h3 id="do">Do</h3>
             <ul class="list--check">
                 <li>drink plenty of fluid (try ice lollies if your child isn't drinking) to avoid dehydration</li>
                 <li>take <a href="https://beta.nhs.uk/medicines/paracetamol-for-adults">paracetamol</a> to help with pain and discomfort</li>
@@ -111,8 +109,8 @@
                 <li>check with your airline if you're going on holiday – many airlines won't allow you to fly with chickenpox</li>
             </ul>
         </div>
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header">
-            <h3 id="dont" class="red">Don't</h3>
+        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
+            <h3 id="dont">Don't</h3>
             <ul class="list--cross">
                 <li>use <a href="https://beta.nhs.uk/medicines/ibuprofen-for-adults">ibuprofen</a> – it can make someone with chickenpox very ill</li>
                 <li>give aspirin to children under 16</li>
