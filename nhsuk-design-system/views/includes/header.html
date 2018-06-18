@@ -144,7 +144,7 @@ $( function() {
 <header role="banner">
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
-      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.svg" alt="NHS"></a></div>
+      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt="NHS"></a></div>
       <div class="nhsuk-global-header__menusearch ui-front">
         <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle__button" role="button">Menu</a></div>
         <div class="nhsuk-global-header__search">
@@ -173,11 +173,24 @@ $( function() {
   	search: document.querySelector('.search-container'),
     menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
 
-		doToggle: function(e) {
-			e.preventDefault();
-			this.searchToggleButton.classList.toggle('active');
-			this.search.classList.toggle('js-show');
-      this.menuSearchContainer.classList.toggle('js-show')
+    doToggle: function(e) {
+      e.preventDefault();
+
+      function toggleClass(ele, class1) {
+        var classes = ele.className;
+        var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
+        var hasOne = classes.match(regex);
+        class1 = class1.replace(/\s+/g, '');
+        if (hasOne)
+          ele.className = classes.replace(regex, '');
+        else
+          ele.className = classes + ' ' + class1;
+      }
+
+      toggleClass(this.searchToggleButton, 'active');
+      toggleClass(this.search, 'js-show');
+      toggleClass(this.menuSearchContainer, 'js-show');
+
     }
 	};
 

@@ -1,0 +1,78 @@
+// Settings
+@import 'globals/settings/colours';
+
+.lte-ie8 {
+
+  .nhsuk-global-header__menu,
+  .search-toggle,
+  .c-nav-primary__title {
+    display: none;
+  }
+
+  .c-search {
+    margin-top: 20px;
+  }
+
+  .c-nav-primary {
+
+    .nhsuk-global-nav {
+      background: $nhsuk-blue;
+    }
+
+    &__list  {
+      border-top: 1px solid $nhsuk-secondary-border-colour;
+      display: table;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    &__item {
+      display: table-cell;
+      text-align: center;
+    }
+
+    &__link {
+      color: $nhsuk-white;
+      display: block;
+      font-size: 17px;
+      line-height: 20px;
+      padding: 16px 0;
+      text-decoration: none;
+
+      &:visited {
+        color: $nhsuk-white;
+      }
+
+      &:hover {
+        background: $nhsuk-blue-shade-35;
+        box-shadow: none;
+        color: $nhsuk-white;
+      }
+
+      &:focus {
+        background: $nhsuk-blue;
+        box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+        color: $nhsuk-white;
+      }
+
+      &:active,
+      &:focus:active, // sass-lint:disable-line force-pseudo-nesting
+      &:focus-within {
+        background: $nhsuk-blue-shade-50;
+        box-shadow: none;
+        color: $nhsuk-grey-5;
+      }
+
+      &.active {
+        background: $nhsuk-blue-shade-20;
+      }
+    }
+  }
+
+  .nhsuk-page-nav {
+    margin-bottom: 20px;
+  }
+
+}

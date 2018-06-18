@@ -6,7 +6,7 @@ var cssnano = require('gulp-cssnano');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function() {
-  return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss'])
+  return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss', 'src/ie-78.scss'])
     .pipe(sass())
     .pipe(gulp.dest('dist/css'))
     .on('error', (err) => {

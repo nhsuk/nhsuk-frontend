@@ -27,7 +27,7 @@
       }
 
       .c-nav-primary__close-link {
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%230058AD;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         background-position: center;
         background-repeat: no-repeat;
         height: 40px;
@@ -43,7 +43,7 @@
 
         &:hover {
           background-color: transparent;
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" height="24px" width="24px"><defs><style>.cls-1{fill:none;stroke:%23002c57;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="1" y1="1" x2="11" y2="11"/><line class="cls-1" x1="1" y1="11" x2="11" y2="1"/></g></g></svg>');
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%23003970;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
           box-shadow: none;
         }
 
@@ -71,7 +71,7 @@
     }
 
     &__link {
-      background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='64px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
       background-position: center right;
       background-repeat: no-repeat;
       color: $nhsuk-blue;
@@ -79,7 +79,7 @@
       padding: 12px 30px;
 
       @include mq($until: tablet) {
-        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='41px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         padding: 16px;
       }
 
@@ -91,10 +91,10 @@
 
       &:hover {
         background-color: $nhsuk-blue;
-        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='64px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
 
         @include mq($until: tablet) {
-          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='41px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         }
 
         background-position: center right;
@@ -105,10 +105,10 @@
 
       &:focus {
         background-color: transparent;
-        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='64px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
 
         @include mq($until: tablet) {
-          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23aeb7bd;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='41px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         }
 
         background-position: center right;
@@ -121,10 +121,10 @@
       &:focus:active, // sass-lint:disable-line force-pseudo-nesting
       &:focus-within {
         background-color: $nhsuk-blue-shade-35;
-        background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="64px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='64px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
 
         @include mq($until: tablet) {
-          background-image: url('data:image/svg+xml;utf8,<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="32px" width="41px"><defs><style>.cls-1{fill:%23ffffff;}</style></defs><path class="cls-1" d="M15.5,12a1,1,0,0,1-.29.71l-5,5a1,1,0,0,1-1.42-1.42L13.09,12,8.79,7.71a1,1,0,0,1,1.42-1.42l5,5A1,1,0,0,1,15.5,12Z"/></svg>');
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='41px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         }
 
         background-position: center right;
