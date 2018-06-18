@@ -388,7 +388,7 @@ $nhsuk-light-yellow: #FFF7E8;
 .nhsuk-c-keypoint-v2 {
     @include reading-width-content();
     @include top-and-bottom();
-    border-left: 8px solid $nhsuk-light-blue;
+    border-left: 8px solid $nhsuk-blue;
     margin: 40px 0;
     padding: 8px 24px;
     @include mq($until: tablet) {
