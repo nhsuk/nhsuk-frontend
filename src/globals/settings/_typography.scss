@@ -11,7 +11,7 @@ h1,
   line-height: 36px;
   margin: 56px 0 0;
   @include mq($from: tablet) {
-    font-size: govuk-em(40px, $nhsuk-base-font-size);
+    font-size: govuk-em(48px, $nhsuk-base-font-size);
     line-height: 56px;
     margin: 72px 0 0;
   }

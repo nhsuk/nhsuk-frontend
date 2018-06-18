@@ -76,7 +76,7 @@ $nhsuk-secondary-text-colour: $nhsuk-black-tint-15; //used for secondary text co
 
 // Link colours
 
-$nhsuk-link-colour: $nhsuk-blue;
+$nhsuk-link-colour: shade($nhsuk-blue,15%);
 $nhsuk-link-hover-colour: $nhsuk-black;
 $nhsuk-link-focus-colour: $nhsuk-black;
 $nhsuk-link-active-colour: $nhsuk-black-tint-10;
@@ -87,7 +87,7 @@ $nhsuk-link-active-background-colour: $nhsuk-warm-yellow-tint-10;
 
 // Border colours
 
-$nhsuk-border-colour: $nhsuk-grey-4;
+$nhsuk-border-colour: $nhsuk-grey-3;
 $nhsuk-secondary-border-colour: rgba(255,255,255,0.25); // used for header and footer dividing line
 
 // Button colours
