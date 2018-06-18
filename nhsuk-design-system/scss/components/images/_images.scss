@@ -1,0 +1,23 @@
+.nhsuk-c-image{
+    margin: 48px 0;
+    background: $nhsuk-white;
+    border-bottom:$nhsuk-grey-3 2px solid;
+
+    @media screen and (max-width: 640px) {
+        margin-left:-16px;
+        margin-right:-16px;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .nhsuk-c-image-caption{
+        padding: 16px;
+        p{
+            margin:0;
+            font-size: 0.75em;
+        }
+    }
+}
