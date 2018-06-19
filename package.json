@@ -14,6 +14,7 @@
     "lint-css": "./node_modules/.bin/sass-lint -c .sass-lint.yml 'src/**/*.scss' -v -q"
   },
   "dependencies": {
+    "@material/tabs": "^0.36.0",
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
     "express": "^4.13.4",
