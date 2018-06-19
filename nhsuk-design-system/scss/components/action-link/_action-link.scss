@@ -20,12 +20,20 @@
 		height: 28px;
 		margin:0 8px -7px 0;
 		display: inline-block;
-		background: url(../images/Icon-arrow1-right-ALT-circle_v2.svg) top left no-repeat;
+		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__green.svg) top left no-repeat;
 		background-size: 28px 28px;
+		&:hover,{
+			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+		}
 	}
 	&:hover,
 	&:active,
 	&:focus{
 		background: none;
+	}
+	&:hover{
+		&:before{
+			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+		}
 	}
 }
