@@ -15,24 +15,28 @@
         <li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
         <li><strong>Prevention</strong></li>
 	</ul>
-	
-	<script>
-		$( ".nhsuk-c-page-nav-left .nhsuk-heading-s" ).click(function() {
-			$( ".nhsuk-list-nav" ).toggle();
-			$(this).toggleClass("open");
-			return false;
-		});
-	</script>
 {% endblock %}
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
 		
-		<h1>Allergies - Prevention</h1>
-		
-		<p class="nhsuk-body-l nhsuk-page-intro">The best way to prevent an allergic reaction is to avoid the substance that you're allergic to, although this isn't always easy or practical.</p>
-		
-		<div class="page-contents">
+		<div class="nhsuk-page-heading">
+			<h1>Allergies<span class="nhsuk-o-h1-sub">Prevention</span></h1>
+
+			<!--<nav class="nhsuk-c-tab-nav">
+				<ul>
+					<li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
+					<li><strong>Prevention</strong></li>
+				</ul>
+			</nav>-->
+
+			<p class="nhsuk-body-l nhsuk-page-intro">The best way to prevent an allergic reaction is to avoid the substance that you're allergic to, although this isn't always easy or practical.</p>
+		</div>
+				
+		<div class="nhsuk-c-page-contents">
 			<h2 class="nhsuk-heading-s">On this page</h2>
 			<ul>
 				<li><a href="#house-dust-mites">House dust mites</a></li>
@@ -43,6 +47,7 @@
 				<li><a href="#insect-bites-and-stings">Insect bites and stings</a></li>
 				<li><a href="#preventing-severe-allergies-anaphylaxis">Preventing severe allergies (anaphylaxis)</a></li>
 			</ul>
+			<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
 		</div>
 					
 		<p>Below is some practical advice that should help you avoid the most common allergens.</p>
@@ -115,11 +120,11 @@
 
 		<p>Remember, simple dishes are less likely to contain "hidden" ingredients. If you're not sure about a dish, don’t risk it </p>
 
-		<p>Read more about <a href="/Conditions/food-allergy/Pages/living-with.aspx">living with a food allergy</a> and <a href="http://www.food.gov.uk/science/allergy-intolerance/label/#.U5GnVvmwK2Y" title="External website">advice from the Food Standards Agency on food allergen labelling</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/food-allergy/Pages/living-with.aspx">living with a food allergy</a> and <a href="http://www.food.gov.uk/science/allergy-intolerance/label/#.U5GnVvmwK2Y" title="External website">advice from the Food Standards Agency on food allergen labelling</a>.</p>
 
 		<h2 id="hay-fever">Hay fever</h2>
 
-		<p>Pollen allergies – more commonly known as <a href="/Conditions/Hay-fever/Pages/Introduction.aspx">hay fever</a> – are caused when trees and grasses release pollen into the air. Doctors often call hay fever allergic rhinitis. </p>
+		<p>Pollen allergies – more commonly known as <a href="http://www.nhs.uk/conditions/Hay-fever/Pages/Introduction.aspx">hay fever</a> – are caused when trees and grasses release pollen into the air. Doctors often call hay fever allergic rhinitis. </p>
 
 		<p>Different plants pollinate at different times of the year, so the months that you get hay fever will depend on what sort of pollen(s) you are allergic to. Typically, people are affected during spring (trees) and summer (grasses).</p>
 
@@ -135,7 +140,7 @@
 		<li>if you have a lawn, try asking someone else to cut the grass for you  </li>
 		</ul>
 
-		<p>Read more about <a href="/Conditions/Hay-fever/Pages/Prevention.aspx">preventing hay fever</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/Hay-fever/Pages/Prevention.aspx">preventing hay fever</a>.</p>
 
 		<h2 id="insect-bites-and-stings">Insect bites and stings</h2>
 
@@ -150,17 +155,28 @@
 		<li>avoid wearing strong perfumes or fragrances, as these can attract insects </li>
 		</ul>
 
-		<p>Read more about <a href="/Conditions/Bites-insect/Pages/Prevention.aspx">preventing insect bites and stings</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/Bites-insect/Pages/Prevention.aspx">preventing insect bites and stings</a>.</p>
 
 		<h2 id="preventing-severe-allergies-anaphylaxis">Preventing severe allergies (anaphylaxis)</h2>
 
-		<p>If you're at risk of experiencing a severe allergic reaction (<a href="/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a>), make sure you carry two adrenaline auto-injectors with you everywhere.</p>
+		<p>If you're at risk of experiencing a severe allergic reaction (<a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a>), make sure you carry two adrenaline auto-injectors with you everywhere.</p>
 
 		<p>Wearing a MedicAlert or Medi-Tag medallion or bracelet can make others aware of your allergy in an emergency.</p>
 
 		<p>Consider telling your teachers, work colleagues and friends, so they can give you your adrenaline injection in an emergency, while waiting for an ambulance.</p>
 
-		<p>Read more about <a href="/Conditions/Anaphylaxis/Pages/Prevention.aspx">preventing anaphylaxis</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Prevention.aspx">preventing anaphylaxis</a>.</p>
+
+		<div class="nhsuk-c-page-nav-bottom" id="nav-bottom">
+			<h2 class="nhsuk-heading-s">All pages about Allergies</h2>
+			<ul>
+				<li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
+				<li><strong>Prevention</strong></li>
+			</ul>
+		</div>
 
     </section>
 

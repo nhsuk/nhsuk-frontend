@@ -1,0 +1,16 @@
+/* _GlobalPrefix_ */
+/*_JS*/
+/* _Module_:sylb */
+try{
+qs_Rm("sylb");var qs_$Tb=function(a,b){a=void 0===a?null:a;b=void 0===b?null:b;var c=new qs_Tg(qs_0d()),d=new qs_Tg(a?"/save/list/"+a:"/save");a=function(a){var b=qs_0g(c,a);qs_c(b)&&d.$(a,b)};a("authuser");a("hl");a("e");a("expflags");a("expid");a("expid_c");a("exprollouts");b&&d.$("ved",b);return d},qs_aUb=function(a,b){a=qs_$Tb(void 0===a?null:a,void 0===b?null:b);if(qs_Ef&&(b=new qs_Tg(qs_ha.location.href),a.Ka||qs_Ug(a,b.Ka),a.Ia||qs_Vg(a,b.Ia),window.agsa_ext&&window.agsa_ext.openInAppFullScreen&&window.agsa_ext.openInAppFullScreen(a.toString())|| window.agsa_ext&&window.agsa_ext.openInApp&&window.agsa_ext.openInApp(a.toString())))return;qs_Yd(a.toString())};
+
+qs_Xi("sylb");qs_1e();
+}catch(e){_DumpException(e)}
+/* _Module_:BuhrE */
+try{
+qs_Rm("BuhrE");var qs_B0h=function(a){qs_h6.call(this,a.Ai)};qs_b(qs_B0h,qs_h6);qs_B0h.Td=qs_h6.Td;qs_B0h.prototype.vLb=function(a){if(a=a.Rka.el()){var b=qs_x(a,"ct")||"stars_nav2lp";qs_St(a,{data:{ct:b}})}qs_aUb(null,qs_8d(a))};qs_i6(qs_B0h.prototype,"ZuDnqc",function(){return this.vLb});qs_C(qs_tPa,qs_B0h);
+
+qs_Xi("BuhrE");qs_1e();
+}catch(e){_DumpException(e)}
+/* _GlobalSuffix_ */
+// Google Inc.

@@ -15,24 +15,28 @@
         <li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
         <li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
 	</ul>
-	
-	<script>
-		$( ".nhsuk-c-page-nav-left .nhsuk-heading-s" ).click(function() {
-			$( ".nhsuk-list-nav" ).toggle();
-			$(this).toggleClass("open");
-			return false;
-		});
-	</script>
 {% endblock %}
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
 		
-		<h1>Allergies - Overview</h1>
-		
-		<p class="nhsuk-body-l nhsuk-page-intro">An allergy is a reaction the body has to a particular food or substance.</p>
-		
-		<div class="page-contents">
+		<div class="nhsuk-page-heading">
+			<h1>Allergies<span class="nhsuk-o-h1-sub">Overview</span></h1>
+
+			<!--<nav class="nhsuk-c-tab-nav">
+				<ul>
+					<li><strong>Overview</strong></li>
+					<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
+					<li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
+				</ul>
+			</nav>-->
+
+			<p class="nhsuk-body-l nhsuk-page-intro">An allergy is a reaction the body has to a particular food or substance.</p>
+		</div>
+
+		<div class="nhsuk-c-page-contents">
 			<h2 class="nhsuk-heading-s">On this page</h2>
 			<ul>
 				<li><a href="#common-allergies">Common allergies</a></li>
@@ -42,6 +46,7 @@
 				<li><a href="#causes">What causes allergies?</a></li>
 				<li><a href="#types">Is it an allergy, sensitivity or intolerance?</a></li>
 			</ul>
+			<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
 		</div>
 					
 		<p>Allergies are very common. They're thought to affect more than one in four people in the UK at some point in their lives. </p>
@@ -55,15 +60,15 @@
 		<p>Substances that cause allergic reactions are called allergens. The more common allergens include:</p>
 		
 		<ul>
-		<li>grass and tree pollen – an allergy to these is known as <a href="/Conditions/Hay-fever/Pages/Introduction.aspx">hay fever</a> (allergic rhinitis) </li>
+		<li>grass and tree pollen – an allergy to these is known as <a href="http://www.nhs.uk/conditions/Hay-fever/Pages/Introduction.aspx">hay fever</a> (allergic rhinitis) </li>
 		<li>dust mites </li>
 		<li>animal dander (tiny flakes of skin or hair) </li>
-		<li><a href="/conditions/food-allergy/Pages/Intro1.aspx">food</a> – particularly nuts, fruit, shellfish, eggs and cow's milk </li>
-		<li><a href="/conditions/bites-insect/pages/introduction.aspx">insect bites and stings</a></li>
-		<li>medication – including <a href="/conditions/painkillers-ibuprofen/Pages/Introduction.aspx">ibuprofen</a>, aspirin, and certain <a href="/Conditions/Antibiotics-penicillins/Pages/Introduction.aspx">antibiotics</a></li>
-		<li>latex – used to make some gloves and <a href="/conditions/contraception-guide/pages/male-condoms.aspx">condoms</a></li>
+		<li><a href="http://www.nhs.uk/conditions/food-allergy/Pages/Intro1.aspx">food</a> – particularly nuts, fruit, shellfish, eggs and cow's milk </li>
+		<li><a href="http://www.nhs.uk/conditions/bites-insect/pages/introduction.aspx">insect bites and stings</a></li>
+		<li>medication – including <a href="http://www.nhs.uk/conditions/painkillers-ibuprofen/Pages/Introduction.aspx">ibuprofen</a>, aspirin, and certain <a href="http://www.nhs.uk/conditions/Antibiotics-penicillins/Pages/Introduction.aspx">antibiotics</a></li>
+		<li>latex – used to make some gloves and <a href="http://www.nhs.uk/conditions/contraception-guide/pages/male-condoms.aspx">condoms</a></li>
 		<li>mould – these can release small particles into the air that you can breathe in </li>
-		<li>household chemicals – including those in detergents and <a href="/Conditions/hair-dye-allergy/Pages/Introduction.aspx">hair dyes</a></li>
+		<li>household chemicals – including those in detergents and <a href="http://www.nhs.uk/conditions/hair-dye-allergy/Pages/Introduction.aspx">hair dyes</a></li>
 		</ul>
 		
 		<p>Most of these allergens are generally harmless to people who aren't allergic to them.</p>
@@ -80,12 +85,14 @@
 		<li>red, itchy, watery eyes </li>
 		<li>wheezing and coughing </li>
 		<li>a red, itchy rash </li>
-		<li>worsening of <a href="/conditions/asthma/Pages/Introduction.aspx">asthma</a> or <a href="/conditions/eczema-(atopic)/pages/introduction.aspx">eczema</a> symptoms </li>
+		<li>worsening of <a href="http://www.nhs.uk/conditions/asthma/Pages/Introduction.aspx">asthma</a> or <a href="http://www.nhs.uk/conditions/eczema-(atopic)/pages/introduction.aspx">eczema</a> symptoms </li>
 		</ul>
+
+		<div class="nhsuk-c-callout__warning-v12">
+            <p>Most allergic reactions are mild, but occasionally a severe reaction called <a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a> or anaphylactic shock can occur. This is a medical emergency and needs urgent treatment.</p>
+        </div>
 		
-		<p>Most allergic reactions are mild, but occasionally a severe reaction called <a href="/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a> or anaphylactic shock can occur. This is a medical emergency and needs urgent treatment.</p>
-		
-		<p>Read more about the <a href="/Conditions/Allergies/Pages/Symptoms.aspx">symptoms of allergies</a>.</p>
+		<p>Read more about the <a href="/examples/allergies/test-condition-allergies-symptoms">symptoms of allergies</a>.</p>
 
 		<h2 id="getting-help">Getting help for allergies</h2>
 		
@@ -97,7 +104,7 @@
 		
 		<p>If your allergy is particularly severe or it's not clear what you're allergic to, your GP may refer you to an allergy specialist for testing and advice about treatment.</p>
 		
-		<p>Read more about <a href="/conditions/allergies/Pages/Diagnosis.aspx">allergy testing</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/allergies/Pages/Diagnosis.aspx">allergy testing</a>.</p>
 		
 		<h2 id="management">How to manage an allergy</h2>
 		
@@ -108,17 +115,17 @@
 		<p>There are also several medications available to help control symptoms of allergic reactions, including:</p>
 		
 		<ul>
-		<li><a href="/conditions/antihistamines/Pages/Introduction.aspx">antihistamines</a> – these can be taken when you notice the symptoms of a reaction, or before being exposed to an allergen to stop a reaction occurring </li>
-		<li><a href="/conditions/decongestant-drugs/Pages/Introduction.aspx">decongestants</a> – tablets, capsules, nasal sprays or liquids that can be used as a short-term treatment for a blocked nose </li>
-		<li>lotions and creams, such as <a href="/conditions/Emollients/Pages/Introduction.aspx">moisturising creams (emollients)</a> – these can reduce skin redness and itchiness </li>
-		<li><a href="/conditions/Corticosteroid-(drugs)/Pages/Introduction.aspx">steroid medication</a> – sprays, drops, creams, inhalers and tablets that can help reduce redness and swelling caused by an allergic reaction </li>
+		<li><a href="http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx">antihistamines</a> – these can be taken when you notice the symptoms of a reaction, or before being exposed to an allergen to stop a reaction occurring </li>
+		<li><a href="http://www.nhs.uk/conditions/decongestant-drugs/Pages/Introduction.aspx">decongestants</a> – tablets, capsules, nasal sprays or liquids that can be used as a short-term treatment for a blocked nose </li>
+		<li>lotions and creams, such as <a href="http://www.nhs.uk/conditions/Emollients/Pages/Introduction.aspx">moisturising creams (emollients)</a> – these can reduce skin redness and itchiness </li>
+		<li><a href="http://www.nhs.uk/conditions/Corticosteroid-(drugs)/Pages/Introduction.aspx">steroid medication</a> – sprays, drops, creams, inhalers and tablets that can help reduce redness and swelling caused by an allergic reaction </li>
 		</ul>
 		
 		<p>For some people with very severe allergies, a treatment called immunotherapy may be recommended. </p>
 		
 		<p>This involves being exposed to the allergen in a controlled way over a number of years, so your body gets used to it and doesn't react to it so severely.</p>
 		
-		<p>Read more about <a href="/conditions/allergies/Pages/Treatment.aspx">treating an allergy</a> and <a href="/conditions/allergies/Pages/Prevention.aspx">avoiding allergic reactions</a>.</p>
+		<p>Read more about <a href="http://www.nhs.uk/conditions/allergies/Pages/Treatment.aspx">treating an allergy</a> and <a href="http://www.nhs.uk/conditions/allergies/Pages/Prevention.aspx">avoiding allergic reactions</a>.</p>
 		
 		<h2 id="causes">What causes allergies?</h2>
 		
@@ -137,6 +144,17 @@
 		<p><strong>sensitivity</strong> – the exaggeration of the normal effects of a substance; for example, the caffeine in a cup of coffee may cause extreme symptoms, such as palpitations and trembling</p>
 		
 		<p><strong>intolerance</strong> – where a substance causes unpleasant symptoms, such as diarrhoea, but doesn't involve the immune system; people with an intolerance to certain foods can typically eat a small amount without having any problems</p>
+		
+		<div class="nhsuk-c-page-nav-bottom" id="nav-bottom">
+			<h2 class="nhsuk-heading-s">All pages about Allergies</h2>
+			<ul>
+				<li><strong>Overview</strong></li>
+				<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
+				<li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
+			</ul>
+		</div>
 
     </section>
 
