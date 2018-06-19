@@ -265,4 +265,12 @@ router.get('/examples/allergies/test-condition-allergies-prevention', (req, res)
   res.render('examples/allergies/test-condition-allergies-prevention', {});
 });
 
+router.get('/examples/allergies/test-condition-allergies-overview-v2', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-overview-v2', {});
+});
+
+router.get('/examples/allergies/test-condition-allergies-overview-v3', (req, res) => {
+  res.render('examples/allergies/test-condition-allergies-overview-v3', {});
+});
+
 module.exports = router;
