@@ -117,9 +117,7 @@
         color: $nhsuk-blue;
       }
 
-      &:active,
-      &:focus:active, // sass-lint:disable-line force-pseudo-nesting
-      &:focus-within {
+      &:active {
         background-color: $nhsuk-blue-shade-35;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='32px' width='64px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
 
@@ -184,9 +182,7 @@
         color: $nhsuk-white;
       }
 
-      &:active,
-      &:focus:active, // sass-lint:disable-line force-pseudo-nesting
-      &:focus-within {
+      &:active {
         background: $nhsuk-blue-shade-50;
         box-shadow: none;
         color: $nhsuk-grey-5;
