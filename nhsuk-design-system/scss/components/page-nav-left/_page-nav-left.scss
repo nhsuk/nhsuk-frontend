@@ -1,45 +1,97 @@
 .nhsuk-c-page-nav-left{
-    padding: 0 0 24px 0;
+    padding: 32px 0 0 0;
+
+    @media screen and (max-width: 640px) {
+        display: none;
+    }
+
     .nhsuk-heading-s{
         margin-top: 0;
         padding: 0 0 16px 0;
         font-weight: 400;
         border-bottom: $nhsuk-grey-3 1px solid;
         position: relative;
-        
-        @media screen and (max-width: 640px) {
-            padding: 0 0 16px 42px;
-            color: $nhsuk-link-colour;
-            text-decoration: underline;
-            cursor: pointer;
-
-            &:before{
-                content: '';
-                width: 36px;
-                height: 36px;
-                display: block;
-                background: url(../images/icon-chevron-down-circle.svg) left center no-repeat;
-                background-size: 36px 36px;
-                position: absolute;
-                top: -4px;
-                left: 0;
-            }
-
-            &.open:before{
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
-            }
-        }
     }
+
     ul,ol{
         list-style: none;
         padding-left:0;
     }
-    @media screen and (max-width: 640px) {
-        padding: 16px 0 24px 0;
+}
 
-        .nhsuk-list-nav{
-            display:none;
+.nhsuk-c-page-nav-bottom{
+    padding: 16px;
+    margin-top:40px;
+    background: $nhsuk-white;
+    display: none;
+
+    @media screen and (max-width: 640px) {
+        display: block;
+        margin-left: -16px;
+        margin-right: -16px;
+        margin-bottom: -15px;
+        border-bottom: none;
+        border-top:$nhsuk-grey-3 2px solid;
+    }
+
+    .nhsuk-heading-s{
+        margin-top: 0;
+        font-weight: 400;
+    }
+
+    ul{
+        padding-left: 0;
+    }
+
+    li{
+        list-style: none;;
+    }
+}
+
+.nhsuk-c-tab-nav{
+    display: none;
+    position: relative;
+    border-top: $nhsuk-grey-5 1px solid;
+    border-bottom: $nhsuk-grey-5 1px solid;
+
+    @media screen and (max-width: 640px) {
+        padding: 16px;
+        margin:24px -16px 0 -16px;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: block;
+        background: $nhsuk-white;
+        
+        ul{
+            width: auto;
+            padding: 0;
+            margin:0;
+            list-style: none;
+            display: block;
+
+            li{
+                margin:0 16px 0 0;
+                display: inline-block;
+                font-size: 1.1em;
+
+                a{
+                    display: block;
+                    padding: 4px;
+                }
+            }
         }
     }
+
+    /*
+    &:after{
+        content:'';
+        width: 50px;
+        height: 100%;
+        background: url(../images/gradient-tab-nav.png) top right no-repeat;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 999;
+    }
+    */
 }
