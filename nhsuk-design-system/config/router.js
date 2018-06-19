@@ -273,4 +273,12 @@ router.get('/examples/allergies/test-condition-allergies-overview-v3', (req, res
   res.render('examples/allergies/test-condition-allergies-overview-v3', {});
 });
 
+router.get('/examples/google', (req, res) => {
+  res.render('examples/google/index', {});
+});
+
+router.get('/examples/google-allergies', (req, res) => {
+  res.render('examples/google-allergies/index', {});
+});
+
 module.exports = router;

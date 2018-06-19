@@ -1,0 +1,15 @@
+.nhsuk-c-review-datestamp{
+    margin: 56px 0;
+
+    &:before{
+        content: '';
+        display: block;
+        width: 20%;
+        height: 5px;
+        background-color: $nhsuk-blue;
+    }
+
+    p{
+        font-size: 0.9em;
+    }
+}
