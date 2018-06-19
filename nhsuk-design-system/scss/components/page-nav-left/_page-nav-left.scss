@@ -1,7 +1,7 @@
 .nhsuk-c-page-nav-left{
     padding: 32px 0 0 0;
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 990px) {
         display: none;
     }
 
@@ -20,12 +20,12 @@
 }
 
 .nhsuk-c-page-nav-bottom{
-    padding: 16px;
+    padding: 24px 16px;
     margin-top:40px;
     background: $nhsuk-white;
     display: none;
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 990px) {
         display: block;
         margin-left: -16px;
         margin-right: -16px;
