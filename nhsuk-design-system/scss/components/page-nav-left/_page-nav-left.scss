@@ -1,7 +1,7 @@
 .nhsuk-c-page-nav-left{
     padding: 32px 0 0 0;
 
-    @media screen and (max-width: 990px) {
+    @media screen and (max-width: 989px) {
         display: none;
     }
 
@@ -23,15 +23,14 @@
     padding: 24px 16px;
     margin-top:40px;
     background: $nhsuk-white;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: -15px;
+    border-bottom: none;
     display: none;
 
-    @media screen and (max-width: 990px) {
+    @media screen and (max-width: 989px) {
         display: block;
-        margin-left: -16px;
-        margin-right: -16px;
-        margin-bottom: -15px;
-        border-bottom: none;
-        border-top:$nhsuk-grey-3 2px solid;
     }
 
     .nhsuk-heading-s{
@@ -44,7 +43,7 @@
     }
 
     li{
-        list-style: none;;
+        list-style: none;
     }
 }
 
@@ -81,17 +80,4 @@
             }
         }
     }
-
-    /*
-    &:after{
-        content:'';
-        width: 50px;
-        height: 100%;
-        background: url(../images/gradient-tab-nav.png) top right no-repeat;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 999;
-    }
-    */
 }

@@ -1,5 +1,5 @@
 .nhsuk-c-page-contents{
-	padding-bottom: 32px;
+	padding-bottom: 24px;
 	margin: 0 0 40px 0;
 	border-bottom:$nhsuk-grey-3 1px solid;
 	
@@ -18,7 +18,7 @@
 		column-count: 2;
 		column-gap: 80px;
 
-		@media screen and (max-width: 990px) {
+		@media screen and (max-width: 989px) {
 			-moz-column-count: 1;
 			-webkit-column-count: 1;
 			column-count: 1;
@@ -27,7 +27,7 @@
 		li{
 			list-style: none;
 			position: relative;
-			padding: 0 0 0 24px;
+			padding: 0 0 0 32px;
 
 			a{
 				display: inline-block;
@@ -44,11 +44,16 @@
 
 	.nhsuk-nav-bottom-link{
 		display: none;
+		margin-top: 24px;
 		font-weight: 600;
 
-		@media screen and (max-width: 990px) {
+		@media screen and (max-width: 989px) {
 			display: inline-block;
 		}
+	}
+
+	.nhsuk-c-reveal__header{
+		font-weight: 600;
 	}
 }
 
@@ -56,10 +61,4 @@ h1 span.nhsuk-o-h1-sub{
 	display: block;
 	font-weight: 400;
 	font-size: 0.85em;
-
-	/*
-	@media screen and (max-width: 640px) {
-		display: none;
-	}
-	*/
 }
