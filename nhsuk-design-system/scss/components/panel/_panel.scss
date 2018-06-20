@@ -65,6 +65,11 @@
   }
 }
 
+.nhsuk-c-panel__with-border {
+  background: transparent;
+  border: 1px solid $nhsuk-border-colour;
+}
+
 .list--check,
 .list--cross {
   list-style: none;
