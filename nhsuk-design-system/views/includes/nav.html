@@ -24,10 +24,10 @@
 		doToggle: function(e) {
 			e.preventDefault();
 
-      if (this.menuToggleButton.getAttribute("aria-expanded") === "false") {
-        this.menuToggleButton.setAttribute("aria-expanded", "true")
+      if (this.menuToggleButton.hasAttribute("aria-expanded")) {
+        this.menuToggleButton.removeAttribute("aria-expanded")
       } else {
-        this.menuToggleButton.setAttribute("aria-expanded", "false")
+        this.menuToggleButton.setAttribute("aria-expanded", "true")
       }
 
       function toggleClass(ele, class1) {
