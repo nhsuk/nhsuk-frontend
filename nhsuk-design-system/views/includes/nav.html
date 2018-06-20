@@ -24,6 +24,12 @@
 		doToggle: function(e) {
 			e.preventDefault();
 
+      if (this.menuToggleButton.getAttribute("aria-expanded") === "false") {
+        this.menuToggleButton.setAttribute("aria-expanded", "true")
+      } else {
+        this.menuToggleButton.setAttribute("aria-expanded", "false")
+      }
+
       function toggleClass(ele, class1) {
         var classes = ele.className;
         var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
@@ -33,12 +39,6 @@
           ele.className = classes.replace(regex, '');
         else
           ele.className = classes + ' ' + class1;
-      }
-
-      if (this.menuToggleButton.getAttribute("aria-expanded") === "false") {
-        this.menuToggleButton.setAttribute("aria-expanded", "true")
-      } else {
-        this.menuToggleButton.setAttribute("aria-expanded", "false")
       }
 
       toggleClass(this.menuToggleButton, 'active');
