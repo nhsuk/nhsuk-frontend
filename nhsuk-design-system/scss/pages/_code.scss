@@ -23,6 +23,7 @@
     @include mq($from: tablet) {
       font-size: 14px;
     }
+
   }
 	&.grey-background{
 		background: $nhsuk-grey-5;
@@ -30,6 +31,14 @@
   .nhsuk-breadcrumb{
     padding-left: 16px;
   }
+  &.research {
+    border: 1px solid $nhsuk-blue;
+    &:before {
+      background: $nhsuk-blue;
+      color: $nhsuk-white;
+      content: 'USER RESEARCH';
+  }
+}
 }
 
 .example-snippet {
@@ -193,4 +202,11 @@ pre[class*=language-] {
   &.entity {
     cursor: help;
   }
+}
+
+.version-wrapper {
+  @include top-and-bottom();
+  border: 1px solid $nhsuk-border-colour;
+  padding: 32px;
+  margin: 56px 0;
 }
