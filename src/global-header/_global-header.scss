@@ -74,6 +74,12 @@ $alpha: .5;
         color: $nhsuk-grey-5;
       }
 
+      &.active {
+        &:focus {
+          box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+        }
+      }
+
     }
   }
 
@@ -279,7 +285,7 @@ $alpha: .5;
       &.js-show {
         border-bottom: 4px solid $nhsuk-grey-5;
       }
-      
+
     }
 
     .nhsuk-global-header__menu {
@@ -333,6 +339,12 @@ $alpha: .5;
           border-color: $nhsuk-grey-5;
           box-shadow: none;
           color: $nhsuk-grey-5;
+        }
+
+        &.active {
+          &:focus {
+            box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+          }
         }
 
       }
