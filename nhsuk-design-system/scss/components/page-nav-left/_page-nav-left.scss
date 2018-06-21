@@ -23,10 +23,10 @@
     padding: 24px 16px;
     margin-top:40px;
     background: $nhsuk-white;
+    border-top: $nhsuk-grey-4 2px solid;
     margin-left: -16px;
     margin-right: -16px;
     margin-bottom: -15px;
-    border-bottom: none;
     display: none;
 
     @media screen and (max-width: 989px) {
