@@ -398,7 +398,7 @@ $alpha: .5;
 
       &:focus {
         border-radius: 4px;
-        box-shadow: 0 0 0 4px #ffb81c;
+        box-shadow: 0 0 0 4px $nhsuk-focus-colour;
         outline: 0;
       }
 
