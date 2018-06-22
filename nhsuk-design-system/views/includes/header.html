@@ -144,19 +144,19 @@ $( function() {
 <header role="banner">
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
-      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link" title="Go to the NHS.UK homepage"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt=""><span class="visually-hidden">Homepage</span></a></div>
+      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt=""><span class="visually-hidden">NHS.UK homepage</span></a></div>
       <div class="nhsuk-global-header__menusearch ui-front">
-        <div class="nhsuk-global-header__menu"><a href="/" class="menu-toggle__button" aria-controls="c-nav-primary" role="button" aria-label="Open main navigation">Menu</a></div>
+        <div class="nhsuk-global-header__menu"><a href="#open" class="menu-toggle__button" aria-controls="c-nav-primary" role="button" aria-label="Open menu">Menu</a></div>
         <div class="nhsuk-global-header__search">
-          <div class="search-toggle"><a href="" class="search-toggle__button" aria-controls="search-container" role="button" aria-label="Open search"><span class="search-toggle__icon">Search</span></a></div>
+          <div class="search-toggle"><a href="#open" class="search-toggle__button" aria-controls="search-container" role="button" aria-label="Open search"><span class="search-toggle__icon">Search</span></a></div>
           <div class="search-container" id="search-container">
             <form class="c-search" action="" method="post" role="search">
               <div class="c-search__container">
-                <label class="c-search__label visually-hidden" for="search-field">Search this site</label>
-                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit" aria-label="Submit search">
+                <label class="c-search__label visually-hidden" for="search-field">Search NHS.UK</label>
+                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
               </div>
             </form>
-            <div class="search-close"><a href="#close" class="search-close__link">Close search</a></div>
+            <div class="search-close"><a href="#close" class="search-close__link" role="button">Close search</a></div>
           </div>
         </div>
       </div>

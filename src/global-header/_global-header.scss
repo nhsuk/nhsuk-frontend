@@ -23,6 +23,10 @@ $alpha: .5;
         width: 99px;
       }
 
+      .visually-hidden {
+        top: -9999px; // Moves outline on iOS off screen
+      }
+
       &:hover {
         box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
       }
