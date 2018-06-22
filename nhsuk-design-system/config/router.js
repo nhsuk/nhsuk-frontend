@@ -307,4 +307,8 @@ router.get('/examples/video/test-video-3', (req, res) => {
   res.render('examples/video/test-video-3', {});
 });
 
+router.get('/testing/svg', (req, res) => {
+  res.render('examples/svg-test', {});
+});
+
 module.exports = router;
