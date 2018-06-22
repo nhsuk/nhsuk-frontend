@@ -31,10 +31,12 @@
         background-position: center;
         background-repeat: no-repeat;
         height: 40px;
+        overflow: hidden;
         position: absolute;
         right: 24px;
-        text-indent: -9999px;
+        text-indent: 100%;
         top: 8px;
+        white-space: nowrap;
         width: 40px;
 
         @include mq($until: tablet) {

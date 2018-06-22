@@ -74,6 +74,12 @@ $alpha: .5;
         color: $nhsuk-grey-5;
       }
 
+      &.active {
+        &:focus {
+          box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+        }
+      }
+
     }
   }
 
@@ -279,7 +285,7 @@ $alpha: .5;
       &.js-show {
         border-bottom: 4px solid $nhsuk-grey-5;
       }
-      
+
     }
 
     .nhsuk-global-header__menu {
@@ -308,6 +314,7 @@ $alpha: .5;
         cursor: pointer;
         margin: 20px 0;
         min-height: 40px;
+        overflow: hidden;
         padding: 5px 19px;
         position: absolute;
         right: 16px;
@@ -335,6 +342,12 @@ $alpha: .5;
           color: $nhsuk-grey-5;
         }
 
+        &.active {
+          &:focus {
+            box-shadow: 0 0 0 3px $nhsuk-focus-colour;
+          }
+        }
+
       }
 
     }
@@ -350,8 +363,10 @@ $alpha: .5;
       margin-left: 16px;
       margin-right: 16px;
       margin-top: 22px;
+      overflow: hidden;
       text-align: left;
-      text-indent: -9999px;
+      text-indent: 100%;
+      white-space: nowrap;
       width: 40px;
 
       &:hover {
