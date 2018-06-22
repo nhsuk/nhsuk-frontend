@@ -28,14 +28,16 @@
       }
 
       .c-nav-primary__close-link {
+        background-color: transparent;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
         background-position: center;
         background-repeat: no-repeat;
+        border: 0;
         height: 40px;
         overflow: hidden;
         position: absolute;
         right: 24px;
-        text-indent: 100%;
+        text-indent: -9999px;
         top: 8px;
         white-space: nowrap;
         width: 40px;
@@ -44,15 +46,18 @@
           right: -8px;
         }
 
+        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+          border: 0;
+        }
+
         &:hover {
-          background-color: transparent;
           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%23003970;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-          box-shadow: none;
         }
 
         &:focus {
-          background-color: transparent;
           border-radius: 4px;
+          box-shadow: 0 0 0 4px #ffb81c;
+          outline: 0;
         }
 
       }
