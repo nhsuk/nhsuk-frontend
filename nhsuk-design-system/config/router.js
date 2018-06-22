@@ -281,4 +281,16 @@ router.get('/examples/google-allergies', (req, res) => {
   res.render('examples/google-allergies/index', {});
 });
 
+router.get('/examples/test-template-general', (req, res) => {
+  res.render('examples/test-template-general', {});
+});
+
+router.get('/examples/test-template-condition', (req, res) => {
+  res.render('examples/test-template-condition', {});
+});
+
+router.get('/examples/test-template-medicine', (req, res) => {
+  res.render('examples/test-template-medicine', {});
+});
+
 module.exports = router;
