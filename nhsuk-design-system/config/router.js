@@ -53,6 +53,10 @@ router.get('/styles/reveals', (req, res) => {
   res.render('styles/reveals', {});
 });
 
+router.get('/styles/video', (req, res) => {
+  res.render('styles/video', {});
+});
+
 
 
 router.get('/examples', (req, res) => {
@@ -291,6 +295,18 @@ router.get('/examples/test-template-condition', (req, res) => {
 
 router.get('/examples/test-template-medicine', (req, res) => {
   res.render('examples/test-template-medicine', {});
+});
+
+router.get('/examples/video/test-video-1', (req, res) => {
+  res.render('examples/video/test-video-1', {});
+});
+
+router.get('/examples/video/test-video-2', (req, res) => {
+  res.render('examples/video/test-video-2', {});
+});
+
+router.get('/examples/video/test-video-3', (req, res) => {
+  res.render('examples/video/test-video-3', {});
 });
 
 module.exports = router;
