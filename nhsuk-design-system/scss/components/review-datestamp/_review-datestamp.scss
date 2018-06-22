@@ -10,6 +10,17 @@
     }
 
     p{
-        font-size: 0.9em;
+        font-size: 0.8em;
+    }
+}
+
+.nhsuk-c-review-datestamp-v2{
+    padding:24px 0;
+    background: #126bc5;
+
+    p{
+        margin-top: 0;
+        font-size: 0.8em;
+        color: $nhsuk-white;
     }
 }
