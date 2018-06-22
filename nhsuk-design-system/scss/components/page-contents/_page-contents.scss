@@ -1,8 +1,20 @@
 .nhsuk-c-page-contents{
-	padding-bottom: 24px;
-	margin: 0 0 40px 0;
+	padding: 0 0 40px 0;
 	border-bottom:$nhsuk-grey-3 1px solid;
 	
+	&.v2{
+		padding: 40px 0;
+	}
+
+	
+	&.medicine{
+		display: none;
+		
+		@media screen and (max-width: 989px) {
+			display: block;
+		}
+	}
+
 	.nhsuk-heading-s{
 		margin-top: 0;
 		font-weight: 400;
