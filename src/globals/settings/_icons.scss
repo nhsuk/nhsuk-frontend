@@ -43,11 +43,20 @@
     fill: $nhsuk-red;
     height: 40px;
     width: 40px;
+    &--fallback {
+      width: 34px;
+      height: 34px;
+    }
   }
   &__tick {
     fill: none;
     height: 40px;
     stroke: $nhsuk-green;
     width: 40px;
+    &--fallback {
+      padding-top: 5px;
+    }
   }
 }
+
+
