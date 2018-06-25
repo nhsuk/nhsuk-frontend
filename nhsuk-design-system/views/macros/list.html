@@ -5,7 +5,7 @@
       <ul class="nhsuk-list nhsuk-list--check">
         {% for data in items %}
         <li>
-        {% include 'partials/icons/tick.svg' %}
+        {% include 'partials/icons/icon-tick.svg' %}
         {{ data.item }}
         </li>
         {% endfor %}
@@ -14,7 +14,7 @@
       <ul class="nhsuk-list nhsuk-list--cross">
       {% for data in items %}
         <li>
-        {% include 'partials/icons/cross.svg' %}
+        {% include 'partials/icons/icon-cross.svg' %}
         {{ data.item }}
         </li>
       {% endfor %}

@@ -1,43 +1,18 @@
 .nhsuk-icon {
   &__search {
     fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
-  }
-  &__warning {
-    fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
-  }
-  &__information {
-    fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
+    height: 34px;
+    width: 34px;
   }
   &__chevron-right {
     fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
-  }
-  &__chevron-down {
-    fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
+    height: 34px;
+    width: 34px;
   }
   &__close {
     fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
-  }
-  &__close-outline {
-    fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
-  }
-  &__close-solid {
-    fill: $nhsuk-blue;
-    height: 40px;
-    width: 40px;
+    height: 34px;
+    width: 34px;
   }
   &__cross {
     fill: $nhsuk-red;
@@ -51,6 +26,27 @@
     width: 34px;
     &--fallback {
       padding-top: 5px;
+    }
+  }
+  &__arrow-right {
+    fill: $nhsuk-green;
+    height: 34px;
+    width: 34px;
+  }
+  &__chevron-down {
+    fill: $nhsuk-blue;
+    height: 34px;
+    width: 34px;
+    path {
+      fill: $nhsuk-white;
+    }
+  }
+  &__chevron-up {
+    fill: $nhsuk-blue;
+    height: 34px;
+    width: 34px;
+    path {
+      fill: $nhsuk-white;
     }
   }
 }
