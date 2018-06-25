@@ -2,19 +2,18 @@
 
 .nhsuk-c-panel {
   @include top-and-bottom();
-  background: rgba(white,0.6);
-  color: $nhsuk-secondary-text-colour;
+  background: white;
   margin: 56px 0;
   padding: 24px;
   position:relative;
   @include mq($until: tablet) {
     margin: 40px 0;
   }
-  &.white {
-    background: white;
-    color: $nhsuk-text-colour;
+  &.nhsuk-c-panel--mute {
+    background: rgba(white,0.75);
   }
 }
+
 
 .nhsuk-c-panel__with-header-tab {
   margin: 72px 0 56px;
@@ -57,11 +56,42 @@
 }
 
 .nhsuk-c-panel__warning {
-  background: $nhsuk-yellow-tint-60;
+  background: $nhsuk-pale-yellow;
   color: $nhsuk-text-colour;
-  h3 {
+  &.nhsuk-c-panel__with-header-tab h3 {
     background: $nhsuk-yellow;
     color: $nhsuk-text-colour;
+  }
+}
+
+.nhsuk-c-panel__warning-v2 {
+  background: $nhsuk-yellow;
+  padding: 32px;
+  h3 {
+    & + p {
+      margin-top: 16px;
+    }
+  }
+}
+
+.warning-header-icon {
+  h3 {
+    &:before {
+      content:"";
+      background: url(/images/nhsuk-i-warning.svg)  no-repeat;
+      background-size: 100% 100%;
+      display: block;
+      float: left;
+      height: 24px;
+      line-height: 32px;
+      margin: 4px 8px 0 0;
+      width: 24px;
+      @include mq($until: tablet) {
+        height: 20px;
+        margin: 4px 8px 0 0;
+        width: 20px;
+      }
+    }
   }
 }
 

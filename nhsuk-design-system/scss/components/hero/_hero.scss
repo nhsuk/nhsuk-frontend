@@ -2,7 +2,7 @@
   background-color: $nhsuk-blue;
   color: $nhsuk-white;
   .nhsuk-hero-container {
-    border-top: 1px solid #5a80c0;;
+    border-top: 1px solid $nhsuk-secondary-border-colour;
     &.nhsuk-o-main-wrapper {
       padding: 0;
     }
