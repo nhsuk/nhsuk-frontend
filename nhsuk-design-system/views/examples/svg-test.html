@@ -19,19 +19,19 @@
 
 {% block content %}
 
-    {% macro list(title, item) %}
+    {% macro list(title, type, item) %}
         <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
             <h3 id="{{title}}">{{title}}</h3>
-              {% if title == 'Do' %}
-                <ul class="list--check--inline">
+              {% if type == 'tick' %}
+                <ul class="nhsuk-c-list nhsuk-c-list--check">
                   <li>
                   {% include 'partials/icons/tick.html' %}
-              {% else %}
-                <ul class="list--cross--inline">
+              {% elseif type == 'cross' %}
+                <ul class="nhsuk-c-list nhsuk-c-list--cross">
                   <li>
                   {% include 'partials/icons/cross.html' %}
               {% endif %}
-                {{item}}
+                  {{ item }}
               </li>
             </ul>
         </div>
@@ -39,9 +39,10 @@
 
     <section id="html">
         <h2>SVG HTML inline</h2>
-          {{ list('Do', 'Eat fish and chips') }}
+          {{ list("Do", "tick", "Eat fish and chips") }}
 
-          {{ list('Dont', 'Eat vegetables') }}
+          {{ list("Don't", "cross", "Eat vegetables") }}
+
+          {{ list("Don't", "cross", "Eat vegetables") }}
     </section>
-
 {% endblock %}
