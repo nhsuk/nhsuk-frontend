@@ -6,20 +6,21 @@ $nhsuk-blue: #005EB8;
 $nhsuk-light-blue: #41B6E6;
 $nhsuk-aqua-blue: #00A9CE;
 $nhsuk-white: #FFFFFF;
-$nhsuk-black: #212B32;
+$nhsuk-black: #212b32;
 $nhsuk-green: #007F3B;
-$nhsuk-red: #AD1F19;
-$nhsuk-yellow: #FAE200;
+$nhsuk-red: #DA291C;
+$nhsuk-yellow: #FFED00;
+$nhsuk-pale-yellow: #FFFBCE;
 $nhsuk-warm-yellow: #FFB81C;
 $nhsuk-purple: #330072;
 
 // Greyscale
 
-$nhsuk-grey-1: #425462;
+$nhsuk-grey-1: #425563;
 $nhsuk-grey-2: #768692;
-$nhsuk-grey-3: #AEB7BD;
-$nhsuk-grey-4: #D8DDE0;
-$nhsuk-grey-5: #E8EDEE;
+$nhsuk-grey-3: #aeb7bd;
+$nhsuk-grey-4: #d8dde0;
+$nhsuk-grey-5: #f0f4f5;
 
 // Colour functions for tint and shade
 
@@ -52,7 +53,7 @@ $nhsuk-green-shade-50: shade($nhsuk-green, 50%); // used for primary button :act
 
 // nhsuk-yellow variations
 
-$nhsuk-yellow-tint-60: tint($nhsuk-yellow, 60%); // used for warning callout background
+$nhsuk-yellow-tint-40: tint(#FFED00, 40%); // used for warning callout background
 
 // nhsuk-warm-yellow variations
 
@@ -72,11 +73,11 @@ $nhsuk-grey-4-tint-50: tint($nhsuk-grey-4, 50%); // used callout backgrounds on 
 // Text colours
 
 $nhsuk-text-colour: $nhsuk-black;
-$nhsuk-secondary-text-colour: $nhsuk-black-tint-15; //used for secondary text colour
+$nhsuk-secondary-text-colour: $nhsuk-grey-1;
 
 // Link colours
 
-$nhsuk-link-colour: shade($nhsuk-blue,15%);
+$nhsuk-link-colour: $nhsuk-blue;
 $nhsuk-link-hover-colour: $nhsuk-black;
 $nhsuk-link-focus-colour: $nhsuk-black;
 $nhsuk-link-active-colour: $nhsuk-black-tint-10;
@@ -87,8 +88,8 @@ $nhsuk-link-active-background-colour: $nhsuk-warm-yellow-tint-10;
 
 // Border colours
 
-$nhsuk-border-colour: $nhsuk-grey-3;
-$nhsuk-secondary-border-colour: rgba(255,255,255,0.25); // used for header and footer dividing line
+$nhsuk-border-colour: $nhsuk-grey-4;
+$nhsuk-secondary-border-colour: rgba(255,255,255,0.2); // used for header and footer dividing line
 
 // Button colours
 

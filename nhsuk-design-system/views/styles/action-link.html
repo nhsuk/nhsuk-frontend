@@ -20,6 +20,7 @@
 {% block content %}
 
 	<h2 id="rules">Rules</h2>
+	<div class="nhsuk-reading-width">
 	<ul>
 		<li>Should only be used for links to start important or transactional journeys e.g. finding a pharmacy (using the tool) on the slipped disc page, or finding a walk-in clinic (using the service search) on the chest pain page.</li>
 	</ul>
@@ -28,16 +29,14 @@
     <ul>
 		<li>As a user I NEED to know which links on the page can take me to important information or useful tools SO THAT I can continue to find important information relevant to my situation.</li>
 	</ul>
-
-	<h2 id="example">Example</h2>
-	<div class="example">
+	<h2>Design iterations</h2>
+	<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
+		<h3 class="nhsuk-heading-xs">Version 1</h3>
 		<p><a href="https://beta.nhs.uk/find-a-pharmacy/" class="nhsuk-action-link">Find a pharmacy</a></p>
+	</div>
+	<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
+		<h3 class="nhsuk-heading-xs">Version 2</h3>
 		<p><a href="https://beta.nhs.uk/find-a-pharmacy/" class="nhsuk-action-link-v2">Find a pharmacy</a></p>
 	</div>
-
-	<div class="example-snippet">
-		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
-		<pre id="clipboard-1" class="  language-markup"><code class="  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://beta.nhs.uk/find-a-pharmacy/<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-action-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Find a pharmacy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
-	</div>
-
+</div>
 {% endblock %}
