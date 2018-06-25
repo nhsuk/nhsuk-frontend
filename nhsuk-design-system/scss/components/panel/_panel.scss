@@ -119,6 +119,7 @@
       position:relative;
   }
 }
+
 .list--check li {
   &:before {
     content:url('../../../../images/Icon-tick-v4.svg');
@@ -144,4 +145,23 @@
       top: -8px;
     }
  }
+}
+
+
+.nhsuk-list--check,
+.nhsuk-list--cross {
+  position: relative;
+  list-style: none;
+  padding-left: 40px;
+  margin-top: 0;
+  .nhsuk-icon__tick {
+    position: absolute;
+    left: -4px;
+    margin-top: -5px;
+  }
+  .nhsuk-icon__cross {
+    position: absolute;
+    left: -4px;
+    margin-top: -5px;
+  }
 }

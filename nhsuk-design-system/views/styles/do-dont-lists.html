@@ -1,6 +1,7 @@
 {% set title = 'Do and Dont lists' %}
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
@@ -25,6 +26,45 @@
   <p>As a user I NEED to easily understand what I should and should not do in my situation SO THAT I have the best outcome possible.</p>
 	<h2 id="example">Example</h2>
 
+  <div class="nhsuk-reading-width">
+    <div class="example grey-background">
+
+      {% set doItems = [
+          {
+            "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            "item"  : "wash your hands before touching a burst blister"
+          },
+          {
+            "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+      %}
+
+      {{ list("Do", "tick", doItems) }}
+
+      {% set dontItems = [
+          {
+            "item"  : "burst a blister yourself"
+          },
+          {
+            "item"  : "peel the skin off a burst blister"
+          },
+          {
+            "item"  : "pick at the edges of the remaining skin"
+          },
+          {
+            "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+          }
+        ]
+      %}
+
+      {{ list("Dont", "cross", dontItems) }}
+    </div>
+  </div>
+
+<!--
 <div class="nhsuk-reading-width">
   <div class="example grey-background">
     <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
@@ -66,4 +106,5 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
   </div>
 </div>
+-->
 {% endblock %}

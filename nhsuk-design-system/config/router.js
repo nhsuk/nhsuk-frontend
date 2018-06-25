@@ -53,12 +53,15 @@ router.get('/styles/reveals', (req, res) => {
   res.render('styles/reveals', {});
 });
 
+<<<<<<< HEAD
 router.get('/styles/video', (req, res) => {
   res.render('styles/video', {});
 });
 
 
 
+=======
+>>>>>>> :robot: do and dont list nunjucks macro
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
