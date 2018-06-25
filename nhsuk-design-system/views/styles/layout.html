@@ -27,6 +27,7 @@
         <li>mobile:  320px</li>
         <li>tablet:  641px</li>
         <li>desktop: 769px</li>
+        <li>large desktop: 990px</li>
     </ul>
 
     <h2 id="structure">Page structure</h2>
@@ -123,6 +124,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
     </div>
 
+    <h3>Page utilities</h3>
+
+    <p>To structure your page and give elements of your page equal spacing and align content we have helper classes <span class="example-code-snippet">nhsuk-page-heading</span> and <span class="example-code-snippet">nhsuk-page-content</span>.</p>
+    <p>If you're using a full with grid, you can wrap content in <span class="example-code-snippet">nhsuk-reading-width</span> to make sure lines of text should are no longer than 70 to 80 characters to improve readability of text.</p>
+    <p>You can find an example of how to use these helper classes within a grid in the <a href="#examples">layout page examples</a> section.</p>
+
     <h2 id="grid">Grid</h2>
 
     <h3>Full width</h3>
@@ -191,9 +198,9 @@
 
     <div class="example">
       <div class="nhsuk-o-grid nhsuk-grid-example">
-          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters">
-              <p>nhsuk-o-grid__item--three-quarters</p>
-          </div>
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters">
+            <p>nhsuk-o-grid__item--three-quarters</p>
+        </div>
       </div>
     </div>
 
@@ -201,10 +208,31 @@
     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-11">Copy</button>
 
 <pre class="language-markup" id="clipboard-11"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--three-quarters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--three-quarters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+    </div>
+
+    <h3>One-third</h3>
+
+    <div class="example">
+      <div class="nhsuk-o-grid nhsuk-grid-example">
+          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+              <p>nhsuk-o-grid__item--one-third</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="example-snippet">
+     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-15">Copy</button>
+
+<pre class="language-markup" id="clipboard-15"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-third<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-third<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+
     </div>
 
     <h3>One-quarter</h3>
@@ -326,25 +354,25 @@
 
     <div class="example">
       <div class="nhsuk-o-grid nhsuk-grid-example">
-          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters">
-              <p>nhsuk-o-grid__item--three-quarters</p>
-          </div>
-          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-quarter">
-              <p>nhsuk-o-grid__item--one-quarter</p>
-          </div>
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters">
+          <p>nhsuk-o-grid__item--three-quarters</p>
+        </div>
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-quarter">
+          <p>nhsuk-o-grid__item--one-quarter</p>
+        </div>
       </div>
     </div>
 
     <div class="example-snippet">
-     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-12">Copy</button>
+     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-16">Copy</button>
 
-<pre class="language-markup" id="clipboard-12"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid nhsuk-grid-example<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--three-quarters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-quarter<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-quarter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-markup" id="clipboard-16"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--three-quarters<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--three-quarters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-quarter<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>nhsuk-o-grid__item--one-quarter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
     </div>
 
@@ -392,80 +420,81 @@
     <div class="example">
       <div class="nhsuk-o-width-container">
         <main class="nhsuk-o-main-wrapper">
-            <div class="nhsuk-o-grid">
-                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
-                    <div class="nhsuk-page-heading">
-                      <h1>Knee pain</h1>
-                      <div class="nhsuk-reading-width">
-                          <p class="nhsuk-body-l nhsuk-page-intro">
-                            Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.
-                          </p>
-                      </div>
-                    </div>
+          <div class="nhsuk-o-grid">
+            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+              <div class="nhsuk-page-heading">
+                <h1>Knee pain</h1>
+                <div class="nhsuk-reading-width">
+                  <p class="nhsuk-body-l nhsuk-page-intro">
+                    Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.
+                  </p>
                 </div>
+              </div>
             </div>
-            <div class="nhsuk-o-grid">
-                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third nhsuk-sticky">
-                    <div class="nhsuk-page-nav">
-                      <h2 class="nhsuk-heading-xs">On this page</h2>
-                      <ol class="nhsuk-list-nav">
-                          <li><a href="#things-you-can-try">Things you can try</a></li>
-                      </ol>
-                    </div>
-                </div>
-                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
-                    <div class="nhsuk-page-content">
-                        <h2 id="things-you-can-try">How to ease knee pain and swelling</h2>
-                        <p>Try these things at first:</p>
-                        <ul>
-                          <li>put as little weight as possible on the knee – for example, avoid standing for a long time</li>
-                          <li>use an ice pack (or bag of frozen peas wrapped in a teatowel) on your knee for up to 20 minutes every 2 to 3 hours</li>
-                          <li>take paracetamol</li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="nhsuk-o-grid">
+            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third nhsuk-sticky">
+              <div class="nhsuk-page-nav">
+                <h2 class="nhsuk-heading-xs">On this page</h2>
+                <ol class="nhsuk-list-nav">
+                  <li><a href="#things-you-can-try">Things you can try</a></li>
+                </ol>
+              </div>
             </div>
+            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+              <div class="nhsuk-page-content">
+                <h2 id="things-you-can-try">How to ease knee pain and swelling</h2>
+                <p>Try these things at first:</p>
+                <ul>
+                  <li>put as little weight as possible on the knee – for example, avoid standing for a long time</li>
+                  <li>use an ice pack (or bag of frozen peas wrapped in a teatowel) on your knee for up to 20 minutes every 2 to 3 hours</li>
+                  <li>take paracetamol</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
 
     <div class="example-snippet">
     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-13">Copy</button>
+
 <pre class="language-markup" id="clipboard-13"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-width-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-main-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--full<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Knee pain<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-reading-width<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-body-l nhsuk-page-intro<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                      Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--full<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Knee pain<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-reading-width<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-body-l nhsuk-page-intro<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+              Knee pain can often be treated at home – you should start to feel better in a few days. See a GP if the pain is very bad or lasts a long time.
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-third nhsuk-sticky<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-heading-xs<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>On this page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-list-nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#things-you-can-try<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Things you can try<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>things-you-can-try<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>How to ease knee pain and swelling<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
-                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Try these things at first:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>put as little weight as possible on the knee – for example, avoid standing for a long time<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>use an ice pack (or bag of frozen peas wrapped in a teatowel) on your knee for up to 20 minutes every 2 to 3 hours<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>take paracetamol<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--one-third nhsuk-sticky<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-heading-xs<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>On this page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-list-nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#things-you-can-try<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Things you can try<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>things-you-can-try<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>How to ease knee pain and swelling<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Try these things at first:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>put as little weight as possible on the knee – for example, avoid standing for a long time<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>use an ice pack (or bag of frozen peas wrapped in a teatowel) on your knee for up to 20 minutes every 2 to 3 hours<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>take paracetamol<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
     </div>
