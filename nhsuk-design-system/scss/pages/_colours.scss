@@ -1,8 +1,10 @@
 .colour-palette {
+  td, th {
+    padding: 15px;
+  }
   .colour-swatch {
     border-radius: 50px;
     height: 50px;
-    margin: 20px 20px 20px 0;
     width: 50px;
     &__nhsuk-text-colour {
       background-color: $nhsuk-text-colour;
@@ -68,6 +70,12 @@
     &__nhsuk-blue {
       background-color: $nhsuk-blue;
     }
+    &__nhsuk-light-blue {
+      background-color: $nhsuk-light-blue;
+    }
+    &__nhsuk-aqua-blue {
+      background-color: $nhsuk-aqua-blue;
+    }
     &__nhsuk-white {
       background-color: $nhsuk-white;
     }
@@ -76,6 +84,12 @@
     }
     &__nhsuk-red {
       background-color: $nhsuk-red;
+    }
+    &__nhsuk-yellow {
+      background-color: $nhsuk-yellow;
+    }
+    &__nhsuk-pale-yellow {
+      background-color: $nhsuk-pale-yellow;
     }
     &__nhsuk-warm-yellow {
       background-color: $nhsuk-warm-yellow;
