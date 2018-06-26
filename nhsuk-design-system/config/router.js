@@ -53,15 +53,10 @@ router.get('/styles/reveals', (req, res) => {
   res.render('styles/reveals', {});
 });
 
-<<<<<<< HEAD
 router.get('/styles/video', (req, res) => {
   res.render('styles/video', {});
 });
 
-
-
-=======
->>>>>>> :robot: do and dont list nunjucks macro
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
@@ -75,7 +70,15 @@ router.get('/examples/test-condition-blisters-v1', (req, res) => {
 });
 
 router.get('/examples/test-condition-chickenpox', (req, res) => {
+  res.render('examples/test-condition-chickenpox', {});
+});
+
+router.get('/examples/test-condition-chickenpox-v2', (req, res) => {
   res.render('examples/test-condition-chickenpox-v2', {});
+});
+
+router.get('/examples/test-condition-chlamydia', (req, res) => {
+  res.render('examples/test-condition-chlamydia', {});
 });
 
 router.get('/examples/test-condition-depression', (req, res) => {
@@ -168,6 +171,16 @@ router.get('/examples/medicines/propranolol/page-3', (req, res) => {
 
 router.get('/examples/test-medicine-buscopan', (req, res) => {
   res.render('examples/test-medicine-buscopan', {});
+});
+
+router.get('/examples/component-test-header-2018-06-11-buscopan', (req, res) => {
+  res.render('examples/component-test-header-2018-06-11-buscopan', {
+    navigation: 'test-2018-06-11'
+  });
+});
+
+router.get('/examples/test-news-52-diet', (req, res) => {
+  res.render('examples/test-news-52-diet', {});
 });
 
 router.get('/examples/test-image-v1', (req, res) => {
