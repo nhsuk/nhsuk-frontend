@@ -4,7 +4,7 @@
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>Callouts &amp; Care Cards</h1>
+    <h1>Callouts</h1>
     <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
 {% endblock %}
 
@@ -13,75 +13,45 @@
     <ul class="">
         <li><a href="#callout_warning">Warning</a></li>
         <li><a href="#callout_keypoint">Key point</a></li>
-		<li><a href="#care_card_111">111 Care Card</a></li>
-		<li><a href="#care_card_primary">Primary Care Card</a></li>
-		<li><a href="#care_card_urgent">Urgent Care Card</a></li>
-		<li><a href="#care_card_emergency">Emergency Care Card</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-<h2 id="callout_warning">Warning</h2>
-<h3>Usage</h3>
+<h1 id="callout_warning">Warning</h1>
 <div class="nhsuk-reading-width">
-	<p>The warning callout can be used to display information that is:</p>
-    <ul>
-        <li>time critical</li>
-        <li>may have a significant health impact</li>
-        <li>addresses a common and/or significant misconception or patient mistake</li>
-    </ul>
-
-    <h3>User need</h3>
-    <p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation and don't endanger my health.</p>
-	<h3>Design iterations</h3>
-	<div class="nhsuk-reading-width">
+    <h2>User need</h2>
+	<p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation and don't endanger my health.</p>
+	<h2>What's being used</h2>
+	<h2>Hypothesis</h2>
+	<h2>Iterations</h2>
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 1</h4>
+			<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 1</h3>
 			<div class="nhsuk-c-callout__warning">
 				<p>Don't ignore an infected blister. Without treatment it could lead to a skin or blood infection.</p>
 			</div>
 		</div>
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 2</h4>
-			<h5>Hypothesis</h5>
+			<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 2</h3>
+			<h4>Hypothesis</h4>
 			<p>We believe that by making the yellow brighter and increasing the font weight, will make it look more like a warning and people will stop and read it.</p>
 			<div class="nhsuk-c-callout__warning-v11">
 				<p>Don't ignore an infected blister. Without treatment it could lead to a skin or blood infection.</p>
 			</div>
-			<div class="nhsuk-c-reveal-group">
-				<div class="nhsuk-c-reveal">
-					<a href="#" class="nhsuk-c-reveal__header">Lab user research - 13/6/2018</a>
-					<div class="nhsuk-c-reveal__content">
-						<h5>Findings</h5>
-						<ul>
-							<li>3/5 five users initially missed the callout, with one indicating their attention was drawn to the heading below.</li>
-							<li>Most users correctly understood its importance vs other call outs and the meaning of the yellow colour as a warning. </li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<h4>Research</h4>
+			<p>Lab - 13th June 2018 - Roundhay Research, Leeds.</p><p><a href="https://confluence.service.nhs.uk/pages/viewpage.action?spaceKey=NR&title=User+Research&preview=/20318795/25922797/NHS.uk%20redesign%20-%20usubility%20lab%20-%20Leeds%20-%2020th%20June%202018.pdf">Read the report<span class="visually-hidden"> for 13th June 2018 - Roundhay Research, Leeds</span></a> (NHS staff only)</p>
 		</div>
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 3</h4>
-			<h5>Hypothesis</h5>
+			<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 3</h3>
+			<h4>Hypothesis</h4>
 			<p>We believe that users scan headings. Adding a heading will make users stop and take notice of the callout. Also, changing the background colour to yellow will make it stand out from the surrounding white boxes.</p>
 			<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
 				<h3>Important</h3>
 				<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 			</div>
-			<div class="nhsuk-c-reveal-group">
-				<div class="nhsuk-c-reveal">
-					<a href="#" class="nhsuk-c-reveal__header">Lab user research - 20/6/2018</a>
-					<div class="nhsuk-c-reveal__content">
-						<h5>Findings</h5>
-						<ul>
-							<li>This tested very very well, and all users were inclined to stop and take notice of it</li>
-							<li>All users understood what it’s meaning was, and where it belonged in a hierarchy of other call out boxes and content</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<h4>Research</h4>
+			<p>Lab - 13th June 2018 - Roundhay Research, Leeds.</p><p><a href="https://confluence.service.nhs.uk/pages/viewpage.action?spaceKey=NR&title=User+Research&preview=/20318795/25922797/NHS.uk%20redesign%20-%20usubility%20lab%20-%20Leeds%20-%2020th%20June%202018.pdf">Read the report<span class="visually-hidden"> for 13th June 2018 - Roundhay Research, Leeds</span></a> (NHS staff only)</p>
 		</div>
+		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
 		<div class="nhsuk-c-reveal-group">
 			<div class="nhsuk-c-reveal">
 				<a href="#" class="nhsuk-c-reveal__header">Other design considerations</a>
@@ -119,115 +89,45 @@
 			</div>
 		</div>
 	</div>
+	<h2>Final version</h2>
+	<h2>Code snippet</h2>
+	<h2>Accessibility</h2>
+	<h2>Usage</h2>
+	<p>The warning callout can be used to display information that is:</p>
+	<ul>
+		<li>time critical</li>
+		<li>may have a significant health impact</li>
+		<li>addresses a common and/or significant misconception or patient mistake</li>
+	</ul>
 
 
-	<h2 id="callout_keypoint">Key point</h2>
-	<h3>Usage</h3>
-    <p>The key point callout can be used to highlight a significant point, some important information or advice so that the user is more likely to read and remember it over the body copy.</p>
-    <h3>User need</h3>
-    <p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation.</p>
-	<h3>Design iterations</h3>
+	<h1 id="callout_keypoint">Key point</h1>
+	<h2>User need</h2>
+	<p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation.</p>
+	<h2>Versions</h2>
 	<div class="nhsuk-reading-width">
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 1</h4>
+			<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 1</h3>
 			<div class="nhsuk-c-callout__info">
 				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 			</div>
 		</div>
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 2</h4>
+			<h3 class="nhsuk-heading-xs">Version 2</h3>
 			<div class="nhsuk-c-keypoint-v1">
 				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 			</div>
 		</div>
 		<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-			<h4 class="nhsuk-heading-xs">Version 3</h4>
+			<h3 class="nhsuk-heading-xs">Version 3</h3>
 			<div class="nhsuk-c-keypoint-v2">
 				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 			</div>
 		</div>
+		<h2>Usage</h2>
+		<p>The key point callout can be used to highlight a significant point, some important information or advice so that the user is more likely to read and remember it over the body copy.</p>
 	</div>
 
-
-	<h2 id="care_card_111">111 Care Card</h2>
-	<h3>Usage</h3>
-    <p>The 111 care card can be used to direct users to the NHS 111 helpline if they need non-emergency help or advice and don't have access to a health professional or GP.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand my options if I don't know what to do and I can't speak to my GP, SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card grey">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Call 111</h4>
-		</div>
-		<div class="care-card-content">
-			<p>If you can't speak to your GP and don't know what to do next.</p>
-		</div>
-	</div>
-
-
-	<h2 id="care_card_primary">Primary Care Card</h2>
-	<h3>Usage</h3>
-    <p>The primary care card can be used to instruct users to visit a health professional or GP if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need to see a GP, SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card blue">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Speak to a GP if:</h4>
-		</div>
-		<div class="care-card-content">
-			<ul>
-				<li>you're not sure it's chickenpox</li>
-				<li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-				<li>your child is <a href="#">dehydrated</a></li>
-				<li>you're concerned about your child or they get worse</li>
-			</ul>
-			<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-		</div>
-	</div>
-
-
-	<h2 id="care_card_urgent">Urgent Care Card</h2>
-	<h3>Usage</h3>
-    <p>The urgent care card can be used to instruct users to visit a GP or hospital urgently if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need urgent GP care SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card red">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Ask for an urgent GP appointment if:</h4>
-		</div>
-		<div class="care-card-content">
-			<ul>
-				<li>you're an adult and have chickenpox</li>
-				<li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-				<li>you have a weakened immune system and you've been near someone with chickenpox</li>
-				<li>you think your newborn baby has chickenpox</li>
-			</ul>
-			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-		</div>
-	</div>
-
-
-	<h2 id="care_card_emergency">Emergency Care Card</h2>
-	<h3>Usage</h3>
-    <p>The emergency care card can be used to instruct users to immediately seek emergency help if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need to go straight to hospital SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card black">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Call 999 if you have sudden chest pain that:</h4>
-		</div>
-		<div class="care-card-content">
-			<ul>
-				<li>spreads to your arms, back, neck or jaw</li>
-				<li>makes your chest feel tight or heavy</li>
-				<li>also started with shortness of breath, sweating and feeling or being sick</li>
-			</ul>
-			<p>You could be having a <a href="#">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
-		</div>
-	</div>
 </div>
 <script>
 	$('.nhsuk-c-reveal__header').click( function() {

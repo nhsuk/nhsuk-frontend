@@ -84,7 +84,7 @@ ul ul, ol ul {
     .care-card {
       &.grey {
         .care-card-content {
-          background: $nhsuk-grey-4-tint-50;
+          background: $nhsuk-grey-5;
         }
       }
       &.blue {
@@ -106,7 +106,7 @@ ul ul, ol ul {
 
     //panels
     .nhsuk-c-panel {
-        background: tint($nhsuk-grey-5,50%);
+        background: $nhsuk-grey-5;
     }
 
     //breadcrumb
