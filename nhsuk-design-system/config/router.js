@@ -75,15 +75,7 @@ router.get('/examples/test-condition-blisters-v1', (req, res) => {
 });
 
 router.get('/examples/test-condition-chickenpox', (req, res) => {
-  res.render('examples/test-condition-chickenpox', {});
-});
-
-router.get('/examples/test-condition-chickenpox-v2', (req, res) => {
   res.render('examples/test-condition-chickenpox-v2', {});
-});
-
-router.get('/examples/test-condition-chlamydia', (req, res) => {
-  res.render('examples/test-condition-chlamydia', {});
 });
 
 router.get('/examples/test-condition-depression', (req, res) => {
@@ -182,10 +174,6 @@ router.get('/examples/component-test-header-2018-06-11-buscopan', (req, res) => 
   res.render('examples/component-test-header-2018-06-11-buscopan', {
     navigation: 'test-2018-06-11'
   });
-});
-
-router.get('/examples/test-news-52-diet', (req, res) => {
-  res.render('examples/test-news-52-diet', {});
 });
 
 router.get('/examples/test-image-v1', (req, res) => {
