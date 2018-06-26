@@ -18,8 +18,146 @@
 {% endblock %}
 
 {% block content %}
+  <h2 id="userneed">User need</h2>
+  <p>As a USER, I want to learn about a health issue / complete a form at my own pace, so that I can fully understand the issue / process I'm undertaking  </p>
 
-  <h2 id="rules">Rules</h2>
+  <h2>What's being used</h2>
+<ul>
+<li>Medicines Information - common questions <a href="https://beta.nhs.uk/medicines/acrivastine/">https://beta.nhs.uk/medicines/acrivastine/</a></li>
+<li>Guides - Secondary nav <a href="https://www.nhs.uk/conditions/social-care-and-support/how-can-i-get-social-care-support/">https://www.nhs.uk/conditions/social-care-and-support/how-can-i-get-social-care-support/</a> </li>
+<li>Find a pharmacy - opening times <a href="https://beta.nhs.uk/find-a-pharmacy/results?location=LS1">https://beta.nhs.uk/find-a-pharmacy/results?location=LS1</a> </li>
+<li>Getting tested for chlamydia - <a href="https://beta.nhs.uk/find-a-chlamydia-test/recommend?symptoms=yes">https://beta.nhs.uk/find-a-chlamydia-test/recommend?symptoms=yes</a> </li>
+<li>Your data matters - <a href="https://www.nhs.uk/your-nhs-data-matters/manage-your-choice/">https://www.nhs.uk/your-nhs-data-matters/manage-your-choice/</a> </li>
+
+
+</ul>
+
+<h2>Our hypothesis</h2>
+    <p>There is currently no consistancy in UI or iconography.</p> 
+    <p>We believe that a consistant reveal will</p> 
+    <ul>
+      <li>help with access needs (consitant labeling)</li>
+      <li>help with users mental model (speed up future use)</li>
+      <li>using our own suite of icons - help reinforce our branding </li>
+    </ul>
+
+    <p>We believe that a successful reveal will</p>
+    <ul>
+      <li>Follow existing models for reveal interactions (icon left)</li>
+      <li>Large enough icon as target </li>
+      <li>To open reveal, icon arrow facing down</li>
+      <li>To close reveal, icon arrow facing up</li>
+
+    </ul>
+
+    <h2>Iterations</h2>
+
+
+    <div class="nhsuk-c-panel nhsuk-c-panel__with-border">
+
+
+    <h3>Version 1</h3>
+
+      <div  style="background-color: #fff;padding:0.1em 0.5em 0.5em 1em;margin-top:1em;">
+<p>Open till midnight</p>
+          <details class="c-reveal__details" role="group" >
+            <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
+              <p class="c-reveal__header" style="font-weight: 400; text-decoration: underline;">Opening times</p>
+            </summary>
+            <div class="c-reveal__content" id="question-1" aria-hidden="true">
+                <table class="openingTimes">
+                    <tbody><tr><th align="left" style="padding-right:2em;"><strong>Day of the week</strong></th><th align="left"><strong>Opening hours</strong></th></tr>
+                      <tr>
+                            <th rowspan="1" align="left">Monday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1" align="left">Tuesday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1" align="left">Wednesday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1" align="left">Thursday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1" align="left">Friday</th>
+                            <td>9am to 6pm</td>
+                          </tr>
+                          <tr>
+                            <th rowspan="1" align="left">Saturday</th>
+                            <td>9am to 1pm</td>
+                          </tr>
+                          <tr>
+                          <th align="left">Sunday</th>
+                          <td align="left">Closed</td>
+                        </tr>
+                      </tbody></table>
+            </div>
+          </details>
+
+        </div>
+
+        <h3>Research findings</h3>    
+<p>20th June 2018 - Roundhay Research, Leeds </p>
+
+<p>Most users (4/5) noticed and tapped in the page contents (reveal), understanding its function </p>
+
+</div>
+
+        <h3>Version 2</h3>
+
+        <div  style="background-color: #fff;padding:0.1em 0.5em 0.5em 1em;margin-top:1em;">
+  <p>Open till midnight</p>
+            <details class="c-reveal__details" role="group" >
+              <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
+                <p class="c-reveal__header">Opening times</p>
+              </summary>
+              <div class="c-reveal__content" id="question-1" aria-hidden="true">
+                  <table class="openingTimes">
+                      <tbody><tr><th align="left" style="padding-right:2em;"><strong>Day of the week</strong></th><th align="left"><strong>Opening hours</strong></th></tr>
+                        <tr>
+                              <th rowspan="1" align="left">Monday</th>
+                              <td>9am to 6pm</td>
+                            </tr>
+                            <tr>
+                              <th rowspan="1" align="left">Tuesday</th>
+                              <td>9am to 6pm</td>
+                            </tr>
+                            <tr>
+                              <th rowspan="1" align="left">Wednesday</th>
+                              <td>9am to 6pm</td>
+                            </tr>
+                            <tr>
+                              <th rowspan="1" align="left">Thursday</th>
+                              <td>9am to 6pm</td>
+                            </tr>
+                            <tr>
+                              <th rowspan="1" align="left">Friday</th>
+                              <td>9am to 6pm</td>
+                            </tr>
+                            <tr>
+                              <th rowspan="1" align="left">Saturday</th>
+                              <td>9am to 1pm</td>
+                            </tr>
+                            <tr>
+                            <th align="left">Sunday</th>
+                            <td align="left">Closed</td>
+                          </tr>
+                        </tbody></table>
+              </div>
+            </details>
+  
+          </div>
+
+    
+
+<p><a href="https://confluence.service.nhs.uk/download/attachments/20318795/NHS.uk%20redesign%20-%20usubility%20lab%20-%20Leeds%20-%2020th%20June%202018.pdf?version=1&modificationDate=1530010588165&api=v2">Read the <span class="visually-hidden">20th June 2018</span> report</a> (NHS staff only)</p>
+
+<h2 id="rules">Rules</h2>
 
 
   <ul>
@@ -244,11 +382,11 @@
       background: url(/images/icon-chevron-down-circle_28px.svg) left no-repeat;
       color: #0058ad;
       cursor: pointer;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.4em;
       margin-top: 0;
       padding: 18px 8px 18px 36px;
-      text-decoration: underline;
+      text-decoration: none;
       margin-left: 16px;
       margin-right: 16px;
     }
@@ -284,11 +422,11 @@
       background: url(/images/icon-chevron-down-circle_28px.svg) left no-repeat ;
       color: #0058ad;
       cursor: pointer;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.4em;
       margin-top: 0;
       padding: 18px 8px 18px 36px;
-      text-decoration: underline;
+      text-decoration: none;
     }
     .c-reveal__header:hover,
     .c-reveal__header:focus {
@@ -305,6 +443,43 @@
 margin-bottom:1em;
     }
 
+
+  .c-reveal-muted__summary::-webkit-details-marker {
+      display: none;
+    }
+    .c-reveal-muted {
+      border: 2px #aeb7bd solid;
+      margin-top: 30px;
+      padding: 8px 16px;
+    }
+    .c-reveal-muted__summary {
+      display: block;
+    }
+
+    .c-reveal-muted__header {
+      background: url(/images/icon-chevron-down-circle_28px-grey.svg)  left no-repeat ;
+      color: #425462;
+      cursor: pointer;
+      font-weight: 600;
+      line-height: 1.4em;
+      margin-top: 0;
+      padding: 18px 8px 18px 36px;
+      text-decoration: none;
+    }
+    .c-reveal-muted__header:hover,
+    .c-reveal-muted__header:focus {
+      text-decoration: underline;
+    }
+    .c-reveal-muted__details:first-child .c-common-questions__header {
+      border-top: 0;
+    }
+    .c-reveal__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
+
+        .c-reveal-muted__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
 
 
 
@@ -405,11 +580,12 @@ details.pain[open] summary.pain:after {
 
   <div class="example" style="background-color: #e8edee;">
 
-      <h3>Find a pharmacy</h3>
+      <h3>Single reveal in context</h3>
 
       <ul>
         <li>Supporting information</li>
         <li>Sat beneath primary information (e.g. Open until 6pm today)</li>
+        <li>In white box to increase prominance</li>
       </ul>
 
       <div  style="background-color: #fff;padding:0.1em 0.5em 0.5em 1em;margin-top:1em;">
@@ -457,12 +633,11 @@ details.pain[open] summary.pain:after {
 
 <hr style="margin-top:2em;" />
 
-        <h3>Type 1 Diabetes</h3>
+        <h3>Multiple reveals</h3>
         <ul>
-          <li>Main page content</li>
-          <li>Primary focus</li>
-          <li>Needs to be prominent</li>
-          <li>Can be used as multiples</li>
+          <li>Supporting information</li>
+          <li>Could be main content</li>
+          <li>In white box to increase prominance</li>
         </ul>
 
         <div style="background-color: #fff;padding:1em;margin-top:1em;">
@@ -512,83 +687,19 @@ details.pain[open] summary.pain:after {
               </details>
 
             </div>
-          <hr style="margin-top:2em;" />
 
-    <h3>Medicines (frequently asked questions)</h3>
-     <ul>
-        <li>Supporting (secondary) information</li>
-        <li>Sat within content, next to related content</li>
-        <li>Can be used as multiples</li>
-
-     </ul>
-
-    <div class="c-common-questions" >
-
-      <details class="c-common-questions__details" role="group" >
-        <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-3" role="button">
-          <p class="c-common-questions__header" >Will it affect my contraception?</p>
-        </summary>
-        <div class="c-common-questions__content" id="question-3" aria-hidden="true">
-          <p>Propranolol won't stop your contraception working.</p>
-          <p>However, some types of hormonal methods of contraception, like the <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/combined-contraceptive-pill.aspx">combined contraceptive pill</a> and <a href="http://www.nhs.uk/Conditions/contraception-guide/Pages/contraceptive-patch.aspx">contraceptive patch</a>, aren't usually recommended for women taking propranolol and other medicines for <a href="https://www.nhs.uk/conditions/Blood-pressure-(high)/Pages/Introduction.aspx">high blood pressure</a>. This is because some hormonal contraceptives can raise your blood pressure and stop propranolol working properly.</p>
-          <p>Talk to your doctor if you're taking a hormonal contraceptive.</p>
-        </div>
-      </details>
-      <details class="c-common-questions__details" role="group" >
-          <summary class="c-common-questions__summary" aria-expanded="false" tabindex="0" aria-controls="question-3" role="button">
-            <p class="c-common-questions__header">Will it affect my fertility?</p>
-          </summary>
-          <div class="c-common-questions__content" id="question-3" aria-hidden="true">
-            <p>It's unlikely that propranolol affects fertility in men or women. However there's not enough evidence to say for certain.</p>
-                <p>If you're trying for a baby, or you're having problems getting pregnant while on propranolol, speak to your doctor.</p>
-          </div>
-        </details>
-
-    </div>
-    <hr style="margin-top:2em;" />
-
-    <h3>Find a chlamydia test</h3>
-    <ul>
-      <li>Supporting information</li>
-      <li>Sat beneath main information</li>
-
-    </ul>
-    <div  style="background-color: #fff;padding:1em;margin-top:1em;">
-
-        <details class="c-reveal__details" role="group" >
-          <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-            <p class="c-reveal__header" >Scotland</p>
-          </summary>
-          <div class="c-reveal__content" id="question-1" aria-hidden="true">
-              <p>To find a chlamydia test in Scotland:</p>
-
-              <ul>
-                <li>use the <a href="http://www.sexualhealthscotland.co.uk/get-help/sexual-health-service-finder" class="scotland_finder_tracking">Sexual Health Scotland website</a></li>
-                <li>call Sexual Health Scotland on <a href="tel:0800224488" class="scotland_helpline_tracking">0800 22 44 88</a> (open Monday to Friday, 8am to 10pm; Saturday and Sunday, 9am to 5pm)</li>
-              </ul>
-              <p><a href="https://www.gov.uk/call-charges" class="details__call-charges">Find out about call charges on GOV.UK</a></p>
-          </div>
-        </details>
-
-      </div>
-
-
-
-
-
-
-
-
+    
 
 
 
       <hr style="margin-top:2em;" />
 
-<h3>Your NHS data matters</h3>
+<h3>Single supporting reveal</h3>
 <ul>
     <li>Supporting information</li>
+    <li>Not prominent</li>
     <li>Sat beneath main content</li>
-    <li>Transational service</li>
+    <li>Useful in transational services</li>
 
   </ul>
 
@@ -624,7 +735,7 @@ details.pain[open] summary.pain:after {
 
         <hr style="margin-top:2em;" />
 
-        <h3>Pain scale</h3>
+        <h3>Muted reveal</h3>
         <ul>
             <li>Supporting information</li>
             <li>Sat beneath main content</li>
@@ -633,9 +744,9 @@ details.pain[open] summary.pain:after {
 
         <div  style="margin-top:1em;">
 
-            <details class="c-reveal__details" role="group" >
-              <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-                <p class="c-reveal__header">Pain scale</p>
+            <details class="c-reveal-muted__details" role="group" >
+              <summary class="c-reveal-muted__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
+                <p class="c-reveal-muted__header nhsuk-body-s">Media review dates</p>
               </summary>
               <div class="c-reveal__content " id="question-1" aria-hidden="true">
                   <h3>Severe pain:</h3>
@@ -657,6 +768,9 @@ details.pain[open] summary.pain:after {
                             <li>comes and goes</li>
                             <li>is annoying but doesn’t stop you doing things like going to work</li>
                         </ul>
+              <div class="c-reveal-muted__content " id="question-1" aria-hidden="true">
+                  <p>Media last reviewed: 1 Jun 2016</p>
+                  <p>Media review due: 10 Mar 2019</p>
 
               </div>
             </details>
