@@ -14,6 +14,7 @@
         <li><a href="#rules">Rules for icons</a></li>
         <li><a href="#usage">How to use icons</a></li>
         <li><a href="#icons">Icons</a></li>
+        <li><a href="#examples">Examples of icons</a></li>
     </ul>
 {% endblock %}
 
@@ -30,8 +31,11 @@
     <p>As a user I need to easily identify, understand and navigate content, so that I get the best outcome for my situation and don't endanger my health.</p>
 
     <h2 id="usage">How to use icons</h2>
-    <p>Icons are still in progress and are not quite ready to be used yet.</p>
-    <p>We inline SVG icons for performance and to have the ability to control the appearance of icons with CSS.</p>
+    <p>We inline SVG icons for performance and to have the ability to control the appearance of icons with CSS. This decision was inspired by <a href="https://css-tricks.com/pretty-good-svg-icon-system/">CSS Tricks - A Pretty Good SVG Icon System</a> and <a href="">CSS Tricks - A Complete Guide to SVG Fallbacks</a>.</p>
+    <p>Using a server side or templating language you can include the icons with <span class="example-code-snippet">include 'partials/icons/icon-search.svg'</span>.
+    <p>SVG icons have the class <span class="example-code-snippet">.nhsuk-icon</span> which set a default size for the icon and each icon has a specific class such as <span class="example-code-snippet">.nhsuk-icon__search</span> which can modify specific icons with styles such as fill. This means you can change the colour of the SVG for states such as hover, focus and active.</p>
+    <p>Each SVG icon has a PNG fallback which means we can support browsers such as Internet Explorer 8. The fallback images have a class such as <span class="example-code-snippet">.nhsuk-icon__search--fallback</span> which can be used to modify sizing and spacing of the PNG fallbacks.</p>
+    <p>Include the SVG file within your codebase and reference it using an include and use CSS to modify the icons.</p>
 
     <h2 id="icons">Icons</h2>
 
@@ -105,4 +109,8 @@
         </tr>
       </tbody>
     </table>
+
+    <h2 id="examples">Examples of icons</h2>
+    <p>To be updated</p>
+
 {% endblock %}
