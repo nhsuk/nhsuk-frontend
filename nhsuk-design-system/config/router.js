@@ -29,8 +29,8 @@ router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
 
-router.get('/styles/header-footer', (req, res) => {
-  res.render('styles/header-footer', {});
+router.get('/examples/header-footer', (req, res) => {
+  res.render('examples/header-footer', {});
 });
 
 router.get('/styles/breadcrumbs', (req, res) => {
@@ -56,8 +56,6 @@ router.get('/styles/reveals', (req, res) => {
 router.get('/styles/video', (req, res) => {
   res.render('styles/video', {});
 });
-
-
 
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});

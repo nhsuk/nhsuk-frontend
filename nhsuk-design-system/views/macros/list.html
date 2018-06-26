@@ -1,0 +1,24 @@
+{% macro list(title, type, items) %}
+  <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
+    <h3 id="{{title}}">{{title}}</h3>
+    {% if type == 'tick' %}
+      <ul class="nhsuk-list nhsuk-list--check">
+        {% for data in items %}
+        <li>
+        {% include 'partials/icons/icon-tick.svg' %}
+        {{ data.item }}
+        </li>
+        {% endfor %}
+      </ul>
+    {% elseif type == 'cross' %}
+      <ul class="nhsuk-list nhsuk-list--cross">
+      {% for data in items %}
+        <li>
+        {% include 'partials/icons/icon-cross.svg' %}
+        {{ data.item }}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}

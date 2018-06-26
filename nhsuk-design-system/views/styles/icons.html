@@ -5,15 +5,16 @@
 
 {% block header %}
     <h1>Icons</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
 {% endblock %}
 
 {% block sidebar %}
     <h2 class="nhsuk-heading-xs">Contents</h2>
-    <ul class="">
+    <ul>
         <li><a href="#rules">Rules for icons</a></li>
         <li><a href="#usage">How to use icons</a></li>
         <li><a href="#icons">Icons</a></li>
+        <li><a href="#examples">Examples of icons</a></li>
     </ul>
 {% endblock %}
 
@@ -30,8 +31,11 @@
     <p>As a user I need to easily identify, understand and navigate content, so that I get the best outcome for my situation and don't endanger my health.</p>
 
     <h2 id="usage">How to use icons</h2>
-    <p>Icons are still in progress and are not quite ready to be used yet.</p>
-    <p>We inline SVG icons for performance and to have the ability to control the appearance of icons with CSS.</p>
+    <p>We inline SVG icons for performance and to have the ability to control the appearance of icons with CSS. This decision was inspired by <a href="https://css-tricks.com/pretty-good-svg-icon-system/">CSS Tricks - A Pretty Good SVG Icon System</a> and <a href="">CSS Tricks - A Complete Guide to SVG Fallbacks</a>.</p>
+    <p>Using a server side or templating language you can include the icons with <span class="example-code-snippet">include 'partials/icons/icon-search.svg'</span>.
+    <p>SVG icons have the class <span class="example-code-snippet">.nhsuk-icon</span> which set a default size for the icon and each icon has a specific class such as <span class="example-code-snippet">.nhsuk-icon__search</span> which can modify specific icons with styles such as fill. This means you can change the colour of the SVG for states such as hover, focus and active.</p>
+    <p>Each SVG icon has a PNG fallback which means we can support browsers such as Internet Explorer 8. The fallback images have a class such as <span class="example-code-snippet">.nhsuk-icon__search--fallback</span> which can be used to modify sizing and spacing of the PNG fallbacks.</p>
+    <p>Include the SVG file within your codebase and reference it using an include and use CSS to modify the icons.</p>
 
     <h2 id="icons">Icons</h2>
 
@@ -42,329 +46,71 @@
           <th>Label</th>
           <th>File name</th>
           <th class="th__status">Status</th>
-          <th>Component appears</th>
+          <th>Example usage</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"/>
-            </svg>
-          </td>
+          <td>{% include 'partials/icons/icon-search.svg' %}</td>
           <td>Search</td>
           <td>icon-search.svg</td>
           <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/examples/test-medicine-amoxicillin">Header</a></td>
+          <td><a href="/examples/header-cookie">Header</a></td>
         </tr>
         <tr>
-          <td>
-          <svg class="nhsuk-icon nhsuk-icon__warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 15h.24l1.39-8.44a2.07 2.07 0 0 0 0-.35 1.66 1.66 0 0 0-3.32 0 2.07 2.07 0 0 0 0 .35L11.76 15" fill-rule="evenodd"/>
-            <circle cx="12" cy="18" r="1"/>
-          </svg>
-          </td>
-          <td>Warning</td>
-          <td>icon-warning.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/styles/callouts">Warning callout</a></td>
-        </tr>
-        <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__information" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="1"/>
-              <path d="M12 16.75a.76.76 0 0 1-.75-.75v-5a.75.75 0 0 1 1.5 0v5a.76.76 0 0 1-.75.75z"/>
-            </svg>
-          </td>
-          <td>Information</td>
-          <td>icon-information.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__backlog">Backlog</span></td>
-          <td>No user need identified</td>
-        </tr>
-        <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-            </svg>
-          </td>
+          <td>{% include 'partials/icons/icon-chevron-right.svg' %}</td>
           <td>Chevron right</td>
           <td>icon-chevron-right.svg</td>
           <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/examples/test-condition-knee-pain">Header</a> (Menu)</td>
+          <td><a href="/examples/header-cookie">Header</a> (Mobile)</td>
         </tr>
         <tr>
-          <td>
-          <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 15.5a1 1 0 0 1-.71-.29l-5-5a1 1 0 0 1 1.42-1.42l4.29 4.3 4.29-4.3a1 1 0 0 1 1.42 1.42l-5 5a1 1 0 0 1-.71.29z"/>
-          </svg>
-          </td>
-          <td>Chevron down</td>
-          <td>icon-chevron-down.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__backlog">Backlog</span></td>
-          <td>No user need identified</td>
-        </tr>
-        <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
-            </svg>
-          </td>
+          <td>{% include 'partials/icons/icon-close.svg' %}</td>
           <td>Close</td>
-          <td>icon-close_v2.svg</td>
+          <td>icon-close.svg</td>
           <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/examples/test-condition-knee-pain">Header</a> (Menu)</td>
+          <td><a href="/examples/header-cookie">Header</a> (Mobile)</td>
         </tr>
         <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__close-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13.41 12l3.3-3.29a1 1 0 1 0-1.42-1.42L12 10.59l-3.29-3.3a1 1 0 1 0-1.42 1.42l3.3 3.29-3.3 3.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.29-3.3 3.29 3.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
-              <path d="M12 3a9 9 0 1 1-9 9 9 9 0 0 1 9-9m0-1a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
-            </svg>
-          </td>
-          <td>Close (circle outline)</td>
-          <td>icon-close-outline.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__backlog">Backlog</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__close-solid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M13.41 12l3.3-3.29a1 1 0 1 0-1.42-1.42L12 10.59l-3.29-3.3a1 1 0 1 0-1.42 1.42l3.3 3.29-3.3 3.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.29-3.3 3.29 3.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z" fill="#fff"/>
-            </svg>
-          </td>
-          <td>Close (solid circle)</td>
-          <td>icon-close-solid.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__backlog">Backlog</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path class="st0" d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"/>
-              <path class="st0" d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"/>
-            </svg>
-          </td>
+          <td>{% include 'partials/icons/icon-cross.svg' %}</td>
           <td>Cross (don't)</td>
           <td>icon-cross.svg</td>
           <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/examples/test-condition-chickenpox">Chickenpox</a> (Do's and Don't)</td>
+          <td><a href="/styles/do-dont-lists">Do and Don't lists</td>
         </tr>
         <tr>
-          <td>
-            <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"/>
-            </svg>
-          </td>
+          <td>{% include 'partials/icons/icon-tick.svg' %}</td>
           <td>Tick (do)</td>
           <td>icon-tick.svg</td>
           <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
-          <td><a href="/examples/test-condition-chickenpox">Chickenpox</a> (Do's and Don't)</td>
+          <td><a href="/styles/do-dont-lists">Do and Don't lists</td>
         </tr>
         <tr>
-          <td><img src="/images/Icon-tick-do_v2.svg" width="40px" /></td>
-          <td>Tick</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
+          <td>{% include 'partials/icons/icon-arrow-right.svg' %}</td>
+          <td>Arrow right</td>
+          <td>icon-arrow-right.svg</td>
+          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
+          <td><a href="/styles/action-link">Action link</a></td>
         </tr>
         <tr>
-          <td><img src="/images/Icon-tick-do-circle_v2.svg" width="40px" /></td>
-          <td>Tick (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
+          <td>{% include 'partials/icons/icon-chevron-up.svg' %}</td>
+          <td>Chevron up</td>
+          <td>icon-chevron-up.svg</td>
+          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
+          <td><a href="/styles/reveals">Reveals</a></td>
         </tr>
         <tr>
-          <td><img src="/images/Icon-tick-do-circle-solid_v2.svg" width="40px" /></td>
-          <td>Tick (solid circle)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-calendar1_v2.svg" width="40px" /></td>
-          <td>Calendar v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-calendar1-circle_v2.svg" width="40px" /></td>
-          <td>Calendar v1 (solid circle)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-calendar2_v2.svg" width="40px" /></td>
-          <td>Calendar v2</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-calendar2-circle_v2.svg" width="40px" /></td>
-          <td>Calendar v2 (solid circle)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-play_v2.svg" width="40px" /></td>
-          <td>Play</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-play-circle_v2.svg" width="40px" /></td>
-          <td>Play (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-play-solid-circle_v2.svg" width="40px" /></td>
-          <td>Play (solid circle)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-pause_v2.svg" width="40px" /></td>
-          <td>Pause</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-pause-circle_v2.svg" width="40px" /></td>
-          <td>Pause (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-pause-circle-solid_v2.svg" width="40px" /></td>
-          <td>Pause (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-stop_v2.svg" width="40px" /></td>
-          <td>Stop</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-stop-circle_v2.svg" width="40px" /></td>
-          <td>Stop (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-stop-circle-solid_v2.svg" width="40px" /></td>
-          <td>Stop (circle outline)</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow1_right_v2.svg" width="40px" /></td>
-          <td>Arrow right v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow1_right-circle-open_v2.svg" width="40px" /></td>
-          <td>Arrow right (circle outline) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow1_right-circle_v2.svg" width="40px" /></td>
-          <td>Arrow right (solid circle) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow1-right-ALT-circle_v2.svg" width="40px" /></td>
-          <td>Arrow right (circle outline) v1a</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow2-right_v2.svg" width="40px" /></td>
-          <td>Arrow right v2</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow2_right-circle-open_v2.svg" width="40px" /></td>
-          <td>Arrow right (circle outline) v2</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-arrow2_right-circle_v2.svg" width="40px" /></td>
-          <td>Arrow right (circle outline) v2</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-menu 1_v2.svg" width="40px" /></td>
-          <td>Menu v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-menu 2_v2.svg" width="40px" /></td>
-          <td>Menu v2</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-chevron1_down-circle_v2.svg" width="40px" /></td>
-          <td>Chevron down (solid circle) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-chevron1_down-circle-outline_v2.svg" width="40px" /></td>
-          <td>Chevron down (circle outline) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-chevron1_up-circle_v2.svg" width="40px" /></td>
-          <td>Chevron up (circle) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><img src="/images/Icon-chevron1_up-circle-outline_v2.svg" width="40px" /></td>
-          <td>Chevron up (circle outline) v1</td>
-          <td></td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Design</span></td>
-          <td>-</td>
+          <td>{% include 'partials/icons/icon-chevron-down.svg' %}</td>
+          <td>Chevron down</td>
+          <td>icon-chevron-down.svg</td>
+          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></td>
+          <td><a href="/styles/reveals">Reveals</a></td>
         </tr>
       </tbody>
     </table>
+
+    <h2 id="examples">Examples of icons</h2>
+    <p>To be updated</p>
+
 {% endblock %}

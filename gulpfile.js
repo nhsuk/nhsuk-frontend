@@ -8,7 +8,7 @@ var runSequence = require('run-sequence');
 gulp.task('sass', function() {
   return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss', 'src/ie-78.scss'])
     .pipe(sass())
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('assets/css'))
     .on('error', (err) => {
       console.log(err)
       process.exit(1)
@@ -18,7 +18,7 @@ gulp.task('sass', function() {
 // Autoprefix config browsers https://github.com/browserslist/browserslist#queries
 
 gulp.task('autoprefix', () =>
-	gulp.src('dist/css/*.css')
+	gulp.src('assets/css/*.css')
 		.pipe(autoprefixer({
 			browsers: [
         'last 2 versions',
@@ -27,13 +27,13 @@ gulp.task('autoprefix', () =>
       ],
 			cascade: false
 		}))
-		.pipe(gulp.dest('dist/css'))
+		.pipe(gulp.dest('assets/css'))
 );
 
 gulp.task('minify', function() {
-	gulp.src('dist/css/*.css')
+	gulp.src('assets/css/*.css')
       .pipe(cssnano())
-      .pipe(gulp.dest('dist/css'))
+      .pipe(gulp.dest('assets/css'))
 });
 
 gulp.task('watch', function() {

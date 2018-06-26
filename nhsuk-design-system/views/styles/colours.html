@@ -5,7 +5,7 @@
 
 {% block header %}
     <h1>Colours</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__ready">Standards</span></p>
 {% endblock %}
 
 {% block sidebar %}
@@ -14,7 +14,7 @@
         <li><a href="#contrast">Colour contrast</a></li>
         <li><a href="#variables">Sass variables</a></li>
         <li><a href="#colours">Main colours</a></li>
-        <li><a href="#other">Other colours</a></li>
+        <li><a href="#context">Colours in context</a></li>
     </ul>
 {% endblock %}
 
@@ -27,135 +27,275 @@
 
     <h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
 
-    <h3 class="nhsuk-heading-m">Text</h3>
+    <h3 class="nhsuk-heading-m">Primary</h3>
 
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-text-colour"></div>
-      <span class="colour-label">$nhsuk-text-colour</span>
-      <span class="colour-hex">#212B33</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-secondary-text-colour"></div>
-      <span class="colour-label">$nhsuk-secondary-text-colour</span>
-      <span class="colour-hex">#3B4C58</span>
-    </div>
+      <tbody>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-blue"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-blue">$nhsuk-blue</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-blue"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-white"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-white">$nhsuk-white</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-white"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-black"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-black">$nhsuk-black</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-black"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-green"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-green">$nhsuk-green</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-green"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-red"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-red">$nhsuk-red</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-red"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-yellow"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-yellow">$nhsuk-yellow</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-yellow"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-purple"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-purple">$nhsuk-purple</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-purple"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h3 class="nhsuk-heading-m">Links</h3>
+    <h3>Secondary colours</h3>
 
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-link-colour"></div>
-      <span class="colour-label">$nhsuk-link-colour</span>
-      <span class="colour-hex">#0058AD</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th>Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-link-hover-colour"></div>
-      <span class="colour-label">$nhsuk-link-hover-colour</span>
-      <span class="colour-hex">#212B32</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-hover-background-colour"></div>
-      <span class="colour-label">$nhsuk-link-hover-background-colour</span>
-      <span class="colour-hex">#FFCD60</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-focus-colour"></div>
-      <span class="colour-label">$nhsuk-link-focus-colour</span>
-      <span class="colour-hex">#212B32</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-focus-background-colour"></div>
-      <span class="colour-label">$nhsuk-link-focus-background-colour</span>
-      <span class="colour-hex">#FFB81C</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-active-colour"></div>
-      <span class="colour-label">$nhsuk-link-active-colour</span>
-      <span class="colour-hex">#374047</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-active-background-colour"></div>
-      <span class="colour-label">$nhsuk-link-active-background-colour</span>
-      <span class="colour-hex">#FFBF33</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-link-visited-colour"></div>
-      <span class="colour-label">$nhsuk-link-visited-colour</span>
-      <span class="colour-hex">#330072</span>
-    </div>
-
-    <h3 class="nhsuk-heading-m">Border</h3>
-
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-border-colour"></div>
-      <span class="colour-label">$nhsuk-border-colour</span>
-      <span class="colour-hex">#D8DDE0</span>
-    </div>
-
-    <h3 class="nhsuk-heading-m">Buttons</h3>
-
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-button-background-colour"></div>
-      <span class="colour-label">$nhsuk-button-background-colour</span>
-      <span class="colour-hex">#007F3B</span>
-
-      <div class="colour-swatch colour-swatch__nhsuk-button-hover-colour"></div>
-      <span class="colour-label">$nhsuk-button-hover-colour</span>
-      <span class="colour-hex">#005929</span>
-    </div>
-
-    <h3 class="nhsuk-heading-m">Focus</h3>
-
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-focus-colour"></div>
-      <span class="colour-label">$nhsuk-focus-colour</span>
-      <span class="colour-hex">#FFB81C</span>
-    </div>
+      <tbody>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-light-blue"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-light-blue">$nhsuk-light-blue</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-light-blue"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-aqua-blue"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-aqua-blue">$nhsuk-aqua-blue</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-aqua-blue"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-pale-yellow"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-pale-yellow">$nhsuk-pale-yellow</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-pale-yellow"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-warm-yellow"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-warm-yellow">$nhsuk-warm-yellow</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-warm-yellow"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
     <h3 class="nhsuk-heading-m">Greyscale</h3>
 
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-black"></div>
-      <span class="colour-label">$nhsuk-black</span>
-      <span class="colour-hex">#212B32</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-grey-1"></div>
-      <span class="colour-label">$nhsuk-grey-1</span>
-      <span class="colour-hex">#425462</span>
+      <tbody>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-1"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-grey-1">$nhsuk-grey-1</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-grey-1"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-2"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-grey-2">$nhsuk-grey-2</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-grey-2"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-3"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-grey-3">$nhsuk-grey-3</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-grey-3"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-4"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-grey-4">$nhsuk-grey-4</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-grey-4"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-5"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-grey-5">$nhsuk-grey-5</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-grey-5"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="colour-swatch colour-swatch__nhsuk-grey-2"></div>
-      <span class="colour-label">$nhsuk-grey-2</span>
-      <span class="colour-hex">#768692</span>
+    <h2 id="context" class="nhsuk-heading-l">Colours in context</h2>
 
-      <div class="colour-swatch colour-swatch__nhsuk-grey-3"></div>
-      <span class="colour-label">$nhsuk-grey-3</span>
-      <span class="colour-hex">#AEB7BD</span>
+    <h3 class="nhsuk-heading-m">Text</h3>
 
-      <div class="colour-swatch colour-swatch__nhsuk-grey-4"></div>
-      <span class="colour-label">$nhsuk-grey-4</span>
-      <span class="colour-hex">#D8DDE0</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-grey-5"></div>
-      <span class="colour-label">$nhsuk-grey-5</span>
-      <span class="colour-hex">#E8EDEE</span>
-    </div>
+      <tbody>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-text-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-text-colour">$nhsuk-text-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-text-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-secondary-text-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-secondary-text-colour">$nhsuk-secondary-text-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-secondary-text-colour"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h2 id="other" class="nhsuk-heading-l">Other colours</h2>
+    <h3 class="nhsuk-heading-m">Links</h3>
 
-    <div class="colour-palette">
-      <div class="colour-swatch colour-swatch__nhsuk-blue"></div>
-      <span class="colour-label">$nhsuk-blue</span>
-      <span class="colour-hex">#0058AD</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-white"></div>
-      <span class="colour-label">$nhsuk-white</span>
-      <span class="colour-hex">#FFFFFF</span>
+      <tbody>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-colour">$nhsuk-link-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-hover-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-hover-colour">$nhsuk-link-hover-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-hover-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-hover-background-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-hover-background-colour">$nhsuk-link-hover-background-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-hover-background-colour"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-link-focus-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-focus-colour">$nhsuk-link-focus-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-focus-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-focus-background-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-focus-background-colour">$nhsuk-link-focus-background-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-focus-background-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-active-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-active-colour">$nhsuk-link-active-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-active-colour"></span></td>
+        </tr>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-link-active-background-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-active-background-colour">$nhsuk-link-active-background-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-active-background-colour"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-link-visited-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-link-visited-colour">$nhsuk-link-visited-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-link-visited-colour"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="colour-swatch colour-swatch__nhsuk-green"></div>
-      <span class="colour-label">$nhsuk-green</span>
-      <span class="colour-hex">#007F3B</span>
+    <h3 class="nhsuk-heading-m">Border</h3>
 
-      <div class="colour-swatch colour-swatch__nhsuk-red"></div>
-      <span class="colour-label">$nhsuk-red</span>
-      <span class="colour-hex">#AD1F19</span>
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
 
-      <div class="colour-swatch colour-swatch__nhsuk-warm-yellow"></div>
-      <span class="colour-label">$nhsuk-warm-yellow</span>
-      <span class="colour-hex">#FFB81C</span>
+      <tbody>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-border-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-border-colour">$nhsuk-border-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-border-colour"></span></td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="colour-swatch colour-swatch__nhsuk-purple"></div>
-      <span class="colour-label">$nhsuk-purple</span>
-      <span class="colour-hex">#330072</span>
-    </div>
+    <h3 class="nhsuk-heading-m">Buttons</h3>
+
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th>Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-button-background-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-button-background-colour">$nhsuk-button-background-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-button-background-colour"></span></td>
+        </tr>
+        <tr>
+          <td><div class="colour-swatch colour-swatch__nhsuk-button-hover-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-button-hover-colour">$nhsuk-button-hover-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-button-hover-colour"></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="nhsuk-heading-m">Focus</h3>
+
+    <table class="colour-palette">
+      <thead>
+        <tr class="visually-hidden">
+          <th >Colour</th>
+          <th>Sass variable</th>
+          <th>Hex code</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td ><div class="colour-swatch colour-swatch__nhsuk-focus-colour"></div></td>
+          <td><span class="colour-label colour-swatch__nhsuk-focus-colour">$nhsuk-focus-colour</span></td>
+          <td><span class="colour-hex colour-swatch__nhsuk-focus-colour"></span></td>
+        </tr>
+      </tbody>
+    </table>
 {% endblock %}

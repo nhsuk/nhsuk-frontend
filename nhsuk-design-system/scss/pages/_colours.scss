@@ -1,87 +1,116 @@
+@mixin color-palette-variant-single($main-color){
+      background:$main-color;
+      &.colour-label {
+        background: transparent;
+        border: 0;
+      }
+      &.colour-hex {
+        background: transparent;
+        border: 0;
+        &:after{
+          content:"#{$main-color}";
+        }
+      }
+  }
+
 .colour-palette {
+  td, th {
+    padding: 15px;
+  }
   .colour-swatch {
     border-radius: 50px;
     height: 50px;
-    margin: 20px 20px 20px 0;
     width: 50px;
     &__nhsuk-text-colour {
-      background-color: $nhsuk-text-colour;
+      @include color-palette-variant-single($nhsuk-text-colour);
     }
     &__nhsuk-secondary-text-colour {
-      background-color: $nhsuk-secondary-text-colour;
+      @include color-palette-variant-single($nhsuk-secondary-text-colour);
     }
     &__nhsuk-link-colour {
-      background-color: $nhsuk-link-colour;
+      @include color-palette-variant-single($nhsuk-link-colour);
     }
     &__nhsuk-link-hover-colour {
-      background-color: $nhsuk-link-hover-colour;
+      @include color-palette-variant-single($nhsuk-link-hover-colour);
     }
     &__nhsuk-link-hover-background-colour {
-      background-color: $nhsuk-link-hover-background-colour;
+      @include color-palette-variant-single($nhsuk-link-hover-background-colour);
     }
     &__nhsuk-link-focus-colour {
-      background-color: $nhsuk-link-focus-colour;
+      @include color-palette-variant-single($nhsuk-link-focus-colour);
     }
     &__nhsuk-link-focus-background-colour {
-      background-color: $nhsuk-link-focus-background-colour;
+      @include color-palette-variant-single($nhsuk-link-focus-background-colour);
     }
     &__nhsuk-link-active-colour {
-      background-color: $nhsuk-link-active-colour;
+      @include color-palette-variant-single($nhsuk-link-active-colour);
     }
     &__nhsuk-link-active-background-colour {
-      background-color: $nhsuk-link-active-background-colour;
+      @include color-palette-variant-single($nhsuk-link-active-background-colour);
     }
     &__nhsuk-link-visited-colour {
-      background-color: $nhsuk-link-visited-colour;
+      @include color-palette-variant-single($nhsuk-link-visited-colour);
     }
     &__nhsuk-border-colour {
-      background-color: $nhsuk-border-colour;
+      @include color-palette-variant-single($nhsuk-border-colour);
     }
     &__nhsuk-button-background-colour {
-      background-color: $nhsuk-button-background-colour;
+      @include color-palette-variant-single($nhsuk-button-background-colour);
     }
     &__nhsuk-button-hover-colour {
-      background-color: $nhsuk-button-hover-colour;
+      @include color-palette-variant-single($nhsuk-button-hover-colour);
     }
     &__nhsuk-focus-colour {
-      background-color: $nhsuk-focus-colour;
+      @include color-palette-variant-single($nhsuk-focus-colour);
     }
     &__nhsuk-black {
-      background-color: $nhsuk-black;
+      @include color-palette-variant-single($nhsuk-black);
     }
     &__nhsuk-grey-1 {
-      background-color: $nhsuk-grey-1;
+      @include color-palette-variant-single($nhsuk-grey-1);
     }
     &__nhsuk-grey-2 {
-      background-color: $nhsuk-grey-2;
+      @include color-palette-variant-single($nhsuk-grey-2);
     }
     &__nhsuk-grey-3 {
-      background-color: $nhsuk-grey-3;
+      @include color-palette-variant-single($nhsuk-grey-3);
     }
     &__nhsuk-grey-4 {
-      background-color: $nhsuk-grey-4;
+      @include color-palette-variant-single($nhsuk-grey-4);
     }
     &__nhsuk-grey-5 {
-      background-color: $nhsuk-grey-5;
+      @include color-palette-variant-single($nhsuk-grey-5);
       border: 2px solid $nhsuk-border-colour;
     }
     &__nhsuk-blue {
-      background-color: $nhsuk-blue;
+      @include color-palette-variant-single($nhsuk-blue);
+    }
+    &__nhsuk-light-blue {
+      @include color-palette-variant-single($nhsuk-light-blue);
+    }
+    &__nhsuk-aqua-blue {
+      @include color-palette-variant-single($nhsuk-aqua-blue);
     }
     &__nhsuk-white {
-      background-color: $nhsuk-white;
+      @include color-palette-variant-single($nhsuk-white);
     }
     &__nhsuk-green {
-      background-color: $nhsuk-green;
+      @include color-palette-variant-single($nhsuk-green);
     }
     &__nhsuk-red {
-      background-color: $nhsuk-red;
+      @include color-palette-variant-single($nhsuk-red);
+    }
+    &__nhsuk-yellow {
+      @include color-palette-variant-single($nhsuk-yellow);
+    }
+    &__nhsuk-pale-yellow {
+      @include color-palette-variant-single($nhsuk-pale-yellow);
     }
     &__nhsuk-warm-yellow {
-      background-color: $nhsuk-warm-yellow;
+      @include color-palette-variant-single($nhsuk-warm-yellow);
     }
     &__nhsuk-purple {
-      background-color: $nhsuk-purple;
+      @include color-palette-variant-single($nhsuk-purple);
     }
   }
   span {

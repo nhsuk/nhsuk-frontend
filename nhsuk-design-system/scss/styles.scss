@@ -119,3 +119,9 @@ ul ul, ol ul {
         color: $nhsuk-grey-1;
     }
   }
+
+
+.nhsuk-page-content > *:first-child > *:first-child {
+    margin-top: 0;
+}
+
