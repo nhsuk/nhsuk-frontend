@@ -11,17 +11,24 @@
 {% block sidebar %}
     <h2 class="nhsuk-heading-xs">Contents</h2>
     <ul>
-		<li><a href="#rules">Rules</a></li>
-		<li><a href="#user-needs">User needs</a></li>
-    <li><a href="#example">Example</a></li>
+    <li><a href="#userneed">User needs</a></li>
+    <li><a href="#whatsused">What's currently being used</a></li>
+    <li><a href="#hypothesis">Our hypothesis</a></li>
+    <li><a href="#Iterations">Iterations</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#example">Examples</a></li>
+    <li><a href="#accessibility">Accessibility</a></li>
+
     </ul>
 {% endblock %}
 
 {% block content %}
-  <h2 id="userneed">User need</h2>
-  <p>As a USER, I want to learn about a health issue / complete a form at my own pace, so that I can fully understand the issue / process I'm undertaking  </p>
+  <h2 id="userneed">User needs</h2>
+  <p>As a user, I want to learn about a health issue / complete a form at my own pace, so that I can fully understand the issue / process I'm undertaking  </p>
 
-  <h2>What's being used</h2>
+  <p>As a user I want further related information (on a specific point), so that I can quickly identify my health problem / manage my health.</p>
+
+  <h2 id="whatsused">What's currently being used</h2>
 <ul>
 <li>Medicines Information - common questions <a href="https://beta.nhs.uk/medicines/acrivastine/">https://beta.nhs.uk/medicines/acrivastine/</a></li>
 <li>Guides - Secondary nav <a href="https://www.nhs.uk/conditions/social-care-and-support/how-can-i-get-social-care-support/">https://www.nhs.uk/conditions/social-care-and-support/how-can-i-get-social-care-support/</a> </li>
@@ -32,7 +39,7 @@
 
 </ul>
 
-<h2>Our hypothesis</h2>
+<h2 id="hypothesis">Our hypothesis</h2>
     <p>There is currently no consistancy in UI or iconography.</p> 
     <p>We believe that a consistant reveal will</p> 
     <ul>
@@ -50,7 +57,7 @@
 
     </ul>
 
-    <h2>Iterations</h2>
+    <h2 id="Iterations">Iterations</h2>
 
 
     <div class="nhsuk-c-panel nhsuk-c-panel__with-border">
@@ -104,11 +111,18 @@
         <h3>Research findings</h3>    
 <p>20th June 2018 - Roundhay Research, Leeds </p>
 
-<p>Most users (4/5) noticed and tapped in the page contents (reveal), understanding its function </p>
+<p>Most users (4/5) noticed and tapped in the page contents (reveal), understanding its function. </p>
 
 </div>
 
+<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
         <h3>Version 2</h3>
+
+        <p>Our hypothesis:</p>
+        <ul>
+          <li>Text doesn't need underlining, users know its a clickable link - majority click the icon. Removing the icon reduces the visual noise. </li>
+          <li>Make the text bold to ensure its different from body copy</li>
+        </ul>
 
         <div  style="background-color: #fff;padding:0.1em 0.5em 0.5em 1em;margin-top:1em;">
   <p>Open till midnight</p>
@@ -153,22 +167,16 @@
   
           </div>
 
-    
-
-<p><a href="https://confluence.service.nhs.uk/download/attachments/20318795/NHS.uk%20redesign%20-%20usubility%20lab%20-%20Leeds%20-%2020th%20June%202018.pdf?version=1&modificationDate=1530010588165&api=v2">Read the <span class="visually-hidden">20th June 2018</span> report</a> (NHS staff only)</p>
-
-<h2 id="rules">Rules</h2>
+    </div>
 
 
+<h2 id="usage">Usage</h2>
   <ul>
     <li>consider the context</li>
     <li>don’t over do it</li>
     <li>don't hide important content from people</li>
     <li>don't force users to interact needlessly with the page</li>
     <li>If a majority of users need that content, <strong>don’t hide it.</strong></li>
-
-
-
   </ul>
   <p>Done well, reveals:</p>
       <ul>
@@ -183,15 +191,9 @@
 
 
 
-  <h2 id="user-needs">User needs</h2>
 
 
-  <ul>
-    <li>As a user I WANT further related information (on a specific point), so that I can quickly identify my health problem / manage my health</li>
-  </ul>
-
-
-  <h2 id="example">Example</h2>
+  <h2 id="example">Examples</h2>
 
 
   <script>
@@ -578,7 +580,7 @@ details.pain[open] summary.pain:after {
 
     </style>
 
-  <div class="example" style="background-color: #e8edee;">
+  <div class="example nhsuk-c-panel nhsuk-c-panel__with-border" style="background-color:#f0f4f5;">
 
       <h3>Single reveal in context</h3>
 
@@ -797,4 +799,31 @@ details.pain[open] summary.pain:after {
 
   </div>
 
+  <h2 id="accessibility">Accessibility</h2>
+
+<ul>
+  <li>W3C - Informational Graphic Contrast (Minimum): Graphics that are very thin are harder to perceive, therefore have a higher contrast requirement of 4.5:1. Graphics that are thicker or are solid shapes have a lower requirement of 3:1. <a href="https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Informational_Graphic_Contrast_(Minimum)">https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Informational_Graphic_Contrast_(Minimum)</a></li>
+  <li>Write clear link text</li>
+
+
+</ul>
+
+  <h2 id="usage">Usage</h2>
+  <ul>
+    <li>consider the context</li>
+    <li>don’t over do it</li>
+    <li>don't hide important content from people</li>
+    <li>don't force users to interact needlessly with the page</li>
+    <li>If a majority of users need that content, <strong>don’t hide it.</strong></li>
+  </ul>
+  <p>Done well, reveals:</p>
+      <ul>
+        <li>keep a page focussed and uncluttered</li>
+        <li>deliver targeted content to those people who need it</li>
+        <li>reduce the cognitive load on your users</li>
+      </ul>
+
+      <p>From the Android design principles:</p>
+
+      <p>"Only show what I need when I need it. People get overwhelmed when they see too much at once. Break tasks and information into small, digestible chunks. Hide options that aren't essential at the moment, and teach people as they go." <a href="http://developer.android.com/design/get-started/principles.html">http://developer.android.com/design/get-started/principles.html</a></p>
 {% endblock %}
