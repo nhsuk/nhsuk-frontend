@@ -170,12 +170,6 @@ router.get('/examples/test-medicine-buscopan', (req, res) => {
   res.render('examples/test-medicine-buscopan', {});
 });
 
-router.get('/examples/component-test-header-2018-06-11-buscopan', (req, res) => {
-  res.render('examples/component-test-header-2018-06-11-buscopan', {
-    navigation: 'test-2018-06-11'
-  });
-});
-
 router.get('/examples/test-image-v1', (req, res) => {
   res.render('examples/test-image-v1', {});
 });
