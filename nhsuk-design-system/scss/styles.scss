@@ -125,3 +125,8 @@ ul ul, ol ul {
     margin-top: 0;
 }
 
+hr.nhsuk-hr {
+    border-top: 0;
+    border-bottom: 1px solid $nhsuk-border-colour;
+    margin: 72px 0;
+}

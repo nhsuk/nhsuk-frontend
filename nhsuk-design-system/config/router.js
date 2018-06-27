@@ -25,6 +25,10 @@ router.get('/styles/callouts', (req, res) => {
   res.render('styles/callouts', {});
 });
 
+router.get('/styles/care-cards', (req, res) => {
+  res.render('styles/care-cards', {});
+});
+
 router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
