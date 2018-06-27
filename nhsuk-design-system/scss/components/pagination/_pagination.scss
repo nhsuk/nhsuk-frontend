@@ -13,6 +13,7 @@
     .nhsuk-c-pagination-prev{
         float: left;
         padding-left:32px;
+        text-align: left;
 
         &:after{
             content:'\2190';
@@ -22,10 +23,17 @@
             top: 0;
             left: 0;
         }
+
+        @media screen and (max-width: 320px) {
+            max-width: 100%;
+            float: none;
+            margin-top: 16px;
+        }
     }
     .nhsuk-c-pagination-next{
         float: right;
         padding-right:32px;
+        text-align: right;
 
         &:after{
             content:'\2192';
@@ -34,6 +42,11 @@
             position: absolute;
             top: 0;
             right: 0;
+        }
+
+        @media screen and (max-width: 320px) {
+            max-width: 100%;
+            float: none;
         }
     }
     .nhsuk-c-pagination-title{

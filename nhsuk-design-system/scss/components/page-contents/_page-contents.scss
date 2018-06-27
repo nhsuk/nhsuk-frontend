@@ -6,6 +6,9 @@
 		padding: 40px 0;
 	}
 
+	&.v3{
+		padding: 16px 0 40px 0;
+	}
 	
 	&.medicine{
 		display: none;
@@ -74,4 +77,6 @@ h1 span.nhsuk-o-h1-sub{
 	display: block;
 	font-weight: 400;
 	font-size: 0.85em;
+	color: $nhsuk-grey-1;
+	margin-top: 8px;
 }
