@@ -25,6 +25,10 @@ router.get('/styles/callouts', (req, res) => {
   res.render('styles/callouts', {});
 });
 
+router.get('/styles/care-cards', (req, res) => {
+  res.render('styles/care-cards', {});
+});
+
 router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
@@ -305,6 +309,10 @@ router.get('/examples/video/test-video-2', (req, res) => {
 
 router.get('/examples/video/test-video-3', (req, res) => {
   res.render('examples/video/test-video-3', {});
+});
+
+router.get('/testing/svg', (req, res) => {
+  res.render('examples/svg-test', {});
 });
 
 module.exports = router;

@@ -25,6 +25,10 @@ $nhsuk-grey-3: #AEB7BD;
 $nhsuk-grey-4: #D8DDE0;
 $nhsuk-grey-5: #f0f4f5;
 
+// Extended palette
+
+$nhsuk-aqua-green: #00A499;
+
 // Colour functions for tint and shade
 
 @function tint($color, $percentage) {
@@ -46,19 +50,26 @@ $nhsuk-blue-shade-20: shade($nhsuk-blue, 20%); // used for .active state on main
 $nhsuk-blue-shade-35: shade($nhsuk-blue, 35%); // used for :hover states on main nav
 $nhsuk-blue-shade-50: shade($nhsuk-blue, 50%); // used for :active states on main nav
 
-$nhsuk-blue-tint-80: tint($nhsuk-blue, 80%); // used callout backgrounds
-$nhsuk-blue-tint-90: tint($nhsuk-blue, 90%); // used callout backgrounds
+$nhsuk-blue-tint-90: tint($nhsuk-blue, 90%);
 
 // nhsuk-green variations
 
 $nhsuk-green-shade-35: shade($nhsuk-green, 35%); // used for primary button :hover states
 $nhsuk-green-shade-50: shade($nhsuk-green, 50%); // used for primary button :active states
 
+$nhsuk-green-tint-90: tint($nhsuk-green, 90%);
+
 // nhsuk-yellow variations
 
-$nhsuk-yellow-tint-40: tint(#FFED00, 40%); // used for warning callout background
+$nhsuk-yellow-shade-35: shade($nhsuk-yellow, 35%);
+$nhsuk-yellow-shade-50: shade($nhsuk-yellow, 50%);
+
+$nhsuk-yellow-tint-90: tint($nhsuk-yellow, 90%);
 
 // nhsuk-warm-yellow variations
+
+$nhsuk-warm-yellow-shade-35: shade($nhsuk-warm-yellow, 35%);
+$nhsuk-warm-yellow-shade-50: shade($nhsuk-warm-yellow, 50%);
 
 $nhsuk-warm-yellow-tint-90: tint($nhsuk-warm-yellow, 90%); // used for link :hover states
 $nhsuk-warm-yellow-tint-30: tint($nhsuk-warm-yellow, 30%); // used for link :hover states
@@ -66,12 +77,10 @@ $nhsuk-warm-yellow-tint-10: tint($nhsuk-warm-yellow, 10%); // used for link :act
 
 // nhsuk-red variations
 
-$nhsuk-red-tint-80: tint($nhsuk-red, 80%); // used callout backgrounds
-$nhsuk-red-tint-90: tint($nhsuk-red, 90%); // used callout backgrounds
+$nhsuk-red-shade-35: shade($nhsuk-red, 35%);
+$nhsuk-red-shade-50: shade($nhsuk-red, 50%);
 
-// nhsuk-grey-4 variations
-
-$nhsuk-grey-4-tint-50: tint($nhsuk-grey-4, 50%); // used callout backgrounds on white background
+$nhsuk-red-tint-90: tint($nhsuk-red, 90%);
 
 // Text colours
 

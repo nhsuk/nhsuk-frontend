@@ -86,10 +86,15 @@
   margin: 0;
 }
 
-//testing increased margin on side nav
+// testing increased margin on side nav
 .nhsuk-list-nav {
   margin-top: 12px;
   li {
     margin-top: 12px;
   }
+}
+
+// helper class for having text coloured with $nhsuk-secondary-text-colour
+.nhsuk-secondary-text {
+  color: $nhsuk-secondary-text-colour;
 }

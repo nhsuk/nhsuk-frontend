@@ -14,6 +14,10 @@
 
 .nhsuk-action-link{
 	display: inline-block;
+	margin: 24px 0;
+	@include mq($until: tablet) {
+        margin: 16px 0;
+    }
 	&:before{
 		content:'';
 		width: 28px;
@@ -22,7 +26,7 @@
 		display: inline-block;
 		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__green.svg) top left no-repeat;
 		background-size: 28px 28px;
-		&:hover,{
+		&:hover{
 			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
@@ -40,17 +44,23 @@
 
 .nhsuk-action-link-v2{
 	display: inline-block;
+	font-size: 21px;
 	font-weight: 600;
+	margin: 32px 0;
 	text-decoration: none;
+	@include mq($until: tablet) {
+		font-size: 19px;
+        margin: 24px 0;
+    }
 	&:before{
 		content:'';
-		width: 28px;
-		height: 28px;
-		margin:0 8px -7px 0;
+		width: 32px;
+		height: 32px;
+		margin:0 8px -9px 0;
 		display: inline-block;
-		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__green.svg) top left no-repeat;
-		background-size: 28px 28px;
-		&:hover,{
+		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__aqua-green.svg) top left no-repeat;
+		background-size: 32px 32px;
+		&:hover{
 			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
