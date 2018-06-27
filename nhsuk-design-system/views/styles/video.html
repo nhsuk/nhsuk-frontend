@@ -5,7 +5,7 @@
 
 {% block header %}
     <h1>Video</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__testing">Testing</span></p>
 {% endblock %}
 
 {% block sidebar %}
@@ -21,52 +21,35 @@
 
 {% block content %}
 
-  <h2 id="rules">Rules</h2>
+  
+
+<h2 id="user-needs">User needs</h2>
 
 
-  <ul>
-    <li>Only use video media where it adds to user understanding</li>
-    <li>Don't be overly reliant on video to convey information - from an accessibility perspective, providing content as a video can limit access to the information contained in this format for anyone who cannot see or hear the content. In addition, videos break. In testing we’ve seen many a user run across a video that won’t load, doesn’t appear, can’t be played, or freezes. (<a href="https://www.nngroup.com/articles/video-usability/">https://www.nngroup.com/articles/video-usability/</a>)</li>
-    <li>Video sizing - to ensure video flows with content; size 2/3 on larger screens (desktop / tablet) and full width on small screens (mobile)</li>
-    <li>Title and description - do not overlay video, must sit within content.</li>
-    <li>Clearly display the length of the video</li>
-
-
-
-  </ul>
-
-
-  <h2 id="user-needs">User needs</h2>
-
-
-  <ul>
-    <li>As a user I WANT visual context (supporting written information), SO THAT I can help identify my health thing (condition / symptom / medicine).</li>
-  </ul>
-
-
-<h2 id="assumptions">Assumptions to test</h2>
 <ul>
-    <li>Users want to know how long the video is upfront</li>
-    <li>Users don't understand review dates</li>
-    <li>Users don't want overlaid text</li>
+  <li>As a user I WANT visual context (supporting written information), SO THAT I can help identify my health thing (condition / symptom / medicine).</li>
+</ul>
+
+<h2>Whats currently being used</h2>
+
+<ul>
+
+  <li>La Bomba dance exercise <a href="https://www.nhs.uk/conditions/nhs-fitness-studio/dance-la-bomba/">https://www.nhs.uk/conditions/nhs-fitness-studio/dance-la-bomba/</a></li>
+  <li>Sore throat <a href="https://www.nhs.uk/conditions/sore-throat/">https://www.nhs.uk/conditions/sore-throat/</a></li>
+</ul>  	
+
+
+<h2>Our hypothesis</h2>
+<ul>
+  <li>Users want to know how long the video is upfront</li>
+  <li>Users don't understand review dates</li>
+  <li>Users don't want overlaid text (disapears when you press play)</li>
 
 </ul>
 
 
-  <h2 id="resources">Useful resources</h2>
 
-  <ul>
-      <li>Accessibility Oz: Video factsheet <a href="https://www.accessibilityoz.com/factsheets/video/video-factsheet/">https://www.accessibilityoz.com/factsheets/video/video-factsheet/</a></li>
-      <li>Accessibility Oz: Video accessibility <a href="https://www.accessibilityoz.com/services/video-accessibility/">https://www.accessibilityoz.com/services/video-accessibility/</a></li>
-      <li>Harvard University: Accessible media player <a href="https://accessibility.huit.harvard.edu/provide-accessible-media-player">https://accessibility.huit.harvard.edu/provide-accessible-media-player</a></li>
-      <li>NNGroup: video usability <a href="https://www.nngroup.com/articles/video-usability/">https://www.nngroup.com/articles/video-usability/</a></li>
-
-
-</ul>
-
-
-    <h2 id="example">Example</h2>
-
+    
 
     <script>
             // <details> polyfill
@@ -246,7 +229,7 @@
               border: 2px #aeb7bd solid;
               margin-top: 30px;
               padding: 8px 0px 0px 0px;
-
+              
             }
             .c-common-questions__summary {
               display: block;
@@ -279,8 +262,8 @@
               margin-bottom: 0em;
               padding: 1em;
             }
-
-
+        
+        
             .c-reveal__summary::-webkit-details-marker {
               display: none;
             }
@@ -316,14 +299,14 @@
               margin-top:1em;
         margin-bottom:1em;
             }
-
-
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
+        
+        
             .c-common-questions__content p:first-child {
               margin-top: 0;
             }
@@ -337,12 +320,12 @@
               margin-top: 0;
               padding: 18px 8px 18px 48px;
             }
-
+        
             .expand-help__button[aria-expanded="false"]::before {
               content: '\25b6\00a0';
               speak: none;
             }
-
+        
             .expand-help__button {
               font-size: 19px;
               line-height: 1.3157894737;
@@ -360,36 +343,36 @@
               align-items: flex-start;
         text-align: center;
             }
-
+        
         .expand-help__button[aria-expanded="false"]::before{
               content: '\25b6\00a0';
             speak: none;
-
+        
         }
-
+        
         .expand-help__heading {
-
+        
           font-weight: bold
         }
-
+        
         .form-group:after {
           content: "";
         display: block;
         clear: both;
-
-
+        
+        
         }
-
+        
         details summary:focus {
             outline: 3px solid #ffb81c;
         }
-
+        
         ul.painscale  {
             list-style-image:url('/images/icon-information.svg');
             margin-top:0px;
-
+        
         }
-
+        
         summary.pain::-webkit-details-marker {
           display: none
         }
@@ -411,148 +394,141 @@
           content: "-";
         }
 
+  .c-reveal-muted__summary::-webkit-details-marker {
+      display: none;
+    }
+    .c-reveal-muted {
+      border: 2px #aeb7bd solid;
+      margin-top: 30px;
+      padding: 8px 16px;
+    }
+    .c-reveal-muted__summary {
+      display: block;
+    }
 
+    .c-reveal-muted__header {
+      background: url(/images/icon-chevron-down-circle_28px-grey.svg)  left no-repeat ;
+      color: #425462;
+      cursor: pointer;
+      font-weight: 600;
+      line-height: 1.4em;
+      margin-top: 0;
+      padding: 18px 8px 18px 36px;
+      text-decoration: none;
+    }
+    .c-reveal-muted__header:hover,
+    .c-reveal-muted__header:focus {
+      text-decoration: underline;
+    }
+    .c-reveal-muted__details:first-child .c-common-questions__header {
+      border-top: 0;
+    }
+    .c-reveal__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
 
+        .c-reveal-muted__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
+        
+        
+        
             </style>
 
+
+<h2>Iterations</h2>
+
+<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
+
+
+    <h3>Version 1</h3>
+
+    <div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
+
+        <img
+        alt="Picture of allergic conjunctivitis"
+        src="/images/video_player-4.jpg"
+        sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
+        srcset="
+        
+        /images/video_player-4.jpg 320w,
+        
+        /images/video_player-4.jpg 510w,
+        
+        /images/video_player-4.jpg 640w,
+        
+       /images/video_player-4.jpg 767w,
+        
+        /images/video_player-4.jpg 1019w,
+        
+        /images/video_player-4.jpg 1125w,
+        
+        /images/video_player-4.jpg 1534w,
+        
+        "
+    />
+    <div class="nhsuk-c-image-caption">
+        <h3 style="padding-bottom:0em;margin-top:.5em;">La Bomba dance exercise workout</h3>
+        <p class="nhsuk-body-s" style="padding-bottom:1em;margin-top:.5em;">2 minutes 30 seconds</p>
+        <p>Shake it up Latino style as this dance fitness class gives you a fun, upbeat and vigorous workout but be prepared to sweat!</p>
+
+
+
+                      <details class="c-reveal-muted__details" role="group" >
+                          <summary class="c-reveal-muted__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
+                            <p class="c-reveal-muted__header nhsuk-body-s">Media review dates</p>
+                          </summary>
+                          <div class="c-reveal__content " id="question-1" aria-hidden="true">
+                              <p>Media last reviewed: 1 Jun 2016</p>
+                              <p>Media review due: 10 Mar 2019</p>
+            
+                          </div>
+                        </details>
+
+    </div>
+
+</div>    
+
+</div>
+
+
+
+<h2 id="example">Example</h2>
+
   <div class="example" style="background-color: #eff2f3;">
-
-        <div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-
-				<div class="nhsuk-c-image-caption">
-                        <h3 style="padding-bottom:0em;margin-top:.5em;">La Bomba dance exercise workout</h3>
-                        <p class="nhsuk-body-s">2 minutes 30 seconds</p>
-
-
-                    </div>
-				<img
-					alt="Picture of allergic conjunctivitis"
-					src="/images/video_player-1.jpg"
-					sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-					srcset="
-
-                    /images/video_player-1.jpg 320w,
-
-                    /images/video_player-1.jpg 510w,
-
-                    /images/video_player-1.jpg 640w,
-
-                   /images/video_player-1.jpg 767w,
-
-                    /images/video_player-1.jpg 1019w,
-
-                    /images/video_player-1.jpg 1125w,
-
-                    /images/video_player-1.jpg 1534w,
-
-					"
-				/>
-				<div class="nhsuk-c-image-caption">
-
-                        <p>Shake it up Latino style as this dance fitness class gives you a fun, upbeat and vigorous workout but be prepared to sweat!</p>
-
-
-                    <details class="c-reveal__details" role="group" >
-                            <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-                              <p class="c-reveal__header" >Media review dates</p>
-                            </summary>
-                            <div class="c-reveal__content" id="question-1" aria-hidden="true">
-                                <p>Media last reviewed: 1 Jun 2016</p>
-                                <p>Media review due: 10 Mar 2019</p>
-                            </div>
-                          </details>
-
-				</div>
-            </div>
-
-
-            <div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-
-                    <img
-                        alt="Picture of allergic conjunctivitis"
-                        src="/images/video_player-2.jpg"
-                        sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-                        srcset="
-
-                        /images/video_player-2.jpg 320w,
-
-                        /images/video_player-2.jpg 510w,
-
-                        /images/video_player-2.jpg 640w,
-
-                       /images/video_player-2.jpg 767w,
-
-                        /images/video_player-2.jpg 1019w,
-
-                        /images/video_player-2.jpg 1125w,
-
-                        /images/video_player-2.jpg 1534w,
-
-                        "
-                    />
-                    <div class="nhsuk-c-image-caption" style="background-color:black;">
-
-                            <h3 style="padding-bottom:1em;margin-top:.5em;color:#fff;">La Bomba dance exercise workout</h3>
-
-                            <p class="nhsuk-body-s" style="color:#fff;padding-bottom:1em;">2 minutes 30 seconds</p>
-
-                            <p style="color:#fff;padding-bottom:1em;">Shake it up Latino style as this dance fitness class gives you a fun, upbeat and vigorous workout but be prepared to sweat!</p>
-
-
-
-                    </div>
-                </div>
-
-                <div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-
-                        <img
-                            alt="Picture of allergic conjunctivitis"
-                            src="/images/video_player-3.jpg"
-                            sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-                            srcset="
-
-                            /images/video_player-3.jpg 320w,
-
-                            /images/video_player-3.jpg 510w,
-
-                            /images/video_player-3.jpg 640w,
-
-                           /images/video_player-3.jpg 767w,
-
-                            /images/video_player-3.jpg 1019w,
-
-                            /images/video_player-3.jpg 1125w,
-
-                            /images/video_player-3.jpg 1534w,
-
-                            "
-                        />
-                        <div class="nhsuk-c-image-caption">
-
-                                <p style="padding-bottom:1em;"><strong>2 minutes 30 seconds</strong></p>
-                                <p style="padding-bottom:1em;">Shake it up Latino style as this dance fitness class gives you a fun, upbeat and vigorous workout but be prepared to sweat!</p>
-
-
-
-                                <details class="c-reveal__details" role="group" >
-                                        <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-                                          <p class="c-reveal__header" >Media review dates</p>
-                                        </summary>
-                                        <div class="c-reveal__content" id="question-1" aria-hidden="true">
-                                            <p>Media last reviewed: 1 Jun 2016</p>
-                                            <p>Media review due: 10 Mar 2019</p>
-                                        </div>
-                                      </details>
-
-                        </div>
-                    </div>
-
-
 
   </div>
 
   <div class="example-snippet">
 
   </div>
+
+  <h2 id="resources">Accessibility</h2>
+
+  <ul>
+      <li>Accessibility Oz: Video factsheet <a href="https://www.accessibilityoz.com/factsheets/video/video-factsheet/">https://www.accessibilityoz.com/factsheets/video/video-factsheet/</a></li>
+      <li>Accessibility Oz: Video accessibility <a href="https://www.accessibilityoz.com/services/video-accessibility/">https://www.accessibilityoz.com/services/video-accessibility/</a></li>
+      <li>Harvard University: Accessible media player <a href="https://accessibility.huit.harvard.edu/provide-accessible-media-player">https://accessibility.huit.harvard.edu/provide-accessible-media-player</a></li>
+      <li>NNGroup: video usability <a href="https://www.nngroup.com/articles/video-usability/">https://www.nngroup.com/articles/video-usability/</a></li>
+      
+    
+</ul>
+
+
+
+<h2 id="rules">Usage</h2>
+  
+
+  <ul>
+    <li>Only use video media where it adds to user understanding</li>
+    <li>Don't be overly reliant on video to convey information - from an accessibility perspective, providing content as a video can limit access to the information contained in this format for anyone who cannot see or hear the content. In addition, videos break. In testing we’ve seen many a user run across a video that won’t load, doesn’t appear, can’t be played, or freezes. (<a href="https://www.nngroup.com/articles/video-usability/">https://www.nngroup.com/articles/video-usability/</a>)</li>
+    <li>Video sizing - to ensure video flows with content; size 2/3 on larger screens (desktop / tablet) and full width on small screens (mobile)</li>
+    <li>Title and description - do not overlay video, must sit within content.</li>
+    <li>Clearly display the length of the video</li>
+
+
+
+  </ul>
+
 
 {% endblock %}
