@@ -410,6 +410,43 @@
         details.pain[open] summary.pain:after {
           content: "-";
         }
+
+  .c-reveal-muted__summary::-webkit-details-marker {
+      display: none;
+    }
+    .c-reveal-muted {
+      border: 2px #aeb7bd solid;
+      margin-top: 30px;
+      padding: 8px 16px;
+    }
+    .c-reveal-muted__summary {
+      display: block;
+    }
+
+    .c-reveal-muted__header {
+      background: url(/images/icon-chevron-down-circle_28px-grey.svg)  left no-repeat ;
+      color: #425462;
+      cursor: pointer;
+      font-weight: 600;
+      line-height: 1.4em;
+      margin-top: 0;
+      padding: 18px 8px 18px 36px;
+      text-decoration: none;
+    }
+    .c-reveal-muted__header:hover,
+    .c-reveal-muted__header:focus {
+      text-decoration: underline;
+    }
+    .c-reveal-muted__details:first-child .c-common-questions__header {
+      border-top: 0;
+    }
+    .c-reveal__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
+
+        .c-reveal-muted__summary[aria-expanded="true"] .c-reveal-muted__header {
+      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+    }
         
         
         
@@ -534,15 +571,36 @@
 
 
     
-                                <details class="c-reveal__details" role="group" >
-                                        <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-                                          <p class="c-reveal__header" >Media review dates</p>
-                                        </summary>
-                                        <div class="c-reveal__content" id="question-1" aria-hidden="true">
-                                            <p>Media last reviewed: 1 Jun 2016</p>
-                                            <p>Media review due: 10 Mar 2019</p>
-                                        </div>
-                                      </details>
+                                <details class="c-reveal-muted__details" role="group" >
+                                    <summary class="c-reveal-muted__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
+                                      <p class="c-reveal-muted__header nhsuk-body-s">Media review dates</p>
+                                    </summary>
+                                    <div class="c-reveal__content " id="question-1" aria-hidden="true">
+                                        <h3>Severe pain:</h3>
+                                          <ul>
+                                              <li>always there and so bad it’s hard to think or talk</li>
+                                              <li>you can’t sleep</li>
+                                              <li>it’s very hard to move, get out of bed, go to the bathroom, wash or dress</li>
+                                          </ul>
+                      
+                                         <h3>Moderate pain:</h3>
+                                            <ul>
+                                                <li>always there</li>
+                                                <li>makes it hard to concentrate or sleep</li>
+                                                <li>you can manage to get up, wash or dress</li>
+                                            </ul>
+                      
+                                          <h3>Mild pain:</h3>
+                                              <ul>
+                                                  <li>comes and goes</li>
+                                                  <li>is annoying but doesn’t stop you doing things like going to work</li>
+                                              </ul>
+                                    <div class="c-reveal-muted__content " id="question-1" aria-hidden="true">
+                                        <p>Media last reviewed: 1 Jun 2016</p>
+                                        <p>Media review due: 10 Mar 2019</p>
+                      
+                                    </div>
+                                  </details>
         
                         </div>
                     </div>
