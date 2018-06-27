@@ -60,11 +60,8 @@ router.get('/styles/reveals', (req, res) => {
 router.get('/styles/video', (req, res) => {
   res.render('styles/video', {});
 });
-<<<<<<< HEAD
-=======
 
 
->>>>>>> video
 
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
@@ -292,21 +289,6 @@ router.get('/examples/google-allergies', (req, res) => {
   res.render('examples/google-allergies/index', {});
 });
 
-<<<<<<< HEAD
-router.get('/examples/test-template-general', (req, res) => {
-  res.render('examples/test-template-general', {});
-});
-
-router.get('/examples/test-template-condition', (req, res) => {
-  res.render('examples/test-template-condition', {});
-});
-
-router.get('/examples/test-template-medicine', (req, res) => {
-  res.render('examples/test-template-medicine', {});
-});
-
-=======
->>>>>>> video
 router.get('/examples/video/test-video-1', (req, res) => {
   res.render('examples/video/test-video-1', {});
 });
