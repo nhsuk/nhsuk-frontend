@@ -305,4 +305,24 @@ router.get('/testing/svg', (req, res) => {
   res.render('examples/svg-test', {});
 });
 
+router.get('/examples/test-minihub-amd', (req, res) => {
+  res.render('examples/test-minihub-amd/index', {});
+});
+
+router.get('/examples/test-minihub-amd/symptoms', (req, res) => {
+  res.render('examples/test-minihub-amd/symptoms', {});
+});
+
+router.get('/examples/test-minihub-amd/getting-diagnosed', (req, res) => {
+  res.render('examples/test-minihub-amd/getting-diagnosed', {});
+});
+
+router.get('/examples/test-minihub-amd/treatments', (req, res) => {
+  res.render('examples/test-minihub-amd/treatments', {});
+});
+
+router.get('/examples/test-minihub-amd/living-with-amd', (req, res) => {
+  res.render('examples/test-minihub-amd/living-with-amd', {});
+});
+
 module.exports = router;
