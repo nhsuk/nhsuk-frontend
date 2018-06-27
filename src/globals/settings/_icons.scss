@@ -1,59 +1,62 @@
 .nhsuk-icon {
+  height: $nhsuk-icon-size;
+  width: $nhsuk-icon-size;
+
   &__search {
     fill: $nhsuk-blue;
-    height: 34px;
-    width: 34px;
   }
   &__chevron-right {
     fill: $nhsuk-blue;
-    height: 34px;
-    width: 34px;
   }
   &__close {
     fill: $nhsuk-blue;
-    height: 34px;
-    width: 34px;
   }
   &__cross {
     fill: $nhsuk-red;
-    height: 34px;
-    width: 34px;
   }
   &__tick {
     fill: none;
-    height: 34px;
     stroke: $nhsuk-green;
-    width: 34px;
     &--fallback {
       padding-top: 5px;
     }
   }
   &__arrow-right {
     fill: $nhsuk-green;
-    height: 34px;
-    width: 34px;
   }
   &__chevron-down {
-    fill: $nhsuk-blue;
-    height: 34px;
-    width: 34px;
+    -moz-transform: rotate(180deg); // sass-lint:disable-line no-vendor-prefixes
+    -ms-transform: rotate(180deg); // sass-lint:disable-line no-vendor-prefixes
+    -o-transform: rotate(180deg); // sass-lint:disable-line no-vendor-prefixes
+    -webkit-transform: rotate(180deg); // sass-lint:disable-line no-vendor-prefixes
+    transform: rotate(180deg); // sass-lint:disable-line property-sort-order
+    fill: $nhsuk-blue; // sass-lint:disable-line property-sort-order
     path {
       fill: $nhsuk-white;
     }
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
   }
   &__chevron-up {
     fill: $nhsuk-blue;
-    height: 34px;
-    width: 34px;
     path {
       fill: $nhsuk-white;
     }
   }
+
+  &--size-25 {
+    height: $nhsuk-icon-size * 1.25;
+    width: $nhsuk-icon-size * 1.25;
+  }
+  &--size-50 {
+    height: $nhsuk-icon-size * 1.5;
+    width: $nhsuk-icon-size * 1.5;
+  }
+  &--size-75 {
+    height: $nhsuk-icon-size * 1.75;
+    width: $nhsuk-icon-size * 1.75;
+  }
+  &--size-100 {
+    height: $nhsuk-icon-size * 2;
+    width: $nhsuk-icon-size * 2;
+  }
+
 }
-
-
