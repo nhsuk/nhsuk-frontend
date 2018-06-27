@@ -1,6 +1,7 @@
 {% set title = 'Slipped disc' %}
 {% set parent = 'Health A-Z' %}
 {% extends "includes/templates/page.html"%}
+{% from "macros/components.html" import actionLink %}
 
 {% block breadcrumb %}
     {% include 'partials/breadcrumb/breadcrumb.html' %}
@@ -68,7 +69,7 @@
 <p><a href="/conditions/nsaids">Non-steroidal anti-inflammatory drugs (NSAIDs)</a> like ibuprofen aren't suitable for everyone. Speak to a pharmacist if you're not sure.</p>
 <p>Stronger painkillers containing codeine may help for pain that has just started. But these types of painkillers can cause addiction and should only be used for a few days.</p>
 
-<a href="https://beta.nhs.uk/finders/find-help" class="nhsuk-action-link-v2">Find a pharmacy</a>
+{{ actionLink("https://beta.nhs.uk/find-a-pharmacy/", "Find a pharmacy") }}
 
 <div class="care-card blue" id="when-to-get-medical-help">
 	<div class="care-card-heading">
@@ -114,7 +115,7 @@
 <p>If your symptoms don't get better your GP might recommend further tests, like an MRI scan.</p>
 <p>They might also refer you to a physiotherapist. Physiotherapy from the NHS might not be available everywhere and waiting times can be long. You can also get it privately.</p>
 
-<a href="http://www.csp.org.uk/your-health/find-physio/physio2u" class="nhsuk-action-link-v2" title="External website">Find a physiotherapist</a>
+{{ actionLink("http://www.csp.org.uk/your-health/find-physio/physio2u", "Find a physiotherapist") }}
 
 <h2 id="surgery">Surgery for a slipped disc</h2>
 
