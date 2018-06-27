@@ -17,6 +17,11 @@
         max-width: 100%;
         vertical-align: middle;
         width: 99px;
+
+        &:hover {
+          box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+        }
+
       }
     }
   }
