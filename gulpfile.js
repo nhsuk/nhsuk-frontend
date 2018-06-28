@@ -1,49 +1,45 @@
 var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-var runSequence = require('run-sequence');
+var babel = require('gulp-babel');
+var rename = require("gulp-rename");
+var cleanCSS = require('gulp-clean-css');
 
-gulp.task('sass', function() {
-  return gulp.src(['src/nhsuk.scss', 'nhsuk-design-system/scss/styles.scss', 'src/ie-78.scss'])
+var paths = {
+  scss: {
+    frontend: 'src/nhsuk.scss',
+    design: 'nhsuk-design-system/scss/styles.scss',
+    ie: 'src/ie-78.scss'
+  },
+  css: {
+    folder: 'assets/css',
+    file: 'assets/css/*.css'
+  },
+  collection: {
+    frontend: 'src/**/*.scss',
+    design: 'nhsuk-design-system/scss/**/*.scss'
+  }
+}
+
+function styles() {
+  return gulp.src([paths.scss.frontend, paths.scss.design, paths.scss.ie])
     .pipe(sass())
-    .pipe(gulp.dest('assets/css'))
+    .pipe(cleanCSS())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(paths.css.folder))
     .on('error', (err) => {
       console.log(err)
       process.exit(1)
     })
-});
+}
 
-// Autoprefix config browsers https://github.com/browserslist/browserslist#queries
+function watch() {
+  gulp.watch([paths.collection.frontend, paths.collection.design], styles);
+}
 
-gulp.task('autoprefix', () =>
-	gulp.src('assets/css/*.css')
-		.pipe(autoprefixer({
-			browsers: [
-        'last 2 versions',
-        'Firefox > 20',
-        'ie 8-10'
-      ],
-			cascade: false
-		}))
-		.pipe(gulp.dest('assets/css'))
-);
+exports.styles = styles;
+exports.watch = watch;
 
-gulp.task('minify', function() {
-	gulp.src('assets/css/*.css')
-      .pipe(cssnano())
-      .pipe(gulp.dest('assets/css'))
-});
-
-gulp.task('watch', function() {
-  gulp.watch(['src/**/*.scss', 'nhsuk-design-system/scss/**/*.scss'], ['build']);
-});
-
-gulp.task('build', function (callback) {
-  runSequence('sass','autoprefix', 'minify',
-    callback
-  )
-})
-
-gulp.task('default', ['build', 'watch']);
+gulp.task('build', styles);
+gulp.task('default', watch);

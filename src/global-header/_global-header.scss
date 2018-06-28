@@ -60,7 +60,7 @@ $alpha: .5;
       padding: 5px 15px;
       text-decoration: none;
 
-      &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+      &::-moz-focus-inner {
         border: 0;
       }
 
@@ -105,7 +105,7 @@ $alpha: .5;
       margin: 20px 0;
 
       .c-search__input {
-        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: listbox;
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -123,8 +123,8 @@ $alpha: .5;
           font-size: 16px;
         }
 
-        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
-          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        &::-webkit-search-decoration {
+          -webkit-appearance: none;
         }
 
         &.js-search-open {
@@ -158,7 +158,7 @@ $alpha: .5;
         text-indent: -9999px;
         width: 44px;
 
-        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+        &::-moz-focus-inner { // sass-lint:disable-line prefixes
           border: 0;
         }
 
@@ -211,7 +211,7 @@ $alpha: .5;
       }
 
       &__input {
-        -webkit-appearance: listbox; // sass-lint:disable-line no-vendor-prefixes
+        -webkit-appearance: listbox; // sass-lint:disable-line prefixes
         border-bottom: 1px solid $nhsuk-grey-3;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -228,8 +228,8 @@ $alpha: .5;
         padding: 0 10px;
         width: 100%;
 
-        &::-webkit-search-decoration { // sass-lint:disable-line no-vendor-prefixes
-          -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+        &::-webkit-search-decoration {
+          -webkit-appearance: none;
         }
 
         &:focus {
@@ -261,7 +261,7 @@ $alpha: .5;
         padding: 0 26px;
         text-indent: -9999px;
 
-        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+        &::-moz-focus-inner {
           border: 0;
         }
 
@@ -334,7 +334,7 @@ $alpha: .5;
         text-indent: -9999px;
         top: 0;
 
-        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+        &::-moz-focus-inner {
           border: 0;
         }
 
@@ -388,7 +388,7 @@ $alpha: .5;
       white-space: nowrap;
       width: 40px;
 
-      &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+      &::-moz-focus-inner {
         border: 0;
       }
 
@@ -410,8 +410,8 @@ $alpha: .5;
 
 // jquery ui autocomplete temporary styling
 .ui-autocomplete {
-  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
-  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
+  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-lines no-color-literals
+  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
   background: $nhsuk-white;
   border-bottom: 1px solid $nhsuk-grey-4;
   border-bottom-left-radius: 4px;

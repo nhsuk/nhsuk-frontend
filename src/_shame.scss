@@ -1,5 +1,5 @@
 // dirty IE10/11 hack to show png icons as they can't handle data uri background image
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { // sass-lint:disable-line no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
   @include mq($from: tablet) {
 
