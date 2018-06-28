@@ -11,8 +11,8 @@ html * {
 }
 
 html {
-  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background-color: $nhsuk-grey-5;
   color: $nhsuk-text-colour;
   min-height: 100%;

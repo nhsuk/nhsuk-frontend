@@ -29,4 +29,4 @@ bower_components
 .DS_Store
 Thumbs.db
 
-assets/css/styles.css
+assets/css/styles.min.css

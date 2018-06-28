@@ -16,8 +16,8 @@
 
     <title>NHS.UK redesign - {{ title }}</title>
 
-    <link rel="stylesheet" href="/css/nhsuk.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/nhsuk.min.css">
+    <link rel="stylesheet" href="/css/styles.min.css">
 
     <script src="/js/clipboard.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
     {% include "includes/header.html" %}
-    
+
     <nav class="c-nav-primary" role="navigation">
     <div class="nhsuk-global-nav">
         <div class="nhsuk-o-width-container">
@@ -42,30 +42,30 @@
         </div>
     </div>
     </nav>
-    
+
     <script>
     (function() {
-    
+
         var menuToggle = {
             menuButton: document.querySelector('.menu-toggle'),
             menuClose: document.querySelector('.js-menu-close'),
         nav: document.querySelector('.c-nav-primary'),
-    
+
             doToggle: function(e) {
                 e.preventDefault();
                 this.menuButton.classList.toggle('e');
                 this.nav.classList.toggle('js-show');
             }
         };
-    
+
         menuToggle.menuButton.addEventListener('click', function(e) { menuToggle.doToggle(e); });
         menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); });
-    
+
     }());
     </script>
 
     <div style="width: 100%; height: 2014px; background: url(../images/homepage.png) center -80px no-repeat"></div>
-    
+
     {% include "includes/footer.html" %}
 
     <script src="/js/main.js"></script>
