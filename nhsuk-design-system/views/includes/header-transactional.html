@@ -5,7 +5,11 @@
     {% else %}
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
     {% endif %}
-      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.svg" alt="NHS"></a></div>
+      <div class="nhsuk-global-header__logo">
+        <a href="/" class="global-header__link">
+          {% include 'partials/logos/nhs-logo.svg' %}
+        </a>
+      </div>
     </div>
   </div>
 </header>

@@ -65,6 +65,7 @@ $nhsuk-yellow-shade-35: shade($nhsuk-yellow, 35%);
 $nhsuk-yellow-shade-50: shade($nhsuk-yellow, 50%);
 
 $nhsuk-yellow-tint-90: tint($nhsuk-yellow, 90%);
+$nhsuk-yellow-tint-40: tint($nhsuk-yellow, 40%); // used for warning callout background
 
 // nhsuk-warm-yellow variations
 
@@ -101,7 +102,7 @@ $nhsuk-link-active-background-colour: $nhsuk-warm-yellow-tint-10;
 // Border colours
 
 $nhsuk-border-colour: $nhsuk-grey-4;
-$nhsuk-secondary-border-colour: rgba(255,255,255,0.2); // used for header and footer dividing line
+$nhsuk-secondary-border-colour: rgba(255, 255, 255, .2); // used for header and footer dividing line
 
 // Button colours
 
