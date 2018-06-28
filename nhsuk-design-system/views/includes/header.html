@@ -144,7 +144,12 @@ $( function() {
 <header role="banner">
   <div class="nhsuk-global-header">
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
-      <div class="nhsuk-global-header__logo"><a href="/" class="global-header__link"><img src="/images/nhs-logo.png" srcset="/images/nhs-logo.svg" alt=""><span class="visually-hidden">NHS.UK homepage</span></a></div>
+      <div class="nhsuk-global-header__logo">
+        <a href="/" class="global-header__link">
+          {% include 'partials/logos/nhs-logo.svg' %}
+          <span class="visually-hidden">NHS.UK homepage</span>
+        </a>
+      </div>
       <div class="nhsuk-global-header__menusearch ui-front">
         <div class="nhsuk-global-header__menu"><button class="menu-toggle__button" aria-controls="c-nav-primary" aria-label="Open menu">Menu</button></div>
         <div class="nhsuk-global-header__search">
