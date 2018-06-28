@@ -17,7 +17,7 @@ $nhsuk-light-yellow: #FFF7E8;
   &:before {
       @include nhsuk-tab();
       content: '';
-      background-image: url(../images/callout-danger.svg);
+      background-image: url(../../../../images/callout-danger.svg);
       background-size: 100% 100%;
       display: block;
       height: 56px;
@@ -34,7 +34,7 @@ $nhsuk-light-yellow: #FFF7E8;
   border-top: 8px solid $nhsuk-warm-yellow;
   color: $nhsuk-black;
   &:before {
-      background-image: url(../images/callout-warning.svg);
+      background-image: url(../../../../images/callout-warning.svg);
       left: -8px;
       top: -16px;
       @include mq($until: tablet) {
@@ -53,7 +53,7 @@ $nhsuk-light-yellow: #FFF7E8;
         margin: 40px 0;
     }
     &:before {
-        background-image: url(../images/callout-warning-black.svg);
+        background-image: url(../../../../images/callout-warning-black.svg);
         left: -8px;
         top: -8px;
         @include mq($until: tablet) {
@@ -73,7 +73,7 @@ $nhsuk-light-yellow: #FFF7E8;
         margin: 40px 0;
     }
     &:before {
-        background-image: url(../images/callout-warning-icon-yellow.svg);
+        background-image: url(../../../../images/callout-warning-icon-yellow.svg);
         left: -8px;
         top: -16px;
         @include mq($until: tablet) {
@@ -93,7 +93,7 @@ $nhsuk-light-yellow: #FFF7E8;
         margin: 40px 0;
     }
     &:before {
-        background-image: url(../images/callout-danger.svg);
+        background-image: url(../../../../images/callout-danger.svg);
         left: -8px;
         top: -16px;
         @include mq($until: tablet) {
@@ -114,7 +114,7 @@ $nhsuk-light-yellow: #FFF7E8;
         padding: 0 0 0 56px;
     }
     &:before {
-        background-image: url(../images/callout-warning-v2.svg);
+        background-image: url(../../../../images/callout-warning-v2.svg);
         height: 48px;
         left: 0;
         margin-top: -24px;
@@ -144,7 +144,7 @@ $nhsuk-light-yellow: #FFF7E8;
         padding: 24px 24px 24px 72px;
     }
     &:before {
-        background-image: url(../images/callout-warning-v2.svg);
+        background-image: url(../../../../images/callout-warning-v2.svg);
         height: 48px;
         left: 32px;
         margin-top: -24px;
@@ -168,7 +168,7 @@ $nhsuk-light-yellow: #FFF7E8;
     border-top: 8px solid $nhsuk-warm-yellow;
     color: $nhsuk-black;
     &:before {
-        background-image: url(../images/callout-warning.svg);
+        background-image: url(../../../../images/callout-warning.svg);
         left: -8px;
         top: -16px;
         @include mq($until: tablet) {
@@ -186,7 +186,7 @@ $nhsuk-light-yellow: #FFF7E8;
     border-top: 8px solid $nhsuk-yellow;
     color: $nhsuk-black;
     &:before {
-        background-image: url(../images/callout-warning-icon-yellow.svg);
+        background-image: url(../../../../images/callout-warning-icon-yellow.svg);
         left: -8px;
         top: -16px;
         @include mq($until: tablet) {
@@ -238,7 +238,7 @@ $nhsuk-light-yellow: #FFF7E8;
 .nhsuk-c-callout__info {
   @include nhsuk-c-callout(white,$nhsuk-blue);
   &:before {
-      background-image: url(../images/callout-info.svg);
+      background-image: url(../../../../images/callout-info.svg);
       top: -8px;
     @include mq($until: tablet) {
         top: -4px;
@@ -251,7 +251,7 @@ $nhsuk-light-yellow: #FFF7E8;
   border: 4px solid $nhsuk-red;
 
   &:before {
-      background-image: url(../images/callout-danger.svg);
+      background-image: url(../../../../images/callout-danger.svg);
       left: -12px;
       @include mq($until: tablet) {
           left: -8px;
@@ -280,7 +280,7 @@ $nhsuk-light-yellow: #FFF7E8;
   }
   &:before {
       content: '';
-      background-image: url(../images/callout-danger.svg);
+      background-image: url(../../../../images/callout-danger.svg);
       background-size: 100% 100%;
       display: block;
       height: 50px;
@@ -302,7 +302,7 @@ $nhsuk-light-yellow: #FFF7E8;
   border-top: 4px solid $nhsuk-blue;
   color: $nhsuk-secondary-text-colour;
   &:before {
-      background-image: url(../images/callout-info-v2.svg);
+      background-image: url(../../../../images/callout-info-v2.svg);
   }
 }
 
@@ -311,7 +311,7 @@ $nhsuk-light-yellow: #FFF7E8;
   border: 4px solid $nhsuk-warm-yellow;
   color: $nhsuk-black;
   &:before {
-      background-image: url(../images/callout-warning-v2.svg);
+      background-image: url(../../../../images/callout-warning-v2.svg);
   }
 }
 
@@ -320,7 +320,7 @@ $nhsuk-light-yellow: #FFF7E8;
   border: 4px solid $nhsuk-yellow;
   color: $nhsuk-black;
   &:before {
-      background-image: url(../images/callout-warning-v2-black.svg);
+      background-image: url(../../../../images/callout-warning-v2-black.svg);
   }
 }
 

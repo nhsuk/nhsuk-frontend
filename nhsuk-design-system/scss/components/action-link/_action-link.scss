@@ -24,10 +24,10 @@
 		height: 28px;
 		margin:0 8px -7px 0;
 		display: inline-block;
-		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__green.svg) top left no-repeat;
+		background: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__green.svg) top left no-repeat;
 		background-size: 28px 28px;
 		&:hover{
-			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+			background-image: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
 	&:hover,
@@ -37,7 +37,7 @@
 	}
 	&:hover{
 		&:before{
-			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+			background-image: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
 }
@@ -58,10 +58,10 @@
 		height: 32px;
 		margin:0 8px -9px 0;
 		display: inline-block;
-		background: url(../images/nhsuk-icon-arrow1-right-alt-circle__aqua-green.svg) top left no-repeat;
+		background: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__aqua-green.svg) top left no-repeat;
 		background-size: 32px 32px;
 		&:hover{
-			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+			background-image: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
 	&:hover,
@@ -72,7 +72,7 @@
 	&:hover{
 		text-decoration: underline;
 		&:before{
-			background-image: url(../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
+			background-image: url(../../../../images/nhsuk-icon-arrow1-right-alt-circle__green-shade-35.svg);
 		}
 	}
 }
