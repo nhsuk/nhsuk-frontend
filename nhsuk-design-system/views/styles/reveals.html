@@ -40,10 +40,10 @@
 </ul>
 
 <h2 id="hypothesis">Our hypothesis</h2>
-    <p>There is currently no consistancy in UI or iconography.</p> 
-    <p>We believe that a consistant reveal will</p> 
+    <p>There is currently no consistency in UI or iconography.</p> 
+    <p>We believe that a consistent reveal will</p> 
     <ul>
-      <li>help with access needs (consitant labeling)</li>
+      <li>help with access needs (consistent labeling)</li>
       <li>help with users mental model (speed up future use)</li>
       <li>using our own suite of icons - help reinforce our branding </li>
     </ul>
@@ -381,7 +381,7 @@
     }
     .c-common-questions__header {
       border-top: 1px solid #ccc;
-      background: url(/images/icon-chevron-down-circle_28px.svg) left no-repeat;
+      background: url(/images/icon-open_v1.svg) left no-repeat;
       color: #0058ad;
       cursor: pointer;
       font-weight: 600;
@@ -391,6 +391,7 @@
       text-decoration: none;
       margin-left: 16px;
       margin-right: 16px;
+      width:28px;
     }
     .c-common-questions__header:hover,
     .c-common-questions__header:focus {
@@ -400,7 +401,7 @@
       border-top: 0;
     }
     .c-common-questions__summary[aria-expanded="true"] .c-common-questions__header {
-      background: url(/images/icon-chevron-up-circle_28px.svg) left no-repeat;
+      background: url(/images/icon-minus_v1.svg) left no-repeat;
     }
     .c-common-questions__content {
       background: #fff;
@@ -421,13 +422,13 @@
       display: block;
     }
     .c-reveal__header {
-      background: url(/images/icon-chevron-down-circle_28px.svg) left no-repeat ;
+      background: url(/images/icon-open_v1.svg) left no-repeat ;
       color: #0058ad;
       cursor: pointer;
       font-weight: 600;
       line-height: 1.4em;
       margin-top: 0;
-      padding: 18px 8px 18px 36px;
+      padding: 18px 8px 18px 38px;
       text-decoration: none;
     }
     .c-reveal__header:hover,
@@ -438,7 +439,7 @@
       border-top: 0;
     }
     .c-reveal__summary[aria-expanded="true"] .c-reveal__header {
-      background: url(/images/icon-chevron-up-circle_28px.svg) left no-repeat;
+      background: url(/images/icon-minus_v1.svg) left no-repeat;
     }
     .c-reveal__content {
       margin-top:1em;
@@ -459,7 +460,7 @@ margin-bottom:1em;
     }
 
     .c-reveal-muted__header {
-      background: url(/images/icon-chevron-down-circle_28px-grey.svg)  left no-repeat ;
+      background: url(/images/icon-open_v1.svg)  left no-repeat ;
       color: #425462;
       cursor: pointer;
       font-weight: 600;
@@ -476,11 +477,11 @@ margin-bottom:1em;
       border-top: 0;
     }
     .c-reveal__summary[aria-expanded="true"] .c-reveal-muted__header {
-      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+      background: url(/images/icon-minus_v1.svg) left no-repeat;
     }
 
         .c-reveal-muted__summary[aria-expanded="true"] .c-reveal-muted__header {
-      background: url(/images/icon-chevron-up-circle_28px-grey.svg) left no-repeat;
+      background: url(/images/icon-minus_v1.svg) left no-repeat;
     }
 
 
@@ -582,16 +583,15 @@ details.pain[open] summary.pain:after {
 
   <div class="example nhsuk-c-panel nhsuk-c-panel__with-border" style="background-color:#f0f4f5;">
 
-      <h3>Single reveal in context</h3>
+      <h3>Single reveal</h3>
 
       <ul>
         <li>Supporting information</li>
         <li>Sat beneath primary information (e.g. Open until 6pm today)</li>
-        <li>In white box to increase prominance</li>
+        <li>In white box to increase prominence</li>
       </ul>
 
-      <div  style="background-color: #fff;padding:0.1em 0.5em 0.5em 1em;margin-top:1em;">
-<p>Open till midnight</p>
+      <div  style="background-color: #fff;padding: 1em;margin-top:1em;">
           <details class="c-reveal__details" role="group" >
             <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
               <p class="c-reveal__header" >Opening times</p>
@@ -639,7 +639,7 @@ details.pain[open] summary.pain:after {
         <ul>
           <li>Supporting information</li>
           <li>Could be main content</li>
-          <li>In white box to increase prominance</li>
+          <li>In white box to increase prominence</li>
         </ul>
 
         <div style="background-color: #fff;padding:1em;margin-top:1em;">
@@ -677,8 +677,6 @@ details.pain[open] summary.pain:after {
                           <li>before meals</li>
                           <li>2 to 3 hours after meals</li>
                           <li>before, during (take a break) and after exercise</li>
-
-
                       </ul>
 
 
@@ -696,12 +694,12 @@ details.pain[open] summary.pain:after {
 
       <hr style="margin-top:2em;" />
 
-<h3>Single supporting reveal</h3>
+<h3>Single supporting reveal (more details)</h3>
 <ul>
     <li>Supporting information</li>
     <li>Not prominent</li>
     <li>Sat beneath main content</li>
-    <li>Useful in transational services</li>
+    <li>Useful in transactional services</li>
 
   </ul>
 
@@ -709,75 +707,37 @@ details.pain[open] summary.pain:after {
 
   <div  style="margin-top:1em;">
 
-      <details class="c-reveal__details" role="group" >
-        <summary class="c-reveal__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-          <p class="c-reveal__header">Where can I find my NHS number?</p>
-        </summary>
-        <div class="c-reveal__content " id="question-1" aria-hidden="true">
-            <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-
-            <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-
-            <ul>
-            <li>prescriptions</li>
-            <li>test results</li>
-            <li>hospital referral letters</li>
-            <li>appointment letters</li>
-            <li>your NHS medical card</li>
-            </ul>
-
-            <p>Ask your GP practice for help if you can't find your NHS number.</p>
-        </div>
-      </details>
+    <details role="group">
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false" style="color: #005eb8;">
+          <span class="details__summary" style="text-decoration: underline;    color: #005eb8;font-weight:400;">Where can I find my NHS number?</span>
+      </summary>
+      <div class="details__content" id="details-content-0" aria-hidden="true">
+          <div class="block-markdown">
+              <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+              
+              <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+              
+              <ul>
+              <li>prescriptions</li>
+              <li>test results</li>
+              <li>hospital referral letters</li>
+              <li>appointment letters</li>
+              <li>your NHS medical card</li>
+              </ul>
+              
+              <p>Ask your GP practice for help if you can't find your NHS number.</p>
+  
+      </div>
+      </div>
+  </details>
 
     </div>
 
 
 
 
-        <hr style="margin-top:2em;" />
-
-        <h3>Muted reveal</h3>
-        <ul>
-            <li>Supporting information</li>
-            <li>Sat beneath main content</li>
-        </ul>
 
 
-        <div  style="margin-top:1em;">
-
-            <details class="c-reveal-muted__details" role="group" >
-              <summary class="c-reveal-muted__summary" aria-expanded="false" tabindex="0" aria-controls="question-1" role="button">
-                <p class="c-reveal-muted__header nhsuk-body-s">Media review dates</p>
-              </summary>
-              <div class="c-reveal__content " id="question-1" aria-hidden="true">
-                  <h3>Severe pain:</h3>
-                    <ul>
-                        <li>always there and so bad it’s hard to think or talk</li>
-                        <li>you can’t sleep</li>
-                        <li>it’s very hard to move, get out of bed, go to the bathroom, wash or dress</li>
-                    </ul>
-
-                   <h3>Moderate pain:</h3>
-                      <ul>
-                          <li>always there</li>
-                          <li>makes it hard to concentrate or sleep</li>
-                          <li>you can manage to get up, wash or dress</li>
-                      </ul>
-
-                    <h3>Mild pain:</h3>
-                        <ul>
-                            <li>comes and goes</li>
-                            <li>is annoying but doesn’t stop you doing things like going to work</li>
-                        </ul>
-              <div class="c-reveal-muted__content " id="question-1" aria-hidden="true">
-                  <p>Media last reviewed: 1 Jun 2016</p>
-                  <p>Media review due: 10 Mar 2019</p>
-
-              </div>
-            </details>
-
-          </div>
 
 
 
@@ -826,4 +786,6 @@ details.pain[open] summary.pain:after {
       <p>From the Android design principles:</p>
 
       <p>"Only show what I need when I need it. People get overwhelmed when they see too much at once. Break tasks and information into small, digestible chunks. Hide options that aren't essential at the moment, and teach people as they go." <a href="http://developer.android.com/design/get-started/principles.html">http://developer.android.com/design/get-started/principles.html</a></p>
+
+
 {% endblock %}
