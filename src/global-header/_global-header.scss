@@ -114,7 +114,7 @@ $alpha: .5;
 
       .c-search__input {
         -webkit-appearance: listbox;
-        background-color: #fff !important; // needs !important because typeahead js adds inline styling
+        background-color: $nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -229,7 +229,7 @@ $alpha: .5;
 
       &__input {
         -webkit-appearance: listbox; // sass-lint:disable-line prefixes
-        background-color: #fff !important; // needs !important because typeahead js adds inline styling
+        background-color: $nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
         border-bottom: 1px solid $nhsuk-grey-3;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -452,8 +452,8 @@ $alpha: .5;
 @include mq($until: tablet) {
 
   .c-search-menu {
-    position: relative !important;
-    top: 0 !important;
+    position: relative !important; // sass-lint:disable-line no-important
+    top: 0 !important; // sass-lint:disable-line no-important
   }
 
   .c-search-menu__list {
@@ -520,8 +520,8 @@ $alpha: .5;
 
 // override this element that the typeahead js inserts
 .twitter-typeahead {
-  display: inline !important;
-  position: static !important;
+  display: inline !important; // sass-lint:disable-line no-important
+  position: static !important; // sass-lint:disable-line no-important
   width: 100%;
 }
 
