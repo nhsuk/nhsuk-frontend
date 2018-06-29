@@ -1,3 +1,8 @@
+// Behaviour:
+// mobile to tablet - Menu toggle button visible, search toggle button visible
+// tablet to desktop - Menu toggle button visible, search field visible
+// desktop+ - Menu links visible, search field visible
+
 // Import anything from globals required for this component (as little as possible)
 // @import "../globals/helpers/typography";
 @import '../../src/globals/helpers/clearfix';
@@ -109,6 +114,7 @@ $alpha: .5;
 
       .c-search__input {
         -webkit-appearance: listbox;
+        background-color: #fff !important; // needs !important because typeahead js adds inline styling
         border: 1px solid $nhsuk-white;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -120,6 +126,10 @@ $alpha: .5;
         height: 40px;
         padding: 0 15px 0 12px;
         width: 235px;
+
+        &--dropdown {
+          border-bottom-left-radius: 0;
+        }
 
         &::placeholder {
           color: $nhsuk-grey-2;
@@ -153,7 +163,7 @@ $alpha: .5;
         border-top-left-radius: 0;
         border-top-right-radius: 4px;
         display: block;
-        float: left;
+        float: right;
         font-size: inherit;
         height: 40px;
         line-height: inherit;
@@ -161,7 +171,11 @@ $alpha: .5;
         text-indent: -9999px;
         width: 44px;
 
-        &::-moz-focus-inner { // sass-lint:disable-line prefixes
+        &--dropdown {
+          border-bottom-right-radius: 0;
+        }
+
+        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
           border: 0;
         }
 
@@ -215,6 +229,7 @@ $alpha: .5;
 
       &__input {
         -webkit-appearance: listbox; // sass-lint:disable-line prefixes
+        background-color: #fff !important; // needs !important because typeahead js adds inline styling
         border-bottom: 1px solid $nhsuk-grey-3;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
@@ -258,6 +273,7 @@ $alpha: .5;
         border-top-right-radius: 4px;
         float: right;
         font-size: inherit;
+        height: 52px;
         line-height: inherit;
         margin: 0;
         outline: none;
@@ -411,10 +427,9 @@ $alpha: .5;
 
 }
 
-// jquery ui autocomplete temporary styling
-.ui-autocomplete {
-  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-lines no-color-literals
-  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
+.c-search-menu__list {
+  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
+  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
   background: $nhsuk-white;
   border-bottom: 1px solid $nhsuk-grey-4;
   border-bottom-left-radius: 4px;
@@ -425,7 +440,8 @@ $alpha: .5;
   box-shadow: 0 0 3px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
   height: auto;
   list-style: none;
-  max-height: 300px;
+  margin-top: 0;
+  //max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 10px 15px 18px;
@@ -434,7 +450,13 @@ $alpha: .5;
 }
 
 @include mq($until: tablet) {
-  .ui-autocomplete {
+
+  .c-search-menu {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  .c-search-menu__list {
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -447,7 +469,7 @@ $alpha: .5;
   }
 }
 
-.ui-prepend {
+.c-search-menu__prepend {
   border-bottom: 1px solid $nhsuk-grey-4;
   color: $nhsuk-text-colour;
   font-size: 16px;
@@ -456,7 +478,7 @@ $alpha: .5;
   text-align: left;
 }
 
-.ui-menu-item {
+.c-search-menu__item {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='1 2 24 24' height='21px' width='21px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
   background-position: left 5px;
   background-repeat: no-repeat;
@@ -485,26 +507,27 @@ $alpha: .5;
     }
   }
 
-  b {
-    font-weight: 600;
-  }
-
-  .ui-state-active {
-    background: $nhsuk-warm-yellow;
-    box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
-    color: $nhsuk-black;
-    display: inline;
-    text-decoration: none;
+  &--selected {
+    a {
+      background-color: $nhsuk-warm-yellow;
+      box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
+      color: $nhsuk-black;
+      display: inline;
+      text-decoration: none;
+    }
   }
 }
 
-.ui-helper-hidden-accessible {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+// override this element that the typeahead js inserts
+.twitter-typeahead {
+  display: inline !important;
+  position: static !important;
+  width: 100%;
+}
+
+.c-search-menu__nosuggestions  {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  text-align: left;
 }
