@@ -317,4 +317,12 @@ router.get('/examples/test-minihub-amd/living-with-amd', (req, res) => {
   res.render('examples/test-minihub-amd/living-with-amd', {});
 });
 
+router.get('/examples/test-minihub-amd/google', (req, res) => {
+  res.render('examples/test-minihub-amd/google', {});
+});
+
+router.get('/examples/test-minihub-amd/google-results', (req, res) => {
+  res.render('examples/test-minihub-amd/google-results', {});
+});
+
 module.exports = router;
