@@ -1,15 +1,14 @@
 const app = require('express')();
 const express = require('express');
-const router = require('./nhsuk-design-system/config/router');
+const router = require('./app/config/router');
 const nunjucks = require('nunjucks');
 const path = require('path');
 
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
-app.use(express.static(path.join(__dirname, 'assets')));
-app.use(express.static(path.join(__dirname, 'nhsuk-design-system/public')));
+app.use(express.static(path.join(__dirname, 'app/assets')));
 
-nunjucks.configure('nhsuk-design-system/views', {
+nunjucks.configure('app/views', {
   autoescape: true,
   express: app
 });

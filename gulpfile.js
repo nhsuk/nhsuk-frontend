@@ -7,16 +7,17 @@ var cleanCSS = require('gulp-clean-css');
 var paths = {
   scss: {
     frontend: 'src/nhsuk.scss',
-    design: 'nhsuk-design-system/scss/styles.scss',
+    design: 'app/styles/styles.scss',
     ie: 'src/ie-78.scss'
   },
   css: {
-    folder: 'assets/css',
-    file: 'assets/css/*.css'
+    folder: 'app/assets/css',
+    file: 'app/assets/css/*.css',
+    frontend: 'app/assets/css/nhsuk.min.css'
   },
   collection: {
     frontend: 'src/**/*.scss',
-    design: 'nhsuk-design-system/scss/**/*.scss'
+    design: 'app/styles/**/*.scss'
   }
 }
 

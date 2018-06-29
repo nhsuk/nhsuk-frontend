@@ -75,20 +75,12 @@ router.get('/examples/test-condition-blisters-v1', (req, res) => {
   res.render('examples/test-condition-blisters-v1', {});
 });
 
-router.get('/examples/test-condition-chickenpox', (req, res) => {
-  res.render('examples/test-condition-chickenpox', {});
-});
-
 router.get('/examples/test-condition-chickenpox-v2', (req, res) => {
   res.render('examples/test-condition-chickenpox-v2', {});
 });
 
 router.get('/examples/test-condition-chlamydia', (req, res) => {
   res.render('examples/test-condition-chlamydia', {});
-});
-
-router.get('/examples/test-condition-depression', (req, res) => {
-  res.render('examples/test-condition-depression', {});
 });
 
 router.get('/examples/test-condition-gout', (req, res) => {
