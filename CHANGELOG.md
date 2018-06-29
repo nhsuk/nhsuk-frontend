@@ -1,3 +1,7 @@
+2018-06-29
+==================
+- Updated header to use typeahead for search suggestions from Funnelback
+
 2018-06-11
 ==================
 - Added updated header and footer to example page to demo to Medicines team
