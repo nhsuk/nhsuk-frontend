@@ -281,6 +281,12 @@ router.get('/examples/google-allergies', (req, res) => {
   res.render('examples/google-allergies/index', {});
 });
 
+router.get('/examples/test-template-general', (req, res) => {
+  res.render('examples/test-template-general', {});
+});
+
+
+
 router.get('/examples/video/test-video-1', (req, res) => {
   res.render('examples/video/test-video-1', {});
 });
