@@ -8,43 +8,13 @@
     }
   }
 
-  @include mq($from: tablet) {
-
-    .nhsuk-global-header__search {
-      .c-search__submit {
-        background-image: url(/images/icon-search-blue-20px.png);
-
-        &:hover {
-          background-image: url(/images/icon-search-white-20px.png);
-        }
-      }
-    }
-
+  .c-search-menu {
+    display: none !important; // sass-lint:disable-line no-important
   }
-
 
   @include mq($until: tablet) {
 
     .nhsuk-global-header {
-
-      .nhsuk-global-header__search {
-        .c-search__submit {
-          background-image: url(/images/icon-search-white-28px.png);
-        }
-        .search-toggle__button {
-          background-image: url(/images/icon-search-white-16px.png);
-        }
-      }
-
-      .search-close__link {
-        background-image: url(/images/icon-close-blue-24px.png);
-        float: left;
-        margin-left: 0;
-
-        &:hover {
-          background-image: url(/images/icon-close-darkblue-24px.png);
-        }
-      }
 
       .search-container {
         &.js-show {
@@ -75,55 +45,6 @@
 
     }
 
-    .c-nav-primary__title {
-      .c-nav-primary__close-link {
-        background-image: url(/images/icon-close-blue-24px.png);
-
-        &:hover {
-          background-image: url(/images/icon-close-darkblue-24px.png);
-        }
-      }
-    }
-
-  }
-
-  @include mq($until: large-desktop) {
-
-    .c-nav-primary__title {
-
-      .c-nav-primary__close-link {
-        background-image: url(/images/icon-close-blue-24px.png);
-
-        &:hover {
-          background-image: url(/images/icon-close-darkblue-24px.png);
-        }
-      }
-    }
-
-    .c-nav-primary__link {
-      background-image: url(/images/icon-chevron-right-grey-10px.png);
-      background-position: 96%;
-
-      &:focus {
-        background-image: url(/images/icon-chevron-right-grey-10px.png);
-        background-position: 96%;
-      }
-    }
-
-    .c-nav-primary__link {
-
-      &:hover,
-      &:active {
-        background-image: url(/images/icon-chevron-right-white-10px.png);
-        background-position: 96%;
-      }
-
-    }
-
-  }
-
-  .ui-menu-item {
-    background-image: url(/images/icon-search-grey-16px.png);
   }
 
 }
