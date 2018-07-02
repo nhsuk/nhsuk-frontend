@@ -5,12 +5,20 @@
 
   .nhsuk-global-header__menu,
   .search-toggle,
-  .c-nav-primary__title {
-    display: none;
+  .c-nav-primary__title,
+  .search-close,
+  .c-search-menu {
+    display: none !important; // sass-lint:disable-line no-important
   }
 
   .c-search {
     margin-top: 20px;
+  }
+
+  .c-search__input {
+    background: $nhsuk-white !important; // sass-lint:disable-line no-important
+    height: 100%;
+    padding: 5px;
   }
 
   .c-nav-primary {
@@ -29,17 +37,22 @@
     }
 
     &__item {
-      display: table-cell;
+      display: inline;
+      padding: 0 10px;
       text-align: center;
     }
 
     &__link {
       color: $nhsuk-white;
-      display: block;
       font-size: 17px;
       line-height: 20px;
-      padding: 16px 0;
+      padding: 16px 15px;
       text-decoration: none;
+
+      .nhsuk-icon,
+      img {
+        display: none;
+      }
 
       &:visited {
         color: $nhsuk-white;
@@ -49,6 +62,7 @@
         background: $nhsuk-blue-shade-35;
         box-shadow: none;
         color: $nhsuk-white;
+        text-decoration: underline;
       }
 
       &:focus {

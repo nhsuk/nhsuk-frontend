@@ -154,9 +154,6 @@ $alpha: .5;
 
       .c-search__submit {
         background-color: $nhsuk-grey-5;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='27px' width='27px'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-        background-position: center;
-        background-repeat: no-repeat;
         border: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
@@ -168,8 +165,14 @@ $alpha: .5;
         height: 40px;
         line-height: inherit;
         outline: none;
-        text-indent: -9999px;
+        padding-left: 9px;
+        padding-top: 7px;
         width: 44px;
+
+        .nhsuk-icon__search {
+          height: 27px;
+          width: 27px;
+        }
 
         &--dropdown {
           border-bottom-right-radius: 0;
@@ -189,8 +192,11 @@ $alpha: .5;
 
         &:hover {
           background-color: $nhsuk-blue-shade-35;
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='27px' width='27px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 converts single to double quotes
           cursor: pointer;
+
+          .nhsuk-icon__search {
+            fill: $nhsuk-white;
+          }
         }
 
         &:active {
@@ -263,9 +269,6 @@ $alpha: .5;
 
       &__submit {
         background-color: $nhsuk-green;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='38px' width='38px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-        background-position: center;
-        background-repeat: no-repeat;
         border: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
@@ -277,8 +280,13 @@ $alpha: .5;
         line-height: inherit;
         margin: 0;
         outline: none;
-        padding: 0 26px;
-        text-indent: -9999px;
+        padding: 7px 7px 0;
+
+        .nhsuk-icon__search {
+          fill: $nhsuk-white;
+          height: 38px;
+          width: 38px;
+        }
 
         &::-moz-focus-inner {
           border: 0;
@@ -336,9 +344,6 @@ $alpha: .5;
 
       .search-toggle__button {
         background-color: transparent;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='21px' width='21px'><defs><style>.path{fill:%23ffffff;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-        background-position: center;
-        background-repeat: no-repeat;
         border: 1px solid $nhsuk-white;
         border-radius: 4px;
         color: $nhsuk-white;
@@ -346,12 +351,18 @@ $alpha: .5;
         margin: 20px 0;
         min-height: 40px;
         overflow: hidden;
-        padding: 5px 19px;
+        padding: 4px 8px 0 9px;
         position: absolute;
         right: 16px;
         text-align: left;
-        text-indent: -9999px;
         top: 0;
+
+        .nhsuk-icon__search {
+          fill: $nhsuk-white;
+          height: 21px;
+          width: 21px;
+        }
+
 
         &::-moz-focus-inner {
           border: 0;
@@ -390,9 +401,6 @@ $alpha: .5;
 
     .search-close__link {
       background-color: transparent;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%230058ad;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-      background-position: center;
-      background-repeat: no-repeat;
       border: 0;
       cursor: pointer;
       display: block;
@@ -402,17 +410,25 @@ $alpha: .5;
       margin-right: 16px;
       margin-top: 22px;
       overflow: hidden;
+      padding: 0;
       text-align: left;
-      text-indent: -9999px;
       white-space: nowrap;
       width: 40px;
+
+      .nhsuk-icon__close {
+        fill: $nhsuk-blue;
+        height: 40px;
+        width: 40px;
+      }
 
       &::-moz-focus-inner {
         border: 0;
       }
 
       &:hover {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><style>.path{fill:%23003970;}</style></defs><path class='path' d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
+        .nhsuk-icon__close {
+          fill: $nhsuk-secondary-button-hover-colour;
+        }
       }
 
       &:focus {
@@ -441,7 +457,6 @@ $alpha: .5;
   height: auto;
   list-style: none;
   margin-top: 0;
-  //max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 10px 15px 18px;
@@ -479,18 +494,22 @@ $alpha: .5;
 }
 
 .c-search-menu__item {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='1 2 24 24' height='21px' width='21px'><defs><style>.path{fill:%23aeb7bd;}</style></defs><path class='path' d='M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z'/></svg>"); // sass-lint:disable-line quotes // Edge 15 bug converts single to double quotes
-  background-position: left 5px;
-  background-repeat: no-repeat;
   border-bottom: 1px solid $nhsuk-grey-5;
   color: $nhsuk-blue;
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
   padding-bottom: 12px;
-  padding-left: 23px;
   text-align: left;
   text-decoration: underline;
+
+  .nhsuk-icon__search {
+    fill: $nhsuk-grey-3;
+    float: left;
+    height: 22px;
+    margin: 5px 4px 0 0;
+    width: 22px;
+  }
 
   &:hover,
   &:active {
