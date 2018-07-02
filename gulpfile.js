@@ -13,7 +13,7 @@ var paths = {
   css: {
     folder: 'app/assets/css',
     file: 'app/assets/css/*.css',
-    frontend: 'app/assets/css/nhsuk.min.css'
+    frontend: 'app/assets/css/nhsuk.min.css'  
   },
   collection: {
     frontend: 'src/**/*.scss',
@@ -39,8 +39,15 @@ function watch() {
   gulp.watch([paths.collection.frontend, paths.collection.design], styles);
 }
 
+function publishCSS() {
+  return gulp.src(paths.css.frontend)
+  .pipe(gulp.dest('dist/'));
+}
+
 exports.styles = styles;
 exports.watch = watch;
+exports.publishCSS = publishCSS;
 
 gulp.task('build', styles);
 gulp.task('default', watch);
+gulp.task('publish', publishCSS);
