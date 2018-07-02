@@ -199,7 +199,7 @@
 
       &:focus {
         background: $nhsuk-blue;
-        box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
+        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
         color: $nhsuk-white;
       }
 
