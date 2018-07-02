@@ -1,45 +1,5 @@
-<!--
-// temporary (jquery ui) javascript and html for the search autocomplete functionality,
-// just to demonstrate the look and feel.
-// Any class name with a 'ui-' prefix can be removed when integrated into the live website.
-// We will be using Funnelback but we may be able to reuse the styling
--->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-$( function() {
-  var availableTags = [
-    "Parade",
-    "Paracetamol",
-    "Paramedics",
-    "Paramount"
-  ];
-  $( "#search-field" ).autocomplete({
-    source: availableTags,
-    open: function( event, ui ) {
-      $(".ui-autocomplete").css("width", $(".c-search").width());
-      $(".c-search__input").addClass("js-search-open");
-      $(".c-search__submit").addClass("js-search-open");
-      var acData = $(this).data('ui-autocomplete');
-      acData
-        .menu
-        .element
-        .find('li div')
-        .each(function () {
-          var me = $(this);
-          var keywords = acData.term.split(' ').join('|');
-          me.html(me.text().replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>'));
-       });
-       $(".ui-autocomplete").prepend('<li class="ui-prepend"><strong>Search suggestions</strong></li>');
-
-    },
-    close: function( event, ui ) {
-      $(".c-search__input").removeClass("js-search-open");
-      $(".c-search__submit").removeClass("js-search-open");
-    }
-  });
-} );
-</script>
+<script src="/js/typeahead.bundle.min.js"></script>
+<script src="/js/nhs.typeahead.js"></script>
 
 {% if cookieBanner == 'active' %}
 <script type="text/javascript">
@@ -155,12 +115,14 @@ $( function() {
         <div class="nhsuk-global-header__search">
           <div class="search-toggle"><button class="search-toggle__button" aria-controls="search-container" aria-label="Open search"><span class="search-toggle__icon">Search</span></button></div>
           <div class="search-container" id="search-container">
-            <form class="c-search" action="" method="post" role="search">
+
+            <form class="c-search" action="/search/" method="get" role="search">
               <div class="c-search__container">
                 <label class="c-search__label visually-hidden" for="search-field">Search NHS.UK</label>
                 <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
               </div>
             </form>
+
             <div class="search-close"><button class="search-close__link">Close search</button></div>
           </div>
         </div>
@@ -172,10 +134,10 @@ $( function() {
 <script>
 (function() {
 
-	var searchToggle = {
-		searchToggleButton: document.querySelector('.search-toggle__button'),
-		searchClose: document.querySelector('.search-close'),
-  	search: document.querySelector('.search-container'),
+  var searchToggle = {
+    searchToggleButton: document.querySelector('.search-toggle__button'),
+    searchClose: document.querySelector('.search-close'),
+    search: document.querySelector('.search-container'),
     menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
 
     doToggle: function(e) {
@@ -203,10 +165,10 @@ $( function() {
       toggleClass(this.menuSearchContainer, 'js-show');
 
     }
-	};
+  };
 
-	searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
-	searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+  searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+  searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
 
 }());
 </script>
