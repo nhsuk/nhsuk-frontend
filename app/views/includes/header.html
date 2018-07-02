@@ -113,17 +113,30 @@
       <div class="nhsuk-global-header__menusearch ui-front">
         <div class="nhsuk-global-header__menu"><button class="menu-toggle__button" aria-controls="c-nav-primary" aria-label="Open menu">Menu</button></div>
         <div class="nhsuk-global-header__search">
-          <div class="search-toggle"><button class="search-toggle__button" aria-controls="search-container" aria-label="Open search"><span class="search-toggle__icon">Search</span></button></div>
+          <div class="search-toggle">
+            <button class="search-toggle__button" aria-controls="search-container" aria-label="Open search">
+              {% include 'partials/icons/icon-search.svg' %}
+              <span class="visually-hidden">Search</span>
+            </button>
+          </div>
           <div class="search-container" id="search-container">
-
             <form class="c-search" action="/search/" method="get" role="search">
               <div class="c-search__container">
                 <label class="c-search__label visually-hidden" for="search-field">Search NHS.UK</label>
-                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search"><input class="c-search__submit" value="Search" type="submit">
+                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
+                <button type="submit" class="c-search__submit">
+                  {% include 'partials/icons/icon-search.svg' %}
+                  <span class="visually-hidden">Search</span>
+                </button>
               </div>
             </form>
 
-            <div class="search-close"><button class="search-close__link">Close search</button></div>
+            <div class="search-close">
+              <button class="search-close__link">
+                {% include 'partials/icons/icon-close.svg' %}
+                <span class="visually-hidden">Close search</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
