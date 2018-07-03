@@ -158,7 +158,8 @@
 
     &__list {
       border-top: 1px solid $nhsuk-secondary-border-colour;
-      display: table;
+      display: flex;
+      justify-content: space-between;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -166,7 +167,8 @@
     }
 
     &__item {
-      display: table-cell;
+      margin: 0;
+      padding: 0;
       text-align: center;
 
       .nhsuk-icon__chevron-right {
@@ -183,7 +185,7 @@
       display: block;
       font-size: 17px;
       line-height: 20px;
-      padding: 16px 0;
+      padding: 16px;
       text-decoration: none;
 
       &:visited {

@@ -1,3 +1,6 @@
+2018-07-03
+- Amended spacing of the top navigation links for desktop view to make them more justified
+
 2018-06-29
 ==================
 - Updated header to use typeahead for search suggestions from Funnelback

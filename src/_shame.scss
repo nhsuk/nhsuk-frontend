@@ -1,4 +1,4 @@
-// dirty IE10/11 hack to show png icons as they can't handle data uri background image
+// IE10/11 hacks
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
   .nhsuk-global-header {
@@ -35,4 +35,18 @@
     }
 
   }
+
+  @include mq($from: large-desktop) {
+
+    .c-nav-primary__list {
+      -ms-flex-pack: justify;
+      display: -ms-flexbox;
+    }
+
+    .c-nav-primary__item {
+      text-align: left;
+    }
+
+  }
+
 }
