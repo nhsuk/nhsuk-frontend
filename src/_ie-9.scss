@@ -12,6 +12,15 @@
     display: none !important; // sass-lint:disable-line no-important
   }
 
+  .c-nav-primary {
+    &__list {
+      display: table;
+    }
+    &__item {
+      display: table-cell;
+    }
+  }
+
   @include mq($until: tablet) {
 
     .nhsuk-global-header {
