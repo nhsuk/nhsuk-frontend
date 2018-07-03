@@ -1,5 +1,6 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/components.html" import actionLink %}
 
 {% extends 'includes/site-layout.html' %}
 
@@ -113,7 +114,7 @@
 							</div>
 							<div class="care-card-content">
 								<p>If you have a problem with your eyes, early diagnosis and treatment may help stop your vision getting worse.</p>
-								<p><a href="/service-search/Opticians/LocationSearch/9" class="nhsuk-action-link">Find an opticians</a></p>
+								{{ actionLink("/service-search/Opticians/LocationSearch/9", "Find an opticians") }}
 							</div>
 						</div>
 						
@@ -129,7 +130,7 @@
 								</ul>
 								<p>These aren't symptoms of AMD but can be signs of other eye problems that need to be treated immediately.</p>
 								<p><strong>Go to A&amp;E or call 111 straight away if you can't get an urgent appointment.</strong></p>
-								<p><a href="/service-search/accident-and-emergency-services/locationsearch/428" class="nhsuk-action-link">Find an A&amp;E department</a></p>
+								{{ actionLink("/service-search/accident-and-emergency-services/locationsearch/428", "Find an A&E department")}}
 							</div>
 						</div>
 

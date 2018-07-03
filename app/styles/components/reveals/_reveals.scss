@@ -20,13 +20,18 @@
             height: 28px;
             margin: 0 8px -7px 0;
             display: inline-block;
-            background: url(../../../../images/icon-chevron-down-circle.svg) left center no-repeat;
+            background: url(../../../../images/icon-open_v1.svg) left center no-repeat;
             background-size: 28px 28px;
         }
 
         &.open:before{
-            -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+            content: '';
+            width: 28px;
+            height: 28px;
+            margin: 0 8px -7px 0;
+            display: inline-block;
+            background: url(../../../../images/icon-minus_v1.svg) left center no-repeat;
+            background-size: 28px 28px;
         }
     }
 
