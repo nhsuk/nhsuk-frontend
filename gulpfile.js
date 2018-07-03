@@ -44,10 +44,16 @@ function publishCSS() {
   .pipe(gulp.dest('dist/'));
 }
 
+function publishCore() {
+  return gulp.src('src/globals/**/*')
+  .pipe(gulp.dest('dist/packages/globals/'));
+}
+
 exports.styles = styles;
 exports.watch = watch;
 exports.publishCSS = publishCSS;
+exports.publishCore = publishCore;
 
 gulp.task('build', styles);
 gulp.task('default', watch);
-gulp.task('publish', publishCSS);
+gulp.task('publish', gulp.parallel(publishCSS, publishCore));
