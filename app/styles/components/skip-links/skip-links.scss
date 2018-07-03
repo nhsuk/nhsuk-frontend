@@ -1,0 +1,31 @@
+.nhsuk-skip-link-container {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    .nhsuk-skip-link {
+        display: inline;
+        list-style-type: none;   
+        a {
+            height: 0;
+            left: -999%;
+            overflow: hidden;
+            padding: 8px;
+            position: absolute;
+            top: 0;
+            z-index: 999;
+            &:active,
+            &:focus {
+                height: auto;
+                left: 16px;
+                position: absolute;
+                text-decoration: underline;
+                top: 16px;
+                width: auto;
+                z-index: 999;
+            }
+            &:visited {
+                color: $nhsuk-black;
+            }
+        }
+    }
+}
