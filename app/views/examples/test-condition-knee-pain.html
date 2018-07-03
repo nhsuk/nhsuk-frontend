@@ -1,6 +1,7 @@
 {% set title = 'Test page - Knee Pain' %}
 {% set parent = 'Conditions' %}
 {% extends "includes/templates/page.html"%}
+{% from "macros/components.html" import actionLink %}
 
 {% block breadcrumb %}
     {% include 'partials/breadcrumb/breadcrumb.html' %}
@@ -73,7 +74,7 @@
                         <li>you have a very high temperature, feel hot and shivery, and have redness or heat around the knee – this can be a sign of infection</li>
                     </ul>
 
-                    <a href="/service-search/minor-injuries-unit/locationsearch/551" class="nhsuk-action-link-v2">Find a minor injuries unit</a>
+                    {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
                 </div>
             </div>
 

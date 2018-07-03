@@ -2,6 +2,7 @@
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
 {% extends "includes/templates/styles.html"%}
+{% from "macros/components.html" import actionLink %}
 
 {% block header %}
     <h1>Action link</h1>
@@ -36,7 +37,7 @@
 	</div>
 	<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
 		<h3 class="nhsuk-heading-xs">Version 2</h3>
-		<a href="https://beta.nhs.uk/find-a-pharmacy/" class="nhsuk-action-link-v2">Find a pharmacy</a>
+		{{ actionLink("https://beta.nhs.uk/find-a-pharmacy/", "Find a pharmacy") }}
 	</div>
 </div>
 {% endblock %}
