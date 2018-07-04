@@ -33,8 +33,8 @@ router.get('/styles/icons', (req, res) => {
   res.render('styles/icons', {});
 });
 
-router.get('/examples/header-footer', (req, res) => {
-  res.render('examples/header-footer', {});
+router.get('/styles/header-footer', (req, res) => {
+  res.render('styles/header-footer', {});
 });
 
 router.get('/styles/breadcrumbs', (req, res) => {

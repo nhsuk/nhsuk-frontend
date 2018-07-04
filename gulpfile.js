@@ -49,11 +49,23 @@ function publishCore() {
   .pipe(gulp.dest('dist/packages/globals/'));
 }
 
+function publishFooter() {
+  return gulp.src('src/footer/*')
+  .pipe(gulp.dest('dist/packages/footer/'));
+}
+
+function publishAssets() {
+  return gulp.src('app/views/partials/logos/*')
+  .pipe(gulp.dest('dist/assets/'));
+}
+
 exports.styles = styles;
 exports.watch = watch;
 exports.publishCSS = publishCSS;
 exports.publishCore = publishCore;
+exports.publishAssets = publishAssets;
+exports.publishFooter = publishFooter;
 
 gulp.task('build', styles);
 gulp.task('default', watch);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishAssets, publishFooter));
