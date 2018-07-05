@@ -87,6 +87,10 @@
       "selectors": [
         ".nhsuk-global-footer"
       ]
+    },
+    {
+      "label": "Callout components",
+      "url": "http://localhost:3000/styles/callouts"
     }
   ],
   "paths": {

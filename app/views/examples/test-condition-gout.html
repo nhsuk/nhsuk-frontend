@@ -1,5 +1,6 @@
 {% set title = 'Gout' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/callout.html" import callout %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -104,11 +105,8 @@
 
         <p>This is used to lower the levels of uric acid and needs to be taken in the long term.</p>
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__warning-v2 icon">
-            <h3>Important</h3>
-            <p>It's important to take uric-acid-lowering medicine regularly, even when you no longer have symptoms.</p>
-        </div>
-            <div class="clearfix"></div>
+        {{ callout("Important", "<p>It's important to take uric-acid-lowering medicine regularly, even when you no longer have symptoms.</p>") }}
+
         </section>
 
         <section id="things-you-can-try">
