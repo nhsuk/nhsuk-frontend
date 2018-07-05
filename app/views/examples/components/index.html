@@ -1,0 +1,41 @@
+{% set title = 'Components' %}
+{% set parent = 'Components' %}
+{% extends "includes/templates/page.html"%}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
+{% endblock %}
+
+{% block header %}
+    <h1 class="nhsuk-heading-xl">The quick brown fox jumps over the lazy dog</h1>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h2>
+    <ul class="nhsuk-list nhsuk-list-bullet">
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ul>
+    <ol class="nhsuk-list nhsuk-list-bullet">
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <h2 class="nhsuk-heading-l">The quick brown fox jumps over the lazy dog</h2>
+
+    <h3 class="nhsuk-heading-m">The quick brown fox jumps over the lazy dog</h3>
+
+    <h4 class="nhsuk-heading-s">The quick brown fox jumps over the lazy dog</h4>
+
+    <h5 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h5>
+
+    <p class="nhsuk-body-l">The quick brown fox jumps over the lazy dog</p>
+
+    <p class="nhsuk-body">The quick brown fox jumps over the lazy dog</p>
+
+    <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
+{% endblock %}

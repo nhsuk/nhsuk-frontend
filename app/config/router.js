@@ -359,4 +359,8 @@ router.get('/examples/test-minihub-amd-v2/google-results', (req, res) => {
   res.render('examples/test-minihub-amd-v2/google-results', {});
 });
 
+router.get('/examples/components', (req, res) => {
+  res.render('examples/components/index', {});
+});
+
 module.exports = router;
