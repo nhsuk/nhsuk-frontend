@@ -37,12 +37,13 @@
     <p>To set up your layout you will need to create 2 wrappers. The first should have the class <span class="example-code-snippet">nhsuk-o-width-container</span>, which sets the maximum width of the content but doesn’t add any vertical margin or padding.</p>
     <p>Within <span class="example-code-snippet">nhsuk-o-width-container</span> you should add the <span class="example-code-snippet">nhsuk-o-width-wrapper</span> class to your <span class="example-code-snippet">&#x3C;main&#x3E;</span> element.</p>
     <p>This adds responsive padding to the top and bottom of the page and will be the container for your main content.</p>
+    <p>An id should be added to the <span class="example-code-snippet">&#x3C;main&#x3E;</span> element if you want to use a skip to main content link.</p>
 
     <div class="example-snippet example-snippet__empty-example">
      <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
 
 <pre class="language-markup" id="clipboard-1"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-width-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-main-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-main-wrapper<span class="token punctuation">"</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
 
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
@@ -419,7 +420,7 @@
 
     <div class="example">
       <div class="nhsuk-o-width-container">
-        <main class="nhsuk-o-main-wrapper">
+        <main class="nhsuk-o-main-wrapper" id="main-content">
           <div class="nhsuk-o-grid">
             <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
               <div class="nhsuk-page-heading">
@@ -461,7 +462,7 @@
     <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-13">Copy</button>
 
 <pre class="language-markup" id="clipboard-13"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-width-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-main-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-main-wrapper<span class="token punctuation">"</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--full<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-page-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>

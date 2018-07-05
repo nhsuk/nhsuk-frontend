@@ -1,4 +1,9 @@
+2018-07-04
+==================
+- Added skip link to main content
+
 2018-07-03
+==================
 - Amended spacing of the top navigation links for desktop view to make them more justified
 
 2018-06-29
