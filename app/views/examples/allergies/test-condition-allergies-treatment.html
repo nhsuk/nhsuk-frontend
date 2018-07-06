@@ -1,5 +1,6 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/callout.html" import callout %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -179,10 +180,7 @@
 
 			<p>If you're at risk of this, you'll be given special injectors containing a medicine called adrenaline to use in an emergency.</p>
 
-			<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
-				<h3>Important</h3>
-				<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help. </p>
-			</div>
+			{{ callout("Important", "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help. </p>") }}
 
 			<p>Read more about <a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Treatment.aspx">treating anaphylaxis</a>.</p>
 
