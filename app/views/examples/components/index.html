@@ -1,5 +1,6 @@
 {% set title = 'Components' %}
 {% set parent = 'Components' %}
+{% from "macros/callout.html" import callout %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -38,4 +39,15 @@
     <p class="nhsuk-body">The quick brown fox jumps over the lazy dog</p>
 
     <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
+
+    {{ callout("Important", "
+    <p>The quick brown fox jumps over the lazy dog</p>
+    <ul class='nhsuk-list nhsuk-list-bullet'>
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ul>
+    ") }}
+
+
 {% endblock %}
