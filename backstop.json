@@ -61,36 +61,11 @@
       ]
     },
     {
-      "label": "Page header element",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-page-heading"
-      ]
-    },
-    {
-      "label": "Page navigation element",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-page-nav"
-      ]
-    },
-    {
-      "label": "Page content element",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-page-content"
-      ]
-    },
-    {
       "label": "Footer component",
       "url": "http://localhost:3000/examples/components",
       "selectors": [
         ".nhsuk-global-footer"
       ]
-    },
-    {
-      "label": "Callout components",
-      "url": "http://localhost:3000/styles/callouts"
     }
   ],
   "paths": {
