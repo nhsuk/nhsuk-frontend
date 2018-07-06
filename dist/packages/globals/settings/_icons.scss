@@ -13,12 +13,15 @@
   }
   &__cross {
     fill: $nhsuk-red;
+    &--fallback {
+      padding-top: 10px;
+    }
   }
   &__tick {
     fill: none;
     stroke: $nhsuk-green;
     &--fallback {
-      padding-top: 5px;
+      padding-top: 9px;
     }
   }
   &__arrow-right {
@@ -29,7 +32,7 @@
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+    transform: rotate(180deg); // sass-lint:disable-line property-sort-order
     fill: $nhsuk-blue; // sass-lint:disable-line property-sort-order
     path {
       fill: $nhsuk-white;

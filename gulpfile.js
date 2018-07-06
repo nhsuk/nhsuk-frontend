@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var babel = require('gulp-babel');
 var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
+var del = require('del');
 
 var paths = {
   scss: {
@@ -39,6 +40,10 @@ function watch() {
   gulp.watch([paths.collection.frontend, paths.collection.design], styles);
 }
 
+function deletePublish() {
+  return del('dist/**', {force:true});
+}
+
 function publishCSS() {
   return gulp.src(paths.css.frontend)
   .pipe(gulp.dest('dist/'));
@@ -54,18 +59,32 @@ function publishFooter() {
   .pipe(gulp.dest('dist/packages/footer/'));
 }
 
-function publishAssets() {
-  return gulp.src('app/views/partials/logos/*')
-  .pipe(gulp.dest('dist/assets/'));
+function publishCallout() {
+  return gulp.src('src/callout/*')
+  .pipe(gulp.dest('dist/packages/callout/'));
+}
+
+function publishIcons() { // Hard coded file names until we clear out the assets folder.
+  return gulp.src(['app/views/partials/logos/*', 'app/views/partials/icons/icon-tick.svg', 'app/views/partials/icons/icon-cross.svg'])
+  .pipe(gulp.dest('dist/assets/icons'));
+}
+
+function publishImages() { // Hard coded file names until we clear out the assets folder. (Match the above SVG icons)
+  return gulp.src(['app/assets/images/nhs-logo.png', 'app/assets/images/icon-tick.png', 'app/assets/images/icon-cross.png'])
+  .pipe(gulp.dest('dist/assets/images'));
 }
 
 exports.styles = styles;
 exports.watch = watch;
+exports.deletePublish = deletePublish;
 exports.publishCSS = publishCSS;
 exports.publishCore = publishCore;
-exports.publishAssets = publishAssets;
 exports.publishFooter = publishFooter;
+exports.publishCallout = publishCallout;
+exports.publishIcons = publishIcons;
+exports.publishImages = publishImages
 
 gulp.task('build', styles);
 gulp.task('default', watch);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishAssets, publishFooter));
+gulp.task('delete', deletePublish);
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishFooter, publishCallout, publishIcons, publishImages));

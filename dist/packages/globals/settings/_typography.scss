@@ -137,6 +137,27 @@ ol {
   }
 }
 
+.nhsuk-list--check,
+.nhsuk-list--cross {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 40px;
+  position: relative;
+
+  .nhsuk-icon__tick {
+    left: -4px;
+    margin-top: -5px;
+    position: absolute;
+  }
+
+  .nhsuk-icon__cross {
+    left: -4px;
+    margin-top: -5px;
+    position: absolute;
+  }
+
+}
+
 tr,
 th {
   font-weight: $nhsuk-font-normal;
