@@ -13,12 +13,15 @@
   }
   &__cross {
     fill: $nhsuk-red;
+    &--fallback {
+      padding-top: 10px;
+    }
   }
   &__tick {
     fill: none;
     stroke: $nhsuk-green;
     &--fallback {
-      padding-top: 5px;
+      padding-top: 9px;
     }
   }
   &__arrow-right {
