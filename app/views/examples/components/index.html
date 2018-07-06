@@ -1,6 +1,7 @@
 {% set title = 'Components' %}
 {% set parent = 'Components' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/keypoint.html" import keypoint %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -49,5 +50,5 @@
     </ul>
     ") }}
 
-
+    {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
 {% endblock %}

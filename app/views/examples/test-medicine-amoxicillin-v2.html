@@ -1,5 +1,7 @@
 {% set title = 'Amoxicillin (2)' %}
 {% set parent = 'Medicines' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -69,11 +71,8 @@
 		<p>Amoxicillin can be taken by adults, including pregnant and breastfeeding women.</p>
 		<p>Amoxicillin can be taken by children.</p>
 		
-			<div class="nhsuk-c-keypoint">
-				<h3 class="nhsuk-heading-xs">Recommended reading</h3>
-				<p><a href="https://www.medicinesforchildren.org.uk/amoxicillin-bacterial-infections-0">Giving amoxicillin to children: information on Medicines for Children website</a></p>
-			</div>
-		
+		{{ keypoint("<h3 class='nhsuk-heading-xs'>Recommended reading</h3><p><a href='https://www.medicinesforchildren.org.uk/amoxicillin-bacterial-infections-0'>Giving amoxicillin to children: information on Medicines for Children website</a></p>") }}
+
 		<p><strong>Amoxicillin isn't suitable for some people. To make sure amoxicillin is safe for you, tell your doctor if you</strong>:</p>
 		
 		<ul>

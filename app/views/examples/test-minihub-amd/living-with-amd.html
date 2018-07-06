@@ -1,6 +1,8 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -84,9 +86,7 @@
 						
 						<p>Contact your specialist as soon as possible if your vision gets worse or you notice any new symptoms.</p>
 						
-						<div class="nhsuk-c-keypoint-v2">
-							<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>
-						</div>
+						{{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
 
 						<h2>Registering as sight impaired</h2>
 						

@@ -2,6 +2,7 @@
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/keypoint.html" import keypoint %}
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
@@ -18,16 +19,22 @@
 {% endblock %}
 
 {% block content %}
-<h1 id="callout_warning">Warning</h1>
+<h2 id="callout_warning">Warning</h2>
+
 <div class="nhsuk-reading-width">
+
   <h2>User need</h2>
 	<p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation and don't endanger my health.</p>
+	
 	<h2>Where it's currently being used</h2>
 	<ul>
 		<li>Conditions - <a href="https://www.nhs.uk/conditions/chickenpox/#things-you-can-try">Chickenpox page on nhs.uk</a></li>
 		<li>Medicines - <a href="https://beta.nhs.uk/medicines/amoxicillin/">Amoxicillin page on beta.nhs.uk</a></li>
 	</ul>
+
 	<h2>Hypothesis</h2>
+	<p>...</p>
+
 	<h2>Iterations</h2>
 
     <div class="example grey-background">
@@ -72,17 +79,32 @@
 	<h2>Final version</h2>
 
 	<div class="example grey-background">
-
 		{{ callout("Important", "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>") }}
 
 		{{ callout("School, nursery or work", "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>") }}
-
 	</div>
 
-	<p>Code snippet goes here</p>
+	<div class="example-snippet">
+		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
 
+		<pre class="language-markup" id="clipboard-1"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-panel nhsuk-c-panel__warning<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Important<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+	</div>
+
+	<div class="example-snippet">
+	<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-2">Copy</button>
+
+<pre class="language-markup" id="clipboard-2"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-panel nhsuk-c-panel__warning<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>School, nursery or work<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+	</div>
 
 	<h2>Accessibility</h2>
+	<p>...</p>
+
 	<h2>Usage</h2>
 	<p>The warning callout can be used to display information that is:</p>
 	<ul>
@@ -92,32 +114,46 @@
 	</ul>
 
 	<hr class="nhsuk-hr">
-	<h1 id="callout_keypoint">Key point</h1>
+
+	<h2 id="callout_keypoint">Key point</h2>
+
 	<h2>User need</h2>
 	<p>As a user I need to identify and understand the important content on the page (even if I don't read all the content) so that I get the best outcome for my situation.</p>
-	<h2>Versions</h2>
-	<div class="nhsuk-reading-width">
-    <div class="example grey-background">
-			<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 1</h3>
-			<div class="nhsuk-c-callout__info">
-				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-			</div>
-		</div>
-    <div class="example grey-background">
-			<h3 class="nhsuk-heading-xs">Version 2</h3>
-			<div class="nhsuk-c-keypoint-v1">
-				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-			</div>
-		</div>
-    <div class="example grey-background">
-			<h3 class="nhsuk-heading-xs">Version 3</h3>
-			<div class="nhsuk-c-keypoint-v2">
-				<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-			</div>
-		</div>
-		<h2>Usage</h2>
-		<p>The key point callout can be used to highlight a significant point, some important information or advice so that the user is more likely to read and remember it over the body copy.</p>
+	
+	<h2>Where it's currently being used</h2>
+	<p>...</p>
+
+	<h2>Hypothesis</h2>
+	<p>...</p>
+
+	<h2>Iterations</h2>
+	<div class="example grey-background">
+		<h3 class="nhsuk-heading-xs nhsuk-secondary-text">Version 1</h3>
+		<img class="component-image" src="../images/components/keypoint-v1.png">
 	</div>
+	<div class="example grey-background">
+		<h3 class="nhsuk-heading-xs">Version 2</h3>
+		<img class="component-image" src="../images/components/keypoint-v2.png">
+	</div>
+
+	<h2>Final version</h2>
+
+	<div class="example grey-background">
+		{{ keypoint("<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>") }}
+	</div>
+
+	<div class="example-snippet">
+		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-3">Copy</button>
+<pre class="language-markup" id="clipboard-3"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-keypoint<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>If you drive you must tell the <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.gov.uk/contact-the-dvla<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>External website<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>DVLA<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> about your vertigo. Visit the GOV.UK website for more information on <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.gov.uk/dizziness-and-driving<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>External website<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>driving with vertigo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+	</div>
+
+	<h2>Accessibility</h2>
+	<p>...</p>
+
+	<h2>Usage</h2>
+	<p>The key point callout can be used to highlight a significant point, some important information or advice so that the user is more likely to read and remember it over the body copy.</p>
 
 </div>
 <script>

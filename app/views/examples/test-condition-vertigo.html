@@ -1,5 +1,7 @@
 {% set title = 'Vertigo' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -107,9 +109,7 @@
 <p>You could also be given special exercises to do to try and correct your balance. </p>
 <p>Antihistamines can sometimes help with vertigo symptoms.</p>
 
-<div class="nhsuk-c-keypoint">
-        <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-</div>
+{{ keypoint("<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>") }}
 
 <h2 id="causes">What causes vertigo</h2>
 

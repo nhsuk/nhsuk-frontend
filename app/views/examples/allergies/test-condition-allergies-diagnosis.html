@@ -1,5 +1,6 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/keypoint.html" import keypoint %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -114,9 +115,7 @@
 
 			<p>Skin prick testing is painless and very safe.</p>
 			
-			<div class="nhsuk-c-keypoint-v2">
-				<p>Make sure you don't take <a href="http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx">antihistamines</a> before the test, as they can interfere with the results.</p>
-			</div>
+			{{ keypoint("<p>Make sure you don't take <a href='http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx'>antihistamines</a> before the test, as they can interfere with the results.</p>") }}
 
 			<h2 id="blood-tests">Blood tests</h2>
 

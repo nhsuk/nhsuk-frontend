@@ -1,6 +1,7 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/keypoint.html" import keypoint %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -168,9 +169,7 @@
 
 			<p>The treatment involves being given occasional small doses of the allergen – either as an injection, or as drops or tablets under the tongue – over the course of several years.</p>
 
-			<div class="nhsuk-c-keypoint-v2">
-				<p>The injection can only be performed in a specialist clinic under the supervision of a doctor, as there is a small risk of a severe reaction. The drops or tablets can usually be taken at home.</p>
-			</div>
+			{{ keypoint("<p>The injection can only be performed in a specialist clinic under the supervision of a doctor, as there is a small risk of a severe reaction. The drops or tablets can usually be taken at home.</p>") }}
 
 			<p>The aim of treatment is to help your body get used to the allergen so it doesn't react to it so severely. This won't necessarily cure your allergy, but it will make it milder and mean you can take less medication.</p>
 

@@ -1,5 +1,7 @@
 {% set title = 'Sciatica' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -56,37 +58,13 @@
     
     <p>You may also have back pain, but this isn't usually as bad as the pain in your bottom, legs or feet.</p>
     
-    
-    
-    
-        
-      
-        
-          
-    
-    
-    
-    <div class="nhsuk-c-keypoint">
-        <p>You probably don't have sciatica if you only have <a href="/conditions/back-pain/">back pain</a>.</p>
-    </div>
-    
-    
-    
-        
-      
+    {{ keypoint("<p>You probably don't have sciatica if you only have <a href="/conditions/back-pain/">back pain</a>.</p>") }}
+
       <div class="clearfix"></div>
     </section>
     
-                        
-                          
-    
     <section id="things-you-can-try">
       
-        
-          
-    
-    
-    
     <h2>How you can ease the pain yourself</h2>
     
     <p>Sciatica usually gets better in 4 to 6 weeks but can sometimes last longer.</p>

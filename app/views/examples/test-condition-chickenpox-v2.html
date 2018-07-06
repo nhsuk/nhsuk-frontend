@@ -1,5 +1,7 @@
 {% set title = 'Chickenpox v2' %}
 {% set parent = 'Conditions' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page-v2.html"%}
 
 {% block breadcrumb %}
@@ -66,9 +68,9 @@
 			<li>loss of appetite</li>
 		</ul>
 		<p>Chickenpox is very itchy and can make children feel miserable, even if they don't have many spots. Chickenpox is usually much worse in adults.</p>
-    <div class="nhsuk-c-keypoint-v2">
-		    <p>It's possible to get chickenpox more than once, although it's unusual.</p>
-    </div>
+    
+    {{ keypoint("<p>It's possible to get chickenpox more than once, although it's unusual.</p>") }}
+
 		<h3>If you're not sure it's chickenpox</h3>
 		<p>Check other <a href="">rashes in children.</a></p>
         <div class="clearfix"></div>

@@ -1,5 +1,8 @@
 {% set title = 'Heel pain' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/components.html" import actionLink %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -66,18 +69,13 @@
 <p>Most heel pain is caused by plantar fasciitis. This is when the ligament that runs from under the heel along the sole of the foot becomes swollen over time.</p>
 
 
-
-
-<div class="nhsuk-c-keypoint">
-    <h3>Referral to a foot specialist</h3>
-
+{{ keypoint("<h3>Referral to a foot specialist</h3>
     <p>Your GP might refer you to a foot specialist (podiatrist or chiropodist) or a physiotherapist who can recommend things like exercises and the right shoes to wear.</p>
     <p>NHS physiotherapy and podiatry may not be available everywhere and waiting times can be long.</p>
     <p>You can also pay to see a podiatrist or physiotherapist privately.</p>
-    <p><a href="http://www.nhs.uk/Service-Search/Podiatrists-and-chiropodists/LocationSearch/343">Find a registered podiatrist</a></p>
-    <p><a href="http://www.nhs.uk/Service-Search/Physiotherapy/LocationSearch/725">Find a registered physiotherapist</a></p>
-</div>
-
+    <p><a href='http://www.nhs.uk/Service-Search/Podiatrists-and-chiropodists/LocationSearch/343'>Find a registered podiatrist</a></p>
+    <p><a href='http://www.nhs.uk/Service-Search/Physiotherapy/LocationSearch/725'>Find a registered physiotherapist</a></p>
+") }}
 
 <!--care card red-->
 <div class="care-card red" role="alert">
