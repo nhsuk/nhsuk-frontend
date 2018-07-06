@@ -1,0 +1,19 @@
+/* Temporary print stylesheet
+   Refactor into individual components 
+*/
+
+@include mq($media-type: print) {
+
+  .nhsuk-global-header__menusearch,
+  .c-nav-primary,
+  .nhsuk-breadcrumb,
+  .nhsuk-page-nav,
+  .nhsuk-global-footer {
+    display: none;
+  }
+
+  .nhsuk-page-heading {
+    padding: 0;
+  }
+
+}
