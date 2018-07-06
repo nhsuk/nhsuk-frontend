@@ -2,7 +2,7 @@
   background: $nhsuk-white;
   margin: 72px 0 56px;
   padding: 24px;
-  padding-top:0;
+  padding-top: 0;
   position: relative;
 
   @include mq($until: tablet) {
@@ -13,7 +13,7 @@
     background: $nhsuk-blue;
     color: $nhsuk-white;
     display: inline-block;
-    margin: 0 -24px 8px -24px;
+    margin: 0 -24px 8px;
     padding: 8px 24px;
     position: relative;
     top: -16px;
@@ -45,8 +45,8 @@
   padding: 8px 24px;
 
   @include mq($until: tablet) {
-      margin: 40px 0;
-      padding: 4px 16px;
+    margin: 40px 0;
+    padding: 4px 16px;
   }
 
   h2,
@@ -54,7 +54,7 @@
   h4 {
     + p,
     + ul {
-        margin-top: 16px;
+      margin-top: 16px;
     }
   }
 
