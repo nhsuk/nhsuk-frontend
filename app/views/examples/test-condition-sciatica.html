@@ -1,7 +1,7 @@
 {% set title = 'Sciatica' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/keypoint.html" import keypoint %}
-
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -29,12 +29,6 @@
 
 {% block content %}
 <section id="symptoms" class="nhsuk-page-content__section-one">
-      
-        
-          
-    
-    
-    
     <h2>Check if you have sciatica</h2>
     
     <p>If you have sciatica, your:</p>
@@ -70,29 +64,44 @@
     <p>Sciatica usually gets better in 4 to 6 weeks but can sometimes last longer.</p>
     
     <p>To help relieve your pain and speed up your recovery:</p>
-    
-    <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-        <h3 id="do" class="">Do</h3>
-        <ul class="list--check">
-            <li>carry on with your normal activities as much as possible</li>
-            <li>regular <a href="/livewell/backpain/pages/sciatica-exercises.aspx">back stretches</a></li>
-            <li>start gentle exercise as soon as you can – anything that gets you moving can help</li>
-            <li>hold heat packs to the painful areas – you can buy these from pharmacies</li>
-            <li>ask your pharmacist about painkillers that can help</li>
-        </ul>
-    </div>
-    <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-        <h3 id="dont" class="">Don't</h3>
-        <ul class="list--cross">
-            <li>sit or lie down for long periods – even if moving hurts, it's not harmful and can help you get better faster</li>
-            <li>take <a href="https://beta.nhs.uk/medicines/paracetamol-for-adults/">paracetamol</a> on its own – this doesn't help with back pain or sciatica</li>
-            <li>use hot water bottles to ease the pain – you could scald yourself if your skin is numb</li>
-        </ul>
-    </div>
-    
-    
-        
-      
+
+    {% set doItems = [
+        {
+        "item"  : "carry on with your normal activities as much as possible"
+        },
+        {
+        "item"  : "regular <a href='/livewell/backpain/pages/sciatica-exercises.aspx'>back stretches</a>"
+        },
+        {
+        "item"  : "start gentle exercise as soon as you can – anything that gets you moving can help"
+        },
+        {
+        "item"  : "hold heat packs to the painful areas – you can buy these from pharmacies"
+        },
+        {
+        "item"  : "ask your pharmacist about painkillers that can help"
+        }
+    ]
+	%}
+
+	{{ list("Do", "tick", doItems) }}
+
+    {% set dontItems = [
+        {
+        "item"  : "sit or lie down for long periods – even if moving hurts, it's not harmful and can help you get better faster"
+        },
+        {
+        "item"  : "take <a href='https://beta.nhs.uk/medicines/paracetamol-for-adults/'>paracetamol</a> on its own – this doesn't help with back pain or sciatica"
+        },
+        {
+        "item"  : "use hot water bottles to ease the pain – you could scald yourself if your skin is numb"
+        }
+    ]
+	%}
+
+	{{ list("Don't", "cross", dontItems) }}
+
+  
       <div class="clearfix"></div>
     </section>
     
@@ -230,29 +239,40 @@
     <h2>How to stop sciatica coming back</h2>
     
     <p>To reduce the chances of getting sciatica again:</p>
-    
 
-    <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-        <h3 id="do" class="">Do</h3>
-        <ul class="list--check">
-            <li>stay active – take regular exercise</li>
-            <li>use a <a href="/livewell/workplacehealth/pages/safe-lifting-tips.aspx">safe technique when lifting</a> heavy objects</li>
-            <li>make sure you have a <a href="/livewell/backpain/pages/back-pain-and-common-posture-mistakes.aspx">good posture when sitting and standing</a></li>
-            <li><a href="/livewell/workplacehealth/pages/howtositcorrectly.aspx">sit correctly</a> when using a computer</li>
-            <li>lose weight if you're overweight</li>
-        </ul>
-    </div>
-    <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-        <h3 id="dont" class="">Don't</h3>
-        <ul class="list--cross">
-            <li>sit or lie down for long periods – even if moving hurts, it's not harmful and can help you get better faster</li>
-            <li>take <a href="https://beta.nhs.uk/medicines/paracetamol-for-adults/">paracetamol</a> on its own – this doesn't help with back pain or sciatica</li>
-            <li>use hot water bottles to ease the pain – you could scald yourself if your skin is numb</li>
-        </ul>
-    </div>
-    
-        
-      
+    {% set doItems = [
+        {
+        "item"  : "stay active – take regular exercise"
+        },
+        {
+        "item"  : "use a <a href='/livewell/workplacehealth/pages/safe-lifting-tips.aspx'>safe technique when lifting</a> heavy objects"
+        },
+        {
+        "item"  : "make sure you have a <a href='/livewell/backpain/pages/back-pain-and-common-posture-mistakes.aspx'>good posture when sitting and standing</a>"
+        },
+        {
+        "item"  : "lose weight if you're overweight"
+        }
+    ]
+	%}
+
+	{{ list("Do", "tick", doItems) }}
+
+    {% set dontItems = [
+        {
+        "item"  : "sit or lie down for long periods – even if moving hurts, it's not harmful and can help you get better faster"
+        },
+        {
+        "item"  : "take <a href='https://beta.nhs.uk/medicines/paracetamol-for-adults/'>paracetamol</a> on its own – this doesn't help with back pain or sciatica"
+        },
+        {
+        "item"  : "use hot water bottles to ease the pain – you could scald yourself if your skin is numb"
+        }
+    ]
+	%}
+
+	{{ list("Don't", "cross", dontItems) }}
+
       <div class="clearfix"></div>
     </section>
     
@@ -260,12 +280,6 @@
                           
     
     <section id="causes">
-      
-        
-          
-    
-    
-    
     <h2>Causes of sciatica</h2>
     
     <p>Sciatica is due to something pressing or rubbing on the sciatic nerve.</p>

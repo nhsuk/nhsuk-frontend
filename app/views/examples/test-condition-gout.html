@@ -1,6 +1,7 @@
 {% set title = 'Gout' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -76,22 +77,35 @@
 
         <p>If the gout doesn't improve after 3 to 4 days, you might be given steroids as tablets or an injection.</p>
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="do">Do</h3>
-            <ul class="list--check">
-                <li>take any medicine you've been prescribed as soon as possible – it should start to work within 3 days </li>
-                <li>rest and raise the limb</li>
-                <li>keep the joint cool – apply an ice pack, or a bag of frozen peas wrapped in a towel, for up to 20 minutes at a time </li>
-                <li>drink lots of water (unless advised not to by your GP)</li>
-                <li>try to keep bedclothes off the affected joint at night</li>
-            </ul>
-        </div>
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="dont">Don't</h3>
-            <ul class="list--cross">
-                <li>knock the joint or put pressure on it</li>
-            </ul>
-        </div>
+      {% set doItems = [
+          {
+            "item"  : "take any medicine you've been prescribed as soon as possible – it should start to work within 3 days"
+          },
+          {
+            "item"  : "rest and raise the limb"
+          },
+          {
+            "item"  : "keep the joint cool – apply an ice pack, or a bag of frozen peas wrapped in a towel, for up to 20 minutes at a time"
+          },
+          {
+            "item"  : "drink lots of water (unless advised not to by your GP)"
+          },
+          {
+            "item"  : "try to keep bedclothes off the affected joint at night"
+          }   
+        ]
+      %}
+
+      {{ list("Do", "tick", doItems) }}
+
+        {% set dontItems = [
+          {
+            "item"  : "knock the joint or put pressure on it"
+          }
+        ]
+      %}
+
+      {{ list("Don't", "cross", dontItems) }}
 
         <div class="clearfix"></div>
     </section>
@@ -115,27 +129,50 @@
 
         <p>Making lifestyle changes might mean you can stop or reduce further attacks.</p>
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="do">Do</h3>
-            <ul class="list--check">
-                <li>get to a healthy weight, but avoid crash diets or high-protein/low-carbohydrate diets </li>
-                <li>have at least 2 alcohol-free days a week</li>
-                <li>drink water (up to 2 litres a day)</li>
-                <li>exercise regularly – but avoid intense exercise or putting lots of pressure on joints</li>
-                <li>stop smoking</li>
-                <li>ask your GP about vitamin C supplements</li>
-            </ul>
-        </div>
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="dont">Don't</h3>
-            <ul class="list--cross">
-            <li>eat a lot of red meat, kidneys, liver or seafood – read information about <a href="https://www.arthritiscare.org.uk/living-with-arthritis/healthy-eating-and-arthritis">how to eat well with gout</a> </li>
-            <li>drink more than 14 units of alcohol a week (and don't have it all on 1 or 2 days)</li>
-            <li>eat sugary drinks and snacks</li>
-            <li>eat full-fat dairy products</li>
-            <li>eat more than 2 servings of low-fat dairy foods a day</li>
-            </ul>
-        </div>
+      {% set doItems = [
+          {
+            "item"  : "get to a healthy weight, but avoid crash diets or high-protein/low-carbohydrate diets"
+          },
+          {
+            "item"  : "have at least 2 alcohol-free days a week"
+          },
+          {
+            "item"  : "drink water (up to 2 litres a day)"
+          },
+          {
+            "item"  : "exercise regularly – but avoid intense exercise or putting lots of pressure on joints"
+          },
+          {
+            "item"  : "stop smoking"
+          },
+          {
+            "item"  : "ask your GP about vitamin C supplements"
+          }     
+        ]
+      %}
+
+      {{ list("Do", "tick", doItems) }}
+
+      {% set dontItems = [
+          {
+            "item"  : "eat a lot of red meat, kidneys, liver or seafood – read information about <a href='https://www.arthritiscare.org.uk/living-with-arthritis/healthy-eating-and-arthritis'>how to eat well with gout</a>"
+          },
+          {
+            "item"  : "drink more than 14 units of alcohol a week (and don't have it all on 1 or 2 days)"
+          },
+          {
+            "item"  : "eat sugary drinks and snacks"
+          },
+          {
+            "item"  : "eat full-fat dairy products"
+          },
+          {
+            "item"  : "eat more than 2 servings of low-fat dairy foods a day"
+          }
+        ]
+      %}
+
+      {{ list("Don't", "cross", dontItems) }}
 
         <p>The <a href="http://www.ukgoutsociety.org/all_about_gout.htm">UK Gout Society</a> and <a href="https://www.arthritiscare.org.uk/living-with-arthritis">Arthritis Care</a> have advice on living with gout.</p>
         <div class="clearfix"></div>

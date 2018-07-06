@@ -2,7 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/components.html" import actionLink %}
 {% from "macros/keypoint.html" import keypoint %}
-
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -30,24 +30,38 @@
         <h2>How you can ease heel pain yourself</h2>
         <p>Try these things:</p>
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="do">Do</h3>
-            <ul class="list--check">
-                <li>take <a href="https://beta.nhs.uk/medicines/ibuprofen-for-adults/">ibuprofen</a> or paracetamol</li>
-                <li>put an ice pack (or bag of frozen peas) in a towel under the heel for up to 20 minutes every 2 to 3 hours</li>
-                <li>wear shoes with a medium heel (2 to 3cm) – both men and women</li>
-                <li><a href="http://www.csp.org.uk/your-health/exercise-advice/foot-pain" title="External website">gentle stretching exercises</a></li>
-                <li>try heel pads</li>
-                </ul>
-        </div>
+    {% set doItems = [
+        {
+        "item"  : "take <a href='https://beta.nhs.uk/medicines/ibuprofen-for-adults/'>ibuprofen</a> or paracetamol"
+        },
+        {
+        "item"  : "put an ice pack (or bag of frozen peas) in a towel under the heel for up to 20 minutes every 2 to 3 hours"
+        },
+        {
+        "item"  : "wear shoes with a medium heel (2 to 3cm) – both men and wome"
+        },
+        {
+        "item"  : "<a href='http://www.csp.org.uk/your-health/exercise-advice/foot-pain' title='External website'>gentle stretching exercises</a>"
+        },
+        {
+        "item"  : "try heel pads"
+        }
+    ]
+	%}
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="dont">Don't</h3>
-            <ul class="list--cross">
-                <li>put weight on the foot – avoid walking or standing for long periods</li>
-                <li>go barefoot or wear flat shoes</li>
-                </ul>
-        </div>
+	{{ list("Do", "tick", doItems) }}
+
+    {% set dontItems = [
+        {
+        "item"  : "put weight on the foot – avoid walking or standing for long periods"
+        },
+        {
+        "item"  : "go barefoot or wear flat shoes"
+        }
+    ]
+	%}
+
+	{{ list("Don't", "cross", dontItems) }}
 
 <section id="treatment-to-prevent-it">
 <!--care card blue-->

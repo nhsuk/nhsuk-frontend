@@ -2,6 +2,7 @@
 {% set parent = 'Components' %}
 {% from "macros/callout.html" import callout %}
 {% from "macros/keypoint.html" import keypoint %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -51,4 +52,36 @@
     ") }}
 
     {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
+
+    {% set doItems = [
+          {
+            "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            "item"  : "wash your hands before touching a burst blister"
+          },
+          {
+            "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+    %}
+
+    {% set dontItems = [
+        {
+        "item"  : "burst a blister yourself"
+        },
+        {
+        "item"  : "peel the skin off a burst blister"
+        },
+        {
+        "item"  : "pick at the edges of the remaining skin"
+        },
+        {
+        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+        }
+        ]
+    %}
+
+    {{ list("Do", "tick", doItems) }}
+    {{ list("Don't", "cross", dontItems) }}
 {% endblock %}

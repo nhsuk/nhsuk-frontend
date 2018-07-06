@@ -6,7 +6,7 @@
         {% for data in items %}
         <li>
         {% include 'partials/icons/icon-tick.svg' %}
-        {{ data.item }}
+        <span>Do</span> {{ data.item | safe}}
         </li>
         {% endfor %}
       </ul>
@@ -15,7 +15,7 @@
       {% for data in items %}
         <li>
         {% include 'partials/icons/icon-cross.svg' %}
-        {{ data.item }}
+       <span>Don't</span> {{ data.item | safe}}
         </li>
       {% endfor %}
       </ul>

@@ -1,5 +1,6 @@
 {% set title = 'Blisters' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -45,33 +46,38 @@
 
     <p>To protect the blister and help prevent infection:</p>
 
+      {% set doItems = [
+          {
+            "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            "item"  : "wash your hands before touching a burst blister"
+          },
+          {
+            "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+      %}
 
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
+      {{ list("Do", "tick", doItems) }}
 
-                <h3 id="do">Do</h3>
-                <ul class="list--check">
-                    <li>cover blisters that are likely to burst with a soft plaster or dressing</li>
-                    <li>wash your hands before touching a burst blister</li>
-                    <li>allow the fluid in a burst blister to drain before covering it with a plaster or dressing</li>
-                </ul>
+      {% set dontItems = [
+          {
+            "item"  : "burst a blister yourself"
+          },
+          {
+            "item"  : "peel the skin off a burst blister"
+          },
+          {
+            "item"  : "pick at the edges of the remaining skin"
+          },
+          {
+            "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+          }
+        ]
+      %}
 
-        </div>
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-
-                <h3 id="dont">Don't</h3>
-                <ul class="list--cross">
-                    <li>burst a blister yourself</li>
-                    <li>peel the skin off a burst blister</li>
-                    <li>pick at the edges of the remaining skin</li>
-                    <li>wear the shoes or use the equipment that caused your blister until it heals</li>
-                </ul>
-
-        </div>
-
-
-
-
-
+      {{ list("Don't", "cross", dontItems) }}
       <div class="clearfix"></div>
 </section>
 
