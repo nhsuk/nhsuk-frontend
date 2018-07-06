@@ -54,6 +54,11 @@ function publishCore() {
   .pipe(gulp.dest('dist/packages/globals/'));
 }
 
+function publishSkiplinks() {
+  return gulp.src('src/skip-links/*')
+  .pipe(gulp.dest('dist/packages/skip-links/'));
+}
+
 function publishFooter() {
   return gulp.src('src/footer/*')
   .pipe(gulp.dest('dist/packages/footer/'));
@@ -81,10 +86,11 @@ exports.publishCSS = publishCSS;
 exports.publishCore = publishCore;
 exports.publishFooter = publishFooter;
 exports.publishCallout = publishCallout;
+exports.publishSkiplinks = publishSkiplinks;
 exports.publishIcons = publishIcons;
 exports.publishImages = publishImages
 
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishFooter, publishCallout, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishIcons, publishImages));

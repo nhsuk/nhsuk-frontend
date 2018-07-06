@@ -1,4 +1,3 @@
-/* eslint-disable */
 (function() {
   $( document ).ready(function() {
     $(".nhsuk-c-skiplink__link").click(function(event){

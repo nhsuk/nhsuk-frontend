@@ -31,7 +31,12 @@
   </head>
   <body class="{{ body_class }}">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-    <div class="c-skiplink"><a href="#main-content" class="c-skiplink__link">Skip to main content</a></div>
+
+    <div class="nhsuk-c-skiplink">
+      <a href="#main-content" class="nhsuk-c-skiplink__link">
+        Skip to main content
+      </a>
+    </div>
 
     {% if navigation == 'transactional' %}
       {% include "includes/header-transactional.html" %}

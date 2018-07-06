@@ -13,7 +13,7 @@ h1,
   @include mq($from: tablet) {
     font-size: govuk-em(48px, $nhsuk-base-font-size);
     line-height: 56px;
-    margin: 72px 0 0;
+    margin: 64px 0 0;
   }
 }
 
@@ -21,11 +21,11 @@ h2,
 .nhsuk-heading-l {
   font-size: govuk-em(24px, $nhsuk-base-font-size-mobile);
   line-height: 32px;
-  margin: 56px 0 0;
+  margin: 40px 0 0;
   @include mq($from: tablet) {
     font-size: govuk-em(32px, $nhsuk-base-font-size);
     line-height: 40px;
-    margin: 72px 0 0;
+    margin: 56px 0 0;
   }
 }
 
@@ -170,7 +170,7 @@ strong {
 .nhsuk-page-heading {
   padding: 25px 0 40px;
   @include mq($from: grid-collapse) {
-    padding: 34px 0 40px;
+    padding: 34px 0 56px;
   }
   h1 {
     margin: 0;

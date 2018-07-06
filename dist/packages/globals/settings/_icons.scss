@@ -25,6 +25,12 @@
     }
   }
   &__arrow-right {
+    fill: $nhsuk-blue;
+  }
+  &__arrow-left {
+    fill: $nhsuk-blue;
+  }
+  &__arrow-right-circle {
     fill: $nhsuk-green;
   }
   &__chevron-down {
@@ -62,4 +68,9 @@
     width: $nhsuk-icon-size * 2;
   }
 
+}
+
+.nhsuk-logo {
+  width: 99px;
+  height: 40px;
 }
