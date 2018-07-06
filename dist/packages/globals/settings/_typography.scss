@@ -149,7 +149,7 @@ strong {
 .nhsuk-page-heading {
   padding: 25px 0 40px;
   @include mq($from: grid-collapse) {
-    padding: 34px 0 64px;
+    padding: 34px 0 40px;
   }
   h1 {
     margin: 0;

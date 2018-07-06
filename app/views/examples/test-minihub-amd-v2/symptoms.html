@@ -1,5 +1,6 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
 {% from "macros/action-link.html" import actionLink %}
 
 {% extends 'includes/site-layout.html' %}
@@ -15,15 +16,15 @@
 
 					<div class="nhsuk-page-heading">
 
-						<h1>Age-related macular degeneration (AMD)<span class="nhsuk-o-h1-sub">Symptoms</span></h1>
+						<h1>Symptoms <small>Age-related macular degeneration (AMD)</small></h1>
 						
-						<div class="nhsuk-c-page-contents v3">
+						<div class="nhsuk-c-page-contents v3 v4">
 							<ul>
-								<li><a href="/examples/test-minihub-amd">What is AMD?</a></li>
+								<li><a href="/examples/test-minihub-amd-v2">What is AMD?</a></li>
 								<li><strong>Symptoms</strong></li>
-								<li><a href="/examples/test-minihub-amd/getting-diagnosed">Getting diagnosed</a></li>
-								<li><a href="/examples/test-minihub-amd/treatments">Treatments</a></li>
-								<li><a href="/examples/test-minihub-amd/living-with-amd">Living with AMD</a></li>
+								<li><a href="/examples/test-minihub-amd-v2/getting-diagnosed">Getting diagnosed</a></li>
+								<li><a href="/examples/test-minihub-amd-v2/treatments">Treatments</a></li>
+								<li><a href="/examples/test-minihub-amd-v2/living-with-amd">Living with AMD</a></li>
 							</ul>
 						</div>
 
@@ -134,17 +135,8 @@
 							</div>
 						</div>
 
-						<div class="nhsuk-c-pagination">
-							<a href="/examples/test-minihub-amd/getting-diagnosed" class="nhsuk-c-pagination-next">
-								<span class="nhsuk-c-pagination-link">Next page</span>
-								<span class="nhsuk-c-pagination-title">Getting diagnosed</span>
-							</a>
-							<a href="/examples/test-minihub-amd" class="nhsuk-c-pagination-prev">
-								<span class="nhsuk-c-pagination-link">Previous page</span>
-								<span class="nhsuk-c-pagination-title">What is AMD?</span>
-							</a>
-							<div class="clear"></div>
-						</div>
+						{{ miniHubPagination("/examples/test-minihub-amd-v2", "What is AMD?", "/examples/test-minihub-amd-v2/getting-diagnosed", "Getting diagnosed")}}
+
 
 					</div>
 
