@@ -331,4 +331,32 @@ router.get('/examples/test-minihub-amd/google-results', (req, res) => {
   res.render('examples/test-minihub-amd/google-results', {});
 });
 
+router.get('/examples/test-minihub-amd-v2', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/index', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/symptoms', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/symptoms', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/getting-diagnosed', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/getting-diagnosed', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/treatments', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/treatments', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/living-with-amd', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/living-with-amd', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/google', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/google', {});
+});
+
+router.get('/examples/test-minihub-amd-v2/google-results', (req, res) => {
+  res.render('examples/test-minihub-amd-v2/google-results', {});
+});
+
 module.exports = router;

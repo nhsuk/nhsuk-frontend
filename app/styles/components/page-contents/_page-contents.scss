@@ -1,6 +1,6 @@
 .nhsuk-c-page-contents{
 	padding: 0 0 40px 0;
-	border-bottom:$nhsuk-grey-3 1px solid;
+	border-bottom:$nhsuk-grey-4 1px solid;
 	
 	&.v2{
 		padding: 40px 0;
@@ -8,6 +8,28 @@
 
 	&.v3{
 		padding: 16px 0 40px 0;
+	}
+
+	&.v4{
+		margin-top: 56px;
+		padding:0;
+		border-bottom: none;
+
+		@include mq($until: tablet) {
+			margin-top: 40px;
+		}
+
+		ol,
+		ul {
+			margin-top:0;
+			column-count: 1;
+			column-gap: 1;
+		}
+
+		ol li:before, 
+		ul li:before {
+			color: $nhsuk-grey-3;
+		}
 	}
 	
 	&.medicine{
@@ -79,4 +101,18 @@ h1 span.nhsuk-o-h1-sub{
 	font-size: 0.85em;
 	color: $nhsuk-grey-1;
 	margin-top: 8px;
+}
+
+h1 small{
+	color: $nhsuk-secondary-text-colour;
+	display: block;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 36px;
+	margin-top: 8px;
+
+	@include mq($until: tablet) {
+		font-size: 24px;
+		line-height: 32px;
+	}
 }

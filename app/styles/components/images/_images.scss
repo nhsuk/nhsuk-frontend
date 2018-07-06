@@ -1,7 +1,11 @@
 .nhsuk-c-image{
     margin: 48px 0;
     background: $nhsuk-white;
-    border-bottom:$nhsuk-grey-3 2px solid;
+    border-bottom:$nhsuk-grey-4 2px solid;
+
+    @include mq($until: tablet) {
+        margin: 32px 0;
+    }
 
     @media screen and (max-width: 640px) {
         margin-left:-16px;

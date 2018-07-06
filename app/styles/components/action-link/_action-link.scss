@@ -59,7 +59,7 @@
 	&:focus {
 		background: none;
 	}
-	.nhsuk-icon__arrow-right {
+	.nhsuk-icon__arrow-right-circle {
 		fill: $nhsuk-green;
 		height: 40px;
 		left: -3px;
@@ -75,12 +75,12 @@
 	}
 	&:hover,
 	&:focus {
-		.nhsuk-icon__arrow-right {
+		.nhsuk-icon__arrow-right-circle {
 			fill: $nhsuk-green-shade-35;
 		}
 	}
 	&:active {
-		.nhsuk-icon__arrow-right {
+		.nhsuk-icon__arrow-right-circle {
 			fill: $nhsuk-green-shade-50;
 		}
 	}
