@@ -3,6 +3,7 @@
 {% from "macros/callout.html" import callout %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/list.html" import list %}
+{% from "macros/action-link.html" import actionLink %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -84,4 +85,6 @@
 
     {{ list("Do", "tick", doItems) }}
     {{ list("Don't", "cross", dontItems) }}
+
+    {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
 {% endblock %}

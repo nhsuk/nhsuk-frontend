@@ -1,6 +1,7 @@
 {% set title = 'Blisters' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/list.html" import list %}
+{% from "macros/action-link.html" import actionLink %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -95,26 +96,11 @@
 
     <p>A hydrocolloid dressing can help reduce pain and speed up healing.</p>
 
-
-
-
-
-
-
-
-
-
-
     <section class="callout callout--find-a-service">
         <div class="nhsuk-reading-width">
-            <a href="https://beta.nhs.uk/finders/find-help" class="nhsuk-action-link">Find a pharmacy</a>
-
+            {{ actionLink("https://beta.nhs.uk/finders/find-help", "Find a pharmacy") }}
         </div>
     </section>
-
-
-
-
 
       <div class="clearfix"></div>
     </section>

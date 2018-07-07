@@ -40,7 +40,7 @@
   .care-card-content {
     background: $nhsuk-white;
     padding: 32px 16px 24px;
-    @include reading-width-content();
+    @include reading-width();
     @include top-and-bottom();
     @include mq($from: tablet) {
       padding: 36px 24px 32px;

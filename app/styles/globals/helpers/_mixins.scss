@@ -27,12 +27,3 @@
       width: 100%;
   }
 }
-
-// Can we remove this mixin and replace with @reading-width() from library?
-
-@mixin reading-width-content() {
-  p,
-  li {
-      max-width: 37em;
-  }
-}

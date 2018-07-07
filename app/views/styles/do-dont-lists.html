@@ -10,28 +10,32 @@
 {% endblock %}
 
 {% block sidebar %}
-    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <h2 class="nhsuk-heading-xs">Page contents</h2>
     <ul>
-		<li><a href="#user-needs">User needs</a></li>
-
-    <li><a href="#example">Example</a></li>
+      <li><a href="#user-need">User need</a></li>
+      <li><a href="#usage">Where it's currently being used</a></li>
+      <li><a href="#hypothesis">Hypothesis</a></li>
+      <li><a href="#iterations">Iterations</a></li>
+      <li><a href="#final-version">Final version</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#rules">Rules</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-	<h2 id="user-needs">User need</h2>
+	<h2 id="user-need">User need</h2>
   <p>As a user I NEED to easily understand what I should and should not do in my situation SO THAT I have the best outcome possible.</p>
 
-	<h2>Where it's currently being used</h2>
+	<h2 id="usage">Where it's currently being used</h2>
   <p>...</p>
 
-  <h2>Hypothesis</h2>
+  <h2 id="hypothesis">Hypothesis</h2>
 	<p>...</p>
 
-	<h2>Iterations</h2>
+	<h2 id="iterations">Iterations</h2>
   <p>...</p>
 
-	<h2>Final version</h2>
+	<h2 id="final-version">Final version</h2>
 
   <div class="nhsuk-reading-width">
     <div class="example grey-background">
@@ -144,9 +148,9 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
   </div>
 
-  <h2>Accessibility</h2>
+  <h2 id="accessibility">Accessibility</h2>
 	<p>...</p>
 
-  <h2>Usage</h2>
+  <h2 id="rules">Rules</h2>
 	<p>...</p>
 {% endblock %}
