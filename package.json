@@ -11,8 +11,8 @@
     "watch": "concurrently \"gulp\" \"nodemon app.js --config config/nodemon.json -q\"",
     "test": "npm run lint-css",
     "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'src/**/*.scss' -v -q",
-    "backstop:ref": "node app.js & backstop reference",
-    "backstop:test": "node app.js & backstop test"
+    "backstop:ref": "node app.js & ./node_modules/backstopjs/cli/index.js reference",
+    "backstop:test": "node app.js & ./node_modules/backstopjs/cli/index.js test --config=config/backstop.json"    
   },
   "dependencies": {
     "express": "^4.13.4",
