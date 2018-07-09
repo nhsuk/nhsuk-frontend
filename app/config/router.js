@@ -238,4 +238,12 @@ router.get('/examples/header-footer-example', (req, res) => {
   res.render('examples/header-footer-example', {});
 });
 
+router.get('/examples/diabetes', (req, res) => {
+  res.render('examples/diabetes/index', {});
+});
+
+router.get('/examples/diabetes/page', (req, res) => {
+  res.render('examples/diabetes/page', {});
+});
+
 module.exports = router;

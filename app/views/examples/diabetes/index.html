@@ -1,0 +1,140 @@
+{% set title = 'Type 1 diabetes' %}
+{% set parent = 'Health A-Z' %}
+{% extends 'includes/site-layout.html' %}
+
+{% block body %}
+	{% include 'partials/breadcrumb/breadcrumb.html' %}
+
+  <style>
+    .nhsuk-page-heading .nhsuk-c-panel {
+      margin-bottom: 0;
+    }
+    .nhsuk-o-flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .nhsuk-o-flex .nhsuk-o-grid__item {
+      display: flex;
+    }
+  </style>
+
+  <div class="nhsuk-o-width-container">
+    <main class="nhsuk-o-main-wrapper" id="main-content">
+
+      <div class="nhsuk-o-grid">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+          <div class="nhsuk-page-heading">
+            <h1>Type 1 diabetes</h1>
+            <div class="nhsuk-reading-width">
+              <p class="nhsuk-body-l nhsuk-page-intro">
+                This guide is for adults with type 1 diabetes. There's separate information about <a href="diabetes/page">type 2 diabetes</a>.
+              </p>
+            </div>
+              <div class="nhsuk-o-grid nhsuk-o-flex">
+                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                  <div class="nhsuk-c-panel">
+                    <h3>Newly diagnosed</h3>
+                    <p>Practical help for when you've just been diagnosed with type 1 diabetes, including how to inject insulin and check your blood glucose levels.</p>
+                    <p class="nhsuk-c-panel__link"><a href="diabetes/page">Newly diagnosed</a></p>
+                  </div>
+                </div>
+                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                  <div class="nhsuk-c-panel">
+                    <h3>Get support</h3>
+                    <p>Being diagnosed with type 1 diabetes isn't easy. It can take time to adjust to and affect how you feel.</p>
+                    <p class="nhsuk-c-panel__link"><a href="diabetes/page">Get support</a></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+          <div class="nhsuk-page-content">
+
+            <hr class="nhsuk-hr">
+
+            <h2>About type 1 diabetes</h2>
+
+            <div class="nhsuk-o-grid">
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>What it is</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">About type 1 diabetes</a></li>
+                </ul>
+              </div>
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Under 18</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Diabetes in children</a></li>
+                </ul>           
+              </div>
+            </div>
+
+            <hr class="nhsuk-hr">
+
+            <h2>Managing insulin and blood glucose levels</h2>
+
+            <div class="nhsuk-o-grid">
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Insulin</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">About insulin</a></li>
+                  <li><a href="diabetes/page">When your treatment might change</a></li>
+                </ul>
+              </div>
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Blood glucose levels</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Hypo and hyper</a></li>
+                  <li><a href="diabetes/page">When you're ill</a></li>
+                  <li><a href="diabetes/page">Avoiding complications</a></li>
+                </ul>           
+              </div>
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Technology</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Insulin pumps</a></li>
+                  <li><a href="diabetes/page">Continuous glucose monitoring (CGM)</a></li>
+                </ul>           
+              </div>
+            </div>
+
+            <hr class="nhsuk-hr">
+
+            <h2>Living with type 1 diabetes</h2>
+
+            <div class="nhsuk-o-grid">
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Everyday life</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Alcohol and drugs</a></li>
+                  <li><a href="diabetes/page">Travel</a></li>
+                  <li><a href="diabetes/page">Driving</a></li>
+                  <li><a href="diabetes/page">Excercise and sport</a></li>
+                </ul>
+              </div>
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Life events</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Pregnancy and birth</a></li>
+                  <li><a href="diabetes/page">Going to university</a></li>
+                </ul>           
+              </div>
+              <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+                <p><strong>Support</strong></p>
+                <ul>
+                  <li><a href="diabetes/page">Get support</a></li>
+                </ul>           
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </main>
+  </div>
+{% endblock %}
