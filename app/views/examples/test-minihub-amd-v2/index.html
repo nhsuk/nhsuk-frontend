@@ -38,6 +38,8 @@
 						<li><strong>The exact cause is unknown.</strong> It's been linked to smoking, high blood pressure, being overweight and having a family history of AMD.</li>
 						</ul>
 
+						{% include 'partials/review-date/review-date.html' %}
+
 						{{ miniHubPaginationNext("/examples/test-minihub-amd-v2/symptoms", "Symptoms")}}
 
 					</div>
@@ -47,11 +49,6 @@
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
+
 
 {% endblock %}
