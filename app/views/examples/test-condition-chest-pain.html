@@ -1,5 +1,6 @@
 {% set title = 'Chest Pain' %}
 {% set parent = 'Conditions' %}
+{% from "macros/action-link.html" import actionLink %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -51,8 +52,7 @@
                 </ul>
 
                 <p>It's important to get medical advice to make sure it's nothing serious.</p>
-
-                <a href="/service-search/walk-in%20centre/locationsearch/663" class="nhsuk-action-link">Find a walk-in centre</a>
+                {{ actionLink("/service-search/walk-in%20centre/locationsearch/663", "Find a walk-in centre") }}
             </div>
         </div>
 
@@ -74,7 +74,7 @@
         <p>Chest pain has many different causes – only the most common are listed below. In most cases, chest pain is not caused by a heart problem. </p>
 
         <p>Your symptoms might give you an idea of the cause. Don't self-diagnose – see your GP if you're worried.</p>
-        <div class="nhsuk-c-panel nhsuk-c-panel--mute">
+        <div class="nhsuk-c-panel">
         <table class="nhsuk-table">
         <thead>
         <tr>

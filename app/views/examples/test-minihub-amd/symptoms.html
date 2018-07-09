@@ -1,6 +1,7 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
-{% from "macros/action-link.html" import actionLink %}
+{% from "macros/components.html" import actionLink %}
+{% from "macros/keypoint.html" import keypoint %}
 
 {% extends 'includes/site-layout.html' %}
 
@@ -104,9 +105,7 @@
 						
 						<p>AMD isn't painful and doesn't affect the appearance of your eyes.</p>
 
-						<div class="nhsuk-c-keypoint-v2">
-							<p>Sometimes AMD may be found during a routine eye test before you have symptoms.</p>
-						</div>
+						{{ keypoint("<p>Sometimes AMD may be found during a routine eye test before you have symptoms.</p>") }}
 
 						<div class="care-card blue">
 							<div class="care-card-heading">

@@ -1,5 +1,7 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/keypoint.html" import keypoint %}
+{% from "macros/action-link.html" import actionLink %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -79,7 +81,7 @@
 
 			<p>If your allergy is more severe or it's not obvious what you're allergic to, you may be referred for allergy testing at a specialist allergy clinic.</p>
 
-			<a href="http://www.nhs.uk/Service-Search/Allergies/LocationSearch/220" class="nhsuk-action-link">Find your nearest NHS allergy clinic</a>
+      {{ actionLink("http://www.nhs.uk/Service-Search/Allergies/LocationSearch/220", "Find your nearest NHS allergy clinic") }}
 
 			<p>The tests that may be carried out are described on this page.</p>
 
@@ -114,9 +116,7 @@
 
 			<p>Skin prick testing is painless and very safe.</p>
 			
-			<div class="nhsuk-c-keypoint-v2">
-				<p>Make sure you don't take <a href="http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx">antihistamines</a> before the test, as they can interfere with the results.</p>
-			</div>
+			{{ keypoint("<p>Make sure you don't take <a href='http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx'>antihistamines</a> before the test, as they can interfere with the results.</p>") }}
 
 			<h2 id="blood-tests">Blood tests</h2>
 

@@ -1,4 +1,6 @@
 {% set title = 'Propranolol' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -184,10 +186,7 @@
 
       <p>These are not all the side effects of propranolol. For a full list, see the leaflet inside your medicine packet.</p>
 
-      <div class="nhsuk-c-keypoint-v2">
-          <p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/">UK safety scheme</a>.</p>
-      </div>
-
+      {{ keypoint("<p>You can report any suspected side effect to the <a href='https://yellowcard.mhra.gov.uk'>UK safety scheme</a>.</p>") }}
     </section>
   </li>
 

@@ -5,12 +5,9 @@
 @import 'components/care-card/care-card';
 @import 'components/hero/hero';
 @import 'components/breadcrumbs/breadcrumbs';
-@import 'components/callout/callout';
-@import 'components/panel/panel';
 @import 'components/cookie-policy/cookie-policy';
 @import 'components/page-contents/page-contents';
 @import 'components/page-contents/page-contents-v2';
-@import 'components/action-link/action-link';
 @import 'components/table/table';
 @import 'components/promo/promo';
 @import 'components/intro-image/intro-image';
@@ -98,16 +95,6 @@ ul ul, ol ul {
           background: $nhsuk-red-tint-90;
         }
       }
-    }
-
-    //callouts
-    .nhsuk-c-callout__warning {
-        background: $nhsuk-warm-yellow-tint-90;
-    }
-
-    //panels
-    .nhsuk-c-panel {
-        background: $nhsuk-grey-5;
     }
 
     //breadcrumb

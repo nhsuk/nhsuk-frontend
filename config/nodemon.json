@@ -16,5 +16,5 @@
     "env": {
         "NODE_ENV": "development"
     },
-    "ext": "js, html, scss"
+    "ext": "js, html, scss, svg"
 }

@@ -2,20 +2,4 @@
 
 ## Introduction
 
-Component for the global site footer.
-
-## Guidance
-
-TBC
-
-## Usage
-
-TBC
-
-#### Markup
-
-TBC
-
-## Installation
-
-TBC
+Component for the global website footer.

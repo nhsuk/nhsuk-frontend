@@ -1,5 +1,7 @@
 {% set title = 'Vertigo' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/keypoint.html" import keypoint %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -36,26 +38,51 @@
 
 <p>There are things you can do to ease vertigo symptoms when they're happening, and to reduce the number of episodes you have.</p>
 
-<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-	<h3 id="do">Do</h3>
-	<ul class="list--check">
-		<li>lie still in a quiet, dark room to reduce the spinning feeling</li>
-		<li>move your head carefully and slowly during daily activities</li>
-		<li>sit down straightaway when you feel dizzy</li>
-		<li>turn on the lights if you get up at night</li>
-		<li>use a walking stick if you're at risk of falling</li>
-		<li>sleep with your head slightly raised on 2 or more pillows</li>
-		<li>get out of bed slowly and sit on the edge of the bed for a while before standing up</li>
-		<li>try to relax – anxiety can make vertigo worse</li>
-	</ul>
-</div>
-<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-	<h3 id="dont">Don't</h3>
-	<ul class="list--cross">
-		<li>bend over to pick things up – squat to lower yourself instead</li>
-		<li>stretch your neck – for example, while reaching up to a high shelf</li>
-	</ul>
-</div>
+	{% set doItems = [
+			{
+				"item"  : "lie still in a quiet, dark room to reduce the spinning feeling"
+			},
+			{
+				"item"  : "move your head carefully and slowly during daily activities"
+			},
+			{
+				"item"  : "sit down straightaway when you feel dizzy"
+			},
+			{
+				"item"  : "turn on the lights if you get up at night"
+			},
+			{
+				"item"  : "use a walking stick if you're at risk of falling"
+			},
+			{
+				"item"  : "sleep with your head slightly raised on 2 or more pillows"
+			},
+			{
+				"item"  : "get out of bed slowly and sit on the edge of the bed for a while before standing up"
+			},
+			{
+				"item"  : "use a walking stick if you're at risk of falling"
+			},
+			{
+				"item"  : "try to relax – anxiety can make vertigo worse"
+			}
+		]
+	%}
+
+	{{ list("Do", "tick", doItems) }}
+
+	{% set dontItems = [
+			{
+				"item"  : "bend over to pick things up – squat to lower yourself instead"
+			},
+			{
+				"item"  : "stretch your neck – for example, while reaching up to a high shelf"
+			}
+		]
+	%}
+
+	{{ list("Don't", "cross", dontItems) }}
+
 
 <div class="care-card red" id="when-to-get-medical-help">
 	<div class="care-card-heading">
@@ -107,9 +134,7 @@
 <p>You could also be given special exercises to do to try and correct your balance. </p>
 <p>Antihistamines can sometimes help with vertigo symptoms.</p>
 
-<div class="nhsuk-c-keypoint">
-        <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-</div>
+{{ keypoint("<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>") }}
 
 <h2 id="causes">What causes vertigo</h2>
 

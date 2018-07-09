@@ -1,5 +1,7 @@
 {% set title = 'Amoxicillin' %}
 {% set parent = 'Medicines' %}
+{% from "macros/keypoint.html" import keypoint %}
+
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -67,10 +69,9 @@
   <h2 class="o-section__header" id="who-can-take">3. Who can and can't take amoxicillin</h2>
 <p>Amoxicillin can be taken by adults, including pregnant and breastfeeding women.</p>
 <p>Amoxicillin can be taken by children.</p>
-<div class="nhsuk-c-keypoint">
-    <h3 class="nhsuk-heading-xs">Recommended reading</h3>
-    <p><a href="https://www.medicinesforchildren.org.uk/amoxicillin-bacterial-infections-0">Giving amoxicillin to children: information on Medicines for Children website</a></p>
-</div>
+
+{{ keypoint("<h3 class='nhsuk-heading-xs'>Recommended reading</h3><p><a href='https://www.medicinesforchildren.org.uk/amoxicillin-bacterial-infections-0'>Giving amoxicillin to children: information on Medicines for Children website</a></p>") }}
+
 <p><strong>Amoxicillin isn't suitable for some people. To make sure amoxicillin is safe for you, tell your doctor if you</strong>:</p>
 <ul>
 <li>have had an allergic reaction to amoxicillin or penicillin or any other medicines&nbsp;in the past</li>
@@ -154,19 +155,6 @@
     </div>
 </div>
 
-<!--
-<div class="nhsuk-c-callout__emergency">
-    <p>A serious allergic reaction is an emergency. Contact a doctor straight away if you think you or someone around you is having a serious allergic reaction.</p>
-</div>
-<p>The warning signs of a&nbsp;<a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">serious allergic reaction</a>&nbsp;are:</p>
-<ul>
-<li>getting a skin rash that may include itchy, red, swollen, blistered or peeling skin</li>
-<li>wheezing</li>
-<li>tightness in the chest or throat</li>
-<li>having trouble breathing or talking</li>
-<li>swelling of the mouth, face, lips, tongue, or throat</li>
-</ul>
--->
 <p>These are not all the side effects of amoxicillin. For a full list see the leaflet inside your medicines packet.</p>
 <div class="nhsuk-c-keypoint"><p>You can report any suspected side effect to the&nbsp;<a href="https://yellowcard.mhra.gov.uk/">UK safety scheme</a>.</p></div>
 

@@ -1,0 +1,90 @@
+{% set title = 'Components' %}
+{% set parent = 'Components' %}
+{% from "macros/callout.html" import callout %}
+{% from "macros/keypoint.html" import keypoint %}
+{% from "macros/list.html" import list %}
+{% from "macros/action-link.html" import actionLink %}
+{% extends "includes/templates/page.html"%}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb/breadcrumb.html' %}
+{% endblock %}
+
+{% block header %}
+    <h1 class="nhsuk-heading-xl">The quick brown fox jumps over the lazy dog</h1>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h2>
+    <ul class="nhsuk-list nhsuk-list-bullet">
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ul>
+    <ol class="nhsuk-list nhsuk-list-bullet">
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <h2 class="nhsuk-heading-l">The quick brown fox jumps over the lazy dog</h2>
+
+    <h3 class="nhsuk-heading-m">The quick brown fox jumps over the lazy dog</h3>
+
+    <h4 class="nhsuk-heading-s">The quick brown fox jumps over the lazy dog</h4>
+
+    <h5 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h5>
+
+    <p class="nhsuk-body-l">The quick brown fox jumps over the lazy dog</p>
+
+    <p class="nhsuk-body">The quick brown fox jumps over the lazy dog</p>
+
+    <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
+
+    {{ callout("Important", "
+    <p>The quick brown fox jumps over the lazy dog</p>
+    <ul class='nhsuk-list nhsuk-list-bullet'>
+      <li>The quick brown</li>
+      <li>fox jumps over</li>
+      <li>the lazy dog</li>
+    </ul>
+    ") }}
+
+    {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
+
+    {% set doItems = [
+          {
+            "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            "item"  : "wash your hands before touching a burst blister"
+          },
+          {
+            "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+    %}
+
+    {% set dontItems = [
+        {
+        "item"  : "burst a blister yourself"
+        },
+        {
+        "item"  : "peel the skin off a burst blister"
+        },
+        {
+        "item"  : "pick at the edges of the remaining skin"
+        },
+        {
+        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+        }
+        ]
+    %}
+
+    {{ list("Do", "tick", doItems) }}
+    {{ list("Don't", "cross", dontItems) }}
+
+    {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
+{% endblock %}

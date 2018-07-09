@@ -1,5 +1,7 @@
 {% set title = 'Chickenpox v2' %}
 {% set parent = 'Conditions' %}
+{% from "macros/keypoint.html" import keypoint %}
+{% from "macros/list.html" import list %}
 {% extends "includes/templates/page-v2.html"%}
 
 {% block breadcrumb %}
@@ -66,9 +68,9 @@
 			<li>loss of appetite</li>
 		</ul>
 		<p>Chickenpox is very itchy and can make children feel miserable, even if they don't have many spots. Chickenpox is usually much worse in adults.</p>
-    <div class="nhsuk-c-keypoint-v2">
-		    <p>It's possible to get chickenpox more than once, although it's unusual.</p>
-    </div>
+    
+    {{ keypoint("<p>It's possible to get chickenpox more than once, although it's unusual.</p>") }}
+
 		<h3>If you're not sure it's chickenpox</h3>
 		<p>Check other <a href="">rashes in children.</a></p>
         <div class="clearfix"></div>
@@ -93,41 +95,54 @@
 
 </div>
 
+      {% set doItems = [
+          {
+            "item"  : "drink plenty of fluid (try ice lollies if your child isn't drinking) to avoid dehydration"
+          },
+          {
+            "item"  : "take <a href='https://beta.nhs.uk/medicines/paracetamol-for-adults'>paracetamol</a> to help with pain and discomfort"
+          },
+          {
+            "item"  : "put socks on your child's hands at night to stop scratching"
+          },
+          {
+            "item"  : "cut your child's nail"
+          },
+          {
+            "item"  : "use cooling creams or gels from your pharmacy"
+          },
+          {
+            "item"  : "speak to your pharmacist about using antihistamine medicine to help itching"
+          },
+          {
+            "item"  : "bathe in cool water and pat the skin dry (don't rub)"
+          },
+          {
+            "item"  : "dress in loose clothes"
+          },
+          {
+            "item"  : "check with your airline if you're going on holiday – many airlines won't allow you to fly with chickenpox"
+          }    
+        ]
+      %}
 
+      {{ list("Do", "tick", doItems) }}
 
+      {% set dontItems = [
+          {
+            "item"  : "use <a href='https://beta.nhs.uk/medicines/ibuprofen-for-adults'>ibuprofen</a> – it can make someone with chickenpox very ill"
+          },
+          {
+            "item"  : "give aspirin to children under 16"
+          },
+          {
+            "item"  : "be around pregnant women, newborn babies and people with a weakened immune system, as it can be dangerous for them"
+          }
+        ]
+      %}
 
-
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="do" class="">Do</h3>
-            <ul class="list--check">
-                <li>drink plenty of fluid (try ice lollies if your child isn't drinking) to avoid dehydration</li>
-                <li>take <a href="https://beta.nhs.uk/medicines/paracetamol-for-adults">paracetamol</a> to help with pain and discomfort</li>
-                <li>put socks on your child's hands at night to stop scratching </li>
-                <li>cut your child's nails</li>
-                <li>use cooling creams or gels from your pharmacy</li>
-                <li>speak to your pharmacist about using antihistamine medicine to help itching</li>
-                <li>bathe in cool water and pat the skin dry (don't rub)</li>
-                <li>dress in loose clothes</li>
-                <li>check with your airline if you're going on holiday – many airlines won't allow you to fly with chickenpox</li>
-            </ul>
-        </div>
-        <div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab">
-            <h3 id="dont" class="">Don't</h3>
-            <ul class="list--cross">
-                <li>use <a href="https://beta.nhs.uk/medicines/ibuprofen-for-adults">ibuprofen</a> – it can make someone with chickenpox very ill</li>
-                <li>give aspirin to children under 16</li>
-                <li>be around pregnant women, newborn babies and people with a weakened immune system, as it can be dangerous for them</li>
-                </ul>
-        </div>
-
-
-
+      {{ list("Don't", "cross", dontItems) }}
     </section>
-
-
-
-
-
   <div class="clearfix"></div>
 </section>
 

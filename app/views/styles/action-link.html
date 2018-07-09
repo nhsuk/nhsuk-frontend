@@ -6,38 +6,67 @@
 
 {% block header %}
     <h1>Action link</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
 {% endblock %}
 
 {% block sidebar %}
-    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <h2 class="nhsuk-heading-xs">Page contents</h2>
     <ul>
+		<li><a href="#user-need">User need</a></li>
+		<li><a href="#usage">Where it's currently being used</a></li>
+		<li><a href="#hypothesis">Hypothesis</a></li>
+		<li><a href="#iterations">Iterations</a></li>
+        <li><a href="#final-version">Final version</a></li>
+		<li><a href="#accessibility">Accessibility</a></li>
 		<li><a href="#rules">Rules</a></li>
-		<li><a href="#user-needs">User needs</a></li>
-        <li><a href="#example">Example</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-
-	<h2 id="rules">Rules</h2>
-	<div class="nhsuk-reading-width">
-	<ul>
-		<li>Should only be used for links to start important or transactional journeys e.g. finding a pharmacy (using the tool) on the slipped disc page, or finding a walk-in clinic (using the service search) on the chest pain page.</li>
-	</ul>
-
-	<h2 id="user-needs">User needs</h2>
+	<h2 id="user-needs">User need</h2>
     <ul>
 		<li>As a user I NEED to know which links on the page can take me to important information or useful tools SO THAT I can continue to find important information relevant to my situation.</li>
 	</ul>
-	<h2>Design iterations</h2>
-	<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
+
+	<h2 id="usage">Where it's currently being used</h2>
+	<p>...</p>
+
+	<h2 id="hypothesis">Hypothesis</h2>
+	<p>...</p>
+
+	<h2 id="iterations">Iterations</h2>
+	<div class="example grey-background">
 		<h3 class="nhsuk-heading-xs">Version 1</h3>
-		<a href="https://beta.nhs.uk/find-a-pharmacy/" class="nhsuk-action-link">Find a pharmacy</a>
+		<img class="component-image" src="../images/components/action-link-v1.png" width="215">
 	</div>
-	<div class="nhsuk-c-panel nhsuk-c-panel__with-border">
-		<h3 class="nhsuk-heading-xs">Version 2</h3>
-		{{ actionLink("https://beta.nhs.uk/find-a-pharmacy/", "Find a pharmacy") }}
+
+	<h2 id="final-version">Final version</h2>
+	
+	<div class="nhsuk-reading-width">
+		<div class="example grey-background">
+			<h3 class="nhsuk-heading-xs">Version 2</h3>
+			{{ actionLink("https://beta.nhs.uk/find-a-pharmacy/", "Find a pharmacy") }}
+		</div>
 	</div>
-</div>
+	
+	<div class="example-snippet">
+		<button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
+
+<pre class="language-markup" id="clipboard-1"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://beta.nhs.uk/find-a-pharmacy/<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-action-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-icon nhsuk-icon__arrow-right-circle<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0 0 24 24<span class="token punctuation">"</span></span> <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0 0h24v24H0z<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-icon__arrow-right-circle nhsuk-icon__arrow-right-circle--fallback<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/assets/images/icon-arrow-right.png<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xlink:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>Find a pharmacy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></code></pre>
+	</div>
+
+	<h2 id="accessibility">Accessibility</h2>
+	<p>...</p>
+
+	<h2 id="rules">Rules</h2>
+	<ul>
+		<li>Should only be used for links to start important or transactional journeys e.g. finding a pharmacy (using the tool) on the slipped disc page, or finding a walk-in clinic (using the service search) on the chest pain page.</li>
+	</ul>
 {% endblock %}

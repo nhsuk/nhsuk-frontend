@@ -25,11 +25,11 @@
 @include govuk-exports("width-container-fluid") {
   .nhsuk-o-width-container-fluid {
     @include govuk-width-container-fluid;
-    h1, h2, h3, h4, h5, p, span, a {
+    h1, h2, h3, h4, h5, p, span, a, ul, ol{
       @include reading-width();
     }
     .example {
-      h1, h2, h3, h4, h5, p, span, a {
+      h1, h2, h3, h4, h5, p, span, a, ul, ol {
         max-width: 100%;
       }
     }
