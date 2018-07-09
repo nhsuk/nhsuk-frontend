@@ -1,6 +1,7 @@
 {% set title = 'Care cards' %}
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
@@ -25,90 +26,74 @@
 <div class="nhsuk-reading-width">
     
 	<h3>Usage</h3>
-    <p>The 111 care card can be used to direct users to the NHS 111 helpline if they need non-emergency help or advice and don't have access to a health professional or GP.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand my options if I don't know what to do and I can't speak to my GP, SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card grey">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Call 111</h4>
-		</div>
-		<div class="care-card-content">
-			<p>If you can't speak to your GP and don't know what to do next.</p>
-		</div>
-	</div>
+  <p>The 111 care card can be used to direct users to the NHS 111 helpline if they need non-emergency help or advice and don't have access to a health professional or GP.</p>
+  
+	<h3>User need</h3>
+  <p>As a user I NEED to understand my options if I don't know what to do and I can't speak to my GP, SO THAT I can get the best outcome for my situation.</p>
+  
+	<h3>Example</h3>
+
+	{{ carecard("grey", "Call 111", "<p>If you can't speak to your GP and don't know what to do next.</p>") }}
 
 	<h2 id="care_card_primary">Primary Care Card</h2>
+	
 	<h3>Usage</h3>
-    <p>The primary care card can be used to instruct users to visit a health professional or GP if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need to see a GP, SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card blue">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Speak to a GP if:</h4>
-		</div>
-		<div class="care-card-content">
+  <p>The primary care card can be used to instruct users to visit a health professional or GP if appropriate to their situation.</p>
+  
+	<h3>User need</h3>
+  <p>As a user I NEED to understand what to do if my symptoms indicate I need to see a GP, SO THAT I can get the best outcome for my situation.</p>
+  
+	<h3>Example</h3>
+
+	{{ carecard("blue", "Speak to a GP if:", "
 			<ul>
 				<li>you're not sure it's chickenpox</li>
 				<li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-				<li>your child is <a href="#">dehydrated</a></li>
+				<li>your child is <a href='#'>dehydrated</a></li>
 				<li>you're concerned about your child or they get worse</li>
 			</ul>
-			<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-		</div>
-	</div>
-
+			<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>") 
+	}}
 
 	<h2 id="care_card_urgent">Urgent Care Card</h2>
+	
 	<h3>Usage</h3>
-    <p>The urgent care card can be used to instruct users to visit a GP or hospital urgently if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need urgent GP care SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card red">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Ask for an urgent GP appointment if:</h4>
-		</div>
-		<div class="care-card-content">
+  <p>The urgent care card can be used to instruct users to visit a GP or hospital urgently if appropriate to their situation.</p>
+  
+	<h3>User need</h3>
+  <p>As a user I NEED to understand what to do if my symptoms indicate I need urgent GP care SO THAT I can get the best outcome for my situation.</p>
+  
+	<h3>Example</h3>
+
+	{{ carecard("red", "Ask for an urgent GP appointment if:", "
 			<ul>
 				<li>you're an adult and have chickenpox</li>
 				<li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
 				<li>you have a weakened immune system and you've been near someone with chickenpox</li>
 				<li>you think your newborn baby has chickenpox</li>
 			</ul>
-			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-		</div>
-	</div>
-
+			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>")
+	}}
 
 	<h2 id="care_card_emergency">Emergency Care Card</h2>
+	
 	<h3>Usage</h3>
-    <p>The emergency care card can be used to instruct users to immediately seek emergency help if appropriate to their situation.</p>
-    <h3>User need</h3>
-    <p>As a user I NEED to understand what to do if my symptoms indicate I need to go straight to hospital SO THAT I can get the best outcome for my situation.</p>
-    <h3>Example</h3>
-    <div class="care-card black">
-		<div class="care-card-heading">
-			<h4 class="nhsuk-heading-m">Call 999 if you have sudden chest pain that:</h4>
-		</div>
-		<div class="care-card-content">
-			<ul>
-				<li>spreads to your arms, back, neck or jaw</li>
-				<li>makes your chest feel tight or heavy</li>
-				<li>also started with shortness of breath, sweating and feeling or being sick</li>
-			</ul>
-			<p>You could be having a <a href="#">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
-		</div>
-	</div>
+  <p>The emergency care card can be used to instruct users to immediately seek emergency help if appropriate to their situation.</p>
+  
+	<h3>User need</h3>
+  <p>As a user I NEED to understand what to do if my symptoms indicate I need to go straight to hospital SO THAT I can get the best outcome for my situation.</p>
+  
+	<h3>Example</h3>
+
+	{{ carecard("black", "Call 999 if you have sudden chest pain that:", "
+		<ul>
+			<li>spreads to your arms, back, neck or jaw</li>
+			<li>makes your chest feel tight or heavy</li>
+			<li>also started with shortness of breath, sweating and feeling or being sick</li>
+		</ul>
+		<p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>")
+	}}
 </div>
-<script>
-	$('.nhsuk-c-reveal__header').click( function() {
-		$(this).next("div").toggle();
-		$(this).toggleClass("open");
-		return false;
-	});
-</script>
 {% endblock %}
 
 
