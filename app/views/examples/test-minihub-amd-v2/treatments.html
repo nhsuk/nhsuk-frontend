@@ -112,7 +112,7 @@
 						<p>Research into new treatments for AMD is ongoing. Your specialist can let you know if there are any studies you could take part in.</p>
 						
 						<p>You can also <a href="https://www.ukctg.nihr.ac.uk/home/" title="External website">search the UK Clinical Trials Gateway (UKCTG)</a> to find studies.</p>
-
+						{% include 'partials/review-date/review-date.html' %}
 						{{ miniHubPagination("/examples/test-minihub-amd-v2/getting-diagnosed", "Getting diagnosed", "/examples/test-minihub-amd-v2/living-with-amd", "Living with AMD")}}
 
 					</div>
@@ -122,11 +122,5 @@
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
 
 {% endblock %}

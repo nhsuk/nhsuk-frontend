@@ -117,7 +117,7 @@
 							<h3>Important</h3>
 							<p>See a GP if you've been feeling low for more than 2 weeks. They can offer support and treatment if you need it.</p>
 						</div>
-						
+						{% include 'partials/review-date/review-date.html' %}
     					{{ miniHubPaginationPrevious("/examples/test-minihub-amd-v2/treatments", "Treatments")}}
 
 					</div>
@@ -127,11 +127,5 @@
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
 
 {% endblock %}
