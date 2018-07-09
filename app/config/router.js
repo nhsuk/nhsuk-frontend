@@ -62,6 +62,10 @@ router.get('/styles/video', (req, res) => {
 router.get('/styles/review-date', (req, res) => {
   res.render('styles/review-date', {});
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> page review stuff part trois
 
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
