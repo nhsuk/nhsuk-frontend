@@ -59,7 +59,9 @@ router.get('/styles/video', (req, res) => {
   res.render('styles/video', {});
 });
 
-/* Examples */
+router.get('/styles/review-date', (req, res) => {
+  res.render('styles/review-date', {});
+});
 
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
