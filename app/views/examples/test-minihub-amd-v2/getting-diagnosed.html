@@ -102,7 +102,7 @@
 						<p>If you're unsure about something later, write down any questions you have and make another appointment to go over them.</p>
 
 						<p>The <a href="https://www.macularsociety.org/" title="External website">Macular Society</a> has information you might find useful. It also has a helpline on 0300 3030 111.</p>
-
+						{% include 'partials/review-date/review-date.html' %}
 						{{ miniHubPagination("/examples/test-minihub-amd-v2/symptoms", "Symptoms", "/examples/test-minihub-amd-v2/treatments", "Treatments")}}
 
 					</div>
@@ -112,11 +112,5 @@
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
 
 {% endblock %}

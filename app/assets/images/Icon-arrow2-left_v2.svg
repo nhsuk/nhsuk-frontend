@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="8px" viewBox="0 0 16 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Icon-arrow2-right_v2</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon-arrow2-right_v2" transform="translate(8.000000, 4.000000) scale(-1, 1) translate(-8.000000, -4.000000) " fill="#0057AB" fill-rule="nonzero">
-            <path d="M15.6,3.66 L12.87,0.66 C12.7267747,0.516932725 12.5124892,0.472122092 12.3239369,0.545809184 C12.1353847,0.619496276 12.0082657,0.797729333 12,1 L12,3 L1,3 C0.44771525,3 0,3.44771525 0,4 C0,4.55228475 0.44771525,5 1,5 L12,5 L12,7 C12.0026532,7.20431539 12.1293608,7.38645748 12.32,7.46 C12.3791792,7.47403557 12.4408208,7.47403557 12.5,7.46 C12.6398298,7.45858583 12.773197,7.40091351 12.87,7.3 L15.6,4.3 C15.7544167,4.11460947 15.7544167,3.84539053 15.6,3.66 Z" id="Shape"></path>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#0057AB;}
+</style>
+<title>Icon-arrow2-right_v2</title>
+<path class="st0" d="M4.1,12.3l2.7,3c0.2,0.2,0.5,0.2,0.7,0c0.1-0.1,0.1-0.2,0.1-0.3v-2h11c0.6,0,1-0.4,1-1s-0.4-1-1-1h-11V9
+	c0-0.2-0.1-0.4-0.3-0.5c-0.1,0-0.1,0-0.2,0c-0.1,0-0.3,0.1-0.4,0.2l-2.7,3C4,11.9,4,12.1,4.1,12.3z"/>
 </svg>

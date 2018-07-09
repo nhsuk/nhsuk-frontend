@@ -135,6 +135,8 @@
 							</div>
 						</div>
 
+						{% include 'partials/review-date/review-date.html' %}
+
 						{{ miniHubPagination("/examples/test-minihub-amd-v2", "What is AMD?", "/examples/test-minihub-amd-v2/getting-diagnosed", "Getting diagnosed")}}
 
 
@@ -145,11 +147,6 @@
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
+
 
 {% endblock %}
