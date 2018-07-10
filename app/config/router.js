@@ -1,7 +1,7 @@
 let express = require('express')
 let router = express.Router()
 
-/* Styles pages */
+/* Component pages */
 
 router.get('/', (req, res) => {
   res.render('home', {});
@@ -63,6 +63,8 @@ router.get('/styles/review-date', (req, res) => {
   res.render('styles/review-date', {});
 });
 
+/* Example pages */
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
@@ -107,14 +109,6 @@ router.get('/examples/header-cookie', (req, res) => {
   res.render('examples/header-cookie', {});
 });
 
-router.get('/examples/test-hub-live-well-parent', (req, res) => {
-  res.render('examples/test-hub-live-well-parent', {});
-});
-
-router.get('/examples/test-hub-live-well-child', (req, res) => {
-  res.render('examples/test-hub-live-well-child', {});
-});
-
 router.get('/examples/test-hub-nhs-in-england-parent', (req, res) => {
   res.render('examples/test-hub-nhs-in-england-parent', {});
 });
@@ -133,10 +127,6 @@ router.get('/examples/test-general-prescription-costs', (req, res) => {
 
 router.get('/examples/test-general-dental-costs', (req, res) => {
   res.render('examples/test-general-dental-costs', {});
-});
-
-router.get('/examples/test-home', (req, res) => {
-  res.render('examples/test-home', {});
 });
 
 router.get('/examples/allergies', (req, res) => {
