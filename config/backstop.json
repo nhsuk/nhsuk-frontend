@@ -68,6 +68,69 @@
       "selectors": [
         ".nhsuk-global-footer"
       ]
+    },
+    {
+      "label": "Warning Callout component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-warning-callout"
+      ]
+    },
+    {
+      "label": "Keypoint Callout component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-keypoint-callout"
+      ]
+    },
+    {
+      "label": "Do list component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-do-list"
+      ]
+    },
+    {
+      "label": "Dont list component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-dont-list"
+      ]
+    },
+    {
+      "label": "Action Link component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-action-link"
+      ]
+    },
+    {
+      "label": "Grey Care Card component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-grey-carecard"
+      ]
+    },
+    {
+      "label": "Blue Care Card component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-blue-carecard"
+      ]
+    },
+    {
+      "label": "Red Care Card component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-red-carecard"
+      ]
+    },
+    {
+      "label": "Black Care Card component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-black-carecard"
+      ]
     }
   ],
   "paths": {
