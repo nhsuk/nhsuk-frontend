@@ -69,13 +69,23 @@ function publishCallout() {
   .pipe(gulp.dest('dist/packages/callout/'));
 }
 
+function publishCareCard() {
+  return gulp.src('src/care-card/*')
+  .pipe(gulp.dest('dist/packages/care-card/'));
+}
+
+function publishActionLink() {
+  return gulp.src('src/action-link/*')
+  .pipe(gulp.dest('dist/packages/action-link/'));
+}
+
 function publishIcons() { // Hard coded file names until we clear out the assets folder.
-  return gulp.src(['app/views/partials/logos/*', 'app/views/partials/icons/icon-tick.svg', 'app/views/partials/icons/icon-cross.svg'])
+  return gulp.src(['app/views/partials/logos/*', 'app/views/partials/icons/icon-tick.svg', 'app/views/partials/icons/icon-cross.svg', 'app/views/partials/icons/icon-arrow-right-circle.svg'])
   .pipe(gulp.dest('dist/assets/icons'));
 }
 
 function publishImages() { // Hard coded file names until we clear out the assets folder. (Match the above SVG icons)
-  return gulp.src(['app/assets/images/nhs-logo.png', 'app/assets/images/icon-tick.png', 'app/assets/images/icon-cross.png'])
+  return gulp.src(['app/assets/images/nhs-logo.png', 'app/assets/images/icon-tick.png', 'app/assets/images/icon-cross.png', 'app/assets/images/icon-arrow-right.png'])
   .pipe(gulp.dest('dist/assets/images'));
 }
 
@@ -86,6 +96,8 @@ exports.publishCSS = publishCSS;
 exports.publishCore = publishCore;
 exports.publishFooter = publishFooter;
 exports.publishCallout = publishCallout;
+exports.publishCareCard = publishCareCard;
+exports.publishActionLink = publishActionLink;
 exports.publishSkiplinks = publishSkiplinks;
 exports.publishIcons = publishIcons;
 exports.publishImages = publishImages
@@ -93,4 +105,4 @@ exports.publishImages = publishImages
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishIcons, publishImages));

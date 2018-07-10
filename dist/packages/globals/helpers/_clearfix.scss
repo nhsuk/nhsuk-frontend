@@ -5,3 +5,7 @@
     display: block;
   }
 }
+
+.clear {
+  @include clear();
+}
