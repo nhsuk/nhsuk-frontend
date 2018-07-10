@@ -1,8 +1,9 @@
 {% set title = 'Heel pain' %}
 {% set parent = 'Health A-Z' %}
-{% from "macros/components.html" import actionLink %}
+{% from "macros/action-link.html" import actionLink %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/list.html" import list %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -64,50 +65,38 @@
 	{{ list("Don't", "cross", dontItems) }}
 
 <section id="treatment-to-prevent-it">
-<!--care card blue-->
-<div class="care-card blue" role="alert">
-    <div class="care-card-heading">
-        <h4 class="nhsuk-heading-m">See a GP if:</h4>
-    </div>
-    <div class="care-card-content">
-        <ul>
-            <li>you see no improvement after treating at home</li>
-            <li>the pain gets worse</li>
-            <li>you're finding it difficult to walk</li>
-            </ul>
-    </div>
-</div>
+
+{{ carecard("blue", "See a GP if", "
+    <ul>
+        <li>you see no improvement after treating at home</li>
+        <li>the pain gets worse</li>
+        <li>you're finding it difficult to walk</li>
+    </ul>
+") }}
 
 <h3>What happens at your appointment</h3>
 <p>A GP will examine you to work out what's causing your heel pain.</p>
 <p>Most heel pain is caused by plantar fasciitis. This is when the ligament that runs from under the heel along the sole of the foot becomes swollen over time.</p>
 
 
-{{ keypoint("<h3>Referral to a foot specialist</h3>
-    <p>Your GP might refer you to a foot specialist (podiatrist or chiropodist) or a physiotherapist who can recommend things like exercises and the right shoes to wear.</p>
-    <p>NHS physiotherapy and podiatry may not be available everywhere and waiting times can be long.</p>
-    <p>You can also pay to see a podiatrist or physiotherapist privately.</p>
-    <p><a href='http://www.nhs.uk/Service-Search/Podiatrists-and-chiropodists/LocationSearch/343'>Find a registered podiatrist</a></p>
-    <p><a href='http://www.nhs.uk/Service-Search/Physiotherapy/LocationSearch/725'>Find a registered physiotherapist</a></p>
-") }}
+    {{ keypoint("<h3>Referral to a foot specialist</h3>
+        <p>Your GP might refer you to a foot specialist (podiatrist or chiropodist) or a physiotherapist who can recommend things like exercises and the right shoes to wear.</p>
+        <p>NHS physiotherapy and podiatry may not be available everywhere and waiting times can be long.</p>
+        <p>You can also pay to see a podiatrist or physiotherapist privately.</p>
+        <p><a href='http://www.nhs.uk/Service-Search/Podiatrists-and-chiropodists/LocationSearch/343'>Find a registered podiatrist</a></p>
+        <p><a href='http://www.nhs.uk/Service-Search/Physiotherapy/LocationSearch/725'>Find a registered physiotherapist</a></p>
+    ") }}
 
-<!--care card red-->
-<div class="care-card red" role="alert">
-    <div class="care-card-heading">
-        <h4 class="nhsuk-heading-m">Go to a minor injuries unit or A&amp;E if you have:</h4>
-    </div>
-    <div class="care-card-content">
+    {{ carecard("red", "Go to a minor injuries unit or A&E if you have:", "
         <ul>
             <li>severe pain after an injury</li>
             <li>your foot is a funny shape</li>
             <li>a snap, grinding or popping noise at the time of injury</li>
             <li>difficulty moving your ankle or foot</li>
-            </ul>
-
-            <p>These could be signs of a broken bone or ruptured Achilles tendon.</p>
-            <p><a href="http://www.nhs.uk/service-search/Minor-injuries-unit/LocationSearch/551">Find a minor injuries unit</a></p>
-    </div>
-</div>
+        </ul>
+        <p>These could be signs of a broken bone or ruptured Achilles tendon.</p>
+        <p><a href='http://www.nhs.uk/service-search/Minor-injuries-unit/LocationSearch/551'>Find a minor injuries unit</a></p>
+    ") }}
 
 </section>
 <section id="complications">
@@ -222,47 +211,8 @@
 
   <div class="clearfix"></div>
 </section>
-
-
-<section id="treatment-to-prevent-it">
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="content-divider content-divider--short"></div>
-
-
-
-<!--care card blue-->
-<div class="care-card grey" role="alert">
-    <div class="care-card-heading">
-        <h4 class="nhsuk-heading-m">Call 111</h4>
-    </div>
-    <div class="care-card-content">
-        <p>If you can’t speak to your GP or don’t know what to do next.</p>
-    </div>
-</div>
+    <div class="content-divider content-divider--short"></div>
+    {{ carecard("grey", "Call 111", "<p>If you can’t speak to your GP or don’t know what to do next.</p>") }}
 {% endblock %}
 
-{% block footer %}
-<footer>
-    <div class="nhsuk-o-width-container">
-        <a href="#">Test link</a>
-    </div>
-</footer>
-{% endblock %}
 

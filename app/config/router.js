@@ -1,7 +1,7 @@
 let express = require('express')
 let router = express.Router()
 
-/* Styles pages */
+/* Component pages */
 
 router.get('/', (req, res) => {
   res.render('home', {});
@@ -63,6 +63,8 @@ router.get('/styles/review-date', (req, res) => {
   res.render('styles/review-date', {});
 });
 
+/* Example pages */
+
 router.get('/examples', (req, res) => {
   res.render('examples/index', {});
 });
@@ -77,10 +79,6 @@ router.get('/examples/test-condition-chickenpox-v2', (req, res) => {
 
 router.get('/examples/test-condition-gout', (req, res) => {
   res.render('examples/test-condition-gout', {});
-});
-
-router.get('/examples/test-medicine-amoxicillin-v2', (req, res) => {
-  res.render('examples/test-medicine-amoxicillin-v2', {});
 });
 
 router.get('/examples/test-condition-heel-pain-v1', (req, res) => {
@@ -111,66 +109,6 @@ router.get('/examples/header-cookie', (req, res) => {
   res.render('examples/header-cookie', {});
 });
 
-router.get('/examples/test-medicine-amoxicillin', (req, res) => {
-  res.render('examples/test-medicine-amoxicillin', {});
-});
-
-router.get('/examples/test-medicine-amoxicillin-v2', (req, res) => {
-  res.render('examples/test-medicine-amoxicillin-v2', {});
-});
-
-router.get('/examples/test-medicine-amoxicillin-v3', (req, res) => {
-  res.render('examples/test-medicine-amoxicillin-v3', {});
-});
-
-router.get('/examples/medicines/index', (req, res) => {
-  res.render('examples/medicines/index', {});
-});
-
-router.get('/examples/medicines/propranolol', (req, res) => {
-  res.render('examples/medicines/propranolol/index', {});
-});
-
-router.get('/examples/medicines/propranolol/page-1', (req, res) => {
-  res.render('examples/medicines/propranolol/page-1', {});
-});
-
-router.get('/examples/medicines/propranolol/page-2', (req, res) => {
-  res.render('examples/medicines/propranolol/page-2', {});
-});
-
-router.get('/examples/medicines/propranolol/page-3', (req, res) => {
-  res.render('examples/medicines/propranolol/page-3', {});
-});
-
-router.get('/examples/epilepsy', (req, res) => {
-  res.render('examples/epilepsy/index', {});
-});
-
-router.get('/examples/epilepsy/symptoms', (req, res) => {
-  res.render('examples/epilepsy/symptoms', {});
-});
-
-router.get('/examples/epilepsy/diagnosis', (req, res) => {
-  res.render('examples/epilepsy/diagnosis', {});
-});
-
-router.get('/examples/epilepsy/treatment', (req, res) => {
-  res.render('examples/epilepsy/treatment', {});
-});
-
-router.get('/examples/epilepsy/living-with', (req, res) => {
-  res.render('examples/epilepsy/living-with', {});
-});
-
-router.get('/examples/test-hub-live-well-parent', (req, res) => {
-  res.render('examples/test-hub-live-well-parent', {});
-});
-
-router.get('/examples/test-hub-live-well-child', (req, res) => {
-  res.render('examples/test-hub-live-well-child', {});
-});
-
 router.get('/examples/test-hub-nhs-in-england-parent', (req, res) => {
   res.render('examples/test-hub-nhs-in-england-parent', {});
 });
@@ -189,10 +127,6 @@ router.get('/examples/test-general-prescription-costs', (req, res) => {
 
 router.get('/examples/test-general-dental-costs', (req, res) => {
   res.render('examples/test-general-dental-costs', {});
-});
-
-router.get('/examples/test-home', (req, res) => {
-  res.render('examples/test-home', {});
 });
 
 router.get('/examples/allergies', (req, res) => {

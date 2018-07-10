@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/list.html" import list %}
 {% from "macros/action-link.html" import actionLink %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -162,34 +163,19 @@
             </div>
         </section>
 
-
-
-
-
           <div class="clearfix"></div>
 
-
-
-
-
-
-
         <section id="when-to-get-medical-help">
-<!--care card blue-->
-<div class="care-card blue" role="alert">
-    <div class="care-card-heading">
-        <h4 class="nhsuk-heading-m">See a GP if:</h4>
-    </div>
-    <div class="care-card-content">
-        <ul>
-            <li>a blister is very painful or keeps coming back</li>
-            <li>the skin looks infected – it's red, hot and the blister is filled with green or yellow pus</li>
-            <li>a blister is in an unusual place – such as your eyelids, mouth or genitals</li>
-            <li>several blisters have appeared for no reason</li>
-            <li>a blister was caused by a burn or scald, sunburn, or an allergic reaction</li>
+
+        {{ carecard("blue", "See a GP if:", "
+            <ul>
+                <li>a blister is very painful or keeps coming back</li>
+                <li>the skin looks infected – it's red, hot and the blister is filled with green or yellow pus</li>
+                <li>a blister is in an unusual place – such as your eyelids, mouth or genitals</li>
+                <li>several blisters have appeared for no reason</li>
+                <li>a blister was caused by a burn or scald, sunburn, or an allergic reaction</li>
             </ul>
-    </div>
-</div>
+        ") }}
 </section>
 
 <section id="treatment-from-a-gp">
@@ -280,31 +266,6 @@
     </section>
 <section id="things-you-can-try">
 
-
-
-
-
-
-
-
-
-
-<!--care card grey-->
-<div class="care-card grey" role="alert">
-    <div class="care-card-heading">
-        <h4 class="nhsuk-heading-m">Call 111</h4>
-    </div>
-    <div class="care-card-content">
-        <p>If you can’t speak to your GP or don’t know what to do next.</p>
-    </div>
-</div>
-{% endblock %}
-
-{% block footer %}
-<footer>
-    <div class="nhsuk-o-width-container">
-        <a href="#">Test link</a>
-    </div>
-</footer>
+        {{ carecard("grey", "Call 111", "p>If you can’t speak to your GP or don’t know what to do next.</p>") }}
 {% endblock %}
 

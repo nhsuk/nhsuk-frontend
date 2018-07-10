@@ -2,7 +2,6 @@
 @import 'globals/objects/width-container';
 @import 'globals/settings/typography';
 
-@import 'components/care-card/care-card';
 @import 'components/hero/hero';
 @import 'components/breadcrumbs/breadcrumbs';
 @import 'components/cookie-policy/cookie-policy';
@@ -72,42 +71,6 @@ ul ul, ol ul {
     }
   }
 }
-
-// white page background fallbacks
-
-.white-page-background {
-    background-color: white;
-
-    //care cards
-    .care-card {
-      &.grey {
-        .care-card-content {
-          background: $nhsuk-grey-5;
-        }
-      }
-      &.blue {
-        .care-card-content {
-          background: $nhsuk-blue-tint-90;
-        }
-      }
-      &.red {
-        .care-card-content {
-          background: $nhsuk-red-tint-90;
-        }
-      }
-    }
-
-    //breadcrumb
-    .nhsuk-breadcrumb {
-        border-bottom: 1px solid $nhsuk-grey-5;
-    }
-
-    //intro text
-    .nhsuk-page-intro {
-        color: $nhsuk-grey-1;
-    }
-  }
-
 
 .nhsuk-page-content > *:first-child > *:first-child {
     margin-top: 0;

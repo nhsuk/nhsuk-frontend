@@ -1,8 +1,9 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
-{% from "macros/components.html" import actionLink %}
+{% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
+{% from "macros/action-link.html" import actionLink %}
 {% from "macros/keypoint.html" import keypoint %}
-
+{% from "macros/care-card.html" import carecard %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -107,56 +108,46 @@
 
 						{{ keypoint("<p>Sometimes AMD may be found during a routine eye test before you have symptoms.</p>") }}
 
-						<div class="care-card blue">
-							<div class="care-card-heading">
-								<h4 class="nhsuk-heading-m">See an optician if you're worried about your vision</h4>
-							</div>
-							<div class="care-card-content">
-								<p>If you have a problem with your eyes, early diagnosis and treatment may help stop your vision getting worse.</p>
-								{{ actionLink("/service-search/Opticians/LocationSearch/9", "Find an opticians") }}
-							</div>
-						</div>
+						{{ carecard("blue", "See an optician if you're worried about your vision", "
+												<p>If you have a problem with your eyes, early diagnosis and treatment may help stop your vision getting worse.</p>
+												<a href='/service-search/Opticians/LocationSearch/9' class='nhsuk-action-link'>
+        									<svg class='nhsuk-icon nhsuk-icon__arrow-right-circle' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'>
+  													<path d='M0 0h24v24H0z' fill='none'></path>
+  													<path d='M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z'></path>
+  													<image class='nhsuk-icon__arrow-right-circle nhsuk-icon__arrow-right-circle--fallback' src='images/icon-arrow-right.png' xlink:href=''></image>
+													</svg>
+													<span>Find an opticians</span>
+    										</a>
+						") }}
 						
-						<div class="care-card red">
-							<div class="care-card-heading">
-								<h4 class="nhsuk-heading-m">Get an urgent opticians appointment if:</h4>
-							</div>
-							<div class="care-card-content">
+						{{ carecard("red", "Get an urgent opticians appointment if:", "
 								<ul>
-								<li>your vision gets suddenly worse </li>
-								<li>you have a dark "curtain" or shadow moving across your vision</li>
-								<li>your eye is red and painful</li>
+									<li>your vision gets suddenly worse </li>
+									<li>you have a dark 'curtain' or shadow moving across your vision</li>
+									<li>your eye is red and painful</li>
 								</ul>
 								<p>These aren't symptoms of AMD but can be signs of other eye problems that need to be treated immediately.</p>
 								<p><strong>Go to A&amp;E or call 111 straight away if you can't get an urgent appointment.</strong></p>
-								{{ actionLink("/service-search/accident-and-emergency-services/locationsearch/428", "Find an A&E department")}}
-							</div>
-						</div>
+								<a href='/service-search/accident-and-emergency-services/locationsearch/428' class='nhsuk-action-link'>
+									<svg class='nhsuk-icon nhsuk-icon__arrow-right-circle' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'>
+										<path d='M0 0h24v24H0z' fill='none'></path>
+										<path d='M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z'></path>
+										<image class='nhsuk-icon__arrow-right-circle nhsuk-icon__arrow-right-circle--fallback' src='images/icon-arrow-right.png' xlink:href=''></image>
+									</svg>
+									<span>Find an A&amp;E department</span>
+								</a>
+						") }}
 
-						<div class="nhsuk-c-pagination">
-							<a href="/examples/test-minihub-amd/getting-diagnosed" class="nhsuk-c-pagination-next">
-								<span class="nhsuk-c-pagination-link">Next page</span>
-								<span class="nhsuk-c-pagination-title">Getting diagnosed</span>
-							</a>
-							<a href="/examples/test-minihub-amd" class="nhsuk-c-pagination-prev">
-								<span class="nhsuk-c-pagination-link">Previous page</span>
-								<span class="nhsuk-c-pagination-title">What is AMD?</span>
-							</a>
-							<div class="clear"></div>
-						</div>
+						{% include 'partials/review-date/review-date.html' %}
+
+						{{ miniHubPagination("/examples/test-minihub-amd", "What is AMD?", "/examples/test-minihub-amd/getting-diagnosed", "Getting diagnosed")}}
 
 					</div>
 
 				</div>
 			</div>
-        </main>
+    </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
 
 {% endblock %}

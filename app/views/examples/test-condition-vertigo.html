@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/list.html" import list %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -83,26 +84,19 @@
 
 	{{ list("Don't", "cross", dontItems) }}
 
-
-<div class="care-card red" id="when-to-get-medical-help">
-	<div class="care-card-heading">
-		<h4 class="nhsuk-heading-m">See a GP if you:</h4>
-	</div>
-	<div class="care-card-content">
+	{{ carecard("red", "See a GP if you:", "
 		<ul>
-		<li>have vertigo that won't go away or keeps coming back</li>
+			<li>have vertigo that won't go away or keeps coming back</li>
 		</ul>
 
 		<p>Ask for an <strong>urgent appointment</strong> if you:</p>
 
 		<ul>
-		<li>also have a severe headache</li>
-		<li>are vomiting or feel very sick </li>
-		<li>have a very high temperature or you feel hot and shivery</li>
+			<li>also have a severe headache</li>
+			<li>are vomiting or feel very sick </li>
+			<li>have a very high temperature or you feel hot and shivery</li>
 		</ul>
-	</div>
-</div>
-
+	") }}
 
 <h3>What happens at your appointment</h3>
 
@@ -110,11 +104,7 @@
 <p>A simple test that involves you moving quickly from a sitting to a lying position might be done to check your balance. This could bring on symptoms.</p>
 <p>You might also be referred to a specialist for further tests.</p>
 
-<div class="care-card black">
-	<div class="care-card-heading">
-		<h4 class="nhsuk-heading-m">Go to A&amp;E if you have vertigo and:</h4>
-	</div>
-	<div class="care-card-content">
+	{{ carecard("black", "Go to A&E if you have vertigo and:", "
 		<ul>
 		<li>double vision or loss of vision</li>
 		<li>hearing loss</li>
@@ -123,8 +113,7 @@
 		</ul>
 
 		<p>Always take someone who has lost consciousness to A&amp;E or call 999.</p>
-	</div>
-</div>
+	") }}
 
 
 <h2 id="treatment">Treatment for vertigo</h2>
@@ -156,13 +145,6 @@
 
 <p>Sometimes the cause is unknown.</p>
 
-<div class="care-card grey care-card__extra-spacing">
-	<div class="care-card-heading">
-		<h2 class="nhsuk-heading-m">Call 111:</h2>
-	</div>
-	<div class="care-card-content">
-		<p>if you can’t speak to your GP or don’t know what to do next.</p>
-	</div>
-</div>
-{% endblock %}
+	{{ carecard("grey", "Call 111:", "<p>if you can’t speak to your GP or don’t know what to do next.</p>") }}
 
+{% endblock %}

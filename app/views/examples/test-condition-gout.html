@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
 {% from "macros/list.html" import list %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -28,31 +29,21 @@
 {% block content %}
     <section id="when-to-get-medical-help" class="nhsuk-page-content__section-one">
         <p class="nhsuk-body-l nhsuk-page-intro">Gout causes sudden severe joint pain. See a GP for treatment to help during an attack and to stop further attacks.</p>
-        <!--care card blue-->
-        <div class="care-card blue" role="alert">
-            <div class="care-card-heading">
-                <h3 class="nhsuk-heading-m">See a GP if you have:</h3>
-            </div>
-            <div class="care-card-content">
-                <ul>
-                    <li>sudden severe pain in any joint – usually the big toe, or fingers, wrists, elbows or knees </li>
-                    <li>red, hot, swollen skin over the affected joint</li>
-                </ul>
-                <p>Gout doesn't cause lasting damage to joints if you get treatment straightaway.</p>
-            </div>
-        </div>
 
-        <div class="care-card red" role="alert">
-            <div class="care-card-heading">
-                <h3 class="nhsuk-heading-m">Ask for an urgent appointment or call 111 if:</h3>
-            </div>
-            <div class="care-card-content">
+        {{ carecard("blue", "See a GP if you have:", "
+        <ul>
+            <li>sudden severe pain in any joint – usually the big toe, or fingers, wrists, elbows or knees </li>
+            <li>red, hot, swollen skin over the affected joint</li>
+        </ul>
+        <p>Gout doesn't cause lasting damage to joints if you get treatment straightaway.</p>
+        ") }}
+
+        {{ carecard("red", "Ask for an urgent appointment or call 111 if:", "
                 <ul>
                     <li>the pain is getting much worse and you have a very high temperature (you feel hot and shivery) </li>
                 </ul>
                 <p>This could mean you have an infection inside the joint.</p>
-            </div>
-        </div>
+        ") }}
 
         <h2>What happens at your appointment</h2>
 
@@ -220,14 +211,7 @@
 
         <p>You can get kidney stones if your uric acid levels are very high, so you'll need treatment to reduce the levels.</p>
 
-        <div class="care-card grey care-card__extra-spacing" role="alert">
-            <div class="care-card-heading">
-                <h2 class="nhsuk-heading-m">Call 111</h2>
-            </div>
-            <div class="care-card-content">
-                <p>If you can’t speak to your GP or don’t know what to do next.</p>
-            </div>
-        </div>
+        {{ carecard("grey", "Call 111", "<p>If you can’t speak to your GP or don’t know what to do next.</p>") }}
 
         <div class="clearfix"></div>
     </section>

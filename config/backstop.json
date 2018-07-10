@@ -59,7 +59,7 @@
       "label": "Breadcrumb component",
       "url": "http://localhost:3000/examples/components",
       "selectors": [
-        ".nhsuk-breadcrumb"
+        ".nhsuk-c-breadcrumb"
       ]
     },
     {

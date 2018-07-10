@@ -1,6 +1,7 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -170,14 +171,7 @@
 			
 			<p><strong>intolerance</strong> – where a substance causes unpleasant symptoms, such as diarrhoea, but doesn't involve the immune system; people with an intolerance to certain foods can typically eat a small amount without having any problems</p>
 			
-			<div class="care-card grey">
-				<div class="care-card-heading">
-					<h4 class="nhsuk-heading-m">Call 111</h4>
-				</div>
-				<div class="care-card-content">
-					<p>if you can't speak to your GP and don't know what to do next.</p>
-				</div>
-			</div>
+			{{ carecard("grey", "Call 111", "<p>if you can't speak to your GP and don't know what to do next.</p>") }}
 
 			<div class="nhsuk-c-review-datestamp">
 				<p>Page last reviewed: 12/02/2016<br>
