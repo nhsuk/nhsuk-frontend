@@ -89,4 +89,25 @@
     margin-bottom: 20px;
   }
 
+
+  /* breadcrumbs */
+  .nhsuk-c-breadcrumb {
+    padding-top: 0;
+  }
+
+  .nhsuk-c-breadcrumb__back {
+    display: none;
+  }
+
+  .nhsuk-c-breadcrumb__item {
+    display: inline;
+  }
+
+  .nhsuk-icon__chevron-right--fallback {
+    height: 12px;
+    margin: 0 5px;
+    top: -3px;
+    width: 10px;
+  }
+
 }
