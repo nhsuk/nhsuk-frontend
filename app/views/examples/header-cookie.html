@@ -1,16 +1,10 @@
 {% set title = 'Header and Footer example' %}
+{% set parent = 'Example' %}
 {% set cookieBanner = 'active' %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
-    <div class="nhsuk-breadcrumb">
-        <div class="nhsuk-o-width-container">
-            <ol>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Header</a></li>
-            </ol>
-        </div>
-    </div>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
