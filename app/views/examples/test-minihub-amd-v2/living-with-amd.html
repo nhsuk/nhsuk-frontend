@@ -1,7 +1,7 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
-
+{% from "macros/keypoint.html" import keypoint %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -62,10 +62,7 @@
 						
 						<p>There's some evidence to suggest that certain health supplements might help stop AMD getting worse, but this isn't definitive.</p>
 						
-						<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
-							<h3>Important</h3>
-							<p>Speak to your GP or specialist if you're considering taking supplements for AMD. They're not suitable for everyone.</p>
-						</div>
+						{{ callout("Important", "<p>Speak to your GP or specialist if you're considering taking supplements for AMD. They're not suitable for everyone.</p>") }}
 
 						<p>The Macular Society has more on <a href="https://www.macularsociety.org/diet-and-exercise" title="External website">diet and nutrition for AMD</a>.</p>
 
@@ -88,9 +85,7 @@
 						
 						<p>Contact your specialist as soon as possible if your vision gets worse or you notice any new symptoms.</p>
 						
-						<div class="nhsuk-c-keypoint-v2">
-							<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>
-						</div>
+						{{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
 
 						<h2>Registering as sight impaired</h2>
 						
@@ -113,12 +108,11 @@
 						<li><a href="http://www.rnib.org.uk/" title="External website">RNIB</a> – which has <a href="http://www.rnib.org.uk/practical-help" title="External website">practical advice about living with sight loss</a> and a helpline on 0303 123 9999</li>
 						</ul>
 						
-						<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
-							<h3>Important</h3>
-							<p>See a GP if you've been feeling low for more than 2 weeks. They can offer support and treatment if you need it.</p>
-						</div>
+						{{ callout("Important", "<p>See a GP if you've been feeling low for more than 2 weeks. They can offer support and treatment if you need it.</p>") }}
+
 						{% include 'partials/review-date/review-date.html' %}
-    					{{ miniHubPaginationPrevious("/examples/test-minihub-amd-v2/treatments", "Treatments")}}
+    				
+						{{ miniHubPaginationPrevious("/examples/test-minihub-amd-v2/treatments", "Treatments")}}
 
 					</div>
 

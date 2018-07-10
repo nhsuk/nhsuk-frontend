@@ -1,5 +1,6 @@
 {% set title = 'Home' %}
 {% set navigation = 'transactional' %}
+{% from "macros/callout.html" import callout %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -21,14 +22,9 @@
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-main-wrapper">
             <div class="nhsuk-o-grid">
-
                 <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
 
-                  <div class="nhsuk-c-panel">
-                    <h3>Work in progress</h3>
-                    <p>Our code, examples and styles are being iterated. Do not use in live services.</p>
-                    <p><a href="mailto:dan.brayshaw@nhs.net">Liaise with our delivery manager Dan Brayshaw</a> before using them in your prototypes. This will allow us to work together and get your feedback.</p>
-                  </div>
+		              {{ callout("Work in progress", "<p>Our code, examples and styles are being iterated. Do not use in live services.</p><p><a href='mailto:dan.brayshaw@nhs.net'>Liaise with our delivery manager Dan Brayshaw</a> before using them in your prototypes. This will allow us to work together and get your feedback.</p>") }}
 
                   <h2>Design &amp; development progress</h2>
 

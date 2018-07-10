@@ -2,7 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
 {% from "macros/keypoint.html" import keypoint %}
-
+{% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -111,30 +111,14 @@
 						
 						{{ callout("Important", "<p>See a GP if you've been feeling low for more than 2 weeks. They can offer support and treatment if you need it.</p>") }}
 
-						<div class="nhsuk-c-pagination">
-							<!--<a href="#" class="nhsuk-c-pagination-next">
-								<span class="nhsuk-c-pagination-link">Next page</span>
-								<span class="nhsuk-c-pagination-title">Living with AMD</span>
-							</a>-->
-							<a href="/examples/test-minihub-amd/treatments" class="nhsuk-c-pagination-prev">
-								<span class="nhsuk-c-pagination-link">Previous page</span>
-								<span class="nhsuk-c-pagination-title">Treatments</span>
-							</a>
-							<div class="clear"></div>
-						</div>
-
-					</div>
+						{% include 'partials/review-date/review-date.html' %}
+    				
+						{{ miniHubPaginationPrevious("/examples/test-minihub-amd/treatments", "Treatments")}}
 
 				</div>
 			</div>
         </main>
 	</div>
 	
-	<div class="nhsuk-c-review-datestamp-v2">
-		<div class="nhsuk-o-width-container">
-			<p>Page last reviewed: 12/02/2016<br>
-			Next review due: 01/02/2019</p>
-		</div>
-	</div>
 
 {% endblock %}
