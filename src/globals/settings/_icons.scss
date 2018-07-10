@@ -5,6 +5,9 @@
   &__search {
     fill: $nhsuk-blue;
   }
+  &__chevron-left {
+    fill: $nhsuk-blue;
+  }
   &__chevron-right {
     fill: $nhsuk-blue;
   }
@@ -71,6 +74,6 @@
 }
 
 .nhsuk-logo {
-  width: 99px;
   height: 40px;
+  width: 99px;
 }
