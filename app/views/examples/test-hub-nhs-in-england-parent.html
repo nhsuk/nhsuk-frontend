@@ -3,13 +3,13 @@
 {% extends "includes/templates/hub.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-    <div class="nhsuk-o-width-container">
-        <ol>
-            <li><a href="#">Home</a></li>
-        </ol>
-        <p><a href="#">Back to Home</a></p>
-    </div>
+<nav class="nhsuk-c-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-o-width-container">
+    <ol class="nhsuk-c-breadcrumb__list">
+      <li class="nhsuk-c-breadcrumb__item"><a href="/" class="nhsuk-c-breadcrumb__link">Home</a></li>
+    </ol>
+    <p class="nhsuk-c-breadcrumb__back">{% include 'partials/icons/icon-chevron-left.svg' %}<a href="../" class="nhsuk-c-breadcrumb__backlink">Back to Home</a></p>
+  </div>
 </nav>
 {% endblock %}
 

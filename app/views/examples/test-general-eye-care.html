@@ -3,16 +3,7 @@
 {% extends "includes/templates/page-right-nav.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-    <div class="nhsuk-o-width-container">
-        <ol>
-            <li><a href="#">Home</a></li>
-			<li><a href="/examples/test-hub-nhs-in-england-parent">The NHS in England</a></li>
-			<li><a href="/examples/test-hub-nhs-in-england-child">Help with health costs</a></li>
-        </ol>
-        <p><a href="/examples/test-hub-nhs-in-england-child">Back to Help with health costs</a></p>
-    </div>
-</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
@@ -24,7 +15,7 @@
 
 {% block sidebar %}
 <!--<h2 class="nhsuk-heading-s">In this section</h2>-->
-	
+
 	<ul class="nhsuk-list-nav">
 		<li><a href="/examples/test-hub-nhs-in-england-child" class="nhsuk-heading-m">Help with health costs</a></li>
         <li><a href="#">NHS Low Income Scheme</a></li>
@@ -56,7 +47,7 @@
 	</script>
 
     <section class="nhsuk-page-content__section-one">
-		
+
         <p>Find out if you're entitled to a free NHS sight test or an optical voucher to help reduce the cost of glasses or contact lenses.</p>
 
 		<p>If you're not eligible for NHS-funded sight tests or optical vouchers, you'll have to cover the costs yourself. </p>
@@ -115,7 +106,7 @@
 		</ul>
 
 		<p>You may be entitled to an optical voucher if you have a low income and are named on a valid NHS HC3 certificate for partial help with health costs.</p>
-		
+
     </section>
 
 {% endblock %}
