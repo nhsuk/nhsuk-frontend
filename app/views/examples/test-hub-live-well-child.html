@@ -3,15 +3,7 @@
 {% extends "includes/templates/hub.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-    <div class="nhsuk-o-width-container">
-        <ol>
-            <li><a href="/examples/test-home">Home</a></li>
-            <li><a href="/examples/test-hub-live-well-parent">Live Well</a></li>
-        </ol>
-        <p><a href="/examples/test-home">Back to Home</a></p>
-    </div>
-</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
@@ -33,7 +25,7 @@
             <p>Nunc efficitur gravida tellus in viverra in mollis varius</p>
         </div>
     </div>
-    
+
 </div>
 
 {% endblock %}

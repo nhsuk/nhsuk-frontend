@@ -5,15 +5,7 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-	<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-		<div class="nhsuk-o-width-container">
-			<ol>
-				<li><a href="/">Home</a></li>
-				<li><a href="https://www.nhs.uk/conditions/">Health A-Z</a></li>
-			</ol>
-			<p><a href="https://www.nhs.uk/conditions/">Back to Health A-Z</a></p>
-		</div>
-	</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -29,7 +21,7 @@
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
-		
+
 		<div class="nhsuk-reading-width">
 
 			<div class="nhsuk-page-heading">
@@ -74,9 +66,9 @@
 				</script>
 
 				<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
-				
+
 			</div>
-						
+
 			<p>Your GP can offer advice and treatment for mild allergies with a clear cause.</p>
 
 			<p>If your allergy is more severe or it's not obvious what you're allergic to, you may be referred for allergy testing at a specialist allergy clinic.</p>
@@ -93,19 +85,19 @@
 					src="https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-920x613.jpg"
 					sizes="(min-width: 920px) 920px, 100vw"
 					srcset="
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-320x213.jpg 320w,
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-919x612.jpg 919w,
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-920x613.jpg 920w,
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1125x750.jpg 1125w,
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1838x1225.jpg 1838w,
-					
+
 						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1840x1226.jpg 1840w,
-					
+
 					"
 				/>
 			</div>
@@ -115,7 +107,7 @@
 			<p>It involves putting a drop of liquid onto your forearm that contains a substance you may be allergic to. The skin under the drop is then gently pricked with a needle. If you are allergic to the substance, an itchy, red bump will appear within 15 minutes.</p>
 
 			<p>Skin prick testing is painless and very safe.</p>
-			
+
 			{{ keypoint("<p>Make sure you don't take <a href='http://www.nhs.uk/conditions/antihistamines/Pages/Introduction.aspx'>antihistamines</a> before the test, as they can interfere with the results.</p>") }}
 
 			<h2 id="blood-tests">Blood tests</h2>
@@ -144,14 +136,14 @@
 
 			<p>During the test, you're given the food you think you're allergic to in gradually increasing amounts, to see how you react under close supervision.</p>
 
-			<p>This test is riskier than other forms of testing, as it could cause a severe reaction, but is the most accurate way to diagnose food allergies. And challenge testing is always carried out in a clinic where a severe reaction can be treated if it does develop.</p>			
+			<p>This test is riskier than other forms of testing, as it could cause a severe reaction, but is the most accurate way to diagnose food allergies. And challenge testing is always carried out in a clinic where a severe reaction can be treated if it does develop.</p>
 
 			<h2 id="allergy-testing-kits">Allergy testing kits</h2>
 
 			<p>The use of commercial allergy-testing kits isn't recommended. These tests are often of a lower standard than those provided by the NHS or accredited private clinics and are generally considered to be unreliable.</p>
 
 			<p>Allergy tests should be interpreted by a qualified professional who has detailed knowledge of your symptoms and medical history.</p>
-			
+
 			<div class="care-card grey">
 				<div class="care-card-heading">
 					<h4 class="nhsuk-heading-m">Call 111</h4>
