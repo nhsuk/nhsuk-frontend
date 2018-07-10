@@ -3,16 +3,7 @@
 {% extends "includes/templates/page-right-nav.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-    <div class="nhsuk-o-width-container">
-        <ol>
-            <li><a href="#">Home</a></li>
-			<li><a href="/examples/test-hub-nhs-in-england-parent">The NHS in England</a></li>
-			<li><a href="/examples/test-hub-nhs-in-england-child">Help with health costs</a></li>
-        </ol>
-        <p><a href="/examples/test-hub-nhs-in-england-child">Back to Help with health costs</a></p>
-    </div>
-</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
@@ -40,7 +31,7 @@
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
-		
+
         <h2>NHS prescription costs</h2>
 
 		<ul>
@@ -48,20 +39,20 @@
 			<li>three-month PPC – £29.10; this will save you money if you need more than three prescribed items in three months </li>
 			<li>12-month PPC – £104.00; this will save you money if you need more than 12 prescribed items in a year</li>
 		</ul>
-		
+
 		<p>PPCs are available by 10 monthly direct debit instalment payments. The certificates allow anyone to obtain all the prescriptions they need for £2 a week. </p>
-			
+
 		<p>Find out more about the prescription prepayment certificate.</p>
-			
+
 		<p>If you need to access the services below, the medicines you're prescribed are free:</p>
-			
+
 		<ul>
 			<li>medicines administered at a hospital or an NHS walk-in centre</li>
 			<li>prescribed contraceptives</li>
 			<li>medicines personally administered by a GP </li>
 			<li>medicines supplied at a hospital or clinical commissioning group (CCG) clinic for the treatment of a sexually transmitted infection, tuberculosis, or a mental disorder for those subject to a supervised community treatment order </li>
 		</ul>
-		
+
     </section>
 
 {% endblock %}

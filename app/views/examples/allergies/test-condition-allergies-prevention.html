@@ -4,15 +4,7 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-	<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-		<div class="nhsuk-o-width-container">
-			<ol>
-				<li><a href="/">Home</a></li>
-				<li><a href="https://www.nhs.uk/conditions/">Health A-Z</a></li>
-			</ol>
-			<p><a href="https://www.nhs.uk/conditions/">Back to Health A-Z</a></p>
-		</div>
-	</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -28,7 +20,7 @@
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
-		
+
 		<div class="nhsuk-reading-width">
 
 			<div class="nhsuk-page-heading">
@@ -46,7 +38,7 @@
 
 				<p class="nhsuk-body-l nhsuk-page-intro">The best way to prevent an allergic reaction is to avoid the substance that you're allergic to, although this isn't always easy or practical.</p>
 			</div>
-					
+
 			<div class="nhsuk-c-page-contents">
 
 				<div class="nhsuk-c-reveal">
@@ -76,7 +68,7 @@
 				<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
 
 			</div>
-						
+
 			<p>Below is some practical advice that should help you avoid the most common allergens.</p>
 
 			<h2 id="house-dust-mites">House dust mites</h2>
@@ -200,7 +192,7 @@
 				<p>Page last reviewed: 12/02/2016<br>
 				Next review due: 01/02/2019</p>
 			</div>
-		
+
 		</div>
 
 		<div class="nhsuk-c-page-nav-bottom" id="nav-bottom">

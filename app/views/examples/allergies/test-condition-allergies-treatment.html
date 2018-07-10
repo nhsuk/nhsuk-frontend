@@ -6,15 +6,7 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-	<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-		<div class="nhsuk-o-width-container">
-			<ol>
-				<li><a href="/">Home</a></li>
-				<li><a href="https://www.nhs.uk/conditions/">Health A-Z</a></li>
-			</ol>
-			<p><a href="https://www.nhs.uk/conditions/">Back to Health A-Z</a></p>
-		</div>
-	</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -30,7 +22,7 @@
 
 {% block content %}
     <section class="nhsuk-page-content__section-one">
-		
+
 		<div class="nhsuk-reading-width">
 
 			<div class="nhsuk-page-heading">
@@ -48,7 +40,7 @@
 
 				<p class="nhsuk-body-l nhsuk-page-intro">The treatment for an allergy depends on what you're allergic to. In many cases, your GP will be able to offer advice and treatment.</p>
 			</div>
-					
+
 			<div class="nhsuk-c-page-contents">
 
 				<div class="nhsuk-c-reveal">
@@ -76,7 +68,7 @@
 				<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
 
 			</div>
-						
+
 			<p>They'll advise you about taking steps to avoid exposure to the substance you're allergic to, and can recommend medication to control your symptoms.</p>
 
 			<h2 id="avoiding-exposure-to-allergens">Avoiding exposure to allergens</h2>
@@ -101,7 +93,7 @@
 			<p>Medications for mild allergies are available from pharmacies without a prescription, but always ask your pharmacist or GP for advice before starting any new medicine, as they're not suitable for everyone.</p>
 
 			<div class="nhsuk-c-reveal-group">
-			
+
 				<div class="nhsuk-c-reveal white">
 					<a href="#" class="nhsuk-c-reveal__header">Antihistamines</a>
 					<div class="nhsuk-c-reveal__content">
@@ -126,11 +118,11 @@
 						<p><a href="http://www.nhs.uk/conditions/decongestant-drugs/pages/introduction.aspx">Decongestants</a> can be used as a short-term treatment for a blocked nose caused by an allergic reaction.</p>
 
 						<p>They can be taken as tablets, capsules, nasal sprays or liquids. Don't use them for more than a week at a time, as using them for long periods can make your symptoms worse.</p>
-				
+
 						<h4>Lotions and creams</h4>
-				
+
 						<p>Red and itchy skin caused by an allergic reaction can sometimes be treated with over-the-counter creams and lotions, such as:</p>
-				
+
 						<ul>
 						<li><a href="http://www.nhs.uk/conditions/emollients/Pages/Introduction.aspx">emollients (moisturising creams)</a> to keep the skin moist and protect it from allergens </li>
 						<li>calamine lotion to reduce itchiness </li>

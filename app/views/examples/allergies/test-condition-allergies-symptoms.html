@@ -4,15 +4,7 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-	<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-		<div class="nhsuk-o-width-container">
-			<ol>
-				<li><a href="/">Home</a></li>
-				<li><a href="https://www.nhs.uk/conditions/">Health A-Z</a></li>
-			</ol>
-			<p><a href="https://www.nhs.uk/conditions/">Back to Health A-Z</a></p>
-		</div>
-	</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -30,7 +22,7 @@
     <section class="nhsuk-page-content__section-one">
 
 		<div class="nhsuk-reading-width">
-		
+
 			<div class="nhsuk-page-heading">
 				<h1>Allergies<span class="nhsuk-o-h1-sub">Symptoms</span></h1>
 
@@ -46,7 +38,7 @@
 
 				<p class="nhsuk-body-l nhsuk-page-intro">Symptoms of an allergic reaction usually develop within a few minutes of being exposed to something you're allergic to, although occasionally they can develop gradually over a few hours.</p>
 			</div>
-					
+
 			<div class="nhsuk-c-page-contents">
 
 				<div class="nhsuk-c-reveal">
@@ -69,9 +61,9 @@
 				</script>
 
 				<p class="nhsuk-nav-bottom-link"><a href="#nav-bottom">View all pages about Allergies</a></p>
-				
+
 			</div>
-						
+
 			<p>Although allergic reactions can be a nuisance and hamper your normal activities, most are mild. Very occasionally, a severe reaction called <a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">anaphylaxis</a> can occur.</p>
 
 			<h2 id="main-symptoms">Main allergy symptoms</h2>
@@ -94,21 +86,21 @@
 					src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
 					sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
 					srcset="
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg 320w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-510x340.jpg 510w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1019x679.jpg 1019w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1125x750.jpg 1125w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M.2e16d0ba.fill-1534x1023.jpg 1534w,
-					
+
 					"
 				/>
 				<div class="nhsuk-c-image-caption">
@@ -122,21 +114,21 @@
 					src="https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg"
 					sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
 					srcset="
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg 320w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-510x340.jpg 510w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-640x427.jpg 640w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-767x511.jpg 767w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1019x679.jpg 1019w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1125x750.jpg 1125w,
-					
+
 						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1534x1023.jpg 1534w,
-					
+
 					"
 				/>
 				<div class="nhsuk-c-image-caption">

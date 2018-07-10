@@ -3,15 +3,7 @@
 {% extends "includes/templates/hub.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-    <div class="nhsuk-o-width-container">
-        <ol>
-            <li><a href="#">Home</a></li>
-            <li><a href="/examples/test-hub-nhs-in-england-parent">The NHS in England</a></li>
-        </ol>
-        <p><a href="/examples/test-hub-nhs-in-england-parent">Back to The NHS in England</a></p>
-    </div>
-</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block header %}
@@ -56,7 +48,7 @@
 </div>
 
 <div class="nhsuk-reading-width">
-   
+
         <div class="nhsuk-c-promo-v1">
             <h2 class="nhsuk-heading-s"><a href="#">NHS Low Income Scheme</a></h2>
             <p>If you have a low income, you may be able to get help with NHS costs through the NHS Low Income Scheme (LIS).</p>
