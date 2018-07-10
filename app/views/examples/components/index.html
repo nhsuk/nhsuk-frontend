@@ -44,6 +44,8 @@
 
     <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
 
+    <div class="backstop-warning-callout" style="padding: 3px; !important">
+
     {{ callout("Important", "
     <p>The quick brown fox jumps over the lazy dog</p>
     <ul class='nhsuk-list nhsuk-list-bullet'>
@@ -53,7 +55,15 @@
     </ul>
     ") }}
 
+    </div>
+
+    <div class="backstop-keypoint-callout" style="padding: 3px; !important">
+
     {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
+
+    </div>
+
+    <div class="backstop-do-list" style="padding: 3px; !important">
 
     {% set doItems = [
           {
@@ -67,6 +77,12 @@
           }
         ]
     %}
+
+    {{ list("Do", "tick", doItems) }}
+
+    </div>
+
+    <div class="backstop-dont-list" style="padding: 3px; !important">
 
     {% set dontItems = [
         {
@@ -84,12 +100,23 @@
         ]
     %}
 
-    {{ list("Do", "tick", doItems) }}
     {{ list("Don't", "cross", dontItems) }}
+
+    </div>
+
+    <div class="backstop-action-link" style="padding: 3px; !important">
 
     {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
 
+    </div>
+
+    <div class="backstop-grey-carecard" style="padding: 3px; !important">
+
     {{ carecard("grey", "Call 111", "<p>If you can't speak to your GP and don't know what to do next.</p>") }}
+
+    </div>
+
+    <div class="backstop-blue-carecard" style="padding: 3px; !important">
 
     {{ carecard("blue", "Speak to a GP if:", "
       <ul>
@@ -101,6 +128,10 @@
       <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>") 
     }}
 
+    </div>
+
+    <div class="backstop-red-carecard" style="padding: 3px; !important">
+
     {{ carecard("red", "Ask for an urgent GP appointment if:", "
 			<ul>
 				<li>you're an adult and have chickenpox</li>
@@ -111,6 +142,10 @@
 			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>")
 	  }}
 
+    </div>
+
+    <div class="backstop-black-carecard" style="padding: 3px; !important">
+
     {{ carecard("black", "Call 999 if you have sudden chest pain that:", "
       <ul>
         <li>spreads to your arms, back, neck or jaw</li>
@@ -119,4 +154,6 @@
       </ul>
       <p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>")
 	  }}
+
+    </div>
 {% endblock %}
