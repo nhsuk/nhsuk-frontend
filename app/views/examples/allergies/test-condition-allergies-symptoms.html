@@ -1,5 +1,6 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -153,31 +154,19 @@
 
 			<p>This affects the whole body and usually develops within minutes of exposure to something you're allergic to.</p>
 
-			<div class="care-card black">
-				<div class="care-card-heading">
-					<h4 class="nhsuk-heading-m">Call 999 if you have any of the main allergy symptoms as well as:</h4>
-				</div>
-				<div class="care-card-content">
-					<ul>
-						<li>swelling of the throat and mouth </li>
-						<li>difficulty breathing </li>
-						<li><a href="http://www.nhs.uk/conditions/dizziness/pages/introduction.aspx">lightheadedness</a></li>
-						<li>confusion </li>
-						<li><a href="http://www.nhs.uk/conditions/cyanosis/pages/introduction.aspx">blue skin or lips</a></li>
-						<li>collapsing and losing consciousness </li>
-					</ul>
-					<p><a href="http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx">Read more about anaphylaxis</a> for information about what to do if it occurs.</p>
-				</div>
-			</div>
+			{{ carecard("black", "Call 999 if you have any of the main allergy symptoms as well as:", "
+				<ul>
+					<li>swelling of the throat and mouth </li>
+					<li>difficulty breathing </li>
+					<li><a href='http://www.nhs.uk/conditions/dizziness/pages/introduction.aspx'>lightheadedness</a></li>
+					<li>confusion </li>
+					<li><a href='http://www.nhs.uk/conditions/cyanosis/pages/introduction.aspx'>blue skin or lips</a></li>
+					<li>collapsing and losing consciousness </li>
+				</ul>
+				<p><a href='http://www.nhs.uk/conditions/Anaphylaxis/Pages/Introduction.aspx'>Read more about anaphylaxis</a> for information about what to do if it occurs.</p>
+			") }}
 
-			<div class="care-card grey">
-				<div class="care-card-heading">
-					<h4 class="nhsuk-heading-m">Call 111</h4>
-				</div>
-				<div class="care-card-content">
-					<p>if you can't speak to your GP and don't know what to do next.</p>
-				</div>
-			</div>
+			{{ carecard("grey", "Call 111", "<p>if you can't speak to your GP and don't know what to do next.</p>") }}
 
 			<div class="nhsuk-c-review-datestamp">
 				<p>Page last reviewed: 12/02/2016<br>

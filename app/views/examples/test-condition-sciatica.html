@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/list.html" import list %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -19,11 +20,11 @@
     <h2 class="nhsuk-heading-xs">Page contents</h2>
     <ol class="nhsuk-list-nav">
         <li><a href="#symptoms">Symptoms</a></li>
-            <li><a href="#things-you-can-try">Things you can try</a></li>
-            <li><a href="#when-to-get-medical-help">When to get medical help</a></li>
-            <li><a href="#treatments-from-a-gp">Treatments from a GP</a></li>
-            <li><a href="#prevention">Prevention</a></li>
-            <li><a href="#causes">Causes</a></li>
+        <li><a href="#things-you-can-try">Things you can try</a></li>
+        <li><a href="#when-to-get-medical-help">When to get medical help</a></li>
+        <li><a href="#treatments-from-a-gp">Treatments from a GP</a></li>
+        <li><a href="#prevention">Prevention</a></li>
+        <li><a href="#causes">Causes</a></li>
     </ol>
 {% endblock %}
 
@@ -110,34 +111,23 @@
     
     <section id="when-to-get-medical-help">
 
-
-    <div class="care-card blue" role="alert">
-        <div class="care-card-heading">
-            <h2 class="nhsuk-heading-m">See a GP if the pain:</h2>
-        </div>
-        <div class="care-card-content">
+    {{ carecard("blue", "See a GP if the pain:", "
             <ul>
                 <li>hasn't improved after trying home treatments for a few weeks</li>
                 <li>is getting worse</li>
                 <li>is stopping you doing your normal activities</li>
             </ul>
-        </div>
-    </div>
+    ") }}
 
-    <div class="care-card red" role="alert">
-        <div class="care-card-heading">
-            <h2 class="nhsuk-heading-m">Go to A&amp;E or call 999 if you:</h2>
-        </div>
-        <div class="care-card-content">
-            <ul>
-                <li>have sudden weakness in both legs</li>
-                <li>have numbness or tingling around and under your genitals or inner thighs</li>
-                <li>suddenly can't pee, or can't control when you pee or poo</li>
-                </ul>
+    {{ carecard("red", "Go to A&E or call 999 if you:", "
+        <ul>
+            <li>have sudden weakness in both legs</li>
+            <li>have numbness or tingling around and under your genitals or inner thighs</li>
+            <li>suddenly can't pee, or can't control when you pee or poo</li>
+        </ul>
                 
-                <p>These could be symptoms of a serious back problem that needs to be treated in hospital as soon as possible.</p>
-        </div>
-    </div>
+        <p>These could be symptoms of a serious back problem that needs to be treated in hospital as soon as possible.</p>
+    ") }}
     
 
       <div class="clearfix"></div>
@@ -302,15 +292,8 @@
     </section>
     
                         
-                        <div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-    <div class="care-card grey care-card__extra-spacing" role="alert">
-        <div class="care-card-heading">
-            <h2 class="nhsuk-heading-m">Call 111</h2>
-        </div>
-        <div class="care-card-content">
-            <p>If you can’t speak to your GP or don’t know what to do next.</p>
-        </div>
-    </div>
+    {{ carecard("grey", "Call 111", "<p>If you can’t speak to your GP or don’t know what to do next.</p>") }}
 {% endblock %}
 

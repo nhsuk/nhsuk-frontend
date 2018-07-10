@@ -1,6 +1,7 @@
 {% set title = 'Chest Pain' %}
 {% set parent = 'Conditions' %}
 {% from "macros/action-link.html" import actionLink %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -27,47 +28,37 @@
 
         <section id="when-to-get-medical-help" class="nhsuk-page-content__section-one">
 
-        <div class="care-card black" role="alert">
-            <div class="care-card-heading">
-                <h2 class="nhsuk-heading-m">Call 999 if you have sudden chest pain that:</h2>
-            </div>
-            <div class="care-card-content">
+        {{ carecard("black", "Call 999 if you have sudden chest pain that:", "
                 <ul>
                     <li>spreads to your arms, back, neck or jaw</li>
                     <li>makes your chest feel tight or heavy</li>
                     <li>also started with shortness of breath, sweating and feeling or being sick</li>
                 </ul>
-                <p>You could be having a <a href="/conditions/heart-attack/">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
-            </div>
-        </div>
+                <p>You could be having a <a href='/conditions/heart-attack/'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+        ") }}
 
-        <div class="care-card blue" role="alert">
-            <div class="care-card-heading">
-                <h2 class="nhsuk-heading-m">See a GP or go to your local walk-in centre if:</h2>
-            </div>
-            <div class="care-card-content">
+        {{ carecard("blue", "See a GP or go to your local walk-in centre if:", "
                 <ul>
                     <li>you have chest pain that comes and goes</li>
                     <li>you have chest pain that goes away quickly but you're still worried</li>
                 </ul>
 
                 <p>It's important to get medical advice to make sure it's nothing serious.</p>
-                {{ actionLink("/service-search/walk-in%20centre/locationsearch/663", "Find a walk-in centre") }}
-            </div>
-        </div>
+
+                <a href='/service-search/walk-in%20centre/locationsearch/663' class='nhsuk-action-link'>
+                    <svg class='nhsuk-icon nhsuk-icon__arrow-right-circle' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'>
+                        <path d='M0 0h24v24H0z' fill='none'></path>
+                        <path d='M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z'></path>
+                        <image class='nhsuk-icon__arrow-right-circle nhsuk-icon__arrow-right-circle--fallback' src='images/icon-arrow-right.png' xlink:href=''></image>
+                    </svg>
+                    <span>Find a walk-in centre</span>
+                </a>
+        ") }}
 
           <div class="clearfix"></div>
         </section>
 
-
-
-
         <section id="common-causes">
-
-
-
-
-
 
         <h2>Common causes of chest pain</h2>
 
@@ -154,8 +145,6 @@
 
 
         <div class="clearfix"></div>
-
-        {% include "partials/care-cards/care-card-111.html" %}
 
 {% endblock %}
 

@@ -1,7 +1,8 @@
 {% set title = 'Slipped disc' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/list.html" import list %}
-{% from "macros/components.html" import actionLink %}
+{% from "macros/action-link.html" import actionLink %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -72,23 +73,14 @@
 
 {{ actionLink("https://beta.nhs.uk/find-a-pharmacy/", "Find a pharmacy") }}
 
-<div class="care-card blue" id="when-to-get-medical-help">
-	<div class="care-card-heading">
-		<h4 class="nhsuk-heading-m">See a GP if you:</h4>
-	</div>
-	<div class="care-card-content">
+{{ carecard("blue", "See a GP if you:", "
 		<ul>
 		<li>your painkillers aren't helping</li>
 		<li>the pain is no better after a month</li>
 		</ul>
-	</div>
-</div>
+") }}
 
-<div class="care-card red" id="when-to-get-medical-help">
-	<div class="care-card-heading">
-		<h4 class="nhsuk-heading-m">See a GP urgently or go to A&amp;E if you have back pain and you:</h4>
-	</div>
-	<div class="care-card-content">
+{{ carecard("red", "See a GP urgently or go to A&amp;E if you have back pain and you:", "
 		<ul>
 			<li>have numbness around your bottom or genitals</li>
 			<li>can't pee</li>
@@ -100,9 +92,7 @@
 			<li>notice the pain is worse at night</li>
 			<li>got it after a serious accident, such as a car accident</li>
 		</ul>
-	</div>
-</div>
-
+") }}
 
 <h3>What happens at your appointment</h3>
 
@@ -168,14 +158,9 @@
 
 	{{ list("Don't", "cross", dontItems) }}
 
-<div class="care-card grey care-card__extra-spacing">
-	<div class="care-card-heading">
-		<h2 class="nhsuk-heading-m">Call 111:</h2>
-	</div>
-	<div class="care-card-content">
-		<p>if you can’t speak to your GP or don’t know what to do next.</p>
-	</div>
-</div>
+	{{ carecard("grey", "Call 111:", "
+	<p>if you can’t speak to your GP or don’t know what to do next.</p>
+	") }}
 
 {% endblock %}
 

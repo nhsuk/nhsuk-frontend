@@ -2,6 +2,7 @@
 {% set parent = 'Conditions' %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/list.html" import list %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page-v2.html"%}
 
 {% block breadcrumb %}
@@ -148,39 +149,28 @@
 
 
 <section id="treatment-to-prevent-it">
-<!--care card blue-->
-<div class="care-card blue" role="alert">
-    <div class="care-card-heading">
-        <h3 class="nhsuk-heading-m">Speak to a GP if:</h3>
-    </div>
-    <div class="care-card-content">
-        <ul>
-		<li>you're not sure it's chickenpox</li>
-		<li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-		<li>your child is <a href="/conditions/dehydration/">dehydrated</a></li>
-		<li>you're concerned about your child or they get worse</li>
-		</ul>
 
-		<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-    </div>
-</div>
+    {{ carecard("blue", "Speak to a GP if:", "
+      <ul>
+		    <li>you're not sure it's chickenpox</li>
+		    <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+		    <li>your child is <a href='/conditions/dehydration/'>dehydrated</a></li>
+		    <li>you're concerned about your child or they get worse</li>
+		  </ul>
 
-<!--care card red-->
-<div class="care-card red" role="alert">
-    <div class="care-card-heading">
-        <h3 class="nhsuk-heading-m">Ask for an urgent GP appointment if:</h3>
-    </div>
-    <div class="care-card-content">
-			<ul>
-			<li>you're an adult and have chickenpox</li>
-			<li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-			<li>you have a weakened immune system and you've been near someone with chickenpox</li>
-			<li>you think your newborn baby has chickenpox </li>
+		  <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    ") }}
+
+    {{ carecard("red", "Ask for an urgent GP appointment if:", "
+	    <ul>
+			  <li>you're an adult and have chickenpox</li>
+			  <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+			  <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+			  <li>you think your newborn baby has chickenpox </li>
 			</ul>
 
 			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-    </div>
-</div>
+    ") }}
 </section>
 
 
@@ -278,31 +268,12 @@
 <p>This can be because of stress, certain conditions, or treatments like chemotherapy.</p>
 
 
-
-
-
-
   <div class="clearfix"></div>
 </section>
 
 <div class="content-divider content-divider--short"></div>
 
-
-<div class="care-card grey care-card__extra-spacing" role="alert">
-    <div class="care-card-heading">
-        <h2 class="nhsuk-heading-m">Call 111</h2>
-    </div>
-    <div class="care-card-content">
-        <p>If you can’t speak to your GP or don’t know what to do next.</p>
-    </div>
-</div>
+    {{ carecard("grey", "Call 11", "<p>If you can’t speak to your GP or don’t know what to do next.</p>") }}
 {% endblock %}
 
-{% block footer %}
-<footer>
-    <div class="nhsuk-o-width-container">
-        <a href="#">Test link</a>
-    </div>
-</footer>
-{% endblock %}
 
