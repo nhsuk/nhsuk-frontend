@@ -21,6 +21,15 @@
     }
   }
 
+  @include mq($until: large-desktop) {
+    .c-nav-primary {
+      &__list,
+      &__item {
+        display: block;
+      }
+    }
+  }
+
   @include mq($until: tablet) {
 
     .nhsuk-global-header {
