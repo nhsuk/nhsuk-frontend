@@ -1,5 +1,6 @@
 {% set title = 'Home' %}
 {% set navigation = 'transactional' %}
+{% from "macros/callout.html" import callout %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -21,14 +22,7 @@
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-main-wrapper">
             <div class="nhsuk-o-grid">
-
                 <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
-
-                  <div class="nhsuk-c-panel">
-                    <h3>Work in progress</h3>
-                    <p>Our code, examples and styles are being iterated. Do not use in live services.</p>
-                    <p><a href="mailto:dan.brayshaw@nhs.net">Liaise with our delivery manager Dan Brayshaw</a> before using them in your prototypes. This will allow us to work together and get your feedback.</p>
-                  </div>
 
                   <h2>Design &amp; development progress</h2>
 
@@ -68,9 +62,9 @@
                         <td>Site navigation and search &amp; Footer information and links.</td>
                       </tr>
                       <tr>
-                        <td><a href="/styles/do-dont-lists">Do &amp; Don't lists</a></td>
+                        <td><a href="/styles/breadcrumbs">Breadcrumbs</a></td>
                         <td class="td__status"><span class="nhsuk-tag nhsuk-tag__development">Development</span></td>
-                        <td>What to do and what not to do lists.</td>
+                        <td>Responsive breadcrumb trail for all pages.</td>
                       </tr>
                       <tr>
                         <td><a href="/styles/callouts">Callouts</a></td>
@@ -83,12 +77,12 @@
                         <td>Advice for users on when to get care.</td>
                       </tr>
                       <tr>
-                        <td><a href="/styles/breadcrumbs">Breadcrumbs</a></td>
-                        <td class="td__status"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></td>
-                        <td>Responsive breadcrumb trail for all pages.</td>
+                        <td><a href="/styles/do-dont-lists">Do &amp; Don't lists</a></td>
+                        <td class="td__status"><span class="nhsuk-tag nhsuk-tag__development">Development</span></td>
+                        <td>What to do and what not to do lists.</td>
                       </tr>
                       <tr>
-                        <td><a href="/styles/action-link">Action link</a></td>
+                        <td><a href="/styles/action-link">Action links</a></td>
                         <td class="td__status"><span class="nhsuk-tag nhsuk-tag__development">Development</span></td>
                         <td>A link to start an important or transactional journey.</td>
                       </tr>
@@ -130,7 +124,6 @@
                         <h2>Useful information</h2>
                         <ul>
 							              <li>our <a href="examples">example pages</a> for user testing and visual examples.</li>
-                            <li>our <a href="https://trello.com/b/uMdaerUp/standards-hitlist">Trello board</a>, for collaborating with NHS.UK designers and developers</li>
                             <li>the <a href="https://github.com/nhsuk/frontend.git">public GitHub repository</a> of our design code.</p></li>
                         </ul>
                     </div>

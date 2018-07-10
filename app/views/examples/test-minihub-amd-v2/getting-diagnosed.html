@@ -1,7 +1,7 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
-
+{% from "macros/callout.html" import callout %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -39,10 +39,7 @@
 						
 						<p>They may put drops in your eyes to make it easier for them to spot any problems. These can make your vision blurry for a few hours.</p>
 
-						<div class="nhsuk-c-panel nhsuk-c-panel__with-header-tab nhsuk-c-panel__warning">
-							<h3>Important</h3>
-							<p>Don't drive until your vision goes back to normal. This may take 4 to 6 hours.</p>
-						</div>
+						{{ callout("Important", "<p>Don't drive until your vision goes back to normal. This may take 4 to 6 hours.</p>") }}
 
 						<h2>Referral to a specialist</h2>
 						
