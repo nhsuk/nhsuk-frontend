@@ -1,0 +1,105 @@
+{% set title = 'Tables' %}
+{% set navigation = 'transactional' %}
+{% set navigationWidth = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Tables</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+    <li><a href="#userneed">User needs</a></li>
+    <li><a href="#whatsused">What's currently being used</a></li>
+    <li><a href="#hypothesis">Our hypothesis</a></li>
+    <li><a href="#Iterations">Iterations</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#example">Examples</a></li>
+    <li><a href="#accessibility">Accessibility</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block content %}
+  <h2 id="userneed">User needs</h2>
+  <p>Use the table component to make information easier to compare and scan for users.</p>
+
+  <h2 id="whatsused">What's currently being used</h2>
+  <p>To meet NHS England's information standard (<a href="https://www.england.nhs.uk/tis/about/the-info-standard/">https://www.england.nhs.uk/tis/about/the-info-standard/</a>) each product is required to feature production/last review date and the next review due date.</p>
+
+
+    <h2 id="hypothesis">Our hypothesis</h2>
+    <p>We believe</p> 
+    <ul>
+      <li>Review dates are low on users priority when info seeking, but they would be concerned if the pages hadn't been updated in a number of years.</li>
+      <li>Dates need to sit in context, close to the content they relate to. When they become detached, its unclear what they relate to.</li>
+    </ul>
+
+    <h2 id="Iterations">Iterations</h2>
+
+    <div class="example">
+
+
+    <h3>Version 1</h3>
+
+
+    <table class="govuk-table">
+        <caption class="govuk-table__caption">Dates and amounts</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Date</th>
+            <th class="govuk-table__header" scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">First 6 weeks</th>
+            <td class="govuk-table__cell ">£109.80 per week</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Next 33 weeks</th>
+            <td class="govuk-table__cell ">£109.80 per week</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Total estimated pay</th>
+            <td class="govuk-table__cell ">£4,282.20</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+        <h3>Research findings</h3>    
+
+
+
+<p></p>
+
+</div>
+
+
+
+  <h2 id="example">Examples</h2>
+
+
+  <div class="nhsuk-c-panel nhsuk-c-panel__with-border"></div>
+
+  <div class="example-snippet">
+    <p>...</p>
+  </div>
+
+  <h2 id="accessibility">Accessibility</h2>
+
+<ul>
+  <li>Contrast Ratio - 6.99:1 (<a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a></li>
+
+
+</ul>
+
+  <h2 id="usage">Usage</h2>
+
+  <p>This is where we'd suggest how to use something</p>
+
+
+{% endblock %}

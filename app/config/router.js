@@ -63,6 +63,10 @@ router.get('/styles/review-date', (req, res) => {
   res.render('styles/review-date', {});
 });
 
+router.get('/styles/tables', (req, res) => {
+  res.render('styles/tables', {});
+});
+
 /* Example pages */
 
 router.get('/examples', (req, res) => {
