@@ -1,0 +1,128 @@
+{% set title = 'Multi-page nav' %}
+{% set navigation = 'transactional' %}
+{% set navigationWidth = 'fluid' %}
+{% extends "includes/templates/styles.html"%}
+
+{% block header %}
+    <h1>Multi-page nav</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+{% endblock %}
+
+{% block sidebar %}
+    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <ul>
+    <li><a href="#userneed">User needs</a></li>
+    <li><a href="#whatsused">What's currently being used</a></li>
+    <li><a href="#hypothesis">Our hypothesis</a></li>
+    <li><a href="#Iterations">Iterations</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#example">Examples</a></li>
+    <li><a href="#accessibility">Accessibility</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block content %}
+  <h2 id="userneed">User needs</h2>
+  <p>As a user I NEED to be able to quickly navigate to a different page in the section SO THAT I can find the most relevant information for my situation.</p>
+<p>As a user I NEED to know which part of the website I am currently in SO THAT I don't get lost and I know what other information exists.</p>
+
+  <h2 id="whatsused">What's currently being used</h2>
+  <p>Currently being used on <a href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">NHS.UK condition pages</a></p>
+  <img class="component-image mobile" src="../images/components/multi-page-nav-current.png">
+
+
+
+    <h2 id="hypothesis">Our hypothesis</h2>
+    <p>We believe</p> 
+    <ul>
+      <li>Having two competing navigations (page-to-page and in-page) is confusing for users.</li>
+      <li>Users miss the page-to-page nav in the blue box as they are drawn to the in-page nav instead.</li>
+    </ul>
+
+    <h2 id="Iterations">Iterations</h2>
+
+    <div class="example version-1">
+        <h3>Version 1</h3>
+        <h4>Hypothesis</h4>
+        <p >We believe having the page-to-page nav in the right-hand column, and the in-page nav behind a reveal will allow users to navigate easier to other pages within the section.</p>
+        <p><a href="https://nhsuk-redesign.azurewebsites.net/examples/allergies/test-condition-allergies-treatment">Prototype for multi-page nav version 1</a></p>
+        <h4>Desktop view</h4>
+        <ul>
+        <li>Page-to-page nav in right-hand column</li>
+        <li>In-page nav within content hidden behind a reveal.</li>
+        </ul>
+        <img class="component-image" src="../images/components/multi-page-nav-v1.png">
+        <h4>Mobile view</h4>
+        <p>Added anchor link to page-to-page nav (at the bottom of the page</p>
+        <img class="component-image mobile" src="../images/components/multi-page-nav-mobile-top-v1.png">
+        <p>In-page nav expanded.</p>
+        <img class="component-image mobile" src="../images/components/multi-page-nav-mobile-top-open-v1.png">
+        <p>Page-to-page nav at the bottom of the page.</p>
+        <img class="component-image mobile" src="../images/components/multi-page-nav-mobile-bottom-v1.png">
+
+        <h3>Research findings</h3> 
+        <p>Lab, Leeds, 20th June 2018, 5 users</p>  
+        <ul>
+            <li>Most users (4/5) missed the link to the page-to-page nav, even when it was on screen, and they were using in-page nav
+            <li>It was not clear to users (4/5) that the section was made up of multiple pages</li>
+        </ul>
+
+    </div>
+
+    <div class="example version-2">
+
+        <h3>Version 2</h3>
+        <h4>Hypothesis</h4>
+        <p>We believe:</p>
+        <ul>
+            <li>removing the in-page nav will not have an adverse effect on users finding/reading the information</li>
+            <li>having the page-to-page nav beneath the page heading will make it clear that the section is made up of multiple pages</li>
+            <li>adding the sub-heading beneath the page heading will indicate that the page has changed</li>
+            <li>adding paging nav at the bottom of the page will allow users to navigate from page-to-page</li>
+        </ul>
+        <p><a href="https://nhsuk-redesign.azurewebsites.net/examples/test-minihub-amd">Prototype for multi-page nav version 2</a></p>
+        <img class="component-image" src="../images/components/multi-page-nav-v2.png">
+        <img class="component-image" src="../images/components/multi-page-nav-pagination-v2.png">
+        <h3>Research findings</h3> 
+        <p>Lab, Manchester, 4th July 2018, 5 users (all with access needs)</p>    
+
+    </div>
+
+    <div class="example version-3">
+
+        <h3>Version 3</h3>
+        <h4>Hypothesis</h4>
+        <p>We believe:</p>
+        <ul>
+            <li>on desktop - having the page-to-page nav in a single column will make it easier to read</li>
+            <li>swapping the heading and sub-heading around will indicate better to users what page they are on</li>
+            <li>removing the horizontal lines between content and navs will make the page flow better</li>
+        </ul>
+        <p><a href="https://nhsuk-redesign.azurewebsites.net/examples/test-minihub-amd-v2">Prototype for multi-page nav version 3</a></p>
+        <img class="component-image" src="../images/components/multi-page-nav-v3.png">
+        <img class="component-image" src="../images/components/multi-page-nav-pagination-v3.png">
+        <h3>Research findings</h3> 
+        <p>Lab, Sheffield, 16th July 2018, 6 users</p>    
+
+    </div>
+
+
+
+  <h2 id="example">Examples</h2>
+
+
+  <div class="nhsuk-c-panel nhsuk-c-panel__with-border"></div>
+
+  <div class="example-snippet">
+    <p>...</p>
+  </div>
+
+  <h2 id="accessibility">Accessibility</h2>
+
+  <h2 id="usage">Usage</h2>
+
+  <p>This is where we'd suggest how to use something</p>
+
+
+{% endblock %}

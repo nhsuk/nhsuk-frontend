@@ -26,6 +26,26 @@
     }
 
   }
+  &.version-1 {
+    &:before {
+      content: 'Version 1';
+    }
+  }
+  &.version-2 {
+    &:before {
+      content: 'Version 2';
+    }
+  }
+  &.version-3 {
+    &:before {
+      content: 'Version 3';
+    }
+  }
+  &.version-4 {
+    &:before {
+      content: 'Version 4';
+    }
+  }
 	&.grey-background{
 		background: transparent;
   }
@@ -214,4 +234,10 @@ pre[class*=language-] {
 
 .component-image {
   max-width: 100%;
+  margin-top: 16px;
+  &.mobile {
+    @include mq($from: tablet) {
+      max-width: 50%;
+    }
+  }
 }
