@@ -67,6 +67,11 @@ router.get('/styles/tables', (req, res) => {
   res.render('styles/tables', {});
 });
 
+router.get('/styles/multi-page-nav', (req, res) => {
+  res.render('styles/multi-page-nav', {});
+});
+
+
 /* Example pages */
 
 router.get('/examples', (req, res) => {
