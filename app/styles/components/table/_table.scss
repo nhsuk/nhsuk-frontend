@@ -5,8 +5,8 @@
   width: 100%;
   th,
   td {
-    border-bottom: 1px solid $nhsuk-border-colour;
-    padding: 16px 8px 16px 0;
+    border-bottom: 1px solid $nhsuk-grey-3;
+    padding: 1em 0.5em 1em 0;
     text-align: left;
     text-transform: none;
     &.td__status,
@@ -17,4 +17,43 @@
   th {
     font-weight: 600;
   }
+}
+
+
+.nhsuk-table2 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 3em 0;
+  width: 100%;
+  background-color: $nhsuk-white ;
+  border-spacing: 0;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding-bottom:1em;
+
+  th,
+  td {
+    border-bottom: 1px solid $nhsuk-grey-3;
+    padding: 1em 1em 1em 1em;
+    text-align: left;
+    text-transform: none;
+    vertical-align: top;
+    &.td__status,
+    &.th__status {
+      width: 175px;
+    }
+  }
+caption {
+font-weight: 600;
+text-align: left;
+padding: 0 0 1em 0;
+
+}
+  th {
+    font-weight: 600;
+    display: table-cell;
+    background-color: $nhsuk-grey-4;
+
+  }
+  tr:hover {background-color: $nhsuk-grey-4;}
 }
