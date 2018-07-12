@@ -5,8 +5,8 @@
   width: 100%;
   th,
   td {
-    border-bottom: 1px solid $nhsuk-grey-1;
-    padding: 16px 8px 16px 0;
+    border-bottom: 1px solid $nhsuk-grey-3;
+    padding: 1em 0.5em 1em 0;
     text-align: left;
     text-transform: none;
     &.td__status,
@@ -52,7 +52,7 @@ padding: 0 0 1em 0;
   th {
     font-weight: 600;
     display: table-cell;
-    background-color: $nhsuk-grey-3;
+    background-color: $nhsuk-grey-4;
     
   }
   tr:hover {background-color: $nhsuk-grey-4;}

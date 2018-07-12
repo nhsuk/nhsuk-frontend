@@ -101,6 +101,10 @@ router.get('/examples/test-condition-knee-pain', (req, res) => {
   res.render('examples/test-condition-knee-pain', {});
 });
 
+router.get('/examples/test-condition-knee-pain-v2', (req, res) => {
+  res.render('examples/test-condition-knee-pain-v2', {});
+});
+
 router.get('/examples/test-condition-slipped-disc', (req, res) => {
   res.render('examples/test-condition-slipped-disc', {});
 });
