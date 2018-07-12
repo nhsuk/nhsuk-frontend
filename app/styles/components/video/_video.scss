@@ -1,0 +1,30 @@
+.video-js {
+
+  .vjs-big-play-button {
+    background: #00a499;
+
+    @include mq($from: tablet, $until: desktop) {
+      font-size: 4em !important;
+    }
+
+    @include mq($from: large-desktop) {
+      font-size: 4.5em !important;
+    }
+
+    &:hover,
+    &:focus {
+      background: #006747;
+    }
+  }
+
+  .vjs-control-bar {
+
+    @include mq($until: tablet) {
+      font-size: 11px !important;
+    }
+
+    @include mq($from: tablet) {
+      font-size: 15px !important;
+    }
+  }
+}
