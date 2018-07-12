@@ -24,6 +24,11 @@
 			margin-top:0;
 			column-count: 1;
 			column-gap: 1;
+			li {
+				&.active {
+					font-weight: 600;
+				}
+			}
 		}
 
 		ol li:before, 

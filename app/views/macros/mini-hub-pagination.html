@@ -1,5 +1,5 @@
 {% macro miniHubPagination(previousUrl, previousTitle, nextUrl, nextTitle) %}
-    <div class="nhsuk-c-pagination-v2">
+    <nav class="nhsuk-c-pagination-v2" role="navigation" aria-label="Pagination">
         <a href="{{previousUrl}}" class="nhsuk-c-pagination-prev">
             <span class="nhsuk-c-pagination-link">Previous</span>
             <span class="nhsuk-c-pagination-title">{{previousTitle}}</span>
@@ -11,27 +11,27 @@
             {% include 'partials/icons/icon-arrow-right.svg' %}
         </a>
         <div class="clear"></div>
-    </div>
+    </nav>
 {% endmacro %}
 
 {% macro miniHubPaginationPrevious(previousUrl, previousTitle) %}
-    <div class="nhsuk-c-pagination-v2">
+    <nav class="nhsuk-c-pagination-v2" role="navigation" aria-label="Pagination">
         <a href="{{previousUrl}}" class="nhsuk-c-pagination-prev">
             <span class="nhsuk-c-pagination-link">Previous</span>
             <span class="nhsuk-c-pagination-title">{{previousTitle}}</span>
             {% include 'partials/icons/icon-arrow-left.svg' %}
         </a>
         <div class="clear"></div>
-    </div>
+    </nav>
 {% endmacro %}
 
 {% macro miniHubPaginationNext(nextUrl, nextTitle) %}
-    <div class="nhsuk-c-pagination-v2">
+    <nav class="nhsuk-c-pagination-v2" role="navigation" aria-label="Pagination">
         <a href="{{nextUrl}}" class="nhsuk-c-pagination-next">
             <span class="nhsuk-c-pagination-link">Next</span>
             <span class="nhsuk-c-pagination-title">{{nextTitle}}</span>
             {% include 'partials/icons/icon-arrow-right.svg' %}
         </a>
         <div class="clear"></div>
-    </div>
+    </nav>
 {% endmacro %}
