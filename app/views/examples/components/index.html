@@ -5,6 +5,7 @@
 {% from "macros/list.html" import list %}
 {% from "macros/action-link.html" import actionLink %}
 {% from "macros/care-card.html" import carecard %}
+{% from "macros/image.html" import image %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -154,6 +155,18 @@
       </ul>
       <p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>")
 	  }}
+
+    </div>
+
+    <div class="backstop-images" style="padding: 3px; !important">
+
+      <div class="nhsuk-o-grid">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+            {{ image("Blurred book showing what vision is like for a person with early AMD", "https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-320x213.jpg", "<p>The first symptom is often a blurred or distorted area in your vision</p>") }}
+            
+            {{ image("A dark patch in the vision of someone with AMD", "https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-320x213.jpg", "<p>If it gets worse, you might struggle to see anything in the middle of your vision</p>") }}
+        </div>
+      </div>
 
     </div>
 {% endblock %}

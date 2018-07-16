@@ -131,6 +131,13 @@
       "selectors": [
         ".backstop-black-carecard"
       ]
+    },
+    {
+      "label": "Image component",
+      "url": "http://localhost:3000/examples/components",
+      "selectors": [
+        ".backstop-images"
+      ]
     }
   ],
   "paths": {
