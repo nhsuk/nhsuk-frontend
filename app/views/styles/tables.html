@@ -27,16 +27,23 @@
   <p>Use the table component to make information easier to compare and scan for users.</p>
 
   <h2 id="whatsused">What's currently being used</h2>
+  <ul>
+    <li><a href="https://www.nhs.uk/conditions/cold-sores/">https://www.nhs.uk/conditions/cold-sores/</a></li>
+    <li><a href="https://beta.nhs.uk/medicines/paracetamol-for-children/">https://beta.nhs.uk/medicines/paracetamol-for-children/</a></li>
+
+  </ul>
 
     <h2 id="hypothesis">Our hypothesis</h2>
     <p>We believe</p> 
     <ul>
-      <li></li>
+      <li>tables are hard to scan on the grey background, so we've put them in a white box</li>
+      <li>To aid scanning information we've added a hover colour on desktop screens</li>
+
     </ul>
 
     <h2 id="Iterations">Iterations</h2>
 
-<div class="nhsuk-c-panel">
+<!--<div class="nhsuk-c-panel">
     <table border="0" class="table-smallscreen--stacked nhsuk-table3">
       <h3 id="do">Paracetamol tablet dosages for children</h3>
         <thead class="nhsuk-table3" >
@@ -85,21 +92,42 @@
       </tbody>
       </table>
 
+    </div>-->
+
+    <h3>Version 1</h3>
+    <p>With caption:</p>
+    <div class="nhsuk-c-panel">
+        <table class="nhsuk-table2">
+            <h3>When it's not a cold sore</h3>
+        <thead>
+        <tr>
+          <th scope="col">Skin symptoms</th>
+          <th scope="col">Possible cause</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row">
+          <td >Blisters on lips or around the mouth</td>
+          <td><a href="/conditions/cold-sore/">cold sores</a></td>
+        </tr>
+        <tr scope="row">
+          <td>Itchy, dry, cracked, sore</td>
+          <td><a href="/conditions/atopic-eczema/">eczema</a></td>
+        </tr>
+        <tr scope="row">
+          <td>Itchy blisters</td>
+          <td><a href="/conditions/shingles">shingles</a>, <a href="/conditions/chickenpox/">chickenpox</a></td>
+        </tr>
+        </tbody>
+        </table>
+
+
+
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-    <table class="nhsuk-table2">
-            <caption>Table heading</caption>
+    <p>Without caption:</p>
+    <div class="nhsuk-c-panel">
+        <table class="nhsuk-table2">
         <thead>
         <tr>
           <th>Skin symptoms</th>
@@ -122,64 +150,24 @@
         </tbody>
         </table>
 
-        <table class="nhsuk-table2">
-            <tbody>
-            <tr>
-            <th>Age</th>
-            <th>How much</th>
-            </tr>
-            <tr>
-            <td>3 to 5 months <br>(weighing more than 5kg)</td>
-            <td>2.5ml 3 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>6 to 11 months</td>
-            <td>2.5ml 3 to 4 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>1 to 3 years</td>
-            <td>5ml 3 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>4 to 6 years</td>
-            <td>7.5ml 3 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>7-9 years</td>
-            <td>10ml 3 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>10 to11 years</td>
-            <td>15ml 3 times in 24 hours</td>
-            </tr>
-            <tr>
-            <td>12 to 17 years</td>
-            <td>15 to 20ml 3 to 4 times in 24 hours</td>
-            </tr>
-            </tbody>
-            </table>
 
 
-
-    <div class="example">
-
-
-    <h3>Version 1</h3>
+    </div>
 
 
 
 
 
-            
-
-
-        <h3>Research findings</h3>    
 
 
 
-<p></p>
 
-</div>
+    
+
+       
+
+
+
 
 
 
@@ -194,8 +182,12 @@
 
   <h2 id="accessibility">Accessibility</h2>
 
+  <p>Following webaim.org's guidance for tables (<a href="https://webaim.org/techniques/tables/data">https://webaim.org/techniques/tables/data</a>) we suggest</p>
+
 <ul>
-  <li>Contrast Ratio - 6.99:1 (<a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a></li>
+ <li>Tables should have captions</li>
+ <li>Use the scope attribute to associate the data cells with the appropriate headers</li>
+ <li>Let the browser window determine the width of the table whenever possible, to reduce the horizontal scrolling required of those with low vision</li>
 
 
 </ul>
