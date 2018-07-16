@@ -3,15 +3,7 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-	<nav class="nhsuk-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-		<div class="nhsuk-o-width-container">
-			<ol>
-				<li><a href="/">Home</a></li>
-				<li><a href="https://www.nhs.uk/conditions/">Type 1 diabetes</a></li>
-			</ol>
-			<p><a href="https://www.nhs.uk/conditions/">Back to Type 1 diabetes</a></p>
-		</div>
-	</nav>
+	{% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
