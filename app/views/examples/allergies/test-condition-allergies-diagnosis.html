@@ -3,6 +3,7 @@
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/action-link.html" import actionLink %}
 {% from "macros/care-card.html" import carecard %}
+{% from "macros/image.html" import image %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -80,27 +81,10 @@
 
 			<h2 id="skin-prick-testing">Skin prick testing</h2>
 
-			<div class="nhsuk-c-image">
-				<img
-					alt="Picture of a skin prick test"
-					src="https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-920x613.jpg"
-					sizes="(min-width: 920px) 920px, 100vw"
-					srcset="
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-320x213.jpg 320w,
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-919x612.jpg 919w,
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-920x613.jpg 920w,
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1125x750.jpg 1125w,
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1838x1225.jpg 1838w,
-
-						https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-1840x1226.jpg 1840w,
-
-					"
-				/>
+			<div class="nhsuk-o-grid">
+				<div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+						{{ image("Picture of a skin prick test", "https://assets.nhs.uk/prod/images/M3200456.2e16d0ba.fill-920x613.jpg", "<p>Skin prick testing is one of the most common allergy tests.</p>") }}
+				</div>
 			</div>
 
 			<p>Skin prick testing is one of the most common allergy tests.</p>
