@@ -1,3 +1,9 @@
+2018-07-16
+==================
+- Updated header and footer examples page
+- Renamed search png icon
+- Added missing close div in footer
+
 2018-07-10
 ==================
 - Updated breadcrumbs code - new html/css/svg
