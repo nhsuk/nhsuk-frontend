@@ -79,6 +79,11 @@ function publishActionLink() {
   .pipe(gulp.dest('dist/packages/action-link/'));
 }
 
+function publishImageComponent() {
+  return gulp.src('src/images/*')
+  .pipe(gulp.dest('dist/packages/images/'));
+}
+
 function publishIcons() { // Hard coded file names until we clear out the assets folder.
   return gulp.src(['app/views/partials/logos/*', 'app/views/partials/icons/icon-tick.svg', 'app/views/partials/icons/icon-cross.svg', 'app/views/partials/icons/icon-arrow-right-circle.svg'])
   .pipe(gulp.dest('dist/assets/icons'));
@@ -99,10 +104,11 @@ exports.publishCallout = publishCallout;
 exports.publishCareCard = publishCareCard;
 exports.publishActionLink = publishActionLink;
 exports.publishSkiplinks = publishSkiplinks;
+exports.publishImageComponent = publishImageComponent;
 exports.publishIcons = publishIcons;
 exports.publishImages = publishImages
 
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishImageComponent, publishIcons, publishImages));

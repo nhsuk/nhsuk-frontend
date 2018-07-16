@@ -4,6 +4,7 @@
 {% from "macros/action-link.html" import actionLink %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/care-card.html" import carecard %}
+{% from "macros/image.html" import image %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -37,59 +38,11 @@
 
 						<p>You can get it in one eye or both.</p>
 
-						<div class="nhsuk-c-image">
-							<img
-							alt="Blurred book showing what vision is like for a person with early AMD"
-							src="https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-320x213.jpg"
-							sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-							srcset="
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-320x213.jpg 320w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-510x340.jpg 510w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-640x427.jpg 640w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-767x511.jpg 767w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-1019x679.jpg 1019w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-1125x750.jpg 1125w,
-								
-								https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-1534x1023.jpg 1534w,
-								
-							"
-							/>
-							<div class="nhsuk-c-image-caption">
-								<p>The first symptom is often a blurred or distorted area in your vision</p>
-							</div>
-						</div>
-
-						<div class="nhsuk-c-image">
-							<img
-							alt="A dark patch in the vision of someone with AMD"
-							src="https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-320x213.jpg"
-							sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-							srcset="
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-320x213.jpg 320w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-510x340.jpg 510w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-640x427.jpg 640w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-767x511.jpg 767w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-1019x679.jpg 1019w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-1125x750.jpg 1125w,
-								
-								https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-1534x1022.jpg 1534w,
-								
-							"
-							/>
-							<div class="nhsuk-c-image-caption">
-								<p>If it gets worse, you might struggle to see anything in the middle of your vision</p>
+						<div class="nhsuk-o-grid">
+							<div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+									{{ image("Blurred book showing what vision is like for a person with early AMD", "https://assets.nhs.uk/prod/images/NHSC_0218_AMD_Version2.2e16d0ba.fill-320x213.jpg", "<p>The first symptom is often a blurred or distorted area in your vision</p>") }}
+									
+									{{ image("A dark patch in the vision of someone with AMD", "https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-320x213.jpg", "<p>If it gets worse, you might struggle to see anything in the middle of your vision</p>") }}
 							</div>
 						</div>
 

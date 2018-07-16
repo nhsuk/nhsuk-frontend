@@ -1,84 +1,75 @@
 {% set title = 'Images' %}
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
+{% from "macros/image.html" import image %}
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
     <h1>Images</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
 {% endblock %}
 
 {% block sidebar %}
-    <h2 class="nhsuk-heading-xs">Contents</h2>
+    <h2 class="nhsuk-heading-xs">Page contents</h2>
     <ul>
-		<li><a href="#rules">Rules</a></li>
-		<li><a href="#user-needs">User needs</a></li>
-    <li><a href="#example">Example</a></li>
+        <li><a href="#user-need">User need</a></li>
+        <li><a href="#usage">Where it's currently being used</a></li>
+        <li><a href="#hypothesis">Hypothesis</a></li>
+        <li><a href="#iterations">Iterations</a></li>
+        <li><a href="#final-version">Final version</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#rules">Rules</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-
-  <h2 id="rules">Rules</h2>
-
-
-  <ul>
-    <li>Only use images where it adds to user understanding (e.g pictures of symptoms to aid identification, such as rashes)</li>
-    <li>Image sizing - to ensure images flow with content; size 2/3 on larger screens (desktop / tablet) and full width on small screens (mobile)</li>
-    <li>Captions - we use them to include essential information (not optional information)</li>
-
-
-
-  </ul>
-
-
-  <h2 id="user-needs">User needs</h2>
-
-
+  <h3 id="user-need">User need</h3>
   <ul>
     <li>As a user I WANT visual context (supporting written information), SO THAT I can help identify my health thing (condition / symptom / medicine).</li>
     <li>As a user I WANT visual context, SO THAT I'm reassured that I'm on the correct page.</li>
   </ul>
 
+  <h3 id="usage">Where it's currently being used</h3>
+  <p>...</p>
 
-	<h2 id="example">Example</h2>
+  <h3 id="hypothesis">Hypothesis</h3>
+  <p>...</p>
 
-    <div class="example" style="background-color: #eff2f3;">
+  <h3 id="final-version">Final version</h3>
 
-            <div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-                    <img
-                        alt="Picture of allergic conjunctivitis"
-                        src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
-                        sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-                        srcset="
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg 320w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-510x340.jpg 510w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1019x679.jpg 1019w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1125x750.jpg 1125w,
-                        
-                            https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M.2e16d0ba.fill-1534x1023.jpg 1534w,
-                        
-                        "
-                    />
-                    <div class="nhsuk-c-image-caption">
-                        <p>Itchy, red, watering eyes</p>
-                    </div>
-                </div>
-    
-          
-    
-      </div>
+  <div class="nhsuk-reading-width">
+    <div class="example grey-background">
+        <div class="nhsuk-o-grid">
+		    <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+                {{ image("Picture of allergic conjunctivitis", "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg", "<p>Itchy, red, watering eyes</p>") }}
+            </div>
+        </div>
+    </div>
+  </div>
 
   <div class="example-snippet">
-
+    <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
+    
+<pre class="language-markup" id="clipboard-1"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-image<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Picture of allergic conjunctivitis<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-image__caption<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Itchy, red, watering eyes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>  
   </div>
+
+  <h3 id="accessibility">Accessibility</h3>
+  <p>...</p>
+
+  <h3 id="rules">Rules</h2>
+  <ul>
+    <li>Only use images where it adds to user understanding (e.g pictures of symptoms to aid identification, such as rashes)</li>
+    <li>Image sizing - to ensure images flow with content; size 2/3 on larger screens (desktop / tablet) and full width on small screens (mobile)</li>
+    <li>Captions - we use them to include essential information (not optional information)</li>
+  </ul>
 
 {% endblock %}

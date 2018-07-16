@@ -1,6 +1,7 @@
 {% set title = 'Allergies' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/care-card.html" import carecard %}
+{% from "macros/image.html" import image %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -25,17 +26,6 @@
 
 			<div class="nhsuk-page-heading">
 				<h1>Allergies<span class="nhsuk-o-h1-sub">Symptoms</span></h1>
-
-				<!--<nav class="nhsuk-c-tab-nav">
-					<ul>
-						<li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
-						<li><strong>Symptoms</strong></li>
-						<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
-					</ul>
-				</nav>-->
-
 				<p class="nhsuk-body-l nhsuk-page-intro">Symptoms of an allergic reaction usually develop within a few minutes of being exposed to something you're allergic to, although occasionally they can develop gradually over a few hours.</p>
 			</div>
 
@@ -71,68 +61,20 @@
 			<p>Common symptoms of an allergic reaction include: </p>
 
 			<ul>
-			<li>sneezing and an itchy, runny or blocked nose (<a href="http://www.nhs.uk/conditions/rhinitis---allergic/Pages/Introduction.aspx">allergic rhinitis</a>) </li>
-			<li>itchy, red, watering eyes (<a href="http://www.nhs.uk/conditions/Conjunctivitis-infective/Pages/Introduction.aspx">conjunctivitis</a>) </li>
-			<li>wheezing, chest tightness, <a href="http://www.nhs.uk/conditions/shortness-of-breath/Pages/Introduction.aspx">shortness of breath</a> and a <a href="http://www.nhs.uk/conditions/cough/pages/introduction.aspx">cough</a></li>
-			<li>a raised, itchy, red rash (<a href="http://www.nhs.uk/conditions/nettle-rash/pages/introduction.aspx">hives</a>) </li>
-			<li><a href="http://www.nhs.uk/conditions/Angioedema/Pages/Introduction.aspx">swollen lips, tongue, eyes or face</a></li>
-			<li><a href="http://www.nhs.uk/conditions/stomach-ache-abdominal-pain/Pages/Introduction.aspx">tummy pain</a>, feeling sick, <a href="http://www.nhs.uk/conditions/vomiting-adults/Pages/Introduction.aspx">vomiting</a> or <a href="http://www.nhs.uk/conditions/Diarrhoea/Pages/Introduction.aspx">diarrhoea</a></li>
-			<li>dry, red and cracked skin</li>
+				<li>sneezing and an itchy, runny or blocked nose (<a href="http://www.nhs.uk/conditions/rhinitis---allergic/Pages/Introduction.aspx">allergic rhinitis</a>) </li>
+				<li>itchy, red, watering eyes (<a href="http://www.nhs.uk/conditions/Conjunctivitis-infective/Pages/Introduction.aspx">conjunctivitis</a>) </li>
+				<li>wheezing, chest tightness, <a href="http://www.nhs.uk/conditions/shortness-of-breath/Pages/Introduction.aspx">shortness of breath</a> and a <a href="http://www.nhs.uk/conditions/cough/pages/introduction.aspx">cough</a></li>
+				<li>a raised, itchy, red rash (<a href="http://www.nhs.uk/conditions/nettle-rash/pages/introduction.aspx">hives</a>) </li>
+				<li><a href="http://www.nhs.uk/conditions/Angioedema/Pages/Introduction.aspx">swollen lips, tongue, eyes or face</a></li>
+				<li><a href="http://www.nhs.uk/conditions/stomach-ache-abdominal-pain/Pages/Introduction.aspx">tummy pain</a>, feeling sick, <a href="http://www.nhs.uk/conditions/vomiting-adults/Pages/Introduction.aspx">vomiting</a> or <a href="http://www.nhs.uk/conditions/Diarrhoea/Pages/Introduction.aspx">diarrhoea</a></li>
+				<li>dry, red and cracked skin</li>
 			</ul>
-
-			<div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-				<img
-					alt="Picture of allergic conjunctivitis"
-					src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
-					sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-					srcset="
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg 320w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-510x340.jpg 510w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1019x679.jpg 1019w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M1.2e16d0ba.fill-1125x750.jpg 1125w,
-
-						https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M.2e16d0ba.fill-1534x1023.jpg 1534w,
-
-					"
-				/>
-				<div class="nhsuk-c-image-caption">
-					<p>Itchy, red, watering eyes</p>
-				</div>
-			</div>
-
-			<div class="nhsuk-c-image nhsuk-o-grid__item--two-thirds">
-				<img
-					alt="Picture of hives"
-					src="https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg"
-					sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw"
-					srcset="
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg 320w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-510x340.jpg 510w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-640x427.jpg 640w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-767x511.jpg 767w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1019x679.jpg 1019w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1125x750.jpg 1125w,
-
-						https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-1534x1023.jpg 1534w,
-
-					"
-				/>
-				<div class="nhsuk-c-image-caption">
-					<p>Raised, itchy, red rash (hives)</p>
+			
+			<div class="nhsuk-o-grid">
+				<div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+						{{ image("Picture of allergic conjunctivitis", "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg", "<p>Itchy, red, watering eyes</p>") }}
+						
+						{{ image("Picture of hives", "https://assets.nhs.uk/prod/images/S_1017_hives_C0269182.2e16d0ba.fill-320x213.jpg", "<p>Raised, itchy, red rash (hives)</p>") }}
 				</div>
 			</div>
 
