@@ -23,15 +23,31 @@
 .nhsuk-table2 {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 3em 0;
+  margin: 0;
   width: 100%;
   background-color: $nhsuk-white ;
   border-spacing: 0;
     border-collapse: collapse;
     vertical-align: top;
     padding-bottom:1em;
-    border: 1px solid $nhsuk-grey-4;
+    tr:hover {
+      background-color: #fffbce;
+    }
     
+    td, th {
+      position: relative;
+    }
+    td:hover::after,
+    th:hover::after {
+      content: "";
+      position: absolute;
+      background-color: #fffbce;
+      left: 0;
+      top: -5000px;
+      height: 10000px;
+      width: 100%;
+      z-index: -1;
+    }
   th,
   td {
     border-bottom: 1px solid $nhsuk-grey-2;
@@ -53,8 +69,7 @@ padding: 0 0 1em 0;
   th {
     font-weight: 600;
     display: table-cell;
-    background-color: #f0f4f5;
-    border-bottom:2px solid black;
+    border-bottom:2px solid $nhsuk-grey-2;
   }
 }
 
