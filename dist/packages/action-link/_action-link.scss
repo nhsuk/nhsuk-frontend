@@ -1,0 +1,50 @@
+.nhsuk-action-link {
+  display: inline-block;
+  font-size: 21px;
+  font-weight: 600;
+  margin: 32px 16px 32px 0;
+  padding-left: 42px;
+  position: relative;
+  text-decoration: none;
+
+  @include mq($until: tablet) {
+    font-size: 19px;
+    padding-left: 36px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: none;
+  }
+
+  .nhsuk-icon__arrow-right-circle {
+    fill: $nhsuk-green;
+    height: 40px;
+    left: -3px;
+    position: absolute;
+    top: -6px;
+    width: 40px;
+
+    @include mq($until: tablet) {
+      height: 34px;
+      margin-bottom: -9px;
+      top: -5px;
+      width: 34px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .nhsuk-icon__arrow-right-circle {
+      fill: $nhsuk-green-shade-35;
+    }
+  }
+
+  &:active {
+    .nhsuk-icon__arrow-right-circle {
+      fill: $nhsuk-green-shade-50;
+    }
+  }
+
+}
