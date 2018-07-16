@@ -246,4 +246,12 @@ router.get('/examples/diabetes/page', (req, res) => {
   res.render('examples/diabetes/page', {});
 });
 
+router.get('/examples/medicines/medicines-v1', (req, res) => {
+  res.render('examples/medicines/medicines-v1', {});
+});
+
+router.get('/examples/medicines/medicines-v2', (req, res) => {
+  res.render('examples/medicines/medicines-v2', {});
+});
+
 module.exports = router;
