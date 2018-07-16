@@ -254,4 +254,13 @@ router.get('/examples/medicines/medicines-v2', (req, res) => {
   res.render('examples/medicines/medicines-v2', {});
 });
 
+router.get('/examples/test-condition-sore-throat-v1', (req, res) => {
+  res.render('examples/test-condition-sore-throat-v1', {});
+});
+
+
+
+
+
+
 module.exports = router;
