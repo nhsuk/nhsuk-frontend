@@ -17,6 +17,7 @@
 @import 'components/pagination/pagination';
 @import 'components/skip-links/skip-links';
 @import 'components/video/video';
+@import 'components/promo-v2/promo';
 
 @import 'pages/code';
 @import 'pages/grid';
@@ -76,8 +77,27 @@ ul ul, ol ul {
     margin-top: 0;
 }
 
+
+// Diabetes example page work
+
 hr.nhsuk-hr {
     border-top: 0;
     border-bottom: 1px solid $nhsuk-border-colour;
-    margin: 72px 0;
+    margin: 56px 0;
+
+    @include mq($until: tablet) {
+      margin: 40px 0;
+    }
+}
+
+.nhsuk-list-links {
+    list-style: none;
+    padding-left: 0;
+    li {
+      margin: 12px 0 0;
+    }
+}
+  
+.nhsuk-list-links-heading + .nhsuk-list-links {
+margin: 12px 0 0;
 }
