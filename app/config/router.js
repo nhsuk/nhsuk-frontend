@@ -234,6 +234,10 @@ router.get('/examples/components', (req, res) => {
   res.render('examples/components/index', {});
 });
 
+router.get('/examples/components-wagtail', (req, res) => {
+  res.render('examples/components/wagtail', {});
+});
+
 router.get('/examples/header-footer-example', (req, res) => {
   res.render('examples/header-footer-example', {});
 });

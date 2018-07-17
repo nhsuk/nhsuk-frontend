@@ -1,0 +1,103 @@
+/////////////////////
+/// Do & Don't list
+////////////////////
+
+.nhsuk-c-panel--check-list-wagtail {
+
+  ul {
+    margin-top: 0;
+    list-style: none;
+    position: relative;
+
+    li {
+      padding-left: 20px;
+
+      &:before {
+        display: block;
+        content: '';
+        background: url();
+        background-size: 34px 34px;
+        height: 34px;
+        width: 34px;
+        position: absolute;
+        left: 0;
+      }
+
+    }
+
+  }
+
+}
+
+.nhsuk-c-panel--cross-list-wagtail {
+
+  ul {
+    margin-top: 0;
+    list-style: none;
+    position: relative;
+
+    li {
+      padding-left: 20px;
+
+      &:before {
+        display: block;
+        content: '';
+        background: url(/images/Icon-cross_v2.svg);
+        background-size: 34px 34px;
+        height: 34px;
+        width: 34px;
+        position: absolute;
+        left: -4px;
+        margin-top: -4px;
+      }
+
+    }
+
+  }
+
+}
+
+/////////////////////
+/// Action Link
+////////////////////
+
+.nhsuk-c-action-link-wagtail {
+  margin: 32px 16px 32px 0;
+  position: relative;
+
+  a {
+    font-size: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    padding-left: 42px;
+
+    @include mq($until: tablet) {
+      font-size: 19px;
+      padding-left: 36px;
+    }
+  
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      background: url(/images/Icon-arrow1-right-ALT-circle_v2.svg);
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: -3px;
+      top: -6px;
+    }
+
+  }
+
+}
+
+/////////////////////
+/// Care Cards
+////////////////////
