@@ -57,8 +57,21 @@
     .nhsuk-back-to-top-link {
         display: inline-block;
         margin-top: 16px;
+        padding-left: 12px;
+        position: relative;
         @include mq($until: tablet) {
             margin: 16px 16px 0;
+        }
+        .nhsuk-icon {
+            transform: rotate(270deg);
+            height: 19px;
+            left: -8px;
+            position: absolute;
+            top: 4px;
+            width: 19px;
+            @include mq($until: tablet) {
+                top: 3px;
+            }
         }
     }
 }
