@@ -140,6 +140,14 @@
       top: -6px;
     }
 
+    @include mq($until: tablet) {
+      &:before {
+        background-size: 34px 34px;
+        height: 34px;
+        width: 34px;
+      }
+    }
+
   }
 
 }
