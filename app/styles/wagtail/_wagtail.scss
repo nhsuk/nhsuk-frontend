@@ -152,6 +152,32 @@
 
 }
 
+.no-svg {
+  .nhsuk-c-panel--tick-list-wagtail { 
+    ul {
+      li {  
+        &:before {
+          background-image: url(/images/icon-tick.png);
+        }
+      }
+    }
+  }
+  .nhsuk-c-panel--cross-list-wagtail { 
+    ul {
+      li {  
+        &:before {
+          background-image: url(/images/icon-cross.png);
+        }
+      }
+    }
+  }
+  .nhsuk-c-action-link-wagtail { 
+    &:before {
+      background-image: url(/images/icon-arrow-right.png); 
+    }
+  }
+}
+
 /////////////////////
 /// Care Cards
 ////////////////////
