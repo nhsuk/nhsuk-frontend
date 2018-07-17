@@ -1,3 +1,48 @@
+//////////////////////
+/// Callout
+/////////////////////
+
+.nhsuk-c-panel-wagtail {
+  background: $nhsuk-white;
+  margin: 72px 0 56px;
+  padding: 24px;
+  padding-top: 0;
+  position: relative;
+
+  @include mq($until: tablet) {
+    margin: 40px 0;
+  }
+
+  h3 {
+    background: $nhsuk-blue;
+    color: $nhsuk-white;
+    display: inline-block;
+    margin: 0 -24px 8px;
+    padding: 8px 24px;
+    position: relative;
+    top: -16px;
+    @include mq($until: tablet) {
+      top: -8px;
+    }
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  &__warning {
+    background: $nhsuk-pale-yellow;
+    color: $nhsuk-text-colour;
+    h3 {
+      background: $nhsuk-yellow;
+      color: $nhsuk-text-colour;
+    }
+  }
+
+  @include top-and-bottom();
+
+}
+
 /////////////////////
 /// Do & Don't list
 ////////////////////
@@ -15,12 +60,13 @@
       &:before {
         display: block;
         content: '';
-        background: url();
+        background: url(/images/Icon-tick-v4.svg);
         background-size: 34px 34px;
         height: 34px;
         width: 34px;
         position: absolute;
-        left: 0;
+        left: -4px;
+        margin-top: -5px;
       }
 
     }
@@ -48,7 +94,7 @@
         width: 34px;
         position: absolute;
         left: -4px;
-        margin-top: -4px;
+        margin-top: -5px;
       }
 
     }
@@ -85,7 +131,7 @@
     &:before {
       display: block;
       content: '';
-      background: url(/images/Icon-arrow1-right-ALT-circle_v2.svg);
+      background: url(/images/icon-arrow-right-wagtail.svg);
       background-size: 40px 40px;
       height: 40px;
       width: 40px;
