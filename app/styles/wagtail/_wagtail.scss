@@ -131,7 +131,11 @@
     &:before {
       display: block;
       content: '';
+<<<<<<< HEAD
       background: url(/images/icon-arrow-right-wagtail.svg);
+=======
+      background: url(/images/Icon-arrow1-right-ALT-circle_v2.svg);
+>>>>>>> :bird: wagtail specific component styling
       background-size: 40px 40px;
       height: 40px;
       width: 40px;
@@ -140,6 +144,7 @@
       top: -6px;
     }
 
+<<<<<<< HEAD
     @include mq($until: tablet) {
       &:before {
         background-size: 34px 34px;
@@ -148,10 +153,13 @@
       }
     }
 
+=======
+>>>>>>> :bird: wagtail specific component styling
   }
 
 }
 
+<<<<<<< HEAD
 .no-svg {
   .nhsuk-c-panel--tick-list-wagtail { 
     ul {
@@ -178,6 +186,8 @@
   }
 }
 
+=======
+>>>>>>> :bird: wagtail specific component styling
 /////////////////////
 /// Care Cards
 ////////////////////
