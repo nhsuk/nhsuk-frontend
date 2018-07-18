@@ -262,9 +262,9 @@ router.get('/examples/test-condition-sore-throat-v1', (req, res) => {
   res.render('examples/test-condition-sore-throat-v1', {});
 });
 
-
-
-
+router.get('/examples/health-a-z/health-a-z', (req, res) => {
+  res.render('examples/health-a-z/health-a-z', {});
+});
 
 
 module.exports = router;
