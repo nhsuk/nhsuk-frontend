@@ -1,5 +1,6 @@
 {% set title = 'Type 1 diabetes - example page' %}
 {% set parent = 'Health A-Z' %}
+{% from "macros/care-card.html" import carecard %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -152,14 +153,7 @@
 			<li><a href="http://www.nhs.uk/conditions/Asthma/Pages/Treatment.aspx">asthma</a></li>
 			</ul>
 
-			<div class="care-card grey">
-				<div class="care-card-heading">
-					<h4 class="nhsuk-heading-m">Call 111</h4>
-				</div>
-				<div class="care-card-content">
-					<p>if you can't speak to your GP and don't know what to do next.</p>
-				</div>
-			</div>
+			{{ carecard("grey", "Call 111", "<p>if you can't speak to your GP and don't know what to do next.</p>") }}
 
 			<div class="nhsuk-c-review-datestamp">
 				<p>Page last reviewed: 12/02/2016<br>
