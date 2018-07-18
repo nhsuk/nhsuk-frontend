@@ -1,0 +1,9 @@
+{% macro promoWithImage(promoImage, promoLink, promoTitle, promoDescription) %}
+    <div class="nhsuk-c-promo">
+        <div class="nhsuk-c-promo--image" style="background-image:'{{promoImage}}';"></div>
+        <div class="nhsuk-c-promo--content">
+            <h3><a href="{{promoLink}}">{{promoTitle}}</a></h3>
+            <p>{{promoDescription}}</p>
+        </div>
+    </div>
+{% endmacro %}

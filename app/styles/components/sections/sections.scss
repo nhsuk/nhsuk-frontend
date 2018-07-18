@@ -1,0 +1,10 @@
+.nhsuk-section {
+    @include top-and-bottom();
+
+    padding: 56px 0;
+    
+    &--white {
+        background: $nhsuk-white;
+    }
+    
+}

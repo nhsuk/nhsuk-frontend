@@ -4,3 +4,10 @@
         <span>{{text}}</span>
     </a>
 {% endmacro %}
+
+{% macro actionLinkSmall(url, text) %}
+    <a href="{{url}}" class="nhsuk-c-action-link nhsuk-c-action-link--small">
+        {% include 'partials/icons/icon-arrow-right-circle.svg' %}
+        <span>{{text}}</span>
+    </a>
+{% endmacro %}
