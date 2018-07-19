@@ -69,10 +69,6 @@
   }
 }
 
-.nhsuk-h-margin-top-0 {
-  margin-top: 0;
-}
-
 @include mq($until: grid-collapse) {
   .nhsuk-c-promo {
     &.nhsuk-h-margin-top-0 {
