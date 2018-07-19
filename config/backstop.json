@@ -3,18 +3,23 @@
   "viewports": [
     {
       "label": "phone",
-      "width": 320,
-      "height": 480
+      "width": 375,
+      "height": 667
     },
     {
       "label": "tablet",
-      "width": 1024,
-      "height": 768
+      "width": 768,
+      "height": 1024
     },
     {
       "label": "laptop",
-      "width": 1680,
-      "height": 1050
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "label": "desktop",
+      "width": 1920,
+      "height": 1080
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -25,28 +30,6 @@
       "url": "http://localhost:3000/examples/components"
     },
     {
-      "label": "header",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-header"
-      ]
-    },
-    {
-      "label": "header & search",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-header"
-      ],
-      "clickSelector": ".nhsuk-global-header__search .search-toggle__button"
-    },
-    {
-      "label": "navigation",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-nav"
-      ]
-    },
-    {
       "label": "header & navigation",
       "url": "http://localhost:3000/examples/components",
       "selectors": [
@@ -54,20 +37,6 @@
         ".nhsuk-global-nav"
       ],
       "clickSelector": ".nhsuk-global-header__menu .menu-toggle__button"
-    },
-    {
-      "label": "breadcrumb",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-c-breadcrumb"
-      ]
-    },
-    {
-      "label": "footer",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-footer"
-      ]
     }
   ],
   "paths": {
