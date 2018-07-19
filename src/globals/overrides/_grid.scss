@@ -17,3 +17,38 @@
 .nhsuk-\!-three-quarters {
   width: percentage(3 / 4) !important;
 }
+
+.nhsuk-\!-one-half-tablet {
+  width: 100% !important;
+  @include mq($from: tablet) {
+    width: percentage(1 / 2) !important;
+  }
+}
+
+.nhsuk-\!-one-third-tablet {
+  width: 100% !important;
+  @include mq($from: tablet) {
+    width: percentage(1 / 3) !important;
+  }
+}
+
+.nhsuk-\!-two-thirds-tablet {
+  width: 100% !important;
+  @include mq($from: tablet) {
+    width: percentage(2 / 3) !important;
+  }
+}
+
+.nhsuk-\!-one-quarter-tablet {
+  width: 100% !important;
+  @include mq($from: tablet) {
+    width: percentage(1 / 4) !important;
+  }
+}
+
+.nhsuk-\!-three-quarters-tablet {
+  width: 100% !important;
+  @include mq($from: tablet) {
+    width: percentage(3 / 4) !important;
+  }
+}
