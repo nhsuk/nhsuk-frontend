@@ -3,7 +3,6 @@
 @import 'globals/objects/full-width-container';
 @import 'globals/settings/typography';
 
-@import 'components/hero/hero';
 @import 'components/breadcrumbs/breadcrumbs';
 @import 'components/cookie-policy/cookie-policy';
 @import 'components/page-contents/page-contents';
@@ -21,6 +20,7 @@
 @import 'components/promo-v2/promo';
 @import 'components/health-a-z/health-a-z';
 @import 'components/sections/sections';
+@import 'components/hero/hero';
 
 @import 'pages/code';
 @import 'pages/grid';
@@ -91,14 +91,6 @@ hr.nhsuk-hr {
 
     @include mq($until: tablet) {
       margin: 40px 0;
-    }
-}
-
-.nhsuk-list-links {
-    list-style: none;
-    padding-left: 0;
-    li {
-      margin: 12px 0 0;
     }
 }
   

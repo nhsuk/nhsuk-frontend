@@ -1,10 +1,37 @@
 .nhsuk-section {
-    @include top-and-bottom();
-
-    padding: 56px 0;
     
     &--white {
         background: $nhsuk-white;
     }
     
+    .nhsuk-o-grid__item {
+        @include top-and-bottom();
+        padding-bottom: 72px;
+        padding-top: 72px;
+
+        @include mq($until: tablet) {
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+
+    &--top-section {
+        .nhsuk-o-grid__item {
+            padding-top: 144px;
+            @include mq($until: tablet) {
+                padding-top: 120px;
+            }
+        }
+    }
+
+}
+
+.nhsuk-section__description {
+    @include reading-width();
+    margin-top: 8px;
+    max-width: 660px;
+
+    & + * {
+        margin-top: 24px;
+    }
 }
