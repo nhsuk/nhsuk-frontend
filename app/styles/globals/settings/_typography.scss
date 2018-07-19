@@ -44,6 +44,7 @@
 }
 
 // testing increased margin on side nav
+
 .nhsuk-list-nav {
   margin-top: 12px;
   li {
@@ -52,6 +53,57 @@
 }
 
 // helper class for having text coloured with $nhsuk-secondary-text-colour
+
 .nhsuk-secondary-text {
   color: $nhsuk-secondary-text-colour;
+}
+
+.nhsuk-list-links {
+  list-style: none;
+  padding-left: 0;
+  li {
+    margin: 12px 0 0;
+  }
+}
+
+.nhsuk-list-signage {
+  list-style: none;
+  padding-left: 0;
+  li {
+    width: 100%;
+    margin-top: 2px;
+    a {
+      background: $nhsuk-blue;
+      color: $nhsuk-white;
+      display: block;
+      padding: 12px 24px;
+      position: relative;
+      text-decoration: none;
+      &:hover {
+        background: $nhsuk-blue-shade-35;
+        box-shadow: none;
+        text-decoration: underline;
+      }
+      &:active {
+        background: $nhsuk-blue-shade-50;
+      }
+      .nhsuk-icon {
+        fill: $nhsuk-white;
+        height: 24px;
+        position: absolute;
+        right: 12px;
+        top: 14px;
+        width: 24px;
+      }
+    }
+  }
+  &--two-columns {
+    column-count: 2;
+    column-gap: 16px;
+    color:red;
+    @include mq($until: tablet) {
+      column-count: 1;
+      column-gap: 0;
+    }
+  }
 }

@@ -3,7 +3,6 @@
 @import 'globals/objects/full-width-container';
 @import 'globals/settings/typography';
 
-@import 'components/hero/hero';
 @import 'components/breadcrumbs/breadcrumbs';
 @import 'components/cookie-policy/cookie-policy';
 @import 'components/page-contents/page-contents';
@@ -20,6 +19,8 @@
 @import 'components/video/video';
 @import 'components/promo-v2/promo';
 @import 'components/health-a-z/health-a-z';
+@import 'components/sections/sections';
+@import 'components/hero/hero';
 
 @import 'pages/code';
 @import 'pages/grid';
@@ -92,15 +93,29 @@ hr.nhsuk-hr {
       margin: 40px 0;
     }
 }
-
-.nhsuk-list-links {
-    list-style: none;
-    padding-left: 0;
-    li {
-      margin: 12px 0 0;
-    }
-}
   
 .nhsuk-list-links-heading + .nhsuk-list-links {
 margin: 12px 0 0;
+}
+
+// helper classes to be filed properly
+
+.nhsuk-hide-on-mobile {
+    @include mq($until: tablet) {
+        display: none;
+    }
+}
+
+// Responsive image
+
+.nhsuk-image-responsive {
+    max-width: 100%;
+}
+
+// Panel grey <-- Needs looking at properly
+
+.nhsuk-c-panel--grey {
+    @include top-and-bottom();
+    background: $nhsuk-grey-5;
+    padding:32px;
 }

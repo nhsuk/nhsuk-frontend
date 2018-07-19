@@ -1,0 +1,118 @@
+.nhsuk-section {
+    
+    &--white {
+        background: $nhsuk-white;
+    }
+    
+    .nhsuk-section__content {
+        @include top-and-bottom();
+        padding-bottom: 72px;
+        padding-top: 72px;
+
+        @include mq($until: desktop) {
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+
+        &--stacked {
+            padding-top: 0;
+        }
+
+        &--stacked-collapsed {
+            @include mq($until: desktop) {
+                padding-top: 0;
+            }
+        }
+    }
+
+    &--top-section {
+        .nhsuk-section__content {
+            padding-top: 144px;
+            @include mq($until: desktop) {
+                padding-top: 120px;
+            }
+        }
+    }
+
+    &--with-image {
+        position: relative;
+        &:before {
+            content:"";
+            background-image:url(/images/illustrations/crosses.svg);
+            background-position: left top;
+            background-repeat: no-repeat;
+            bottom: 0;
+            display: block;
+            height: 700px;
+            position: absolute;
+            right: 0;
+            width: 48%;
+            @include mq($until: desktop) {
+                background-image:url(/images/illustrations/crosses-mobile.svg);
+                bottom: auto;
+                height: 130px;
+                left: 0;
+                right: auto;
+                top: -10px;
+                width: 100%;
+            }
+        }
+        @include mq($until: desktop) {
+            padding-top: 120px;
+        }
+    }
+
+    // Spacing for section elements
+
+    .nhsuk-list-links,
+    .nhsuk-list-signage {
+        margin: 40px 0;
+
+        @include mq($until: tablet) {
+            margin: 24px 0;
+        }
+
+        & + .nhsuk-c-action-link {
+            margin-top: 8px;
+        }
+    }
+
+    .nhsuk-section__heading,
+    .nhsuk-section__description {
+        & + .nhsuk-c-promo {
+            margin-top: 24px;
+        }
+        & + .nhsuk-c-action-link {
+            margin-top: 40px;
+
+            @include mq($until: tablet) {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    .nhsuk-c-promo__group {
+        & + .nhsuk-c-action-link {
+            margin-top: 40px;
+
+            @include mq($until: tablet) {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    &--top-section {
+        @include mq($until: tablet) {
+            .nhsuk-c-action-link {
+                margin-top: 24px !important;
+            }
+        }
+    }
+
+}
+
+.nhsuk-section__description {
+    @include reading-width();
+    margin-top: 8px;
+    max-width: 660px;
+}

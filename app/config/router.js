@@ -266,5 +266,9 @@ router.get('/examples/health-a-z/health-a-z', (req, res) => {
   res.render('examples/health-a-z/health-a-z', {});
 });
 
+router.get('/examples/home-page/nhsuk-home-page', (req, res) => {
+  res.render('examples/home-page/nhsuk-home-page', {});
+});
+
 
 module.exports = router;

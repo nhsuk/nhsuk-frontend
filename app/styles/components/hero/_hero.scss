@@ -15,3 +15,37 @@
     }
   }
 }
+
+.nhsuk-hero-image {
+  background-image: url(/images/hero-home/home-hero-2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  position: relative;
+  @include mq($until: tablet) {
+    height: 30vh;
+  }
+}
+
+.nhsuk-hero__home-content {
+  @include top-and-bottom();
+  background: $nhsuk-white;
+  bottom: -80px;
+  color: $nhsuk-text-colour;
+  max-width: 660px;
+  padding: 32px 48px;
+  position: absolute;
+  width: 60%;
+
+  @include mq($until: tablet) {
+    left: 16px;
+    padding: 24px;
+    right: 16px;
+    width: auto;
+  }
+
+  p {
+    margin-top: 8px;
+  }
+}
