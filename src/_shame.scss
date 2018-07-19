@@ -59,6 +59,24 @@
   display: flex;
 }
 
-.nhsuk-h-margin-0 {
+.nhsuk-h-margin-top-0 {
   margin-top: 0;
+}
+
+@include mq($until: grid-collapse) {
+  .nhsuk-o-flex .nhsuk-o-grid__item {
+    flex: 0 0 100%;
+  }
+}
+
+.nhsuk-h-margin-top-0 {
+  margin-top: 0;
+}
+
+@include mq($until: grid-collapse) {
+  .nhsuk-c-promo {
+    &.nhsuk-h-margin-top-0 {
+      margin-bottom: 28px;
+    }
+  }
 }
