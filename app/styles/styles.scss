@@ -105,3 +105,17 @@ margin: 12px 0 0;
         display: none;
     }
 }
+
+// Responsive image
+
+.nhsuk-image-responsive {
+    max-width: 100%;
+}
+
+// Panel grey <-- Needs looking at properly
+
+.nhsuk-c-panel--grey {
+    @include top-and-bottom();
+    background: $nhsuk-grey-5;
+    padding:32px;
+}

@@ -46,7 +46,7 @@
             height: 700px;
             position: absolute;
             right: 0;
-            width: 45%;
+            width: 48%;
             @include mq($until: desktop) {
                 background-image:url(/images/illustrations/crosses-mobile.svg);
                 bottom: auto;
