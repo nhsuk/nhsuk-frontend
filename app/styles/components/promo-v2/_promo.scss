@@ -3,7 +3,7 @@
 
 .nhsuk-c-promo {
   background: $nhsuk-white;
-  border-bottom: 4px solid $nhsuk-blue;
+  border-bottom: 8px solid $nhsuk-blue;
   margin: 56px 0 0;
   width: 100%; //default width is 100%
   @include mq($until: tablet) {
@@ -42,7 +42,6 @@
   }
 
   .nhsuk-c-promo__description {
-    color: $nhsuk-secondary-text-colour;
     font-size: 16px;
     line-height: 24px;
     margin-top: 12px;
@@ -61,6 +60,19 @@
         }
     }
   }
+  &--content-with-image {
+      background: $nhsuk-white !important;
+      border: 1px solid $nhsuk-grey-5;
+
+      .nhsuk-c-promo__content-image {
+          max-height: 48px;
+          max-width: 100%;
+
+          & + .nhsuk-c-promo__heading {
+              margin-top: 16px;
+          }
+      }
+  }
 }
 
 //A group of promos
@@ -71,7 +83,7 @@
   flex-wrap: wrap;
   margin: 40px 0 0 -16px;
   @include mq($until: desktop) {
-      margin: 24px 0 0;
+      margin: 8px 0 0;
   }
   .nhsuk-c-promo {
       margin: 0 0 0 16px !important;

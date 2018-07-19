@@ -18,3 +18,12 @@
         </div>
     </div>
 {% endmacro %}
+
+{% macro promoWithContentImage(promoClass, promoImage, promoLink, promoTitle) %}
+    <div class="nhsuk-c-promo {{promoClass}}">
+        <div class="nhsuk-c-promo__content">
+            <img class="nhsuk-c-promo__content-image" src="{{promoImage}}" alt="" />
+            <h3 class="nhsuk-c-promo__heading"><a href="{{promoLink}}">{{promoTitle}}</a></h3>
+        </div>
+    </div>
+{% endmacro %}

@@ -97,3 +97,11 @@ hr.nhsuk-hr {
 .nhsuk-list-links-heading + .nhsuk-list-links {
 margin: 12px 0 0;
 }
+
+// helper classes to be filed properly
+
+.nhsuk-hide-on-mobile {
+    @include mq($until: tablet) {
+        display: none;
+    }
+}

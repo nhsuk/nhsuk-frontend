@@ -1,12 +1,5 @@
-{% macro actionLink(url, text) %}
-    <a href="{{url}}" class="nhsuk-c-action-link">
-        {% include 'partials/icons/icon-arrow-right-circle.svg' %}
-        <span>{{text}}</span>
-    </a>
-{% endmacro %}
-
-{% macro actionLinkSmall(url, text) %}
-    <a href="{{url}}" class="nhsuk-c-action-link nhsuk-c-action-link--small">
+{% macro actionLink(url, text, class) %}
+    <a href="{{url}}" class="nhsuk-c-action-link {{class}}">
         {% include 'partials/icons/icon-arrow-right-circle.svg' %}
         <span>{{text}}</span>
     </a>
