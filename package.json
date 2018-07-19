@@ -19,7 +19,8 @@
     "nunjucks": "^3.1.3",
     "sass-mq": "^4.0.2",
     "gulp": "^4.0.0",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "gulp-babel": "^7.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -27,7 +28,6 @@
     "backstopjs": "^3.3.1",
     "concurrently": "^3.6.0",
     "del": "^3.0.0",
-    "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^3.9.4",
     "gulp-rename": "^1.3.0",
     "nodemon": "^1.17.5",
