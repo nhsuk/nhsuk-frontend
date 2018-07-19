@@ -34,7 +34,6 @@
   }
 
   .nhsuk-c-care-card__content {
-    @include reading-width();
     @include top-and-bottom();
 
     background: $nhsuk-white;
@@ -42,6 +41,10 @@
 
     @include mq($from: tablet) {
       padding: 36px 24px 32px;
+    }
+
+    @include mq($from: grid-collapse) {
+      @include reading-width();
     }
 
   }
