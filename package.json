@@ -17,7 +17,9 @@
   "dependencies": {
     "express": "^4.13.4",
     "nunjucks": "^3.1.3",
-    "sass-mq": "^4.0.2"
+    "sass-mq": "^4.0.2",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
