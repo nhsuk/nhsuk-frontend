@@ -32,3 +32,6 @@ Thumbs.db
 # Tests
 **/backstop_data/bitmaps_test/
 **/backstop_data/html_report/
+
+# CSS files
+app/assets/css/styles.min.css
