@@ -3,6 +3,7 @@
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/callout.html" import callout %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -114,7 +115,7 @@
 						
 						{{ callout("Important", "<p>See a GP if you've been feeling low for more than 2 weeks. They can offer support and treatment if you need it.</p>") }}
 
-						{% include 'partials/review-date/review-date.html' %}
+						{{ reviewdate("12/02/2016", "01/02/2019") }}
     				
 						{{ miniHubPaginationPrevious("/examples/test-minihub-amd-v2/treatments", "Treatments")}}
 

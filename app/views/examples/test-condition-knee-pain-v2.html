@@ -1,7 +1,7 @@
 {% set title = 'Knee pain' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
-
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -194,15 +194,8 @@
                         </tbody>
                         </table>
                         
-                        
-                        
-                        
-                        
-                        
-                        
-
-						{% include 'partials/review-date/review-date.html' %}
-
+                      
+						{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 					</div>
 

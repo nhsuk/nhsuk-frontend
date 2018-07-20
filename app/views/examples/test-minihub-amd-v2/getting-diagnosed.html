@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
 {% from "macros/callout.html" import callout %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -102,7 +103,7 @@
 						<p>If you're unsure about something later, write down any questions you have and make another appointment to go over them.</p>
 
 						<p>The <a href="https://www.macularsociety.org/" title="External website">Macular Society</a> has information you might find useful. It also has a helpline on 0300 3030 111.</p>
-						{% include 'partials/review-date/review-date.html' %}
+						{{ reviewdate("12/02/2016", "01/02/2019") }}
 						{{ miniHubPagination("/examples/test-minihub-amd-v2/symptoms", "Symptoms", "/examples/test-minihub-amd-v2/treatments", "Treatments")}}
 
 					</div>

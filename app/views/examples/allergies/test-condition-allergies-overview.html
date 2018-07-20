@@ -2,6 +2,7 @@
 {% set parent = 'Health A-Z' %}
 {% from "macros/callout.html" import callout %}
 {% from "macros/care-card.html" import carecard %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -26,17 +27,6 @@
 
 			<div class="nhsuk-page-heading">
 				<h1>Allergies<span class="nhsuk-o-h1-sub">Overview</span></h1>
-
-				<!--<nav class="nhsuk-c-tab-nav">
-					<ul>
-						<li><strong>Overview</strong></li>
-						<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
-					</ul>
-				</nav>-->
-
 				<p class="nhsuk-body-l nhsuk-page-intro">An allergy is a reaction the body has to a particular food or substance.</p>
 			</div>
 
@@ -165,10 +155,7 @@
 
 			{{ carecard("grey", "Call 111", "<p>if you can't speak to your GP and don't know what to do next.</p>") }}
 
-			<div class="nhsuk-c-review-datestamp">
-				<p>Page last reviewed: 12/02/2016<br>
-				Next review due: 01/02/2019</p>
-			</div>
+			{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 		</div>
 

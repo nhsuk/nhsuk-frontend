@@ -1,7 +1,7 @@
 {% set title = 'Age-related macular degeneration (AMD)' %}
 {% set parent = 'Health A-Z' %}
 {% from "macros/mini-hub-pagination.html" import miniHubPagination, miniHubPaginationPrevious, miniHubPaginationNext%}
-
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -41,7 +41,7 @@
 						<li><strong>The exact cause is unknown.</strong> It's been linked to smoking, high blood pressure, being overweight and having a family history of AMD.</li>
 						</ul>
 
-						{% include 'partials/review-date/review-date.html' %}
+						{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 						{{ miniHubPaginationNext("/examples/test-minihub-amd-v2/symptoms", "Symptoms")}}
 
