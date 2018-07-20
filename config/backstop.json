@@ -31,12 +31,19 @@
     },
     {
       "label": "header & navigation",
-      "url": "http://localhost:3000/examples/components",
+      "url": "http://localhost:3000/examples/header-footer-example",
       "selectors": [
         ".nhsuk-global-header",
         ".nhsuk-global-nav"
       ],
       "clickSelector": ".nhsuk-global-header__menu .menu-toggle__button"
+    }, 
+    {
+      "label": "footer",
+      "url": "http://localhost:3000/examples/header-footer-example",
+      "selectors": [
+        ".nhsuk-global-footer"
+      ]
     }
   ],
   "paths": {
