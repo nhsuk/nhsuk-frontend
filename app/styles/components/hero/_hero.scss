@@ -24,7 +24,7 @@
   height: 50vh;
   position: relative;
   @include mq($until: tablet) {
-    height: 30vh;
+    height: 240px;
   }
 }
 

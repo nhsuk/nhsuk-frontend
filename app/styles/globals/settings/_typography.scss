@@ -99,7 +99,7 @@
   }
   &--two-columns {
     column-count: 2;
-    column-gap: 16px;
+    column-gap: 32px;
     color:red;
     @include mq($until: tablet) {
       column-count: 1;

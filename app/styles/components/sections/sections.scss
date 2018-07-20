@@ -91,6 +91,16 @@
         }
     }
 
+    .nhsuk-section__description {
+        & + .nhsuk-c-promo__group {
+            margin-top: 8px !important;
+
+            @include mq($until: tablet) {
+                margin-top: 0 !important;
+            }
+        }
+    }
+
     .nhsuk-c-promo__group {
         & + .nhsuk-c-action-link {
             margin-top: 40px;
@@ -113,6 +123,7 @@
 
 .nhsuk-section__description {
     @include reading-width();
+    color: $nhsuk-secondary-text-colour;
     margin-top: 8px;
     max-width: 660px;
 }
