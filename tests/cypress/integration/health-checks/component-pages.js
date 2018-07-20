@@ -72,7 +72,7 @@ describe('Verify that the individual component pages are working', function() {
   
   it('Visits the Review dates page', function() {
     cy.get('a').contains('Page review').click()
-    cy.get('h1').contains('Review dates')
+    cy.get('h1').contains('Review date')
   })
   
   it('Visits the Multi-page nav page', function() {
