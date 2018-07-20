@@ -1,14 +1,17 @@
+@import '../../src/globals/helpers/clearfix';
+
 .nhsuk-a-z-list {
     ul {
+        @include clear();
         margin: -8px 0 0 !important;
         padding: 0;
         li {
-            display: inline-block;
+            float: left;
             list-style: none;
-            margin: 0;
+            margin: 1px;
             a {
                 display: block;
-                min-width: 30px;
+                min-width: 34px;
                 padding: 8px 0;
                 text-align: center;
                 @include mq($until: tablet) {
