@@ -6,6 +6,7 @@
 {% from "macros/action-link.html" import actionLink %}
 {% from "macros/care-card.html" import carecard %}
 {% from "macros/image.html" import image %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends "includes/templates/page.html"%}
 
 {% block breadcrumb %}
@@ -45,120 +46,120 @@
 
     <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
 
-    <div class="backstop-warning-callout" style="padding: 3px; !important">
+    <div class="backstop-warning-callout">
 
-    {{ callout("Important", "
-    <p>The quick brown fox jumps over the lazy dog</p>
-    <ul class='nhsuk-list nhsuk-list-bullet'>
-      <li>The quick brown</li>
-      <li>fox jumps over</li>
-      <li>the lazy dog</li>
-    </ul>
-    ") }}
-
-    </div>
-
-    <div class="backstop-keypoint-callout" style="padding: 3px; !important">
-
-    {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
+      {{ callout("Important", "
+      <p>The quick brown fox jumps over the lazy dog</p>
+      <ul class='nhsuk-list nhsuk-list-bullet'>
+        <li>The quick brown</li>
+        <li>fox jumps over</li>
+        <li>the lazy dog</li>
+      </ul>
+      ") }}
 
     </div>
 
-    <div class="backstop-do-list" style="padding: 3px; !important">
+    <div class="backstop-keypoint-callout">
 
-    {% set doItems = [
+      {{ keypoint("<p>Keep having routine eye tests (usually every 2 years). They can pick up other eye problems that your check-ups don't look for.</p>") }}
+
+    </div>
+
+    <div class="backstop-do-list">
+
+      {% set doItems = [
+            {
+              "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+            },
+            {
+              "item"  : "wash your hands before touching a burst blister"
+            },
+            {
+              "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+            }
+          ]
+      %}
+
+      {{ list("Do", "tick", doItems) }}
+
+    </div>
+
+    <div class="backstop-dont-list">
+
+      {% set dontItems = [
           {
-            "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          "item"  : "burst a blister yourself"
           },
           {
-            "item"  : "wash your hands before touching a burst blister"
+          "item"  : "peel the skin off a burst blister"
           },
           {
-            "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          "item"  : "pick at the edges of the remaining skin"
+          },
+          {
+          "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
           }
-        ]
-    %}
+          ]
+      %}
 
-    {{ list("Do", "tick", doItems) }}
-
-    </div>
-
-    <div class="backstop-dont-list" style="padding: 3px; !important">
-
-    {% set dontItems = [
-        {
-        "item"  : "burst a blister yourself"
-        },
-        {
-        "item"  : "peel the skin off a burst blister"
-        },
-        {
-        "item"  : "pick at the edges of the remaining skin"
-        },
-        {
-        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
-        }
-        ]
-    %}
-
-    {{ list("Don't", "cross", dontItems) }}
+      {{ list("Don't", "cross", dontItems) }}
 
     </div>
 
-    <div class="backstop-action-link" style="padding: 3px; !important">
+    <div class="backstop-action-link">>
 
-    {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
-
-    </div>
-
-    <div class="backstop-grey-carecard" style="padding: 3px; !important">
-
-    {{ carecard("grey", "Call 111", "<p>If you can't speak to your GP and don't know what to do next.</p>") }}
+      {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
 
     </div>
 
-    <div class="backstop-blue-carecard" style="padding: 3px; !important">
+    <div class="backstop-grey-carecard">
 
-    {{ carecard("blue", "Speak to a GP if:", "
-      <ul>
-        <li>you're not sure it's chickenpox</li>
-        <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-        <li>your child is <a href='#'>dehydrated</a></li>
-        <li>you're concerned about your child or they get worse</li>
-      </ul>
-      <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>") 
-    }}
+      {{ carecard("grey", "Call 111", "<p>If you can't speak to your GP and don't know what to do next.</p>") }}
 
     </div>
 
-    <div class="backstop-red-carecard" style="padding: 3px; !important">
+    <div class="backstop-blue-carecard">
 
-    {{ carecard("red", "Ask for an urgent GP appointment if:", "
-			<ul>
-				<li>you're an adult and have chickenpox</li>
-				<li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-				<li>you have a weakened immune system and you've been near someone with chickenpox</li>
-				<li>you think your newborn baby has chickenpox</li>
-			</ul>
-			<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>")
-	  }}
-
-    </div>
-
-    <div class="backstop-black-carecard" style="padding: 3px; !important">
-
-    {{ carecard("black", "Call 999 if you have sudden chest pain that:", "
-      <ul>
-        <li>spreads to your arms, back, neck or jaw</li>
-        <li>makes your chest feel tight or heavy</li>
-        <li>also started with shortness of breath, sweating and feeling or being sick</li>
-      </ul>
-      <p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>")
-	  }}
+      {{ carecard("blue", "Speak to a GP if:", "
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href='#'>dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>") 
+      }}
 
     </div>
 
-    <div class="backstop-images" style="padding: 3px; !important">
+    <div class="backstop-red-carecard">
+
+      {{ carecard("red", "Ask for an urgent GP appointment if:", "
+        <ul>
+          <li>you're an adult and have chickenpox</li>
+          <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+          <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+          <li>you think your newborn baby has chickenpox</li>
+        </ul>
+        <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>")
+      }}
+
+    </div>
+
+    <div class="backstop-black-carecard">
+
+      {{ carecard("black", "Call 999 if you have sudden chest pain that:", "
+        <ul>
+          <li>spreads to your arms, back, neck or jaw</li>
+          <li>makes your chest feel tight or heavy</li>
+          <li>also started with shortness of breath, sweating and feeling or being sick</li>
+        </ul>
+        <p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>")
+      }}
+
+    </div>
+
+    <div class="backstop-images">
 
       <div class="nhsuk-o-grid">
         <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
@@ -167,6 +168,12 @@
             {{ image("A dark patch in the vision of someone with AMD", "https://assets.nhs.uk/prod/images/S_0218_AMD_C0037144.2e16d0ba.fill-320x213.jpg", "<p>If it gets worse, you might struggle to see anything in the middle of your vision</p>") }}
         </div>
       </div>
+
+    </div>
+
+    <div class="backstop-reviewdate">
+      
+      {{ reviewdate("12/02/2016", "01/02/2019") }} 
 
     </div>
 {% endblock %}
