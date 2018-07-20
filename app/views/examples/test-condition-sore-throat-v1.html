@@ -5,6 +5,7 @@
 {% from "macros/care-card.html" import carecard %}
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/image.html" import image %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -545,11 +546,8 @@
 				
 					<div class="nhsuk-page-content">
 										
-						
-
-						{% include 'partials/review-date/review-date.html' %}
-
-
+				
+							{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 					</div>
 

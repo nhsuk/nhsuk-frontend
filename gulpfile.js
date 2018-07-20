@@ -79,6 +79,11 @@ function publishActionLink() {
   .pipe(gulp.dest('dist/packages/action-link/'));
 }
 
+function publishReviewDate() {
+  return gulp.src('src/review-date/*')
+  .pipe(gulp.dest('dist/packages/review-date/'));
+}
+
 function publishImageComponent() {
   return gulp.src('src/images/*')
   .pipe(gulp.dest('dist/packages/images/'));
@@ -105,10 +110,11 @@ exports.publishCareCard = publishCareCard;
 exports.publishActionLink = publishActionLink;
 exports.publishSkiplinks = publishSkiplinks;
 exports.publishImageComponent = publishImageComponent;
+exports.publishReviewDate = publishReviewDate;
 exports.publishIcons = publishIcons;
 exports.publishImages = publishImages
 
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishImageComponent, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishReviewDate, publishImageComponent, publishIcons, publishImages));

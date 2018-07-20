@@ -5,6 +5,7 @@
 {% from "macros/keypoint.html" import keypoint %}
 {% from "macros/care-card.html" import carecard %}
 {% from "macros/image.html" import image %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends 'includes/site-layout.html' %}
 
 {% block body %}
@@ -91,7 +92,7 @@
 								</a>
 						") }}
 
-						{% include 'partials/review-date/review-date.html' %}
+						{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 						{{ miniHubPagination("/examples/test-minihub-amd", "What is AMD?", "/examples/test-minihub-amd/getting-diagnosed", "Getting diagnosed")}}
 

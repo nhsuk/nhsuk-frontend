@@ -4,6 +4,7 @@
 {% from "macros/action-link.html" import actionLink %}
 {% from "macros/care-card.html" import carecard %}
 {% from "macros/image.html" import image %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
@@ -28,17 +29,6 @@
 
 			<div class="nhsuk-page-heading">
 				<h1>Allergies<span class="nhsuk-o-h1-sub">Diagnosis</span></h1>
-
-				<!--<nav class="nhsuk-c-tab-nav">
-					<ul>
-						<li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
-						<li><strong>Diagnosis</strong></li>
-						<li><a href="/examples/allergies/test-condition-allergies-treatment">Treatment</a></li>
-						<li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
-					</ul>
-				</nav>-->
-
 				<p class="nhsuk-body-l nhsuk-page-intro">If you think you have an allergy, tell your GP about the symptoms you're having, when they happen, how often they occur and if anything seems to trigger them.</p>
 			</div>
 
@@ -131,10 +121,7 @@
 
 			{{ carecard("grey", "Call 111", "<p>if you can't speak to your GP and don't know what to do next.</p>") }}
 
-			<div class="nhsuk-c-review-datestamp">
-				<p>Page last reviewed: 12/02/2016<br>
-				Next review due: 01/02/2019</p>
-			</div>
+			{{ reviewdate("12/02/2016", "01/02/2019") }}
 
 		</div>
 

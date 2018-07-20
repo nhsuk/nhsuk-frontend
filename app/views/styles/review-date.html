@@ -1,11 +1,12 @@
-{% set title = 'Review Date' %}
+{% set title = 'Review date' %}
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
+{% from "macros/review-date.html" import reviewdate %}
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>Review dates</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
+    <h1>Review date</h1>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
 {% endblock %}
 
 {% block sidebar %}
@@ -39,17 +40,11 @@
 
     <h2 id="Iterations">Iterations</h2>
 
-    <div class="example">
+    <div class="nhsuk-reading-width">
+      <div class="example">
+        <h3>Version 1</h3>
 
-
-    <h3>Version 1</h3>
-    <div class="nhsuk-c-review-datestamp-v2">
-            <div class="nhsuk-o-width-container">
-                <p>Page last reviewed: 12/02/2016<br>
-                Next review due: 01/02/2019</p>
-            </div>
-        </div>
-
+			  <img class="component-image" src="../images/components/review-date-v1.png">
 
         <h3>Research findings</h3>    
         <p>Keep it usable, Salford, 4 July 2018 - 5 participants</p>
@@ -57,52 +52,55 @@
             <li>No users reference the review dates, no one commented on content below the pagination.</li>
 
         </ul>
-
-
-<p></p>
-
-</div>
-
-<div class="example">
-        <h3>Version 2</h3>
-
-        <div class="nhsuk-c-review-datestamp-v3">
-                <p class="nhsuk-body-s">Page last reviewed: 12/02/2016<br>
-                Next review due: 01/02/2019</p>
-        
-                <!--<hr style="width:130px;    margin: 45px 0px 0px 0px;"/>-->
-        </div>
-
-        <p>Our hypothesis:</p>
-        <ul>
-          <li>The dates need to be alongside the content that they relate to.</li>
-          <li>By moving the dates above the pagination links - we're not detracting from the content or the page to page links. </li>
-        </ul>
-
- 
-
+      </div>
     </div>
 
-  <h2 id="example">Examples</h2>
+    <div class="nhsuk-reading-width">
+      <div class="example">
+          <h3>Version 2</h3>
 
+          <div class="nhsuk-c-review-date">
+            <p class="nhsuk-body-s">Page last reviewed: 12/02/2016<br>
+            Next review due: 01/02/2019</p>
+          </div>
 
-  <div class="nhsuk-c-panel nhsuk-c-panel__with-border"></div>
+          <p>Our hypothesis:</p>
+          <ul>
+            <li>The dates need to be alongside the content that they relate to.</li>
+            <li>By moving the dates above the pagination links - we're not detracting from the content or the page to page links. </li>
+          </ul>
+      </div>
+    </div>
 
-  <div class="example-snippet">
-    <p>...</p>
-  </div>
+    <h2 id="example">Final version</h2>
 
-  <h2 id="accessibility">Accessibility</h2>
+    <div class="nhsuk-reading-width">
+      <div class="example">
+          {{ reviewdate("12/02/2016", "01/02/2019") }}
+      </div>
+    </div>
 
-<ul>
-  <li>Contrast Ratio - 6.99:1 (<a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a></li>
+    <div class="nhsuk-reading-width">
+      <div class="example-snippet">
+      <button class="nhsuk-btn-copy" data-clipboard-target="#clipboard-1">Copy</button>
+      
+<pre class="language-markup" id="clipboard-1"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-c-review-date<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nhsuk-body-s<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    Page last reviewed: 12/02/2016<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+    Next review due: 01/02/2019
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+      </div>
+    </div>
 
+    <h2 id="accessibility">Accessibility</h2>
 
-</ul>
+    <ul>
+      <li>Contrast Ratio - 6.99:1 (<a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a></li>
+    </ul>
 
-  <h2 id="usage">Usage</h2>
+    <h2 id="usage">Usage</h2>
 
-  <p>This is where we'd suggest how to use something</p>
-
+    <p>This is where we'd suggest how to use something</p>
 
 {% endblock %}
