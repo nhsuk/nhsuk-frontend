@@ -117,4 +117,4 @@ exports.publishImages = publishImages
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishImageComponent, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishFooter, publishCallout, publishCareCard, publishActionLink, publishReviewDate, publishImageComponent, publishIcons, publishImages));
