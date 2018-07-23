@@ -136,5 +136,8 @@
 .nhsuk-section--white {
     .nhsuk-c-promo {
         background: $nhsuk-grey-5;
+        .nhsuk-c-promo__image {
+            border: 1px solid $nhsuk-grey-5;
+        }
     }
 }
