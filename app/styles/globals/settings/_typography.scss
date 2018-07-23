@@ -79,6 +79,9 @@
       padding: 12px 24px;
       position: relative;
       text-decoration: none;
+      @include mq($until: tablet) {
+        padding: 12px 16px;
+      }
       &:hover {
         background: $nhsuk-blue-shade-35;
         box-shadow: none;
@@ -94,6 +97,9 @@
         right: 12px;
         top: 14px;
         width: 24px;
+        @include mq($until: tablet) {
+          top: 12px;
+        }
       }
     }
   }

@@ -11,37 +11,7 @@
 <section class="nhsuk-section nhsuk-section--top-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full nhsuk-section__content">
-                <h2 id="health-a-z" class="nhsuk-section__heading">Health A-Z</h2>
-                <p class="nhsuk-section__description">Your complete guide to conditions, symptoms and treatments, including what to do and when to get help.</p>
-                <ul class="nhsuk-list-signage nhsuk-list-signage--two-columns nhsuk-hide-on-mobile">
-                    <li><a href="#">Scarlet fever<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Flu<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Chicken pox<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Chest infection<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Tonsillitis<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Depression<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                </ul>
-                {{ actionLink("/examples/health-a-z/health-a-z", "View full Health A-Z", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-health-a-z.html' %}
         </div>
     </div>
 </section>
@@ -49,54 +19,15 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">NHS Services</h2>
-                <p class="nhsuk-section__description">It's easy to find the NHS services you need. If you're registered with us, it's simple to book appointments online too. <a href="#">Register here</a></p>
-                <ul class="nhsuk-list-links">
-                    <li><a href="#">Find a pharmacy</a></li>
-                    <li><a href="#">Book a hospital appointment</a></li>
-                    <li><a href="#">Get a Health Insurance card</a></li>
-                </ul>
-                {{ actionLink("#", "Search all the NHS services", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content nhsuk-section__content--stacked-collapsed">
-                <div class="nhsuk-c-panel--grey">
-                    <h3>Get non-emergency help now</h2>
-                    <p>Call 111 or <a href="#">Go to 111 online</a></p>
-                </div>
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-services.html' %}
         </div>
     </div>
 </section>
 
-<section class="nhsuk-section  nhsuk-section--white nhsuk-section--with-image">
+<section class="nhsuk-section nhsuk-section--with-image  nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">Find help with...</h2>
-                <ul class="nhsuk-list-signage">
-                    <li><a href="#">Diabetes<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Cancer<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Maternity<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Care and support<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                    <li><a href="#">Mental health<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey.png" xlink:href="">
-</image></svg></a></li>
-                </ul>
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-find-help.html' %}
         </div>
     </div>
 </section>
@@ -104,20 +35,7 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">Healthy living</h2>
-                <p class="nhsuk-section__description">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
-                <ul class="nhsuk-list-links">
-                    <li><a href="#">Eat Well</a></li>
-                    <li><a href="#">Healthy weight</a></li>
-                    <li><a href="#">Exercise</a></li>
-                    <li><a href="#">Quit smoking</a></li>
-                </ul>
-                {{ actionLink("#", "More Healthy living ideas", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content nhsuk-section__content--stacked-collapsed">
-                {{ promoWithImage("", "/images/promo-images/change-for-life.png", "#", "Change 4 Life", "Fun ideas, recipes, top tips and activities to help your kids stay healthy. Make a change today.") }}
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-healthy-living.html' %}
         </div>
     </div>
 </section>
@@ -125,20 +43,7 @@
 <section class="nhsuk-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">Care and support</h2>
-                <p class="nhsuk-section__description">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
-                <ul class="nhsuk-list-links">
-                    <li><a href="#">Eat Well</a></li>
-                    <li><a href="#">Healthy weight</a></li>
-                    <li><a href="#">Exercise</a></li>
-                    <li><a href="#">Quit smoking</a></li>
-                </ul>
-                {{ actionLink("#", "More Healthy living ideas", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content nhsuk-section__content--stacked-collapsed">
-                {{ promoWithImage("", "/images/promo-images/change-for-life.png", "#", "Change 4 Life", "Fun ideas, recipes, top tips and activities to help your kids stay healthy. Make a change today.") }}
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-social-care.html' %}
         </div>
     </div>
 </section>
@@ -146,15 +51,7 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full nhsuk-section__content">
-                <div class="nhsuk-c-promo__group">
-                    {{ promoWithImage("nhsuk-c-promo--two", "/images/promo-images/give-blood.png", "#", "Save a life, give blood","Register today to give blood and help save thousands of people in need.") }}              
-                    {{ promoWithImage("nhsuk-c-promo--two", "/images/promo-images/yes-i-donate-promo.png", "#", "Register as an organ donor", "Add your name to the NHS Organ Donor Register and one day you may be able to save lives.") }}
-                    {{ promoWithImage("nhsuk-c-promo--three", "/images/promo-images/diabetes-prevention-week.png", "#", "Diabetes prevention week", "Making small changes can reduce your risk of developing Type 2 diabetes and the risk of serious complications.") }}              
-                    {{ promoWithImage("nhsuk-c-promo--three", "/images/promo-images/one-you.png", "#", "One You", "Combat future health problems by encouraging you to make small changes to your lifestyle today.") }}
-                    {{ promoWithImage("nhsuk-c-promo--three", "/images/promo-images/be-clear-on-cancer.png", "#", "Change 4 Life", "Be Clear on Cancer campaigns aim to raise awareness of the signs and symptoms of cancer.") }}
-                </div>
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-promos.html' %}
         </div>
     </div>
 </section>
@@ -162,16 +59,7 @@
 <section class="nhsuk-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">NHS News</h2>
-                <p class="nhsuk-section__description">Discover the truth behind the scenes at the NHS.</p>
-                <div class="nhsuk-c-promo__group">
-                    {{ promo("nhsuk-c-promo--three nhsuk-c-promo--small", "#", "Amesbury latest", "Making small changes can reduce your risk of developing Type 2 diabetes and the risk of serious complications.") }}              
-                    {{ promo("nhsuk-c-promo--three nhsuk-c-promo--small", "#", "The NHS turns 70", "Combat future health problems by encouraging you to make small changes to your lifestyle today.") }}
-                    {{ promo("nhsuk-c-promo--three nhsuk-c-promo--small", "#", "Bleed for the Team", "Be Clear on Cancer campaigns aim to raise awareness of the signs and symptoms of cancer.") }}
-                </div>
-                {{ actionLink("#", "View all Health News", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-news.html' %}
         </div>
     </div>
 </section>
@@ -179,14 +67,7 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">Apps library</h2>
-                <p class="nhsuk-section__description">Find digital tools to help you manage and improve your health.</p>
-                {{ actionLink("#", "See all the NHS Apps", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
-            </div>
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content nhsuk-section__content--stacked-collapsed">
-                <img class="nhsuk-image-responsive" src="/images/promo-images/apps-library.png" alt="" />
-            </div>
+            {% include 'partials/home-page/home-page-section-content/home-page-apps-library.html' %}
         </div>
     </div>
 </section>
@@ -198,13 +79,14 @@
         //random image for nhsuk-hero-home
         function randomImage(){
         var images = [
-        '/images/hero-home/hero-cutout-1.png',
-        '/images/hero-home/hero-cutout-2.png',
-        '/images/hero-home/hero-cutout-3.png'];
+        '/images/hero-home/hero-1.jpg',
+        '/images/hero-home/hero-2.jpg',
+        '/images/hero-home/hero-3.jpg',
+        '/images/hero-home/diabetes-2.jpg'];
         var size = images.length;
         var x = Math.floor(size * Math.random());
         console.log(x);
-        var element = document.getElementsByClassName('nhsuk-hero-home');
+        var element = document.getElementsByClassName('nhsuk-hero-image');
         console.log(element);
         if(element.length > 0)
         {

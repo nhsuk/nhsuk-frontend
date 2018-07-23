@@ -3,6 +3,9 @@
   color: $nhsuk-white;
   .nhsuk-hero-container {
     border-top: 1px solid $nhsuk-secondary-border-colour;
+    @include mq($until: large-desktop) {
+      border: 0;
+    }
     &.nhsuk-o-main-wrapper {
       padding: 0;
     }
@@ -48,50 +51,135 @@
   }
 
   p {
+    font-size: 24px;
+    line-height: 36px;
     margin-top: 8px;
+
+    @include mq($until: tablet) {
+      font-size: 19px;
+      line-height: 28px;
+    }
   }
 }
 
 // Home page hero v1
 
+.nhsuk-hero-image.v3 {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 320px;
+  position: relative;
+  @include mq($until: tablet) {
+    background-position: bottom center;
+    height: 272px;
+  }
+  .nhsuk-hero-image__wrapper {
+    background: rgba($nhsuk-blue-shade-50,0.1);
+    height: 100%;
+  }
+  .nhsuk-hero__home-content {
+    @include top-and-bottom();
+    background: $nhsuk-blue;
+    bottom: -88px;
+    color: $nhsuk-white;
+    max-width: 660px;
+    padding: 32px 48px;
+    position: absolute;
+    width: 55%;
+
+    &:after {
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 16px solid #005eb8;
+      bottom: -15px;
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+    }
+
+    @include mq($until: desktop) {
+      width: 80%;
+    }
+  
+    @include mq($until: tablet) {
+      left: 16px;
+      padding: 24px;
+      right: 16px;
+      width: 80%;
+    }
+  
+    p {
+      font-size: 24px;
+      line-height: 36px;
+      margin-top: 8px;
+
+      @include mq($until: tablet) {
+        font-size: 19px;
+        line-height: 28px;
+      }
+    }
+  }
+}
+
+// Home page hero with cutout images
+
 .nhsuk-hero-home {
   background-color: $nhsuk-blue;
-  background-position: right center;
+  background-position: right -100px center;
   background-repeat: no-repeat;
-  background-size: 40%;
+  background-size: 45%;
   border-top: 1px solid $nhsuk-secondary-border-colour;
   position: relative;
 
-  /*&:after {
-    content:'';
-    background-image: url(/images/hero-home/hero-cutout-3.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40%;
-  }*/
+  @include mq($until: large-desktop) {
+    background-position: right -200px center;
+    background-size: 50%;
+  }
+
+  @include mq($until: desktop) {
+    background-position: right -200px center;
+    background-size: 60%;
+  }
+
+  @include mq($until: tablet) {
+    background-position: right -250px center;
+    background-size: 100%;
+  }
+
+  @include mq($until: 600px) {
+    background-position: right -450px center;
+    background-size: 120%;
+  }
+
+  @include mq($until: 360px) {
+    background-position: right -300px center;
+    background-size: 120%;
+  }
+  
 }
 
 .nhsuk-hero-home__content {
   @include top-and-bottom();
   color: $nhsuk-white;
-  padding: 100px 0;
-
-  @include mq($until: tablet) {
+  max-width: 55%;
+  padding: 80px 0;
+  @include mq($until: large-desktop) {
+    max-width: 70%;
+    padding: 56px 0;
+  }
+  @include mq($until: desktop) {
     left: 16px;
-    padding: 24px;
+    max-width: 70%;
+    padding: 40px 0;
     right: 16px;
     width: auto;
   }
 
   .nhsuk-hero-home__description {
     margin-top: 8px;
-    max-width: 78%;
   }
 
   .nhsuk-hero-home__link {
@@ -105,15 +193,10 @@
     &:hover {
       background: $nhsuk-blue-shade-35;
     }
+
+    @include mq($until: tablet) {
+      margin-top: 24px;
+      padding: 8px 12px;
+    }
   }
-}
-
-// Header borders
-
-.nhsuk-global-header {
-  border-bottom: 1px solid $nhsuk-secondary-border-colour;
-}
-
-.c-nav-primary__list {
-  border-top: 0;
 }

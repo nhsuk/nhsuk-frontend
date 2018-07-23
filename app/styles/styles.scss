@@ -117,4 +117,18 @@ margin: 12px 0 0;
     @include top-and-bottom();
     background: $nhsuk-grey-5;
     padding:32px;
+    @include mq($until: tablet) {
+        padding:24px;
+    }
+}
+
+.nhsuk-section {
+    .nhsuk-c-panel--grey {
+        background: $nhsuk-white;
+    }
+    &--white {
+        .nhsuk-c-panel--grey {
+            background: $nhsuk-grey-5;
+        }
+    }
 }
