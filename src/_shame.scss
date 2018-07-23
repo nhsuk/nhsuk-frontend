@@ -54,9 +54,9 @@
 .nhsuk-o-flex {
   display: flex;
   flex-wrap: wrap;
-}
-.nhsuk-o-flex .nhsuk-o-grid__item {
-  display: flex;
+  .nhsuk-o-grid__item {
+    display: flex;
+  }
 }
 
 .nhsuk-h-margin-top-0 {
@@ -64,8 +64,10 @@
 }
 
 @include mq($until: grid-collapse) {
-  .nhsuk-o-flex .nhsuk-o-grid__item {
-    flex: 0 0 100%;
+  .nhsuk-o-flex {
+    .nhsuk-o-grid__item {
+      flex: 0 0 100%;
+    }
   }
 }
 
