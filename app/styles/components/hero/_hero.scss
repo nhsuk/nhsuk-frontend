@@ -16,6 +16,8 @@
   }
 }
 
+// Home page hero v1
+
 .nhsuk-hero-image {
   background-image: url(/images/hero-home/home-hero-2.png);
   background-position: center center;
@@ -48,4 +50,70 @@
   p {
     margin-top: 8px;
   }
+}
+
+// Home page hero v1
+
+.nhsuk-hero-home {
+  background-color: $nhsuk-blue;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  border-top: 1px solid $nhsuk-secondary-border-colour;
+  position: relative;
+
+  /*&:after {
+    content:'';
+    background-image: url(/images/hero-home/hero-cutout-3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40%;
+  }*/
+}
+
+.nhsuk-hero-home__content {
+  @include top-and-bottom();
+  color: $nhsuk-white;
+  padding: 100px 0;
+
+  @include mq($until: tablet) {
+    left: 16px;
+    padding: 24px;
+    right: 16px;
+    width: auto;
+  }
+
+  .nhsuk-hero-home__description {
+    margin-top: 8px;
+    max-width: 78%;
+  }
+
+  .nhsuk-hero-home__link {
+    border: 1px solid $nhsuk-white;
+    border-radius: 4px;
+    color: $nhsuk-white;
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 16px;
+    text-decoration: none;
+    &:hover {
+      background: $nhsuk-blue-shade-35;
+    }
+  }
+}
+
+// Header borders
+
+.nhsuk-global-header {
+  border-bottom: 1px solid $nhsuk-secondary-border-colour;
+}
+
+.c-nav-primary__list {
+  border-top: 0;
 }
