@@ -6,13 +6,13 @@
 
 {% block content %}
 
-{% include 'partials/home-page/home-page-hero-1.html' %}
+{% include 'partials/home-page/home-page-hero-4.html' %}
 
-<section class="nhsuk-section nhsuk-section--top-section">
+<section class="nhsuk-section nhsuk-section--top-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
             <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full nhsuk-section__content">
-                <h2 class="nhsuk-section__heading">Health A-Z</h2>
+                <h2 id="health-a-z" class="nhsuk-section__heading">Health A-Z</h2>
                 <p class="nhsuk-section__description">Your complete guide to conditions, symptoms and treatments, including what to do and when to get help.</p>
                 <ul class="nhsuk-list-signage nhsuk-list-signage--two-columns nhsuk-hide-on-mobile">
                     <li><a href="#">Scarlet fever<svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -46,7 +46,7 @@
     </div>
 </section>
 
-<section class="nhsuk-section nhsuk-section--white">
+<section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
             <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
@@ -69,7 +69,7 @@
     </div>
 </section>
 
-<section class="nhsuk-section nhsuk-section--with-image">
+<section class="nhsuk-section  nhsuk-section--white nhsuk-section--with-image">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
             <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
@@ -101,11 +101,32 @@
     </div>
 </section>
 
-<section class="nhsuk-section nhsuk-section--white">
+<section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
             <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
                 <h2 class="nhsuk-section__heading">Healthy living</h2>
+                <p class="nhsuk-section__description">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
+                <ul class="nhsuk-list-links">
+                    <li><a href="#">Eat Well</a></li>
+                    <li><a href="#">Healthy weight</a></li>
+                    <li><a href="#">Exercise</a></li>
+                    <li><a href="#">Quit smoking</a></li>
+                </ul>
+                {{ actionLink("#", "More Healthy living ideas", "nhsuk-c-action-link--small nhsuk-c-action-link--alternative") }}
+            </div>
+            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content nhsuk-section__content--stacked-collapsed">
+                {{ promoWithImage("", "/images/promo-images/change-for-life.png", "#", "Change 4 Life", "Fun ideas, recipes, top tips and activities to help your kids stay healthy. Make a change today.") }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="nhsuk-section nhsuk-section--white">
+    <div class="nhsuk-o-width-container">
+        <div class="nhsuk-o-grid">
+            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-half nhsuk-section__content">
+                <h2 class="nhsuk-section__heading">Care and support</h2>
                 <p class="nhsuk-section__description">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
                 <ul class="nhsuk-list-links">
                     <li><a href="#">Eat Well</a></li>
@@ -170,5 +191,28 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block customJS %}
+    <script>
+        //random image for nhsuk-hero-home
+        function randomImage(){
+        var images = [
+        '/images/hero-home/hero-cutout-1.png',
+        '/images/hero-home/hero-cutout-2.png',
+        '/images/hero-home/hero-cutout-3.png'];
+        var size = images.length;
+        var x = Math.floor(size * Math.random());
+        console.log(x);
+        var element = document.getElementsByClassName('nhsuk-hero-home');
+        console.log(element);
+        if(element.length > 0)
+        {
+            element[0].style["background-image"] = "url("+ images[x] + ")";
+        }
+        }
+
+        document.addEventListener("DOMContentLoaded", randomImage);
+    </script>
 {% endblock %}
 
