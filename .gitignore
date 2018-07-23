@@ -30,8 +30,10 @@ bower_components
 Thumbs.db
 
 # Tests
-**/backstop_data/bitmaps_test/
-**/backstop_data/html_report/
+**/backstop/backstop_data/bitmaps_test/
+**/backstop/backstop_data/html_report/
+**/cypress/videos
+**/cypress/screenshots
 
 # CSS files
 app/assets/css/styles.min.css
