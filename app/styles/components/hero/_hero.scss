@@ -22,7 +22,7 @@
 // Home page hero v1
 
 .nhsuk-hero-image {
-  background-image: url(/images/hero-home/home-hero-2.png);
+  background-image: url(/images/hero-home/home-hero-2.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,7 +131,6 @@
   background-position: right -100px center;
   background-repeat: no-repeat;
   background-size: 45%;
-  border-top: 1px solid $nhsuk-secondary-border-colour;
   position: relative;
 
   @include mq($until: large-desktop) {
@@ -157,6 +156,10 @@
   @include mq($until: 360px) {
     background-position: right -300px center;
     background-size: 120%;
+  }
+
+  .nhsuk-o-width-container {
+    border-top: 1px solid $nhsuk-secondary-border-colour;
   }
   
 }
