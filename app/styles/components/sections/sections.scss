@@ -68,7 +68,7 @@
     .nhsuk-list-signage {
         margin: 40px 0;
 
-        @include mq($until: tablet) {
+        @include mq($until: desktop) {
             margin: 24px 0;
         }
 
@@ -126,4 +126,14 @@
     color: $nhsuk-secondary-text-colour;
     margin-top: 8px;
     max-width: 660px;
+}
+
+.nhsuk-section__content--stacked-collapsed {
+    .nhsuk-c-panel__blockquote {
+        margin-top: 26px !important;
+
+        @include mq($until: tablet) {
+            margin-top: 22px !important;
+        }
+    }
 }
