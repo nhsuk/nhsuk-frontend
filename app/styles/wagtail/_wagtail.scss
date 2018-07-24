@@ -111,15 +111,25 @@
   margin: 32px 16px 32px 0;
   position: relative;
 
-  a {
+  > *:first-child {
     font-size: 21px;
     font-weight: 600;
-    text-decoration: none;
     padding-left: 42px;
 
     @include mq($until: tablet) {
       font-size: 19px;
       padding-left: 36px;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: none;
+      }
+
     }
   
     &:hover,
