@@ -3,149 +3,55 @@
   "viewports": [
     {
       "label": "phone",
-      "width": 320,
-      "height": 480
+      "width": 375,
+      "height": 667
     },
     {
       "label": "tablet",
-      "width": 1024,
-      "height": 768
+      "width": 768,
+      "height": 1024
     },
     {
       "label": "laptop",
-      "width": 1680,
-      "height": 1050
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "label": "desktop",
+      "width": 1920,
+      "height": 1080
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "Redesign components",
+      "label": "components",
       "url": "http://localhost:3000/examples/components"
     },
     {
-      "label": "Header component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-header"
-      ]
-    },
-    {
-      "label": "Header & Search components",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-header"
-      ],
-      "clickSelector": ".nhsuk-global-header__search .search-toggle__button"
-    },
-    {
-      "label": "Navigation component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-global-nav"
-      ]
-    },
-    {
-      "label": "Header & Navigation components",
-      "url": "http://localhost:3000/examples/components",
+      "label": "header & navigation",
+      "url": "http://localhost:3000/examples/header-footer-example",
       "selectors": [
         ".nhsuk-global-header",
         ".nhsuk-global-nav"
       ],
       "clickSelector": ".nhsuk-global-header__menu .menu-toggle__button"
-    },
+    }, 
     {
-      "label": "Breadcrumb component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".nhsuk-c-breadcrumb"
-      ]
-    },
-    {
-      "label": "Footer component",
-      "url": "http://localhost:3000/examples/components",
+      "label": "footer",
+      "url": "http://localhost:3000/examples/header-footer-example",
       "selectors": [
         ".nhsuk-global-footer"
-      ]
-    },
-    {
-      "label": "Warning Callout component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-warning-callout"
-      ]
-    },
-    {
-      "label": "Keypoint Callout component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-keypoint-callout"
-      ]
-    },
-    {
-      "label": "Do list component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-do-list"
-      ]
-    },
-    {
-      "label": "Dont list component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-dont-list"
-      ]
-    },
-    {
-      "label": "Action Link component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-action-link"
-      ]
-    },
-    {
-      "label": "Grey Care Card component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-grey-carecard"
-      ]
-    },
-    {
-      "label": "Blue Care Card component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-blue-carecard"
-      ]
-    },
-    {
-      "label": "Red Care Card component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-red-carecard"
-      ]
-    },
-    {
-      "label": "Black Care Card component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-black-carecard"
-      ]
-    },
-    {
-      "label": "Image component",
-      "url": "http://localhost:3000/examples/components",
-      "selectors": [
-        ".backstop-images"
       ]
     }
   ],
   "paths": {
-    "bitmaps_reference": "tests/backstop_data/bitmaps_reference",
-    "bitmaps_test": "tests/backstop_data/bitmaps_test",
-    "engine_scripts": "tests/backstop_data/engine_scripts",
-    "html_report": "tests/backstop_data/html_report",
-    "ci_report": "tests/backstop_data/ci_report"
+    "bitmaps_reference": "tests/backstop/backstop_data/bitmaps_reference",
+    "bitmaps_test": "tests/backstop/backstop_data/bitmaps_test",
+    "engine_scripts": "tests/backstop/backstop_data/engine_scripts",
+    "html_report": "tests/backstop/backstop_data/html_report",
+    "ci_report": "tests/backstop/backstop_data/ci_report"
   },
   "report": ["browser"],
   "engine": "puppeteer",
