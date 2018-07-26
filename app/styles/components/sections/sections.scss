@@ -32,6 +32,11 @@
                 padding-top: 120px;
             }
         }
+        .nhsuk-section__content--stacked-collapsed {
+            @include mq($until: desktop) {
+                padding-top: 0;
+            }
+        }
     }
 
     &--with-image {
