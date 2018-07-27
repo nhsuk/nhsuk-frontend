@@ -36,10 +36,12 @@
     li {
       @include mq($from: tablet) {
         display: inline-block;
+        font-size: 17px;
         padding-right: 25px;
       }
       a {
         color: $nhsuk-white;
+
         &:focus,
         &:hover {
           color: $nhsuk-link-focus-colour;
