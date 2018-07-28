@@ -12,7 +12,7 @@
 <section class="nhsuk-section nhsuk-section--top-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-health-a-z-and-medicines.html' %}
+            {% include 'partials/home-page/home-page-section-content/home-page-health-a-z-and-medicines-no-top-tasks.html' %}
         </div>
     </div>
 </section>
@@ -20,7 +20,7 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-services.html' %}
+            {% include 'partials/home-page/home-page-section-content/home-page-services-v3.html' %}
         </div>
     </div>
 </section>
@@ -36,31 +36,15 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
+            {% include 'partials/home-page/home-page-section-content/home-page-social-care-v2.html' %}    
+        </div>
+    </div>
+</section>
+
+<section class="nhsuk-section nhsuk-section--white">
+    <div class="nhsuk-o-width-container">
+        <div class="nhsuk-o-grid">
             {% include 'partials/home-page/home-page-section-content/home-page-healthy-living.html' %}
-        </div>
-    </div>
-</section>
-
-<section class="nhsuk-section nhsuk-section--white">
-    <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-social-care.html' %}
-        </div>
-    </div>
-</section>
-
-<section class="nhsuk-section">
-    <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-promos.html' %}
-        </div>
-    </div>
-</section>
-
-<section class="nhsuk-section nhsuk-section--white">
-    <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-news.html' %}
         </div>
     </div>
 </section>
@@ -73,6 +57,22 @@
     </div>
 </section>
 
+<section class="nhsuk-section nhsuk-section--white">
+    <div class="nhsuk-o-width-container">
+        <div class="nhsuk-o-grid">
+            {% include 'partials/home-page/home-page-section-content/home-page-promos-v2.html' %}
+        </div>
+    </div>
+</section>
+
+<section class="nhsuk-section">
+    <div class="nhsuk-o-width-container">
+        <div class="nhsuk-o-grid">
+            {% include 'partials/home-page/home-page-section-content/home-page-news.html' %}
+        </div>
+    </div>
+</section>
+
 {% endblock %}
 
 {% block customJS %}
@@ -80,9 +80,8 @@
         //random image for nhsuk-hero-home
         function randomImage(){
         var images = [
-        '/images/hero-home/hero-care-home.jpg',
         '/images/hero-home/hero-doctors.jpg',
-        '/images/hero-home/hero-healthy.jpg'];
+        '/images/hero-home/home-hero-runner.jpg'];
         var size = images.length;
         var x = Math.floor(size * Math.random());
         console.log(x);

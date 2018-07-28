@@ -11,11 +11,18 @@
             margin: 1px;
             a {
                 display: block;
+                font-size: 21px;
                 min-width: 34px;
                 padding: 8px 0;
                 text-align: center;
                 @include mq($until: tablet) {
+                    font-size: 19px;
                     min-width: 36px;
+                }
+
+                &.active {
+                    background: $nhsuk-blue;
+                    color: $nhsuk-white;
                 }
             }
         }

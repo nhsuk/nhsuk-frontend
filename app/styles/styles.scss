@@ -106,10 +106,16 @@ margin: 12px 0 0;
     }
 }
 
+.nhsuk-hide-on-tablet {
+    @include mq($until: desktop) {
+        display: none;
+    }
+}
+
 // Responsive image
 
 .nhsuk-image-responsive {
-    max-width: 100%;
+    width: 100%;
 }
 
 // Panel grey <-- Needs looking at properly

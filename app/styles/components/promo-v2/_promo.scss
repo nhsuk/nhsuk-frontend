@@ -3,11 +3,14 @@
 
 .nhsuk-c-promo {
   background: $nhsuk-white;
-  border-bottom: 4px solid $nhsuk-grey-4;
+  box-shadow: 0 4px 0 0 $nhsuk-grey-4;
   margin: 56px 0 0;
   width: 100%; //default width is 100%
   @include mq($until: tablet) {
       margin: 40px 0 0;
+  }
+  &:hover {
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
   }
 
   a {
@@ -18,24 +21,7 @@
     }
     &:hover {
         .nhsuk-c-promo__heading {
-            background: $nhsuk-link-hover-background-colour;
-            box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-            color: $nhsuk-link-hover-colour;
             text-decoration: none;
-        }
-    }
-    &:focus {
-        .nhsuk-c-promo__heading {
-            background: $nhsuk-link-focus-background-colour;
-            box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-            color: $nhsuk-link-focus-colour;
-        }
-    }
-    &:active {
-        .nhsuk-c-promo__heading {
-            background: $nhsuk-link-active-background-colour;
-            box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
-            color: $nhsuk-link-active-colour;
         }
     }
   }
