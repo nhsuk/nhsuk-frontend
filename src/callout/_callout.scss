@@ -40,13 +40,13 @@
 }
 
 .nhsuk-c-keypoint {
-  border-left: 8px solid $nhsuk-blue;
+  border-left: 16px solid $nhsuk-blue;
   margin: 40px 0;
-  padding: 8px 24px;
+  padding: 24px;
 
   @include mq($until: tablet) {
     margin: 40px 0;
-    padding: 4px 16px;
+    padding: 16px;
   }
 
   h2,

@@ -65,13 +65,15 @@
 // Home page hero v1
 
 .nhsuk-hero-image.v3 {
-  background-position: center center;
+  background-color: $nhsuk-blue;
+  background-image: none;
+  background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
   height: 320px;
   position: relative;
   @include mq($until: tablet) {
-    background-position: bottom center;
+    background-position: center right;
     height: 272px;
   }
   .nhsuk-hero-image__wrapper {
@@ -81,12 +83,12 @@
   .nhsuk-hero__home-content {
     @include top-and-bottom();
     background: $nhsuk-blue;
-    bottom: -88px;
+    bottom: -56px;
     color: $nhsuk-white;
-    max-width: 660px;
-    padding: 32px 48px;
+    max-width: 565px;
+    padding: 32px 40px;
     position: absolute;
-    width: 55%;
+    width: 80%;
 
     &:after {
       border-left: 16px solid transparent;
@@ -108,10 +110,10 @@
       left: 16px;
       padding: 24px;
       right: 16px;
-      width: 80%;
     }
   
     p {
+      color: rgba($nhsuk-white,0.9);
       font-size: 24px;
       line-height: 36px;
       margin-top: 8px;

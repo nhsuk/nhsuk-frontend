@@ -282,5 +282,9 @@ router.get('/examples/home-page/nhsuk-home-page-v4', (req, res) => {
   res.render('examples/home-page/nhsuk-home-page-v4', {});
 });
 
+router.get('/examples/home-page/nhsuk-home-page-v5', (req, res) => {
+  res.render('examples/home-page/nhsuk-home-page-v5', {});
+});
+
 
 module.exports = router;
