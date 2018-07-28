@@ -39,7 +39,7 @@
     &:focus,
     &:active {
         .nhsuk-c-promo__image {
-            border: 0;
+            border-color: transparent;
         }
     }
     .nhsuk-c-promo__heading {
