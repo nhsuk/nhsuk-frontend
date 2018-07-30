@@ -258,6 +258,14 @@ router.get('/examples/medicines/medicines-v2', (req, res) => {
   res.render('examples/medicines/medicines-v2', {});
 });
 
+router.get('/examples/medicines/medicines-v3', (req, res) => {
+  res.render('examples/medicines/medicines-v3', {});
+});
+
+router.get('/examples/medicines/medicines-v4', (req, res) => {
+  res.render('examples/medicines/medicines-v4', {});
+});
+
 router.get('/examples/test-condition-sore-throat-v1', (req, res) => {
   res.render('examples/test-condition-sore-throat-v1', {});
 });
