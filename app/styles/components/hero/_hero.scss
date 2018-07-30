@@ -73,8 +73,8 @@
   height: 320px;
   position: relative;
   @include mq($until: tablet) {
-    background-position: center right;
-    height: 272px;
+    background-position: center right -150px;
+    height: 240px;
   }
   .nhsuk-hero-image__wrapper {
     background: rgba($nhsuk-blue-shade-50,0.1);
@@ -83,10 +83,10 @@
   .nhsuk-hero__home-content {
     @include top-and-bottom();
     background: $nhsuk-blue;
-    bottom: -56px;
+    bottom: -48px;
     color: $nhsuk-white;
     max-width: 565px;
-    padding: 32px 40px;
+    padding: 32px 40px 40px;
     position: absolute;
     width: 80%;
 
@@ -107,6 +107,7 @@
     }
   
     @include mq($until: tablet) {
+      bottom: -80px;
       left: 16px;
       padding: 24px;
       right: 16px;

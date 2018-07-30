@@ -27,9 +27,9 @@
 
     &--top-section {
         .nhsuk-section__content {
-            padding-top: 138px;
-            @include mq($until: desktop) {
-                padding-top: 114px;
+            padding-top: 122px;
+            @include mq($until: tablet) {
+                padding-top: 138px;
             }
         }
         .nhsuk-section__content--stacked-collapsed {
@@ -78,7 +78,7 @@
         }
 
         & + .nhsuk-c-action-link {
-            margin-top: 8px;
+            margin-top: 0;
         }
     }
 
