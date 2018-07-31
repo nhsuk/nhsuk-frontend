@@ -107,10 +107,14 @@
     }
   
     @include mq($until: tablet) {
-      bottom: -80px;
+      bottom: -72px;
       left: 16px;
       padding: 24px;
       right: 16px;
+    }
+
+    @include mq($until: 375px) {
+      bottom: -40px;
     }
   
     p {
@@ -122,6 +126,11 @@
       @include mq($until: tablet) {
         font-size: 19px;
         line-height: 28px;
+      }
+
+      @include mq($until: 375px) {
+        font-size: 16px;
+        line-height: 24px;
       }
     }
   }
