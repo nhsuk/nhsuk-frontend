@@ -10,8 +10,8 @@
         padding-top: 72px;
 
         @include mq($until: desktop) {
-            padding-bottom: 56px;
-            padding-top: 56px;
+            padding-bottom: 48px;
+            padding-top: 48px;
         }
 
         &--stacked {
@@ -27,9 +27,12 @@
 
     &--top-section {
         .nhsuk-section__content {
-            padding-top: 122px;
+            padding-top: 114px;
             @include mq($until: tablet) {
-                padding-top: 138px;
+                padding-top: 130px;
+            }
+            @include mq($until: 375px) {
+                padding-top: 90px;
             }
         }
         .nhsuk-section__content--stacked-collapsed {
