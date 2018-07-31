@@ -49,15 +49,6 @@
     padding: 16px;
   }
 
-  h2,
-  h3,
-  h4 {
-    + p,
-    + ul {
-      margin-top: 16px;
-    }
-  }
-
   @include top-and-bottom();
 
   @include reading-width();
