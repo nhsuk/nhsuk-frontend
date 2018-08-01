@@ -29,6 +29,7 @@
             background: $nhsuk-black;
             color: $nhsuk-yellow;          
             margin: 0 8px 0 0;
+            padding: 8px 12px;
 
             @include mq($until:desktop) {
                 display: inline-block;
