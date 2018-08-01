@@ -71,6 +71,10 @@ router.get('/styles/multi-page-nav', (req, res) => {
   res.render('styles/multi-page-nav', {});
 });
 
+router.get('/styles/beta-banner', (req, res) => {
+  res.render('styles/beta-banner', {});
+});
+
 
 /* Example pages */
 
