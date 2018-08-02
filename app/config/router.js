@@ -302,5 +302,17 @@ router.get('/examples/home-page/nhsuk-home-page-v6', (req, res) => {
   res.render('examples/home-page/nhsuk-home-page-v6', {});
 });
 
+router.get('/examples/maurotest', (req, res) => {
+  res.render('examples/maurotest', {});
+});
+
+router.get('/examples/maurotest2', (req, res) => {
+  res.render('examples/maurotest2', {});
+});
+
+router.get('/examples/maurotest3', (req, res) => {
+  res.render('examples/maurotest3', {});
+});
+
 
 module.exports = router;
