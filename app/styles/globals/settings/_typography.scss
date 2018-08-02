@@ -144,13 +144,12 @@
 
 .nhsuk-list-apps {
   padding: 0;
-  @include mq($from: tablet) {
-    margin-bottom: 16px !important;
-  }
   li{
     @include clear();
+    display: inline-block;
     list-style: none;
     margin: 0;
+    width: 100%;
     @include mq($until: desktop) {
       border-bottom: 1px solid $nhsuk-grey-4;
       &:last-child {
@@ -160,26 +159,61 @@
     }
     a {
       display: block;
-      min-height: 94px;
+      min-height: 100px;
       padding: 16px 0 16px 92px;
       position: relative;
       text-decoration: none; 
+      &:hover,
+      &:focus,
+      &:active {
+        background: none;
+        box-shadow: none;
+      }
+      &:focus {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-focus-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+          color: $nhsuk-link-focus-colour;
+        }
+      }
+      &:hover {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-hover-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+          color: $nhsuk-link-hover-colour;
+          text-decoration: none;
+        }
+      }
+      &:active {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-active-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
+          color: $nhsuk-link-active-colour;
+        }
+      }
       @include mq($until: desktop) {
+        min-height: 92px;
         padding-left: 80px;
+      }
+      @include mq($until: tablet) {
+        min-height: 88px;
+        padding-left: 68px;
       }
       .nhsuk-list-apps__icon {
         border: 1px solid $nhsuk-grey-5;
         border-radius: 12px;
         height: 72px;
-        margin-right: 20px;
         left: 0;
         position: absolute;
         top: 16px;
         width: 72px;
         @include mq($until: desktop) {
           height: 64px;
-          margin-right: 16px;
           width: 64px;
+        }
+        @include mq($until: tablet) {
+          height: 56px;
+          width: 56px;
         }
       }
       .nhsuk-list-apps__title {
@@ -190,6 +224,10 @@
         @include mq($until: desktop) {
           font-size: 19px;
           line-height: 28px;
+        }
+        @include mq($until: desktop) {
+          font-size: 16px;
+          line-height: 24px;
         }
       }
       .nhsuk-list-apps__category {
