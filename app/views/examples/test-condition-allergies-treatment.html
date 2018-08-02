@@ -7,73 +7,17 @@
 {% extends "includes/templates/page-v4.html"%}
 
 {% block breadcrumb %}
-<nav class="nhsuk-c-breadcrumb" role="Breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-o-width-container">
-    <ol class="nhsuk-c-breadcrumb__list">
-    <li class="nhsuk-c-breadcrumb__item">
-      <a href="#" class="nhsuk-c-breadcrumb__link">Home</a>
-      <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey-10px.png" xlink:href="">
-      </svg>
-    </li>
-    <li class="nhsuk-c-breadcrumb__item">
-      <a href="#" class="nhsuk-c-breadcrumb__link">Health A-Z</a>
-      <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey-10px.png" xlink:href="">
-      </svg>
-    </li>
-
-    <li class="nhsuk-c-breadcrumb__item">
-      <a href="#" class="nhsuk-c-breadcrumb__link">Your pregnancy and baby guide</a>
-      <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey-10px.png" xlink:href="">
-      </svg>
-    </li>
-
-
-    <li class="nhsuk-c-breadcrumb__item">
-      <a href="#" class="nhsuk-c-breadcrumb__link">Your pregnancy (antenatal) care</a>
-      <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey-10px.png" xlink:href="">
-      </svg>
-    </li>
-
-
-    <li class="nhsuk-c-breadcrumb__item">
-      <a href="#" class="nhsuk-c-breadcrumb__link">Your antenatal appointments</a>
-      <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
-        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/images/icons/icon-chevron-right-grey-10px.png" xlink:href="">
-      </svg>
-    </li>
-
-  </ol>
-  <p class="nhsuk-c-breadcrumb__back">
-    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"/>
-      <image class="nhsuk-icon__chevron-left nhsuk-icon__chevron-left--fallback" src="/images/icons/icon-chevron-left-blue.png" xlink:href="">
-    </svg>
-    <a href="#" class="nhsuk-c-breadcrumb__backlink">Back to Your pregnancy and baby guide</a>
-  </p>
-  </div>
-</nav>
+  {% include 'partials/breadcrumb/breadcrumb.html' %}
 {% endblock %}
 
 {% block sidebar %}
 <h2 class="nhsuk-heading-s">Pages in this section</h2>
     <ul class="nhsuk-list-nav">
-        <li><a href="/examples/allergies/test-condition-allergies-overview">What is your antenatal care</a></li>
-        <li><a href="/examples/allergies/test-condition-allergies-symptoms">Who is who in your antenatal team</a></li>
-        <li><strong>Your antenatal appointments</strong></li>
-        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">Tests scans and checks</a></li>
-        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">Your booking appointments</a></li>
-        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">1st scan</a></li>
-        <li><a href="/examples/allergies/test-condition-allergies-prevention">Mid pregnancy scan</a></li>
-        <li><a href="/examples/allergies/test-condition-allergies-prevention">If screenings find something</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-overview">Overview</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-symptoms">Symptoms</a></li>
+        <li><a href="/examples/allergies/test-condition-allergies-diagnosis">Diagnosis</a></li>
+        <li><strong>Treatment</strong></li>
+        <li><a href="/examples/allergies/test-condition-allergies-prevention">Prevention</a></li>
 	</ul>
 {% endblock %}
 
@@ -83,10 +27,8 @@
 		<div class="nhsuk-reading-width">
 
 			<div class="nhsuk-page-heading">
-				<h1>Your antenatal appointments </h1>
-				<p class="nhsuk-body-l nhsuk-page-intro">How many antenatal appointments will I have.
-        Where will I have my antenatal appointments
-      Questions you might be asked</p>
+				<h1>Allergies<span class="nhsuk-o-h1-sub">Treatment</span></h1>
+				<p class="nhsuk-body-l nhsuk-page-intro">The treatment for an allergy depends on what you're allergic to. In many cases, your GP will be able to offer advice and treatment.</p>
 			</div>
 
 			<div class="nhsuk-c-page-contents">
@@ -95,13 +37,11 @@
 					<a href="#" class="nhsuk-c-reveal__header">Open page contents</a>
 					<div class="nhsuk-c-reveal__content">
 						<ul>
-							<li><a href="#First-contact-with-midwife-or-doctor">First contact with midwife or doctor</a></li>
-							<li><a href="#allergy-medications">8-12 weeks: booking appointment</a></li>
-							<li><a href="#immunotherapy-desensitisation">8-14 weeks: 1st scan</a></li>
-							<li><a href="#treating-severe-allergic-reactions-anaphylaxis">16 week pregnant</a></li>
-							<li><a href="#treating-specific-allergic-conditions">18-20 weeks</a></li>
-              <li><a href="#treating-specific-allergic-conditions">25 weeks pregnant</a></li>
-              <li><a href="#treating-specific-allergic-conditions">28 weeks</a></li>
+							<li><a href="#avoiding-exposure-to-allergens">Avoiding exposure to allergens</a></li>
+							<li><a href="#allergy-medications">Allergy medications</a></li>
+							<li><a href="#immunotherapy-desensitisation">Immunotherapy (desensitisation)</a></li>
+							<li><a href="#treating-severe-allergic-reactions-anaphylaxis">Treating severe allergic reactions (anaphylaxis)</a></li>
+							<li><a href="#treating-specific-allergic-conditions">Treating specific allergic conditions</a></li>
 						</ul>
 					</div>
 				</div>
@@ -121,13 +61,9 @@
 
 			<p>They'll advise you about taking steps to avoid exposure to the substance you're allergic to, and can recommend medication to control your symptoms.</p>
 
-			<h2 id="First-contact-with-midwife-or-doctor">First contact with midwife or doctor</h2>
+			<h2 id="avoiding-exposure-to-allergens">Avoiding exposure to allergens</h2>
 
-			<p>If you're expecting your first child, you'll have up to 10 antenatal appointments. If you've had a baby before, you'll have around seven appointments but, sometimes, you may have more – for example, if you develop a medical condition.
-
-Early in your pregnancy, your midwife or doctor will give you written information about how many appointments you're likely to have and when they'll happen.
-
-You should have a chance to discuss the schedule of antenatal appointments with them. If you can't keep an appointment, let the clinic or midwife know and make another one.</p>
+			<p>The best way to keep your symptoms under control is often to avoid the things you're allergic to, although this isn't always practical.</p>
 
 			<p>For example, you may be able to help manage: </p>
 
