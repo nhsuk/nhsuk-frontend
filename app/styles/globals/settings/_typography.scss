@@ -1,4 +1,5 @@
 @import '../../src/globals/settings/colours';
+@import '../../src/globals/helpers/_clearfix';
 
 .example-code-snippet {
   background-color: $nhsuk-white;
@@ -43,7 +44,7 @@
   }
 }
 
-// testing increased margin on side nav
+// Testing increased margin on side nav
 
 .nhsuk-list-nav {
   margin-top: 12px;
@@ -52,11 +53,19 @@
   }
 }
 
-// helper class for having text coloured with $nhsuk-secondary-text-colour
+// Helper class for having text coloured with $nhsuk-secondary-text-colour
 
 .nhsuk-secondary-text {
   color: $nhsuk-secondary-text-colour;
 }
+
+// Helper class for font weight 400
+
+.nhsuk-font-normal {
+  font-weight: 400;
+}
+
+// List Links
 
 .nhsuk-list-links {
   list-style: none;
@@ -73,6 +82,8 @@
     }
   }
 }
+
+// List Signage
 
 .nhsuk-list-signage {
   list-style: none;
@@ -118,7 +129,7 @@
 }
 
 .nhsuk-list-signage,
-.nhsuk-list-signage {
+.nhsuk-list-links {
   &--two-columns {
     column-count: 2;
     column-gap: 32px;
@@ -129,6 +140,119 @@
   }
 }
 
-.nhsuk-font-normal {
-  font-weight: 400;
+// List Apps
+
+.nhsuk-list-apps {
+  padding: 0;
+  li{
+    @include clear();
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    @include mq($until: desktop) {
+      border-bottom: 1px solid $nhsuk-grey-4;
+      &:last-child {
+        border: 0;
+        margin-bottom: 0;
+      }
+    }
+    a {
+      display: block;
+      min-height: 100px;
+      padding: 16px 0 16px 92px;
+      position: relative;
+      text-decoration: none; 
+      &:hover,
+      &:focus,
+      &:active {
+        background: none;
+        box-shadow: none;
+      }
+      &:focus {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-focus-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+          color: $nhsuk-link-focus-colour;
+        }
+      }
+      &:hover {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-hover-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+          color: $nhsuk-link-hover-colour;
+          text-decoration: none;
+        }
+      }
+      &:active {
+        .nhsuk-list-apps__title {
+          background: $nhsuk-link-active-background-colour;
+          box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
+          color: $nhsuk-link-active-colour;
+        }
+      }
+      @include mq($until: desktop) {
+        min-height: 92px;
+        padding-left: 80px;
+      }
+      @include mq($until: tablet) {
+        min-height: 88px;
+        padding-left: 68px;
+      }
+      .nhsuk-list-apps__icon {
+        border: 1px solid $nhsuk-grey-5;
+        border-radius: 12px;
+        height: 72px;
+        left: 0;
+        position: absolute;
+        top: 16px;
+        width: 72px;
+        @include mq($until: desktop) {
+          height: 64px;
+          width: 64px;
+        }
+        @include mq($until: tablet) {
+          height: 56px;
+          width: 56px;
+        }
+      }
+      .nhsuk-list-apps__title {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 32px;
+        text-decoration: underline;
+        @include mq($until: desktop) {
+          font-size: 19px;
+          line-height: 28px;
+        }
+        @include mq($until: desktop) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+      .nhsuk-list-apps__category {
+        color: $nhsuk-secondary-text-colour;
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-top: 8px;
+        @include mq($until: desktop) {
+          font-size: 14px;
+          line-height: 24px;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  &--two-columns {
+    column-count: 2;
+    column-gap: 32px;
+    @include mq($until: desktop) {
+      column-count: 1;
+      column-gap: 0;
+    }
+  }
 }
+
