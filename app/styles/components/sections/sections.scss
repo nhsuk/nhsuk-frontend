@@ -73,7 +73,8 @@
     // Spacing for section elements
 
     .nhsuk-list-links,
-    .nhsuk-list-signage {
+    .nhsuk-list-signage,
+    .nhsuk-list-apps {
         margin: 40px 0;
 
         @include mq($until: desktop) {
