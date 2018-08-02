@@ -256,3 +256,22 @@
   }
 }
 
+// Tab heading
+
+.nhsuk-tab-heading {
+  font-size: govuk-em(14px, $nhsuk-base-font-size-mobile);
+  line-height: 24px;
+  margin: 32px 0 0;
+  @include mq($from: tablet) {
+    font-size: govuk-em(16px, $nhsuk-base-font-size);
+    line-height: 24px;
+    margin: 40px 0 0;
+  }
+
+  & + .nhsuk-list-apps {
+    margin-top: 16px !important;
+    @include mq($until: tablet) {
+      margin-top: 8px !important;
+    }
+  }
+}
