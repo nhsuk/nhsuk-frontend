@@ -16,12 +16,13 @@
 @import 'components/pagination/pagination';
 @import 'components/skip-links/skip-links';
 @import 'components/video/video';
-@import 'components/promo-v2/promo';
+//@import 'components/promo-v2/promo';
 @import 'components/health-a-z/health-a-z';
-@import 'components/sections/sections';
+//@import 'components/sections/sections';
 @import 'components/hero/hero';
 @import 'components/blockquote/blockquote';
-@import 'components/global-alert/global-alert';
+//@import 'components/global-alert/global-alert';
+@import 'components/home-page/home-page';
 
 
 @import 'pages/code';
@@ -99,50 +100,6 @@ hr.nhsuk-hr {
 .nhsuk-list-links-heading + .nhsuk-list-links {
 margin: 12px 0 0;
 }
-
-// helper classes to be filed properly
-
-.nhsuk-hide-on-mobile {
-    @include mq($until: tablet) {
-        display: none;
-    }
-}
-
-.nhsuk-hide-on-tablet {
-    @include mq($until: desktop) {
-        display: none;
-    }
-}
-
-// Responsive image
-
-.nhsuk-image-responsive {
-    width: 100%;
-}
-
-// Panel grey <-- Needs looking at properly
-
-.nhsuk-c-panel--grey {
-    @include top-and-bottom();
-    background: $nhsuk-grey-5;
-    padding:32px;
-    @include mq($until: tablet) {
-        padding:24px;
-    }
-}
-
-.nhsuk-section {
-    .nhsuk-c-panel--grey {
-        background: $nhsuk-white;
-    }
-    &--white {
-        .nhsuk-c-panel--grey {
-            background: $nhsuk-grey-5;
-        }
-    }
-}
-
-
 
 //mauro's custom code here
 .milan {
