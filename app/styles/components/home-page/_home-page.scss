@@ -105,8 +105,9 @@
     list-style: none;
     padding-left: 0;
     li {
-      width: 100%;
+      display: inline-block;
       margin-top: 2px;
+      width: 100%;
       a {
         background: $nhsuk-blue;
         color: $nhsuk-white;
@@ -401,19 +402,15 @@
     .nhsuk-section__description {
         & + .nhsuk-c-promo__group {
             margin-top: 8px !important;
-
-            @include mq($until: tablet) {
-                margin-top: 0 !important;
-            }
         }
     }
 
     .nhsuk-c-promo__group {
         & + .nhsuk-c-action-link {
-            margin-top: 40px;
+            margin-top: 44px;
 
             @include mq($until: tablet) {
-                margin-top: 24px;
+                margin-top: 28px;
             }
         }
     }
