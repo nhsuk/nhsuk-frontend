@@ -1,0 +1,131 @@
+.nhsuk-a-z-list {
+    ul {
+  
+      @include clear();
+  
+      margin: -8px 0 0 !important; // sass-lint:disable-line no-important
+      padding: 0;
+  
+      li {
+        float: left;
+        list-style: none;
+        margin: 1px;
+  
+        a {
+          display: block;
+          font-size: 21px;
+          min-width: 34px;
+          padding: 8px 0;
+          text-align: center;
+  
+          @include mq($until: tablet) {
+            font-size: 19px;
+            min-width: 36px;
+          }
+  
+          &.active {
+            background: $nhsuk-blue;
+            color: $nhsuk-white;
+          }
+        }
+  
+      }
+  
+    }
+  }
+  
+  .nhsuk-a-z-list--results-items {
+  
+    @include mq($until: tablet) {
+      margin: 0 -16px;
+    }
+  
+    h2 {
+      background: $nhsuk-blue;
+      color: $nhsuk-white;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+  
+    ul {
+      background: $nhsuk-white;
+      border-top: 2px solid $nhsuk-blue;
+      margin: -28px 0 0;
+      padding: 28px 0 0;
+  
+      @include mq($until: tablet) {
+        margin: -24px 0 0;
+        padding: 24px 0 0;
+      }
+  
+      li {
+        background: $nhsuk-white;
+        list-style: none;
+        margin: 0;
+  
+        a {
+          border-bottom: 1px solid $nhsuk-grey-4;
+          display: block;
+          padding: 12px 16px;
+          text-decoration: none;
+  
+          &:hover,
+          &:focus {
+            border-color: transparent;
+            box-shadow: none;
+          }
+  
+          @include mq($until: tablet) {
+            padding: 8px 16px;
+          }
+        }
+  
+      }
+    }
+  
+    .nhsuk-back-to-top-link {
+      display: inline-block;
+      margin-top: 16px;
+      padding-left: 12px;
+      position: relative;
+    
+      @include mq($until: tablet) {
+        margin: 16px 16px 0;
+      }
+  
+      .nhsuk-icon {
+        fill: $nhsuk-blue;
+        height: 19px;
+        left: -8px;
+        position: absolute;
+        top: 4px;
+        transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        width: 19px;
+  
+        @include mq($until: tablet) {
+          top: 3px;
+        }
+  
+      }
+
+      &:visited {
+        color: $nhsuk-blue;
+      }
+
+      &:hover {
+        background: $nhsuk-link-hover-background-colour;
+        box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+        color: $nhsuk-link-hover-colour;
+        text-decoration: none;
+
+
+        .nhsuk-icon { 
+          fill: $nhsuk-link-hover-colour;
+        }
+
+      }
+  
+    }
+  }

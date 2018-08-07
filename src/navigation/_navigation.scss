@@ -1,6 +1,3 @@
-// Import anything from globals required for this component (as little as possible)
-// @import "../globals/helpers/typography";
-
 .c-nav-primary {
 
   @include mq($until: large-desktop) {
