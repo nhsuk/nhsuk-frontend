@@ -40,6 +40,9 @@
 }
 
 .nhsuk-c-keypoint {
+  @include top-and-bottom();
+  @include reading-width();
+
   border-left: 16px solid $nhsuk-blue;
   margin: 40px 0;
   padding: 24px;
@@ -48,9 +51,5 @@
     margin: 40px 0;
     padding: 16px;
   }
-  
-  @include top-and-bottom();
-
-  @include reading-width();
 
 }

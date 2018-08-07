@@ -11,10 +11,12 @@
     display: none !important; // sass-lint:disable-line no-important
   }
 
-  .nhsuk-global-header .nhsuk-o-width-container,
-  .nhsuk-global-nav .nhsuk-o-width-container,
-  .nhsuk-global-footer .nhsuk-o-width-container {
-    margin: 0 auto;
+  .nhsuk-global-header,
+  .nhsuk-global-nav,
+  .nhsuk-global-footer {
+    .nhsuk-o-width-container {
+      margin: 0 auto;
+    }
   }
 
   .c-search {
@@ -119,31 +121,34 @@
     width: 10px;
   }
 
-  .nhsuk-global-footer ul {
-    min-height: 0;
-    padding: 25px 0;
-  }
+  .nhsuk-global-footer {
+    ul {
+      min-height: 0;
+      padding: 25px 0;
 
-  .nhsuk-global-footer ul:first-child {
-    border-bottom: 1px solid #337ec6;
-  }
+      &:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+      }
 
-  .nhsuk-global-footer ul li {
-    float: left;
-    margin-right: 25px;
-    margin-top: 8px;
-  }
+      &:first-child {
+        border-bottom: 1px solid #337ec6; // sass-lint:disable-line no-color-hex no-color-literals
+      }
 
-  .nhsuk-global-footer ul li.nhsuk-global-footer__logo {
-    margin-top: 0;
-  }
+      li {
+        float: left;
+        margin-right: 25px;
+        margin-top: 8px;
 
-  .nhsuk-global-footer ul:after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
+        &.nhsuk-global-footer__logo {
+          margin-top: 0;
+        }
+
+      }
+    }
   }
 
 }
