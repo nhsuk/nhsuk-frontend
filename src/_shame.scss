@@ -50,31 +50,3 @@
   }
 
 }
-
-.nhsuk-o-flex {
-  display: flex;
-  flex-wrap: wrap;
-  .nhsuk-o-grid__item {
-    display: flex;
-  }
-}
-
-.nhsuk-h-margin-top-0 {
-  margin-top: 0;
-}
-
-@include mq($until: grid-collapse) {
-  .nhsuk-o-flex {
-    .nhsuk-o-grid__item {
-      flex: 0 0 100%;
-    }
-  }
-}
-
-@include mq($until: grid-collapse) {
-  .nhsuk-c-promo {
-    &.nhsuk-h-margin-top-0 {
-      margin-bottom: 28px;
-    }
-  }
-}
