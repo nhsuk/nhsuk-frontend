@@ -728,6 +728,10 @@
 
 .lte-ie8,
 .ie9 {
+    
+    section {
+        display: block;
+    }
 
     .nhsuk-c-promo__group {
         @include clear();
