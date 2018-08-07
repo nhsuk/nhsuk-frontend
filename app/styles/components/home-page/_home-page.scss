@@ -469,7 +469,7 @@
   a {
     background: $nhsuk-white;
     box-shadow: 0 4px 0 0 $nhsuk-grey-4;
-    display: inline-block;
+    display: block;
     height: 100%;
     text-decoration: none;
     &:focus {
@@ -497,7 +497,7 @@
     &:focus,
     &:active {
         .nhsuk-c-promo__image {
-            border-color: transparent;
+
         }
     }
     .nhsuk-c-promo__heading {
@@ -519,7 +519,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid $nhsuk-grey-5;
+    border-bottom: 1px solid $nhsuk-grey-5;
     bottom: 0;
     display: block;
     left: 0;
@@ -560,6 +560,12 @@
         }
       }
   }
+}
+
+.nhsuk-section--white {
+    .nhsuk-c-promo__image {
+        border: 1px solid $nhsuk-grey-5;
+      }
 }
 
 // A group of promos
@@ -657,6 +663,13 @@
                 display: block;
                 padding: 8px 0 0;
             }
+            a {
+                &:hover{
+                    background: $nhsuk-blue;
+                    box-shadow: 0 0 0 4px $nhsuk-blue;
+                    color: $nhsuk-white;
+                }
+            }
         }
     }
 }
@@ -707,4 +720,26 @@
             background: $nhsuk-grey-5;
         }
     }
+}
+
+///////////
+// IE FALLBACKS
+///////////
+
+.lte-ie8,
+.ie9 {
+
+    .nhsuk-c-promo__group {
+        @include clear();
+        
+        .nhsuk-c-promo {
+            display: inline-block;
+            float: left;
+        }
+    }
+
+    .nhsuk-hero-image.rotate {
+        background-image:url(/images/hero-home/nhsuk-home-hero-1.jpg);
+    }
+
 }
