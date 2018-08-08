@@ -12,6 +12,7 @@
     background-position: center right;
     background-repeat: no-repeat;
     background-size: cover;
+    display: block;
     height: 320px;
     position: relative;
     @include mq($until: tablet) {
@@ -298,6 +299,7 @@
   ///////////
   
   .nhsuk-section {
+      display: block;
     
     &--white {
         background: $nhsuk-white;
@@ -422,6 +424,9 @@
     color: $nhsuk-secondary-text-colour;
     margin-top: 16px;
     max-width: 660px;
+    @include mq($until: tablet) {
+        margin-top: 8px;
+    }
 }
 
 .nhsuk-section__content--stacked-collapsed {
@@ -479,13 +484,6 @@
     &:active {
         .nhsuk-c-promo__heading {
             text-decoration: none;
-        }
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        .nhsuk-c-promo__image {
-
         }
     }
     .nhsuk-c-promo__heading {
@@ -579,16 +577,14 @@
 
         .nhsuk-c-global-alert__header,
         .nhsuk-c-global-alert__message {
-            font-size: 21px;
+            font-size: 19px;
             float: left;
             line-height: 28px;
             margin: 0;
-            padding: 8px;
+            padding: 4px;
 
             @include mq($until:desktop) {
                 float: none;
-                font-size: 19px;
-                line-height: 28px;
             }
 
             @include mq($until:tablet) {
@@ -601,7 +597,7 @@
             background: $nhsuk-black;
             color: $nhsuk-yellow;          
             margin: 0 8px 0 0;
-            padding: 8px 16px;
+            padding: 4px 12px;
             
             @include mq($until:desktop) {
                 display: inline-block;
@@ -621,6 +617,22 @@
                     color: $nhsuk-white;
                 }
             }
+        }
+    }
+
+    // Notice
+
+    &--notice {
+        background: $nhsuk-grey-5;
+        border-bottom: 1px solid $nhsuk-grey-4;
+
+        .nhsuk-c-global-alert__content {
+
+            .nhsuk-c-global-alert__header {
+                background: $nhsuk-blue;
+                color: $nhsuk-white;       
+            }
+
         }
     }
 }
@@ -722,10 +734,6 @@
 .lte-ie8,
 .ie9 {
     
-    section {
-        display: block;
-    }
-
     .nhsuk-c-promo__group {
         @include clear();
         
@@ -739,4 +747,46 @@
         background-image:url(/images/hero-home/nhsuk-home-hero-1.jpg);
     }
 
+}
+
+.lte-ie8 {
+    .nhsuk-hero-image.rotate {
+        background-image: none !important;
+        background: $nhsuk-blue;
+        height: auto !important;
+
+        .nhsuk-hero-image__wrapper {
+            background: none;
+        }
+
+        .nhsuk-hero__home-content {
+            bottom: 0 !important;
+            padding-left: 0;
+            padding-right: 0;
+            left: 0 !important;
+            position: relative;
+            right: 0 !important;
+            width: 100% !important;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .nhsuk-section--top-section .nhsuk-section__content {
+        padding-top: 72px;
+        @include mq($until: tablet) {
+            padding-top: 48px;
+        }
+        @include mq($until: 375px) {
+            padding-top: 48px;
+        }
+    }
+
+    @include mq($until: grid-collapse) {
+        .nhsuk-section--top-section .nhsuk-section__content--stacked-collapsed {
+            padding-top: 0;
+        }
+    }
 }
