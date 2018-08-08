@@ -7,7 +7,7 @@
 
         .nhsuk-c-global-alert__header,
         .nhsuk-c-global-alert__message {
-            font-size: 21px;
+            font-size: 19px;
             float: left;
             line-height: 28px;
             margin: 0;
@@ -15,8 +15,6 @@
 
             @include mq($until:desktop) {
                 float: none;
-                font-size: 19px;
-                line-height: 28px;
             }
 
             @include mq($until:tablet) {
