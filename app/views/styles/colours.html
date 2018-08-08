@@ -20,12 +20,149 @@
 
 {% block content %}
     <h2 id="contrast" class="nhsuk-heading-l">Colour contrast</h2>
-    <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a>
+    <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a></p>
+    <p>You can check colour contrasts online&nbsp;using:</p>
+    <ul>
+      <li><a href="http://webaim.org/resources/contrastchecker/">Web Aim's Colour Contrast Checker</a></li>
+      <li><a href="http://colororacle.org/">Color Oracle (free colour blindness simulator)</a></li>
+    </ul>
+    <p>As well as using these tools, test colour contrast with people of all abilities.</p>
 
     <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
     <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
 
-    <h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
+    <h2>Main palette</h2>
+
+    <h3>Brand colours</h3>
+
+    <ul>
+      <li>Blue is the core NHS blue, used for links, notices, see <a href="#">links</a>, <a href="#">header</a>, <a href="#">care cards</a> and <a href="#">key point</a></li>
+      <li>White is used for alternating backgrounds</li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
+    
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--blue nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-blue</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--white nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-white</p>
+          <p>#FFFFFF</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>UI colours</h3>
+
+    <ul>
+      <li>Green is used in action buttons and links, see <a href="#">primary button</a> and <a href="#">action link</a></li>
+      <li>Purple is used for <a href="#">visited links</a></li>
+      <li>Red is used for urgency and negative or destructive actions, see <a href="#">care cards</a></li>
+      <li>Yellow is used in warnings, see <a href="#">callouts</a> and <a href="#">emergency message</a></li>
+      <li>Warm yellow is used for the <a href="#">focus colour</a></li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--green nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-green</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--purple nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-purple</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--red nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-red</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--yellow nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-yellow</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--warm-yellow nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-warm-yellow</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Greyscale</h3>
+
+    <ul>
+      <li>Black is used for headings and the main body copy, see <a href="#">typography</a></li>
+      <li>Grey 1 is used for secondary text, see <a href="#">typography</a></li>
+      <li>Grey 2, 3 and 4 are used for borders</li>
+      <li>Grey 5 is used for backgrounds</li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper">
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--black nhsuk-colour--text-white">
+          <p>$nhsuk-black</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-1 nhsuk-colour--text-white">
+          <p>$nhsuk-grey-1</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-2 nhsuk-colour--text-white">
+          <p>$nhsuk-grey-2</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-3 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-3</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-4 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-4</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-5 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-5</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--<h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
 
     <h3 class="nhsuk-heading-m">Primary</h3>
 
@@ -297,5 +434,5 @@
           <td><span class="colour-hex colour-swatch__nhsuk-focus-colour"></span></td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
 {% endblock %}
