@@ -310,5 +310,12 @@ router.get('/examples/maurotest3', (req, res) => {
   res.render('examples/maurotest3', {});
 });
 
+router.get('/status/error', (req, res) => {
+  res.render('status/error', {});
+});
+
+router.get('/status/404', (req, res) => {
+  res.render('status/404', {});
+});
 
 module.exports = router;
