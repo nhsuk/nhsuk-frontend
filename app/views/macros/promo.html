@@ -22,3 +22,13 @@
         </a>
     </div>
 {% endmacro %}
+
+{% macro promoNoDescription(promoClass, promoLink, promoTitle) %}
+    <div class="nhsuk-c-promo {{promoClass}}">
+        <a href="{{promoLink}}">
+            <div class="nhsuk-c-promo__content">
+                <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
+            </div>
+        </a>
+    </div>
+{% endmacro %}
