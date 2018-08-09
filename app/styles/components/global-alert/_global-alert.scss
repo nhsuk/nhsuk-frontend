@@ -43,3 +43,58 @@
         }
     }
 }
+
+
+
+
+
+
+
+.nhsuk-c-global-alert-new-page {
+    background: $nhsuk-white;
+    border-bottom:1px solid $nhsuk-grey-4;
+
+    .nhsuk-c-global-alert-new-page__content {
+        @include clear();
+        padding: 16px 0;
+
+        .nhsuk-c-global-alert-new-page__header,
+        .nhsuk-c-global-alert-new-page__message {
+            font-size: 16px;
+            float: left;
+            line-height: 28px;
+            margin: 0;
+            padding: 8px;
+
+            @include mq($until:desktop) {
+                float: none;
+                font-size: 16px;
+                line-height: 28px;
+            }
+
+            @include mq($until:tablet) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        
+        .nhsuk-c-global-alert-new-page__header {
+            background: #855999;
+            color: $nhsuk-white;          
+            margin: 0 8px 0 0;
+            padding: 6px 12px;
+            
+            @include mq($until:desktop) {
+                display: inline-block;
+                padding: 4px 8px
+            }
+        }
+
+        .nhsuk-c-global-alert-new-page__message {
+            @include mq($until:desktop) {
+                display: block;
+                padding: 8px 0 0;
+            }
+        }
+    }
+}
