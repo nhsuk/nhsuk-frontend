@@ -625,7 +625,7 @@
 //////////////////////
 
 .nhsuk-c-global-alert {
-  background: $nhsuk-yellow;
+  background: $nhsuk-white;
 
   .nhsuk-c-global-alert__content {
     @include clear();
@@ -651,8 +651,8 @@
     }
 
     .nhsuk-c-global-alert__header {
-      background: $nhsuk-black;
-      color: $nhsuk-yellow;
+      background: #007A72;
+      color: $nhsuk-white;
       margin: 0 8px 0 0;
       padding: 4px 12px;
 
@@ -668,24 +668,27 @@
         display: block;
         padding: 8px 0 0;
       }
-
-      a {
-        &:hover {
-          background: $nhsuk-blue;
-          box-shadow: 0 0 0 4px $nhsuk-blue;
-          color: $nhsuk-white;
-        }
-      }
     }
   }
 
   &--notice {
-    background: $nhsuk-grey-5;
-    border-bottom: 1px solid $nhsuk-grey-4;
+    border-bottom: 4px solid $nhsuk-grey-5;
+  }
+
+  &--warning {
+    background: $nhsuk-yellow;
 
     .nhsuk-c-global-alert__content {
       .nhsuk-c-global-alert__header {
+        background: $nhsuk-black;
+        color: $nhsuk-yellow;
+      }
+    }
+
+    a {
+      &:hover {
         background: $nhsuk-blue;
+        box-shadow: 0 0 0 4px $nhsuk-blue;
         color: $nhsuk-white;
       }
     }
