@@ -2,6 +2,7 @@
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
 {% extends "includes/templates/styles.html"%}
+{% from "macros/keypoint.html" import keypoint %}
 
 {% block header %}
     <h1>Colours</h1>
@@ -13,19 +14,165 @@
     <ul class="nhsuk-list">
         <li><a href="#contrast">Colour contrast</a></li>
         <li><a href="#variables">Sass variables</a></li>
-        <li><a href="#colours">Main colours</a></li>
-        <li><a href="#context">Colours in context</a></li>
+        <li><a href="#main-palette">Main palette</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
+<div class="nhsuk-reading-width">
     <h2 id="contrast" class="nhsuk-heading-l">Colour contrast</h2>
-    <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a>
+    <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a></p>
+    <p>You can check colour contrasts online&nbsp;using:</p>
+    <ul>
+      <li><a href="http://webaim.org/resources/contrastchecker/">Web Aim's Colour Contrast Checker</a></li>
+      <li><a href="http://colororacle.org/">Color Oracle (free colour blindness simulator)</a></li>
+    </ul>
+    <p>As well as using these tools, test colour contrast with people of all abilities.</p>
 
     <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
     <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
 
-    <h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
+    <h2 id="main-palette">Main palette</h2>
+
+    <h3>Brand colours</h3>
+
+    <ul>
+      <li>NHS Blue is the dominant colour in the NHS colour palette. See <a href="/styles/header-footer">header</a>, <a href="/styles/typography#typography-links">links</a>, <a href="/styles/care-cards">care cards</a> and <a href="/styles/callouts">key point</a></li>
+      <li>White is used to make important information stand out and for alternating backgrounds</li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
+    
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--blue nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-blue</p>
+          <p>#005EB8</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--white nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-white</p>
+          <p>#FFFFFF</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>UI colours</h3>
+
+    <ul>
+      <li>Green is used in action buttons and links, see <a href="/styles/action-link">action link</a></li>
+      <li>Purple is used for visited links</li>
+      <li>Red is used for urgency and negative or destructive actions, see <a href="/styles/care-cards">care cards</a></li>
+      <li>Yellow is used in warnings, see <a href="/styles/callouts">callouts</a></li>
+      <li>Warm yellow is used for focus states</li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--green nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-green</p>
+          <p>#007F3B</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--purple nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-purple</p>
+          <p>#330072</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--red nhsuk-colour--text-white nhsuk-o-flex__item">
+          <p>$nhsuk-red</p>
+          <p>#DA291C</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--yellow nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-yellow</p>
+          <p>#FFED00</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--warm-yellow nhsuk-colour--text-black nhsuk-o-flex__item">
+          <p>$nhsuk-warm-yellow</p>
+          <p>#FFB81C</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Greyscale</h3>
+
+    <ul>
+      <li>Black is used for headings and the main body copy, see <a href="/styles/typography">typography</a></li>
+      <li>Grey 1 is used for secondary text, see <a href="/styles/typography">typography</a></li>
+      <li>Grey 2, 3 and 4 are used for borders</li>
+      <li>Grey 5 (page tint) is used for page backgrounds</li>
+    </ul>
+
+    <div class="nhsuk-o-grid nhsuk-colour-wrapper">
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--black nhsuk-colour--text-white">
+          <p>$nhsuk-black</p>
+          <p>#212B32</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-1 nhsuk-colour--text-white">
+          <p>$nhsuk-grey-1</p>
+          <p>#425563</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-2 nhsuk-colour--text-white">
+          <p>$nhsuk-grey-2</p>
+          <p>#768692</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-3 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-3</p>
+          <p>#AEB7BD</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-4 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-4</p>
+          <p>#D8DDE0</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+        <div class="nhsuk-colour nhsuk-colour--grey-5 nhsuk-colour--text-black">
+          <p>$nhsuk-grey-5</p>
+          <p>#F0F4F5</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h4>We use a page tint because...</h4>
+    <ul>
+      <li>It gives us greater editorial flexibility - many pages have multiple callout boxes, and this allows us to pop important info out in white</li>
+      <li>It reduces page glare for people in low-light conditions (e.g. Lying in bed looking at the Insomnia page at 3am)</li>
+      <li>The British Dyslexia Association's 2018 guide to accessible content recommends dark text on a light (but not white) background</li>
+    </ul>
+
+    </div>
+
+    <!--<h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
 
     <h3 class="nhsuk-heading-m">Primary</h3>
 
@@ -297,5 +444,5 @@
           <td><span class="colour-hex colour-swatch__nhsuk-focus-colour"></span></td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
 {% endblock %}
