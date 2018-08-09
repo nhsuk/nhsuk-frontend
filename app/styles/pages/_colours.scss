@@ -121,3 +121,110 @@
   }
 }
 
+// New colours page
+
+.nhsuk-colour-wrapper {
+  margin: 40px -16px 0;
+
+  @include mq($until: desktop) {
+    margin: 40px -16px 24px;
+  }
+
+  @include mq($until: tablet) {
+    margin: 24px -16px;
+  }
+
+  & + h3,
+  & + h4 {
+    margin-top: 16px;
+  }
+}
+
+.nhsuk-colour {
+  @include top-and-bottom();
+  background: $nhsuk-blue;
+  color: $nhsuk-white;
+  margin-bottom: 32px;
+  padding: 24px;
+  width: 100%;
+
+  @include mq($until: desktop) {
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-top: 8px;
+  }
+
+  &--blue {
+    background: $nhsuk-blue;
+  }
+
+  &--green {
+    background: $nhsuk-green;
+  }
+
+  &--white {
+    background: $nhsuk-white;
+  }
+
+  &--red {
+    background: $nhsuk-red;
+  }
+
+  &--yellow {
+    background: $nhsuk-yellow;
+  }
+
+  &--warm-yellow {
+    background: $nhsuk-warm-yellow;
+  }
+
+  &--purple {
+    background: $nhsuk-purple;
+  }
+
+  &--black {
+    background: $nhsuk-black;
+  }
+
+  &--grey-1 {
+    background: $nhsuk-grey-1;
+  }
+
+  &--grey-2 {
+    background: $nhsuk-grey-2;
+  }
+
+  &--grey-3 {
+    background: $nhsuk-grey-3;
+  }
+
+  &--grey-4 {
+    background: $nhsuk-grey-4;
+  }
+
+  &--grey-5 {
+    background: $nhsuk-grey-5;
+    border: 1px solid $nhsuk-grey-4;
+  }
+
+  &--text-white {
+    color: $nhsuk-white;
+    a {
+      color: $nhsuk-white;
+
+      &:hover {
+        color: $nhsuk-link-hover-colour;
+      }
+    }
+  }
+
+  &--text-black {
+    color: $nhsuk-black;
+
+    a {
+      color: $nhsuk-black;
+    }
+  }
+}
