@@ -43,16 +43,13 @@
   @include top-and-bottom();
   @include reading-width();
 
-  border-left: 8px solid $nhsuk-blue;
+  border-left: 16px solid $nhsuk-blue;
   margin: 40px 0;
-  padding: 8px 16px;
+  padding: 24px;
 
   @include mq($until: tablet) {
-    margin: 32px 0;
-  }
-
-  &--muted {
-    border-color: $nhsuk-grey-3;
+    margin: 40px 0;
+    padding: 16px;
   }
 
 }
