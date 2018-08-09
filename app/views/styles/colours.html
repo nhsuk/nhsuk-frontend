@@ -2,6 +2,7 @@
 {% set navigation = 'transactional' %}
 {% set navigationWidth = 'fluid' %}
 {% extends "includes/templates/styles.html"%}
+{% from "macros/keypoint.html" import keypoint %}
 
 {% block header %}
     <h1>Colours</h1>
@@ -13,12 +14,12 @@
     <ul class="nhsuk-list">
         <li><a href="#contrast">Colour contrast</a></li>
         <li><a href="#variables">Sass variables</a></li>
-        <li><a href="#colours">Main colours</a></li>
-        <li><a href="#context">Colours in context</a></li>
+        <li><a href="#main-palette">Main palette</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
+<div class="nhsuk-reading-width">
     <h2 id="contrast" class="nhsuk-heading-l">Colour contrast</h2>
     <p>You must make sure that the contrast ratio of text and elements meets <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">level AA of the Web Content Accessibility Guidelines (WCAG 2.0)</a></p>
     <p>You can check colour contrasts online&nbsp;using:</p>
@@ -31,13 +32,13 @@
     <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
     <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
 
-    <h2>Main palette</h2>
+    <h2 id="main-palette">Main palette</h2>
 
     <h3>Brand colours</h3>
 
     <ul>
-      <li>Blue is the core NHS blue, used for links, notices, see <a href="#">links</a>, <a href="#">header</a>, <a href="#">care cards</a> and <a href="#">key point</a></li>
-      <li>White is used for alternating backgrounds</li>
+      <li>NHS Blue is the dominant colour in the NHS colour palette. See <a href="#">header</a>, <a href="#">links</a>, <a href="#">care cards</a> and <a href="#">key point</a></li>
+      <li>White is used to make important information stand out and for alternating backgrounds</li>
     </ul>
 
     <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
@@ -113,7 +114,7 @@
       <li>Black is used for headings and the main body copy, see <a href="#">typography</a></li>
       <li>Grey 1 is used for secondary text, see <a href="#">typography</a></li>
       <li>Grey 2, 3 and 4 are used for borders</li>
-      <li>Grey 5 is used for backgrounds</li>
+      <li>Grey 5 (page tint) is used for page backgrounds</li>
     </ul>
 
     <div class="nhsuk-o-grid nhsuk-colour-wrapper">
@@ -159,6 +160,15 @@
           <p>#005EB8</p>
         </div>
       </div>
+
+    </div>
+
+    <h4>We use a page tint because...</h4>
+    <ul>
+      <li>It gives us greater editorial flexibility - many pages have multiple callout boxes, and this allows us to pop important info out in white</li>
+      <li>It reduces page glare for people in low-light conditions (e.g. Lying in bed looking at the Insomnia page at 3am)</li>
+      <li>The British Dyslexia Association's 2018 guide to accessible content recommends dark text on a light (but not white) background</li>
+    </ul>
 
     </div>
 

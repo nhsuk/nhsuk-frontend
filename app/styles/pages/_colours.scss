@@ -134,7 +134,8 @@
     margin: 24px -16px;
   }
 
-  & + h3 {
+  & + h3,
+  & + h4 {
     margin-top: 16px;
   }
 }
