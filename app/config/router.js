@@ -318,4 +318,20 @@ router.get('/status/404', (req, res) => {
   res.render('status/404', {});
 });
 
+router.get('/examples/test-banner-feedback-v1', (req, res) => {
+  res.render('examples/test-banner-feedback-v1', {});
+});
+
+router.get('/examples/test-banner-feedback-v2', (req, res) => {
+  res.render('examples/test-banner-feedback-v2', {});
+});
+
+router.get('/examples/test-banner-feedback-v3', (req, res) => {
+  res.render('examples/test-banner-feedback-v3', {});
+});
+
+router.get('/examples/test-banner-new-page-v1', (req, res) => {
+  res.render('examples/test-banner-new-page-v1', {});
+});
+
 module.exports = router;
