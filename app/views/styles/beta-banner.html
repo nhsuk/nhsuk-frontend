@@ -4,7 +4,8 @@
 {% extends "includes/templates/styles.html"%}
 
 {% block header %}
-    <h1>Alpha / beta banner (this service is new)</h1>
+    <h1>'This service is new' banner<br />
+    (Alpha / Beta)</h1>
     <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__design">Research &amp; Design</span></p>
 {% endblock %}
 
@@ -55,6 +56,7 @@
         <li>users don't understand the word or concept of alpha / beta </li>
          <li>alpha / beta de-values the quality of content in a health setting (where emotions run high)  </li>
          <li>Users may experience banner blindness and not notice an alpha beta message, especially with cookie banners etc.  </li>
+         <li>Users need to know upfront (before reading the content) </li>
     </ul>
 
     <h2 id="Iterations">Iterations</h2>
@@ -62,6 +64,9 @@
     <div class="example version-1">
         <h3>Version 1</h3>
         
+        {% include 'partials/global-alert/global-alert-new-page.html' %}
+
+<p>Link to test page <a href="https://nhsuk-redesign.azurewebsites.net/examples/test-banner-new-page-v1"> https://nhsuk-redesign.azurewebsites.net/examples/test-banner-new-page-v1 (banner in context)</a></p>
 
     </div>
 
@@ -80,9 +85,15 @@
 
   <h2 id="accessibility">Accessibility</h2>
 
+  <ul>
+    <li>Ensuring the colour contrast and sizing is AA minimum </li>
+    <li>Having the message at the top of the page so screen readers are aware that the thing is new and they can feedback on it (before reading)  </li>
+
+  </ul>
+
   <h2 id="usage">Usage</h2>
 
-  <p>This is where we'd suggest how to use something</p>
+  <p>Once we test we will have an understanding of how this is being used</p>
 
 
 {% endblock %}
