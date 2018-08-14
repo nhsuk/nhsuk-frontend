@@ -1,6 +1,6 @@
 {% set title = 'NHS.UK Home page' %}
 {% from "macros/action-link.html" import actionLink %}
-{% from "macros/promo.html" import promoWithImage, promo %}
+{% from "macros/promo.html" import promoWithImage, promo, promoNoDescription %}
 {% from "macros/blockquote.html" import blockquote %}
 {% extends "includes/templates/nhsuk-home-page.html"%}
 
@@ -20,23 +20,23 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
+            {% include 'partials/home-page/home-page-section-content/home-page-do-it-online.html' %}
+        </div>
+    </div>
+</section>
+
+<section class="nhsuk-section nhsuk-section--white">
+    <div class="nhsuk-o-width-container">
+        <div class="nhsuk-o-grid">
             {% include 'partials/home-page/home-page-section-content/home-page-services-v3.html' %}
         </div>
     </div>
 </section>
 
-<section class="nhsuk-section nhsuk-section--with-image  nhsuk-section--white">
+<section class="nhsuk-section nhsuk-section--with-image">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
             {% include 'partials/home-page/home-page-section-content/home-page-find-help.html' %}
-        </div>
-    </div>
-</section>
-
-<section class="nhsuk-section">
-    <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-ehic.html' %}
         </div>
     </div>
 </section>
@@ -59,8 +59,8 @@
 
 <section class="nhsuk-section nhsuk-section--white">
     <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">    
-            {% include 'partials/home-page/home-page-section-content/home-page-apps-library-v2.html' %}
+        <div class="nhsuk-o-grid">
+            {% include 'partials/home-page/home-page-section-content/home-page-apps-library-v2.html' %} 
         </div>
     </div>
 </section>
@@ -68,7 +68,7 @@
 <section class="nhsuk-section">
     <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
-            {% include 'partials/home-page/home-page-section-content/home-page-promos-v3.html' %}  
+            {% include 'partials/home-page/home-page-section-content/home-page-promos-v3.html' %} 
         </div>
     </div>
 </section>
@@ -82,7 +82,10 @@
         var images = [
         '/images/hero-home/nhsuk-home-hero-image-1.jpg',
         '/images/hero-home/nhsuk-home-hero-image-2.jpg',
-        '/images/hero-home/nhsuk-home-hero-image-3.jpg'];
+        '/images/hero-home/nhsuk-home-hero-image-3.jpg',
+        '/images/hero-home/nhsuk-home-hero-image-4.jpg',
+        '/images/hero-home/nhsuk-home-hero-image-5.jpg',
+        '/images/hero-home/nhsuk-home-hero-image-6.jpg'];
         var size = images.length;
         var x = Math.floor(size * Math.random());
         console.log(x);
