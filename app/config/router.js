@@ -302,11 +302,6 @@ router.get('/examples/home-page/nhsuk-home-page-v6', (req, res) => {
   res.render('examples/home-page/nhsuk-home-page-v6', {});
 });
 
-router.get('/examples/home-page/nhsuk-home-page-with-do-it-online', (req, res) => {
-  res.render('examples/home-page/nhsuk-home-page-with-do-it-online', {});
-});
-
-
 router.get('/examples/maurotest', (req, res) => {
   res.render('examples/maurotest', {});
 });
