@@ -4,6 +4,10 @@
 {% from "macros/blockquote.html" import blockquote %}
 {% extends "includes/templates/nhsuk-home-page.html"%}
 
+{% block userAccount %}
+    {% include 'partials/user-account/user-account.html' %}
+{% endblock %}
+
 {% block content %}
 
 {% include 'partials/home-page/home-page-hero-4.html' %}
