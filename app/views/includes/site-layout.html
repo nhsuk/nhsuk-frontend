@@ -38,6 +38,8 @@
       </a>
     </div>
 
+    {% block userAccount %}{% endblock %}
+
     {% if navigation == 'transactional' %}
       {% include "includes/header-transactional.html" %}
     {% else %}
