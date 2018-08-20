@@ -13,8 +13,10 @@
     <h2 class="nhsuk-heading-xs">Contents</h2>
     <ul class="nhsuk-list">
         <li><a href="#contrast">Colour contrast</a></li>
-        <li><a href="#variables">Sass variables</a></li>
         <li><a href="#main-palette">Main palette</a></li>
+         <li><a href="#extended">Extended palette</a></li>
+        <li><a href="#variables">Sass variables</a></li>
+        <li><a href="#context">Colours in context</a></li>
     </ul>
 {% endblock %}
 
@@ -28,9 +30,6 @@
       <li><a href="http://colororacle.org/">Color Oracle (free colour blindness simulator)</a></li>
     </ul>
     <p>As well as using these tools, test colour contrast with people of all abilities.</p>
-
-    <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
-    <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
 
     <h2 id="main-palette">Main palette</h2>
 
@@ -66,7 +65,7 @@
       <li>Purple is used for visited links</li>
       <li>Red is used for urgency and negative or destructive actions, see <a href="/styles/care-cards">care cards</a></li>
       <li>Yellow is used in warnings, see <a href="/styles/callouts">callouts</a></li>
-      <li>Warm yellow is used for focus states</li>
+      <li>Warm yellow is used for focus states, see <a href="#focus">focus colour</a></li>
     </ul>
 
     <div class="nhsuk-o-grid nhsuk-colour-wrapper nhsuk-o-flex">
@@ -111,8 +110,8 @@
     <h3>Greyscale</h3>
 
     <ul>
-      <li>Black is used for headings and the main body copy, see <a href="/styles/typography">typography</a></li>
-      <li>Grey 1 is used for secondary text, see <a href="/styles/typography">typography</a></li>
+      <li>Black is used for headings and the main body copy, see <a href="#text-colours">text colours</a></li>
+      <li>Grey 1 is used for secondary text, see <a href="#text-colours">text colours</a></li>
       <li>Grey 2, 3 and 4 are used for borders</li>
       <li>Grey 5 (page tint) is used for page backgrounds</li>
     </ul>
@@ -172,138 +171,18 @@
 
     </div>
 
-    <!--<h2 id="colours" class="nhsuk-heading-l">Main colours</h2>
+    <h2 id="extended" class="nhsuk-heading-l">Extended pallete</h2>
+    <p>The <a href="https://www.england.nhs.uk/nhsidentity/identity-guidelines/colours/">NHS identity brand guidelines</a> has an extended colour palette but we have not yet found the need to use it. This may change as we explore further design work.</p>
+    <p>All colour combinations must be checked with a <a href="http://webaim.org/resources/contrastchecker/">colour contrast checker</a>.</p>
 
-    <h3 class="nhsuk-heading-m">Primary</h3>
-
-    <table class="colour-palette">
-      <thead>
-        <tr class="visually-hidden">
-          <th >Colour</th>
-          <th>Sass variable</th>
-          <th>Hex code</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-blue"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-blue">$nhsuk-blue</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-blue"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-white"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-white">$nhsuk-white</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-white"></span></td>
-        </tr>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-black"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-black">$nhsuk-black</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-black"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-green"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-green">$nhsuk-green</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-green"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-red"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-red">$nhsuk-red</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-red"></span></td>
-        </tr>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-yellow"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-yellow">$nhsuk-yellow</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-yellow"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-purple"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-purple">$nhsuk-purple</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-purple"></span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Secondary colours</h3>
-
-    <table class="colour-palette">
-      <thead>
-        <tr class="visually-hidden">
-          <th>Colour</th>
-          <th>Sass variable</th>
-          <th>Hex code</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-light-blue"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-light-blue">$nhsuk-light-blue</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-light-blue"></span></td>
-        </tr>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-aqua-blue"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-aqua-blue">$nhsuk-aqua-blue</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-aqua-blue"></span></td>
-        </tr>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-pale-yellow"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-pale-yellow">$nhsuk-pale-yellow</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-pale-yellow"></span></td>
-        </tr>
-        <tr>
-          <td><div class="colour-swatch colour-swatch__nhsuk-warm-yellow"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-warm-yellow">$nhsuk-warm-yellow</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-warm-yellow"></span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 class="nhsuk-heading-m">Greyscale</h3>
-
-    <table class="colour-palette">
-      <thead>
-        <tr class="visually-hidden">
-          <th >Colour</th>
-          <th>Sass variable</th>
-          <th>Hex code</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-1"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-grey-1">$nhsuk-grey-1</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-grey-1"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-2"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-grey-2">$nhsuk-grey-2</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-grey-2"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-3"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-grey-3">$nhsuk-grey-3</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-grey-3"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-4"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-grey-4">$nhsuk-grey-4</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-grey-4"></span></td>
-        </tr>
-        <tr>
-          <td ><div class="colour-swatch colour-swatch__nhsuk-grey-5"></div></td>
-          <td><span class="colour-label colour-swatch__nhsuk-grey-5">$nhsuk-grey-5</span></td>
-          <td><span class="colour-hex colour-swatch__nhsuk-grey-5"></span></td>
-        </tr>
-      </tbody>
-    </table>
+    <h2 id="variables" class="nhsuk-heading-l">Sass variables</h2>
+    <p>Use the Sass variables listed below, so you’ll automatically get any updates to the colour palette when you update NHS.UK frontend.</p>
 
     <h2 id="context" class="nhsuk-heading-l">Colours in context</h2>
 
     <h3 class="nhsuk-heading-m">Text</h3>
 
-    <table class="colour-palette">
+    <table id="text-colours" class="colour-palette">
       <thead>
         <tr class="visually-hidden">
           <th >Colour</th>
@@ -428,7 +307,7 @@
 
     <h3 class="nhsuk-heading-m">Focus</h3>
 
-    <table class="colour-palette">
+    <table id="focus" class="colour-palette">
       <thead>
         <tr class="visually-hidden">
           <th >Colour</th>
@@ -444,5 +323,6 @@
           <td><span class="colour-hex colour-swatch__nhsuk-focus-colour"></span></td>
         </tr>
       </tbody>
-    </table> -->
+    </table>
+
 {% endblock %}
