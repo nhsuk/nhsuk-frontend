@@ -156,6 +156,11 @@
   }
 
   a {
+		&:focus {
+			background: $nhsuk-blue-shade-35;
+			box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+			color: $nhsuk-white;
+    }
     &:hover {
       background: $nhsuk-blue;
       box-shadow: 0 0 0 4px $nhsuk-blue;
