@@ -96,7 +96,7 @@
 
 .nhsuk-feedback-banner {
   display: none;
-  background: $nhsuk-yellow;
+  background: $nhsuk-warm-yellow;
   bottom: 0;
   margin: 0 auto;
   padding: 24px 0;
@@ -152,6 +152,14 @@
   @media screen and (max-width:480px) {
     .wrap {
       white-space:nowrap;
+    }
+  }
+
+  a {
+    &:hover {
+      background: $nhsuk-blue;
+      box-shadow: 0 0 0 4px $nhsuk-blue;
+      color: $nhsuk-white;
     }
   }
 
