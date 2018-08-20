@@ -56,7 +56,7 @@ h4,
 h5,
 .nhsuk-heading-xs {
   font-size: govuk-em(16px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
+  line-height: 24px;
   margin: 16px 0 0;
   @include mq($from: tablet) {
     font-size: govuk-em(19px, $nhsuk-base-font-size);
@@ -112,7 +112,7 @@ a {
     text-decoration: none;
   }
   &:active {
-    background: $nhsuk-link-active-background-colour;
+    background: $nhsuk-link-active-background-colour !important;
     box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
     color: $nhsuk-link-active-colour;
   }
