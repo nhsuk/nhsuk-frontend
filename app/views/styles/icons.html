@@ -5,13 +5,14 @@
 
 {% block header %}
     <h1>Icons</h1>
-    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__development">Development</span></p>
+    <p class="nhsuk-body-s"><span class="nhsuk-tag nhsuk-tag__ready">Standards</span></p>
 {% endblock %}
 
 {% block sidebar %}
     <h2 class="nhsuk-heading-xs">Contents</h2>
     <ul>
-        <li><a href="#rules">Rules for icons</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#rules">Rules for icons</a></li>
         <li><a href="#usage">How to use icons</a></li>
         <li><a href="#icons">Icons</a></li>
         <li><a href="#examples">Examples of icons</a></li>
@@ -19,6 +20,113 @@
 {% endblock %}
 
 {% block content %}
+
+
+<h2 id="notes">Notes</h2>
+<p>NHS Choices and wider NHS products have amassed a number of different icons.</p> 
+
+<p>Icon's can be hard for users to understand; there are very few icons that universally recognised - in many cases its almost like learning a new language for some users.</p> 
+
+<p>Rather than recreating what was there before, we needed to assess whether user needs existed for icons.</p>
+
+<h3>Design approach </h3>
+
+<p>If there was a distinct user need for icons we felt it would be good that the icons sit together in a set (or family). </p>
+<p>As the NHS website is striving to be more personal we felt that some iconography can be quite cold and clinical. We made a conscious decision to round the corners of our icons to subtly soften their presence. </p>
+<p>Colours of icons are governed by context (where it sits on the page, what colour background etc). Icons also need to meet accessible colour contrast standards (recommended tool to test colour combinations: <a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a>)</p>
+
+<h3>Icon sizes </h3>
+<p>When creating an icon, view and edit it at 24px x 24px. By maintaining this ratio, any changes to the original will be scaled up or down proportionally, which preserves sharp edges and correct alignment.</p>
+
+
+<img class="component-image " src="../images/components/icon-grid.png" width="400px" />
+<p class="nhsuk-body-s">Example: Close icon on 24px x 24px grid </p>
+
+
+<p>Our icons are drawn at this scale using a stroke weight of 2px and rounded caps and joins. </p>
+
+<p>To prevent pixel distortion (and to get sharp edges), we ensure our icons fit to the pixel grid. </p>
+
+<p>Final icon sizes are dictated by the context - for example the cross icon to close the navigation menu on mobile is larger then the chevron used to separate breadcrumb links. </p>
+
+<p>Sizes for icons are governed by the following </p>
+
+<ol>
+  <li>If they intended to be clicked (actions)</li>
+  <li>If they're sat within a button</li>
+  <li>What they're intended to be clicked with (mouse or finger)</li>
+  <li>If they're not actionable </li>
+</ol>
+
+<p>If the icon is an intended touch target, we try and meet Google's recommended accessible target size of 48px where possible (<a href="https://developers.google.com/web/fundamentals/accessibility/accessible-styles">https://developers.google.com/web/fundamentals/accessibility/accessible-styles</a>). 
+</p>
+
+
+
+<h2>User need</h2>
+<p>As a user I need to easily identify, understand and navigate content, so that I get the best outcome for my situation.</p>
+
+<h2>Whats in alpha / beta / live</h2>
+<p>A small number icons were being used in beta, the only ones of note being action link arrows <a href="https://beta.nhs.uk/">https://beta.nhs.uk/</a></p>
+
+
+<h2>Research findings </h2>
+
+<p>We tested the icons in context, not on their own - so they appeared within components on a full page.</p>
+<p>Research findings relate to the success of the full component on the finished page. </p>
+
+<h3>Do and Don't (tick and cross)</h3>
+<p>Do and Don’t boxes positives: users liked the ticks and crosses and the colour schemes associated with each, with the green reinforcing the ‘do’ positive action and the red being a warning and don’t colour.<br />
+  <strong>(User research lab 6 participants 25th May 2018 London and popup 22 participants 25th May 2018 Leeds, The Light shopping centre)</strong>
+  
+  </p>
+
+<h3>Action link (arrow)</h3>  
+<p>Most users understood the purpose of the action-link, but some felt unsure what to expect when clicking on it.<br /><strong>(usability lab Salford, 4th July 2018)</strong></p>
+
+<h3>Reveal/expander (plus and minus)</h3>
+<p>All users tapped the reveal, which behaved as they expected<br />
+<strong>(usability lab Salford, 4th July 2018)</strong>
+</p>
+
+<h3>Pagination (arrows) </h3>
+<p>One user found the pagination particularly useful for navigating based on the way he read content and it supporting his mental model of the page structure.<br />
+<strong>(usability lab Salford, 4th July 2018)</strong>
+</p>
+
+<p>4/5 users – including a user with very low digital skills – used pagination to navigate through pages, and knew this was associated with the navigation at the top of the page.<br  />
+  <strong>(usability lab, Sheffield, 16th July 2018)</strong>
+</p>
+
+
+
+<h2>Examples in context </h2>
+
+<h3>Header</h3>
+<img class="component-image " src="../images/components/icon-header.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile, header expanded </p>
+
+<h3>Do and Don't lists </h3>
+<img class="component-image " src="../images/components/icon-do.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile </p>
+<img class="component-image " src="../images/components/icon-dont.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile </p>
+
+<h3>Action Link</h3>
+<img class="component-image " src="../images/components/icon-actionlink.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile </p>
+
+<h3>Reveals </h3>
+<img class="component-image " src="../images/components/icon-reveal-open.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile </p>
+<img class="component-image " src="../images/components/icon-reveal-close.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile, expanded </p>
+
+<h3>Pagination </h3>
+
+<img class="component-image " src="../images/components/icon-pag.png" width="400px" />
+<p class="nhsuk-body-s">Example: Mobile </p>
+
     <h2 id="rules">Our rules for using icons are</h2>
     <ul>
       <li>Only use icons when there’s a real user need for them (avoid unnecessary decoration)</li>
@@ -51,13 +159,6 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>{% include 'partials/logos/nhs-logo.svg' %}</td>
-          <td>NHS logo</td>
-          <td>nhs-logo.svg</td>
-          <td class="td__status"><span class="nhsuk-tag nhsuk-tag__ready">Standards</span></td>
-          <td><a href="/examples/header-cookie">Header &amp; Footer</a></td>
-        </tr>
         <tr>
           <td>{% include 'partials/icons/icon-search.svg' %}</td>
           <td>Search</td>
