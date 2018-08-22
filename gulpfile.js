@@ -59,6 +59,16 @@ function publishSkiplinks() {
   .pipe(gulp.dest('dist/packages/skip-links/'));
 }
 
+function publishHeader() {
+  return gulp.src('src/header/*')
+  .pipe(gulp.dest('dist/packages/header/'));
+}
+
+function publishNavigation() {
+  return gulp.src('src/navigation/*')
+  .pipe(gulp.dest('dist/packages/navigation/'));
+}
+
 function publishFooter() {
   return gulp.src('src/footer/*')
   .pipe(gulp.dest('dist/packages/footer/'));
