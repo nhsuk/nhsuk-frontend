@@ -1,10 +1,10 @@
 const app = require('express')();
 const express = require('express');
-const router = require('./app/config/router');
+const router = require('./config/router');
 const nunjucks = require('nunjucks');
 const path = require('path');
 
-app.set('view engine', 'html');
+app.set('view engine', 'njk');
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'app/assets')));
 

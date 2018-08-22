@@ -10,11 +10,10 @@
     },
     "watch": [
         "app/views/",
-        "app/styles/",
         "src/"
     ],
     "env": {
         "NODE_ENV": "development"
     },
-    "ext": "js, html, scss, svg"
+    "ext": "js, njk, scss, svg"
 }

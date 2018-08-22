@@ -1,51 +1,43 @@
 {
   "name": "nhsuk-frontend",
-  "version": "0.0.5",
-  "description": "NHS.UK front-end library and design system",
+  "version": "0.0.0",
+  "description": "nhsuk-frontend code",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
     "postinstall": "npm run build",
     "build": "gulp build",
     "start": "node app.js",
     "prewatch": "gulp build",
-    "watch": "concurrently \"gulp\" \"nodemon app.js --config config/nodemon.json -q\"",
-    "test": "npm run lint-css && npm run cypress:run",
-    "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'src/**/*.scss' -v -q",
-    "backstop:ref": "node app.js & ./node_modules/backstopjs/cli/index.js reference --config=config/backstop.json",
-    "backstop:test": "node app.js & ./node_modules/backstopjs/cli/index.js test --config=config/backstop.json",
-    "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
-    "cypress:run": "node app.js & ./node_modules/.bin/cypress run",
-    "cypress:open": "node app.js & ./node_modules/.bin/cypress open"
+    "watch": "gulp & nodemon app.js --config config/nodemon.json -q",
+    "test": "npm run lint-css",
+    "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'src/**/*.scss' -v -q"
   },
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "express": "^4.13.4",
-    "gulp": "^4.0.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
-    "nunjucks": "^3.1.3",
-    "sass-mq": "^4.0.2"
+    "express": "^4.16.3",
+    "nunjucks": "^3.1.3"
   },
   "devDependencies": {
-    "backstopjs": "^3.5.2",
-    "concurrently": "^3.6.1",
-    "cypress": "^3.0.3",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
     "nodemon": "^1.18.3",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "sass-mq": "^4.0.2"
   },
   "engines": {
     "node": "8.11.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhsuk/frontend.git"
+    "url": "git+https://github.com/nhsuk/frontend-toolkit.git"
   },
   "bugs": {
-    "url": "https://github.com/nhsuk/frontend/issues"
+    "url": "https://github.com/nhsuk/frontend-toolkit/issues"
   },
   "license": "MIT"
 }

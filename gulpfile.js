@@ -5,31 +5,14 @@ var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
 var del = require('del');
 
-var paths = {
-  scss: {
-    frontend: 'src/nhsuk.scss',
-    design: 'app/styles/styles.scss',
-    ie: 'src/ie-78.scss'
-  },
-  css: {
-    folder: 'app/assets/css',
-    file: 'app/assets/css/*.css',
-    frontend: 'app/assets/css/nhsuk.min.css'  
-  },
-  collection: {
-    frontend: 'src/**/*.scss',
-    design: 'app/styles/**/*.scss'
-  }
-}
-
 function styles() {
-  return gulp.src([paths.scss.frontend, paths.scss.design, paths.scss.ie])
+  return gulp.src('src/nhsuk.scss')
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest(paths.css.folder))
+    .pipe(gulp.dest('app/assets/css'))
     .on('error', (err) => {
       console.log(err)
       process.exit(1)
@@ -37,7 +20,7 @@ function styles() {
 }
 
 function watch() {
-  gulp.watch([paths.collection.frontend, paths.collection.design], styles);
+  gulp.watch('src/**/*.scss', styles);
 }
 
 function deletePublish() {
