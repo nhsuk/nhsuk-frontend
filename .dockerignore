@@ -1,0 +1,8 @@
+node_modules/
+.git/
+README.md
+npm-debug.log
+npm-debug.log.*
+.DS_Store
+*.swp
+.idea/*

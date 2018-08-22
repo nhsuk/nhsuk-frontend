@@ -1,0 +1,20 @@
+version: '2.1'
+
+services:
+
+  base-app:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    command: npm run watch
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+    volumes:
+      - node_modules:/code/node_modules
+      - .:/code
+      
+volumes:
+  node_modules:
