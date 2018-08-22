@@ -1,0 +1,56 @@
+table {
+  background-color: $nhsuk-white;
+  border: 1em solid $nhsuk-white;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: (16px * 4) 0 (16px * 8);
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  margin: 40px 0;
+
+  th,
+  td {
+    padding: 1em;
+    font-size: inherit;
+    text-align: left;
+    text-transform: none;
+    vertical-align: top;
+  }
+
+  td {
+    border-bottom: 1px solid $nhsuk-grey-2;
+  }
+
+  th {
+    border-bottom: 2px solid $nhsuk-grey-2;
+    font-weight: 600;
+  }
+
+  tr:hover,
+  td:hover {
+    background-color: $nhsuk-pale-yellow;
+  }
+
+  caption {
+    background: $nhsuk-blue;
+    color: $nhsuk-white;
+    font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
+    font-weight: 600;
+    left: 0;
+    line-height: 28px;
+    margin: 0;
+    padding: .3em 1em;
+    position: absolute;
+    text-align: left;
+    top: -1em;
+
+    @include mq($from: tablet) {
+      font-size: govuk-em(24px, $nhsuk-base-font-size);
+      line-height: 32px;
+      margin: 32px 0;
+    }
+
+  }
+
+}

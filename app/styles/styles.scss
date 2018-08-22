@@ -3,20 +3,16 @@
 @import 'globals/objects/full-width-container';
 @import 'globals/settings/typography';
 
-@import 'components/breadcrumbs/breadcrumbs';
-@import 'components/cookie-policy/cookie-policy';
+@import 'components/cookie-policy/cookie-policy'; // CookieBot styles
+
 @import 'components/page-contents/page-contents';
 @import 'components/page-contents/page-contents-v2';
-@import 'components/table/table';
 @import 'components/promo/promo';
 @import 'components/intro-image/intro-image';
 @import 'components/page-nav-right/page-nav-right';
 @import 'components/page-nav-left/page-nav-left';
 @import 'components/reveals/reveals';
 @import 'components/pagination/pagination';
-@import 'components/skip-links/skip-links';
-//@import 'components/promo-v2/promo';
-//@import 'components/sections/sections';
 @import 'components/video/video';
 @import 'components/hero/hero';
 @import 'components/blockquote/blockquote';
@@ -24,11 +20,10 @@
 @import 'components/home-page/home-page';
 @import 'components/user-account/user-account';
 
+// Azure specific styles
 @import 'pages/code';
 @import 'pages/grid';
 @import 'pages/colours';
-
-@import 'wagtail/wagtail';
 
 // CSS for medicines page - lifted from beta.nhs.uk
 // Fixes the extra numbering added to the markup of medicines pages.

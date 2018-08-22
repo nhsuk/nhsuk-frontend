@@ -14,38 +14,10 @@
 {% endblock %}
 
 {% block header %}
-    <h1 class="nhsuk-heading-xl">The quick brown fox jumps over the lazy dog</h1>
-{% endblock %}
-
-{% block sidebar %}
-    <h2 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h2>
-    <ul class="nhsuk-list nhsuk-list-bullet">
-      <li>The quick brown</li>
-      <li>fox jumps over</li>
-      <li>the lazy dog</li>
-    </ul>
-    <ol class="nhsuk-list nhsuk-list-bullet">
-      <li>The quick brown</li>
-      <li>fox jumps over</li>
-      <li>the lazy dog</li>
-    </ol>
+    <h1>Components</h1>
 {% endblock %}
 
 {% block content %}
-    <h2 class="nhsuk-heading-l">The quick brown fox jumps over the lazy dog</h2>
-
-    <h3 class="nhsuk-heading-m">The quick brown fox jumps over the lazy dog</h3>
-
-    <h4 class="nhsuk-heading-s">The quick brown fox jumps over the lazy dog</h4>
-
-    <h5 class="nhsuk-heading-xs">The quick brown fox jumps over the lazy dog</h5>
-
-    <p class="nhsuk-body-l">The quick brown fox jumps over the lazy dog</p>
-
-    <p class="nhsuk-body">The quick brown fox jumps over the lazy dog</p>
-
-    <p class="nhsuk-body"><a href="">The quick brown fox jumps over the lazy dog</a></p>
-
     <div class="backstop-warning-callout">
 
       {{ callout("Important", "
@@ -169,6 +141,48 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="backstop-tables">
+
+        <table class="nhsuk-table2">
+        <thead>
+        <tr>
+          <th scope="col">Skin symptoms</th>
+          <th scope="col">Possible cause</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row">
+          <td >Blisters on lips or around the mouth</td>
+          <td><a href="/conditions/cold-sore/">cold sores</a></td>
+        </tr>
+        <tr scope="row">
+          <td>Itchy, dry, cracked, sore</td>
+          <td><a href="/conditions/atopic-eczema/">eczema</a></td>
+        </tr>
+        <tr scope="row">
+          <td>Itchy blisters</td>
+          <td><a href="/conditions/shingles">shingles</a>, <a href="/conditions/chickenpox/">chickenpox</a></td>
+        </tr>
+        </tbody>
+        </table>
+  
+    </div>
+
+    <div class="backstop-reveal">
+      <details class="nhsuk-c-details">
+        <summary class="nhsuk-c-summary" data-analytics="summary">
+          <span class="nhsuk-c-summary__title">How to gargle with salt water</span>
+        </summary>
+        <div class="nhsuk-c-details__content">
+          <ol>
+            <li>Dissolve half a teaspoon of salt in a glass of warm water – warm water helps salt dissolve.</li>
+            <li>Gargle with the solution then spit it out – don't swallow it.</li>
+            <li>Repeat as often as you like.</li>
+          </ol>
+        </div>
+      </details>
     </div>
 
     <div class="backstop-reviewdate">

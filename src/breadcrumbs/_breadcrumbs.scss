@@ -25,7 +25,7 @@
       width: 18px;
 
       @include mq($from: large-desktop) {
-        margin: 0 5px;
+        margin: 0 3px 0 5px;
       }
     }
   }
