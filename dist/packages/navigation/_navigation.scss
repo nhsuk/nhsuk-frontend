@@ -1,0 +1,217 @@
+.c-nav-primary {
+
+  @include mq($until: large-desktop) {
+    background: $nhsuk-white;
+    display: none;
+
+    &.js-show {
+      display: block;
+    }
+
+    .nhsuk-o-width-container {
+      margin: 0;
+      max-width: 990px;
+    }
+
+    &__title {
+      font-weight: $nhsuk-font-bold;
+      margin: 0;
+      padding: 12px 38px 12px 30px;
+      position: relative;
+
+      @include mq($until: tablet) {
+        margin: 0 24px 0 0;
+        padding: 16px;
+      }
+
+      .c-nav-primary__close-link {
+        background: transparent;
+        border: 0;
+        height: 40px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        right: 24px;
+        top: 8px;
+        white-space: nowrap;
+        width: 40px;
+
+        .nhsuk-icon__close {
+          fill: $nhsuk-blue;
+          height: 40px;
+          width: 40px;
+        }
+
+        @include mq($until: tablet) {
+          right: -8px;
+        }
+
+        &::-moz-focus-inner {
+          border: 0;
+        }
+
+        &:hover {
+          .nhsuk-icon__close {
+            fill: $nhsuk-secondary-button-hover-colour;
+          }
+        }
+
+        &:focus {
+          border-radius: 4px;
+          box-shadow: 0 0 0 4px $nhsuk-focus-colour;
+          outline: 0;
+        }
+
+      }
+
+    }
+
+    &__list {
+      border-bottom: 4px solid $nhsuk-grey-5;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__item {
+      border-top: 1px solid $nhsuk-grey-5;
+      margin: 0;
+      position: relative;
+
+      .nhsuk-icon__chevron-right {
+        fill: $nhsuk-grey-3;
+        position: absolute;
+
+        @include mq($until: tablet) {
+          right: 4px;
+          top: 11px;
+        }
+
+        @include mq($from: tablet) {
+          right: 16px;
+          top: 9px;
+        }
+      }
+    }
+
+    &__link {
+      color: $nhsuk-blue;
+      display: block;
+
+      @include mq($from: tablet) {
+        padding: 12px 30px;
+      }
+
+      @include mq($until: tablet) {
+        padding: 16px;
+      }
+
+      text-decoration: none;
+
+      &:visited {
+        color: $nhsuk-blue;
+      }
+
+      &:hover {
+        background-color: $nhsuk-blue;
+        box-shadow: none;
+        color: $nhsuk-white;
+        text-decoration: underline;
+
+        .nhsuk-icon__chevron-right {
+          fill: $nhsuk-white;
+        }
+      }
+
+      &:focus {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
+        color: $nhsuk-blue;
+      }
+
+      &:active {
+        background-color: $nhsuk-blue-shade-35;
+        box-shadow: none;
+        color: $nhsuk-white;
+
+        .nhsuk-icon__chevron-right {
+          fill: $nhsuk-white;
+        }
+
+      }
+
+    }
+
+  }
+
+  @include mq($from: large-desktop) {
+
+    @include clear();
+    background: $nhsuk-blue;
+
+    &__title {
+      display: none;
+    }
+
+    &__list {
+      border-top: 1px solid $nhsuk-secondary-border-colour;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    &__item {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      .nhsuk-icon__chevron-right {
+        display: none;
+      }
+    }
+
+    &__item--mobile {
+      display: none;
+    }
+
+    &__link {
+      color: $nhsuk-white;
+      display: block;
+      font-size: 17px;
+      line-height: 20px;
+      padding: 16px;
+      text-decoration: none;
+
+      &:visited {
+        color: $nhsuk-white;
+      }
+
+      &:hover {
+        background: $nhsuk-blue-shade-35;
+        box-shadow: none;
+        color: $nhsuk-white;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        background: $nhsuk-blue;
+        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
+        color: $nhsuk-white;
+      }
+
+      &:active {
+        background: $nhsuk-blue-shade-50;
+        box-shadow: none;
+        color: $nhsuk-grey-5;
+      }
+
+      &.active {
+        background: $nhsuk-blue-shade-20;
+      }
+
+    }
+  }
+}
