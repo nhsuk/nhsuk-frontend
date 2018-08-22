@@ -1,0 +1,20 @@
+.nhsuk-hero {
+  background-color: $nhsuk-blue;
+  color: $nhsuk-white;
+  .nhsuk-hero-container {
+    border-top: 1px solid $nhsuk-secondary-border-colour;
+    @include mq($until: large-desktop) {
+      border: 0;
+    }
+    &.nhsuk-o-main-wrapper {
+      padding: 0;
+    }
+    .nhsuk-page-heading {
+      margin: 0;
+      padding: 40px 0;
+      @include mq($from: tablet) {
+        padding: 60px 0;
+      }
+    }
+  }
+}

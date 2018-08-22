@@ -34,17 +34,10 @@
       </a>
     </div>
 
-    {% if navigation == 'transactional' %}
       {% include "includes/header-transactional.njk" %}
-    {% else %}
-      {% include "includes/header.njk" %}
-      {% include "includes/nav.njk" %}
-    {% endif %}
 
       {% block body %}{% endblock %}
-
-    {% include "includes/footer.njk" %}
-
+      
     <script src="/js/main.js"></script>
 
   </body>

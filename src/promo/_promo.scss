@@ -1,0 +1,135 @@
+
+.nhsuk-o-flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  .nhsuk-c-promo {
+    margin-bottom: 16px;
+
+    @include mq($from: desktop) {
+      margin-bottom: 32px;
+    }
+
+  }
+
+  .nhsuk-o-grid__item {
+    display: flex;
+  }
+
+}
+
+@include mq($until: grid-collapse) {
+  .nhsuk-o-flex {
+    .nhsuk-o-grid__item {
+      flex: 0 0 100%;
+    }
+  }
+}
+
+  .nhsuk-c-promo {
+    width: 100%;
+
+    a {
+      background: $nhsuk-white;
+      box-shadow: 0 4px 0 0 $nhsuk-grey-4;
+      display: block;
+      height: 100%;
+      text-decoration: none;
+
+      &:focus {
+        box-shadow: 0 0 0 4px $nhsuk-focus-colour;
+
+        .nhsuk-c-promo__heading {
+          text-decoration: underline;
+        }
+
+      }
+
+      &:hover {
+        background: $nhsuk-white;
+        box-shadow: 0 0 0 4px $nhsuk-focus-colour;
+        color: $nhsuk-blue;
+      }
+
+      &:active {
+        background: darken($nhsuk-grey-5, 2%) !important;
+        box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour !important;
+      }
+
+      &:hover,
+      &:active {
+        .nhsuk-c-promo__heading {
+          text-decoration: none;
+        }
+      }
+
+      .nhsuk-c-promo__heading {
+        display: inline-block;
+        text-decoration: underline;
+      }
+
+    }
+
+    .nhsuk-c-promo__image-wrapper {
+      display: block;
+      float: none;
+      margin: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: 100%;
+    }
+
+    .nhsuk-c-promo__image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-bottom: 1px solid $nhsuk-grey-5;
+      bottom: 0;
+      display: block;
+      left: 0;
+      padding-bottom: 56.25%;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .nhsuk-c-promo__content {
+      @include top-and-bottom();
+      padding: 32px;
+
+      @include mq($until: tablet) {
+        padding: 24px;
+      }
+
+    }
+
+    .nhsuk-c-promo__description {
+      color: $nhsuk-secondary-text-colour;
+      margin-top: 12px;
+      text-decoration: none !important;
+    }
+
+    &--small {
+      .nhsuk-c-promo__heading {
+        font-size: 19px;
+        line-height: 28px;
+
+        @include mq($until: tablet) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+      }
+
+      .nhsuk-c-promo__description {
+        font-size: 16px;
+        line-height: 24px;
+
+        @include mq($until: tablet) {
+          font-size: 14px;
+        }
+
+      }
+
+    }
+  }
