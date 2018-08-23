@@ -33,8 +33,8 @@ function publishCSS() {
 }
 
 function publishCore() {
-  return gulp.src('src/globals/**/*')
-  .pipe(gulp.dest('dist/packages/globals/'));
+  return gulp.src('src/core/**/*')
+  .pipe(gulp.dest('dist/packages/core/'));
 }
 
 function publishSkiplinks() {
