@@ -8,7 +8,7 @@ app.set('view engine', 'njk');
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'app/assets')));
 
-nunjucks.configure('app/views', {
+nunjucks.configure(['app/views', 'src'], {
   autoescape: true,
   express: app
 });

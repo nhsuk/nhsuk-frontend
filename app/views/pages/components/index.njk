@@ -1,12 +1,14 @@
 {% set title = 'Components' %}
 {% set parent = 'Library' %}
+<!-- 
 {% from "macros/callout.njk" import callout %}
 {% from "macros/keypoint.njk" import keypoint %}
 {% from "macros/list.njk" import list %}
-{% from "macros/action-link.njk" import actionLink %}
 {% from "macros/care-card.njk" import carecard %}
 {% from "macros/image.njk" import image %}
 {% from "macros/review-date.njk" import reviewdate %}
+-->
+{% from "components/action-link/macro.njk" import actionLink %}
 {% extends "includes/templates/page.njk"%}
 
 {% block breadcrumb %}
@@ -18,6 +20,7 @@
 {% endblock %}
 
 {% block content %}
+<!--
     <div class="backstop-warning-callout">
 
       {{ callout("Important", "
@@ -77,12 +80,15 @@
       {{ list("Don't", "cross", dontItems) }}
 
     </div>
+  -->
 
     <div class="backstop-action-link">
 
       {{ actionLink("/service-search/minor-injuries-unit/locationsearch/551", "Find a minor injuries unit") }}
 
     </div>
+  
+  <!--
 
     <div class="backstop-grey-carecard">
 
@@ -190,4 +196,5 @@
       {{ reviewdate("12/02/2016", "01/02/2019") }} 
 
     </div>
+    -->
 {% endblock %}

@@ -82,14 +82,9 @@ function publishImageComponent() {
   .pipe(gulp.dest('dist/packages/images/'));
 }
 
-function publishIcons() { // Hard coded file names until we clear out the assets folder.
-  return gulp.src(['app/views/partials/logos/*', 'app/views/partials/icons/icon-tick.svg', 'app/views/partials/icons/icon-cross.svg', 'app/views/partials/icons/icon-arrow-right-circle.svg'])
+function publishIcons() {
+  return gulp.src(['src/assets/logos/*', 'src/assets/icons/*'])
   .pipe(gulp.dest('dist/assets/icons'));
-}
-
-function publishImages() { // Hard coded file names until we clear out the assets folder. (Match the above SVG icons)
-  return gulp.src(['app/assets/images/nhs-logo.png', 'app/assets/images/icon-tick.png', 'app/assets/images/icon-cross.png', 'app/assets/images/icon-arrow-right.png'])
-  .pipe(gulp.dest('dist/assets/images'));
 }
 
 exports.styles = styles;
@@ -105,9 +100,8 @@ exports.publishSkiplinks = publishSkiplinks;
 exports.publishImageComponent = publishImageComponent;
 exports.publishReviewDate = publishReviewDate;
 exports.publishIcons = publishIcons;
-exports.publishImages = publishImages
 
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('delete', deletePublish);
-gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishHeader, publishNavigation, publishFooter, publishCallout, publishCareCard, publishActionLink, publishReviewDate, publishImageComponent, publishIcons, publishImages));
+gulp.task('publish', gulp.parallel(publishCSS, publishCore, publishSkiplinks, publishHeader, publishNavigation, publishFooter, publishCallout, publishCareCard, publishActionLink, publishReviewDate, publishImageComponent, publishIcons));
