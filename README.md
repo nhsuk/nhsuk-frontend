@@ -1,4 +1,6 @@
 # nhsuk-frontend (DEVELOPMENT)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnhsuk%2Fnhsuk-frontend.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnhsuk%2Fnhsuk-frontend?ref=badge_shield)
+
 
 This is a testing repository, please use https://github.com/nhsuk/frontend
 
@@ -13,3 +15,7 @@ The application then will be available at <a href="http://localhost:3000">http:/
 ## Getting started
 
 Everything you need to know about nhsuk-frontend can be found on the documentation pages at <a href="http://localhost:3000">http://localhost:3000</a>.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnhsuk%2Fnhsuk-frontend.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnhsuk%2Fnhsuk-frontend?ref=badge_large)
