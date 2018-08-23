@@ -9,10 +9,11 @@
 {% from "macros/review-date.njk" import reviewdate %}
 -->
 {% from "components/action-link/macro.njk" import actionLink %}
+{% from "components/breadcrumbs/macro.njk" import breadcrumbs %}
 {% extends "includes/templates/page.njk"%}
 
 {% block breadcrumb %}
-    {% include 'includes/breadcrumb.njk' %}
+    {{ breadcrumbs("/", "Home", "/section", "Section") }}
 {% endblock %}
 
 {% block header %}

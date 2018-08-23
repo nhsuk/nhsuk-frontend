@@ -10,7 +10,7 @@ Find out when to use the action link component in the [Digital service manual]()
 
 ## Example
 
-[Preview the action link]()
+[Preview the action link component]()
 
 #### Markup
 
@@ -25,7 +25,7 @@ Find out when to use the action link component in the [Digital service manual]()
 
 #### Macro
 
-    {% from "action-link/action-link.njk" import actionLink %}
+    {% from "components/action-link/action-link.njk" import actionLink %}
 
     {{ actionLink("/find-injuries-unit", "Find a minor injuries unit") }}
 
