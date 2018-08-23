@@ -1,5 +1,5 @@
-# Images component
+# Images
 
 ## Introduction
 
-Component for Image usage.
+## Guidance

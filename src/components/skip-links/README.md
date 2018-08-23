@@ -1,13 +1,5 @@
-# Skip links
+# Skip Links
 
 ## Introduction
 
-Component for the skip links.
-
 ## Guidance
-
-## Usage
-
-#### Markup
-
-## Installation

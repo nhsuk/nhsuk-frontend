@@ -1,13 +1,5 @@
-# Global header
+# Header
 
 ## Introduction
 
-Component for the global header with search.
-
 ## Guidance
-
-## Usage
-
-#### Markup
-
-## Installation

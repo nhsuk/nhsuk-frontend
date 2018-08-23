@@ -1,5 +1,5 @@
-# Action links
+# Action link
 
 ## Introduction
 
-Component for action links.
+## Guidance

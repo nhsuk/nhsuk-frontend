@@ -1,5 +1,5 @@
-# Global footer
+# Footer
 
 ## Introduction
 
-Component for the global website footer.
+## Guidance
