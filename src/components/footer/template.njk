@@ -1,0 +1,23 @@
+<footer role="contentinfo">
+  <div class="nhsuk-global-footer">
+    <div class="nhsuk-o-width-container">
+      <ul>
+        <li class="nhsuk-global-footer__logo">
+          <a href="/" class="global-footer__link">
+            {% include 'assets/logos/nhs-logo.svg' %}
+            <span class="visually-hidden">NHS.UK homepage</span>
+          </a>
+        </li>
+        {% for item in primaryLinks %}
+        <li><a href="{{item.url}}">{{item.label}}</a></li>
+        {% endfor %}
+      </ul>
+      <ul>
+        {% for item in secondaryLinks %}
+        <li><a href="{{item.url}}">{{item.label}}</a></li>
+        {% endfor %}
+        <li>&copy; Crown Copyright</li>
+      </ul>
+    </div>
+  </div>
+</footer>

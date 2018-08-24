@@ -4,5 +4,6 @@
 - Add a basic Docker configuration to run the application in Docker.
 - Create a documentation start page.
 - Introduce a new folder structure for the components, assets and patterns.
-- Add action link documentation and format for future components.
-- Add action link, breadcrumbs and callout templates, macros and documentation.
+- Add action link README and format for future components.
+- Add action link, breadcrumbs and callout templates, macros and README.
+- Add footer templates, macros and README

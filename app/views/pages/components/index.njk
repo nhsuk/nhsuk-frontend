@@ -4,13 +4,14 @@
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 {% from 'components/callout/macro.njk' import callout %}
 {% from 'components/callout/macro-keypoint.njk' import keypoint %}
+{% from 'components/footer/macro.njk' import footer %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
     {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
 {% endblock %}
 
-{% block header %}
+{% block heading %}
     <h1>Components</h1>
 {% endblock %}
 
@@ -20,4 +21,44 @@
   {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
 
   {{ keypoint('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+{% endblock %}
+
+{% block footer %}
+  {% set primaryLinks = [
+      {
+        'url'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+        'label' : 'NHS sites'
+      },
+      {
+        'url' : 'https://www.nhs.uk/about-us',
+        'label' : 'About us'        
+      },
+      {
+        'url'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
+        'label' : 'Contact us'    
+      },
+      {
+        'url'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
+        'label' : 'Profile editor login'    
+      }
+    ]
+  %}
+
+  {% set secondaryLinks = [
+      {
+        'url'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+        'label' : 'Sitemap'
+      },
+      {
+        'url' : 'https://www.nhs.uk/accessibility/',
+        'label' : 'Accessibility'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/our-policies/',
+        'label' : 'Our policies'
+      }
+    ]
+  %}
+
+	{{ footer(primaryLinks, secondaryLinks) }}
 {% endblock %}
