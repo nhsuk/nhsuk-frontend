@@ -27,7 +27,7 @@ Find out when to use the footer component in the [Digital service manual]().
                   </g>
                   <image class="nhsuk-logo nhsuk-logo__fallback" src="assets/images/fallback/nhs-logo.png" xlink:href=""></image>
                 </svg>
-                <span class="visually-hidden">NHS.UK homepage</span>
+                <span class="visually-hidden">NHS homepage</span>
               </a>
             </li>
             <li><a href="https://www.nhs.uk/Pages/nhs-sites.aspx">NHS sites</a></li>
