@@ -37,9 +37,9 @@ Find out when to use the breadcrumbs component in the [Digital service manual]()
 
 #### Macro
 
-    {% from "components/breadcrumbs/macro.njk" import breadcrumbs %}
+    {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 
-    {{ breadcrumbs("/", "Home", "/section", "Section") }}
+    {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
 
 ## Contribution
 

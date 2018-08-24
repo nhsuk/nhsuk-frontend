@@ -25,9 +25,9 @@ Find out when to use the action link component in the [Digital service manual]()
 
 #### Macro
 
-    {% from "components/action-link/action-link.njk" import actionLink %}
+    {% from 'components/action-link/action-link.njk' import actionLink %}
 
-    {{ actionLink("/find-injuries-unit", "Find a minor injuries unit") }}
+    {{ actionLink('/find-injuries-unit', 'Find a minor injuries unit') }}
 
 ## Contribution
 

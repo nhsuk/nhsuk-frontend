@@ -4,7 +4,7 @@
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 {% from 'components/callout/macro.njk' import callout %}
 {% from 'components/callout/macro-keypoint.njk' import keypoint %}
-{% extends "includes/templates/page.njk"%}
+{% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
     {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
@@ -15,9 +15,9 @@
 {% endblock %}
 
 {% block content %}
+  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  
   {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
 
   {{ keypoint('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
-
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
 {% endblock %}
