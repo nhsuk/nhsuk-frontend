@@ -6,3 +6,7 @@
     margin-bottom: 0;
   }
 }
+
+.top-and-bottom {
+  @include top-and-bottom();
+}

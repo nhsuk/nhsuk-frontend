@@ -1,3 +1,7 @@
 @mixin reading-width() {
   max-width: 37em;
 }
+
+.nhsuk-reading-width {
+  @include reading-width();
+}

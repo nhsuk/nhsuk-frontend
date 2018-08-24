@@ -11,6 +11,6 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import './node_modules/sass-mq/mq';
+@import '../libraries/sass-mq/mq';
 
 $sass-mq-already-included: true;

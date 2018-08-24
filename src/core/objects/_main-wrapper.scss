@@ -1,12 +1,3 @@
-// Example usage:
-// <div class="nhsuk-o-width-container">
-//   <!-- Breadcrumbs, phase banners, back links are placed in here. -->
-//   <div class="nhsuk-o-main-wrapper">
-//       <!-- Wrapper for the main content of your page which applies padding
-//            to the top / bottom -->
-//   </div>
-// </div>
-
 @mixin govuk-main-wrapper {
   padding: 15px 0 40px;
 
