@@ -5,3 +5,4 @@
 - Create a documentation start page.
 - Introduce a new folder structure for the components, assets and patterns.
 - Add action link documentation and format for future components.
+- Add action link, breadcrumbs and callout templates, macros and documentation.
