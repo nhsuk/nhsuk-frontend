@@ -8,3 +8,5 @@
 - Add action link, breadcrumbs and callout templates, macros and README.
 - Add footer templates, macros and README.
 - Remove NHS.UK content references following rebranding work.
+- Update NHS logo fallback paths.
+- Separate callout and inset text components.

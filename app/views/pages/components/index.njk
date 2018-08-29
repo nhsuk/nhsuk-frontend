@@ -3,7 +3,7 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 {% from 'components/callout/macro.njk' import callout %}
-{% from 'components/callout/macro-keypoint.njk' import keypoint %}
+{% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/footer/macro.njk' import footer %}
 {% extends 'includes/templates/page.njk' %}
 
@@ -20,7 +20,7 @@
   
   {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
 
-  {{ keypoint('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+  {{ insetText('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
 {% endblock %}
 
 {% block footer %}
