@@ -15,3 +15,4 @@
 - Add care card template, macros and README.
 - Combine the Header and Skip link components.
 - Reorganise the component scss imports to alphabetical order.
+- Add promo macros and README.

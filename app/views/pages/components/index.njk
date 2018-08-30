@@ -9,6 +9,7 @@
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/page-navigation/macro.njk' import pageNavigation, pageNavigationNext, pageNavigationPrevious %}
+{% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
@@ -43,6 +44,12 @@
   {{ pageNavigationNext('/section/symptoms', 'Symptoms') }}
 
   {{ pageNavigationPrevious('/section/treatments', 'Treatments') }}
+  
+  {{ promo('nhsuk-c-promo--small', '/news/article', 'Prescription changes', 'The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.') }}
+
+  {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}  
+
+  {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
 {% endblock %}
 
 {% block footer %}
