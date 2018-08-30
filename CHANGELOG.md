@@ -20,3 +20,5 @@
 - Add navigation template, macro and README.
 - Add do & don't list template, macro and README.
 - Fix incorrect action link macro import on README.
+- Combine the header and navigation components.
+- Header template, macro and README.
