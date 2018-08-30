@@ -11,3 +11,5 @@
 - Update NHS logo fallback paths.
 - Separate callout and inset text components.
 - Add review date templates, macros and README.
+- Add image template, macros and README.
+- Add care card template, macros and README.
