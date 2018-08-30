@@ -2,22 +2,25 @@
 @import 'core/common';
 
 // Components
-@import 'components/skip-links/skip-links';
-@import 'components/header/header';
-@import 'components/navigation/navigation';
-@import 'components/breadcrumbs/breadcrumbs';
-@import 'components/footer/footer';
-@import 'components/callout/callout';
-@import 'components/inset-text/inset-text';
 @import 'components/action-link/action-link';
+@import 'components/breadcrumbs/breadcrumbs';
+@import 'components/callout/callout';
 @import 'components/care-card/care-card';
-@import 'components/images/images';
-@import 'components/review-date/review-date';
-@import 'patterns/health-a-z/health-a-z';
+@import 'components/footer/footer';
+@import 'components/header/header';
 @import 'components/hero/hero';
-@import 'components/promo/promo';
-@import 'components/tables/tables';
+@import 'components/images/images';
+@import 'components/inset-text/inset-text';
+@import 'components/navigation/navigation';
 @import 'components/page-navigation/page-navigation';
+@import 'components/promo/promo';
+@import 'components/review-date/review-date';
+@import 'components/tables/tables';
+
+// Components
+@import 'patterns/health-a-z/health-a-z';
+
+// Overrides
 @import 'ie-9';
 @import 'shame';
 @import 'print';

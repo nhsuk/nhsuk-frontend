@@ -1,5 +1,0 @@
-# Skip Links
-
-## Introduction
-
-## Guidance

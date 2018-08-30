@@ -545,3 +545,23 @@ $alpha: .5;
   margin: 0;
   text-align: left;
 }
+
+// Skip links 
+
+.nhsuk-c-skiplink__link {
+  left: -9999px;
+  padding: 8px;
+  position: absolute;
+
+  &:active,
+  &:focus {
+    left: 16px;
+    top: 16px;
+    z-index: 2;
+  }
+
+  &:visited {
+    color: $nhsuk-black;
+  }
+
+}
