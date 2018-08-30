@@ -13,3 +13,4 @@
 - Add review date templates, macros and README.
 - Add image template, macros and README.
 - Add care card template, macros and README.
+- Combine the Header and Skip link components.
