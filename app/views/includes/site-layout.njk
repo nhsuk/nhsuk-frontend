@@ -1,3 +1,5 @@
+{% from 'components/navigation/macro.njk' import navigation %}
+
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
   <head>
@@ -34,7 +36,31 @@
       </a>
     </div>
 
-      {% include 'includes/header-transactional.njk' %}
+      {% set primaryLinks = [
+          {
+            'url'  : 'https://www.nhs.uk/conditions',
+            'label' : 'Health A-Z'
+          },
+          {
+            'url' : 'https://www.nhs.uk/live-well/',
+            'label' : 'Live Well'        
+          },
+          {
+            'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+            'label' : 'Care and support'    
+          },
+          {
+            'url'  : 'https://www.nhs.uk/news/',
+            'label' : 'Health news'    
+          },
+          {
+            'url' : 'https://www.nhs.uk/service-search',
+            'label' : 'Services near you'
+          }
+        ]
+      %}
+
+      {{ navigation(primaryLinks) }}
 
       {% block body %}{% endblock %}
       
