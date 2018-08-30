@@ -1,5 +1,3 @@
-// Navigation.js
-
 (function() {
 
 	var menuToggle = {
