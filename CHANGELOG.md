@@ -16,3 +16,4 @@
 - Combine the Header and Skip link components.
 - Reorganise the component scss imports to alphabetical order.
 - Add promo macros and README.
+- Add hero template, macro and README.
