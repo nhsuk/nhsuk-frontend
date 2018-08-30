@@ -1,0 +1,13 @@
+{% macro careCard(type, title, content) %}
+  {% if type == 'grey' %}
+  <div class="nhsuk-c-care-card nhsuk-c-care-card--grey">
+  {% elseif type == 'red' %}
+  <div class="nhsuk-c-care-card nhsuk-c-care-card--red">
+  {% elseif type == 'black' %}
+  <div class="nhsuk-c-care-card nhsuk-c-care-card--black">
+  {% else %}
+  <div class="nhsuk-c-care-card">
+  {% endif %}
+    {%- include './template.njk' -%}
+  </div>
+{% endmacro %}

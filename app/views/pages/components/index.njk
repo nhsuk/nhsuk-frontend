@@ -6,6 +6,8 @@
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/footer/macro.njk' import footer %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
+{% from 'components/images/macro.njk' import image %}
+{% from 'components/care-card/macro.njk' import careCard %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
@@ -22,6 +24,14 @@
   {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
 
   {{ insetText('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+
+  {{ careCard('grey', 'Call 111', '') }}
+
+  {{ careCard('blue', 'Speak to a GP if:', '') }}
+
+  {{ careCard('red', 'Ask for an urgent GP appointment if:', '') }}
+
+  {{ careCard('black', 'Call 999 if you have sudden chest pain that:', '') }}
 
   {{ reviewDate('12/02/2016', '01/02/2019') }}
 {% endblock %}
