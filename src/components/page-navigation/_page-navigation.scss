@@ -1,0 +1,81 @@
+.nhsuk-c-pagination {
+  margin:56px 0;
+
+  @include mq($until: tablet) {
+    margin:40px 0;
+  }
+
+  a {
+    width: 49%;
+    display: block;
+    text-decoration: none;
+    position: relative;
+
+    @include mq($until: 359px) {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .nhsuk-icon {
+      position: absolute;
+      top: 0;
+    }
+
+    &:visited {
+      .nhsuk-icon {
+        fill: $nhsuk-link-visited-colour;
+      }
+    }
+
+  }
+
+  .nhsuk-c-pagination-prev{
+    float: left;
+    text-align: left;
+
+    .nhsuk-icon {
+      left: -6px;
+    }
+
+    .nhsuk-c-pagination-link {
+      padding-left: 30px;
+    }
+
+  }
+
+  .nhsuk-c-pagination-next {
+    float: right;
+    text-align: right;
+
+    .nhsuk-icon {
+      right: -6px;
+    }
+
+    .nhsuk-c-pagination-link {
+      padding-right:30px;
+    }
+
+  }
+
+  .nhsuk-c-pagination-title{
+    display: block;
+    text-decoration: underline;
+    font-size: 16px;
+
+    @include mq($until: tablet) {
+      font-size: 14px;
+    }
+
+  }
+
+  .nhsuk-c-pagination-link{
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include mq($until: tablet) {
+      font-size: 19px;
+    }
+
+  }
+}

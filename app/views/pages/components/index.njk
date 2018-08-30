@@ -8,6 +8,7 @@
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/care-card/macro.njk' import careCard %}
+{% from 'components/page-navigation/macro.njk' import pageNavigation, pageNavigationNext, pageNavigationPrevious %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
@@ -36,6 +37,12 @@
   {{ reviewDate('12/02/2016', '01/02/2019') }}
 
   {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+
+  {{ pageNavigation('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms') }}
+
+  {{ pageNavigationNext('/section/symptoms', 'Symptoms') }}
+
+  {{ pageNavigationPrevious('/section/treatments', 'Treatments') }}
 {% endblock %}
 
 {% block footer %}
