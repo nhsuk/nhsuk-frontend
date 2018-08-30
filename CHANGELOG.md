@@ -19,3 +19,4 @@
 - Add hero template, macro and README.
 - Add navigation template, macro and README.
 - Add do & don't list template, macro and README.
+- Fix incorrect action link macro import on README.
