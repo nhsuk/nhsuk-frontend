@@ -10,6 +10,7 @@
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/page-navigation/macro.njk' import pageNavigation, pageNavigationNext, pageNavigationPrevious %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
+{% from 'components/do-dont-list/macro.njk' import list %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
@@ -50,6 +51,39 @@
   {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}  
 
   {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
+
+  {% set doItems = [
+      {
+        "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+      },
+      {
+        "item"  : "wash your hands before touching a burst blister"
+      },
+      {
+        "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  %}
+
+  {{ list("Do", "tick", doItems) }}
+
+  {% set dontItems = [
+      {
+        "item"  : "burst a blister yourself"
+      },
+      {
+        "item"  : "peel the skin off a burst blister"
+      },
+      {
+        "item"  : "pick at the edges of the remaining skin"
+      },
+      {
+        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+      }
+    ]
+  %}
+
+  {{ list("Don't", "cross", dontItems) }}
 {% endblock %}
 
 {% block footer %}
