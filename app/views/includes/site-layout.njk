@@ -1,4 +1,4 @@
-{% from 'components/navigation/macro.njk' import navigation %}
+{% from 'components/header/macro.njk' import header %}
 
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
@@ -30,12 +30,6 @@
   <body class="{{ body_class }}">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    <div class="nhsuk-c-skiplink">
-      <a href="#main-content" class="nhsuk-c-skiplink__link">
-        Skip to main content
-      </a>
-    </div>
-
       {% set primaryLinks = [
           {
             'url'  : 'https://www.nhs.uk/conditions',
@@ -60,11 +54,14 @@
         ]
       %}
 
-      {{ navigation(primaryLinks) }}
+      {{ header(primaryLinks) }}
 
       {% block body %}{% endblock %}
       
-    <script src="/js/main.js"></script>
-
+    <script src="/js/typeahead.bundle.min.js"></script>
+    <script src="/js/nhs.typeahead.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/skip-links.js"></script>
   </body>
 </html>
