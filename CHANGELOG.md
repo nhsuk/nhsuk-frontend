@@ -25,3 +25,4 @@
 - Move assets (css, js and images) into the frontend library.
 - Add Arial as the Frutiger fallback font.
 - Add table template, macro and README.
+- Add reveal template, macro and README.
