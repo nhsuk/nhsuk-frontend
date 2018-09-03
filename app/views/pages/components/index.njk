@@ -8,7 +8,7 @@
 {% from 'components/footer/macro.njk' import footer %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
-{% from 'components/page-navigation/macro.njk' import pageNavigation, pageNavigationNext, pageNavigationPrevious %}
+{% from 'components/pagination/macro.njk' import pagination, paginationNext, paginationPrevious %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/reveals/macro.njk' import reveal %}
@@ -42,11 +42,11 @@
 
   {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
 
-  {{ pageNavigation('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms') }}
+  {{ pagination('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms') }}
 
-  {{ pageNavigationNext('/section/symptoms', 'Symptoms') }}
+  {{ paginationNext('/section/symptoms', 'Symptoms') }}
 
-  {{ pageNavigationPrevious('/section/treatments', 'Treatments') }}
+  {{ paginationPrevious('/section/treatments', 'Treatments') }}
   
   {{ promo('nhsuk-c-promo--small', '/news/article', 'Prescription changes', 'The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.') }}
 
