@@ -1,8 +1,12 @@
 .nhsuk-c-pagination {
-  margin:56px 0;
+  margin: 56px 0;
 
   @include mq($until: tablet) {
     margin:40px 0;
+  }
+
+  &:after {
+    @include clear();
   }
 
   a {
@@ -57,7 +61,7 @@
 
   }
 
-  .nhsuk-c-pagination-title{
+  .nhsuk-c-pagination-title {
     display: block;
     text-decoration: underline;
     font-size: 16px;
@@ -68,7 +72,7 @@
 
   }
 
-  .nhsuk-c-pagination-link{
+  .nhsuk-c-pagination-link {
     display: block;
     font-size: 24px;
     line-height: 32px;
@@ -78,4 +82,5 @@
     }
 
   }
+
 }
