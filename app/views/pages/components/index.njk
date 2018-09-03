@@ -11,6 +11,7 @@
 {% from 'components/page-navigation/macro.njk' import pageNavigation, pageNavigationNext, pageNavigationPrevious %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/do-dont-list/macro.njk' import list %}
+{% from 'components/tables/macro.njk' import table %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block breadcrumb %}
@@ -84,6 +85,43 @@
   %}
 
   {{ list("Don't", "cross", dontItems) }}
+
+  {{ table({
+    "rows": [
+      [
+        {
+          "text": "Skin symptoms"
+        },
+        {
+          "text": "Possible cause"
+        }
+      ],
+      [
+        {
+          "text": "Blisters on lips or around the mouth"
+        },
+        {
+          "text": "cold sores"
+        }
+      ],
+      [
+        {
+          "text": "Itchy, dry, cracked, sore"
+        },
+        {
+          "text": "eczema"
+        }
+      ],
+      [
+        {
+          "text": "Itchy blisters"
+        },
+        {
+          "text": "shingles, chickenpox"
+        }
+      ]
+    ]
+  }) }}
 {% endblock %}
 
 {% block footer %}

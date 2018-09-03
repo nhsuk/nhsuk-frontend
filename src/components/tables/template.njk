@@ -1,0 +1,21 @@
+<table class="nhsuk-table">
+  <tbody>
+    {% for row in params.rows %}
+    <tr>
+    {% for cell in row %}
+      {% if loop.first and params.firstCellIsHeader %}
+      <th class="govuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
+      {% elseif loop.first %}
+      <td
+      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+      {% else %}
+      <td
+      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+      {% endif %}
+    {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
