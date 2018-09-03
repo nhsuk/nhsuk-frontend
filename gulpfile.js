@@ -6,13 +6,13 @@ var cleanCSS = require('gulp-clean-css');
 var del = require('del');
 
 function styles() {
-  return gulp.src('src/nhsuk.scss')
+  return gulp.src(['src/nhsuk.scss', 'src/ie-78.scss'])
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('app/assets/css'))
+    .pipe(gulp.dest('src/'))
     .on('error', (err) => {
       console.log(err)
       process.exit(1)

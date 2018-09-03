@@ -22,3 +22,4 @@
 - Fix incorrect action link macro import on README.
 - Combine the header and navigation components.
 - Header template, macro and README.
+- Move assets (css, js and images) into the frontend library.
