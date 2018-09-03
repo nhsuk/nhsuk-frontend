@@ -83,8 +83,8 @@ function publishImageComponent() {
 }
 
 function publishIcons() {
-  return gulp.src(['src/assets/logos/*', 'src/assets/icons/*'])
-  .pipe(gulp.dest('dist/assets/icons'));
+  return gulp.src(['src/core/assets/logos/*', 'src/core/assets/icons/*'])
+  .pipe(gulp.dest('dist/core/assets/icons'));
 }
 
 exports.styles = styles;
