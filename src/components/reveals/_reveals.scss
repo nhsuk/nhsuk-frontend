@@ -1,0 +1,78 @@
+$perpendicular: $nhsuk-base-font-size / 2;
+$height: $perpendicular * 1.732;
+
+.nhsuk-c-details {
+  display: block;
+  margin: 40px 0;
+
+  @include mq($from: tablet) {
+    margin: 32px 0;
+  }
+  
+}
+
+.nhsuk-c-summary {
+  color: $nhsuk-blue;
+  cursor: pointer;
+  display: block;
+  padding-left: $nhsuk-base-font-size * 1.5;
+  position: relative;
+
+  &:hover {
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-focus-colour;
+    text-decoration: none;
+  }
+
+  &:focus {
+    background: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+    outline: 0;
+  }
+
+  &:active {
+    background: $nhsuk-link-active-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
+    color: $nhsuk-link-active-colour;
+    outline: 0;
+  }
+
+}
+
+  .nhsuk-c-summary__title {
+    text-decoration: underline;
+  }
+
+  // Remove the default details marker so we can style our own consistently
+  .nhsuk-c-summary::-webkit-details-marker{
+    display: none;
+  }
+
+  // Append our own open / closed marker using a pseudo-element
+  .nhsuk-c-summary:before {
+    -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    border-color: transparent;
+    border-left-color: inherit;
+    border-style: solid;
+    border-width: $perpendicular 0 $perpendicular $height;
+    bottom: 0;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    content: "";
+    display: block;
+    height: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  .nhsuk-c-details[open] > .nhsuk-c-summary:before {
+    -webkit-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+    border-left-color: transparent;
+    border-top-color: inherit;
+    border-width: $height $perpendicular 0 $perpendicular;
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  }
