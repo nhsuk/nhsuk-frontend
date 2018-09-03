@@ -1,16 +1,16 @@
-# Page navigation
+# Pagination
 
 ## Introduction
 
-The page navigation component allows users to navigation between pages in a section.
+The pagination component allows users to navigation between pages in a section.
 
 ## Guidance
 
-Find out when to use the page navigation component in the [Digital service manual]().
+Find out when to use the pagination component in the [Digital service manual]().
 
 ## Example
 
-[Preview the page navigation component]()
+[Preview the pagination component]()
 
 #### Markup
 
@@ -31,14 +31,13 @@ Find out when to use the page navigation component in the [Digital service manua
           <image class="nhsuk-icon__arrow-left nhsuk-icon__arrow-left--fallback" src="core/assets/icons/fallbacks/icon-arrow-left.png" xlink:href=""></image>
         </svg>
       </a>
-      <div class="clear"></div>
     </nav>
 
 #### Macro
 
-    {% from 'components/page-navigation/macro.njk' import pageNavigation %}
+    {% from 'components/pagination/macro.njk' import pagination %}
 
-    {{ pageNavigation('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms', ) }}
+    {{ pagination('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms', ) }}
 
 ### Next navigation
 
@@ -54,14 +53,13 @@ Find out when to use the page navigation component in the [Digital service manua
           </image>
         </svg>
       </a>
-      <div class="clear"></div>
     </nav>
 
 #### Macro
 
-    {% from 'components/page-navigation/macro.njk' import pageNavigationNext %}
+    {% from 'components/pagination/macro.njk' import paginationNext %}
 
-    {{ pageNavigationNext('/section/symptoms', 'Symptoms') }}
+    {{ paginationNext('/section/symptoms', 'Symptoms') }}
 
 ### Previous navigation
 
@@ -76,12 +74,11 @@ Find out when to use the page navigation component in the [Digital service manua
           <image class="nhsuk-icon__arrow-left nhsuk-icon__arrow-left--fallback" src="core/assets/icons/fallbacks/icon-arrow-left.png" xlink:href=""></image>
         </svg>
       </a>
-      <div class="clear"></div>
     </nav>
 
 #### Macro
 
-    {% from 'components/page-navigation/macro.njk' import pageNavigationPrevious %}
+    {% from 'components/pagination/macro.njk' import paginationPrevious %}
 
     {{ pageNavigationPrevious('/section/treatments', 'Treatments') }}
 
