@@ -53,3 +53,9 @@
     position: relative;
   }
 }
+
+@include mq($media-type: print) {
+  .nhsuk-c-breadcrumb {
+    display: none;
+  }
+}

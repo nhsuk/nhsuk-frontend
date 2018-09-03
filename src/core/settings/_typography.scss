@@ -178,6 +178,12 @@ b {
   }
 }
 
+@include mq($media-type: print) {
+  .nhsuk-page-heading {
+    padding: 0;
+  }
+}
+
 .nhsuk-page-nav {
   & > *:first-child {
     margin-top: 0;
@@ -191,6 +197,12 @@ b {
     & + ul {
       margin-top: 8px;
     }
+  }
+}
+
+@include mq($media-type: print) {
+  .nhsuk-page-nav {
+    display: none;
   }
 }
 

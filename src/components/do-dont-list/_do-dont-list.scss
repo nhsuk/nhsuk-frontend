@@ -38,3 +38,17 @@
   @include top-and-bottom();
 
 }
+
+@include mq($media-type: print) {
+
+  .nhsuk-c-panel {
+    border: 1px solid $nhsuk-black;
+    margin: 40px 0 !important;
+    padding: 10px !important;
+    .list--check,
+    .list--cross {
+      padding-left: 0 !important;
+    }
+  }
+
+}
