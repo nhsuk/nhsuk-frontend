@@ -786,3 +786,131 @@ $alpha: .5;
   }
 }
 
+.ie9 {
+
+  .nhsuk-global-header__logo {
+    a {
+      img {
+        border: 0;
+      }
+    }
+  }
+
+  .c-search-menu {
+    display: none !important; // sass-lint:disable-line no-important
+  }
+
+  .c-nav-primary {
+    &__list {
+      display: table;
+    }
+    &__item {
+      display: table-cell;
+    }
+  }
+
+  @include mq($until: large-desktop) {
+    .c-nav-primary {
+      &__list,
+      &__item {
+        display: block;
+      }
+    }
+  }
+
+  @include mq($until: tablet) {
+
+    .nhsuk-global-header {
+
+      .search-container {
+        &.js-show {
+          display: block;
+        }
+      }
+
+      .c-search {
+        float: left;
+        width: 85%;
+      }
+
+      .search-close {
+        float: left;
+        width: 15%;
+      }
+
+      .c-search__input {
+        float: left;
+        margin-bottom: 15px;
+        width: 78%;
+      }
+
+      .c-search__submit {
+        float: left;
+        height: 52px;
+      }
+
+    }
+
+  }
+
+}
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+  .nhsuk-global-header {
+
+    .nhsuk-global-header__search,
+    .c-search__container {
+      display: -ms-flexbox;
+    }
+
+    .search-container {
+      &.js-show {
+        display: -ms-flexbox;
+      }
+    }
+
+    @include mq($from: tablet) {
+
+      .twitter-typeahead {
+        width: auto;
+      }
+
+    }
+
+    @include mq($until: tablet) {
+
+      .c-search {
+        -ms-flex-positive: 2;
+      }
+
+      .c-search__input {
+        -ms-flex-positive: 2;
+      }
+
+    }
+
+  }
+
+  @include mq($from: large-desktop) {
+
+    .c-nav-primary__list {
+      -ms-flex-pack: justify;
+      display: -ms-flexbox;
+    }
+
+    .c-nav-primary__item {
+      text-align: left;
+    }
+
+  }
+
+}
+
+@include mq($media-type: print) {
+  .nhsuk-global-header__menusearch,
+  .c-nav-primary {
+    display: none;
+  }
+}
