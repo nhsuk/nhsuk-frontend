@@ -100,3 +100,31 @@
   }
 
 }
+
+@include mq($media-type: print) {
+  .nhsuk-c-care-card__heading,
+  .nhsuk-c-care-card__content,
+  .nhsuk-c-panel h3 { // sass-lint:disable-line force-element-nesting
+    color: $nhsuk-black !important;
+  }
+
+  .nhsuk-c-care-card__heading,
+  .nhsuk-c-care-card__content {
+    padding: 10px !important;
+  }
+
+  .nhsuk-c-care-card__heading {
+    padding-bottom: 0 !important;
+    &:after {
+      display: none !important;
+    }
+  }
+  
+  .nhsuk-c-care-card {
+    border: 6px solid $nhsuk-black;
+    margin: 40px 0 !important;
+    .nhsuk-c-care-card__content {
+      padding-top: 0;
+    }
+  }
+}
