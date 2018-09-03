@@ -23,3 +23,4 @@
 - Combine the header and navigation components.
 - Header template, macro and README.
 - Move assets (css, js and images) into the frontend library.
+- Add Arial as the Frutiger fallback font.

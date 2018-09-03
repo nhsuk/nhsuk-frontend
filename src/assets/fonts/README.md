@@ -1,3 +1,0 @@
-# NHS Fruitger font
-
-## LICENSE
