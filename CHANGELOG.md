@@ -32,3 +32,4 @@
 - Fix an issue with the font family duplicating on every element.
 - Add print styles for each of the components.
 - Improve the accessibility of inset text component.
+- Refactor the hero component with an image and description version.

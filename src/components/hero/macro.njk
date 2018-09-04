@@ -1,3 +1,26 @@
 {% macro hero(heading, content) %}
   {%- include './template.njk' -%}
 {% endmacro %}
+
+{% macro heroImageContent(heading, content, imageURL) %}
+<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('{{ imageURL }}');">
+  <div class="nhsuk-hero__overlay">
+    <div class="nhsuk-hero__container">
+      <div class="nhsuk-o-grid">
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+          <div class="nhsuk-hero-content">
+            <h1 role="text">{{ heading }}</h1>
+            {{ content | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro heroImage(imageURL) %}
+<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('{{ imageURL }}');">
+  <div class="nhsuk-hero__overlay"></div>
+</section>
+{% endmacro %}

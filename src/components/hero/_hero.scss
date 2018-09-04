@@ -1,12 +1,15 @@
 .nhsuk-hero {
   background-color: $nhsuk-blue;
   color: $nhsuk-white;
+  display: block;
+  position: relative;
 
   @include mq($media-type: print) {
     color: $nhsuk-black;
   }
 
-  .nhsuk-hero-container {
+  &__container {
+    @include govuk-width-container;
     border-top: 1px solid $nhsuk-secondary-border-colour;
 
     @include mq($until: large-desktop) {
@@ -25,6 +28,99 @@
         padding: 60px 0;
       }
 
+    }
+
+  }
+
+  // Hero image only
+
+  &--image { 
+    display: block;
+    height: 240px;
+    background-image: none;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include mq($from: tablet) {
+      height: 320px;
+    }
+
+    .nhsuk-hero__overlay {
+      background: rgba($nhsuk-blue-shade-50, .1);
+      height: 100%;
+    }
+
+  }
+
+  // Hero image with description
+
+  &--image-description {
+    margin-bottom: 100px;
+
+    @include mq($from: tablet) {
+      margin-bottom: 72px;
+    }
+    
+    .nhsuk-hero__container {
+      border: 0;
+    }
+
+    .nhsuk-hero-content {
+      @include top-and-bottom();
+      background: $nhsuk-blue;
+      bottom: -48px;
+      color: $nhsuk-white;
+      max-width: 565px;
+      padding: 32px 40px 40px;
+      position: absolute;
+      width: 80%;
+  
+      &:after {
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-top: 16px solid $nhsuk-blue;
+        bottom: -15px;
+        content: '';
+        display: block;
+        height: 0;
+        position: absolute;
+        width: 0;
+      }
+  
+      @include mq($until: desktop) {
+        width: 80%;
+      }
+  
+      @include mq($until: tablet) {
+        bottom: -72px;
+        left: 16px;
+        padding: 24px;
+        right: 16px;
+      }
+  
+      @include mq($until: 375px) {
+        bottom: -40px;
+      }
+  
+      p {
+        color: rgba($nhsuk-white, .9);
+        font-size: 24px;
+        line-height: 36px;
+        margin-top: 8px;
+  
+        @include mq($until: tablet) {
+          font-size: 19px;
+          line-height: 28px;
+        }
+  
+        @include mq($until: 375px) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+  
+      }
+  
     }
 
   }
