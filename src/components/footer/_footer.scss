@@ -2,15 +2,23 @@
   background-color: $nhsuk-blue;
   color: $nhsuk-white;
   width: 100%;
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
   &__logo {
     padding-bottom: 15px;
+
     @include mq($from: tablet) {
       padding-bottom: 0;
     }
+
     a {
       display: block;
       height: 40px;
       width: 99px;
+
       .nhsuk-logo {
         border: 0;
         height: 40px;
@@ -23,22 +31,29 @@
         }
 
       }
+
     }
+
   }
+
   ul {
     border-bottom: 1px solid $nhsuk-secondary-border-colour;
     list-style-type: none;
     margin: 0;
     padding: 25px 0;
+
     &:last-child {
       border-bottom: 0;
     }
+
     li {
+
       @include mq($from: tablet) {
         display: inline-block;
         font-size: 17px;
         padding-right: 25px;
       }
+
       a {
         color: $nhsuk-white;
 
@@ -46,13 +61,11 @@
         &:hover {
           color: $nhsuk-link-focus-colour;
         }
-      }
-    }
-  }
-}
 
-@include mq($media-type: print) {
-  .nhsuk-global-footer {
-    display: none;
+      }
+
+    }
+
   }
+
 }

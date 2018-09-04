@@ -30,3 +30,4 @@
 - Fix incorrect macro name for pagination.
 - Fix incorrect asset paths for javascript and images.
 - Fix an issue with the font family duplicating on every element.
+- Add print styles for each of the components.

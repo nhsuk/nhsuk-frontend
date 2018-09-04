@@ -2,6 +2,10 @@
   background-color: $nhsuk-blue;
   color: $nhsuk-white;
 
+  @include mq($media-type: print) {
+    color: $nhsuk-black;
+  }
+
   .nhsuk-hero-container {
     border-top: 1px solid $nhsuk-secondary-border-colour;
 
