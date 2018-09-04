@@ -27,3 +27,4 @@
 - Add table template, macro and README.
 - Add reveal template, macro and README.
 - Refactor print and internet explorer stylesheets into individual components.
+- Fixed incorrect macro name for pagination
