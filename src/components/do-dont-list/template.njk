@@ -5,7 +5,7 @@
       {% for data in items %}
       <li>
       {% include 'core/assets/icons/icon-tick.svg' %}
-      <span>Do</span> {{ data.item | safe}}
+      {{ data.item | safe}}
       </li>
       {% endfor %}
     </ul>
