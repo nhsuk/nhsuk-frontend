@@ -1,4 +1,4 @@
-{% macro pageNavigation(previousURL, previousTitle, nextURL, nextTitle) %}
+{% macro pagination(previousURL, previousTitle, nextURL, nextTitle) %}
   <nav class="nhsuk-c-pagination" role="navigation" aria-label="Pagination">
     <a href="{{previousUrl}}" class="nhsuk-c-pagination-prev">
       <span class="nhsuk-c-pagination-link">Previous</span>
@@ -13,7 +13,7 @@
   </nav>
 {% endmacro %}
 
-{% macro pageNavigationPrevious(previousURL, previousTitle) %}
+{% macro paginationPrevious(previousURL, previousTitle) %}
   <nav class="nhsuk-c-pagination" role="navigation" aria-label="Pagination">
     <a href="{{previousURL}}" class="nhsuk-c-pagination-prev">
       <span class="nhsuk-c-pagination-link">Previous</span>
@@ -23,7 +23,7 @@
   </nav>
 {% endmacro %}
 
-{% macro pageNavigationNext(nextURL, nextTitle) %}
+{% macro paginationNext(nextURL, nextTitle) %}
   <nav class="nhsuk-c-pagination" role="navigation" aria-label="Pagination">
     <a href="{{nextURL}}" class="nhsuk-c-pagination-next">
       <span class="nhsuk-c-pagination-link">Next</span>
