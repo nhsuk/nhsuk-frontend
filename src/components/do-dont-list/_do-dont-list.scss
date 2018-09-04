@@ -9,6 +9,11 @@
     margin: 40px 0;
   }
 
+  @include mq($media-type: print) {
+    border: 1px solid $nhsuk-black;
+    page-break-inside: avoid;
+  }
+
   h3 {
     background: $nhsuk-blue;
     color: $nhsuk-white;
@@ -17,38 +22,34 @@
     padding: 8px 24px;
     position: relative;
     top: -16px;
+
     @include mq($until: tablet) {
       top: -8px;
+    }
+
+    @include mq($media-type: print) {
+      color: $nhsuk-black;
+      top: 5px !important;
+      left: .5px;
     }
 
     & + p {
       margin-top: 0;
     }
-  }
 
+  }
+  
   &__warning {
     background: $nhsuk-pale-yellow;
     color: $nhsuk-text-colour;
+
     h3 {
       background: $nhsuk-yellow;
       color: $nhsuk-text-colour;
     }
+
   }
 
   @include top-and-bottom();
-
-}
-
-@include mq($media-type: print) {
-
-  .nhsuk-c-panel {
-    border: 1px solid $nhsuk-black;
-    margin: 40px 0 !important;
-    padding: 10px !important;
-    .list--check,
-    .list--cross {
-      padding-left: 0 !important;
-    }
-  }
 
 }

@@ -30,7 +30,7 @@
 
   }
 
-  .nhsuk-c-pagination-prev{
+  .nhsuk-c-pagination-prev {
     float: left;
     text-align: left;
 
@@ -53,7 +53,7 @@
     }
 
     .nhsuk-c-pagination-link {
-      padding-right:30px;
+      padding-right: 30px;
     }
 
   }
@@ -73,6 +73,12 @@
     display: block;
     font-size: 24px;
     line-height: 32px;
+
+    @include mq($media-type: print) {
+      &:after {
+        content: " page";
+      }
+    }
 
     @include mq($until: tablet) {
       font-size: 19px;

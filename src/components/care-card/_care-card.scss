@@ -5,6 +5,11 @@
     margin: 56px 0;
   }
 
+  @include mq($media-type: print) {
+    border: 2px solid $nhsuk-black;
+    page-break-inside: avoid;
+  }
+
   .nhsuk-c-care-card__heading {
     background: $nhsuk-blue;
     color: $nhsuk-white;
@@ -13,6 +18,10 @@
 
     @include mq($from: tablet) {
       padding: 16px 24px;
+    }
+
+    @include mq($media-type: print) {
+      color: $nhsuk-black;
     }
 
     &:after {
@@ -25,6 +34,11 @@
       height: 0;
       position: absolute;
       width: 0;
+
+      @include mq($media-type: print) {
+        display: none;
+      }
+
     }
 
     *:first-of-type {
@@ -50,6 +64,11 @@
   }
 
   &--grey {
+
+    @include mq($media-type: print) {
+      border: 4px solid $nhsuk-black;
+    }
+
     .nhsuk-c-care-card__heading {
       background: $nhsuk-grey-4;
       color: $nhsuk-black;
@@ -62,6 +81,11 @@
   }
 
   &--red {
+
+    @include mq($media-type: print) {
+      border: 6px solid $nhsuk-black;
+    }
+
     .nhsuk-c-care-card__heading {
       background: $nhsuk-red;
 
@@ -73,6 +97,11 @@
   }
 
   &--black {
+
+    @include mq($media-type: print) {
+      border: 8px solid $nhsuk-black;
+    }
+
     .nhsuk-c-care-card__heading {
       background: $nhsuk-red;
 
@@ -99,32 +128,4 @@
 
   }
 
-}
-
-@include mq($media-type: print) {
-  .nhsuk-c-care-card__heading,
-  .nhsuk-c-care-card__content,
-  .nhsuk-c-panel h3 { // sass-lint:disable-line force-element-nesting
-    color: $nhsuk-black !important;
-  }
-
-  .nhsuk-c-care-card__heading,
-  .nhsuk-c-care-card__content {
-    padding: 10px !important;
-  }
-
-  .nhsuk-c-care-card__heading {
-    padding-bottom: 0 !important;
-    &:after {
-      display: none !important;
-    }
-  }
-  
-  .nhsuk-c-care-card {
-    border: 6px solid $nhsuk-black;
-    margin: 40px 0 !important;
-    .nhsuk-c-care-card__content {
-      padding-top: 0;
-    }
-  }
 }

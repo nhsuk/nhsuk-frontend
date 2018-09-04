@@ -119,6 +119,15 @@ a {
   &:visited {
     color: $nhsuk-link-visited-colour;
   }
+
+  @include mq($media-type: print) {
+    &:after {
+      color: $nhsuk-black;
+      content: " (Link: " attr(href) ")";
+      font-size: 14px;
+    }
+  }
+
 }
 
 ul,

@@ -2,6 +2,10 @@
   background: $nhsuk-white;
   padding: 12px 0;
 
+  @include mq($media-type: print) {
+    display: none;
+  }
+
   &__list {
     @include mq($until: tablet) {
       display: none;
@@ -51,11 +55,5 @@
   &__backlink {
     left: -8px;
     position: relative;
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-c-breadcrumb {
-    display: none;
   }
 }
