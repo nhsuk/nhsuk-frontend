@@ -1,12 +1,9 @@
 .nhsuk-c-pagination {
   margin: 56px 0;
+  @include clear();
 
   @include mq($until: tablet) {
     margin:40px 0;
-  }
-
-  &:after {
-    @include clear();
   }
 
   a {

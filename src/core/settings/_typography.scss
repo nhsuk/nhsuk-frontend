@@ -180,7 +180,7 @@ b {
 
 @include mq($media-type: print) {
   .nhsuk-page-heading {
-    padding: 0;
+    padding-top: 0;
   }
 }
 

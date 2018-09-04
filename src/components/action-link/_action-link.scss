@@ -12,6 +12,10 @@
     padding-left: 36px;
   }
 
+  @include mq($media-type: print) {
+    margin: 0;
+  }
+
   &:hover,
   &:active,
   &:focus {
