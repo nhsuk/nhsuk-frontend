@@ -29,8 +29,8 @@
 
     @include mq($media-type: print) {
       color: $nhsuk-black;
-      top: 5px !important;
       left: .5px;
+      top: 5px;
     }
 
     & + p {
@@ -38,7 +38,7 @@
     }
 
   }
-  
+
   &__warning {
     background: $nhsuk-pale-yellow;
     color: $nhsuk-text-colour;

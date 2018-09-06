@@ -34,12 +34,12 @@
 
   // Hero image only
 
-  &--image { 
-    display: block;
+  &--image {
     background-image: none;
     background-position: center right;
     background-repeat: no-repeat;
     background-size: cover;
+    display: block;
 
     @media only screen {
       height: 240px;
@@ -50,7 +50,7 @@
     }
 
     .nhsuk-hero__overlay {
-      background: rgba($nhsuk-blue-shade-50, .1);
+      background: rgba($nhsuk-blue-shade-50, .1); // sass-lint:disable-line no-color-literals
       height: 100%;
     }
 
@@ -64,7 +64,7 @@
     @include mq($from: tablet) {
       margin-bottom: 72px;
     }
-    
+
     .nhsuk-hero__container {
       border: 0;
     }
@@ -78,7 +78,7 @@
       padding: 32px 40px 40px;
       position: absolute;
       width: 80%;
-  
+
       &:after {
         border-left: 16px solid transparent;
         border-right: 16px solid transparent;
@@ -95,30 +95,30 @@
         }
 
       }
-  
+
       @include mq($until: desktop) {
         width: 80%;
       }
-  
+
       @include mq($until: tablet) {
         bottom: -72px;
         left: 16px;
         padding: 24px;
         right: 16px;
       }
-  
+
       @include mq($until: 375px) {
         bottom: -40px;
       }
 
       @include mq($media-type: print) {
         color: $nhsuk-black;
-        position: relative;
         padding: 0;
+        position: relative;
       }
-  
+
       p {
-        color: rgba($nhsuk-white, .9);
+        color: rgba($nhsuk-white, .9); // sass-lint:disable-line no-color-literals
         font-size: 24px;
         line-height: 36px;
         margin-top: 8px;
@@ -126,19 +126,19 @@
         @include mq($media-type: print) {
           color: $nhsuk-black;
         }
-  
+
         @include mq($until: tablet) {
           font-size: 19px;
           line-height: 28px;
         }
-  
+
         @include mq($until: 375px) {
           font-size: 16px;
           line-height: 24px;
         }
-  
+
       }
-  
+
     }
 
   }

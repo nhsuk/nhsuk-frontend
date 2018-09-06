@@ -1,20 +1,20 @@
 .nhsuk-c-pagination {
-  margin: 56px 0;
   @include clear();
+  margin: 56px 0;
 
   @include mq($until: tablet) {
-    margin:40px 0;
+    margin: 40px 0;
   }
 
   a {
-    width: 49%;
     display: block;
-    text-decoration: none;
     position: relative;
+    text-decoration: none;
+    width: 49%;
 
     @include mq($until: 359px) {
-      width: 100%;
       margin-bottom: 16px;
+      width: 100%;
     }
 
     .nhsuk-icon {
@@ -60,8 +60,8 @@
 
   .nhsuk-c-pagination-title {
     display: block;
-    text-decoration: underline;
     font-size: 16px;
+    text-decoration: underline;
 
     @include mq($until: tablet) {
       font-size: 14px;
@@ -76,7 +76,7 @@
 
     @include mq($media-type: print) {
       &:after {
-        content: " page";
+        content: ' page';
       }
     }
 

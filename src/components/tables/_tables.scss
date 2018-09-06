@@ -3,16 +3,15 @@ table {
   border: 1em solid $nhsuk-white;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: (16px * 4) 0 (16px * 8);
+  margin: 40px 0;
   position: relative;
   vertical-align: top;
   width: 100%;
-  margin: 40px 0;
 
   th,
   td {
-    padding: 1em;
     font-size: inherit;
+    padding: 1em;
     text-align: left;
     text-transform: none;
     vertical-align: top;
@@ -20,16 +19,21 @@ table {
 
   td {
     border-bottom: 1px solid $nhsuk-grey-2;
+
+    &:hover {
+      background-color: $nhsuk-pale-yellow;
+    }
+
   }
 
   th {
     border-bottom: 2px solid $nhsuk-grey-2;
     font-weight: 600;
-  }
 
-  tr:hover,
-  td:hover {
-    background-color: $nhsuk-pale-yellow;
+    &:hover {
+      background-color: $nhsuk-pale-yellow;
+    }
+
   }
 
   caption {
