@@ -1,0 +1,22 @@
+<nav id="nhsuk-a-z-list" class="nhsuk-a-z-list" role="navigation" aria-label="A-Z Navigation">
+  <ul>
+    <li> 
+      <a href="/conditions/#{{ letter }}">{{ letter }}</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="a-z-list--results">         
+  <div class="nhsuk-a-z-list--results-items">
+    <h2 id="{{ letter }}">{{ letter }}</h2>
+      <div class="nhsuk-a-z-list--results-items__box">
+        <ul>
+          <li><a href="{{ item.url}}">{{ item.label}}</a></li>
+        </ul>
+      </div>
+      <a class="nhsuk-back-to-top-link" href="#nhsuk-a-z-list">
+        {% include 'core/assets/icons/icon-arrow-right.svg' %}
+        Back to top
+      </a>
+  </div>
+</div>

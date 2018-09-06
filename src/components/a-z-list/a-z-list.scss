@@ -32,6 +32,11 @@
     }
 
   }
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
 }
 
 .nhsuk-a-z-list--results-items {
@@ -124,6 +129,10 @@
         fill: $nhsuk-link-hover-colour;
       }
 
+    }
+
+    @include mq($media-type: print) {
+      display: none;
     }
 
   }

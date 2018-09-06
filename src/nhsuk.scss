@@ -2,6 +2,7 @@
 @import 'core/common';
 
 // Components
+@import 'components/a-z-list/a-z-list';
 @import 'components/action-link/action-link';
 @import 'components/breadcrumbs/breadcrumbs';
 @import 'components/callout/callout';
@@ -17,7 +18,3 @@
 @import 'components/reveals/reveals';
 @import 'components/review-date/review-date';
 @import 'components/tables/tables';
-
-// Components
-@import 'patterns/health-a-z/health-a-z';
-
