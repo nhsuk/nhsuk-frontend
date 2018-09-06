@@ -36,11 +36,14 @@
 
   &--image { 
     display: block;
-    height: 240px;
     background-image: none;
     background-position: center right;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media only screen {
+      height: 240px;
+    }
 
     @include mq($from: tablet) {
       height: 320px;
@@ -86,6 +89,11 @@
         height: 0;
         position: absolute;
         width: 0;
+
+        @include mq($media-type: print) {
+          display: none;
+        }
+
       }
   
       @include mq($until: desktop) {
@@ -102,12 +110,22 @@
       @include mq($until: 375px) {
         bottom: -40px;
       }
+
+      @include mq($media-type: print) {
+        color: $nhsuk-black;
+        position: relative;
+        padding: 0;
+      }
   
       p {
         color: rgba($nhsuk-white, .9);
         font-size: 24px;
         line-height: 36px;
         margin-top: 8px;
+
+        @include mq($media-type: print) {
+          color: $nhsuk-black;
+        }
   
         @include mq($until: tablet) {
           font-size: 19px;

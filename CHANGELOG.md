@@ -33,3 +33,4 @@
 - Add print styles for each of the components.
 - Improve the accessibility of inset text component.
 - Refactor the hero component with an image and description version.
+- Improve hero component print stylesheet.
