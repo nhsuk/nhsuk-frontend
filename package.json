@@ -1,7 +1,7 @@
 {
   "name": "nhsuk-frontend",
   "version": "0.0.0",
-  "description": "nhsuk-frontend code",
+  "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
     "postinstall": "npm run build",
@@ -35,10 +35,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhsuk/frontend-toolkit.git"
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
   },
   "bugs": {
-    "url": "https://github.com/nhsuk/frontend-toolkit/issues"
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
   "license": "MIT"
 }
