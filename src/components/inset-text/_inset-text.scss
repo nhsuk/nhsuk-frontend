@@ -2,13 +2,11 @@
   @include top-and-bottom();
   @include reading-width();
 
-  border-left: 16px solid $nhsuk-blue;
+  border-left: 12px solid $nhsuk-blue;
   margin: 40px 0;
-  padding: 24px;
+  padding: 16px;
 
-  @include mq($until: tablet) {
-    margin: 40px 0;
-    padding: 16px;
+  .visually-hidden:first-of-type + * {
+    margin-top: 0;
   }
-
 }
