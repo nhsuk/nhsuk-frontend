@@ -1,10 +1,10 @@
 .nhsuk-c-image {
   background: $nhsuk-white;
   border-bottom: $nhsuk-grey-4 2px solid;
-  margin: 48px 0;
+  margin: 40px 0 0;
 
   @include mq($until: tablet) {
-    margin: 32px 0;
+    margin: 32px 0 0;
   }
 
   img {

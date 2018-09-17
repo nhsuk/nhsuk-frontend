@@ -16,7 +16,7 @@ Find out when to use the care card component in the [Digital service manual]().
 
 #### Markup
 
-    <div class="nhsuk-c-care-card nhsuk-c-care-card--grey">
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--grey" role="note" aria-label="Non-urgent advice">
       <div class="nhsuk-c-care-card__heading">
         <h3>Call 111</h3>
       </div>
@@ -37,7 +37,7 @@ Find out when to use the care card component in the [Digital service manual]().
 
 #### Markup
 
-    <div class="nhsuk-c-care-card">
+    <div class="nhsuk-c-care-card" role="note" aria-label="Non-urgent care">
       <div class="nhsuk-c-care-card__heading">
         <h3>Speak to a GP if:</h3>
       </div>
@@ -72,7 +72,7 @@ Find out when to use the care card component in the [Digital service manual]().
 
 #### Markup
 
-    <div class="nhsuk-c-care-card nhsuk-c-care-card--red">
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--red" role="note" aria-label="Urgent care low">
       <div class="nhsuk-c-care-card__heading">
         <h3>Ask for an urgent GP appointment if:</h3>
       </div>
@@ -107,7 +107,7 @@ Find out when to use the care card component in the [Digital service manual]().
 
 #### Markup
 
-    <div class="nhsuk-c-care-card nhsuk-c-care-card--black">
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--black" role="note" aria-label="Urgent care high">
       <div class="nhsuk-c-care-card__heading">
         <h3>Call 999 if you have sudden chest pain that:</h3>
       </div>

@@ -16,12 +16,6 @@
     margin: 0;
   }
 
-  &:hover,
-  &:active,
-  &:focus {
-    background: none;
-  }
-
   .nhsuk-icon__arrow-right-circle {
     fill: $nhsuk-green;
     height: 40px;
@@ -45,7 +39,19 @@
     }
   }
 
+  &:focus {
+    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour;
+    span {
+      text-decoration: underline;
+    }
+  }
+
   &:active {
+    box-shadow: 0 0 0 8px $nhsuk-link-active-background-colour !important;
     .nhsuk-icon__arrow-right-circle {
       fill: $nhsuk-green-shade-50;
     }
