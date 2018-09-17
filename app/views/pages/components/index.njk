@@ -1,6 +1,7 @@
 {% set title = 'Components' %}
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
+{% from 'components/a-z-list/macro.njk' import azList %}
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 {% from 'components/callout/macro.njk' import callout %}
 {% from 'components/care-card/macro.njk' import careCard %}
@@ -135,6 +136,8 @@
 
   <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
   ') }}
+
+  {{ azList() }}
 {% endblock %}
 
 {% block footer %}

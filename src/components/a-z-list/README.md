@@ -65,6 +65,8 @@ Find out when to use the A-Z list component in the [Digital service manual]().
 
 #### Macro
 
+    To be completed
+
 ## Contribution
 
 Guidelines on contributing to components can be found at [Contributing guidelines]().

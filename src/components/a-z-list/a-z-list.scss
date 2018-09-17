@@ -50,6 +50,12 @@
     color: $nhsuk-white;
     display: inline-block;
     padding: 8px 16px;
+
+    @include mq($media-type: print) {
+      color: $nhsuk-black;
+      margin-top: 0;
+    }
+
   }
 
   ul {
@@ -61,6 +67,10 @@
     @include mq($until: tablet) {
       margin: -24px 0 0;
       padding: 24px 0 0;
+    }
+
+    @include mq($media-type: print) {
+      border-top: 0;
     }
 
     li {
