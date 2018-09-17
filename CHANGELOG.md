@@ -36,3 +36,4 @@
 - Improve hero component print stylesheet.
 - Add A-Z list template, macro and README.
 - Improve the inset text component accessibility and styles.
+- Improve accessibility of the action link & care cards and update image component.
