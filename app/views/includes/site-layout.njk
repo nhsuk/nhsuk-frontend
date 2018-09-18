@@ -30,6 +30,8 @@
   <body class="{{ body_class }}">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
+      {% block outerHeader %}{% endblock %}
+
       {% set primaryLinks = [
           {
             'url'  : 'https://www.nhs.uk/conditions',
@@ -61,5 +63,6 @@
     <script src="/components/header/typeahead.bundle.min.js"></script>
     <script src="/components/header/nhs.typeahead.js"></script>
     <script src="/components/header/header.js"></script>
+    <script src="/components/feedback-banner/feedback-banner.js"></script>
   </body>
 </html>

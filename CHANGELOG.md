@@ -38,3 +38,4 @@
 - Improve the inset text component accessibility and styles.
 - Improve accessibility of the action link & care cards and update image component.
 - Update npm & docker dependencies.
+- Feedback banner and emergency alert component template, macros and README.
