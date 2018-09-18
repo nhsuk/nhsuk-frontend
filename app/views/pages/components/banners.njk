@@ -1,0 +1,67 @@
+{% set title = 'Components - Banners' %}
+{% set parent = 'Library' %}
+{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% from 'components/cookie-banner/macro.njk' import cookieBanner %}
+{% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
+{% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
+{% from 'components/footer/macro.njk' import footer %}
+{% extends 'includes/templates/page.njk' %}
+
+{% block outerHeader %}
+  {{ cookieBanner() }}
+
+  {{ emergencyAlert('National flu outbreak', 'There has been a national flu outbreak.', '#', 'How does it affect me', 'Updated 23 mins ago') }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+{% endblock %}
+
+{% block heading %}
+  <h1>Components - Banners</h1>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+  {{ feedbackBanner('Help us make the NHS website better', 'Your feedback helps us improve the NHS website.', '#', 'Take our short survey') }}
+
+  {% set primaryLinks = [
+      {
+        'url'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+        'label' : 'NHS sites'
+      },
+      {
+        'url' : 'https://www.nhs.uk/about-us',
+        'label' : 'About us'        
+      },
+      {
+        'url'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
+        'label' : 'Contact us'    
+      },
+      {
+        'url'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
+        'label' : 'Profile editor login'    
+      }
+    ]
+  %}
+
+  {% set secondaryLinks = [
+      {
+        'url'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+        'label' : 'Sitemap'
+      },
+      {
+        'url' : 'https://www.nhs.uk/accessibility/',
+        'label' : 'Accessibility'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/our-policies/',
+        'label' : 'Our policies'
+      }
+    ]
+  %}
+
+  {{ footer(primaryLinks, secondaryLinks) }}
+{% endblock %}
