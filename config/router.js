@@ -5,8 +5,12 @@ router.get('/', (req, res) => {
   res.render('home', {});
 });
 
-router.get('/pages/components', (req, res) => {
+router.get('/components', (req, res) => {
   res.render('pages/components/index', {});
+});
+
+router.get('/components/banners', (req, res) => {
+  res.render('pages/components/banners', {});
 });
 
 module.exports = router;

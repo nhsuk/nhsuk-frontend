@@ -1,0 +1,162 @@
+.nhsuk-cookie-banner {
+  font-size: 16px;
+  background-color: #f0f8ff;
+  padding: 16px 0;
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
+  h2, 
+  p {
+    &:first-of-type {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    background-color: $nhsuk-green;
+    border: 0;
+    box-shadow: 0 2px 0 #003317;
+    display: inline-block;
+    letter-spacing: .5px;
+    line-height: 1.25;
+    position: relative;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    color: $nhsuk-white;
+
+    @include mq($until:tablet) {
+      margin: 16px 0 8px;
+    }
+
+    &:before {
+      background: transparent;
+      content: '';
+      display: block;
+      height: 110%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    &:focus {
+      background-color: #00662f;
+      outline: 3px solid #ffb81c;
+    }
+
+    &:hover {
+      background-color: #00662f;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 #007f3b;
+      color: $nhsuk-black !important;
+
+      &:before {
+        height: 120%;
+        top: -10%;
+      }
+    }
+
+  }
+
+  .nhsuk-form {
+    display: block;
+    margin-top: 0;
+
+    &__wrapper {
+      display: block;
+
+      @media (min-width: 925px){
+        display: inline-block;
+      }
+
+    }
+    
+    legend {
+      font-weight: 600;
+      margin-bottom: -8px;
+      font-size: 16px;
+      line-height: 24px;
+      padding-top: 0;
+    }
+
+    label {
+      margin-top: 16px;
+
+      @include mq($until:tablet) {
+        margin-top: 12px;
+      }
+
+    }
+
+    .multiple-choice--checkbox {
+      position: absolute;
+      opacity: 0;
+
+      & + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        margin-right: 16px;
+        display: block;
+        line-height: 20px;
+
+        @media (min-width: 925px){
+          display: inline-block;
+        }
+
+      }
+
+      & + label:before {
+        content: '';
+        margin-right: 4px;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        border: 3px solid $nhsuk-blue;
+        position: relative;
+      }
+
+      &:focus + label:before {
+        box-shadow: 0 0 0 5px $nhsuk-warm-yellow;
+      }
+
+      &:checked + label:before {
+        background: transparent;
+      }
+
+      &:checked + label:after {
+        content: '';
+        border: solid;
+        border-width: 0 0 4px 4px;
+        background: transparent;
+        width: 12px;
+        height: 6px;
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        zoom: 1;
+        filter: alpha(opacity=0);
+      }
+
+    }
+
+    .checkbox-blue + label:before {
+      display: inline-block;
+    }
+
+  }
+
+}
