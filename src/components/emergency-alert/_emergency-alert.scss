@@ -1,0 +1,71 @@
+.nhsuk-c-global-alert {
+  background: $nhsuk-yellow;
+  padding: 24px 0;
+
+  @include mq($until:tablet) {
+    padding: 16px 0;
+  }
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
+  &__content {
+    @include top-and-bottom;
+    position: relative;
+  }
+      
+  &__header {  
+    font-size: 24px;
+    line-height: 32px;      
+    margin: 0;
+    padding-right: 56px;
+
+    @include mq($until:tablet) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+  }
+
+  &__message {
+    margin-top: 8px;
+  }
+
+  &__updated {
+    font-size: 14px;
+    margin-top: 8px;
+
+    @include mq($until: tablet) {
+      font-size: 12px;
+    }
+
+  }
+
+  a {
+
+    @media screen and (max-width: 480px) {
+      white-space: nowrap;
+    }
+
+    &:focus {
+      background: $nhsuk-blue-shade-35;
+      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+      color: $nhsuk-white;
+    }
+
+    &:hover {
+      background: $nhsuk-blue;
+      box-shadow: 0 0 0 4px $nhsuk-blue;
+      color: $nhsuk-white;
+    }
+
+    &:active {
+      background: $nhsuk-blue-shade-50 !important;
+      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+      color: $nhsuk-white;
+    }
+
+  }
+
+}
