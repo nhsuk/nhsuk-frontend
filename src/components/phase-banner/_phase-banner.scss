@@ -1,0 +1,38 @@
+.nhsuk-c-phase-banner {
+  background: $nhsuk-white;
+  border-bottom: 4px solid $nhsuk-grey-5;
+  padding-bottom: 8px;
+  padding-top: 8px;
+
+  p {
+    display: table;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+
+    @include mq($until: tablet) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    span {
+      display: table-cell;
+    }
+
+  }
+
+  &__tag {
+    background: $nhsuk-blue;
+    color: $nhsuk-white;
+    display: block;
+    margin-right: 12px;
+    padding: 0 12px;
+
+    @include mq($until: tablet) {
+      margin-right: 8px;
+      padding: 2px 8px;
+    }
+
+  }
+
+}

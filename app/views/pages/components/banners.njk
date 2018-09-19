@@ -4,6 +4,7 @@
 {% from 'components/cookie-banner/macro.njk' import cookieBanner %}
 {% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
+{% from 'components/phase-banner/macro.njk' import phaseBanner %}
 {% from 'components/footer/macro.njk' import footer %}
 {% extends 'includes/templates/page.njk' %}
 
@@ -14,6 +15,8 @@
 {% endblock %}
 
 {% block breadcrumb %}
+  {{ phaseBanner('New', 'We are testing a new page layout — your <a href="#">feedback</a> will help us to improve it.') }}
+
   {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
 {% endblock %}
 
