@@ -12,7 +12,7 @@ Find out when to use the emergency alert component in the [Digital service manua
 
 #### Markup
 
-    <div id="nhsuk-global-alert" class="nhsuk-c-global-alert nhsuk-c-global-alert--warning">
+    <div id="nhsuk-global-alert" class="nhsuk-c-global-alert">
       <div class="nhsuk-o-width-container">
         <div class="nhsuk-o-grid">
           <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
