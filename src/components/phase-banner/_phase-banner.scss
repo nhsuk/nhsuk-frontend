@@ -5,10 +5,10 @@
   padding-top: 8px;
 
   p {
-  display: table;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
+    display: table;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
 
     @include mq($until: tablet) {
       font-size: 14px;
@@ -27,8 +27,8 @@
     display: block;
     margin-right: 12px;
     padding: 0 12px;
-  
-    @include mq($until:tablet) {
+
+    @include mq($until: tablet) {
       margin-right: 8px;
       padding: 2px 8px;
     }

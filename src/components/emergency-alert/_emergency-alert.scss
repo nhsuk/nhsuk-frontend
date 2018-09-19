@@ -2,7 +2,7 @@
   background: $nhsuk-yellow;
   padding: 24px 0;
 
-  @include mq($until:tablet) {
+  @include mq($until: tablet) {
     padding: 16px 0;
   }
 
@@ -14,14 +14,14 @@
     @include top-and-bottom;
     position: relative;
   }
-      
-  &__header {  
+
+  &__header {
     font-size: 24px;
-    line-height: 32px;      
+    line-height: 32px;
     margin: 0;
     padding-right: 56px;
 
-    @include mq($until:tablet) {
+    @include mq($until: tablet) {
       font-size: 20px;
       line-height: 28px;
     }

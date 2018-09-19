@@ -41,3 +41,4 @@
 - Feedback banner and emergency alert component template, macros and README.
 - Cookie banner component template, macros and README.
 - Phase banner component, template, macros and README.
+- Improve the style linting for the banner components.
