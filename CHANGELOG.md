@@ -40,3 +40,4 @@
 - Update npm & docker dependencies.
 - Feedback banner and emergency alert component template, macros and README.
 - Cookie banner component template, macros and README.
+- Phase banner component, template, macros and README.
