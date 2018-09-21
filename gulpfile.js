@@ -3,7 +3,6 @@ var sass = require('gulp-sass');
 var babel = require('gulp-babel');
 var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
-var del = require('del');
 
 function styles() {
   return gulp.src(['src/nhsuk.scss', 'src/ie-78.scss'])
@@ -18,7 +17,6 @@ function styles() {
       process.exit(1)
     })
 }
-
 
 function watch() {
   gulp.watch('src/**/*.scss', styles);
