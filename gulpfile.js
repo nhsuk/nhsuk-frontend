@@ -5,7 +5,7 @@ var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
 
 function styles() {
-  return gulp.src(['src/nhsuk.scss', 'src/ie-78.scss'])
+  return gulp.src(['src/nhsuk.scss', 'src/nhsuk-ie-78.scss'])
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({

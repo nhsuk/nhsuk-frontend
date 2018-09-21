@@ -42,3 +42,4 @@
 - Cookie banner component template, macros and README.
 - Phase banner component, template, macros and README.
 - Improve the style linting for the banner components.
+- Rename internet explorer stylesheets and move footer into layout file.
