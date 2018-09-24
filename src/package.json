@@ -1,0 +1,19 @@
+{
+  "name": "nhsuk-frontend-test",
+  "version": "1.0.0",
+  "description": "The NHS website frontend styles testing package",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+  },
+  "author": "Adam Chrimes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+  },
+  "homepage": "https://github.com/nhsuk/nhsuk-frontend#readme"
+}
