@@ -47,3 +47,4 @@
 - Use 'prepare' instead of 'postinstall' in npm scripts.
 - Remove unused gulp-babel.
 - Add MIT licence and create npm package ready for publishing.
+- Revert back to using assets.nhs.uk for font resources.

@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The NHS website frontend styles testing package",
   "main": "index.js",
   "scripts": {

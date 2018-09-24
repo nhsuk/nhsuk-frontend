@@ -1,5 +1,9 @@
 # NHS.UK frontend
 
+This is still in testing.
+
+Install NHS.UK frontend in your project with `npm install --save nhsuk-frontend-test` and then import all components, by adding the below to your Sass file: `@import "node_modules/nhsuk-frontend-test/nhsuk";`.
+
 https://github.com/nhsuk/frontend
 
 ## Licence
