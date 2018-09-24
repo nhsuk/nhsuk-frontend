@@ -44,4 +44,5 @@
 - Improve the style linting for the banner components.
 - Rename internet explorer stylesheets and move footer into layout file.
 - Fix an issue with the feedback link breaking with longer content.
-- Use 'prepare' instead of 'postinstall' in npm scripts
+- Use 'prepare' instead of 'postinstall' in npm scripts.
+- Remove unused gulp-babel.
