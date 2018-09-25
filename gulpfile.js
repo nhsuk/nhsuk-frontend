@@ -33,7 +33,8 @@ function bundle() {
   return gulp.src([
     'packages/nhsuk.min.css', 
     'packages/nhsuk-ie-78.min.css', 
-    'packages/nhsuk.js'
+    'packages/nhsuk.js',
+    'packages/core/assets/libraries/*.js'
   ])
   .pipe(gulp.dest('dist/'));
 }
@@ -49,4 +50,4 @@ exports.watch = watch;
 gulp.task('build', styles);
 gulp.task('default', watch);
 gulp.task('scripts', scripts);
-gulp.task('bundle', scripts);
+gulp.task('bundle', bundle);

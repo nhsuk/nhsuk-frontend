@@ -53,3 +53,4 @@
 - Automatic page routing from GDS prototype kit.
 - Rename src folder to packages for clarity and to match lernaJS structure.
 - Add docs folder structure with placeholder documentation files.
+- Publish compiled files for use in projects.
