@@ -2,7 +2,7 @@ options:
   formatter: stylish
 files:
   include:
-    - 'src/**/*.scss'
+    - 'packages/**/*.scss'
   ignore:
     - 'node_modules/**/*'
 rules:

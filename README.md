@@ -6,9 +6,11 @@ NHS.UK frontend contains the code you need to start building user interfaces for
 
 ## Using NHS.UK frontend
 
-### 1. Install with npm (recommended)
+### 1. Install with package managers (recommended)
 
-TBC.
++ npm - TBC.
++ yarn - TBC.
++ PyPi - TBC.
 
 ### 2. Install by using compiled files
 

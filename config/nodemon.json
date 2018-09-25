@@ -10,7 +10,7 @@
     },
     "watch": [
         "app/views/",
-        "src/"
+        "packages/"
     ],
     "env": {
         "NODE_ENV": "development"

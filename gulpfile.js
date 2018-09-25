@@ -5,13 +5,13 @@ var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 
 function styles() {
-  return gulp.src(['src/nhsuk.scss', 'src/nhsuk-ie-78.scss'])
+  return gulp.src(['packages/nhsuk.scss', 'packages/nhsuk-ie-78.scss'])
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('src/'))
+    .pipe(gulp.dest('packages/'))
     .on('error', (err) => {
       console.log(err)
       process.exit(1)
@@ -20,17 +20,17 @@ function styles() {
 
 function scripts() {
   return gulp.src([
-      'src/components/header/typeahead.bundle.min.js', 
-      'src/components/header/nhs.typeahead.js', 
-      'src/components/header/header.js',
-      'src/components/feedback-banner/feedback-banner.js'
+      'packages/components/header/typeahead.bundle.min.js', 
+      'packages/components/header/nhs.typeahead.js', 
+      'packages/components/header/header.js',
+      'packages/components/feedback-banner/feedback-banner.js'
     ])
     .pipe(concat('nhsuk.js'))
-    .pipe(gulp.dest('src/'));
+    .pipe(gulp.dest('packages/'));
 }
 
 function watch() {
-  gulp.watch('src/**/*.scss', styles);
+  gulp.watch('packages/**/*.scss', styles);
 }
 
 exports.styles = styles;
