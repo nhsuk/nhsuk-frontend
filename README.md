@@ -18,11 +18,11 @@ TBC.
 
 ### Installation
 
-You will need <a href="https://store.docker.com/search?type=edition&offering=community">Docker</a> to run the application and make changes.
+You will need Node.js to run the application, install the long-term support (LTS) version of <a href="https://nodejs.org/en/">Node.js</a>, which also includes <a href="https://www.npmjs.com/">npm</a>.
 
-Clone the repository: `git clone https://github.com/nhsuk/nhsuk-frontend.git nhsuk-frontend` and whilst in the project directory `cd nhsuk-frontend`, run the application with Docker `npm run docker`. 
+Clone this repository: `git clone https://github.com/nhsuk/nhsuk-frontend.git nhsuk-frontend` and whilst in the project directory `cd nhsuk-frontend`, install the required dependencies with `npm install`. 
 
-The application then will be available at <a href="http://localhost:3000">http://localhost:3000</a>.
+Once the dependencies have installed, you can run the application with `npm run watch`, then the application will be available at <a href="http://localhost:3000">http://localhost:3000</a>.
 
 ### Getting started
 

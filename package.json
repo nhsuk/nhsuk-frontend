@@ -8,13 +8,13 @@
     "build": "gulp build",
     "start": "node app.js",
     "prewatch": "gulp build",
-    "watch": "gulp & nodemon app.js --config config/nodemon.json -q",
+    "watch": "concurrently \"gulp\" \"nodemon app.js --config config/nodemon.json -q\"",
     "test": "npm run lint-css",
     "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'src/**/*.scss' -v -q",
-    "docker": "docker-compose up",
     "bundle": "npm run build & gulp bundle"
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
     "express": "^4.16.3",
     "nunjucks": "^3.1.3"
   },

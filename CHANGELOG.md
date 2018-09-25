@@ -49,3 +49,4 @@
 - Add MIT licence and create npm package ready for publishing.
 - Revert back to using assets.nhs.uk for font resources.
 - Bundle all required JavaScript into 1 file.
+- Remove Docker and run the application with just npm.
