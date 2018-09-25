@@ -26,7 +26,15 @@ Once the dependencies have installed, you can run the application with `npm run 
 
 ### Getting started
 
-Everything you need to know about nhsuk-frontend can be found on the documentation pages at <a href="http://localhost:3000">http://localhost:3000</a>.
+Everything you need to know about NHS.UK frontend can be found on the documentation pages at <a href="http://localhost:3000">http://localhost:3000</a>.
+
++ Folder structure - TBC.
++ Coding standards - TBC.
++ Tooling - TBC.
++ Testing - TBC.
++ Browser and device support - TBC.
++ Accessibility - TBC.
++ Workflow - TBC.
 
 ## Licence
 
