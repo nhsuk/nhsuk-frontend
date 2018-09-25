@@ -29,6 +29,15 @@ function scripts() {
     .pipe(gulp.dest('packages/'));
 }
 
+function bundle() {
+  return gulp.src([
+    'packages/nhsuk.min.css', 
+    'packages/nhsuk-ie-78.min.css', 
+    'packages/nhsuk.js'
+  ])
+  .pipe(gulp.dest('dist/'));
+}
+
 function watch() {
   gulp.watch('packages/**/*.scss', styles);
 }
@@ -39,4 +48,5 @@ exports.watch = watch;
 
 gulp.task('build', styles);
 gulp.task('default', watch);
+gulp.task('scripts', scripts);
 gulp.task('bundle', scripts);
