@@ -42,3 +42,15 @@
 - Cookie banner component template, macros and README.
 - Phase banner component, template, macros and README.
 - Improve the style linting for the banner components.
+- Rename internet explorer stylesheets and move footer into layout file.
+- Fix an issue with the feedback link breaking with longer content.
+- Use 'prepare' instead of 'postinstall' in npm scripts.
+- Remove unused gulp-babel.
+- Add MIT licence and create npm package ready for publishing.
+- Revert back to using assets.nhs.uk for font resources.
+- Bundle all required JavaScript into 1 file.
+- Remove Docker and run the application with just npm.
+- Automatic page routing from GDS prototype kit.
+- Rename src folder to packages for clarity and to match lernaJS structure.
+- Add docs folder structure with placeholder documentation files.
+- Publish compiled files for use in projects.

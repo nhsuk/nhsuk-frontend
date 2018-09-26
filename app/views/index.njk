@@ -1,0 +1,60 @@
+{% set title = 'Home' %}
+{% from 'components/hero/macro.njk' import hero, heroImage, heroImageContent %}
+{% from 'components/promo/macro.njk' import promo %}
+{% extends 'includes/site-layout.njk' %}
+
+{% block body %}
+<div class="nhsuk-o-width-container-fluid">
+	{{ hero('NHS.UK frontend', '<p>Find out how to use NHS.UK frontend, how to use the code in your products and how you can contribute changes.</p>') }}
+</div>
+
+<div class="nhsuk-o-width-container">
+  <main class="nhsuk-o-main-wrapper" id="main-content">
+    <div class="nhsuk-o-grid nhsuk-o-flex">
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Fodler structure', 'Find out about folder structure and what each file is for.') }}
+        </div>
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Coding standards', 'Find out about the coding standards we adhere to.') }}
+        </div>
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Tooling', 'Find out about the different tools we use.') }}
+        </div>
+
+      </div>
+
+      <div class="nhsuk-o-grid nhsuk-o-flex">
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Testing', 'Find out about running tests with BackstopJS and Cypress.') }}
+        </div>
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Browser support', 'Find out about browser visitor statistics and support.') }}
+        </div>
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Accessibility', 'Find out about accessibility within our code.') }}
+        </div>
+  
+      </div>
+      
+      <div class="nhsuk-o-grid nhsuk-o-flex">
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Workflow', 'Find out about our workflow from dev to deployment.') }}
+        </div>
+
+        <div class="nhsuk-o-grid__item nhsuk-o-grid__item--one-third">
+          {{ promo ('nhsuk-c-promo--small', '/', 'Contributing', 'Find out about how contribute bug fixes or new styles.') }}
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</div>
+{% endblock %}

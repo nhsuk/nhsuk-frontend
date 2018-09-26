@@ -4,26 +4,26 @@
   "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
-    "postinstall": "npm run build",
+    "prepare": "npm run build",
     "build": "gulp build",
     "start": "node app.js",
     "prewatch": "gulp build",
-    "watch": "gulp & nodemon app.js --config config/nodemon.json -q",
+    "watch": "concurrently \"gulp\" \"nodemon app.js --config config/nodemon.json -q\"",
     "test": "npm run lint-css",
-    "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'src/**/*.scss' -v -q",
-    "docker": "docker-compose up"
+    "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "bundle": "npm run build & gulp bundle"
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
     "express": "^4.16.3",
     "nunjucks": "^3.1.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "del": "^3.0.0",
     "gulp": "^4.0.0",
-    "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "nodemon": "^1.18.4",
