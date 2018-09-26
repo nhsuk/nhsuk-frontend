@@ -12,10 +12,6 @@
     padding-left: 36px;
   }
 
-  @include mq($media-type: print) {
-    margin: 0;
-  }
-
   .nhsuk-icon__arrow-right-circle {
     fill: $nhsuk-green;
     height: 40px;
@@ -51,7 +47,9 @@
   }
 
   &:active {
-    box-shadow: 0 0 0 8px $nhsuk-link-active-background-colour !important;
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour;
+    background: $nhsuk-link-hover-background-colour !important;
+    color: $nhsuk-link-active-colour !important;
     .nhsuk-icon__arrow-right-circle {
       fill: $nhsuk-green-shade-50;
     }
