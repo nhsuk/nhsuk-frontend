@@ -1,0 +1,55 @@
+$nhsuk-spacing-points: (
+  0: 0,
+  1: 4px,
+  2: 8px,
+  3: 16px,
+  4: 24px,
+  5: 32px,
+  6: 40px,
+  7: 48px,
+  8: 56px,
+  9: 64px
+) !default;
+
+$nhsuk-spacing-responsive-scale: (
+  0: (
+    null: 0,
+    tablet: 0
+  ),
+  1: (
+    null: 4px,
+    tablet: 4px
+  ),
+  2: (
+    null: 8px,
+    tablet: 8px
+  ),
+  3: (
+    null: 8px,
+    tablet: 16px
+  ),
+  4: (
+    null: 16px,
+    tablet: 24px
+  ),
+  5: (
+    null: 24px,
+    tablet: 32px
+  ),
+  6: (
+    null: 32px,
+    tablet: 40px
+  ),
+  7: (
+    null: 40px,
+    tablet: 48px
+  ),
+  8: (
+    null: 48px,
+    tablet: 56px
+  ),
+  9: (
+    null: 56px,
+    tablet: 64px
+  )
+) !default;

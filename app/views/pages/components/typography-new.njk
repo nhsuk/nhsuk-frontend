@@ -1,0 +1,34 @@
+{% set title = 'Components - Typography New' %}
+{% set parent = 'Library' %}
+{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% extends 'includes/templates/page.njk' %}
+
+{% block outerHeader %}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+{% endblock %}
+
+{% block heading %}
+  <h1>Components - Banners</h1>
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-c-font-xl">H1 using nhsuk-c-font-xl</h1>
+  <h2 class="nhsuk-c-font-l">H2 using nhsuk-c-font-l</h2>
+  <h3 class="nhsuk-c-font-m">H3 using nhsuk-c-font-m</h1>
+  <h4 class="nhsuk-c-font-s">H4 using nhsuk-c-font-s</h1>
+  <h5 class="nhsuk-c-font-xs">H5 using nhsuk-c-font-xs</h1>
+  <h6 class="nhsuk-c-font-xxs">H6 using nhsuk-c-font-xxs</h1>
+  <p class="nhsuk-c-font-xl">P using nhsuk-c-font-xl</p>
+  <p class="nhsuk-c-font-l">P using nhsuk-c-font-l</p >
+  <p class="nhsuk-c-font-m">P using nhsuk-c-font-m</p >
+  <p class="nhsuk-c-font-s">P using nhsuk-c-font-s</p >
+  <p class="nhsuk-c-font-xs">P using nhsuk-c-font-xs</p >
+  <p class="nhsuk-c-font-xxs">P using nhsuk-c-font-xxs</p >
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
