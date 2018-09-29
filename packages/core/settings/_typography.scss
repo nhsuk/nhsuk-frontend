@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
+/*h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 .h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
   color: inherit;
   font-weight: $nhsuk-font-bold;
@@ -106,7 +106,7 @@ p,
     line-height: 28px;
     margin: 24px 0 0;
   }
-}
+}*/
 
 a {
   color: $nhsuk-link-colour;
@@ -142,7 +142,7 @@ a {
 
 }
 
-ul,
+/*ul,
 ol {
   font-weight: $nhsuk-font-normal;
   margin: 16px 0 0;
@@ -156,7 +156,7 @@ ol {
       margin-top: 0;
     }
   }
-}
+}*/
 
 .nhsuk-list--check,
 .nhsuk-list--cross {
@@ -192,7 +192,7 @@ b {
 .nhsuk-page-heading {
   padding: 25px 0 40px;
   @include mq($from: grid-collapse) {
-    padding: 34px 0 56px;
+    padding: 26px 0 56px;
   }
   h1 {
     margin: 0;

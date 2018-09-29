@@ -44,7 +44,7 @@ $font-size-16: (
 // Utility function for mixin font-size
 @mixin make-font-size($fs-font-size) {
     font-size: nth($fs-font-size, 1);
-    //font-size: govuk-em(nth($fs-font-size, 1), $nhsuk-base-font-size);
+    font-size: govuk-em(nth($fs-font-size, 1), $nhsuk-base-font-size);
     line-height: nth($fs-font-size, 2);
 }
 
@@ -58,27 +58,60 @@ h1, h2, h3, h4, h5, h6 {
 // Semantic heading sizes
 h1 {
   @include font-size($font-size-48);
-  @include govuk-responsive-margin(9, "top");
+  @include govuk-responsive-margin(8, "top");
 }
 h2 {
   @include font-size($font-size-32);
+  @include govuk-responsive-margin(7, "top");
 }
 h3 {
   @include font-size($font-size-24);
+  @include govuk-responsive-margin(5, "top");
 }
 h4 {
   @include font-size($font-size-22);
+  @include govuk-responsive-margin(4, "top");
 }
 h5 {
   @include font-size($font-size-19);
+  @include govuk-responsive-margin(4, "top");
 }
 h6 {
   @include font-size($font-size-16);
+  @include govuk-responsive-margin(4, "top");
 }
 
 // Semantic font sizes
 p, ul, ol, li {
   @include font-size($font-size-19);
+
+  margin-bottom: 0;
+}
+
+p {
+  @include govuk-responsive-margin(4, "top");
+}
+
+ol, ul {
+  @include govuk-responsive-margin(3, "top");
+
+  padding-left: 20px; //Need to explain why we have used a random number
+
+  li {
+    @include govuk-responsive-margin(2, "top");
+
+    &:first-child {
+      @include govuk-responsive-margin(0, "top");
+    }
+  }
+}
+
+tr, th {
+  font-weight: $nhsuk-font-normal;
+}
+
+strong, b {
+  font-weight: $nhsuk-font-bold;
 }
 
 // Normal font
