@@ -1,6 +1,7 @@
 .nhsuk-c-panel {
+  @include govuk-responsive-margin(8, "top");
+
   background: $nhsuk-white;
-  margin: 72px 0 56px;
   padding: 24px;
   padding-top: 0;
   position: relative;

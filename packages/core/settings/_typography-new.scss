@@ -116,6 +116,20 @@ strong, b {
   font-weight: $nhsuk-font-bold;
 }
 
+//Body copy sizes
+.nhsuk-c-body-l {
+  @include font-size($font-size-24);
+  @include govuk-responsive-margin(5, "top");
+}
+.nhsuk-c-body {
+  @include font-size($font-size-19);
+  @include govuk-responsive-margin(4, "top");
+}
+.nhsuk-c-body-s {
+  @include font-size($font-size-16);
+  @include govuk-responsive-margin(4, "top");
+}
+
 // Normal font
 .nhsuk-c-font-xxl {
   @include font-size($font-size-64);

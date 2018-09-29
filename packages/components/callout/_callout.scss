@@ -1,13 +1,10 @@
 .nhsuk-c-panel {
+  @include govuk-responsive-margin(8, "top");
+
   background: $nhsuk-white;
-  margin: 72px 0 56px;
   padding: 24px;
   padding-top: 0;
   position: relative;
-
-  @include mq($until: tablet) {
-    margin: 40px 0;
-  }
 
   @include mq($media-type: print) {
     border: 1px solid $nhsuk-black;
