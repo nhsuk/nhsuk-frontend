@@ -1,4 +1,8 @@
 // Typographic scale
+$font-size-64: (
+  null : (48px, 1.166),
+  tablet: (64px, 1.125),
+);
 $font-size-48: (
   null : (32px, 1.125),
   tablet: (48px, 1.166),
@@ -83,9 +87,11 @@ h6 {
 
 // Semantic font sizes
 p, ul, ol, li {
-  @include font-size($font-size-19);
+  @include govuk-responsive-margin(0, "bottom");
+}
 
-  margin-bottom: 0;
+p, li {
+  @include font-size($font-size-19);
 }
 
 p {
@@ -93,9 +99,9 @@ p {
 }
 
 ol, ul {
-  @include govuk-responsive-margin(3, "top");
+  @include govuk-responsive-margin(4, "top");
 
-  padding-left: 20px; //Need to explain why we have used a random number
+  padding-left: 20px; //Need to explain why we have used a random number because of default html padding left
 
   li {
     @include govuk-responsive-margin(2, "top");
@@ -106,15 +112,14 @@ ol, ul {
   }
 }
 
-tr, th {
-  font-weight: $nhsuk-font-normal;
-}
-
 strong, b {
   font-weight: $nhsuk-font-bold;
 }
 
 // Normal font
+.nhsuk-c-font-xxl {
+  @include font-size($font-size-64);
+}
 .nhsuk-c-font-xl {
   @include font-size($font-size-48);
 }
