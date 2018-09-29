@@ -1,4 +1,14 @@
-$nhsuk-spacing-points: (
+////
+/// @group settings/spacing
+////
+
+/// Single point spacing variables. Access using `govuk-spacing()`
+/// (see `helpers/spacing`).
+///
+/// @type Map
+/// @access private
+
+$govuk-spacing-points: (
   0: 0,
   1: 4px,
   2: 8px,
@@ -11,7 +21,22 @@ $nhsuk-spacing-points: (
   9: 64px
 ) !default;
 
-$nhsuk-spacing-responsive-scale: (
+/// Responsive spacing maps
+///
+/// These definitions are used to generate responsive spacing that adapts
+/// according to the breakpoints (see 'helpers/spacing'). These maps should be
+/// used wherever possible to standardise responsive spacing.
+///
+/// You can define different behaviour on tablet and desktop. The 'null'
+/// breakpoint is for mobile.
+///
+/// Access responsive spacing with `govuk-responsive-margin` or
+/// `govuk-responsive-padding` mixins (see `helpers/spacing`).
+///
+/// @type Map
+/// @access private
+
+$govuk-spacing-responsive-scale: (
   0: (
     null: 0,
     tablet: 0

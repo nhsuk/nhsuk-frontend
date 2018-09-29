@@ -55,9 +55,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
-// Heading sizes
+// Semantic heading sizes
 h1 {
   @include font-size($font-size-48);
+  @include govuk-responsive-margin(9, "top");
 }
 h2 {
   @include font-size($font-size-32);
@@ -73,6 +74,11 @@ h5 {
 }
 h6 {
   @include font-size($font-size-16);
+}
+
+// Semantic font sizes
+p, ul, ol, li {
+  @include font-size($font-size-19);
 }
 
 // Normal font
