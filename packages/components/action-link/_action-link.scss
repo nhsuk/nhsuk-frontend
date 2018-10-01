@@ -1,8 +1,8 @@
 .nhsuk-c-action-link {
+  @extend %nhsuk-body-m;
   display: inline-block;
-  font-size: 21px;
   font-weight: 600;
-  margin: 32px 16px 32px 0;
+  margin-right: 16px;
   padding-left: 42px;
   position: relative;
   text-decoration: none;

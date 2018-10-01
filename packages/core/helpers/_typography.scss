@@ -1,0 +1,23 @@
+// Mixin for font-size
+@mixin font-size($fs-map, $fs-breakpoints: $mq-breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-font-size($fs-font-size);
+    }
+    @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        @include make-font-size($fs-font-size);
+      }
+    }
+  }
+}
+
+// Utility function for mixin font-size
+@mixin make-font-size($fs-font-size) {
+    font-size: nth($fs-font-size, 1);
+    font-size: govuk-em(nth($fs-font-size, 1), $nhsuk-base-font-size);
+    line-height: nth($fs-font-size, 2);
+}

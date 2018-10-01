@@ -2,13 +2,13 @@
 /// @group settings/spacing
 ////
 
-/// Single point spacing variables. Access using `govuk-spacing()`
+/// Single point spacing variables. Access using `nhsuk-spacing()`
 /// (see `helpers/spacing`).
 ///
 /// @type Map
 /// @access private
 
-$govuk-spacing-points: (
+$nhsuk-spacing-points: (
   0: 0,
   1: 4px,
   2: 8px,
@@ -30,13 +30,13 @@ $govuk-spacing-points: (
 /// You can define different behaviour on tablet and desktop. The 'null'
 /// breakpoint is for mobile.
 ///
-/// Access responsive spacing with `govuk-responsive-margin` or
-/// `govuk-responsive-padding` mixins (see `helpers/spacing`).
+/// Access responsive spacing with `nhsuk-responsive-margin` or
+/// `nhsuk-responsive-padding` mixins (see `helpers/spacing`).
 ///
 /// @type Map
 /// @access private
 
-$govuk-spacing-responsive-scale: (
+$nhsuk-spacing-responsive-scale: (
   0: (
     null: 0,
     tablet: 0

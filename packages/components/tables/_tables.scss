@@ -1,12 +1,20 @@
 table {
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+  
   background-color: $nhsuk-white;
   border: 1em solid $nhsuk-white;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 40px 0;
   position: relative;
   vertical-align: top;
   width: 100%;
+
+  tr {
+    &:hover {
+      background-color: $nhsuk-pale-yellow;
+    }
+  }
 
   th,
   td {
@@ -19,21 +27,11 @@ table {
 
   td {
     border-bottom: 1px solid $nhsuk-grey-2;
-
-    &:hover {
-      background-color: $nhsuk-pale-yellow;
-    }
-
   }
 
   th {
     border-bottom: 2px solid $nhsuk-grey-2;
     font-weight: 600;
-
-    &:hover {
-      background-color: $nhsuk-pale-yellow;
-    }
-
   }
 
   caption {

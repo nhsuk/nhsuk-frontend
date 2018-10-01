@@ -2,13 +2,9 @@
   @include top-and-bottom();
   @include reading-width();
 
-  @include govuk-responsive-margin(6, "top");
-  @include govuk-responsive-margin(6, "bottom");
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
 
   border-left: 12px solid $nhsuk-blue;
-  padding: 16px;
-
-  .visually-hidden:first-of-type + * {
-    margin-top: 0;
-  }
+  padding: nhsuk-spacing(3);
 }

@@ -1,9 +1,9 @@
 .nhsuk-c-review-date {
-  @include govuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "top");
 
   p {
     color: $nhsuk-grey-1;
-    @include govuk-responsive-margin(0, "top");
+    @include nhsuk-responsive-margin(0, "top");
   }
 
 }
