@@ -5,13 +5,13 @@
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
 {% from 'components/callout/macro.njk' import callout %}
 {% from 'components/care-card/macro.njk' import careCard %}
+{% from 'components/details/macro.njk' import details %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/pagination/macro.njk' import pagination, paginationNext, paginationPrevious %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
-{% from 'components/reveals/macro.njk' import reveal %}
 {% from 'components/tables/macro.njk' import table %}
 {% extends 'includes/templates/page.njk' %}
 
@@ -28,7 +28,7 @@
 
 {% block content %}
   {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
-  
+
   {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
 
   {{ insetText('Information:', '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
@@ -50,10 +50,10 @@
   {{ paginationNext('/section/symptoms', 'Symptoms') }}
 
   {{ paginationPrevious('/section/treatments', 'Treatments') }}
-  
+
   {{ promo('nhsuk-c-promo--small', '/news/article', 'Prescription changes', 'The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.') }}
 
-  {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}  
+  {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
 
   {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
 
@@ -127,7 +127,7 @@
     ]
   }) }}
 
-  {{ reveal('When to check your blood glucose level', '
+  {{ details('When to check your blood glucose level', '
   <p>Try to check your blood:</p>
 
   <ul>
