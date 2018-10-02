@@ -1,16 +1,16 @@
-# Reveals
+# Details
 
 ## Introduction
 
-The reveal component allows the page to be easier to scan by letting users reveal information only if they need it.
+The details component allows the page to be easier to scan by letting users reveal information only if they need it.
 
 ## Guidance
 
-Find out when to use the reveal component in the [Digital service manual]().
+Find out when to use the details component in the [Digital service manual]().
 
 ## Example
 
-[Preview the reveal component]()
+[Preview the details component]()
 
 #### Markup
 
@@ -33,9 +33,9 @@ Find out when to use the reveal component in the [Digital service manual]().
 
 #### Macro
 
-    {% from 'components/reveal/macro.njk' import reveal %}
+    {% from 'components/details/macro.njk' import details %}
 
-    {{ reveal('When to check your blood glucose level', '
+    {{ details('When to check your blood glucose level', '
       <p>Try to check your blood:</p>
 
       <ul>
