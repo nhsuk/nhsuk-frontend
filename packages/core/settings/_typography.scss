@@ -1,3 +1,19 @@
+/* ==========================================================================
+   #typography
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
+
 h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
 .h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
   color: inherit;
