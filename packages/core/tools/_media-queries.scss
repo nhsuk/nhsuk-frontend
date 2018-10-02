@@ -1,8 +1,8 @@
 // We use sass-mq module for media queries
 
 // This is a horrible, horrible hack to prevent the 'dev mode' CSS to display
-// the current breakpoint from being included multiple times. 
-// 
+// the current breakpoint from being included multiple times.
+//
 // We can't use the `exports` mixin for this because import directives cannot be
 // used within control directives 😠
 $sass-mq-already-included: false !default;
@@ -11,6 +11,6 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import '../libraries/sass-mq/mq';
+@import './node_modules/sass-mq/mq';
 
 $sass-mq-already-included: true;

@@ -1,3 +1,7 @@
+/* ==========================================================================
+   CORE
+   ========================================================================== */
+
 // Settings
 @import 'settings/all';
 
@@ -11,9 +15,9 @@
 // Elements
 @import 'elements/html';
 @import 'elements/body';
-@import 'elements/form';
-//@import 'elements/icons';
-//@import 'elements/typography';
+@import 'elements/forms';
+@import 'elements/icons';
+@import 'elements/typography';
 
 // Objects
 @import 'objects/grid';
@@ -21,4 +25,8 @@
 @import 'objects/width-container';
 
 // Utilities
+@import 'utilities/clearfix';
 @import 'utilities/grid';
+@import 'utilities/reading-width';
+@import 'utilities/top-and-bottom';
+@import 'utilities/visually-hidden';

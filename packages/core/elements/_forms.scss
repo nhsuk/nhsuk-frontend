@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Elements / #HTML
+   Elements / #FORMS
    ========================================================================== */
 
 /**
@@ -14,10 +14,9 @@
  * 1. Provide line comments like this.
  */
 
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: $nhsuk-text-colour;
-  font-family: $nhsuk-font, $nhsuk-font-fallback;
-  min-height: 100%;
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
 }
