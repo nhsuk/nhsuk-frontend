@@ -14,15 +14,6 @@
  * 1. Provide line comments like this.
  */
 
-@mixin top-and-bottom() {
-  & > *:first-child {
-    margin-top: 0;
-  }
-  & > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .top-and-bottom {
   @include top-and-bottom();
 }

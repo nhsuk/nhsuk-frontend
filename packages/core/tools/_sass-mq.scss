@@ -1,9 +1,9 @@
 /* ==========================================================================
-   #variables
+   TOOLS / #SASS-MQ
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * We use sass-mq module for media queries
  *
  * If you’d like to create a new Sass file for the project, simply copy and
  * paste this one and fill it in like for like.
@@ -14,11 +14,12 @@
  * 1. Provide line comments like this.
  */
 
-$nhsuk-base-font-size: 19px !default;
-$nhsuk-base-line-height: 28px !default;
-$nhsuk-base-font-size-mobile: 16px !default;
-$nhsuk-base-line-height-mobile: 24px !default;
+$sass-mq-already-included: false !default;
 
-$nhsuk-icon-size: 34px;
+@if $sass-mq-already-included {
+  $mq-show-breakpoints: ();
+}
 
-$nhsuk-base-margin: 8px;
+@import '../../../node_modules/sass-mq/mq';
+
+$sass-mq-already-included: true;

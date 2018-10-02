@@ -14,8 +14,7 @@
  * 1. Provide line comments like this.
  */
 
-// Primary colours
-
+/* Primary colours */
 $nhsuk-blue: #005EB8;
 $nhsuk-white: #FFFFFF;
 $nhsuk-black: #212B32;
@@ -24,28 +23,22 @@ $nhsuk-red: #DA291C;
 $nhsuk-yellow: #FFED00;
 $nhsuk-purple: #330072;
 
-// Secondary colours
-
+/* Secondary colours */
 $nhsuk-light-blue: #41B6E6;
 $nhsuk-aqua-blue: #00A9CE;
 $nhsuk-pale-yellow: #FFFBCE;
 $nhsuk-warm-yellow: #FFB81C;
 $nhsuk-light-purple: #855999;
+$nhsuk-aqua-green: #00A499;
 
-// Greyscale
-
+/* Greyscale */
 $nhsuk-grey-1: #425563;
 $nhsuk-grey-2: #768692;
 $nhsuk-grey-3: #AEB7BD;
 $nhsuk-grey-4: #D8DDE0;
 $nhsuk-grey-5: #f0f4f5;
 
-// Extended palette
-
-$nhsuk-aqua-green: #00A499;
-
-// Colour functions for tint and shade
-
+/* Colour functions for tint and shade */
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }

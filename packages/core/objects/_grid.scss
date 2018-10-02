@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #Grid
+   OBJECTS / #GRID
    ========================================================================== */
 
 /**
@@ -13,6 +13,7 @@
  *
  * 1. Provide line comments like this.
  */
+
 @mixin govuk-grid {
   @include clear;
   margin-left: - ($govuk-gutter-half);

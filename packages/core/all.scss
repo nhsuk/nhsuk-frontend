@@ -10,13 +10,13 @@
 
 // Generic
 @import 'generic/box-sizing';
-@import 'generic/shared';
+@import 'generic/ie';
 
 // Elements
-@import 'elements/html';
-@import 'elements/body';
 @import 'elements/forms';
 @import 'elements/icons';
+@import 'elements/page';
+@import 'elements/table';
 @import 'elements/typography';
 
 // Objects
@@ -26,7 +26,7 @@
 
 // Utilities
 @import 'utilities/clearfix';
-@import 'utilities/grid';
+@import 'utilities/grid-widths';
 @import 'utilities/reading-width';
 @import 'utilities/top-and-bottom';
 @import 'utilities/visually-hidden';

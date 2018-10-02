@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #main-wrapper
+   OBJECTS / #MAIN-WRAPPER
    ========================================================================== */
 
 /**
@@ -13,6 +13,7 @@
  *
  * 1. Provide line comments like this.
  */
+
  @mixin govuk-main-wrapper {
   padding: 15px 0 40px;
 
@@ -22,11 +23,9 @@
 }
 
 @include govuk-exports('main-wrapper') {
+
   .nhsuk-o-main-wrapper {
     @include govuk-main-wrapper;
-
-    /* &:focus {
-      outline: 0;
-    } */
   }
+
 }

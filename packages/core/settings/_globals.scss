@@ -14,16 +14,30 @@
  * 1. Provide line comments like this.
  */
 
+
+// Font sizing
+
 $nhsuk-base-font-size: 19px !default;
 $nhsuk-base-line-height: 28px !default;
 $nhsuk-base-font-size-mobile: 16px !default;
 $nhsuk-base-line-height-mobile: 24px !default;
 
+// Icons
 $nhsuk-icon-size: 34px;
+
+// Margins
 
 $nhsuk-base-margin: 8px;
 
-$govuk-page-width: 960px;
+// Grid
 
+$govuk-page-width: 960px;
 $govuk-gutter: 32px;
 $govuk-gutter-half: $govuk-gutter / 2;
+
+// Fonts
+
+$nhsuk-font: 'Frutiger W01';
+$nhsuk-font-fallback: 'arial, helvetica, sans-serif';
+$nhsuk-font-bold: 600;
+$nhsuk-font-normal: 400;

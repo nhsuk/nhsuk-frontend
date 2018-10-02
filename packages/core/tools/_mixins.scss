@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Elements / #HTML
+   TOOLS / #MIXINS
    ========================================================================== */
 
 /**
@@ -14,10 +14,34 @@
  * 1. Provide line comments like this.
  */
 
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: $nhsuk-text-colour;
-  font-family: $nhsuk-font, $nhsuk-font-fallback;
-  min-height: 100%;
+@mixin clear() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+@mixin reading-width() {
+  max-width: 37em;
+}
+
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin top-and-bottom() {
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }

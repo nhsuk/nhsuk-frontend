@@ -14,14 +14,6 @@
  * 1. Provide line comments like this.
  */
 
-@mixin clear() {
-  &:after {
-    clear: both;
-    content: '';
-    display: block;
-  }
-}
-
 .clear {
   @include clear();
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TOOLS / #READING-WIDTH
+   TOOLS / #FUNCTIONS
    ========================================================================== */
 
 /**
@@ -14,6 +14,12 @@
  * 1. Provide line comments like this.
  */
 
-@mixin reading-width() {
-  max-width: 37em;
+@function govuk-em($value, $govuk-context-font-size) {
+  @if (unitless($value)) {
+    $value: $value * 1px;
+  }
+  @if (unitless($govuk-context-font-size)) {
+    $govuk-context-font-size: $govuk-context-font-size * 1px;
+  }
+  @return $value / $govuk-context-font-size * 1em;
 }

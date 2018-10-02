@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #width-container
+   OBJECTS / #WIDTH-CONTAINER
    ========================================================================== */
 
 /**
@@ -13,8 +13,6 @@
  *
  * 1. Provide line comments like this.
  */
-
-// sass-lint:disable mixins-before-declarations, quotes, property-sort-order
 
 @mixin govuk-width-container {
   // Limit the width of the container to the page width
