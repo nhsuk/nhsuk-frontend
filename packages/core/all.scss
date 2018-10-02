@@ -4,13 +4,16 @@
 // Tools
 @import 'tools/all';
 
-// Elements
-@import 'elements/icons';
-@import 'elements/typography';
-@import 'elements/icons';
-
-// Core
+// Generic
+@import 'generic/box-sizing';
 @import 'generic/shared';
+
+// Elements
+@import 'elements/html';
+@import 'elements/body';
+@import 'elements/form';
+//@import 'elements/icons';
+//@import 'elements/typography';
 
 // Objects
 @import 'objects/grid';

@@ -14,17 +14,6 @@
  * 1. Provide line comments like this.
  */
 
-@font-face {
-  font-family: 'NHS-icons';
-  src: url("https://assets.nhs.uk/fonts/NHS-icons.a24aa6735c33.eot?1uyihd");
-  src: url("https://assets.nhs.uk/fonts/NHS-icons.a24aa6735c33.eot?1uyihd#iefix") format("embedded-opentype"),
-       url("https://assets.nhs.uk/fonts/NHS-icons.ba408e1faca5.ttf?1uyihd") format("truetype"),
-      url("https://assets.nhs.uk/fonts/NHS-icons.de00139c45ca.woff?1uyihd") format("woff"),
-      url("https://assets.nhs.uk/fonts/NHS-icons.dbd8d376760c.svg?1uyihd#NHS-icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 @font-face{
 font-family:"Frutiger W01";
 src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.eot?#iefix");
@@ -125,6 +114,7 @@ src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.eot?#iefix") for
     font-weight: 900;
 }
 
-$nhsuk-font-stack: 'Frutiger W01';
+$nhsuk-font: 'Frutiger W01';
+$nhsuk-font-fallback: 'arial, helvetica, sans-serif';
 $nhsuk-font-bold: 600;
 $nhsuk-font-normal: 400;

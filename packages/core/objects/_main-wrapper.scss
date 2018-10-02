@@ -10,8 +10,8 @@
   .nhsuk-o-main-wrapper {
     @include govuk-main-wrapper;
 
-    &:focus {
+    /* &:focus {
       outline: 0;
-    }
+    } */
   }
 }

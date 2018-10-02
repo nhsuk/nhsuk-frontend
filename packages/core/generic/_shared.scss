@@ -1,35 +1,13 @@
-* {
-  box-sizing: border-box;
-}
+/**
+ * Add the correct display in IE 9-.
+ */
 
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: $nhsuk-text-colour;
-  font-family: $nhsuk-font-stack, Arial, sans-serif;
-  min-height: 100%;
-}
-
-body {
-  background-color: $nhsuk-grey-5;
-  font-size: $nhsuk-base-font-size-mobile;
-  line-height: $nhsuk-base-line-height-mobile;
-  margin: 0;
-
-  @include mq($from: tablet) {
-    font-size: $nhsuk-base-font-size;
-    line-height: $nhsuk-base-line-height;
-  }
-
-}
-
-main {
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section {
   display: block;
-}
-
-input,
-textarea,
-select,
-button {
-  font-family: $nhsuk-font-stack, Arial, sans-serif;
 }
