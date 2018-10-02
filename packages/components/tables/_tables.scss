@@ -31,14 +31,14 @@ table {
 
   th {
     border-bottom: 2px solid $nhsuk-grey-2;
-    font-weight: 600;
+    font-weight: $nhsuk-font-bold;
   }
 
   caption {
     background: $nhsuk-blue;
     color: $nhsuk-white;
     font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
-    font-weight: 600;
+    font-weight: $nhsuk-font-bold;
     left: 0;
     line-height: 28px;
     margin: 0;

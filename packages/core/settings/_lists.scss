@@ -19,10 +19,6 @@
     }
 }
 
-.nhsuk-list {
-  @extend %nhsuk-list;
-}
-
 %nhsuk-list--bullet {
   padding-left: 20px;
 
@@ -50,6 +46,10 @@ ol {
 
 .nhsuk-list--number {
   @extend %nhsuk-list--number;
+}
+
+.nhsuk-list {
+  @extend %nhsuk-list;
 }
 
 .nhsuk-list--check,

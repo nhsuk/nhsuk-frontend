@@ -1,4 +1,5 @@
 // Mixin for font-size
+
 @mixin font-size($fs-map, $fs-breakpoints: $mq-breakpoints) {
   @each $fs-breakpoint, $fs-font-size in $fs-map {
     @if $fs-breakpoint == null {
@@ -16,6 +17,7 @@
 }
 
 // Utility function for mixin font-size
+
 @mixin make-font-size($fs-font-size) {
     font-size: nth($fs-font-size, 1);
     font-size: govuk-em(nth($fs-font-size, 1), $nhsuk-base-font-size);

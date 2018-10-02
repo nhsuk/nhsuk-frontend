@@ -66,9 +66,13 @@
   <h5 class="nhsuk-heading-s">H5 using nhsuk-heading-s</h5>
   <h6 class="nhsuk-heading-xs">H6 using nhsuk-heading-xs</h6>
 
+  <hr>
+
   <p class="nhsuk-body-l">P using nhsuk-body-l</p>
   <p class="nhsuk-body-m">P using nhsuk-body-m</p>
   <p class="nhsuk-body-s">P using nhsuk-body-s</p>
+
+  <hr>
 
   <span class="nhsuk-heading-l">Span using nhsuk-heading-l</span>
   <span class="nhsuk-heading-m">Span using nhsuk-heading-m</span>
@@ -81,11 +85,39 @@
   <span class="nhsuk-body-s">Span using nhsuk-body-s</span>
 
   <h2>Typography with components</h2>
-  <p>This is a paragraph using no class. Nam quis posuere nisl, eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-  <ul>
+
+  <p class="nhsuk-!-font-weight-bold">This is a paragraph using nhsuk-!-font-weight-bold. Nam quis posuere nisl, eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+  <h3>List (Unordered list)</h3>
+
+  <ul class="nhsuk-list">
+    <li><a href="#">Unordered list item using nhsuk-list</a></li>
+    <li><a href="#">Unordered list item using nhsuk-list</a></li>
+  </ul>
+
+  <h3>List (Ordered list)</h3>
+
+  <ol class="nhsuk-list">
+    <li><a href="#">Ordered list item using nhsuk-list</a></li>
+    <li><a href="#">Ordered list item using nhsuk-list</a></li>
+  </ol>
+
+  <h3>Bulleted list</h3>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
     <li>Unordered list item using no class</li>
     <li>Unordered list item using no class</li>
   </ul>
+
+  <h3>Numbered list</h3>
+
+  <ol class="nhsuk-list nhsuk-list--number">
+    <li>Ordered list item using no class</li>
+    <li>Ordered list item using no class</li>
+  </ol>
+
+  <hr>
+
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ insetText('Information:', '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
@@ -96,15 +128,22 @@
 
   {{ insetText('Information:', '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
 
+  <hr>
+
   <h2>H2 heading</h2>
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
 
-  <ul>
-    <li>Unordered list item using no class</li>
-    <li>Unordered list item using no class</li>
+  <ul class="nhsuk-list">
+    <li><a href="#">Unordered list item using nhsuk-list</a></li>
+    <li><a href="#">Unordered list item using nhsuk-list</a></li>
+  </ul>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
+    <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
   </ul>
 
   {{ careCard('red', 'Red care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
@@ -147,7 +186,7 @@
 
   {{ list("Don't", "cross", dontItems) }}
 
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   <h2>H2 heading</h2>
 
@@ -231,9 +270,35 @@
     <li>Unordered list item using no class</li>
   </ul>
 
+  <h2>Content with images</h2>
+
+  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+
+  <h3>H3 heading</h3>
+
+  <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+
+  <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
   {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
 
   {{ reviewDate('12/02/2016', '01/02/2019') }}
+
+  <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+
+  <h2>Section spacing</h2>
+  <p>nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible</p>
+  <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+  <p>nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible</p>
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+  <p>nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible</p>
+  <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+  <p>nhsuk-section-break nhsuk-section-break--visible</p>
+  <hr class="nhsuk-section-break nhsuk-section-break--visible">
   
 {% endblock %}
 

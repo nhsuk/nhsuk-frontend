@@ -38,7 +38,7 @@ $font-size-16: (
   display: block;
 
   margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
+  @include nhsuk-responsive-margin(7, "bottom");
 
   font-weight: $nhsuk-font-bold;
 }
@@ -188,7 +188,7 @@ strong, b {
 %nhsuk-body-l  + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
@@ -207,7 +207,7 @@ strong, b {
 %nhsuk-list + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
