@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #review-date
+   #visually-hidden
    ========================================================================== */
 
 /**
@@ -13,12 +13,18 @@
  *
  * 1. Provide line comments like this.
  */
-.nhsuk-c-review-date {
-  margin: 40px 0 0;
 
-  p {
-    color: $nhsuk-grey-1;
-    margin-top: 0;
-  }
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
+.visually-hidden {
+  @include visually-hidden();
 }

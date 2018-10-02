@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #review-date
+   #clearFix
    ========================================================================== */
 
 /**
@@ -13,12 +13,15 @@
  *
  * 1. Provide line comments like this.
  */
-.nhsuk-c-review-date {
-  margin: 40px 0 0;
 
-  p {
-    color: $nhsuk-grey-1;
-    margin-top: 0;
+@mixin clear() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
   }
+}
 
+.clear {
+  @include clear();
 }
