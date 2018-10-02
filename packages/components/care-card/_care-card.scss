@@ -1,6 +1,9 @@
 .nhsuk-c-care-card {
-  @include nhsuk-responsive-margin(6, "top");
-  @include nhsuk-responsive-margin(6, "bottom");
+  margin: 40px 0;
+
+  @include mq($from: tablet) {
+    margin: 56px 0;
+  }
 
   @include mq($media-type: print) {
     border: 2px solid $nhsuk-black;

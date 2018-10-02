@@ -1,14 +1,10 @@
 .nhsuk-c-image {
-  @include nhsuk-responsive-margin(6, "top");
-  @include nhsuk-responsive-margin(6, "bottom");
-
   background: $nhsuk-white;
   border-bottom: $nhsuk-grey-4 2px solid;
+  margin: 40px 0 0;
 
-  & + {
-    .nhsuk-c-image {
-      margin-top: 0;
-    }
+  @include mq($until: tablet) {
+    margin: 32px 0 0;
   }
 
   img {
@@ -16,7 +12,7 @@
     width: 100%;
   }
 
-  .nhsuk-c-image__caption {
+  &__caption {
     padding: 16px;
 
     p {

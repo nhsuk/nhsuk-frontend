@@ -12,9 +12,15 @@ html {
 
 body {
   background-color: $nhsuk-grey-5;
-  font-size: $nhsuk-base-font-size;
-  line-height: $nhsuk-base-line-height;
+  font-size: $nhsuk-base-font-size-mobile;
+  line-height: $nhsuk-base-line-height-mobile;
   margin: 0;
+
+  @include mq($from: tablet) {
+    font-size: $nhsuk-base-font-size;
+    line-height: $nhsuk-base-line-height;
+  }
+
 }
 
 main {

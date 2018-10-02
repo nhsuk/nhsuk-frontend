@@ -1,8 +1,6 @@
 .nhsuk-c-panel {
-  @include nhsuk-responsive-margin(8, "top");
-  @include nhsuk-responsive-margin(6, "bottom");
-
   background: $nhsuk-white;
+  margin: 72px 0 56px;
   padding: 24px;
   padding-top: 0;
   position: relative;
