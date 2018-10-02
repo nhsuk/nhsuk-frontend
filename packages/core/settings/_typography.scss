@@ -1,186 +1,223 @@
-h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
-.h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
-  color: inherit;
+// Typographic scale
+$font-size-64: (
+  null : (48px, 1.166),
+  tablet: (64px, 1.125),
+);
+$font-size-48: (
+  null : (32px, 1.125),
+  tablet: (48px, 1.166),
+);
+$font-size-32: (
+  null : (24px, 1.333),
+  tablet: (32px, 1.25),
+);
+$font-size-24: (
+  null : (20px, 1.4),
+  tablet: (24px, 1.333),
+);
+$font-size-22: (
+  null : (18px, 1.555),
+  tablet: (22px, 1.454),
+);
+$font-size-19: (
+  null : (16px, 1.5),
+  tablet: (19px, 1.473),
+);
+$font-size-16: (
+  null : (14px, 1.714),
+  tablet: (16px, 1.5),
+);
+
+// Typography silent classes
+
+// - Headings 
+
+%nhsuk-heading-xl {
+  @include font-size($font-size-48);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(7, "bottom");
+
   font-weight: $nhsuk-font-bold;
-  margin-bottom: 0;
 }
+
+%nhsuk-heading-l {
+  @include font-size($font-size-32);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-m {
+  @include font-size($font-size-24);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-s {
+  @include font-size($font-size-22);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-xs {
+  @include font-size($font-size-19);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-xxs {
+  @include font-size($font-size-16);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+// - Body (paragraphs)
+
+%nhsuk-body-l {
+  @include font-size($font-size-24);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+%nhsuk-body-m {
+  @include font-size($font-size-19);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+%nhsuk-body-s {
+  @include font-size($font-size-16);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+// Typography extends
+
+// - Headings
 
 h1,
 .nhsuk-heading-xl {
-  font-size: govuk-em(32px, $nhsuk-base-font-size-mobile);
-  line-height: 36px;
-  margin: 56px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(48px, $nhsuk-base-font-size);
-    line-height: 56px;
-    margin: 64px 0 0;
-  }
+  @extend %nhsuk-heading-xl;
 }
 
 h2,
 .nhsuk-heading-l {
-  font-size: govuk-em(24px, $nhsuk-base-font-size-mobile);
-  line-height: 32px;
-  margin: 40px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(32px, $nhsuk-base-font-size);
-    line-height: 40px;
-    margin: 56px 0 0;
-  }
+  @extend %nhsuk-heading-l;
 }
 
 h3,
 .nhsuk-heading-m {
-  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 32px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(24px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 40px 0 0;
-  }
+  @extend %nhsuk-heading-m;
 }
 
 h4,
 .nhsuk-heading-s {
-  font-size: govuk-em(18px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 24px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(22px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 32px 0 0;
-  }
+  @extend %nhsuk-heading-s;
 }
 
 h5,
 .nhsuk-heading-xs {
-  font-size: govuk-em(16px, $nhsuk-base-font-size-mobile);
-  line-height: 24px;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(19px, $nhsuk-base-font-size);
-    line-height: 28px;
-    margin: 24px 0 0;
-  }
+  @extend %nhsuk-heading-xs;
+}
+
+h6,
+.nhsuk-heading-xxs {
+  @extend %nhsuk-heading-xxs;
+}
+
+// Body (paragraphs)
+
+.nhsuk-body-l {
+  @extend %nhsuk-body-l;
 }
 
 p,
-.nhsuk-body {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-}
-
-.nhsuk-body-l {
-  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 24px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(24px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 32px 0 0;
-  }
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
 }
 
 .nhsuk-body-s {
-  font-size: govuk-em(14px, $nhsuk-base-font-size-mobile);
-  line-height: 24px;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(16px, $nhsuk-base-font-size);
-    line-height: 28px;
-    margin: 24px 0 0;
-  }
+  @extend %nhsuk-body-s;
 }
 
-a {
-  color: $nhsuk-link-colour;
-  cursor: pointer;
-  &:focus {
-    background: $nhsuk-link-focus-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-    color: $nhsuk-link-focus-colour;
-    outline: 0;
-  }
-  &:hover {
-    background: $nhsuk-link-hover-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    color: $nhsuk-link-hover-colour;
-    text-decoration: none;
-  }
-  &:active {
-    background: $nhsuk-link-active-background-colour !important; // sass-lint:disable-line no-important
-    box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
-    color: $nhsuk-link-active-colour;
-  }
-  &:visited {
-    color: $nhsuk-link-visited-colour;
-  }
+// Font weight - Not sure where this should live?
 
-  @include mq($media-type: print) {
-    &:after {
-      color: $nhsuk-black;
-      content: ' (Link: ' attr(href) ')';
-      font-size: 14px;
-    }
-  }
-
-}
-
-ul,
-ol {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  padding-left: 20px;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-  li {
-    margin: 8px 0 0;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-.nhsuk-list--check,
-.nhsuk-list--cross {
-  list-style: none;
-  margin-top: 0;
-  padding-left: 40px;
-  position: relative;
-
-  .nhsuk-icon__tick {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute;
-  }
-
-  .nhsuk-icon__cross {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute;
-  }
-
-}
-
-tr,
-th {
-  font-weight: $nhsuk-font-normal;
-}
-
-strong,
-b {
+strong, b {
   font-weight: $nhsuk-font-bold;
 }
+
+// Contextual adjustments
+// Add top padding to headings that appear directly after paragraphs.
+
+%nhsuk-body-l  + %nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-m  + %nhsuk-heading-l,
+%nhsuk-body-s  + %nhsuk-heading-l,
+%nhsuk-list + %nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}
+
+%nhsuk-body-m + %nhsuk-heading-m,
+%nhsuk-body-s + %nhsuk-heading-m,
+%nhsuk-list + %nhsuk-heading-m,
+%nhsuk-body-m + %nhsuk-heading-s,
+%nhsuk-body-s + %nhsuk-heading-s,
+%nhsuk-list + %nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+// All this code below to be refactored
 
 .nhsuk-page-heading {
   padding: 25px 0 40px;
   @include mq($from: grid-collapse) {
-    padding: 34px 0 56px;
+    padding: 26px 0 56px;
   }
   h1 {
     margin: 0;
@@ -215,39 +252,11 @@ b {
   }
 }
 
-.nhsuk-sticky {
-  @include mq($from: grid-collapse) {
-    position: sticky;
-    top: 40px;
-  }
-  &:before,
-  &:after {
-    content: '';
-    display: table;
-  }
-}
-
 .nhsuk-page-content {
   & > *:first-child {
     margin-top: 0;
     & > *:first-child {
       margin-top: 0;
-    }
-  }
-}
-
-@mixin nhsuk-list() {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  padding-left: 20px;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-  li {
-    line-height: 28px;
-    margin: 8px 0 0;
-    @include mq($from: tablet) {
-      line-height: 32px;
     }
   }
 }

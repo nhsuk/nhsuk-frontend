@@ -1,0 +1,74 @@
+%nhsuk-list {
+  @include font-size($font-size-19);
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+  padding-left: 0;
+  list-style-type: none;
+
+  // Add a top margin for nested lists
+  %nhsuk-list {
+    margin-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-list > li {
+  @include nhsuk-responsive-margin(2, "bottom");
+
+    &:last-child {
+      @include nhsuk-responsive-margin(0, "bottom");
+    }
+}
+
+%nhsuk-list--bullet {
+  padding-left: 20px;
+
+  list-style-type: disc;
+}
+
+.nhsuk-list--bullet {
+  @extend %nhsuk-list--bullet;
+}
+
+ul {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--bullet;
+}
+
+%nhsuk-list--number {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+ol {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--number;
+}
+
+.nhsuk-list--number {
+  @extend %nhsuk-list--number;
+}
+
+.nhsuk-list {
+  @extend %nhsuk-list;
+}
+
+.nhsuk-list--check,
+.nhsuk-list--cross {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 40px;
+  position: relative;
+
+  .nhsuk-icon__tick {
+    left: -4px;
+    margin-top: -5px;
+    position: absolute;
+  }
+
+  .nhsuk-icon__cross {
+    left: -4px;
+    margin-top: -5px;
+    position: absolute;
+  }
+
+}

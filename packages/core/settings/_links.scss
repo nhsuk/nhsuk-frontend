@@ -1,0 +1,12 @@
+a {
+  @include nhsuk-link-style-default;
+
+  @include mq($media-type: print) {
+    &:after {
+      color: $nhsuk-black;
+      content: ' (Link: ' attr(href) ')';
+      font-size: 14px;
+    }
+  }
+
+}

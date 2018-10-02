@@ -2,11 +2,9 @@
   @include top-and-bottom();
   @include reading-width();
 
-  border-left: 12px solid $nhsuk-blue;
-  margin: 40px 0;
-  padding: 16px;
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
 
-  .visually-hidden:first-of-type + * {
-    margin-top: 0;
-  }
+  border-left: 12px solid $nhsuk-blue;
+  padding: nhsuk-spacing(3);
 }
