@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TOOLS / #PX-TO-EM
+   TOOLS / #VISUALLY-HIDDEN
    ========================================================================== */
 
 /**
@@ -14,12 +14,13 @@
  * 1. Provide line comments like this.
  */
 
-@function govuk-em($value, $govuk-context-font-size) {
-  @if (unitless($value)) {
-    $value: $value * 1px;
-  }
-  @if (unitless($govuk-context-font-size)) {
-    $govuk-context-font-size: $govuk-context-font-size * 1px;
-  }
-  @return $value / $govuk-context-font-size * 1em;
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

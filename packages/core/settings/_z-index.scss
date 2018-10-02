@@ -1,0 +1,29 @@
+// =============================================================================
+// SETTINGS / #Z-INDEX
+// =============================================================================
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
+
+$z-index: (
+  0: 0,
+  1: 10,
+  2: 20,
+  3: 30,
+  4: 40,
+  5: 50,
+  6: 60,
+  7: 70,
+  8: 80,
+  9: 90,
+  10: 100
+) !default;

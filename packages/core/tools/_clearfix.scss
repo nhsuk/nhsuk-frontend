@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TOOLS / #PX-TO-EM
+   TOOLS / #CLEARFIX
    ========================================================================== */
 
 /**
@@ -14,12 +14,10 @@
  * 1. Provide line comments like this.
  */
 
-@function govuk-em($value, $govuk-context-font-size) {
-  @if (unitless($value)) {
-    $value: $value * 1px;
+@mixin clear() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
   }
-  @if (unitless($govuk-context-font-size)) {
-    $govuk-context-font-size: $govuk-context-font-size * 1px;
-  }
-  @return $value / $govuk-context-font-size * 1em;
 }
