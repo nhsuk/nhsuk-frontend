@@ -14,7 +14,7 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-breadcrumb {
-  background: $nhsuk-white;
+  background: $colour_nhsuk-white;
   padding: 12px 0;
 
   @include mq($media-type: print) {
@@ -37,7 +37,7 @@
     margin: 0;
 
     .nhsuk-icon__chevron-right {
-      fill: $nhsuk-grey-3;
+      fill: $colour_nhsuk-grey-3;
       height: 18px;
       position: relative;
       top: 5px;
@@ -54,7 +54,7 @@
     margin: 0;
 
     .nhsuk-icon__chevron-left {
-      fill: $nhsuk-blue;
+      fill: $colour_nhsuk-blue;
       float: left;
       height: 24px;
       left: -8px;

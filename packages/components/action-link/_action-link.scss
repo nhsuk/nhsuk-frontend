@@ -28,7 +28,7 @@
   }
 
   .nhsuk-icon__arrow-right-circle {
-    fill: $nhsuk-green;
+    fill: $colour_nhsuk-green;
     height: 40px;
     left: -3px;
     position: absolute;
@@ -46,7 +46,7 @@
   &:hover,
   &:focus {
     .nhsuk-icon__arrow-right-circle {
-      fill: $nhsuk-green-shade-35;
+      fill: $colour_shade_nhsuk-green-35;
     }
   }
 
@@ -66,7 +66,7 @@
     background: $nhsuk-link-hover-background-colour !important;
     color: $nhsuk-link-active-colour !important;
     .nhsuk-icon__arrow-right-circle {
-      fill: $nhsuk-green-shade-50;
+      fill: $colour_shade_nhsuk-green-50;
     }
   }
 
@@ -99,18 +99,18 @@
 .nhsuk-c-action-link--alternative {
 
   .nhsuk-icon__arrow-right-circle {
-    fill: $nhsuk-aqua-green;
+    fill: $colour_nhsuk-aqua-green;
 
     &:hover,
     &:focus {
       .nhsuk-icon__arrow-right-circle {
-        fill: $nhsuk-aqua-green-shade-35;
+        fill: $colour_shade_nhsuk-green-35;
       }
     }
 
     &:active {
       .nhsuk-icon__arrow-right-circle {
-        fill: $nhsuk-aqua-green-shade-50;
+        fill: $colour_shade_nhsuk-green-50;
       }
     }
   }

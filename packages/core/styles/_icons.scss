@@ -2,38 +2,43 @@
    STYLES / #ICONS
    ========================================================================== */
 
+.nhsuk-logo {
+  height: 40px;
+  width: 99px;
+}
+
 .nhsuk-icon {
   height: $nhsuk-icon-size;
   width: $nhsuk-icon-size;
 }
 
 .nhsuk-icon__search {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__chevron-left {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__chevron-right {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__close {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__cross {
-  fill: $nhsuk-red;
+  fill: $colour_nhsuk-red;
 }
 .nhsuk-icon__tick {
   fill: none;
-  stroke: $nhsuk-green;
+  stroke: $colour_nhsuk-green;
 }
 .nhsuk-icon__arrow-right {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__arrow-left {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
 }
 .nhsuk-icon__arrow-right-circle {
-  fill: $nhsuk-green;
+  fill: $colour_nhsuk-green;
 }
 .nhsuk-icon__chevron-down {
   -moz-transform: rotate(180deg);
@@ -41,15 +46,15 @@
   -o-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg); // sass-lint:disable-line property-sort-order
-  fill: $nhsuk-blue; // sass-lint:disable-line property-sort-order
+  fill: $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
   path {
-    fill: $nhsuk-white;
+    fill: $colour_nhsuk-white;
   }
 }
 .nhsuk-icon__chevron-up {
-  fill: $nhsuk-blue;
+  fill: $colour_nhsuk-blue;
   path {
-    fill: $nhsuk-white;
+    fill: $colour_nhsuk-white;
   }
 }
 
@@ -68,9 +73,4 @@
 .nhsuk-icon--size-100 {
   height: $nhsuk-icon-size * 2;
   width: $nhsuk-icon-size * 2;
-}
-
-.nhsuk-logo {
-  height: 40px;
-  width: 99px;
 }

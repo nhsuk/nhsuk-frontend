@@ -14,8 +14,8 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-phase-banner {
-  background: $nhsuk-white;
-  border-bottom: 4px solid $nhsuk-grey-5;
+  background: $colour_nhsuk-white;
+  border-bottom: 4px solid $colour_nhsuk-grey-5;
   padding-bottom: 8px;
   padding-top: 8px;
 
@@ -37,8 +37,8 @@
   }
 
   &__tag {
-    background: $nhsuk-blue;
-    color: $nhsuk-white;
+    background: $colour_nhsuk-blue;
+    color: $colour_nhsuk-white;
     display: block;
     margin-right: 12px;
     padding: 0 12px;

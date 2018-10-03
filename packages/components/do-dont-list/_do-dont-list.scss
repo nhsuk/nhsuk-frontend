@@ -14,7 +14,7 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-panel {
-  background: $nhsuk-white;
+  background: $colour_nhsuk-white;
   margin: 72px 0 56px;
   padding: 24px;
   padding-top: 0;
@@ -25,13 +25,13 @@
   }
 
   @include mq($media-type: print) {
-    border: 1px solid $nhsuk-black;
+    border: 1px solid $colour_nhsuk-black;
     page-break-inside: avoid;
   }
 
   h3 {
-    background: $nhsuk-blue;
-    color: $nhsuk-white;
+    background: $colour_nhsuk-blue;
+    color: $colour_nhsuk-white;
     display: inline-block;
     margin: 0 -24px 8px;
     padding: 8px 24px;
@@ -43,7 +43,7 @@
     }
 
     @include mq($media-type: print) {
-      color: $nhsuk-black;
+      color: $colour_nhsuk-black;
       left: .5px;
       top: 5px;
     }
@@ -55,11 +55,11 @@
   }
 
   &__warning {
-    background: $nhsuk-pale-yellow;
+    background: $colour_nhsuk-pale-yellow;
     color: $nhsuk-text-colour;
 
     h3 {
-      background: $nhsuk-yellow;
+      background: $colour_nhsuk-yellow;
       color: $nhsuk-text-colour;
     }
 
