@@ -1,6 +1,104 @@
 /* ==========================================================================
    STYLES / #TYPOGRAPHY
    ========================================================================== */
+// Typography silent classes
+
+// - Headings
+
+%nhsuk-heading-xl {
+  @include font-size($font-size-48);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-l {
+  @include font-size($font-size-32);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-m {
+  @include font-size($font-size-24);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-s {
+  @include font-size($font-size-22);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-xs {
+  @include font-size($font-size-19);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+%nhsuk-heading-xxs {
+  @include font-size($font-size-16);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  font-weight: $nhsuk-font-bold;
+}
+
+// - Body (paragraphs)
+
+%nhsuk-body-l {
+  @include font-size($font-size-24);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+%nhsuk-body {
+  @include font-size($font-size-19);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+%nhsuk-body-s {
+  @include font-size($font-size-16);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
 
 .nhsuk-heading-xl {
   @extend %nhsuk-heading-xl;
@@ -30,8 +128,8 @@
   @extend %nhsuk-body-l;
 }
 
-.nhsuk-body-m {
-  @extend %nhsuk-body-m;
+.nhsuk-body {
+  @extend %nhsuk-body;
 }
 
 .nhsuk-body-s {
@@ -84,5 +182,35 @@
     & > *:first-child {
       margin-top: 0;
     }
+  }
+}
+
+// Contextual adjustments
+// Add top padding to headings that appear directly after paragraphs.
+
+%nhsuk-body-l  + %nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body  + %nhsuk-heading-l,
+%nhsuk-body-s  + %nhsuk-heading-l,
+%nhsuk-list + %nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}
+
+%nhsuk-body + %nhsuk-heading-m,
+%nhsuk-body-s + %nhsuk-heading-m,
+%nhsuk-list + %nhsuk-heading-m,
+%nhsuk-body + %nhsuk-heading-s,
+%nhsuk-body-s + %nhsuk-heading-s,
+%nhsuk-list + %nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(2);
   }
 }

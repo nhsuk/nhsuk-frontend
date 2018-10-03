@@ -3,7 +3,8 @@
    ========================================================================== */
 
 hr {
-  @extend %nhsuk-section-break;
-  @extend %nhsuk-section-break--l;
-  @extend %nhsuk-section-break--visible;
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+  border: 0;
+  border-bottom: 1px solid $nhsuk-border-colour;
 }

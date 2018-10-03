@@ -5,76 +5,69 @@
 .nhsuk-icon {
   height: $nhsuk-icon-size;
   width: $nhsuk-icon-size;
+}
 
-  &__search {
-    fill: $nhsuk-blue;
+.nhsuk-icon__search {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__chevron-left {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__chevron-right {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__close {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__cross {
+  fill: $nhsuk-red;
+}
+.nhsuk-icon__tick {
+  fill: none;
+  stroke: $nhsuk-green;
+}
+.nhsuk-icon__arrow-right {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__arrow-left {
+  fill: $nhsuk-blue;
+}
+.nhsuk-icon__arrow-right-circle {
+  fill: $nhsuk-green;
+}
+.nhsuk-icon__chevron-down {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); // sass-lint:disable-line property-sort-order
+  fill: $nhsuk-blue; // sass-lint:disable-line property-sort-order
+  path {
+    fill: $nhsuk-white;
   }
-  &__chevron-left {
-    fill: $nhsuk-blue;
+}
+.nhsuk-icon__chevron-up {
+  fill: $nhsuk-blue;
+  path {
+    fill: $nhsuk-white;
   }
-  &__chevron-right {
-    fill: $nhsuk-blue;
-  }
-  &__close {
-    fill: $nhsuk-blue;
-  }
-  &__cross {
-    fill: $nhsuk-red;
-    &--fallback {
-      padding-top: 10px;
-    }
-  }
-  &__tick {
-    fill: none;
-    stroke: $nhsuk-green;
-    &--fallback {
-      padding-top: 9px;
-    }
-  }
-  &__arrow-right {
-    fill: $nhsuk-blue;
-  }
-  &__arrow-left {
-    fill: $nhsuk-blue;
-  }
-  &__arrow-right-circle {
-    fill: $nhsuk-green;
-  }
-  &__chevron-down {
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg); // sass-lint:disable-line property-sort-order
-    fill: $nhsuk-blue; // sass-lint:disable-line property-sort-order
-    path {
-      fill: $nhsuk-white;
-    }
-  }
-  &__chevron-up {
-    fill: $nhsuk-blue;
-    path {
-      fill: $nhsuk-white;
-    }
-  }
+}
 
-  &--size-25 {
-    height: $nhsuk-icon-size * 1.25;
-    width: $nhsuk-icon-size * 1.25;
-  }
-  &--size-50 {
-    height: $nhsuk-icon-size * 1.5;
-    width: $nhsuk-icon-size * 1.5;
-  }
-  &--size-75 {
-    height: $nhsuk-icon-size * 1.75;
-    width: $nhsuk-icon-size * 1.75;
-  }
-  &--size-100 {
-    height: $nhsuk-icon-size * 2;
-    width: $nhsuk-icon-size * 2;
-  }
-
+.nhsuk-icon--size-25 {
+  height: $nhsuk-icon-size * 1.25;
+  width: $nhsuk-icon-size * 1.25;
+}
+.nhsuk-icon--size-50 {
+  height: $nhsuk-icon-size * 1.5;
+  width: $nhsuk-icon-size * 1.5;
+}
+.nhsuk-icon--size-75 {
+  height: $nhsuk-icon-size * 1.75;
+  width: $nhsuk-icon-size * 1.75;
+}
+.nhsuk-icon--size-100 {
+  height: $nhsuk-icon-size * 2;
+  width: $nhsuk-icon-size * 2;
 }
 
 .nhsuk-logo {
