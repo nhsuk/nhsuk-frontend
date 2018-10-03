@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ELEMENTS / #SECTION BREAK
+   ========================================================================== */
+
+%nhsuk-section-break {
+  margin: 0;
+  border: 0;
+}
+
+.nhsuk-section-break {
+  @extend %nhsuk-section-break;
+}
+
+// Sizes
+
+%nhsuk-section-break--xl {
+  @include nhsuk-responsive-margin(8, "top");
+  @include nhsuk-responsive-margin(8, "bottom");
+}
+
+.nhsuk-section-break--xl {
+  @extend %nhsuk-section-break--xl;
+}
+
+%nhsuk-section-break--l {
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+.nhsuk-section-break--l {
+  @extend %nhsuk-section-break--l;
+}
+
+%nhsuk-section-break--m {
+  @include nhsuk-responsive-margin(4, "top");
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-section-break--m {
+  @extend %nhsuk-section-break--m;
+}
+
+// Visible variant
+
+%nhsuk-section-break--visible {
+  border-bottom: 1px solid $nhsuk-border-colour;
+}
+
+.nhsuk-section-break--visible {
+  @extend %nhsuk-section-break--visible;
+}
+
+hr {
+  @extend %nhsuk-section-break;
+  @extend %nhsuk-section-break--l;
+  @extend %nhsuk-section-break--visible;
+}

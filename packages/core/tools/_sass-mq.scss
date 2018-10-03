@@ -20,6 +20,16 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import '../../../node_modules/sass-mq/mq';
+@import '../../..//node_modules/sass-mq/mq';
 
 $sass-mq-already-included: true;
+
+// =========================================================
+// Helpers
+// =========================================================
+
+@mixin govuk-media-query($args...) {
+  @include mq($args...) {
+    @content;
+  };
+}
