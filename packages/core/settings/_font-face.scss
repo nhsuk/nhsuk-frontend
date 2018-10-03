@@ -1,17 +1,10 @@
 /* ==========================================================================
-   SETTINGS / #FONTS
+   SETTINGS / #FONT-FACE
    ========================================================================== */
 
 /**
- * Long-form comment.
- *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * NHS uses the Frutiger font, it was originally made
+ * for print, but we've had to adapt for web.
  */
 
 @font-face{
@@ -24,7 +17,7 @@
       url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.svg#29f3ff8a-1719-4e25-a757-53ee1a1114a5") format("svg");
       font-style: normal;
       font-weight: 300;
-}
+  }
 
 @font-face{
   font-family:"Frutiger W01";
