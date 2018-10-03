@@ -3,7 +3,11 @@
    ========================================================================== */
 
 /**
- * Primary colours
+ * NHS colour palette
+ * Colours are prefixed with colour_ to make them easier to
+ * search for within the code base.
+ * We also prefix them with nhsuk- to prevent clashing with
+ * other colours in existing code bases.
 */
 
 $colour_nhsuk-blue: #005EB8;
@@ -35,6 +39,11 @@ $colour_nhsuk-grey-5: #f0f4f5;
 
 /**
  * Functions for tint and shade
+ *
+ * Usage: tint(colour, percentage)
+ *        tint($colour_nhsuk-black, 10%)
+ *        shade(colour, percentage)
+ *        shade($colour_nhsuk-blue, 50%)
 */
 
 @function tint($color, $percentage) {

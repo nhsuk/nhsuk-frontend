@@ -16,14 +16,14 @@
 
 @mixin govuk-grid {
   @include clear;
-  margin-left: - ($govuk-gutter-half);
-  margin-right: - ($govuk-gutter-half);
+  margin-left: - ($nhsuk-gutter-half);
+  margin-right: - ($nhsuk-gutter-half);
 }
 
 @mixin govuk-grid-item {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 $govuk-gutter-half;
+  padding: 0 $nhsuk-gutter-half;
 
   @include mq($from: grid-collapse) {
     float: left;

@@ -323,7 +323,7 @@ $alpha: .5;
       padding-left: 15px;
       padding-right: 15px;
       position: relative;
-      z-index: 1;
+      z-index: z-index(1);
     }
 
     .nhsuk-global-header__menusearch {
@@ -472,7 +472,7 @@ $alpha: .5;
   overflow-y: auto;
   padding: 10px 15px 18px;
   position: absolute;
-  z-index: 1;
+  z-index: z-index(1);
 }
 
 @include mq($until: tablet) {
@@ -573,7 +573,7 @@ $alpha: .5;
   &:focus {
     left: 16px;
     top: 16px;
-    z-index: 2;
+    z-index: z-index(2);
   }
 
   &:visited {

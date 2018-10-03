@@ -16,23 +16,23 @@
 
 @mixin govuk-width-container {
   // Limit the width of the container to the page width
-  max-width: $govuk-page-width;
+  max-width: $nhsuk-page-width;
 
   @include govuk-ie-lte(8) {
-    width: $govuk-page-width;
+    width: $nhsuk-page-width;
   }
 
   // On mobile, add half width gutters
-  margin: 0 $govuk-gutter-half;
+  margin: 0 $nhsuk-gutter-half;
 
   // On desktop, add full width gutters
   @include mq($from: grid-collapse) {
-    margin: 0 $govuk-gutter;
+    margin: 0 $nhsuk-gutter;
   }
 
   // As soon as the viewport is greater than the width of the page plus the
   // gutters, just centre the content instead of adding gutters.
-  @include mq($and: "(min-width: #{($govuk-page-width + $govuk-gutter * 2)})") {
+  @include mq($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
     margin: 0 auto;
   }
 }

@@ -22,7 +22,7 @@
   padding: 32px 0;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: z-index(2);
 
   @include mq($until: tablet) {
     padding: 24px 0;
