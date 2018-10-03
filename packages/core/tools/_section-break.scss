@@ -1,0 +1,27 @@
+/* ==========================================================================
+   TOOLS / #SECTION BREAK
+   ========================================================================== */
+
+%nhsuk-section-break {
+  margin: 0;
+  border: 0;
+}
+
+%nhsuk-section-break--xl {
+  @include nhsuk-responsive-margin(8, "top");
+  @include nhsuk-responsive-margin(8, "bottom");
+}
+
+%nhsuk-section-break--l {
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+%nhsuk-section-break--m {
+  @include nhsuk-responsive-margin(4, "top");
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+%nhsuk-section-break--visible {
+  border-bottom: 1px solid $nhsuk-border-colour;
+}

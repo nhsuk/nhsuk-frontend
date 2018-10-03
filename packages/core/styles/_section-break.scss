@@ -1,9 +1,23 @@
 /* ==========================================================================
-   ELEMENTS / #SECTION-BREAK
+   STYLES / #SECTION-BREAK
    ========================================================================== */
 
-hr {
+.nhsuk-section-break {
   @extend %nhsuk-section-break;
+}
+
+.nhsuk-section-break--xl {
+  @extend %nhsuk-section-break--xl;
+}
+
+.nhsuk-section-break--l {
   @extend %nhsuk-section-break--l;
+}
+
+.nhsuk-section-break--m {
+  @extend %nhsuk-section-break--m;
+}
+
+.nhsuk-section-break--visible {
   @extend %nhsuk-section-break--visible;
 }

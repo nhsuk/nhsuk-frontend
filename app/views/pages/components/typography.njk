@@ -11,7 +11,7 @@
 {% from 'components/pagination/macro.njk' import pagination, paginationNext, paginationPrevious %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
-{% from 'components/reveals/macro.njk' import reveal %}
+{% from 'components/details/macro.njk' import details %}
 {% from 'components/tables/macro.njk' import table %}
 {% extends 'includes/templates/page.njk' %}
 
@@ -197,7 +197,7 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-   {{ reveal('When to check your blood glucose level', '
+   {{ details('When to check your blood glucose level', '
   <p>Try to check your blood:</p>
 
   <ul>

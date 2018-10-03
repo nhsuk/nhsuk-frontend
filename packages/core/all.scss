@@ -14,7 +14,6 @@
 
 // Elements
 @import 'elements/forms';
-@import 'elements/icons';
 @import 'elements/links';
 @import 'elements/lists';
 @import 'elements/page';
@@ -26,6 +25,12 @@
 @import 'objects/grid';
 @import 'objects/main-wrapper';
 @import 'objects/width-container';
+
+// Styles
+@import 'styles/icons';
+@import 'styles/lists';
+@import 'styles/section-break';
+@import 'styles/typography';
 
 // Utilities
 @import 'utilities/clearfix';

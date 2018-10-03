@@ -1,0 +1,88 @@
+/* ==========================================================================
+   STYLES / #TYPOGRAPHY
+   ========================================================================== */
+
+.nhsuk-heading-xl {
+  @extend %nhsuk-heading-xl;
+}
+
+.nhsuk-heading-l {
+  @extend %nhsuk-heading-l;
+}
+
+.nhsuk-heading-m {
+  @extend %nhsuk-heading-m;
+}
+
+.nhsuk-heading-s {
+  @extend %nhsuk-heading-s;
+}
+
+.nhsuk-heading-xs {
+  @extend %nhsuk-heading-xs;
+}
+
+.nhsuk-heading-xxs {
+  @extend %nhsuk-heading-xxs;
+}
+
+.nhsuk-body-l {
+  @extend %nhsuk-body-l;
+}
+
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
+}
+
+.nhsuk-body-s {
+  @extend %nhsuk-body-s;
+}
+
+// All this code below to be refactored
+
+.nhsuk-page-heading {
+  padding: 25px 0 40px;
+  @include mq($from: grid-collapse) {
+    padding: 26px 0 56px;
+  }
+  h1 {
+    margin: 0;
+  }
+}
+
+@include mq($media-type: print) {
+  .nhsuk-page-heading {
+    padding-top: 0;
+  }
+}
+
+.nhsuk-page-nav {
+  & > *:first-child {
+    margin-top: 0;
+  }
+  @include mq($until: grid-collapse) {
+    margin-bottom: 44px;
+  }
+  h2,
+  h3 {
+    & + ol,
+    & + ul {
+      margin-top: 8px;
+    }
+  }
+}
+
+@include mq($media-type: print) {
+  .nhsuk-page-nav {
+    display: none;
+  }
+}
+
+.nhsuk-page-content {
+  & > *:first-child {
+    margin-top: 0;
+    & > *:first-child {
+      margin-top: 0;
+    }
+  }
+}
