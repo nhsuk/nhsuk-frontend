@@ -38,6 +38,16 @@
   @extend %nhsuk-list;
 }
 
+ul {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--bullet;
+}
+
+ol {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--number;
+}
+
 .nhsuk-list--check,
 .nhsuk-list--cross {
   list-style: none;

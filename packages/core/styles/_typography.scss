@@ -82,7 +82,7 @@
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
-%nhsuk-body {
+%nhsuk-body-m {
   @include font-size($font-size-19);
 
   display: block;
@@ -99,6 +99,34 @@
   margin-top: 0;
   @include nhsuk-responsive-margin(4, "bottom");
 }
+
+// Semantic typography
+
+h1 {
+  @extend %nhsuk-heading-xl;
+}
+
+h2 {
+  @extend %nhsuk-heading-l;
+}
+
+h3 {
+  @extend %nhsuk-heading-m;
+}
+
+h4 {
+  @extend %nhsuk-heading-s;
+}
+
+h5 {
+  @extend %nhsuk-heading-xs;
+}
+
+h6 {
+  @extend %nhsuk-heading-xxs;
+}
+
+// NHSUK headings
 
 .nhsuk-heading-xl {
   @extend %nhsuk-heading-xl;
@@ -124,16 +152,24 @@
   @extend %nhsuk-heading-xxs;
 }
 
+// NHSUK body (paragraphs)
+
 .nhsuk-body-l {
   @extend %nhsuk-body-l;
 }
 
-.nhsuk-body {
-  @extend %nhsuk-body;
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
 }
 
 .nhsuk-body-s {
   @extend %nhsuk-body-s;
+}
+
+// Semantic body (paragraphs)
+
+p {
+  @extend %nhsuk-body-m;
 }
 
 // All this code below to be refactored
@@ -196,16 +232,16 @@
   }
 }
 
-%nhsuk-body  + %nhsuk-heading-l,
+%nhsuk-body-m  + %nhsuk-heading-l,
 %nhsuk-body-s  + %nhsuk-heading-l,
 %nhsuk-list + %nhsuk-heading-l {
   @include nhsuk-responsive-padding(4, "top");
 }
 
-%nhsuk-body + %nhsuk-heading-m,
+%nhsuk-body-m + %nhsuk-heading-m,
 %nhsuk-body-s + %nhsuk-heading-m,
 %nhsuk-list + %nhsuk-heading-m,
-%nhsuk-body + %nhsuk-heading-s,
+%nhsuk-body-m + %nhsuk-heading-s,
 %nhsuk-body-s + %nhsuk-heading-s,
 %nhsuk-list + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);

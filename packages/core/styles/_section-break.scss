@@ -46,3 +46,9 @@
 .nhsuk-section-break--visible {
   @extend %nhsuk-section-break--visible;
 }
+
+hr {
+  @extend %nhsuk-section-break;
+  @extend %nhsuk-section-break--l;
+  @extend %nhsuk-section-break--visible;
+}

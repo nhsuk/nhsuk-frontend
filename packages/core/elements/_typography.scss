@@ -2,79 +2,19 @@
    ELEMENTS / #TYPOGRAPHY
    ========================================================================== */
 
-h1 {
-    @include font-size($font-size-48);
+/* Headings
+   =========================================== */
 
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(7, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-h2{
-    @include font-size($font-size-32);
-
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(4, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-h3 {
-    @include font-size($font-size-24);
-
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(4, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-h4 {
-    @include font-size($font-size-22);
-
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(4, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-h5 {
-    @include font-size($font-size-19);
-
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(4, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-h6 {
-    @include font-size($font-size-16);
-
-    display: block;
-
-    margin-top: 0;
-    @include nhsuk-responsive-margin(4, "bottom");
-
-    font-weight: $nhsuk-font-bold;
-  }
-
-p {
-  @include font-size($font-size-19);
-
-  display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
+/**
+ * Force all headings to have the exact same *default* styling. This means we
+ * are free to use the correct semantic element without having opinionated look-
+ * and-feel attached to it. Provide all cosmetics for specific visual use cases
+ * via heading classes (i.e. `.c-heading-*`).
+ *
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/
+ */
+ h1, h2, h3, h4, h5, h6 {
+  font-weight: $nhsuk-font-bold;
 }
 
 strong, b {
