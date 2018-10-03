@@ -37,7 +37,7 @@
     color: $colour_nhsuk-white;
     display: inline-block;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: $nhsuk-font-bold;
     letter-spacing: .5px;
     line-height: 1.25;
     margin: 16px 0 0;
@@ -96,7 +96,7 @@
 
     legend {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: $nhsuk-font-bold;
       line-height: 24px;
       margin-bottom: -8px;
       padding-top: 0;

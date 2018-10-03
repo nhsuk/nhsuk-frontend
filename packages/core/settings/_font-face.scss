@@ -5,9 +5,10 @@
 /**
  * NHS uses the Frutiger font, it was originally made
  * for print, but we've had to adapt for web.
+ * https://assets.nhs.uk/fonts/nhsuk-fonts-1.3.0.css
  */
 
-@font-face{
+@font-face {
   font-family:"Frutiger W01";
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.eot?#iefix");
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.eot?#iefix") format("eot"),
@@ -19,19 +20,7 @@
       font-weight: 300;
   }
 
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-46LightItalic.svg#cd75c3e3-c5b7-4a25-9498-cabe4e8a9076") format("svg");
-      font-style: italic;
-      font-weight: 300;
-}
-
-@font-face{
+@font-face {
   font-family:"Frutiger W01";
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot?#iefix");
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot?#iefix") format("eot"),
@@ -40,22 +29,10 @@
       url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf") format("truetype"),
       url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115") format("svg");
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-56Italic.svg#141c0322-57c4-48ca-abb4-31688d659f7d") format("svg");
-      font-style: italic;
-      font-weight: 500;
-}
-
-@font-face{
+@font-face {
   font-family:"Frutiger W01";
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot?#iefix");
   src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot?#iefix") format("eot"),
@@ -65,52 +42,4 @@
       url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg");
   font-style: normal;
   font-weight: 600;
-}
-
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-66BoldItalic.svg#8ad009ab-a7e5-4acb-8ca5-326d2a759924") format("svg");
-      font-style: italic;
-      font-weight: 600;
-}
-
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-75Black.svg#1c437efb-925e-4bc5-96d0-c706bb400696") format("svg");
-      font-style: normal;
-      font-weight: 700;
-}
-
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-76BlackItalic.svg#24df08f2-b418-49de-8eca-745947092d72") format("svg");
-      font-style: italic;
-      font-weight: 700;
-}
-
-@font-face{
-  font-family:"Frutiger W01";
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.eot?#iefix");
-  src:url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.eot?#iefix") format("eot"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.woff2") format("woff2"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.woff") format("woff"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.ttf") format("truetype"),
-      url("https://assets.nhs.uk/fonts/FrutigerLTW01-95UltraBlack.svg#3b96d0b6-5de6-4fb0-9884-b645e55d01c4") format("svg");
-      font-style: normal;
-      font-weight: 900;
 }
