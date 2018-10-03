@@ -6,31 +6,31 @@
  * Primary colours
 */
 
-$nhsuk-blue: #005EB8;
-$nhsuk-white: #FFFFFF;
-$nhsuk-black: #212B32;
-$nhsuk-green: #007F3B;
-$nhsuk-red: #DA291C;
-$nhsuk-yellow: #FFED00;
-$nhsuk-purple: #330072;
+$colour_nhsuk-blue: #005EB8;
+$colour_nhsuk-white: #FFFFFF;
+$colour_nhsuk-black: #212B32;
+$colour_nhsuk-green: #007F3B;
+$colour_nhsuk-red: #DA291C;
+$colour_nhsuk-yellow: #FFED00;
+$colour_nhsuk-purple: #330072;
 
 /**
  * Secondary colours
 */
 
-$nhsuk-pale-yellow: #FFFBCE;
-$nhsuk-warm-yellow: #FFB81C;
-$nhsuk-aqua-green: #00A499;
+$colour_nhsuk-pale-yellow: #FFFBCE;
+$colour_nhsuk-warm-yellow: #FFB81C;
+$colour_nhsuk-aqua-green: #00A499;
 
 /**
  * Greyscale
 */
 
-$nhsuk-grey-1: #425563;
-$nhsuk-grey-2: #768692;
-$nhsuk-grey-3: #AEB7BD;
-$nhsuk-grey-4: #D8DDE0;
-$nhsuk-grey-5: #f0f4f5;
+$colour_nhsuk-grey-1: #425563;
+$colour_nhsuk-grey-2: #768692;
+$colour_nhsuk-grey-3: #AEB7BD;
+$colour_nhsuk-grey-4: #D8DDE0;
+$colour_nhsuk-grey-5: #f0f4f5;
 
 /**
  * Functions for tint and shade
@@ -51,46 +51,47 @@ $nhsuk-grey-5: #f0f4f5;
  * 2. used for .active state on main navigation
  * 3. used for :hover states on main navigation
  * 4. used for :active states on main navigation
- * 5. used for primary button :hover states
- * 6. used for primary button :active states
+ * 5. used for primary button and action link icon :hover states
+ * 6. used for primary button and action link icon :active states
  * 7. used for link :hover states
  * 8. used for link :active states
- * 9. used for action link icon :hover state
- * 10. used for action link icon :active state
  */
 
-$nhsuk-black-tint-10: tint($nhsuk-black, 10%); /* [1] */
-$nhsuk-blue-shade-20: shade($nhsuk-blue, 20%); /* [2] */
-$nhsuk-blue-shade-35: shade($nhsuk-blue, 35%); /* [3] */
-$nhsuk-blue-shade-50: shade($nhsuk-blue, 50%); /* [4] */
-$nhsuk-green-shade-35: shade($nhsuk-green, 35%); /* [5] */
-$nhsuk-green-shade-50: shade($nhsuk-green, 50%); /* [6] */
-$nhsuk-warm-yellow-tint-30: tint($nhsuk-warm-yellow, 30%); /* [7] */
-$nhsuk-warm-yellow-tint-10: tint($nhsuk-warm-yellow, 10%); /* [8] */
-$nhsuk-aqua-green-shade-35: shade($nhsuk-aqua-green, 35%); /* [9] */
-$nhsuk-aqua-green-shade-50: shade($nhsuk-aqua-green, 50%); /* [10] */
+$colour_tint_nhsuk-black-10: tint($colour_nhsuk-black, 10%); /* [1] */
+
+$colour_shade_nhsuk-blue-20: shade($colour_nhsuk-blue, 20%); /* [2] */
+$colour_shade_nhsuk-blue-35: shade($colour_nhsuk-blue, 35%); /* [3] */
+$colour_shade_nhsuk-blue-50: shade($colour_nhsuk-blue, 50%); /* [4] */
+
+$colour_shade_nhsuk-green-35: shade($colour_nhsuk-green, 35%); /* [5] */
+$colour_shade_nhsuk-green-50: shade($colour_nhsuk-green, 50%); /* [6] */
+
+$colour_tint_nhsuk-warm-yellow-30: tint($colour_nhsuk-warm-yellow, 30%); /* [7] */
+$colour_tint_nhsuk-warm-yellow-10: tint($colour_nhsuk-warm-yellow, 10%); /* [8] */
+
+$colour_transparent_nhsuk-black-20: rgba($colour_nhsuk-black, .2);
 
 /**
  * Colour aliases
 */
 
-$nhsuk-text-colour: $nhsuk-black;
-$nhsuk-secondary-text-colour: $nhsuk-grey-1;
+$nhsuk-text-colour: $colour_nhsuk-black;
+$nhsuk-secondary-text-colour: $colour_nhsuk-grey-1;
 
-$nhsuk-link-colour: $nhsuk-blue;
-$nhsuk-link-hover-colour: $nhsuk-black;
-$nhsuk-link-focus-colour: $nhsuk-black;
-$nhsuk-link-active-colour: $nhsuk-black-tint-10;
-$nhsuk-link-visited-colour: $nhsuk-purple;
-$nhsuk-link-hover-background-colour: $nhsuk-warm-yellow-tint-30;
-$nhsuk-link-focus-background-colour: $nhsuk-warm-yellow;
-$nhsuk-link-active-background-colour: $nhsuk-warm-yellow-tint-10;
+$nhsuk-link-colour: $colour_nhsuk-blue;
+$nhsuk-link-hover-colour: $colour_nhsuk-black;
+$nhsuk-link-focus-colour: $colour_nhsuk-black;
+$nhsuk-link-active-colour: $colour_tint_nhsuk-black-10;
+$nhsuk-link-visited-colour: $colour_nhsuk-purple;
+$nhsuk-link-hover-background-colour: $colour_tint_nhsuk-warm-yellow-30;
+$nhsuk-link-focus-background-colour: $colour_nhsuk-warm-yellow;
+$nhsuk-link-active-background-colour: $colour_tint_nhsuk-warm-yellow-10;
 
-$nhsuk-border-colour: $nhsuk-grey-4;
-$nhsuk-secondary-border-colour: rgba(255, 255, 255, .2);
+$nhsuk-border-colour: $colour_nhsuk-grey-4;
+$nhsuk-secondary-border-colour: $colour_transparent_nhsuk-black-20;
 
-$nhsuk-button-hover-colour: $nhsuk-green-shade-35;
-$nhsuk-button-active-colour: $nhsuk-green-shade-50;
-$nhsuk-secondary-button-hover-colour: $nhsuk-blue-shade-35;
+$nhsuk-button-hover-colour: $colour_shade_nhsuk-green-35;
+$nhsuk-button-active-colour: $colour_shade_nhsuk-green-50;
+$nhsuk-secondary-button-hover-colour: $colour_shade_nhsuk-blue-35;
 
-$nhsuk-focus-colour: $nhsuk-warm-yellow;
+$nhsuk-focus-colour: $colour_nhsuk-warm-yellow;

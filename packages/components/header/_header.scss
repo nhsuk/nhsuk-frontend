@@ -18,12 +18,12 @@
 // mobile to tablet - Menu toggle button visible, search toggle button visible
 // tablet to desktop - Menu toggle button visible, search field visible
 // desktop+ - Menu links visible, search field visible
-$nhsuk-grey-1-rgb: rgb(66, 84, 98);
+$colour_nhsuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha: .5;
 
 .nhsuk-global-header {
   @include clear();
-  background: $nhsuk-blue;
+  background: $colour_nhsuk-blue;
 
   &__logo {
     float: left;
@@ -47,7 +47,7 @@ $alpha: .5;
       }
 
       &:hover {
-        box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+        box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
       }
 
     }
@@ -68,9 +68,9 @@ $alpha: .5;
 
     .menu-toggle__button {
       background-color: transparent;
-      border: 1px solid $nhsuk-white;
+      border: 1px solid $colour_nhsuk-white;
       border-radius: 4px;
-      color: $nhsuk-white;
+      color: $colour_nhsuk-white;
       display: block;
       font-size: 18px;
       font-weight: 400;
@@ -84,8 +84,8 @@ $alpha: .5;
       }
 
       &:hover {
-        background: $nhsuk-blue-shade-35;
-        border-color: $nhsuk-grey-5;
+        background: $colour_shade_nhsuk-blue-35;
+        border-color: $colour_nhsuk-grey-5;
         box-shadow: none;
       }
 
@@ -98,10 +98,10 @@ $alpha: .5;
 
       &:active,
       &.active {
-        background: $nhsuk-blue-shade-50;
-        border-color: $nhsuk-grey-5;
+        background: $colour_shade_nhsuk-blue-50;
+        border-color: $colour_nhsuk-grey-5;
         box-shadow: none;
-        color: $nhsuk-grey-5;
+        color: $colour_nhsuk-grey-5;
       }
 
       &.active {
@@ -125,8 +125,8 @@ $alpha: .5;
 
       .c-search__input {
         -webkit-appearance: listbox;
-        background-color: $nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
-        border: 1px solid $nhsuk-white;
+        background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
+        border: 1px solid $colour_nhsuk-white;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
         border-top-left-radius: 4px;
@@ -143,7 +143,7 @@ $alpha: .5;
         }
 
         &::placeholder {
-          color: $nhsuk-grey-2;
+          color: $colour_nhsuk-grey-2;
           font-size: 16px;
         }
 
@@ -164,7 +164,7 @@ $alpha: .5;
       }
 
       .c-search__submit {
-        background-color: $nhsuk-grey-5;
+        background-color: $colour_nhsuk-grey-5;
         border: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
@@ -202,16 +202,16 @@ $alpha: .5;
         }
 
         &:hover {
-          background-color: $nhsuk-blue-shade-35;
+          background-color: $colour_shade_nhsuk-blue-35;
           cursor: pointer;
 
           .nhsuk-icon__search {
-            fill: $nhsuk-white;
+            fill: $colour_nhsuk-white;
           }
         }
 
         &:active {
-          background-color: $nhsuk-blue-shade-50;
+          background-color: $colour_shade_nhsuk-blue-50;
         }
 
       }
@@ -246,13 +246,13 @@ $alpha: .5;
 
       &__input {
         -webkit-appearance: listbox; // sass-lint:disable-line prefixes
-        background-color: $nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
-        border-bottom: 1px solid $nhsuk-grey-3;
+        background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
+        border-bottom: 1px solid $colour_nhsuk-grey-3;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 0;
-        border-left: 1px solid $nhsuk-grey-3;
+        border-left: 1px solid $colour_nhsuk-grey-3;
         border-right: 0;
-        border-top: 1px solid $nhsuk-grey-3;
+        border-top: 1px solid $colour_nhsuk-grey-3;
         border-top-left-radius: 4px;
         border-top-right-radius: 0;
         flex-grow: 2;
@@ -274,12 +274,12 @@ $alpha: .5;
       }
 
       &::placeholder {
-        color: $nhsuk-grey-2;
+        color: $colour_nhsuk-grey-2;
         font-size: 16px;
       }
 
       &__submit {
-        background-color: $nhsuk-green;
+        background-color: $colour_nhsuk-green;
         border: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 4px;
@@ -294,7 +294,7 @@ $alpha: .5;
         padding: 7px 7px 0;
 
         .nhsuk-icon__search {
-          fill: $nhsuk-white;
+          fill: $colour_nhsuk-white;
           height: 38px;
           width: 38px;
         }
@@ -332,7 +332,7 @@ $alpha: .5;
       text-align: right;
 
       &.js-show {
-        border-bottom: 4px solid $nhsuk-grey-5;
+        border-bottom: 4px solid $colour_nhsuk-grey-5;
       }
 
     }
@@ -350,14 +350,14 @@ $alpha: .5;
 
     .nhsuk-global-header__search {
       @include clear();
-      background: $nhsuk-white;
+      background: $colour_nhsuk-white;
       display: flex;
 
       .search-toggle__button {
         background-color: transparent;
-        border: 1px solid $nhsuk-white;
+        border: 1px solid $colour_nhsuk-white;
         border-radius: 4px;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
         cursor: pointer;
         margin: 20px 0;
         min-height: 40px;
@@ -369,7 +369,7 @@ $alpha: .5;
         top: 0;
 
         .nhsuk-icon__search {
-          fill: $nhsuk-white;
+          fill: $colour_nhsuk-white;
           height: 21px;
           width: 21px;
         }
@@ -380,8 +380,8 @@ $alpha: .5;
         }
 
         &:hover {
-          background-color: $nhsuk-blue-shade-35;
-          border-color: $nhsuk-grey-5;
+          background-color: $colour_shade_nhsuk-blue-35;
+          border-color: $colour_nhsuk-grey-5;
           box-shadow: none;
         }
 
@@ -394,10 +394,10 @@ $alpha: .5;
 
         &:active,
         &.active {
-          background-color: $nhsuk-blue-shade-50;
-          border-color: $nhsuk-grey-5;
+          background-color: $colour_shade_nhsuk-blue-50;
+          border-color: $colour_nhsuk-grey-5;
           box-shadow: none;
-          color: $nhsuk-grey-5;
+          color: $colour_nhsuk-grey-5;
         }
 
         &.active {
@@ -427,7 +427,7 @@ $alpha: .5;
       width: 40px;
 
       .nhsuk-icon__close {
-        fill: $nhsuk-blue;
+        fill: $colour_nhsuk-blue;
         height: 40px;
         width: 40px;
       }
@@ -455,16 +455,16 @@ $alpha: .5;
 }
 
 .c-search-menu__list {
-  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
-  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
-  background: $nhsuk-white;
-  border-bottom: 1px solid $nhsuk-grey-4;
+  -moz-box-shadow: 0 3px 5px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
+  -webkit-box-shadow: 0 3px 5px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
+  background: $colour_nhsuk-white;
+  border-bottom: 1px solid $colour_nhsuk-grey-4;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  border-left: 1px solid $nhsuk-grey-4;
-  border-right: 1px solid $nhsuk-grey-4;
-  border-top: 2px solid $nhsuk-blue;
-  box-shadow: 0 0 3px 0 rgba($nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
+  border-left: 1px solid $colour_nhsuk-grey-4;
+  border-right: 1px solid $colour_nhsuk-grey-4;
+  border-top: 2px solid $colour_nhsuk-blue;
+  box-shadow: 0 0 3px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
   height: auto;
   list-style: none;
   margin-top: 0;
@@ -496,7 +496,7 @@ $alpha: .5;
 }
 
 .c-search-menu__prepend {
-  border-bottom: 1px solid $nhsuk-grey-4;
+  border-bottom: 1px solid $colour_nhsuk-grey-4;
   color: $nhsuk-text-colour;
   font-size: 16px;
   font-weight: 600;
@@ -505,8 +505,8 @@ $alpha: .5;
 }
 
 .c-search-menu__item {
-  border-bottom: 1px solid $nhsuk-grey-5;
-  color: $nhsuk-blue;
+  border-bottom: 1px solid $colour_nhsuk-grey-5;
+  color: $colour_nhsuk-blue;
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
@@ -515,7 +515,7 @@ $alpha: .5;
   text-decoration: underline;
 
   .nhsuk-icon__search {
-    fill: $nhsuk-grey-3;
+    fill: $colour_nhsuk-grey-3;
     float: left;
     height: 22px;
     margin: 5px 4px 0 0;
@@ -530,18 +530,18 @@ $alpha: .5;
   &:hover,
   &:focus {
     div {
-      background: $nhsuk-warm-yellow;
-      box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
-      color: $nhsuk-black;
+      background: $colour_nhsuk-warm-yellow;
+      box-shadow: 0 0 0 4px $colour_nhsuk-warm-yellow;
+      color: $colour_nhsuk-black;
       display: inline;
     }
   }
 
   &--selected {
     a {
-      background-color: $nhsuk-warm-yellow;
-      box-shadow: 0 0 0 4px $nhsuk-warm-yellow;
-      color: $nhsuk-black;
+      background-color: $colour_nhsuk-warm-yellow;
+      box-shadow: 0 0 0 4px $colour_nhsuk-warm-yellow;
+      color: $colour_nhsuk-black;
       display: inline;
       text-decoration: none;
     }
@@ -562,7 +562,7 @@ $alpha: .5;
   text-align: left;
 }
 
-// Skip links 
+// Skip links
 
 .nhsuk-c-skiplink__link {
   left: -9999px;
@@ -577,7 +577,7 @@ $alpha: .5;
   }
 
   &:visited {
-    color: $nhsuk-black;
+    color: $colour_nhsuk-black;
   }
 
 }
@@ -587,7 +587,7 @@ $alpha: .5;
 .c-nav-primary {
 
   @include mq($until: large-desktop) {
-    background: $nhsuk-white;
+    background: $colour_nhsuk-white;
     display: none;
 
     &.js-show {
@@ -623,7 +623,7 @@ $alpha: .5;
         width: 40px;
 
         .nhsuk-icon__close {
-          fill: $nhsuk-blue;
+          fill: $colour_nhsuk-blue;
           height: 40px;
           width: 40px;
         }
@@ -653,19 +653,19 @@ $alpha: .5;
     }
 
     &__list {
-      border-bottom: 4px solid $nhsuk-grey-5;
+      border-bottom: 4px solid $colour_nhsuk-grey-5;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
     &__item {
-      border-top: 1px solid $nhsuk-grey-5;
+      border-top: 1px solid $colour_nhsuk-grey-5;
       margin: 0;
       position: relative;
 
       .nhsuk-icon__chevron-right {
-        fill: $nhsuk-grey-3;
+        fill: $colour_nhsuk-grey-3;
         position: absolute;
 
         @include mq($until: tablet) {
@@ -681,7 +681,7 @@ $alpha: .5;
     }
 
     &__link {
-      color: $nhsuk-blue;
+      color: $colour_nhsuk-blue;
       display: block;
 
       @include mq($from: tablet) {
@@ -695,33 +695,33 @@ $alpha: .5;
       text-decoration: none;
 
       &:visited {
-        color: $nhsuk-blue;
+        color: $colour_nhsuk-blue;
       }
 
       &:hover {
-        background-color: $nhsuk-blue;
+        background-color: $colour_nhsuk-blue;
         box-shadow: none;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
         text-decoration: underline;
 
         .nhsuk-icon__chevron-right {
-          fill: $nhsuk-white;
+          fill: $colour_nhsuk-white;
         }
       }
 
       &:focus {
         background-color: transparent;
         box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        color: $nhsuk-blue;
+        color: $colour_nhsuk-blue;
       }
 
       &:active {
-        background-color: $nhsuk-blue-shade-35;
+        background-color: $colour_shade_nhsuk-blue-35;
         box-shadow: none;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
 
         .nhsuk-icon__chevron-right {
-          fill: $nhsuk-white;
+          fill: $colour_nhsuk-white;
         }
 
       }
@@ -733,7 +733,7 @@ $alpha: .5;
   @include mq($from: large-desktop) {
 
     @include clear();
-    background: $nhsuk-blue;
+    background: $colour_nhsuk-blue;
 
     &__title {
       display: none;
@@ -764,7 +764,7 @@ $alpha: .5;
     }
 
     &__link {
-      color: $nhsuk-white;
+      color: $colour_nhsuk-white;
       display: block;
       font-size: 17px;
       line-height: 20px;
@@ -772,30 +772,30 @@ $alpha: .5;
       text-decoration: none;
 
       &:visited {
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
       }
 
       &:hover {
-        background: $nhsuk-blue-shade-35;
+        background: $colour_shade_nhsuk-blue-35;
         box-shadow: none;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
         text-decoration: underline;
       }
 
       &:focus {
-        background: $nhsuk-blue;
+        background: $colour_nhsuk-blue;
         box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
       }
 
       &:active {
-        background: $nhsuk-blue-shade-50;
+        background: $colour_shade_nhsuk-blue-50;
         box-shadow: none;
-        color: $nhsuk-grey-5;
+        color: $colour_nhsuk-grey-5;
       }
 
       &.active {
-        background: $nhsuk-blue-shade-20;
+        background: $colour_shade_nhsuk-blue-20;
       }
 
     }

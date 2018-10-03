@@ -14,8 +14,8 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-global-footer {
-  background-color: $nhsuk-blue;
-  color: $nhsuk-white;
+  background-color: $colour_nhsuk-blue;
+  color: $colour_nhsuk-white;
   width: 100%;
 
   @include mq($media-type: print) {
@@ -42,7 +42,7 @@
         width: 99px;
 
         &:hover {
-          box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+          box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
         }
 
       }
@@ -70,7 +70,7 @@
       }
 
       a {
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
 
         &:focus,
         &:hover {

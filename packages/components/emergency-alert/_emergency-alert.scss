@@ -14,7 +14,7 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-global-alert {
-  background: $nhsuk-yellow;
+  background: $colour_nhsuk-yellow;
   padding: 24px 0;
 
   @include mq($until: tablet) {
@@ -64,21 +64,21 @@
     }
 
     &:focus {
-      background: $nhsuk-blue-shade-35;
-      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
-      color: $nhsuk-white;
+      background: $colour_shade_nhsuk-blue-35;
+      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+      color: $colour_nhsuk-white;
     }
 
     &:hover {
-      background: $nhsuk-blue;
-      box-shadow: 0 0 0 4px $nhsuk-blue;
-      color: $nhsuk-white;
+      background: $colour_nhsuk-blue;
+      box-shadow: 0 0 0 4px $colour_nhsuk-blue;
+      color: $colour_nhsuk-white;
     }
 
     &:active {
-      background: $nhsuk-blue-shade-50 !important;
-      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
-      color: $nhsuk-white;
+      background: $colour_shade_nhsuk-blue-50 !important;
+      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+      color: $colour_nhsuk-white;
     }
 
   }

@@ -7,7 +7,7 @@ a {
 
   @include mq($media-type: print) {
     &:after {
-      color: $nhsuk-black;
+      color: $colour_nhsuk-black;
       content: ' (Link: ' attr(href) ')';
       font-size: 14px;
     }

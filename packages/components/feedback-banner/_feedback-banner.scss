@@ -14,7 +14,7 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-feedback-banner {
-  background: $nhsuk-white;
+  background: $colour_nhsuk-white;
   bottom: 0;
   box-shadow: 0 -4px 0 0 rgba(33, 43, 50, .16);
   display: none;
@@ -67,7 +67,7 @@
   &__close {
     background: none;
     border: 0;
-    color: $nhsuk-black;
+    color: $colour_nhsuk-black;
     cursor: pointer;
     display: block;
     font-size: 14px;
