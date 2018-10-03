@@ -2,6 +2,30 @@
    STYLES / #LISTS
    ========================================================================== */
 
+%nhsuk-list {
+  @include font-size($font-size-19);
+  margin-top: 0;
+  @include nhsuk-responsive-margin(3, "bottom");
+  padding-left: 0;
+  list-style-type: none;
+}
+
+%nhsuk-list > li {
+  @include nhsuk-responsive-margin(2, "bottom");
+}
+
+%nhsuk-list--bullet {
+  padding-left: 20px;
+
+  list-style-type: disc;
+}
+
+%nhsuk-list--number {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+
 .nhsuk-list--bullet {
   @extend %nhsuk-list--bullet;
 }
@@ -21,16 +45,9 @@
   padding-left: 40px;
   position: relative;
 
-  .nhsuk-icon__tick {
+  svg {
     left: -4px;
     margin-top: -5px;
     position: absolute;
   }
-
-  .nhsuk-icon__cross {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute;
-  }
-
 }

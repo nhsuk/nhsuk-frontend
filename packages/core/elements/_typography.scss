@@ -3,31 +3,78 @@
    ========================================================================== */
 
 h1 {
-  @extend %nhsuk-heading-xl;
-}
+    @include font-size($font-size-48);
 
-h2 {
-  @extend %nhsuk-heading-l;
-}
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(7, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
+
+h2{
+    @include font-size($font-size-32);
+
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
 
 h3 {
-  @extend %nhsuk-heading-m;
-}
+    @include font-size($font-size-24);
+
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
 
 h4 {
-  @extend %nhsuk-heading-s;
-}
+    @include font-size($font-size-22);
+
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
 
 h5 {
-  @extend %nhsuk-heading-xs;
-}
+    @include font-size($font-size-19);
+
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
 
 h6 {
-  @extend %nhsuk-heading-xxs;
-}
+    @include font-size($font-size-16);
+
+    display: block;
+
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    font-weight: $nhsuk-font-bold;
+  }
 
 p {
-  @extend %nhsuk-body-m;
+  @include font-size($font-size-19);
+
+  display: block;
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 strong, b {

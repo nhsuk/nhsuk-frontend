@@ -2,12 +2,20 @@
    ELEMENTS / #LISTS
    ========================================================================== */
 
+ul,
+ol {
+  @include font-size($font-size-19);
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+  padding-left: 0;
+}
+
 ul {
-  @extend %nhsuk-list;
-  @extend %nhsuk-list--bullet;
+  padding-left: 20px;
+  list-style-type: disc;
 }
 
 ol {
-  @extend %nhsuk-list;
-  @extend %nhsuk-list--number;
+  padding-left: 20px;
+  list-style-type: decimal;
 }
