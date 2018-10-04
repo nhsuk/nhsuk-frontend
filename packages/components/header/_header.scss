@@ -22,7 +22,7 @@ $colour_nhsuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha: .5;
 
 .nhsuk-global-header {
-  @include clear();
+  @include clearfix();
   background: $colour_nhsuk-blue;
 
   &__logo {
@@ -327,7 +327,7 @@ $alpha: .5;
     }
 
     .nhsuk-global-header__menusearch {
-      @include clear();
+      @include clearfix();
       float: none;
       text-align: right;
 
@@ -338,7 +338,7 @@ $alpha: .5;
     }
 
     .nhsuk-global-header__menu {
-      @include clear();
+      @include clearfix();
       display: inline-block;
       float: none;
 
@@ -349,7 +349,7 @@ $alpha: .5;
     }
 
     .nhsuk-global-header__search {
-      @include clear();
+      @include clearfix();
       background: $colour_nhsuk-white;
       display: flex;
 
@@ -732,7 +732,7 @@ $alpha: .5;
 
   @include mq($from: large-desktop) {
 
-    @include clear();
+    @include clearfix();
     background: $colour_nhsuk-blue;
 
     &__title {

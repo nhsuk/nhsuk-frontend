@@ -33,7 +33,7 @@
   }
 
   &__content {
-    @include clear();
+    @include clearfix();
     position: relative;
 
     a {

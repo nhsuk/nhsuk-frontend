@@ -15,7 +15,7 @@
  */
 
 @mixin govuk-grid {
-  @include clear;
+  @include clearfix();
   margin-left: - ($nhsuk-gutter-half);
   margin-right: - ($nhsuk-gutter-half);
 }

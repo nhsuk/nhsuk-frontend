@@ -18,10 +18,6 @@
   // Limit the width of the container to the page width
   max-width: $nhsuk-page-width;
 
-  @include govuk-ie-lte(8) {
-    width: $nhsuk-page-width;
-  }
-
   // On mobile, add half width gutters
   margin: 0 $nhsuk-gutter-half;
 

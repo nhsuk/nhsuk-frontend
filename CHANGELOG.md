@@ -54,4 +54,10 @@
 - Rename src folder to packages for clarity and to match lernaJS structure.
 - Add docs folder structure with placeholder documentation files.
 - Publish compiled files for use in projects.
-- Refactor reveals to details component.
+- Refactor reveals to details component, including an IE polyfill.
+- Typography spacing improvements, including the use of sass-maps.
+- scss files now have more code comments for improved documentation.
+- Colour variables have changed to the prefix $colour_nhsuk- to make them easier to search for in the code.
+- Implemented the ITCSS (Inverted Triangle CSS) structure.
+- The clear scss mixin has been renamed to clearfix.
+- Unused font-faces have been removed (italics and extra bold).

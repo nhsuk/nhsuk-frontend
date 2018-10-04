@@ -3,18 +3,13 @@
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Clearfix mixin
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * Usage: @include clearfix();
+ * See utilities/clearfix
  */
 
-@mixin clear() {
+@mixin clearfix() {
   &:after {
     clear: both;
     content: '';
@@ -22,9 +17,25 @@
   }
 }
 
+/**
+ * Reading width mixin, add a maximum width
+ * to large pieces of content
+ *
+ * Usage: @include reading-width();
+ * See utilities/reading-width
+ */
+
 @mixin reading-width() {
   max-width: 37em;
 }
+
+/**
+ * Visually hidden mixin, used for hiding
+ * content visually but keeping it in the DOM
+ *
+ * Usage: @include visually-hidden();
+ * See utilities/visually-hidden
+ */
 
 @mixin visually-hidden() {
   border: 0;
@@ -36,6 +47,14 @@
   position: absolute;
   width: 1px;
 }
+
+/**
+ * Top and bottom margin mixin, remove
+ * the top and bottom margin spacing
+ *
+ * Usage: @include top-and-bottom();
+ * See utilities/top-and-bottom
+ */
 
 @mixin top-and-bottom() {
   & > *:first-child {
