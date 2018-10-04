@@ -6,14 +6,14 @@
 
 ## Screen resolution testing
 
-You should test at all the standard device screen resolutions and the top 8 screen 
-resolutions for [NHS.UK](https://www.nhs.uk) (in both landscape and portrait mode). 
+You should test at all the standard device screen resolutions and the top 8 screen
+resolutions for [NHS.UK](https://www.nhs.uk) (in both landscape and portrait mode).
 This combined will give us confidence that it will work for the majority of our users.
 
 ### Standard devices
 
-Google Chrome DevTools has a preset list of standard device screen resolutions to test against. 
-See [Simulate Mobile Devices with Device Mode in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/device-mode/) 
+Google Chrome DevTools has a preset list of standard device screen resolutions to test against.
+See [Simulate Mobile Devices with Device Mode in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
 and [Test Responsive and Device-specific Viewports](https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports).
 
 ### NHS website resolution statistics
@@ -61,3 +61,46 @@ These statistics are from the NHS website, using Google analytics, over a 1 year
 | Dragon NaturallySpeaking | speech recognition | Internet Explorer 11                |
 | NVDA                     | screen reader      | Firefox (latest versions)           |
 | VoiceOver                | screen reader      | Safari on iOS10 and OS X            |
+
+Testing with the various technologies above should cover the vast amount of
+users who use assistive technologies.
+
+### How to test
+
+#### Screen readers
+
+The following should be checked when testing using a screen reader:
+
+- every element can be read
+- links and form elements can be keyboard tabbed to
+- landmarks are announced correctly
+- ARIA attributes are correctly used
+- form elements can be used correctly
+
+
+#### Screen magnifiers
+
+The following should be considered when testing using a screen magnifier:
+
+- use various levels of magnification, up to at least 10 times
+- ensure scroll width for content is not too long and can be easily understood
+- ensure form elements and their labels are close to each other
+
+
+#### Speech recognition
+
+The following should be considered when testing using speech recognition software:
+
+- every link can be accessed
+- every form element can be accessed
+- every interactive element can be accessed
+
+
+#### Colour schemes
+
+Use the operating system's different colour schemes and ensure that content is
+clear and viewable. Examples of colour schemes include:
+
+- different contrast modes
+- inverted colours
+- greyscale
