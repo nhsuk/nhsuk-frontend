@@ -18,6 +18,8 @@ and [Test Responsive and Device-specific Viewports](https://developers.google.co
 
 ### NHS website resolution statistics
 
+These statistics are from the NHS website, using Google analytics, over a 1 year period (June 2017 to June 2018).
+
 | Device                  | Screen resolution   | % of sessions |
 |-------------------------|---------------------|---------------|
 | iPhone 6-8              | 375x667             | 20.93%        |
