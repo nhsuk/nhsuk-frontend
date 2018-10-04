@@ -10,6 +10,12 @@
  * Usage: class="nhsuk-\!-width-full"
  */
 
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+
+// sass-lint:disable no-important
+
 .nhsuk-\!-width-full {
   width: 100% !important;
 }

@@ -11,10 +11,10 @@
  */
 
 $_spacing-directions: (
-  "top",
-  "right",
-  "bottom",
-  "left"
+  'top',
+  'right',
+  'bottom',
+  'left'
 ) !default;
 
 /* Spacing override classes
@@ -46,7 +46,7 @@ $_spacing-directions: (
 
     .nhsuk-\!-#{$property}-#{$scale-point} {
 
-      @include _nhsuk-responsive-spacing($scale-point, $property, "all", true);
+      @include _nhsuk-responsive-spacing($scale-point, $property, 'all', true);
     }
 
     /* [2] */
@@ -59,7 +59,7 @@ $_spacing-directions: (
   }
 }
 
-@include govuk-exports("govuk/overrides/spacing") {
-  @include _nhsuk-generate-spacing-overrides("margin");
-  @include _nhsuk-generate-spacing-overrides("padding");
+@include govuk-exports('govuk/overrides/spacing') {
+  @include _nhsuk-generate-spacing-overrides('margin');
+  @include _nhsuk-generate-spacing-overrides('padding');
 }

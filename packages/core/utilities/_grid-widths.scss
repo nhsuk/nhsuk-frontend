@@ -11,6 +11,12 @@
  * Usage: class="nhsuk-\!-one-half"
  */
 
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+
+// sass-lint:disable no-important
+
 .nhsuk-\!-one-half {
   float: left;
   width: percentage(1 / 2) !important;
