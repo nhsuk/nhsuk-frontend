@@ -48,7 +48,7 @@ These statistics are from the NHS website, using Google analytics, over a 1 year
 | Android          | Google Chrome (latest 2 versions)      | compliant   |
 | Android          | Samsung Internet (latest 2 versions)   | compliant   |
 
-‘Compliant’ means that the components must look as good and function as well as they do in other modern browsers.
+'Compliant' means that the components must look as good and function as well as they do in other modern browsers.
 
 'Functional' means the components may not look perfect in the given browser, but must still be usable without errors and without 'looking broken'.
 
