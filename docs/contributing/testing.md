@@ -55,7 +55,6 @@ and [Test Responsive and Device-specific Viewports](https://developers.google.co
 | Software                 | Type               | Browser                             |
 |--------------------------|--------------------|-------------------------------------|
 | JAWS                     | screen reader      | Internet Explorer 11                |                     
-| JAWS                     | screen reader      | Mozilla Firefox (latest 2 versions) |
 | ZoomText                 | screen magnifier   | Internet Explorer 11                |
 | Dragon NaturallySpeaking | speech recognition | Internet Explorer 11                |
 | NVDA                     | screen reader      | Firefox (latest versions)           |
