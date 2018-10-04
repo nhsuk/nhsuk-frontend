@@ -3,15 +3,10 @@
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Hide elements visually but keep it in the DOM
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * Usage: class="visually-hidden"
+ * See tools/mixins
  */
 
 .visually-hidden {
