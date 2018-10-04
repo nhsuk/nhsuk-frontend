@@ -17,7 +17,7 @@
  @mixin govuk-main-wrapper {
   padding: 15px 0 40px;
 
-  @include mq($from: grid-collapse) {
+  @include mq($from: desktop) {
     padding: 30px 0 56px;
   }
 }

@@ -61,3 +61,4 @@
 - Implemented the ITCSS (Inverted Triangle CSS) structure.
 - The clear scss mixin has been renamed to clearfix.
 - Unused font-faces have been removed (italics and extra bold).
+- Remove unused breakpoint mobile and duplicate breakpoint 'grid-collapse', for 'desktop'.

@@ -22,7 +22,7 @@
   margin: 0 $nhsuk-gutter-half;
 
   // On desktop, add full width gutters
-  @include mq($from: grid-collapse) {
+  @include mq($from: desktop) {
     margin: 0 $nhsuk-gutter;
   }
 
