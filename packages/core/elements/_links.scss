@@ -9,7 +9,7 @@ a {
     &:after {
       color: $colour_nhsuk-black;
       content: ' (Link: ' attr(href) ')';
-      font-size: 14px;
+      font-size: 14pt;
     }
   }
 

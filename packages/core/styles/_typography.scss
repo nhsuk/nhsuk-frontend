@@ -1,9 +1,19 @@
 /* ==========================================================================
    STYLES / #TYPOGRAPHY
    ========================================================================== */
-// Typography silent classes
 
-// - Headings
+/* Headings
+   ========================================================================== */
+
+/**
+ * The % (silent class) allows code to be extended (@extend) to other elements
+ * without bloating the code.
+ *
+ * @example scss
+ *  .foo {
+ *    @extend %nhsuk-heading-xl;
+ *   }
+ */
 
 %nhsuk-heading-xl {
   @include font-size($font-size-48);
@@ -14,6 +24,11 @@
   @include nhsuk-responsive-margin(7, "bottom");
 
   font-weight: $nhsuk-font-bold;
+}
+
+h1,
+.nhsuk-heading-xl {
+  @extend %nhsuk-heading-xl;
 }
 
 %nhsuk-heading-l {
@@ -27,6 +42,11 @@
   font-weight: $nhsuk-font-bold;
 }
 
+h2,
+.nhsuk-heading-l {
+  @extend %nhsuk-heading-l;
+}
+
 %nhsuk-heading-m {
   @include font-size($font-size-24);
 
@@ -36,6 +56,11 @@
   @include nhsuk-responsive-margin(4, "bottom");
 
   font-weight: $nhsuk-font-bold;
+}
+
+h3,
+.nhsuk-heading-m {
+  @extend %nhsuk-heading-m;
 }
 
 %nhsuk-heading-s {
@@ -49,6 +74,11 @@
   font-weight: $nhsuk-font-bold;
 }
 
+h4,
+.nhsuk-heading-s {
+  @extend %nhsuk-heading-s;
+}
+
 %nhsuk-heading-xs {
   @include font-size($font-size-19);
 
@@ -58,6 +88,11 @@
   @include nhsuk-responsive-margin(4, "bottom");
 
   font-weight: $nhsuk-font-bold;
+}
+
+h5,
+.nhsuk-heading-xs {
+  @extend %nhsuk-heading-xs;
 }
 
 %nhsuk-heading-xxs {
@@ -71,7 +106,13 @@
   font-weight: $nhsuk-font-bold;
 }
 
-// - Body (paragraphs)
+h6,
+.nhsuk-heading-xxs {
+  @extend %nhsuk-heading-xxs;
+}
+
+/* Body (paragraphs)
+   ========================================================================== */
 
 %nhsuk-body-l {
   @include font-size($font-size-24);
@@ -80,6 +121,10 @@
 
   margin-top: 0;
   @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-body-l {
+  @extend %nhsuk-body-l;
 }
 
 %nhsuk-body-m {
@@ -91,6 +136,11 @@
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
+p,
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
+}
+
 %nhsuk-body-s {
   @include font-size($font-size-16);
 
@@ -100,129 +150,19 @@
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
-// Semantic typography
-
-h1 {
-  @extend %nhsuk-heading-xl;
-}
-
-h2 {
-  @extend %nhsuk-heading-l;
-}
-
-h3 {
-  @extend %nhsuk-heading-m;
-}
-
-h4 {
-  @extend %nhsuk-heading-s;
-}
-
-h5 {
-  @extend %nhsuk-heading-xs;
-}
-
-h6 {
-  @extend %nhsuk-heading-xxs;
-}
-
-// NHSUK headings
-
-.nhsuk-heading-xl {
-  @extend %nhsuk-heading-xl;
-}
-
-.nhsuk-heading-l {
-  @extend %nhsuk-heading-l;
-}
-
-.nhsuk-heading-m {
-  @extend %nhsuk-heading-m;
-}
-
-.nhsuk-heading-s {
-  @extend %nhsuk-heading-s;
-}
-
-.nhsuk-heading-xs {
-  @extend %nhsuk-heading-xs;
-}
-
-.nhsuk-heading-xxs {
-  @extend %nhsuk-heading-xxs;
-}
-
-// NHSUK body (paragraphs)
-
-.nhsuk-body-l {
-  @extend %nhsuk-body-l;
-}
-
-.nhsuk-body-m {
-  @extend %nhsuk-body-m;
-}
-
 .nhsuk-body-s {
   @extend %nhsuk-body-s;
 }
 
-// Semantic body (paragraphs)
+/* Contextual adjustments
+   ========================================================================== */
 
-p {
-  @extend %nhsuk-body-m;
-}
-
-// All this code below to be refactored
-
-.nhsuk-page-heading {
-  padding: 25px 0 40px;
-  @include mq($from: grid-collapse) {
-    padding: 26px 0 56px;
-  }
-  h1 {
-    margin: 0;
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-page-heading {
-    padding-top: 0;
-  }
-}
-
-.nhsuk-page-nav {
-  & > *:first-child {
-    margin-top: 0;
-  }
-  @include mq($until: grid-collapse) {
-    margin-bottom: 44px;
-  }
-  h2,
-  h3 {
-    & + ol,
-    & + ul {
-      margin-top: 8px;
-    }
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-page-nav {
-    display: none;
-  }
-}
-
-.nhsuk-page-content {
-  & > *:first-child {
-    margin-top: 0;
-    & > *:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-// Contextual adjustments
-// Add top padding to headings that appear directly after paragraphs.
+/**
+ * Add top padding to headings that appear directly after paragraphs.
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
 
 %nhsuk-body-l  + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
@@ -249,4 +189,11 @@ p {
   @include mq($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
+}
+
+/* Font weight for <strong> and <b>
+   ========================================================================== */
+
+strong, b {
+  font-weight: $nhsuk-font-bold;
 }

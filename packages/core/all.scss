@@ -17,7 +17,6 @@
 @import 'elements/links';
 @import 'elements/page';
 @import 'elements/table';
-@import 'elements/typography';
 
 // Objects
 @import 'objects/grid';
@@ -38,3 +37,7 @@
 @import 'utilities/top-and-bottom';
 @import 'utilities/visually-hidden';
 @import 'utilities/widths';
+
+// Shame - only in use whilst developing frontend library.
+//  To be deleted once the code has been refactored.
+@import 'shame';

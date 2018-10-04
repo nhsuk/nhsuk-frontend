@@ -2,6 +2,20 @@
    STYLES / #LISTS
    ========================================================================== */
 
+/**
+ * The % (silent class) allows code to be extended (@extend) to other elements
+ * without bloating the code.
+ *
+ * @example scss
+ *  .foo {
+ *    @extend %nhsuk-section-break--xl;
+ *   }
+ *
+ * 1. 'Random number' used to align ul and ol left with content.
+ * 2. 'Random number' used to give sufficient spacing between text and icon.
+ * 3. 'Random number' used to align icon and text.
+ */
+
 %nhsuk-list {
   @include font-size($font-size-19);
   margin-top: 0;
@@ -19,19 +33,17 @@
 }
 
 %nhsuk-list--bullet {
-  padding-left: 20px;
-
+  padding-left: 20px; /* [1] */
   list-style-type: disc;
 }
 
-%nhsuk-list--number {
-  padding-left: 20px;
-  list-style-type: decimal;
-}
-
-
 .nhsuk-list--bullet {
   @extend %nhsuk-list--bullet;
+}
+
+%nhsuk-list--number {
+  padding-left: 20px; /* [1] */
+  list-style-type: decimal;
 }
 
 .nhsuk-list--number {
@@ -56,12 +68,12 @@ ol {
 .nhsuk-list--cross {
   list-style: none;
   margin-top: 0;
-  padding-left: 40px;
+  padding-left: 40px; /* [2] */
   position: relative;
 
   svg {
-    left: -4px;
-    margin-top: -5px;
+    left: -4px; /* [3] */
+    margin-top: -5px; /* [3] */
     position: absolute;
   }
 }
