@@ -24,6 +24,6 @@
 
 @mixin make-font-size($fs-font-size) {
   font-size: nth($fs-font-size, 1);
-  font-size: govuk-em(nth($fs-font-size, 1), $nhsuk-base-font-size);
-  line-height: nth($fs-font-size, 2);
+  font-size: nhsuk-px-to-rem(nth($fs-font-size, 1));
+  line-height: nhsuk-line-height(nth($fs-font-size, 2), nth($fs-font-size, 1));
 }

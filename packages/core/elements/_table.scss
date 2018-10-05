@@ -1,63 +1,13 @@
 /* ==========================================================================
-   ELEMENTS / #TABLE
+   ELEMENTS / #TABLES
    ========================================================================== */
 
-table {
-  background-color: $colour_nhsuk-white;
-  border: 1em solid $colour_nhsuk-white;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 40px 0;
-  position: relative;
-  vertical-align: top;
-  width: 100%;
-}
+/**
+ * Table styles are incredibly unopinionated. Simply:
+ *
+ * 1. Force `<table>`s to be full-width by default.
+ */
 
-th,
-td {
-  font-size: inherit;
-  padding: 1em;
-  text-align: left;
-  text-transform: none;
-  vertical-align: top;
-}
-
-td {
-  border-bottom: 1px solid $colour_nhsuk-grey-2;
-
-  &:hover {
-    background-color: $colour_nhsuk-pale-yellow;
-  }
-
-}
-
-th {
-  border-bottom: 2px solid $colour_nhsuk-grey-2;
-  font-weight: 600;
-
-  &:hover {
-    background-color: $colour_nhsuk-pale-yellow;
-  }
-
-}
-
-caption {
-  background: $colour_nhsuk-blue;
-  color: $colour_nhsuk-white;
-  font-size: govuk-em(20px, $nhsuk-base-font-size);
-  font-weight: 600;
-  left: 0;
-  line-height: 28px;
-  margin: 0;
-  padding: .3em 1em;
-  position: absolute;
-  text-align: left;
-  top: -1em;
-
-  @include mq($from: tablet) {
-    font-size: govuk-em(24px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 32px 0;
-  }
-
+ table {
+  width: 100%; /* [1] */
 }

@@ -2,44 +2,60 @@
    STYLES / #ICONS
    ========================================================================== */
 
-.nhsuk-logo {
-  height: 40px;
-  width: 99px;
-}
+/**
+ * We use SVGs for our icons, with no PNG fallback.
+ *
+ * For IE8 support, alternate styling is applied to the components using icons.
+ */
+
+/* Default icon size
+   ========================================================================== */
 
 .nhsuk-icon {
   height: $nhsuk-icon-size;
   width: $nhsuk-icon-size;
 }
 
+/* Default icon colours
+   ========================================================================== */
+
 .nhsuk-icon__search {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__chevron-left {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__chevron-right {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__close {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__cross {
   fill: $colour_nhsuk-red;
 }
+
 .nhsuk-icon__tick {
   fill: none;
   stroke: $colour_nhsuk-green;
 }
+
 .nhsuk-icon__arrow-right {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__arrow-left {
   fill: $colour_nhsuk-blue;
 }
+
 .nhsuk-icon__arrow-right-circle {
   fill: $colour_nhsuk-green;
 }
+
 .nhsuk-icon__chevron-down {
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -51,6 +67,7 @@
     fill: $colour_nhsuk-white;
   }
 }
+
 .nhsuk-icon__chevron-up {
   fill: $colour_nhsuk-blue;
   path {
@@ -58,18 +75,24 @@
   }
 }
 
+/* Icon size adjustments
+   ========================================================================== */
+
 .nhsuk-icon--size-25 {
   height: $nhsuk-icon-size * 1.25;
   width: $nhsuk-icon-size * 1.25;
 }
+
 .nhsuk-icon--size-50 {
   height: $nhsuk-icon-size * 1.5;
   width: $nhsuk-icon-size * 1.5;
 }
+
 .nhsuk-icon--size-75 {
   height: $nhsuk-icon-size * 1.75;
   width: $nhsuk-icon-size * 1.75;
 }
+
 .nhsuk-icon--size-100 {
   height: $nhsuk-icon-size * 2;
   width: $nhsuk-icon-size * 2;

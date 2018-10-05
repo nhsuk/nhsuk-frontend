@@ -14,12 +14,28 @@
  * 1. Provide line comments like this.
  */
 
-@function govuk-em($value, $govuk-context-font-size) {
+@function nhsuk-em($value, $context-font-size) {
   @if (unitless($value)) {
     $value: $value * 1px;
   }
-  @if (unitless($govuk-context-font-size)) {
-    $govuk-context-font-size: $govuk-context-font-size * 1px;
+  @if (unitless($context-font-size)) {
+    $context-font-size: $context-font-size * 1px;
   }
-  @return $value / $govuk-context-font-size * 1em;
+  @return $value / $context-font-size * 1em;
+}
+
+@function nhsuk-line-height($line-height, $font-size) {
+  @if not unitless($line-height) and unit($line-height) == unit($font-size) {
+    $line-height: $line-height / $font-size;
+  }
+
+  @return $line-height;
+}
+
+@function nhsuk-px-to-rem($value) {
+  @if (unitless($value)) {
+    $value: $value * 1px;
+  }
+
+  @return $value / $nhsuk-base-font-size * 1rem;
 }

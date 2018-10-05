@@ -1,1 +1,44 @@
 
+/* ==========================================================================
+   COMPONENTS / #TABLE
+   ========================================================================== */
+
+ table {
+  @include nhsuk-responsive-margin(7, "bottom");
+  @include nhsuk-responsive-margin(7, "top");
+
+  background-color: $colour_nhsuk-white;
+  border: 16px solid $colour_nhsuk-white;
+  border-spacing: 0;
+  position: relative;
+  vertical-align: top;
+}
+
+tr {
+  &:hover {
+    background-color: $colour_nhsuk-grey-5;
+  }
+}
+
+th,
+td {
+  @include nhsuk-responsive-padding(3);
+
+  font-size: inherit;
+  text-align: left;
+  text-transform: none;
+  vertical-align: top;
+}
+
+td {
+  border-bottom: 1px solid $nhsuk-border-colour;
+}
+
+th {
+  border-bottom: 2px solid $nhsuk-border-colour;
+  font-weight: $nhsuk-font-bold;
+}
+
+caption {
+  @include visually-hidden;;
+}
