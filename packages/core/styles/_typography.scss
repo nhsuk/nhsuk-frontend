@@ -16,7 +16,7 @@
  */
 
 %nhsuk-heading-xl {
-  @include font-size($font-size-48);
+  @include nhsuk-typography-responsive(48);
 
   display: block;
 
@@ -32,7 +32,7 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include font-size($font-size-32);
+  @include nhsuk-typography-responsive(32);
 
   display: block;
 
@@ -48,7 +48,7 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include font-size($font-size-24);
+  @include nhsuk-typography-responsive(24);
 
   display: block;
 
@@ -64,7 +64,7 @@ h3,
 }
 
 %nhsuk-heading-s {
-  @include font-size($font-size-22);
+  @include nhsuk-typography-responsive(22);
 
   display: block;
 
@@ -80,7 +80,7 @@ h4,
 }
 
 %nhsuk-heading-xs {
-  @include font-size($font-size-19);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
 
@@ -96,7 +96,7 @@ h5,
 }
 
 %nhsuk-heading-xxs {
-  @include font-size($font-size-16);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
 
@@ -115,7 +115,7 @@ h6,
    ========================================================================== */
 
 %nhsuk-body-l {
-  @include font-size($font-size-24);
+  @include nhsuk-typography-responsive(24);
 
   display: block;
 
@@ -128,7 +128,7 @@ h6,
 }
 
 %nhsuk-body-m {
-  @include font-size($font-size-19);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
 
@@ -142,7 +142,7 @@ p,
 }
 
 %nhsuk-body-s {
-  @include font-size($font-size-16);
+  @include nhsuk-typography-responsive(16);
 
   display: block;
 
@@ -161,7 +161,7 @@ p,
  * Add top padding to headings that appear directly after paragraphs.
  *
  * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
+ * https://github.com/alphagov/nhsuk-frontend
  */
 
 %nhsuk-body-l  + %nhsuk-heading-l {

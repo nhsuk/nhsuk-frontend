@@ -4,9 +4,7 @@
 
 @mixin nhsuk-link-style-default {
 
-  &:link {
-    color: $nhsuk-link-colour;
-  }
+  color: $nhsuk-link-colour;
 
   &:visited {
     color: $nhsuk-link-visited-colour;
