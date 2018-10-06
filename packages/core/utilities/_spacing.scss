@@ -2,10 +2,13 @@
    UTILITIES / #SPACING
    ========================================================================== */
 
-/// Directions for spacing
-///
-/// @type Map
-/// @access private
+/* Directions for spacing
+   ========================================================================== */
+
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
 
 $_spacing-directions: (
   "top",
@@ -14,27 +17,31 @@ $_spacing-directions: (
   "left"
 ) !default;
 
-/// Spacing override classes
-///
-/// Generate spacing override classes for the given property (e.g. margin)
-/// for each point in the spacing scale.
-///
-/// @param {String} $property - Property to add spacing to (e.g. 'margin')
-///
-/// @example scss
-///   .nhsuk-\!-margin-0 {
-///      margin: 0;
-///   }
-///
-///  .nhsuk-\!-margin-top-1 {
-///     margin-top: [whatever spacing point 1 is...]
-///   }
-///
-/// @access private
+/* Spacing override classes
+   ========================================================================== */
+
+/**
+ * Generate spacing override classes for the given property (e.g. margin)
+ * for each point in the spacing scale.
+ *
+ * @param {String} $property - Property to add spacing to (e.g. 'margin')
+ *
+ * @example scss
+ *   .nhsuk-\!-margin-0 {
+ *      margin: 0;
+ *   }
+ *
+ *  .nhsuk-\!-margin-top-1 {
+ *     margin-top: [whatever spacing point 1 is...]
+ *   }
+ *
+ * 1. For each point in the spacing scale (defined in settings), create an
+ *    override that affects all directions...
+ * 2. ... and then an override for each individual direction
+ */
 
 @mixin _nhsuk-generate-spacing-overrides($property) {
-  // For each point in the spacing scale (defined in settings), create an
-  // override that affects all directions...
+  /* [1] */
   @each $scale-point, $scale-map in $nhsuk-spacing-responsive-scale {
 
     .nhsuk-\!-#{$property}-#{$scale-point} {
@@ -42,7 +49,7 @@ $_spacing-directions: (
       @include _nhsuk-responsive-spacing($scale-point, $property, "all", true);
     }
 
-    // ... and then an override for each individual direction
+    /* [2] */
     @each $direction in $_spacing-directions {
 
       .nhsuk-\!-#{$property}-#{$direction}-#{$scale-point} {

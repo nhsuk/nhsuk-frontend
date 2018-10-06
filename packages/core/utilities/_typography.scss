@@ -1,0 +1,36 @@
+/* ==========================================================================
+   UTILITIES / #TYPOGRAPHY
+   ========================================================================== */
+
+/* Font size and line height
+   ========================================================================== */
+
+/**
+ * Generate typography override classes for each responsive font map in the
+ * typography scale eg .nhsuk-\!-font-size-48
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
+
+@each $size in map-keys($nhsuk-typography-scale) {
+  .nhsuk-\!-font-size-#{$size} {
+    @include nhsuk-typography-responsive($size, $important: true);
+  }
+}
+
+/* Weights
+   ========================================================================== */
+
+/**
+ * Generate font weight override classes for normal and bold
+ * eg .nhsuk-\!-font-weight-normal
+ */
+
+.nhsuk-\!-font-weight-normal {
+  @include nhsuk-typography-weight-normal($important: true);
+}
+
+.nhsuk-\!-font-weight-bold {
+  @include nhsuk-typography-weight-bold($important: true);
+}
