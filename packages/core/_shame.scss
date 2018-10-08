@@ -11,7 +11,7 @@
 
 .nhsuk-page-heading {
   padding: 25px 0 40px;
-  @include mq($from: grid-collapse) {
+  @include mq($from: desktop) {
     padding: 26px 0 56px;
   }
   h1 {
@@ -29,7 +29,7 @@
   & > *:first-child {
     margin-top: 0;
   }
-  @include mq($until: grid-collapse) {
+  @include mq($until: desktop) {
     margin-bottom: 44px;
   }
   h2,
