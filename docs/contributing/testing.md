@@ -56,11 +56,11 @@ These statistics are from the NHS website, using Google analytics, over a 1 year
 
 | Software                 | Type               | Browser                             |
 |--------------------------|--------------------|-------------------------------------|
-| JAWS                     | screen reader      | Internet Explorer 11                |                     
-| ZoomText                 | screen magnifier   | Internet Explorer 11                |
-| Dragon NaturallySpeaking | speech recognition | Internet Explorer 11                |
-| NVDA                     | screen reader      | Firefox (latest versions)           |
-| VoiceOver                | screen reader      | Safari on iOS10 and OS X            |
+| [JAWS](https://www.freedomscientific.com/Products/Blindness/JAWS)     | screen reader      | Internet Explorer 11 |                     
+| [ZoomText](https://www.zoomtext.com/products/zoomtext-magnifierreader/)             | screen magnifier   | Internet Explorer 11 |
+| [Dragon NaturallySpeaking](https://www.nuance.com/en-gb/dragon.html)| speech recognition | Internet Explorer 11 |
+| [NVDA](https://www.nvaccess.org/) | screen reader      | Firefox (latest versions)|
+| [VoiceOver](https://www.apple.com/uk/accessibility/iphone/vision/)           | screen reader      | Safari on iOS10 and OS X |
 
 Testing with the various technologies above should cover the vast amount of
 users who use assistive technologies.
