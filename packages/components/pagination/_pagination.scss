@@ -14,7 +14,7 @@
  * 1. Provide line comments like this.
  */
 .nhsuk-c-pagination {
-  @include clear();
+  @include clearfix();
   margin: 56px 0;
 
   @include mq($until: tablet) {

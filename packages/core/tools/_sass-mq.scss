@@ -5,13 +5,7 @@
 /**
  * We use sass-mq module for media queries
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Import sass-mq from our npm dependencies folder
  */
 
 $sass-mq-already-included: false !default;
@@ -20,13 +14,16 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import '../../..//node_modules/sass-mq/mq';
+@import '../../..//node_modules/sass-mq/mq'; /* [1] */
 
 $sass-mq-already-included: true;
 
-// =========================================================
-// Helpers
-// =========================================================
+/**
+ * sass-mq helpers
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
 
 @mixin govuk-media-query($args...) {
   @include mq($args...) {

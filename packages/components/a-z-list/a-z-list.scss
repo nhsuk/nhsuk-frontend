@@ -16,7 +16,7 @@
 .nhsuk-a-z-list {
   ul {
 
-    @include clear();
+    @include clearfix();
 
     margin: -8px 0 0 !important; // sass-lint:disable-line no-important
     padding: 0;

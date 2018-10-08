@@ -72,7 +72,7 @@
       padding: 36px 24px 32px;
     }
 
-    @include mq($from: grid-collapse) {
+    @include mq($from: desktop) {
       @include reading-width();
     }
 

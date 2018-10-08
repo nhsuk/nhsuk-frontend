@@ -2,6 +2,21 @@
    UTILITIES / #GRID
    ========================================================================== */
 
+/**
+ * Force grid widths on all screen sizes
+ * By default all grid elements will go to 100% width
+ * on every screen size, these utilities can force
+ * custom widths on all screen sizes
+ *
+ * Usage: class="nhsuk-\!-one-half"
+ */
+
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+
+// sass-lint:disable no-important
+
 .nhsuk-\!-one-half {
   float: left;
   width: percentage(1 / 2) !important;
@@ -26,6 +41,18 @@
   float: left;
   width: percentage(3 / 4) !important;
 }
+
+/**
+ * Force grid widths on screen sizes on tablet
+ * and above
+ *
+ * By default all grid elements will go to 100% width
+ * on every screen size, these utilities can force
+ * custom widths on screen sizes on tablet
+ * and above
+ *
+ * Usage: class="nhsuk-\!-one-half-tablet"
+ */
 
 .nhsuk-\!-one-half-tablet {
   width: 100% !important;

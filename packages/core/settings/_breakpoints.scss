@@ -15,8 +15,7 @@
  *    (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
  *    Create a separate stylesheet served exclusively to these browsers,
  *    meaning @media queries will be rasterized, relying on the cascade itself
- * 2. Grid only breakpoint, so doesn't affect typography.
- * 3. Define the breakpoint from the $mq-breakpoints list that should
+ * 2. Define the breakpoint from the $mq-breakpoints list that should
  *    be used as the target width when outputting a static stylesheet
  *    (i.e. when $mq-responsive is set to 'false').
  */
@@ -24,11 +23,9 @@
 $mq-responsive: true; /* [1] */
 
 $mq-breakpoints: (
-  mobile:  320px,
   tablet:  641px,
   desktop: 769px,
-  grid-collapse: 769px, /* [2] */
   large-desktop: 990px
 );
 
-$mq-static-breakpoint: desktop; /* [3] */
+$mq-static-breakpoint: desktop; /* [2] */

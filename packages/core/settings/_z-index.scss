@@ -4,6 +4,12 @@
 
 /**
  * z-index mapping
+ *
+ * Usage: z-index($KEY)
+ *
+ *   .foo {
+ *     z-index: z-index(5);
+ *   }
  */
 
 $z-index: (

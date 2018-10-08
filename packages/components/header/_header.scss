@@ -22,7 +22,7 @@ $colour_nhsuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha: .5;
 
 .nhsuk-global-header {
-  @include clear();
+  @include clearfix();
   background: $colour_nhsuk-blue;
 
   &__logo {
@@ -73,7 +73,7 @@ $alpha: .5;
       color: $colour_nhsuk-white;
       display: block;
       font-size: 18px;
-      font-weight: 400;
+      font-weight: $nhsuk-font-normal;
       line-height: $nhsuk-base-line-height;
       margin: 0;
       padding: 5px 15px;
@@ -323,11 +323,11 @@ $alpha: .5;
       padding-left: 15px;
       padding-right: 15px;
       position: relative;
-      z-index: 1;
+      z-index: z-index(1);
     }
 
     .nhsuk-global-header__menusearch {
-      @include clear();
+      @include clearfix();
       float: none;
       text-align: right;
 
@@ -338,7 +338,7 @@ $alpha: .5;
     }
 
     .nhsuk-global-header__menu {
-      @include clear();
+      @include clearfix();
       display: inline-block;
       float: none;
 
@@ -349,7 +349,7 @@ $alpha: .5;
     }
 
     .nhsuk-global-header__search {
-      @include clear();
+      @include clearfix();
       background: $colour_nhsuk-white;
       display: flex;
 
@@ -472,7 +472,7 @@ $alpha: .5;
   overflow-y: auto;
   padding: 10px 15px 18px;
   position: absolute;
-  z-index: 1;
+  z-index: z-index(1);
 }
 
 @include mq($until: tablet) {
@@ -499,7 +499,7 @@ $alpha: .5;
   border-bottom: 1px solid $colour_nhsuk-grey-4;
   color: $nhsuk-text-colour;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: $nhsuk-font-bold;
   padding-bottom: 12px;
   text-align: left;
 }
@@ -509,7 +509,7 @@ $alpha: .5;
   color: $colour_nhsuk-blue;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: $nhsuk-font-light;
   padding-bottom: 12px;
   text-align: left;
   text-decoration: underline;
@@ -573,7 +573,7 @@ $alpha: .5;
   &:focus {
     left: 16px;
     top: 16px;
-    z-index: 2;
+    z-index: z-index(2);
   }
 
   &:visited {
@@ -732,7 +732,7 @@ $alpha: .5;
 
   @include mq($from: large-desktop) {
 
-    @include clear();
+    @include clearfix();
     background: $colour_nhsuk-blue;
 
     &__title {

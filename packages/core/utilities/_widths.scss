@@ -5,7 +5,16 @@
 /**
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
+ * Force element widths on all screen sizes
+ *
+ * Usage: class="nhsuk-\!-width-full"
  */
+
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+
+// sass-lint:disable no-important
 
 .nhsuk-\!-width-full {
   width: 100% !important;
