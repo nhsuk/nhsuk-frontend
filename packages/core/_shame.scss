@@ -9,22 +9,6 @@
  /* Page layout
    ========================================================================== */
 
-.nhsuk-page-heading {
-  padding: 25px 0 40px;
-  @include mq($from: desktop) {
-    padding: 26px 0 56px;
-  }
-  h1 {
-    margin: 0;
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-page-heading {
-    padding-top: 0;
-  }
-}
-
 .nhsuk-page-nav {
   & > *:first-child {
     margin-top: 0;
