@@ -19,25 +19,16 @@
  * 1. In IE11 the `main` element can be used, but is not recognized  –
  *    meaning it's not defined in IE's default style sheet,
  *    so it uses CSS initial value, which is inline.
- * 2. Use nhsuk-main-wrapper--l when you page does not have Breadcrumbs, phase banners or back links
 */
 
 @mixin govuk-main-wrapper {
-  @include nhsuk-responsive-padding(6, "top");
-  @include nhsuk-responsive-padding(6, "bottom");
+  @include nhsuk-responsive-padding(7, "top");
+  @include nhsuk-responsive-padding(7, "bottom");
   display: block; /* [1] */
-}
-
-@mixin govuk-main-wrapper--l { /* [2] */
-  @include nhsuk-responsive-padding(8, "top");
 }
 
 @include govuk-exports("govuk/objects/main-wrapper") {
   .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
-  }
-
-  .nhsuk-main-wrapper--l {
-    @include govuk-main-wrapper--l;
   }
 }
