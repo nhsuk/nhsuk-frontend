@@ -18,7 +18,7 @@ Find out when to use the header component in the [Digital service manual]().
     </div>
     <header role="banner">
       <div class="nhsuk-global-header">
-        <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
+        <div class="nhsuk-width-container nhsuk-width-container--global-header">
           <div class="nhsuk-global-header__logo">
             <a href="/" class="global-header__link">
               <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
@@ -75,7 +75,7 @@ Find out when to use the header component in the [Digital service manual]().
     </header>
     <nav class="c-nav-primary" id="c-nav-primary" role="navigation" aria-label="Primary navigation" aria-labelledby="mainmenulabel">
       <div class="nhsuk-global-nav">
-        <div class="nhsuk-o-width-container">
+        <div class="nhsuk-width-container">
           <p class="c-nav-primary__title"><span id="mainmenulabel">Menu</span>
             <button class="c-nav-primary__close-link">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">

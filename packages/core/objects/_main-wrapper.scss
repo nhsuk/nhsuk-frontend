@@ -3,29 +3,41 @@
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Page wrapper for the grid system
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
+ * Usage:
+ * <div class="nhsuk-width-container">
+ *   <div class="nhsuk-main-wrapper">
+ *    <!-- Wrapper for the main content of your page which applies padding
+ *         to the top / bottom -->
+ *   </div>
+ * </div>
  *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
  *
- * 1. Provide line comments like this.
- */
+ * 1. In IE11 the `main` element can be used, but is not recognized  –
+ *    meaning it's not defined in IE's default style sheet,
+ *    so it uses CSS initial value, which is inline.
+ * 2. Use nhsuk-main-wrapper--l when you page does not have Breadcrumbs, phase banners or back links
+*/
 
- @mixin govuk-main-wrapper {
-  padding: 15px 0 40px;
-
-  @include mq($from: desktop) {
-    padding: 30px 0 56px;
-  }
+@mixin govuk-main-wrapper {
+  @include nhsuk-responsive-padding(6, "top");
+  @include nhsuk-responsive-padding(6, "bottom");
+  display: block; /* [1] */
 }
 
-@include govuk-exports('main-wrapper') {
+@mixin govuk-main-wrapper--l { /* [2] */
+  @include nhsuk-responsive-padding(8, "top");
+}
 
-  .nhsuk-o-main-wrapper {
+@include govuk-exports("govuk/objects/main-wrapper") {
+  .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
   }
 
+  .nhsuk-main-wrapper--l {
+    @include govuk-main-wrapper--l;
+  }
 }
