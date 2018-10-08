@@ -6,7 +6,7 @@
     <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
       <div class="nhsuk-global-header__logo">
         <a href="/" class="global-header__link">
-          {% include 'core/assets/logos/nhs-logo.svg' %}
+          {% include 'assets/logos/nhs-logo.svg' %}
           <span class="visually-hidden">NHS homepage</span>
         </a>
       </div>
@@ -15,7 +15,7 @@
         <div class="nhsuk-global-header__search">
           <div class="search-toggle">
             <button class="search-toggle__button" aria-controls="search-container" aria-label="Open search">
-              {% include 'core/assets/icons/icon-search.svg' %}
+              {% include 'assets/icons/icon-search.svg' %}
               <span class="visually-hidden">Search</span>
             </button>
           </div>
@@ -25,7 +25,7 @@
                 <label class="c-search__label visually-hidden" for="search-field">Search the NHS website</label>
                 <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
                 <button type="submit" class="c-search__submit">
-                  {% include 'core/assets/icons/icon-search.svg' %}
+                  {% include 'assets/icons/icon-search.svg' %}
                   <span class="visually-hidden">Search</span>
                 </button>
               </div>
@@ -33,7 +33,7 @@
 
             <div class="search-close">
               <button class="search-close__link">
-                {% include 'core/assets/icons/icon-close.svg' %}
+                {% include 'assets/icons/icon-close.svg' %}
                 <span class="visually-hidden">Close search</span>
               </button>
             </div>
@@ -48,14 +48,14 @@
     <div class="nhsuk-o-width-container">
       <p class="c-nav-primary__title"><span id="mainmenulabel">Menu</span>
         <button class="c-nav-primary__close-link">
-          {% include 'core/assets/icons/icon-close.svg' %}
+          {% include 'assets/icons/icon-close.svg' %}
           <span class="visually-hidden">Close menu</span>
         </button>
       </p>
       <ul class="c-nav-primary__list">
-        <li class="c-nav-primary__item c-nav-primary__item--mobile"><a href="/" class="c-nav-primary__link">Home {% include 'core/assets/icons/icon-chevron-right.svg' %}</a></li>
+        <li class="c-nav-primary__item c-nav-primary__item--mobile"><a href="/" class="c-nav-primary__link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% for item in primaryLinks %}
-        <li class="c-nav-primary__item"><a href="{{item.url}}" class="c-nav-primary__link">{{item.label}} {% include 'core/assets/icons/icon-chevron-right.svg' %}</a></li>
+        <li class="c-nav-primary__item"><a href="{{item.url}}" class="c-nav-primary__link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% endfor %}
       </ul>
     </div>

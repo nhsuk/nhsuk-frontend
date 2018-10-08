@@ -20,8 +20,8 @@ function styles() {
 
 function scripts() {
   return gulp.src([
-      'packages/components/header/typeahead.bundle.min.js', 
-      'packages/components/header/nhs.typeahead.js', 
+      'packages/components/header/typeahead.bundle.min.js',
+      'packages/components/header/nhs.typeahead.js',
       'packages/components/header/header.js',
       'packages/components/feedback-banner/feedback-banner.js'
     ])
@@ -31,10 +31,10 @@ function scripts() {
 
 function bundle() {
   return gulp.src([
-    'packages/nhsuk.min.css', 
-    'packages/nhsuk-ie-78.min.css', 
+    'packages/nhsuk.min.css',
+    'packages/nhsuk-ie-78.min.css',
     'packages/nhsuk.js',
-    'packages/core/assets/libraries/*.js'
+    'packages/assets/libraries/*.js'
   ])
   .pipe(gulp.dest('dist/'));
 }

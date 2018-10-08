@@ -4,7 +4,7 @@
     <ul class="nhsuk-list nhsuk-list--check">
       {% for data in items %}
       <li>
-      {% include 'core/assets/icons/icon-tick.svg' %}
+      {% include 'assets/icons/icon-tick.svg' %}
       {{ data.item | safe}}
       </li>
       {% endfor %}
@@ -13,7 +13,7 @@
     <ul class="nhsuk-list nhsuk-list--cross">
     {% for data in items %}
       <li>
-      {% include 'core/assets/icons/icon-cross.svg' %}
+      {% include 'assets/icons/icon-cross.svg' %}
       <span>Don't</span> {{ data.item | safe}}
       </li>
     {% endfor %}
