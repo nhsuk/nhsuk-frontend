@@ -94,7 +94,7 @@
  *    @include nhsuk-typography-responsive(19);
  *   }
  *
-*  .foo {
+ *  .foo {
  *    @include nhsuk-typography-responsive(32, $important: true);
  *   }
  *
@@ -103,6 +103,10 @@
  *   height. Omit to use the line height from the font map.
  * @param {Boolean} $important [false] - Whether to mark declarations as
  *   `!important`.
+ *
+ * 1. Mark rules as !important if $important is true - this will result in
+ *    these variables becoming strings, so this needs to happen *after* they
+ *    are used in calculations
  */
 
 @mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
@@ -125,9 +129,7 @@
       $font-size: $font-size
     );
 
-    // Mark rules as !important if $important is true - this will result in
-    // these variables becoming strings, so this needs to happen *after* they
-    // are used in calculations
+    /* [1] */
     $font-size: $font-size iff($important, !important);
     $font-size-rem: $font-size-rem iff($important, !important);
     $line-height: $line-height iff($important, !important);

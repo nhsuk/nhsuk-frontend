@@ -2,9 +2,10 @@
    SETTINGS / #SPACING
    ========================================================================== */
 
+/* Single point spacing variables
+========================================================================== */
+
 /**
- * Single point spacing variables. Access using `nhsuk-spacing()`
- *
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
 */
@@ -22,11 +23,12 @@ $nhsuk-spacing-points: (
   9: 64px
 ) !default;
 
+/* Responsive spacing map
+   ========================================================================== */
+
 /**
- * Responsive spacing maps
- *
  * These definitions are used to generate responsive spacing that adapts
- * according to the breakpoints (see 'helpers/spacing'). These maps should be
+ * according to the breakpoints (see 'tools/spacing'). These maps should be
  * used wherever possible to standardise responsive spacing.
  *
  * You can define different behaviour on tablet and desktop. The 'null'

@@ -2,9 +2,10 @@
    TOOLS / #FUNCTIONS
    ========================================================================== */
 
+/* Convert pixels to em
+   ========================================================================== */
+
 /**
- * Convert pixels to em
- *
  * A quick way to convert px into em
  * Usage: nhsuk-em(20px, $nhsuk-base-font-size);
  *
@@ -22,13 +23,16 @@
   @return $value / $context-font-size * 1em;
 }
 
-@function nhsuk-line-height($line-height, $font-size) {
-  @if not unitless($line-height) and unit($line-height) == unit($font-size) {
-    $line-height: $line-height / $font-size;
-  }
+/* Convert pixels to rem
+   ========================================================================== */
 
-  @return $line-height;
-}
+/**
+ * A quick way to convert px into rem
+ * Usage: nhsuk-px-to-rem(20px);
+ *
+ * The $nhsuk-base-font-size (defined in settings/_globals.scss)
+ * must be configured to match the font-size of your root (html) element
+ */
 
 @function nhsuk-px-to-rem($value) {
   @if (unitless($value)) {

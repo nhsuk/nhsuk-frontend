@@ -3,15 +3,10 @@
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Set the global `box-sizing` state to `border-box`.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ * http://paulirish.com/2012/box-sizing-border-box-ftw
  */
 
 html {
