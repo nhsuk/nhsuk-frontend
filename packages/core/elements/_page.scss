@@ -17,6 +17,7 @@
 html {
   font-family: $nhsuk-font, $nhsuk-font-fallback;
   overflow-y: scroll; /* [1] */
+  background-color: $colour_nhsuk-blue;
 }
 
 body {
