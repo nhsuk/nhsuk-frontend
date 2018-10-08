@@ -13,9 +13,9 @@ Find out when to use the emergency alert component in the [Digital service manua
 #### Markup
 
     <div id="nhsuk-global-alert" class="nhsuk-c-global-alert">
-      <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
             <div class="nhsuk-c-global-alert__content">
               <h2 class="nhsuk-c-global-alert__header"><span role="text"><span class="visually-hidden">Alert: </span>National flu outbreak</span></h2>
               <p class="nhsuk-c-global-alert__message">There has been a national flu outbreak. <a href="#" class="nhsuk-c-banner__link wrap">How does it affect me</a>.</p>

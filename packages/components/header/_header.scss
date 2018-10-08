@@ -221,7 +221,7 @@ $alpha: .5;
 
   @include mq($until: tablet) {
 
-    .nhsuk-o-width-container--global-header {
+    .nhsuk-width-container--global-header {
       margin: 0;
     }
 
@@ -594,7 +594,7 @@ $alpha: .5;
       display: block;
     }
 
-    .nhsuk-o-width-container {
+    .nhsuk-width-container {
       margin: 0;
       max-width: 990px;
     }

@@ -13,9 +13,9 @@ Find out when to use the phase banner component in the [Digital service manual](
 #### Markup
 
     <div class="nhsuk-c-phase-banner">
-      <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-grid">
-          <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">            
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">            
             <p><strong class="nhsuk-c-phase-banner__tag">New</strong> <span>We are testing a new page layout — your <a href="#">feedback</a> will help us to improve it.</span></p>
           </div>
         </div>

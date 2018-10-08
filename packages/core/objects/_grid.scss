@@ -2,104 +2,12 @@
    OBJECTS / #GRID
    ========================================================================== */
 
-/**
- * Long-form comment.
- *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
- */
-
-@mixin govuk-grid {
-  @include clearfix();
-  margin-left: - ($nhsuk-gutter-half);
-  margin-right: - ($nhsuk-gutter-half);
-}
-
-@mixin govuk-grid-item {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 $nhsuk-gutter-half;
-
-  @include mq($from: desktop) {
-    float: left;
-  }
-}
-
-@include govuk-exports('grid') {
-
-  .nhsuk-o-grid {
-    @include govuk-grid;
-  }
-
-  .nhsuk-o-grid__item {
-    @include govuk-grid-item;
-  }
-
-  .nhsuk-o-grid__item--full {
-    width: 100%;
-  }
-
-  .nhsuk-o-grid__item--one-half {
-    @include mq($from: desktop) {
-      width: percentage(1 / 2);
-    }
-  }
-
-  .nhsuk-o-grid__item--one-third {
-    @include mq($from: desktop) {
-      width: percentage(1 / 3);
-    }
-  }
-
-  .nhsuk-o-grid__item--two-thirds {
-    @include mq($from: desktop) {
-      width: percentage(2 / 3);
-    }
-  }
-
-  .nhsuk-o-grid__item--one-quarter {
-    @include mq($from: desktop) {
-      width: percentage(1 / 4);
-    }
-  }
-
-  .nhsuk-o-grid__item--three-quarters {
-    @include mq($from: desktop) {
-      width: percentage(3 / 4);
-    }
-  }
-
-  @include mq($media-type: print) {
-
-    .nhsuk-o-grid__item--one-half {
-      float: left;
-      width: percentage(1 / 2);
-    }
-
-    .nhsuk-o-grid__item--one-third {
-      float: left;
-      width: percentage(1 / 3);
-    }
-
-    .nhsuk-o-grid__item--two-thirds {
-      float: left;
-      width: percentage(2 / 3);
-    }
-
-    .nhsuk-o-grid__item--one-quarter {
-      float: left;
-      width: percentage(1 / 4);
-    }
-
-    .nhsuk-o-grid__item--three-quarters {
-      float: left;
-      width: percentage(3 / 4);
-    }
-
-  }
+@include govuk-exports("govuk/objects/grid") {
+  @include govuk-grid-row;
+  @include govuk-grid-column(one-quarter);
+  @include govuk-grid-column(one-third);
+  @include govuk-grid-column(one-half);
+  @include govuk-grid-column(two-thirds);
+  @include govuk-grid-column(three-quarters);
+  @include govuk-grid-column(full);
 }

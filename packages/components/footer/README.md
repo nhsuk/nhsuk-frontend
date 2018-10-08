@@ -16,7 +16,7 @@ Find out when to use the footer component in the [Digital service manual]().
 
     <footer role="contentinfo">
       <div class="nhsuk-global-footer">
-        <div class="nhsuk-o-width-container">
+        <div class="nhsuk-width-container">
           <ul>
             <li class="nhsuk-global-footer__logo">
               <a href="/" class="global-footer__link">

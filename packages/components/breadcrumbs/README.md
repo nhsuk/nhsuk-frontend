@@ -15,7 +15,7 @@ Find out when to use the breadcrumbs component in the [Digital service manual]()
 #### Markup
 
     <nav class="nhsuk-c-breadcrumb" aria-label="Breadcrumb">
-      <div class="nhsuk-o-width-container">
+      <div class="nhsuk-width-container">
         <ol class="nhsuk-c-breadcrumb__list">
           <li class="nhsuk-c-breadcrumb__item"><a href="/" class="nhsuk-c-breadcrumb__link">Home</a> 
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
