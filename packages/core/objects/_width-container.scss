@@ -8,28 +8,28 @@
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  *
- * 1. Limit the width of the container to the page width
- * 2. On mobile, add half width gutters
+ * 1. On mobile, add half width gutters
+ * 2. Limit the width of the container to the page width
  * 3. On tablet, add full width gutters
  * 4. As soon as the viewport is greater than the width of the page plus the
  *    gutters, just centre the content instead of adding gutters.
 */
 
-  @mixin govuk-width-container {
-  max-width: $nhsuk-page-width; /* [1] */
+@mixin govuk-width-container {
+  margin: 0 $nhsuk-gutter-half; /* [1] */
 
-  margin: 0 $nhsuk-gutter-half; /* [2] */
+  max-width: $nhsuk-page-width; /* [2] */
 
   @include govuk-media-query($from: tablet) {
     margin: 0 $nhsuk-gutter; /* [3] */
   }
 
-  @include govuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
+  @include govuk-media-query($and: '(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})') {
     margin: 0 auto;
   }
 }
 
-@include govuk-exports("govuk/objects/width-container") {
+@include govuk-exports('govuk/objects/width-container') {
   .nhsuk-width-container {
     @include govuk-width-container;
   }

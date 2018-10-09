@@ -8,25 +8,26 @@
  * 1. The reason for this is to prevent "centering jumps" when navigating back
  *    and forth between pages with enough content to have a vertical scroll bar
  *    and pages that do not.
- * 2. Override the user agent style margin of 8px.
- * 3. Ensure the page always fills at least the entire height of the viewport.
- * 4. Fonts on OSX will look more consistent with other systems that do not
+ * 2. Fonts on OSX will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
+ * 3. Override the user agent style margin of 8px.
+ * 4. Ensure the page always fills at least the entire height of the viewport.
+ *
  */
 
 html {
+  background-color: $colour_nhsuk-blue;
   font-family: $nhsuk-font, $nhsuk-font-fallback;
   overflow-y: scroll; /* [1] */
-  background-color: $colour_nhsuk-blue;
 }
 
 body {
+  -moz-osx-font-smoothing: grayscale; /* [2] */
+  -webkit-font-smoothing: antialiased; /* [2] */
   background-color: $colour_nhsuk-grey-5;
   color: $nhsuk-text-colour;
   font-size: $nhsuk-base-font-size;
   line-height: nhsuk-line-height(24px, $nhsuk-base-font-size);
-  margin: 0; /* [2] */
-  min-height: 100%; /* [3] */
-  -moz-osx-font-smoothing: grayscale; /* [4] */
-  -webkit-font-smoothing: antialiased; /* [4] */
+  margin: 0; /* [3] */
+  min-height: 100%; /* [4] */
 }

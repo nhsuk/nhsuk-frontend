@@ -19,11 +19,10 @@
   @include nhsuk-typography-responsive(48);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(7, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(7, 'bottom');
 }
 
 h1,
@@ -35,11 +34,10 @@ h1,
   @include nhsuk-typography-responsive(32);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 h2,
@@ -51,11 +49,10 @@ h2,
   @include nhsuk-typography-responsive(24);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 h3,
@@ -67,11 +64,10 @@ h3,
   @include nhsuk-typography-responsive(22);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 h4,
@@ -83,11 +79,10 @@ h4,
   @include nhsuk-typography-responsive(19);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 h5,
@@ -99,11 +94,10 @@ h5,
   @include nhsuk-typography-responsive(19);
 
   display: block;
-
-  margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
-
   font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 h6,
@@ -118,9 +112,9 @@ h6,
   @include nhsuk-typography-responsive(24);
 
   display: block;
-
   margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 .nhsuk-body-l {
@@ -131,9 +125,9 @@ h6,
   @include nhsuk-typography-responsive(19);
 
   display: block;
-
   margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 p,
@@ -145,9 +139,9 @@ p,
   @include nhsuk-typography-responsive(16);
 
   display: block;
-
   margin-top: 0;
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
 
 .nhsuk-body-s {
@@ -175,7 +169,7 @@ p,
 %nhsuk-body-m  + %nhsuk-heading-l,
 %nhsuk-body-s  + %nhsuk-heading-l,
 %nhsuk-list + %nhsuk-heading-l {
-  @include nhsuk-responsive-padding(4, "top");
+  @include nhsuk-responsive-padding(4, 'top');
 }
 
 %nhsuk-body-m + %nhsuk-heading-m,
@@ -194,6 +188,7 @@ p,
 /* Font weight for <strong> and <b>
    ========================================================================== */
 
-strong, b {
+strong,
+b {
   font-weight: $nhsuk-font-bold;
 }

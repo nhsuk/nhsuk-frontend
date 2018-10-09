@@ -34,7 +34,7 @@ $_nhsuk-grid-widths: (
     @return map-get($_nhsuk-grid-widths, $key);
   }
 
-  @error "Unknown grid width `#{$key}`";
+  @error 'Unknown grid width `#{$key}`';
 }
 
 /**
@@ -52,11 +52,11 @@ $_nhsuk-grid-widths: (
 *
 **/
 
-@mixin govuk-grid-row($class: "nhsuk-grid-row") {
+@mixin govuk-grid-row($class: 'nhsuk-grid-row') {
   .#{$class} {
     @include clearfix;
-    margin-right: - ($nhsuk-gutter-half);
     margin-left: - ($nhsuk-gutter-half);
+    margin-right: - ($nhsuk-gutter-half);
   }
 }
 
@@ -91,7 +91,7 @@ $_nhsuk-grid-widths: (
 *
 **/
 
-@mixin govuk-grid-column($width: full, $float: left, $at: tablet, $class: "nhsuk-grid-column") {
+@mixin govuk-grid-column($width: full, $float: left, $at: tablet, $class: 'nhsuk-grid-column') {
 
   .#{$class}-#{$width} {
     box-sizing: border-box;
@@ -100,8 +100,8 @@ $_nhsuk-grid-widths: (
     }
     padding: 0 $nhsuk-gutter-half;
     @include govuk-media-query($from: $at) {
-      width: grid-width($width);
       float: $float;
+      width: grid-width($width);
     }
   }
 }
