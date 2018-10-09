@@ -1,20 +1,17 @@
 # NHS.UK frontend (IN DEVELOPMENT)
 
-This is a testing repository, please use https://github.com/nhsuk/frontend
-
-NHS.UK frontend contains the code you need to start building user interfaces for NHS services.
+NHS.UK frontend contains all the code you need to start building user interfaces for NHS websites and services.
 
 ## Using NHS.UK frontend
 
 ### 1. Install with package managers (recommended)
 
-+ npm - TBC.
-+ yarn - TBC.
-+ PyPi - TBC.
++ npm; documentation to be completed.
++ PyPi; documentation to be completed.
 
 ### 2. Install by using compiled files
 
-TBC.
++ Documentation to be completed.
 
 ## Contributing
 
@@ -28,15 +25,11 @@ Once the dependencies have installed, you can run the application with `npm run 
 
 ### Getting started
 
-Everything you need to know about NHS.UK frontend can be found on the documentation pages at <a href="http://localhost:3000">http://localhost:3000</a>.
-
-+ Folder structure - TBC.
-+ Coding standards - TBC.
-+ Tooling - TBC.
-+ Testing - TBC.
-+ Browser and device support - TBC.
-+ Accessibility - TBC.
-+ Workflow - TBC.
++ Folder structure; documentation to be completed
++ Coding standards; documentation to be completed
++ Tooling; documentation to be completed
++ [Testing](/docs/contributing/testing.md)
++ Workflow; documentation to be completed
 
 ## Licence
 
