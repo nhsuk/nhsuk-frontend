@@ -1,27 +1,24 @@
 /* ==========================================================================
-   #inset-text
+   COMPONENTS / #INSET-TEXT
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Inset text is used to differentiate a block of text from the
+ * content that surrounds it.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Removes top margin from first element and bottom margin from last,
+ *    to ensure correct spacing within the component.
+ * 2. Restricts the width of the text to optimise the line length for
+ *    readability.
  */
+
 .nhsuk-c-inset-text {
-  @include top-and-bottom();
-  @include reading-width();
+  @include top-and-bottom(); /* [1] */
+  @include reading-width(); /* [2] */
 
-  border-left: 12px solid $colour_nhsuk-blue;
-  margin: 40px 0;
-  padding: 16px;
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
 
-  .visually-hidden:first-of-type + * {
-    margin-top: 0;
-  }
+  border-left: $nhsuk-border-width-inset-text solid $colour_nhsuk-blue;
+  padding: nhsuk-spacing(3);
 }
