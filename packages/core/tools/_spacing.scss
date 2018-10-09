@@ -22,16 +22,18 @@
  * https://github.com/alphagov/govuk-frontend
  */
 
+// sass-lint:disable no-important
+
 @function nhsuk-spacing($spacing-point) {
 
   $actual-input-type: type-of($spacing-point);
-  @if $actual-input-type != "number" {
-    @error "Expected a number (integer), but got a "
-    + "#{$actual-input-type}.";
+  @if $actual-input-type != 'number' {
+    @error 'Expected a number (integer), but got a '
+    + '#{$actual-input-type}.';
   }
 
   @if not map-has-key($nhsuk-spacing-points, $spacing-point) {
-    @error "Unknown spacing variable `#{$spacing-point}`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.";
+    @error 'Unknown spacing variable `#{$spacing-point}`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.';
   }
 
   @return map-get($nhsuk-spacing-points, $spacing-point);
@@ -71,23 +73,23 @@
  * https://github.com/alphagov/govuk-frontend
  */
 
-@mixin _nhsuk-responsive-spacing($responsive-spacing-point, $property, $direction: "all", $important: false, $adjustment: false) {
+@mixin _nhsuk-responsive-spacing($responsive-spacing-point, $property, $direction: 'all', $important: false, $adjustment: false) {
 
   $actual-input-type: type-of($responsive-spacing-point);
-  @if $actual-input-type != "number" {
-    @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
+  @if $actual-input-type != 'number' {
+    @error 'Expected a number (integer), but got a ' + '#{$actual-input-type}.';
   }
 
   @if not map-has-key($nhsuk-spacing-responsive-scale, $responsive-spacing-point) {
-    @error "Unknown spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the "
-    + "responsive spacing scale in `_settings/spacing.scss`.";
+    @error 'Unknown spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the '
+    + 'responsive spacing scale in `_settings/spacing.scss`.';
   }
 
   $scale-map: map-get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); /* [1] */
   $actual-map-type: type-of($scale-map);
-  @if $actual-map-type != "map" {
-    @error "Expected a number (integer), but got a "
-    + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
+  @if $actual-map-type != 'map' {
+    @error 'Expected a number (integer), but got a '
+    + '#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)';
   }
 
   @each $breakpoint, $breakpoint-value in $scale-map { /* [2] */
@@ -134,15 +136,15 @@
  *
  * @example scss
  *   .foo {
- *      @include nhsuk-responsive-margin(6, "left", $adjustment: 1px);
+ *      @include nhsuk-responsive-margin(6, 'left', $adjustment: 1px);
  *   }
  *
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  */
 
-@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
+@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: 'all', $important: false, $adjustment: false) {
+  @include _nhsuk-responsive-spacing($responsive-spacing-point, 'margin', $direction, $important, $adjustment);
 }
 
 /* Responsive padding
@@ -164,13 +166,13 @@
  *
  * @example scss
  *   .foo {
- *      @include nhsuk-responsive-padding(6, "left", $adjustment: 1px);
+ *      @include nhsuk-responsive-padding(6, 'left', $adjustment: 1px);
  *   }
  *
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  */
 
-@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
+@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: 'all', $important: false, $adjustment: false) {
+  @include _nhsuk-responsive-spacing($responsive-spacing-point, 'padding', $direction, $important, $adjustment);
 }

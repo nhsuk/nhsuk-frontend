@@ -12,6 +12,8 @@
  * https://github.com/alphagov/govuk-frontend
  */
 
+// sass-lint:disable no-important, no-duplicate-properties
+
 @mixin nhsuk-text-colour {
   color: $nhsuk-text-colour;
 
@@ -112,19 +114,19 @@
 @mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
 
   @if not map-has-key($nhsuk-typography-scale, $size) {
-    @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
+    @error 'Unknown font size `#{$size}` - expected a point from the typography scale.';
   }
 
   $font-map: map-get($nhsuk-typography-scale, $size);
 
   @each $breakpoint, $breakpoint-map in $font-map {
-    $font-size: map-get($breakpoint-map, "font-size");
+    $font-size: map-get($breakpoint-map, 'font-size');
     $font-size-rem: nhsuk-px-to-rem($font-size);
 
     $line-height: _nhsuk-line-height(
       $line-height: if($override-line-height,
         $override-line-height,
-        map-get($breakpoint-map, "line-height")
+        map-get($breakpoint-map, 'line-height')
       ),
       $font-size: $font-size
     );
@@ -138,7 +140,7 @@
       font-size: $font-size;
       font-size: $font-size-rem;
       line-height: $line-height;
-    } @elseif $breakpoint == "print" {
+    } @elseif $breakpoint == 'print' {
       @include govuk-media-query($media-type: print) {
         font-size: $font-size;
         line-height: $line-height;
