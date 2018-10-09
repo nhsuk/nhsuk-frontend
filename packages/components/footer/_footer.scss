@@ -1,6 +1,21 @@
+/* ==========================================================================
+   #footer
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
 .nhsuk-global-footer {
-  background-color: $nhsuk-blue;
-  color: $nhsuk-white;
+  background-color: $colour_nhsuk-blue;
+  color: $colour_nhsuk-white;
   width: 100%;
 
   @include mq($media-type: print) {
@@ -27,7 +42,7 @@
         width: 99px;
 
         &:hover {
-          box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
+          box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
         }
 
       }
@@ -55,7 +70,7 @@
       }
 
       a {
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
 
         &:focus,
         &:hover {

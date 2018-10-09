@@ -1,7 +1,23 @@
+/* ==========================================================================
+   #action-link
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
+
 .nhsuk-c-action-link {
   display: inline-block;
   font-size: 21px;
-  font-weight: 600;
+  font-weight: $nhsuk-font-bold;
   margin: 32px 16px 32px 0;
   padding-left: 42px;
   position: relative;
@@ -13,7 +29,7 @@
   }
 
   .nhsuk-icon__arrow-right-circle {
-    fill: $nhsuk-green;
+    fill: $colour_nhsuk-green;
     height: 40px;
     left: -3px;
     position: absolute;
@@ -31,7 +47,7 @@
   &:hover,
   &:focus {
     .nhsuk-icon__arrow-right-circle {
-      fill: $nhsuk-green-shade-35;
+      fill: $colour_shade_nhsuk-green-35;
     }
   }
 
@@ -51,7 +67,7 @@
     background: $nhsuk-link-hover-background-colour !important;
     color: $nhsuk-link-active-colour !important;
     .nhsuk-icon__arrow-right-circle {
-      fill: $nhsuk-green-shade-50;
+      fill: $colour_shade_nhsuk-green-50;
     }
   }
 
@@ -84,18 +100,18 @@
 .nhsuk-c-action-link--alternative {
 
   .nhsuk-icon__arrow-right-circle {
-    fill: $nhsuk-aqua-green;
+    fill: $colour_nhsuk-aqua-green;
 
     &:hover,
     &:focus {
       .nhsuk-icon__arrow-right-circle {
-        fill: $nhsuk-aqua-green-shade-35;
+        fill: $colour_shade_nhsuk-green-35;
       }
     }
 
     &:active {
       .nhsuk-icon__arrow-right-circle {
-        fill: $nhsuk-aqua-green-shade-50;
+        fill: $colour_shade_nhsuk-green-50;
       }
     }
   }

@@ -1,0 +1,66 @@
+/* ==========================================================================
+   TOOLS / #MIXINS
+   ========================================================================== */
+
+/**
+ * Clearfix mixin
+ *
+ * Usage: @include clearfix();
+ * See utilities/clearfix
+ */
+
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+/**
+ * Reading width mixin, add a maximum width
+ * to large pieces of content
+ *
+ * Usage: @include reading-width();
+ * See utilities/reading-width
+ */
+
+@mixin reading-width() {
+  max-width: 37em;
+}
+
+/**
+ * Visually hidden mixin, used for hiding
+ * content visually but keeping it in the DOM
+ *
+ * Usage: @include visually-hidden();
+ * See utilities/visually-hidden
+ */
+
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Top and bottom margin mixin, remove
+ * the top and bottom margin spacing
+ *
+ * Usage: @include top-and-bottom();
+ * See utilities/top-and-bottom
+ */
+
+@mixin top-and-bottom() {
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}

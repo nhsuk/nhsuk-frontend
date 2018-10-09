@@ -17,10 +17,10 @@ Find out when to use the hero component in the [Digital service manual]().
 #### Markup
 
     <section class="nhsuk-hero">
-      <div class="nhsuk-o-width-container">
-        <div class="nhsuk-o-main-wrapper nhsuk-hero-container">
-          <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-main-wrapper nhsuk-hero-container">
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-two-thirds">
               <div class="nhsuk-page-heading">
                 <h1>We're here for you</h1>
                 <p>Helping you take control of your health and wellbeing.</p>
@@ -58,8 +58,8 @@ Find out when to use the hero component in the [Digital service manual]().
     <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-1.jpg');">
       <div class="nhsuk-hero__overlay">
         <div class="nhsuk-hero__container">
-          <div class="nhsuk-o-grid">
-            <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-two-thirds">
               <div class="nhsuk-hero-content">
                 <h1 role="text">We're here for you</h1>
                 <p>Helping you take control of your health and wellbeing.</p>

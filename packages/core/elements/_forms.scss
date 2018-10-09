@@ -1,0 +1,16 @@
+/* ==========================================================================
+   ELEMENTS / #FORMS
+   ========================================================================== */
+
+/**
+ * Make sure our form elements don’t use any UA-specific font styles: we want
+ * them to use ours. This may need reverting as more design information becomes
+ * available, and we start putting together more complete forms.
+ */
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}

@@ -1,0 +1,43 @@
+/* ==========================================================================
+   SETTINGS / #GLOBALS
+   ========================================================================== */
+
+/**
+ * Fonts
+ *
+ * 1. Fallback fonts if Frutiger fails to load
+*/
+
+$nhsuk-font: 'Frutiger W01';
+$nhsuk-font-fallback: 'Arial, Helvetica, Sans-serif'; /* [1] */
+$nhsuk-font-family-print: sans-serif !default;
+$nhsuk-font-bold: 600;
+$nhsuk-font-normal: 400;
+$nhsuk-font-light: 300;
+
+/**
+ * Font sizing and spacing
+*/
+
+$nhsuk-base-font-size: 16px !default;
+$nhsuk-base-line-height: 24px !default;
+
+/**
+ * Icon default sizing
+*/
+
+$nhsuk-icon-size: 34px !default;
+
+/**
+ * Margins
+*/
+
+$nhsuk-base-margin: 8px;
+
+/**
+ * Grid spacing
+*/
+
+$nhsuk-page-width: 960px;
+$nhsuk-gutter: 32px;
+$nhsuk-gutter-half: $nhsuk-gutter / 2;

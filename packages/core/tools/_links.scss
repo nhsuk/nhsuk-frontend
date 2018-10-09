@@ -1,0 +1,37 @@
+/* ==========================================================================
+   TOOLS / #LINKS
+   ========================================================================== */
+
+/**
+ * Default link styling
+ *
+ * Usage: @include nhsuk-link-style-default;
+ */
+
+@mixin nhsuk-link-style-default {
+
+  color: $nhsuk-link-colour;
+
+  &:visited {
+    color: $nhsuk-link-visited-colour;
+  }
+
+  &:focus {
+    background: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+    outline: 0;
+  }
+
+  &:hover {
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-hover-colour;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $nhsuk-link-active-colour;
+  }
+
+}

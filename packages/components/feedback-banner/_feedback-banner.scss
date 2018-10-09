@@ -1,5 +1,20 @@
+/* ==========================================================================
+   #feedback-banner
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
 .nhsuk-c-feedback-banner {
-  background: $nhsuk-white;
+  background: $colour_nhsuk-white;
   bottom: 0;
   box-shadow: 0 -4px 0 0 rgba(33, 43, 50, .16);
   display: none;
@@ -7,7 +22,7 @@
   padding: 32px 0;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: z-index(2);
 
   @include mq($until: tablet) {
     padding: 24px 0;
@@ -18,7 +33,7 @@
   }
 
   &__content {
-    @include clear();
+    @include clearfix();
     position: relative;
 
     a {
@@ -52,7 +67,7 @@
   &__close {
     background: none;
     border: 0;
-    color: $nhsuk-black;
+    color: $colour_nhsuk-black;
     cursor: pointer;
     display: block;
     font-size: 14px;

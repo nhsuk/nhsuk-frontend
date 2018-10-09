@@ -1,0 +1,15 @@
+/* ==========================================================================
+   UTILITIES / #READING-WIDTH
+   ========================================================================== */
+
+/**
+ * Reading width mixin, add a maximum width
+ * to large pieces of content
+ *
+ * Usage: class="nhsuk-reading-width"
+ * See tools/mixins
+ */
+
+.nhsuk-reading-width {
+  @include reading-width();
+}

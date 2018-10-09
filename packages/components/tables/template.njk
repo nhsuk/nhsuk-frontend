@@ -1,10 +1,11 @@
 <table class="nhsuk-table">
+  <caption>Table caption</caption>
   <tbody>
     {% for row in params.rows %}
     <tr>
     {% for cell in row %}
       {% if loop.first and params.firstCellIsHeader %}
-      <th class="govuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
+      <th scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
       {% elseif loop.first %}
       <td
       {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}

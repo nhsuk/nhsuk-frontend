@@ -14,7 +14,7 @@
   .nhsuk-global-header,
   .nhsuk-global-nav,
   .nhsuk-global-footer {
-    .nhsuk-o-width-container {
+    .nhsuk-width-container {
       margin: 0 auto;
     }
   }
@@ -24,7 +24,7 @@
   }
 
   .c-search__input {
-    background: $nhsuk-white !important; // sass-lint:disable-line no-important
+    background: $colour_nhsuk-white !important; // sass-lint:disable-line no-important
     height: 100%;
     padding: 5px;
   }
@@ -32,7 +32,7 @@
   .c-nav-primary {
 
     .nhsuk-global-nav {
-      background: $nhsuk-blue;
+      background: $colour_nhsuk-blue;
     }
 
     &__list  {
@@ -55,7 +55,7 @@
     }
 
     &__link {
-      color: $nhsuk-white;
+      color: $colour_nhsuk-white;
       font-size: 17px;
       line-height: 20px;
       padding: 16px 15px;
@@ -67,32 +67,32 @@
       }
 
       &:visited {
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
       }
 
       &:hover {
-        background: $nhsuk-blue-shade-35;
+        background: $colour_shade_nhsuk-blue-35;
         box-shadow: none;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
         text-decoration: underline;
       }
 
       &:focus {
-        background: $nhsuk-blue;
+        background: $colour_nhsuk-blue;
         box-shadow: 0 0 0 4px inset $nhsuk-focus-colour;
-        color: $nhsuk-white;
+        color: $colour_nhsuk-white;
       }
 
       &:active,
       &:focus:active, // sass-lint:disable-line force-pseudo-nesting
       &:focus-within {
-        background: $nhsuk-blue-shade-50;
+        background: $colour_shade_nhsuk-blue-50;
         box-shadow: none;
-        color: $nhsuk-grey-5;
+        color: $colour_nhsuk-grey-5;
       }
 
       &.active {
-        background: $nhsuk-blue-shade-20;
+        background: $colour_shade_nhsuk-blue-20;
       }
     }
   }

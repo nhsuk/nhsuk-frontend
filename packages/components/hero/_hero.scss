@@ -1,11 +1,26 @@
+/* ==========================================================================
+   #hero
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
 .nhsuk-hero {
-  background-color: $nhsuk-blue;
-  color: $nhsuk-white;
+  background-color: $colour_nhsuk-blue;
+  color: $colour_nhsuk-white;
   display: block;
   position: relative;
 
   @include mq($media-type: print) {
-    color: $nhsuk-black;
+    color: $colour_nhsuk-black;
   }
 
   &__container {
@@ -16,7 +31,7 @@
       border: 0;
     }
 
-    &.nhsuk-o-main-wrapper {
+    &.nhsuk-main-wrapper {
       padding: 0;
     }
 
@@ -50,7 +65,7 @@
     }
 
     .nhsuk-hero__overlay {
-      background: rgba($nhsuk-blue-shade-50, .1); // sass-lint:disable-line no-color-literals
+      background: rgba($colour_shade_nhsuk-blue-50, .1); // sass-lint:disable-line no-color-literals
       height: 100%;
     }
 
@@ -71,9 +86,9 @@
 
     .nhsuk-hero-content {
       @include top-and-bottom();
-      background: $nhsuk-blue;
+      background: $colour_nhsuk-blue;
       bottom: -48px;
-      color: $nhsuk-white;
+      color: $colour_nhsuk-white;
       max-width: 565px;
       padding: 32px 40px 40px;
       position: absolute;
@@ -82,7 +97,7 @@
       &:after {
         border-left: 16px solid transparent;
         border-right: 16px solid transparent;
-        border-top: 16px solid $nhsuk-blue;
+        border-top: 16px solid $colour_nhsuk-blue;
         bottom: -15px;
         content: '';
         display: block;
@@ -112,19 +127,19 @@
       }
 
       @include mq($media-type: print) {
-        color: $nhsuk-black;
+        color: $colour_nhsuk-black;
         padding: 0;
         position: relative;
       }
 
       p {
-        color: rgba($nhsuk-white, .9); // sass-lint:disable-line no-color-literals
+        color: rgba($colour_nhsuk-white, .9); // sass-lint:disable-line no-color-literals
         font-size: 24px;
         line-height: 36px;
         margin-top: 8px;
 
         @include mq($media-type: print) {
-          color: $nhsuk-black;
+          color: $colour_nhsuk-black;
         }
 
         @include mq($until: tablet) {

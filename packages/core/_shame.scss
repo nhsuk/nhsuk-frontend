@@ -1,0 +1,49 @@
+/* ==========================================================================
+   #SHAME
+   ========================================================================== */
+
+/**
+ * All this code needs to be refactored. This file should not exist.
+ */
+
+/* Page layout
+  ========================================================================== */
+
+.nhsuk-page-nav {
+  & > *:first-child {
+    margin-top: 0;
+  }
+  @include mq($until: desktop) {
+    margin-bottom: 44px;
+  }
+  h2,
+  h3 {
+    & + ol,
+    & + ul {
+      margin-top: 8px;
+    }
+  }
+}
+
+@include mq($media-type: print) {
+  .nhsuk-page-nav {
+    display: none;
+  }
+}
+
+.nhsuk-page-content {
+  & > *:first-child {
+    margin-top: 0;
+    & > *:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+/* NHS Logo
+  ========================================================================== */
+
+.nhsuk-logo {
+  height: 40px;
+  width: 99px;
+}

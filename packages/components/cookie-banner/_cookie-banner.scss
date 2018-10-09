@@ -1,3 +1,18 @@
+/* ==========================================================================
+   #cookie-banner
+   ========================================================================== */
+
+/**
+ * Long-form comment.
+ *
+ * If you’d like to create a new Sass file for the project, simply copy and
+ * paste this one and fill it in like for like.
+ *
+ * This spans multiple lines and is also constrained to no longer than 80
+ * characters in width.
+ *
+ * 1. Provide line comments like this.
+ */
 .nhsuk-cookie-banner {
   background-color: #f0f8ff;
   font-size: 16px;
@@ -15,14 +30,14 @@
   }
 
   &__button {
-    background-color: $nhsuk-green;
+    background-color: $colour_nhsuk-green;
     border: 0;
     border-radius: 4px;
     box-shadow: 0 2px 0 #003317;
-    color: $nhsuk-white;
+    color: $colour_nhsuk-white;
     display: inline-block;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: $nhsuk-font-bold;
     letter-spacing: .5px;
     line-height: 1.25;
     margin: 16px 0 0;
@@ -47,7 +62,7 @@
 
     &:focus {
       background-color: #00662f;
-      outline: 3px solid $nhsuk-warm-yellow;
+      outline: 3px solid $colour_nhsuk-warm-yellow;
     }
 
     &:hover {
@@ -55,8 +70,8 @@
     }
 
     &:active {
-      box-shadow: 0 0 0 $nhsuk-green;
-      color: $nhsuk-black !important;
+      box-shadow: 0 0 0 $colour_nhsuk-green;
+      color: $colour_nhsuk-black !important;
 
       &:before {
         height: 120%;
@@ -81,7 +96,7 @@
 
     legend {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: $nhsuk-font-bold;
       line-height: 24px;
       margin-bottom: -8px;
       padding-top: 0;
@@ -113,7 +128,7 @@
         }
 
         &:before {
-          border: 3px solid $nhsuk-blue;
+          border: 3px solid $colour_nhsuk-blue;
           content: '';
           height: 20px;
           margin-right: 4px;
@@ -127,7 +142,7 @@
       &:focus + label {
 
         &:before {
-          box-shadow: 0 0 0 5px $nhsuk-warm-yellow;
+          box-shadow: 0 0 0 5px $colour_nhsuk-warm-yellow;
         }
 
       }
