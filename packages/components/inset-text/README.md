@@ -14,7 +14,8 @@ Find out when to use the inset text component in the [Digital service manual]().
 
 #### Markup
 
-    <div role="note" class="nhsuk-c-inset-text">
+    <div class="nhsuk-c-inset-text">
+      <span class="visually-hidden">Information: </span>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
 
@@ -22,4 +23,6 @@ Find out when to use the inset text component in the [Digital service manual]().
 
     {% from 'components/inset-text/macro.njk' import insetText %}
 
-    {{ insetText('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+    {{ insetText({
+      "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    }) }}
