@@ -8,34 +8,14 @@
  * It helps users identify and understand the important content on the page,
  * even if they don't read the whole page.
  *
- * https://beta.nhs.uk/service-manual/patterns/warning_callout/
- *
- * 1. Removes top margin from first element and bottom margin from last,
- *    to ensure correct spacing within the component.
- * 2. Padding top is set to 0 so the heading-tab is positioned correctly.
- * 3. Border is used to highlight the importance of the component when printed.
- * 4. The page-break-inside property sets whether a page-break should be
- *    avoided inside a specified element.
- * 5. Uses @mixin heading tab from tools/_mixins.
+ * 1. Uses @mixin panel-with-heading-tab from tools/_mixins.
+ * 2. Uses @mixin heading-tab from tools/_mixins.
  */
 
 .nhsuk-c-warning-callout {
-  @include top-and-bottom(); /* [1] */
-
-  @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
-
-  background: $colour_nhsuk-pale-yellow;
-  color: $nhsuk-text-colour;
-  padding: nhsuk-spacing(4);
-  padding-top: nhsuk-spacing(0); /* [2] */
-
-  @include mq($media-type: print) {
-    border: 1px solid $nhsuk-print-text-colour; /* [3] */
-    page-break-inside: avoid; /* [4] */
-  }
- }
+  @include panel-with-heading-tab($colour_nhsuk-pale-yellow, $nhsuk-text-colour); /* [1] */
+}
 
 .nhsuk-c-warning-callout__heading-tab {
-  @include heading-tab($colour_nhsuk-yellow, $nhsuk-text-colour); /* [5] */
+  @include heading-tab($colour_nhsuk-yellow, $nhsuk-text-colour); /* [2] */
 }

@@ -69,6 +69,41 @@
  * Heading tab mixin, adds a tab heading to
  * warning callout, do and don't lists and panels
  *
+ * Usage: @include panel-with-heading-tab($colour_nhsuk-blue, $colour_nhsuk-white);
+ * See components/_warning-component
+ *
+ * 1. Background colour to be set on the @include.
+ * 2. Text colour to be set on the @include.
+ * 3. Display inline-block so it does not take up the full width.
+ * 4. Margin -24px left and right aligns the heading to the box.
+ * 5. Top positioning set to minus to make the heading
+ *    sit just outside the box.
+ */
+
+ @mixin panel-with-heading-tab($panel-background-colour, $panel-text-colour) {
+
+  @include top-and-bottom(); /* [1] */
+
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+
+  background: $panel-background-colour;
+  color: $panel-text-colour;
+  padding: nhsuk-spacing(4);
+  padding-top: nhsuk-spacing(0); /* [2] */
+
+  @include mq($media-type: print) {
+    border: 1px solid $nhsuk-print-text-colour; /* [3] */
+    page-break-inside: avoid; /* [4] */
+  }
+}
+
+/**
+ * Heading tab mixin, adds a tab heading to
+ * warning callout, do and don't lists and panels.
+ *
+ * Used in-conjunction with @mixin panel-with-heading-tab
+ *
  * Usage: @include heading-tab($colour_nhsuk-blue, $colour_nhsuk-white);
  * See components/_warning-component
  *
@@ -80,11 +115,12 @@
  *    sit just outside the box.
  */
 
- @mixin heading-tab($background-colour, $text-colour) {
-  background-color: $background-colour; /* [1] */
-  color: $text-colour; /* [2] */
-  display: inline-block; /* [3] */
+@mixin heading-tab($heading-background-colour, $heading-text-colour) {
   @include nhsuk-typography-responsive(24);
+
+  background-color: $heading-background-colour; /* [1] */
+  color: $heading-text-colour; /* [2] */
+  display: inline-block; /* [3] */
   margin-bottom: nhsuk-spacing(0);
   margin-left: -24px; /* [4] */
   margin-right: -24px; /* [4] */
@@ -99,4 +135,4 @@
   @include mq($until: tablet) {
     top: -8px; /* [5] */
   }
- }
+}
