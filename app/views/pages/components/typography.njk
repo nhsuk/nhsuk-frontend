@@ -3,7 +3,6 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/a-z-list/macro.njk' import azList %}
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
-{% from 'components/callout/macro.njk' import callout %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
@@ -13,6 +12,7 @@
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/tables/macro.njk' import table %}
+{% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block outerHeader %}
@@ -120,13 +120,17 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ insetText('Information:', '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+  {{ insetText({
+    "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
 
-  {{ insetText('Information:', '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>', 'nhsuk-!-margin-top-9') }}
+  {{ insetText({
+    "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
 
   <hr>
 
@@ -215,11 +219,17 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
+  {{ warningCallout({
+    "heading": "Important",
+    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+  }) }}
 
   <h2>H2 heading</h2>
 
-  {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
+  {{ warningCallout({
+    "heading": "Important",
+    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+  }) }}
 
   <h2>H2 heading</h2>
 

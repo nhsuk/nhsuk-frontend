@@ -3,7 +3,6 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/a-z-list/macro.njk' import azList %}
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
-{% from 'components/callout/macro.njk' import callout %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/do-dont-list/macro.njk' import list %}
@@ -13,6 +12,7 @@
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/tables/macro.njk' import table %}
+{% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block outerHeader %}
@@ -29,7 +29,10 @@
 {% block content %}
   {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
 
-  {{ callout('Important', '<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>') }}
+  {{ warningCallout({
+    "heading": "Important",
+    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+  }) }}
 
   {{ insetText({
     "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
