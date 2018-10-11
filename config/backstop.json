@@ -46,6 +46,10 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "Components",
+      "url": "http://localhost:3000/pages/components"
+    },
+    {
       "label": "Footer",
       "url": "http://localhost:3000/pages/components/footer"
     },

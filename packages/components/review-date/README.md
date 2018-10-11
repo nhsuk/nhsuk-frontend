@@ -1,6 +1,6 @@
-# Footer
+# Review date
 
-Find out more about the review date component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the review date component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
