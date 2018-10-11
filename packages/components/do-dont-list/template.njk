@@ -1,5 +1,5 @@
 <div class="nhsuk-c-do-dont-list">
-  <h3 class="nhsuk-c-do-dont-list__tab-heading" id="{{title}}">{{title}}</h3>
+  <h3 class="nhsuk-c-do-dont-list__tab-heading">{{title}}</h3>
   {% if type == 'tick' %}
     <ul class="nhsuk-list nhsuk-list--check">
       {% for data in items %}
@@ -14,7 +14,7 @@
     {% for data in items %}
       <li>
       {% include 'assets/icons/icon-cross.svg' %}
-      <span>Don't</span> {{ data.item | safe}}
+      don't {{ data.item | safe}}
       </li>
     {% endfor %}
     </ul>

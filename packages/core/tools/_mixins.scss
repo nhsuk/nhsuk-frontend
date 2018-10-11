@@ -133,6 +133,7 @@
   top: -16px; /* [5] */
 
   @include mq($until: tablet) {
+    margin-bottom: nhsuk-spacing(2);
     top: -8px; /* [5] */
   }
 }
