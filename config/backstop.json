@@ -1,0 +1,69 @@
+{
+  "id": "nhsuk-frontend",
+  "viewports": [
+    {
+      "label": "iPhone 6-8",
+      "width": 375,
+      "height": 667
+    },
+    {
+      "label": "Galaxy S8",
+      "width": 360,
+      "height": 640
+    },
+    {
+      "label": "iPhone 5/SE",
+      "width": 320,
+      "height": 568
+    },
+    {
+      "label": "iPad",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "label": "iPhone 5/SE",
+      "width": 414,
+      "height": 736
+    },
+    {
+      "label": "Surface, iPad Pro",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "label": "Large Desktop",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "label": "Small Desktop, Laptop",
+      "width": 1280,
+      "height": 1024
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Footer",
+      "url": "http://localhost:3000/pages/components/footer"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "tests/backstop/bitmaps_reference",
+    "bitmaps_test": "tests/backstop/bitmaps_test",
+    "engine_scripts": "tests/backstop/engine_scripts",
+    "html_report": "tests/backstop/html_report",
+    "ci_report": "tests/backstop/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

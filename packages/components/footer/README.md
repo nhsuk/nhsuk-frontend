@@ -1,24 +1,18 @@
 # Footer
 
-## Introduction
-
-Website footer with copyright information and useful links.
-
-## Guidance
-
-Find out when to use the footer component in the [Digital service manual]().
+Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
 [Preview the footer component]()
 
-#### Markup
+## HTML markup
 
     <footer role="contentinfo">
-      <div class="nhsuk-global-footer">
+      <div class="nhsuk-footer">
         <div class="nhsuk-width-container">
-          <ul>
-            <li class="nhsuk-global-footer__logo">
+          <ul class="nhsuk-footer__list">
+            <li class="nhsuk-footer__logo">
               <a href="/" class="global-footer__link">
                 <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
                   <g fill-rule="nonzero" fill="none">
@@ -35,7 +29,7 @@ Find out when to use the footer component in the [Digital service manual]().
             <li><a href="https://www.nhs.uk/Pages/contact-us.aspx">Contact us</a></li>
             <li><a href="https://www.nhs.uk/Personalisation/Login.aspx">Profile editor login</a></li>
           </ul>
-          <ul>
+          <ul class="nhsuk-footer__list">
             <li><a href="https://www.nhs.uk/choices/pages/sitemap.aspx">Sitemap</a></li>
             <li><a href="https://www.nhs.uk/accessibility/">Accessibility</a></li>
             <li><a href="https://www.nhs.uk/our-policies/">Our policies</a></li>
@@ -45,42 +39,42 @@ Find out when to use the footer component in the [Digital service manual]().
       </div>
     </footer>
 
-#### Macro
+## Nunjucks macro
 
     {% from 'components/footer/macro.njk' import footer %}
 
     {% set primaryLinks = [
         {
-          'url'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
-          'label' : 'NHS sites'
+          'url': 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+          'label': 'NHS sites'
         },
         {
-          'url' : 'https://www.nhs.uk/about-us',
-          'label' : 'About us'        
+          'url': 'https://www.nhs.uk/about-us',
+          'label': 'About us'        
         },
         {
-          'url'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
-          'label' : 'Contact us'    
+          'url': 'https://www.nhs.uk/Pages/contact-us.aspx',
+          'label': 'Contact us'    
         },
         {
-          'url'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
-          'label' : 'Profile editor login'    
+          'url': 'https://www.nhs.uk/Personalisation/Login.aspx',
+          'label': 'Profile editor login'    
         }
       ]
     %}
 
     {% set secondaryLinks = [
         {
-          'url'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
-          'label' : 'Sitemap'
+          'url': 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+          'label': 'Sitemap'
         },
         {
-          'url' : 'https://www.nhs.uk/accessibility/',
-          'label' : 'Accessibility'
+          'url': 'https://www.nhs.uk/accessibility/',
+          'label': 'Accessibility'
         },
         {
-          'url'  : 'https://www.nhs.uk/our-policies/',
-          'label' : 'Our policies'
+          'url': 'https://www.nhs.uk/our-policies/',
+          'label': 'Our policies'
         }
       ]
     %}
