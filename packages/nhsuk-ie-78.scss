@@ -13,7 +13,7 @@
 
   .nhsuk-global-header,
   .nhsuk-global-nav,
-  .nhsuk-global-footer {
+  .nhsuk-footer {
     .nhsuk-width-container {
       margin: 0 auto;
     }
@@ -119,36 +119,6 @@
     margin: 0 5px;
     top: -3px;
     width: 10px;
-  }
-
-  .nhsuk-global-footer {
-    ul {
-      min-height: 0;
-      padding: 25px 0;
-
-      &:after {
-        clear: both;
-        content: '';
-        display: block;
-        height: 0;
-        visibility: hidden;
-      }
-
-      &:first-child {
-        border-bottom: 1px solid #337ec6; // sass-lint:disable-line no-color-hex no-color-literals
-      }
-
-      li {
-        float: left;
-        margin-right: 25px;
-        margin-top: 8px;
-
-        &.nhsuk-global-footer__logo {
-          margin-top: 0;
-        }
-
-      }
-    }
   }
 
 }

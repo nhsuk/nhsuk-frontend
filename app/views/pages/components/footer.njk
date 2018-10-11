@@ -1,0 +1,46 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Footer' %}
+{% from 'components/footer/macro.njk' import footer %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  {% set primaryLinks = [
+      {
+        'url': 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+        'label': 'NHS sites'
+      },
+      {
+        'url': 'https://www.nhs.uk/about-us',
+        'label': 'About us'
+      },
+      {
+        'url': 'https://www.nhs.uk/Pages/contact-us.aspx',
+        'label': 'Contact us'
+      },
+      {
+        'url': 'https://www.nhs.uk/Personalisation/Login.aspx',
+        'label': 'Profile editor login'
+      }
+    ]
+  %}
+
+  {% set secondaryLinks = [
+      {
+        'url': 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+        'label': 'Sitemap'
+      },
+      {
+        'url': 'https://www.nhs.uk/accessibility/',
+        'label': 'Accessibility'
+      },
+      {
+        'url': 'https://www.nhs.uk/our-policies/',
+        'label': 'Our policies'
+      }
+    ]
+  %}
+
+  {{ footer(primaryLinks, secondaryLinks) }}
+
+{% endblock %}
