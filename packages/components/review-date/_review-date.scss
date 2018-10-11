@@ -1,24 +1,8 @@
 /* ==========================================================================
-   #review-date
+   COMPONENTS / #REVIEW-DATE
    ========================================================================== */
 
-/**
- * Long-form comment.
- *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
- */
 .nhsuk-c-review-date {
-  margin: 40px 0 0;
-
-  p {
-    color: $colour_nhsuk-grey-1;
-    margin-top: 0;
-  }
-
+  @include nhsuk-responsive-margin(6, 'top');
+  color: $nhsuk-secondary-text-colour;
 }
