@@ -1,8 +1,8 @@
 <footer role="contentinfo">
-  <div class="nhsuk-global-footer">
+  <div class="nhsuk-footer">
     <div class="nhsuk-width-container">
-      <ul>
-        <li class="nhsuk-global-footer__logo">
+      <ul class="nhsuk-footer__list">
+        <li class="nhsuk-footer__logo">
           <a href="/" class="global-footer__link">
             {% include 'assets/logos/nhs-logo.svg' %}
             <span class="visually-hidden">NHS homepage</span>
@@ -12,7 +12,7 @@
         <li><a href="{{item.url}}">{{item.label}}</a></li>
         {% endfor %}
       </ul>
-      <ul>
+      <ul class="nhsuk-footer__list">
         {% for item in secondaryLinks %}
         <li><a href="{{item.url}}">{{item.label}}</a></li>
         {% endfor %}
