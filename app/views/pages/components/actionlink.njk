@@ -1,0 +1,20 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Action link' %}
+{% from 'components/action-link/macro.njk' import actionLink %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

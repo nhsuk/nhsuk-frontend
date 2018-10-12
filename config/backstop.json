@@ -85,6 +85,10 @@
     {
       "label": "Warning callout",
       "url": "http://localhost:3000/pages/components/warning-callout"
+    },
+    {
+      "label": "Action link",
+      "url": "http://localhost:3000/pages/components/actionlink"
     }
   ],
   "paths": {
