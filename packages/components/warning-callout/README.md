@@ -6,7 +6,7 @@ The callout component helps convey important content on the page.
 
 ## Guidance
 
-Find out when to use the callout component in the [Digital service manual]().
+Find out when to use the callout component in the [Digital service manual](https://beta.nhs.uk/service-manual/patterns/warning_callout/).
 
 ## Example
 
