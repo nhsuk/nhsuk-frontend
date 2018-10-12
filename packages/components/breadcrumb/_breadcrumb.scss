@@ -1,0 +1,87 @@
+/* ==========================================================================
+    COMPONENTS / #BREADCRUMB
+   ========================================================================== */
+
+/**
+ * The breadcrumbs component helps users to understand
+ * where they are within a website’s structure and
+ * move between levels.
+ *
+ * 1. Bespoke spacing numbers used as there is no 12px
+ *    spacing mapped in settings/spacing.
+ * 2. Hide the breadcrumb on print stylesheets.
+ * 3. Don't show the full breadcrumb below tablet size.
+ * 4. Typography sizing mixin, see core/tools/_typography
+ * 5. and core/settings/_typography for size maps.
+ * 5. .. but show a back to index page link.
+ * 6. Remove spacing between back icon and label.
+ *
+ * This component has also has optional Internet Explorer 8
+ * (IE8) styles, which can be found in nhsuk-ie-78.scss.
+ * Include this in your code if you support IE8.
+**/
+
+.nhsuk-c-breadcrumb {
+  background: $colour_nhsuk-white;
+  padding-bottom: 12px; // [1] //
+  padding-top: 12px; // [1] //
+
+  @include mq($media-type: print) {
+    display: none; // [2] //
+  }
+
+  .nhsuk-c-breadcrumb__list {
+
+    @include mq($until: tablet) {
+      display: none; // [3] //
+    }
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .nhsuk-c-breadcrumb__item {
+    @include nhsuk-font(16); // [4] //
+    display: inline-block;
+    margin: 0;
+  }
+
+  .nhsuk-icon__chevron-right {
+    fill: $colour_nhsuk-grey-3;
+    height: 18px;
+    position: relative;
+    top: 5px;
+    width: 18px;
+
+    @include mq($from: large-desktop) {
+      margin: 0 3px 0 5px;
+    }
+
+  }
+
+  .nhsuk-c-breadcrumb__back {
+    @include nhsuk-font(16); // [4] //
+    margin: 0;
+
+    @include mq($from: tablet) {
+      display: none; // [5] //
+    }
+
+  }
+
+  .nhsuk-icon__chevron-left {
+    float: left;
+    height: 24px;
+    left: -8px;
+    position: relative;
+    width: 24px;
+  }
+
+  .nhsuk-c-breadcrumb__backlink {
+    left: -8px; // [6] //
+    position: relative;
+  }
+
+}

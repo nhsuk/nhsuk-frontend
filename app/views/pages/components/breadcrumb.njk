@@ -1,0 +1,15 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Breadcrumb' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  {{ breadcrumb({
+    "indexURL": "/",
+    "indexLabel": "Home",
+    "parentURL": "/section",
+    "parentLabel": "Section name"
+  }) }}
+
+{% endblock %}

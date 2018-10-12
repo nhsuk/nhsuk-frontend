@@ -2,7 +2,7 @@
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/a-z-list/macro.njk' import azList %}
-{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/do-dont-list/macro.njk' import list %}
@@ -19,7 +19,12 @@
 {% endblock %}
 
 {% block breadcrumb %}
-  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+  {{ breadcrumb({
+    "indexURL": "/",
+    "indexLabel": "Home",
+    "parentURL": "/section",
+    "parentLabel": "Section name"
+  }) }}
 {% endblock %}
 
 {% block heading %}

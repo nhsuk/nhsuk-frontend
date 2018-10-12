@@ -89,6 +89,10 @@
     {
       "label": "Action link",
       "url": "http://localhost:3000/pages/components/action-link"
+    },
+    {
+      "label": "Breadcrumb",
+      "url": "http://localhost:3000/pages/components/breadcrumb"
     }
   ],
   "paths": {
