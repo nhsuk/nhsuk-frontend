@@ -72,6 +72,15 @@
     {
       "label": "Black care card",
       "url": "http://localhost:3000/pages/components/care-card-black"
+    },
+    {
+      "label": "Emergency Alert",
+      "url": "http://localhost:3000/pages/components/emergency-alert"
+    },
+    {
+      "label": "Feedback banner",
+      "url": "http://localhost:3000/pages/components/feedback-banner",
+      "delay": 5000
     }
   ],
   "paths": {

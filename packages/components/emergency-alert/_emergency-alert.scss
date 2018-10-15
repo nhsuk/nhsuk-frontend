@@ -1,86 +1,46 @@
 /* ==========================================================================
-   #emergency-alert
+   COMPONENTS / #EMERGENCY-ALERT
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * A banner to announce national emergencies.
+ * Triggered by an API using JavaScript.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Hide the banner on print stylesheets.
+ * 2. Use inverted link colours due to the yellow
+ *    ($colour_nhsuk-yellow) background.
  */
-.nhsuk-c-global-alert {
-  background: $colour_nhsuk-yellow;
-  padding: 24px 0;
 
-  @include mq($until: tablet) {
-    padding: 16px 0;
-  }
+.nhsuk-c-global-alert {
+  background-color: $colour_nhsuk-yellow;
+  padding-bottom: nhsuk-spacing(4);
+  padding-top: nhsuk-spacing(4);
 
   @include mq($media-type: print) {
-    display: none;
+    display: none; // [1] //
   }
 
-  &__content {
+  .nhsuk-c-global-alert__header {
+    @include nhsuk-typography-responsive(24);
+    margin: 0;
+  }
+
+  .nhsuk-c-global-alert__content {
     @include top-and-bottom;
     position: relative;
   }
 
-  &__header {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-    padding-right: 56px;
-
-    @include mq($until: tablet) {
-      font-size: 20px;
-      line-height: 28px;
-    }
-
+  .nhsuk-c-global-alert__message {
+    @include nhsuk-responsive-margin(2, 'top');
   }
 
-  &__message {
-    margin-top: 8px;
-  }
-
-  &__updated {
-    font-size: 14px;
-    margin-top: 8px;
-
-    @include mq($until: tablet) {
-      font-size: 12px;
-    }
-
+  .nhsuk-c-global-alert__updated {
+    @include nhsuk-responsive-margin(2, 'top');
+    @include nhsuk-typography-responsive(14);
   }
 
   a {
-
-    @media screen and (max-width: 480px) {
-      white-space: nowrap;
-    }
-
-    &:focus {
-      background: $colour_shade_nhsuk-blue-35;
-      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-      color: $colour_nhsuk-white;
-    }
-
-    &:hover {
-      background: $colour_nhsuk-blue;
-      box-shadow: 0 0 0 4px $colour_nhsuk-blue;
-      color: $colour_nhsuk-white;
-    }
-
-    &:active {
-      background: $colour_shade_nhsuk-blue-50 !important;
-      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-      color: $colour_nhsuk-white;
-    }
-
+    @include nhsuk-link-style-inverted; // [2] //
   }
 
 }

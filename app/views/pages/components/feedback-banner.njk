@@ -1,0 +1,15 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Feedback banner' %}
+{% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  {{ feedbackBanner({
+    "title": "Help us make the NHS website better",
+    "content": "Your feedback helps us improve the NHS website.",
+    "feedbackURL": "#",
+    "feedbackLabel": "Take our short survey"
+  }) }}
+
+{% endblock %}
