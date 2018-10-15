@@ -87,7 +87,7 @@
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
 
-  background: $panel-background-colour;
+  background-color: $panel-background-colour;
   color: $panel-text-colour;
   padding: nhsuk-spacing(4);
   padding-top: nhsuk-spacing(0); /* [2] */
@@ -136,4 +136,61 @@
     margin-bottom: nhsuk-spacing(2);
     top: -8px; /* [5] */
   }
+}
+
+/**
+ * Care card mixin, used for creating
+ * different coloured care cards.
+ *
+ * Usage: @include care-card($colour_nhsuk-blue, $colour_nhsuk-white, 4px);
+ * See components/_care-card
+ */
+
+@mixin care-card($heading-background-color, $heading-text-colour, $print-border-size) {
+
+  .nhsuk-c-care-card__heading-container {
+    background-color: $heading-background-color;
+    color: $heading-text-colour;
+
+    &:after {
+      border-top: $nhsuk-care-card-triangle-border solid $heading-background-color;
+    }
+  }
+
+  @include mq($media-type: print) {
+    border: $print-border-size solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
+    page-break-inside: avoid;
+  }
+}
+
+/**
+ * Print colour mixin, sets the text print colour
+ * warning callout, do and don't lists and panels.
+ *
+ * Usage: @include print-colour($nhsuk-print-text-colour);
+ * See components/_care-card
+ */
+
+@mixin print-colour($print-colour) {
+
+  @include mq($media-type: print) {
+    color: $print-colour;
+  }
+
+}
+
+/**
+ * Print hide mixin, hides the element from print.
+ *
+ * Usage: @include print-hide();
+ * See components/_care-card
+ */
+
+@mixin print-hide() {
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
 }

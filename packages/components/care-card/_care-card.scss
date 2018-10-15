@@ -1,142 +1,116 @@
 /* ==========================================================================
-   #care-card
+   COMPONENTS / #CARE-CARD
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Care cards are boxes designed to stand out from the rest of the content.
+ * They help users identify and understand the sort of care they need and
+ * how quickly they need to act.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
+ * We have 4 care cards for 4 levels of urgency:
  *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
+ * - non-urgent advice card (grey)
+ * - non-urgent care card (blue - this is the default care card colour)
+ * - urgent care card (red)
+ * - emergency care card (red and black)
  *
- * 1. Provide line comments like this.
+ * 1. Default care card colour set to blue (non-urgent care card) -
+ *    using the
+ *    @mixin care-card($heading-background-color, $heading-text-colour, $print-border-size)
+ *    in tools/_mixins.scss.
+ *    The same mixin is used for each care card, setting the background
+ *    colour,text colour and print border width with the variables.
+ * 2. By adding ‘clip-path’ we can draw a polygon that matches the original
+ *    triangle to ensure the rectangle does not appear.
+ * 3. Care card heading triangle.
+ * 4. Care card heading triangle positioning.
+ * 5. 'Random number' used for spacing to compensate for the triangle.
+ * 6. <a> needs to be white because the background colour is black.
  */
+
 .nhsuk-c-care-card {
-  margin: 40px 0;
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+
+  @include care-card($colour_nhsuk-blue, $colour_nhsuk-white, 4px); /* [1] */
+}
+
+.nhsuk-c-care-card__heading-container {
+  padding: nhsuk-spacing(3) nhsuk-spacing(4);
+  position: relative;
+
+  &:after {
+    -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); /* [2] */ // sass-lint:disable-line property-sort-order
+    clip-path: polygon(0 0, 50% 100%, 100% 0); /* [2] */ // sass-lint:disable-line property-sort-order
+
+    border-left: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
+    border-right: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
+
+    bottom: -$nhsuk-care-card-triangle-border; /* [4] */ // sass-lint:disable-line property-sort-order
+
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0;
+
+    @include print-hide();
+  }
+
+}
+
+.nhsuk-c-care-card__heading {
+  @include nhsuk-font(24, $weight: bold);
+  @include print-colour($nhsuk-print-text-colour);
+
+  margin: 0;
+}
+
+.nhsuk-c-care-card__content {
+  @include top-and-bottom();
+  @include print-colour($nhsuk-print-text-colour);
+
+  background-color: $colour_nhsuk-white;
+
+  padding: 32px nhsuk-spacing(4) nhsuk-spacing(4); /* [5] */
 
   @include mq($from: tablet) {
-    margin: 56px 0;
+    padding-bottom: nhsuk-spacing(5);
+    padding-top: 36px; /* [5] */
   }
 
-  @include mq($media-type: print) {
-    border: 2px solid $colour_nhsuk-black;
-    page-break-inside: avoid;
-  }
+}
 
-  .nhsuk-c-care-card__heading {
-    background: $colour_nhsuk-blue;
-    color: $colour_nhsuk-white;
-    padding: 12px 16px;
-    position: relative;
+/* Grey care card
+   ========================================================================== */
 
-    @include mq($from: tablet) {
-      padding: 16px 24px;
-    }
+.nhsuk-c-care-card--grey {
+  @include care-card($colour_nhsuk-grey-4, $colour_nhsuk-black, 2px);
+}
 
-    @include mq($media-type: print) {
-      color: $colour_nhsuk-black;
-    }
+/* Red care card
+   ========================================================================== */
 
-    &:after {
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-      border-top: 16px solid $colour_nhsuk-blue;
-      bottom: -16px;
-      content: '';
-      display: block;
-      height: 0;
-      position: absolute;
-      width: 0;
+.nhsuk-c-care-card--red {
+  @include care-card($colour_nhsuk-red, $colour_nhsuk-white, 6px);
+}
 
-      @include mq($media-type: print) {
-        display: none;
-      }
+/* Black care card
+   ========================================================================== */
 
-    }
-
-    *:first-of-type {
-      margin: 0;
-    }
-
-  }
+.nhsuk-c-care-card--black {
+  @include care-card($colour_nhsuk-red, $colour_nhsuk-white, 8px);
 
   .nhsuk-c-care-card__content {
-    @include top-and-bottom();
+    background-color: $colour_nhsuk-black;
+    color: $colour_nhsuk-white;
 
-    background: $colour_nhsuk-white;
-    padding: 32px 16px 24px;
+    a {
+      color: $colour_nhsuk-white; /* [6] */
 
-    @include mq($from: tablet) {
-      padding: 36px 24px 32px;
-    }
-
-    @include mq($from: desktop) {
-      @include reading-width();
-    }
-
-  }
-
-  &--grey {
-
-    @include mq($media-type: print) {
-      border: 4px solid $colour_nhsuk-black;
-    }
-
-    .nhsuk-c-care-card__heading {
-      background: $colour_nhsuk-grey-4;
-      color: $colour_nhsuk-black;
-
-      &:after {
-        border-top: 16px solid $colour_nhsuk-grey-4;
-      }
-
-    }
-  }
-
-  &--red {
-
-    @include mq($media-type: print) {
-      border: 6px solid $colour_nhsuk-black;
-    }
-
-    .nhsuk-c-care-card__heading {
-      background: $colour_nhsuk-red;
-
-      &:after {
-        border-top: 16px solid $colour_nhsuk-red;
-      }
-
-    }
-  }
-
-  &--black {
-
-    @include mq($media-type: print) {
-      border: 8px solid $colour_nhsuk-black;
-    }
-
-    .nhsuk-c-care-card__heading {
-      background: $colour_nhsuk-red;
-
-      &:after {
-        border-top: 16px solid $colour_nhsuk-red;
-      }
-
-    }
-
-    .nhsuk-c-care-card__content {
-      background: $colour_nhsuk-black;
-      color: $colour_nhsuk-white;
-
-      a {
-        color: $colour_nhsuk-white;
-
-        &:hover {
-          color: $colour_nhsuk-black;
-        }
-
+      &:hover,
+      &:focus {
+        color: $colour_nhsuk-black; /* [6] */
       }
 
     }

@@ -56,6 +56,10 @@
     {
       "label": "Review Date",
       "url": "http://localhost:3000/pages/components/review-date"
+    },
+    {
+      "label": "Care card",
+      "url": "http://localhost:3000/pages/components/care-card"
     }
   ],
   "paths": {
