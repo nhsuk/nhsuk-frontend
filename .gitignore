@@ -30,4 +30,5 @@ bower_components
 Thumbs.db
 
 # BackstopJS
-tests/backstop/bitmaps_test
+tests/backstop/bitmaps_test/*
+tests/backstop/html_report/*

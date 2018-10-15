@@ -1,6 +1,6 @@
 # Footer
 
-Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the footer component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
@@ -45,19 +45,19 @@ Find out more about the footer component and when to use it in the [NHS Digital 
 
     {% set primaryLinks = [
         {
-          'url': 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+          'URL': 'https://www.nhs.uk/Pages/nhs-sites.aspx',
           'label': 'NHS sites'
         },
         {
-          'url': 'https://www.nhs.uk/about-us',
+          'URL': 'https://www.nhs.uk/about-us',
           'label': 'About us'        
         },
         {
-          'url': 'https://www.nhs.uk/Pages/contact-us.aspx',
+          'URL': 'https://www.nhs.uk/Pages/contact-us.aspx',
           'label': 'Contact us'    
         },
         {
-          'url': 'https://www.nhs.uk/Personalisation/Login.aspx',
+          'URL': 'https://www.nhs.uk/Personalisation/Login.aspx',
           'label': 'Profile editor login'    
         }
       ]
@@ -65,15 +65,15 @@ Find out more about the footer component and when to use it in the [NHS Digital 
 
     {% set secondaryLinks = [
         {
-          'url': 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+          'URL': 'https://www.nhs.uk/choices/pages/sitemap.aspx',
           'label': 'Sitemap'
         },
         {
-          'url': 'https://www.nhs.uk/accessibility/',
+          'URL': 'https://www.nhs.uk/accessibility/',
           'label': 'Accessibility'
         },
         {
-          'url': 'https://www.nhs.uk/our-policies/',
+          'URL': 'https://www.nhs.uk/our-policies/',
           'label': 'Our policies'
         }
       ]
