@@ -168,6 +168,10 @@
     {
       "label": "Hero with image and content",
       "url": "http://localhost:3000/pages/components/hero-image-content"
+    },
+    {
+      "label": "A-Z List",
+      "url": "http://localhost:3000/pages/components/a-z-list"
     }
   ],
   "paths": {

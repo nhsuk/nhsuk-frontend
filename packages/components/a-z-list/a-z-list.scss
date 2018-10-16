@@ -1,49 +1,221 @@
 /* ==========================================================================
-   #a-z-list
+   COMPONENT / #A-Z-NAV / #LIST-PANEL / #BACK-TO-TOP
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * The original A-Z list component has been broken into 3 different components:
+ * - A-Z Nav
+ * - List panel
+ * - Back to top
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * Each component needs to be refactored into their own folder.
  */
-.nhsuk-a-z-list {
-  ul {
 
-    @include clearfix();
+/* COMPONENT / #A-Z-NAV
+  ========================================================================== */
 
-    margin: -8px 0 0 !important; // sass-lint:disable-line no-important
-    padding: 0;
+/**
+ * A-Z nav allows users skip to a sections of an alphabetical list.
+ *
+ * 1. Clearfix added to the A-Z nav to clear float: left;
+ *    on the .nhsuk-c-a-z-nav__list-item.
+ * 2. Used to wrap the list items.
+ * 3. Removes bullets from list item..
+ * 4. Gives equal spacing around each list item.
+ * 5. 'Random number' gives adequate spacing for touch navigation.
+ */
 
-    li {
-      float: left;
-      list-style: none;
-      margin: 1px;
+.nhsuk-c-a-z-nav {
+  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-margin(7, 'bottom');
 
-      a {
-        display: block;
-        font-size: 21px;
-        min-width: 34px;
-        padding: 8px 0;
-        text-align: center;
+  @include mq($media-type: print) {
+    display: none;
+  }
 
-        @include mq($until: tablet) {
-          font-size: 19px;
-          min-width: 36px;
-        }
+}
 
-        &.active {
-          background: $colour_nhsuk-blue;
-          color: $colour_nhsuk-white;
-        }
-      }
+.nhsuk-c-a-z-nav__list {
+  @include clearfix(); /* [1] */
 
+  @include nhsuk-responsive-padding(0);
+}
+
+.nhsuk-c-a-z-nav__list-item {
+  float: left; /* [2] */
+  list-style: none; /* [3] */
+  margin: 1px; /* [4] */
+}
+
+.nhsuk-c-a-z-nav__list-item-link {
+  @include nhsuk-typography-responsive(22);
+
+  display: block;
+  min-width: 34px; /* [5] */
+  padding-bottom: nhsuk-spacing(2);
+  padding-top: nhsuk-spacing(2);
+  text-align: center;
+
+  @include mq($until: tablet) {
+    min-width: 36px; /* [5] */
+  }
+
+  &.active {
+    background-color: $colour_nhsuk-blue;
+    color: $colour_nhsuk-white;
+  }
+}
+
+/* COMPONENT / #LIST-PANEL
+   ========================================================================== */
+
+/**
+ * List panel is a styled list with a heading.
+ *
+ * Used on the Health A-Z and medicines A-Z.
+ *
+ * 1. Allows <a> padding and margin to be respected.
+ * 2. Removes default margin-bottom from heading.
+ * 3. 'Random number' used give heading the correct placement.
+ * 4. Overrides the default bullet list style.
+ * 5. Overrides default link box-shadow.
+ * 6. Removes the grey border on hover.
+ * 7. Underline is added to give a visual state of change.
+ * 8. Removes right and left margin to make the panel list go right to the
+ *    edge of the screen.
+ * 9. Margin left used to compensate for the negative margin
+ *    on .nhsuk-c-list-panel--mobile.
+ */
+
+.nhsuk-c-list-panel {
+  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-margin(7, 'bottom');
+}
+
+.nhsuk-c-list-panel__header {
+  @include nhsuk-typography-responsive(32);
+
+  background-color: $colour_nhsuk-blue;
+  color: $colour_nhsuk-white;
+  display: inline-block; /* [1] */
+  margin-bottom: 0; /* [2] */
+  padding: nhsuk-spacing(2) nhsuk-spacing(3);
+
+  @include mq($media-type: print) {
+    color: $colour_nhsuk-black;
+    margin-top: 0;
+  }
+
+}
+
+.nhsuk-c-list-panel__list {
+  background-color: $colour_nhsuk-white;
+  border-top: $nhsuk-border-list-panel solid $colour_nhsuk-blue;
+  margin: -28px 0 0; /* [3] */
+  padding: 27px 0 0; /* [3] */
+
+  @include mq($until: tablet) {
+    margin: -24px 0 0; /* [3] */
+    padding: 23px 0 0; /* [3] */
+  }
+
+  @include mq($media-type: print) {
+    border-top: 0;
+  }
+
+}
+
+.nhsuk-c-list-panel__list-item {
+  background-color: $colour_nhsuk-white;
+  list-style: none; /* [4] */
+  margin-bottom: 0;
+}
+
+.nhsuk-c-list-panel__list-item-link {
+  border-bottom: $nhsuk-border-list-panel-item solid $colour_nhsuk-grey-4;
+  display: block;
+  padding: 12px nhsuk-spacing(3);
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0 -1px 0 0 $nhsuk-link-hover-background-colour; /* [5] */
+  }
+
+  &:focus {
+    box-shadow: 0 -1px 0 0 $nhsuk-link-focus-background-colour; /* [5] */
+  }
+
+  &:hover,
+  &:focus {
+    border-color: transparent; /* [6] */
+    text-decoration: underline; /* [7] */
+  }
+
+  @include mq($until: tablet) {
+    padding: nhsuk-spacing(2) nhsuk-spacing(3);
+  }
+}
+
+.nhsuk-c-list-panel--mobile {
+  @include remove-margin-mobile(); /* [8] */
+
+  .nhsuk-c-back-to-top__link {
+
+    @include mq($until: tablet) {
+      margin-left: nhsuk-spacing(3); /* [9] */
+    }
+
+  }
+}
+
+/* COMPONENT / #BACK-TO-TOP
+   ========================================================================== */
+
+/**
+ * Allows the use to skip back to the top of the page.
+ *
+ * 1. Allows <a> padding and margin to be respected.
+ * 2. 'Random number' used to provide space for icon.
+ * 3. Allows icon to be positioned absolute.
+ * 4. Make same colour as link text.
+ * 5. 'Random numbers' used to set the height and width of the icon.
+ * 6. 'Random numbers' used to position align icon.
+ */
+
+.nhsuk-c-back-to-top__link {
+  @include nhsuk-typography-responsive(19);
+
+  display: inline-block; /* [1] */
+  margin-top: nhsuk-spacing(3);
+  padding-left: 12px; /* [2] */
+  position: relative; /* [3] */
+
+  .nhsuk-icon {
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    fill: $colour_nhsuk-blue; /* [4] */
+    height: 19px; /* [5] */
+    left: -8px; /* [6] */
+    position: absolute;
+    top: 4px; /* [6] */
+    transform: rotate(270deg);
+    width: 19px; /* [5] */
+
+    @include mq($until: tablet) {
+      top: 2px; /* [6] */
+    }
+  }
+
+  &:visited {
+    color: $colour_nhsuk-blue;
+  }
+
+  &:hover,
+  &:focus {
+    color: $nhsuk-link-hover-colour;
+
+    .nhsuk-icon {
+      fill: $nhsuk-link-hover-colour;
     }
 
   }
@@ -52,113 +224,4 @@
     display: none;
   }
 
-}
-
-.nhsuk-a-z-list--results-items {
-
-  @include mq($until: tablet) {
-    margin: 0 -16px;
-  }
-
-  h2 {
-    background: $colour_nhsuk-blue;
-    color: $colour_nhsuk-white;
-    display: inline-block;
-    padding: 8px 16px;
-
-    @include mq($media-type: print) {
-      color: $colour_nhsuk-black;
-      margin-top: 0;
-    }
-
-  }
-
-  ul {
-    background: $colour_nhsuk-white;
-    border-top: 2px solid $colour_nhsuk-blue;
-    margin: -28px 0 0;
-    padding: 28px 0 0;
-
-    @include mq($until: tablet) {
-      margin: -24px 0 0;
-      padding: 24px 0 0;
-    }
-
-    @include mq($media-type: print) {
-      border-top: 0;
-    }
-
-    li {
-      background: $colour_nhsuk-white;
-      list-style: none;
-      margin: 0;
-
-      a {
-        border-bottom: 1px solid $colour_nhsuk-grey-4;
-        display: block;
-        padding: 12px 16px;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          border-color: transparent;
-          box-shadow: none;
-        }
-
-        @include mq($until: tablet) {
-          padding: 8px 16px;
-        }
-      }
-
-    }
-  }
-
-  .nhsuk-back-to-top-link {
-    display: inline-block;
-    margin-top: 16px;
-    padding-left: 12px;
-    position: relative;
-
-    @include mq($until: tablet) {
-      margin: 16px 16px 0;
-    }
-
-    .nhsuk-icon {
-      -ms-transform: rotate(270deg);
-      -webkit-transform: rotate(270deg);
-      fill: $colour_nhsuk-blue;
-      height: 19px;
-      left: -8px;
-      position: absolute;
-      top: 4px;
-      transform: rotate(270deg);
-      width: 19px;
-
-      @include mq($until: tablet) {
-        top: 3px;
-      }
-
-    }
-
-    &:visited {
-      color: $colour_nhsuk-blue;
-    }
-
-    &:hover {
-      background: $nhsuk-link-hover-background-colour;
-      box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-      color: $nhsuk-link-hover-colour;
-      text-decoration: none;
-
-      .nhsuk-icon {
-        fill: $nhsuk-link-hover-colour;
-      }
-
-    }
-
-    @include mq($media-type: print) {
-      display: none;
-    }
-
-  }
 }

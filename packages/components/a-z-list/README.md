@@ -14,50 +14,56 @@ Find out when to use the A-Z list component in the [Digital service manual]().
 
 #### Markup
 
-    <nav id="nhsuk-a-z-list" class="nhsuk-a-z-list" role="navigation" aria-label="A-Z Navigation">
-      <ul>
-        <li> 
-          <a href="/conditions/#A">A</a>
-          <a href="/conditions/#B">B</a>
+    <nav id="nhsuk-c-a-z-nav" class="nhsuk-c-a-z-nav" role="navigation" aria-label="A-Z Navigation">
+      <ul class="nhsuk-c-a-z-nav__list">
+        <li class="nhsuk-c-a-z-nav__list-item">
+          <a href="#A" class="nhsuk-c-a-z-nav__list-item-link">A</a>
+        </li>
+        <li class="nhsuk-c-a-z-nav__list-item">
+          <a href="#B" class="nhsuk-c-a-z-nav__list-item-link">B</a>
         </li>
       </ul>
     </nav>
 
-    <div class="a-z-list--results">         
-      <div class="nhsuk-a-z-list--results-items">
-        <h2 id="A">A</h2>
-        <div class="nhsuk-a-z-list--results-items__box">
-          <ul>
-            <li><a href="/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
-            <li><a href="/conditions/abdominal-aortic-aneurysm-screening/">Abdominal aortic aneurysm screening</a></li>
-            <li><a href="/conditions/abscess/">Abscess</a></li>
-            <li><a href="/conditions/acanthosis-nigricans/">Acanthosis nigricans</a></li>
-            <li><a href="/conditions/achalasia/">Achalasia</a></li>
-            <li><a href="/conditions/acid-and-chemical-burns/">Acid and chemical burns</a></li>
-          </ul>
-        </div>
-        <a class="nhsuk-back-to-top-link" href="#nhsuk-a-z-list">
-          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
-            <image class="nhsuk-icon__arrow-right nhsuk-icon__arrow-right--fallback" src="/assets/icons/fallback/icon-arrow-up.png" xlink:href=""></image>
-          </svg>
+    <div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
+      <h2 id="A" class="nhsuk-c-list-panel__header">A</h2>
+      <ul class="nhsuk-c-list-panel__list">
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abdominal-aortic-aneurysm/" class="nhsuk-c-list-panel__list-item-link">Abdominal aortic aneurysm</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abdominal-aortic-aneurysm-screening/" class="nhsuk-c-list-panel__list-item-link">Abdominal aortic aneurysm screening</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abortion/" class="nhsuk-c-list-panel__list-item-link">Abortion</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abscess/" class="nhsuk-c-list-panel__list-item-link">Abscess</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/acanthosis-nigricans/" class="nhsuk-c-list-panel__list-item-link">Acanthosis nigricans</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/achalasia/" class="nhsuk-c-list-panel__list-item-link">Achalasia</a></li>
+      </ul>
+      <div class="nhsuk-c-back-to-top">
+        <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-list">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+        <image class="nhsuk-icon__arrow-right nhsuk-icon__arrow-right--fallback" src="/assets/icons/fallback/icon-arrow-right.png" xlink:href="">
+    </image></svg>
+
           Back to top
         </a>
-        <h2 id="B">B</h2>
-        <div class="nhsuk-a-z-list--results-items__box">
-          <ul>               
-            <li><a href="/conditions/back-pain/">Back pain</a></li>
-            <li><a href="/conditions/bacterial-vaginosis/">Bacterial vaginosis</a></li>
-            <li><a href="/conditions/bad-breath/">Bad breath (halitosis)</a></li>
-            <li><a href="/conditions/bakers-cyst/">Baker's cyst</a></li>
-            <li><a href="/conditions/balanitis/">Balanitis</a></li>
-          </ul>
-        </div>
-        <a class="nhsuk-back-to-top-link" href="#nhsuk-a-z-list">
-          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
-            <image class="nhsuk-icon__arrow-right nhsuk-icon__arrow-right--fallback" src="/assets/icons/fallback/icon-arrow-up.png" xlink:href=""></image>
-          </svg>
+      </div>
+    </div>
+
+    <div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
+      <h2 id="B" class="nhsuk-c-list-panel__header">B</h2>
+      <ul class="nhsuk-c-list-panel__list">
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abdominal-aortic-aneurysm/" class="nhsuk-c-list-panel__list-item-link">Abdominal aortic aneurysm</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abdominal-aortic-aneurysm-screening/" class="nhsuk-c-list-panel__list-item-link">Abdominal aortic aneurysm screening</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abortion/" class="nhsuk-c-list-panel__list-item-link">Abortion</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/abscess/" class="nhsuk-c-list-panel__list-item-link">Abscess</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/acanthosis-nigricans/" class="nhsuk-c-list-panel__list-item-link">Acanthosis nigricans</a></li>
+        <li class="nhsuk-c-list-panel__list-item"><a href="/conditions/achalasia/" class="nhsuk-c-list-panel__list-item-link">Achalasia</a></li>
+      </ul>
+      <div class="nhsuk-c-back-to-top">
+        <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-list">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+        <image class="nhsuk-icon__arrow-right nhsuk-icon__arrow-right--fallback" src="/assets/icons/fallback/icon-arrow-right.png" xlink:href="">
+    </image></svg>
+
           Back to top
         </a>
       </div>
