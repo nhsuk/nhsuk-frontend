@@ -137,6 +137,11 @@
     {
       "label": "Panel",
       "url": "http://localhost:3000/pages/components/panel"
+    },
+    {
+      "label": "Details",
+      "url": "http://localhost:3000/pages/components/details",
+      "clickSelector": ".nhsuk-details__summary"
     }
   ],
   "paths": {

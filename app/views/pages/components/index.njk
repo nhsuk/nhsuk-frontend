@@ -289,17 +289,10 @@
     ]
   }) }}
 
-  {{ details('When to check your blood glucose level', '
-  <p>Try to check your blood:</p>
-
-  <ul>
-      <li>before meals</li>
-      <li>2 to 3 hours after meals</li>
-      <li>before, during (take a break) and after exercise</li>
-  </ul>
-
-  <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-  ') }}
+  {{ details({
+    "heading": "When to check your blood glucose level",
+    "html": "<p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>"
+  }) }}
 
   {{ azList() }}
 {% endblock %}
