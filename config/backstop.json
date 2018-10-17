@@ -48,6 +48,11 @@
     {
       "label": "Footer",
       "url": "http://localhost:3000/pages/components/footer"
+    },
+    {
+      "label": "Details",
+      "url": "http://localhost:3000/pages/components/details",
+      "clickSelector": ".nhsuk-details__summary"
     }
   ],
   "paths": {
