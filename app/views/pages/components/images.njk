@@ -1,0 +1,31 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Images' %}
+{% from 'components/images/macro.njk' import image %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+
+              {{ image({
+                "alt": "Picture of allergic conjunctivitis",
+                "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+                "caption": "Itchy, red, watering eyes"
+              }) }}
+
+              {{ image({
+                "alt": "Picture of allergic conjunctivitis",
+                "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
+              }) }}
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

@@ -14,18 +14,20 @@ Find out when to use the image component in the [Digital service manual]().
 
 #### Markup
 
-    <div class="nhsuk-c-image">
-      <img alt="Picture of allergic conjunctivitis" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg">
-      <div class="nhsuk-c-image__caption">
-        <p>Itchy, red, watering eyes</p>
-      </div>
-    </div>
+    <figure class="nhsuk-c-image">
+      <img class="nhsuk-c-image__img" alt="Picture of allergic conjunctivitis" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg">
+      <figcaption class="nhsuk-c-image__caption">
+        Itchy, red, watering eyes
+      </figcaption>
+    </figure>
 
 #### Macro
 
-    {% from 'components/images/macro.njk' import image %}
-
-    {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+    {{ image({
+      "alt": "Picture of allergic conjunctivitis",
+      "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+      "caption": "Itchy, red, watering eyes"
+    }) }}
 
 ## Contribution
 

@@ -1,7 +1,11 @@
-<div class="nhsuk-c-image">
-  <img alt="{{ title }}" 
-  src="{{ imageURL }}"/>
-  <div class="nhsuk-c-image__caption">
-    {{ caption | safe }}
-  </div>
-</div>
+<figure class="nhsuk-c-image {%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+  <img class="nhsuk-c-image__img" alt="{{ params.alt }}"
+  src="{{ params.src }}"/>
+  {% if params.caption %}
+    <figcaption class="nhsuk-c-image__caption">
+      {{ params.caption | safe }}
+    </figure>
+    {% else %}
+    </figure>
+  {% endif %}

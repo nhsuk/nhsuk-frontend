@@ -1,40 +1,42 @@
 /* ==========================================================================
-   #images
+   COMPONENTS / #IMAGES
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Image with a caption.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Overrides default browser margin values.
+ * 2. Makes the image width two thirds of its container for desktop.
+ * 3. Removes top margin from subsequent nhsuk-c-image.
  */
+
 .nhsuk-c-image {
-  background: $colour_nhsuk-white;
-  border-bottom: $colour_nhsuk-grey-4 2px solid;
-  margin: 40px 0 0;
+  background-color: $colour_nhsuk-white;
+  border-bottom: 1px solid $colour_nhsuk-grey-4;
 
-  @include mq($until: tablet) {
-    margin: 32px 0 0;
+  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-responsive-margin(6, 'top');
+
+  margin-left: 0; /* [1] */
+  margin-right: 0; /* [1] */
+
+  @include mq($from: desktop) {
+    width: 66.66667%; /* [2] */
   }
 
-  img {
-    display: block;
-    width: 100%;
+  & + .nhsuk-c-image {
+    @include nhsuk-responsive-margin(0, 'top'); /* [3] */
   }
 
-  &__caption {
-    padding: 16px;
+}
 
-    p {
-      font-size: .9em;
-      margin: 0;
-    }
+.nhsuk-c-image__img {
+  display: block;
+  width: 100%;
+}
 
-  }
+.nhsuk-c-image__caption {
+  @include nhsuk-typography-responsive(16);
 
+  padding: nhsuk-spacing(3);
 }
