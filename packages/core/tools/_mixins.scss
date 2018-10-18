@@ -213,3 +213,27 @@
     flex: 0 0 100%;
   }
 }
+
+/**
+ * Flex mixin
+ * Usage: @include flex();
+ */
+
+@mixin flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/**
+ * Flex item mixin
+ * Usage: @include flex-item();
+ */
+
+@mixin flex-item() {
+  display: flex;
+
+  @include mq($until: desktop) {
+    flex: 0 0 100%;
+  }
+
+}
