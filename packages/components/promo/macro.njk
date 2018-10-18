@@ -1,6 +1,6 @@
 {% macro promo(promoClass, promoLink, promoTitle, promoDescription) %}
     <div class="nhsuk-c-promo {{promoClass}}">
-        <a href="{{promoLink}}">
+        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
             <div class="nhsuk-c-promo__content">
                 <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
                 <p class="nhsuk-c-promo__description">{{promoDescription}}</p>
@@ -11,7 +11,7 @@
 
 {% macro promoWithImage(promoClass, promoImage, promoLink, promoTitle, promoDescription) %}
     <div class="nhsuk-c-promo {{promoClass}}">
-        <a href="{{promoLink}}">
+        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
             <div class="nhsuk-c-promo__image-wrapper">
                 <div class="nhsuk-c-promo__image" style="background-image:url({{promoImage}});"></div>
             </div>
@@ -25,7 +25,7 @@
 
 {% macro promoNoDescription(promoClass, promoLink, promoTitle) %}
     <div class="nhsuk-c-promo {{promoClass}}">
-        <a href="{{promoLink}}">
+        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
             <div class="nhsuk-c-promo__content">
                 <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
             </div>

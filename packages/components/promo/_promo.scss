@@ -1,149 +1,180 @@
 /* ==========================================================================
-   #promo
+   COMPONENTS / #PROMO
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * A promo is a snippet of content which links to a full piece of content
+ * elsewhere on the NHS site or app.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
+ * It can be used with or without an image.
  *
  * 1. Provide line comments like this.
+ * 2. Provide line comments like this.
+ * 3. Provide line comments like this.
+ * 4. Provide line comments like this.
+ * 5. Provide line comments like this.
+ * 6. Provide line comments like this.
+ * 7. Provide line comments like this.
+ * 8. Provide line comments like this.
+ * 9. Provide line comments like this.
+ * 10. Provide line comments like this.
+ * 11. Provide line comments like this.
+ * 12. Provide line comments like this.
  */
-.nhsuk-o-flex {
-  display: flex;
-  flex-wrap: wrap;
-
-  .nhsuk-c-promo {
-    margin-bottom: 16px;
-
-    @include mq($from: desktop) {
-      margin-bottom: 32px;
-    }
-
-  }
-
-  .nhsuk-o-grid__item {
-    display: flex;
-  }
-
-}
-
-@include mq($until: desktop) {
-  .nhsuk-o-flex {
-    .nhsuk-o-grid__item {
-      flex: 0 0 100%;
-    }
-  }
-}
 
 .nhsuk-c-promo {
-  width: 100%;
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link;
+  width: 100%; /* [1] */
+}
 
-  a {
-    background: $colour_nhsuk-white;
-    box-shadow: 0 4px 0 0 $colour_nhsuk-grey-4;
-    display: block;
-    height: 100%;
-    text-decoration: none;
+.nhsuk-c-promo__link-wrapper {
+  background-color: $colour_nhsuk-white;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $colour_nhsuk-grey-4;
+  display: block; /* [2] */
+  height: 100%; /* [3] */
+  position: relative; /* [4] */
+  text-decoration: none; /* [5] */
 
-    &:focus {
-      box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-
-      .nhsuk-c-promo__heading {
-        text-decoration: underline;
-      }
-
-    }
-
-    &:hover {
-      background: $colour_nhsuk-white;
-      box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-      color: $colour_nhsuk-blue;
-    }
-
-    &:active {
-      background: darken($colour_nhsuk-grey-5, 2%) !important; // sass-lint:disable-line no-important
-      box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour !important; // sass-lint:disable-line no-important
-    }
-
-    &:hover,
-    &:active {
-      .nhsuk-c-promo__heading {
-        text-decoration: none;
-      }
-    }
+  &:focus {
+    background-color: $colour_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
 
     .nhsuk-c-promo__heading {
-      display: inline-block;
-      text-decoration: underline;
+      text-decoration: underline; /* [6] */
+    }
+
+    .nhsuk-c-promo__heading,
+    .nhsuk-c-promo__description {
+      color: $nhsuk-link-focus-colour;
     }
 
   }
 
-  .nhsuk-c-promo__image-wrapper {
-    display: block;
-    float: none;
-    margin: 0;
-    padding-bottom: 56.25%;
-    position: relative;
-    width: 100%;
+  &:hover {
+    background: $colour_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour; /* [7] */
+    color: $colour_nhsuk-blue;
   }
 
-  .nhsuk-c-promo__image {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom: 1px solid $colour_nhsuk-grey-5;
-    bottom: 0;
-    display: block;
-    left: 0;
-    padding-bottom: 56.25%;
-    position: absolute;
-    right: 0;
-    top: 0;
+  &:active {
+    background: $colour_nhsuk-grey-5; /* [8] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour; /* [9] */
+    top: $nhsuk-box-shadow-link; /* [10] */
   }
 
-  .nhsuk-c-promo__content {
-    @include top-and-bottom();
-    padding: 32px;
-
-    @include mq($until: tablet) {
-      padding: 24px;
+  &:hover,
+  &:active {
+    .nhsuk-c-promo__heading {
+      text-decoration: none; /* [11] */
     }
+  }
+}
 
+.nhsuk-c-promo__heading {
+  margin-bottom: nhsuk-spacing(3);
+  text-decoration: underline;
+}
+
+.nhsuk-c-promo__image-wrapper {
+  display: block;
+  float: none;
+  margin: 0;
+  padding-bottom: 56.25%; /* [12] */
+  position: relative;
+  width: 100%;
+}
+
+.nhsuk-c-promo__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid $colour_nhsuk-grey-5; /* [13] */
+  bottom: 0;
+  display: block;
+  left: 0;
+  padding-bottom: 56.25%; /* [14] */
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.nhsuk-c-promo__content {
+  @include top-and-bottom();
+
+  @include nhsuk-responsive-padding(5);
+}
+
+.nhsuk-c-promo__description {
+  color: $nhsuk-secondary-text-colour;
+  text-decoration: none; /* [15] */
+}
+
+/* Promo with an arrow
+   ========================================================================== */
+
+ .nhsuk-c-promo--arrow {
+
+  .nhsuk-c-promo__heading {
+    background: url(https://www.nhs.uk/static/nhsuk_shared/img/icon-chevron-right-grey.fd83c157d826.svg) right center no-repeat;
+    background-size: 12px 20px;
+    padding-right: nhsuk-spacing(4);
+  }
+
+}
+
+/* Promo size variant
+   ========================================================================== */
+
+/**
+ * Promo small reduces the size of the text heading and description.
+ */
+
+.nhsuk-c-promo--small {
+
+  .nhsuk-c-promo__heading {
+    @include nhsuk-typography-responsive(19);
   }
 
   .nhsuk-c-promo__description {
-    color: $nhsuk-secondary-text-colour;
-    margin-top: 12px;
-    text-decoration: none !important; // sass-lint:disable-line no-important
+    @include nhsuk-typography-responsive(16);
   }
 
-  &--small {
-    .nhsuk-c-promo__heading {
-      font-size: 19px;
-      line-height: 28px;
+}
 
-      @include mq($until: tablet) {
-        font-size: 16px;
-        line-height: 24px;
-      }
+/* Promo group
+   ========================================================================== */
 
-    }
+/**
+ * Promo group allows you to have a row of promos.
+ *
+ * Flexbox is used to make each promo in a row the same height.
+ *
+ * 1. Provide line comments like this.
+ * 2. Provide line comments like this.
+ */
 
-    .nhsuk-c-promo__description {
-      font-size: 16px;
-      line-height: 24px;
+.nhsuk-c-promo-group {
+  @include flex();
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link;
 
-      @include mq($until: tablet) {
-        font-size: 14px;
-      }
-
-    }
-
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
   }
+}
+
+.nhsuk-c-promo-group__item {
+  @include flex-item();
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
+
+    &:last-child {
+      margin-bottom: 0; /* [1] */
+    }
+  }
+
+  .nhsuk-c-promo {
+    margin-bottom: 0; /* [2] */
+  }
+
 }

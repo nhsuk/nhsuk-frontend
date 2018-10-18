@@ -193,4 +193,23 @@
     display: none;
   }
 
+/**
+ * Flex mixin
+ *
+ * Usage: @include flex();
+ *        @include flex-item();
+ * See components/_promo
+ */
+
+@mixin flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-item() {
+  display: flex;
+
+  @include mq($until: desktop) {
+    flex: 0 0 100%;
+  }
 }
