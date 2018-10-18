@@ -10,8 +10,8 @@ Find out more about the review date component and when to use it in the [NHS dig
 
     <div class="nhsuk-c-review-date">
       <p class="nhsuk-body-s">
-        Page last reviewed: 12/02/2016<br>
-        Next review due: 01/02/2019
+        Page last reviewed: <time>12/02/2016</time><br>
+        Next review due: <time>01/02/2019</time>
       </p>
     </div>
 
