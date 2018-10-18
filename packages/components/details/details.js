@@ -1,5 +1,4 @@
-// <details> polyfill
-// http://caniuse.com/#feat=details
+// Details
 
 // FF Support for HTML5's <details> and <summary>
 // https://bugzilla.mozilla.org/show_bug.cgi?id=591737
@@ -8,8 +7,6 @@
 
 // Taken from govuk_frontend_toolkit
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/details.polyfill.js
-
-// Removed the addition of extra element to display arrow for non native implementation, as this is done in CSS
 
 ;(function (global) {
   'use strict'
