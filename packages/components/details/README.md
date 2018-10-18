@@ -6,6 +6,11 @@ Find out more about the details component and when to use it in the [NHS Digital
 
 [Preview the details component]()
 
+## Dependencies
+
+For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+compiled JavaScript for all components `nhsuk.js` or the individual component JavaScript `details.js`.
+
 ## HTML markup
 
     <details class="nhsuk-details" role="group">
