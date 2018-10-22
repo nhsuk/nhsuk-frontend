@@ -1,7 +1,6 @@
 {% set title = 'Components - Banners' %}
 {% set parent = 'Library' %}
 {% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
-{% from 'components/cookie-banner/macro.njk' import cookieBanner %}
 {% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
 {% from 'components/phase-banner/macro.njk' import phaseBanner %}
@@ -9,8 +8,6 @@
 {% extends 'includes/templates/page.njk' %}
 
 {% block outerHeader %}
-  {{ cookieBanner() }}
-
   {{ emergencyAlert('National flu outbreak', 'There has been a national flu outbreak.', '#', 'How does it affect me', 'Updated 23 mins ago') }}
 {% endblock %}
 
