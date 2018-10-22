@@ -1,0 +1,72 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Promo' %}
+{% from 'components/promo/macro.njk' import promo %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main id="maincontent" class="nhsuk-main-wrapper">
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <div class="nhsuk-page-content">
+              {{ promo({
+                "href": "https://www.nhs.uk",
+                "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+                "heading": "Save a life: give blood",
+                "description": "Please register today. Donating blood is easy, and saves lives."
+              }) }}
+
+              {{ promo({
+                "href": "#",
+                "heading": "Save a life: give blood",
+                "description": "Please register today. Donating blood is easy, and saves lives."
+              }) }}
+
+              {{ promo({
+                "href": "#",
+                "heading": "Save a life: give blood"
+              }) }}
+
+              <div class="nhsuk-grid-row nhsuk-c-promo-group">
+                <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+                  {{ promo({
+                    "href": "#",
+                    "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+                    "heading": "Save a life: give blood",
+                    "description": "Please register today. Donating blood is easy, and saves lives."
+                  }) }}
+                </div>
+                <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+                  {{ promo({
+                    "href": "#",
+                    "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+                    "heading": "Save a life: give blood",
+                    "description": "Please register today. Donating blood is easy, and saves lives."
+                  }) }}
+                </div>
+              </div>
+
+              <div class="nhsuk-grid-row nhsuk-c-promo-group">
+                <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+                  {{ promo({
+                    "classes": "nhsuk-c-promo--small",
+                    "href": "#",
+                    "heading": "Save a life: give blood"
+                  }) }}
+                </div>
+                <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+                  {{ promo({
+                    "classes": "nhsuk-c-promo--small",
+                    "href": "#",
+                    "heading": "Save a life: give blood"
+                  }) }}
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

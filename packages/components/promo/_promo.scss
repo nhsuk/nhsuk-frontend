@@ -8,29 +8,26 @@
  *
  * It can be used with or without an image.
  *
- * 1. Provide line comments like this.
- * 2. Provide line comments like this.
- * 3. Provide line comments like this.
- * 4. Provide line comments like this.
- * 5. Provide line comments like this.
- * 6. Provide line comments like this.
- * 7. Provide line comments like this.
- * 8. Provide line comments like this.
- * 9. Provide line comments like this.
- * 10. Provide line comments like this.
- * 11. Provide line comments like this.
- * 12. Provide line comments like this.
+ * 1. Extra margin is added to compensate for the box-shadow.
+ * 2. Box shadow size is set within settings/_globals.scss.
+ * 3. Makes the <a> fill the height of it's parent container.
+ * 4. Is needed for the :active top positioning.
+ * 5. Removes default <a> text underline from all elements.
+ * 6. Adds text underline to promo heading.
+ * 7. Creates the 'pressed down' effect when clicked.
+ * 8. Border is used to create a divider between the white content
+ *    box and an image.
  */
 
 .nhsuk-c-promo {
-  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link;
-  width: 100%; /* [1] */
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
+  width: 100%;
 }
 
 .nhsuk-c-promo__link-wrapper {
   background-color: $colour_nhsuk-white;
-  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $colour_nhsuk-grey-4;
-  display: block; /* [2] */
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $colour_nhsuk-grey-4; /* [2] */
+  display: block;
   height: 100%; /* [3] */
   position: relative; /* [4] */
   text-decoration: none; /* [5] */
@@ -52,50 +49,36 @@
 
   &:hover {
     background: $colour_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
     color: $colour_nhsuk-blue;
   }
 
   &:active {
-    background: $colour_nhsuk-grey-5; /* [8] */
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour; /* [9] */
-    top: $nhsuk-box-shadow-link; /* [10] */
+    background: $colour_nhsuk-grey-5; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour;
+    top: $nhsuk-box-shadow-link; /* [7] */
   }
 
   &:hover,
   &:active {
     .nhsuk-c-promo__heading {
-      text-decoration: none; /* [11] */
+      text-decoration: none;
     }
+  }
+}
+
+.nhsuk-c-promo__img {
+  border-bottom: 1px solid $colour_nhsuk-grey-5; /* [8] */
+  width: 100%;
+
+  @include mq($media-type: print) {
+    display: none;
   }
 }
 
 .nhsuk-c-promo__heading {
   margin-bottom: nhsuk-spacing(3);
   text-decoration: underline;
-}
-
-.nhsuk-c-promo__image-wrapper {
-  display: block;
-  float: none;
-  margin: 0;
-  padding-bottom: 56.25%; /* [12] */
-  position: relative;
-  width: 100%;
-}
-
-.nhsuk-c-promo__image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-bottom: 1px solid $colour_nhsuk-grey-5; /* [13] */
-  bottom: 0;
-  display: block;
-  left: 0;
-  padding-bottom: 56.25%; /* [14] */
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .nhsuk-c-promo__content {
@@ -106,20 +89,6 @@
 
 .nhsuk-c-promo__description {
   color: $nhsuk-secondary-text-colour;
-  text-decoration: none; /* [15] */
-}
-
-/* Promo with an arrow
-   ========================================================================== */
-
- .nhsuk-c-promo--arrow {
-
-  .nhsuk-c-promo__heading {
-    background: url(https://www.nhs.uk/static/nhsuk_shared/img/icon-chevron-right-grey.fd83c157d826.svg) right center no-repeat;
-    background-size: 12px 20px;
-    padding-right: nhsuk-spacing(4);
-  }
-
 }
 
 /* Promo size variant
@@ -148,9 +117,6 @@
  * Promo group allows you to have a row of promos.
  *
  * Flexbox is used to make each promo in a row the same height.
- *
- * 1. Provide line comments like this.
- * 2. Provide line comments like this.
  */
 
 .nhsuk-c-promo-group {
@@ -169,12 +135,12 @@
     margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
 
     &:last-child {
-      margin-bottom: 0; /* [1] */
+      margin-bottom: 0;
     }
   }
 
   .nhsuk-c-promo {
-    margin-bottom: 0; /* [2] */
+    margin-bottom: 0;
   }
 
 }

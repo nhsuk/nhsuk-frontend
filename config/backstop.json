@@ -101,6 +101,10 @@
     {
       "label": "Images",
       "url": "http://localhost:3000/pages/components/images"
+    },
+    {
+      "label": "Promo",
+      "url": "http://localhost:3000/pages/components/promo"
     }
   ],
   "paths": {

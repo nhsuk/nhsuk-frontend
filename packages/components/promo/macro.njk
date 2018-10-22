@@ -1,34 +1,3 @@
-{% macro promo(promoClass, promoLink, promoTitle, promoDescription) %}
-    <div class="nhsuk-c-promo {{promoClass}}">
-        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
-            <div class="nhsuk-c-promo__content">
-                <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
-                <p class="nhsuk-c-promo__description">{{promoDescription}}</p>
-            </div>
-        </a>
-    </div>
-{% endmacro %}
-
-{% macro promoWithImage(promoClass, promoImage, promoLink, promoTitle, promoDescription) %}
-    <div class="nhsuk-c-promo {{promoClass}}">
-        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
-            <div class="nhsuk-c-promo__image-wrapper">
-                <div class="nhsuk-c-promo__image" style="background-image:url({{promoImage}});"></div>
-            </div>
-            <div class="nhsuk-c-promo__content">
-                <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
-                <p class="nhsuk-c-promo__description">{{promoDescription}}</p>
-            </div>
-        </a>
-    </div>
-{% endmacro %}
-
-{% macro promoNoDescription(promoClass, promoLink, promoTitle) %}
-    <div class="nhsuk-c-promo {{promoClass}}">
-        <a class="nhsuk-c-promo__link-wrapper" href="{{promoLink}}">
-            <div class="nhsuk-c-promo__content">
-                <h3 class="nhsuk-c-promo__heading">{{promoTitle}}</h3>
-            </div>
-        </a>
-    </div>
+{% macro promo(params) %}
+  {%- include './template.njk' -%}
 {% endmacro %}
