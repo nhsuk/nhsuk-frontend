@@ -125,7 +125,7 @@
   }) }}
 
   {{ promo({
-    "href": "#",
+    "href": "https://www.nhs.uk",
     "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
     "heading": "Save a life: give blood",
     "description": "Please register today. Donating blood is easy, and saves lives."
@@ -142,7 +142,6 @@
     "heading": "Save a life: give blood"
   }) }}
 
-<<<<<<< HEAD
   <div class="nhsuk-grid-row nhsuk-c-promo-group">
     <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
       {{ promo({
@@ -161,9 +160,6 @@
       }) }}
     </div>
   </div>
-=======
-  {{ promoNoDescription("nhsuk-c-promo--small nhsuk-c-promo--arrow", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
->>>>>>> [refs #63] Started refactoring promo Sass
 
   <div class="nhsuk-grid-row nhsuk-c-promo-group">
     <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
@@ -181,41 +177,6 @@
       }) }}
     </div>
   </div>
-
-  <hr>
-
-  <div class="nhsuk-grid-row nhsuk-c-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
-      {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
-      {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Shorter description.") }}
-    </div>
-  </div>
-  <div class="nhsuk-grid-row nhsuk-c-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
-      {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
-      {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Shorter description.") }}
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="nhsuk-grid-row nhsuk-c-promo-group">
-    <div class="nhsuk-grid-column-one-third nhsuk-c-promo-group__item">
-      {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
-    </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-c-promo-group__item">
-      {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
-    </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-c-promo-group__item">
-      {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
-    </div>
-  </div>
-
-  <hr>
 
   {% set doItems = [
       {
