@@ -1,10 +1,10 @@
-<details class="nhsuk-details" role="group">
+<details class="nhsuk-details {% if params.class %}{{ params.class }}{% endif %}" role="group">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
       {{ params.heading }}
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    {{ params.html | safe }}
+    {{ params.HTML | safe }}
   </div>
 </details>

@@ -65,14 +65,67 @@
   margin-top: 8px;
   padding: nhsuk-spacing(3);
   padding-left: nhsuk-spacing(4);
+  @include top-and-bottom();
 
   p {
     margin-bottom: nhsuk-spacing(4);
     margin-top: 0;
   }
 
-  & > :last-child {
-    margin-bottom: 0;
+}
+
+/**
+ * Expander variation.
+ *
+ * 1. !important used because the icon is populated
+ *    by the JavaScript polyfill
+ * 2. Remove the default hover, focus and active
+ *    styles for this component.
+ * 3. When a group of details is used reduce the
+ *    margin between them so they sit together.
+ */
+
+.nhsuk-c-expander {
+  background-color: $colour_nhsuk-white;
+  padding: 24px;
+
+  .nhsuk-details__summary {
+    padding-left: 0;
+
+    &:before {
+      display: none !important; // [2] //
+    }
+
+    &:hover,
+    &:active,
+    &:focus { // [3] //
+      background: none;
+      outline: 0;
+    }
+
+  }
+
+  .nhsuk-details__summary-text {
+    background: url(/assets/icons/icon-plus.svg) left no-repeat;
+    color: $colour_nhsuk-blue;
+    cursor: pointer;
+    padding: 8px 8px 8px 40px;
+  }
+
+}
+
+.nhsuk-c-expander[open] {
+
+  .nhsuk-details__summary-text {
+    background: url(/assets/icons/icon-minus.svg) left no-repeat;
+  }
+
+}
+
+.nhsuk-c-expander-group { // [4] //
+
+  > .nhsuk-details {
+    @include nhsuk-responsive-margin(2, 'bottom');
   }
 
 }
