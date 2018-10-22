@@ -1,0 +1,23 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Hero' %}
+{% from 'components/hero/macro.njk' import hero %}
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  {{ hero({
+  "heading": "We're here for you",
+  "text": "Helping you take control of your health and wellbeing."
+  }) }}
+
+	{{ hero({
+  "heading": "We're here for you",
+  "text": "Helping you take control of your health and wellbeing.",
+  "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+  }) }}
+
+  {{ hero({
+  "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+  }) }}
+
+{% endblock %}

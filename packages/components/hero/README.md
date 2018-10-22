@@ -1,68 +1,49 @@
 # Hero
 
-## Introduction
+Find out more about the hero component and when to use it in the  [NHS digital service manual]().
 
-A hero component can be used to have a title and introduction header section within the page.
+## Hero with heading and text
 
-## Guidance
+[Preview the hero with heading and text component]()
 
-Find out when to use the hero component in the [Digital service manual]().
-
-## Example
-
-[Preview the hero component]()
-
-### Hero
-
-#### Markup
+## HTML markup
 
     <section class="nhsuk-hero">
-      <div class="nhsuk-width-container">
-        <div class="nhsuk-main-wrapper nhsuk-hero-container">
-          <div class="nhsuk-grid-row">
-            <div class="nhsuk-grid-column-two-thirds">
-              <div class="nhsuk-page-heading">
-                <h1>We're here for you</h1>
-                <p>Helping you take control of your health and wellbeing.</p>
-              </div>
+      <div class="nhsuk-width-container nhsuk-hero--border">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <div class="nhsuk-page-heading">
+              <h1 class="nhsuk-!-margin-bottom-3">We're here for you</h1>
+              <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-#### Macro
+## Nunjucks macro
 
     {% from 'components/hero/macro.njk' import hero %}
 
-    {{ hero('We're here for you', '<p>Helping you take control of your health and wellbeing.</p>') }}
+    {{ hero({
+    "heading": "We're here for you",
+    "text": "Helping you take control of your health and wellbeing."
+    }) }}
 
-### Hero with image
+## Hero with an image, heading and text
 
-#### Markup
+[Preview the hero with an image, heading and text component]()
 
-    <section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-1.jpg');">
-      <div class="nhsuk-hero__overlay"></div>
-    </section>
+## HTML markup
 
-#### Macro
-
-    {% from 'components/hero/macro.njk' import heroImage %}
-
-    {{ heroImage("https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-1.jpg") }}
-
-### Hero with image and content
-
-#### Markup
-
-    <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-1.jpg');">
+    <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
       <div class="nhsuk-hero__overlay">
-        <div class="nhsuk-hero__container">
+        <div class="nhsuk-width-container nhsuk-hero--border">
           <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-two-thirds">
               <div class="nhsuk-hero-content">
-                <h1 role="text">We're here for you</h1>
-                <p>Helping you take control of your health and wellbeing.</p>
+                <h1 class="nhsuk-!-margin-bottom-3">We're here for you</h1>
+                <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
               </div>
             </div>
           </div>
@@ -70,12 +51,30 @@ Find out when to use the hero component in the [Digital service manual]().
       </div>
     </section>
 
-#### Macro
+## Nunjucks macro
 
-    {% from 'components/hero/macro.njk' import heroImageContent %}
+    {% from 'components/hero/macro.njk' import hero %}
 
-    {{ heroImageContent("We're here for you", "<p>Helping you take control of your health and wellbeing.</p>", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-1.jpg") }}
+    {{ hero({
+    "heading": "We're here for you",
+    "text": "Helping you take control of your health and wellbeing.",
+    "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+    }) }}
 
-## Contribution
+## Hero with an image only
 
-Guidelines on contributing to components can be found at [Contributing guidelines]().
+[Preview the hero with an image only component]()
+
+## HTML markup
+
+    <section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
+      <div class="nhsuk-hero__overlay"></div>
+    </section>
+
+## Nunjucks macro
+
+    {% from 'components/hero/macro.njk' import hero %}
+
+    {{ hero({
+    "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+    }) }}

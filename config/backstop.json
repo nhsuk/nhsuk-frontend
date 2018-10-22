@@ -156,6 +156,10 @@
       "label": "Expander group",
       "url": "http://localhost:3000/pages/components/expander-group",
       "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Hero",
+      "url": "http://localhost:3000/pages/components/hero"
     }
   ],
   "paths": {
