@@ -2,12 +2,6 @@
    COMPONENTS / #REVIEW-DATE
    ========================================================================== */
 
-/**
- * The review date component is used to show when
- * the page content was last reviewed and when the
- * next review is due.
-**/
-
 .nhsuk-c-review-date {
   @include nhsuk-responsive-margin(7, 'top');
   color: $nhsuk-secondary-text-colour;
