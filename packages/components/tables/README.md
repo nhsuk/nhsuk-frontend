@@ -12,67 +12,151 @@ Find out when to use the table component in the [Digital service manual]().
 
 [Preview the table component]()
 
+### Table
+
 #### Markup
 
-    <table class="nhsuk-table">
-      <thead>
-        <tr>
-          <th>Skin symptoms</th>
-          <th>Possible cause</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Blisters on lips or around the mouth</td>
-          <td>cold sores</td>
-        </tr>
-        <tr>
-          <td>Itchy, dry, cracked, sore</td>
-          <td>eczema</td>
-        </tr>
-        <tr>
-          <td>Itchy blisters</td>
-          <td>shingles, chickenpox</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="nhsuk-table-responsive">
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
+            <th class="nhsuk-table__header" scope="col">Possible cause</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
+            <td class="nhsuk-table__cell ">cold sores</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
+            <td class="nhsuk-table__cell ">eczema</td>
+          </tr>  
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Itchy blisters</td>
+            <td class="nhsuk-table__cell ">shingles, chickenpox</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 #### Macro
 
     {% from 'components/tables/macro.njk' import table %}
 
     {{ table({
-      "rows": [
+      panel: false,
+      caption: "Skin symptoms and possible causes",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
         [
           {
-            "text": "Skin symptoms"
+            text: "Blisters on lips or around the mouth"
           },
           {
-            "text": "Possible cause"
+            text: "cold sores"
           }
         ],
         [
           {
-            "text": "Blisters on lips or around the mouth"
+            text: "Itchy, dry, cracked, sore"
           },
           {
-            "text": "cold sores"
+            text: "eczema"
           }
         ],
         [
           {
-            "text": "Itchy, dry, cracked, sore"
+            text: "Itchy blisters"
           },
           {
-            "text": "eczema"
+            text: "shingles, chickenpox"
+          }
+        ]
+      ]
+    }) }}
+
+### Table panel
+
+    <div class="nhsuk-table__panel-with-heading-tab">
+      <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">  
+          <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
+              <th class="nhsuk-table__header" scope="col">Possible cause</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
+              <td class="nhsuk-table__cell ">cold sores</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
+              <td class="nhsuk-table__cell ">eczema</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Itchy blisters</td>
+              <td class="nhsuk-table__cell ">shingles, chickenpox</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+#### Macro
+
+    {% from 'components/tables/macro.njk' import table %}
+
+    {{ table({
+      panel: true,
+      heading: "Skin symptoms and possible causes",
+      caption: "Skin symptoms and possible causes",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "cold sores"
           }
         ],
         [
           {
-            "text": "Itchy blisters"
+            text: "Itchy, dry, cracked, sore"
           },
           {
-            "text": "shingles, chickenpox"
+            text: "eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "shingles, chickenpox"
           }
         ]
       ]
