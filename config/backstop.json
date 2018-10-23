@@ -58,8 +58,20 @@
       "url": "http://localhost:3000/pages/components/review-date"
     },
     {
-      "label": "Care card",
-      "url": "http://localhost:3000/pages/components/care-card"
+      "label": "Grey care card",
+      "url": "http://localhost:3000/pages/components/care-card-grey"
+    },
+    {
+      "label": "Blue care card",
+      "url": "http://localhost:3000/pages/components/care-card-blue"
+    },
+    {
+      "label": "Red care card",
+      "url": "http://localhost:3000/pages/components/care-card-red"
+    },
+    {
+      "label": "Black care card",
+      "url": "http://localhost:3000/pages/components/care-card-black"
     }
   ],
   "paths": {

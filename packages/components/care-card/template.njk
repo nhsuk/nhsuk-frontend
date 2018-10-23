@@ -1,4 +1,8 @@
+<div class="nhsuk-c-care-card {% if params.class %}nhsuk-c-care-card--{{ params.class }}{% endif %}">
+  <div class="nhsuk-c-care-card__heading-container">
+    <h3 class="nhsuk-c-care-card__heading"><span class="visually-hidden">{% if type == 'grey' %}Non-urgent advice: {% elseif type == 'red' %}Urgent care low: {% elseif type == 'black' %}Urgent care high: {% else %}Non-urgent advice: {% endif %}</span>{{ params.heading }}</h3>
   </div>
   <div class="nhsuk-c-care-card__content">
-    {{content | safe}}
+  {{ params.HTML | safe }}
   </div>
+</div>

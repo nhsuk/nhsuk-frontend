@@ -1,21 +1,3 @@
-{% macro careCard(type, title, content) %}
-  {% if type == 'grey' %}
-  <div class="nhsuk-c-care-card nhsuk-c-care-card--grey">
-    <div class="nhsuk-c-care-card__heading-container">
-      <h3 class="nhsuk-c-care-card__heading"><span class="visually-hidden">Non-urgent advice: </span>{{title}}</h3>
-  {% elseif type == 'red' %}
-  <div class="nhsuk-c-care-card nhsuk-c-care-card--red">
-    <div class="nhsuk-c-care-card__heading-container">
-      <h3 class="nhsuk-c-care-card__heading"><span class="visually-hidden">Urgent care low: </span>{{title}}</h3>
-  {% elseif type == 'black' %}
-  <div class="nhsuk-c-care-card nhsuk-c-care-card--black">
-    <div class="nhsuk-c-care-card__heading-container">
-      <h3 class="nhsuk-c-care-card__heading"><span class="visually-hidden">Urgent care high: </span>{{title}}</h3>
-  {% else %}
-  <div class="nhsuk-c-care-card">
-    <div class="nhsuk-c-care-card__heading-container">
-      <h3 class="nhsuk-c-care-card__heading"><span class="visually-hidden">Non-urgent care: </span>{{title}}</h3>
-  {% endif %}
-    {%- include './template.njk' -%}
-  </div>
+{% macro careCard(params) %}
+  {%- include './template.njk' -%}
 {% endmacro %}
