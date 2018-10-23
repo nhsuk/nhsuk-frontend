@@ -142,6 +142,16 @@
       "label": "Details",
       "url": "http://localhost:3000/pages/components/details",
       "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Expander",
+      "url": "http://localhost:3000/pages/components/expander",
+      "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Expander group",
+      "url": "http://localhost:3000/pages/components/expander-group",
+      "clickSelector": ".nhsuk-details__summary"
     }
   ],
   "paths": {
