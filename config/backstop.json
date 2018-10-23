@@ -56,6 +56,22 @@
     {
       "label": "Review Date",
       "url": "http://localhost:3000/pages/components/review-date"
+    },
+    {
+      "label": "Grey care card",
+      "url": "http://localhost:3000/pages/components/care-card-grey"
+    },
+    {
+      "label": "Blue care card",
+      "url": "http://localhost:3000/pages/components/care-card-blue"
+    },
+    {
+      "label": "Red care card",
+      "url": "http://localhost:3000/pages/components/care-card-red"
+    },
+    {
+      "label": "Black care card",
+      "url": "http://localhost:3000/pages/components/care-card-black"
     }
   ],
   "paths": {
