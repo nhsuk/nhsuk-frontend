@@ -3,11 +3,7 @@
    ========================================================================== */
 
 /**
- * A banner to announce national emergencies.
- * Triggered by an API using JavaScript.
- *
- * 1. Hide the banner on print stylesheets.
- * 2. Use inverted link colours due to the yellow
+ * 1. Use inverted link colours due to the yellow
  *    ($colour_nhsuk-yellow) background.
  */
 
@@ -17,30 +13,34 @@
   padding-top: nhsuk-spacing(4);
 
   @include mq($media-type: print) {
-    display: none; // [1] //
-  }
-
-  .nhsuk-c-global-alert__header {
-    @include nhsuk-typography-responsive(24);
-    margin: 0;
-  }
-
-  .nhsuk-c-global-alert__content {
-    @include top-and-bottom;
-    position: relative;
-  }
-
-  .nhsuk-c-global-alert__message {
-    @include nhsuk-responsive-margin(2, 'top');
-  }
-
-  .nhsuk-c-global-alert__updated {
-    @include nhsuk-responsive-margin(2, 'top');
-    @include nhsuk-typography-responsive(14);
+    display: none;
   }
 
   a {
-    @include nhsuk-link-style-inverted; // [2] //
+    @include nhsuk-link-style-inverted; // [1] //
   }
 
+}
+
+.nhsuk-c-global-alert__heading {
+  @include nhsuk-typography-responsive(24);
+
+  margin: 0;
+}
+
+.nhsuk-c-global-alert__content {
+  @include top-and-bottom;
+
+  position: relative;
+}
+
+.nhsuk-c-global-alert__message {
+  @include nhsuk-responsive-margin(2, 'top');
+
+  margin-bottom: 0;
+}
+
+.nhsuk-c-global-alert__updated {
+  @include nhsuk-responsive-margin(2, 'top');
+  @include nhsuk-typography-responsive(14);
 }
