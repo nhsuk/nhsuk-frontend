@@ -19,4 +19,7 @@ Find out more about the review date component and when to use it in the [NHS dig
 
     {% from 'components/review-date/macro.njk' import reviewDate %}
 
-    {{ reviewDate({'lastReview': '12 February 2016', 'nextReview': '1 February 2019'}) }}
+    {{ reviewDate({
+      "lastReview": "12 February 2016", 
+      "nextReview": "1 February 2019" 
+    }) }}
