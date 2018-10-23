@@ -11,7 +11,13 @@
 {% block outerHeader %}
   {{ cookieBanner() }}
 
-  {{ emergencyAlert('National flu outbreak', 'There has been a national flu outbreak.', '#', 'How does it affect me', 'Updated 23 mins ago') }}
+  {{ emergencyAlert({
+    "title": "National flu outbreak",
+    "content": "There has been a national flu outbreak.",
+    "emergencyURL": "#",
+    "emergencyLabel": "How does it affect me",
+    "lastUpdated": "Updated 23 mins ago"
+  }) }}
 {% endblock %}
 
 {% block breadcrumb %}
@@ -28,5 +34,10 @@
 {% endblock %}
 
 {% block footer %}
-  {{ feedbackBanner('Help us make the NHS website better', 'Your feedback helps us improve the NHS website.', '#', 'Take our short survey') }}
+  {{ feedbackBanner({
+    "title": "Help us make the NHS website better",
+    "content": "Your feedback helps us improve the NHS website.",
+    "feedbackURL": "#",
+    "feedbackLabel": "Take our short survey"
+  }) }}
 {% endblock %}

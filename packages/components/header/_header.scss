@@ -548,7 +548,7 @@ $alpha: .5;
   &:focus {
     left: 16px;
     top: 16px;
-    z-index: z-index(2);
+    z-index: 20;
   }
 
   &:visited {

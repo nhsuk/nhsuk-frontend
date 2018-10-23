@@ -167,16 +167,16 @@ $(function(){
       searchClose: document.querySelector('.search-close'),
       search: document.querySelector('.search-container'),
       menuSearchContainer: document.querySelector('.nhsuk-global-header__menusearch'),
-  
+
       doToggle: function(e) {
         e.preventDefault();
-  
+
         if (this.searchToggleButton.hasAttribute("aria-expanded")) {
           this.searchToggleButton.removeAttribute("aria-expanded")
         } else {
           this.searchToggleButton.setAttribute("aria-expanded", "true")
         }
-  
+
         function toggleClass(ele, class1) {
           var classes = ele.className;
           var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
@@ -187,17 +187,17 @@ $(function(){
           else
             ele.className = classes + ' ' + class1;
         }
-  
+
         toggleClass(this.searchToggleButton, 'active');
         toggleClass(this.search, 'js-show');
         toggleClass(this.menuSearchContainer, 'js-show');
-  
+
       }
     };
-  
-    searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
-    searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
-  
+
+    if (searchToggle.searchToggleButton) { searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
+    if (searchToggle.searchClose) { searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
+
   }());
 
 // Navigation
@@ -235,8 +235,8 @@ $(function(){
 		}
 	};
 
-	menuToggle.menuToggleButton.addEventListener('click', function(e) { menuToggle.doToggle(e); });
-	menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); });
+  if (menuToggle.menuToggleButton) { menuToggle.menuToggleButton.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
+	if (menuToggle.menuClose) { menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
 
 }());
 
@@ -253,7 +253,10 @@ $(function(){
   });
 })();
 
-var banner = document.getElementById("nhsuk-feedback-banner");
+// Feedback banner
+
+var banner = document.querySelector('#nhsuk-feedback-banner');
+var bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
 
 document.addEventListener("DOMContentLoaded", function(){
   setTimeout(function () {
@@ -263,6 +266,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 3000);
 });
 
-function hideBanner() {
+bannerCloseButton.addEventListener("click", function(){
   banner.style.display = "none";
-}
+});
