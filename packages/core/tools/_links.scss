@@ -65,3 +65,31 @@
   }
 
 }
+
+/**
+ * White link styling, used in the footer.
+ *
+ * Usage: @include nhsuk-link-style-white;
+ */
+
+ @mixin nhsuk-link-style-white {
+
+  color: $colour_nhsuk-white;
+
+  &:visited {
+    color: $colour_nhsuk-grey-5;
+  }
+
+  &:focus {
+    color: $nhsuk-link-focus-colour;
+  }
+
+  &:hover {
+    color: $nhsuk-link-hover-colour;
+  }
+
+  &:active {
+    color: $nhsuk-link-active-colour;
+  }
+
+}

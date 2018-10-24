@@ -46,11 +46,5 @@
 }
 
 .nhsuk-footer__list-item-link {
-  color: $colour_nhsuk-white;
-
-  &:focus,
-  &:hover {
-    color: $nhsuk-link-focus-colour;
-  }
-
+  @include nhsuk-link-style-white;
 }
