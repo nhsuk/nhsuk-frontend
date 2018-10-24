@@ -39,8 +39,8 @@
 
   @include mq($from: tablet) {
     display: inline-block;
-    padding-right: nhsuk-spacing(4);
     margin-bottom: 0;
+    padding-right: nhsuk-spacing(4);
   }
 
 }
