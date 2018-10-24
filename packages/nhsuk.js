@@ -44,13 +44,12 @@ NHSUK.typeahead =
         $iconSearch = '<svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path><image class="nhsuk-icon__search nhsuk-icon__search--fallback" src="/images/icons/icon-search-blue-20px.png" xlink:href=""></svg>',
         $suggestionsTitle = 'suggestions-title',
         $suggestionsNone = 'suggestions-none',
+        $searchContainer = 'nhsuk-header__search',
+        $searchForm = 'nhsuk-header__search-form',
         $searchInput = 'nhsuk-search__input',
         $searchSubmit = 'nhsuk-search__submit',
-        $searchWrap = 'nhsuk-header__search-wrap',
-        $searchInputWithDropdown = 'nhsuk-search__input--withdropdown'
-        $searchSubmitWithDropdown = 'nhsuk-search__submit--withdropdown',
-        $searchContainer = 'nhsuk-header__search',
-        $headerContent = 'nhsuk-header__content';
+        $searchInputWithDropdown = 'nhsuk-search__input--withdropdown',
+        $searchSubmitWithDropdown = 'nhsuk-search__submit--withdropdown';
 
     $(searchField).typeahead({
       minLength: 2,
@@ -129,19 +128,17 @@ NHSUK.typeahead =
     })
     .bind('typeahead:render', function() {
       $('.' + $suggestionsWrapper).wrapInner('<ul class="' + $suggestionsList + '"></ul>'); // add list element around the suggestions
-      $('.' + $suggestionsList).css('width', $('.' + $searchWrap).width()); // get width of the form and give it to the dropdown list
+      $('.' + $suggestionsList).css('width', $('.' + $searchForm).width()); // get width of the form and give it to the dropdown list
       $('.' + $searchInput).addClass($searchInputWithDropdown); // add classes to remove border radius on input and submit fields when dropdown appears
       $('.' + $searchSubmit).addClass($searchSubmitWithDropdown);
       $('.' + $suggestionsMenu).insertAfter( $('.' + $searchContainer) ); // move the suggestions in the DOM
 
       // calculate where to position the dropdown from the top and left
-      var headerheight = $('.' + $headerContent).height();
-      var headerheightmargin = parseInt($('.' + $searchContainer).css('margin-bottom'));
-      var topoffset = headerheight - headerheightmargin;
-      var position = $('.' + $searchWrap).position();
+      var topoffset = $('.' + $searchForm).offset().top + $('.' + $searchInput).height();
+      var position = $('.' + $searchContainer).position();
 
       $('.' + $suggestionsMenu).css({
-        'top' : topoffset,
+        'top' : topoffset + 2, // add 2 for borders?
         'left' : position.left
       });
 
@@ -163,7 +160,6 @@ NHSUK.typeahead =
 $(function(){
   NHSUK.typeahead.init();
   $('.nhsuk-search__input--shadow').attr('aria-hidden', 'true').addClass('visually-hidden'); // hide the extra input field created by typeahead to screen readers
-  //$('.c-search__input.tt-input').attr('role', 'textbox');
 });
 
 // Header

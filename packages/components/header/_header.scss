@@ -153,6 +153,10 @@
       }
     }
 
+    .nhsuk-header__search-form {
+      overflow: hidden;
+    }
+
 
     @include mq($until: tablet) {
 
