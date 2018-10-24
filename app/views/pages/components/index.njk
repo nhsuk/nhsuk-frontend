@@ -27,7 +27,10 @@
 {% endblock %}
 
 {% block content %}
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  {{ actionLink({
+    "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
+    "heading": "Find a minor injuries unit"
+  }) }}
 
   {{ warningCallout({
     "heading": "Important",
