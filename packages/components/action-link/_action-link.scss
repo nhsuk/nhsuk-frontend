@@ -3,8 +3,6 @@
    ========================================================================== */
 
 /**
- * A link to start an important or transactional journey.
- *
  * 1. Display is inline-block so the top and bottom margins/paddings are
  *    respected.
  * 2. 'Random number' is used to properly have sufficient space between icon
@@ -16,8 +14,7 @@
  */
 
 .nhsuk-c-action-link {
-  @include nhsuk-typography-responsive(22);
-
+  @include nhsuk-font(22);
   @include nhsuk-responsive-margin(6, 'bottom');
 
   display: inline-block; /* [1] */
@@ -30,6 +27,15 @@
     padding-left: 36px; /* [2] */
   }
 
+  @include mq($media-type: print) {
+    color: $nhsuk-print-text-colour;
+
+    &:visited {
+      color: $nhsuk-print-text-colour;
+    }
+  }
+
+
   &:focus {
     box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
   }
@@ -40,6 +46,7 @@
     span {
       text-decoration: underline; /* [6] */
     }
+
   }
 
   .nhsuk-icon__arrow-right-circle {
@@ -56,6 +63,11 @@
       top: -3px;
       width: 34px;
     }
+
+    @include mq($media-type: print) {
+      fill: $nhsuk-print-text-colour;
+    }
+
   }
 
 }
