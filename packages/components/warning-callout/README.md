@@ -1,31 +1,23 @@
-# Callout
+# Warning callout
 
-## Introduction
-
-The callout component helps convey important content on the page.
-
-## Guidance
-
-Find out when to use the callout component in the [Digital service manual](https://beta.nhs.uk/service-manual/patterns/warning_callout/).
+Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
-### Important callout
+[Preview the fwarning callout component]()
 
-[Preview the important callout component]()
-
-#### Markup
+## HTML markup
 
     <div class="nhsuk-c-warning-callout">
       <h3 class="nhsuk-c-warning-callout__heading-tab">Important</h3>
       <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
     </div>
 
-#### Macro
+## Nunjucks macro
 
-    {% from 'components/callout/macro.njk' import warningCallout %}
+    {% from 'components/warning-callout/macro.njk' import warningCallout %}
 
     {{ warningCallout({
       "heading": "Important",
-      "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+      "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
     }) }}

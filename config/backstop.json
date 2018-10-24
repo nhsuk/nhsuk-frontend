@@ -81,6 +81,10 @@
       "label": "Feedback banner",
       "url": "http://localhost:3000/pages/components/feedback-banner",
       "delay": 5000
+    },
+    {
+      "label": "Warning callout",
+      "url": "http://localhost:3000/pages/components/warning-callout"
     }
   ],
   "paths": {
