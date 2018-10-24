@@ -39,6 +39,17 @@ $colour_nhsuk-grey-3: #AEB7BD;
 $colour_nhsuk-grey-4: #D8DDE0;
 $colour_nhsuk-grey-5: #f0f4f5;
 
+
+/**
+ * RGB and alpha values
+ *
+ * Used to create drop/box shadows e.g. for search suggestions dropdown
+*/
+
+$colour_nhsuk-grey-1-rgb: rgb(66, 84, 98);
+$alpha-transparency-50: .5;
+
+
 /**
  * Functions for tint and shade
  *
@@ -108,3 +119,5 @@ $nhsuk-button-active-colour: $colour_shade_nhsuk-green-50;
 $nhsuk-secondary-button-hover-colour: $colour_shade_nhsuk-blue-35;
 
 $nhsuk-focus-colour: $colour_nhsuk-warm-yellow;
+
+$nhsuk-box-shadow-colour: $colour_nhsuk-grey-1-rgb;
