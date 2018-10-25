@@ -93,6 +93,10 @@
     {
       "label": "Breadcrumb",
       "url": "http://localhost:3000/pages/components/breadcrumb"
+    },
+    {
+      "label": "Pagination",
+      "url": "http://localhost:3000/pages/components/pagination"
     }
   ],
   "paths": {
