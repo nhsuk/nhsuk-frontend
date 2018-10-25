@@ -6,10 +6,18 @@
 {% block body %}
 
   {{ breadcrumb({
-    "indexURL": "/",
-    "indexLabel": "Home",
-    "parentURL": "/section",
-    "parentLabel": "Section name"
+    items: [
+      {
+        URL: "https://www.nhs.uk/",
+        label: "Home"
+      },
+      {
+        URL: "https://www.nhs.uk/conditions",
+        label: "Health A-Z"
+      }
+    ],
+    parentURL: "https://www.nhs.uk/conditions/abscess/",
+    parentLabel: "Abscess"
   }) }}
 
 {% endblock %}
