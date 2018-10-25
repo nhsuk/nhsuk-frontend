@@ -1,24 +1,4 @@
-# Header
-
-## Introduction
-
-The NHS.UK header shows users that they are on an NHS website.
-There are 4 possible versions of the NHS.UK header, depending on what is required:
-
-- Header with navigation links and search form
-- Header with navigation links
-- Header with search form
-- Header with logo only
-
-## Guidance
-
-Find out when to use the header component in the [Digital service manual](http://beta.nhs.uk/service-manual/).
-
-## Examples
-
-### Header with navigation links and search form
-
-```html
+<!-- Header with navigation links and search form -->
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
 
@@ -121,14 +101,10 @@ Find out when to use the header component in the [Digital service manual](http:/
     </ul>
   </nav>
 </header>
-```
-
-[Preview the header with navigation links and search form]()
 
 
-### Header with navigation links
 
-```html
+<!-- Header with navigation links -->
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
 
@@ -201,14 +177,10 @@ Find out when to use the header component in the [Digital service manual](http:/
     </ul>
   </nav>
 </header>
-```
-
-[Preview the header with navigation links]()
 
 
-### Header with search form
 
-```HTML
+<!-- Header with search form -->
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
 
@@ -261,14 +233,10 @@ Find out when to use the header component in the [Digital service manual](http:/
     </div>
   </div>
 </header>
-```
-
-[Preview the header with search form]()
 
 
-### Header with logo only
 
-```HTML
+<!--  Header with logo only -->
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
@@ -284,49 +252,3 @@ Find out when to use the header component in the [Digital service manual](http:/
     </div>
   </div>
 </header>
-```
-
-[Preview the header with logo only]()
-
-
-### Nunjucks Macro
-
-```
-{% from 'components/header/macro.njk' import header %}
-
-{{ header({
-  "showNav": "true",
-  "showSearch": "true",
-  "primaryLinks": [
-    {
-      "url"  : "https://www.nhs.uk/conditions",
-      "label" : "Health A-Z"
-    },
-    {
-      'url' : 'https://www.nhs.uk/live-well/',
-      'label' : 'Live Well'
-    },
-    {
-      'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-      'label' : 'Care and support'
-    },
-    {
-      'url'  : 'https://www.nhs.uk/news/',
-      'label' : 'Health news'
-    },
-    {
-      'url' : 'https://www.nhs.uk/service-search',
-      'label' : 'Services near you'
-    }
-  ]
-}) }}
-```
-
-## Dependencies
-
-Javascript is required for the toggling of the navigation and search form. Also, if using the autosuggestion functionality that the NHS.UK site uses then the typeahead javascript is required, which has a dependency on jQuery which must also be included.
-
-
-## Contribution
-
-Guidelines on contributing to components can be found at [Contributing guidelines]().
