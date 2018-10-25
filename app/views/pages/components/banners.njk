@@ -1,6 +1,6 @@
 {% set title = 'Components - Banners' %}
 {% set parent = 'Library' %}
-{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/cookie-banner/macro.njk' import cookieBanner %}
 {% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
@@ -23,7 +23,7 @@
 {% block breadcrumb %}
   {{ phaseBanner('New', 'We are testing a new page layout — your <a href="#">feedback</a> will help us to improve it.') }}
 
-  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+  {{ breadcrumb('/', 'Home', '/section', 'Section') }}
 {% endblock %}
 
 {% block heading %}
