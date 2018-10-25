@@ -3,8 +3,6 @@
    ========================================================================== */
 
 /**
- * Pagination
- *
  * 1. Padding to give the icon spacing.
  * 2. Append the word 'page' after next and
  *    previous on print stylesheets to make it easier
@@ -13,8 +11,8 @@
 
 .nhsuk-c-pagination {
   @include clearfix();
-  @include nhsuk-responsive-margin(8, 'top');
-  @include nhsuk-responsive-margin(8, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-margin(7, 'bottom');
 
   a {
     display: block;
@@ -28,7 +26,7 @@
 
     .nhsuk-icon {
       position: absolute;
-      top: 0;
+      top: -2px;
 
       @include mq($media-type: print) {
         color: $colour_nhsuk-black;
@@ -37,66 +35,83 @@
 
     }
 
+    &:focus {
+      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-colour;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
+
+      .nhsuk-c-pagination-title {
+        text-decoration: none;
+      }
+
+    }
+
     &:hover,
     &:focus {
+
       .nhsuk-icon {
         fill: $colour_nhsuk-black;
       }
+
     }
 
     &:visited {
+
       .nhsuk-icon {
         fill: $nhsuk-link-visited-colour;
       }
+
     }
 
   }
 
-  .nhsuk-c-pagination-prev {
-    float: left;
-    text-align: left;
+}
 
-    .nhsuk-icon {
-      left: -6px;
-    }
+.nhsuk-c-pagination-prev {
+  float: left;
+  text-align: left;
 
-    .nhsuk-c-pagination-link {
-      padding-left: 30px; // [1] //
-    }
-
-  }
-
-  .nhsuk-c-pagination-next {
-    float: right;
-    text-align: right;
-
-    .nhsuk-icon {
-      right: -6px;
-    }
-
-    .nhsuk-c-pagination-link {
-      padding-right: 30px; // [1] //
-    }
-
-  }
-
-  .nhsuk-c-pagination-title {
-    @include nhsuk-typography-responsive(16);
-    display: block;
-    text-decoration: underline;
-
+  .nhsuk-icon {
+    left: -6px;
   }
 
   .nhsuk-c-pagination-link {
-    @include nhsuk-typography-responsive(24);
-    display: block;
+    padding-left: nhsuk-spacing(5); // [1] //
+  }
 
-    @include mq($media-type: print) {
-      &:after {
-        content: ' page'; // [2] //
-      }
+}
+
+.nhsuk-c-pagination-next {
+  float: right;
+  text-align: right;
+
+  .nhsuk-icon {
+    right: -6px;
+  }
+
+  .nhsuk-c-pagination-link {
+    padding-right: nhsuk-spacing(5); // [1] //
+  }
+
+}
+
+.nhsuk-c-pagination-title {
+  @include nhsuk-typography-responsive(16);
+  display: block;
+  text-decoration: underline;
+
+}
+
+.nhsuk-c-pagination-link {
+  @include nhsuk-typography-responsive(24);
+  display: block;
+
+  @include mq($media-type: print) {
+    &:after {
+      content: ' page'; // [2] //
     }
-
   }
 
 }
