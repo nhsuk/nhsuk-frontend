@@ -52,7 +52,6 @@
 
 .nhsuk-c-care-card__content {
   @include top-and-bottom();
-  @include print-colour($nhsuk-print-text-colour);
 
   background-color: $colour_nhsuk-white;
   padding: nhsuk-spacing(5) nhsuk-spacing(4) nhsuk-spacing(4); /* [5] */
@@ -61,6 +60,8 @@
     padding-bottom: nhsuk-spacing(5);
     padding-top: 36px; /* [5] */
   }
+
+  @include print-colour($nhsuk-print-text-colour);
 
 }
 

@@ -9,6 +9,7 @@
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/pagination/macro.njk' import pagination %}
+{% from 'components/panel/macro.njk' import panel %}
 {% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/tables/macro.njk' import table %}
@@ -46,7 +47,7 @@
   }) }}
 
   {{ warningCallout({
-    "heading": "Important",
+    "label": "Important",
     "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
   }) }}
 
@@ -106,6 +107,46 @@
   }) }}
 
   {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+
+  {{ panel({
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
+
+  {{ panel({
+    "colour": "grey",
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
+
+  {{ panel({
+    "label": "Panel heading",
+    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
+
+  <div class="nhsuk-grid-row nhsuk-c-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-c-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+  </div>
 
   {{ pagination({
     "previousUrl": "/section/treatments",

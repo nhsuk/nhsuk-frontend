@@ -1,0 +1,65 @@
+/* ==========================================================================
+   COMPONENTS / #PANEL
+   ========================================================================== */
+
+/* Panel
+   ========================================================================== */
+
+.nhsuk-c-panel {
+  @include panel($colour_nhsuk-white, $nhsuk-text-colour);
+}
+
+/* Panel colour variant
+   ========================================================================== */
+
+.nhsuk-c-panel--grey {
+  background-color: $colour_nhsuk-grey-5;
+}
+
+/* Panel with label
+   ========================================================================== */
+
+.nhsuk-c-panel-with-label {
+  @include panel-with-label($colour_nhsuk-white, $nhsuk-text-colour);
+}
+
+.nhsuk-c-panel-with-label__label {
+  @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white);
+  @include print-colour($nhsuk-print-text-colour);
+}
+
+/* Panel group
+   ========================================================================== */
+
+/**
+ * Panel group allows you to have a row of panels.
+ *
+ * Flexbox is used to make each panel in a row the same height.
+ */
+
+.nhsuk-c-panel-group {
+  @include flex();
+  margin-bottom: nhsuk-spacing(5);
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+.nhsuk-c-panel-group__item {
+  @include flex-item();
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .nhsuk-c-panel {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+}

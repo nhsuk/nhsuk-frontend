@@ -66,45 +66,51 @@
 }
 
 /**
- * Heading tab mixin, adds a tab heading to
- * warning callout, do and don't lists and panels
+ * Panel mixin
  *
- * Usage: @include panel-with-heading-tab($colour_nhsuk-blue, $colour_nhsuk-white);
- * See components/_warning-component
- *
- * 1. Background colour to be set on the @include.
- * 2. Text colour to be set on the @include.
- * 3. Display inline-block so it does not take up the full width.
- * 4. Margin -24px left and right aligns the heading to the box.
- * 5. Top positioning set to minus to make the heading
- *    sit just outside the box.
+ * Usage: @include panel-with-label($colour_nhsuk-blue, $colour_nhsuk-white);
+ * See components/_panel
  */
 
- @mixin panel-with-heading-tab($panel-background-colour, $panel-text-colour) {
+@mixin panel($panel-background-colour, $panel-text-colour) {
 
-  @include top-and-bottom(); /* [1] */
-
+  @include top-and-bottom();
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-padding(5);
 
   background-color: $panel-background-colour;
   color: $panel-text-colour;
-  padding: nhsuk-spacing(4);
-  padding-top: nhsuk-spacing(0); /* [2] */
 
   @include mq($media-type: print) {
-    border: 1px solid $nhsuk-print-text-colour; /* [3] */
-    page-break-inside: avoid; /* [4] */
+    border: 1px solid $nhsuk-print-text-colour;
+    page-break-inside: avoid;
   }
 }
 
 /**
- * Heading tab mixin, adds a tab heading to
- * warning callout, do and don't lists and panels.
+ * Panel with label mixin, inherits panel styling
+ * and removes padding top for the label positioning.
  *
- * Used in-conjunction with @mixin panel-with-heading-tab
+ * Used in-conjunction with @mixin heading-label
  *
- * Usage: @include heading-tab($colour_nhsuk-blue, $colour_nhsuk-white);
+ * Usage: @include panel-with-label($colour_nhsuk-blue, $colour_nhsuk-white);
+ * See components/_warning-component
+ */
+
+@mixin panel-with-label($panel-background-colour, $panel-text-colour) {
+  @include panel($panel-background-colour, $panel-text-colour);
+
+  padding-top: 0 !important;  // sass-lint:disable-line no-important
+}
+
+/**
+ * Heading label mixin, adds a tab heading to
+ * warning callout, do and don't lists and panel.
+ *
+ * Used in-conjunction with @mixin panel-with-label
+ *
+ * Usage: @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white);
  * See components/_warning-component
  *
  * 1. Background colour to be set on the @include.
@@ -115,25 +121,21 @@
  *    sit just outside the box.
  */
 
-@mixin heading-tab($heading-background-colour, $heading-text-colour) {
+@mixin heading-label($heading-background-colour, $heading-text-colour) {
   @include nhsuk-typography-responsive(24);
 
   background-color: $heading-background-colour; /* [1] */
   color: $heading-text-colour; /* [2] */
   display: inline-block; /* [3] */
-  margin-bottom: nhsuk-spacing(0);
-  margin-left: -24px; /* [4] */
-  margin-right: -24px; /* [4] */
-  margin-top: nhsuk-spacing(0);
-  padding-bottom: nhsuk-spacing(2);
-  padding-left: nhsuk-spacing(4);
-  padding-right: nhsuk-spacing(4);
-  padding-top: nhsuk-spacing(2);
+  margin: nhsuk-spacing(0) -32px nhsuk-spacing(2);
+  padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
   top: -16px; /* [5] */
 
   @include mq($until: tablet) {
-    margin-bottom: nhsuk-spacing(2);
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: nhsuk-spacing(2) nhsuk-spacing(4);
     top: -8px; /* [5] */
   }
 }
@@ -194,3 +196,28 @@
   }
 
 }
+
+/**
+ * Flex mixin
+ * Usage: @include flex();
+ */
+
+@mixin flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/**
+ * Flex item mixin
+ * Usage: @include flex-item();
+ */
+
+@mixin flex-item() {
+  display: flex;
+
+  @include mq($until: desktop) {
+    flex: 0 0 100%;
+  }
+
+}
+
