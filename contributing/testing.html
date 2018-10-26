@@ -1,0 +1,436 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if IE]><link rel="shortcut icon" href="/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/assets/favicons/favicon.png">
+
+    <title>nhsuk-frontend - </title>
+
+    <link rel="stylesheet" href="/assets/nhsuk.css">
+    <!--[if lt IE 9]><link rel="stylesheet" href="/assets/nhsuk-ie-78.css"><![endif]-->
+
+    <!--[if lte IE 9]>
+      <script src="/assets/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if !IE]><!-->
+      <script src="/assets/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <!--<![endif]-->
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+
+      
+
+      <div class="nhsuk-c-skiplink">
+  <a href="#maincontent" class="nhsuk-c-skiplink__link">Skip to main content</a>
+</div>
+<header role="banner">
+  <div class="nhsuk-global-header">
+    <div class="nhsuk-o-width-container nhsuk-o-width-container--global-header">
+      <div class="nhsuk-global-header__logo">
+        <a href="/" class="global-header__link">
+          <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <g fill-rule="nonzero" fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84M42.4 3.817h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816M91.93 11.025c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image class="nhsuk-logo nhsuk-logo__fallback" src="core/assets/logos/fallback/nhs-logo.png" xlink:href=""></image>
+</svg>
+
+          <span class="visually-hidden">NHS homepage</span>
+        </a>
+      </div>
+      <div class="nhsuk-global-header__menusearch ui-front">
+        <div class="nhsuk-global-header__menu"><button class="menu-toggle__button" aria-controls="c-nav-primary" aria-label="Open menu">Menu</button></div>
+        <div class="nhsuk-global-header__search">
+          <div class="search-toggle">
+            <button class="search-toggle__button" aria-controls="search-container" aria-label="Open search">
+              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"/>
+  <image class="nhsuk-icon__search nhsuk-icon__search--fallback" src="core/assets/icons/fallback/icon-search-blue.png" xlink:href="">
+</svg>
+
+              <span class="visually-hidden">Search</span>
+            </button>
+          </div>
+          <div class="search-container" id="search-container">
+            <form class="c-search" action="/search/" method="get" role="search">
+              <div class="c-search__container">
+                <label class="c-search__label visually-hidden" for="search-field">Search the NHS website</label>
+                <input class="c-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
+                <button type="submit" class="c-search__submit">
+                  <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"/>
+  <image class="nhsuk-icon__search nhsuk-icon__search--fallback" src="core/assets/icons/fallback/icon-search-blue.png" xlink:href="">
+</svg>
+
+                  <span class="visually-hidden">Search</span>
+                </button>
+              </div>
+            </form>
+
+            <div class="search-close">
+              <button class="search-close__link">
+                <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
+  <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="core/assets/icons/fallback/icon-close.png" xlink:href="">
+</svg>
+
+                <span class="visually-hidden">Close search</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="c-nav-primary" id="c-nav-primary" role="navigation" aria-label="Primary navigation" aria-labelledby="mainmenulabel">
+  <div class="nhsuk-global-nav">
+    <div class="nhsuk-o-width-container">
+      <p class="c-nav-primary__title"><span id="mainmenulabel">Menu</span>
+        <button class="c-nav-primary__close-link">
+          <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
+  <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="core/assets/icons/fallback/icon-close.png" xlink:href="">
+</svg>
+
+          <span class="visually-hidden">Close menu</span>
+        </button>
+      </p>
+      <ul class="c-nav-primary__list">
+        <li class="c-nav-primary__item c-nav-primary__item--mobile"><a href="/" class="c-nav-primary__link">Home <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+        <li class="c-nav-primary__item"><a href="https://www.nhs.uk/conditions" class="c-nav-primary__link">Health A-Z <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+        <li class="c-nav-primary__item"><a href="https://www.nhs.uk/live-well/" class="c-nav-primary__link">Live Well <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+        <li class="c-nav-primary__item"><a href="https://www.nhs.uk/conditions/social-care-and-support/" class="c-nav-primary__link">Care and support <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+        <li class="c-nav-primary__item"><a href="https://www.nhs.uk/news/" class="c-nav-primary__link">Health news <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+        <li class="c-nav-primary__item"><a href="https://www.nhs.uk/service-search" class="c-nav-primary__link">Services near you <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+  <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="core/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image>
+</svg>
+</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      
+    
+    <div class="nhsuk-o-width-container">
+        <main id="main-content" class="nhsuk-o-main-wrapper">
+            <div class="nhsuk-o-grid">
+                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--full">
+                    <div class="nhsuk-page-heading">
+                          
+                    </div>
+                </div>
+            </div>
+            <div class="nhsuk-o-grid">
+                <div class="nhsuk-o-grid__item nhsuk-o-grid__item--two-thirds">
+                    <div class="nhsuk-page-content">
+                          <h1 id="testing">Testing</h1>
+<h2 id="unit-tests">Unit tests</h2>
+<blockquote>
+<p>To be completed.</p>
+</blockquote>
+<h2 id="screen-resolution-testing">Screen resolution testing</h2>
+<p>You should test at all the standard device screen resolutions and the top 8 screen
+resolutions for <a href="https://www.nhs.uk">NHS.UK</a> (in both landscape and portrait mode).
+This combined will give us confidence that it will work for the majority of our users.</p>
+<h3 id="standard-devices">Standard devices</h3>
+<p>Google Chrome DevTools has a preset list of standard device screen resolutions to test against.
+See <a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/">Simulate Mobile Devices with Device Mode in Chrome DevTools</a>
+and <a href="https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports">Test Responsive and Device-specific Viewports</a>.</p>
+<h3 id="nhs-website-resolution-statistics">NHS website resolution statistics</h3>
+<p>These statistics are from the NHS website, using Google analytics, over a 1 year period (June 2017 to June 2018).</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Screen resolution</th>
+<th>% of sessions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iPhone 6-8</td>
+<td>375x667</td>
+<td>20.93%</td>
+</tr>
+<tr>
+<td>Galaxy S8</td>
+<td>360x640</td>
+<td>14.92%</td>
+</tr>
+<tr>
+<td>iPhone 5/SE</td>
+<td>320x568</td>
+<td>10.41%</td>
+</tr>
+<tr>
+<td>iPad</td>
+<td>768x1024</td>
+<td>7.17%</td>
+</tr>
+<tr>
+<td>iPhone 6+, 6s+, 7+, 8+</td>
+<td>414x736</td>
+<td>4.87%</td>
+</tr>
+<tr>
+<td>Surface, iPad Pro</td>
+<td>1366x768</td>
+<td>4.10%</td>
+</tr>
+<tr>
+<td>Large Desktop</td>
+<td>1920x1080</td>
+<td>2.45%</td>
+</tr>
+<tr>
+<td>Small Desktop, Laptop</td>
+<td>1280x1024</td>
+<td>1.21%</td>
+</tr>
+</tbody></table>
+<h2 id="browser-support">Browser support</h2>
+<table>
+<thead>
+<tr>
+<th>Operating system</th>
+<th>Browser</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows</td>
+<td>Internet Explorer 8-10</td>
+<td>functional</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Internet Explorer 11</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Edge (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Google Chrome (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Mozilla Firefox (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Safari 9+</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Google Chrome (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Mozilla Firefox (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>Safari for iOS 9.3 and later</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>Google Chrome (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>Google Chrome (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>Samsung Internet (latest 2 versions)</td>
+<td>compliant</td>
+</tr>
+</tbody></table>
+<p>&#39;Compliant&#39; means that the components must look as good and function as well as they do in other modern browsers.</p>
+<p>&#39;Functional&#39; means the components may not look perfect in the given browser, but must still be usable without errors and without &#39;looking broken&#39;.</p>
+<h2 id="assistive-technology-support">Assistive technology support</h2>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Type</th>
+<th>Browser</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.freedomscientific.com/Products/Blindness/JAWS">JAWS</a></td>
+<td>screen reader</td>
+<td>Internet Explorer 11</td>
+</tr>
+<tr>
+<td><a href="https://www.zoomtext.com/products/zoomtext-magnifierreader/">ZoomText</a></td>
+<td>screen magnifier</td>
+<td>Internet Explorer 11</td>
+</tr>
+<tr>
+<td><a href="https://www.nuance.com/en-gb/dragon.html">Dragon NaturallySpeaking</a></td>
+<td>speech recognition</td>
+<td>Internet Explorer 11</td>
+</tr>
+<tr>
+<td><a href="https://www.nvaccess.org/">NVDA</a></td>
+<td>screen reader</td>
+<td>Firefox (latest versions)</td>
+</tr>
+<tr>
+<td><a href="https://www.apple.com/uk/accessibility/iphone/vision/">VoiceOver</a></td>
+<td>screen reader</td>
+<td>Safari on iOS10 and OS X</td>
+</tr>
+</tbody></table>
+<p>Testing with the various technologies above should cover the vast amount of
+users who use assistive technologies.</p>
+<h3 id="how-to-test">How to test</h3>
+<h4 id="screen-readers">Screen readers</h4>
+<p>The following should be checked when testing using a screen reader:</p>
+<ul>
+<li>every element can be read</li>
+<li>links and form elements can be keyboard tabbed to</li>
+<li>landmarks are announced correctly</li>
+<li>ARIA attributes are correctly used</li>
+<li>form elements can be used correctly</li>
+</ul>
+<h4 id="screen-magnifiers">Screen magnifiers</h4>
+<p>The following should be considered when testing using a screen magnifier:</p>
+<ul>
+<li>use various levels of magnification, up to at least 10 times</li>
+<li>ensure scroll width for content is not too long and can be easily understood</li>
+<li>ensure form elements and their labels are close to each other</li>
+</ul>
+<h4 id="speech-recognition">Speech recognition</h4>
+<p>The following should be considered when testing using speech recognition software:</p>
+<ul>
+<li>every link can be accessed</li>
+<li>every form element can be accessed</li>
+<li>every interactive element can be accessed</li>
+</ul>
+<h4 id="colour-schemes">Colour schemes</h4>
+<p>Use the operating system&#39;s different colour schemes and ensure that content is
+clear and viewable. Examples of colour schemes include:</p>
+<ul>
+<li>different contrast modes</li>
+<li>inverted colours</li>
+<li>greyscale</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+
+      
+
+    
+
+    <footer role="contentinfo">
+  <div class="nhsuk-global-footer">
+    <div class="nhsuk-o-width-container">
+      <ul>
+        <li class="nhsuk-global-footer__logo">
+          <a href="/" class="global-footer__link">
+            <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <g fill-rule="nonzero" fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84M42.4 3.817h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816M91.93 11.025c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image class="nhsuk-logo nhsuk-logo__fallback" src="core/assets/logos/fallback/nhs-logo.png" xlink:href=""></image>
+</svg>
+
+            <span class="visually-hidden">NHS homepage</span>
+          </a>
+        </li>
+        
+        <li><a href="https://www.nhs.uk/Pages/nhs-sites.aspx">NHS sites</a></li>
+        
+        <li><a href="https://www.nhs.uk/about-us">About us</a></li>
+        
+        <li><a href="https://www.nhs.uk/Pages/contact-us.aspx">Contact us</a></li>
+        
+        <li><a href="https://www.nhs.uk/Personalisation/Login.aspx">Profile editor login</a></li>
+        
+      </ul>
+      <ul>
+        
+        <li><a href="https://www.nhs.uk/choices/pages/sitemap.aspx">Sitemap</a></li>
+        
+        <li><a href="https://www.nhs.uk/accessibility/">Accessibility</a></li>
+        
+        <li><a href="https://www.nhs.uk/our-policies/">Our policies</a></li>
+        
+        <li>&copy; Crown Copyright</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/assets/nhsuk.js"></script>
+  </body>
+</html>
