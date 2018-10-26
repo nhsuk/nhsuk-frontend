@@ -10,7 +10,7 @@ Find out when to use the promo component in the [Digital service manual]().
 
 [Preview the promo component]()
 
-### Promo component
+### Promo
 
 #### Markup
 
@@ -33,7 +33,7 @@ Find out when to use the promo component in the [Digital service manual]().
       "description": "The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you."
     }) }}
 
-### Promo with an image
+### Promo with image
 
 #### Markup
 
