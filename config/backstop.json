@@ -121,6 +121,22 @@
     {
       "label": "Promo group",
       "url": "http://localhost:3000/pages/components/promo-group"
+    },
+    {
+      "label": "Panel grey",
+      "url": "http://localhost:3000/pages/components/panel-grey"
+    },
+    {
+      "label": "Panel group",
+      "url": "http://localhost:3000/pages/components/panel-group"
+    },
+    {
+      "label": "Panel with label",
+      "url": "http://localhost:3000/pages/components/panel-with-label"
+    },
+    {
+      "label": "Panel",
+      "url": "http://localhost:3000/pages/components/panel"
     }
   ],
   "paths": {

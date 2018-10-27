@@ -2,9 +2,6 @@
    COMPONENTS / #PANEL
    ========================================================================== */
 
-/* Panel
-   ========================================================================== */
-
 .nhsuk-c-panel {
   @include panel($colour_nhsuk-white, $nhsuk-text-colour);
 }
@@ -34,20 +31,22 @@
 /**
  * Panel group allows you to have a row of panels.
  *
- * Flexbox is used to make each panel in a row the same height.
+ * 1. Flexbox is used to make each panel in a row the same height.
  */
 
 .nhsuk-c-panel-group {
-  @include flex();
+  @include flex(); // [1] //
+
   margin-bottom: nhsuk-spacing(5);
 
   @include mq($until: desktop) {
     margin-bottom: nhsuk-spacing(4);
   }
+
 }
 
 .nhsuk-c-panel-group__item {
-  @include flex-item();
+  @include flex-item(); // [1] //
 
   @include mq($until: desktop) {
     margin-bottom: nhsuk-spacing(4);
@@ -55,6 +54,7 @@
     &:last-child {
       margin-bottom: 0;
     }
+
   }
 
   .nhsuk-c-panel {
