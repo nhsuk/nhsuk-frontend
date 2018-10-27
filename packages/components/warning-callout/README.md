@@ -4,7 +4,7 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ## Example
 
-[Preview the fwarning callout component]()
+[Preview the warning callout component]()
 
 ## HTML markup
 
