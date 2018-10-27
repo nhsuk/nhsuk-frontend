@@ -80,10 +80,8 @@
  *    sit just outside the box.
  */
 
- @mixin panel-with-heading-tab($panel-background-colour, $panel-text-colour) {
-
+@mixin panel-with-heading-tab($panel-background-colour, $panel-text-colour) {
   @include top-and-bottom(); /* [1] */
-
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
 
@@ -96,6 +94,7 @@
     border: 1px solid $nhsuk-print-text-colour; /* [3] */
     page-break-inside: avoid; /* [4] */
   }
+
 }
 
 /**

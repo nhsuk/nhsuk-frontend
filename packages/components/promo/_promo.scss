@@ -3,11 +3,6 @@
    ========================================================================== */
 
 /**
- * A promo is a snippet of content which links to a full piece of content
- * elsewhere on the NHS site or app.
- *
- * It can be used with or without an image.
- *
  * 1. Extra margin is added to compensate for the box-shadow.
  * 2. Box shadow size is set within settings/_globals.scss.
  * 3. Makes the <a> fill the height of it's parent container.
@@ -65,6 +60,7 @@
       text-decoration: none;
     }
   }
+
 }
 
 .nhsuk-c-promo__img {
@@ -75,6 +71,7 @@
   @include mq($media-type: print) {
     display: none;
   }
+
 }
 
 .nhsuk-c-promo__heading {
@@ -84,7 +81,6 @@
 
 .nhsuk-c-promo__content {
   @include top-and-bottom();
-
   @include nhsuk-responsive-padding(5);
 }
 
@@ -122,11 +118,13 @@
 
 .nhsuk-c-promo-group {
   @include flex();
+
   margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link;
 
   @include mq($until: desktop) {
     margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
   }
+
 }
 
 .nhsuk-c-promo-group__item {
@@ -138,6 +136,7 @@
     &:last-child {
       margin-bottom: 0;
     }
+
   }
 
   .nhsuk-c-promo {
