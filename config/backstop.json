@@ -160,6 +160,14 @@
     {
       "label": "Hero",
       "url": "http://localhost:3000/pages/components/hero"
+    },
+    {
+      "label": "Hero with image",
+      "url": "http://localhost:3000/pages/components/hero-image"
+    },
+    {
+      "label": "Hero with image and content",
+      "url": "http://localhost:3000/pages/components/hero-image-description"
     }
   ],
   "paths": {
