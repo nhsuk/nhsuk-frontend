@@ -132,8 +132,8 @@ h6,
 
 p,
 .nhsuk-body-m {
-  color: inherit;
   @extend %nhsuk-body-m;
+  color: inherit;
 }
 
 %nhsuk-body-s {

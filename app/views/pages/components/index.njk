@@ -9,7 +9,7 @@
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
+{% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
@@ -124,11 +124,59 @@
     "nextTitle": "Symptoms"
   }) }}
 
-  {{ promo('nhsuk-c-promo--small', '/news/article', 'Prescription changes', 'The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.') }}
+  {{ promo({
+    "href": "https://www.nhs.uk",
+    "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
 
-  {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
+  {{ promo({
+    "href": "#",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
 
-  {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
+  {{ promo({
+    "href": "#",
+    "heading": "Save a life: give blood"
+  }) }}
+
+  <div class="nhsuk-grid-row nhsuk-c-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+        "heading": "Save a life: give blood",
+        "description": "Please register today. Donating blood is easy, and saves lives."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+        "heading": "Save a life: give blood",
+        "description": "Please register today. Donating blood is easy, and saves lives."
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-c-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "classes": "nhsuk-c-promo--small",
+        "href": "#",
+        "heading": "Save a life: give blood"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "classes": "nhsuk-c-promo--small",
+        "href": "#",
+        "heading": "Save a life: give blood"
+      }) }}
+    </div>
+  </div>
 
   {% set doItems = [
       {

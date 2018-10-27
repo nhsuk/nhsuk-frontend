@@ -101,6 +101,26 @@
     {
       "label": "Images",
       "url": "http://localhost:3000/pages/components/images"
+    },
+    {
+      "label": "Promo",
+      "url": "http://localhost:3000/pages/components/promo"
+    },
+    {
+      "label": "Promo with image",
+      "url": "http://localhost:3000/pages/components/promo-with-image"
+    },
+    {
+      "label": "Promo small",
+      "url": "http://localhost:3000/pages/components/promo-small"
+    },
+    {
+      "label": "Promo with no description",
+      "url": "http://localhost:3000/pages/components/promo-no-description"
+    },
+    {
+      "label": "Promo group",
+      "url": "http://localhost:3000/pages/components/promo-group"
     }
   ],
   "paths": {
