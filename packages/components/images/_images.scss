@@ -3,11 +3,10 @@
    ========================================================================== */
 
 /**
- * Image with a caption.
- *
  * 1. Overrides default browser margin values.
  * 2. Makes the image width two thirds of its container for desktop.
- * 3. Removes top margin from subsequent nhsuk-c-image.
+ * 3. Avoid image printing full width of a page.
+ * 4. Removes top margin from subsequent nhsuk-c-image.
  */
 
 .nhsuk-c-image {
@@ -24,8 +23,12 @@
     width: 66.66667%; /* [2] */
   }
 
+  @include mq($media-type: print) {
+    width: 50%; /* [3] */
+  }
+
   & + .nhsuk-c-image {
-    @include nhsuk-responsive-margin(0, 'top'); /* [3] */
+    @include nhsuk-responsive-margin(0, 'top'); /* [4] */
   }
 
 }
