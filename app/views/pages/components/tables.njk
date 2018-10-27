@@ -6,96 +6,96 @@
 {% block body %}
 
   <div class="nhsuk-width-container">
-      <main id="maincontent" class="nhsuk-main-wrapper">
-          <div class="nhsuk-grid-row">
-              <div class="nhsuk-grid-column-two-thirds">
-                  <div class="nhsuk-page-content">
+    <main id="maincontent" class="nhsuk-main-wrapper">
 
-                    {{ table({
-                      panel: false,
-                      caption: "Skin symptoms and possible causes",
-                      firstCellIsHeader: false,
-                      head: [
-                        {
-                          text: "Skin symptoms"
-                        },
-                        {
-                          text: "Possible cause"
-                        }
-                      ],
-                      rows: [
-                        [
-                          {
-                            text: "Blisters on lips or around the mouth"
-                          },
-                          {
-                            text: "cold sores"
-                          }
-                        ],
-                        [
-                          {
-                            text: "Itchy, dry, cracked, sore"
-                          },
-                          {
-                            text: "eczema"
-                          }
-                        ],
-                        [
-                          {
-                            text: "Itchy blisters"
-                          },
-                          {
-                            text: "shingles, chickenpox"
-                          }
-                        ]
-                      ]
-                    }) }}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            {{ table({
+              panel: false,
+              caption: "Skin symptoms and possible causes",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Skin symptoms"
+                },
+                {
+                  text: "Possible cause"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Blisters on lips or around the mouth"
+                  },
+                  {
+                    text: "cold sores"
+                  }
+                ],
+                [
+                  {
+                    text: "Itchy, dry, cracked, sore"
+                  },
+                  {
+                    text: "eczema"
+                  }
+                ],
+                [
+                  {
+                    text: "Itchy blisters"
+                  },
+                  {
+                    text: "shingles, chickenpox"
+                  }
+                ]
+              ]
+            }) }}
 
-                    {{ table({
-                      panel: true,
-                      heading: "Skin symptoms and possible causes",
-                      caption: "Skin symptoms and possible causes",
-                      firstCellIsHeader: false,
-                      head: [
-                        {
-                          text: "Skin symptoms"
-                        },
-                        {
-                          text: "Possible cause"
-                        }
-                      ],
-                      rows: [
-                        [
-                          {
-                            text: "Blisters on lips or around the mouth"
-                          },
-                          {
-                            text: "cold sores"
-                          }
-                        ],
-                        [
-                          {
-                            text: "Itchy, dry, cracked, sore"
-                          },
-                          {
-                            text: "eczema"
-                          }
-                        ],
-                        [
-                          {
-                            text: "Itchy blisters"
-                          },
-                          {
-                            text: "shingles, chickenpox"
-                          }
-                        ]
-                      ]
-                    }) }}
-
-                  </div>
-              </div>
+            {{ table({
+              panel: true,
+              heading: "Skin symptoms and possible causes",
+              caption: "Skin symptoms and possible causes",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "Skin symptoms"
+                },
+                {
+                  text: "Possible cause"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Blisters on lips or around the mouth"
+                  },
+                  {
+                    text: "cold sores"
+                  }
+                ],
+                [
+                  {
+                    text: "Itchy, dry, cracked, sore"
+                  },
+                  {
+                    text: "eczema"
+                  }
+                ],
+                [
+                  {
+                    text: "Itchy blisters"
+                  },
+                  {
+                    text: "shingles, chickenpox"
+                  }
+                ]
+              ]
+            }) }}
           </div>
-      </main>
+        </div>
+      </div>
+
+    </main>
   </div>
 
 {% endblock %}

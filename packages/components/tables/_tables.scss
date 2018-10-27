@@ -45,12 +45,11 @@
  * 1. Margin is removed so there isn't double spacing.
  */
 
-
 .nhsuk-table-responsive {
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
 
-  display: block;
+  display: block; // sass-lint:disable-line property-sort-order
   -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order
   -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line property-sort-order
   overflow-x: auto; // sass-lint:disable-line property-sort-order
@@ -59,4 +58,5 @@
   .nhsuk-table {
     margin: 0; /* [1] */
   }
+
 }
