@@ -97,6 +97,10 @@
     {
       "label": "Pagination",
       "url": "http://localhost:3000/pages/components/pagination"
+    },
+    {
+      "label": "Images",
+      "url": "http://localhost:3000/pages/components/images"
     }
   ],
   "paths": {
