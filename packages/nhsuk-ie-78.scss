@@ -1,4 +1,4 @@
-// Settings
+// sass-lint:disable-all
 @import 'core/settings/colours';
 
 .lte-ie8 {
@@ -8,7 +8,7 @@
   .c-nav-primary__title,
   .search-close,
   .c-search-menu {
-    display: none !important; // sass-lint:disable-line no-important
+    display: none !important;
   }
 
   .nhsuk-global-header,
@@ -24,7 +24,7 @@
   }
 
   .c-search__input {
-    background: $colour_nhsuk-white !important; // sass-lint:disable-line no-important
+    background: $colour_nhsuk-white !important;
     height: 100%;
     padding: 5px;
   }
@@ -84,7 +84,7 @@
       }
 
       &:active,
-      &:focus:active, // sass-lint:disable-line force-pseudo-nesting
+      &:focus:active,
       &:focus-within {
         background: $colour_shade_nhsuk-blue-50;
         box-shadow: none;
@@ -101,24 +101,21 @@
     margin-bottom: 20px;
   }
 
-  /* breadcrumbs */
-  .nhsuk-c-breadcrumb {
-    padding-top: 0;
-  }
+  /* COMPONENTS / #BREADCRUMB */
 
-  .nhsuk-c-breadcrumb__back {
+  .nhsuk-c-breadcrumb .nhsuk-c-breadcrumb__back {
     display: none;
   }
 
-  .nhsuk-c-breadcrumb__item {
+  .nhsuk-c-breadcrumb .nhsuk-c-breadcrumb__item {
     display: inline;
   }
 
-  .nhsuk-icon__chevron-right--fallback {
-    height: 12px;
-    margin: 0 5px;
-    top: -3px;
+  .nhsuk-c-breadcrumb .nhsuk-icon__chevron-right--fallback {
+    height: 10px;
     width: 10px;
+    top: -4px;
+    margin: 0 2px 0 4px;
   }
 
 }

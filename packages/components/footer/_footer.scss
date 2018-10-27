@@ -2,59 +2,49 @@
    COMPONENTS / #FOOTER
    ========================================================================== */
 
-/**
- * Footer component.
- *
- */
-
 .nhsuk-footer {
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
-  width: 100%;
 
   @include mq($media-type: print) {
     display: none;
   }
 
-  .nhsuk-footer__logo {
-    padding-bottom: nhsuk-spacing(3);
+}
 
-    @include mq($from: tablet) {
-      padding-bottom: 0;
-    }
+.nhsuk-footer__logo {
+  padding-bottom: nhsuk-spacing(3);
 
+  @include mq($from: tablet) {
+    padding-bottom: nhsuk-spacing(0);
   }
 
-  .nhsuk-footer__list {
-    list-style-type: none;
-    margin: 0;
-    padding-top: nhsuk-spacing(4);
-    padding-bottom: nhsuk-spacing(4);
+}
 
-    &:last-child {
-      border-top: 1px solid $nhsuk-secondary-border-colour;
-    }
+.nhsuk-footer__list {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: nhsuk-spacing(4);
+  padding-left: nhsuk-spacing(0);
+  padding-top: nhsuk-spacing(4);
 
-    li {
-      @include nhsuk-typography-responsive(16);
-
-      @include mq($from: tablet) {
-        display: inline-block;
-        padding-right: 24px;
-      }
-
-      a {
-        color: $colour_nhsuk-white;
-
-        &:focus,
-        &:hover {
-          color: $nhsuk-link-focus-colour;
-        }
-
-      }
-
-    }
-
+  &:last-child {
+    border-top: 1px solid $nhsuk-secondary-border-colour;
   }
 
+}
+
+.nhsuk-footer__list-item {
+  @include nhsuk-font(16);
+
+  @include mq($from: tablet) {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-right: nhsuk-spacing(4);
+  }
+
+}
+
+.nhsuk-footer__list-item-link {
+  @include nhsuk-link-style-white;
 }

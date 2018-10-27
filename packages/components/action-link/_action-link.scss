@@ -1,31 +1,52 @@
 /* ==========================================================================
-   #action-link
+   COMPONENTS/ #ACTION-LINK
    ========================================================================== */
 
 /**
- * Long-form comment.
- *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Display is inline-block so the top and bottom margins/paddings are
+ *    respected.
+ * 2. 'Random number' is used to properly have sufficient space between icon
+ *    and text.
+ * 3. Position is relative so the arrow icon can display absolute.
+ * 4. Text decoration none used to override default <a> styling.
+ * 5. Box shadow 8px used instead of the default 4px.
+ * 6. Text decoration underline used to override default <a> styling.
  */
 
 .nhsuk-c-action-link {
-  display: inline-block;
-  font-size: 21px;
+  @include nhsuk-font(22);
+  @include nhsuk-responsive-margin(6, 'bottom');
+
+  display: inline-block; /* [1] */
   font-weight: $nhsuk-font-bold;
-  margin: 32px 16px 32px 0;
-  padding-left: 42px;
-  position: relative;
-  text-decoration: none;
+  padding-left: 42px; /* [2] */
+  position: relative; /* [3] */
+  text-decoration: none; /* [4] */
 
   @include mq($until: tablet) {
-    font-size: 19px;
-    padding-left: 36px;
+    padding-left: 36px; /* [2] */
+  }
+
+  @include mq($media-type: print) {
+    color: $nhsuk-print-text-colour;
+
+    &:visited {
+      color: $nhsuk-print-text-colour;
+    }
+  }
+
+
+  &:focus {
+    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour; /* [5] */
+
+    span {
+      text-decoration: underline; /* [6] */
+    }
+
   }
 
   .nhsuk-icon__arrow-right-circle {
@@ -33,86 +54,20 @@
     height: 40px;
     left: -3px;
     position: absolute;
-    top: -6px;
+    top: -4px;
     width: 40px;
 
     @include mq($until: tablet) {
       height: 34px;
       margin-bottom: -9px;
-      top: -5px;
+      top: -3px;
       width: 34px;
     }
-  }
 
-  &:hover,
-  &:focus {
-    .nhsuk-icon__arrow-right-circle {
-      fill: $colour_shade_nhsuk-green-35;
-    }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour;
-  }
-
-  &:hover {
-    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour;
-    span {
-      text-decoration: underline;
-    }
-  }
-
-  &:active {
-    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour;
-    background: $nhsuk-link-hover-background-colour !important;
-    color: $nhsuk-link-active-colour !important;
-    .nhsuk-icon__arrow-right-circle {
-      fill: $colour_shade_nhsuk-green-50;
-    }
-  }
-
-}
-
-.nhsuk-c-action-link--small {
-  font-size: 19px;
-  margin: 32px 16px 32px 0;
-  padding-left: 32px;
-
-  @include mq($until: tablet) {
-    font-size: 16px;
-    padding-left: 28px;
-  }
-
-  .nhsuk-icon__arrow-right-circle {
-    height: 28px;
-    left: -3px;
-    top: 0;
-    width: 28px;
-
-    @include mq($until: tablet) {
-      height: 24px;
-      top: 0;
-      width: 24px;
-    }
-  }
-}
-
-.nhsuk-c-action-link--alternative {
-
-  .nhsuk-icon__arrow-right-circle {
-    fill: $colour_nhsuk-aqua-green;
-
-    &:hover,
-    &:focus {
-      .nhsuk-icon__arrow-right-circle {
-        fill: $colour_shade_nhsuk-green-35;
-      }
+    @include mq($media-type: print) {
+      fill: $nhsuk-print-text-colour;
     }
 
-    &:active {
-      .nhsuk-icon__arrow-right-circle {
-        fill: $colour_shade_nhsuk-green-50;
-      }
-    }
   }
+
 }

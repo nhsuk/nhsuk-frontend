@@ -1,32 +1,31 @@
-# Images
+# Image
 
-## Introduction
-
-The image component is for the presentation of informative images.
-
-## Guidance
-
-Find out when to use the image component in the [Digital service manual]().
+Find out more about the image component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
 [Preview the image component]()
 
-#### Markup
+## HTML markup
 
-    <div class="nhsuk-c-image">
-      <img alt="Picture of allergic conjunctivitis" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg">
-      <div class="nhsuk-c-image__caption">
-        <p>Itchy, red, watering eyes</p>
-      </div>
-    </div>
+```html
+<figure class="nhsuk-c-image">
+  <img class="nhsuk-c-image__img" alt="Picture of allergic conjunctivitis"
+    src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"/>
+  <figcaption class="nhsuk-c-image__caption">
+    Itchy, red, watering eyes
+  </figcaption>
+</figure>
+```
 
-#### Macro
+## Nunjucks macro
 
-    {% from 'components/images/macro.njk' import image %}
+```html
+{% from 'components/images/macro.njk' import image %}
 
-    {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
-
-## Contribution
-
-Guidelines on contributing to components can be found at [Contributing guidelines]().
+{{ image({
+  "alt": "Picture of allergic conjunctivitis",
+  "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+  "caption": "Itchy, red, watering eyes"
+}) }}
+```

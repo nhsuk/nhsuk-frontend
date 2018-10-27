@@ -46,12 +46,101 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "Components",
+      "url": "http://localhost:3000/pages/components"
+    },
+    {
       "label": "Footer",
       "url": "http://localhost:3000/pages/components/footer"
     },
     {
       "label": "Tables",
       "url": "http://localhost:3000/pages/components/tables"
+    },
+    {
+      "label": "Review Date",
+      "url": "http://localhost:3000/pages/components/review-date"
+    },
+    {
+      "label": "Grey care card",
+      "url": "http://localhost:3000/pages/components/care-card-grey"
+    },
+    {
+      "label": "Blue care card",
+      "url": "http://localhost:3000/pages/components/care-card-blue"
+    },
+    {
+      "label": "Red care card",
+      "url": "http://localhost:3000/pages/components/care-card-red"
+    },
+    {
+      "label": "Black care card",
+      "url": "http://localhost:3000/pages/components/care-card-black"
+    },
+    {
+      "label": "Emergency Alert",
+      "url": "http://localhost:3000/pages/components/emergency-alert"
+    },
+    {
+      "label": "Feedback banner",
+      "url": "http://localhost:3000/pages/components/feedback-banner",
+      "delay": 5000
+    },
+    {
+      "label": "Warning callout",
+      "url": "http://localhost:3000/pages/components/warning-callout"
+    },
+    {
+      "label": "Action link",
+      "url": "http://localhost:3000/pages/components/action-link"
+    },
+    {
+      "label": "Breadcrumb",
+      "url": "http://localhost:3000/pages/components/breadcrumb"
+    },
+    {
+      "label": "Pagination",
+      "url": "http://localhost:3000/pages/components/pagination"
+    },
+    {
+      "label": "Images",
+      "url": "http://localhost:3000/pages/components/images"
+    },
+    {
+      "label": "Promo",
+      "url": "http://localhost:3000/pages/components/promo"
+    },
+    {
+      "label": "Promo with image",
+      "url": "http://localhost:3000/pages/components/promo-with-image"
+    },
+    {
+      "label": "Promo small",
+      "url": "http://localhost:3000/pages/components/promo-small"
+    },
+    {
+      "label": "Promo with no description",
+      "url": "http://localhost:3000/pages/components/promo-no-description"
+    },
+    {
+      "label": "Promo group",
+      "url": "http://localhost:3000/pages/components/promo-group"
+    },
+    {
+      "label": "Panel grey",
+      "url": "http://localhost:3000/pages/components/panel-grey"
+    },
+    {
+      "label": "Panel group",
+      "url": "http://localhost:3000/pages/components/panel-group"
+    },
+    {
+      "label": "Panel with label",
+      "url": "http://localhost:3000/pages/components/panel-with-label"
+    },
+    {
+      "label": "Panel",
+      "url": "http://localhost:3000/pages/components/panel"
     }
   ],
   "paths": {

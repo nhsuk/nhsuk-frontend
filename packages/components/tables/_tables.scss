@@ -24,7 +24,7 @@
  */
 
 .nhsuk-table__panel-with-heading-tab {
-  @include panel-with-heading-tab($colour_nhsuk-white, $nhsuk-text-colour);
+  @include panel-with-label($colour_nhsuk-white, $nhsuk-text-colour);
 
   .nhsuk-table-responsive,
   .nhsuk-table {
@@ -33,7 +33,7 @@
 }
 
 .nhsuk-table__heading-tab {
-  @include heading-tab($colour_nhsuk-blue, $colour_nhsuk-white);
+  @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white);
 }
 
 /* Responsive table

@@ -1,24 +1,20 @@
 # Emergency alert
 
-## Introduction
-
-## Guidance
-
-Find out when to use the emergency alert component in the [Digital service manual]().
+Find out more about the emergency alert component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
 [Preview the emergency alert component]()
 
-#### Markup
+### HTML markup
 
     <div id="nhsuk-global-alert" class="nhsuk-c-global-alert">
       <div class="nhsuk-width-container">
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-full">
             <div class="nhsuk-c-global-alert__content">
-              <h2 class="nhsuk-c-global-alert__header"><span role="text"><span class="visually-hidden">Alert: </span>National flu outbreak</span></h2>
-              <p class="nhsuk-c-global-alert__message">There has been a national flu outbreak. <a href="#" class="nhsuk-c-banner__link wrap">How does it affect me</a>.</p>
+              <h2 class="nhsuk-c-global-alert__heading"><span class="visually-hidden">Alert: </span>National flu outbreak</h2>
+              <p class="nhsuk-c-global-alert__message">There has been a national flu outbreak. <a href="http://www.nhs.uk" class="nhsuk-u-nowrap">How does it affect me</a></p>
               <p class="nhsuk-c-global-alert__updated">Updated 23 mins ago</p>
             </div>
           </div>
@@ -26,12 +22,14 @@ Find out when to use the emergency alert component in the [Digital service manua
       </div>
     </div>
 
-#### Macro
+### Nunjucks macro
 
     {% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
 
-    {{ emergencyAlert('National flu outbreak', 'There has been a national flu outbreak.', '#', 'How does it affect me', 'Updated 23 mins ago') }}
-
-## Contribution
-
-Guidelines on contributing to components can be found at [Contributing guidelines]().
+    {{ emergencyAlert({
+      "title": "National flu outbreak",
+      "content": "There has been a national flu outbreak.",
+      "emergencyURL": "http://www.nhs.uk",
+      "emergencyLabel": "How does it affect me",
+      "lastUpdated": "Updated 23 mins ago"
+    }) }}

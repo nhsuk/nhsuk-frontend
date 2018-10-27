@@ -1,0 +1,16 @@
+/* ==========================================================================
+   UTILITIES / #LINK-NOWRAP
+   ========================================================================== */
+
+/**
+ * Prevent long anchor links from line breaking
+ * on smaller screens
+ *
+ * Usage: class="nhsuk-u-nowrap"
+ */
+
+.nhsuk-u-nowrap {
+  @include mq($until: tablet) {
+    white-space: nowrap;
+  }
+}
