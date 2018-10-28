@@ -3,12 +3,21 @@
    COMPONENTS / #TABLE
    ========================================================================== */
 
-/* Table row hover
-========================================================================== */
 
 /**
  * Table row hover is used to aid readability for users.
  */
+
+table {
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+
+  background-color: $colour_nhsuk-white;
+  border: 16px solid $colour_nhsuk-white;
+  border-spacing: 0;
+  position: relative;
+  vertical-align: top;
+}
 
 .nhsuk-table__row {
   &:hover {
