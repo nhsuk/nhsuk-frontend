@@ -233,7 +233,7 @@
  * margin at tablet breakpoint.
  */
 
-@mixin remove-margin-mobile(){
+@mixin remove-margin-mobile() {
   @include mq($until: tablet) {
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;

@@ -15,8 +15,6 @@
   ========================================================================== */
 
 /**
- * A-Z nav allows users skip to a sections of an alphabetical list.
- *
  * 1. Clearfix added to the A-Z nav to clear float: left;
  *    on the .nhsuk-c-a-z-nav__list-item.
  * 2. Used to wrap the list items.
@@ -37,7 +35,6 @@
 
 .nhsuk-c-a-z-nav__list {
   @include clearfix(); /* [1] */
-
   @include nhsuk-responsive-padding(0);
 }
 
@@ -64,16 +61,13 @@
     background-color: $colour_nhsuk-blue;
     color: $colour_nhsuk-white;
   }
+
 }
 
 /* COMPONENT / #LIST-PANEL
    ========================================================================== */
 
 /**
- * List panel is a styled list with a heading.
- *
- * Used on the Health A-Z and medicines A-Z.
- *
  * 1. Allows <a> padding and margin to be respected.
  * 2. Removes default margin-bottom from heading.
  * 3. 'Random number' used give heading the correct placement.
@@ -154,6 +148,7 @@
   @include mq($until: tablet) {
     padding: nhsuk-spacing(2) nhsuk-spacing(3);
   }
+
 }
 
 .nhsuk-c-list-panel--mobile {
@@ -166,14 +161,13 @@
     }
 
   }
+
 }
 
 /* COMPONENT / #BACK-TO-TOP
    ========================================================================== */
 
 /**
- * Allows the use to skip back to the top of the page.
- *
  * 1. Allows <a> padding and margin to be respected.
  * 2. 'Random number' used to provide space for icon.
  * 3. Allows icon to be positioned absolute.
@@ -204,6 +198,7 @@
     @include mq($until: tablet) {
       top: 2px; /* [6] */
     }
+
   }
 
   &:visited {
