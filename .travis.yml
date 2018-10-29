@@ -31,3 +31,5 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+notifications:
+  slack: nhsuk:$SLACK_TOKEN#frontend
