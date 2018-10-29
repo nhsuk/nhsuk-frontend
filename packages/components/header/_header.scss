@@ -43,6 +43,8 @@
  * 10. Z-index to bring the dropdown to the front
  * 11. Custom margin to move menu toggle past the search toggle button
  * 12. Custom border value between expanded search and expanded menu if both open at the same time
+ * 13. Don't display the link address for the logo anchor, see
+*      core/elements/_links.scss
  */
 
 
@@ -104,11 +106,9 @@
     }
 
     .nhsuk-header__search-toggle {
-      background-color: transparent;
-      border: 1px solid $colour_nhsuk-white;
-      border-radius: $nhsuk-border-radius;
-      color: $colour_nhsuk-white;
-      cursor: pointer;
+
+      @include toggle-button();
+
       min-height: 40px; /* [2] */
       padding: nhsuk-spacing(1) nhsuk-spacing(2) 0;
       position: absolute;
@@ -119,37 +119,6 @@
         fill: $colour_nhsuk-white;
         height: 21px; /* [3] */
         width: 21px; /* [3] */
-      }
-
-      &::-moz-focus-inner {
-        border: 0; /* [4] */
-      }
-
-      &:hover {
-        background-color: $colour_shade_nhsuk-blue-35;
-        border-color: $colour_nhsuk-grey-5;
-        box-shadow: none;
-      }
-
-      &:focus {
-        background-color: transparent;
-        border-color: $nhsuk-focus-colour;
-        box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
-        outline: 0;
-      }
-
-      &:active,
-      &.active {
-        background-color: $colour_shade_nhsuk-blue-50;
-        border-color: $colour_nhsuk-grey-5;
-        box-shadow: none;
-        color: $colour_nhsuk-grey-5;
-      }
-
-      &.active {
-        &:focus {
-          box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
-        }
       }
     }
 
@@ -171,9 +140,7 @@
 
       .nhsuk-header__search-wrap {
         display: none;
-      }
 
-      .nhsuk-header__search-wrap {
         &.js-show {
           clear: both;
           display: flex;
@@ -253,37 +220,9 @@
           }
 
           .nhsuk-search__close {
-            background-color: transparent;
-            border: 0;
-            cursor: pointer;
-            height: 40px; /* [2] */
+            @include close-button();
             margin-left: nhsuk-spacing(3);
             margin-top: nhsuk-spacing(2);
-            padding: 0;
-            width: 40px; /* [2] */
-
-            .nhsuk-icon__close {
-              fill: $colour_nhsuk-blue;
-              height: 40px; /* [3] */
-              width: 40px; /* [3] */
-            }
-
-            &::-moz-focus-inner {
-              border: 0; /* [4] */
-            }
-
-            &:hover {
-              .nhsuk-icon__close {
-                fill: $nhsuk-secondary-button-hover-colour;
-              }
-            }
-
-            &:focus {
-              border-radius: $nhsuk-border-radius;
-              box-shadow: 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
-              outline: 0;
-            }
-
           }
 
     }
@@ -412,6 +351,7 @@
   z-index: 1; /* [10] */
 }
 
+
 @include mq($until: tablet) {
 
   .suggestions-menu {
@@ -510,11 +450,8 @@
 }
 
 .nhsuk-header__menu-toggle {
-  background-color: transparent;
-  border: 1px solid $colour_nhsuk-white;
-  border-radius: 4px;
-  color: $colour_nhsuk-white;
-  cursor: pointer;
+  @include toggle-button();
+
   display: block;
   font-size: 18px;
   font-weight: 400;
@@ -527,37 +464,6 @@
 
   @include mq($from: tablet) {
     margin-right: 0;
-  }
-
-  &::-moz-focus-inner {
-    border: 0; /* [4] */
-  }
-
-  &:hover {
-    background-color: $colour_shade_nhsuk-blue-35;
-    border-color: $colour_nhsuk-grey-5;
-    box-shadow: none;
-  }
-
-  &:focus {
-    background-color: transparent;
-    border-color: $nhsuk-focus-colour;
-    box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
-    outline: 0;
-  }
-
-  &:active,
-  &.active {
-    background-color: $colour_shade_nhsuk-blue-50;
-    border-color: $colour_nhsuk-grey-5;
-    box-shadow: none;
-    color: $colour_nhsuk-grey-5;
-  }
-
-  &.active {
-    &:focus {
-      box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
-    }
   }
 
 }
@@ -574,7 +480,6 @@
     margin-right: 0;
   }
 }
-
 
 .nhsuk-header__navigation {
   background-color: $colour_nhsuk-white;
@@ -595,41 +500,13 @@
   position: relative;
 }
 
-
 .nhsuk-header__navigation-close {
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  height: 40px; /* [2] */
+  @include close-button();
   overflow: hidden;
-  padding: 0;
   position: absolute;
   right: nhsuk-spacing(3);
   top: nhsuk-spacing(2);
   white-space: nowrap;
-  width: 40px; /* [2] */
-
-  .nhsuk-icon__close {
-    height: 40px; /* [3] */
-    width: 40px; /* [3] */
-  }
-
-  &::-moz-focus-inner {
-    border: 0; /* [4] */
-  }
-
-  &:hover {
-    .nhsuk-icon__close {
-      fill: $nhsuk-secondary-button-hover-colour;
-    }
-  }
-
-  &:focus {
-    border-radius: $nhsuk-border-radius;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
-    outline: 0;
-  }
-
 }
 
 .nhsuk-header__navigation-list {
@@ -713,7 +590,6 @@
     border-top: 1px solid $nhsuk-secondary-border-colour;
     display: flex;
     justify-content: space-between;
-    list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -740,9 +616,6 @@
 
     &:hover {
       background: $colour_shade_nhsuk-blue-35;
-      box-shadow: none;
-      color: $colour_nhsuk-white;
-      text-decoration: underline;
     }
 
     &:focus {
@@ -751,7 +624,6 @@
 
     &:active {
       background: $colour_shade_nhsuk-blue-50;
-      box-shadow: none;
       color: $colour_nhsuk-grey-5;
     }
 
@@ -759,6 +631,24 @@
       background: $colour_shade_nhsuk-blue-20;
     }
 
+  }
+
+}
+
+@include mq($media-type: print) {
+
+  .nhsuk-header__link {
+    &:after {
+      content: ''; /* [13] */
+    }
+  }
+
+  .nhsuk-header__content {
+    display: none;
+  }
+
+  .nhsuk-header__navigation {
+    display: none;
   }
 
 }

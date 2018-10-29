@@ -137,3 +137,100 @@
     top: -8px; /* [5] */
   }
 }
+
+/**
+ * Toggle button mixin
+ * used to toggle content
+ *
+ * Usage: @include toggle-button();
+ * See components/header
+ *
+ * 1. Remove inner border on buttons for Firefox, see
+ *    https://github.com/necolas/normalize.css/issues/393
+ */
+
+@mixin toggle-button() {
+  background-color: transparent;
+  border: 1px solid $colour_nhsuk-white;
+  border-radius: $nhsuk-border-radius;
+  color: $colour_nhsuk-white;
+  cursor: pointer;
+
+
+  &::-moz-focus-inner {
+    border: 0; /* [1] */
+  }
+
+  &:hover {
+    background-color: $colour_shade_nhsuk-blue-35;
+    border-color: $colour_nhsuk-grey-5;
+    box-shadow: none;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: $nhsuk-focus-colour;
+    box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
+    outline: 0;
+  }
+
+  &:active,
+  &.active {
+    background-color: $colour_shade_nhsuk-blue-50;
+    border-color: $colour_nhsuk-grey-5;
+    box-shadow: none;
+    color: $colour_nhsuk-grey-5;
+  }
+
+  &.active {
+    &:focus {
+      box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
+    }
+  }
+
+}
+
+/**
+ * Close button mixin
+ * used to close a content area
+ *
+ * Usage: @include close-button();
+ * See components/header
+ *
+ * 1. Custom height and width of form items
+ * 2. Custom height and width of svg icons
+ * 3. Remove inner border on buttons for Firefox, see
+ *    https://github.com/necolas/normalize.css/issues/393
+ */
+
+@mixin close-button() {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  height: 40px; /* [1] */
+  width: 40px; /* [1] */
+
+  .nhsuk-icon__close {
+    fill: $colour_nhsuk-blue;
+    height: 40px; /* [2] */
+    width: 40px; /* [2] */
+  }
+
+  &::-moz-focus-inner {
+    border: 0; /* [3] */
+  }
+
+  &:hover {
+    .nhsuk-icon__close {
+      fill: $nhsuk-secondary-button-hover-colour;
+    }
+  }
+
+  &:focus {
+    border-radius: $nhsuk-border-radius;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
+    outline: 0;
+  }
+
+}
