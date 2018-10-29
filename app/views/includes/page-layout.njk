@@ -1,0 +1,100 @@
+{% from 'components/header/macro.njk' import header %}
+{% from 'components/footer/macro.njk' import footer %}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if IE]><link rel="shortcut icon" href="/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/assets/favicons/favicon.png">
+
+    <title>NHS.UK Frontend - {{ title }}</title>
+
+    <link rel="stylesheet" href="/nhsuk.min.css">
+    <!--[if lt IE 9]><link rel="stylesheet" href="/nhsuk-ie-78.min.css"><![endif]-->
+
+    <script src="/assets/libraries/jquery-3.3.1.min.js"></script>
+  </head>
+
+  <body class="{{ body_class }}">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      {% block outerHeader %}{% endblock %}
+
+      {% set primaryLinks = [
+          {
+            'url'  : 'https://www.nhs.uk/conditions',
+            'label' : 'Health A-Z'
+          },
+          {
+            'url' : 'https://www.nhs.uk/live-well/',
+            'label' : 'Live Well'
+          },
+          {
+            'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+            'label' : 'Care and support'
+          },
+          {
+            'url'  : 'https://www.nhs.uk/news/',
+            'label' : 'Health news'
+          },
+          {
+            'url' : 'https://www.nhs.uk/service-search',
+            'label' : 'Services near you'
+          }
+        ]
+      %}
+
+      {{ header(primaryLinks) }}
+
+      {% block body %}{% endblock %}
+
+      {% set primaryLinks = [
+        {
+          'URL'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+          'label' : 'NHS sites'
+        },
+        {
+          'URL' : 'https://www.nhs.uk/about-us',
+          'label' : 'About us'
+        },
+        {
+          'URL'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
+          'label' : 'Contact us'
+        },
+        {
+          'URL'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
+          'label' : 'Profile editor login'
+        }
+      ]
+    %}
+
+    {% set secondaryLinks = [
+        {
+          'URL'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+          'label' : 'Sitemap'
+        },
+        {
+          'URL' : 'https://www.nhs.uk/accessibility/',
+          'label' : 'Accessibility'
+        },
+        {
+          'URL'  : 'https://www.nhs.uk/our-policies/',
+          'label' : 'Our policies'
+        }
+      ]
+    %}
+
+    {{ footer(primaryLinks, secondaryLinks) }}
+
+    <script src="/nhsuk.js"></script>
+  </body>
+</html>

@@ -23,6 +23,7 @@ function scripts() {
       'packages/components/header/typeahead.bundle.min.js',
       'packages/components/header/nhs.typeahead.js',
       'packages/components/header/header.js',
+      'packages/components/details/details.js',
       'packages/components/feedback-banner/feedback-banner.js'
     ])
     .pipe(concat('nhsuk.js'))

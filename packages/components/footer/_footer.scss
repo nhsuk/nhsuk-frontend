@@ -1,86 +1,50 @@
 /* ==========================================================================
-   #footer
+   COMPONENTS / #FOOTER
    ========================================================================== */
 
-/**
- * Long-form comment.
- *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
- */
-.nhsuk-global-footer {
+.nhsuk-footer {
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
-  width: 100%;
 
   @include mq($media-type: print) {
     display: none;
   }
 
-  &__logo {
-    padding-bottom: 15px;
+}
 
-    @include mq($from: tablet) {
-      padding-bottom: 0;
-    }
+.nhsuk-footer__logo {
+  padding-bottom: nhsuk-spacing(3);
 
-    a {
-      display: block;
-      height: 40px;
-      width: 99px;
-
-      .nhsuk-logo {
-        border: 0;
-        height: 40px;
-        max-width: 100%;
-        vertical-align: middle;
-        width: 99px;
-
-        &:hover {
-          box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-        }
-
-      }
-
-    }
-
+  @include mq($from: tablet) {
+    padding-bottom: nhsuk-spacing(0);
   }
 
-  ul {
-    border-bottom: 1px solid $nhsuk-secondary-border-colour;
-    list-style-type: none;
-    margin: 0;
-    padding: 25px 0;
+}
 
-    &:last-child {
-      border-bottom: 0;
-    }
+.nhsuk-footer__list {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: nhsuk-spacing(4);
+  padding-left: nhsuk-spacing(0);
+  padding-top: nhsuk-spacing(4);
 
-    li {
-
-      @include mq($from: tablet) {
-        display: inline-block;
-        font-size: 17px;
-        padding-right: 25px;
-      }
-
-      a {
-        color: $colour_nhsuk-white;
-
-        &:focus,
-        &:hover {
-          color: $nhsuk-link-focus-colour;
-        }
-
-      }
-
-    }
-
+  &:last-child {
+    border-top: 1px solid $nhsuk-secondary-border-colour;
   }
 
+}
+
+.nhsuk-footer__list-item {
+  @include nhsuk-font(16);
+
+  @include mq($from: tablet) {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-right: nhsuk-spacing(4);
+  }
+
+}
+
+.nhsuk-footer__list-item-link {
+  @include nhsuk-link-style-white;
 }

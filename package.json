@@ -11,7 +11,10 @@
     "watch": "concurrently \"gulp\" \"nodemon app.js --config config/nodemon.json -q\"",
     "test": "npm run lint-css",
     "lint-css": "./node_modules/.bin/sass-lint -c ./config/.sass-lint.yml 'packages/**/*.scss' -v -q",
-    "bundle": "npm run build & gulp bundle"
+    "bundle": "npm run build & gulp bundle",
+    "backstop:ref": "./node_modules/backstopjs/cli/index.js reference --config=config/backstop.json",
+    "backstop:test": "./node_modules/backstopjs/cli/index.js test --config=config/backstop.json",
+    "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*"
   },
   "dependencies": {
     "concurrently": "^4.0.1",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "backstopjs": "^3.7.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",

@@ -24,33 +24,10 @@ $alpha: .5;
 .nhsuk-global-header {
   @include clearfix();
   background: $colour_nhsuk-blue;
+  padding: 20px 0;
 
-  &__logo {
+  .nhsuk-global-header__logo {
     float: left;
-    padding: 20px 0;
-
-    a {
-      display: block;
-      height: 40px;
-      width: 99px;
-
-      .nhsuk-logo {
-        border: 0;
-        height: 40px;
-        max-width: 100%;
-        vertical-align: middle;
-        width: 99px;
-      }
-
-      .visually-hidden {
-        top: -9999px; // Moves outline on iOS off screen
-      }
-
-      &:hover {
-        box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-      }
-
-    }
   }
 
   &__menusearch {
@@ -64,7 +41,7 @@ $alpha: .5;
     }
 
     float: left;
-    margin: 20px;
+    margin: 0 20px;
 
     .menu-toggle__button {
       background-color: transparent;
@@ -74,7 +51,7 @@ $alpha: .5;
       display: block;
       font-size: 18px;
       font-weight: $nhsuk-font-normal;
-      line-height: $nhsuk-base-line-height;
+      line-height: 28px;
       margin: 0;
       padding: 5px 15px;
       text-decoration: none;
@@ -121,7 +98,6 @@ $alpha: .5;
 
     &__search {
       float: left;
-      margin: 20px 0;
 
       .c-search__input {
         -webkit-appearance: listbox;
@@ -359,7 +335,6 @@ $alpha: .5;
         border-radius: 4px;
         color: $colour_nhsuk-white;
         cursor: pointer;
-        margin: 20px 0;
         min-height: 40px;
         overflow: hidden;
         padding: 4px 8px 0 9px;
@@ -573,7 +548,7 @@ $alpha: .5;
   &:focus {
     left: 16px;
     top: 16px;
-    z-index: z-index(2);
+    z-index: 20;
   }
 
   &:visited {

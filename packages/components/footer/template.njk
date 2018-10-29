@@ -1,22 +1,22 @@
 <footer role="contentinfo">
-  <div class="nhsuk-global-footer">
+  <div class="nhsuk-footer">
     <div class="nhsuk-width-container">
-      <ul>
-        <li class="nhsuk-global-footer__logo">
+      <ul class="nhsuk-footer__list">
+        <li class="nhsuk-footer__logo nhsuk-footer__list-item">
           <a href="/" class="global-footer__link">
             {% include 'assets/logos/nhs-logo.svg' %}
             <span class="visually-hidden">NHS homepage</span>
           </a>
         </li>
         {% for item in primaryLinks %}
-        <li><a href="{{item.url}}">{{item.label}}</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
       </ul>
-      <ul>
+      <ul class="nhsuk-footer__list">
         {% for item in secondaryLinks %}
-        <li><a href="{{item.url}}">{{item.label}}</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
-        <li>&copy; Crown Copyright</li>
+        <li class="nhsuk-footer__list-item">&copy; Crown Copyright</li>
       </ul>
     </div>
   </div>

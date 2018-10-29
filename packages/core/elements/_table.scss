@@ -3,11 +3,44 @@
    ========================================================================== */
 
 /**
- * Table styles are incredibly unopinionated. Simply:
- *
  * 1. Force `<table>`s to be full-width by default.
+ * 2. Captions are used to improve accessibility,
+ *    but we do not need them visually displayed.
  */
 
 table {
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+
+  border-spacing: 0;
+  vertical-align: top;
   width: 100%; /* [1] */
+
+  @include mq($media-type: print) {
+    page-break-inside: avoid;
+  }
+
+}
+
+thead {
+  th {
+    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-colour;
+  }
+}
+
+th,
+td {
+  @include nhsuk-typography-responsive(19);
+  @include nhsuk-responsive-padding(3);
+
+  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;
+  text-align: left;
+}
+
+th {
+  font-weight: $nhsuk-font-bold;
+}
+
+caption {
+  @include visually-hidden; /* [2] */
 }

@@ -41,9 +41,36 @@
 }
 
 /* NHS Logo
-  ========================================================================== */
+========================================================================== */
 
 .nhsuk-logo {
+  border: 0;
   height: 40px;
+  max-width: 100%;
+  vertical-align: middle;
   width: 99px;
+}
+
+.nhsuk-global-header__logo,
+.nhsuk-footer__logo {
+
+  a {
+    display: block;
+    height: 40px;
+    width: 99px;
+
+    .visually-hidden {
+      top: -9999px; // Moves outline on iOS off screen
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+    }
+
+  }
+
+}
+
+.nhsuk-page-white {
+  background-color: $colour_nhsuk-white;
 }
