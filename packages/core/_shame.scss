@@ -74,3 +74,12 @@
 .nhsuk-page-white {
   background-color: $colour_nhsuk-white;
 }
+
+// Used in the hero component but they could be resuable styles
+// nhsuk-page-heading is used across the site, should the padding
+// be the same on everything rather than hero specific.
+
+.nhsuk-page-heading {
+  @include nhsuk-responsive-padding(8, top);
+  @include nhsuk-responsive-padding(8, bottom);
+}

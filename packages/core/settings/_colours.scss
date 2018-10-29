@@ -82,6 +82,7 @@ $colour_tint_nhsuk-warm-yellow-30: tint($colour_nhsuk-warm-yellow, 30%); /* [7] 
 $colour_tint_nhsuk-warm-yellow-10: tint($colour_nhsuk-warm-yellow, 10%); /* [8] */
 
 $colour_transparent_nhsuk-white-20: rgba($colour_nhsuk-white, .2);
+$colour_transparent_nhsuk-blue-50: rgba($colour_shade_nhsuk-blue-50, .1);
 
 /**
  * Colour aliases

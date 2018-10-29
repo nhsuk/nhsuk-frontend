@@ -1,12 +1,13 @@
 {% set title = 'Home' %}
-{% from 'components/hero/macro.njk' import hero, heroImage, heroImageContent %}
+{% from 'components/hero/macro.njk' import hero %}
 {% from 'components/promo/macro.njk' import promo %}
 {% extends 'includes/page-layout.njk' %}
 
 {% block body %}
-<div class="nhsuk-width-container-fluid">
-	{{ hero('NHS.UK frontend', '') }}
-</div>
+	{{ hero({
+  "heading": "NHS.UK frontend",
+  "text": "Find out how to use NHS.UK frontend, how to use the code in your products and contribute changes."
+  }) }}
 
 <div class="nhsuk-width-container">
   <main class="nhsuk-main-wrapper" id="maincontent">
