@@ -100,7 +100,7 @@
  * Usage: @include nhsuk-link-style-hover;
  */
 
- @mixin nhsuk-link-style-hover {
+@mixin nhsuk-link-style-hover {
   &:hover {
     background: $nhsuk-link-hover-background-colour;
     box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;

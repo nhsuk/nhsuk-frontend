@@ -21,7 +21,7 @@
   }
 
   .nhsuk-hero--border { // [2] //
-    border-top: 1px solid $nhsuk-secondary-border-colour;
+    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
 
     @include mq($until: large-desktop) {
       border: 0;
@@ -69,6 +69,7 @@
  * 10. Give the description box a max width.
  * 11. Relative position to stop description box
  *     overlapping other content on print stylesheets.
+ * 12. Fallback for triangle on high contrast.
  */
 
 .nhsuk-hero--image-description {
@@ -84,7 +85,7 @@
     bottom: -48px; // [9] //
     color: $colour_nhsuk-white;
     max-width: 565px; // [10] //
-    padding: 32px 40px;
+    padding: nhsuk-spacing(5) nhsuk-spacing(6);
     position: absolute;
 
     @include mq($until: 375px) {
@@ -93,24 +94,26 @@
 
     @include mq($until: tablet) {
       bottom: -72px;
-      left: 16px;
-      padding: 24px;
-      right: 16px;
+      left: nhsuk-spacing(3);
+      padding: nhsuk-spacing(4);
+      right: nhsuk-spacing(3);
     }
 
     @include mq($media-type: print) {
       color: $colour_nhsuk-black;
       left: 0;
       max-width: 100%;
+      padding: 0;
       position: relative; // [11] //
-      padding: 0 0;
     }
 
     &:after {
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-      border-top: 16px solid $colour_nhsuk-blue;
-      bottom: -15px;
+      -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
+      clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
+      border-left: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
+      border-right: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
+      border-top: $nhsuk-hero-content-triangle-border solid $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
+      bottom: -15px; // sass-lint:disable-line property-sort-order
       content: '';
       display: block;
       height: 0;
