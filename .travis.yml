@@ -5,12 +5,18 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
+stages:
+  - tests
+  - name: deploy
+    if: tag IS present
+
 jobs:
   include:
     - stage: tests
       script: npm test
 
-    - stage: github pages
+    - stage: deploy
+      name: github pages
       script: npm run build-gh-pages
       deploy:
         provider: pages
@@ -21,7 +27,8 @@ jobs:
         on:
           branch: master
 
-    - stage: publish to git releases
+    - stage: deploy
+      name: publish to git releases
       script: npm run build
       deploy:
         provider: releases
