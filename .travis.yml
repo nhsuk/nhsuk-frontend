@@ -7,7 +7,9 @@ cache:
     - ~/.cache
 stages:
   - tests
-  - name: deploy
+  - name: master
+    if: branch = master
+  - name: tag
     if: tag IS present
 
 jobs:
