@@ -10,7 +10,7 @@
  *
  * 1. On mobile, add half width gutters
  * 2. Limit the width of the container to the page width
- * 3. On tablet, add full width gutters
+ * 3. From desktop, add full width gutters
  * 4. As soon as the viewport is greater than the width of the page plus the
  *    gutters, just centre the content instead of adding gutters.
 */
@@ -20,7 +20,7 @@
 
   max-width: $nhsuk-page-width; /* [2] */
 
-  @include govuk-media-query($from: tablet) {
+  @include govuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; /* [3] */
   }
 
