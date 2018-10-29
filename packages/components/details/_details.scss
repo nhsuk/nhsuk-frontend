@@ -15,7 +15,6 @@
  * 4. Only underline the text, not the arrow
  * 5. Remove the default details marker so we can style our own consistently and
  *    ensure it displays in Firefox
- * 6. Random number used to align the left border and arrow.
  */
 
 .nhsuk-details {
@@ -81,8 +80,7 @@
 }
 
 .nhsuk-details__text {
-  border-left: nhsuk-spacing(1) solid $colour_nhsuk-grey-3;
-  margin-left: 5px; // [6] //
+  border-left: nhsuk-spacing(1) solid $colour_nhsuk-grey-4;
   margin-top: nhsuk-spacing(2);
   padding: nhsuk-spacing(3);
   padding-left: nhsuk-spacing(4);
@@ -108,15 +106,23 @@
  */
 
 .nhsuk-c-expander {
-  @include nhsuk-responsive-padding(4);
   background-color: $colour_nhsuk-white;
 
   .nhsuk-details__summary {
+    @include nhsuk-responsive-padding(4);
+    background-color: $colour_nhsuk-white;
     display: block;
-    padding-left: 0;
 
     &:before {
       display: none !important; // sass-lint:disable-line no-important // [1] //
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 $nhsuk-box-expander $nhsuk-link-focus-background-colour;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 $nhsuk-box-expander $nhsuk-link-hover-background-colour;
     }
 
     &:hover,
@@ -137,17 +143,19 @@
   }
 
   .nhsuk-details__text {
+    @include nhsuk-responsive-padding(4);
     border-left: 0;
     margin-left: 0;
     margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
   }
 
 }
 
 .nhsuk-c-expander[open] { // sass-lint:disable-line force-attribute-nesting
+
+  .nhsuk-details__summary {
+    border-bottom: 1px solid $colour_nhsuk-grey-5;
+  }
 
   .nhsuk-details__summary-text {
     background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; // [3] //
