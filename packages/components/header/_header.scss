@@ -44,7 +44,9 @@
  * 11. Custom margin to move menu toggle past the search toggle button
  * 12. Custom border value between expanded search and expanded menu if both open at the same time
  * 13. Don't display the link address for the logo anchor, see
-*      core/elements/_links.scss
+ *     core/elements/_links.scss
+ * 14. IE 10 prefix for flexbox
+ * 15. IE 9 alternative for flexbox
  */
 
 
@@ -143,6 +145,7 @@
 
         &.js-show {
           clear: both;
+          display: -ms-flexbox; /* [14] */
           display: flex;
           text-align: left;
         }
@@ -150,6 +153,7 @@
 
         .nhsuk-header__search-form {
           background-color: $colour_nhsuk-white;
+          display: -ms-flexbox; /* [14] */
           display: flex;
           padding: nhsuk-spacing(3);
           width: 100%;
@@ -166,6 +170,7 @@
             border-top: 1px solid $colour_nhsuk-grey-3;
             border-top-left-radius: $nhsuk-border-radius;
             border-top-right-radius: 0;
+            -ms-flex-positive: 2; /* [14] */
             flex-grow: 2;
             font-size: inherit;
             height: 52px; /* [2] */
@@ -588,6 +593,7 @@
 
   .nhsuk-header__navigation-list {
     border-top: 1px solid $nhsuk-secondary-border-colour;
+    display: -ms-flexbox; /* [14] */
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -651,4 +657,12 @@
     display: none;
   }
 
+}
+
+.ie9 .nhsuk-header__navigation-list {
+  display: table; /* [15] */
+}
+
+.ie9 .nhsuk-header__navigation-item {
+  display: table-cell; /* [15] */
 }
