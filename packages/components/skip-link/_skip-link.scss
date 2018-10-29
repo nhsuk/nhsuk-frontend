@@ -2,14 +2,19 @@
    COMPONENTS / #SKIP-LINK
    ========================================================================== */
 
-.nhsuk-skip-link {
-  left: -9999px;
+/**
+ * 1. Hides the skip link off the page,
+ * 2. until the link is focused to with keyboard tab.
+ */
+
+.nhsuk-c-skip-link {
+  left: -9999px; // [1] //
   padding: nhsuk-spacing(2);
   position: absolute;
 
   &:active,
   &:focus {
-    left: nhsuk-spacing(3);
+    left: nhsuk-spacing(3); // [2] //
     top: nhsuk-spacing(3);
     z-index: 2;
   }
@@ -17,4 +22,5 @@
   &:visited {
     color: $colour_nhsuk-black;
   }
+
 }
