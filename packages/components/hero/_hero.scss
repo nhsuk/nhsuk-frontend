@@ -8,10 +8,9 @@
  * 1. Position relative to support the description
  *    appearing over the image.
  * 2. Adds a border between the header and hero
- *    on smaller devices
  */
 
-.nhsuk-hero {
+.nhsuk-c-hero {
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
   position: relative; // [1] //
@@ -20,15 +19,15 @@
     color: $colour_nhsuk-black;
   }
 
-  .nhsuk-hero--border { // [2] //
+  .nhsuk-c-hero--border { // [2] //
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
-
-    @include mq($until: large-desktop) {
-      border: 0;
-    }
-
   }
 
+}
+
+.nhsuk-c-hero__wrapper {
+  @include nhsuk-responsive-padding(8, top);
+  @include nhsuk-responsive-padding(8, bottom);
 }
 
 /**
@@ -40,7 +39,7 @@
  * 7. Overlay must be 100% height to cover the image.
  */
 
-.nhsuk-hero--image {
+.nhsuk-c-hero--image {
   background-position: center right; // [4] //
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,7 +52,7 @@
     height: 320px;
   }
 
-  .nhsuk-hero__overlay {
+  .nhsuk-c-hero__overlay {
     background: $colour_transparent_nhsuk-blue-50; // [6] //
     height: 100%; // [7] //
   }
@@ -72,14 +71,14 @@
  * 12. Fallback for triangle on high contrast.
  */
 
-.nhsuk-hero--image-description {
+.nhsuk-c-hero--image-description {
   margin-bottom: 100px; // [8] //
 
   @include mq($from: tablet) {
     margin-bottom: 72px; // [8] //
   }
 
-  .nhsuk-hero-content {
+  .nhsuk-c-hero-content {
     @include top-and-bottom();
     background: $colour_nhsuk-blue;
     bottom: -48px; // [9] //

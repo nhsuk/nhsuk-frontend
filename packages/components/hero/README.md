@@ -13,7 +13,7 @@ Find out more about the hero component and when to use it in the  [NHS digital s
   <div class="nhsuk-width-container nhsuk-hero--border">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
-        <div class="nhsuk-page-heading">
+        <div class="nhsuk-c-hero__wrapper">
           <h1 class="nhsuk-!-margin-bottom-3">We're here for you</h1>
           <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
         </div>

@@ -167,7 +167,7 @@
     },
     {
       "label": "Hero with image and content",
-      "url": "http://localhost:3000/pages/components/hero-image-description"
+      "url": "http://localhost:3000/pages/components/hero-image-content"
     }
   ],
   "paths": {
