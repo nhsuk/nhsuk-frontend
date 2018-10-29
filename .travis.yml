@@ -5,3 +5,18 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
+jobs:
+  include:
+    - stage: tests
+      script: npm test
+
+    - stage: github pages
+      script: npm run build-gh-pages
+      deploy:
+        provider: pages
+        local-dir: ./dist/docs
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN
+        keep-history: true
+        on:
+          branch: master
