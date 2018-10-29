@@ -1,22 +1,50 @@
-<table class="nhsuk-table">
-  <caption>Table caption</caption>
-  <tbody>
-    {% for row in params.rows %}
-    <tr>
-    {% for cell in row %}
-      {% if loop.first and params.firstCellIsHeader %}
-      <th scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
-      {% elseif loop.first %}
-      <td
-      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
-      {% else %}
-      <td
-      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+{% if params.panel%}
+<div class="nhsuk-table__panel-with-heading-tab {%- if params.panelClasses %} {{ params.panelClasses }}{% endif %}">
+  {% if params.heading %}
+  <h3 class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h3>
+  {% endif %}
+{% endif %}
+  <div class="nhsuk-table-responsive">
+    <table class="nhsuk-table
+      {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+      {% if params.caption %}
+      <caption class="nhsuk-table__caption
+      {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</caption>
       {% endif %}
-    {% endfor %}
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+      {% if params.head %}
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+        {% for item in params.head %}
+          <th class="nhsuk-table__header
+          {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}"
+          {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
+          {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %} scope="col">{{ item.html |safe if item.html else item.text }}</th>
+        {% endfor %}
+        </tr>
+      </thead>
+      {% endif %}
+      <tbody class="nhsuk-table__body">
+        {% for row in params.rows %}
+        <tr class="nhsuk-table__row">
+        {% for cell in row %}
+          {% if loop.first and params.firstCellIsHeader %}
+          <th class="nhsuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
+          {% elseif loop.first %}
+          <td class="nhsuk-table__cell
+          {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}"
+          {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+          {% else %}
+          <td class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %}"
+          {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+          {% endif %}
+        {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% if params.panel%}
+</div>
+{% endif %}

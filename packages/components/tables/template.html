@@ -1,14 +1,3 @@
-# Table
-
-Find out more about the table component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
-
-## Example
-
-[Preview the table component]()
-
-## HTML markup
-
-```html
 <div class="nhsuk-table-responsive">
   <table class="nhsuk-table">
     <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
@@ -26,7 +15,7 @@ Find out more about the table component and when to use it in the [NHS digital s
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
         <td class="nhsuk-table__cell ">eczema</td>
-      </tr>  
+      </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">Itchy blisters</td>
         <td class="nhsuk-table__cell ">shingles, chickenpox</td>
@@ -34,67 +23,11 @@ Find out more about the table component and when to use it in the [NHS digital s
     </tbody>
   </table>
 </div>
-```
 
-## Nunjucks macro
-
-```html
-{% from 'components/tables/macro.njk' import table %}
-
-{{ table({
-  panel: false,
-  caption: "Skin symptoms and possible causes",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Skin symptoms"
-    },
-    {
-      text: "Possible cause"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "Blisters on lips or around the mouth"
-      },
-      {
-        text: "cold sores"
-      }
-    ],
-    [
-      {
-        text: "Itchy, dry, cracked, sore"
-      },
-      {
-        text: "eczema"
-      }
-    ],
-    [
-      {
-        text: "Itchy blisters"
-      },
-      {
-        text: "shingles, chickenpox"
-      }
-    ]
-  ]
-}) }}
-```
-
-## Table panel 
-
-## Example
-
-[Preview the table panel component]()
-
-## HTML markup
-
-```html
 <div class="nhsuk-table__panel-with-heading-tab">
   <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
   <div class="nhsuk-table-responsive">
-    <table class="nhsuk-table">  
+    <table class="nhsuk-table">
       <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
       <thead class="nhsuk-table__head">
         <tr class="nhsuk-table__row">
@@ -119,51 +52,3 @@ Find out more about the table component and when to use it in the [NHS digital s
     </table>
   </div>
 </div>
-```
-
-## Nunjucks macro
-
-```html
-{% from 'components/tables/macro.njk' import table %}
-
-{{ table({
-  panel: true,
-  heading: "Skin symptoms and possible causes",
-  caption: "Skin symptoms and possible causes",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Skin symptoms"
-    },
-    {
-      text: "Possible cause"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "Blisters on lips or around the mouth"
-      },
-      {
-        text: "cold sores"
-      }
-    ],
-    [
-      {
-        text: "Itchy, dry, cracked, sore"
-      },
-      {
-        text: "eczema"
-      }
-    ],
-    [
-      {
-        text: "Itchy blisters"
-      },
-      {
-        text: "shingles, chickenpox"
-      }
-    ]
-  ]
-}) }}
-```
