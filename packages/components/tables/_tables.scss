@@ -3,42 +3,60 @@
    COMPONENTS / #TABLE
    ========================================================================== */
 
- table {
-  @include nhsuk-responsive-margin(7, "bottom");
-  @include nhsuk-responsive-margin(7, "top");
+/* Table row hover
+========================================================================== */
 
-  background-color: $colour_nhsuk-white;
-  border: 16px solid $colour_nhsuk-white;
-  border-spacing: 0;
-  position: relative;
-  vertical-align: top;
-}
+/**
+ * Table row hover is used to aid readability for users.
+ */
 
-tr {
+.nhsuk-table__row {
   &:hover {
     background-color: $colour_nhsuk-grey-5;
   }
 }
 
-th,
-td {
-  @include nhsuk-responsive-padding(3);
+/* Table panel with tab heading
+========================================================================== */
 
-  font-size: inherit;
-  text-align: left;
-  text-transform: none;
-  vertical-align: top;
+/**
+ * 1. Margin is removed so there isn't double spacing.
+ */
+
+.nhsuk-table__panel-with-heading-tab {
+  @include panel-with-label($colour_nhsuk-white, $nhsuk-text-colour);
+
+  .nhsuk-table-responsive,
+  .nhsuk-table {
+    margin: 0; /* [1] */
+  }
 }
 
-td {
-  border-bottom: 1px solid $nhsuk-border-colour;
+.nhsuk-table__heading-tab {
+  @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white);
 }
 
-th {
-  border-bottom: 2px solid $nhsuk-border-colour;
-  font-weight: $nhsuk-font-bold;
-}
+/* Responsive table
+========================================================================== */
 
-caption {
-  @include visually-hidden;;
+/**
+ * Responsive table is used to ensure the table does not break the container.
+ *
+ * 1. Margin is removed so there isn't double spacing.
+ */
+
+.nhsuk-table-responsive {
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+
+  display: block; // sass-lint:disable-line property-sort-order
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order
+  -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line property-sort-order
+  overflow-x: auto; // sass-lint:disable-line property-sort-order
+  width: 100%;
+
+  .nhsuk-table {
+    margin: 0; /* [1] */
+  }
+
 }

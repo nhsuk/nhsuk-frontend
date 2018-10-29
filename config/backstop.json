@@ -54,6 +54,10 @@
       "url": "http://localhost:3000/pages/components/footer"
     },
     {
+      "label": "Tables",
+      "url": "http://localhost:3000/pages/components/tables"
+    },
+    {
       "label": "Review Date",
       "url": "http://localhost:3000/pages/components/review-date"
     },

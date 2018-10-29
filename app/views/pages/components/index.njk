@@ -252,38 +252,107 @@
 
   {{ list("Don't", "cross", dontItems) }}
 
+  <table>
+  <caption>Skin symptoms and possible causes</caption>
+  <thead>
+    <tr>
+      <th scope="col">Skin symptoms</th>
+      <th scope="col">Possible cause</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Blisters on lips or around the mouth</td>
+      <td>cold sores</td>
+    </tr>
+    <tr>
+      <td>Itchy, dry, cracked, sore</td>
+      <td>eczema</td>
+    </tr>
+    <tr>
+      <td>Itchy blisters</td>
+      <td>shingles, chickenpox</td>
+    </tr>
+  </tbody>
+</table>
+
   {{ table({
-    "rows": [
+    panel: false,
+    heading: "Skin symptoms and possible causes",
+    caption: "Skin symptoms and possible causes",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Skin symptoms"
+      },
+      {
+        text: "Possible cause"
+      }
+    ],
+    rows: [
       [
         {
-          "text": "Skin symptoms"
+          text: "Blisters on lips or around the mouth"
         },
         {
-          "text": "Possible cause"
+          text: "cold sores"
         }
       ],
       [
         {
-          "text": "Blisters on lips or around the mouth"
+          text: "Itchy, dry, cracked, sore"
         },
         {
-          "text": "cold sores"
+          text: "eczema"
         }
       ],
       [
         {
-          "text": "Itchy, dry, cracked, sore"
+          text: "Itchy blisters"
         },
         {
-          "text": "eczema"
+          text: "shingles, chickenpox"
+        }
+      ]
+    ]
+  }) }}
+
+  {{ table({
+    panel: true,
+    heading: "Skin symptoms and possible causes",
+    caption: "Skin symptoms and possible causes",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Skin symptoms"
+      },
+      {
+        text: "Possible cause"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Blisters on lips or around the mouth"
+        },
+        {
+          text: "cold sores"
         }
       ],
       [
         {
-          "text": "Itchy blisters"
+          text: "Itchy, dry, cracked, sore"
         },
         {
-          "text": "shingles, chickenpox"
+          text: "eczema"
+        }
+      ],
+      [
+        {
+          text: "Itchy blisters"
+        },
+        {
+          text: "shingles, chickenpox"
         }
       ]
     ]

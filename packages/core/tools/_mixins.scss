@@ -139,6 +139,12 @@
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
     top: -8px; /* [5] */
   }
+
+  @include mq($media-type: print) {
+    background: none;
+    color: $colour_nhsuk-black;
+    top: 0;
+  }
 }
 
 /**
