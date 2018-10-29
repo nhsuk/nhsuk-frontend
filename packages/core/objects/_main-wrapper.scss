@@ -22,13 +22,17 @@
 */
 
 @mixin govuk-main-wrapper {
-  @include nhsuk-responsive-padding(6, 'top');
-  @include nhsuk-responsive-padding(6, 'bottom');
+  @include nhsuk-responsive-padding(7, 'top');
+  @include nhsuk-responsive-padding(7, 'bottom');
   display: block; /* [1] */
 }
 
-@mixin govuk-main-wrapper--l { /* [2] */
+@mixin govuk-main-wrapper--l {
   @include nhsuk-responsive-padding(8, 'top');
+}
+
+@mixin govuk-main-wrapper--s {
+  @include nhsuk-responsive-padding(5, 'top');
 }
 
 @include govuk-exports('govuk/objects/main-wrapper') {
