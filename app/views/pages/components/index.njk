@@ -14,6 +14,7 @@
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
+{% from 'components/skip-link/macro.njk' import skipLink %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block outerHeader %}
@@ -41,6 +42,11 @@
 {% endblock %}
 
 {% block content %}
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
   {{ actionLink({
     "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
     "heading": "Find a minor injuries unit"

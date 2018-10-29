@@ -1,0 +1,20 @@
+/* ==========================================================================
+   COMPONENTS / #SKIP-LINK
+   ========================================================================== */
+
+.nhsuk-skip-link {
+  left: -9999px;
+  padding: nhsuk-spacing(2);
+  position: absolute;
+
+  &:active,
+  &:focus {
+    left: nhsuk-spacing(3);
+    top: nhsuk-spacing(3);
+    z-index: 2;
+  }
+
+  &:visited {
+    color: $colour_nhsuk-black;
+  }
+}
