@@ -1,9 +1,5 @@
 # Testing
 
-## Unit tests
-
-> To be completed.
-
 ## Screen resolution testing
 
 You should test at all the standard device screen resolutions and the top 8 screen
