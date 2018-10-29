@@ -15,6 +15,7 @@
  * 4. Only underline the text, not the arrow
  * 5. Remove the default details marker so we can style our own consistently and
  *    ensure it displays in Firefox
+ * 6. Random number used to align the left border and arrow.
  */
 
 .nhsuk-details {
@@ -28,7 +29,6 @@
   color: $colour_nhsuk-blue; // [1] //
   cursor: pointer;
   display: inline-block; // [2] //
-  margin-bottom: nhsuk-spacing(1);
   padding-left: nhsuk-spacing(4);
   position: relative; // [3] //
 
@@ -50,6 +50,26 @@
     }
   }
 
+  &:focus {
+    box-shadow: 0 0 0 $nhsuk-box-details $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+
+    .nhsuk-details__summary-text {
+      color: $nhsuk-link-focus-colour;
+    }
+  }
+
+  &:hover {
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 $nhsuk-box-details $nhsuk-link-hover-background-colour;
+
+    .nhsuk-details__summary-text {
+      color: $nhsuk-link-hover-colour;
+      text-decoration: none;
+    }
+
+  }
+
 }
 
 .nhsuk-details__summary-text {
@@ -61,8 +81,9 @@
 }
 
 .nhsuk-details__text {
-  border-left: 4px solid $colour_nhsuk-blue;
-  margin-top: 8px;
+  border-left: nhsuk-spacing(1) solid $colour_nhsuk-grey-3;
+  margin-left: 5px; // [6] //
+  margin-top: nhsuk-spacing(2);
   padding: nhsuk-spacing(3);
   padding-left: nhsuk-spacing(4);
   @include top-and-bottom();
@@ -81,43 +102,55 @@
  *    by the JavaScript polyfill
  * 2. Remove the default hover, focus and active
  *    styles for this component.
- * 3. When a group of details is used reduce the
+ * 3. -2px left margin to align the icon to the content.
+ * 4. When a group of details is used reduce the
  *    margin between them so they sit together.
  */
 
 .nhsuk-c-expander {
+  @include nhsuk-responsive-padding(4);
   background-color: $colour_nhsuk-white;
-  padding: 24px;
 
   .nhsuk-details__summary {
+    display: block;
     padding-left: 0;
 
     &:before {
-      display: none !important; // [2] //
+      display: none !important; // sass-lint:disable-line no-important // [1] //
     }
 
     &:hover,
     &:active,
-    &:focus { // [3] //
-      background: none;
+    &:focus { // [2] //
       outline: 0;
     }
 
   }
 
   .nhsuk-details__summary-text {
-    background: url(/assets/icons/icon-plus.svg) left no-repeat;
+    background: url(/assets/icons/icon-plus.svg) left -2px center no-repeat;
     color: $colour_nhsuk-blue;
     cursor: pointer;
-    padding: 8px 8px 8px 40px;
+    display: block;
+    padding: nhsuk-spacing(2) nhsuk-spacing(2) nhsuk-spacing(2) 38px;
+    position: relative;
+  }
+
+  .nhsuk-details__text {
+    border-left: 0;
+    margin-left: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 }
 
-.nhsuk-c-expander[open] {
+.nhsuk-c-expander[open] { // sass-lint:disable-line force-attribute-nesting
 
   .nhsuk-details__summary-text {
-    background: url(/assets/icons/icon-minus.svg) left no-repeat;
+    background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; // [3] //
   }
 
 }

@@ -13,7 +13,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 
 ## Details HTML markup
 
-    <details class="nhsuk-details " role="group">
+    <details class="nhsuk-details ">
       <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
         <span class="nhsuk-details__summary-text">
           Where can I find my NHS number?
@@ -59,7 +59,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 
 ## Expander HTML markup
 
-    <details class="nhsuk-details nhsuk-c-expander" role="group">
+    <details class="nhsuk-details nhsuk-c-expander">
       <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-1" aria-expanded="false">
         <span class="nhsuk-details__summary-text">
           Opening times
@@ -158,7 +158,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 ## Expander group HTML markup
 
     <div class="nhsuk-c-expander-group">
-      <details class="nhsuk-details nhsuk-c-expander" role="group">
+      <details class="nhsuk-details nhsuk-c-expander">
         <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-2" aria-expanded="false">
           <span class="nhsuk-details__summary-text">
           How to measure your blood glucose levels
@@ -176,7 +176,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
         </div>
       </details>
 
-      <details class="nhsuk-details nhsuk-c-expander" role="group">
+      <details class="nhsuk-details nhsuk-c-expander">
         <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-3" aria-expanded="false">
           <span class="nhsuk-details__summary-text">
           When to check your blood glucose level
