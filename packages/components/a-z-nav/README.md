@@ -1,10 +1,10 @@
 # A-Z nav
 
-Find out more about the A-Z nav component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the A-Z navigation component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
-[Preview the A-Z nav component]()
+[Preview the A-Z navigation component]()
 
 ## HTML markup
 

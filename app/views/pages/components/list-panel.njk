@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'A-Z List' %}
+{% set title = 'List panel' %}
 {% from 'components/a-z-nav/macro.njk' import azNav %}
 {% from 'components/list-panel/macro.njk' import listPanel %}
 {% extends 'includes/layout.njk' %}
@@ -12,7 +12,6 @@
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
           <div class="nhsuk-page-content">
-
             {{ listPanel({
               label: "A",
               id: "A",
@@ -72,7 +71,6 @@
                 }
               ]
             }) }}
-
           </div>
         </div>
       </div>
