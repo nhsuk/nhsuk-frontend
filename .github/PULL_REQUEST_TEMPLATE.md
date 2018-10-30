@@ -1,6 +1,6 @@
 ## Description
 
-## Checklist
+## Component checklist
 
 - [ ] SCSS
 - [ ] SCSS lint
