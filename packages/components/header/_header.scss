@@ -657,13 +657,29 @@
 }
 
 /**
- * Internet explorer 9 styles
+ * Internet Explorer >= 9 specific styles
+ *
+ * The header component is the only component that
+ * supports earlier version of IE.
+ * This is because of the NHS branding, navigation
+ * and search prominence across the website.
 **/
 
-.ie9 .nhsuk-header__navigation-list { // sass-lint:disable-line force-element-nesting
-  display: table; /* [15] */
-}
+.ie9,
+.ie8 {
+  .nhsuk-header__menu-toggle,
+  .nhsuk-header__search-toggle,
+  .nhsuk-search__close,
+  .nhsuk-header__navigation-title,
+  .nhsuk-header__navigation-link .nhsuk-icon__chevron-right { // sass-lint:disable-line force-element-nesting
+    display: none;
+  }
 
-.ie9 .nhsuk-header__navigation-item { // sass-lint:disable-line force-element-nesting
-  display: table-cell; /* [15] */
+  .nhsuk-header__navigation-list {
+    display: table;
+  }
+
+  .nhsuk-header__navigation-item {
+    display: table-cell; /* [15] */
+  }
 }

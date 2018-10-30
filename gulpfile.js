@@ -7,7 +7,7 @@ var uglify = require('gulp-uglify');
 var del = require('del');
 
 function styles() {
-  return gulp.src(['packages/nhsuk.scss', 'packages/nhsuk-ie-78.scss'])
+  return gulp.src('packages/nhsuk.scss')
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
@@ -40,7 +40,6 @@ function scripts() {
 function bundle() {
   return gulp.src([
     'packages/nhsuk.min.css',
-    'packages/nhsuk-ie-78.min.css',
     'packages/nhsuk.js',
     'packages/assets/libraries/*.js'
   ])
