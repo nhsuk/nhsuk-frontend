@@ -194,6 +194,14 @@
       "label": "Header with navigation open",
       "url": "http://localhost:3000/pages/components/header-search",
       "clickSelector": ".nhsuk-header__menu-toggle"
+    },
+    {
+      "label": "A-Z navigation",
+      "url": "http://localhost:3000/pages/components/a-z-nav"
+    },
+    {
+      "label": "List panel",
+      "url": "http://localhost:3000/pages/components/list-panel"
     }
   ],
   "paths": {

@@ -26,7 +26,8 @@ function scripts() {
     'packages/components/header/nhs.typeahead.js',
     'packages/components/header/header.js',
     'packages/components/details/details.js',
-    'packages/components/feedback-banner/feedback-banner.js'
+    'packages/components/feedback-banner/feedback-banner.js',
+    'packages/components/skip-link/skip-link.js',
   ])
   .pipe(concat('nhsuk.js'))
   .pipe(uglify())
