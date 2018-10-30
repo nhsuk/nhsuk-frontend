@@ -1,3 +1,6 @@
+{% from 'components/header/macro.njk' import header %}
+{% from 'components/footer/macro.njk' import footer %}
+
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style="{{ html_style }}"><!--<![endif]-->
   <head>
@@ -24,8 +27,12 @@
   <body class="{{ body_class }}">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
+      {% block header %}{% endblock %}
+
       {% block body %}{% endblock %}
 
-    <script src="/nhsuk.js"></script>
+      {% block footer %}{% endblock %}
+
+    <script src="/nhsuk.min.js"></script>
   </body>
 </html>
