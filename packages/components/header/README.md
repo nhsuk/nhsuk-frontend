@@ -1,22 +1,21 @@
 # Header
 
-## Introduction
+Find out more about the header component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
-The NHS.UK header shows users that they are on an NHS website.
-There are 4 possible versions of the NHS.UK header, depending on what is required:
+## Dependencies
 
-- Header with navigation links and search form
-- Header with navigation links
-- Header with search form
-- Header with logo only
+For this component to work, you need to make sure you include the required JavaScript. Include the 
+compiled JavaScript for all components `nhsuk.min.js` in your project.
 
-## Guidance
-
-Find out when to use the header component in the [Digital service manual](http://beta.nhs.uk/service-manual/).
+Also, if using the autosuggestion functionality that the NHS.UK site uses then the typeahead JavaScript is required, which has a dependency on jQuery which must also be included.
 
 ## Examples
 
 ### Header with navigation links and search form
+
+[Preview the header with navigation links and search form]()
+
+### HTML markup
 
 ```html
 <header class="nhsuk-header" role="banner">
@@ -123,10 +122,45 @@ Find out when to use the header component in the [Digital service manual](http:/
 </header>
 ```
 
-[Preview the header with navigation links and search form]()
+### Nunjucks macro
 
+```
+{% from 'components/header/macro.njk' import header %}
+
+{{ header({
+    "showNav": "true",
+    "showSearch": "true",
+    "primaryLinks": [
+      {
+        "url"  : "https://www.nhs.uk/conditions",
+        "label" : "Health A-Z"
+      },
+      {
+        'url' : 'https://www.nhs.uk/live-well/',
+        'label' : 'Live Well'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+        'label' : 'Care and support'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/news/',
+        'label' : 'Health news'
+      },
+      {
+        'url' : 'https://www.nhs.uk/service-search',
+        'label' : 'Services near you'
+      }
+    ]
+  })
+}}
+```
 
 ### Header with navigation links
+
+[Preview the header with navigation links]()
+
+### HTML markup
 
 ```html
 <header class="nhsuk-header" role="banner">
@@ -203,10 +237,45 @@ Find out when to use the header component in the [Digital service manual](http:/
 </header>
 ```
 
-[Preview the header with navigation links]()
+### Nunjucks macro
 
+```
+{% from 'components/header/macro.njk' import header %}
+
+{{ header({
+    "showNav": "true",
+    "showSearch": "false",
+    "primaryLinks": [
+      {
+        "url"  : "https://www.nhs.uk/conditions",
+        "label" : "Health A-Z"
+      },
+      {
+        'url' : 'https://www.nhs.uk/live-well/',
+        'label' : 'Live Well'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+        'label' : 'Care and support'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/news/',
+        'label' : 'Health news'
+      },
+      {
+        'url' : 'https://www.nhs.uk/service-search',
+        'label' : 'Services near you'
+      }
+    ]
+  })
+}}
+```
 
 ### Header with search form
+
+[Preview the header with search form]()
+
+### HTML markup
 
 ```HTML
 <header class="nhsuk-header" role="banner">
@@ -263,10 +332,45 @@ Find out when to use the header component in the [Digital service manual](http:/
 </header>
 ```
 
-[Preview the header with search form]()
+### Nunjucks macro
 
+```
+{% from 'components/header/macro.njk' import header %}
+
+{{ header({
+    "showNav": "false",
+    "showSearch": "true",
+    "primaryLinks": [
+      {
+        "url"  : "https://www.nhs.uk/conditions",
+        "label" : "Health A-Z"
+      },
+      {
+        'url' : 'https://www.nhs.uk/live-well/',
+        'label' : 'Live Well'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+        'label' : 'Care and support'
+      },
+      {
+        'url'  : 'https://www.nhs.uk/news/',
+        'label' : 'Health news'
+      },
+      {
+        'url' : 'https://www.nhs.uk/service-search',
+        'label' : 'Services near you'
+      }
+    ]
+  })
+}}
+```
 
 ### Header with logo only
+
+[Preview the header with logo only]()
+
+### HTML markup
 
 ```HTML
 <header class="nhsuk-header" role="banner">
@@ -286,17 +390,14 @@ Find out when to use the header component in the [Digital service manual](http:/
 </header>
 ```
 
-[Preview the header with logo only]()
-
-
-### Nunjucks Macro
+### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
-  "showNav": "true",
-  "showSearch": "true",
+  "showNav": "false",
+  "showSearch": "false",
   "primaryLinks": [
     {
       "url"  : "https://www.nhs.uk/conditions",
@@ -321,12 +422,3 @@ Find out when to use the header component in the [Digital service manual](http:/
   ]
 }) }}
 ```
-
-## Dependencies
-
-Javascript is required for the toggling of the navigation and search form. Also, if using the autosuggestion functionality that the NHS.UK site uses then the typeahead javascript is required, which has a dependency on jQuery which must also be included.
-
-
-## Contribution
-
-Guidelines on contributing to components can be found at [Contributing guidelines]().
