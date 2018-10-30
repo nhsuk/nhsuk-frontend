@@ -41,6 +41,14 @@
 }
 
 /**
+ * Inverts the background colour
+**/
+
+.nhsuk-page-white {
+  background-color: $colour_nhsuk-white;
+}
+
+/**
  * Fixes an issue with the footer logo sizing and alignment,
  * needs refactoring into the footer component.
  *
