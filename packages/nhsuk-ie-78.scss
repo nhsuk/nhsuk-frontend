@@ -3,6 +3,8 @@
 
 .lte-ie8 {
 
+  /* COMPONENTS / #HEADER */
+
   .nhsuk-global-header__menu,
   .search-toggle,
   .c-nav-primary__title,
@@ -95,10 +97,6 @@
         background: $colour_shade_nhsuk-blue-20;
       }
     }
-  }
-
-  .nhsuk-page-nav {
-    margin-bottom: 20px;
   }
 
   /* COMPONENTS / #BREADCRUMB */
