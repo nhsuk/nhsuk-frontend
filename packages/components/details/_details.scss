@@ -1,94 +1,172 @@
 /* ==========================================================================
-   #DETAILS
+   COMPONENTS / #DETAILS
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * Details component.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
  *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Style the summary to look like a link...
+ * 2. Make the focus outline shrink-wrap the text content of the summary
+ * 3. Absolutely position the marker against this element
+ * 3. Allow for absolutely positioned marker and align with disclosed text
+ * 4. Only underline the text, not the arrow
+ * 5. Remove the default details marker so we can style our own consistently and
+ *    ensure it displays in Firefox
  */
 
-$perpendicular: $nhsuk-base-font-size / 2;
-$height: $perpendicular * 1.732;
-
-.nhsuk-c-details {
+.nhsuk-details {
+  @include nhsuk-text-colour;
+  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-typography-responsive(19);
   display: block;
-  margin: 40px 0;
-
-  @include mq($from: tablet) {
-    margin: 32px 0;
-  }
-
 }
 
-.nhsuk-c-summary {
-  color: $colour_nhsuk-blue;
+.nhsuk-details__summary {
+  color: $colour_nhsuk-blue; // [1] //
   cursor: pointer;
-  display: block;
-  padding-left: $nhsuk-base-font-size * 1.5;
-  position: relative;
+  display: inline-block; // [2] //
+  padding-left: nhsuk-spacing(4);
+  position: relative; // [3] //
 
-  &:hover {
-    background: $nhsuk-link-hover-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    color: $nhsuk-link-focus-colour;
-    text-decoration: none;
+  @include nhsuk-link-style-hover();
+  @include nhsuk-link-style-focus();
+
+  &:before {
+    bottom: 0;
+    content: '';
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+
+    @include govuk-shape-arrow($direction: right, $base: 14px);
+
+    .nhsuk-details[open] > & { // sass-lint:disable-line force-attribute-nesting
+      @include govuk-shape-arrow($direction: down, $base: 14px);
+    }
   }
 
   &:focus {
-    background: $nhsuk-link-focus-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 $nhsuk-box-details $nhsuk-link-focus-background-colour;
     color: $nhsuk-link-focus-colour;
-    outline: 0;
+
+    .nhsuk-details__summary-text {
+      color: $nhsuk-link-focus-colour;
+    }
   }
 
-  &:active {
-    background: $nhsuk-link-active-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
-    color: $nhsuk-link-active-colour;
-    outline: 0;
+  &:hover {
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 $nhsuk-box-details $nhsuk-link-hover-background-colour;
+
+    .nhsuk-details__summary-text {
+      color: $nhsuk-link-hover-colour;
+      text-decoration: none;
+    }
+
   }
 
 }
 
-.nhsuk-c-summary__title {
-  text-decoration: underline;
+.nhsuk-details__summary-text {
+  text-decoration: underline; // [4] //
 }
 
-// Remove the default details marker so we can style our own consistently
-.nhsuk-c-summary::-webkit-details-marker{
-  display: none;
+.nhsuk-details__summary::-webkit-details-marker { // sass-lint:disable-line force-pseudo-nesting
+  display: none; // [5] //
 }
 
-// Append our own open / closed marker using a pseudo-element
-.nhsuk-c-summary:before {
-  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  border-color: transparent;
-  border-left-color: inherit;
-  border-style: solid;
-  border-width: $perpendicular 0 $perpendicular $height;
-  bottom: 0;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  content: "";
-  display: block;
-  height: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  width: 0;
+.nhsuk-details__text {
+  border-left: nhsuk-spacing(1) solid $colour_nhsuk-grey-4;
+  margin-top: nhsuk-spacing(2);
+  padding: nhsuk-spacing(3);
+  padding-left: nhsuk-spacing(4);
+  @include top-and-bottom();
+
+  p {
+    margin-bottom: nhsuk-spacing(4);
+    margin-top: 0;
+  }
+
 }
 
-.nhsuk-c-details[open] > .nhsuk-c-summary:before {
-  -webkit-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
-  border-left-color: transparent;
-  border-top-color: inherit;
-  border-width: $height $perpendicular 0 $perpendicular;
-  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+/**
+ * Expander variation.
+ *
+ * 1. !important used because the icon is populated
+ *    by the JavaScript polyfill
+ * 2. Remove the default hover, focus and active
+ *    styles for this component.
+ * 3. -2px left margin to align the icon to the content.
+ * 4. When a group of details is used reduce the
+ *    margin between them so they sit together.
+ */
+
+.nhsuk-c-expander {
+  background-color: $colour_nhsuk-white;
+
+  .nhsuk-details__summary {
+    @include nhsuk-responsive-padding(4);
+    background-color: $colour_nhsuk-white;
+    display: block;
+
+    &:before {
+      display: none !important; // sass-lint:disable-line no-important // [1] //
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 $nhsuk-box-expander $nhsuk-link-focus-background-colour;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 $nhsuk-box-expander $nhsuk-link-hover-background-colour;
+    }
+
+    &:hover,
+    &:active,
+    &:focus { // [2] //
+      outline: 0;
+    }
+
+  }
+
+  .nhsuk-details__summary-text {
+    background: url(/assets/icons/icon-plus.svg) left -2px center no-repeat;
+    color: $colour_nhsuk-blue;
+    cursor: pointer;
+    display: block;
+    padding: nhsuk-spacing(2) nhsuk-spacing(2) nhsuk-spacing(2) 38px;
+    position: relative;
+  }
+
+  .nhsuk-details__text {
+    @include nhsuk-responsive-padding(4);
+    border-left: 0;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+}
+
+.nhsuk-c-expander[open] { // sass-lint:disable-line force-attribute-nesting
+
+  .nhsuk-details__summary {
+    border-bottom: 1px solid $colour_nhsuk-grey-5;
+  }
+
+  .nhsuk-details__summary-text {
+    background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; // [3] //
+  }
+
+}
+
+.nhsuk-c-expander-group { // [4] //
+
+  > .nhsuk-details {
+    @include nhsuk-responsive-margin(2, 'bottom');
+  }
+
 }

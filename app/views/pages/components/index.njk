@@ -2,24 +2,43 @@
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/a-z-list/macro.njk' import azList %}
-{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
-{% from 'components/pagination/macro.njk' import pagination, paginationNext, paginationPrevious %}
-{% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
+{% from 'components/pagination/macro.njk' import pagination %}
+{% from 'components/panel/macro.njk' import panel %}
+{% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
+{% from 'components/skip-link/macro.njk' import skipLink %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% extends 'includes/templates/page.njk' %}
 
 {% block outerHeader %}
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
 {% endblock %}
 
 {% block breadcrumb %}
-  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+  {{ breadcrumb({
+    items: [
+      {
+        URL: "https://www.nhs.uk/",
+        label: "Home"
+      },
+      {
+        URL: "https://www.nhs.uk/conditions",
+        label: "Health A-Z"
+      }
+    ],
+    parentURL: "https://www.nhs.uk/conditions/abscess/",
+    parentLabel: "Abscess"
+  }) }}
 {% endblock %}
 
 {% block heading %}
@@ -27,40 +46,271 @@
 {% endblock %}
 
 {% block content %}
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  {{ actionLink({
+    "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
+    "heading": "Find a minor injuries unit"
+  }) }}
 
   {{ warningCallout({
-    "heading": "Important",
-    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+    "label": "Important",
+    "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
   }) }}
 
   {{ insetText({
-    "html": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  {{ careCard('grey', 'Call 111', '') }}
+  {{ careCard({
+    "class": "grey",
+    "heading": "Call 111",
+    "HTML": "<p>If you can't speak to your GP and don't know what to do next.</p>"
+  }) }}
 
-  {{ careCard('blue', 'Speak to a GP if:', '') }}
+  {{ careCard({
+    "class": "blue",
+    "heading": "Speak to a GP if:",
+    "HTML": "
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    "
+  }) }}
 
-  {{ careCard('red', 'Ask for an urgent GP appointment if:', '') }}
+  {{ careCard({
+    "class": "red",
+    "heading": "Ask for an urgent GP appointment if:",
+    "HTML": "
+    <ul>
+      <li>you're an adult and have chickenpox</li>
+      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+      <li>you think your newborn baby has chickenpox</li>
+    </ul>
+    "
+  }) }}
 
-  {{ careCard('black', 'Call 999 if you have sudden chest pain that:', '') }}
+  {{ careCard({
+    "class": "black",
+    "heading": "Call 999 if you have sudden chest pain that:",
+    "HTML": "
+    <ul>
+      <li>spreads to your arms, back, neck or jaw</li>
+      <li>makes your chest feel tight or heavy</li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
+    </ul>
+    <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+    "
+  }) }}
 
-  {{ reviewDate('12/02/2016', '01/02/2019') }}
+  {{ reviewDate({
+    "lastReview": "12 February 2016",
+    "nextReview": "1 February 2019"
+  }) }}
 
-  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
 
-  {{ pagination('/section/treatments', 'Treatments', '/section/symptoms', 'Symptoms') }}
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
 
-  {{ paginationNext('/section/symptoms', 'Symptoms') }}
+  {{ details({
+    "heading": "Where can I find my NHS number?",
+    "HTML": "
+    <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+    <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+    <ul>
+      <li>prescriptions</li>
+      <li>test results</li>
+      <li>hospital referral letters</li>
+      <li>appointment letters</li>
+      <li>your NHS medical card</li>
+    </ul>
+    <p>Ask your GP practice for help if you can't find your NHS number.</p>
+    "
+  }) }}
 
-  {{ paginationPrevious('/section/treatments', 'Treatments') }}
+  {{ details({
+    "class": "nhsuk-c-expander",
+    "heading": "Opening times",
+    "HTML": "
+    <table>
+      <tbody>
+        <tr>
+          <th><strong>Day of the week</strong></th>
+          <th><strong>Opening hours</strong></th>
+        </tr>
+        <tr>
+          <th>Monday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Tuesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Wednesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Thursday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Friday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Saturday</th>
+          <td>9am to 1pm</td>
+        </tr>
+        <tr>
+          <th>Sunday</th>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>"
+  }) }}
 
-  {{ promo('nhsuk-c-promo--small', '/news/article', 'Prescription changes', 'The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.') }}
+  <div class="nhsuk-c-expander-group">
+    {{ details({
+      "class": "nhsuk-c-expander",
+      "heading": "How to measure your blood glucose levels",
+      "HTML": "
+      <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+      <p>You would have been given:</p>
+      <ul>
+        <li>a blood glucose metre</li>
+        <li>small needles called lancets</li>
+        <li>a plastic pen to hold the lancest</li>
+        <li>small test strips</li>
+      </ul>
+      "
+    }) }}
+    {{ details({
+      "class": "nhsuk-c-expander",
+      "heading": "When to check your blood glucose level",
+      "HTML": "
+      <p>Try to check your blood:</p>
+      <ul>
+        <li>before meals</li>
+        <li>2 to 3 hours after meals</li>
+        <li>before, during (take a break) and after exercise</li>
+      </ul>
+      <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+      "
+    }) }}
+  </div>
 
-  {{ promoNoDescription("nhsuk-c-promo--small", "https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx", "Access your GP record", "") }}
+  {{ panel({
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
 
-  {{ promoWithImage("", "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png", "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&utm_medium=referral&utm_content=web&utm_campaign=partner", "Save a life: give blood", "Please register today. Donating blood is easy, and saves lives.") }}
+  {{ panel({
+    "colour": "grey",
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
+
+  {{ panel({
+    "label": "Panel heading",
+    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  }) }}
+
+  <div class="nhsuk-grid-row nhsuk-c-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-c-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+      {{ panel({
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+    </div>
+  </div>
+
+  {{ pagination({
+    "previousUrl": "/section/treatments",
+    "previousTitle": "Treatments",
+    "nextUrl": "/section/symptoms",
+    "nextTitle": "Symptoms"
+  }) }}
+
+  {{ promo({
+    "href": "https://www.nhs.uk",
+    "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
+
+  {{ promo({
+    "href": "#",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
+
+  {{ promo({
+    "href": "#",
+    "heading": "Save a life: give blood"
+  }) }}
+
+  <div class="nhsuk-grid-row nhsuk-c-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+        "heading": "Save a life: give blood",
+        "description": "Please register today. Donating blood is easy, and saves lives."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
+        "heading": "Save a life: give blood",
+        "description": "Please register today. Donating blood is easy, and saves lives."
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row nhsuk-c-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "classes": "nhsuk-c-promo--small",
+        "href": "#",
+        "heading": "Save a life: give blood"
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+      {{ promo({
+        "classes": "nhsuk-c-promo--small",
+        "href": "#",
+        "heading": "Save a life: give blood"
+      }) }}
+    </div>
+  </div>
 
   {% set doItems = [
       {
@@ -95,54 +345,111 @@
 
   {{ list("Don't", "cross", dontItems) }}
 
+  <table>
+  <caption>Skin symptoms and possible causes</caption>
+  <thead>
+    <tr>
+      <th scope="col">Skin symptoms</th>
+      <th scope="col">Possible cause</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Blisters on lips or around the mouth</td>
+      <td>cold sores</td>
+    </tr>
+    <tr>
+      <td>Itchy, dry, cracked, sore</td>
+      <td>eczema</td>
+    </tr>
+    <tr>
+      <td>Itchy blisters</td>
+      <td>shingles, chickenpox</td>
+    </tr>
+  </tbody>
+</table>
+
   {{ table({
-    "rows": [
+    panel: false,
+    heading: "Skin symptoms and possible causes",
+    caption: "Skin symptoms and possible causes",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Skin symptoms"
+      },
+      {
+        text: "Possible cause"
+      }
+    ],
+    rows: [
       [
         {
-          "text": "Skin symptoms"
+          text: "Blisters on lips or around the mouth"
         },
         {
-          "text": "Possible cause"
+          text: "cold sores"
         }
       ],
       [
         {
-          "text": "Blisters on lips or around the mouth"
+          text: "Itchy, dry, cracked, sore"
         },
         {
-          "text": "cold sores"
+          text: "eczema"
         }
       ],
       [
         {
-          "text": "Itchy, dry, cracked, sore"
+          text: "Itchy blisters"
         },
         {
-          "text": "eczema"
-        }
-      ],
-      [
-        {
-          "text": "Itchy blisters"
-        },
-        {
-          "text": "shingles, chickenpox"
+          text: "shingles, chickenpox"
         }
       ]
     ]
   }) }}
 
-  {{ details('When to check your blood glucose level', '
-  <p>Try to check your blood:</p>
-
-  <ul>
-      <li>before meals</li>
-      <li>2 to 3 hours after meals</li>
-      <li>before, during (take a break) and after exercise</li>
-  </ul>
-
-  <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-  ') }}
+  {{ table({
+    panel: true,
+    heading: "Skin symptoms and possible causes",
+    caption: "Skin symptoms and possible causes",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Skin symptoms"
+      },
+      {
+        text: "Possible cause"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Blisters on lips or around the mouth"
+        },
+        {
+          text: "cold sores"
+        }
+      ],
+      [
+        {
+          text: "Itchy, dry, cracked, sore"
+        },
+        {
+          text: "eczema"
+        }
+      ],
+      [
+        {
+          text: "Itchy blisters"
+        },
+        {
+          text: "shingles, chickenpox"
+        }
+      ]
+    ]
+  }) }}
 
   {{ azList() }}
 {% endblock %}

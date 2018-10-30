@@ -1,157 +1,126 @@
 /* ==========================================================================
-   #hero
+   COMPONENTS / #HERO
    ========================================================================== */
 
 /**
- * Long-form comment.
+ *  Hero component shared styles.
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line comments like this.
+ * 1. Position relative to support the description
+ *    appearing over the image.
+ * 2. Adds a border between the header and hero
  */
-.nhsuk-hero {
+
+.nhsuk-c-hero {
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
-  display: block;
-  position: relative;
+  position: relative; // [1] //
 
   @include mq($media-type: print) {
     color: $colour_nhsuk-black;
   }
 
-  &__container {
-    @include govuk-width-container;
-    border-top: 1px solid $nhsuk-secondary-border-colour;
+  .nhsuk-c-hero--border { // [2] //
+    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
+  }
 
-    @include mq($until: large-desktop) {
-      border: 0;
+}
+
+.nhsuk-c-hero__wrapper {
+  @include nhsuk-responsive-padding(8, top);
+  @include nhsuk-responsive-padding(8, bottom);
+}
+
+/**
+ *  Hero component image styles
+ *
+ * 4. Center the background image.
+ * 5. Stop the height affecting print stylesheets.
+ * 6. Darken the background image with an overlay.
+ * 7. Overlay must be 100% height to cover the image.
+ */
+
+.nhsuk-c-hero--image {
+  background-position: center right; // [4] //
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media only screen { // [5] //
+    height: 240px;
+  }
+
+  @include mq($from: tablet) {
+    height: 320px;
+  }
+
+  .nhsuk-c-hero__overlay {
+    background: $colour_transparent_nhsuk-blue-50; // [6] //
+    height: 100%; // [7] //
+  }
+
+}
+
+/**
+ *  Hero component title and description styles.
+ *
+ * 8. Add a margin to support the description box
+ *    overlay and caret :after
+ * 9. Offset the description box overlay.
+ * 10. Give the description box a max width.
+ * 11. Relative position to stop description box
+ *     overlapping other content on print stylesheets.
+ * 12. Fallback for triangle on high contrast.
+ */
+
+.nhsuk-c-hero--image-description {
+  margin-bottom: 100px; // [8] //
+
+  @include mq($from: tablet) {
+    margin-bottom: 72px; // [8] //
+  }
+
+  .nhsuk-c-hero-content {
+    @include top-and-bottom();
+    background: $colour_nhsuk-blue;
+    bottom: -48px; // [9] //
+    color: $colour_nhsuk-white;
+    max-width: 565px; // [10] //
+    padding: nhsuk-spacing(5) nhsuk-spacing(6);
+    position: absolute;
+
+    @include mq($until: 375px) {
+      bottom: -40px;
     }
 
-    &.nhsuk-main-wrapper {
+    @include mq($until: tablet) {
+      bottom: -72px;
+      left: nhsuk-spacing(3);
+      padding: nhsuk-spacing(4);
+      right: nhsuk-spacing(3);
+    }
+
+    @include mq($media-type: print) {
+      color: $colour_nhsuk-black;
+      left: 0;
+      max-width: 100%;
       padding: 0;
+      position: relative; // [11] //
     }
 
-    .nhsuk-page-heading {
-      margin: 0;
-      padding: 40px 0;
-
-      @include mq($from: tablet) {
-        padding: 60px 0;
-      }
-
-    }
-
-  }
-
-  // Hero image only
-
-  &--image {
-    background-image: none;
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-
-    @media only screen {
-      height: 240px;
-    }
-
-    @include mq($from: tablet) {
-      height: 320px;
-    }
-
-    .nhsuk-hero__overlay {
-      background: rgba($colour_shade_nhsuk-blue-50, .1); // sass-lint:disable-line no-color-literals
-      height: 100%;
-    }
-
-  }
-
-  // Hero image with description
-
-  &--image-description {
-    margin-bottom: 100px;
-
-    @include mq($from: tablet) {
-      margin-bottom: 72px;
-    }
-
-    .nhsuk-hero__container {
-      border: 0;
-    }
-
-    .nhsuk-hero-content {
-      @include top-and-bottom();
-      background: $colour_nhsuk-blue;
-      bottom: -48px;
-      color: $colour_nhsuk-white;
-      max-width: 565px;
-      padding: 32px 40px 40px;
+    &:after {
+      -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
+      clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
+      border-left: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
+      border-right: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
+      border-top: $nhsuk-hero-content-triangle-border solid $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
+      bottom: -15px; // sass-lint:disable-line property-sort-order
+      content: '';
+      display: block;
+      height: 0;
       position: absolute;
-      width: 80%;
-
-      &:after {
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-top: 16px solid $colour_nhsuk-blue;
-        bottom: -15px;
-        content: '';
-        display: block;
-        height: 0;
-        position: absolute;
-        width: 0;
-
-        @include mq($media-type: print) {
-          display: none;
-        }
-
-      }
-
-      @include mq($until: desktop) {
-        width: 80%;
-      }
-
-      @include mq($until: tablet) {
-        bottom: -72px;
-        left: 16px;
-        padding: 24px;
-        right: 16px;
-      }
-
-      @include mq($until: 375px) {
-        bottom: -40px;
-      }
+      width: 0;
 
       @include mq($media-type: print) {
-        color: $colour_nhsuk-black;
-        padding: 0;
-        position: relative;
-      }
-
-      p {
-        color: rgba($colour_nhsuk-white, .9); // sass-lint:disable-line no-color-literals
-        font-size: 24px;
-        line-height: 36px;
-        margin-top: 8px;
-
-        @include mq($media-type: print) {
-          color: $colour_nhsuk-black;
-        }
-
-        @include mq($until: tablet) {
-          font-size: 19px;
-          line-height: 28px;
-        }
-
-        @include mq($until: 375px) {
-          font-size: 16px;
-          line-height: 24px;
-        }
-
+        display: none;
       }
 
     }

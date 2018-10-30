@@ -2,7 +2,7 @@
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/a-z-list/macro.njk' import azList %}
-{% from 'components/breadcrumbs/macro.njk' import breadcrumbs %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block breadcrumb %}
-  {{ breadcrumbs('/', 'Home', '/section', 'Section') }}
+  {{ breadcrumb('/', 'Home', '/section', 'Section') }}
 {% endblock %}
 
 {% block heading %}
@@ -115,6 +115,46 @@
     <li>Ordered list item using no class</li>
     <li>Ordered list item using no class</li>
   </ol>
+
+  <hr>
+
+  <h2>Typography with images</h2>
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  <h3>H3 heading</h3>
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   <hr>
 
@@ -301,7 +341,7 @@
 
   {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
 
-  {{ reviewDate('12/02/2016', '01/02/2019') }}
+  {{ reviewDate({'lastReview': '12 February 2016', 'nextReview': '1 February 2019'}) }}
 
   <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 

@@ -75,7 +75,7 @@
 		}
 	};
 
-	menuToggle.menuToggleButton.addEventListener('click', function(e) { menuToggle.doToggle(e); });
-	menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); });
+  if (menuToggle.menuToggleButton) { menuToggle.menuToggleButton.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
+  if (menuToggle.menuClose) { menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
 
 }());

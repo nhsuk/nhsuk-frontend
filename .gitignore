@@ -28,3 +28,7 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# BackstopJS
+tests/backstop/bitmaps_test/*
+tests/backstop/html_report/*

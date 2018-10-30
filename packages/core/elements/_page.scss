@@ -27,7 +27,7 @@ body {
   background-color: $colour_nhsuk-grey-5;
   color: $nhsuk-text-colour;
   font-size: $nhsuk-base-font-size;
-  line-height: nhsuk-line-height(24px, $nhsuk-base-font-size);
+  line-height: _nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
   margin: 0; /* [3] */
   min-height: 100%; /* [4] */
 }
