@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 3000);
 });
 
-bannerCloseButton.addEventListener("click", function(){
-  banner.style.display = "none";
-});
+if (bannerCloseButton) {
+  bannerCloseButton.addEventListener("click", function(){
+    banner.style.display = "none";
+  });
+}

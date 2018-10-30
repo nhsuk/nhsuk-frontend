@@ -1,4 +1,4 @@
-// Search button toggleClass
+// Search button toggle
 
 (function() {
 
@@ -35,8 +35,8 @@
       }
     };
 
-    searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); });
-    searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); });
+    if (searchToggle.searchToggleButton) { searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
+    if (searchToggle.searchClose) { searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
 
   }());
 
