@@ -2,6 +2,9 @@
 
 Find out more about the skip link component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
+## Dependencies
+To fix a VoiceOver issue with the skip link not focussing down to the content, include the skip link JavaScript file.
+
 ## Example
 
 [Preview the skip link component]()

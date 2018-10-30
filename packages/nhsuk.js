@@ -242,6 +242,7 @@ $(function(){
 
 // Skip links
 
+/*
 (function() {
   $( document ).ready(function() {
     $(".nhsuk-c-skiplink__link").click(function(event){
@@ -252,6 +253,42 @@ $(function(){
     });
   });
 })();
+*/
+
+// Non jquery skip links
+document.addEventListener('DOMContentLoaded', function() {
+
+  var skip = {
+
+    link: document.querySelector('.nhsuk-c-skip-link'),
+    header: document.getElementsByTagName('H1')[0],
+
+    doFocus: function(e) {
+      this.header.setAttribute('tabIndex', '-1');
+      this.header.focus();
+    },
+
+    doLeave: function(e) {
+      this.header.removeAttribute('tabIndex');
+    }
+
+  }
+
+  if (skip.header) {
+
+    skip.link.addEventListener('click', function(e) {
+      e.preventDefault();
+      skip.doFocus(e);
+    });
+
+    skip.header.addEventListener('blur', function(e) {
+      skip.doLeave(e);
+    });
+
+  }
+
+})
+
 
 // Feedback banner
 
