@@ -38,6 +38,11 @@
 
   &:focus {
     box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
+
+    span {
+      text-decoration: underline;
+    }
+
   }
 
   &:hover {
