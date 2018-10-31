@@ -60,7 +60,6 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
             <button class="nhsuk-search__close">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-                <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="/assets/icons/fallback/icon-close.png" xlink:href=""></image>
               </svg>
               <span class="visually-hidden">Close search</span>
             </button>
@@ -75,7 +74,6 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       <button class="nhsuk-header__navigation-close">
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-          <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="/assets/icons/fallback/icon-close.png" xlink:href=""></image>
         </svg>
         <span class="visually-hidden">Close menu</span>
       </button>
@@ -84,37 +82,31 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
         <a href="/" class="nhsuk-header__navigation-link">Home <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/conditions" class="nhsuk-header__navigation-link">Health A-Z <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/live-well/" class="nhsuk-header__navigation-link">Live Well <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/conditions/social-care-and-support/" class="nhsuk-header__navigation-link">Care and support <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/news/" class="nhsuk-header__navigation-link">Health news <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/service-search" class="nhsuk-header__navigation-link">Services near you <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
     </ul>
@@ -190,7 +182,6 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       <button class="nhsuk-header__navigation-close">
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-          <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="/assets/icons/fallback/icon-close.png" xlink:href=""></image>
         </svg>
         <span class="visually-hidden">Close menu</span>
       </button>
@@ -199,37 +190,31 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
         <a href="/" class="nhsuk-header__navigation-link">Home <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/conditions" class="nhsuk-header__navigation-link">Health A-Z <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/live-well/" class="nhsuk-header__navigation-link">Live Well <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/conditions/social-care-and-support/" class="nhsuk-header__navigation-link">Care and support <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/news/" class="nhsuk-header__navigation-link">Health news <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
       <li class="nhsuk-header__navigation-item">
         <a href="https://www.nhs.uk/service-search" class="nhsuk-header__navigation-link">Services near you <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/assets/icons/fallback/icon-chevron-right.png" xlink:href=""></image></svg>
         </a>
       </li>
     </ul>
@@ -320,7 +305,6 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
             <button class="nhsuk-search__close">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-                <image class="nhsuk-icon__close nhsuk-icon__close--fallback" src="/assets/icons/fallback/icon-close.png" xlink:href=""></image>
               </svg>
               <span class="visually-hidden">Close search</span>
             </button>
