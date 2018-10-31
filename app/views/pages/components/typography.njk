@@ -1,14 +1,14 @@
 {% set title = 'Components - New typography and spacing' %}
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
-{% from 'components/a-z-nav/macro.njk' import azList %}
+{% from 'components/a-z-nav/macro.njk' import azNav %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
-{% from 'components/pagination/macro.njk' import pagination, paginationNext, paginationPrevious %}
-{% from 'components/promo/macro.njk' import promo, promoWithImage, promoNoDescription %}
+{% from 'components/pagination/macro.njk' import pagination %}
+{% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/tables/macro.njk' import table %}
@@ -71,6 +71,29 @@
   <p class="nhsuk-body-l">P using nhsuk-body-l</p>
   <p class="nhsuk-body-m">P using nhsuk-body</p>
   <p class="nhsuk-body-s">P using nhsuk-body-s</p>
+
+  <hr>
+
+  <span class="nhsuk-caption-xl">Heading caption</span>
+  <h1>Page heading</h1>
+
+  <span class="nhsuk-caption-l">Heading caption</span>
+  <h1>Page heading</h1>
+
+  <span class="nhsuk-caption-m">Heading caption</span>
+  <h1>Page heading</h1>
+
+  <h1><span class="nhsuk-caption-xl">Heading caption</span> Page heading</h1>
+
+  <h1><span class="nhsuk-caption-l">Heading caption</span> Page heading</h1>
+
+  <h1><span class="nhsuk-caption-m">Heading caption</span> Page heading</h1>
+
+  <h1>Page heading <span class="nhsuk-caption-xl nhsuk-caption--bottom">Heading caption</span></h1>
+
+  <h1>Page heading <span class="nhsuk-caption-l nhsuk-caption--bottom">Heading caption</span></h1>
+
+  <h1>Page heading <span class="nhsuk-caption-m nhsuk-caption--bottom">Heading caption</span></h1>
 
   <hr>
 
