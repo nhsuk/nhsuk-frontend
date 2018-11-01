@@ -22,7 +22,7 @@
 }
 
 .nhsuk-c-list-panel__label {
-  @include nhsuk-typography-responsive(32);
+  @include nhsuk-font(32);
 
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
@@ -127,7 +127,7 @@
  */
 
 .nhsuk-c-back-to-top__link {
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font(19);
 
   display: inline-block; /* [1] */
   margin-top: nhsuk-spacing(3);

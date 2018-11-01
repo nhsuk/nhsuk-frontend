@@ -98,11 +98,11 @@
 .nhsuk-c-promo--small {
 
   .nhsuk-c-promo__heading {
-    @include nhsuk-typography-responsive(19);
+    @include nhsuk-font(19);
   }
 
   .nhsuk-c-promo__description {
-    @include nhsuk-typography-responsive(16);
+    @include nhsuk-font(16);
   }
 
 }

@@ -20,7 +20,7 @@
 .nhsuk-details {
   @include nhsuk-text-colour;
   @include nhsuk-responsive-margin(6, 'bottom');
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font(19);
   display: block;
 }
 

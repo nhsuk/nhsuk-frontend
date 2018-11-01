@@ -32,7 +32,7 @@
 
 .nhsuk-c-a-z-nav__list-item-link,
 .nhsuk-c-a-z-nav__list-item-link--disabled {
-  @include nhsuk-typography-responsive(22);
+  @include nhsuk-font(22);
 
   display: block;
   min-width: 34px; /* [5] */

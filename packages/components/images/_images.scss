@@ -39,7 +39,7 @@
 }
 
 .nhsuk-c-image__caption {
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font(16);
 
   padding: nhsuk-spacing(3);
 }

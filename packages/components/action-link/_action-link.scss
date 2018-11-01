@@ -14,11 +14,10 @@
  */
 
 .nhsuk-c-action-link {
-  @include nhsuk-font(22);
+  @include nhsuk-font(22, $weight: bold);
   @include nhsuk-responsive-margin(6, 'bottom');
 
   display: inline-block; /* [1] */
-  font-weight: $nhsuk-font-bold;
   padding-left: 42px; /* [2] */
   position: relative; /* [3] */
   text-decoration: none; /* [4] */

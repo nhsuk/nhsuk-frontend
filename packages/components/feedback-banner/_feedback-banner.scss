@@ -31,7 +31,7 @@
 }
 
 .nhsuk-c-feedback-banner__heading {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font(24);
 
   margin: 0;
   padding-right: nhsuk-spacing(6); // [4] //
@@ -55,7 +55,7 @@
 }
 
 .nhsuk-c-feedback-banner__close {
-  @include nhsuk-typography-responsive(14);
+  @include nhsuk-font(14);
   @include nhsuk-link-style-default;
 
   background: none;

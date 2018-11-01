@@ -16,10 +16,8 @@
  */
 
 %nhsuk-heading-xl {
-  @include nhsuk-typography-responsive(48);
-
+  @include nhsuk-font(48, $weight: bold);
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(7, 'bottom');
@@ -31,10 +29,9 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include nhsuk-typography-responsive(32);
+  @include nhsuk-font(32, $weight: bold);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -46,10 +43,9 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font(24, $weight: bold);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -61,10 +57,9 @@ h3,
 }
 
 %nhsuk-heading-s {
-  @include nhsuk-typography-responsive(22);
+  @include nhsuk-font(22, $weight: bold);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -76,10 +71,9 @@ h4,
 }
 
 %nhsuk-heading-xs {
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font(19, $weight: bold);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -91,10 +85,9 @@ h5,
 }
 
 %nhsuk-heading-xxs {
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font(19, $weight: bold);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -140,7 +133,7 @@ h6,
    ========================================================================== */
 
 %nhsuk-body-l {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font(24);
 
   display: block;
   margin-top: 0;
@@ -153,7 +146,7 @@ h6,
 }
 
 %nhsuk-body-m {
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font(19);
 
   display: block;
   margin-top: 0;
@@ -168,7 +161,7 @@ p,
 }
 
 %nhsuk-body-s {
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font(16);
 
   display: block;
   margin-top: 0;
