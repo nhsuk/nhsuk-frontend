@@ -123,7 +123,7 @@
  */
 
 @mixin heading-label($heading-background-colour, $heading-text-colour) {
-  @include nhsuk-font(24);
+  @include nhsuk-typography-responsive(24);
 
   background-color: $heading-background-colour; /* [1] */
   color: $heading-text-colour; /* [2] */

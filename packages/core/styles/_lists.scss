@@ -17,7 +17,7 @@
  */
 
 %nhsuk-list {
-  @include nhsuk-font(19);
+  @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-margin(4, 'bottom');
 
   list-style-type: none;

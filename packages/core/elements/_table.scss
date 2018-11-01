@@ -30,7 +30,7 @@ thead {
 
 th,
 td {
-  @include nhsuk-font(19);
+  @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-padding(3);
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;

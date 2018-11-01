@@ -23,7 +23,7 @@
 }
 
 .nhsuk-c-global-alert__heading {
-  @include nhsuk-font(24);
+  @include nhsuk-typography-responsive(24);
 
   margin: 0;
 }
@@ -42,5 +42,5 @@
 
 .nhsuk-c-global-alert__updated {
   @include nhsuk-responsive-margin(2, 'top');
-  @include nhsuk-font(14);
+  @include nhsuk-typography-responsive(14);
 }

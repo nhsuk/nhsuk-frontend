@@ -98,14 +98,14 @@
 }
 
 .nhsuk-c-pagination-title {
-  @include nhsuk-font(16);
+  @include nhsuk-typography-responsive(16);
   display: block;
   text-decoration: underline;
 
 }
 
 .nhsuk-c-pagination-link {
-  @include nhsuk-font(24);
+  @include nhsuk-typography-responsive(24);
   display: block;
 
   @include mq($media-type: print) {

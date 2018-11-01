@@ -16,8 +16,10 @@
  */
 
 %nhsuk-heading-xl {
-  @include nhsuk-font(48, $weight: bold);
+  @include nhsuk-typography-responsive(48);
+
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(7, 'bottom');
@@ -29,9 +31,10 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include nhsuk-font(32, $weight: bold);
+  @include nhsuk-typography-responsive(32);
 
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -43,9 +46,10 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include nhsuk-font(24, $weight: bold);
+  @include nhsuk-typography-responsive(24);
 
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -57,9 +61,10 @@ h3,
 }
 
 %nhsuk-heading-s {
-  @include nhsuk-font(22, $weight: bold);
+  @include nhsuk-typography-responsive(22);
 
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -71,9 +76,10 @@ h4,
 }
 
 %nhsuk-heading-xs {
-  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -85,9 +91,10 @@ h5,
 }
 
 %nhsuk-heading-xxs {
-  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
+  font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
   @include nhsuk-responsive-margin(4, 'bottom');
@@ -133,7 +140,7 @@ h6,
    ========================================================================== */
 
 %nhsuk-body-l {
-  @include nhsuk-font(24);
+  @include nhsuk-typography-responsive(24);
 
   display: block;
   margin-top: 0;
@@ -146,7 +153,7 @@ h6,
 }
 
 %nhsuk-body-m {
-  @include nhsuk-font(19);
+  @include nhsuk-typography-responsive(19);
 
   display: block;
   margin-top: 0;
@@ -161,7 +168,7 @@ p,
 }
 
 %nhsuk-body-s {
-  @include nhsuk-font(16);
+  @include nhsuk-typography-responsive(16);
 
   display: block;
   margin-top: 0;
