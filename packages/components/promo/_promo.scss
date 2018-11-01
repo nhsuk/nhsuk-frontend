@@ -43,13 +43,13 @@
   }
 
   &:hover {
-    background: $colour_nhsuk-white;
+    background-color: $colour_nhsuk-white;
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
     color: $colour_nhsuk-blue;
   }
 
   &:active {
-    background: $colour_nhsuk-grey-5; /* [7] */
+    background-color: $colour_nhsuk-grey-5; /* [7] */
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour;
     top: $nhsuk-box-shadow-link; /* [7] */
   }
