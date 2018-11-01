@@ -12,11 +12,34 @@
 
 }
 
+.nhsuk-logo {
+  border: 0;
+  height: 40px;
+  max-width: 100%;
+  vertical-align: middle;
+  width: 99px;
+}
+
 .nhsuk-footer__logo {
   padding-bottom: nhsuk-spacing(3);
 
   @include mq($from: tablet) {
     padding-bottom: nhsuk-spacing(0);
+  }
+
+  a {
+    display: block;
+    height: 40px;
+    width: 99px;
+
+    .visually-hidden {
+      top: -9999px; // Moves outline on iOS off screen
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+    }
+
   }
 
 }
