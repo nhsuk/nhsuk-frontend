@@ -45,6 +45,7 @@
     "type": "git",
     "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
   },
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
