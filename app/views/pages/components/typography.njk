@@ -15,13 +15,6 @@
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% extends 'includes/templates/page.njk' %}
 
-{% block header %}
-{% endblock %}
-
-{% block breadcrumb %}
-  {{ breadcrumb('/', 'Home', '/section', 'Section') }}
-{% endblock %}
-
 {% block heading %}
   <h1>New typography and spacing</h1>
 {% endblock %}
@@ -201,7 +194,19 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
+  {{ careCard({
+    "class": "blue",
+    "heading": "Speak to a GP if:",
+    "HTML": "
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    "
+  }) }}
 
   <ul class="nhsuk-list">
     <li><a href="#">Unordered list item using nhsuk-list</a></li>
@@ -213,29 +218,77 @@
     <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
   </ul>
 
-  {{ careCard('red', 'Red care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
-  {{ careCard('black', 'Black care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
+  {{ careCard({
+    "class": "red",
+    "heading": "Ask for an urgent GP appointment if:",
+    "HTML": "
+    <ul>
+      <li>you're an adult and have chickenpox</li>
+      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+      <li>you think your newborn baby has chickenpox</li>
+    </ul>
+    "
+  }) }}
+
+  {{ careCard({
+    "class": "black",
+    "heading": "Call 999 if you have sudden chest pain that:",
+    "HTML": "
+    <ul>
+      <li>spreads to your arms, back, neck or jaw</li>
+      <li>makes your chest feel tight or heavy</li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
+    </ul>
+    <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+    "
+  }) }}
 
   <h2>H2 heading</h2>
 
-  {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
-  {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
+  {{ careCard({
+    "class": "blue",
+    "heading": "Speak to a GP if:",
+    "HTML": "
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    "
+  }) }}
+
+  {{ careCard({
+    "class": "blue",
+    "heading": "Speak to a GP if:",
+    "HTML": "
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    "
+  }) }}
 
   <h3>H3 heading</h3>
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {% set doItems = [
-      {
-        "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
-      },
-      {
-        "item"  : "wash your hands before touching a burst blister"
-      },
-      {
-        "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
-      }
-    ]
+    {
+      "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+    },
+    {
+      "item"  : "wash your hands before touching a burst blister"
+    },
+    {
+      "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+    }
+  ]
   %}
 
   {{ list("Do", "tick", doItems) }}
@@ -264,17 +317,21 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-   {{ details('When to check your blood glucose level', '
-  <p>Try to check your blood:</p>
-
-  <ul>
-      <li>before meals</li>
-      <li>2 to 3 hours after meals</li>
-      <li>before, during (take a break) and after exercise</li>
-  </ul>
-
-  <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-  ') }}
+  {{ details({
+    "heading": "Where can I find my NHS number?",
+    "HTML": "
+    <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+    <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+    <ul>
+      <li>prescriptions</li>
+      <li>test results</li>
+      <li>hospital referral letters</li>
+      <li>appointment letters</li>
+      <li>your NHS medical card</li>
+    </ul>
+    <p>Ask your GP practice for help if you can't find your NHS number.</p>
+    "
+  }) }}
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
@@ -299,37 +356,41 @@
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ table({
-    "rows": [
+    panel: true,
+    heading: "Skin symptoms and possible causes",
+    caption: "Skin symptoms and possible causes",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Skin symptoms"
+      },
+      {
+        text: "Possible cause"
+      }
+    ],
+    rows: [
       [
         {
-          "text": "Skin symptoms"
+          text: "Blisters on lips or around the mouth"
         },
         {
-          "text": "Possible cause"
+          text: "cold sores"
         }
       ],
       [
         {
-          "text": "Blisters on lips or around the mouth"
+          text: "Itchy, dry, cracked, sore"
         },
         {
-          "text": "cold sores"
+          text: "eczema"
         }
       ],
       [
         {
-          "text": "Itchy, dry, cracked, sore"
+          text: "Itchy blisters"
         },
         {
-          "text": "eczema"
-        }
-      ],
-      [
-        {
-          "text": "Itchy blisters"
-        },
-        {
-          "text": "shingles, chickenpox"
+          text: "shingles, chickenpox"
         }
       ]
     ]
@@ -341,7 +402,10 @@
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  {{ actionLink({
+    "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
+    "heading": "Find a minor injuries unit"
+  }) }}
 
   <ul>
     <li>Unordered list item using no class</li>
@@ -350,21 +414,45 @@
 
   <h2>Content with images</h2>
 
-  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
 
   <h3>H3 heading</h3>
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
-  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
-  {{ image('Picture of allergic conjunctivitis', 'https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg', 'Itchy, red, watering eyes') }}
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ actionLink('/service-search/minor-injuries-unit/locationsearch/551', 'Find a minor injuries unit') }}
+  {{ actionLink({
+    "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
+    "heading": "Find a minor injuries unit"
+  }) }}
 
-  {{ reviewDate({'lastReview': '12 February 2016', 'nextReview': '1 February 2019'}) }}
+  {{ reviewDate({
+    "lastReview": "12 February 2016",
+    "nextReview": "1 February 2019"
+  }) }}
 
   <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
@@ -377,9 +465,5 @@
   <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
   <p>nhsuk-section-break nhsuk-section-break--visible</p>
   <hr class="nhsuk-section-break nhsuk-section-break--visible">
-
-{% endblock %}
-
-{% block footer %}
 
 {% endblock %}
