@@ -177,15 +177,27 @@
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ insetText({
-    "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-  {{ careCard('blue', 'Blue care card heading', '<p>Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>') }}
+  {{ careCard({
+    "class": "blue",
+    "heading": "Speak to a GP if:",
+    "HTML": "
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+    "
+  }) }}
 
   {{ insetText({
-    "html": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
   }) }}
 
   <hr>
@@ -340,15 +352,15 @@
   <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
   {{ warningCallout({
-    "heading": "Important",
-    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+    "label": "Important",
+    "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
   }) }}
 
   <h2>H2 heading</h2>
 
   {{ warningCallout({
-    "heading": "Important",
-    "html": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+    "label": "Important",
+    "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
   }) }}
 
   <h2>H2 heading</h2>
