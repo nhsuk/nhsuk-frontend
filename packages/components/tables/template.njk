@@ -18,7 +18,7 @@
           <th class="nhsuk-table__header
           {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}"
           {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
-          {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %} scope="col">{{ item.html |safe if item.html else item.text }}</th>
+          {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %} scope="col">{{ item.HTML |safe if item.HTML else item.text }}</th>
         {% endfor %}
         </tr>
       </thead>
@@ -28,16 +28,16 @@
         <tr class="nhsuk-table__row">
         {% for cell in row %}
           {% if loop.first and params.firstCellIsHeader %}
-          <th class="nhsuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
+          <th class="nhsuk-table__header" scope="row">{{ cell.HTML | safe if cell.HTML else cell.text }}</th>
           {% elseif loop.first %}
           <td class="nhsuk-table__cell
           {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}"
           {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.HTML | safe if cell.HTML else cell.text }}</td>
           {% else %}
           <td class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %}"
           {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+          {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.HTML | safe if cell.HTML else cell.text }}</td>
           {% endif %}
         {% endfor %}
         </tr>

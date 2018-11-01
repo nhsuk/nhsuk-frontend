@@ -33,9 +33,9 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({
-  "previousUrl": "/section/treatments",
+  "previousURL": "/section/treatments",
   "previousTitle": "Treatments",
-  "nextUrl": "/section/symptoms",
+  "nextURL": "/section/symptoms",
   "nextTitle": "Symptoms"
 }) }}
 ```
@@ -62,7 +62,7 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({
-  "nextUrl": "/section/symptoms",
+  "nextURL": "/section/symptoms",
   "nextTitle": "Symptoms"
 }) }}
 ```
@@ -89,7 +89,7 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({
-  "nextUrl": "/section/symptoms",
+  "nextURL": "/section/symptoms",
   "nextTitle": "Symptoms"
 }) }}
 ```
