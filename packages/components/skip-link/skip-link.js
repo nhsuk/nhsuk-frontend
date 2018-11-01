@@ -22,12 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
-  if (skip.header) {
+  if (skip.link) {
 
     skip.link.addEventListener('click', function(e) {
       e.preventDefault();
       skip.doFocus(e);
     });
+
+  }
+
+  if (skip.header) {
 
     skip.header.addEventListener('blur', function(e) {
       skip.doLeave(e);

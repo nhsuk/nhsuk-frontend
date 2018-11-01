@@ -6,6 +6,8 @@
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
+{% from 'components/header/macro.njk' import header %}
+{% from 'components/footer/macro.njk' import footer %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
@@ -19,7 +21,35 @@
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% extends 'includes/templates/page.njk' %}
 
-{% block outerHeader %}
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "https://www.nhs.uk/conditions",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : 'https://www.nhs.uk/live-well/',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : 'https://www.nhs.uk/news/',
+          'label' : 'Health news'
+        },
+        {
+          'url' : 'https://www.nhs.uk/service-search',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+
   {{ skipLink({
     "URL": "#maincontent",
     "heading": "Skip to main content"
@@ -628,4 +658,44 @@
     ]
   }) }}
 
+{% endblock %}
+
+{% block footer %}
+  {% set primaryLinks = [
+    {
+      'URL'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+      'label' : 'NHS sites'
+    },
+    {
+      'URL' : 'https://www.nhs.uk/about-us',
+      'label' : 'About us'
+    },
+    {
+      'URL'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
+      'label' : 'Contact us'
+    },
+    {
+      'URL'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
+      'label' : 'Profile editor login'
+    }
+  ]
+  %}
+
+  {% set secondaryLinks = [
+      {
+        'URL'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+        'label' : 'Sitemap'
+      },
+      {
+        'URL' : 'https://www.nhs.uk/accessibility/',
+        'label' : 'Accessibility'
+      },
+      {
+        'URL'  : 'https://www.nhs.uk/our-policies/',
+        'label' : 'Our policies'
+      }
+    ]
+  %}
+
+  {{ footer(primaryLinks, secondaryLinks) }}
 {% endblock %}

@@ -108,7 +108,7 @@
 
     &:after {
       -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
-      clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
+      clip-path: polygon(0 0, 50% 100%, 100% 0); // sass-lint:disable-line property-sort-order // [12] //
       border-left: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
       border-right: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
       border-top: $nhsuk-hero-content-triangle-border solid $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
