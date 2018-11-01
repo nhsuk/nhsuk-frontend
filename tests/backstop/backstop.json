@@ -27,7 +27,7 @@
   "scenarios": [
     {
       "label": "Typography",
-      "url": "http://localhost:3000/pages/typography"
+      "url": "http://localhost:3000/pages/components/typography"
     },
     {
       "label": "Components",
