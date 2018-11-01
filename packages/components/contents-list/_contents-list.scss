@@ -2,6 +2,11 @@
    COMPONENTS / #CONTENTS-LIST
    ========================================================================== */
 
+/**
+ * 1. Creates a grey line before each list
+ *    item using a ASCII number for the symbol.
+**/
+
 .nhsuk-c-contents-list {
   @include nhsuk-responsive-margin(7, 'bottom');
 }
@@ -17,7 +22,7 @@
 
   &:before {
     color: $colour_nhsuk-grey-3;
-    content: '\2014';
+    content: '\2014'; /* [1] */
     left: 0;
     position: absolute;
     top: 0;
