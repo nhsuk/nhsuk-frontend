@@ -34,7 +34,7 @@
     clip-path: polygon(0 0, 50% 100%, 100% 0); /* [2] */ // sass-lint:disable-line property-sort-order
     border-left: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
     border-right: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
-    bottom: -$nhsuk-care-card-triangle-border; /* [4] */ // sass-lint:disable-line property-sort-order
+    bottom: -$nhsuk-care-card-triangle-border + 1;  /* [4] */ // sass-lint:disable-line property-sort-order
     content: '';
     display: block;
     height: 0;

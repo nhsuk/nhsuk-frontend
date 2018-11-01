@@ -11,14 +11,10 @@
  * 5. and core/settings/_typography for size maps.
  * 5. .. but show a back to index page link.
  * 6. Remove spacing between back icon and label.
- *
- * This component has also has optional Internet Explorer 8
- * (IE8) styles, which can be found in nhsuk-ie-78.scss.
- * Include this in your code if you support IE8.
 **/
 
 .nhsuk-c-breadcrumb {
-  background: $colour_nhsuk-white;
+  background-color: $colour_nhsuk-white;
   padding-bottom: 12px; // [1] //
   padding-top: 12px; // [1] //
 

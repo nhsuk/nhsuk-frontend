@@ -53,7 +53,7 @@
   }
 
   .nhsuk-c-hero__overlay {
-    background: $colour_transparent_nhsuk-blue-50; // [6] //
+    background-color: $colour_transparent_nhsuk-blue-50; // [6] //
     height: 100%; // [7] //
   }
 
@@ -80,7 +80,7 @@
 
   .nhsuk-c-hero-content {
     @include top-and-bottom();
-    background: $colour_nhsuk-blue;
+    background-color: $colour_nhsuk-blue;
     bottom: -48px; // [9] //
     color: $colour_nhsuk-white;
     max-width: 565px; // [10] //
