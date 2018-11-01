@@ -202,6 +202,10 @@
     {
       "label": "List panel",
       "url": "http://localhost:3000/pages/components/list-panel"
+    },
+    {
+      "label": "Contents list",
+      "url": "http://localhost:3000/pages/components/contents-list"
     }
   ],
   "paths": {
