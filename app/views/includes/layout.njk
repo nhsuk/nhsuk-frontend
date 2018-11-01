@@ -1,5 +1,8 @@
+{% from 'components/header/macro.njk' import header %}
+{% from 'components/footer/macro.njk' import footer %}
+
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style="{{ html_style }}"><!--<![endif]-->
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style="{{ html_style }}"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +18,23 @@
 
     <title>NHS.UK Frontend - {{ title }}</title>
 
-    <link rel="stylesheet" href="/nhsuk.min.css">
-    <!--[if lt IE 9]><link rel="stylesheet" href="/nhsuk-ie-78.min.css"><![endif]-->
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/">
 
-    <script src="/assets/libraries/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/nhsuk.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
 
   <body class="{{ body_class }}">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
+      {% block header %}{% endblock %}
+
       {% block body %}{% endblock %}
 
-    <script src="/nhsuk.js"></script>
+      {% block footer %}{% endblock %}
+
+    <script src="/nhsuk.min.js"></script>
   </body>
 </html>

@@ -1,500 +1,389 @@
 /* ==========================================================================
-   #header
+   COMPONENTS / #HEADER
    ========================================================================== */
 
 /**
- * Long-form comment.
+ * The behaviour with regards to responsiveness is as follow:
  *
- * If you’d like to create a new Sass file for the project, simply copy and
- * paste this one and fill it in like for like.
+ * - Mobile to tablet view
+ *   Menu toggle button visible and navigation links hidden, search toggle
+     button visible and search form hidden
  *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
+ * - Tablet to desktop view
+ *   Menu toggle button visible and navigation links hidden, search toggle
+ *   button hidden and search form visible
  *
- * 1. Provide line comments like this.
+ * - Desktop+ view
+ *   Menu toggle button hidden and navigation links visible, search toggle
+ *   button hidden and search form visible
+ *
+ * 1. Custom height and width of the logo
+ * 2. Custom height and width of form items
+ * 3. Custom height and width of svg icons
+ * 4. Remove inner border on buttons for Firefox, see
+ *    https://github.com/necolas/normalize.css/issues/393
+ * 5. Proprietary extension so form field looks the same in Safari
+ * 6. Needs !important because typeahead js adds inline styling so need to
+ *    override
+ * 7. Custom spacing to position the search icon
+ * 8. Drop shadow on search suggestions dopdown box, custom spread and blur
+ * 9. No current spacing at 12px so using this value
+ * 10. Z-index to bring the dropdown to the front
+ * 11. Custom margin to move menu toggle past the search toggle button
+ * 12. Custom border value between expanded search and expanded menu if both open at the same time
+ * 13. Don't display the link address for the logo anchor, see
+ *     core/elements/_links.scss
+ * 14. IE 10 prefix for flexbox
+ * 15. IE 9 alternative for flexbox
  */
 
-// Behaviour:
-// mobile to tablet - Menu toggle button visible, search toggle button visible
-// tablet to desktop - Menu toggle button visible, search field visible
-// desktop+ - Menu links visible, search field visible
-$colour_nhsuk-grey-1-rgb: rgb(66, 84, 98);
-$alpha: .5;
-
-.nhsuk-global-header {
+.nhsuk-header {
   @include clearfix();
   background: $colour_nhsuk-blue;
-  padding: 20px 0;
+}
 
-  .nhsuk-global-header__logo {
-    float: left;
-  }
-
-  &__menusearch {
-    float: right;
-    position: relative;
-  }
-
-  &__menu {
-    @include mq($from: large-desktop) {
-      display: none;
-    }
-
-    float: left;
-    margin: 0 20px;
-
-    .menu-toggle__button {
-      background-color: transparent;
-      border: 1px solid $colour_nhsuk-white;
-      border-radius: 4px;
-      color: $colour_nhsuk-white;
-      display: block;
-      font-size: 18px;
-      font-weight: $nhsuk-font-normal;
-      line-height: 28px;
-      margin: 0;
-      padding: 5px 15px;
-      text-decoration: none;
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
-
-      &:hover {
-        background: $colour_shade_nhsuk-blue-35;
-        border-color: $colour_nhsuk-grey-5;
-        box-shadow: none;
-      }
-
-      &:focus {
-        background-color: transparent;
-        border-color: $nhsuk-focus-colour;
-        box-shadow: 0 0 0 3px $nhsuk-focus-colour;
-        outline: 0;
-      }
-
-      &:active,
-      &.active {
-        background: $colour_shade_nhsuk-blue-50;
-        border-color: $colour_nhsuk-grey-5;
-        box-shadow: none;
-        color: $colour_nhsuk-grey-5;
-      }
-
-      &.active {
-        &:focus {
-          box-shadow: 0 0 0 3px $nhsuk-focus-colour;
-        }
-      }
-
-    }
-  }
+.nhsuk-header__logo {
+  float: left;
+  padding: nhsuk-spacing(3);
 
   @include mq($from: tablet) {
-    .search-toggle,
-    .search-close {
-      display: none;
-    }
-
-    &__search {
-      float: left;
-
-      .c-search__input {
-        -webkit-appearance: listbox;
-        background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
-        border: 1px solid $colour_nhsuk-white;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 0;
-        display: block;
-        float: left;
-        font-size: 16px;
-        height: 40px;
-        padding: 0 15px 0 12px;
-        width: 235px;
-
-        &--dropdown {
-          border-bottom-left-radius: 0;
-        }
-
-        &::placeholder {
-          color: $colour_nhsuk-grey-2;
-          font-size: 16px;
-        }
-
-        &::-webkit-search-decoration {
-          -webkit-appearance: none;
-        }
-
-        &.js-search-open {
-          border-bottom-left-radius: 0;
-        }
-
-        &:focus {
-          border: 1px solid $nhsuk-focus-colour;
-          box-shadow: inset 0 0 0 3px $nhsuk-focus-colour;
-          outline: none;
-        }
-
-      }
-
-      .c-search__submit {
-        background-color: $colour_nhsuk-grey-5;
-        border: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 4px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 4px;
-        display: block;
-        float: right;
-        font-size: inherit;
-        height: 40px;
-        line-height: inherit;
-        outline: none;
-        padding-left: 9px;
-        padding-top: 7px;
-        width: 44px;
-
-        .nhsuk-icon__search {
-          height: 27px;
-          width: 27px;
-        }
-
-        &--dropdown {
-          border-bottom-right-radius: 0;
-        }
-
-        &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
-          border: 0;
-        }
-
-        &.js-search-open {
-          border-bottom-right-radius: 0;
-        }
-
-        &:focus {
-          box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        }
-
-        &:hover {
-          background-color: $colour_shade_nhsuk-blue-35;
-          cursor: pointer;
-
-          .nhsuk-icon__search {
-            fill: $colour_nhsuk-white;
-          }
-        }
-
-        &:active {
-          background-color: $colour_shade_nhsuk-blue-50;
-        }
-
-      }
-    }
-
-  }
-
-  @include mq($until: tablet) {
-
-    .nhsuk-width-container--global-header {
-      margin: 0;
-    }
-
-    .search-container {
-      display: none;
-      width: 100%;
-
-      &.js-show {
-        display: flex;
-      }
-
-    }
-
-    .c-search {
-      flex-grow: 2;
-      padding: 15px 0 15px 15px;
-      text-align: left;
-
-      &__container {
-        display: flex;
-      }
-
-      &__input {
-        -webkit-appearance: listbox; // sass-lint:disable-line prefixes
-        background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important // needs !important because typeahead js adds inline styling
-        border-bottom: 1px solid $colour_nhsuk-grey-3;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 0;
-        border-left: 1px solid $colour_nhsuk-grey-3;
-        border-right: 0;
-        border-top: 1px solid $colour_nhsuk-grey-3;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 0;
-        flex-grow: 2;
-        font-size: inherit;
-        height: 52px;
-        margin: 0;
-        outline: none;
-        padding: 0 10px;
-        width: 100%;
-
-        &::-webkit-search-decoration {
-          -webkit-appearance: none;
-        }
-
-        &:focus {
-          box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        }
-
-      }
-
-      &::placeholder {
-        color: $colour_nhsuk-grey-2;
-        font-size: 16px;
-      }
-
-      &__submit {
-        background-color: $colour_nhsuk-green;
-        border: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 4px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 4px;
-        float: right;
-        font-size: inherit;
-        height: 52px;
-        line-height: inherit;
-        margin: 0;
-        outline: none;
-        padding: 7px 7px 0;
-
-        .nhsuk-icon__search {
-          fill: $colour_nhsuk-white;
-          height: 38px;
-          width: 38px;
-        }
-
-        &::-moz-focus-inner {
-          border: 0;
-        }
-
-        &:hover {
-          background-color: $nhsuk-button-hover-colour;
-          cursor: pointer;
-        }
-
-        &:focus {
-          box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        }
-
-        &:active {
-          background-color: $nhsuk-button-active-colour;
-        }
-
-      }
-    }
-
-    .nhsuk-global-header__logo {
-      padding-left: 15px;
-      padding-right: 15px;
-      position: relative;
-      z-index: z-index(1);
-    }
-
-    .nhsuk-global-header__menusearch {
-      @include clearfix();
-      float: none;
-      text-align: right;
-
-      &.js-show {
-        border-bottom: 4px solid $colour_nhsuk-grey-5;
-      }
-
-    }
-
-    .nhsuk-global-header__menu {
-      @include clearfix();
-      display: inline-block;
-      float: none;
-
-      .menu-toggle__button {
-        margin-right: 52px;
-      }
-
-    }
-
-    .nhsuk-global-header__search {
-      @include clearfix();
-      background: $colour_nhsuk-white;
-      display: flex;
-
-      .search-toggle__button {
-        background-color: transparent;
-        border: 1px solid $colour_nhsuk-white;
-        border-radius: 4px;
-        color: $colour_nhsuk-white;
-        cursor: pointer;
-        min-height: 40px;
-        overflow: hidden;
-        padding: 4px 8px 0 9px;
-        position: absolute;
-        right: 16px;
-        text-align: left;
-        top: 0;
-
-        .nhsuk-icon__search {
-          fill: $colour_nhsuk-white;
-          height: 21px;
-          width: 21px;
-        }
-
-
-        &::-moz-focus-inner {
-          border: 0;
-        }
-
-        &:hover {
-          background-color: $colour_shade_nhsuk-blue-35;
-          border-color: $colour_nhsuk-grey-5;
-          box-shadow: none;
-        }
-
-        &:focus {
-          background-color: transparent;
-          border-color: $nhsuk-focus-colour;
-          box-shadow: 0 0 0 3px $nhsuk-focus-colour;
-          outline: 0;
-        }
-
-        &:active,
-        &.active {
-          background-color: $colour_shade_nhsuk-blue-50;
-          border-color: $colour_nhsuk-grey-5;
-          box-shadow: none;
-          color: $colour_nhsuk-grey-5;
-        }
-
-        &.active {
-          &:focus {
-            box-shadow: 0 0 0 3px $nhsuk-focus-colour;
-          }
-        }
-
-      }
-
-    }
-
-    .search-close__link {
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-      display: block;
-      float: right;
-      height: 40px;
-      margin-left: 16px;
-      margin-right: 16px;
-      margin-top: 22px;
-      overflow: hidden;
-      padding: 0;
-      text-align: left;
-      white-space: nowrap;
-      width: 40px;
-
-      .nhsuk-icon__close {
-        fill: $colour_nhsuk-blue;
-        height: 40px;
-        width: 40px;
-      }
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
-
-      &:hover {
-        .nhsuk-icon__close {
-          fill: $nhsuk-secondary-button-hover-colour;
-        }
-      }
-
-      &:focus {
-        border-radius: 4px;
-        box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-        outline: 0;
-      }
-
-    }
-
+    padding-left: 0;
   }
 
 }
 
-.c-search-menu__list {
-  -moz-box-shadow: 0 3px 5px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
-  -webkit-box-shadow: 0 3px 5px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-vendor-prefixes, no-color-literals
+.nhsuk-header__link {
+  display: block;
+  height: 40px; /* [1] */
+  width: 99px; /* [1] */
+
+  &:hover {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $colour_shade_nhsuk-blue-35;
+  }
+}
+
+.nhsuk-logo {
+  border: 0;
+  height: 40px; /* [1] */
+  width: 99px; /* [1] */
+}
+
+.nhsuk-header__content {
+  @include clearfix();
+
+  &.js-show {
+    border-bottom: 4px solid $colour_nhsuk-grey-5; /* [12] */
+  }
+
+  @include mq($from: tablet) {
+    float: right;
+    position: relative;
+  }
+
+}
+
+.nhsuk-header__search {
+  @include clearfix();
+  position: relative;
+  text-align: right;
+
+  @include mq($from: tablet) {
+    float: left;
+    margin-top: nhsuk-spacing(3);
+  }
+
+}
+
+.nhsuk-header__search-toggle {
+
+  @include toggle-button();
+
+  min-height: 40px; /* [2] */
+  padding: nhsuk-spacing(1) nhsuk-spacing(2) 0;
+  position: absolute;
+  right: nhsuk-spacing(3);
+  top: nhsuk-spacing(3);
+
+  .nhsuk-icon__search {
+    fill: $colour_nhsuk-white;
+    height: 21px; /* [3] */
+    width: 21px; /* [3] */
+  }
+
+}
+
+.nhsuk-header__search-form {
+  overflow: hidden;
+}
+
+
+@include mq($until: tablet) {
+
+  .nhsuk-header__container {
+    margin: 0;
+  }
+
+  .nhsuk-header__logo {
+    padding-left: nhsuk-spacing(3);
+    padding-right: nhsuk-spacing(3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .nhsuk-header__search-wrap {
+    display: none;
+
+    &.js-show {
+      clear: both;
+      display: -ms-flexbox; /* [14] */
+      display: flex; // sass-lint:disable-line no-duplicate-properties
+      text-align: left;
+    }
+  }
+
+  .nhsuk-header__search-form {
+    background-color: $colour_nhsuk-white;
+    display: -ms-flexbox; /* [14] */
+    display: flex; // sass-lint:disable-line no-duplicate-properties
+    padding: nhsuk-spacing(3);
+    width: 100%;
+  }
+
+  .nhsuk-search__input {
+    -ms-flex-positive: 2; /* [14] */
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
+    background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
+    border-bottom: 1px solid $colour_nhsuk-grey-3;
+    border-bottom-left-radius: $nhsuk-border-radius;
+    border-bottom-right-radius: 0;
+    border-left: 1px solid $colour_nhsuk-grey-3;
+    border-right: 0;
+    border-top: 1px solid $colour_nhsuk-grey-3;
+    border-top-left-radius: $nhsuk-border-radius;
+    border-top-right-radius: 0;
+    flex-grow: 2;
+    font-size: inherit;
+    height: 52px; /* [2] */
+    margin: 0;
+    outline: none;
+    padding: 0 nhsuk-spacing(2);
+    width: 100%; /* [2] */
+
+    &:focus {
+      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
+    }
+  }
+
+  .nhsuk-search__submit {
+    background-color: $colour_nhsuk-green;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: $nhsuk-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: $nhsuk-border-radius;
+    float: right;
+    font-size: inherit;
+    height: 52px; /* [2] */
+    line-height: inherit;
+    margin: 0;
+    outline: none;
+    padding: nhsuk-spacing(2) nhsuk-spacing(2) 0;
+
+    .nhsuk-icon__search {
+      fill: $colour_nhsuk-white;
+      height: 38px; /* [3] */
+      width: 38px; /* [3] */
+    }
+
+    &::-moz-focus-inner {
+      border: 0; /* [4] */
+    }
+
+    &:hover {
+      background-color: $nhsuk-button-hover-colour;
+      cursor: pointer;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
+    }
+
+    &:active {
+      background-color: $nhsuk-button-active-colour;
+    }
+
+  }
+
+  .nhsuk-search__close {
+    @include close-button();
+    margin-left: nhsuk-spacing(3);
+    margin-top: nhsuk-spacing(2);
+  }
+
+}
+
+
+@include mq($from: tablet) {
+
+  .nhsuk-header__search-wrap {
+    display: block;
+  }
+
+  .nhsuk-header__search-toggle {
+    display: none;
+  }
+
+  .nhsuk-search__input {
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
+    background-color: $colour_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
+    border: 1px solid $colour_nhsuk-white;
+    border-bottom-left-radius: $nhsuk-border-radius;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: $nhsuk-border-radius;
+    border-top-right-radius: 0;
+    display: block;
+    float: left;
+    font-size: $nhsuk-base-font-size;
+    height: 40px; /* [2] */
+    padding: 0 12px; /* [9] */
+    width: 235px; /* [2] */
+
+    &:focus {
+      border: 1px solid $nhsuk-focus-colour;
+      box-shadow: inset 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $colour_nhsuk-grey-2;
+      font-size: $nhsuk-base-font-size;
+    }
+  }
+
+  .nhsuk-search__submit {
+    background-color: $colour_nhsuk-grey-5;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: $nhsuk-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: $nhsuk-border-radius;
+    display: block;
+    float: right;
+    font-size: inherit;
+    height: 40px; /* [2] */
+    line-height: inherit;
+    outline: none;
+    padding-left: 9px; /* [7] */
+    padding-top: 7px; /* [7] */
+    width: 44px; /* [2] */
+
+    .nhsuk-icon__search {
+      height: 27px; /* [3] */
+      width: 27px; /* [3] */
+    }
+
+    &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+      border: 0; /* [4] */
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
+    }
+
+    &:hover {
+      background-color: $colour_shade_nhsuk-blue-35;
+      cursor: pointer;
+
+      .nhsuk-icon__search {
+        fill: $colour_nhsuk-white;
+      }
+    }
+
+    &:active {
+      background-color: $colour_shade_nhsuk-blue-50;
+    }
+
+  }
+
+  .nhsuk-search__close {
+    display: none;
+  }
+
+}
+
+.nhsuk-search__input--withdropdown {
+  border-bottom-left-radius: 0;
+}
+
+.nhsuk-search__submit--withdropdown {
+  border-bottom-right-radius: 0;
+}
+
+
+.twitter-typeahead {
+  display: inline !important; // sass-lint:disable-line no-important /* [6] */
+  width: 100%;
+}
+
+.suggestions-list {
+  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-colour, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
+  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-colour, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
   background: $colour_nhsuk-white;
   border-bottom: 1px solid $colour_nhsuk-grey-4;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: $nhsuk-border-radius;
+  border-bottom-right-radius: $nhsuk-border-radius;
   border-left: 1px solid $colour_nhsuk-grey-4;
   border-right: 1px solid $colour_nhsuk-grey-4;
   border-top: 2px solid $colour_nhsuk-blue;
-  box-shadow: 0 0 3px 0 rgba($colour_nhsuk-grey-1-rgb, $alpha); // sass-lint:disable-line no-color-literals
+  box-shadow: 0 0 ($nhsuk-box-shadow-spread - 1) 0 rgba($nhsuk-box-shadow-colour, $alpha-transparency-50); // sass-lint:disable-line no-color-literals /* [8] */
   height: auto;
   list-style: none;
   margin-top: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 10px 15px 18px;
+  padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(3);
   position: absolute;
-  z-index: z-index(1);
+  z-index: 1; /* [10] */
 }
+
 
 @include mq($until: tablet) {
 
-  .c-search-menu {
-    position: relative !important; // sass-lint:disable-line no-important
-    top: 0 !important; // sass-lint:disable-line no-important
+  .suggestions-menu {
+    position: relative !important; // sass-lint:disable-line no-important /* [6] */
+    top: 0 !important; // sass-lint:disable-line no-important /* [6] */
   }
 
-  .c-search-menu__list {
+  .suggestions-list {
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    left: auto !important; // sass-lint:disable-line no-important
+    left: auto !important; // sass-lint:disable-line no-important /* [6] */
     margin: 0;
-    padding-bottom: 20px;
-    position: relative !important; // sass-lint:disable-line no-important
-    top: auto !important; // sass-lint:disable-line no-important
-    width: 100% !important; // sass-lint:disable-line no-important
+    padding-bottom: nhsuk-spacing(3);
+    position: relative !important; // sass-lint:disable-line no-important /* [6] */
+    top: auto !important; // sass-lint:disable-line no-important /* [6] */
+    width: 100% !important; // sass-lint:disable-line no-important /* [6] */
   }
+
 }
 
-.c-search-menu__prepend {
-  border-bottom: 1px solid $colour_nhsuk-grey-4;
-  color: $nhsuk-text-colour;
-  font-size: 16px;
-  font-weight: $nhsuk-font-bold;
-  padding-bottom: 12px;
-  text-align: left;
-}
-
-.c-search-menu__item {
+.suggestions-item {
   border-bottom: 1px solid $colour_nhsuk-grey-5;
   color: $colour_nhsuk-blue;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $nhsuk-base-font-size;
   font-weight: $nhsuk-font-light;
-  padding-bottom: 12px;
+  padding-bottom: 12px; /* [9] */
   text-align: left;
   text-decoration: underline;
 
   .nhsuk-icon__search {
     fill: $colour_nhsuk-grey-3;
     float: left;
-    height: 22px;
-    margin: 5px 4px 0 0;
-    width: 22px;
+    height: 22px; /* [2] */
+    margin: 5px 4px 0 0; /* [7] */
+    width: 22px; /* [2] */
   }
 
   &:hover,
@@ -506,402 +395,293 @@ $alpha: .5;
   &:focus {
     div {
       background: $colour_nhsuk-warm-yellow;
-      box-shadow: 0 0 0 4px $colour_nhsuk-warm-yellow;
+      box-shadow: 0 0 0 $nhsuk-box-shadow-spread $colour_nhsuk-warm-yellow;
       color: $colour_nhsuk-black;
       display: inline;
     }
   }
 
-  &--selected {
-    a {
-      background-color: $colour_nhsuk-warm-yellow;
-      box-shadow: 0 0 0 4px $colour_nhsuk-warm-yellow;
-      color: $colour_nhsuk-black;
-      display: inline;
-      text-decoration: none;
-    }
+}
+
+.suggestions-item--selected {
+  a {
+    background-color: $colour_nhsuk-warm-yellow;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $colour_nhsuk-warm-yellow;
+    color: $colour_nhsuk-black;
+    display: inline;
+    text-decoration: none;
   }
 }
 
-// override this element that the typeahead js inserts
-.twitter-typeahead {
-  display: inline !important; // sass-lint:disable-line no-important
-  position: static !important; // sass-lint:disable-line no-important
-  width: 100%;
+.suggestions-title {
+  border-bottom: 1px solid $colour_nhsuk-grey-4;
+  color: $nhsuk-text-colour;
+  font-size: $nhsuk-base-font-size;
+  font-weight: $nhsuk-font-bold;
+  padding-bottom: 12px; /* [9] */
+  text-align: left;
 }
 
-.c-search-menu__nosuggestions  {
-  font-size: 16px;
-  line-height: 24px;
+.suggestions-none  {
+  font-size: $nhsuk-base-font-size;
+  line-height: $nhsuk-base-line-height;
   margin: 0;
   text-align: left;
 }
 
-// Skip links
+/* Main navigation
+ *
+ * Appears below the header strip
+   ====================================================================== */
 
-.nhsuk-c-skiplink__link {
-  left: -9999px;
-  padding: 8px;
+.nhsuk-header__menu {
+  float: right;
+  margin: nhsuk-spacing(3);
+
+  @include mq($from: tablet) {
+    float: left;
+    margin-right: nhsuk-spacing(3);
+  }
+}
+
+.nhsuk-header__menu-toggle {
+  @include toggle-button();
+
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: $nhsuk-base-line-height;
+  margin-right: 56px; /* [11] */
+  padding: 7px nhsuk-spacing(3);
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+
+  @include mq($from: tablet) {
+    margin-right: 0;
+  }
+
+}
+
+/* 'only' modifier for when there is only the menu in the header, no search
+   ====================================================================== */
+
+.nhsuk-header__menu--only {
+
+  @include mq($from: tablet) {
+    margin-right: 0;
+  }
+
+  .nhsuk-header__menu-toggle {
+    margin-right: 0;
+  }
+
+}
+
+.nhsuk-header__navigation {
+  background-color: $colour_nhsuk-white;
+  clear: both;
+  display: none;
+  overflow: hidden;
+
+  &.js-show {
+    display: block;
+  }
+
+}
+
+.nhsuk-header__navigation-title {
+  font-weight: $nhsuk-font-bold;
+  margin-bottom: 0;
+  padding: nhsuk-spacing(3);
+  position: relative;
+}
+
+.nhsuk-header__navigation-close {
+  @include close-button();
+  overflow: hidden;
   position: absolute;
+  right: nhsuk-spacing(3);
+  top: nhsuk-spacing(2);
+  white-space: nowrap;
+}
 
-  &:active,
+.nhsuk-header__navigation-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nhsuk-header__navigation-item {
+  border-top: 1px solid $colour_nhsuk-grey-5;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.nhsuk-header__navigation-link {
+  color: $colour_nhsuk-blue;
+  display: block;
+  padding: nhsuk-spacing(3);
+  text-decoration: none;
+
+  .nhsuk-icon__chevron-right {
+    fill: $colour_nhsuk-grey-3;
+    position: absolute;
+    right: nhsuk-spacing(1);
+    top: 11px;
+  }
+
+  &:hover {
+    background-color: $colour_nhsuk-blue;
+    box-shadow: none;
+    color: $colour_nhsuk-white;
+    text-decoration: underline;
+
+    .nhsuk-icon__chevron-right {
+      fill: $colour_nhsuk-white;
+    }
+
+  }
+
   &:focus {
-    left: 16px;
-    top: 16px;
-    z-index: 20;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-colour;
+    color: $colour_nhsuk-blue;
   }
 
-  &:visited {
-    color: $colour_nhsuk-black;
+  &:active {
+    background-color: $colour_shade_nhsuk-blue-35;
+    box-shadow: none;
+    color: $colour_nhsuk-white;
+
+    .nhsuk-icon__chevron-right {
+      fill: $colour_nhsuk-white;
+    }
+
   }
 
 }
 
-// Navigation
+/**
+ * Large desktop styles
+**/
 
-.c-nav-primary {
+@include mq($from: large-desktop) {
 
-  @include mq($until: large-desktop) {
-    background: $colour_nhsuk-white;
+  .nhsuk-header__menu-toggle {
     display: none;
-
-    &.js-show {
-      display: block;
-    }
-
-    .nhsuk-width-container {
-      margin: 0;
-      max-width: 990px;
-    }
-
-    &__title {
-      font-weight: $nhsuk-font-bold;
-      margin: 0;
-      padding: 12px 38px 12px 30px;
-      position: relative;
-
-      @include mq($until: tablet) {
-        margin: 0 24px 0 0;
-        padding: 16px;
-      }
-
-      .c-nav-primary__close-link {
-        background: transparent;
-        border: 0;
-        height: 40px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        right: 24px;
-        top: 8px;
-        white-space: nowrap;
-        width: 40px;
-
-        .nhsuk-icon__close {
-          fill: $colour_nhsuk-blue;
-          height: 40px;
-          width: 40px;
-        }
-
-        @include mq($until: tablet) {
-          right: -8px;
-        }
-
-        &::-moz-focus-inner {
-          border: 0;
-        }
-
-        &:hover {
-          .nhsuk-icon__close {
-            fill: $nhsuk-secondary-button-hover-colour;
-          }
-        }
-
-        &:focus {
-          border-radius: 4px;
-          box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-          outline: 0;
-        }
-
-      }
-
-    }
-
-    &__list {
-      border-bottom: 4px solid $colour_nhsuk-grey-5;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    &__item {
-      border-top: 1px solid $colour_nhsuk-grey-5;
-      margin: 0;
-      position: relative;
-
-      .nhsuk-icon__chevron-right {
-        fill: $colour_nhsuk-grey-3;
-        position: absolute;
-
-        @include mq($until: tablet) {
-          right: 4px;
-          top: 11px;
-        }
-
-        @include mq($from: tablet) {
-          right: 16px;
-          top: 9px;
-        }
-      }
-    }
-
-    &__link {
-      color: $colour_nhsuk-blue;
-      display: block;
-
-      @include mq($from: tablet) {
-        padding: 12px 30px;
-      }
-
-      @include mq($until: tablet) {
-        padding: 16px;
-      }
-
-      text-decoration: none;
-
-      &:visited {
-        color: $colour_nhsuk-blue;
-      }
-
-      &:hover {
-        background-color: $colour_nhsuk-blue;
-        box-shadow: none;
-        color: $colour_nhsuk-white;
-        text-decoration: underline;
-
-        .nhsuk-icon__chevron-right {
-          fill: $colour_nhsuk-white;
-        }
-      }
-
-      &:focus {
-        background-color: transparent;
-        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        color: $colour_nhsuk-blue;
-      }
-
-      &:active {
-        background-color: $colour_shade_nhsuk-blue-35;
-        box-shadow: none;
-        color: $colour_nhsuk-white;
-
-        .nhsuk-icon__chevron-right {
-          fill: $colour_nhsuk-white;
-        }
-
-      }
-
-    }
-
   }
 
-  @include mq($from: large-desktop) {
+  .nhsuk-header__navigation-title {
+    display: none;
+  }
 
-    @include clearfix();
-    background: $colour_nhsuk-blue;
+  .nhsuk-header__navigation-item--for-mobile {
+    display: none;
+  }
 
-    &__title {
+  .nhsuk-header__navigation {
+    background-color: $colour_nhsuk-blue;
+    display: block;
+    margin: 0 auto;
+    max-width: $nhsuk-page-width;
+  }
+
+  .nhsuk-header__navigation-list {
+    border-top: 1px solid $nhsuk-secondary-border-colour;
+    display: -ms-flexbox; /* [14] */
+    display: flex; // sass-lint:disable-line no-duplicate-properties
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nhsuk-header__navigation-item {
+    border-top: 0;
+    margin: 0;
+    text-align: center;
+
+    .nhsuk-icon__chevron-right {
       display: none;
     }
+  }
 
-    &__list {
-      border-top: 1px solid $nhsuk-secondary-border-colour;
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
+  .nhsuk-header__navigation-link {
+    color: $colour_nhsuk-white;
+    font-size: 17px;
+    line-height: normal;
 
-    &__item {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-
-      .nhsuk-icon__chevron-right {
-        display: none;
-      }
-    }
-
-    &__item--mobile {
-      display: none;
-    }
-
-    &__link {
+    &:visited {
       color: $colour_nhsuk-white;
-      display: block;
-      font-size: 17px;
-      line-height: 20px;
-      padding: 16px;
-      text-decoration: none;
-
-      &:visited {
-        color: $colour_nhsuk-white;
-      }
-
-      &:hover {
-        background: $colour_shade_nhsuk-blue-35;
-        box-shadow: none;
-        color: $colour_nhsuk-white;
-        text-decoration: underline;
-      }
-
-      &:focus {
-        background: $colour_nhsuk-blue;
-        box-shadow: inset 0 0 0 4px $nhsuk-focus-colour;
-        color: $colour_nhsuk-white;
-      }
-
-      &:active {
-        background: $colour_shade_nhsuk-blue-50;
-        box-shadow: none;
-        color: $colour_nhsuk-grey-5;
-      }
-
-      &.active {
-        background: $colour_shade_nhsuk-blue-20;
-      }
-
     }
-  }
-}
 
-.ie9 {
-
-  .nhsuk-global-header__logo {
-    a {
-      img {
-        border: 0;
-      }
+    &:hover {
+      background: $colour_shade_nhsuk-blue-35;
     }
-  }
 
-  .c-search-menu {
-    display: none !important; // sass-lint:disable-line no-important
-  }
-
-  .c-nav-primary {
-    &__list {
-      display: table;
+    &:focus {
+      color: $colour_nhsuk-white;
     }
-    &__item {
-      display: table-cell;
+
+    &:active {
+      background: $colour_shade_nhsuk-blue-50;
+      color: $colour_nhsuk-grey-5;
     }
-  }
 
-  @include mq($until: large-desktop) {
-    .c-nav-primary {
-      &__list,
-      &__item {
-        display: block;
-      }
-    }
-  }
-
-  @include mq($until: tablet) {
-
-    .nhsuk-global-header {
-
-      .search-container {
-        &.js-show {
-          display: block;
-        }
-      }
-
-      .c-search {
-        float: left;
-        width: 85%;
-      }
-
-      .search-close {
-        float: left;
-        width: 15%;
-      }
-
-      .c-search__input {
-        float: left;
-        margin-bottom: 15px;
-        width: 78%;
-      }
-
-      .c-search__submit {
-        float: left;
-        height: 52px;
-      }
-
+    &.active {
+      background: $colour_shade_nhsuk-blue-20;
     }
 
   }
 
 }
 
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-  .nhsuk-global-header {
-
-    .nhsuk-global-header__search,
-    .c-search__container {
-      display: -ms-flexbox;
-    }
-
-    .search-container {
-      &.js-show {
-        display: -ms-flexbox;
-      }
-    }
-
-    @include mq($from: tablet) {
-
-      .twitter-typeahead {
-        width: auto;
-      }
-
-    }
-
-    @include mq($until: tablet) {
-
-      .c-search {
-        -ms-flex-positive: 2;
-      }
-
-      .c-search__input {
-        -ms-flex-positive: 2;
-      }
-
-    }
-
-  }
-
-  @include mq($from: large-desktop) {
-
-    .c-nav-primary__list {
-      -ms-flex-pack: justify;
-      display: -ms-flexbox;
-    }
-
-    .c-nav-primary__item {
-      text-align: left;
-    }
-
-  }
-
-}
+/**
+ * Print styles
+**/
 
 @include mq($media-type: print) {
-  .nhsuk-global-header__menusearch,
-  .c-nav-primary {
+
+  .nhsuk-header__link {
+    &:after {
+      content: ''; /* [13] */
+    }
+  }
+
+  .nhsuk-header__content {
     display: none;
+  }
+
+  .nhsuk-header__navigation {
+    display: none;
+  }
+
+}
+
+/**
+ * Internet Explorer >= 9 specific styles
+ *
+ * The header component is the only component that
+ * supports earlier version of IE.
+ * This is because of the NHS branding, navigation
+ * and search prominence across the website.
+**/
+
+.ie9,
+.ie8 {
+  .nhsuk-header__menu-toggle,
+  .nhsuk-header__search-toggle,
+  .nhsuk-search__close,
+  .nhsuk-header__navigation-title,
+  .nhsuk-header__navigation-link .nhsuk-icon__chevron-right { // sass-lint:disable-line force-element-nesting
+    display: none;
+  }
+
+  .nhsuk-header__navigation-list {
+    display: table;
+  }
+
+  .nhsuk-header__navigation-item {
+    display: table-cell; /* [15] */
   }
 }

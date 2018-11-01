@@ -1,12 +1,41 @@
 {% set title = 'Home' %}
 {% from 'components/hero/macro.njk' import hero %}
-{% from 'components/promo/macro.njk' import promo %}
-{% extends 'includes/page-layout.njk' %}
+{% extends 'includes/layout.njk' %}
+
+{% block header %}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "primaryLinks": [
+        {
+          "url"  : "https://www.nhs.uk/conditions",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : 'https://www.nhs.uk/live-well/',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : 'https://www.nhs.uk/news/',
+          'label' : 'Health news'
+        },
+        {
+          'url' : 'https://www.nhs.uk/service-search',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
 
 {% block body %}
 	{{ hero({
-  "heading": "NHS.UK frontend",
-  "text": "Find out how to use NHS.UK frontend, how to use the code in your products and contribute changes."
+  "heading": "NHS.UK Frontend",
+  "text": "Find out how to use NHS.UK Frontend, how to use the code in your services and contribute changes."
   }) }}
 
 <div class="nhsuk-width-container">
@@ -30,6 +59,10 @@
       <li><a href="/pages/components/expander-group">Expander group</a></li>
       <li><a href="/pages/components/feedback-banner">Feedback banner</a></li>
       <li><a href="/pages/components/footer">Footer</a></li>
+      <li><a href="/pages/components/header">Header</a></li>
+      <li><a href="/pages/components/header-transactional">Header transactional</a></li>
+      <li><a href="/pages/components/header-navigation">Header with navigation</a></li>
+      <li><a href="/pages/components/header-search">Header with search</a></li>
       <li><a href="/pages/components/hero">Hero</a></li>
       <li><a href="/pages/components/hero-image">Hero with image</a></li>
       <li><a href="/pages/components/hero-image-content">Hero with image with content</a></li>
@@ -52,4 +85,44 @@
 
   </main>
 </div>
+{% endblock %}
+
+{% block footer %}
+  {% set primaryLinks = [
+    {
+      'URL'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
+      'label' : 'NHS sites'
+    },
+    {
+      'URL' : 'https://www.nhs.uk/about-us',
+      'label' : 'About us'
+    },
+    {
+      'URL'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
+      'label' : 'Contact us'
+    },
+    {
+      'URL'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
+      'label' : 'Profile editor login'
+    }
+  ]
+  %}
+
+  {% set secondaryLinks = [
+      {
+        'URL'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
+        'label' : 'Sitemap'
+      },
+      {
+        'URL' : 'https://www.nhs.uk/accessibility/',
+        'label' : 'Accessibility'
+      },
+      {
+        'URL'  : 'https://www.nhs.uk/our-policies/',
+        'label' : 'Our policies'
+      }
+    ]
+  %}
+
+  {{ footer(primaryLinks, secondaryLinks) }}
 {% endblock %}
