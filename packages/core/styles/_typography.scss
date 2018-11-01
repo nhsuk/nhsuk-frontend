@@ -127,8 +127,8 @@ h6,
 .nhsuk-caption-m {
   @include nhsuk-font($size: 19);
 
-  display: block;
   color: $nhsuk-secondary-text-colour;
+  display: block;
 }
 
 .nhsuk-caption--bottom {
