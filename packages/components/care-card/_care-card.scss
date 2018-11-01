@@ -14,12 +14,15 @@
  * 3. Care card heading triangle.
  * 4. Care card heading triangle positioning.
  * 5. 'Random number' used for spacing to compensate for the triangle.
+ * 6. This shows as a solid border in high contrast mode in Windows, so helps
+ *    differentiates care cards from the rest of the content.
  */
 
 .nhsuk-c-care-card {
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
   @include care-card($colour_nhsuk-blue, $colour_nhsuk-white, 4px); /* [1] */
+  border: 1px solid transparent; /* [6] */
 }
 
 .nhsuk-c-care-card__heading-container {
