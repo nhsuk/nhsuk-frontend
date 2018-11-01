@@ -111,24 +111,24 @@ h6,
 .nhsuk-caption-xl {
   @include nhsuk-font($size: 32);
 
+  color: $nhsuk-secondary-text-colour;
   display: block;
   margin-bottom: nhsuk-spacing(1);
-  color: $nhsuk-secondary-text-colour;
 }
 
 .nhsuk-caption-l {
   @include nhsuk-font($size: 24);
 
+  color: $nhsuk-secondary-text-colour;
   display: block;
   margin-bottom: nhsuk-spacing(1);
-  color: $nhsuk-secondary-text-colour;
 }
 
 .nhsuk-caption-m {
   @include nhsuk-font($size: 19);
 
-  display: block;
   color: $nhsuk-secondary-text-colour;
+  display: block;
 }
 
 .nhsuk-caption--bottom {
