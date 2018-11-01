@@ -1,12 +1,25 @@
+/* ==========================================================================
+   COMPONENTS / #INSET-TEXT
+   ========================================================================== */
+
+/**
+ * 1. Removes top margin from first element and bottom margin from last,
+ *    to ensure correct spacing within the component.
+ * 2. Restricts the width of the text to optimise the line length for
+ *    readability.
+ */
+
 .nhsuk-c-inset-text {
-  @include top-and-bottom();
-  @include reading-width();
+  @include top-and-bottom(); /* [1] */
+  @include reading-width(); /* [2] */
 
-  border-left: 12px solid $nhsuk-blue;
-  margin: 40px 0;
-  padding: 16px;
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
 
-  .visually-hidden:first-of-type + * {
-    margin-top: 0;
+  border-left: $nhsuk-border-width-inset-text solid $colour_nhsuk-blue;
+  padding: nhsuk-spacing(3);
+
+  @include mq($media-type: print) {
+    border-color: $nhsuk-print-text-colour;
   }
 }

@@ -1,0 +1,15 @@
+/* ==========================================================================
+   UTILITIES / #CLEARFIX
+   ========================================================================== */
+
+/**
+ * Automatically clear an elements
+ * child elements
+ *
+ * Usage: class="clear"
+ * See tools/mixins
+ */
+
+.clear {
+  @include clearfix();
+}

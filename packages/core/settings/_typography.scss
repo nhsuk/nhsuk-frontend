@@ -1,264 +1,159 @@
-h1, h2, h3, h4, h5, // sass-lint:disable-line single-line-per-selector
-.h1, .h2, .h3, .h4, .h5 { // sass-lint:disable-line single-line-per-selector
-  color: inherit;
-  font-weight: $nhsuk-font-bold;
-  margin-bottom: 0;
-}
+/* ==========================================================================
+   SETTINGS / #TYPOGRAPHY
+   ========================================================================== */
 
-h1,
-.nhsuk-heading-xl {
-  font-size: govuk-em(32px, $nhsuk-base-font-size-mobile);
-  line-height: 36px;
-  margin: 56px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(48px, $nhsuk-base-font-size);
-    line-height: 56px;
-    margin: 64px 0 0;
-  }
-}
+/* Responsive typography font map
+   ========================================================================== */
 
-h2,
-.nhsuk-heading-l {
-  font-size: govuk-em(24px, $nhsuk-base-font-size-mobile);
-  line-height: 32px;
-  margin: 40px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(32px, $nhsuk-base-font-size);
-    line-height: 40px;
-    margin: 56px 0 0;
-  }
-}
+/**
+ * This is used to generate responsive typography that adapts according to the
+ * breakpoints.
+ *
+ * Font size and font weight can be defined for each breakpoint. You can define
+ * different behaviour on tablet and desktop. The 'null' breakpoint is for
+ * mobile.
+ *
+ * Line-heights will automatically be converted from pixel measurements into
+ * relative values. For example, with a font-size of 16px and a line-height of
+ * 24px, the line-height will be converted to 1.5 before output.
+ *
+ * You can also specify a separate font size and line height for print media.
+ *
+ * @prop {Number} $point.$breakpoint.font-size - Font size for `$point` at `$breakpoint`
+ * @prop {Number} $point.$breakpoint.line-height - Line height for `$point` at `$breakpoint`
+ * @prop {Number} $point.print.font-size - Font size for `$point` when printing
+ * @prop {Number} $point.print.line-height - Line height for `$point` when printing
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
 
-h3,
-.nhsuk-heading-m {
-  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 32px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(24px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 40px 0 0;
-  }
-}
+$nhsuk-typography-scale: (
+  64: (
+    null: (
+      font-size: 48px,
+      line-height: 56px
+    ),
+    tablet: (
+      font-size: 64px,
+      line-height: 72px
+    ),
+    print: (
+      font-size: 53pt,
+      line-height: 1.1
+    )
+  ),
+  48: (
+    null: (
+      font-size: 32px,
+      line-height: 40px
+    ),
+    tablet: (
+      font-size: 48px,
+      line-height: 56px
+    ),
+    print: (
+      font-size: 32pt,
+      line-height: 1.15
+    )
+  ),
+  32: (
+    null: (
+      font-size: 24px,
+      line-height: 32px
+    ),
+    tablet: (
+      font-size: 32px,
+      line-height: 40px
+    ),
+    print: (
+      font-size: 24pt,
+      line-height: 1.05
+    )
+  ),
+  24: (
+    null: (
+      font-size: 20px,
+      line-height: 28px
+    ),
+    tablet: (
+      font-size: 24px,
+      line-height: 32px
+    ),
+    print: (
+      font-size: 18pt,
+      line-height: 1.15
+    )
+  ),
+  22: (
+    null: (
+      font-size: 18px,
+      line-height: 28px
+    ),
+    tablet: (
+      font-size: 22px,
+      line-height: 32px
+    ),
+    print: (
+      font-size: 18pt,
+      line-height: 1.15
+    )
+  ),
+  19: (
+    null: (
+      font-size: 16px,
+      line-height: 24px
+    ),
+    tablet: (
+      font-size: 19px,
+      line-height: 28px
+    ),
+    print: (
+      font-size: 14pt,
+      line-height: 1.15
+    )
+  ),
+  16: (
+    null: (
+      font-size: 14px,
+      line-height: 24px
+    ),
+    tablet: (
+      font-size: 16px,
+      line-height: 24px
+    ),
+    print: (
+      font-size: 14pt,
+      line-height: 1.2
+    )
+  ),
+  14: (
+    null: (
+      font-size: 12px,
+      line-height: 20px
+    ),
+    tablet: (
+      font-size: 14px,
+      line-height: 24px
+    ),
+    print: (
+      font-size: 12pt,
+      line-height: 1.2
+    )
+  )
+) !default;
 
-h4,
-.nhsuk-heading-s {
-  font-size: govuk-em(18px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 24px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(22px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 32px 0 0;
-  }
-}
+/* Font weights
+   ========================================================================== */
 
-h5,
-.nhsuk-heading-xs {
-  font-size: govuk-em(16px, $nhsuk-base-font-size-mobile);
-  line-height: 24px;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(19px, $nhsuk-base-font-size);
-    line-height: 28px;
-    margin: 24px 0 0;
-  }
-}
+/**
+ * Font weight for normal typography
+ */
 
-p,
-.nhsuk-body {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-}
+$nhsuk-font-normal: 400 !default;
 
-.nhsuk-body-l {
-  font-size: govuk-em(20px, $nhsuk-base-font-size-mobile);
-  line-height: 28px;
-  margin: 24px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(24px, $nhsuk-base-font-size);
-    line-height: 32px;
-    margin: 32px 0 0;
-  }
-}
+/**
+ * Font weight for bold typography
+ */
 
-.nhsuk-body-s {
-  font-size: govuk-em(14px, $nhsuk-base-font-size-mobile);
-  line-height: 24px;
-  margin: 16px 0 0;
-  @include mq($from: tablet) {
-    font-size: govuk-em(16px, $nhsuk-base-font-size);
-    line-height: 28px;
-    margin: 24px 0 0;
-  }
-}
-
-a {
-  color: $nhsuk-link-colour;
-  cursor: pointer;
-  &:focus {
-    background: $nhsuk-link-focus-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-    color: $nhsuk-link-focus-colour;
-    outline: 0;
-  }
-  &:hover {
-    background: $nhsuk-link-hover-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    color: $nhsuk-link-hover-colour;
-    text-decoration: none;
-  }
-  &:active {
-    background: $nhsuk-link-active-background-colour !important; // sass-lint:disable-line no-important
-    box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
-    color: $nhsuk-link-active-colour;
-  }
-  &:visited {
-    color: $nhsuk-link-visited-colour;
-  }
-
-  @include mq($media-type: print) {
-    &:after {
-      color: $nhsuk-black;
-      content: ' (Link: ' attr(href) ')';
-      font-size: 14px;
-    }
-  }
-
-}
-
-ul,
-ol {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  padding-left: 20px;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-  li {
-    margin: 8px 0 0;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-.nhsuk-list--check,
-.nhsuk-list--cross {
-  list-style: none;
-  margin-top: 0;
-  padding-left: 40px;
-  position: relative;
-
-  .nhsuk-icon__tick {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute;
-  }
-
-  .nhsuk-icon__cross {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute;
-  }
-
-}
-
-tr,
-th {
-  font-weight: $nhsuk-font-normal;
-}
-
-strong,
-b {
-  font-weight: $nhsuk-font-bold;
-}
-
-.nhsuk-page-heading {
-  padding: 25px 0 40px;
-  @include mq($from: grid-collapse) {
-    padding: 34px 0 56px;
-  }
-  h1 {
-    margin: 0;
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-page-heading {
-    padding-top: 0;
-  }
-}
-
-.nhsuk-page-nav {
-  & > *:first-child {
-    margin-top: 0;
-  }
-  @include mq($until: grid-collapse) {
-    margin-bottom: 44px;
-  }
-  h2,
-  h3 {
-    & + ol,
-    & + ul {
-      margin-top: 8px;
-    }
-  }
-}
-
-@include mq($media-type: print) {
-  .nhsuk-page-nav {
-    display: none;
-  }
-}
-
-.nhsuk-sticky {
-  @include mq($from: grid-collapse) {
-    position: sticky;
-    top: 40px;
-  }
-  &:before,
-  &:after {
-    content: '';
-    display: table;
-  }
-}
-
-.nhsuk-page-content {
-  & > *:first-child {
-    margin-top: 0;
-    & > *:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-@mixin nhsuk-list() {
-  font-weight: $nhsuk-font-normal;
-  margin: 16px 0 0;
-  padding-left: 20px;
-  @include mq($from: tablet) {
-    margin: 24px 0 0;
-  }
-  li {
-    line-height: 28px;
-    margin: 8px 0 0;
-    @include mq($from: tablet) {
-      line-height: 32px;
-    }
-  }
-}
-
-hr {
-  &.nhsuk-h-line {
-    border: 0;
-    border-top: 1px solid $nhsuk-border-colour;
-    margin: 40px 0 0;
-    @include mq($from: tablet) {
-      margin: 72px 0 0;
-    }
-  }
-}
+$nhsuk-font-bold: 600 !default;

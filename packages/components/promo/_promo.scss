@@ -1,135 +1,146 @@
+/* ==========================================================================
+   COMPONENTS / #PROMO
+   ========================================================================== */
 
-.nhsuk-o-flex {
-  display: flex;
-  flex-wrap: wrap;
-
-  .nhsuk-c-promo {
-    margin-bottom: 16px;
-
-    @include mq($from: desktop) {
-      margin-bottom: 32px;
-    }
-
-  }
-
-  .nhsuk-o-grid__item {
-    display: flex;
-  }
-
-}
-
-@include mq($until: grid-collapse) {
-  .nhsuk-o-flex {
-    .nhsuk-o-grid__item {
-      flex: 0 0 100%;
-    }
-  }
-}
+/**
+ * 1. Extra margin is added to compensate for the box-shadow.
+ * 2. Box shadow size is set within settings/_globals.scss.
+ * 3. Makes the <a> fill the height of it's parent container.
+ * 4. Is needed for the :active top positioning.
+ * 5. Removes default <a> text underline from all elements.
+ * 6. Adds text underline to promo heading.
+ * 7. Creates the 'pressed down' effect when clicked.
+ * 8. Border is used to create a divider between the white content
+ *    box and an image.
+ */
 
 .nhsuk-c-promo {
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
   width: 100%;
+}
 
-  a {
-    background: $nhsuk-white;
-    box-shadow: 0 4px 0 0 $nhsuk-grey-4;
-    display: block;
-    height: 100%;
-    text-decoration: none;
+.nhsuk-c-promo__link-wrapper {
+  background-color: $colour_nhsuk-white;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $colour_nhsuk-grey-4; /* [2] */
+  display: block;
+  height: 100%; /* [3] */
+  position: relative; /* [4] */
+  text-decoration: none; /* [5] */
 
-    &:focus {
-      box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-
-      .nhsuk-c-promo__heading {
-        text-decoration: underline;
-      }
-
-    }
-
-    &:hover {
-      background: $nhsuk-white;
-      box-shadow: 0 0 0 4px $nhsuk-focus-colour;
-      color: $nhsuk-blue;
-    }
-
-    &:active {
-      background: darken($nhsuk-grey-5, 2%) !important; // sass-lint:disable-line no-important
-      box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour !important; // sass-lint:disable-line no-important
-    }
-
-    &:hover,
-    &:active {
-      .nhsuk-c-promo__heading {
-        text-decoration: none;
-      }
-    }
+  &:focus {
+    background-color: $colour_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
 
     .nhsuk-c-promo__heading {
-      display: inline-block;
-      text-decoration: underline;
+      text-decoration: underline; /* [6] */
+    }
+
+    .nhsuk-c-promo__heading,
+    .nhsuk-c-promo__description {
+      color: $nhsuk-link-focus-colour;
     }
 
   }
 
-  .nhsuk-c-promo__image-wrapper {
-    display: block;
-    float: none;
-    margin: 0;
-    padding-bottom: 56.25%;
-    position: relative;
-    width: 100%;
+  &:hover {
+    background-color: $colour_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
+    color: $colour_nhsuk-blue;
   }
 
-  .nhsuk-c-promo__image {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom: 1px solid $nhsuk-grey-5;
-    bottom: 0;
-    display: block;
-    left: 0;
-    padding-bottom: 56.25%;
-    position: absolute;
-    right: 0;
-    top: 0;
+  &:active {
+    background-color: $colour_nhsuk-grey-5; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour;
+    top: $nhsuk-box-shadow-link; /* [7] */
   }
 
-  .nhsuk-c-promo__content {
-    @include top-and-bottom();
-    padding: 32px;
-
-    @include mq($until: tablet) {
-      padding: 24px;
+  &:hover,
+  &:active {
+    .nhsuk-c-promo__heading {
+      text-decoration: none;
     }
+  }
 
+}
+
+.nhsuk-c-promo__img {
+  border-bottom: 1px solid $colour_nhsuk-grey-5; /* [8] */
+  display: block;
+  width: 100%;
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
+}
+
+.nhsuk-c-promo__heading {
+  margin-bottom: nhsuk-spacing(3);
+  text-decoration: underline;
+}
+
+.nhsuk-c-promo__content {
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
+}
+
+.nhsuk-c-promo__description {
+  color: $nhsuk-secondary-text-colour;
+}
+
+/* Promo size variant
+   ========================================================================== */
+
+/**
+ * Promo small reduces the size of the text heading and description.
+ */
+
+.nhsuk-c-promo--small {
+
+  .nhsuk-c-promo__heading {
+    @include nhsuk-typography-responsive(19);
   }
 
   .nhsuk-c-promo__description {
-    color: $nhsuk-secondary-text-colour;
-    margin-top: 12px;
-    text-decoration: none !important; // sass-lint:disable-line no-important
+    @include nhsuk-typography-responsive(16);
   }
 
-  &--small {
-    .nhsuk-c-promo__heading {
-      font-size: 19px;
-      line-height: 28px;
+}
 
-      @include mq($until: tablet) {
-        font-size: 16px;
-        line-height: 24px;
-      }
+/* Promo group
+   ========================================================================== */
 
-    }
+/**
+ * Promo group allows you to have a row of promos.
+ *
+ * Flexbox is used to make each promo in a row the same height.
+ */
 
-    .nhsuk-c-promo__description {
-      font-size: 16px;
-      line-height: 24px;
+.nhsuk-c-promo-group {
+  @include flex();
 
-      @include mq($until: tablet) {
-        font-size: 14px;
-      }
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link;
 
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
+  }
+
+}
+
+.nhsuk-c-promo-group__item {
+  @include flex-item();
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4) + $nhsuk-box-shadow-link;
+
+    &:last-child {
+      margin-bottom: 0;
     }
 
   }
+
+  .nhsuk-c-promo {
+    margin-bottom: 0;
+  }
+
 }

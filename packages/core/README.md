@@ -1,5 +1,0 @@
-# Core
-
-## Introduction
-
-## Guidance

@@ -1,93 +1,78 @@
+/* ==========================================================================
+    COMPONENTS / #FEEDBACK-BANNER
+   ========================================================================== */
+
+/**
+ * 1. Hide the banner until it is triggered by Javascript.
+ * 2. Bring banner in front of rest of page content.
+ * 3. Hide the banner on print stylesheets.
+ * 4. Avoid the banner title overlapping close button.
+ * 5. Avoid the banner title overlapping close button on
+ *    small mobile devices (below 320px).
+ * 6. Change the cursor to a pointer on hover.
+ */
+
 .nhsuk-c-feedback-banner {
-  background: $nhsuk-white;
+  background-color: $colour_nhsuk-white;
   bottom: 0;
-  box-shadow: 0 -4px 0 0 rgba(33, 43, 50, .16);
-  display: none;
+  box-shadow: 0 -4px 0 0 $nhsuk-box-shadow;
+  display: none; // [1] //
   margin: 0 auto;
-  padding: 32px 0;
+  padding-bottom: nhsuk-spacing(4);
+  padding-top: nhsuk-spacing(4);
   position: fixed;
   width: 100%;
-  z-index: 2;
-
-  @include mq($until: tablet) {
-    padding: 24px 0;
-  }
+  z-index: 20; // [2] //
 
   @include mq($media-type: print) {
-    display: none !important;
+    display: none; // [3] //
   }
 
-  &__content {
-    @include clear();
-    position: relative;
+}
 
-    a {
-      white-space: nowrap;
-    }
+.nhsuk-c-feedback-banner__heading {
+  @include nhsuk-typography-responsive(24);
 
+  margin: 0;
+  padding-right: nhsuk-spacing(6); // [4] //
+}
+
+.nhsuk-c-feedback-banner__content {
+  @include clearfix();
+
+  position: relative;
+}
+
+.nhsuk-c-feedback-banner__message {
+  margin-bottom: 0;
+  margin-top: nhsuk-spacing(2);
+  padding-bottom: nhsuk-spacing(4); // [5] //
+
+  @include mq($from: mobile) {
+    padding-bottom: 0;
   }
 
-  &__header {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-    padding-right: 56px;
+}
 
-    @include mq($until: tablet) {
-      font-size: 20px;
-      line-height: 28px;
-    }
+.nhsuk-c-feedback-banner__close {
+  @include nhsuk-typography-responsive(14);
+  @include nhsuk-link-style-default;
 
-  }
+  background: none;
+  border: 0;
+  color: $colour_nhsuk-black;
+  cursor: pointer; // [6] //
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-decoration: underline;
+  top: 0;
 
-  &__message {
-    margin: 8px 0 0;
-
-    @include mq($until: 319px) {
-      padding-bottom: 32px;
-    }
-
-  }
-
-  &__close {
-    background: none;
-    border: 0;
-    color: $nhsuk-black;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    line-height: 28px;
-    margin: 0;
-    padding: 0;
+  @include mq($until: mobile) {
+    bottom: 0;
     position: absolute;
     right: 0;
-    text-decoration: underline;
-    top: 0;
-
-    &:focus {
-      background: $nhsuk-link-focus-background-colour;
-      box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-      outline: 0;
-    }
-
-    &:hover {
-      background: $nhsuk-link-hover-background-colour;
-      box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    }
-
-    &:active {
-      background: $nhsuk-link-active-background-colour !important;
-      box-shadow: 0 0 0 4px $nhsuk-link-active-background-colour;
-      outline: 0;
-    }
-
-    @include mq($until: 319px) {
-      bottom: 0;
-      position: absolute;
-      right: 0;
-      top: auto;
-    }
-
+    top: auto;
   }
 
 }

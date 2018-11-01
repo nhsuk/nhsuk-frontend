@@ -3,9 +3,11 @@ var sass = require('gulp-sass');
 var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var del = require('del');
 
 function styles() {
-  return gulp.src(['packages/nhsuk.scss', 'packages/nhsuk-ie-78.scss'])
+  return gulp.src('packages/nhsuk.scss')
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
@@ -20,21 +22,26 @@ function styles() {
 
 function scripts() {
   return gulp.src([
-      'packages/components/header/typeahead.bundle.min.js', 
-      'packages/components/header/nhs.typeahead.js', 
-      'packages/components/header/header.js',
-      'packages/components/feedback-banner/feedback-banner.js'
-    ])
-    .pipe(concat('nhsuk.js'))
-    .pipe(gulp.dest('packages/'));
+    'packages/components/header/typeahead.bundle.min.js',
+    'packages/components/header/nhs.typeahead.js',
+    'packages/components/header/header.js',
+    'packages/components/details/details.js',
+    'packages/components/feedback-banner/feedback-banner.js',
+    'packages/components/skip-link/skip-link.js',
+  ])
+  .pipe(concat('nhsuk.js'))
+  .pipe(uglify())
+  .pipe(rename({
+    suffix: '.min'
+  }))
+  .pipe(gulp.dest('packages/'));
 }
 
 function bundle() {
   return gulp.src([
-    'packages/nhsuk.min.css', 
-    'packages/nhsuk-ie-78.min.css', 
+    'packages/nhsuk.min.css',
     'packages/nhsuk.js',
-    'packages/core/assets/libraries/*.js'
+    'packages/assets/libraries/*.js'
   ])
   .pipe(gulp.dest('dist/'));
 }

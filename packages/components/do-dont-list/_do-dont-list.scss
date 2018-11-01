@@ -1,55 +1,20 @@
-.nhsuk-c-panel {
-  background: $nhsuk-white;
-  margin: 72px 0 56px;
-  padding: 24px;
-  padding-top: 0;
-  position: relative;
+/* ==========================================================================
+   COMPONENTS / #DO-DONT-LIST
+   ========================================================================== */
 
-  @include mq($until: tablet) {
-    margin: 40px 0;
-  }
+/**
+ * Do and Don't lists help users understand more easily what they should
+ * and shouldn't do.
+ *
+ * 1. Uses @mixin panel-with-label from tools/_mixins.
+ * 2. Uses @mixin heading-label from tools/_mixins.
+ */
 
-  @include mq($media-type: print) {
-    border: 1px solid $nhsuk-black;
-    page-break-inside: avoid;
-  }
+.nhsuk-c-do-dont-list {
+  @include panel-with-label($colour_nhsuk-white, $nhsuk-text-colour); /* [1] */
+}
 
-  h3 {
-    background: $nhsuk-blue;
-    color: $nhsuk-white;
-    display: inline-block;
-    margin: 0 -24px 8px;
-    padding: 8px 24px;
-    position: relative;
-    top: -16px;
-
-    @include mq($until: tablet) {
-      top: -8px;
-    }
-
-    @include mq($media-type: print) {
-      color: $nhsuk-black;
-      left: .5px;
-      top: 5px;
-    }
-
-    & + p {
-      margin-top: 0;
-    }
-
-  }
-
-  &__warning {
-    background: $nhsuk-pale-yellow;
-    color: $nhsuk-text-colour;
-
-    h3 {
-      background: $nhsuk-yellow;
-      color: $nhsuk-text-colour;
-    }
-
-  }
-
-  @include top-and-bottom();
-
+.nhsuk-c-do-dont-list__label {
+  @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white); /* [2] */
+  @include print-colour($nhsuk-print-text-colour);
 }

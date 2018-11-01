@@ -1,71 +1,46 @@
-.nhsuk-c-global-alert {
-  background: $nhsuk-yellow;
-  padding: 24px 0;
+/* ==========================================================================
+   COMPONENTS / #EMERGENCY-ALERT
+   ========================================================================== */
 
-  @include mq($until: tablet) {
-    padding: 16px 0;
-  }
+/**
+ * 1. Use inverted link colours due to the yellow
+ *    ($colour_nhsuk-yellow) background.
+ */
+
+.nhsuk-c-global-alert {
+  background-color: $colour_nhsuk-yellow;
+  padding-bottom: nhsuk-spacing(4);
+  padding-top: nhsuk-spacing(4);
 
   @include mq($media-type: print) {
     display: none;
   }
 
-  &__content {
-    @include top-and-bottom;
-    position: relative;
-  }
-
-  &__header {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-    padding-right: 56px;
-
-    @include mq($until: tablet) {
-      font-size: 20px;
-      line-height: 28px;
-    }
-
-  }
-
-  &__message {
-    margin-top: 8px;
-  }
-
-  &__updated {
-    font-size: 14px;
-    margin-top: 8px;
-
-    @include mq($until: tablet) {
-      font-size: 12px;
-    }
-
-  }
-
   a {
-
-    @media screen and (max-width: 480px) {
-      white-space: nowrap;
-    }
-
-    &:focus {
-      background: $nhsuk-blue-shade-35;
-      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
-      color: $nhsuk-white;
-    }
-
-    &:hover {
-      background: $nhsuk-blue;
-      box-shadow: 0 0 0 4px $nhsuk-blue;
-      color: $nhsuk-white;
-    }
-
-    &:active {
-      background: $nhsuk-blue-shade-50 !important;
-      box-shadow: 0 0 0 4px $nhsuk-blue-shade-35;
-      color: $nhsuk-white;
-    }
-
+    @include nhsuk-link-style-inverted; // [1] //
   }
 
+}
+
+.nhsuk-c-global-alert__heading {
+  @include nhsuk-typography-responsive(24);
+
+  margin: 0;
+}
+
+.nhsuk-c-global-alert__content {
+  @include top-and-bottom;
+
+  position: relative;
+}
+
+.nhsuk-c-global-alert__message {
+  @include nhsuk-responsive-margin(2, 'top');
+
+  margin-bottom: 0;
+}
+
+.nhsuk-c-global-alert__updated {
+  @include nhsuk-responsive-margin(2, 'top');
+  @include nhsuk-typography-responsive(14);
 }

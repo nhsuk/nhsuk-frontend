@@ -1,4 +1,7 @@
-var banner = document.getElementById("nhsuk-feedback-banner");
+// Feedback banner
+
+var banner = document.querySelector('#nhsuk-feedback-banner');
+var bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
 
 document.addEventListener("DOMContentLoaded", function(){
   setTimeout(function () {
@@ -8,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 3000);
 });
 
-function hideBanner() {
-  banner.style.display = "none";
+if (bannerCloseButton) {
+  bannerCloseButton.addEventListener("click", function(){
+    banner.style.display = "none";
+  });
 }

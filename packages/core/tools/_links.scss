@@ -1,0 +1,125 @@
+/* ==========================================================================
+   TOOLS / #LINKS
+   ========================================================================== */
+
+/**
+ * Default link styling
+ *
+ * Usage: @include nhsuk-link-style-default;
+ */
+
+@mixin nhsuk-link-style-default {
+
+  color: $nhsuk-link-colour;
+
+  &:visited {
+    color: $nhsuk-link-visited-colour;
+  }
+
+  &:focus {
+    background-color: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-hover-colour;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $nhsuk-link-active-colour;
+  }
+
+}
+
+/**
+ * Inverted link styling, used in the emergency alert banner.
+ *
+ * Usage: @include nhsuk-link-style-inverted;
+ */
+
+@mixin nhsuk-link-style-inverted {
+
+  color: $nhsuk-link-colour;
+
+  &:focus {
+    background-color: $colour_shade_nhsuk-blue-35;
+    box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+    color: $colour_nhsuk-white;
+  }
+
+  &:hover {
+    background-color: $colour_nhsuk-blue;
+    box-shadow: 0 0 0 4px $colour_nhsuk-blue;
+    color: $colour_nhsuk-white;
+  }
+
+  &:active {
+    background-color: $colour_shade_nhsuk-blue-50;
+    box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+    color: $colour_nhsuk-white;
+  }
+
+}
+
+/**
+ * White link styling, used in the footer.
+ *
+ * Usage: @include nhsuk-link-style-white;
+ */
+
+@mixin nhsuk-link-style-white {
+
+  color: $colour_nhsuk-white;
+
+  &:visited {
+    color: $colour_nhsuk-grey-5;
+  }
+
+  &:focus {
+    color: $nhsuk-link-focus-colour;
+  }
+
+  &:hover {
+    color: $nhsuk-link-hover-colour;
+  }
+
+  &:active {
+    color: $nhsuk-link-active-colour;
+  }
+
+}
+
+/*
+ * Default link hover only styling
+ *
+ * Usage: @include nhsuk-link-style-hover;
+ */
+
+@mixin nhsuk-link-style-hover {
+  &:hover {
+    background-color: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-hover-colour;
+    text-decoration: none;
+  }
+}
+
+/**
+ * Default link focus only styling
+ *
+ * Usage: @include nhsuk-link-style-focus;
+ */
+
+@mixin nhsuk-link-style-focus {
+  &:focus {
+    background-color: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+    outline: 0;
+  }
+}

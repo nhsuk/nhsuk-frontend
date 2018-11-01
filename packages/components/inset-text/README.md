@@ -1,25 +1,22 @@
 # Inset text
 
-## Introduction
-
-The inset text component helps convey useful information on the page.
-
-## Guidance
-
-Find out when to use the inset text component in the [Digital service manual]().
+Find out more about the inset text component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
 ## Example
 
 [Preview the inset text component]()
 
-#### Markup
+## HTML markup
 
-    <div role="note" class="nhsuk-c-inset-text">
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+    <div class="nhsuk-c-inset-text">
+      <span class="visually-hidden">Information: </span>
+      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla/" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
 
-#### Macro
+## Nunjucks macro
 
     {% from 'components/inset-text/macro.njk' import insetText %}
 
-    {{ insetText('<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>') }}
+    {{ insetText({
+      "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
+    }) }}

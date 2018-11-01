@@ -1,0 +1,14 @@
+/* ==========================================================================
+   UTILITIES / #VISUALLY-HIDDEN
+   ========================================================================== */
+
+/**
+ * Hide elements visually but keep it in the DOM
+ *
+ * Usage: class="visually-hidden"
+ * See tools/mixins
+ */
+
+.visually-hidden {
+  @include visually-hidden();
+}

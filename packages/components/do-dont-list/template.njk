@@ -1,10 +1,10 @@
-<div class="nhsuk-c-panel">
-  <h3 id="{{title}}">{{title}}</h3>
+<div class="nhsuk-c-do-dont-list">
+  <h3 class="nhsuk-c-do-dont-list__label">{{title}}</h3>
   {% if type == 'tick' %}
     <ul class="nhsuk-list nhsuk-list--check">
       {% for data in items %}
       <li>
-      {% include 'core/assets/icons/icon-tick.svg' %}
+      {% include 'assets/icons/icon-tick.svg' %}
       {{ data.item | safe}}
       </li>
       {% endfor %}
@@ -13,8 +13,8 @@
     <ul class="nhsuk-list nhsuk-list--cross">
     {% for data in items %}
       <li>
-      {% include 'core/assets/icons/icon-cross.svg' %}
-      <span>Don't</span> {{ data.item | safe}}
+      {% include 'assets/icons/icon-cross.svg' %}
+      don't {{ data.item | safe}}
       </li>
     {% endfor %}
     </ul>

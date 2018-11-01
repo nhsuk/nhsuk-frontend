@@ -1,17 +1,42 @@
-@mixin govuk-main-wrapper {
-  padding: 15px 0 40px;
+/* ==========================================================================
+   OBJECTS / #MAIN-WRAPPER
+   ========================================================================== */
 
-  @include mq($from: grid-collapse) {
-    padding: 30px 0 56px;
-  }
+/**
+ * Page wrapper for the grid system
+ *
+ * Usage:
+ * <div class="nhsuk-width-container">
+ *   <div class="nhsuk-main-wrapper">
+ *    <!-- Wrapper for the main content of your page which applies padding
+ *         to the top / bottom -->
+ *   </div>
+ * </div>
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. In IE11 the `main` element can be used, but is not recognized  –
+ *    meaning it's not defined in IE's default style sheet,
+ *    so it uses CSS initial value, which is inline.
+*/
+
+@mixin govuk-main-wrapper {
+  @include nhsuk-responsive-padding(7, 'top');
+  @include nhsuk-responsive-padding(7, 'bottom');
+  display: block; /* [1] */
 }
 
-@include govuk-exports('main-wrapper') {
-  .nhsuk-o-main-wrapper {
-    @include govuk-main-wrapper;
+@mixin govuk-main-wrapper--l {
+  @include nhsuk-responsive-padding(8, 'top');
+}
 
-    &:focus {
-      outline: 0;
-    }
+@mixin govuk-main-wrapper--s {
+  @include nhsuk-responsive-padding(5, 'top');
+}
+
+@include govuk-exports('govuk/objects/main-wrapper') {
+  .nhsuk-main-wrapper {
+    @include govuk-main-wrapper;
   }
 }

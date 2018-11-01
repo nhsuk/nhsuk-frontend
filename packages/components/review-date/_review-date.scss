@@ -1,9 +1,8 @@
+/* ==========================================================================
+   COMPONENTS / #REVIEW-DATE
+   ========================================================================== */
+
 .nhsuk-c-review-date {
-  margin: 40px 0 0;
-
-  p {
-    color: $nhsuk-grey-1;
-    margin-top: 0;
-  }
-
+  @include nhsuk-responsive-margin(7, 'top');
+  color: $nhsuk-secondary-text-colour;
 }

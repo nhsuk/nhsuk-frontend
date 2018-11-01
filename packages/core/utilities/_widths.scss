@@ -1,0 +1,61 @@
+/* ==========================================================================
+   UTILITIES / #WIDTH
+   ========================================================================== */
+
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ * Force element widths on all screen sizes
+ *
+ * Usage: class="nhsuk-\!-width-full"
+ */
+
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+
+// sass-lint:disable no-important
+
+.nhsuk-\!-width-full {
+  width: 100% !important;
+}
+
+.nhsuk-\!-width-three-quarters {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 75% !important;
+  }
+}
+
+.nhsuk-\!-width-two-thirds {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 66.66% !important;
+  }
+}
+
+.nhsuk-\!-width-one-half {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 50% !important;
+  }
+}
+
+.nhsuk-\!-width-one-third {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 33.33% !important;
+  }
+}
+
+.nhsuk-\!-width-one-quarter {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 25% !important;
+  }
+}

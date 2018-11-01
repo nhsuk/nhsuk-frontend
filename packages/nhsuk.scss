@@ -1,13 +1,12 @@
 // Settings
-@import 'core/common';
+@import 'core/all';
 
 // Components
-@import 'components/a-z-list/a-z-list';
+@import 'components/a-z-nav/a-z-nav';
 @import 'components/action-link/action-link';
-@import 'components/breadcrumbs/breadcrumbs';
-@import 'components/callout/callout';
+@import 'components/breadcrumb/breadcrumb';
 @import 'components/care-card/care-card';
-@import 'components/cookie-banner/cookie-banner';
+@import 'components/contents-list/contents-list';
 @import 'components/details/details';
 @import 'components/do-dont-list/do-dont-list';
 @import 'components/emergency-alert/emergency-alert';
@@ -17,8 +16,11 @@
 @import 'components/hero/hero';
 @import 'components/images/images';
 @import 'components/inset-text/inset-text';
+@import 'components/list-panel/list-panel';
 @import 'components/pagination/pagination';
-@import 'components/phase-banner/phase-banner';
+@import 'components/panel/panel';
 @import 'components/promo/promo';
 @import 'components/review-date/review-date';
+@import 'components/skip-link/skip-link';
 @import 'components/tables/tables';
+@import 'components/warning-callout/warning-callout';
