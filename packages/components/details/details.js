@@ -3,7 +3,7 @@
 // FF Support for HTML5's <details> and <summary>
 // https://bugzilla.mozilla.org/show_bug.cgi?id=591737
 
-// http://www.sitepoint.com/fixing-the-details-element/
+// https://www.sitepoint.com/fixing-the-details-element/
 
 // Taken from govuk_frontend_toolkit
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/details.polyfill.js
@@ -149,7 +149,6 @@
         details.__summary.setAttribute('aria-controls', details.__content.id)
 
         // Set tabIndex so the summary is keyboard accessible for non-native elements
-        // http://www.saliences.com/browserBugs/tabIndex.html
         if (!NHSUK.details.NATIVE_DETAILS) {
           details.__summary.tabIndex = 0
         }

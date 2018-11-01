@@ -41,7 +41,7 @@ Find out more about the promo component and when to use it in the [NHS digital s
 
 ```html
 <div class="nhsuk-c-promo">
-  <a href="http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
+  <a href="https://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
     <img class="nhsuk-c-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);" alt="">
     <div class="nhsuk-c-promo__content">
       <h3 class="nhsuk-c-promo__heading">Save a life: give blood</h3>
@@ -57,7 +57,7 @@ Find out more about the promo component and when to use it in the [NHS digital s
 {% from 'components/promo/macro.njk' import promo%}
 
 {{ promo({
-  "href": "http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner",
+  "href": "https://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner",
   "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
   "heading": "Save a life: give blood",
   "description": "Please register today. Donating blood is easy, and saves lives."
@@ -137,7 +137,7 @@ Find out more about the promo component and when to use it in the [NHS digital s
   <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
 
     <div class="nhsuk-c-promo">
-      <a href="http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
+      <a href="https://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
         <img class="nhsuk-c-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);" alt="">
         <div class="nhsuk-c-promo__content">
           <h3 class="nhsuk-c-promo__heading">Save a life: give blood</h3>
@@ -151,7 +151,7 @@ Find out more about the promo component and when to use it in the [NHS digital s
   <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
 
     <div class="nhsuk-c-promo">
-      <a href="http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
+      <a href="https://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;utm_medium=referral&amp;utm_content=web&amp;utm_campaign=partner">
         <img class="nhsuk-c-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);" alt="">
         <div class="nhsuk-c-promo__content">
           <h3 class="nhsuk-c-promo__heading">Save a life: give blood</h3>
