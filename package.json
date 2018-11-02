@@ -38,6 +38,10 @@
     "sass-lint": "^1.12.1",
     "sass-mq": "^4.0.2"
   },
+  "files": [
+    "dist",
+    "packages"
+  ],
   "engines": {
     "node": "8.11.1"
   },
