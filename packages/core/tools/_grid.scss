@@ -91,7 +91,7 @@ $_nhsuk-grid-widths: (
 *
 **/
 
-@mixin govuk-grid-column($width: full, $float: left, $at: tablet, $class: 'nhsuk-grid-column') {
+@mixin govuk-grid-column($width: full, $float: left, $at: desktop, $class: 'nhsuk-grid-column') {
 
   .#{$class}-#{$width} {
     box-sizing: border-box;

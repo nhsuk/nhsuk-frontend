@@ -93,3 +93,33 @@
   }
 
 }
+
+/*
+ * Default link hover only styling
+ *
+ * Usage: @include nhsuk-link-style-hover;
+ */
+
+@mixin nhsuk-link-style-hover {
+  &:hover {
+    background: $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
+    color: $nhsuk-link-hover-colour;
+    text-decoration: none;
+  }
+}
+
+/**
+ * Default link focus only styling
+ *
+ * Usage: @include nhsuk-link-style-focus;
+ */
+
+@mixin nhsuk-link-style-focus {
+  &:focus {
+    background: $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
+    color: $nhsuk-link-focus-colour;
+    outline: 0;
+  }
+}

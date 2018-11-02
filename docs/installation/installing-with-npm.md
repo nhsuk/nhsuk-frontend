@@ -32,7 +32,7 @@ To use NHS.UK Frontend in your projects with npm you must:
 
 ## Installation
 
-Install the NHS.UK Frontend to your project:
+Install the NHS.UK Frontend package into to your project:
 
 ```
 npm install nhsuk-frontend --save

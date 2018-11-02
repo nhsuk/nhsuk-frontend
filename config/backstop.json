@@ -141,6 +141,71 @@
     {
       "label": "Panel",
       "url": "http://localhost:3000/pages/components/panel"
+    },
+    {
+      "label": "Details",
+      "url": "http://localhost:3000/pages/components/details",
+      "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Expander",
+      "url": "http://localhost:3000/pages/components/expander",
+      "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Expander group",
+      "url": "http://localhost:3000/pages/components/expander-group",
+      "clickSelector": ".nhsuk-details__summary"
+    },
+    {
+      "label": "Hero",
+      "url": "http://localhost:3000/pages/components/hero"
+    },
+    {
+      "label": "Hero with image",
+      "url": "http://localhost:3000/pages/components/hero-image"
+    },
+    {
+      "label": "Hero with image and content",
+      "url": "http://localhost:3000/pages/components/hero-image-content"
+    },
+    {
+      "label": "Header",
+      "url": "http://localhost:3000/pages/components/header"
+    },
+    {
+      "label": "Header transactional",
+      "url": "http://localhost:3000/pages/components/header-transactional"
+    },
+    {
+      "label": "Header with search",
+      "url": "http://localhost:3000/pages/components/header-search"
+    },
+    {
+      "label": "Header with search open",
+      "url": "http://localhost:3000/pages/components/header-search",
+      "clickSelector": ".nhsuk-header__search-toggle"
+    },
+    {
+      "label": "Header with navigation",
+      "url": "http://localhost:3000/pages/components/header-navigation"
+    },
+    {
+      "label": "Header with navigation open",
+      "url": "http://localhost:3000/pages/components/header-search",
+      "clickSelector": ".nhsuk-header__menu-toggle"
+    },
+    {
+      "label": "A-Z navigation",
+      "url": "http://localhost:3000/pages/components/a-z-nav"
+    },
+    {
+      "label": "List panel",
+      "url": "http://localhost:3000/pages/components/list-panel"
+    },
+    {
+      "label": "Contents list",
+      "url": "http://localhost:3000/pages/components/contents-list"
     }
   ],
   "paths": {

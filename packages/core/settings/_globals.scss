@@ -47,15 +47,34 @@ $nhsuk-gutter-half: $nhsuk-gutter / 2;
 */
 
 $nhsuk-border-width-inset-text: 12px;
+
+
+/**
+ * Border radius
+*/
+
+$nhsuk-border-radius: 4px;
+
+
+/**
+ * Box shadow values
+*/
+
+$nhsuk-box-shadow-spread: 4px;
+$nhsuk-box-shadow-blur: 3px;
 $nhsuk-border-table-header-width: 2px;
 $nhsuk-border-table-cell-width: 1px;
 $nhsuk-care-card-triangle-border: 16px;
+$nhsuk-hero-content-triangle-border: 16px;
+$nhsuk-hero-border: 1px;
 
 /**
  * Box shadows
 */
 
 $nhsuk-box-shadow-link: 4px;
+$nhsuk-box-details: 8px;
+$nhsuk-box-expander: 4px;
 $nhsuk-box-shadow-pagination: 16px;
 
 /**
@@ -63,3 +82,5 @@ $nhsuk-box-shadow-pagination: 16px;
 */
 
 $nhsuk-box-shadow-link: 4px;
+$nhsuk-border-list-panel: 2px;
+$nhsuk-border-list-panel-item: 1px;
