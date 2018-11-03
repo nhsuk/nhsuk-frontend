@@ -5,6 +5,9 @@
         {% include 'assets/logos/nhs-logo.svg' %}
       </a>
     </div>
+  {% if params.showNav == "false" and params.showSearch == "false" %}
+  </div>
+  {% endif %}
 
     {% if params.showNav == "true" and params.primaryLinks and params.showSearch == "true" %}
 
