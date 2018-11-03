@@ -37,22 +37,20 @@
 
       </div>
 
-    </div>
-
-    <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
-      <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
-        <button class="nhsuk-header__navigation-close">
-          {% include 'assets/icons/icon-close.svg' %}
-          <span class="visually-hidden">Close menu</span>
-        </button>
-      </p>
-      <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% for item in params.primaryLinks %}
-        <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+      <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
+        <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
+          <button class="nhsuk-header__navigation-close">
+            {% include 'assets/icons/icon-close.svg' %}
+            <span class="visually-hidden">Close menu</span>
+          </button>
+        </p>
+        <ul class="nhsuk-header__navigation-list">
+          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+          {% for item in params.primaryLinks %}
+          <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
 
     {% endif %}
 
@@ -82,7 +80,6 @@
         </div>
 
       </div>
-    </div>
 
     {% endif %}
 
@@ -93,23 +90,23 @@
           <button class="nhsuk-header__menu-toggle" aria-controls="nhsuk-header__navigation" aria-label="Open menu">Menu</button>
         </div>
       </div>
-    </div>
 
-    <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
-      <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
-        <button class="nhsuk-header__navigation-close">
-          {% include 'assets/icons/icon-close.svg' %}
-          <span class="visually-hidden">Close menu</span>
-        </button>
-      </p>
-      <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% for item in params.primaryLinks %}
-        <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+      <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
+        <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
+          <button class="nhsuk-header__navigation-close">
+            {% include 'assets/icons/icon-close.svg' %}
+            <span class="visually-hidden">Close menu</span>
+          </button>
+        </p>
+        <ul class="nhsuk-header__navigation-list">
+          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+          {% for item in params.primaryLinks %}
+          <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
 
     {% endif %}
 
+  </div>
 </header>
