@@ -1,22 +1,15 @@
 <div class="nhsuk-do-dont-list">
-  <h3 class="nhsuk-do-dont-list__label">{{title}}</h3>
-  {% if type == 'tick' %}
-    <ul class="nhsuk-list nhsuk-list--check">
-      {% for data in items %}
+  <h3 class="nhsuk-do-dont-list__label">{{ params.title }}</h3>
+    <ul class="nhsuk-list {% if params.type == 'tick' %}nhsuk-list--check{% else %}nhsuk-list--cross{% endif %}">
+      {% for data in params.items %}
       <li>
-      {% include 'assets/icons/icon-tick.svg' %}
+      {% if params.type == 'tick' %}
+        {% include 'assets/icons/icon-tick.svg' %}
+      {% else %}
+        {% include 'assets/icons/icon-cross.svg' %}
+      {% endif %}
       {{ data.item | safe}}
       </li>
       {% endfor %}
     </ul>
-  {% elseif type == 'cross' %}
-    <ul class="nhsuk-list nhsuk-list--cross">
-    {% for data in items %}
-      <li>
-      {% include 'assets/icons/icon-cross.svg' %}
-      don't {{ data.item | safe}}
-      </li>
-    {% endfor %}
-    </ul>
-  {% endif %}
 </div>

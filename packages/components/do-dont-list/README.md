@@ -77,38 +77,40 @@ Find out when to use the do & don't list component in the [Digital service manua
 
     {% from 'components/do-dont-list/macro.njk' import list %}
 
-    {% set doItems = [
+    {{ list({
+      "title": "Do",
+      "type": "tick",
+      "items": [
         {
-          "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+          "item": "cover blisters that are likely to burst with a soft plaster or dressing"
         },
         {
-          "item"  : "wash your hands before touching a burst blister"
+          "item": "wash your hands before touching a burst blister"
         },
         {
-          "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
         }
       ]
-    %}
+    }) }}
 
-    {{ list("Do", "tick", doItems) }}
-
-    {% set dontItems = [
+    {{ list({
+      "title": "Don't",
+      "type": "cross",
+      "items": [
         {
-          "item"  : "burst a blister yourself"
+          "item": "burst a blister yourself"
         },
         {
-          "item"  : "peel the skin off a burst blister"
+          "item": "peel the skin off a burst blister"
         },
         {
-          "item"  : "pick at the edges of the remaining skin"
+          "item": "pick at the edges of the remaining skin"
         },
         {
-          "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+          "item": "wear the shoes or use the equipment that caused your blister until it heals"
         }
       ]
-    %}
-
-    {{ list("Don't", "cross", dontItems) }}
+    }) }}
 
 ## Contribution
 

@@ -375,38 +375,40 @@
     </div>
   </div>
 
-  {% set doItems = [
+  {{ list({
+    "title": "Do",
+    "type": "tick",
+    "items": [
       {
-        "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+        "item": "cover blisters that are likely to burst with a soft plaster or dressing"
       },
       {
-        "item"  : "wash your hands before touching a burst blister"
+        "item": "wash your hands before touching a burst blister"
       },
       {
-        "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+        "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
       }
     ]
-  %}
+  }) }}
 
-  {{ list("Do", "tick", doItems) }}
-
-  {% set dontItems = [
+  {{ list({
+    "title": "Don't",
+    "type": "cross",
+    "items": [
       {
-        "item"  : "burst a blister yourself"
+        "item": "burst a blister yourself"
       },
       {
-        "item"  : "peel the skin off a burst blister"
+        "item": "peel the skin off a burst blister"
       },
       {
-        "item"  : "pick at the edges of the remaining skin"
+        "item": "pick at the edges of the remaining skin"
       },
       {
-        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+        "item": "wear the shoes or use the equipment that caused your blister until it heals"
       }
     ]
-  %}
-
-  {{ list("Don't", "cross", dontItems) }}
+  }) }}
 
   <table>
   <caption>Skin symptoms and possible causes</caption>
@@ -661,41 +663,38 @@
 {% endblock %}
 
 {% block footer %}
-  {% set primaryLinks = [
-    {
-      'URL'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
-      'label' : 'NHS sites'
-    },
-    {
-      'URL' : 'https://www.nhs.uk/about-us',
-      'label' : 'About us'
-    },
-    {
-      'URL'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
-      'label' : 'Contact us'
-    },
-    {
-      'URL'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
-      'label' : 'Profile editor login'
-    }
-  ]
-  %}
-
-  {% set secondaryLinks = [
+  {{ footer({
+    "primaryLinks": [
       {
-        'URL'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
-        'label' : 'Sitemap'
+        "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+        "label": "NHS sites"
       },
       {
-        'URL' : 'https://www.nhs.uk/accessibility/',
-        'label' : 'Accessibility'
+        "URL": "https://www.nhs.uk/about-us",
+        "label": "About us"
       },
       {
-        'URL'  : 'https://www.nhs.uk/our-policies/',
-        'label' : 'Our policies'
+        "URL": "https://www.nhs.uk/contact-us/",
+        "label": "Contact us"
+      },
+      {
+        "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
+        "label": "Profile editor login"
+      }
+    ],
+    "secondaryLinks": [
+      {
+        "URL": "https://www.nhs.uk/about-us/sitemap/",
+        "label": "Sitemap"
+      },
+      {
+        'URL': 'https://www.nhs.uk/accessibility/',
+        'label': 'Accessibility'
+      },
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
       }
     ]
-  %}
-
-  {{ footer(primaryLinks, secondaryLinks) }}
+  })}}
 {% endblock %}

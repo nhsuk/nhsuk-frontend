@@ -41,42 +41,39 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ## Nunjucks macro
 
-    {% from 'components/footer/macro.njk' import footer %}
-
-    {% set primaryLinks = [
-        {
-          'URL': 'https://www.nhs.uk/Pages/nhs-sites.aspx',
-          'label': 'NHS sites'
-        },
-        {
-          'URL': 'https://www.nhs.uk/about-us',
-          'label': 'About us'        
-        },
-        {
-          'URL': 'https://www.nhs.uk/Pages/contact-us.aspx',
-          'label': 'Contact us'    
-        },
-        {
-          'URL': 'https://www.nhs.uk/Personalisation/Login.aspx',
-          'label': 'Profile editor login'    
-        }
-      ]
-    %}
-
-    {% set secondaryLinks = [
-        {
-          'URL': 'https://www.nhs.uk/choices/pages/sitemap.aspx',
-          'label': 'Sitemap'
-        },
-        {
-          'URL': 'https://www.nhs.uk/accessibility/',
-          'label': 'Accessibility'
-        },
-        {
-          'URL': 'https://www.nhs.uk/our-policies/',
-          'label': 'Our policies'
-        }
-      ]
-    %}
-
-    {{ footer(primaryLinks, secondaryLinks) }}
+```html
+{{ footer({
+  "primaryLinks": [
+    {
+      "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+      "label": "NHS sites"
+    },
+    {
+      "URL": "https://www.nhs.uk/about-us",
+      "label": "About us"
+    },
+    {
+      "URL": "https://www.nhs.uk/contact-us/",
+      "label": "Contact us"
+    },
+    {
+      "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
+      "label": "Profile editor login"
+    }
+  ],
+  "secondaryLinks": [
+    {
+      "URL": "https://www.nhs.uk/about-us/sitemap/",
+      "label": "Sitemap"
+    },
+    {
+      'URL': 'https://www.nhs.uk/accessibility/',
+      'label': 'Accessibility'
+    },
+    {
+      "URL": "https://www.nhs.uk/our-policies/",
+      "label": "Our policies"
+    }
+  ]
+})}}
+```
