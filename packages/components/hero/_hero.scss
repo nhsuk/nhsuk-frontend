@@ -11,13 +11,11 @@
  */
 
 .nhsuk-hero {
+  @include print-colour($nhsuk-print-text-colour);
+
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
   position: relative; // [1] //
-
-  @include mq($media-type: print) {
-    color: $colour_nhsuk-black;
-  }
 
   .nhsuk-hero--border { // [2] //
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
@@ -80,6 +78,7 @@
 
   .nhsuk-hero-content {
     @include top-and-bottom();
+
     background-color: $colour_nhsuk-blue;
     bottom: -48px; // [9] //
     color: $colour_nhsuk-white;
@@ -107,6 +106,8 @@
     }
 
     &:after {
+      @include print-hide();
+
       -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); // [12] // // sass-lint:disable-line property-sort-order
       clip-path: polygon(0 0, 50% 100%, 100% 0); // sass-lint:disable-line property-sort-order // [12] //
       border-left: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
@@ -118,10 +119,6 @@
       height: 0;
       position: absolute;
       width: 0;
-
-      @include mq($media-type: print) {
-        display: none;
-      }
 
     }
 

@@ -185,6 +185,14 @@
 
   @include mq($media-type: print) {
     color: $print-colour;
+    fill: $print-colour;
+
+    &:active,
+    &:focus,
+    &:visited {
+      color: $nhsuk-print-text-colour;
+    }
+
   }
 
 }
