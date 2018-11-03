@@ -14,8 +14,8 @@ Find out when to use the do & don't list component in the [Digital service manua
 
 #### Markup
 
-    <div class="nhsuk-c-do-dont-list">
-      <h3 class="nhsuk-c-do-dont-list__tab-heading">Do</h3>
+    <div class="nhsuk-do-dont-list">
+      <h3 class="nhsuk-do-dont-list__tab-heading">Do</h3>
       <ul class="nhsuk-list nhsuk-list--check">
         <li>
         <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -38,8 +38,8 @@ Find out when to use the do & don't list component in the [Digital service manua
       </ul>
     </div>
 
-    <div class="nhsuk-c-do-dont-list">
-      <h3 class="nhsuk-c-do-dont-list__tab-heading">Don't</h3>
+    <div class="nhsuk-do-dont-list">
+      <h3 class="nhsuk-do-dont-list__tab-heading">Don't</h3>
       <ul class="nhsuk-list nhsuk-list--cross">
         <li>
         <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">

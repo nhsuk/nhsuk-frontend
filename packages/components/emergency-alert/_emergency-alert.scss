@@ -7,7 +7,7 @@
  *    ($colour_nhsuk-yellow) background.
  */
 
-.nhsuk-c-global-alert {
+.nhsuk-global-alert {
   background-color: $colour_nhsuk-yellow;
   padding-bottom: nhsuk-spacing(4);
   padding-top: nhsuk-spacing(4);
@@ -22,25 +22,25 @@
 
 }
 
-.nhsuk-c-global-alert__heading {
+.nhsuk-global-alert__heading {
   @include nhsuk-typography-responsive(24);
 
   margin: 0;
 }
 
-.nhsuk-c-global-alert__content {
+.nhsuk-global-alert__content {
   @include top-and-bottom;
 
   position: relative;
 }
 
-.nhsuk-c-global-alert__message {
+.nhsuk-global-alert__message {
   @include nhsuk-responsive-margin(2, 'top');
 
   margin-bottom: 0;
 }
 
-.nhsuk-c-global-alert__updated {
+.nhsuk-global-alert__updated {
   @include nhsuk-responsive-margin(2, 'top');
   @include nhsuk-typography-responsive(14);
 }

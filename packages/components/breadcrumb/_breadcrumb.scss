@@ -13,7 +13,7 @@
  * 6. Remove spacing between back icon and label.
 **/
 
-.nhsuk-c-breadcrumb {
+.nhsuk-breadcrumb {
   background-color: $colour_nhsuk-white;
   padding-bottom: 12px; // [1] //
   padding-top: 12px; // [1] //
@@ -45,7 +45,7 @@
 
 }
 
-.nhsuk-c-breadcrumb__list {
+.nhsuk-breadcrumb__list {
 
   @include mq($until: tablet) {
     display: none; // [3] //
@@ -57,13 +57,13 @@
 
 }
 
-.nhsuk-c-breadcrumb__item {
+.nhsuk-breadcrumb__item {
   @include nhsuk-font(16); // [4] //
   display: inline-block;
   margin: 0;
 }
 
-.nhsuk-c-breadcrumb__back {
+.nhsuk-breadcrumb__back {
   @include nhsuk-font(16); // [4] //
   margin: 0;
 
@@ -73,7 +73,7 @@
 
 }
 
-.nhsuk-c-breadcrumb__backlink {
+.nhsuk-breadcrumb__backlink {
   left: -8px; // [6] //
   position: relative;
 }

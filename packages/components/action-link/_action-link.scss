@@ -13,7 +13,7 @@
  * 6. Text decoration underline used to override default <a> styling.
  */
 
-.nhsuk-c-action-link {
+.nhsuk-action-link {
   @include nhsuk-font(22);
   @include nhsuk-responsive-margin(6, 'bottom');
 

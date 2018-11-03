@@ -15,7 +15,7 @@ Include the compiled JavaScript for all components `nhsuk.min.js` in your projec
 ## HTML markup
 
 ```html
-<a href="#maincontent" class="nhsuk-c-skip-link">Skip to main content</a>
+<a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
 ```
 
 ## Nunjucks macro

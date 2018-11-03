@@ -4,14 +4,14 @@
 
 /**
  * 1. Clearfix added to the A-Z nav to clear float: left;
- *    on the .nhsuk-c-a-z-nav__list-item.
+ *    on the .nhsuk-a-z-nav__list-item.
  * 2. Used to wrap the list items.
  * 3. Removes bullets from list item..
  * 4. Gives equal spacing around each list item.
  * 5. 'Random number' gives adequate spacing for touch navigation.
  */
 
-.nhsuk-c-a-z-nav {
+.nhsuk-a-z-nav {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
 
@@ -19,19 +19,19 @@
 
 }
 
-.nhsuk-c-a-z-nav__list {
+.nhsuk-a-z-nav__list {
   @include clearfix(); /* [1] */
   @include nhsuk-responsive-padding(0);
 }
 
-.nhsuk-c-a-z-nav__list-item {
+.nhsuk-a-z-nav__list-item {
   float: left; /* [2] */
   list-style: none; /* [3] */
   margin: 1px; /* [4] */
 }
 
-.nhsuk-c-a-z-nav__list-item-link,
-.nhsuk-c-a-z-nav__list-item-link--disabled {
+.nhsuk-a-z-nav__list-item-link,
+.nhsuk-a-z-nav__list-item-link--disabled {
   @include nhsuk-typography-responsive(22);
 
   display: block;
@@ -46,12 +46,12 @@
 
 }
 
-.nhsuk-c-a-z-nav__list-item-link--disabled {
+.nhsuk-a-z-nav__list-item-link--disabled {
   color: $nhsuk-secondary-text-colour;
   margin-bottom: 0;
 }
 
-.nhsuk-c-a-z-nav__list-item-link {
+.nhsuk-a-z-nav__list-item-link {
 
   &.active {
     background-color: $colour_nhsuk-blue;

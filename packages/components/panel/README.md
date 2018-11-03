@@ -9,7 +9,7 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ## HTML markup
 
 ```html
-<div class="nhsuk-c-panel">
+<div class="nhsuk-panel">
   <h3>Panel title</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
@@ -36,8 +36,8 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ## HTML markup
 
 ```html
-<div class="nhsuk-c-panel-with-label">
-  <h3 class="nhsuk-c-panel-with-label__label">Panel heading</h3>
+<div class="nhsuk-panel-with-label">
+  <h3 class="nhsuk-panel-with-label__label">Panel heading</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
 ```
@@ -62,7 +62,7 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ## HTML markup
 
 ```html
-<div class="nhsuk-c-panel nhsuk-c-panel--grey">
+<div class="nhsuk-panel nhsuk-panel--grey">
   <h3>Panel title</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
@@ -90,15 +90,15 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ## HTML markup
 
 ```html
-<div class="nhsuk-grid-row nhsuk-c-panel-group">
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
-    <div class="nhsuk-c-panel">
+<div class="nhsuk-grid-row nhsuk-panel-group">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
-    <div class="nhsuk-c-panel">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
@@ -111,13 +111,13 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ```html
 {% from 'components/panel/macro.njk' import panel %}
 
-<div class="nhsuk-grid-row nhsuk-c-panel-group">
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+<div class="nhsuk-grid-row nhsuk-panel-group">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
       "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
       "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
