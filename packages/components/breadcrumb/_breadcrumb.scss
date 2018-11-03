@@ -14,13 +14,11 @@
 **/
 
 .nhsuk-breadcrumb {
+  @include print-hide();
+
   background-color: $colour_nhsuk-white;
   padding-bottom: 12px; // [1] //
   padding-top: 12px; // [1] //
-
-  @include mq($media-type: print) {
-    display: none; // [2] //
-  }
 
   .nhsuk-icon__chevron-right {
     fill: $colour_nhsuk-grey-3;

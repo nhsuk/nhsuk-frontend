@@ -64,13 +64,11 @@
 }
 
 .nhsuk-promo__img {
+  @include print-hide();
+
   border-bottom: 1px solid $colour_nhsuk-grey-5; /* [8] */
   display: block;
   width: 100%;
-
-  @include mq($media-type: print) {
-    display: none;
-  }
 
 }
 

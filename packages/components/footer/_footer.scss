@@ -3,13 +3,10 @@
    ========================================================================== */
 
 .nhsuk-footer {
+  @include print-hide();
+
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
-
-  @include mq($media-type: print) {
-    display: none;
-  }
-
 }
 
 .nhsuk-logo {

@@ -70,6 +70,7 @@
 
 .nhsuk-header__content {
   @include clearfix();
+  @include print-hide();
 
   &.js-show {
     border-bottom: 4px solid $colour_nhsuk-grey-5; /* [12] */
@@ -479,6 +480,8 @@
 }
 
 .nhsuk-header__navigation {
+  @include print-hide();
+
   background-color: $colour_nhsuk-white;
   clear: both;
   display: none;
@@ -632,28 +635,6 @@
       background-color: $colour_shade_nhsuk-blue-20;
     }
 
-  }
-
-}
-
-/**
- * Print styles
-**/
-
-@include mq($media-type: print) {
-
-  .nhsuk-header__link {
-    &:after {
-      content: ''; /* [13] */
-    }
-  }
-
-  .nhsuk-header__content {
-    display: none;
-  }
-
-  .nhsuk-header__navigation {
-    display: none;
   }
 
 }

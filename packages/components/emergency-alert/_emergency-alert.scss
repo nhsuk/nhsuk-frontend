@@ -8,13 +8,11 @@
  */
 
 .nhsuk-global-alert {
+  @include print-hide();
+
   background-color: $colour_nhsuk-yellow;
   padding-bottom: nhsuk-spacing(4);
   padding-top: nhsuk-spacing(4);
-
-  @include mq($media-type: print) {
-    display: none;
-  }
 
   a {
     @include nhsuk-link-style-inverted; // [1] //

@@ -14,9 +14,7 @@
 .nhsuk-a-z-nav {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
-
   @include print-hide();
-
 }
 
 .nhsuk-a-z-nav__list {
