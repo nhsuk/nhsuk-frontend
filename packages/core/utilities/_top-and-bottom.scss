@@ -6,10 +6,10 @@
  * Remove the top and bottom margin spacing
  * from elements
  *
- * Usage: class="nhsuk-top-and-bottom"
+ * Usage: class="nhsuk-u-top-and-bottom"
  * See tools/mixins
  */
 
-.nhsuk-top-and-bottom {
+.nhsuk-u-top-and-bottom {
   @include top-and-bottom();
 }

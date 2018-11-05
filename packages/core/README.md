@@ -137,25 +137,25 @@ $colour_nhsuk-aqua-green: #00A499;
 ### Clearfix 
 
 ```html
-<div class="nhsuk-clearfix"></div>
+<div class="nhsuk-u-clear"></div>
 ```
 
 ### Bold font weight
 
 ```html
-<p class="nhsuk-\!-font-weight-bold"></p>
+<p class="nhsuk-u-font-weight-bold"></p>
 ```
 
 ### Normal font weight
 
 ```html
-<p class="nhsuk-\!-font-weight-normal"></p>
+<p class="nhsuk-u-font-weight-normal"></p>
 ```
 
 ### Reading width
 
 ```html
-<div class="nhsuk-reading-width">
+<div class="nhsuk-u-reading-width">
   <!-- Component -->
 </div
 ```
@@ -163,7 +163,7 @@ $colour_nhsuk-aqua-green: #00A499;
 ### Remove top and bottom margins
 
 ```html
-<h1 class="nhsuk-top-and-bottom"></h1>
+<h1 class="nhsuk-u-top-and-bottom"></h1>
 ```
 
 ### Prevent text wrapping 
@@ -175,5 +175,5 @@ $colour_nhsuk-aqua-green: #00A499;
 ### Visually hidden
 
 ```html
-<span class="nhsuk-visually-hidden"></span>
+<span class="nhsuk-u-visually-hidden"></span>
 ```

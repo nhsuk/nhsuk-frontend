@@ -5,10 +5,10 @@
 /**
  * Hide elements visually but keep it in the DOM
  *
- * Usage: class="nhsuk-visually-hidden"
+ * Usage: class="nhsuk-u-visually-hidden"
  * See tools/mixins
  */
 
-.visually-hidden {
+.nhsuk-u-visually-hidden {
   @include visually-hidden();
 }
