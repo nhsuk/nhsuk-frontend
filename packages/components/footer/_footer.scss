@@ -48,7 +48,7 @@
   padding-left: nhsuk-spacing(0);
   padding-top: nhsuk-spacing(4);
 
-  &:last-child {
+  > &:last-child {
     border-top: 1px solid $nhsuk-secondary-border-colour;
   }
 
