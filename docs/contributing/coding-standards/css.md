@@ -49,7 +49,9 @@ For example:
 ## Nesting
 
 Break elements and modifiers outside of blocks rather than nesting using a
-parent selector `&`. Apart from pseudo elements like `:before` and `:hover`.
+parent selector `&`. 
+
+Nesting pseudo elements like `:before` and `:hover` is ok.
 
 This makes the codebase easier to read, and makes it easier to search for a
 given class name. It also discourages excessive nesting.

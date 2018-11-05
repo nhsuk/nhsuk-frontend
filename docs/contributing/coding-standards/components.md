@@ -1,10 +1,10 @@
 # Components
 
-Find components in `src/components`.
+Find components in `packages/components`.
 
 Components must use the `.nhsuk-` namespace.
 
-For example, `.nhsuk-button`.
+For example, `.nhsuk-promo`.
 
 ## Writing CSS for components
 
@@ -18,9 +18,9 @@ Components must:
 
 ### Component folder structure and naming
 
-Component folder and files should be singular, except in cases where they are more commonly used in groups, for example, radios, breadcrumbs and checkboxes.
+Component folder and files should be singular, except in cases where they are more commonly used in groups, for example, radios and checkboxes.
 
-An example component exists in `src/components/component-example`.
+An example component exists in `docs/examples/components/component-example`.
 
 Use this as the basis for creating new components.
 
@@ -28,9 +28,12 @@ The folder structure should be:
 
     component-name
       - `_component-name.scss`
-      - `component-name.html`
       - `component-name.js`
+      - `macro.njk`
       - `README.md`
+      - `template.html`
+      - `template.njk`
+      - `template.test.js`       
 
 ## Nunjucks template API
 [Read more](nunjucks-api.md) about the way we write component templates.

@@ -6,7 +6,7 @@
 + Tooling; documentation to be completed
 + [Supported browsers](/docs/contributing/testing.md)
 + [Supported assistive technology](/docs/contributing/testing.md)
-+ Coding standards and conventions to follow; documentation to be completed.
++ [Coding standards](/docs/contributing/coding-standards/README.md)
 + Testing and linting; documentation to be completed.
 + Pipeline; documentation to be completed.
 + Git workflow; documentation to be completed.
