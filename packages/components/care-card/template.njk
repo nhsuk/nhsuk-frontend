@@ -1,7 +1,7 @@
 {% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
-<div class="nhsuk-c-care-card {% if params.class %}nhsuk-c-care-card--{{ params.class }}{% endif %}">
-  <div class="nhsuk-c-care-card__heading-container">
-    <h{{ headingLevel }} class="nhsuk-c-care-card__heading"><span class="nhsuk-visually-hidden">{% if type == 'grey' %}Non-urgent advice: {% elseif type == 'red' %}Urgent care low: {% elseif type == 'black' %}Urgent care high: {% else %}Non-urgent advice: {% endif %}</span>{{ params.heading }}</h{{ headingLevel }}>
+<div class="nhsuk-care-card {% if params.class %}nhsuk-care-card--{{ params.class }}{% endif %}">
+  <div class="nhsuk-care-card__heading-container">
+    <h{{ headingLevel }} class="nhsuk-care-card__heading"><span class="nhsuk-visually-hidden">{% if type == 'grey' %}Non-urgent advice: {% elseif type == 'red' %}Urgent care low: {% elseif type == 'black' %}Urgent care high: {% else %}Non-urgent advice: {% endif %}</span>{{ params.heading }}</h{{ headingLevel }}>
   </div>
   <div class="nhsuk-care-card__content">
   {{ params.HTML | safe }}

@@ -9,11 +9,11 @@ Find out more about the contents list component and when to use it in the [NHS d
 ## HTML markup
 
 ```html
-<nav class="nhsuk-c-contents-list" aria-label="Pages in this guide">
+<nav class="nhsuk-contents-list" aria-label="Pages in this guide">
   <h2 class="nhsuk-visually-hidden">Contents</h2>
-  <ol class="nhsuk-c-contents-list__list">
-    <li class="nhsuk-c-contents-list__item">
-      <span class="nhsuk-c-contents-list__current" aria-current="page">What is AMD?</span>
+  <ol class="nhsuk-contents-list__list">
+    <li class="nhsuk-contents-list__item">
+      <span class="nhsuk-contents-list__current" aria-current="page">What is AMD?</span>
     </li>
     <li class="nhsuk-contents-list__item">
       <a class="nhsuk-contents-list__link" href="https://www.nhs.uk">Symptoms</a>
