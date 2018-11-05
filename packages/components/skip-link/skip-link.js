@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var skip = {
 
-    link: document.querySelector('.nhsuk-c-skip-link'),
+    link: document.querySelector('.nhsuk-skip-link'),
     header: document.getElementsByTagName('H1')[0],
 
     doFocus: function(e) {

@@ -9,21 +9,21 @@ Find out more about the list panel component and when to use it in the [NHS Digi
 ## HTML markup
 
 ```html
-<div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
-  <h2 id="A" class="nhsuk-c-list-panel__label">A</h2>
-  <ul class="nhsuk-c-list-panel__list  nhsuk-c-list-panel__list--with-label ">
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">AAA</a>
+<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
+  <h2 id="A" class="nhsuk-list-panel__label">A</h2>
+  <ul class="nhsuk-list-panel__list  nhsuk-list-panel__list--with-label ">
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">AAA</a>
     </li>
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Abdominal aortic aneurysm</a>
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Abdominal aortic aneurysm</a>
     </li>
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Abscess</a>
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Abscess</a>
     </li>
   </ul>
-  <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-nav">
+  <div class="nhsuk-back-to-top">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-a-z-nav">
       <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
       </svg>
@@ -32,13 +32,13 @@ Find out more about the list panel component and when to use it in the [NHS Digi
   </div>
 </div>
 
-<div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
-  <h2 id="B" class="nhsuk-c-list-panel__label">B</h2>
-  <div class="nhsuk-c-list-panel__box  nhsuk-c-list-panel__box--with-label ">
-    <p class="nhsuk-c-list-panel--results-items__no-results">There are currently no medicines listed</p>
+<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
+  <h2 id="B" class="nhsuk-list-panel__label">B</h2>
+  <div class="nhsuk-list-panel__box  nhsuk-list-panel__box--with-label ">
+    <p class="nhsuk-list-panel--results-items__no-results">There are currently no medicines listed</p>
   </div>
-  <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-nav">
+  <div class="nhsuk-back-to-top">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-a-z-nav">
       <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
       </svg>
@@ -48,18 +48,18 @@ Find out more about the list panel component and when to use it in the [NHS Digi
 
 </div>
 
-<div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
-  <h2 id="C" class="nhsuk-c-list-panel__label">C</h2>
-  <ul class="nhsuk-c-list-panel__list  nhsuk-c-list-panel__list--with-label ">
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Chest pain</a>
+<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
+  <h2 id="C" class="nhsuk-list-panel__label">C</h2>
+  <ul class="nhsuk-list-panel__list  nhsuk-list-panel__list--with-label ">
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Chest pain</a>
     </li>
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Cold sore</a>
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Cold sore</a>
     </li>
   </ul>
-  <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-nav">
+  <div class="nhsuk-back-to-top">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-a-z-nav">
       <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
       </svg>
@@ -68,21 +68,21 @@ Find out more about the list panel component and when to use it in the [NHS Digi
   </div>
 </div>
 
-<div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
-  <h2 id="D" class="nhsuk-c-list-panel__label">D</h2>
-  <ul class="nhsuk-c-list-panel__list  nhsuk-c-list-panel__list--with-label ">
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Dandruff</a>
+<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
+  <h2 id="D" class="nhsuk-list-panel__label">D</h2>
+  <ul class="nhsuk-list-panel__list  nhsuk-list-panel__list--with-label ">
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Dandruff</a>
     </li>
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Dementia</a>
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Dementia</a>
     </li>
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="/index" class="nhsuk-c-list-panel__list-item-link">Dental pain</a>
+    <li class="nhsuk-list-panel__list-item">
+      <a href="/index" class="nhsuk-list-panel__list-item-link">Dental pain</a>
     </li>
   </ul>
-  <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-nav">
+  <div class="nhsuk-back-to-top">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-a-z-nav">
       <svg class="nhsuk-icon nhsuk-icon__arrow-right" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
       </svg>

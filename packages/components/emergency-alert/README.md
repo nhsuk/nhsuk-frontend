@@ -8,14 +8,14 @@ Find out more about the emergency alert component and when to use it in the [NHS
 
 ### HTML markup
 
-    <div id="nhsuk-global-alert" class="nhsuk-c-global-alert">
+    <div id="nhsuk-global-alert" class="nhsuk-global-alert">
       <div class="nhsuk-width-container">
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-full">
-            <div class="nhsuk-c-global-alert__content">
-              <h2 class="nhsuk-c-global-alert__heading"><span class="visually-hidden">Alert: </span>National flu outbreak</h2>
-              <p class="nhsuk-c-global-alert__message">There has been a national flu outbreak. <a href="http://www.nhs.uk" class="nhsuk-u-nowrap">How does it affect me</a></p>
-              <p class="nhsuk-c-global-alert__updated">Updated 23 mins ago</p>
+            <div class="nhsuk-global-alert__content">
+              <h2 class="nhsuk-global-alert__heading"><span class="visually-hidden">Alert: </span>National flu outbreak</h2>
+              <p class="nhsuk-global-alert__message">There has been a national flu outbreak. <a href="http://www.nhs.uk" class="nhsuk-u-nowrap">How does it affect me</a></p>
+              <p class="nhsuk-global-alert__updated">Updated 23 mins ago</p>
             </div>
           </div>
         </div>

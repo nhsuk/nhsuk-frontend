@@ -13,15 +13,15 @@
  * 8. Removes right and left margin to make the panel list go right to the
  *    edge of the screen.
  * 9. Margin left used to compensate for the negative margin
- *    on .nhsuk-c-list-panel--mobile.
+ *    on .nhsuk-list-panel--mobile.
  */
 
-.nhsuk-c-list-panel {
+.nhsuk-list-panel {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
 }
 
-.nhsuk-c-list-panel__label {
+.nhsuk-list-panel__label {
   @include nhsuk-typography-responsive(32);
 
   background-color: $colour_nhsuk-blue;
@@ -37,8 +37,8 @@
 
 }
 
-.nhsuk-c-list-panel__list,
-.nhsuk-c-list-panel__box {
+.nhsuk-list-panel__list,
+.nhsuk-list-panel__box {
   background-color: $colour_nhsuk-white;
   margin: 0;
   padding: 0;
@@ -49,8 +49,8 @@
 
 }
 
-.nhsuk-c-list-panel__list--with-label,
-.nhsuk-c-list-panel__box--with-label {
+.nhsuk-list-panel__list--with-label,
+.nhsuk-list-panel__box--with-label {
   border-top: $nhsuk-border-list-panel solid $colour_nhsuk-blue;
   margin: -28px 0 0; /* [3] */
   padding: 27px 0 0; /* [3] */
@@ -62,13 +62,13 @@
 
 }
 
-.nhsuk-c-list-panel__list-item {
+.nhsuk-list-panel__list-item {
   background-color: $colour_nhsuk-white;
   list-style: none; /* [4] */
   margin-bottom: 0;
 }
 
-.nhsuk-c-list-panel__list-item-link {
+.nhsuk-list-panel__list-item-link {
   border-bottom: $nhsuk-border-list-panel-item solid $colour_nhsuk-grey-4;
   display: block;
   padding: 12px nhsuk-spacing(3);
@@ -94,17 +94,17 @@
 
 }
 
-.nhsuk-c-list-panel--results-items__no-results {
+.nhsuk-list-panel--results-items__no-results {
   border-bottom: $nhsuk-border-list-panel-item solid $colour_nhsuk-grey-4;
   color: $nhsuk-secondary-text-colour;
   margin: 0;
   padding: nhsuk-spacing(3);
 }
 
-.nhsuk-c-list-panel--mobile {
+.nhsuk-list-panel--mobile {
   @include remove-margin-mobile(); /* [8] */
 
-  .nhsuk-c-back-to-top__link {
+  .nhsuk-back-to-top__link {
 
     @include mq($until: tablet) {
       margin-left: nhsuk-spacing(3); /* [9] */
@@ -126,7 +126,7 @@
  * 6. 'Random numbers' used to position align icon.
  */
 
-.nhsuk-c-back-to-top__link {
+.nhsuk-back-to-top__link {
   @include nhsuk-typography-responsive(19);
 
   display: inline-block; /* [1] */

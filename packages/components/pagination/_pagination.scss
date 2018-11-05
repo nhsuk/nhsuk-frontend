@@ -9,20 +9,18 @@
  *    to understand in print context.
  */
 
-.nhsuk-c-pagination {
+.nhsuk-pagination {
   @include clearfix();
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
 
   a {
+    @include print-colour($nhsuk-print-text-colour);
+
     display: block;
     position: relative;
     text-decoration: none;
     width: 50%;
-
-    @include mq($media-type: print) {
-      color: $colour_nhsuk-black;
-    }
 
     .nhsuk-icon {
       position: absolute;
@@ -42,7 +40,7 @@
     &:hover {
       box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
 
-      .nhsuk-c-pagination-title {
+      .nhsuk-pagination-title {
         text-decoration: none;
       }
 
@@ -69,7 +67,7 @@
 
 }
 
-.nhsuk-c-pagination-prev {
+.nhsuk-pagination-prev {
   float: left;
   text-align: left;
 
@@ -77,13 +75,13 @@
     left: -6px;
   }
 
-  .nhsuk-c-pagination-link {
+  .nhsuk-pagination-link {
     padding-left: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-c-pagination-next {
+.nhsuk-pagination-next {
   float: right;
   text-align: right;
 
@@ -91,20 +89,20 @@
     right: -6px;
   }
 
-  .nhsuk-c-pagination-link {
+  .nhsuk-pagination-link {
     padding-right: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-c-pagination-title {
+.nhsuk-pagination-title {
   @include nhsuk-typography-responsive(16);
   display: block;
   text-decoration: underline;
 
 }
 
-.nhsuk-c-pagination-link {
+.nhsuk-pagination-link {
   @include nhsuk-typography-responsive(24);
   display: block;
 

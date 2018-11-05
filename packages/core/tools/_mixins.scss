@@ -157,7 +157,7 @@
 
 @mixin care-card($heading-background-color, $heading-text-colour, $print-border-size) {
 
-  .nhsuk-c-care-card__heading-container {
+  .nhsuk-care-card__heading-container {
     background-color: $heading-background-color;
     color: $heading-text-colour;
 
@@ -185,6 +185,14 @@
 
   @include mq($media-type: print) {
     color: $print-colour;
+    fill: $print-colour;
+
+    &:active,
+    &:focus,
+    &:visited {
+      color: $nhsuk-print-text-colour;
+    }
+
   }
 
 }

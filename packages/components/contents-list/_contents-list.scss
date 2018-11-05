@@ -7,16 +7,16 @@
  *    item using a ASCII number for the symbol.
 **/
 
-.nhsuk-c-contents-list {
+.nhsuk-contents-list {
   @include nhsuk-responsive-margin(7, 'bottom');
 }
 
-.nhsuk-c-contents-list__list {
+.nhsuk-contents-list__list {
   list-style: none;
   padding: 0;
 }
 
-.nhsuk-c-contents-list__item {
+.nhsuk-contents-list__item {
   padding: 0 0 0 nhsuk-spacing(5);
   position: relative;
 
@@ -30,10 +30,10 @@
 
 }
 
-.nhsuk-c-contents-list__link {
+.nhsuk-contents-list__link {
   display: inline-block;
 }
 
-.nhsuk-c-contents-list__current {
+.nhsuk-contents-list__current {
   font-weight: $nhsuk-font-bold;
 }
