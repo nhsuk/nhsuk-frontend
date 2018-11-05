@@ -1,12 +1,12 @@
-/* ==========================================================================
-   TOOLS / #LINKS
-   ========================================================================== */
+// ==========================================================================
+// TOOLS / #LINKS
+// ==========================================================================
 
-/**
- * Default link styling
- *
- * Usage: @include nhsuk-link-style-default;
- */
+//
+// Default link styling
+//
+// Usage: @include nhsuk-link-style-default;
+//
 
 @mixin nhsuk-link-style-default {
 
@@ -36,11 +36,11 @@
 
 }
 
-/**
- * Inverted link styling, used in the emergency alert banner.
- *
- * Usage: @include nhsuk-link-style-inverted;
- */
+//
+// Inverted link styling, used in the emergency alert banner.
+//
+// Usage: @include nhsuk-link-style-inverted;
+//
 
 @mixin nhsuk-link-style-inverted {
 
@@ -66,11 +66,11 @@
 
 }
 
-/**
- * White link styling, used in the footer.
- *
- * Usage: @include nhsuk-link-style-white;
- */
+//
+// White link styling, used in the footer.
+//
+// Usage: @include nhsuk-link-style-white;
+//
 
 @mixin nhsuk-link-style-white {
 
@@ -94,11 +94,11 @@
 
 }
 
-/*
- * Default link hover only styling
- *
- * Usage: @include nhsuk-link-style-hover;
- */
+//
+// Default link hover only styling
+//
+// Usage: @include nhsuk-link-style-hover;
+//
 
 @mixin nhsuk-link-style-hover {
   &:hover {
@@ -109,11 +109,11 @@
   }
 }
 
-/**
- * Default link focus only styling
- *
- * Usage: @include nhsuk-link-style-focus;
- */
+//
+// Default link focus only styling
+//
+// Usage: @include nhsuk-link-style-focus;
+//
 
 @mixin nhsuk-link-style-focus {
   &:focus {
