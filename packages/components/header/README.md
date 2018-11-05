@@ -44,24 +44,24 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
             <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
             <text aria-hidden="true">Search</text>
           </svg>
-          <span class="visually-hidden">Search</span>
+          <span class="nhsuk-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap">
           <form id="search" class="nhsuk-header__search-form" action="" method="get" role="search">
-            <label class="visually-hidden" for="search-field">Search the NHS website</label>
+            <label class="nhsuk-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
                 <text aria-hidden="true">Search</text>
               </svg>
-              <span class="visually-hidden">Search</span>
+              <span class="nhsuk-visually-hidden">Search</span>
             </button>
             <button class="nhsuk-search__close">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
               </svg>
-              <span class="visually-hidden">Close search</span>
+              <span class="nhsuk-visually-hidden">Close search</span>
             </button>
           </form>
         </div>
@@ -75,7 +75,7 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
-        <span class="visually-hidden">Close menu</span>
+        <span class="nhsuk-visually-hidden">Close menu</span>
       </button>
     </p>
     <ul class="nhsuk-header__navigation-list">
@@ -183,7 +183,7 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
-        <span class="visually-hidden">Close menu</span>
+        <span class="nhsuk-visually-hidden">Close menu</span>
       </button>
     </p>
     <ul class="nhsuk-header__navigation-list">
@@ -289,24 +289,24 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
             <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
             Search
           </svg>
-          <span class="visually-hidden">Search</span>
+          <span class="nhsuk-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap">
           <form id="search" class="nhsuk-header__search-form" action="" method="get" role="search">
-            <label class="visually-hidden" for="search-field">Search the NHS website</label>
+            <label class="nhsuk-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
                 Search
               </svg>
-              <span class="visually-hidden">Search</span>
+              <span class="nhsuk-visually-hidden">Search</span>
             </button>
             <button class="nhsuk-search__close">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
               </svg>
-              <span class="visually-hidden">Close search</span>
+              <span class="nhsuk-visually-hidden">Close search</span>
             </button>
           </form>
         </div>

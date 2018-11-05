@@ -8,9 +8,9 @@ Find out more about the care card component and when to use it in the [NHS digit
 
 ## 111 Care card HTML markup
 
-    <div class="nhsuk-care-card nhsuk-care-card--grey">
-      <div class="nhsuk-care-card__heading-container">
-        <h3 class="nhsuk-care-card__heading"><span class="visually-hidden">Non-urgent advice: </span>Call 111</h3>
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--grey">
+      <div class="nhsuk-c-care-card__heading-container">
+        <h3 class="nhsuk-c-care-card__heading"><span class="nhsuk-visually-hidden">Non-urgent advice: </span>Call 111</h3>
       </div>
       <div class="nhsuk-care-card__content">
         <p>If you can't speak to your GP and don't know what to do next.</p>
@@ -33,9 +33,9 @@ Find out more about the care card component and when to use it in the [NHS digit
 
 #### Markup
 
-    <div class="nhsuk-care-card">
-      <div class="nhsuk-care-card__heading-container">
-        <h3 class="nhsuk-care-card__heading"><span class="visually-hidden">Non-urgent care: </span>Speak to a GP if:</h3>
+    <div class="nhsuk-c-care-card">
+      <div class="nhsuk-c-care-card__heading-container">
+        <h3 class="nhsuk-c-care-card__heading"><span class="nhsuk-visually-hidden">Non-urgent care: </span>Speak to a GP if:</h3>
       </div>
       <div class="nhsuk-care-card__content">
         <ul>
@@ -72,9 +72,9 @@ Find out more about the care card component and when to use it in the [NHS digit
 
 #### Markup
 
-    <div class="nhsuk-care-card nhsuk-care-card--red">
-      <div class="nhsuk-care-card__heading-container">
-        <h3 class="nhsuk-care-card__heading"><span class="visually-hidden">Urgent care low: </span>Ask for an urgent GP appointment if:</h3>
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--red">
+      <div class="nhsuk-c-care-card__heading-container">
+        <h3 class="nhsuk-c-care-card__heading"><span class="nhsuk-visually-hidden">Urgent care low: </span>Ask for an urgent GP appointment if:</h3>
       </div>
       <div class="nhsuk-care-card__content">
         <ul>
@@ -110,9 +110,9 @@ Find out more about the care card component and when to use it in the [NHS digit
 
 #### Markup
 
-    <div class="nhsuk-care-card nhsuk-care-card--black">
-      <div class="nhsuk-care-card__heading-container">
-        <h3 class="nhsuk-care-card__heading"><span class="visually-hidden">Urgent care high: </span>Call 999 if you have sudden chest pain that:</h3>
+    <div class="nhsuk-c-care-card nhsuk-c-care-card--black">
+      <div class="nhsuk-c-care-card__heading-container">
+        <h3 class="nhsuk-c-care-card__heading"><span class="nhsuk-visually-hidden">Urgent care high: </span>Call 999 if you have sudden chest pain that:</h3>
       </div>
       <div class="nhsuk-care-card__content">
         <ul>

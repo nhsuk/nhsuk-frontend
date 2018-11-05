@@ -1,6 +1,6 @@
-<nav class="nhsuk-contents-list{%- if params.classes %} {{ params.classes }}{% endif %}"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} aria-label="Pages in this guide">
-  <h2 class="visually-hidden">Contents</h2>
-  <ol class="nhsuk-contents-list__list">
+<nav class="nhsuk-c-contents-list{%- if params.classes %} {{ params.classes }}{% endif %}"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} aria-label="Pages in this guide">
+  <h2 class="nhsuk-visually-hidden">Contents</h2>
+  <ol class="nhsuk-c-contents-list__list">
     {% for item in params.items %}
     <li class="nhsuk-contents-list__item">
       {% if item.current %}

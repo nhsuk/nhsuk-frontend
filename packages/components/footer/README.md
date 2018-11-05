@@ -21,7 +21,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
                   </g>
                   <image xlink:href="" src="/assets/logos/fallback/nhs-logo.png" width="99" height="40" role="presentation"/>
                 </svg>
-                <span class="visually-hidden">NHS homepage</span>
+                <span class="nhsuk-visually-hidden">NHS homepage</span>
               </a>
             </li>
             <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" class="nhsuk-footer__list-item-link"href="https://www.nhs.uk/Pages/nhs-sites.aspx">NHS sites</a></li>
