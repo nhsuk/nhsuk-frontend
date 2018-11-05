@@ -51,7 +51,7 @@
   @include mq($until: desktop) {
     margin-bottom: nhsuk-spacing(4);
 
-    > &:last-child {
+    &:last-child {
       margin-bottom: 0;
     }
 
