@@ -9,7 +9,7 @@ Find out more about the inset text component and when to use it in the [NHS digi
 ## HTML markup
 
     <div class="nhsuk-inset-text">
-      <span class="nhsuk-visually-hidden">Information: </span>
+      <span class="nhsuk-u-visually-hidden">Information: </span>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla/" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
 
