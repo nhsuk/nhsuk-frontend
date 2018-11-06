@@ -1,6 +1,6 @@
 
 # Component API definition and use
-We have chosen as Nunjucks as the templating language for GOV.UK Frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
+We have chosen as Nunjucks as the templating language for NHS.UK Frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
 
 To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and  if so they are documented accordingly.
 
@@ -12,9 +12,17 @@ When providing *content* to a macro, say for a label or a button, we accept two 
 
 Example:
 
-`{{ govukButton({"text": "Button text"}) }}`
+```
+{{ insetText({
+  "text": "You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+}) }}
+```
 
-`{{ govukButton({"html": "Button <span class='bold'>text</span>"}) }}`
+```
+{{ insetText({
+  "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
+}) }}
+```
 
 Example of implementing logic in a component template:
 
@@ -25,88 +33,59 @@ Example shows that if `html` and `text` arguments are present, then `html` takes
 ## Naming attributes
 We should use **camelCase** for naming attributes.
 
-If a component depends on another component, we group the attributes for the dependent component inside an object, where the name of the object is the name of the component using **camelCase** convention. In case of ambiguity we prefix the component name.
-
-Example of a component depending on another component
-```
-{{ govukLabel({
-	"text": "Label text",
-	"errorMessage": {
-		"text": "Error message"
-	}
-}) }}
-```
-
-Example of a component depending on two other components
-```
-{{ govukInput({
-	"name": "example-input",
-	"label": {
-		"text": "Label text"
-	},
-	"errorMessage": {
-		"text": "Error message"
-	}
-}) }}
-```
-
-## Mimic HTML attribute names
-When there is a need to specify html attributes, such as *checked, disabled, id, name*, etc, and they map directly, we use the same argument name. We use boolean value to check and render the attribute.
-
-Example:
-
-`{{ govukButton({"disabled": true}) }}`
-
-`{{ govukCheckbox({"checked": true}) }}`
-
-
-## Defining additional HTML attributes
-When there is a need to add additional attributes to the component, we accept an ***"attributes"*** object with key : value pairs for each attribute.
-
-You cannot use this to set attributes that are already defined, such as class – use the classes argument instead.
-
-Example:
-```
-{{ govukButton({
-	"attributes" : {
-	   "data-target" : "contact-by-text",
-	   "aria-labelledby": "error-summary-heading-example-1",
-	   "tabindex": "-1"
-	}
-}) }}
-```
-
 ## Specifying multiple items
 When a component accepts a *single array of items* for an output, such as checkboxes or radios, we accept an ***"items"*** array of objects.  Table component is an exception is it can contain multiple array for rows, head, footer where there is need to for more specific names.
 
 Example:
 ```
-{{ govukCheckbox({
-   "items": [
-   {
-      "value": "checkbox value",
-      "text": "Checkbox text"
+{{ listPanel({
+  items: [
+    {
+      URL: "/aaa",
+      link: "AAA"
     },
     {
-      "value": "checkbox value 2",
-      "text": "Checkbox text 2"
+      URL: "/abdominal",
+      link: "Abdominal aortic aneurysm"
+    },
+    {
+      URL: "/abscess",
+      link: "Abscess"
     }
   ]
 }) }}
 ```
 ## Use of classes to specify variants
-When a component has multiple visual presentations, such default button vs start button, we make use of classes argument to differentiate between them.
+When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.
 
-Default button example:
+Blue care card example:
 ```
-{{ govukButton({
-	"text" : "Continue"
+{{ careCard({
+  "class": "blue",
+  "heading": "Speak to a GP if:",
+  "HTML": "
+  <ul>
+    <li>you're not sure it's chickenpox</li>
+    <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+    <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+    <li>you're concerned about your child or they get worse</li>
+  </ul>
+  <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+  "
 }) }}
 ```
-Start button example:
+Red care card example:
 ```
-{{ govukButton({
-	"text" : "Start",
-	"classes" : "govuk-button--start"
+{{ careCard({
+  "class": "red",
+  "heading": "Ask for an urgent GP appointment if:",
+  "HTML": "
+  <ul>
+    <li>you're an adult and have chickenpox</li>
+    <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+    <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+    <li>you think your newborn baby has chickenpox</li>
+  </ul>
+  "
 }) }}
 ```
