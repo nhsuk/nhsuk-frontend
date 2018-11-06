@@ -74,9 +74,6 @@
  * 1. <a> needs to be white because the background colour is black.
  */
 
-.nhsuk-care-card--grey {
-  @include care-card($colour_nhsuk-grey-4, $colour_nhsuk-black, 2px);
-}
 
 .nhsuk-care-card--red {
   @include care-card($colour_nhsuk-red, $colour_nhsuk-white, 6px);

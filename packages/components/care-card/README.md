@@ -2,31 +2,6 @@
 
 Find out more about the care card component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
 
-## 111 Care card example
-
-[Preview the 111 care card component]()
-
-## 111 Care card HTML markup
-
-    <div class="nhsuk-care-card nhsuk-care-card--grey">
-      <div class="nhsuk-care-card__heading-container">
-        <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Call 111</h3>
-      </div>
-      <div class="nhsuk-care-card__content">
-        <p>If you can't speak to your GP and don't know what to do next.</p>
-      </div>
-    </div>
-
-## 111 Care card nunjucks macro
-
-    {% from 'components/care-card/macro.njk' import careCard %}
-
-    {{ careCard({
-      "class": "grey",
-      "heading": "Call 111",
-      "HTML": "<p>If you can't speak to your GP and don't know what to do next.</p>"
-    }) }}
-
 ## Primary Care card example
 
 [Preview the primary care card component]()
