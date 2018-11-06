@@ -16,11 +16,11 @@
 
 // sass-lint:disable no-important
 
-.nhsuk-\!-width-full {
+.nhsuk-u-width-full {
   width: 100% !important;
 }
 
-.nhsuk-\!-width-three-quarters {
+.nhsuk-u-width-three-quarters {
   width: 100% !important;
 
   @include mq($from: tablet) {
@@ -28,7 +28,7 @@
   }
 }
 
-.nhsuk-\!-width-two-thirds {
+.nhsuk-u-width-two-thirds {
   width: 100% !important;
 
   @include mq($from: tablet) {
@@ -36,7 +36,7 @@
   }
 }
 
-.nhsuk-\!-width-one-half {
+.nhsuk-u-width-one-half {
   width: 100% !important;
 
   @include mq($from: tablet) {
@@ -44,7 +44,7 @@
   }
 }
 
-.nhsuk-\!-width-one-third {
+.nhsuk-u-width-one-third {
   width: 100% !important;
 
   @include mq($from: tablet) {
@@ -52,7 +52,7 @@
   }
 }
 
-.nhsuk-\!-width-one-quarter {
+.nhsuk-u-width-one-quarter {
   width: 100% !important;
 
   @include mq($from: tablet) {

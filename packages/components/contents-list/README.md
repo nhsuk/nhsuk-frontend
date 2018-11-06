@@ -10,7 +10,7 @@ Find out more about the contents list component and when to use it in the [NHS d
 
 ```html
 <nav class="nhsuk-contents-list" aria-label="Pages in this guide">
-  <h2 class="visually-hidden">Contents</h2>
+  <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
     <li class="nhsuk-contents-list__item">
       <span class="nhsuk-contents-list__current" aria-current="page">What is AMD?</span>

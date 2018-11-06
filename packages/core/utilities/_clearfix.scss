@@ -6,10 +6,10 @@
  * Automatically clear an elements
  * child elements
  *
- * Usage: class="clear"
+ * Usage: class="nhsuk-u-clear"
  * See tools/mixins
  */
 
-.clear {
+.nhsuk-u-clear {
   @include clearfix();
 }

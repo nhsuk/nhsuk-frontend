@@ -24,13 +24,13 @@
 
 /**
  * Generate font weight override classes for normal and bold
- * eg .nhsuk-\!-font-weight-normal
+ * eg .nhsuk-u-font-weight-normal
  */
 
-.nhsuk-\!-font-weight-normal {
+.nhsuk-u-font-weight-normal {
   @include nhsuk-typography-weight-normal($important: true);
 }
 
-.nhsuk-\!-font-weight-bold {
+.nhsuk-u-font-weight-bold {
   @include nhsuk-typography-weight-bold($important: true);
 }
