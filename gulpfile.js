@@ -5,7 +5,6 @@ var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var del = require('del');
 
 // Read the package.json so that we can use its metadata such as package.version
 var package = require('./package.json');
