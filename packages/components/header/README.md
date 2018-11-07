@@ -33,13 +33,13 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       </a>
     </div>
 
-    <div class="nhsuk-header__content">
+    <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" aria-controls="nhsuk-header__navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="menu-toggle" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
       </div>
 
       <div class="nhsuk-header__search">
-        <button class="nhsuk-header__search-toggle" aria-controls="search" aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
             <text aria-hidden="true">Search</text>
@@ -57,7 +57,7 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
               </svg>
               <span class="visually-hidden">Search</span>
             </button>
-            <button class="nhsuk-search__close">
+            <button class="nhsuk-search__close" id="close-search">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
               </svg>
@@ -69,9 +69,9 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
     </div>
   </div>
 
-  <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
-    <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
-      <button class="nhsuk-header__navigation-close">
+  <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+    <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
+      <button class="nhsuk-header__navigation-close" id="close-menu">
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
@@ -170,16 +170,16 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       </a>
     </div>
 
-    <div class="nhsuk-header__content">
+    <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu nhsuk-header__menu--only">
-        <button class="nhsuk-header__menu-toggle" aria-controls="nhsuk-header__navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
       </div>
     </div>
   </div>
 
-  <nav class="nhsuk-header__navigation" id="nhsuk-header__navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="navigation-label">
-    <p class="nhsuk-header__navigation-title"><span id="navigation-label">Menu</span>
-      <button class="nhsuk-header__navigation-close">
+  <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+    <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
+      <button class="nhsuk-header__navigation-close" id="close-menu">
         <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
@@ -278,13 +278,13 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
       </a>
     </div>
 
-    <div class="nhsuk-header__content">
+    <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" aria-controls="nhsuk-header__navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="nhsuk-header__navigation" aria-label="Open menu">Menu</button>
       </div>
 
       <div class="nhsuk-header__search">
-        <button class="nhsuk-header__search-toggle" aria-controls="search" aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
             Search
@@ -302,7 +302,7 @@ Also, if using the autosuggestion functionality that the NHS.UK site uses then t
               </svg>
               <span class="visually-hidden">Search</span>
             </button>
-            <button class="nhsuk-search__close">
+            <button class="nhsuk-search__close" id="close-search">
               <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
               </svg>
