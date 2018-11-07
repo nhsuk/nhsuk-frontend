@@ -31,7 +31,7 @@ jobs:
 
     - stage: deploy
       name: publish to git releases
-      script: npm run build
+      script: npm run build-gh-release
       deploy:
         provider: releases
         api_key: $GITHUB_TOKEN

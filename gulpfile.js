@@ -21,7 +21,7 @@ require('./tasks/docs.js');
  * Remove all compiled files
  */
 function cleanDist() {
-  return gulp.src('dist')
+  return gulp.src('dist', { allowEmpty: true})
     .pipe(clean())
 }
 
@@ -102,7 +102,7 @@ function thirdPartyAssets() {
 }
 
 function createZip() {
-  return gulp.src(['dist/*.min.css', 'dist/*.min.js', 'dist/assets/**'])
+  return gulp.src(['dist/*.min.css', 'dist/*.min.js', 'dist/assets/**'], { base: 'dist' })
     .pipe(zip(`nhsuk-frontend-${package.version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -111,17 +111,24 @@ function createZip() {
  * Recompile CSS, JS and docs when there are any changes
  */
 var watch = function() {
-  gulp.watch(['packages/**/*', 'docs/**/*'], gulp.series(['bundle', 'docs:build']));
+  gulp.watch(['packages/**/*', 'docs/**/*'], gulp.series(['build', 'docs:build']));
 }
 
 
 gulp.task('clean', cleanDist);
 gulp.task('style', compileCSS);
-gulp.task('bundle', gulp.series([
+gulp.task('build', gulp.series([
   compileCSS,
-  minifyCSS,
   compileJS,
+]));
+gulp.task('bundle', gulp.series([
+  cleanDist,
+  'build',
+  minifyCSS,
   minifyJS,
+]))
+gulp.task('zip', gulp.series([
+  'bundle',
   assets,
   thirdPartyAssets,
   createZip
@@ -130,9 +137,10 @@ gulp.task('watch', watch);
 
 
 /**
- * The default task is to bundle everything, serve the docs and watch for changes
+ * The default task is to build everything, serve the docs and watch for changes
  */
 gulp.task('default', gulp.series([
-  'bundle',
+  cleanDist,
+  'build',
   gulp.parallel(['docs:serve', watch])
 ]));
