@@ -86,7 +86,10 @@ function minifyJS() {
  * Copy 3rd party assets into the dist directory
  */
 function thirdPartyAssets() {
-  return gulp.src('packages/core/assets/libraries/*.js')
+  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
+    .pipe(rename({
+      basename: 'jquery-3.3.1.min',
+    }))
     .pipe(gulp.dest('dist/'));
 }
 
