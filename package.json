@@ -16,6 +16,9 @@
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "jquery": "^3.3.1"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
