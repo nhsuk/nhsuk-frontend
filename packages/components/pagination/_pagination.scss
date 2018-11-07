@@ -9,67 +9,66 @@
  *    to understand in print context.
  */
 
-.nhsuk-c-pagination {
+.nhsuk-pagination {
   @include clearfix();
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
+}
 
-  a {
-    display: block;
-    position: relative;
-    text-decoration: none;
-    width: 50%;
+.nhsuk-pagination__link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 50%;
+
+  @include mq($media-type: print) {
+    color: $colour_nhsuk-black;
+  }
+
+  .nhsuk-icon {
+    position: absolute;
+    top: -2px;
 
     @include mq($media-type: print) {
       color: $colour_nhsuk-black;
+      margin-top: 0;
     }
+
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-colour;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
+
+    .nhsuk-pagination__page {
+      text-decoration: none;
+    }
+
+  }
+
+  &:hover,
+  &:focus {
 
     .nhsuk-icon {
-      position: absolute;
-      top: -2px;
-
-      @include mq($media-type: print) {
-        color: $colour_nhsuk-black;
-        margin-top: 0;
-      }
-
+      fill: $colour_nhsuk-black;
     }
 
-    &:focus {
-      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-colour;
-    }
+  }
 
-    &:hover {
-      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
+  &:visited {
 
-      .nhsuk-c-pagination-title {
-        text-decoration: none;
-      }
-
-    }
-
-    &:hover,
-    &:focus {
-
-      .nhsuk-icon {
-        fill: $colour_nhsuk-black;
-      }
-
-    }
-
-    &:visited {
-
-      .nhsuk-icon {
-        fill: $nhsuk-link-visited-colour;
-      }
-
+    .nhsuk-icon {
+      fill: $nhsuk-link-visited-colour;
     }
 
   }
 
 }
 
-.nhsuk-c-pagination-prev {
+.nhsuk-pagination__link--prev {
   float: left;
   text-align: left;
 
@@ -77,13 +76,13 @@
     left: -6px;
   }
 
-  .nhsuk-c-pagination-link {
+  .nhsuk-pagination__title {
     padding-left: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-c-pagination-next {
+.nhsuk-pagination__link--next {
   float: right;
   text-align: right;
 
@@ -91,20 +90,13 @@
     right: -6px;
   }
 
-  .nhsuk-c-pagination-link {
+  .nhsuk-pagination__title {
     padding-right: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-c-pagination-title {
-  @include nhsuk-typography-responsive(16);
-  display: block;
-  text-decoration: underline;
-
-}
-
-.nhsuk-c-pagination-link {
+.nhsuk-pagination__title {
   @include nhsuk-typography-responsive(24);
   display: block;
 
@@ -114,4 +106,10 @@
     }
   }
 
+}
+
+.nhsuk-pagination__page {
+  @include nhsuk-typography-responsive(16);
+  display: block;
+  text-decoration: underline;
 }
