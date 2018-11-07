@@ -9,4 +9,4 @@
 + [Coding standards](/docs/contributing/coding-standards/README.md)
 + Testing and linting; documentation to be completed.
 + Pipeline; documentation to be completed.
-+ Git workflow; documentation to be completed.
++ [Git workflow](/docs/contributing/git-style-guide.md)

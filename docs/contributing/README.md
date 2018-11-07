@@ -1,7 +1,5 @@
 # Contributing to NHS.UK Frontend
 
-### **This documentation is currently being tested** 
-
 ## Requirements
 
 To run NHS.UK Frontend locally you'll need to [set up git](https://help.github.com/articles/set-up-git/) and have [Node.js](https://nodejs.org/en/) installed.

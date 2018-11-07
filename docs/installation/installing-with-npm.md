@@ -50,27 +50,32 @@ You need to import styles into the main Sass file in your project. You should pl
 @import 'node_modules/nhsuk-frontend/nhsuk';
 ```
 
-[See an example in our NHS.UK Prototype Kit ]()
-
 ### Importing JavaScript
 
-Some of our components require JavaScript to function properly, others just improve the usability and accessibility of the components.
+Some of our components require JavaScript to function properly, others need JavaScript to improve the usability and accessibility.
 
-You should include or import NHS.UK Frontend JavaScript in your application to ensure that all users can use it successfully.
+You should include NHS.UK Frontend JavaScript in your application to ensure that all users can use it successfully.
 
-HTML should be parsed first by the browser before it is initialised. Because of this, make sure you include the script before the closing `</body>` tag. Including the script elsewhere will stop components from functioning or displaying correctly.
+Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of the page using the `defer` attribute. You might wish to copy the file into your project assets directory or reference it straight from `node_modules`.
 
-Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script on your page. You might wish to copy the file into your project or reference it from `node_modules`.
+#### jQuery dependency
+
+The search component autocomplete requires jQuery, please ensure you have jQuery included within you project for this to work. In the future we are looking to remove the
+jQuery dependency.
+
+> For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.
+
+#### Example
 
 ```html
-    <script src="node_modules/nhsuk-frontend/nhsuk.min.js"></script>
-  </body>
-</html>
+    <script src="/node_modules/nhsuk-frontend/nhsuk.min.js" defer></script>
+    <script src="/node_modules/nhsuk-frontend/assets/libraries/jquery-3.3.1.min.js"></script>
+  </head>
 ```
 
-### Importing assets
+### Importing Nunjucks macros (optional)
 
-### Include CSS and JavaScript
+## Example
 
 Add the CSS and JavaScript code to your HTML template:
 
@@ -78,14 +83,12 @@ Add the CSS and JavaScript code to your HTML template:
 <!DOCTYPE html>
   <head>
     <title>Example</title>
-    <link rel="stylesheet" href="assets/nhsuk.min.css">
+    <link rel="stylesheet" href="/node_modules/nhsuk-frontend/nhsuk.min.css">
+    <script src="/node_modules/nhsuk-frontend/nhsuk.min.js" defer></script>
+    <script src="/node_modules/nhsuk-frontend/assets/libraries/jquery-3.3.1.min.js"></script>
   </head>
   <body>
-    <!-- HTML -->
-    <script src="assets/nhsuk.min.js"></script>
+    <!-- Components -->
   </body>
 </html>
 ```
-
-If your service supports Internet Explorer 8, you will need to [generate and
-include a separate stylesheet](doc/contributing/supporting-internet-explorer-8.md) as well.
