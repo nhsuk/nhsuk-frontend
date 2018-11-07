@@ -62,13 +62,13 @@
 
 }
 
-.nhsuk-c-list-panel__list-item {
+.nhsuk-c-list-panel__item {
   background-color: $colour_nhsuk-white;
   list-style: none; /* [4] */
   margin-bottom: 0;
 }
 
-.nhsuk-c-list-panel__list-item-link {
+.nhsuk-c-list-panel__link {
   border-bottom: $nhsuk-border-list-panel-item solid $colour_nhsuk-grey-4;
   display: block;
   padding: 12px nhsuk-spacing(3);

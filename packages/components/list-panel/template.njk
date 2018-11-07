@@ -9,8 +9,8 @@
   {% else %}
   <ul class="nhsuk-c-list-panel__list {% if params.label %} nhsuk-c-list-panel__list--with-label {% endif %}">
     {% for item in params.items %}
-    <li class="nhsuk-c-list-panel__list-item">
-      <a href="{{ item.URL }}" class="nhsuk-c-list-panel__list-item-link">{{ item.link }}</a>
+    <li class="nhsuk-c-list-panel__item">
+      <a href="{{ item.URL }}" class="nhsuk-c-list-panel__link">{{ item.link }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -18,7 +18,7 @@
   {% if params.backTop %}
   {% else %}
   <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-c-a-z-nav">
+    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-nav-a-z">
       {% include 'assets/icons/icon-arrow-right.svg' %}
       Back to top
     </a>
