@@ -265,14 +265,14 @@
   }
 
   &:active,
-  &.active {
+  &.is-active {
     background-color: $colour_shade_nhsuk-blue-50;
     border-color: $colour_nhsuk-grey-5;
     box-shadow: none;
     color: $colour_nhsuk-grey-5;
   }
 
-  &.active {
+  &.is-active {
     &:focus {
       box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-colour;
     }
