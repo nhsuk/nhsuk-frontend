@@ -3,10 +3,10 @@
 (function() {
 
     var searchToggle = {
-      searchToggleButton: document.querySelector('.nhsuk-header__search-toggle'),
-      searchClose: document.querySelector('.nhsuk-search__close'),
-      searchContainer: document.querySelector('.nhsuk-header__search-wrap'),
-      menuSearchContainer: document.querySelector('.nhsuk-header__content'),
+      searchToggleButton: document.getElementById('toggle-search'),
+      searchClose: document.getElementById('close-search'),
+      searchContainer: document.getElementById('wrap-search'),
+      menuSearchContainer: document.getElementById('content-header'),
 
       doToggle: function(e) {
         e.preventDefault();
@@ -45,9 +45,9 @@
 (function() {
 
 	var menuToggle = {
-		menuToggleButton: document.querySelector('.nhsuk-header__menu-toggle'),
-		menuClose: document.querySelector('.nhsuk-header__navigation-close'),
-  	nav: document.querySelector('.nhsuk-header__navigation'),
+		menuToggleButton: document.getElementById('toggle-menu'),
+		menuClose: document.getElementById('close-menu'),
+  	nav: document.getElementById('header-navigation'),
 
 		doToggle: function(e) {
 			e.preventDefault();
