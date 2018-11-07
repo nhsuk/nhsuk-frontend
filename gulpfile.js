@@ -67,6 +67,21 @@ function compileJS() {
 }
 
 /**
+ * Minify all javascript and add a .min.css extension
+ */
+function minifyJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: `-${package.version}.min`
+    }))
+    .pipe(gulp.dest('dist/'))
+}
+
+/**
  * Copy 3rd party assets into the dist directory
  */
 function thirdPartyAssets() {
@@ -84,7 +99,7 @@ var watch = function() {
 
 gulp.task('clean', cleanDist);
 gulp.task('style', compileCSS);
-gulp.task('bundle', gulp.series([compileCSS, minifyCSS, compileJS, thirdPartyAssets]));
+gulp.task('bundle', gulp.series([compileCSS, minifyCSS, compileJS, minifyJS, thirdPartyAssets]));
 gulp.task('watch', watch);
 
 
