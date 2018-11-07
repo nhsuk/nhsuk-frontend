@@ -14,9 +14,11 @@
  */
 
 .nhsuk-action-link {
-  @include nhsuk-font(22);
   @include nhsuk-responsive-margin(6, 'bottom');
-  @include print-colour($nhsuk-print-text-colour);
+}
+
+.nhsuk-action-link__link {
+  @include nhsuk-font(22);
 
   display: inline-block; /* [1] */
   font-weight: $nhsuk-font-bold;
@@ -31,7 +33,7 @@
   &:focus {
     box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
 
-    span {
+    .nhsuk-action-link__text {
       text-decoration: underline;
     }
 
@@ -40,7 +42,7 @@
   &:hover {
     box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour; /* [5] */
 
-    span {
+    .nhsuk-action-link__text {
       text-decoration: underline; /* [6] */
     }
 
