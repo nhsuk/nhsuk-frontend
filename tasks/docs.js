@@ -50,6 +50,14 @@ function copyBuiltAssets() {
 }
 
 /**
+ * Copy logos, icons and other binary assets
+ */
+function copyBinaryAssets() {
+  return gulp.src('packages/assets/**/*')
+    .pipe(gulp.dest(config.dest + '/assets/'))
+}
+
+/**
  * Copy 3rd party dependencies
  */
 function copyThirdParty() {
@@ -77,5 +85,5 @@ function reload() {
 }
 
 
-gulp.task('docs:build', gulp.series(copyBuiltAssets, buildHtml, copyThirdParty, reload));
+gulp.task('docs:build', gulp.series(copyBuiltAssets, buildHtml, copyBinaryAssets, copyThirdParty, reload));
 gulp.task('docs:serve', gulp.series(['docs:build', serve]));
