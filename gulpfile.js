@@ -83,6 +83,14 @@ function minifyJS() {
 }
 
 /**
+ * Copy assets such as icons and images into the distribution
+ */
+function assets() {
+  return gulp.src('packages/assets/**')
+    .pipe(gulp.dest('dist/assets/'))
+}
+
+/**
  * Copy 3rd party assets into the dist directory
  */
 function thirdPartyAssets() {
@@ -94,7 +102,7 @@ function thirdPartyAssets() {
 }
 
 function createZip() {
-  return gulp.src(['dist/*.min.css', 'dist/*.min.js'])
+  return gulp.src(['dist/*.min.css', 'dist/*.min.js', 'dist/assets/**'])
     .pipe(zip(`nhsuk-frontend-${package.version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -109,7 +117,15 @@ var watch = function() {
 
 gulp.task('clean', cleanDist);
 gulp.task('style', compileCSS);
-gulp.task('bundle', gulp.series([compileCSS, minifyCSS, compileJS, minifyJS, thirdPartyAssets, createZip]));
+gulp.task('bundle', gulp.series([
+  compileCSS,
+  minifyCSS,
+  compileJS,
+  minifyJS,
+  assets,
+  thirdPartyAssets,
+  createZip
+]));
 gulp.task('watch', watch);
 
 
