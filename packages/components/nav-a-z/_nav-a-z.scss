@@ -47,15 +47,15 @@
 }
 
 .nhsuk-nav-a-z__link--disabled {
-  color: $nhsuk-secondary-text-colour;
+  color: $nhsuk-secondary-text-color;
   margin-bottom: 0;
 }
 
 .nhsuk-nav-a-z__link {
 
   &.active {
-    background-color: $colour_nhsuk-blue;
-    color: $colour_nhsuk-white;
+    background-color: $color_nhsuk-blue;
+    color: $color_nhsuk-white;
   }
 
 }

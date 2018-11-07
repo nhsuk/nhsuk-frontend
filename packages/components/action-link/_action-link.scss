@@ -28,16 +28,16 @@
   }
 
   @include mq($media-type: print) {
-    color: $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-color;
 
     &:visited {
-      color: $nhsuk-print-text-colour;
+      color: $nhsuk-print-text-color;
     }
   }
 
 
   &:focus {
-    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
+    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-color; /* [5] */
 
     span {
       text-decoration: underline;
@@ -46,7 +46,7 @@
   }
 
   &:hover {
-    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour; /* [5] */
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-color; /* [5] */
 
     span {
       text-decoration: underline; /* [6] */
@@ -55,7 +55,7 @@
   }
 
   .nhsuk-icon__arrow-right-circle {
-    fill: $colour_nhsuk-green;
+    fill: $color_nhsuk-green;
     height: 40px;
     left: -3px;
     position: absolute;
@@ -70,7 +70,7 @@
     }
 
     @include mq($media-type: print) {
-      fill: $nhsuk-print-text-colour;
+      fill: $nhsuk-print-text-color;
     }
 
   }

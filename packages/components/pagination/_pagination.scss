@@ -22,7 +22,7 @@
   width: 50%;
 
   @include mq($media-type: print) {
-    color: $colour_nhsuk-black;
+    color: $color_nhsuk-black;
   }
 
   .nhsuk-icon {
@@ -30,18 +30,18 @@
     top: -2px;
 
     @include mq($media-type: print) {
-      color: $colour_nhsuk-black;
+      color: $color_nhsuk-black;
       margin-top: 0;
     }
 
   }
 
   &:focus {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-colour;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
   }
 
   &:hover {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
 
     .nhsuk-pagination__page {
       text-decoration: none;
@@ -53,7 +53,7 @@
   &:focus {
 
     .nhsuk-icon {
-      fill: $colour_nhsuk-black;
+      fill: $color_nhsuk-black;
     }
 
   }
@@ -61,7 +61,7 @@
   &:visited {
 
     .nhsuk-icon {
-      fill: $nhsuk-link-visited-colour;
+      fill: $nhsuk-link-visited-color;
     }
 
   }
