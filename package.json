@@ -8,10 +8,10 @@
     "build": "gulp bundle",
     "start": "gulp",
     "test": "npm run lint-css",
-    "lint-css": "./node_modules/.bin/sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "bundle": "npm run build & gulp bundle",
-    "backstop:ref": "./node_modules/backstopjs/cli/index.js reference --config=tests/backstop/backstop.json",
-    "backstop:test": "./node_modules/backstopjs/cli/index.js test --config=tests/backstop/backstop.json",
+    "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
+    "backstop:test": "backstop test --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build"
   },
