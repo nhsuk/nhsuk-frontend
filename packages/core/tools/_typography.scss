@@ -19,11 +19,11 @@
 
 // sass-lint:disable no-important, no-duplicate-properties
 
-@mixin nhsuk-text-colour {
-  color: $nhsuk-text-colour;
+@mixin nhsuk-text-color {
+  color: $nhsuk-text-color;
 
   @include govuk-media-query($media-type: print) {
-    color: $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-color;
   }
 }
 

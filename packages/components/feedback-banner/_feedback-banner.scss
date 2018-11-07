@@ -13,7 +13,7 @@
  */
 
 .nhsuk-c-feedback-banner {
-  background-color: $colour_nhsuk-white;
+  background-color: $color_nhsuk-white;
   bottom: 0;
   box-shadow: 0 -4px 0 0 $nhsuk-box-shadow;
   display: none; // [1] //
@@ -60,7 +60,7 @@
 
   background: none;
   border: 0;
-  color: $colour_nhsuk-black;
+  color: $color_nhsuk-black;
   cursor: pointer; // [6] //
   padding: 0;
   position: absolute;

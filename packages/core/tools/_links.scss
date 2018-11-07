@@ -10,28 +10,28 @@
 
 @mixin nhsuk-link-style-default {
 
-  color: $nhsuk-link-colour;
+  color: $nhsuk-link-color;
 
   &:visited {
-    color: $nhsuk-link-visited-colour;
+    color: $nhsuk-link-visited-color;
   }
 
   &:focus {
-    background-color: $nhsuk-link-focus-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-    color: $nhsuk-link-focus-colour;
+    background-color: $nhsuk-link-focus-background-color;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
+    color: $nhsuk-link-focus-color;
     outline: 0;
   }
 
   &:hover {
-    background-color: $nhsuk-link-hover-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    color: $nhsuk-link-hover-colour;
+    background-color: $nhsuk-link-hover-background-color;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
+    color: $nhsuk-link-hover-color;
     text-decoration: none;
   }
 
   &:active {
-    color: $nhsuk-link-active-colour;
+    color: $nhsuk-link-active-color;
   }
 
 }
@@ -44,24 +44,24 @@
 
 @mixin nhsuk-link-style-inverted {
 
-  color: $nhsuk-link-colour;
+  color: $nhsuk-link-color;
 
   &:focus {
-    background-color: $colour_shade_nhsuk-blue-35;
-    box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-    color: $colour_nhsuk-white;
+    background-color: $color_shade_nhsuk-blue-35;
+    box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
+    color: $color_nhsuk-white;
   }
 
   &:hover {
-    background-color: $colour_nhsuk-blue;
-    box-shadow: 0 0 0 4px $colour_nhsuk-blue;
-    color: $colour_nhsuk-white;
+    background-color: $color_nhsuk-blue;
+    box-shadow: 0 0 0 4px $color_nhsuk-blue;
+    color: $color_nhsuk-white;
   }
 
   &:active {
-    background-color: $colour_shade_nhsuk-blue-50;
-    box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
-    color: $colour_nhsuk-white;
+    background-color: $color_shade_nhsuk-blue-50;
+    box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
+    color: $color_nhsuk-white;
   }
 
 }
@@ -74,22 +74,22 @@
 
 @mixin nhsuk-link-style-white {
 
-  color: $colour_nhsuk-white;
+  color: $color_nhsuk-white;
 
   &:visited {
-    color: $colour_nhsuk-grey-5;
+    color: $color_nhsuk-grey-5;
   }
 
   &:focus {
-    color: $nhsuk-link-focus-colour;
+    color: $nhsuk-link-focus-color;
   }
 
   &:hover {
-    color: $nhsuk-link-hover-colour;
+    color: $nhsuk-link-hover-color;
   }
 
   &:active {
-    color: $nhsuk-link-active-colour;
+    color: $nhsuk-link-active-color;
   }
 
 }
@@ -102,9 +102,9 @@
 
 @mixin nhsuk-link-style-hover {
   &:hover {
-    background-color: $nhsuk-link-hover-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-colour;
-    color: $nhsuk-link-hover-colour;
+    background-color: $nhsuk-link-hover-background-color;
+    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
+    color: $nhsuk-link-hover-color;
     text-decoration: none;
   }
 }
@@ -117,9 +117,9 @@
 
 @mixin nhsuk-link-style-focus {
   &:focus {
-    background-color: $nhsuk-link-focus-background-colour;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-colour;
-    color: $nhsuk-link-focus-colour;
+    background-color: $nhsuk-link-focus-background-color;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
+    color: $nhsuk-link-focus-color;
     outline: 0;
   }
 }
