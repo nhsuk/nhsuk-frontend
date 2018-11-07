@@ -17,7 +17,7 @@ jobs:
     - stage: tests
       script: npm test
 
-    - stage: deploy
+    - stage: master
       name: github pages
       script: npm run build-gh-pages
       deploy:
@@ -26,10 +26,8 @@ jobs:
         skip-cleanup: true
         github-token: $GITHUB_TOKEN
         keep-history: true
-        on:
-          branch: master
 
-    - stage: deploy
+    - stage: tag
       name: publish to git releases
       script: npm run build-gh-release
       deploy:
@@ -38,7 +36,6 @@ jobs:
         file_glob: true
         file: ./dist/nhsuk-frontend-*.zip
         skip_cleanup: true
-        on:
-          tags: true
+
 notifications:
   slack: nhsuk:$SLACK_TOKEN#frontend
