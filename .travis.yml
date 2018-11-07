@@ -20,3 +20,14 @@ jobs:
         keep-history: true
         on:
           branch: master
+
+    - stage: publish to git releases
+      script: npm run build
+      deploy:
+        provider: releases
+        api_key: $GITHUB_TOKEN
+        file_glob: true
+        file: ./dist/nhsuk-frontend-*.zip
+        skip_cleanup: true
+        on:
+          tags: true
