@@ -8,22 +8,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+
+    <title>NHS.UK Frontend - {{ title }}</title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk.min.css">
+
+    <script src="/nhsuk.min.js" defer></script>
+    <script src="/assets/libraries/jquery-3.3.1.min.js"></script>
 
     <!--[if IE]><link rel="shortcut icon" href="/assets/favicons/favicon.ico"><![endif]-->
     <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
     <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
     <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
     <link rel="icon" href="/assets/favicons/favicon.png">
-
-    <title>NHS.UK Frontend - {{ title }}</title>
-
-    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
-    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/">
-
-    <link rel="stylesheet" href="/nhsuk.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
 
   <body class="{{ body_class }}">
@@ -34,7 +36,5 @@
       {% block body %}{% endblock %}
 
       {% block footer %}{% endblock %}
-
-    <script src="/nhsuk.min.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@
 
 /**
  * 1. Clearfix added to the A-Z nav to clear float: left;
- *    on the .nhsuk-nav-a-z__item.
+ *    on the .nhsuk-a-z-nav__list-item.
  * 2. Used to wrap the list items.
  * 3. Removes bullets from list item..
  * 4. Gives equal spacing around each list item.
@@ -14,9 +14,7 @@
 .nhsuk-nav-a-z {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
-
   @include print-hide();
-
 }
 
 .nhsuk-nav-a-z__list {

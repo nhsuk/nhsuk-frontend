@@ -1,35 +1,34 @@
-# NHS.UK frontend (IN DEVELOPMENT)
+# NHS.UK Frontend
 
-NHS.UK frontend contains all the code you need to start building user interfaces for NHS websites and services.
+NHS.UK Frontend contains all the code you need to start building user interfaces for NHS websites and services.
 
-## Using NHS.UK frontend
+You can see examples of components, and guidance on when to use them, in the [NHS digital service manual](https://beta.nhs.uk/service-manual).
+
+## Using NHS.UK Frontend
+
+There are 2 ways you can start using NHS.UK Frontend in your websites and services.
 
 ### 1. Install with package managers (recommended)
 
-+ npm; documentation to be completed.
-+ PyPi; documentation to be completed.
+We recommend installing NHS.UK Frontend via package managers; node package manager (npm), yarn, or the Python Package Index (PyPi). 
+
++ [Installing using npm](/docs/installation/installing-with-npm.md)
++ [Installing using yarn](/docs/installation/installing-with-yarn.md)
++ [Installing using PyPi](/docs/installation/installing-with-pypi.md)
 
 ### 2. Install by using compiled files
 
-+ Documentation to be completed.
+If you are not using one of the above package managers, you can install by using our compiled files.
+
++ [Installing using compiled files](/docs/installation/installing-compiled.md)
 
 ## Contributing
 
-### Installation
+Please see our [contributing guidelines](/docs/contributing/README.md) on how to set up the project locally and contribute changes to NHS.UK Frontend.
 
-You will need Node.js to run the application, install the long-term support (LTS) version of <a href="https://nodejs.org/en/">Node.js</a>, which also includes <a href="https://www.npmjs.com/">npm</a>.
+## Get in touch 
 
-Clone this repository: `git clone https://github.com/nhsuk/nhsuk-frontend.git nhsuk-frontend` and whilst in the project directory `cd nhsuk-frontend`, install the required dependencies with `npm install`. 
-
-Once the dependencies have installed, you can run the application with `npm run watch`, then the application will be available at <a href="http://localhost:3000">http://localhost:3000</a>.
-
-### Getting started
-
-+ Folder structure; documentation to be completed
-+ Coding standards; documentation to be completed
-+ Tooling; documentation to be completed
-+ [Testing](/docs/contributing/testing.md)
-+ Workflow; documentation to be completed
+NHS.UK Frontend is actively maintained by a team at NHS Digital, you can contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [send us an email](mailto:nhsdigital.nhsuk-frontend@nhs.net).
 
 ## Licence
 

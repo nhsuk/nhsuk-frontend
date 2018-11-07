@@ -8,8 +8,8 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ## HTML markup
 
-    <div class="nhsuk-c-warning-callout">
-      <h3 class="nhsuk-c-warning-callout__heading-tab">Important</h3>
+    <div class="nhsuk-warning-callout">
+      <h3 class="nhsuk-warning-callout__heading-tab">Important</h3>
       <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
     </div>
 

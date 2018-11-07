@@ -9,23 +9,23 @@ Find out more about the contents list component and when to use it in the [NHS d
 ## HTML markup
 
 ```html
-<nav class="nhsuk-c-contents-list" aria-label="Pages in this guide">
-  <h2 class="visually-hidden">Contents</h2>
-  <ol class="nhsuk-c-contents-list__list">
-    <li class="nhsuk-c-contents-list__item">
-      <span class="nhsuk-c-contents-list__current" aria-current="page">What is AMD?</span>
+<nav class="nhsuk-contents-list" aria-label="Pages in this guide">
+  <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+  <ol class="nhsuk-contents-list__list">
+    <li class="nhsuk-contents-list__item">
+      <span class="nhsuk-contents-list__current" aria-current="page">What is AMD?</span>
     </li>
-    <li class="nhsuk-c-contents-list__item">
-      <a class="nhsuk-c-contents-list__link" href="https://www.nhs.uk">Symptoms</a>
+    <li class="nhsuk-contents-list__item">
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk">Symptoms</a>
     </li>
-    <li class="nhsuk-c-contents-list__item">
-      <a class="nhsuk-c-contents-list__link" href="https://www.nhs.uk">Getting diagnosed</a>
+    <li class="nhsuk-contents-list__item">
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk">Getting diagnosed</a>
     </li>
-    <li class="nhsuk-c-contents-list__item">
-      <a class="nhsuk-c-contents-list__link" href="https://www.nhs.uk">Treatments</a>
+    <li class="nhsuk-contents-list__item">
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk">Treatments</a>
     </li>
-    <li class="nhsuk-c-contents-list__item">
-      <a class="nhsuk-c-contents-list__link" href="https://www.nhs.uk">Living with AMD</a>
+    <li class="nhsuk-contents-list__item">
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk">Living with AMD</a>
     </li>
   </ol>
 </nav>

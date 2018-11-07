@@ -18,14 +18,14 @@
  *    differentiates care cards from the rest of the content.
  */
 
-.nhsuk-c-care-card {
+.nhsuk-care-card {
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
   @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); /* [1] */
   border: 1px solid transparent; /* [6] */
 }
 
-.nhsuk-c-care-card__heading-container {
+.nhsuk-care-card__heading-container {
   padding: nhsuk-spacing(3) nhsuk-spacing(4);
   position: relative;
 
@@ -46,14 +46,14 @@
 
 }
 
-.nhsuk-c-care-card__heading {
+.nhsuk-care-card__heading {
   @include nhsuk-font(24, $weight: bold);
   @include print-color($nhsuk-print-text-color);
 
   margin: 0;
 }
 
-.nhsuk-c-care-card__content {
+.nhsuk-care-card__content {
   @include top-and-bottom();
 
   background-color: $color_nhsuk-white;
@@ -74,18 +74,14 @@
  * 1. <a> needs to be white because the background colour is black.
  */
 
-.nhsuk-c-care-card--grey {
-  @include care-card($color_nhsuk-grey-4, $color_nhsuk-black, 2px);
-}
-
-.nhsuk-c-care-card--red {
+.nhsuk-care-card--red {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 }
 
-.nhsuk-c-care-card--black {
+.nhsuk-care-card--black {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
-  .nhsuk-c-care-card__content {
+  .nhsuk-care-card__content {
     background-color: $color_nhsuk-black;
     color: $color_nhsuk-white;
 

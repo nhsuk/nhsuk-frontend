@@ -5,6 +5,9 @@
         {% include 'assets/logos/logo-nhs.svg' %}
       </a>
     </div>
+  {% if params.showNav == "false" and params.showSearch == "false" %}
+  </div>
+  {% endif %}
 
     {% if params.showNav == "true" and params.primaryLinks and params.showSearch == "true" %}
 
@@ -17,19 +20,19 @@
         <div class="nhsuk-header__search">
           <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
             {% include 'assets/icons/icon-search.svg' %}
-            <span class="visually-hidden">Search</span>
+            <span class="nhsuk-u-visually-hidden">Search</span>
           </button>
           <div class="nhsuk-header__search-wrap" id="wrap-search">
             <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
-              <label class="visually-hidden" for="search-field">Search the NHS website</label>
+              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
               <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
               <button type="submit" class="nhsuk-search__submit">
                 {% include 'assets/icons/icon-search.svg' %}
-                <span class="visually-hidden">Search</span>
+                <span class="nhsuk-u-visually-hidden">Search</span>
               </button>
               <button class="nhsuk-search__close" id="close-search">
                 {% include 'assets/icons/icon-close.svg' %}
-                <span class="visually-hidden">Close search</span>
+                <span class="nhsuk-u-visually-hidden">Close search</span>
               </button>
             </form>
           </div>
@@ -43,7 +46,7 @@
       <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
         <button class="nhsuk-header__navigation-close" id="close-menu">
           {% include 'assets/icons/icon-close.svg' %}
-          <span class="visually-hidden">Close menu</span>
+          <span class="nhsuk-u-visually-hidden">Close menu</span>
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
@@ -63,19 +66,19 @@
         <div class="nhsuk-header__search">
           <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
             {% include 'assets/icons/icon-search.svg' %}
-            <span class="visually-hidden">Search</span>
+            <span class="nhsuk-u-visually-hidden">Search</span>
           </button>
           <div class="nhsuk-header__search-wrap" id="wrap-search">
             <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
-              <label class="visually-hidden" for="search-field">Search the NHS website</label>
+              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
               <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
               <button type="submit" class="nhsuk-search__submit">
                 {% include 'assets/icons/icon-search.svg' %}
-                <span class="visually-hidden">Search</span>
+                <span class="nhsuk-u-visually-hidden">Search</span>
               </button>
               <button class="nhsuk-search__close" id="close-search">
                 {% include 'assets/icons/icon-close.svg' %}
-                <span class="visually-hidden">Close search</span>
+                <span class="nhsuk-u-visually-hidden">Close search</span>
               </button>
             </form>
           </div>
@@ -99,7 +102,7 @@
       <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
         <button class="nhsuk-header__navigation-close" id="close-menu">
           {% include 'assets/icons/icon-close.svg' %}
-          <span class="visually-hidden">Close menu</span>
+          <span class="nhsuk-u-visually-hidden">Close menu</span>
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">

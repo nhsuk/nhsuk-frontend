@@ -119,12 +119,6 @@
   }) }}
 
   {{ careCard({
-    "class": "grey",
-    "heading": "Call 111",
-    "HTML": "<p>If you can't speak to your GP and don't know what to do next.</p>"
-  }) }}
-
-  {{ careCard({
     "class": "blue",
     "heading": "Speak to a GP if:",
     "HTML": "
@@ -169,21 +163,21 @@
     "nextReview": "1 February 2019"
   }) }}
 
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
+  {{ image({
+    "alt": "Picture of allergic conjunctivitis",
+    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "caption": "Itchy, red, watering eyes"
+  }) }}
+
   {{ actionLink({
     "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
-    "heading": "Find a minor injuries unit"
-  }) }}
-
-  {{ image({
-    "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-    "caption": "Itchy, red, watering eyes"
-  }) }}
-
-  {{ image({
-    "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-    "caption": "Itchy, red, watering eyes"
+    "text": "Find a minor injuries unit"
   }) }}
 
   {{ details({
@@ -203,7 +197,7 @@
   }) }}
 
   {{ details({
-    "class": "nhsuk-c-expander",
+    "class": "nhsuk-expander",
     "heading": "Opening times",
     "HTML": "
     <table>
@@ -244,9 +238,9 @@
     </table>"
   }) }}
 
-  <div class="nhsuk-c-expander-group">
+  <div class="nhsuk-expander-group">
     {{ details({
-      "class": "nhsuk-c-expander",
+      "class": "nhsuk-expander",
       "heading": "How to measure your blood glucose levels",
       "HTML": "
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -260,7 +254,7 @@
       "
     }) }}
     {{ details({
-      "class": "nhsuk-c-expander",
+      "class": "nhsuk-expander",
       "heading": "When to check your blood glucose level",
       "HTML": "
       <p>Try to check your blood:</p>
@@ -288,26 +282,26 @@
     "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  <div class="nhsuk-grid-row nhsuk-c-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+  <div class="nhsuk-grid-row nhsuk-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
         "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
         "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>
 
-  <div class="nhsuk-grid-row nhsuk-c-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+  <div class="nhsuk-grid-row nhsuk-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
         "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
         "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
@@ -339,8 +333,8 @@
     "heading": "Save a life: give blood"
   }) }}
 
-  <div class="nhsuk-grid-row nhsuk-c-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
         "href": "#",
         "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
@@ -348,7 +342,7 @@
         "description": "Please register today. Donating blood is easy, and saves lives."
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
         "href": "#",
         "imgURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png",
@@ -358,55 +352,57 @@
     </div>
   </div>
 
-  <div class="nhsuk-grid-row nhsuk-c-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
-        "classes": "nhsuk-c-promo--small",
+        "classes": "nhsuk-promo--small",
         "href": "#",
         "heading": "Save a life: give blood"
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-c-promo-group__item">
+    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
-        "classes": "nhsuk-c-promo--small",
+        "classes": "nhsuk-promo--small",
         "href": "#",
         "heading": "Save a life: give blood"
       }) }}
     </div>
   </div>
 
-  {% set doItems = [
+  {{ list({
+    "title": "Do",
+    "type": "tick",
+    "items": [
       {
-        "item"  : "cover blisters that are likely to burst with a soft plaster or dressing"
+        "item": "cover blisters that are likely to burst with a soft plaster or dressing"
       },
       {
-        "item"  : "wash your hands before touching a burst blister"
+        "item": "wash your hands before touching a burst blister"
       },
       {
-        "item"  : "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+        "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
       }
     ]
-  %}
+  }) }}
 
-  {{ list("Do", "tick", doItems) }}
-
-  {% set dontItems = [
+  {{ list({
+    "title": "Don't",
+    "type": "cross",
+    "items": [
       {
-        "item"  : "burst a blister yourself"
+        "item": "burst a blister yourself"
       },
       {
-        "item"  : "peel the skin off a burst blister"
+        "item": "peel the skin off a burst blister"
       },
       {
-        "item"  : "pick at the edges of the remaining skin"
+        "item": "pick at the edges of the remaining skin"
       },
       {
-        "item"  : "wear the shoes or use the equipment that caused your blister until it heals"
+        "item": "wear the shoes or use the equipment that caused your blister until it heals"
       }
     ]
-  %}
-
-  {{ list("Don't", "cross", dontItems) }}
+  }) }}
 
   <table>
   <caption>Skin symptoms and possible causes</caption>
@@ -661,41 +657,38 @@
 {% endblock %}
 
 {% block footer %}
-  {% set primaryLinks = [
-    {
-      'URL'  : 'https://www.nhs.uk/Pages/nhs-sites.aspx',
-      'label' : 'NHS sites'
-    },
-    {
-      'URL' : 'https://www.nhs.uk/about-us',
-      'label' : 'About us'
-    },
-    {
-      'URL'  : 'https://www.nhs.uk/Pages/contact-us.aspx',
-      'label' : 'Contact us'
-    },
-    {
-      'URL'  : 'https://www.nhs.uk/Personalisation/Login.aspx',
-      'label' : 'Profile editor login'
-    }
-  ]
-  %}
-
-  {% set secondaryLinks = [
+  {{ footer({
+    "primaryLinks": [
       {
-        'URL'  : 'https://www.nhs.uk/choices/pages/sitemap.aspx',
-        'label' : 'Sitemap'
+        "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+        "label": "NHS sites"
       },
       {
-        'URL' : 'https://www.nhs.uk/accessibility/',
-        'label' : 'Accessibility'
+        "URL": "https://www.nhs.uk/about-us",
+        "label": "About us"
       },
       {
-        'URL'  : 'https://www.nhs.uk/our-policies/',
-        'label' : 'Our policies'
+        "URL": "https://www.nhs.uk/contact-us/",
+        "label": "Contact us"
+      },
+      {
+        "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
+        "label": "Profile editor login"
+      }
+    ],
+    "secondaryLinks": [
+      {
+        "URL": "https://www.nhs.uk/about-us/sitemap/",
+        "label": "Sitemap"
+      },
+      {
+        'URL': 'https://www.nhs.uk/accessibility/',
+        'label': 'Accessibility'
+      },
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
       }
     ]
-  %}
-
-  {{ footer(primaryLinks, secondaryLinks) }}
+  })}}
 {% endblock %}

@@ -1,24 +1,24 @@
-<div class="nhsuk-c-list-panel nhsuk-c-list-panel--mobile">
+<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
   {% if params.label %}
-  <h2 id="{{ params.id }}" class="nhsuk-c-list-panel__label">{{ params.label }}</h2>
+  <h2 id="{{ params.id }}" class="nhsuk-list-panel__label">{{ params.label }}</h2>
   {% endif %}
   {% if params.disable %}
-  <div class="nhsuk-c-list-panel__box {% if params.label %} nhsuk-c-list-panel__box--with-label {% endif %}">
-    <p class="nhsuk-c-list-panel--results-items__no-results">{{ params.message }}</p>
+  <div class="nhsuk-list-panel__box {% if params.label %} nhsuk-list-panel__box--with-label {% endif %}">
+    <p class="nhsuk-list-panel--results-items__no-results">{{ params.message }}</p>
   </div>
   {% else %}
-  <ul class="nhsuk-c-list-panel__list {% if params.label %} nhsuk-c-list-panel__list--with-label {% endif %}">
+  <ul class="nhsuk-list-panel__list {% if params.label %} nhsuk-list-panel__list--with-label {% endif %}">
     {% for item in params.items %}
-    <li class="nhsuk-c-list-panel__item">
-      <a href="{{ item.URL }}" class="nhsuk-c-list-panel__link">{{ item.link }}</a>
+    <li class="nhsuk-list-panel__item">
+      <a href="{{ item.URL }}" class="nhsuk-list-panel__link">{{ item.link }}</a>
     </li>
     {% endfor %}
   </ul>
   {% endif %}
   {% if params.backTop %}
   {% else %}
-  <div class="nhsuk-c-back-to-top">
-    <a class="nhsuk-c-back-to-top__link" href="#nhsuk-nav-a-z">
+  <div class="nhsuk-back-to-top">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
       {% include 'assets/icons/icon-arrow-right.svg' %}
       Back to top
     </a>
