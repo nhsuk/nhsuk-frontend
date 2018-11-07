@@ -3,14 +3,14 @@
   <h2 id="{{ params.id }}" class="nhsuk-list-panel__label">{{ params.label }}</h2>
   {% endif %}
   {% if params.disable %}
-  <div class="nhsuk-list-panel__box {% if params.label %} nhsuk-list-panel__box--with-label {% endif %}">
+  <div class="nhsuk-list-panel__box{% if params.label %} nhsuk-list-panel__box--with-label {% endif %}">
     <p class="nhsuk-list-panel--results-items__no-results">{{ params.message }}</p>
   </div>
   {% else %}
-  <ul class="nhsuk-list-panel__list {% if params.label %} nhsuk-list-panel__list--with-label {% endif %}">
+  <ul class="nhsuk-list-panel__list{% if params.label %} nhsuk-list-panel__list--with-label {% endif %}">
     {% for item in params.items %}
-    <li class="nhsuk-list-panel__list-item">
-      <a href="{{ item.URL }}" class="nhsuk-list-panel__list-item-link">{{ item.link }}</a>
+    <li class="nhsuk-list-panel__item">
+      <a href="{{ item.URL }}" class="nhsuk-list-panel__link">{{ item.link }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -18,7 +18,7 @@
   {% if params.backTop %}
   {% else %}
   <div class="nhsuk-back-to-top">
-    <a class="nhsuk-back-to-top__link" href="#nhsuk-a-z-nav">
+    <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
       {% include 'assets/icons/icon-arrow-right.svg' %}
       Back to top
     </a>

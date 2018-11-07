@@ -13,61 +13,62 @@
   @include clearfix();
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
+}
 
-  a {
-    @include print-colour($nhsuk-print-text-colour);
+.nhsuk-pagination__link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 50%;
 
-    display: block;
-    position: relative;
-    text-decoration: none;
-    width: 50%;
+  @include mq($media-type: print) {
+    color: $color_nhsuk-black;
+  }
+
+  .nhsuk-icon {
+    position: absolute;
+    top: -2px;
+
+    @include mq($media-type: print) {
+      color: $color_nhsuk-black;
+      margin-top: 0;
+    }
+
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
+
+    .nhsuk-pagination__page {
+      text-decoration: none;
+    }
+
+  }
+
+  &:hover,
+  &:focus {
 
     .nhsuk-icon {
-      position: absolute;
-      top: -2px;
-
-      @include mq($media-type: print) {
-        color: $colour_nhsuk-black;
-        margin-top: 0;
-      }
-
+      fill: $color_nhsuk-black;
     }
 
-    &:focus {
-      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-colour;
-    }
+  }
 
-    &:hover {
-      box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-colour;
+  &:visited {
 
-      .nhsuk-pagination-title {
-        text-decoration: none;
-      }
-
-    }
-
-    &:hover,
-    &:focus {
-
-      .nhsuk-icon {
-        fill: $colour_nhsuk-black;
-      }
-
-    }
-
-    &:visited {
-
-      .nhsuk-icon {
-        fill: $nhsuk-link-visited-colour;
-      }
-
+    .nhsuk-icon {
+      fill: $nhsuk-link-visited-color;
     }
 
   }
 
 }
 
-.nhsuk-pagination-prev {
+.nhsuk-pagination__link--prev {
   float: left;
   text-align: left;
 
@@ -75,13 +76,13 @@
     left: -6px;
   }
 
-  .nhsuk-pagination-link {
+  .nhsuk-pagination__title {
     padding-left: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-pagination-next {
+.nhsuk-pagination__link--next {
   float: right;
   text-align: right;
 
@@ -89,20 +90,13 @@
     right: -6px;
   }
 
-  .nhsuk-pagination-link {
+  .nhsuk-pagination__title {
     padding-right: nhsuk-spacing(5); // [1] //
   }
 
 }
 
-.nhsuk-pagination-title {
-  @include nhsuk-typography-responsive(16);
-  display: block;
-  text-decoration: underline;
-
-}
-
-.nhsuk-pagination-link {
+.nhsuk-pagination__title {
   @include nhsuk-typography-responsive(24);
   display: block;
 
@@ -112,4 +106,10 @@
     }
   }
 
+}
+
+.nhsuk-pagination__page {
+  @include nhsuk-typography-responsive(16);
+  display: block;
+  text-decoration: underline;
 }

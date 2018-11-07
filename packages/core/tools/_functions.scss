@@ -1,17 +1,17 @@
-/* ==========================================================================
-   TOOLS / #FUNCTIONS
-   ========================================================================== */
+// ==========================================================================
+// TOOLS / #FUNCTIONS
+// ==========================================================================
 
-/* Convert pixels to em
-   ========================================================================== */
+// Convert pixels to em
+// ==========================================================================
 
-/**
- * A quick way to convert px into em
- * Usage: nhsuk-em(20px, $nhsuk-base-font-size);
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- */
+//
+// A quick way to convert px into em
+// Usage: nhsuk-em(20px, $nhsuk-base-font-size);
+//
+// Original code taken from GDS (Government Digital Service)
+// https://github.com/alphagov/govuk-frontend
+//
 
 @function nhsuk-em($value, $context-font-size) {
   @if (unitless($value)) {
@@ -23,16 +23,16 @@
   @return $value / $context-font-size * 1em;
 }
 
-/* Convert pixels to rem
-   ========================================================================== */
+// Convert pixels to rem
+// ==========================================================================
 
-/**
- * A quick way to convert px into rem
- * Usage: nhsuk-px-to-rem(20px);
- *
- * The $nhsuk-base-font-size (defined in settings/_globals.scss)
- * must be configured to match the font-size of your root (html) element
- */
+//
+// A quick way to convert px into rem
+// Usage: nhsuk-px-to-rem(20px);
+//
+// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+// must be configured to match the font-size of your root (html) element
+//
 
 @function nhsuk-px-to-rem($value) {
   @if (unitless($value)) {

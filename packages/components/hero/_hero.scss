@@ -11,14 +11,14 @@
  */
 
 .nhsuk-hero {
-  @include print-colour($nhsuk-print-text-colour);
+  @include print-color($nhsuk-print-text-color);
 
-  background-color: $colour_nhsuk-blue;
-  color: $colour_nhsuk-white;
+  background-color: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
   position: relative; // [1] //
 
   .nhsuk-hero--border { // [2] //
-    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
+    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
   }
 
 }
@@ -51,7 +51,7 @@
   }
 
   .nhsuk-hero__overlay {
-    background-color: $colour_transparent_nhsuk-blue-50; // [6] //
+    background-color: $color_transparent_nhsuk-blue-50; // [6] //
     height: 100%; // [7] //
   }
 
@@ -78,10 +78,9 @@
 
   .nhsuk-hero-content {
     @include top-and-bottom();
-
-    background-color: $colour_nhsuk-blue;
+    background-color: $color_nhsuk-blue;
     bottom: -48px; // [9] //
-    color: $colour_nhsuk-white;
+    color: $color_nhsuk-white;
     max-width: 565px; // [10] //
     padding: nhsuk-spacing(5) nhsuk-spacing(6);
     position: absolute;
@@ -98,7 +97,7 @@
     }
 
     @include mq($media-type: print) {
-      color: $colour_nhsuk-black;
+      color: $color_nhsuk-black;
       left: 0;
       max-width: 100%;
       padding: 0;
@@ -112,7 +111,7 @@
       clip-path: polygon(0 0, 50% 100%, 100% 0); // sass-lint:disable-line property-sort-order // [12] //
       border-left: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
       border-right: $nhsuk-hero-content-triangle-border solid transparent; // sass-lint:disable-line property-sort-order
-      border-top: $nhsuk-hero-content-triangle-border solid $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
+      border-top: $nhsuk-hero-content-triangle-border solid $color_nhsuk-blue; // sass-lint:disable-line property-sort-order
       bottom: -15px; // sass-lint:disable-line property-sort-order
       content: '';
       display: block;
