@@ -28,7 +28,7 @@
             ele.className = classes + ' ' + class1;
         }
 
-        toggleClass(this.searchToggleButton, 'active');
+        toggleClass(this.searchToggleButton, 'is-active');
         toggleClass(this.searchContainer, 'js-show');
         toggleClass(this.menuSearchContainer, 'js-show');
 
@@ -69,7 +69,7 @@
           ele.className = classes + ' ' + class1;
       }
 
-      toggleClass(this.menuToggleButton, 'active');
+      toggleClass(this.menuToggleButton, 'is-active');
       toggleClass(this.nav, 'js-show');
 
 		}
