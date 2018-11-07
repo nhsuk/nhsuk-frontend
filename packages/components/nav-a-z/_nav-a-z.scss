@@ -53,9 +53,9 @@
 
 .nhsuk-nav-a-z__link {
 
-  &.active {
-    background-color: $color_nhsuk-blue;
-    color: $color_nhsuk-white;
+  &.is-active {
+    background-color: $colour_nhsuk-blue;
+    color: $colour_nhsuk-white;
   }
 
 }
