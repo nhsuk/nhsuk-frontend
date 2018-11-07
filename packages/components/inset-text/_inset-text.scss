@@ -9,7 +9,7 @@
  *    readability.
  */
 
-.nhsuk-c-inset-text {
+.nhsuk-inset-text {
   @include top-and-bottom(); /* [1] */
   @include reading-width(); /* [2] */
 
@@ -22,4 +22,5 @@
   @include mq($media-type: print) {
     border-color: $nhsuk-print-text-colour;
   }
+
 }

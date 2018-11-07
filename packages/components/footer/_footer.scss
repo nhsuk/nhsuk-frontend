@@ -3,13 +3,18 @@
    ========================================================================== */
 
 .nhsuk-footer {
+  @include print-hide();
+
   background-color: $colour_nhsuk-blue;
   color: $colour_nhsuk-white;
+}
 
-  @include mq($media-type: print) {
-    display: none;
-  }
-
+.nhsuk-logo {
+  border: 0;
+  height: 40px;
+  max-width: 100%;
+  vertical-align: middle;
+  width: 99px;
 }
 
 .nhsuk-footer__logo {
@@ -17,6 +22,21 @@
 
   @include mq($from: tablet) {
     padding-bottom: nhsuk-spacing(0);
+  }
+
+  a {
+    display: block;
+    height: 40px;
+    width: 99px;
+
+    .nhsuk-u-visually-hidden {
+      top: -9999px; // Moves outline on iOS off screen
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+    }
+
   }
 
 }

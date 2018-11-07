@@ -1,4 +1,6 @@
-<a href="{{ params.URL }}" class="nhsuk-c-action-link{% if params.classes %} {{ params.classes }}{% endif %}">
-  {% include 'assets/icons/icon-arrow-right-circle.svg' %}
-  <span>{{ params.heading }}</span>
-</a>
+<div class="nhsuk-action-link{% if params.classes %} {{ params.classes }}{% endif %}">
+  <a href="{{ params.URL }}" class="nhsuk-action-link__link">
+    {% include 'assets/icons/icon-arrow-right-circle.svg' %}
+    <span class="nhsuk-action-link__text">{{ params.text }}</span>
+  </a>
+</div>

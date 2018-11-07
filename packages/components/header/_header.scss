@@ -39,7 +39,7 @@
 
 .nhsuk-header {
   @include clearfix();
-  background: $colour_nhsuk-blue;
+  background-color: $colour_nhsuk-blue;
 }
 
 .nhsuk-header__logo {
@@ -70,6 +70,7 @@
 
 .nhsuk-header__content {
   @include clearfix();
+  @include print-hide();
 
   &.js-show {
     border-bottom: 4px solid $colour_nhsuk-grey-5; /* [12] */
@@ -328,7 +329,7 @@
 .suggestions-list {
   -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-colour, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
   -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-colour, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
-  background: $colour_nhsuk-white;
+  background-color: $colour_nhsuk-white;
   border-bottom: 1px solid $colour_nhsuk-grey-4;
   border-bottom-left-radius: $nhsuk-border-radius;
   border-bottom-right-radius: $nhsuk-border-radius;
@@ -394,7 +395,7 @@
   &:hover,
   &:focus {
     div {
-      background: $colour_nhsuk-warm-yellow;
+      background-color: $colour_nhsuk-warm-yellow;
       box-shadow: 0 0 0 $nhsuk-box-shadow-spread $colour_nhsuk-warm-yellow;
       color: $colour_nhsuk-black;
       display: inline;
@@ -479,6 +480,8 @@
 }
 
 .nhsuk-header__navigation {
+  @include print-hide();
+
   background-color: $colour_nhsuk-white;
   clear: both;
   display: none;
@@ -616,7 +619,7 @@
     }
 
     &:hover {
-      background: $colour_shade_nhsuk-blue-35;
+      background-color: $colour_shade_nhsuk-blue-35;
     }
 
     &:focus {
@@ -624,36 +627,14 @@
     }
 
     &:active {
-      background: $colour_shade_nhsuk-blue-50;
+      background-color: $colour_shade_nhsuk-blue-50;
       color: $colour_nhsuk-grey-5;
     }
 
     &.active {
-      background: $colour_shade_nhsuk-blue-20;
+      background-color: $colour_shade_nhsuk-blue-20;
     }
 
-  }
-
-}
-
-/**
- * Print styles
-**/
-
-@include mq($media-type: print) {
-
-  .nhsuk-header__link {
-    &:after {
-      content: ''; /* [13] */
-    }
-  }
-
-  .nhsuk-header__content {
-    display: none;
-  }
-
-  .nhsuk-header__navigation {
-    display: none;
   }
 
 }

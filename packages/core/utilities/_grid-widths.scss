@@ -8,7 +8,7 @@
  * on every screen size, these utilities can force
  * custom widths on all screen sizes
  *
- * Usage: class="nhsuk-\!-one-half"
+ * Usage: class="nhsuk-u-one-half"
  */
 
 /* Utility classes are allowed to use !important;
@@ -17,27 +17,27 @@
 
 // sass-lint:disable no-important
 
-.nhsuk-\!-one-half {
+.nhsuk-u-one-half {
   float: left;
   width: percentage(1 / 2) !important;
 }
 
-.nhsuk-\!-one-third {
+.nhsuk-u-one-third {
   float: left;
   width: percentage(1 / 3) !important;
 }
 
-.nhsuk-\!-two-thirds {
+.nhsuk-u-two-thirds {
   float: left;
   width: percentage(2 / 3) !important;
 }
 
-.nhsuk-\!-one-quarter {
+.nhsuk-u-one-quarter {
   float: left;
   width: percentage(1 / 4) !important;
 }
 
-.nhsuk-\!-three-quarters {
+.nhsuk-u-three-quarters {
   float: left;
   width: percentage(3 / 4) !important;
 }
@@ -54,7 +54,7 @@
  * Usage: class="nhsuk-\!-one-half-tablet"
  */
 
-.nhsuk-\!-one-half-tablet {
+.nhsuk-u-one-half-tablet {
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
@@ -62,7 +62,7 @@
   }
 }
 
-.nhsuk-\!-one-third-tablet {
+.nhsuk-u-one-third-tablet {
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
@@ -70,7 +70,7 @@
   }
 }
 
-.nhsuk-\!-two-thirds-tablet {
+.nhsuk-u-two-thirds-tablet {
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
@@ -78,7 +78,7 @@
   }
 }
 
-.nhsuk-\!-one-quarter-tablet {
+.nhsuk-u-one-quarter-tablet {
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
@@ -86,7 +86,7 @@
   }
 }
 
-.nhsuk-\!-three-quarters-tablet {
+.nhsuk-u-three-quarters-tablet {
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;

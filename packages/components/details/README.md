@@ -59,7 +59,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 
 ## Expander HTML markup
 
-    <details class="nhsuk-details nhsuk-c-expander">
+    <details class="nhsuk-details nhsuk-expander">
       <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-1" aria-expanded="false">
         <span class="nhsuk-details__summary-text">
           Opening times
@@ -110,7 +110,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
     {% from 'components/details/macro.njk' import details %}
 
     {{ details({
-      "class": "nhsuk-c-expander",
+      "class": "nhsuk-expander",
       "heading": "Opening times",
       "HTML": "
       <table>
@@ -157,8 +157,8 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 
 ## Expander group HTML markup
 
-    <div class="nhsuk-c-expander-group">
-      <details class="nhsuk-details nhsuk-c-expander">
+    <div class="nhsuk-expander-group">
+      <details class="nhsuk-details nhsuk-expander">
         <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-2" aria-expanded="false">
           <span class="nhsuk-details__summary-text">
           How to measure your blood glucose levels
@@ -176,7 +176,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
         </div>
       </details>
 
-      <details class="nhsuk-details nhsuk-c-expander">
+      <details class="nhsuk-details nhsuk-expander">
         <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-3" aria-expanded="false">
           <span class="nhsuk-details__summary-text">
           When to check your blood glucose level
@@ -198,9 +198,9 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
 
     {% from 'components/details/macro.njk' import details %}
 
-    <div class="nhsuk-c-expander-group">
+    <div class="nhsuk-expander-group">
       {{ details({
-        "class": "nhsuk-c-expander",
+        "class": "nhsuk-expander",
         "heading": "How to measure your blood glucose levels",
         "HTML": "
         <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -214,7 +214,7 @@ compiled JavaScript for all components `nhsuk.js` or the individual component Ja
         "
       }) }}
       {{ details({
-        "class": "nhsuk-c-expander",
+        "class": "nhsuk-expander",
         "heading": "When to check your blood glucose level",
         "HTML": "
         <p>Try to check your blood:</p>

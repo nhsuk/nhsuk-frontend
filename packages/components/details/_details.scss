@@ -59,7 +59,7 @@
   }
 
   &:hover {
-    background: $nhsuk-link-hover-background-colour;
+    background-color: $nhsuk-link-hover-background-colour;
     box-shadow: 0 0 0 $nhsuk-box-details $nhsuk-link-hover-background-colour;
 
     .nhsuk-details__summary-text {
@@ -105,7 +105,7 @@
  *    margin between them so they sit together.
  */
 
-.nhsuk-c-expander {
+.nhsuk-expander {
   background-color: $colour_nhsuk-white;
 
   .nhsuk-details__summary {
@@ -151,7 +151,7 @@
 
 }
 
-.nhsuk-c-expander[open] { // sass-lint:disable-line force-attribute-nesting
+.nhsuk-expander[open] { // sass-lint:disable-line force-attribute-nesting
 
   .nhsuk-details__summary {
     border-bottom: 1px solid $colour_nhsuk-grey-5;
@@ -163,7 +163,7 @@
 
 }
 
-.nhsuk-c-expander-group { // [4] //
+.nhsuk-expander-group { // [4] //
 
   > .nhsuk-details {
     @include nhsuk-responsive-margin(2, 'bottom');

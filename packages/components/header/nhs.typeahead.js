@@ -151,7 +151,7 @@ window.onload = function() {
 
     $(function(){
       NHSUK.typeahead.init();
-      $('.nhsuk-search__input--shadow').attr('aria-hidden', 'true').addClass('visually-hidden'); // hide the extra input field created by typeahead to screen readers
+      $('.nhsuk-search__input--shadow').attr('aria-hidden', 'true').addClass('nhsuk-u-visually-hidden'); // hide the extra input field created by typeahead to screen readers
     });
 
   }
