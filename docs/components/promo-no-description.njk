@@ -1,0 +1,25 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Promo no description' %}
+{% from 'components/promo/macro.njk' import promo %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main id="maincontent" class="nhsuk-main-wrapper">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-page-content">
+          {{ promo({
+            "href": "https://www.nhs.uk",
+            "heading": "Save a life: give blood"
+          }) }}
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}
