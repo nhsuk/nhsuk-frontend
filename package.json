@@ -8,14 +8,18 @@
     "build": "gulp bundle",
     "start": "gulp",
     "test": "npm run lint-css",
-    "lint-css": "./node_modules/.bin/sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
-    "bundle": "npm run build & gulp bundle",
-    "backstop:ref": "./node_modules/backstopjs/cli/index.js reference --config=tests/backstop/backstop.json",
-    "backstop:test": "./node_modules/backstopjs/cli/index.js test --config=tests/backstop/backstop.json",
+    "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
+    "backstop:test": "backstop test --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sass-mq": "^4.0.2"
+  },
+  "peerDependencies": {
+    "jquery": "^3.3.1"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -35,9 +39,12 @@
     "gulp-wrap": "^0.14.0",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
-    "sass-lint": "^1.12.1",
-    "sass-mq": "^4.0.2"
+    "sass-lint": "^1.12.1"
   },
+  "files": [
+    "dist",
+    "packages"
+  ],
   "engines": {
     "node": "8.11.1"
   },
@@ -45,6 +52,7 @@
     "type": "git",
     "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
   },
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
