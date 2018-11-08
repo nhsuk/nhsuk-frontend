@@ -1,0 +1,170 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <g fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png" width="99" height="40"/>
+</svg>
+
+      </a>
+    </div>
+  
+
+    
+
+    
+
+    
+
+</header>
+
+
+  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            
+  
+    <h1 id="git-style-guide">Git style guide</h1>
+<p>There are many articles about best practices for git workflow. These are our preferred practices for:</p>
+<ul>
+<li><a href="#commits-and-messages">Commits and messages</a></li>
+<li><a href="#branching-and-merging">Branching and merging</a></li>
+</ul>
+<h2 id="commits-and-messages">Commits and messages</h2>
+<p>Each commit should be a single logical change. This makes it easier to unpick code if things go wrong.</p>
+<p>Commit messages should start with a short descriptive one-line summary, preferably no longer than 50 characters, with a leading capital and no full stop. Git convention is to write these in the present tense. For example:</p>
+<pre><code class="language-html">Add border around care cards component</code></pre>
+<p>If the commit refers to a ticket ID, then reference that in the commit message:</p>
+<pre><code class="language-html">[refs #94] Remove search icon IE8 fallback icon</code></pre>
+<p>After the summary line should come a blank line, followed by a more detailed description, which should wrap at around 72 characters.</p>
+<pre><code class="language-html">[refs #94] Remove search icon IE8 fallback icon
+
+We are reducing the extra code and overheads for Internet Explorer 8,
+so we are removing fallback icons. We have replaced a fallback icon
+with the text search so it still functions.
+See https://github.com/nhsuk/nhsuk-frontend/issues/94
+</code></pre>
+<p>If including a link to a ticket make sure it is publicly viewable.</p>
+<h2 id="branching-and-merging">Branching and merging</h2>
+<p>You may often choose to work on a particular feature on a &quot;feature branch&quot;
+rather than directly on <code>master</code>. Indeed, given how cheap branches are in Git,
+this is <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">positively encouraged</a>.</p>
+<p>You are encouraged to make liberal use of Git&#39;s <a href="http://git-scm.com/book/en/Git-Tools-Rewriting-History">history rewriting
+features</a> while working
+locally, in order to arrange your commits into appropriate logical chunks that
+will make sense to your fellow developers. In particular, you may find
+<code>git rebase --interactive</code> very useful. You are also encouraged to avoid merge
+commits and use <code>git rebase master</code> instead. However, you should not rewrite commits that have been pushed unless you:</p>
+<ul>
+<li>are <strong>very sure</strong> that no-one else will be affected by you rewriting the
+branch history</li>
+<li>have an Extremely Good Reason. For example: someone has committed
+sensitive information (personally identifiable data, passwords and suchlike)
+and it needs purging from history</li>
+</ul>
+<p>When in doubt you should err towards smaller commits, which can be rebased
+together later. It&#39;s harder to break large commits out into smaller chunks.</p>
+<p>The smaller commits should still be logical chunks, but this will give context
+for a more specific change and make git tools like <code>annotate</code> and <code>log</code> more
+useful.</p>
+<p>When merging from a feature branch to master (or any other mainline development
+branch), in particular one that has previously been shared with colleagues, you
+should use <code>git merge</code>&#39;s <code>--no-ff</code> option to preserve evidence of your feature
+branch in the repository history. This advice may be freely ignored for smaller
+local feature branches for which a fast-forward merge will look like any other
+routine development work on <code>master</code>.</p>
+<p>If working on a ticket/issue, make a new branch for each one.</p>
+<p>If the ticket has an ID, then include it in the name of the branch, such as:</p>
+<pre><code class="language-html">git checkout -b fix/NR-259-action-link</code></pre>
+<h3 id="never-call-git-push-f-without-additional-arguments">Never call <code>git push -f</code> without additional arguments</h3>
+<p>Force pushing in git is a subject that attracts all kinds of religious
+battles. This advice is not about the merits of force pushing.</p>
+<p>This is about how to use <code>git push -f</code> if and when you do use it.</p>
+<p>Let&#39;s say you&#39;re working on a branch, &#39;foobar&#39;, and you decide to force push
+to the remote. So you do this:</p>
+<pre><code class="language-html">$ git push -f</code></pre>
+<p>If anyone has committed anything to master[^1] since you last pulled -- and if
+you&#39;ve been working on the branch for any length of time this is pretty likely
+-- you will blow their changes away, because without arguments git will force
+push <em>all</em> remote-tracking branches.</p>
+<p>So, if you ever need to force push the &#39;foobar&#39; branch, please instead do</p>
+<pre><code class="language-html">$ git push --force-with-lease origin foobar</code></pre>
+<p><code>--force-with-lease</code> refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the remote branch.
+See: <a href="https://developer.atlassian.com/blog/2015/04/force-with-lease/">https://developer.atlassian.com/blog/2015/04/force-with-lease/</a></p>
+<p>You can also change git&#39;s default behaviour of pushing all tracked branches by
+doing <code>git config --global push.default upstream</code>, but you should probably get
+into the habit of typing out your intentions in full when doing a destructive
+operation like force pushing, otherwise disaster will strike when you use
+someone else&#39;s differently-configured git, or miss a step when configuring a
+new machine.</p>
+<p>[^1]: (or any other remote-tracking branch you have in your local copy)</p>
+
+  
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+  </body>
+</html>

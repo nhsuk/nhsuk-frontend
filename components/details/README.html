@@ -1,0 +1,298 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <g fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png" width="99" height="40"/>
+</svg>
+
+      </a>
+    </div>
+  
+
+    
+
+    
+
+    
+
+</header>
+
+
+  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            
+  
+    <h1 id="details">Details</h1>
+<p>Find out more about the details component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS Digital service manual</a>.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+compiled JavaScript for all components <code>nhsuk.js</code> or the individual component JavaScript <code>details.js</code>.</p>
+<h2 id="details-example">Details example</h2>
+<p><a href="">Preview the details component</a></p>
+<h2 id="details-html-markup">Details HTML markup</h2>
+<pre><code>&lt;details class=&quot;nhsuk-details &quot;&gt;
+  &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-0&quot; aria-expanded=&quot;false&quot;&gt;
+    &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
+      Where can I find my NHS number?
+    &lt;/span&gt;
+  &lt;/summary&gt;
+  &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-0&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;p&gt;An NHS number is a 10 digit number, like 485 777 3456.&lt;/p&gt;
+    &lt;p&gt;You can find your NHS number on any document sent to you by the NHS. This may include:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;prescriptions&lt;/li&gt;
+      &lt;li&gt;test results&lt;/li&gt;
+      &lt;li&gt;hospital referral letters&lt;/li&gt;
+      &lt;li&gt;appointment letters&lt;/li&gt;
+      &lt;li&gt;your NHS medical card&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;Ask your GP practice for help if you can&#39;t find your NHS number.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</code></pre><h2 id="details-nunjucks-macro">Details nunjucks macro</h2>
+<pre><code>{% from &#39;components/details/macro.njk&#39; import details %}
+
+{{ details({
+  &quot;heading&quot;: &quot;Where can I find my NHS number?&quot;,
+  &quot;HTML&quot;: &quot;
+  &lt;p&gt;An NHS number is a 10 digit number, like 485 777 3456.&lt;/p&gt;
+  &lt;p&gt;You can find your NHS number on any document sent to you by the NHS. This may include:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;prescriptions&lt;/li&gt;
+    &lt;li&gt;test results&lt;/li&gt;
+    &lt;li&gt;hospital referral letters&lt;/li&gt;
+    &lt;li&gt;appointment letters&lt;/li&gt;
+    &lt;li&gt;your NHS medical card&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;Ask your GP practice for help if you can&#39;t find your NHS number.&lt;/p&gt;
+  &quot;
+}) }}</code></pre><h2 id="expander-example">Expander example</h2>
+<p><a href="">Preview the expander component</a></p>
+<h2 id="expander-html-markup">Expander HTML markup</h2>
+<pre><code>&lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
+  &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-1&quot; aria-expanded=&quot;false&quot;&gt;
+    &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
+      Opening times
+    &lt;/span&gt;
+  &lt;/summary&gt;
+  &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-1&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;Day of the week&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;Opening hours&lt;/strong&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Monday&lt;/th&gt;
+          &lt;td&gt;9am to 6pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Tuesday&lt;/th&gt;
+          &lt;td&gt;9am to 6pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Wednesday&lt;/th&gt;
+          &lt;td&gt;9am to 6pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Thursday&lt;/th&gt;
+          &lt;td&gt;9am to 6pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Friday&lt;/th&gt;
+          &lt;td&gt;9am to 6pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Saturday&lt;/th&gt;
+          &lt;td&gt;9am to 1pm&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Sunday&lt;/th&gt;
+          &lt;td&gt;Closed&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</code></pre><h2 id="expander-nunjucks-macro">Expander nunjucks macro</h2>
+<pre><code>{% from &#39;components/details/macro.njk&#39; import details %}
+
+{{ details({
+  &quot;class&quot;: &quot;nhsuk-expander&quot;,
+  &quot;heading&quot;: &quot;Opening times&quot;,
+  &quot;HTML&quot;: &quot;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;strong&gt;Day of the week&lt;/strong&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;strong&gt;Opening hours&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Monday&lt;/th&gt;
+        &lt;td&gt;9am to 6pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Tuesday&lt;/th&gt;
+        &lt;td&gt;9am to 6pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Wednesday&lt;/th&gt;
+        &lt;td&gt;9am to 6pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Thursday&lt;/th&gt;
+        &lt;td&gt;9am to 6pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Friday&lt;/th&gt;
+        &lt;td&gt;9am to 6pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Saturday&lt;/th&gt;
+        &lt;td&gt;9am to 1pm&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Sunday&lt;/th&gt;
+        &lt;td&gt;Closed&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;&quot;
+}) }}</code></pre><h2 id="expander-group-example">Expander group example</h2>
+<p><a href="">Preview the expander group component</a></p>
+<h2 id="expander-group-html-markup">Expander group HTML markup</h2>
+<pre><code>&lt;div class=&quot;nhsuk-expander-group&quot;&gt;
+  &lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
+    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-2&quot; aria-expanded=&quot;false&quot;&gt;
+      &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
+      How to measure your blood glucose levels
+      &lt;/span&gt;
+    &lt;/summary&gt;
+    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-2&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;p&gt;Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.&lt;/p&gt;
+      &lt;p&gt;You would have been given:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;a blood glucose metre&lt;/li&gt;
+        &lt;li&gt;small needles called lancets&lt;/li&gt;
+        &lt;li&gt;a plastic pen to hold the lancest&lt;/li&gt;
+        &lt;li&gt;small test strips&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/details&gt;
+
+  &lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
+    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-3&quot; aria-expanded=&quot;false&quot;&gt;
+      &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
+      When to check your blood glucose level
+      &lt;/span&gt;
+    &lt;/summary&gt;
+    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-3&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;p&gt;Try to check your blood:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;before meals&lt;/li&gt;
+        &lt;li&gt;2 to 3 hours after meals&lt;/li&gt;
+        &lt;li&gt;before, during (take a break) and after exercise&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</code></pre><h2 id="expander-group-nunjucks-macro">Expander group nunjucks macro</h2>
+<pre><code>{% from &#39;components/details/macro.njk&#39; import details %}
+
+&lt;div class=&quot;nhsuk-expander-group&quot;&gt;
+  {{ details({
+    &quot;class&quot;: &quot;nhsuk-expander&quot;,
+    &quot;heading&quot;: &quot;How to measure your blood glucose levels&quot;,
+    &quot;HTML&quot;: &quot;
+    &lt;p&gt;Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.&lt;/p&gt;
+    &lt;p&gt;You would have been given:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;a blood glucose metre&lt;/li&gt;
+      &lt;li&gt;small needles called lancets&lt;/li&gt;
+      &lt;li&gt;a plastic pen to hold the lancest&lt;/li&gt;
+      &lt;li&gt;small test strips&lt;/li&gt;
+    &lt;/ul&gt;
+    &quot;
+  }) }}
+  {{ details({
+    &quot;class&quot;: &quot;nhsuk-expander&quot;,
+    &quot;heading&quot;: &quot;When to check your blood glucose level&quot;,
+    &quot;HTML&quot;: &quot;
+    &lt;p&gt;Try to check your blood:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;before meals&lt;/li&gt;
+      &lt;li&gt;2 to 3 hours after meals&lt;/li&gt;
+      &lt;li&gt;before, during (take a break) and after exercise&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.&lt;/p&gt;
+    &quot;
+  }) }}
+&lt;/div&gt;</code></pre>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+  </body>
+</html>

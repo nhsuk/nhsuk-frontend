@@ -1,0 +1,243 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <g fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png" width="99" height="40"/>
+</svg>
+
+      </a>
+    </div>
+  
+
+    
+
+    
+
+    
+
+</header>
+
+
+  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            
+  
+    <h1 id="table">Table</h1>
+<p>Find out more about the table component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
+<h2 id="example">Example</h2>
+<p><a href="">Preview the table component</a></p>
+<h2 id="html-markup">HTML markup</h2>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-table-responsive&quot;&gt;
+  &lt;table class=&quot;nhsuk-table&quot;&gt;
+    &lt;caption class=&quot;nhsuk-table__caption&quot;&gt;Skin symptoms and possible causes&lt;/caption&gt;
+    &lt;thead class=&quot;nhsuk-table__head&quot;&gt;
+      &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+        &lt;th class=&quot;nhsuk-table__header&quot; scope=&quot;col&quot;&gt;Skin symptoms&lt;/th&gt;
+        &lt;th class=&quot;nhsuk-table__header&quot; scope=&quot;col&quot;&gt;Possible cause&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class=&quot;nhsuk-table__body&quot;&gt;
+      &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+        &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Blisters on lips or around the mouth&lt;/td&gt;
+        &lt;td class=&quot;nhsuk-table__cell &quot;&gt;cold sores&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+        &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Itchy, dry, cracked, sore&lt;/td&gt;
+        &lt;td class=&quot;nhsuk-table__cell &quot;&gt;eczema&lt;/td&gt;
+      &lt;/tr&gt;  
+      &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+        &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Itchy blisters&lt;/td&gt;
+        &lt;td class=&quot;nhsuk-table__cell &quot;&gt;shingles, chickenpox&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="nunjucks-macro">Nunjucks macro</h2>
+<pre><code class="language-html">{% from &#39;components/tables/macro.njk&#39; import table %}
+
+{{ table({
+  panel: false,
+  caption: &quot;Skin symptoms and possible causes&quot;,
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: &quot;Skin symptoms&quot;
+    },
+    {
+      text: &quot;Possible cause&quot;
+    }
+  ],
+  rows: [
+    [
+      {
+        text: &quot;Blisters on lips or around the mouth&quot;
+      },
+      {
+        text: &quot;cold sores&quot;
+      }
+    ],
+    [
+      {
+        text: &quot;Itchy, dry, cracked, sore&quot;
+      },
+      {
+        text: &quot;eczema&quot;
+      }
+    ],
+    [
+      {
+        text: &quot;Itchy blisters&quot;
+      },
+      {
+        text: &quot;shingles, chickenpox&quot;
+      }
+    ]
+  ]
+}) }}</code></pre>
+<h2 id="table-panel">Table panel</h2>
+<h2 id="example">Example</h2>
+<p><a href="">Preview the table panel component</a></p>
+<h2 id="html-markup">HTML markup</h2>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-table__panel-with-heading-tab&quot;&gt;
+  &lt;h3 class=&quot;nhsuk-table__heading-tab&quot;&gt;Skin symptoms and possible causes&lt;/h3&gt;
+  &lt;div class=&quot;nhsuk-table-responsive&quot;&gt;
+    &lt;table class=&quot;nhsuk-table&quot;&gt;  
+      &lt;caption class=&quot;nhsuk-table__caption&quot;&gt;Skin symptoms and possible causes&lt;/caption&gt;
+      &lt;thead class=&quot;nhsuk-table__head&quot;&gt;
+        &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+          &lt;th class=&quot;nhsuk-table__header&quot; scope=&quot;col&quot;&gt;Skin symptoms&lt;/th&gt;
+          &lt;th class=&quot;nhsuk-table__header&quot; scope=&quot;col&quot;&gt;Possible cause&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody class=&quot;nhsuk-table__body&quot;&gt;
+        &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+          &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Blisters on lips or around the mouth&lt;/td&gt;
+          &lt;td class=&quot;nhsuk-table__cell &quot;&gt;cold sores&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+          &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Itchy, dry, cracked, sore&lt;/td&gt;
+          &lt;td class=&quot;nhsuk-table__cell &quot;&gt;eczema&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class=&quot;nhsuk-table__row&quot;&gt;
+          &lt;td class=&quot;nhsuk-table__cell&quot;&gt;Itchy blisters&lt;/td&gt;
+          &lt;td class=&quot;nhsuk-table__cell &quot;&gt;shingles, chickenpox&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="nunjucks-macro">Nunjucks macro</h2>
+<pre><code class="language-html">{% from &#39;components/tables/macro.njk&#39; import table %}
+
+{{ table({
+  panel: true,
+  heading: &quot;Skin symptoms and possible causes&quot;,
+  caption: &quot;Skin symptoms and possible causes&quot;,
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: &quot;Skin symptoms&quot;
+    },
+    {
+      text: &quot;Possible cause&quot;
+    }
+  ],
+  rows: [
+    [
+      {
+        text: &quot;Blisters on lips or around the mouth&quot;
+      },
+      {
+        text: &quot;cold sores&quot;
+      }
+    ],
+    [
+      {
+        text: &quot;Itchy, dry, cracked, sore&quot;
+      },
+      {
+        text: &quot;eczema&quot;
+      }
+    ],
+    [
+      {
+        text: &quot;Itchy blisters&quot;
+      },
+      {
+        text: &quot;shingles, chickenpox&quot;
+      }
+    ]
+  ]
+}) }}</code></pre>
+
+  
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+  </body>
+</html>

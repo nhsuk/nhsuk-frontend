@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <g fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png" width="99" height="40"/>
+</svg>
+
+      </a>
+    </div>
+  
+
+    
+
+    
+
+    
+
+</header>
+
+
+  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            
+  
+    <h1 id="css-style-guide">CSS Style Guide</h1>
+<h2 id="class-naming-convention">Class naming convention</h2>
+<h2 id="nhsuk-namespacing"><code>nhsuk</code> namespacing</h2>
+<p>All class names start with a <code>.nhsuk-</code> namespace to reduce the likelihood of
+conflicting with existing classes in your application. It also helps to identify
+where the styling for a particular element is coming from.</p>
+<p>If you are building components for your own application or framework you should
+use a different prefix, for example <code>.app-</code> or the initials of your department.</p>
+<h2 id="block-element-modifier-bem-">Block Element Modifier (BEM)</h2>
+<p>GOV.UK Frontend uses the Block Element Modifier (BEM) methodology when naming
+CSS classes. This is designed to help developers understand how the different
+classes relate to each other.</p>
+<p>The naming convention follows this pattern:</p>
+<pre><code class="language-scss">.block {}
+.block__element {}
+.block--modifier {}
+
+.nhsuk-promo              // Block - the root of a component
+.nhsuk-promo__heading     // Element - a part of the block
+.nhsuk-promo--small       // Modifier - a variant of the block</code></pre>
+<p>It uses double hyphens (<code>--</code>) and underscores (<code>__</code>) so that the block, element
+or modifiers themselves can be hyphen delimited without causing ambiguity.</p>
+<p>For example:</p>
+<pre><code class="language-scss">.nhsuk-a-z-nav
+.nhsuk-a-z-nav__link
+.nhsuk-a-z-nav__link--disabled</code></pre>
+<h3 id="further-reading-">Further reading:</h3>
+<ul>
+<li><a href="http://getbem.com/introduction/">Get BEM</a></li>
+<li><a href="https://github.com/sturobson/BEM-resources">BEM Resources</a></li>
+<li><a href="https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/">Harry Roberts - BEMIT: Taking the BEM Naming Convention a Step Further</a></li>
+</ul>
+<h2 id="nesting">Nesting</h2>
+<p>Break elements and modifiers outside of blocks rather than nesting using a
+parent selector <code>&amp;</code>. </p>
+<p>Nesting pseudo elements like <code>:before</code> and <code>:hover</code> is ok.</p>
+<p>This makes the codebase easier to read, and makes it easier to search for a
+given class name. It also discourages excessive nesting.</p>
+<p>Bad:</p>
+<pre><code>.nhsuk-contents-list {
+  ...
+  &amp;__item {
+    ...
+    &amp;:before {
+      ...
+    }
+  }
+}</code></pre><p>Good:</p>
+<pre><code>.nhsuk-contents-list {
+  ...
+}
+
+.nhsuk-contents-list__item {
+  ...
+  &amp;:before {
+    ...
+  }
+}</code></pre><p>BEM stands for <code>Block__Element--Modifier</code>, not <code>Block__Element__Element--Modifier</code>.</p>
+<p>Avoid including multiple elements when naming classes.</p>
+<h2 id="single-responsibility-principle">Single Responsibility Principle</h2>
+<p>Each class has a single purpose, so you can be sure when making a change to a
+class - it will only affect the element that class is applied to.</p>
+<p>Also when deprecating classes, all of the CSS for this class can be removed
+without affecting another component that had reused this css.</p>
+<p><strong>Why?</strong></p>
+<p>To ensure that styles can safely be added or removed without fear of breaking
+other components.</p>
+<h2 id="component-modifiers">Component modifiers</h2>
+<p>Keep all of the variants of a component in the same place.</p>
+<p><code>.nhsuk-error-summary</code> modifies the <code>.nhsuk-list</code> component.</p>
+<p>Component modifiers use an extra class, scoped to the component:</p>
+<p><code>.nhsuk-error-summary__list</code></p>
+<p>This class is part of the component, rather than a parent of a component.</p>
+<p><strong>Why?</strong>
+This makes it easier to keep track of different contexts.</p>
+<h1 id="linting">Linting</h1>
+<h2 id="running-the-lint-task">Running the lint task</h2>
+<h2 id="linting-rules">Linting rules</h2>
+<p>We use the following rules when linting files:</p>
+<h3 id="use-soft-tabs-2-spaces-">Use soft tabs (2 spaces)</h3>
+<h3 id="write-each-property-on-its-own-line">Write each property on its own line</h3>
+<p>Bad:</p>
+<pre><code>.selector {border: 0; padding: 0;}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  border: 0;
+  padding: 0;
+}</code></pre><h3 id="use-variables-for-colours-not-hex-values-in-selectors-rules-unless-in-variables-">Use variables for colours not HEX values in selectors rules, unless in variables.</h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  color: #005eb8;
+}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  color: $colour_nhsuk-blue;
+}</code></pre><h3 id="colours-defined-as-variables-should-be-in-lowercase-and-in-full-length">Colours defined as variables should be in lowercase and in full length</h3>
+<p>Bad:</p>
+<pre><code>$white: #FFF;</code></pre><p>Good:</p>
+<pre><code>$white: #ffffff;</code></pre><h3 id="use-border-0-not-none-to-denote-no-border">Use <code>border: 0</code> not <code>none</code> to denote no border</h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  border: none;
+}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  border: 0;
+}</code></pre><h3 id="avoid-using-id-selectors">Avoid using ID selectors</h3>
+<p>Bad:</p>
+<pre><code>#content {
+  ...
+}</code></pre><p>Good:</p>
+<pre><code>.nhsuk-wrapper {
+  ...
+}</code></pre><h3 id="separate-rule-function-and-mixin-declarations-with-empty-lines">Separate rule, function, and mixin declarations with empty lines</h3>
+<p>Bad:</p>
+<pre><code>p {
+  margin: 0;
+  em {
+    ...
+  }
+}
+a {
+  ...
+}</code></pre><p>Good:</p>
+<pre><code>p {
+  margin: 0;
+
+  em {
+    ...
+  }
+}
+
+a {
+  ...
+}</code></pre><h3 id="use-no-more-than-3-levels-of-nesting">Use no more than 3 levels of nesting</h3>
+<p>Bad:</p>
+<pre><code>.nhsuk-breadcrumb {
+  ...
+  &amp;__item {
+    ...
+  }
+}</code></pre><p>Good:</p>
+<pre><code>.nhsuk-breadcrumb {
+  ...
+}
+
+.nhsuk-breadcrumb__item {
+  ...
+}</code></pre><h3 id="don-t-use-extends-use-mixins">Don&#39;t use extends, use mixins</h3>
+<p>Bad:</p>
+<pre><code>@extend %contain-floats;</code></pre><p>Good:</p>
+<pre><code>@include clearfix;</code></pre><h3 id="allow-max-3-rule-property-shorthand-if-possible">Allow max 3-rule property shorthand if possible</h3>
+<p>Bad:</p>
+<pre><code>margin: 1px 2px 3px 2px;</code></pre><p>Good:</p>
+<pre><code>margin: 1px 2px 3px;</code></pre><h3 id="files-should-always-have-a-final-newline">Files should always have a final newline</h3>
+<h3 id="commas-in-lists-should-be-followed-by-a-space">Commas in lists should be followed by a space</h3>
+<h3 id="the-basenames-of-imported-scss-partials-should-not-begin-with-an-underscore-and-should-not-include-the-filename-extension">The basenames of <code>@import</code>ed SCSS partials should not begin with an underscore and should not include the filename extension</h3>
+<p>Bad:</p>
+<pre><code>@import &#39;_foo.scss&#39;;
+@import &#39;_bar/foo.scss&#39;;</code></pre><p>Good:</p>
+<pre><code>@import &#39;foo&#39;;
+@import &#39;bar/foo&#39;;</code></pre><h3 id="properties-should-be-formatted-with-a-single-space-separating-the-colon-from-the-property-s-value">Properties should be formatted with a single space separating the colon from the property&#39;s value</h3>
+<p>Bad:</p>
+<pre><code>.foo {
+  content:&#39;bar&#39;;
+}</code></pre><p>Good:</p>
+<pre><code>.foo {
+  content: &#39;bar&#39;;
+}</code></pre><h3 id="operators-should-be-formatted-with-a-single-space-on-both-sides-of-an-infix-operator-these-include-and-">Operators should be formatted with a single space on both sides of an infix operator. These include <code>+, -, *, /, %, ==, !=, &gt;, &gt;=, &lt;,</code> and <code>&lt;=</code></h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  margin: 5px+15px;
+}
+
+$foo: 1;
+$bar: 3;
+
+.selector {
+  margin: $foo+$bar+&#39;px&#39;;
+}
+
+$foo: 1+1;
+$bar: 2-1;
+
+@if $foo==$bar {
+  $baz: 1;
+}
+
+@if ($foo!=$bar) {
+  $baz: 1;
+}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  margin: 5px + 15px;
+}
+
+$foo: 1;
+$bar: 3;
+
+.selector {
+  margin: $foo + $bar + &#39;px&#39;;
+}
+
+$foo: 1 + 1;
+$bar: 2 - 1;
+
+@if $foo == $bar {
+  $baz: 1;
+}
+
+@if ($foo != $bar) {
+  $baz: 1;
+}</code></pre><h3 id="avoid-whitespace-between-parentheses-and-the-arguments">Avoid whitespace between parentheses and the arguments</h3>
+<p>Bad:</p>
+<pre><code>@function foo( $bar, $baz ) {
+  @return $bar + $baz;
+}</code></pre><p>Good:</p>
+<pre><code>@function foo($bar, $baz) {
+  @return $bar + $baz;
+}</code></pre><h3 id="functions-mixins-variables-and-placeholders-should-be-declared-with-all-lowercase-letters-and-hyphens-instead-of-underscores">Functions, mixins, variables, and placeholders should be declared with all lowercase letters and hyphens instead of underscores</h3>
+<p>Bad:</p>
+<pre><code>@mixin FONT_STACK() {
+  font-family: $nhsuk-font-stack;
+}</code></pre><p>Good:</p>
+<pre><code>@mixin font-stack() {
+  font-family: $nhsuk-font-stack;
+}</code></pre><h3 id="omit-length-units-on-zero-values">Omit length units on zero values</h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  margin: 0px;
+}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  margin: 0;
+}</code></pre><h3 id="property-values-and-variable-declarations-should-always-end-with-a-semicolon">Property values and variable declarations should always end with a semicolon</h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  margin: 0
+}
+
+$my-example-var: value</code></pre><p>Good:</p>
+<pre><code>.selector {
+  margin: 0;
+}
+
+$my-example-var: value;</code></pre><h3 id="don-t-write-trailing-zeros-for-numeric-values-with-a-decimal-point">Don&#39;t write trailing zeros for numeric values with a decimal point</h3>
+<p>Bad:</p>
+<pre><code>.selector {
+  font-size: 0.50em;
+}</code></pre><p>Good:</p>
+<pre><code>.selector {
+  font-size: 0.5em;
+}</code></pre><h3 id="remove-trailing-whitespace">Remove trailing whitespace</h3>
+<p>More write up on <a href="https://github.com/sasstools/sass-lint/tree/master/docs/rules">supported rules</a>.</p>
+
+  
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+  </body>
+</html>

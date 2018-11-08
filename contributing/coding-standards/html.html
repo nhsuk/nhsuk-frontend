@@ -79,79 +79,28 @@
           <div class="nhsuk-page-content">
             
   
-    <h1 id="tooling">Tooling</h1>
-<h2 id="npm-scripts">npm scripts</h2>
-<table>
-<thead>
-<tr>
-<th>command</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>npm start</code></td>
-<td>Runs the <em>default</em> gulp task</td>
-</tr>
-<tr>
-<td><code>npm test</code></td>
-<td>Runs CSS linting</td>
-</tr>
-<tr>
-<td><code>npm build-gh-pages</code></td>
-<td>Build documentation with a base url that is suitable for publishing on github pages</td>
-</tr>
-<tr>
-<td><code>npm build-gh-release</code></td>
-<td>Runs <code>gulp zip</code> for publishing to github releases</td>
-</tr>
-</tbody></table>
-<h2 id="gulp-tasks">Gulp tasks</h2>
-<p>We use <a href="https://gulpjs.com/">gulp</a> for automating common tasks.</p>
-<p>To run a gulp task, run <code>./node_modules/.bin/gulp &lt;task_name&gt;</code> on the command line.</p>
-<table>
-<thead>
-<tr>
-<th>task</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>default</code></td>
-<td>Serve the documentation on port 3000. Recompile when there are changes</td>
-</tr>
-<tr>
-<td><code>clean</code></td>
-<td>Remove all compiled files</td>
-</tr>
-<tr>
-<td><code>style</code></td>
-<td>Compiles CSS</td>
-</tr>
-<tr>
-<td><code>build</code></td>
-<td>Compiles CSS and JS</td>
-</tr>
-<tr>
-<td><code>bundle</code></td>
-<td>Creates distributable CSS and JS files in <code>dist/</code></td>
-</tr>
-<tr>
-<td><code>zip</code></td>
-<td>Creates a distributable zip file in <code>dist/</code></td>
-</tr>
-<tr>
-<td><code>watch</code></td>
-<td>Recompile documentation and distributables when there are changes</td>
-</tr>
-<tr>
-<td><code>docs:build</code></td>
-<td>Recompile documentation</td>
-</tr>
-<tr>
-<td><code>docs:serve</code></td>
-<td>Serve documentation on port 3000</td>
-</tr>
-</tbody></table>
+    <h1 id="html">HTML</h1>
+<p>Use valid HTML5 where possible.</p>
+<p>Use HTML according to its purpose. Use elements for what they have been created for. This is important for accessibility, reuse and code efficiency reasons.</p>
+<h2 id="syntax">Syntax</h2>
+<ul>
+<li>Use soft tabs with two spaces - they&#39;re the only way to guarantee code renders the same in any environment.</li>
+<li>Nested elements should be indented once (two spaces).</li>
+<li>Always use double quotes, never single quotes, on attributes.</li>
+<li>Don&#39;t include a trailing slash in self-closing elements - the HTML5 spec says they&#39;re optional.</li>
+<li>Don’t omit optional closing tags (e.g. <code>&lt;/li&gt;</code> or <code>&lt;/body&gt;</code>).</li>
+</ul>
+<h2 id="attribute-order">Attribute order</h2>
+<p>HTML attributes should come in this particular order for easier reading of code.</p>
+<ul>
+<li><code>class</code></li>
+<li><code>id</code>, <code>name</code></li>
+<li><code>data-*`</code></li>
+<li><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></li>
+<li><code>title</code>, <code>alt</code></li>
+<li><code>role</code>, <code>aria-*</code></li>
+</ul>
+<p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
 
   
 

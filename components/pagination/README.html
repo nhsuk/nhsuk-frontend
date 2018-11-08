@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+  <g fill="none">
+    <path fill="#FFF" d="M0 39.842h98.203V0H0z"/>
+    <path fill="#0058AD" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"/>
+  </g>
+  <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png" width="99" height="40"/>
+</svg>
+
+      </a>
+    </div>
+  
+
+    
+
+    
+
+    
+
+</header>
+
+
+  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-page-content">
+            
+  
+    <h1 id="pagination">Pagination</h1>
+<p>Find out more about the pagination component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS Digital service manual</a>.</p>
+<h2 id="example">Example</h2>
+<p><a href="">Preview the pagination component</a></p>
+<h2 id="html-markup">HTML markup</h2>
+<pre><code>&lt;nav class=&quot;nhsuk-pagination&quot; role=&quot;navigation&quot; aria-label=&quot;Pagination&quot;&gt;
+  &lt;a href=&quot;/section/treatments&quot; class=&quot;nhsuk-pagination-prev&quot;&gt;
+    &lt;span class=&quot;nhsuk-pagination-link&quot;&gt;Previous&lt;/span&gt;
+    &lt;span class=&quot;nhsuk-pagination-title&quot;&gt;Treatments&lt;/span&gt;
+    &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-left&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;path d=&quot;M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+  &lt;a href=&quot;/section/symptoms&quot; class=&quot;nhsuk-pagination-next&quot;&gt;
+    &lt;span class=&quot;nhsuk-pagination-link&quot;&gt;Next&lt;/span&gt;
+    &lt;span class=&quot;nhsuk-pagination-title&quot;&gt;Symptoms&lt;/span&gt;
+    &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;</code></pre><h2 id="nunjucks-macro">Nunjucks macro</h2>
+<pre><code>{% from &#39;components/pagination/macro.njk&#39; import pagination %}
+
+{{ pagination({
+  &quot;previousUrl&quot;: &quot;/section/treatments&quot;,
+  &quot;previousPage&quot;: &quot;Treatments&quot;,
+  &quot;nextUrl&quot;: &quot;/section/symptoms&quot;,
+  &quot;nextPage&quot;: &quot;Symptoms&quot;
+}) }}</code></pre><h3 id="next-navigation">Next navigation</h3>
+<h2 id="html-markup">HTML markup</h2>
+<pre><code>&lt;nav class=&quot;nhsuk-pagination&quot; role=&quot;navigation&quot; aria-label=&quot;Pagination&quot;&gt;
+  &lt;a href=&quot;/section/symptoms&quot; class=&quot;nhsuk-pagination-next&quot;&gt;
+    &lt;span class=&quot;nhsuk-pagination-link&quot;&gt;Next&lt;/span&gt;
+    &lt;span class=&quot;nhsuk-pagination-title&quot;&gt;Symptoms&lt;/span&gt;
+    &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;</code></pre><h2 id="nunjucks-macro">Nunjucks macro</h2>
+<pre><code>{% from &#39;components/pagination/macro.njk&#39; import pagination %}
+
+{{ pagination({
+  &quot;nextUrl&quot;: &quot;/section/symptoms&quot;,
+  &quot;nextPage&quot;: &quot;Symptoms&quot;
+}) }}</code></pre><h3 id="previous-navigation">Previous navigation</h3>
+<h2 id="html-markup">HTML markup</h2>
+<pre><code>&lt;nav class=&quot;nhsuk-pagination&quot; role=&quot;navigation&quot; aria-label=&quot;Pagination&quot;&gt;
+  &lt;a href=&quot;/section/treatments&quot; class=&quot;nhsuk-pagination-prev&quot;&gt;
+    &lt;span class=&quot;nhsuk-pagination-link&quot;&gt;Previous&lt;/span&gt;
+    &lt;span class=&quot;nhsuk-pagination-title&quot;&gt;Treatments&lt;/span&gt;
+    &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-left&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;path d=&quot;M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;</code></pre><h2 id="nunjucks-macro">Nunjucks macro</h2>
+<pre><code>{% from &#39;components/pagination/macro.njk&#39; import pagination %}
+
+{{ pagination({
+  &quot;nextUrl&quot;: &quot;/section/symptoms&quot;,
+  &quot;nextPage&quot;: &quot;Symptoms&quot;
+}) }}</code></pre>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+  </body>
+</html>

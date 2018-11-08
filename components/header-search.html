@@ -2,14 +2,14 @@
 
 
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style="background-color: #f0f4f5;"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>NHS.UK Frontend - </title>
+    <title>NHS.UK Frontend - Header with search</title>
 
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
@@ -32,6 +32,9 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
+
+      
+
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
@@ -52,115 +55,49 @@
 
     
 
+      <div class="nhsuk-header__content" id="content-header">
+
+        <div class="nhsuk-header__search">
+          <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
+            <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"/>
+  <text aria-hidden="true">Search</text>
+</svg>
+
+            <span class="nhsuk-u-visually-hidden">Search</span>
+          </button>
+          <div class="nhsuk-header__search-wrap" id="wrap-search">
+            <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
+              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+              <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
+              <button type="submit" class="nhsuk-search__submit">
+                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"/>
+  <text aria-hidden="true">Search</text>
+</svg>
+
+                <span class="nhsuk-u-visually-hidden">Search</span>
+              </button>
+              <button class="nhsuk-search__close" id="close-search">
+                <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
+</svg>
+
+                <span class="nhsuk-u-visually-hidden">Close search</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
     
 
 </header>
 
-
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
-
-
-
-      
-
-  
-
-  <div class="nhsuk-width-container">
-    <main id="maincontent" class="nhsuk-main-wrapper">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
-  
-    <h1 id="tooling">Tooling</h1>
-<h2 id="npm-scripts">npm scripts</h2>
-<table>
-<thead>
-<tr>
-<th>command</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>npm start</code></td>
-<td>Runs the <em>default</em> gulp task</td>
-</tr>
-<tr>
-<td><code>npm test</code></td>
-<td>Runs CSS linting</td>
-</tr>
-<tr>
-<td><code>npm build-gh-pages</code></td>
-<td>Build documentation with a base url that is suitable for publishing on github pages</td>
-</tr>
-<tr>
-<td><code>npm build-gh-release</code></td>
-<td>Runs <code>gulp zip</code> for publishing to github releases</td>
-</tr>
-</tbody></table>
-<h2 id="gulp-tasks">Gulp tasks</h2>
-<p>We use <a href="https://gulpjs.com/">gulp</a> for automating common tasks.</p>
-<p>To run a gulp task, run <code>./node_modules/.bin/gulp &lt;task_name&gt;</code> on the command line.</p>
-<table>
-<thead>
-<tr>
-<th>task</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>default</code></td>
-<td>Serve the documentation on port 3000. Recompile when there are changes</td>
-</tr>
-<tr>
-<td><code>clean</code></td>
-<td>Remove all compiled files</td>
-</tr>
-<tr>
-<td><code>style</code></td>
-<td>Compiles CSS</td>
-</tr>
-<tr>
-<td><code>build</code></td>
-<td>Compiles CSS and JS</td>
-</tr>
-<tr>
-<td><code>bundle</code></td>
-<td>Creates distributable CSS and JS files in <code>dist/</code></td>
-</tr>
-<tr>
-<td><code>zip</code></td>
-<td>Creates a distributable zip file in <code>dist/</code></td>
-</tr>
-<tr>
-<td><code>watch</code></td>
-<td>Recompile documentation and distributables when there are changes</td>
-</tr>
-<tr>
-<td><code>docs:build</code></td>
-<td>Recompile documentation</td>
-</tr>
-<tr>
-<td><code>docs:serve</code></td>
-<td>Serve documentation on port 3000</td>
-</tr>
-</tbody></table>
-
-  
-
-          </div>
-        </div>
-      </div>
-
-    </main>
-  </div>
 
 
 

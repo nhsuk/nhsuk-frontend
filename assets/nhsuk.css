@@ -1,5 +1,1852 @@
-@import url("https://assets.nhs.uk/fonts/nhsuk-fonts-1.3.0.css");
-.visually-hidden {
+@charset "UTF-8";
+/* ==========================================================================
+   CORE
+   ========================================================================== */
+/* [1] */
+/* [1] */
+/* ==========================================================================
+   GENERIC / #BOX-SIZING
+   ========================================================================== */
+/**
+ * Set the global `box-sizing` state to `border-box`.
+ *
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ * http://paulirish.com/2012/box-sizing-border-box-ftw
+ */
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+@font-face {
+  font-family: 'Frutiger W01';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.eot?#iefix");
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.eot?#iefix") format("eot"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.woff2") format("woff2"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.woff") format("woff"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.ttf") format("truetype"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-45Light.svg#29f3ff8a-1719-4e25-a757-53ee1a1114a5") format("svg"); }
+
+@font-face {
+  font-family: 'Frutiger W01';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot?#iefix");
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot?#iefix") format("eot"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2") format("woff2"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff") format("woff"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf") format("truetype"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115") format("svg"); }
+
+@font-face {
+  font-family: 'Frutiger W01';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot?#iefix");
+  src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot?#iefix") format("eot"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2") format("woff2"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff") format("woff"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.ttf") format("truetype"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg"); }
+
+/* ==========================================================================
+   GENERIC / #IE
+   ========================================================================== */
+/**
+ * Add the correct display for HTML5 elements in IE 9-.
+ */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block; }
+
+/* ==========================================================================
+   ELEMENTS / #FORMS
+   ========================================================================== */
+/**
+ * Make sure our form elements don’t use any UA-specific font styles: we want
+ * them to use ours. This may need reverting as more design information becomes
+ * available, and we start putting together more complete forms.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit; }
+
+/* ==========================================================================
+   ELEMENTS / #LINKS
+   ========================================================================== */
+/**
+ * Our basic `<a>` elements only need very minimal styling.
+ * It uses the @mixin nhsuk-link-style-default within tools/links.
+ * Anything more opinionated (e.g. buttons, calls-to-action, etc.) will need a
+ * class defining in the Components layer.
+ *
+ * 1. Outputs full link URL for print.
+ * 2. Point unit used for print.
+ */
+a {
+  color: #005eb8; }
+  a:visited {
+    color: #330072; }
+  a:focus {
+    background-color: #ffb81C;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #212b32;
+    outline: 0; }
+  a:hover {
+    background-color: #ffcd60;
+    box-shadow: 0 0 0 4px #ffcd60;
+    color: #212b32;
+    text-decoration: none; }
+  a:active {
+    color: #374047; }
+  @media print {
+    a:after {
+      color: #212b32;
+      content: " (Link: " attr(href) ")";
+      /* [1] */
+      font-size: 14pt;
+      /* [2] */ } }
+
+/* ==========================================================================
+   ELEMENTS / #PAGE
+   ========================================================================== */
+/**
+ * High-level, page-level styling.
+ *
+ * 1. The reason for this is to prevent "centering jumps" when navigating back
+ *    and forth between pages with enough content to have a vertical scroll bar
+ *    and pages that do not.
+ * 2. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ * 3. Override the user agent style margin of 8px.
+ * 4. Ensure the page always fills at least the entire height of the viewport.
+ *
+ */
+html {
+  background-color: #005eb8;
+  font-family: Frutiger W01, Helvetica, Arial, Sans-serif;
+  overflow-y: scroll;
+  /* [1] */ }
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  /* [2] */
+  -webkit-font-smoothing: antialiased;
+  /* [2] */
+  background-color: #f0f4f5;
+  color: #212b32;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  /* [3] */
+  min-height: 100%;
+  /* [4] */ }
+
+/* ==========================================================================
+   ELEMENTS / #TABLES
+   ========================================================================== */
+/**
+ * 1. Force `<table>`s to be full-width by default.
+ * 2. Captions are used to improve accessibility,
+ *    but we do not need them visually displayed.
+ */
+table {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  border-spacing: 0;
+  vertical-align: top;
+  width: 100%;
+  /* [1] */ }
+  @media (min-width: 40.0625em) {
+    table {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    table {
+      margin-top: 48px; } }
+  @media print {
+    table {
+      page-break-inside: avoid; } }
+
+thead th {
+  border-bottom: 2px solid #d8dde0; }
+
+th,
+td {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 8px;
+  border-bottom: 1px solid #d8dde0;
+  text-align: left; }
+  @media (min-width: 40.0625em) {
+    th,
+    td {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    th,
+    td {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    th,
+    td {
+      padding: 16px; } }
+
+th {
+  font-weight: 600; }
+
+caption {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  /* [2] */ }
+
+/* ==========================================================================
+   OBJECTS / #GRID
+   ========================================================================== */
+.nhsuk-grid-row {
+  margin-left: -16px;
+  margin-right: -16px; }
+  .nhsuk-grid-row:after {
+    clear: both;
+    content: '';
+    display: block; }
+
+.nhsuk-grid-column-one-quarter {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-one-quarter {
+      float: left;
+      width: 25%; } }
+
+.nhsuk-grid-column-one-third {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-one-third {
+      float: left;
+      width: 33.3333%; } }
+
+.nhsuk-grid-column-one-half {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-one-half {
+      float: left;
+      width: 50%; } }
+
+.nhsuk-grid-column-two-thirds {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-two-thirds {
+      float: left;
+      width: 66.6666%; } }
+
+.nhsuk-grid-column-three-quarters {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-three-quarters {
+      float: left;
+      width: 75%; } }
+
+.nhsuk-grid-column-full {
+  box-sizing: border-box;
+  padding: 0 16px; }
+  @media (min-width: 48.0625em) {
+    .nhsuk-grid-column-full {
+      float: left;
+      width: 100%; } }
+
+/* ==========================================================================
+   OBJECTS / #MAIN-WRAPPER
+   ========================================================================== */
+/**
+ * Page wrapper for the grid system
+ *
+ * Usage:
+ * <div class="nhsuk-width-container">
+ *   <div class="nhsuk-main-wrapper">
+ *    <!-- Wrapper for the main content of your page which applies padding
+ *         to the top / bottom -->
+ *   </div>
+ * </div>
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. In IE11 the `main` element can be used, but is not recognized  –
+ *    meaning it's not defined in IE's default style sheet,
+ *    so it uses CSS initial value, which is inline.
+*/
+.nhsuk-main-wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: block;
+  /* [1] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-main-wrapper {
+      padding-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-main-wrapper {
+      padding-bottom: 48px; } }
+
+/* ==========================================================================
+   OBJECTS / #WIDTH-CONTAINER
+   ========================================================================== */
+/**
+ * Page width for the grid system
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. On mobile, add half width gutters
+ * 2. Limit the width of the container to the page width
+ * 3. From desktop, add full width gutters
+ * 4. As soon as the viewport is greater than the width of the page plus the
+ *    gutters, just centre the content instead of adding gutters.
+*/
+.nhsuk-width-container {
+  margin: 0 16px;
+  /* [1] */
+  max-width: 960px;
+  /* [2] */ }
+  @media (min-width: 48.0625em) {
+    .nhsuk-width-container {
+      margin: 0 32px;
+      /* [3] */ } }
+  @media (min-width: 1024px) {
+    .nhsuk-width-container {
+      margin: 0 auto; } }
+
+/* ==========================================================================
+   STYLES / #ICONS
+   ========================================================================== */
+/**
+ * We use SVGs for our icons, with no PNG fallback.
+ *
+ * For IE8 support, alternate styling is applied to the components using icons.
+ */
+/* Default icon size
+   ========================================================================== */
+.nhsuk-icon {
+  height: 34px;
+  width: 34px; }
+
+/* Default icon colours
+   ========================================================================== */
+.nhsuk-icon__search {
+  fill: #005eb8; }
+
+.nhsuk-icon__chevron-left {
+  fill: #005eb8; }
+
+.nhsuk-icon__chevron-right {
+  fill: #005eb8; }
+
+.nhsuk-icon__close {
+  fill: #005eb8; }
+
+.nhsuk-icon__cross {
+  fill: #da291c; }
+
+.nhsuk-icon__tick {
+  fill: none;
+  stroke: #007f3b; }
+
+.nhsuk-icon__arrow-right {
+  fill: #005eb8; }
+
+.nhsuk-icon__arrow-left {
+  fill: #005eb8; }
+
+.nhsuk-icon__arrow-right-circle {
+  fill: #007f3b; }
+
+.nhsuk-icon__chevron-down {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  fill: #005eb8; }
+  .nhsuk-icon__chevron-down path {
+    fill: #ffffff; }
+
+.nhsuk-icon__chevron-up {
+  fill: #005eb8; }
+  .nhsuk-icon__chevron-up path {
+    fill: #ffffff; }
+
+/* Icon size adjustments
+   ========================================================================== */
+.nhsuk-icon--size-25 {
+  height: 42.5px;
+  width: 42.5px; }
+
+.nhsuk-icon--size-50 {
+  height: 51px;
+  width: 51px; }
+
+.nhsuk-icon--size-75 {
+  height: 59.5px;
+  width: 59.5px; }
+
+.nhsuk-icon--size-100 {
+  height: 68px;
+  width: 68px; }
+
+/* ==========================================================================
+   STYLES / #LISTS
+   ========================================================================== */
+/**
+ * The % (silent class) allows code to be extended (@extend) to other elements
+ * without bloating the code.
+ *
+ * @example scss
+ *  .foo {
+ *    @extend %nhsuk-section-break--xl;
+ *   }
+ *
+ * 1. 'Random number' used to align ul and ol left with content.
+ * 2. 'Random number' used to give sufficient spacing between text and icon.
+ * 3. 'Random number' used to align icon and text.
+ */
+.nhsuk-list, ul, ol {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  list-style-type: none;
+  margin-top: 0;
+  padding-left: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list, ul, ol {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-list, ul, ol {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list, ul, ol {
+      margin-bottom: 24px; } }
+
+.nhsuk-list > li, ul > li, ol > li {
+  margin-bottom: 8px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list > li, ul > li, ol > li {
+      margin-bottom: 8px; } }
+  .nhsuk-list > li:last-child, ul > li:last-child, ol > li:last-child {
+    margin-bottom: 0; }
+
+.nhsuk-list--bullet, ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  /* [1] */ }
+
+.nhsuk-list--number, ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+  /* [1] */ }
+
+.nhsuk-list--check,
+.nhsuk-list--cross {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 40px;
+  /* [2] */
+  position: relative; }
+  .nhsuk-list--check svg,
+  .nhsuk-list--cross svg {
+    left: -4px;
+    /* [3] */
+    margin-top: -5px;
+    /* [3] */
+    position: absolute; }
+
+/* ==========================================================================
+   STYLES / #SECTION-BREAK
+   ========================================================================== */
+/**
+ * The % (silent class) allows code to be extended (@extend) to other elements
+ * without bloating the code.
+ *
+ * @example scss
+ *  .foo {
+ *    @extend %nhsuk-section-break--xl;
+ *   }
+ *
+ * 1. Extended the section-break--l code for usage of a semantic <hr> with
+ * no class name.
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
+.nhsuk-section-break, hr {
+  border: 0;
+  margin: 0; }
+
+.nhsuk-section-break--xl {
+  margin-top: 48px;
+  margin-bottom: 48px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--xl {
+      margin-top: 56px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--xl {
+      margin-bottom: 56px; } }
+
+.nhsuk-section-break--l, hr {
+  margin-top: 32px;
+  margin-bottom: 32px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--l, hr {
+      margin-top: 40px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--l, hr {
+      margin-bottom: 40px; } }
+
+.nhsuk-section-break--m {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--m {
+      margin-top: 24px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-section-break--m {
+      margin-bottom: 24px; } }
+
+.nhsuk-section-break--visible, hr {
+  border-bottom: 1px solid #d8dde0; }
+
+hr {
+  /* [1] */ }
+
+/* ==========================================================================
+   STYLES / #TYPOGRAPHY
+   ========================================================================== */
+/* Headings
+   ========================================================================== */
+/**
+ * The % (silent class) allows code to be extended (@extend) to other elements
+ * without bloating the code.
+ *
+ * @example scss
+ *  .foo {
+ *    @extend %nhsuk-heading-xl;
+ *   }
+ */
+h1,
+.nhsuk-heading-xl {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.25;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    h1,
+    .nhsuk-heading-xl {
+      font-size: 48px;
+      font-size: 3rem;
+      line-height: 1.16667; } }
+  @media print {
+    h1,
+    .nhsuk-heading-xl {
+      font-size: 32pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    h1,
+    .nhsuk-heading-xl {
+      margin-bottom: 48px; } }
+
+h2,
+.nhsuk-heading-l {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    h2,
+    .nhsuk-heading-l {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.25; } }
+  @media print {
+    h2,
+    .nhsuk-heading-l {
+      font-size: 24pt;
+      line-height: 1.05; } }
+  @media (min-width: 40.0625em) {
+    h2,
+    .nhsuk-heading-l {
+      margin-bottom: 24px; } }
+
+h3,
+.nhsuk-heading-m {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    h3,
+    .nhsuk-heading-m {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    h3,
+    .nhsuk-heading-m {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    h3,
+    .nhsuk-heading-m {
+      margin-bottom: 24px; } }
+
+h4,
+.nhsuk-heading-s {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.55556;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    h4,
+    .nhsuk-heading-s {
+      font-size: 22px;
+      font-size: 1.375rem;
+      line-height: 1.45455; } }
+  @media print {
+    h4,
+    .nhsuk-heading-s {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    h4,
+    .nhsuk-heading-s {
+      margin-bottom: 24px; } }
+
+h5,
+.nhsuk-heading-xs {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    h5,
+    .nhsuk-heading-xs {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    h5,
+    .nhsuk-heading-xs {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    h5,
+    .nhsuk-heading-xs {
+      margin-bottom: 24px; } }
+
+h6,
+.nhsuk-heading-xxs {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    h6,
+    .nhsuk-heading-xxs {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    h6,
+    .nhsuk-heading-xxs {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    h6,
+    .nhsuk-heading-xxs {
+      margin-bottom: 24px; } }
+
+/* Captions to be used inside headings
+   ========================================================================== */
+.nhsuk-caption-xl {
+  font-weight: 400;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  color: #425563;
+  display: block;
+  margin-bottom: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-caption-xl {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.25; } }
+  @media print {
+    .nhsuk-caption-xl {
+      font-size: 24pt;
+      line-height: 1.05; } }
+
+.nhsuk-caption-l {
+  font-weight: 400;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #425563;
+  display: block;
+  margin-bottom: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-caption-l {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-caption-l {
+      font-size: 18pt;
+      line-height: 1.15; } }
+
+.nhsuk-caption-m {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #425563;
+  display: block; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-caption-m {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-caption-m {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-caption--bottom {
+  margin-bottom: 0;
+  margin-top: 4px; }
+
+/* Body (paragraphs)
+   ========================================================================== */
+.nhsuk-body-l {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-body-l {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-body-l {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-body-l {
+      margin-bottom: 24px; } }
+
+p,
+.nhsuk-body-m {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    p,
+    .nhsuk-body-m {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    p,
+    .nhsuk-body-m {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    p,
+    .nhsuk-body-m {
+      margin-bottom: 24px; } }
+
+p,
+.nhsuk-body-m {
+  color: inherit; }
+
+.nhsuk-body-s {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-body-s {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-body-s {
+      font-size: 14pt;
+      line-height: 1.2; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-body-s {
+      margin-bottom: 24px; } }
+
+/* Contextual adjustments
+   ========================================================================== */
+/**
+ * Add top padding to headings that appear directly after paragraphs.
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/nhsuk-frontend
+ */
+.nhsuk-body-l + h2,
+.nhsuk-body-l + .nhsuk-heading-l {
+  padding-top: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-body-l + h2,
+    .nhsuk-body-l + .nhsuk-heading-l {
+      padding-top: 8px; } }
+
+p + h2, .nhsuk-body-m + h2,
+p + .nhsuk-heading-l,
+.nhsuk-body-m + .nhsuk-heading-l,
+.nhsuk-body-s + h2,
+.nhsuk-body-s + .nhsuk-heading-l,
+.nhsuk-list + h2,
+ul + h2,
+ol + h2,
+.nhsuk-list + .nhsuk-heading-l,
+ul + .nhsuk-heading-l,
+ol + .nhsuk-heading-l {
+  padding-top: 16px; }
+  @media (min-width: 40.0625em) {
+    p + h2, .nhsuk-body-m + h2,
+    p + .nhsuk-heading-l,
+    .nhsuk-body-m + .nhsuk-heading-l,
+    .nhsuk-body-s + h2,
+    .nhsuk-body-s + .nhsuk-heading-l,
+    .nhsuk-list + h2,
+    ul + h2,
+    ol + h2,
+    .nhsuk-list + .nhsuk-heading-l,
+    ul + .nhsuk-heading-l,
+    ol + .nhsuk-heading-l {
+      padding-top: 24px; } }
+
+p + h3, .nhsuk-body-m + h3,
+p + .nhsuk-heading-m,
+.nhsuk-body-m + .nhsuk-heading-m,
+.nhsuk-body-s + h3,
+.nhsuk-body-s + .nhsuk-heading-m,
+.nhsuk-list + h3,
+ul + h3,
+ol + h3,
+.nhsuk-list + .nhsuk-heading-m,
+ul + .nhsuk-heading-m,
+ol + .nhsuk-heading-m,
+p + h4,
+.nhsuk-body-m + h4,
+p + .nhsuk-heading-s,
+.nhsuk-body-m + .nhsuk-heading-s,
+.nhsuk-body-s + h4,
+.nhsuk-body-s + .nhsuk-heading-s,
+.nhsuk-list + h4,
+ul + h4,
+ol + h4,
+.nhsuk-list + .nhsuk-heading-s,
+ul + .nhsuk-heading-s,
+ol + .nhsuk-heading-s {
+  padding-top: 4px; }
+  @media (min-width: 40.0625em) {
+    p + h3, .nhsuk-body-m + h3,
+    p + .nhsuk-heading-m,
+    .nhsuk-body-m + .nhsuk-heading-m,
+    .nhsuk-body-s + h3,
+    .nhsuk-body-s + .nhsuk-heading-m,
+    .nhsuk-list + h3,
+    ul + h3,
+    ol + h3,
+    .nhsuk-list + .nhsuk-heading-m,
+    ul + .nhsuk-heading-m,
+    ol + .nhsuk-heading-m,
+    p + h4,
+    .nhsuk-body-m + h4,
+    p + .nhsuk-heading-s,
+    .nhsuk-body-m + .nhsuk-heading-s,
+    .nhsuk-body-s + h4,
+    .nhsuk-body-s + .nhsuk-heading-s,
+    .nhsuk-list + h4,
+    ul + h4,
+    ol + h4,
+    .nhsuk-list + .nhsuk-heading-s,
+    ul + .nhsuk-heading-s,
+    ol + .nhsuk-heading-s {
+      padding-top: 8px; } }
+
+/* Font weight for <strong> and <b>
+   ========================================================================== */
+strong,
+b {
+  font-weight: 600; }
+
+/* ==========================================================================
+   UTILITIES / #CLEARFIX
+   ========================================================================== */
+/**
+ * Automatically clear an elements
+ * child elements
+ *
+ * Usage: class="nhsuk-u-clear"
+ * See tools/mixins
+ */
+.nhsuk-u-clear:after {
+  clear: both;
+  content: '';
+  display: block; }
+
+/* ==========================================================================
+   UTILITIES / #GRID
+   ========================================================================== */
+/**
+ * Force grid widths on all screen sizes
+ * By default all grid elements will go to 100% width
+ * on every screen size, these utilities can force
+ * custom widths on all screen sizes
+ *
+ * Usage: class="nhsuk-u-one-half"
+ */
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+.nhsuk-u-one-half {
+  float: left;
+  width: 50% !important; }
+
+.nhsuk-u-one-third {
+  float: left;
+  width: 33.33333% !important; }
+
+.nhsuk-u-two-thirds {
+  float: left;
+  width: 66.66667% !important; }
+
+.nhsuk-u-one-quarter {
+  float: left;
+  width: 25% !important; }
+
+.nhsuk-u-three-quarters {
+  float: left;
+  width: 75% !important; }
+
+/**
+ * Force grid widths on screen sizes on tablet
+ * and above
+ *
+ * By default all grid elements will go to 100% width
+ * on every screen size, these utilities can force
+ * custom widths on screen sizes on tablet
+ * and above
+ *
+ * Usage: class="nhsuk-\!-one-half-tablet"
+ */
+.nhsuk-u-one-half-tablet {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-one-half-tablet {
+      float: left;
+      width: 50% !important; } }
+
+.nhsuk-u-one-third-tablet {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-one-third-tablet {
+      float: left;
+      width: 33.33333% !important; } }
+
+.nhsuk-u-two-thirds-tablet {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-two-thirds-tablet {
+      float: left;
+      width: 66.66667% !important; } }
+
+.nhsuk-u-one-quarter-tablet {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-one-quarter-tablet {
+      float: left;
+      width: 25% !important; } }
+
+.nhsuk-u-three-quarters-tablet {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-three-quarters-tablet {
+      float: left;
+      width: 75% !important; } }
+
+/* ==========================================================================
+   UTILITIES / #LINK-NOWRAP
+   ========================================================================== */
+/**
+ * Prevent long anchor links from line breaking
+ * on smaller screens
+ *
+ * Usage: class="nhsuk-u-nowrap"
+ */
+@media (max-width: 40.0525em) {
+  .nhsuk-u-nowrap {
+    white-space: nowrap; } }
+
+/* ==========================================================================
+   UTILITIES / #READING-WIDTH
+   ========================================================================== */
+/**
+ * Reading width mixin, add a maximum width
+ * to large pieces of content
+ *
+ * Usage: class="nhsuk-u-reading-width"
+ * See tools/mixins
+ */
+.nhsuk-u-reading-width {
+  max-width: 37em; }
+
+/* ==========================================================================
+   UTILITIES / #SPACING
+   ========================================================================== */
+/* Directions for spacing
+   ========================================================================== */
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
+/* Spacing override classes
+   ========================================================================== */
+/**
+ * Generate spacing override classes for the given property (e.g. margin)
+ * for each point in the spacing scale.
+ *
+ * @param {String} $property - Property to add spacing to (e.g. 'margin')
+ *
+ * @example scss
+ *   .nhsuk-\!-margin-0 {
+ *      margin: 0;
+ *   }
+ *
+ *  .nhsuk-\!-margin-top-1 {
+ *     margin-top: [whatever spacing point 1 is...]
+ *   }
+ *
+ * 1. For each point in the spacing scale (defined in settings), create an
+ *    override that affects all directions...
+ * 2. ... and then an override for each individual direction
+ */
+/* [1] */
+.nhsuk-\!-margin-0 {
+  margin: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-0 {
+      margin: 0 !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-0 {
+  margin-top: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-0 {
+      margin-top: 0 !important; } }
+
+.nhsuk-\!-margin-right-0 {
+  margin-right: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-0 {
+      margin-right: 0 !important; } }
+
+.nhsuk-\!-margin-bottom-0 {
+  margin-bottom: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-0 {
+      margin-bottom: 0 !important; } }
+
+.nhsuk-\!-margin-left-0 {
+  margin-left: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-0 {
+      margin-left: 0 !important; } }
+
+.nhsuk-\!-margin-1 {
+  margin: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-1 {
+      margin: 4px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-1 {
+  margin-top: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-1 {
+      margin-top: 4px !important; } }
+
+.nhsuk-\!-margin-right-1 {
+  margin-right: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-1 {
+      margin-right: 4px !important; } }
+
+.nhsuk-\!-margin-bottom-1 {
+  margin-bottom: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-1 {
+      margin-bottom: 4px !important; } }
+
+.nhsuk-\!-margin-left-1 {
+  margin-left: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-1 {
+      margin-left: 4px !important; } }
+
+.nhsuk-\!-margin-2 {
+  margin: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-2 {
+      margin: 8px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-2 {
+  margin-top: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-2 {
+      margin-top: 8px !important; } }
+
+.nhsuk-\!-margin-right-2 {
+  margin-right: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-2 {
+      margin-right: 8px !important; } }
+
+.nhsuk-\!-margin-bottom-2 {
+  margin-bottom: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-2 {
+      margin-bottom: 8px !important; } }
+
+.nhsuk-\!-margin-left-2 {
+  margin-left: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-2 {
+      margin-left: 8px !important; } }
+
+.nhsuk-\!-margin-3 {
+  margin: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-3 {
+      margin: 16px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-3 {
+  margin-top: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-3 {
+      margin-top: 16px !important; } }
+
+.nhsuk-\!-margin-right-3 {
+  margin-right: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-3 {
+      margin-right: 16px !important; } }
+
+.nhsuk-\!-margin-bottom-3 {
+  margin-bottom: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-3 {
+      margin-bottom: 16px !important; } }
+
+.nhsuk-\!-margin-left-3 {
+  margin-left: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-3 {
+      margin-left: 16px !important; } }
+
+.nhsuk-\!-margin-4 {
+  margin: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-4 {
+      margin: 24px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-4 {
+  margin-top: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-4 {
+      margin-top: 24px !important; } }
+
+.nhsuk-\!-margin-right-4 {
+  margin-right: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-4 {
+      margin-right: 24px !important; } }
+
+.nhsuk-\!-margin-bottom-4 {
+  margin-bottom: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-4 {
+      margin-bottom: 24px !important; } }
+
+.nhsuk-\!-margin-left-4 {
+  margin-left: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-4 {
+      margin-left: 24px !important; } }
+
+.nhsuk-\!-margin-5 {
+  margin: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-5 {
+      margin: 32px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-5 {
+  margin-top: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-5 {
+      margin-top: 32px !important; } }
+
+.nhsuk-\!-margin-right-5 {
+  margin-right: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-5 {
+      margin-right: 32px !important; } }
+
+.nhsuk-\!-margin-bottom-5 {
+  margin-bottom: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-5 {
+      margin-bottom: 32px !important; } }
+
+.nhsuk-\!-margin-left-5 {
+  margin-left: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-5 {
+      margin-left: 32px !important; } }
+
+.nhsuk-\!-margin-6 {
+  margin: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-6 {
+      margin: 40px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-6 {
+  margin-top: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-6 {
+      margin-top: 40px !important; } }
+
+.nhsuk-\!-margin-right-6 {
+  margin-right: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-6 {
+      margin-right: 40px !important; } }
+
+.nhsuk-\!-margin-bottom-6 {
+  margin-bottom: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-6 {
+      margin-bottom: 40px !important; } }
+
+.nhsuk-\!-margin-left-6 {
+  margin-left: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-6 {
+      margin-left: 40px !important; } }
+
+.nhsuk-\!-margin-7 {
+  margin: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-7 {
+      margin: 48px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-7 {
+  margin-top: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-7 {
+      margin-top: 48px !important; } }
+
+.nhsuk-\!-margin-right-7 {
+  margin-right: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-7 {
+      margin-right: 48px !important; } }
+
+.nhsuk-\!-margin-bottom-7 {
+  margin-bottom: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-7 {
+      margin-bottom: 48px !important; } }
+
+.nhsuk-\!-margin-left-7 {
+  margin-left: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-7 {
+      margin-left: 48px !important; } }
+
+.nhsuk-\!-margin-8 {
+  margin: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-8 {
+      margin: 56px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-8 {
+  margin-top: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-8 {
+      margin-top: 56px !important; } }
+
+.nhsuk-\!-margin-right-8 {
+  margin-right: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-8 {
+      margin-right: 56px !important; } }
+
+.nhsuk-\!-margin-bottom-8 {
+  margin-bottom: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-8 {
+      margin-bottom: 56px !important; } }
+
+.nhsuk-\!-margin-left-8 {
+  margin-left: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-8 {
+      margin-left: 56px !important; } }
+
+.nhsuk-\!-margin-9 {
+  margin: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-9 {
+      margin: 64px !important; } }
+
+/* [2] */
+.nhsuk-\!-margin-top-9 {
+  margin-top: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-top-9 {
+      margin-top: 64px !important; } }
+
+.nhsuk-\!-margin-right-9 {
+  margin-right: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-right-9 {
+      margin-right: 64px !important; } }
+
+.nhsuk-\!-margin-bottom-9 {
+  margin-bottom: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-bottom-9 {
+      margin-bottom: 64px !important; } }
+
+.nhsuk-\!-margin-left-9 {
+  margin-left: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-margin-left-9 {
+      margin-left: 64px !important; } }
+
+/* [1] */
+.nhsuk-\!-padding-0 {
+  padding: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-0 {
+      padding: 0 !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-0 {
+  padding-top: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-0 {
+      padding-top: 0 !important; } }
+
+.nhsuk-\!-padding-right-0 {
+  padding-right: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-0 {
+      padding-right: 0 !important; } }
+
+.nhsuk-\!-padding-bottom-0 {
+  padding-bottom: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-0 {
+      padding-bottom: 0 !important; } }
+
+.nhsuk-\!-padding-left-0 {
+  padding-left: 0 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-0 {
+      padding-left: 0 !important; } }
+
+.nhsuk-\!-padding-1 {
+  padding: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-1 {
+      padding: 4px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-1 {
+  padding-top: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-1 {
+      padding-top: 4px !important; } }
+
+.nhsuk-\!-padding-right-1 {
+  padding-right: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-1 {
+      padding-right: 4px !important; } }
+
+.nhsuk-\!-padding-bottom-1 {
+  padding-bottom: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-1 {
+      padding-bottom: 4px !important; } }
+
+.nhsuk-\!-padding-left-1 {
+  padding-left: 4px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-1 {
+      padding-left: 4px !important; } }
+
+.nhsuk-\!-padding-2 {
+  padding: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-2 {
+      padding: 8px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-2 {
+  padding-top: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-2 {
+      padding-top: 8px !important; } }
+
+.nhsuk-\!-padding-right-2 {
+  padding-right: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-2 {
+      padding-right: 8px !important; } }
+
+.nhsuk-\!-padding-bottom-2 {
+  padding-bottom: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-2 {
+      padding-bottom: 8px !important; } }
+
+.nhsuk-\!-padding-left-2 {
+  padding-left: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-2 {
+      padding-left: 8px !important; } }
+
+.nhsuk-\!-padding-3 {
+  padding: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-3 {
+      padding: 16px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-3 {
+  padding-top: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-3 {
+      padding-top: 16px !important; } }
+
+.nhsuk-\!-padding-right-3 {
+  padding-right: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-3 {
+      padding-right: 16px !important; } }
+
+.nhsuk-\!-padding-bottom-3 {
+  padding-bottom: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-3 {
+      padding-bottom: 16px !important; } }
+
+.nhsuk-\!-padding-left-3 {
+  padding-left: 8px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-3 {
+      padding-left: 16px !important; } }
+
+.nhsuk-\!-padding-4 {
+  padding: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-4 {
+      padding: 24px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-4 {
+  padding-top: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-4 {
+      padding-top: 24px !important; } }
+
+.nhsuk-\!-padding-right-4 {
+  padding-right: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-4 {
+      padding-right: 24px !important; } }
+
+.nhsuk-\!-padding-bottom-4 {
+  padding-bottom: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-4 {
+      padding-bottom: 24px !important; } }
+
+.nhsuk-\!-padding-left-4 {
+  padding-left: 16px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-4 {
+      padding-left: 24px !important; } }
+
+.nhsuk-\!-padding-5 {
+  padding: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-5 {
+      padding: 32px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-5 {
+  padding-top: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-5 {
+      padding-top: 32px !important; } }
+
+.nhsuk-\!-padding-right-5 {
+  padding-right: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-5 {
+      padding-right: 32px !important; } }
+
+.nhsuk-\!-padding-bottom-5 {
+  padding-bottom: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-5 {
+      padding-bottom: 32px !important; } }
+
+.nhsuk-\!-padding-left-5 {
+  padding-left: 24px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-5 {
+      padding-left: 32px !important; } }
+
+.nhsuk-\!-padding-6 {
+  padding: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-6 {
+      padding: 40px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-6 {
+  padding-top: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-6 {
+      padding-top: 40px !important; } }
+
+.nhsuk-\!-padding-right-6 {
+  padding-right: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-6 {
+      padding-right: 40px !important; } }
+
+.nhsuk-\!-padding-bottom-6 {
+  padding-bottom: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-6 {
+      padding-bottom: 40px !important; } }
+
+.nhsuk-\!-padding-left-6 {
+  padding-left: 32px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-6 {
+      padding-left: 40px !important; } }
+
+.nhsuk-\!-padding-7 {
+  padding: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-7 {
+      padding: 48px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-7 {
+  padding-top: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-7 {
+      padding-top: 48px !important; } }
+
+.nhsuk-\!-padding-right-7 {
+  padding-right: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-7 {
+      padding-right: 48px !important; } }
+
+.nhsuk-\!-padding-bottom-7 {
+  padding-bottom: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-7 {
+      padding-bottom: 48px !important; } }
+
+.nhsuk-\!-padding-left-7 {
+  padding-left: 40px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-7 {
+      padding-left: 48px !important; } }
+
+.nhsuk-\!-padding-8 {
+  padding: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-8 {
+      padding: 56px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-8 {
+  padding-top: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-8 {
+      padding-top: 56px !important; } }
+
+.nhsuk-\!-padding-right-8 {
+  padding-right: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-8 {
+      padding-right: 56px !important; } }
+
+.nhsuk-\!-padding-bottom-8 {
+  padding-bottom: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-8 {
+      padding-bottom: 56px !important; } }
+
+.nhsuk-\!-padding-left-8 {
+  padding-left: 48px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-8 {
+      padding-left: 56px !important; } }
+
+.nhsuk-\!-padding-9 {
+  padding: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-9 {
+      padding: 64px !important; } }
+
+/* [2] */
+.nhsuk-\!-padding-top-9 {
+  padding-top: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-top-9 {
+      padding-top: 64px !important; } }
+
+.nhsuk-\!-padding-right-9 {
+  padding-right: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-right-9 {
+      padding-right: 64px !important; } }
+
+.nhsuk-\!-padding-bottom-9 {
+  padding-bottom: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-bottom-9 {
+      padding-bottom: 64px !important; } }
+
+.nhsuk-\!-padding-left-9 {
+  padding-left: 56px !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-padding-left-9 {
+      padding-left: 64px !important; } }
+
+/* ==========================================================================
+   UTILITIES / #TYPOGRAPHY
+   ========================================================================== */
+/* Font size and line height
+   ========================================================================== */
+/**
+ * Generate typography override classes for each responsive font map in the
+ * typography scale eg .nhsuk-\!-font-size-48
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ */
+.nhsuk-\!-font-size-64 {
+  font-size: 48px !important;
+  font-size: 3rem !important;
+  line-height: 1.16667 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-64 {
+      font-size: 64px !important;
+      font-size: 4rem !important;
+      line-height: 1.125 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-64 {
+      font-size: 53pt !important;
+      line-height: 1.1 !important; } }
+
+.nhsuk-\!-font-size-48 {
+  font-size: 32px !important;
+  font-size: 2rem !important;
+  line-height: 1.25 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-48 {
+      font-size: 48px !important;
+      font-size: 3rem !important;
+      line-height: 1.16667 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-48 {
+      font-size: 32pt !important;
+      line-height: 1.15 !important; } }
+
+.nhsuk-\!-font-size-32 {
+  font-size: 24px !important;
+  font-size: 1.5rem !important;
+  line-height: 1.33333 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-32 {
+      font-size: 32px !important;
+      font-size: 2rem !important;
+      line-height: 1.25 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-32 {
+      font-size: 24pt !important;
+      line-height: 1.05 !important; } }
+
+.nhsuk-\!-font-size-24 {
+  font-size: 20px !important;
+  font-size: 1.25rem !important;
+  line-height: 1.4 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-24 {
+      font-size: 24px !important;
+      font-size: 1.5rem !important;
+      line-height: 1.33333 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-24 {
+      font-size: 18pt !important;
+      line-height: 1.15 !important; } }
+
+.nhsuk-\!-font-size-22 {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  line-height: 1.55556 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-22 {
+      font-size: 22px !important;
+      font-size: 1.375rem !important;
+      line-height: 1.45455 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-22 {
+      font-size: 18pt !important;
+      line-height: 1.15 !important; } }
+
+.nhsuk-\!-font-size-19 {
+  font-size: 16px !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-19 {
+      font-size: 19px !important;
+      font-size: 1.1875rem !important;
+      line-height: 1.47368 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-19 {
+      font-size: 14pt !important;
+      line-height: 1.15 !important; } }
+
+.nhsuk-\!-font-size-16 {
+  font-size: 14px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.71429 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-16 {
+      font-size: 16px !important;
+      font-size: 1rem !important;
+      line-height: 1.5 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-16 {
+      font-size: 14pt !important;
+      line-height: 1.2 !important; } }
+
+.nhsuk-\!-font-size-14 {
+  font-size: 12px !important;
+  font-size: 0.75rem !important;
+  line-height: 1.66667 !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-\!-font-size-14 {
+      font-size: 14px !important;
+      font-size: 0.875rem !important;
+      line-height: 1.71429 !important; } }
+  @media print {
+    .nhsuk-\!-font-size-14 {
+      font-size: 12pt !important;
+      line-height: 1.2 !important; } }
+
+/* Weights
+   ========================================================================== */
+/**
+ * Generate font weight override classes for normal and bold
+ * eg .nhsuk-u-font-weight-normal
+ */
+.nhsuk-u-font-weight-normal {
+  font-weight: 400 !important; }
+
+.nhsuk-u-font-weight-bold {
+  font-weight: 600 !important; }
+
+/* ==========================================================================
+   UTILITIES / #VISUALLY-HIDDEN
+   ========================================================================== */
+/**
+ * Hide elements visually but keep it in the DOM
+ *
+ * Usage: class="nhsuk-u-visually-hidden"
+ * See tools/mixins
+ */
+.nhsuk-u-visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
@@ -9,2100 +1856,2517 @@
   position: absolute;
   width: 1px; }
 
-.clear:after {
-  clear: both;
-  content: '';
-  display: block; }
+/* ==========================================================================
+   UTILITIES / #WIDTH
+   ========================================================================== */
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ * Force element widths on all screen sizes
+ *
+ * Usage: class="nhsuk-\!-width-full"
+ */
+/* Utility classes are allowed to use !important;
+ * so we disable the sass-lint for that rule
+*/
+.nhsuk-u-width-full {
+  width: 100% !important; }
 
-.nhsuk-reading-width {
-  max-width: 37em; }
-
-.top-and-bottom > *:first-child {
-  margin-top: 0; }
-
-.top-and-bottom > *:last-child {
-  margin-bottom: 0; }
-
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-  color: inherit;
-  font-weight: 600;
-  margin-bottom: 0; }
-
-h1,
-.nhsuk-heading-xl {
-  font-size: 2em;
-  line-height: 36px;
-  margin: 56px 0 0; }
-  @media (min-width: 40.0625em) {
-    h1,
-    .nhsuk-heading-xl {
-      font-size: 2.52632em;
-      line-height: 56px;
-      margin: 64px 0 0; } }
-
-h2,
-.nhsuk-heading-l {
-  font-size: 1.5em;
-  line-height: 32px;
-  margin: 40px 0 0; }
-  @media (min-width: 40.0625em) {
-    h2,
-    .nhsuk-heading-l {
-      font-size: 1.68421em;
-      line-height: 40px;
-      margin: 56px 0 0; } }
-
-h3,
-.nhsuk-heading-m {
-  font-size: 1.25em;
-  line-height: 28px;
-  margin: 32px 0 0; }
-  @media (min-width: 40.0625em) {
-    h3,
-    .nhsuk-heading-m {
-      font-size: 1.26316em;
-      line-height: 32px;
-      margin: 40px 0 0; } }
-
-h4,
-.nhsuk-heading-s {
-  font-size: 1.125em;
-  line-height: 28px;
-  margin: 24px 0 0; }
-  @media (min-width: 40.0625em) {
-    h4,
-    .nhsuk-heading-s {
-      font-size: 1.15789em;
-      line-height: 32px;
-      margin: 32px 0 0; } }
-
-h5,
-.nhsuk-heading-xs {
-  font-size: 1em;
-  line-height: 24px;
-  margin: 16px 0 0; }
-  @media (min-width: 40.0625em) {
-    h5,
-    .nhsuk-heading-xs {
-      font-size: 1em;
-      line-height: 28px;
-      margin: 24px 0 0; } }
-
-p,
-.nhsuk-body {
-  font-weight: 400;
-  margin: 16px 0 0; }
-  @media (min-width: 40.0625em) {
-    p,
-    .nhsuk-body {
-      margin: 24px 0 0; } }
-
-.nhsuk-body-l {
-  font-size: 1.25em;
-  line-height: 28px;
-  margin: 24px 0 0; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-body-l {
-      font-size: 1.26316em;
-      line-height: 32px;
-      margin: 32px 0 0; } }
-
-.nhsuk-body-s {
-  font-size: 0.875em;
-  line-height: 24px;
-  margin: 16px 0 0; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-body-s {
-      font-size: 0.84211em;
-      line-height: 28px;
-      margin: 24px 0 0; } }
-
-a {
-  color: #005EB8;
-  cursor: pointer; }
-  a:focus {
-    background: #FFB81C;
-    box-shadow: 0 0 0 4px #FFB81C;
-    color: #212B32;
-    outline: 0; }
-  a:hover {
-    background: #ffcd60;
-    box-shadow: 0 0 0 4px #ffcd60;
-    color: #212B32;
-    text-decoration: none; }
-  a:active {
-    background: #ffbf33 !important;
-    box-shadow: 0 0 0 4px #ffbf33;
-    color: #374047; }
-  a:visited {
-    color: #330072; }
-  @media print {
-    a:after {
-      color: #212B32;
-      content: " (Link: " attr(href) ")";
-      font-size: 14px; } }
-
-ul,
-ol {
-  font-weight: 400;
-  margin: 16px 0 0;
-  padding-left: 20px; }
-  @media (min-width: 40.0625em) {
-    ul,
-    ol {
-      margin: 24px 0 0; } }
-  ul li,
-  ol li {
-    margin: 8px 0 0; }
-    ul li:first-child,
-    ol li:first-child {
-      margin-top: 0; }
-
-.nhsuk-list--check,
-.nhsuk-list--cross {
-  list-style: none;
-  margin-top: 0;
-  padding-left: 40px;
-  position: relative; }
-  .nhsuk-list--check .nhsuk-icon__tick,
-  .nhsuk-list--cross .nhsuk-icon__tick {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute; }
-  .nhsuk-list--check .nhsuk-icon__cross,
-  .nhsuk-list--cross .nhsuk-icon__cross {
-    left: -4px;
-    margin-top: -5px;
-    position: absolute; }
-
-tr,
-th {
-  font-weight: 400; }
-
-strong,
-b {
-  font-weight: 600; }
-
-.nhsuk-page-heading {
-  padding: 25px 0 40px; }
-  @media (min-width: 48.0625em) {
-    .nhsuk-page-heading {
-      padding: 34px 0 56px; } }
-  .nhsuk-page-heading h1 {
-    margin: 0; }
-
-@media print {
-  .nhsuk-page-heading {
-    padding-top: 0; } }
-
-.nhsuk-page-nav > *:first-child {
-  margin-top: 0; }
-
-@media (max-width: 48.0525em) {
-  .nhsuk-page-nav {
-    margin-bottom: 44px; } }
-
-.nhsuk-page-nav h2 + ol,
-.nhsuk-page-nav h2 + ul,
-.nhsuk-page-nav h3 + ol,
-.nhsuk-page-nav h3 + ul {
-  margin-top: 8px; }
-
-@media print {
-  .nhsuk-page-nav {
-    display: none; } }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-sticky {
-    position: sticky;
-    top: 40px; } }
-
-.nhsuk-sticky:before, .nhsuk-sticky:after {
-  content: '';
-  display: table; }
-
-.nhsuk-page-content > *:first-child {
-  margin-top: 0; }
-  .nhsuk-page-content > *:first-child > *:first-child {
-    margin-top: 0; }
-
-hr.nhsuk-h-line {
-  border: 0;
-  border-top: 1px solid #D8DDE0;
-  margin: 40px 0 0; }
-  @media (min-width: 40.0625em) {
-    hr.nhsuk-h-line {
-      margin: 72px 0 0; } }
-
-.nhsuk-icon {
-  height: 34px;
-  width: 34px; }
-  .nhsuk-icon__search {
-    fill: #005EB8; }
-  .nhsuk-icon__chevron-left {
-    fill: #005EB8; }
-  .nhsuk-icon__chevron-right {
-    fill: #005EB8; }
-  .nhsuk-icon__close {
-    fill: #005EB8; }
-  .nhsuk-icon__cross {
-    fill: #DA291C; }
-    .nhsuk-icon__cross--fallback {
-      padding-top: 10px; }
-  .nhsuk-icon__tick {
-    fill: none;
-    stroke: #007F3B; }
-    .nhsuk-icon__tick--fallback {
-      padding-top: 9px; }
-  .nhsuk-icon__arrow-right {
-    fill: #005EB8; }
-  .nhsuk-icon__arrow-left {
-    fill: #005EB8; }
-  .nhsuk-icon__arrow-right-circle {
-    fill: #007F3B; }
-  .nhsuk-icon__chevron-down {
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    fill: #005EB8; }
-    .nhsuk-icon__chevron-down path {
-      fill: #FFFFFF; }
-  .nhsuk-icon__chevron-up {
-    fill: #005EB8; }
-    .nhsuk-icon__chevron-up path {
-      fill: #FFFFFF; }
-  .nhsuk-icon--size-25 {
-    height: 42.5px;
-    width: 42.5px; }
-  .nhsuk-icon--size-50 {
-    height: 51px;
-    width: 51px; }
-  .nhsuk-icon--size-75 {
-    height: 59.5px;
-    width: 59.5px; }
-  .nhsuk-icon--size-100 {
-    height: 68px;
-    width: 68px; }
-
-.nhsuk-logo {
-  height: 40px;
-  width: 99px; }
-
-* {
-  box-sizing: border-box; }
-
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: #212B32;
-  font-family: "Frutiger W01", Arial, sans-serif;
-  min-height: 100%; }
-
-body {
-  background-color: #f0f4f5;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0; }
-  @media (min-width: 40.0625em) {
-    body {
-      font-size: 19px;
-      line-height: 28px; } }
-
-main {
-  display: block; }
-
-input,
-textarea,
-select,
-button {
-  font-family: "Frutiger W01", Arial, sans-serif; }
-
-.nhsuk-o-grid {
-  margin-left: -16px;
-  margin-right: -16px; }
-  .nhsuk-o-grid:after {
-    clear: both;
-    content: '';
-    display: block; }
-
-.nhsuk-o-grid__item {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 16px; }
-  @media (min-width: 48.0625em) {
-    .nhsuk-o-grid__item {
-      float: left; } }
-
-.nhsuk-o-grid__item--full {
-  width: 100%; }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-o-grid__item--one-half {
-    width: 50%; } }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-o-grid__item--one-third {
-    width: 33.33333%; } }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-o-grid__item--two-thirds {
-    width: 66.66667%; } }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-o-grid__item--one-quarter {
-    width: 25%; } }
-
-@media (min-width: 48.0625em) {
-  .nhsuk-o-grid__item--three-quarters {
-    width: 75%; } }
-
-@media print {
-  .nhsuk-o-grid__item--one-half {
-    float: left;
-    width: 50%; }
-  .nhsuk-o-grid__item--one-third {
-    float: left;
-    width: 33.33333%; }
-  .nhsuk-o-grid__item--two-thirds {
-    float: left;
-    width: 66.66667%; }
-  .nhsuk-o-grid__item--one-quarter {
-    float: left;
-    width: 25%; }
-  .nhsuk-o-grid__item--three-quarters {
-    float: left;
-    width: 75%; } }
-
-.nhsuk-o-main-wrapper {
-  padding: 15px 0 40px; }
-  @media (min-width: 48.0625em) {
-    .nhsuk-o-main-wrapper {
-      padding: 30px 0 56px; } }
-  .nhsuk-o-main-wrapper:focus {
-    outline: 0; }
-
-.nhsuk-o-width-container {
-  max-width: 960px;
-  margin: 0 16px; }
-  @media (min-width: 48.0625em) {
-    .nhsuk-o-width-container {
-      margin: 0 32px; } }
-  @media (min-width: 1024px) {
-    .nhsuk-o-width-container {
-      margin: 0 auto; } }
-
-.nhsuk-\!-one-half {
-  float: left;
-  width: 50% !important; }
-
-.nhsuk-\!-one-third {
-  float: left;
-  width: 33.33333% !important; }
-
-.nhsuk-\!-two-thirds {
-  float: left;
-  width: 66.66667% !important; }
-
-.nhsuk-\!-one-quarter {
-  float: left;
-  width: 25% !important; }
-
-.nhsuk-\!-three-quarters {
-  float: left;
-  width: 75% !important; }
-
-.nhsuk-\!-one-half-tablet {
+.nhsuk-u-width-three-quarters {
   width: 100% !important; }
   @media (min-width: 40.0625em) {
-    .nhsuk-\!-one-half-tablet {
-      float: left;
-      width: 50% !important; } }
-
-.nhsuk-\!-one-third-tablet {
-  width: 100% !important; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-\!-one-third-tablet {
-      float: left;
-      width: 33.33333% !important; } }
-
-.nhsuk-\!-two-thirds-tablet {
-  width: 100% !important; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-\!-two-thirds-tablet {
-      float: left;
-      width: 66.66667% !important; } }
-
-.nhsuk-\!-one-quarter-tablet {
-  width: 100% !important; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-\!-one-quarter-tablet {
-      float: left;
-      width: 25% !important; } }
-
-.nhsuk-\!-three-quarters-tablet {
-  width: 100% !important; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-\!-three-quarters-tablet {
-      float: left;
+    .nhsuk-u-width-three-quarters {
       width: 75% !important; } }
 
-.nhsuk-a-z-list ul {
-  margin: -8px 0 0 !important;
-  padding: 0; }
-  .nhsuk-a-z-list ul:after {
-    clear: both;
-    content: '';
-    display: block; }
-  .nhsuk-a-z-list ul li {
-    float: left;
-    list-style: none;
-    margin: 1px; }
-    .nhsuk-a-z-list ul li a {
-      display: block;
-      font-size: 21px;
-      min-width: 34px;
-      padding: 8px 0;
-      text-align: center; }
-      @media (max-width: 40.0525em) {
-        .nhsuk-a-z-list ul li a {
-          font-size: 19px;
-          min-width: 36px; } }
-      .nhsuk-a-z-list ul li a.active {
-        background: #005EB8;
-        color: #FFFFFF; }
+.nhsuk-u-width-two-thirds {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-width-two-thirds {
+      width: 66.66% !important; } }
 
-@media print {
-  .nhsuk-a-z-list {
-    display: none; } }
+.nhsuk-u-width-one-half {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-width-one-half {
+      width: 50% !important; } }
 
-@media (max-width: 40.0525em) {
-  .nhsuk-a-z-list--results-items {
-    margin: 0 -16px; } }
+.nhsuk-u-width-one-third {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-width-one-third {
+      width: 33.33% !important; } }
 
-.nhsuk-a-z-list--results-items h2 {
-  background: #005EB8;
-  color: #FFFFFF;
+.nhsuk-u-width-one-quarter {
+  width: 100% !important; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-u-width-one-quarter {
+      width: 25% !important; } }
+
+/* ==========================================================================
+   COMPONENTS/ #ACTION-LINK
+   ========================================================================== */
+/**
+ * 1. Display is inline-block so the top and bottom margins/paddings are
+ *    respected.
+ * 2. 'Random number' is used to properly have sufficient space between icon
+ *    and text.
+ * 3. Position is relative so the arrow icon can display absolute.
+ * 4. Text decoration none used to override default <a> styling.
+ * 5. Box shadow 8px used instead of the default 4px.
+ * 6. Text decoration underline used to override default <a> styling.
+ */
+.nhsuk-action-link {
+  margin-bottom: 32px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-action-link {
+      margin-bottom: 40px; } }
+
+.nhsuk-action-link__link {
+  font-weight: 400;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.55556;
   display: inline-block;
-  padding: 8px 16px; }
-  @media print {
-    .nhsuk-a-z-list--results-items h2 {
-      color: #212B32;
-      margin-top: 0; } }
-
-.nhsuk-a-z-list--results-items ul {
-  background: #FFFFFF;
-  border-top: 2px solid #005EB8;
-  margin: -28px 0 0;
-  padding: 28px 0 0; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-a-z-list--results-items ul {
-      margin: -24px 0 0;
-      padding: 24px 0 0; } }
-  @media print {
-    .nhsuk-a-z-list--results-items ul {
-      border-top: 0; } }
-  .nhsuk-a-z-list--results-items ul li {
-    background: #FFFFFF;
-    list-style: none;
-    margin: 0; }
-    .nhsuk-a-z-list--results-items ul li a {
-      border-bottom: 1px solid #D8DDE0;
-      display: block;
-      padding: 12px 16px;
-      text-decoration: none; }
-      .nhsuk-a-z-list--results-items ul li a:hover, .nhsuk-a-z-list--results-items ul li a:focus {
-        border-color: transparent;
-        box-shadow: none; }
-      @media (max-width: 40.0525em) {
-        .nhsuk-a-z-list--results-items ul li a {
-          padding: 8px 16px; } }
-
-.nhsuk-a-z-list--results-items .nhsuk-back-to-top-link {
-  display: inline-block;
-  margin-top: 16px;
-  padding-left: 12px;
-  position: relative; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link {
-      margin: 16px 16px 0; } }
-  .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link .nhsuk-icon {
-    -ms-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    fill: #005EB8;
-    height: 19px;
-    left: -8px;
-    position: absolute;
-    top: 4px;
-    transform: rotate(270deg);
-    width: 19px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link .nhsuk-icon {
-        top: 3px; } }
-  .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link:visited {
-    color: #005EB8; }
-  .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link:hover {
-    background: #ffcd60;
-    box-shadow: 0 0 0 4px #ffcd60;
-    color: #212B32;
-    text-decoration: none; }
-    .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link:hover .nhsuk-icon {
-      fill: #212B32; }
-  @media print {
-    .nhsuk-a-z-list--results-items .nhsuk-back-to-top-link {
-      display: none; } }
-
-.nhsuk-c-action-link {
-  display: inline-block;
-  font-size: 21px;
+  /* [1] */
   font-weight: 600;
-  margin: 32px 16px 32px 0;
   padding-left: 42px;
+  /* [2] */
   position: relative;
-  text-decoration: none; }
+  /* [3] */
+  text-decoration: none;
+  /* [4] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-action-link__link {
+      font-size: 22px;
+      font-size: 1.375rem;
+      line-height: 1.45455; } }
+  @media print {
+    .nhsuk-action-link__link {
+      font-size: 18pt;
+      line-height: 1.15; } }
   @media (max-width: 40.0525em) {
-    .nhsuk-c-action-link {
-      font-size: 19px;
-      padding-left: 36px; } }
-  .nhsuk-c-action-link .nhsuk-icon__arrow-right-circle {
-    fill: #007F3B;
+    .nhsuk-action-link__link {
+      padding-left: 36px;
+      /* [2] */ } }
+  @media print {
+    .nhsuk-action-link__link {
+      color: #212b32; }
+      .nhsuk-action-link__link:visited {
+        color: #212b32; } }
+  .nhsuk-action-link__link:focus {
+    box-shadow: 0 0 0 8px #ffb81C;
+    /* [5] */ }
+    .nhsuk-action-link__link:focus .nhsuk-action-link__text {
+      text-decoration: underline; }
+  .nhsuk-action-link__link:hover {
+    box-shadow: 0 0 0 8px #ffcd60;
+    /* [5] */ }
+    .nhsuk-action-link__link:hover .nhsuk-action-link__text {
+      text-decoration: underline;
+      /* [6] */ }
+  .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
+    fill: #007f3b;
     height: 40px;
     left: -3px;
     position: absolute;
-    top: -6px;
+    top: -4px;
     width: 40px; }
+    @media print {
+      .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
+        color: #212b32;
+        fill: #212b32; }
+        .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle:active, .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle:focus, .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle:visited {
+          color: #212b32; } }
     @media (max-width: 40.0525em) {
-      .nhsuk-c-action-link .nhsuk-icon__arrow-right-circle {
+      .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
         height: 34px;
         margin-bottom: -9px;
-        top: -5px;
+        top: -3px;
         width: 34px; } }
-  .nhsuk-c-action-link:hover .nhsuk-icon__arrow-right-circle, .nhsuk-c-action-link:focus .nhsuk-icon__arrow-right-circle {
-    fill: #005326; }
-  .nhsuk-c-action-link:focus {
-    box-shadow: 0 0 0 8px #FFB81C; }
-  .nhsuk-c-action-link:hover {
-    box-shadow: 0 0 0 8px #ffcd60; }
-    .nhsuk-c-action-link:hover span {
-      text-decoration: underline; }
-  .nhsuk-c-action-link:active {
-    box-shadow: 0 0 0 8px #ffcd60;
-    background: #ffcd60 !important;
-    color: #374047 !important; }
-    .nhsuk-c-action-link:active .nhsuk-icon__arrow-right-circle {
-      fill: #00401e; }
 
-.nhsuk-c-action-link--small {
-  font-size: 19px;
-  margin: 32px 16px 32px 0;
-  padding-left: 32px; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-action-link--small {
-      font-size: 16px;
-      padding-left: 28px; } }
-  .nhsuk-c-action-link--small .nhsuk-icon__arrow-right-circle {
-    height: 28px;
-    left: -3px;
-    top: 0;
-    width: 28px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-action-link--small .nhsuk-icon__arrow-right-circle {
-        height: 24px;
-        top: 0;
-        width: 24px; } }
-
-.nhsuk-c-action-link--alternative .nhsuk-icon__arrow-right-circle {
-  fill: #00A499; }
-  .nhsuk-c-action-link--alternative .nhsuk-icon__arrow-right-circle:hover .nhsuk-icon__arrow-right-circle, .nhsuk-c-action-link--alternative .nhsuk-icon__arrow-right-circle:focus .nhsuk-icon__arrow-right-circle {
-    fill: #006b63; }
-  .nhsuk-c-action-link--alternative .nhsuk-icon__arrow-right-circle:active .nhsuk-icon__arrow-right-circle {
-    fill: #00524d; }
-
-.nhsuk-c-breadcrumb {
-  background: #FFFFFF;
-  padding: 12px 0; }
+/* ==========================================================================
+    COMPONENTS / #BREADCRUMB
+   ========================================================================== */
+/**
+ * 1. Bespoke spacing numbers used as there is no 12px
+ *    spacing mapped in settings/spacing.
+ * 2. Hide the breadcrumb on print stylesheets.
+ * 3. Don't show the full breadcrumb below tablet size.
+ * 4. Typography sizing mixin, see core/tools/_typography
+ * 5. and core/settings/_typography for size maps.
+ * 5. .. but show a back to index page link.
+ * 6. Remove spacing between back icon and label.
+**/
+.nhsuk-breadcrumb {
+  background-color: #ffffff;
+  padding-bottom: 12px;
+  padding-top: 12px; }
   @media print {
-    .nhsuk-c-breadcrumb {
+    .nhsuk-breadcrumb {
       display: none; } }
-  .nhsuk-c-breadcrumb__list {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-breadcrumb__list {
-        display: none; } }
-  .nhsuk-c-breadcrumb__item {
-    display: inline-block;
-    font-size: 16px;
-    margin: 0; }
-    .nhsuk-c-breadcrumb__item .nhsuk-icon__chevron-right {
-      fill: #AEB7BD;
-      height: 18px;
-      position: relative;
-      top: 5px;
-      width: 18px; }
-      @media (min-width: 61.875em) {
-        .nhsuk-c-breadcrumb__item .nhsuk-icon__chevron-right {
-          margin: 0 3px 0 5px; } }
-  .nhsuk-c-breadcrumb__back {
-    font-size: 14px;
-    margin: 0; }
-    .nhsuk-c-breadcrumb__back .nhsuk-icon__chevron-left {
-      fill: #005EB8;
-      float: left;
-      height: 24px;
-      left: -8px;
-      position: relative;
-      width: 24px; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-c-breadcrumb__back {
-        display: none; } }
-  .nhsuk-c-breadcrumb__backlink {
+  .nhsuk-breadcrumb .nhsuk-icon__chevron-right {
+    fill: #aeb7bd;
+    height: 18px;
+    position: relative;
+    top: 5px;
+    width: 18px; }
+    @media (min-width: 61.875em) {
+      .nhsuk-breadcrumb .nhsuk-icon__chevron-right {
+        margin: 0 3px 0 5px; } }
+  .nhsuk-breadcrumb .nhsuk-icon__chevron-left {
+    float: left;
+    height: 24px;
     left: -8px;
-    position: relative; }
+    position: relative;
+    width: 24px; }
 
-.nhsuk-c-panel {
-  background: #FFFFFF;
-  margin: 72px 0 56px;
-  padding: 24px;
-  padding-top: 0;
-  position: relative; }
+.nhsuk-breadcrumb__list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
   @media (max-width: 40.0525em) {
-    .nhsuk-c-panel {
-      margin: 40px 0; } }
-  @media print {
-    .nhsuk-c-panel {
-      border: 1px solid #212B32;
-      page-break-inside: avoid; } }
-  .nhsuk-c-panel h3 {
-    background: #005EB8;
-    color: #FFFFFF;
-    display: inline-block;
-    margin: 0 -24px 8px;
-    padding: 8px 24px;
-    position: relative;
-    top: -16px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-panel h3 {
-        top: -8px; } }
-    @media print {
-      .nhsuk-c-panel h3 {
-        color: #212B32;
-        left: .5px;
-        top: 5px; } }
-    .nhsuk-c-panel h3 + p {
-      margin-top: 0; }
-  .nhsuk-c-panel__warning {
-    background: #FFFBCE;
-    color: #212B32; }
-    .nhsuk-c-panel__warning h3 {
-      background: #FFED00;
-      color: #212B32; }
-  .nhsuk-c-panel > *:first-child {
-    margin-top: 0; }
-  .nhsuk-c-panel > *:last-child {
-    margin-bottom: 0; }
-
-.nhsuk-c-care-card {
-  margin: 40px 0; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-c-care-card {
-      margin: 56px 0; } }
-  @media print {
-    .nhsuk-c-care-card {
-      border: 2px solid #212B32;
-      page-break-inside: avoid; } }
-  .nhsuk-c-care-card .nhsuk-c-care-card__heading {
-    background: #005EB8;
-    color: #FFFFFF;
-    padding: 12px 16px;
-    position: relative; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-c-care-card .nhsuk-c-care-card__heading {
-        padding: 16px 24px; } }
-    @media print {
-      .nhsuk-c-care-card .nhsuk-c-care-card__heading {
-        color: #212B32; } }
-    .nhsuk-c-care-card .nhsuk-c-care-card__heading:after {
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-      border-top: 16px solid #005EB8;
-      bottom: -16px;
-      content: '';
-      display: block;
-      height: 0;
-      position: absolute;
-      width: 0; }
-      @media print {
-        .nhsuk-c-care-card .nhsuk-c-care-card__heading:after {
-          display: none; } }
-    .nhsuk-c-care-card .nhsuk-c-care-card__heading *:first-of-type {
-      margin: 0; }
-  .nhsuk-c-care-card .nhsuk-c-care-card__content {
-    background: #FFFFFF;
-    padding: 32px 16px 24px; }
-    .nhsuk-c-care-card .nhsuk-c-care-card__content > *:first-child {
-      margin-top: 0; }
-    .nhsuk-c-care-card .nhsuk-c-care-card__content > *:last-child {
-      margin-bottom: 0; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-c-care-card .nhsuk-c-care-card__content {
-        padding: 36px 24px 32px; } }
-    @media (min-width: 48.0625em) {
-      .nhsuk-c-care-card .nhsuk-c-care-card__content {
-        max-width: 37em; } }
-  @media print {
-    .nhsuk-c-care-card--grey {
-      border: 4px solid #212B32; } }
-  .nhsuk-c-care-card--grey .nhsuk-c-care-card__heading {
-    background: #D8DDE0;
-    color: #212B32; }
-    .nhsuk-c-care-card--grey .nhsuk-c-care-card__heading:after {
-      border-top: 16px solid #D8DDE0; }
-  @media print {
-    .nhsuk-c-care-card--red {
-      border: 6px solid #212B32; } }
-  .nhsuk-c-care-card--red .nhsuk-c-care-card__heading {
-    background: #DA291C; }
-    .nhsuk-c-care-card--red .nhsuk-c-care-card__heading:after {
-      border-top: 16px solid #DA291C; }
-  @media print {
-    .nhsuk-c-care-card--black {
-      border: 8px solid #212B32; } }
-  .nhsuk-c-care-card--black .nhsuk-c-care-card__heading {
-    background: #DA291C; }
-    .nhsuk-c-care-card--black .nhsuk-c-care-card__heading:after {
-      border-top: 16px solid #DA291C; }
-  .nhsuk-c-care-card--black .nhsuk-c-care-card__content {
-    background: #212B32;
-    color: #FFFFFF; }
-    .nhsuk-c-care-card--black .nhsuk-c-care-card__content a {
-      color: #FFFFFF; }
-      .nhsuk-c-care-card--black .nhsuk-c-care-card__content a:hover {
-        color: #212B32; }
-
-.nhsuk-cookie-banner {
-  background-color: #f0f8ff;
-  font-size: 16px;
-  padding: 16px 0; }
-  @media print {
-    .nhsuk-cookie-banner {
+    .nhsuk-breadcrumb__list {
       display: none; } }
-  .nhsuk-cookie-banner h2:first-of-type,
-  .nhsuk-cookie-banner p:first-of-type {
-    margin: 0; }
-  .nhsuk-cookie-banner__button {
-    background-color: #007F3B;
-    border: 0;
-    border-radius: 4px;
-    box-shadow: 0 2px 0 #003317;
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: .5px;
-    line-height: 1.25;
-    margin: 16px 0 0;
-    padding: 8px 12px;
-    position: relative;
-    text-decoration: none; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-cookie-banner__button {
-        margin: 16px 0 8px; } }
-    .nhsuk-cookie-banner__button:before {
-      background: transparent;
-      content: '';
-      display: block;
-      height: 110%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%; }
-    .nhsuk-cookie-banner__button:focus {
-      background-color: #00662f;
-      outline: 3px solid #FFB81C; }
-    .nhsuk-cookie-banner__button:hover {
-      background-color: #00662f; }
-    .nhsuk-cookie-banner__button:active {
-      box-shadow: 0 0 0 #007F3B;
-      color: #212B32 !important; }
-      .nhsuk-cookie-banner__button:active:before {
-        height: 120%;
-        top: -10%; }
-  .nhsuk-cookie-banner .nhsuk-form {
-    display: block;
-    margin-top: 0; }
-    .nhsuk-cookie-banner .nhsuk-form__wrapper {
-      display: block; }
-      @media (min-width: 925px) {
-        .nhsuk-cookie-banner .nhsuk-form__wrapper {
-          display: inline-block; } }
-    .nhsuk-cookie-banner .nhsuk-form legend {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px;
-      margin-bottom: -8px;
-      padding-top: 0; }
-    .nhsuk-cookie-banner .nhsuk-form label {
-      margin-top: 16px; }
-      @media (max-width: 40.0525em) {
-        .nhsuk-cookie-banner .nhsuk-form label {
-          margin-top: 12px; } }
-    .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox {
-      opacity: 0;
-      position: absolute; }
-      .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox + label {
-        cursor: pointer;
-        display: block;
-        line-height: 20px;
-        margin-right: 16px;
-        padding: 0;
-        position: relative; }
-        @media (min-width: 925px) {
-          .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox + label {
-            display: inline-block; } }
-        .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox + label:before {
-          border: 3px solid #005EB8;
-          content: '';
-          height: 20px;
-          margin-right: 4px;
-          position: relative;
-          vertical-align: middle;
-          width: 20px; }
-      .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox:focus + label:before {
-        box-shadow: 0 0 0 5px #FFB81C; }
-      .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox:checked + label:after {
-        -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        background: transparent;
-        border: solid;
-        border-width: 0 0 4px 4px;
-        content: '';
-        filter: alpha(opacity=0);
-        height: 6px;
-        left: 5px;
-        position: absolute;
-        top: 6px;
-        transform: rotate(-45deg);
-        width: 12px;
-        zoom: 1; }
-      .nhsuk-cookie-banner .nhsuk-form .multiple-choice--checkbox:checked + label:before {
-        background: transparent; }
-    .nhsuk-cookie-banner .nhsuk-form .checkbox-blue + label:before {
-      display: inline-block; }
 
-.nhsuk-c-details {
-  display: block;
-  margin: 40px 0; }
+.nhsuk-breadcrumb__item {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: inline-block;
+  margin: 0; }
   @media (min-width: 40.0625em) {
-    .nhsuk-c-details {
-      margin: 32px 0; } }
+    .nhsuk-breadcrumb__item {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-breadcrumb__item {
+      font-size: 14pt;
+      line-height: 1.2; } }
 
-.nhsuk-c-summary {
-  color: #005EB8;
-  cursor: pointer;
-  display: block;
-  padding-left: 28.5px;
+.nhsuk-breadcrumb__back {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  margin: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-breadcrumb__back {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-breadcrumb__back {
+      font-size: 14pt;
+      line-height: 1.2; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-breadcrumb__back {
+      display: none; } }
+
+.nhsuk-breadcrumb__backlink {
+  left: -8px;
   position: relative; }
-  .nhsuk-c-summary:hover {
-    background: #ffcd60;
-    box-shadow: 0 0 0 4px #ffcd60;
-    color: #212B32;
-    text-decoration: none; }
-  .nhsuk-c-summary:focus {
-    background: #FFB81C;
-    box-shadow: 0 0 0 4px #FFB81C;
-    color: #212B32;
-    outline: 0; }
-  .nhsuk-c-summary:active {
-    background: #ffbf33;
-    box-shadow: 0 0 0 4px #ffbf33;
-    color: #374047;
-    outline: 0; }
 
-.nhsuk-c-summary__title {
+/* ==========================================================================
+   COMPONENTS / #CARE-CARD
+   ========================================================================== */
+/**
+ * Care card default styles.
+ *
+ * 1. Default care card colour set to blue (non-urgent care card) -
+ *    using the @mixin care-card tools/_mixins.scss.
+ *    The same mixin is used for each care card, setting the background
+ *    colour,text colour and print border width with the variables.
+ * 2. By adding ‘clip-path’ we can draw a polygon that matches the original
+ *    triangle to ensure the rectangle does not appear.
+ * 3. Care card heading triangle.
+ * 4. Care card heading triangle positioning.
+ * 5. 'Random number' used for spacing to compensate for the triangle.
+ * 6. This shows as a solid border in high contrast mode in Windows, so helps
+ *    differentiates care cards from the rest of the content.
+ */
+.nhsuk-care-card {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  /* [1] */
+  border: 1px solid transparent;
+  /* [6] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-care-card {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-care-card {
+      margin-top: 48px; } }
+  .nhsuk-care-card .nhsuk-care-card__heading-container {
+    background-color: #005eb8;
+    color: #ffffff; }
+    .nhsuk-care-card .nhsuk-care-card__heading-container:after {
+      border-top: 16px solid #005eb8; }
+  @media print {
+    .nhsuk-care-card {
+      border: 4px solid #212b32;
+      color: #212b32;
+      page-break-inside: avoid; } }
+
+.nhsuk-care-card__heading-container {
+  padding: 16px 24px;
+  position: relative; }
+  .nhsuk-care-card__heading-container:after {
+    -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+    /* [2] */
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    /* [2] */
+    border-left: 16px solid transparent;
+    /* [3] */
+    border-right: 16px solid transparent;
+    /* [3] */
+    bottom: -15px;
+    /* [4] */
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0; }
+    @media print {
+      .nhsuk-care-card__heading-container:after {
+        display: none; } }
+
+.nhsuk-care-card__heading {
+  font-weight: 600;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-care-card__heading {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-care-card__heading {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media print {
+    .nhsuk-care-card__heading {
+      color: #212b32;
+      fill: #212b32; }
+      .nhsuk-care-card__heading:active, .nhsuk-care-card__heading:focus, .nhsuk-care-card__heading:visited {
+        color: #212b32; } }
+
+.nhsuk-care-card__content {
+  background-color: #ffffff;
+  padding: 32px 24px 24px;
+  /* [5] */ }
+  .nhsuk-care-card__content > *:first-child {
+    margin-top: 0; }
+  .nhsuk-care-card__content > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-care-card__content {
+      padding-bottom: 32px;
+      padding-top: 36px;
+      /* [5] */ } }
+  @media print {
+    .nhsuk-care-card__content {
+      color: #212b32;
+      fill: #212b32; }
+      .nhsuk-care-card__content:active, .nhsuk-care-card__content:focus, .nhsuk-care-card__content:visited {
+        color: #212b32; } }
+
+/**
+ * Card card variations style.
+ *
+ * 1. <a> needs to be white because the background colour is black.
+ */
+.nhsuk-care-card--red .nhsuk-care-card__heading-container {
+  background-color: #da291c;
+  color: #ffffff; }
+  .nhsuk-care-card--red .nhsuk-care-card__heading-container:after {
+    border-top: 16px solid #da291c; }
+
+@media print {
+  .nhsuk-care-card--red {
+    border: 6px solid #212b32;
+    color: #212b32;
+    page-break-inside: avoid; } }
+
+.nhsuk-care-card--black .nhsuk-care-card__heading-container {
+  background-color: #da291c;
+  color: #ffffff; }
+  .nhsuk-care-card--black .nhsuk-care-card__heading-container:after {
+    border-top: 16px solid #da291c; }
+
+@media print {
+  .nhsuk-care-card--black {
+    border: 8px solid #212b32;
+    color: #212b32;
+    page-break-inside: avoid; } }
+
+.nhsuk-care-card--black .nhsuk-care-card__content {
+  background-color: #212b32;
+  color: #ffffff; }
+  .nhsuk-care-card--black .nhsuk-care-card__content a {
+    color: #ffffff;
+    /* [1] */ }
+    .nhsuk-care-card--black .nhsuk-care-card__content a:hover, .nhsuk-care-card--black .nhsuk-care-card__content a:focus {
+      color: #212b32;
+      /* [1] */ }
+
+/* ==========================================================================
+   COMPONENTS / #CONTENTS-LIST
+   ========================================================================== */
+/**
+ * 1. Creates a grey line before each list
+ *    item using a ASCII number for the symbol.
+**/
+.nhsuk-contents-list {
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-contents-list {
+      margin-bottom: 48px; } }
+
+.nhsuk-contents-list__list {
+  list-style: none;
+  padding: 0; }
+
+.nhsuk-contents-list__item {
+  padding: 0 0 0 32px;
+  position: relative; }
+  .nhsuk-contents-list__item:before {
+    color: #aeb7bd;
+    content: '\2014';
+    /* [1] */
+    left: 0;
+    position: absolute;
+    top: 0; }
+
+.nhsuk-contents-list__link {
+  display: inline-block; }
+
+.nhsuk-contents-list__current {
+  font-weight: 600; }
+
+/* ==========================================================================
+   COMPONENTS / #DETAILS
+   ========================================================================== */
+/**
+ * Details component.
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. Style the summary to look like a link...
+ * 2. Make the focus outline shrink-wrap the text content of the summary
+ * 3. Absolutely position the marker against this element
+ * 3. Allow for absolutely positioned marker and align with disclosed text
+ * 4. Only underline the text, not the arrow
+ * 5. Remove the default details marker so we can style our own consistently and
+ *    ensure it displays in Firefox
+ */
+.nhsuk-details {
+  color: #212b32;
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block; }
+  @media print {
+    .nhsuk-details {
+      color: #212b32; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-details {
+      margin-bottom: 40px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-details {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-details {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-details__summary {
+  color: #005eb8;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 24px;
+  position: relative; }
+  .nhsuk-details__summary:hover {
+    background-color: #ffcd60;
+    box-shadow: 0 0 0 4px #ffcd60;
+    color: #212b32;
+    text-decoration: none; }
+  .nhsuk-details__summary:focus {
+    background-color: #ffb81C;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #212b32;
+    outline: 0; }
+  .nhsuk-details__summary:before {
+    bottom: 0;
+    content: '';
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    border-width: 7px 0 7px 12.124px;
+    border-left-color: inherit; }
+    .nhsuk-details[open] > .nhsuk-details__summary:before {
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent;
+      clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+      border-width: 12.124px 7px 0 7px;
+      border-top-color: inherit; }
+  .nhsuk-details__summary:focus {
+    box-shadow: 0 0 0 8px #ffb81C;
+    color: #212b32; }
+    .nhsuk-details__summary:focus .nhsuk-details__summary-text {
+      color: #212b32; }
+  .nhsuk-details__summary:hover {
+    background-color: #ffcd60;
+    box-shadow: 0 0 0 8px #ffcd60; }
+    .nhsuk-details__summary:hover .nhsuk-details__summary-text {
+      color: #212b32;
+      text-decoration: none; }
+
+.nhsuk-details__summary-text {
   text-decoration: underline; }
 
-.nhsuk-c-summary::-webkit-details-marker {
+.nhsuk-details__summary::-webkit-details-marker {
   display: none; }
 
-.nhsuk-c-summary:before {
-  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  border-color: transparent;
-  border-left-color: inherit;
-  border-style: solid;
-  border-width: 9.5px 0 9.5px 16.454px;
-  bottom: 0;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  content: "";
-  display: block;
-  height: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  width: 0; }
-
-.nhsuk-c-details[open] > .nhsuk-c-summary:before {
-  -webkit-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
-  border-left-color: transparent;
-  border-top-color: inherit;
-  border-width: 16.454px 9.5px 0 9.5px;
-  clip-path: polygon(0% 0%, 50% 100%, 100% 0%); }
-
-.nhsuk-c-panel {
-  background: #FFFFFF;
-  margin: 72px 0 56px;
-  padding: 24px;
-  padding-top: 0;
-  position: relative; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-panel {
-      margin: 40px 0; } }
-  @media print {
-    .nhsuk-c-panel {
-      border: 1px solid #212B32;
-      page-break-inside: avoid; } }
-  .nhsuk-c-panel h3 {
-    background: #005EB8;
-    color: #FFFFFF;
-    display: inline-block;
-    margin: 0 -24px 8px;
-    padding: 8px 24px;
-    position: relative;
-    top: -16px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-panel h3 {
-        top: -8px; } }
-    @media print {
-      .nhsuk-c-panel h3 {
-        color: #212B32;
-        left: .5px;
-        top: 5px; } }
-    .nhsuk-c-panel h3 + p {
-      margin-top: 0; }
-  .nhsuk-c-panel__warning {
-    background: #FFFBCE;
-    color: #212B32; }
-    .nhsuk-c-panel__warning h3 {
-      background: #FFED00;
-      color: #212B32; }
-  .nhsuk-c-panel > *:first-child {
+.nhsuk-details__text {
+  border-left: 4px solid #d8dde0;
+  margin-top: 8px;
+  padding: 16px;
+  padding-left: 24px; }
+  .nhsuk-details__text > *:first-child {
     margin-top: 0; }
-  .nhsuk-c-panel > *:last-child {
+  .nhsuk-details__text > *:last-child {
+    margin-bottom: 0; }
+  .nhsuk-details__text p {
+    margin-bottom: 24px;
+    margin-top: 0; }
+
+/**
+ * Expander variation.
+ *
+ * 1. !important used because the icon is populated
+ *    by the JavaScript polyfill
+ * 2. Remove the default hover, focus and active
+ *    styles for this component.
+ * 3. -2px left margin to align the icon to the content.
+ * 4. When a group of details is used reduce the
+ *    margin between them so they sit together.
+ */
+.nhsuk-expander {
+  background-color: #ffffff; }
+  .nhsuk-expander .nhsuk-details__summary {
+    padding: 16px;
+    background-color: #ffffff;
+    display: block; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-expander .nhsuk-details__summary {
+        padding: 24px; } }
+    .nhsuk-expander .nhsuk-details__summary:before {
+      display: none !important; }
+    .nhsuk-expander .nhsuk-details__summary:focus {
+      box-shadow: 0 0 0 4px #ffb81C; }
+    .nhsuk-expander .nhsuk-details__summary:hover {
+      box-shadow: 0 0 0 4px #ffcd60; }
+    .nhsuk-expander .nhsuk-details__summary:hover, .nhsuk-expander .nhsuk-details__summary:active, .nhsuk-expander .nhsuk-details__summary:focus {
+      outline: 0; }
+  .nhsuk-expander .nhsuk-details__summary-text {
+    background: url(/assets/icons/icon-plus.svg) left -2px center no-repeat;
+    color: #005eb8;
+    cursor: pointer;
+    display: block;
+    padding: 8px 8px 8px 38px;
+    position: relative; }
+  .nhsuk-expander .nhsuk-details__text {
+    padding: 16px;
+    border-left: 0;
+    margin-left: 0;
+    margin-top: 0; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-expander .nhsuk-details__text {
+        padding: 24px; } }
+
+.nhsuk-expander[open] .nhsuk-details__summary {
+  border-bottom: 1px solid #f0f4f5; }
+
+.nhsuk-expander[open] .nhsuk-details__summary-text {
+  background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; }
+
+.nhsuk-expander-group > .nhsuk-details {
+  margin-bottom: 8px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-expander-group > .nhsuk-details {
+      margin-bottom: 8px; } }
+
+/* ==========================================================================
+   COMPONENTS / #DO-DONT-LIST
+   ========================================================================== */
+/**
+ * Do and Don't lists help users understand more easily what they should
+ * and shouldn't do.
+ *
+ * 1. Uses @mixin panel-with-label from tools/_mixins.
+ * 2. Uses @mixin heading-label from tools/_mixins.
+ */
+.nhsuk-do-dont-list {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #212b32;
+  padding-top: 0 !important;
+  /* [1] */ }
+  .nhsuk-do-dont-list > *:first-child {
+    margin-top: 0; }
+  .nhsuk-do-dont-list > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-do-dont-list {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-do-dont-list {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-do-dont-list {
+      padding: 32px; } }
+  @media print {
+    .nhsuk-do-dont-list {
+      border: 1px solid #212b32;
+      page-break-inside: avoid; } }
+
+.nhsuk-do-dont-list__label {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: #005eb8;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 -32px 8px;
+  padding: 8px 32px;
+  position: relative;
+  top: -16px;
+  /* [2] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-do-dont-list__label {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-do-dont-list__label {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-do-dont-list__label {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 8px 24px;
+      top: -8px; } }
+  @media print {
+    .nhsuk-do-dont-list__label {
+      background: none;
+      color: #212b32;
+      top: 0; } }
+  @media print {
+    .nhsuk-do-dont-list__label {
+      color: #212b32;
+      fill: #212b32; }
+      .nhsuk-do-dont-list__label:active, .nhsuk-do-dont-list__label:focus, .nhsuk-do-dont-list__label:visited {
+        color: #212b32; } }
+
+/* ==========================================================================
+   COMPONENTS / #EMERGENCY-ALERT
+   ========================================================================== */
+/**
+ * 1. Use inverted link colours due to the yellow
+ *    ($color_nhsuk-yellow) background.
+ */
+.nhsuk-global-alert {
+  background-color: #ffeb3b;
+  padding-bottom: 24px;
+  padding-top: 24px; }
+  @media print {
+    .nhsuk-global-alert {
+      display: none; } }
+  .nhsuk-global-alert a {
+    color: #005eb8; }
+    .nhsuk-global-alert a:focus {
+      background-color: #003d78;
+      box-shadow: 0 0 0 4px #003d78;
+      color: #ffffff; }
+    .nhsuk-global-alert a:hover {
+      background-color: #005eb8;
+      box-shadow: 0 0 0 4px #005eb8;
+      color: #ffffff; }
+    .nhsuk-global-alert a:active {
+      background-color: #002f5c;
+      box-shadow: 0 0 0 4px #003d78;
+      color: #ffffff; }
+
+.nhsuk-global-alert__heading {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-global-alert__heading {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-global-alert__heading {
+      font-size: 18pt;
+      line-height: 1.15; } }
+
+.nhsuk-global-alert__content {
+  position: relative; }
+  .nhsuk-global-alert__content > *:first-child {
+    margin-top: 0; }
+  .nhsuk-global-alert__content > *:last-child {
     margin-bottom: 0; }
 
-.nhsuk-c-global-alert {
-  background: #FFED00;
-  padding: 24px 0; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-global-alert {
-      padding: 16px 0; } }
-  @media print {
-    .nhsuk-c-global-alert {
-      display: none; } }
-  .nhsuk-c-global-alert__content {
-    position: relative; }
-    .nhsuk-c-global-alert__content > *:first-child {
-      margin-top: 0; }
-    .nhsuk-c-global-alert__content > *:last-child {
-      margin-bottom: 0; }
-  .nhsuk-c-global-alert__header {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-    padding-right: 56px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-global-alert__header {
-        font-size: 20px;
-        line-height: 28px; } }
-  .nhsuk-c-global-alert__message {
-    margin-top: 8px; }
-  .nhsuk-c-global-alert__updated {
-    font-size: 14px;
-    margin-top: 8px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-global-alert__updated {
-        font-size: 12px; } }
-  @media screen and (max-width: 480px) {
-    .nhsuk-c-global-alert a {
-      white-space: nowrap; } }
-  .nhsuk-c-global-alert a:focus {
-    background: #003d78;
-    box-shadow: 0 0 0 4px #003d78;
-    color: #FFFFFF; }
-  .nhsuk-c-global-alert a:hover {
-    background: #005EB8;
-    box-shadow: 0 0 0 4px #005EB8;
-    color: #FFFFFF; }
-  .nhsuk-c-global-alert a:active {
-    background: #002f5c !important;
-    box-shadow: 0 0 0 4px #003d78;
-    color: #FFFFFF; }
+.nhsuk-global-alert__message {
+  margin-top: 8px;
+  margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-global-alert__message {
+      margin-top: 8px; } }
 
-.nhsuk-c-feedback-banner {
-  background: #FFFFFF;
+.nhsuk-global-alert__updated {
+  margin-top: 8px;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1.66667; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-global-alert__updated {
+      margin-top: 8px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-global-alert__updated {
+      font-size: 14px;
+      font-size: 0.875rem;
+      line-height: 1.71429; } }
+  @media print {
+    .nhsuk-global-alert__updated {
+      font-size: 12pt;
+      line-height: 1.2; } }
+
+/* ==========================================================================
+    COMPONENTS / #FEEDBACK-BANNER
+   ========================================================================== */
+/**
+ * 1. Hide the banner until it is triggered by Javascript.
+ * 2. Bring banner in front of rest of page content.
+ * 3. Avoid the banner title overlapping close button.
+ * 4. Avoid the banner title overlapping close button on
+ *    small mobile devices (below 320px).
+ * 5. Change the cursor to a pointer on hover.
+ */
+.nhsuk-feedback-banner {
+  background-color: #ffffff;
   bottom: 0;
   box-shadow: 0 -4px 0 0 rgba(33, 43, 50, 0.16);
   display: none;
   margin: 0 auto;
-  padding: 32px 0;
+  padding-bottom: 24px;
+  padding-top: 24px;
   position: fixed;
   width: 100%;
-  z-index: 2; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-feedback-banner {
-      padding: 24px 0; } }
+  z-index: 20; }
   @media print {
-    .nhsuk-c-feedback-banner {
-      display: none !important; } }
-  .nhsuk-c-feedback-banner__content {
-    position: relative; }
-    .nhsuk-c-feedback-banner__content:after {
-      clear: both;
-      content: '';
-      display: block; }
-    .nhsuk-c-feedback-banner__content a {
-      white-space: nowrap; }
-  .nhsuk-c-feedback-banner__header {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-    padding-right: 56px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-feedback-banner__header {
-        font-size: 20px;
-        line-height: 28px; } }
-  .nhsuk-c-feedback-banner__message {
-    margin: 8px 0 0; }
-    @media (max-width: 19.9375em) {
-      .nhsuk-c-feedback-banner__message {
-        padding-bottom: 32px; } }
-  .nhsuk-c-feedback-banner__close {
-    background: none;
-    border: 0;
-    color: #212B32;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    line-height: 28px;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    text-decoration: underline;
-    top: 0; }
-    .nhsuk-c-feedback-banner__close:focus {
-      background: #FFB81C;
-      box-shadow: 0 0 0 4px #FFB81C;
-      outline: 0; }
-    .nhsuk-c-feedback-banner__close:hover {
-      background: #ffcd60;
-      box-shadow: 0 0 0 4px #ffcd60; }
-    .nhsuk-c-feedback-banner__close:active {
-      background: #ffbf33 !important;
-      box-shadow: 0 0 0 4px #ffbf33;
-      outline: 0; }
-    @media (max-width: 19.9375em) {
-      .nhsuk-c-feedback-banner__close {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        top: auto; } }
-
-.nhsuk-global-footer {
-  background-color: #005EB8;
-  color: #FFFFFF;
-  width: 100%; }
-  @media print {
-    .nhsuk-global-footer {
+    .nhsuk-feedback-banner {
       display: none; } }
-  .nhsuk-global-footer__logo {
-    padding-bottom: 15px; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-global-footer__logo {
-        padding-bottom: 0; } }
-    .nhsuk-global-footer__logo a {
-      display: block;
-      height: 40px;
-      width: 99px; }
-      .nhsuk-global-footer__logo a .nhsuk-logo {
-        border: 0;
-        height: 40px;
-        max-width: 100%;
-        vertical-align: middle;
-        width: 99px; }
-        .nhsuk-global-footer__logo a .nhsuk-logo:hover {
-          box-shadow: 0 0 0 4px #003d78; }
-  .nhsuk-global-footer ul {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    list-style-type: none;
-    margin: 0;
-    padding: 25px 0; }
-    .nhsuk-global-footer ul:last-child {
-      border-bottom: 0; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-global-footer ul li {
-        display: inline-block;
-        font-size: 17px;
-        padding-right: 25px; } }
-    .nhsuk-global-footer ul li a {
-      color: #FFFFFF; }
-      .nhsuk-global-footer ul li a:focus, .nhsuk-global-footer ul li a:hover {
-        color: #212B32; }
 
-.nhsuk-global-header {
-  background: #005EB8; }
-  .nhsuk-global-header:after {
+.nhsuk-feedback-banner__heading {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-feedback-banner__heading {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-feedback-banner__heading {
+      font-size: 18pt;
+      line-height: 1.15; } }
+
+.nhsuk-feedback-banner__content {
+  position: relative; }
+  .nhsuk-feedback-banner__content:after {
     clear: both;
     content: '';
     display: block; }
-  .nhsuk-global-header__logo {
-    float: left;
-    padding: 20px 0; }
-    .nhsuk-global-header__logo a {
-      display: block;
-      height: 40px;
-      width: 99px; }
-      .nhsuk-global-header__logo a .nhsuk-logo {
-        border: 0;
-        height: 40px;
-        max-width: 100%;
-        vertical-align: middle;
-        width: 99px; }
-      .nhsuk-global-header__logo a .visually-hidden {
-        top: -9999px; }
-      .nhsuk-global-header__logo a:hover {
-        box-shadow: 0 0 0 4px #003d78; }
-  .nhsuk-global-header__menusearch {
-    float: right;
-    position: relative; }
-  .nhsuk-global-header__menu {
-    float: left;
-    margin: 20px; }
-    @media (min-width: 61.875em) {
-      .nhsuk-global-header__menu {
-        display: none; } }
-    .nhsuk-global-header__menu .menu-toggle__button {
-      background-color: transparent;
-      border: 1px solid #FFFFFF;
-      border-radius: 4px;
-      color: #FFFFFF;
-      display: block;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 28px;
-      margin: 0;
-      padding: 5px 15px;
-      text-decoration: none; }
-      .nhsuk-global-header__menu .menu-toggle__button::-moz-focus-inner {
-        border: 0; }
-      .nhsuk-global-header__menu .menu-toggle__button:hover {
-        background: #003d78;
-        border-color: #f0f4f5;
-        box-shadow: none; }
-      .nhsuk-global-header__menu .menu-toggle__button:focus {
-        background-color: transparent;
-        border-color: #FFB81C;
-        box-shadow: 0 0 0 3px #FFB81C;
-        outline: 0; }
-      .nhsuk-global-header__menu .menu-toggle__button:active, .nhsuk-global-header__menu .menu-toggle__button.active {
-        background: #002f5c;
-        border-color: #f0f4f5;
-        box-shadow: none;
-        color: #f0f4f5; }
-      .nhsuk-global-header__menu .menu-toggle__button.active:focus {
-        box-shadow: 0 0 0 3px #FFB81C; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-global-header .search-toggle,
-    .nhsuk-global-header .search-close {
-      display: none; }
-    .nhsuk-global-header__search {
-      float: left;
-      margin: 20px 0; }
-      .nhsuk-global-header__search .c-search__input {
-        -webkit-appearance: listbox;
-        background-color: #FFFFFF !important;
-        border: 1px solid #FFFFFF;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 0;
-        display: block;
-        float: left;
-        font-size: 16px;
-        height: 40px;
-        padding: 0 15px 0 12px;
-        width: 235px; }
-        .nhsuk-global-header__search .c-search__input--dropdown {
-          border-bottom-left-radius: 0; }
-        .nhsuk-global-header__search .c-search__input::placeholder {
-          color: #768692;
-          font-size: 16px; }
-        .nhsuk-global-header__search .c-search__input::-webkit-search-decoration {
-          -webkit-appearance: none; }
-        .nhsuk-global-header__search .c-search__input.js-search-open {
-          border-bottom-left-radius: 0; }
-        .nhsuk-global-header__search .c-search__input:focus {
-          border: 1px solid #FFB81C;
-          box-shadow: inset 0 0 0 3px #FFB81C;
-          outline: none; }
-      .nhsuk-global-header__search .c-search__submit {
-        background-color: #f0f4f5;
-        border: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 4px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 4px;
-        display: block;
-        float: right;
-        font-size: inherit;
-        height: 40px;
-        line-height: inherit;
-        outline: none;
-        padding-left: 9px;
-        padding-top: 7px;
-        width: 44px; }
-        .nhsuk-global-header__search .c-search__submit .nhsuk-icon__search {
-          height: 27px;
-          width: 27px; }
-        .nhsuk-global-header__search .c-search__submit--dropdown {
-          border-bottom-right-radius: 0; }
-        .nhsuk-global-header__search .c-search__submit::-moz-focus-inner {
-          border: 0; }
-        .nhsuk-global-header__search .c-search__submit.js-search-open {
-          border-bottom-right-radius: 0; }
-        .nhsuk-global-header__search .c-search__submit:focus {
-          box-shadow: inset 0 0 0 4px #FFB81C; }
-        .nhsuk-global-header__search .c-search__submit:hover {
-          background-color: #003d78;
-          cursor: pointer; }
-          .nhsuk-global-header__search .c-search__submit:hover .nhsuk-icon__search {
-            fill: #FFFFFF; }
-        .nhsuk-global-header__search .c-search__submit:active {
-          background-color: #002f5c; } }
-  @media (max-width: 40.0525em) {
-    .nhsuk-global-header .nhsuk-o-width-container--global-header {
-      margin: 0; }
-    .nhsuk-global-header .search-container {
-      display: none;
-      width: 100%; }
-      .nhsuk-global-header .search-container.js-show {
-        display: flex; }
-    .nhsuk-global-header .c-search {
-      flex-grow: 2;
-      padding: 15px 0 15px 15px;
-      text-align: left; }
-      .nhsuk-global-header .c-search__container {
-        display: flex; }
-      .nhsuk-global-header .c-search__input {
-        -webkit-appearance: listbox;
-        background-color: #FFFFFF !important;
-        border-bottom: 1px solid #AEB7BD;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 0;
-        border-left: 1px solid #AEB7BD;
-        border-right: 0;
-        border-top: 1px solid #AEB7BD;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 0;
-        flex-grow: 2;
-        font-size: inherit;
-        height: 52px;
-        margin: 0;
-        outline: none;
-        padding: 0 10px;
-        width: 100%; }
-        .nhsuk-global-header .c-search__input::-webkit-search-decoration {
-          -webkit-appearance: none; }
-        .nhsuk-global-header .c-search__input:focus {
-          box-shadow: inset 0 0 0 4px #FFB81C; }
-      .nhsuk-global-header .c-search::placeholder {
-        color: #768692;
-        font-size: 16px; }
-      .nhsuk-global-header .c-search__submit {
-        background-color: #007F3B;
-        border: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 4px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 4px;
-        float: right;
-        font-size: inherit;
-        height: 52px;
-        line-height: inherit;
-        margin: 0;
-        outline: none;
-        padding: 7px 7px 0; }
-        .nhsuk-global-header .c-search__submit .nhsuk-icon__search {
-          fill: #FFFFFF;
-          height: 38px;
-          width: 38px; }
-        .nhsuk-global-header .c-search__submit::-moz-focus-inner {
-          border: 0; }
-        .nhsuk-global-header .c-search__submit:hover {
-          background-color: #005326;
-          cursor: pointer; }
-        .nhsuk-global-header .c-search__submit:focus {
-          box-shadow: inset 0 0 0 4px #FFB81C; }
-        .nhsuk-global-header .c-search__submit:active {
-          background-color: #00401e; }
-    .nhsuk-global-header .nhsuk-global-header__logo {
-      padding-left: 15px;
-      padding-right: 15px;
-      position: relative;
-      z-index: 1; }
-    .nhsuk-global-header .nhsuk-global-header__menusearch {
-      float: none;
-      text-align: right; }
-      .nhsuk-global-header .nhsuk-global-header__menusearch:after {
-        clear: both;
-        content: '';
-        display: block; }
-      .nhsuk-global-header .nhsuk-global-header__menusearch.js-show {
-        border-bottom: 4px solid #f0f4f5; }
-    .nhsuk-global-header .nhsuk-global-header__menu {
-      display: inline-block;
-      float: none; }
-      .nhsuk-global-header .nhsuk-global-header__menu:after {
-        clear: both;
-        content: '';
-        display: block; }
-      .nhsuk-global-header .nhsuk-global-header__menu .menu-toggle__button {
-        margin-right: 52px; }
-    .nhsuk-global-header .nhsuk-global-header__search {
-      background: #FFFFFF;
-      display: flex; }
-      .nhsuk-global-header .nhsuk-global-header__search:after {
-        clear: both;
-        content: '';
-        display: block; }
-      .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button {
-        background-color: transparent;
-        border: 1px solid #FFFFFF;
-        border-radius: 4px;
-        color: #FFFFFF;
-        cursor: pointer;
-        margin: 20px 0;
-        min-height: 40px;
-        overflow: hidden;
-        padding: 4px 8px 0 9px;
-        position: absolute;
-        right: 16px;
-        text-align: left;
-        top: 0; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button .nhsuk-icon__search {
-          fill: #FFFFFF;
-          height: 21px;
-          width: 21px; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button::-moz-focus-inner {
-          border: 0; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button:hover {
-          background-color: #003d78;
-          border-color: #f0f4f5;
-          box-shadow: none; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button:focus {
-          background-color: transparent;
-          border-color: #FFB81C;
-          box-shadow: 0 0 0 3px #FFB81C;
-          outline: 0; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button:active, .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button.active {
-          background-color: #002f5c;
-          border-color: #f0f4f5;
-          box-shadow: none;
-          color: #f0f4f5; }
-        .nhsuk-global-header .nhsuk-global-header__search .search-toggle__button.active:focus {
-          box-shadow: 0 0 0 3px #FFB81C; }
-    .nhsuk-global-header .search-close__link {
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-      display: block;
-      float: right;
-      height: 40px;
-      margin-left: 16px;
-      margin-right: 16px;
-      margin-top: 22px;
-      overflow: hidden;
-      padding: 0;
-      text-align: left;
-      white-space: nowrap;
-      width: 40px; }
-      .nhsuk-global-header .search-close__link .nhsuk-icon__close {
-        fill: #005EB8;
-        height: 40px;
-        width: 40px; }
-      .nhsuk-global-header .search-close__link::-moz-focus-inner {
-        border: 0; }
-      .nhsuk-global-header .search-close__link:hover .nhsuk-icon__close {
-        fill: #003d78; }
-      .nhsuk-global-header .search-close__link:focus {
-        border-radius: 4px;
-        box-shadow: 0 0 0 4px #FFB81C;
-        outline: 0; } }
 
-.c-search-menu__list {
+.nhsuk-feedback-banner__message {
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-bottom: 24px; }
+  @media (min-width: 20em) {
+    .nhsuk-feedback-banner__message {
+      padding-bottom: 0; } }
+
+.nhsuk-feedback-banner__close {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1.66667;
+  color: #005eb8;
+  background: none;
+  border: 0;
+  color: #212b32;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-decoration: underline;
+  top: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-feedback-banner__close {
+      font-size: 14px;
+      font-size: 0.875rem;
+      line-height: 1.71429; } }
+  @media print {
+    .nhsuk-feedback-banner__close {
+      font-size: 12pt;
+      line-height: 1.2; } }
+  .nhsuk-feedback-banner__close:visited {
+    color: #330072; }
+  .nhsuk-feedback-banner__close:focus {
+    background-color: #ffb81C;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #212b32;
+    outline: 0; }
+  .nhsuk-feedback-banner__close:hover {
+    background-color: #ffcd60;
+    box-shadow: 0 0 0 4px #ffcd60;
+    color: #212b32;
+    text-decoration: none; }
+  .nhsuk-feedback-banner__close:active {
+    color: #374047; }
+  @media (max-width: 19.99em) {
+    .nhsuk-feedback-banner__close {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      top: auto; } }
+
+/* ==========================================================================
+   COMPONENTS / #FOOTER
+   ========================================================================== */
+.nhsuk-footer {
+  background-color: #005eb8;
+  color: #ffffff; }
+  @media print {
+    .nhsuk-footer {
+      display: none; } }
+
+.nhsuk-logo {
+  border: 0;
+  height: 40px;
+  max-width: 100%;
+  vertical-align: middle;
+  width: 99px; }
+
+.nhsuk-footer__logo {
+  padding-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer__logo {
+      padding-bottom: 0; } }
+  .nhsuk-footer__logo a {
+    display: block;
+    height: 40px;
+    width: 99px; }
+    .nhsuk-footer__logo a .nhsuk-u-visually-hidden {
+      top: -9999px; }
+    .nhsuk-footer__logo a:hover {
+      box-shadow: 0 0 0 4px #003d78; }
+
+.nhsuk-footer__list {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 24px;
+  padding-left: 0;
+  padding-top: 24px; }
+  .nhsuk-footer__list:last-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); }
+
+.nhsuk-footer__list-item {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer__list-item {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-footer__list-item {
+      font-size: 14pt;
+      line-height: 1.2; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer__list-item {
+      display: inline-block;
+      margin-bottom: 0;
+      padding-right: 24px; } }
+
+.nhsuk-footer__list-item-link {
+  color: #ffffff; }
+  .nhsuk-footer__list-item-link:visited {
+    color: #f0f4f5; }
+  .nhsuk-footer__list-item-link:focus {
+    color: #212b32; }
+  .nhsuk-footer__list-item-link:hover {
+    color: #212b32; }
+  .nhsuk-footer__list-item-link:active {
+    color: #374047; }
+
+/* ==========================================================================
+   COMPONENTS / #HEADER
+   ========================================================================== */
+/**
+ * The behaviour with regards to responsiveness is as follow:
+ *
+ * - Mobile to tablet view
+ *   Menu toggle button visible and navigation links hidden, search toggle
+     button visible and search form hidden
+ *
+ * - Tablet to desktop view
+ *   Menu toggle button visible and navigation links hidden, search toggle
+ *   button hidden and search form visible
+ *
+ * - Desktop+ view
+ *   Menu toggle button hidden and navigation links visible, search toggle
+ *   button hidden and search form visible
+ *
+ * 1. Custom height and width of the logo
+ * 2. Custom height and width of form items
+ * 3. Custom height and width of svg icons
+ * 4. Remove inner border on buttons for Firefox, see
+ *    https://github.com/necolas/normalize.css/issues/393
+ * 5. Proprietary extension so form field looks the same in Safari
+ * 6. Needs !important because typeahead js adds inline styling so need to
+ *    override
+ * 7. Custom spacing to position the search icon
+ * 8. Drop shadow on search suggestions dopdown box, custom spread and blur
+ * 9. No current spacing at 12px so using this value
+ * 10. Z-index to bring the dropdown to the front
+ * 11. Custom margin to move menu toggle past the search toggle button
+ * 12. Custom border value between expanded search and expanded menu if both open at the same time
+ * 13. Don't display the link address for the logo anchor, see
+ *     core/elements/_links.scss
+ * 14. IE 10 prefix for flexbox
+ * 15. IE 9 alternative for flexbox
+ */
+.nhsuk-header {
+  background-color: #005eb8; }
+  .nhsuk-header:after {
+    clear: both;
+    content: '';
+    display: block; }
+
+.nhsuk-header__logo {
+  float: left;
+  padding: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__logo {
+      padding-left: 0; } }
+
+.nhsuk-header__link {
+  display: block;
+  height: 40px;
+  /* [1] */
+  width: 99px;
+  /* [1] */ }
+  .nhsuk-header__link:hover {
+    box-shadow: 0 0 0 4px #003d78; }
+
+.nhsuk-logo {
+  border: 0;
+  height: 40px;
+  /* [1] */
+  width: 99px;
+  /* [1] */ }
+
+.nhsuk-header__content:after {
+  clear: both;
+  content: '';
+  display: block; }
+
+@media print {
+  .nhsuk-header__content {
+    display: none; } }
+
+.nhsuk-header__content.js-show {
+  border-bottom: 4px solid #f0f4f5;
+  /* [12] */ }
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__content {
+    float: right;
+    position: relative; } }
+
+.nhsuk-header__search {
+  position: relative;
+  text-align: right; }
+  .nhsuk-header__search:after {
+    clear: both;
+    content: '';
+    display: block; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__search {
+      float: left;
+      margin-top: 16px; } }
+
+.nhsuk-header__search-toggle {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  min-height: 40px;
+  /* [2] */
+  padding: 4px 8px 0;
+  position: absolute;
+  right: 16px;
+  top: 16px; }
+  .nhsuk-header__search-toggle::-moz-focus-inner {
+    border: 0; }
+  .nhsuk-header__search-toggle:hover {
+    background-color: #003d78;
+    border-color: #f0f4f5;
+    box-shadow: none; }
+  .nhsuk-header__search-toggle:focus {
+    background-color: transparent;
+    border-color: #ffb81C;
+    box-shadow: 0 0 0 3px #ffb81C;
+    outline: 0; }
+  .nhsuk-header__search-toggle:active, .nhsuk-header__search-toggle.is-active {
+    background-color: #002f5c;
+    border-color: #f0f4f5;
+    box-shadow: none;
+    color: #f0f4f5; }
+  .nhsuk-header__search-toggle.is-active:focus {
+    box-shadow: 0 0 0 3px #ffb81C; }
+  .nhsuk-header__search-toggle .nhsuk-icon__search {
+    fill: #ffffff;
+    height: 21px;
+    /* [3] */
+    width: 21px;
+    /* [3] */ }
+
+.nhsuk-header__search-form {
+  overflow: hidden; }
+
+@media (max-width: 40.0525em) {
+  .nhsuk-header__container {
+    margin: 0; }
+  .nhsuk-header__logo {
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    z-index: 1; }
+  .nhsuk-header__search-wrap {
+    display: none; }
+    .nhsuk-header__search-wrap.js-show {
+      clear: both;
+      display: -ms-flexbox;
+      /* [14] */
+      display: flex;
+      text-align: left; }
+  .nhsuk-header__search-form {
+    background-color: #ffffff;
+    display: -ms-flexbox;
+    /* [14] */
+    display: flex;
+    padding: 16px;
+    width: 100%; }
+  .nhsuk-search__input {
+    -ms-flex-positive: 2;
+    /* [14] */
+    -webkit-appearance: listbox;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #aeb7bd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-left: 1px solid #aeb7bd;
+    border-right: 0;
+    border-top: 1px solid #aeb7bd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    flex-grow: 2;
+    font-size: inherit;
+    height: 52px;
+    /* [2] */
+    margin: 0;
+    outline: none;
+    padding: 0 8px;
+    width: 100%;
+    /* [2] */ }
+    .nhsuk-search__input:focus {
+      box-shadow: inset 0 0 0 4px #ffb81C; }
+  .nhsuk-search__submit {
+    background-color: #007f3b;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 4px;
+    float: right;
+    font-size: inherit;
+    height: 52px;
+    /* [2] */
+    line-height: inherit;
+    margin: 0;
+    outline: none;
+    padding: 8px 8px 0; }
+    .nhsuk-search__submit .nhsuk-icon__search {
+      fill: #ffffff;
+      height: 38px;
+      /* [3] */
+      width: 38px;
+      /* [3] */ }
+    .nhsuk-search__submit::-moz-focus-inner {
+      border: 0;
+      /* [4] */ }
+    .nhsuk-search__submit:hover {
+      background-color: #005326;
+      cursor: pointer; }
+    .nhsuk-search__submit:focus {
+      box-shadow: inset 0 0 0 4px #ffb81C; }
+    .nhsuk-search__submit:active {
+      background-color: #00401e; }
+  .nhsuk-search__close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    padding: 0;
+    width: 40px;
+    margin-left: 16px;
+    margin-top: 8px; }
+    .nhsuk-search__close .nhsuk-icon__close {
+      fill: #005eb8;
+      height: 40px;
+      width: 40px; }
+    .nhsuk-search__close::-moz-focus-inner {
+      border: 0; }
+    .nhsuk-search__close:hover .nhsuk-icon__close {
+      fill: #003d78; }
+    .nhsuk-search__close:focus {
+      border-radius: 4px;
+      box-shadow: 0 0 0 4px #ffb81C;
+      outline: 0; } }
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__search-wrap {
+    display: block; }
+  .nhsuk-header__search-toggle {
+    display: none; }
+  .nhsuk-search__input {
+    -webkit-appearance: listbox;
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    display: block;
+    float: left;
+    font-size: 16px;
+    height: 40px;
+    /* [2] */
+    padding: 0 12px;
+    /* [9] */
+    width: 235px;
+    /* [2] */ }
+    .nhsuk-search__input:focus {
+      border: 1px solid #ffb81C;
+      box-shadow: inset 0 0 0 3px #ffb81C;
+      outline: none; }
+    .nhsuk-search__input::placeholder {
+      color: #768692;
+      font-size: 16px; }
+  .nhsuk-search__submit {
+    background-color: #f0f4f5;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 4px;
+    display: block;
+    float: right;
+    font-size: inherit;
+    height: 40px;
+    /* [2] */
+    line-height: inherit;
+    outline: none;
+    padding-left: 9px;
+    /* [7] */
+    padding-top: 7px;
+    /* [7] */
+    width: 44px;
+    /* [2] */ }
+    .nhsuk-search__submit .nhsuk-icon__search {
+      height: 27px;
+      /* [3] */
+      width: 27px;
+      /* [3] */ }
+    .nhsuk-search__submit::-moz-focus-inner {
+      border: 0;
+      /* [4] */ }
+    .nhsuk-search__submit:focus {
+      box-shadow: inset 0 0 0 4px #ffb81C; }
+    .nhsuk-search__submit:hover {
+      background-color: #003d78;
+      cursor: pointer; }
+      .nhsuk-search__submit:hover .nhsuk-icon__search {
+        fill: #ffffff; }
+    .nhsuk-search__submit:active {
+      background-color: #002f5c; }
+  .nhsuk-search__close {
+    display: none; } }
+
+.nhsuk-search__input--withdropdown {
+  border-bottom-left-radius: 0; }
+
+.nhsuk-search__submit--withdropdown {
+  border-bottom-right-radius: 0; }
+
+.twitter-typeahead {
+  display: inline !important;
+  width: 100%; }
+
+.suggestions-list {
   -moz-box-shadow: 0 3px 5px 0 rgba(66, 84, 98, 0.5);
   -webkit-box-shadow: 0 3px 5px 0 rgba(66, 84, 98, 0.5);
-  background: #FFFFFF;
-  border-bottom: 1px solid #D8DDE0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d8dde0;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  border-left: 1px solid #D8DDE0;
-  border-right: 1px solid #D8DDE0;
-  border-top: 2px solid #005EB8;
+  border-left: 1px solid #d8dde0;
+  border-right: 1px solid #d8dde0;
+  border-top: 2px solid #005eb8;
   box-shadow: 0 0 3px 0 rgba(66, 84, 98, 0.5);
   height: auto;
   list-style: none;
   margin-top: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 10px 15px 18px;
+  padding: 8px 16px 16px;
   position: absolute;
-  z-index: 1; }
+  z-index: 1;
+  /* [10] */ }
 
 @media (max-width: 40.0525em) {
-  .c-search-menu {
+  .suggestions-menu {
     position: relative !important;
     top: 0 !important; }
-  .c-search-menu__list {
+  .suggestions-list {
     border: 0;
     border-radius: 0;
     box-shadow: none;
     left: auto !important;
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     position: relative !important;
     top: auto !important;
     width: 100% !important; } }
 
-.c-search-menu__prepend {
-  border-bottom: 1px solid #D8DDE0;
-  color: #212B32;
-  font-size: 16px;
-  font-weight: 600;
-  padding-bottom: 12px;
-  text-align: left; }
-
-.c-search-menu__item {
+.suggestions-item {
   border-bottom: 1px solid #f0f4f5;
-  color: #005EB8;
+  color: #005eb8;
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
   padding-bottom: 12px;
+  /* [9] */
   text-align: left;
   text-decoration: underline; }
-  .c-search-menu__item .nhsuk-icon__search {
-    fill: #AEB7BD;
+  .suggestions-item .nhsuk-icon__search {
+    fill: #aeb7bd;
     float: left;
     height: 22px;
+    /* [2] */
     margin: 5px 4px 0 0;
-    width: 22px; }
-  .c-search-menu__item:hover, .c-search-menu__item:active {
+    /* [7] */
+    width: 22px;
+    /* [2] */ }
+  .suggestions-item:hover, .suggestions-item:active {
     text-decoration: none; }
-  .c-search-menu__item:hover div, .c-search-menu__item:focus div {
-    background: #FFB81C;
-    box-shadow: 0 0 0 4px #FFB81C;
-    color: #212B32;
+  .suggestions-item:hover div, .suggestions-item:focus div {
+    background-color: #ffb81C;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #212b32;
     display: inline; }
-  .c-search-menu__item--selected a {
-    background-color: #FFB81C;
-    box-shadow: 0 0 0 4px #FFB81C;
-    color: #212B32;
-    display: inline;
-    text-decoration: none; }
 
-.twitter-typeahead {
-  display: inline !important;
-  position: static !important;
-  width: 100%; }
+.suggestions-item--selected a {
+  background-color: #ffb81C;
+  box-shadow: 0 0 0 4px #ffb81C;
+  color: #212b32;
+  display: inline;
+  text-decoration: none; }
 
-.c-search-menu__nosuggestions {
+.suggestions-title {
+  border-bottom: 1px solid #d8dde0;
+  color: #212b32;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  /* [9] */
+  text-align: left; }
+
+.suggestions-none {
   font-size: 16px;
   line-height: 24px;
   margin: 0;
   text-align: left; }
 
-.nhsuk-c-skiplink__link {
-  left: -9999px;
-  padding: 8px;
-  position: absolute; }
-  .nhsuk-c-skiplink__link:active, .nhsuk-c-skiplink__link:focus {
-    left: 16px;
-    top: 16px;
-    z-index: 2; }
-  .nhsuk-c-skiplink__link:visited {
-    color: #212B32; }
+/* Main navigation
+ *
+ * Appears below the header strip
+   ====================================================================== */
+.nhsuk-header__menu {
+  float: right;
+  margin: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__menu {
+      float: left;
+      margin-right: 16px; } }
 
-@media (max-width: 61.865em) {
-  .c-nav-primary {
-    background: #FFFFFF;
-    display: none; }
-    .c-nav-primary.js-show {
-      display: block; }
-    .c-nav-primary .nhsuk-o-width-container {
-      margin: 0;
-      max-width: 990px; }
-    .c-nav-primary__title {
-      font-weight: 600;
-      margin: 0;
-      padding: 12px 38px 12px 30px;
-      position: relative; } }
-    @media (max-width: 61.865em) and (max-width: 40.0525em) {
-      .c-nav-primary__title {
-        margin: 0 24px 0 0;
-        padding: 16px; } }
+.nhsuk-header__menu-toggle {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-right: 56px;
+  /* [11] */
+  padding: 7px 16px;
+  position: relative;
+  text-decoration: none;
+  z-index: 1; }
+  .nhsuk-header__menu-toggle::-moz-focus-inner {
+    border: 0; }
+  .nhsuk-header__menu-toggle:hover {
+    background-color: #003d78;
+    border-color: #f0f4f5;
+    box-shadow: none; }
+  .nhsuk-header__menu-toggle:focus {
+    background-color: transparent;
+    border-color: #ffb81C;
+    box-shadow: 0 0 0 3px #ffb81C;
+    outline: 0; }
+  .nhsuk-header__menu-toggle:active, .nhsuk-header__menu-toggle.is-active {
+    background-color: #002f5c;
+    border-color: #f0f4f5;
+    box-shadow: none;
+    color: #f0f4f5; }
+  .nhsuk-header__menu-toggle.is-active:focus {
+    box-shadow: 0 0 0 3px #ffb81C; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__menu-toggle {
+      margin-right: 0; } }
 
-@media (max-width: 61.865em) {
-      .c-nav-primary__title .c-nav-primary__close-link {
-        background: transparent;
-        border: 0;
-        height: 40px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        right: 24px;
-        top: 8px;
-        white-space: nowrap;
-        width: 40px; }
-        .c-nav-primary__title .c-nav-primary__close-link .nhsuk-icon__close {
-          fill: #005EB8;
-          height: 40px;
-          width: 40px; } }
-      @media (max-width: 61.865em) and (max-width: 40.0525em) {
-        .c-nav-primary__title .c-nav-primary__close-link {
-          right: -8px; } }
+/* 'only' modifier for when there is only the menu in the header, no search
+   ====================================================================== */
+@media (min-width: 40.0625em) {
+  .nhsuk-header__menu--only {
+    margin-right: 0; } }
 
-@media (max-width: 61.865em) {
-        .c-nav-primary__title .c-nav-primary__close-link::-moz-focus-inner {
-          border: 0; }
-        .c-nav-primary__title .c-nav-primary__close-link:hover .nhsuk-icon__close {
-          fill: #003d78; }
-        .c-nav-primary__title .c-nav-primary__close-link:focus {
-          border-radius: 4px;
-          box-shadow: 0 0 0 4px #FFB81C;
-          outline: 0; }
-    .c-nav-primary__list {
-      border-bottom: 4px solid #f0f4f5;
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-    .c-nav-primary__item {
-      border-top: 1px solid #f0f4f5;
-      margin: 0;
-      position: relative; }
-      .c-nav-primary__item .nhsuk-icon__chevron-right {
-        fill: #AEB7BD;
-        position: absolute; } }
-      @media (max-width: 61.865em) and (max-width: 40.0525em) {
-        .c-nav-primary__item .nhsuk-icon__chevron-right {
-          right: 4px;
-          top: 11px; } }
-      @media (max-width: 61.865em) and (min-width: 40.0625em) {
-        .c-nav-primary__item .nhsuk-icon__chevron-right {
-          right: 16px;
-          top: 9px; } }
+.nhsuk-header__menu--only .nhsuk-header__menu-toggle {
+  margin-right: 0; }
 
-@media (max-width: 61.865em) {
-    .c-nav-primary__link {
-      color: #005EB8;
-      display: block;
-      text-decoration: none; } }
-    @media (max-width: 61.865em) and (min-width: 40.0625em) {
-      .c-nav-primary__link {
-        padding: 12px 30px; } }
-    @media (max-width: 61.865em) and (max-width: 40.0525em) {
-      .c-nav-primary__link {
-        padding: 16px; } }
+.nhsuk-header__navigation {
+  background-color: #ffffff;
+  clear: both;
+  display: none;
+  overflow: hidden; }
+  @media print {
+    .nhsuk-header__navigation {
+      display: none; } }
+  .nhsuk-header__navigation.js-show {
+    display: block; }
 
-@media (max-width: 61.865em) {
-      .c-nav-primary__link:visited {
-        color: #005EB8; }
-      .c-nav-primary__link:hover {
-        background-color: #005EB8;
-        box-shadow: none;
-        color: #FFFFFF;
-        text-decoration: underline; }
-        .c-nav-primary__link:hover .nhsuk-icon__chevron-right {
-          fill: #FFFFFF; }
-      .c-nav-primary__link:focus {
-        background-color: transparent;
-        box-shadow: inset 0 0 0 4px #FFB81C;
-        color: #005EB8; }
-      .c-nav-primary__link:active {
-        background-color: #003d78;
-        box-shadow: none;
-        color: #FFFFFF; }
-        .c-nav-primary__link:active .nhsuk-icon__chevron-right {
-          fill: #FFFFFF; } }
+.nhsuk-header__navigation-title {
+  font-weight: 600;
+  margin-bottom: 0;
+  padding: 16px;
+  position: relative; }
 
+.nhsuk-header__navigation-close {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  padding: 0;
+  width: 40px;
+  overflow: hidden;
+  position: absolute;
+  right: 16px;
+  top: 8px;
+  white-space: nowrap; }
+  .nhsuk-header__navigation-close .nhsuk-icon__close {
+    fill: #005eb8;
+    height: 40px;
+    width: 40px; }
+  .nhsuk-header__navigation-close::-moz-focus-inner {
+    border: 0; }
+  .nhsuk-header__navigation-close:hover .nhsuk-icon__close {
+    fill: #003d78; }
+  .nhsuk-header__navigation-close:focus {
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+
+.nhsuk-header__navigation-list {
+  list-style: none;
+  padding-left: 0; }
+
+.nhsuk-header__navigation-item {
+  border-top: 1px solid #f0f4f5;
+  margin-bottom: 0;
+  position: relative; }
+
+.nhsuk-header__navigation-link {
+  color: #005eb8;
+  display: block;
+  padding: 16px;
+  text-decoration: none; }
+  .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
+    fill: #aeb7bd;
+    position: absolute;
+    right: 4px;
+    top: 11px; }
+  .nhsuk-header__navigation-link:hover {
+    background-color: #005eb8;
+    box-shadow: none;
+    color: #ffffff;
+    text-decoration: underline; }
+    .nhsuk-header__navigation-link:hover .nhsuk-icon__chevron-right {
+      fill: #ffffff; }
+  .nhsuk-header__navigation-link:focus {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 4px #ffb81C;
+    color: #005eb8; }
+  .nhsuk-header__navigation-link:active {
+    background-color: #003d78;
+    box-shadow: none;
+    color: #ffffff; }
+    .nhsuk-header__navigation-link:active .nhsuk-icon__chevron-right {
+      fill: #ffffff; }
+
+/**
+ * Large desktop styles
+**/
 @media (min-width: 61.875em) {
-  .c-nav-primary {
-    background: #005EB8; }
-    .c-nav-primary:after {
-      clear: both;
-      content: '';
-      display: block; }
-    .c-nav-primary__title {
+  .nhsuk-header__menu-toggle {
+    display: none; }
+  .nhsuk-header__navigation-title {
+    display: none; }
+  .nhsuk-header__navigation-item--for-mobile {
+    display: none; }
+  .nhsuk-header__navigation {
+    background-color: #005eb8;
+    display: block;
+    margin: 0 auto;
+    max-width: 960px; }
+  .nhsuk-header__navigation-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: -ms-flexbox;
+    /* [14] */
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+  .nhsuk-header__navigation-item {
+    border-top: 0;
+    margin: 0;
+    text-align: center; }
+    .nhsuk-header__navigation-item .nhsuk-icon__chevron-right {
       display: none; }
-    .c-nav-primary__list {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 100%; }
-    .c-nav-primary__item {
-      margin: 0;
-      padding: 0;
-      text-align: center; }
-      .c-nav-primary__item .nhsuk-icon__chevron-right {
-        display: none; }
-    .c-nav-primary__item--mobile {
-      display: none; }
-    .c-nav-primary__link {
-      color: #FFFFFF;
-      display: block;
-      font-size: 17px;
-      line-height: 20px;
-      padding: 16px;
-      text-decoration: none; }
-      .c-nav-primary__link:visited {
-        color: #FFFFFF; }
-      .c-nav-primary__link:hover {
-        background: #003d78;
-        box-shadow: none;
-        color: #FFFFFF;
-        text-decoration: underline; }
-      .c-nav-primary__link:focus {
-        background: #005EB8;
-        box-shadow: inset 0 0 0 4px #FFB81C;
-        color: #FFFFFF; }
-      .c-nav-primary__link:active {
-        background: #002f5c;
-        box-shadow: none;
-        color: #f0f4f5; }
-      .c-nav-primary__link.active {
-        background: #004b93; } }
+  .nhsuk-header__navigation-link {
+    color: #ffffff;
+    font-size: 17px;
+    line-height: normal; }
+    .nhsuk-header__navigation-link:visited {
+      color: #ffffff; }
+    .nhsuk-header__navigation-link:hover {
+      background-color: #003d78; }
+    .nhsuk-header__navigation-link:focus {
+      color: #ffffff; }
+    .nhsuk-header__navigation-link:active {
+      background-color: #002f5c;
+      color: #f0f4f5; }
+    .nhsuk-header__navigation-link.is-active {
+      background-color: #004b93; } }
 
-.ie9 .nhsuk-global-header__logo a img {
-  border: 0; }
+/**
+ * Internet Explorer >= 9 specific styles
+ *
+ * The header component is the only component that
+ * supports earlier version of IE.
+ * This is because of the NHS branding, navigation
+ * and search prominence across the website.
+**/
+.ie9 .nhsuk-header__menu-toggle,
+.ie9 .nhsuk-header__search-toggle,
+.ie9 .nhsuk-search__close,
+.ie9 .nhsuk-header__navigation-title,
+.ie9 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right,
+.ie8 .nhsuk-header__menu-toggle,
+.ie8 .nhsuk-header__search-toggle,
+.ie8 .nhsuk-search__close,
+.ie8 .nhsuk-header__navigation-title,
+.ie8 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
+  display: none; }
 
-.ie9 .c-search-menu {
-  display: none !important; }
-
-.ie9 .c-nav-primary__list {
+.ie9 .nhsuk-header__navigation-list,
+.ie8 .nhsuk-header__navigation-list {
   display: table; }
 
-.ie9 .c-nav-primary__item {
-  display: table-cell; }
+.ie9 .nhsuk-header__navigation-item,
+.ie8 .nhsuk-header__navigation-item {
+  display: table-cell;
+  /* [15] */ }
 
-@media (max-width: 61.865em) {
-  .ie9 .c-nav-primary__list, .ie9 .c-nav-primary__item {
-    display: block; } }
-
-@media (max-width: 40.0525em) {
-  .ie9 .nhsuk-global-header .search-container.js-show {
-    display: block; }
-  .ie9 .nhsuk-global-header .c-search {
-    float: left;
-    width: 85%; }
-  .ie9 .nhsuk-global-header .search-close {
-    float: left;
-    width: 15%; }
-  .ie9 .nhsuk-global-header .c-search__input {
-    float: left;
-    margin-bottom: 15px;
-    width: 78%; }
-  .ie9 .nhsuk-global-header .c-search__submit {
-    float: left;
-    height: 52px; } }
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .nhsuk-global-header .nhsuk-global-header__search,
-  .nhsuk-global-header .c-search__container {
-    display: -ms-flexbox; }
-  .nhsuk-global-header .search-container.js-show {
-    display: -ms-flexbox; } }
-
-@media screen and (-ms-high-contrast: active) and (min-width: 40.0625em), (-ms-high-contrast: none) and (min-width: 40.0625em) {
-  .nhsuk-global-header .twitter-typeahead {
-    width: auto; } }
-
-@media screen and (-ms-high-contrast: active) and (max-width: 40.0525em), (-ms-high-contrast: none) and (max-width: 40.0525em) {
-  .nhsuk-global-header .c-search {
-    -ms-flex-positive: 2; }
-  .nhsuk-global-header .c-search__input {
-    -ms-flex-positive: 2; } }
-
-@media screen and (-ms-high-contrast: active) and (min-width: 61.875em), (-ms-high-contrast: none) and (min-width: 61.875em) {
-  .c-nav-primary__list {
-    -ms-flex-pack: justify;
-    display: -ms-flexbox; }
-  .c-nav-primary__item {
-    text-align: left; } }
-
-@media print {
-  .nhsuk-global-header__menusearch,
-  .c-nav-primary {
-    display: none; } }
-
+/* ==========================================================================
+   COMPONENTS / #HERO
+   ========================================================================== */
+/**
+ *  Hero component shared styles.
+ *
+ * 1. Position relative to support the description
+ *    appearing over the image.
+ * 2. Adds a border between the header and hero
+ */
 .nhsuk-hero {
-  background-color: #005EB8;
-  color: #FFFFFF;
-  display: block;
+  background-color: #005eb8;
+  color: #ffffff;
   position: relative; }
   @media print {
     .nhsuk-hero {
-      color: #212B32; } }
-  .nhsuk-hero__container {
-    max-width: 960px;
-    margin: 0 16px;
+      color: #212b32;
+      fill: #212b32; }
+      .nhsuk-hero:active, .nhsuk-hero:focus, .nhsuk-hero:visited {
+        color: #212b32; } }
+  .nhsuk-hero .nhsuk-hero--border {
     border-top: 1px solid rgba(255, 255, 255, 0.2); }
-    @media (min-width: 48.0625em) {
-      .nhsuk-hero__container {
-        margin: 0 32px; } }
-    @media (min-width: 1024px) {
-      .nhsuk-hero__container {
-        margin: 0 auto; } }
-    @media (max-width: 61.865em) {
-      .nhsuk-hero__container {
-        border: 0; } }
-    .nhsuk-hero__container.nhsuk-o-main-wrapper {
-      padding: 0; }
-    .nhsuk-hero__container .nhsuk-page-heading {
-      margin: 0;
-      padding: 40px 0; }
-      @media (min-width: 40.0625em) {
-        .nhsuk-hero__container .nhsuk-page-heading {
-          padding: 60px 0; } }
-  .nhsuk-hero--image {
-    background-image: none;
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block; }
-    @media only screen {
-      .nhsuk-hero--image {
-        height: 240px; } }
-    @media (min-width: 40.0625em) {
-      .nhsuk-hero--image {
-        height: 320px; } }
-    .nhsuk-hero--image .nhsuk-hero__overlay {
-      background: rgba(0, 47, 92, 0.1);
-      height: 100%; }
-  .nhsuk-hero--image-description {
-    margin-bottom: 100px; }
-    @media (min-width: 40.0625em) {
-      .nhsuk-hero--image-description {
-        margin-bottom: 72px; } }
-    .nhsuk-hero--image-description .nhsuk-hero__container {
-      border: 0; }
-    .nhsuk-hero--image-description .nhsuk-hero-content {
-      background: #005EB8;
-      bottom: -48px;
-      color: #FFFFFF;
-      max-width: 565px;
-      padding: 32px 40px 40px;
+
+.nhsuk-hero__wrapper {
+  padding-top: 48px;
+  padding-bottom: 48px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-hero__wrapper {
+      padding-top: 56px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-hero__wrapper {
+      padding-bottom: 56px; } }
+
+/**
+ *  Hero component image styles
+ *
+ * 4. Center the background image.
+ * 5. Stop the height affecting print stylesheets.
+ * 6. Darken the background image with an overlay.
+ * 7. Overlay must be 100% height to cover the image.
+ */
+.nhsuk-hero--image {
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media only screen {
+    .nhsuk-hero--image {
+      height: 240px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-hero--image {
+      height: 320px; } }
+  .nhsuk-hero--image .nhsuk-hero__overlay {
+    background-color: rgba(0, 47, 92, 0.1);
+    height: 100%; }
+
+/**
+ *  Hero component title and description styles.
+ *
+ * 8. Add a margin to support the description box
+ *    overlay and caret :after
+ * 9. Offset the description box overlay.
+ * 10. Give the description box a max width.
+ * 11. Relative position to stop description box
+ *     overlapping other content on print stylesheets.
+ * 12. Fallback for triangle on high contrast.
+ */
+.nhsuk-hero--image-description {
+  margin-bottom: 100px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-hero--image-description {
+      margin-bottom: 72px; } }
+  .nhsuk-hero--image-description .nhsuk-hero-content {
+    background-color: #005eb8;
+    bottom: -48px;
+    color: #ffffff;
+    max-width: 565px;
+    padding: 32px 40px;
+    position: absolute; }
+    .nhsuk-hero--image-description .nhsuk-hero-content > *:first-child {
+      margin-top: 0; }
+    .nhsuk-hero--image-description .nhsuk-hero-content > *:last-child {
+      margin-bottom: 0; }
+    @media (max-width: 23.4375em) {
+      .nhsuk-hero--image-description .nhsuk-hero-content {
+        bottom: -40px; } }
+    @media (max-width: 40.0525em) {
+      .nhsuk-hero--image-description .nhsuk-hero-content {
+        bottom: -72px;
+        left: 16px;
+        padding: 24px;
+        right: 16px; } }
+    @media print {
+      .nhsuk-hero--image-description .nhsuk-hero-content {
+        color: #212b32;
+        left: 0;
+        max-width: 100%;
+        padding: 0;
+        position: relative; } }
+    .nhsuk-hero--image-description .nhsuk-hero-content:after {
+      -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 16px solid #005eb8;
+      bottom: -15px;
+      content: '';
+      display: block;
+      height: 0;
       position: absolute;
-      width: 80%; }
-      .nhsuk-hero--image-description .nhsuk-hero-content > *:first-child {
-        margin-top: 0; }
-      .nhsuk-hero--image-description .nhsuk-hero-content > *:last-child {
-        margin-bottom: 0; }
-      .nhsuk-hero--image-description .nhsuk-hero-content:after {
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-top: 16px solid #005EB8;
-        bottom: -15px;
-        content: '';
-        display: block;
-        height: 0;
-        position: absolute;
-        width: 0; }
-        @media print {
-          .nhsuk-hero--image-description .nhsuk-hero-content:after {
-            display: none; } }
-      @media (max-width: 48.0525em) {
-        .nhsuk-hero--image-description .nhsuk-hero-content {
-          width: 80%; } }
-      @media (max-width: 40.0525em) {
-        .nhsuk-hero--image-description .nhsuk-hero-content {
-          bottom: -72px;
-          left: 16px;
-          padding: 24px;
-          right: 16px; } }
-      @media (max-width: 23.4375em) {
-        .nhsuk-hero--image-description .nhsuk-hero-content {
-          bottom: -40px; } }
+      width: 0; }
       @media print {
-        .nhsuk-hero--image-description .nhsuk-hero-content {
-          color: #212B32;
-          padding: 0;
-          position: relative; } }
-      .nhsuk-hero--image-description .nhsuk-hero-content p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 24px;
-        line-height: 36px;
-        margin-top: 8px; }
-        @media print {
-          .nhsuk-hero--image-description .nhsuk-hero-content p {
-            color: #212B32; } }
-        @media (max-width: 40.0525em) {
-          .nhsuk-hero--image-description .nhsuk-hero-content p {
-            font-size: 19px;
-            line-height: 28px; } }
-        @media (max-width: 23.4375em) {
-          .nhsuk-hero--image-description .nhsuk-hero-content p {
-            font-size: 16px;
-            line-height: 24px; } }
+        .nhsuk-hero--image-description .nhsuk-hero-content:after {
+          display: none; } }
 
-.nhsuk-c-image {
-  background: #FFFFFF;
-  border-bottom: #D8DDE0 2px solid;
-  margin: 40px 0 0; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-image {
-      margin: 32px 0 0; } }
-  .nhsuk-c-image img {
-    display: block;
-    width: 100%; }
-  .nhsuk-c-image__caption {
-    padding: 16px; }
-    .nhsuk-c-image__caption p {
-      font-size: .9em;
-      margin: 0; }
+/* ==========================================================================
+   COMPONENTS / #IMAGES
+   ========================================================================== */
+/**
+ * 1. Overrides default browser margin values.
+ * 2. Makes the image width two thirds of its container for desktop.
+ * 3. Avoid image printing full width of a page.
+ * 4. Removes top margin from subsequent nhsuk-image.
+ */
+.nhsuk-image {
+  background-color: #ffffff;
+  border-bottom: 1px solid #d8dde0;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  margin-left: 0;
+  /* [1] */
+  margin-right: 0;
+  /* [1] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-image {
+      margin-bottom: 40px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-image {
+      margin-top: 40px; } }
+  @media (min-width: 48.0625em) {
+    .nhsuk-image {
+      width: 66.66667%;
+      /* [2] */ } }
+  @media print {
+    .nhsuk-image {
+      width: 50%;
+      /* [3] */ } }
+  .nhsuk-image + .nhsuk-image {
+    margin-top: 0;
+    /* [4] */ }
+    @media (min-width: 40.0625em) {
+      .nhsuk-image + .nhsuk-image {
+        margin-top: 0; } }
 
-.nhsuk-c-inset-text {
-  max-width: 37em;
-  border-left: 12px solid #005EB8;
-  margin: 40px 0;
+.nhsuk-image__img {
+  display: block;
+  width: 100%; }
+
+.nhsuk-image__caption {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
   padding: 16px; }
-  .nhsuk-c-inset-text > *:first-child {
-    margin-top: 0; }
-  .nhsuk-c-inset-text > *:last-child {
-    margin-bottom: 0; }
-  .nhsuk-c-inset-text .visually-hidden:first-of-type + * {
-    margin-top: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-image__caption {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-image__caption {
+      font-size: 14pt;
+      line-height: 1.2; } }
 
-.nhsuk-c-pagination {
-  margin: 56px 0; }
-  .nhsuk-c-pagination:after {
+/* ==========================================================================
+   COMPONENTS / #INSET-TEXT
+   ========================================================================== */
+/**
+ * 1. Removes top margin from first element and bottom margin from last,
+ *    to ensure correct spacing within the component.
+ * 2. Restricts the width of the text to optimise the line length for
+ *    readability.
+ */
+.nhsuk-inset-text {
+  /* [1] */
+  max-width: 37em;
+  /* [2] */
+  margin-bottom: 40px;
+  margin-top: 40px;
+  border-left: 12px solid #005eb8;
+  padding: 16px; }
+  .nhsuk-inset-text > *:first-child {
+    margin-top: 0; }
+  .nhsuk-inset-text > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-inset-text {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-inset-text {
+      margin-top: 48px; } }
+  @media print {
+    .nhsuk-inset-text {
+      border-color: #212b32; } }
+
+/* ==========================================================================
+   COMPONENT / #LIST-PANEL / #BACK-TO-TOP
+   ========================================================================== */
+/**
+ * 1. Allows <a> padding and margin to be respected.
+ * 2. Removes default margin-bottom from heading.
+ * 3. 'Random number' used give heading the correct placement.
+ * 4. Overrides the default bullet list style.
+ * 5. Overrides default link box-shadow.
+ * 6. Removes the grey border on hover.
+ * 7. Underline is added to give a visual state of change.
+ * 8. Removes right and left margin to make the panel list go right to the
+ *    edge of the screen.
+ * 9. Margin left used to compensate for the negative margin
+ *    on .nhsuk-list-panel--mobile.
+ */
+.nhsuk-list-panel {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list-panel {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list-panel {
+      margin-bottom: 48px; } }
+
+.nhsuk-list-panel__label {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  background-color: #005eb8;
+  color: #ffffff;
+  display: inline-block;
+  /* [1] */
+  margin-bottom: 0;
+  /* [2] */
+  padding: 8px 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-list-panel__label {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.25; } }
+  @media print {
+    .nhsuk-list-panel__label {
+      font-size: 24pt;
+      line-height: 1.05; } }
+  @media print {
+    .nhsuk-list-panel__label {
+      color: #212b32;
+      margin-top: 0; } }
+
+.nhsuk-list-panel__list,
+.nhsuk-list-panel__box {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0; }
+  @media print {
+    .nhsuk-list-panel__list,
+    .nhsuk-list-panel__box {
+      border-top: 0; } }
+
+.nhsuk-list-panel__list--with-label,
+.nhsuk-list-panel__box--with-label {
+  border-top: 2px solid #005eb8;
+  margin: -28px 0 0;
+  /* [3] */
+  padding: 27px 0 0;
+  /* [3] */ }
+  @media (max-width: 40.0525em) {
+    .nhsuk-list-panel__list--with-label,
+    .nhsuk-list-panel__box--with-label {
+      margin: -24px 0 0;
+      /* [3] */
+      padding: 23px 0 0;
+      /* [3] */ } }
+
+.nhsuk-list-panel__item {
+  background-color: #ffffff;
+  list-style: none;
+  /* [4] */
+  margin-bottom: 0; }
+
+.nhsuk-list-panel__link {
+  border-bottom: 1px solid #d8dde0;
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none; }
+  .nhsuk-list-panel__link:hover {
+    box-shadow: 0 -1px 0 0 #ffcd60;
+    /* [5] */ }
+  .nhsuk-list-panel__link:focus {
+    box-shadow: 0 -1px 0 0 #ffb81C;
+    /* [5] */ }
+  .nhsuk-list-panel__link:hover, .nhsuk-list-panel__link:focus {
+    border-color: transparent;
+    /* [6] */
+    text-decoration: underline;
+    /* [7] */ }
+  @media (max-width: 40.0525em) {
+    .nhsuk-list-panel__link {
+      padding: 8px 16px; } }
+
+.nhsuk-list-panel--results-items__no-results {
+  border-bottom: 1px solid #d8dde0;
+  color: #425563;
+  margin: 0;
+  padding: 16px; }
+
+.nhsuk-list-panel--mobile {
+  /* [8] */ }
+  @media (max-width: 40.0525em) {
+    .nhsuk-list-panel--mobile {
+      margin-left: -16px;
+      margin-right: -16px; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-list-panel--mobile .nhsuk-back-to-top__link {
+      margin-left: 16px;
+      /* [9] */ } }
+
+/* COMPONENT / #BACK-TO-TOP
+   ========================================================================== */
+/**
+ * 1. Allows <a> padding and margin to be respected.
+ * 2. 'Random number' used to provide space for icon.
+ * 3. Allows icon to be positioned absolute.
+ * 4. Make same colour as link text.
+ * 5. 'Random numbers' used to set the height and width of the icon.
+ * 6. 'Random numbers' used to position align icon.
+ */
+.nhsuk-back-to-top__link {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: inline-block;
+  /* [1] */
+  margin-top: 16px;
+  padding-left: 12px;
+  /* [2] */
+  position: relative;
+  /* [3] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-back-to-top__link {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-back-to-top__link {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-back-to-top__link .nhsuk-icon {
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    fill: #005eb8;
+    /* [4] */
+    height: 19px;
+    /* [5] */
+    left: -8px;
+    /* [6] */
+    position: absolute;
+    top: 4px;
+    /* [6] */
+    transform: rotate(270deg);
+    width: 19px;
+    /* [5] */ }
+    @media (max-width: 40.0525em) {
+      .nhsuk-back-to-top__link .nhsuk-icon {
+        top: 2px;
+        /* [6] */ } }
+  .nhsuk-back-to-top__link:visited {
+    color: #005eb8; }
+  .nhsuk-back-to-top__link:hover, .nhsuk-back-to-top__link:focus {
+    color: #212b32; }
+    .nhsuk-back-to-top__link:hover .nhsuk-icon, .nhsuk-back-to-top__link:focus .nhsuk-icon {
+      fill: #212b32; }
+  @media print {
+    .nhsuk-back-to-top__link {
+      display: none; } }
+
+/* ==========================================================================
+   COMPONENT / #nav-a-z
+   ========================================================================== */
+/**
+ * 1. Clearfix added to the A-Z nav to clear float: left;
+ *    on the .nhsuk-a-z-nav__list-item.
+ * 2. Used to wrap the list items.
+ * 3. Removes bullets from list item..
+ * 4. Gives equal spacing around each list item.
+ * 5. 'Random number' gives adequate spacing for touch navigation.
+ */
+.nhsuk-nav-a-z {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-nav-a-z {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-nav-a-z {
+      margin-bottom: 48px; } }
+  @media print {
+    .nhsuk-nav-a-z {
+      display: none; } }
+
+.nhsuk-nav-a-z__list {
+  /* [1] */
+  padding: 0; }
+  .nhsuk-nav-a-z__list:after {
     clear: both;
     content: '';
     display: block; }
-  @media (max-width: 40.0525em) {
-    .nhsuk-c-pagination {
-      margin: 40px 0; } }
-  .nhsuk-c-pagination a {
-    display: block;
-    position: relative;
-    text-decoration: none;
-    width: 49%; }
-    @media (max-width: 22.4375em) {
-      .nhsuk-c-pagination a {
-        margin-bottom: 16px;
-        width: 100%; } }
-    .nhsuk-c-pagination a .nhsuk-icon {
-      position: absolute;
-      top: 0; }
-    .nhsuk-c-pagination a:visited .nhsuk-icon {
-      fill: #330072; }
-  .nhsuk-c-pagination .nhsuk-c-pagination-prev {
-    float: left;
-    text-align: left; }
-    .nhsuk-c-pagination .nhsuk-c-pagination-prev .nhsuk-icon {
-      left: -6px; }
-    .nhsuk-c-pagination .nhsuk-c-pagination-prev .nhsuk-c-pagination-link {
-      padding-left: 30px; }
-  .nhsuk-c-pagination .nhsuk-c-pagination-next {
-    float: right;
-    text-align: right; }
-    .nhsuk-c-pagination .nhsuk-c-pagination-next .nhsuk-icon {
-      right: -6px; }
-    .nhsuk-c-pagination .nhsuk-c-pagination-next .nhsuk-c-pagination-link {
-      padding-right: 30px; }
-  .nhsuk-c-pagination .nhsuk-c-pagination-title {
-    display: block;
-    font-size: 16px;
-    text-decoration: underline; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-pagination .nhsuk-c-pagination-title {
-        font-size: 14px; } }
-  .nhsuk-c-pagination .nhsuk-c-pagination-link {
-    display: block;
-    font-size: 24px;
-    line-height: 32px; }
-    @media print {
-      .nhsuk-c-pagination .nhsuk-c-pagination-link:after {
-        content: ' page'; } }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-pagination .nhsuk-c-pagination-link {
-        font-size: 19px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-nav-a-z__list {
+      padding: 0; } }
 
-.nhsuk-c-phase-banner {
-  background: #FFFFFF;
-  border-bottom: 4px solid #f0f4f5;
+.nhsuk-nav-a-z__item {
+  float: left;
+  /* [2] */
+  list-style: none;
+  /* [3] */
+  margin: 1px;
+  /* [4] */ }
+
+.nhsuk-nav-a-z__link,
+.nhsuk-nav-a-z__link--disabled {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.55556;
+  display: block;
+  min-width: 34px;
+  /* [5] */
   padding-bottom: 8px;
-  padding-top: 8px; }
-  .nhsuk-c-phase-banner p {
-    display: table;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-phase-banner p {
-        font-size: 14px;
-        line-height: 18px; } }
-    .nhsuk-c-phase-banner p span {
-      display: table-cell; }
-  .nhsuk-c-phase-banner__tag {
-    background: #005EB8;
-    color: #FFFFFF;
-    display: block;
-    margin-right: 12px;
-    padding: 0 12px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-phase-banner__tag {
-        margin-right: 8px;
-        padding: 2px 8px; } }
+  padding-top: 8px;
+  text-align: center; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-nav-a-z__link,
+    .nhsuk-nav-a-z__link--disabled {
+      font-size: 22px;
+      font-size: 1.375rem;
+      line-height: 1.45455; } }
+  @media print {
+    .nhsuk-nav-a-z__link,
+    .nhsuk-nav-a-z__link--disabled {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-nav-a-z__link,
+    .nhsuk-nav-a-z__link--disabled {
+      min-width: 36px;
+      /* [5] */ } }
 
-.nhsuk-o-flex {
-  display: flex;
-  flex-wrap: wrap; }
-  .nhsuk-o-flex .nhsuk-c-promo {
-    margin-bottom: 16px; }
-    @media (min-width: 48.0625em) {
-      .nhsuk-o-flex .nhsuk-c-promo {
-        margin-bottom: 32px; } }
-  .nhsuk-o-flex .nhsuk-o-grid__item {
-    display: flex; }
+.nhsuk-nav-a-z__link--disabled {
+  color: #425563;
+  margin-bottom: 0; }
 
-@media (max-width: 48.0525em) {
-  .nhsuk-o-flex .nhsuk-o-grid__item {
-    flex: 0 0 100%; } }
+.nhsuk-nav-a-z__link.is-active {
+  background-color: #005eb8;
+  color: #ffffff; }
 
-.nhsuk-c-promo {
-  width: 100%; }
-  .nhsuk-c-promo a {
-    background: #FFFFFF;
-    box-shadow: 0 4px 0 0 #D8DDE0;
-    display: block;
-    height: 100%;
-    text-decoration: none; }
-    .nhsuk-c-promo a:focus {
-      box-shadow: 0 0 0 4px #FFB81C; }
-      .nhsuk-c-promo a:focus .nhsuk-c-promo__heading {
-        text-decoration: underline; }
-    .nhsuk-c-promo a:hover {
-      background: #FFFFFF;
-      box-shadow: 0 0 0 4px #FFB81C;
-      color: #005EB8; }
-    .nhsuk-c-promo a:active {
-      background: #eaf0f1 !important;
-      box-shadow: 0 0 0 4px #ffbf33 !important; }
-    .nhsuk-c-promo a:hover .nhsuk-c-promo__heading, .nhsuk-c-promo a:active .nhsuk-c-promo__heading {
-      text-decoration: none; }
-    .nhsuk-c-promo a .nhsuk-c-promo__heading {
-      display: inline-block;
-      text-decoration: underline; }
-  .nhsuk-c-promo .nhsuk-c-promo__image-wrapper {
-    display: block;
-    float: none;
-    margin: 0;
-    padding-bottom: 56.25%;
-    position: relative;
-    width: 100%; }
-  .nhsuk-c-promo .nhsuk-c-promo__image {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom: 1px solid #f0f4f5;
-    bottom: 0;
-    display: block;
-    left: 0;
-    padding-bottom: 56.25%;
+/* ==========================================================================
+   COMPONENTS / #PAGINATION
+   ========================================================================== */
+/**
+ * 1. Padding to give the icon spacing.
+ * 2. Append the word 'page' after next and
+ *    previous on print stylesheets to make it easier
+ *    to understand in print context.
+ */
+.nhsuk-pagination {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  .nhsuk-pagination:after {
+    clear: both;
+    content: '';
+    display: block; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-pagination {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-pagination {
+      margin-bottom: 48px; } }
+
+.nhsuk-pagination__link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 50%; }
+  @media print {
+    .nhsuk-pagination__link {
+      color: #212b32; } }
+  .nhsuk-pagination__link .nhsuk-icon {
     position: absolute;
-    right: 0;
-    top: 0; }
-  .nhsuk-c-promo .nhsuk-c-promo__content {
-    padding: 32px; }
-    .nhsuk-c-promo .nhsuk-c-promo__content > *:first-child {
-      margin-top: 0; }
-    .nhsuk-c-promo .nhsuk-c-promo__content > *:last-child {
-      margin-bottom: 0; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-promo .nhsuk-c-promo__content {
-        padding: 24px; } }
-  .nhsuk-c-promo .nhsuk-c-promo__description {
-    color: #425563;
-    margin-top: 12px;
-    text-decoration: none !important; }
-  .nhsuk-c-promo--small .nhsuk-c-promo__heading {
-    font-size: 19px;
-    line-height: 28px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-promo--small .nhsuk-c-promo__heading {
-        font-size: 16px;
-        line-height: 24px; } }
-  .nhsuk-c-promo--small .nhsuk-c-promo__description {
-    font-size: 16px;
-    line-height: 24px; }
-    @media (max-width: 40.0525em) {
-      .nhsuk-c-promo--small .nhsuk-c-promo__description {
-        font-size: 14px; } }
+    top: -2px; }
+    @media print {
+      .nhsuk-pagination__link .nhsuk-icon {
+        color: #212b32;
+        margin-top: 0; } }
+  .nhsuk-pagination__link:focus {
+    box-shadow: 0 0 0 16px #ffb81C; }
+  .nhsuk-pagination__link:hover {
+    box-shadow: 0 0 0 16px #ffcd60; }
+    .nhsuk-pagination__link:hover .nhsuk-pagination__page {
+      text-decoration: none; }
+  .nhsuk-pagination__link:hover .nhsuk-icon, .nhsuk-pagination__link:focus .nhsuk-icon {
+    fill: #212b32; }
+  .nhsuk-pagination__link:visited .nhsuk-icon {
+    fill: #330072; }
 
-.nhsuk-c-review-date {
-  margin: 40px 0 0; }
-  .nhsuk-c-review-date p {
-    color: #425563;
+.nhsuk-pagination__link--prev {
+  float: left;
+  text-align: left; }
+  .nhsuk-pagination__link--prev .nhsuk-icon {
+    left: -6px; }
+  .nhsuk-pagination__link--prev .nhsuk-pagination__title {
+    padding-left: 32px; }
+
+.nhsuk-pagination__link--next {
+  float: right;
+  text-align: right; }
+  .nhsuk-pagination__link--next .nhsuk-icon {
+    right: -6px; }
+  .nhsuk-pagination__link--next .nhsuk-pagination__title {
+    padding-right: 32px; }
+
+.nhsuk-pagination__title {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-pagination__title {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-pagination__title {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media print {
+    .nhsuk-pagination__title:after {
+      content: ' page'; } }
+
+.nhsuk-pagination__page {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: block;
+  text-decoration: underline; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-pagination__page {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-pagination__page {
+      font-size: 14pt;
+      line-height: 1.2; } }
+
+/* ==========================================================================
+   COMPONENTS / #PANEL
+   ========================================================================== */
+.nhsuk-panel {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #212b32; }
+  .nhsuk-panel > *:first-child {
+    margin-top: 0; }
+  .nhsuk-panel > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel {
+      padding: 32px; } }
+  @media print {
+    .nhsuk-panel {
+      border: 1px solid #212b32;
+      page-break-inside: avoid; } }
+
+/* Panel colour variant
+   ========================================================================== */
+.nhsuk-panel--grey {
+  background-color: #f0f4f5; }
+
+/* Panel with label
+   ========================================================================== */
+.nhsuk-panel-with-label {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #212b32;
+  padding-top: 0 !important; }
+  .nhsuk-panel-with-label > *:first-child {
+    margin-top: 0; }
+  .nhsuk-panel-with-label > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel-with-label {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel-with-label {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel-with-label {
+      padding: 32px; } }
+  @media print {
+    .nhsuk-panel-with-label {
+      border: 1px solid #212b32;
+      page-break-inside: avoid; } }
+
+.nhsuk-panel-with-label__label {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: #005eb8;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 -32px 8px;
+  padding: 8px 32px;
+  position: relative;
+  top: -16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-panel-with-label__label {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-panel-with-label__label {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-panel-with-label__label {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 8px 24px;
+      top: -8px; } }
+  @media print {
+    .nhsuk-panel-with-label__label {
+      background: none;
+      color: #212b32;
+      top: 0; } }
+  @media print {
+    .nhsuk-panel-with-label__label {
+      color: #212b32;
+      fill: #212b32; }
+      .nhsuk-panel-with-label__label:active, .nhsuk-panel-with-label__label:focus, .nhsuk-panel-with-label__label:visited {
+        color: #212b32; } }
+
+/* Panel group
+   ========================================================================== */
+/**
+ * Panel group allows you to have a row of panels.
+ *
+ * 1. Flexbox is used to make each panel in a row the same height.
+ */
+.nhsuk-panel-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px; }
+  @media (max-width: 48.0525em) {
+    .nhsuk-panel-group {
+      margin-bottom: 24px; } }
+
+.nhsuk-panel-group__item {
+  display: flex; }
+  @media (max-width: 48.0525em) {
+    .nhsuk-panel-group__item {
+      flex: 0 0 100%; } }
+  @media (max-width: 48.0525em) {
+    .nhsuk-panel-group__item {
+      margin-bottom: 24px; }
+      .nhsuk-panel-group__item:last-child {
+        margin-bottom: 0; } }
+  .nhsuk-panel-group__item .nhsuk-panel {
+    margin-bottom: 0;
     margin-top: 0; }
 
-table {
-  background-color: #FFFFFF;
-  border: 1em solid #FFFFFF;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 40px 0;
-  position: relative;
-  vertical-align: top;
+/* ==========================================================================
+   COMPONENTS / #PROMO
+   ========================================================================== */
+/**
+ * 1. Extra margin is added to compensate for the box-shadow.
+ * 2. Box shadow size is set within settings/_globals.scss.
+ * 3. Makes the <a> fill the height of it's parent container.
+ * 4. Is needed for the :active top positioning.
+ * 5. Removes default <a> text underline from all elements.
+ * 6. Adds text underline to promo heading.
+ * 7. Creates the 'pressed down' effect when clicked.
+ * 8. Border is used to create a divider between the white content
+ *    box and an image.
+ */
+.nhsuk-promo {
+  margin-bottom: 36px;
+  /* [1] */
   width: 100%; }
-  table th,
-  table td {
-    font-size: inherit;
-    padding: 1em;
-    text-align: left;
-    text-transform: none;
-    vertical-align: top; }
-  table td {
-    border-bottom: 1px solid #768692; }
-    table td:hover {
-      background-color: #FFFBCE; }
-  table th {
-    border-bottom: 2px solid #768692;
-    font-weight: 600; }
-    table th:hover {
-      background-color: #FFFBCE; }
-  table caption {
-    background: #005EB8;
-    color: #FFFFFF;
-    font-size: 1.25em;
-    font-weight: 600;
-    left: 0;
-    line-height: 28px;
+
+.nhsuk-promo__link-wrapper {
+  background-color: #ffffff;
+  box-shadow: 0 4px 0 0 #d8dde0;
+  /* [2] */
+  display: block;
+  height: 100%;
+  /* [3] */
+  position: relative;
+  /* [4] */
+  text-decoration: none;
+  /* [5] */ }
+  .nhsuk-promo__link-wrapper:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px #ffb81C; }
+    .nhsuk-promo__link-wrapper:focus .nhsuk-promo__heading {
+      text-decoration: underline;
+      /* [6] */ }
+    .nhsuk-promo__link-wrapper:focus .nhsuk-promo__heading,
+    .nhsuk-promo__link-wrapper:focus .nhsuk-promo__description {
+      color: #212b32; }
+  .nhsuk-promo__link-wrapper:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #005eb8; }
+  .nhsuk-promo__link-wrapper:active {
+    background-color: #f0f4f5;
+    /* [7] */
+    box-shadow: 0 0 0 4px #ffbf33;
+    top: 4px;
+    /* [7] */ }
+  .nhsuk-promo__link-wrapper:hover .nhsuk-promo__heading, .nhsuk-promo__link-wrapper:active .nhsuk-promo__heading {
+    text-decoration: none; }
+
+.nhsuk-promo__img {
+  border-bottom: 1px solid #f0f4f5;
+  /* [8] */
+  display: block;
+  width: 100%; }
+  @media print {
+    .nhsuk-promo__img {
+      display: none; } }
+
+.nhsuk-promo__heading {
+  margin-bottom: 16px;
+  text-decoration: underline; }
+
+.nhsuk-promo__content {
+  padding: 24px; }
+  .nhsuk-promo__content > *:first-child {
+    margin-top: 0; }
+  .nhsuk-promo__content > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-promo__content {
+      padding: 32px; } }
+
+.nhsuk-promo__description {
+  color: #425563; }
+
+/* Promo size variant
+   ========================================================================== */
+/**
+ * Promo small reduces the size of the text heading and description.
+ */
+.nhsuk-promo--small .nhsuk-promo__heading {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-promo--small .nhsuk-promo__heading {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-promo--small .nhsuk-promo__heading {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-promo--small .nhsuk-promo__description {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-promo--small .nhsuk-promo__description {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-promo--small .nhsuk-promo__description {
+      font-size: 14pt;
+      line-height: 1.2; } }
+
+/* Promo group
+   ========================================================================== */
+/**
+ * Promo group allows you to have a row of promos.
+ *
+ * Flexbox is used to make each promo in a row the same height.
+ */
+.nhsuk-promo-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 36px; }
+  @media (max-width: 48.0525em) {
+    .nhsuk-promo-group {
+      margin-bottom: 28px; } }
+
+.nhsuk-promo-group__item {
+  display: flex; }
+  @media (max-width: 48.0525em) {
+    .nhsuk-promo-group__item {
+      flex: 0 0 100%; } }
+  @media (max-width: 48.0525em) {
+    .nhsuk-promo-group__item {
+      margin-bottom: 28px; }
+      .nhsuk-promo-group__item:last-child {
+        margin-bottom: 0; } }
+  .nhsuk-promo-group__item .nhsuk-promo {
+    margin-bottom: 0; }
+
+/* ==========================================================================
+   COMPONENTS / #REVIEW-DATE
+   ========================================================================== */
+.nhsuk-review-date {
+  margin-top: 40px;
+  color: #425563; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-review-date {
+      margin-top: 48px; } }
+
+/* ==========================================================================
+   COMPONENTS / #SKIP-LINK
+   ========================================================================== */
+/**
+ * 1. Hides the skip link off the page,
+ * 2. until the link is focused to with keyboard tab.
+ */
+.nhsuk-skip-link {
+  left: -9999px;
+  padding: 8px;
+  position: absolute; }
+  .nhsuk-skip-link:active, .nhsuk-skip-link:focus {
+    left: 16px;
+    top: 16px;
+    z-index: 2; }
+  .nhsuk-skip-link:visited {
+    color: #212b32; }
+
+/* ==========================================================================
+   COMPONENTS / #TABLE
+   ========================================================================== */
+/* Table row hover
+========================================================================== */
+/**
+ * Table row hover is used to aid readability for users.
+ */
+.nhsuk-table__row:hover {
+  background-color: #f0f4f5; }
+
+/* Table panel with tab heading
+========================================================================== */
+/**
+ * 1. Margin is removed so there isn't double spacing.
+ */
+.nhsuk-table__panel-with-heading-tab {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #212b32;
+  padding-top: 0 !important; }
+  .nhsuk-table__panel-with-heading-tab > *:first-child {
+    margin-top: 0; }
+  .nhsuk-table__panel-with-heading-tab > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table__panel-with-heading-tab {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table__panel-with-heading-tab {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table__panel-with-heading-tab {
+      padding: 32px; } }
+  @media print {
+    .nhsuk-table__panel-with-heading-tab {
+      border: 1px solid #212b32;
+      page-break-inside: avoid; } }
+  .nhsuk-table__panel-with-heading-tab .nhsuk-table-responsive,
+  .nhsuk-table__panel-with-heading-tab .nhsuk-table {
     margin: 0;
-    padding: .3em 1em;
-    position: absolute;
-    text-align: left;
-    top: -1em; }
-    @media (min-width: 40.0625em) {
-      table caption {
-        font-size: 1.26316em;
-        line-height: 32px;
-        margin: 32px 0; } }
+    /* [1] */ }
+
+.nhsuk-table__heading-tab {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: #005eb8;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 -32px 8px;
+  padding: 8px 32px;
+  position: relative;
+  top: -16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table__heading-tab {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-table__heading-tab {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-table__heading-tab {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 8px 24px;
+      top: -8px; } }
+  @media print {
+    .nhsuk-table__heading-tab {
+      background: none;
+      color: #212b32;
+      top: 0; } }
+
+/* Responsive table
+========================================================================== */
+/**
+ * Responsive table is used to ensure the table does not break the container.
+ *
+ * 1. Margin is removed so there isn't double spacing.
+ */
+.nhsuk-table-responsive {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
+  width: 100%; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table-responsive {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-table-responsive {
+      margin-top: 48px; } }
+  .nhsuk-table-responsive .nhsuk-table {
+    margin: 0;
+    /* [1] */ }
+
+/* ==========================================================================
+   COMPONENTS / #WARNING-CALLOUT
+   ========================================================================== */
+/**
+ * 1. Uses @mixin panel-with-label from tools/_mixins.
+ * 2. Uses @mixin heading-label from tools/_mixins.
+ */
+.nhsuk-warning-callout {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: #fff9c4;
+  color: #212b32;
+  padding-top: 0 !important;
+  /* [1] */ }
+  .nhsuk-warning-callout > *:first-child {
+    margin-top: 0; }
+  .nhsuk-warning-callout > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-warning-callout {
+      margin-bottom: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-warning-callout {
+      margin-top: 48px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-warning-callout {
+      padding: 32px; } }
+  @media print {
+    .nhsuk-warning-callout {
+      border: 1px solid #212b32;
+      page-break-inside: avoid; } }
+
+.nhsuk-warning-callout__label {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: #ffeb3b;
+  color: #212b32;
+  display: inline-block;
+  margin: 0 -32px 8px;
+  padding: 8px 32px;
+  position: relative;
+  top: -16px;
+  /* [2] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-warning-callout__label {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-warning-callout__label {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-warning-callout__label {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 8px 24px;
+      top: -8px; } }
+  @media print {
+    .nhsuk-warning-callout__label {
+      background: none;
+      color: #212b32;
+      top: 0; } }
