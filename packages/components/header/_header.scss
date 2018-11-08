@@ -78,12 +78,13 @@
 
   @include mq($from: tablet) {
 
+    float: right;
+    position: relative;
+
     &.js-show {
       border-bottom: 0;
     }
 
-    float: right;
-    position: relative;
   }
 
 }
@@ -703,8 +704,10 @@
 
   }
 
-  .nhsuk-header__search-wrap.js-show {
-    display: block;
+  .nhsuk-header__search-wrap {
+    .js-show {
+      display: block;
+    }
   }
 
 }
