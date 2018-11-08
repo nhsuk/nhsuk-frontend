@@ -77,6 +77,11 @@
   }
 
   @include mq($from: tablet) {
+
+    &.js-show {
+      border-bottom: 0;
+    }
+
     float: right;
     position: relative;
   }
@@ -648,8 +653,9 @@
  * and search prominence across the website.
 **/
 
-.ie9,
+
 .ie8 {
+
   .nhsuk-header__menu-toggle,
   .nhsuk-header__search-toggle,
   .nhsuk-search__close,
@@ -665,4 +671,40 @@
   .nhsuk-header__navigation-item {
     display: table-cell; /* [15] */
   }
+
+  .nhsuk-search__submit {
+    height: auto;
+    width: auto;
+
+    .nhsuk-u-visually-hidden {
+      height: auto;
+      position: relative;
+      width: auto;
+    }
+  }
+
+  .nhsuk-header__navigation {
+    display: block;
+  }
+
+}
+
+.ie9 {
+
+  @include mq($from: large-desktop) {
+
+    .nhsuk-header__navigation-list {
+      display: table;
+    }
+
+    .nhsuk-header__navigation-item {
+      display: table-cell; /* [15] */
+    }
+
+  }
+
+  .nhsuk-header__search-wrap.js-show {
+    display: block;
+  }
+
 }
