@@ -20,16 +20,16 @@
 }
 
 .nhsuk-promo__link-wrapper {
-  background-color: $colour_nhsuk-white;
-  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $colour_nhsuk-grey-4; /* [2] */
+  background-color: $color_nhsuk-white;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
   display: block;
   height: 100%; /* [3] */
   position: relative; /* [4] */
   text-decoration: none; /* [5] */
 
   &:focus {
-    background-color: $colour_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
+    background-color: $color_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
 
     .nhsuk-promo__heading {
       text-decoration: underline; /* [6] */
@@ -37,20 +37,20 @@
 
     .nhsuk-promo__heading,
     .nhsuk-promo__description {
-      color: $nhsuk-link-focus-colour;
+      color: $nhsuk-link-focus-color;
     }
 
   }
 
   &:hover {
-    background-color: $colour_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-colour;
-    color: $colour_nhsuk-blue;
+    background-color: $color_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+    color: $color_nhsuk-blue;
   }
 
   &:active {
-    background-color: $colour_nhsuk-grey-5; /* [7] */
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-colour;
+    background-color: $color_nhsuk-grey-5; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-color;
     top: $nhsuk-box-shadow-link; /* [7] */
   }
 
@@ -66,7 +66,7 @@
 .nhsuk-promo__img {
   @include print-hide();
 
-  border-bottom: 1px solid $colour_nhsuk-grey-5; /* [8] */
+  border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
   display: block;
   width: 100%;
 
@@ -83,7 +83,7 @@
 }
 
 .nhsuk-promo__description {
-  color: $nhsuk-secondary-text-colour;
+  color: $nhsuk-secondary-text-color;
 }
 
 /* Promo size variant

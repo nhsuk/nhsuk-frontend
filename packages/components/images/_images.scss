@@ -10,8 +10,8 @@
  */
 
 .nhsuk-image {
-  background-color: $colour_nhsuk-white;
-  border-bottom: 1px solid $colour_nhsuk-grey-4;
+  background-color: $color_nhsuk-white;
+  border-bottom: 1px solid $color_nhsuk-grey-4;
 
   @include nhsuk-responsive-margin(6, 'bottom');
   @include nhsuk-responsive-margin(6, 'top');
