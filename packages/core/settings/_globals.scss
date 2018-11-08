@@ -1,12 +1,12 @@
-/* ==========================================================================
-   SETTINGS / #GLOBALS
-   ========================================================================== */
+// ==========================================================================
+// SETTINGS / #GLOBALS
+// ==========================================================================
 
-/**
- * Fonts
- *
- * 1. Fallback fonts if Frutiger fails to load
-*/
+//
+// Fonts
+//
+// 1. Fallback fonts if Frutiger fails to load
+//
 
 $nhsuk-font: Frutiger W01;
 $nhsuk-font-fallback: Helvetica, Arial, Sans-serif; /* [1] */
@@ -15,72 +15,54 @@ $nhsuk-font-bold: 600;
 $nhsuk-font-normal: 400;
 $nhsuk-font-light: 300;
 
-/**
- * Font sizing and spacing
-*/
+//
+// Font sizing and spacing
+//
 
 $nhsuk-base-font-size: 16px !default;
 $nhsuk-base-line-height: 24px !default;
 
-/**
- * Icon default sizing
-*/
+//
+// Icon default sizing
+//
 
 $nhsuk-icon-size: 34px !default;
 
-/**
- * Margins
-*/
-
-$nhsuk-base-margin: 8px;
-
-/**
- * Grid spacing
-*/
+//
+// Grid spacing
+//
 
 $nhsuk-page-width: 960px;
 $nhsuk-gutter: 32px;
 $nhsuk-gutter-half: $nhsuk-gutter / 2;
 
-/**
- * Border sizes
-*/
+//
+// Border sizes
+//
 
-$nhsuk-border-width-inset-text: 12px;
+$nhsuk-border-width-inset-text: 12px !default;
+$nhsuk-care-card-triangle-border: 16px !default;
+$nhsuk-hero-content-triangle-border: 16px !default;
+$nhsuk-hero-border: 1px !default;
+$nhsuk-border-list-panel: 2px !default;
+$nhsuk-border-list-panel-item: 1px !default;
+$nhsuk-border-table-header-width: 2px !default;
+$nhsuk-border-table-cell-width: 1px !default;
 
+//
+// Border radius
+//
 
-/**
- * Border radius
-*/
+$nhsuk-border-radius: 4px !default;
 
-$nhsuk-border-radius: 4px;
+//
+// Box shadow
+//
 
-
-/**
- * Box shadow values
-*/
-
-$nhsuk-box-shadow-spread: 4px;
-$nhsuk-box-shadow-blur: 3px;
-$nhsuk-border-table-header-width: 2px;
-$nhsuk-border-table-cell-width: 1px;
-$nhsuk-care-card-triangle-border: 16px;
-$nhsuk-hero-content-triangle-border: 16px;
-$nhsuk-hero-border: 1px;
-
-/**
- * Box shadows
-*/
-
-$nhsuk-box-shadow-link: 4px;
-$nhsuk-box-details: 8px;
-$nhsuk-box-expander: 4px;
-$nhsuk-box-shadow-pagination: 16px;
-
-/**
- * Link box-shadow sizes
-*/
-
-$nhsuk-box-shadow-link: 4px;
-$nhsuk-border-list-panel: 2px;
-$nhsuk-border-list-panel-item: 1px;
+$nhsuk-box-shadow-spread: 4px !default;
+$nhsuk-box-shadow-blur: 3px !default;
+$nhsuk-box-shadow-link: 4px !default;
+$nhsuk-box-details: 8px !default;
+$nhsuk-box-expander: 4px !default;
+$nhsuk-box-shadow-pagination: 16px !default;
+$nhsuk-box-shadow-link: 4px !default;

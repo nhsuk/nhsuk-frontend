@@ -31,9 +31,9 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 
     {{ pagination({
       "previousUrl": "/section/treatments",
-      "previousTitle": "Treatments",
+      "previousPage": "Treatments",
       "nextUrl": "/section/symptoms",
-      "nextTitle": "Symptoms"
+      "nextPage": "Symptoms"
     }) }}
 
 ### Next navigation
@@ -56,7 +56,7 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 
     {{ pagination({
       "nextUrl": "/section/symptoms",
-      "nextTitle": "Symptoms"
+      "nextPage": "Symptoms"
     }) }}
 
 ### Previous navigation
@@ -79,5 +79,5 @@ Find out more about the pagination component and when to use it in the [NHS Digi
 
     {{ pagination({
       "nextUrl": "/section/symptoms",
-      "nextTitle": "Symptoms"
+      "nextPage": "Symptoms"
     }) }}

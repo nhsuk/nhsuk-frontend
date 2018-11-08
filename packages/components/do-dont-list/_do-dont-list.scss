@@ -11,10 +11,10 @@
  */
 
 .nhsuk-do-dont-list {
-  @include panel-with-label($colour_nhsuk-white, $nhsuk-text-colour); /* [1] */
+  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color); /* [1] */
 }
 
 .nhsuk-do-dont-list__label {
-  @include heading-label($colour_nhsuk-blue, $colour_nhsuk-white); /* [2] */
-  @include print-colour($nhsuk-print-text-colour);
+  @include heading-label($color_nhsuk-blue, $color_nhsuk-white); /* [2] */
+  @include print-color($nhsuk-print-text-color);
 }

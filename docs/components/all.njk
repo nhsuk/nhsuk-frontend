@@ -1,7 +1,7 @@
 {% set title = 'Components' %}
 {% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
-{% from 'components/a-z-nav/macro.njk' import azNav %}
+{% from 'components/nav-a-z/macro.njk' import azNav %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
@@ -311,9 +311,9 @@
 
   {{ pagination({
     "previousUrl": "/section/treatments",
-    "previousTitle": "Treatments",
+    "previousPage": "Treatments",
     "nextUrl": "/section/symptoms",
-    "nextTitle": "Symptoms"
+    "nextPage": "Symptoms"
   }) }}
 
   {{ promo({

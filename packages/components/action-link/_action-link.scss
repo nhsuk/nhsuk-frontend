@@ -30,8 +30,17 @@
     padding-left: 36px; /* [2] */
   }
 
+  @include mq($media-type: print) {
+    color: $nhsuk-print-text-color;
+
+    &:visited {
+      color: $nhsuk-print-text-color;
+    }
+  }
+
+
   &:focus {
-    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-colour; /* [5] */
+    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-color; /* [5] */
 
     .nhsuk-action-link__text {
       text-decoration: underline;
@@ -40,7 +49,7 @@
   }
 
   &:hover {
-    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-colour; /* [5] */
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-color; /* [5] */
 
     .nhsuk-action-link__text {
       text-decoration: underline; /* [6] */
@@ -49,9 +58,9 @@
   }
 
   .nhsuk-icon__arrow-right-circle {
-    @include print-colour($nhsuk-print-text-colour);
+    @include print-color($nhsuk-print-text-color);
 
-    fill: $colour_nhsuk-green;
+    fill: $color_nhsuk-green;
     height: 40px;
     left: -3px;
     position: absolute;

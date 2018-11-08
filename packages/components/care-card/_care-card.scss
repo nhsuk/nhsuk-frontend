@@ -21,7 +21,7 @@
 .nhsuk-care-card {
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
-  @include care-card($colour_nhsuk-blue, $colour_nhsuk-white, 4px); /* [1] */
+  @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); /* [1] */
   border: 1px solid transparent; /* [6] */
 }
 
@@ -48,7 +48,7 @@
 
 .nhsuk-care-card__heading {
   @include nhsuk-font(24, $weight: bold);
-  @include print-colour($nhsuk-print-text-colour);
+  @include print-color($nhsuk-print-text-color);
 
   margin: 0;
 }
@@ -56,7 +56,7 @@
 .nhsuk-care-card__content {
   @include top-and-bottom();
 
-  background-color: $colour_nhsuk-white;
+  background-color: $color_nhsuk-white;
   padding: nhsuk-spacing(5) nhsuk-spacing(4) nhsuk-spacing(4); /* [5] */
 
   @include mq($from: tablet) {
@@ -64,7 +64,7 @@
     padding-top: 36px; /* [5] */
   }
 
-  @include print-colour($nhsuk-print-text-colour);
+  @include print-color($nhsuk-print-text-color);
 
 }
 
@@ -74,24 +74,23 @@
  * 1. <a> needs to be white because the background colour is black.
  */
 
-
 .nhsuk-care-card--red {
-  @include care-card($colour_nhsuk-red, $colour_nhsuk-white, 6px);
+  @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 }
 
 .nhsuk-care-card--black {
-  @include care-card($colour_nhsuk-red, $colour_nhsuk-white, 8px);
+  @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-care-card__content {
-    background-color: $colour_nhsuk-black;
-    color: $colour_nhsuk-white;
+    background-color: $color_nhsuk-black;
+    color: $color_nhsuk-white;
 
     a {
-      color: $colour_nhsuk-white; /* [1] */
+      color: $color_nhsuk-white; /* [1] */
 
       &:hover,
       &:focus {
-        color: $colour_nhsuk-black; /* [1] */
+        color: $color_nhsuk-black; /* [1] */
       }
 
     }
