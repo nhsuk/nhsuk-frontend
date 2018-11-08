@@ -5,8 +5,8 @@
 .nhsuk-footer {
   @include print-hide();
 
-  background-color: $colour_nhsuk-blue;
-  color: $colour_nhsuk-white;
+  background-color: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
 }
 
 .nhsuk-logo {
@@ -34,7 +34,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 0 4px $colour_shade_nhsuk-blue-35;
+      box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
     }
 
   }
@@ -49,7 +49,7 @@
   padding-top: nhsuk-spacing(4);
 
   &:last-child {
-    border-top: 1px solid $nhsuk-secondary-border-colour;
+    border-top: 1px solid $nhsuk-secondary-border-color;
   }
 
 }

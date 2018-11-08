@@ -1,5 +1,5 @@
 /* ==========================================================================
-   COMPONENT / #A-Z-NAV
+   COMPONENT / #nav-a-z
    ========================================================================== */
 
 /**
@@ -11,25 +11,25 @@
  * 5. 'Random number' gives adequate spacing for touch navigation.
  */
 
-.nhsuk-a-z-nav {
+.nhsuk-nav-a-z {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
   @include print-hide();
 }
 
-.nhsuk-a-z-nav__list {
+.nhsuk-nav-a-z__list {
   @include clearfix(); /* [1] */
   @include nhsuk-responsive-padding(0);
 }
 
-.nhsuk-a-z-nav__list-item {
+.nhsuk-nav-a-z__item {
   float: left; /* [2] */
   list-style: none; /* [3] */
   margin: 1px; /* [4] */
 }
 
-.nhsuk-a-z-nav__list-item-link,
-.nhsuk-a-z-nav__list-item-link--disabled {
+.nhsuk-nav-a-z__link,
+.nhsuk-nav-a-z__link--disabled {
   @include nhsuk-typography-responsive(22);
 
   display: block;
@@ -44,16 +44,16 @@
 
 }
 
-.nhsuk-a-z-nav__list-item-link--disabled {
-  color: $nhsuk-secondary-text-colour;
+.nhsuk-nav-a-z__link--disabled {
+  color: $nhsuk-secondary-text-color;
   margin-bottom: 0;
 }
 
-.nhsuk-a-z-nav__list-item-link {
+.nhsuk-nav-a-z__link {
 
-  &.active {
-    background-color: $colour_nhsuk-blue;
-    color: $colour_nhsuk-white;
+  &.is-active {
+    background-color: $color_nhsuk-blue;
+    color: $color_nhsuk-white;
   }
 
 }
