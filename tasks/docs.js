@@ -85,5 +85,11 @@ function reload() {
 }
 
 
-gulp.task('docs:build', gulp.series(copyBuiltAssets, buildHtml, copyBinaryAssets, copyThirdParty, reload));
+gulp.task('docs:build', gulp.series([
+  copyBuiltAssets,
+  buildHtml,
+  copyBinaryAssets,
+  copyThirdParty,
+  reload,
+]));
 gulp.task('docs:serve', gulp.series(['docs:build', serve]));

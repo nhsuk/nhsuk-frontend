@@ -4,15 +4,16 @@
   "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
-    "prepare": "npm run build",
-    "build": "gulp bundle",
+    "prepare": "gulp bundle",
+    "build": "gulp build",
     "start": "gulp",
     "test": "npm run lint-css",
     "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
-    "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build"
+    "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
+    "build-gh-release": "gulp zip"
   },
   "dependencies": {
     "sass-mq": "^4.0.2"
@@ -37,6 +38,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
     "gulp-wrap": "^0.14.0",
+    "gulp-zip": "^4.2.0",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
     "sass-lint": "^1.12.1"
