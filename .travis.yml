@@ -36,6 +36,8 @@ jobs:
         file_glob: true
         file: ./dist/nhsuk-frontend-*.zip
         skip_cleanup: true
+        on:
+          tags: true
 
     - stage: tag
       name: publish to npm
@@ -43,6 +45,8 @@ jobs:
         provider: npm
         email: $NPM_EMAIL
         api_key: $NPM_API_KEY
+        on:
+          tags: true
 
 
 notifications:
