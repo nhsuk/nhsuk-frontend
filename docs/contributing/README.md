@@ -49,7 +49,7 @@ npm install
 This will build files, serve web pages and watch for changes when you save a file.
 
 ```
-npm run watch
+npm start
 ```
 
 > The application will be available at [http://localhost:3000](http://localhost:3000).
