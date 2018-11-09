@@ -4,12 +4,12 @@
 {% extends 'layout.njk' %}
 
 {% block header %}
-  {{ header() }}
-
   {{ skipLink({
     "URL": "#maincontent",
     "heading": "Skip to main content"
   }) }}
+
+  {{ header() }}
 {% endblock %}
 
 
