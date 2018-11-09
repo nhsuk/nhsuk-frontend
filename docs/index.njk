@@ -1,78 +1,51 @@
 {% set title = 'Home' %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/hero/macro.njk' import hero %}
+{% from 'components/promo/macro.njk' import promo %}
 
 {% extends 'page.njk' %}
-
 
 {% block header %}
   {{ super() }}
 
   {{ hero({
     "heading": "NHS.UK Frontend",
-    "text": "Find out how to use NHS.UK Frontend, how to use the code in your services and contribute changes."
+    "text": "All the code you need to start building user interfaces for NHS websites and services."
   }) }}
 {% endblock %}
 
-{% block content %}
+{% block fullWidthContent %}
 
-    <section>
-      <p>NHS.UK Frontend contains all the code you need to start building user interfaces for NHS websites and services.</p>
-      <p>You can see examples of components, and guidance on when to use them, in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-    </section>
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/pages/install.html",
+        "heading": "Install",
+        "description": "Download and installation instructions."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/pages/examples.html",
+        "heading": "Examples",
+        "description": "Page layouts and components."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/pages/about.html",
+        "heading": "About",
+        "description": "Getting support and contributing."
+      }) }}
+    </div>
+  </div>
 
-    <section>
-      <h2>Download</h2>
+  <hr>
 
-      <p>The first version is not released yet.</p>
-      <!-- Uncomment when we have a published version on github
-        <p>Compiled CSS, JS and other assets are available for you to download and use in your project.</p>
+  <div class="nhsuk-u-reading-width">
 
-        <p>Download version <a href="https://github.com/nhsuk/nhsuk-frontend/releases/download/v0.0.0/nhsuk-frontend-0.0.0.zip">v0.0.0</a></p>
-      -->
+    <p>Visit the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a> for guidance and examples.</p>
 
-      <p>To build from source, see our <a href="https://github.com/nhsuk/nhsuk-frontend#using-nhsuk-frontend">README</a>.</p>
-    </section>
+  </div>
 
-    <h2>Components</h2>
-
-    <ul class="nhsuk-list">
-      <li><a href="./components/all.html">All</a></li>
-      <li><a href="./components/action-link.html">Action link</a></li>
-      <li><a href="./components/breadcrumb.html">Breadcrumb</a></li>
-      <li><a href="./components/care-card-grey.html">111 Care Card</a></li>
-      <li><a href="./components/care-card-blue.html">Primary Care Card</a></li>
-      <li><a href="./components/care-card-red.html">Emergency Care Card</a></li>
-      <li><a href="./components/care-card-black.html">Urgent Care Card</a></li>
-      <li><a href="./components/contents-list.html">Contents list</a></li>
-      <li><a href="./components/details.html">Details</a></li>
-      <li><a href="./components/do-dont-list.html">Do and Don't list</a></li>
-      <li><a href="./components/emergency-alert.html">Emergency alert</a></li>
-      <li><a href="./components/expander.html">Expander</a></li>
-      <li><a href="./components/expander-group.html">Expander group</a></li>
-      <li><a href="./components/feedback-banner.html">Feedback banner</a></li>
-      <li><a href="./components/footer.html">Footer</a></li>
-      <li><a href="./components/header.html">Header</a></li>
-      <li><a href="./components/header-transactional.html">Header transactional</a></li>
-      <li><a href="./components/header-navigation.html">Header with navigation</a></li>
-      <li><a href="./components/header-search.html">Header with search</a></li>
-      <li><a href="./components/hero.html">Hero</a></li>
-      <li><a href="./components/hero-image.html">Hero with image</a></li>
-      <li><a href="./components/hero-image-content.html">Hero with image with content</a></li>
-      <li><a href="./components/images.html">Images</a></li>
-      <li><a href="./components/inset-text.html">Inset text</a></li>
-      <li><a href="./components/list-panel.html">List panel</a></li>
-      <li><a href="./components/pagination.html">Pagination</a></li>
-      <li><a href="./components/panel.html">Panel</a></li>
-      <li><a href="./components/panel-grey.html">Panel with grey background</a></li>
-      <li><a href="./components/panel-with-label.html">Panel with label</a></li>
-      <li><a href="./components/promo.html">Promo</a></li>
-      <li><a href="./components/promo-no-description.html">Promo with no description</a></li>
-      <li><a href="./components/promo-small.html">Promo small</a></li>
-      <li><a href="./components/promo-with-image.html">Promo with image</a></li>
-      <li><a href="./components/review-date.html">Review date</a></li>
-      <li><a href="./components/skip-link.html">Skip link</a></li>
-      <li><a href="./components/tables.html">Tables</a></li>
-      <li><a href="./components/warning-callout.html">Warning callout</a></li>
-    </ul>
 {% endblock %}
