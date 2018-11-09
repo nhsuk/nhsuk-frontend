@@ -2820,7 +2820,9 @@ b {
 @media (min-width: 40.0625em) {
   .nhsuk-header__content {
     float: right;
-    position: relative; } }
+    position: relative; }
+    .nhsuk-header__content.js-show {
+      border-bottom: 0; } }
 
 .nhsuk-header__search {
   position: relative;
@@ -3330,11 +3332,6 @@ b {
  * This is because of the NHS branding, navigation
  * and search prominence across the website.
 **/
-.ie9 .nhsuk-header__menu-toggle,
-.ie9 .nhsuk-header__search-toggle,
-.ie9 .nhsuk-search__close,
-.ie9 .nhsuk-header__navigation-title,
-.ie9 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right,
 .ie8 .nhsuk-header__menu-toggle,
 .ie8 .nhsuk-header__search-toggle,
 .ie8 .nhsuk-search__close,
@@ -3342,14 +3339,33 @@ b {
 .ie8 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
   display: none; }
 
-.ie9 .nhsuk-header__navigation-list,
 .ie8 .nhsuk-header__navigation-list {
   display: table; }
 
-.ie9 .nhsuk-header__navigation-item,
 .ie8 .nhsuk-header__navigation-item {
   display: table-cell;
   /* [15] */ }
+
+.ie8 .nhsuk-search__submit {
+  height: auto;
+  width: auto; }
+  .ie8 .nhsuk-search__submit .nhsuk-u-visually-hidden {
+    height: auto;
+    position: relative;
+    width: auto; }
+
+.ie8 .nhsuk-header__navigation {
+  display: block; }
+
+@media (min-width: 61.875em) {
+  .ie9 .nhsuk-header__navigation-list {
+    display: table; }
+  .ie9 .nhsuk-header__navigation-item {
+    display: table-cell;
+    /* [15] */ } }
+
+.ie9 .nhsuk-header__search-wrap .js-show {
+  display: block; }
 
 /* ==========================================================================
    COMPONENTS / #HERO
