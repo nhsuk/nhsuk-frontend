@@ -40,7 +40,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 #### Nunjucks arguments
 
-If you are using Nunjucks,then macros take the following arguments.
+If you are using Nunjucks, then macros take the following arguments:
 
 | Name         | Type     | Required  | Description |
 | -------------|----------|-----------|-------------|

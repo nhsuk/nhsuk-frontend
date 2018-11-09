@@ -2,12 +2,12 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       {% for item in params.items %}
-        {% if item.URL %}
-          <li class="nhsuk-breadcrumb__item"><a href="{{ item.URL }}" class="nhsuk-breadcrumb__link">{{ item.label }}</a> {% include 'assets/icons/icon-chevron-right.svg' %}</li>
+        {% if item.href %}
+          <li class="nhsuk-breadcrumb__item"><a href="{{ item.href }}" class="nhsuk-breadcrumb__link" {% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.text }}</a> {% include 'assets/icons/icon-chevron-right.svg' %}</li>
         {% endif %}
       {% endfor %}
-      <li class="nhsuk-breadcrumb__item"><a href="{{ params.parentURL }}" class="nhsuk-breadcrumb__link">{{ params.parentLabel }}</a></li>
+      <li class="nhsuk-breadcrumb__item"><a href="{{ params.href }}" class="nhsuk-breadcrumb__link">{{ params.text }}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back">{% include 'assets/icons/icon-chevron-left.svg' %}<a href="{{ params.parentURL }}" class="nhsuk-breadcrumb__backlink">Back to {{ params.parentLabel }}</a></p>
+    <p class="nhsuk-breadcrumb__back">{% include 'assets/icons/icon-chevron-left.svg' %}<a href="{{ params.href }}" class="nhsuk-breadcrumb__backlink">Back to {{ params.text }}</a></p>
   </div>
 </nav>
