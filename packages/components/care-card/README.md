@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Primary Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-blue.html)
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html)
 
 ### HTML markup
 
@@ -65,7 +65,7 @@ If you are using Nunjucks, then macros take the following arguments:
 
 ### Emergency Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-red.html)
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html)
 
 ### HTML markup
 
@@ -121,7 +121,7 @@ If you are using Nunjucks, then macros take the following arguments:
 
 ### Urgent Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-black.html)
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
 
 ### HTML markup
 
