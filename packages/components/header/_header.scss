@@ -518,6 +518,7 @@
 .nhsuk-header__navigation-list {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .nhsuk-header__navigation-item {
@@ -600,7 +601,6 @@
     display: -ms-flexbox; /* [14] */
     display: flex; // sass-lint:disable-line no-duplicate-properties
     justify-content: space-between;
-    margin: 0;
     padding: 0;
     width: 100%;
   }
