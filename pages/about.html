@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>NHS.UK Frontend - </title>
+    <title>NHS.UK Frontend - About - NHS.UK Frontend</title>
 
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
@@ -32,6 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
+  
   <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
 
 
@@ -61,9 +62,24 @@
 
 
 
+
       
 
   
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      
+      <li class="nhsuk-breadcrumb__item"><a href="/" class="nhsuk-breadcrumb__link">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"/>
+</svg>
+<a href="/" class="nhsuk-breadcrumb__backlink">Back to Home</a></p>
+  </div>
+</nav>
+
+
 
   <div class="nhsuk-width-container">
     <main id="maincontent" class="nhsuk-main-wrapper">
@@ -86,29 +102,19 @@
         <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-page-content">
             
-  
-    <h1 id="image">Image</h1>
-<p>Find out more about the image component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS Digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the image component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code class="language-html">&lt;figure class=&quot;nhsuk-image&quot;&gt;
-  &lt;img class=&quot;nhsuk-image__img&quot; alt=&quot;Picture of allergic conjunctivitis&quot;
-    src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot;/&gt;
-  &lt;figcaption class=&quot;nhsuk-image__caption&quot;&gt;
-    Itchy, red, watering eyes
-  &lt;/figcaption&gt;
-&lt;/figure&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/images/macro.njk&#39; import image %}
 
-{{ image({
-  &quot;alt&quot;: &quot;Picture of allergic conjunctivitis&quot;,
-  &quot;src&quot;: &quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot;,
-  &quot;caption&quot;: &quot;Itchy, red, watering eyes&quot;
-}) }}</code></pre>
+  <h1>About</h1>
 
-  
+  <div class="nhsuk-u-reading-width">
+
+    <h2>Contributing</h2>
+    <p>Please see our <a href="/nhsuk/nhsuk-frontend/blob/master/docs/contributing/README.md">contributing guidelines</a> on how to set up the project locally and contribute changes to NHS.UK Frontend.</p>
+
+    <h2>Get in touch</h2>
+    <p>NHS.UK Frontend is actively maintained by a team at NHS Digital, you can contact us on <a href="https://nhsuk.slack.com/messages/CCPLQ9YAJ" rel="nofollow">Slack</a> or <a href="mailto:nhsdigital.nhsuk-frontend@nhs.net">send us an email</a>.</p>
+
+  </div>
+
 
           </div>
         </div>

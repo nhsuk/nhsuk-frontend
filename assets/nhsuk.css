@@ -768,7 +768,7 @@ h6,
   line-height: 1.4;
   display: block;
   margin-top: 0;
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
   @media (min-width: 40.0625em) {
     .nhsuk-body-l {
       font-size: 24px;
@@ -780,7 +780,7 @@ h6,
       line-height: 1.15; } }
   @media (min-width: 40.0625em) {
     .nhsuk-body-l {
-      margin-bottom: 24px; } }
+      margin-bottom: 32px; } }
 
 p,
 .nhsuk-body-m {
