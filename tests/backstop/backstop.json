@@ -27,173 +27,202 @@
   "scenarios": [
     {
       "label": "Typography",
-      "url": "http://localhost:3000/pages/components/typography"
+      "url": "http://localhost:3000/components/typography.html"
     },
     {
       "label": "Components",
-      "url": "http://localhost:3000/pages/components"
+      "url": "http://localhost:3000/components/all.html"
     },
     {
       "label": "A-Z navigation",
-      "url": "http://localhost:3000/pages/components/nav-a-z"
+      "url": "http://localhost:3000/components/nav-a-z.html"
     },
     {
       "label": "Action link",
-      "url": "http://localhost:3000/pages/components/action-link"
+      "url": "http://localhost:3000/components/action-link.html"
     },
     {
       "label": "Breadcrumb",
-      "url": "http://localhost:3000/pages/components/breadcrumb"
+      "url": "http://localhost:3000/components/breadcrumb.html"
     },
     {
       "label": "Blue care card",
-      "url": "http://localhost:3000/pages/components/care-card-blue"
+      "url": "http://localhost:3000/components/care-card-blue.html"
     },
     {
       "label": "Red care card",
-      "url": "http://localhost:3000/pages/components/care-card-red"
+      "url": "http://localhost:3000/components/care-card-red.html"
     },
     {
       "label": "Black care card",
-      "url": "http://localhost:3000/pages/components/care-card-black"
+      "url": "http://localhost:3000/components/care-card-black.html"
     },
     {
       "label": "Contents list",
-      "url": "http://localhost:3000/pages/components/contents-list"
+      "url": "http://localhost:3000/components/contents-list.html"
     },
     {
       "label": "Details",
-      "url": "http://localhost:3000/pages/components/details",
+      "url": "http://localhost:3000/components/details.html",
       "clickSelector": ".nhsuk-details__summary"
     },
     {
       "label": "Do & don't list",
-      "url": "http://localhost:3000/pages/components/do-dont-list"
+      "url": "http://localhost:3000/components/do-dont-list.html"
     },
     {
       "label": "Emergency Alert",
-      "url": "http://localhost:3000/pages/components/emergency-alert"
+      "url": "http://localhost:3000/components/emergency-alert.html"
     },
     {
       "label": "Expander",
-      "url": "http://localhost:3000/pages/components/expander",
+      "url": "http://localhost:3000/components/expander.html",
       "clickSelector": ".nhsuk-details__summary"
     },
     {
       "label": "Expander group",
-      "url": "http://localhost:3000/pages/components/expander-group",
+      "url": "http://localhost:3000/components/expander-group.html",
       "clickSelector": ".nhsuk-details__summary"
     },
     {
       "label": "Feedback banner",
-      "url": "http://localhost:3000/pages/components/feedback-banner",
+      "url": "http://localhost:3000/components/feedback-banner.html",
       "delay": 5000
     },
     {
       "label": "Footer",
-      "url": "http://localhost:3000/pages/components/footer"
+      "url": "http://localhost:3000/components/footer.html"
     },
     {
       "label": "Header",
-      "url": "http://localhost:3000/pages/components/header"
+      "url": "http://localhost:3000/components/header.html"
     },
     {
       "label": "Header transactional",
-      "url": "http://localhost:3000/pages/components/header-transactional"
+      "url": "http://localhost:3000/components/header-transactional.html"
     },
     {
       "label": "Header with search",
-      "url": "http://localhost:3000/pages/components/header-search"
+      "url": "http://localhost:3000/components/header-search.html"
     },
     {
       "label": "Header with search open",
-      "url": "http://localhost:3000/pages/components/header-search",
-      "clickSelector": ".nhsuk-header__search-toggle"
+      "url": "http://localhost:3000/components/header-search.html",
+      "clickSelector": "#toggle-search",
+      "viewports": [
+        {
+          "label": "iPhone 5/SE",
+          "width": 320,
+          "height": 568
+        },
+        {
+          "label": "iPhone 6-8",
+          "width": 375,
+          "height": 667
+        }
+      ]
     },
     {
       "label": "Header with navigation",
-      "url": "http://localhost:3000/pages/components/header-navigation"
+      "url": "http://localhost:3000/components/header-navigation.html"
     },
     {
       "label": "Header with navigation open",
-      "url": "http://localhost:3000/pages/components/header-search",
-      "clickSelector": ".nhsuk-header__menu-toggle"
+      "url": "http://localhost:3000/components/header-navigation.html",
+      "clickSelector": "#toggle-menu",
+      "viewports": [
+        {
+          "label": "iPhone 5/SE",
+          "width": 320,
+          "height": 568
+        },
+        {
+          "label": "iPhone 6-8",
+          "width": 375,
+          "height": 667
+        },
+        {
+          "label": "iPad",
+          "width": 768,
+          "height": 1024
+        }
+      ]
     },
     {
       "label": "Hero",
-      "url": "http://localhost:3000/pages/components/hero"
+      "url": "http://localhost:3000/components/hero.html"
     },
     {
       "label": "Hero with image",
-      "url": "http://localhost:3000/pages/components/hero-image"
+      "url": "http://localhost:3000/components/hero-image.html"
     },
     {
       "label": "Hero with image and content",
-      "url": "http://localhost:3000/pages/components/hero-image-content"
+      "url": "http://localhost:3000/components/hero-image-content.html"
     },
     {
       "label": "Images",
-      "url": "http://localhost:3000/pages/components/images"
+      "url": "http://localhost:3000/components/images.html"
     },
     {
       "label": "Inset text",
-      "url": "http://localhost:3000/pages/components/inset-text"
+      "url": "http://localhost:3000/components/inset-text.html"
     },
     {
       "label": "List panel",
-      "url": "http://localhost:3000/pages/components/list-panel"
+      "url": "http://localhost:3000/components/list-panel.html"
     },
     {
       "label": "Pagination",
-      "url": "http://localhost:3000/pages/components/pagination"
+      "url": "http://localhost:3000/components/pagination.html"
     },
     {
       "label": "Panel",
-      "url": "http://localhost:3000/pages/components/panel"
+      "url": "http://localhost:3000/components/panel.html"
     },
     {
       "label": "Panel with label",
-      "url": "http://localhost:3000/pages/components/panel-with-label"
+      "url": "http://localhost:3000/components/panel-with-label.html"
     },
     {
       "label": "Panel grey",
-      "url": "http://localhost:3000/pages/components/panel-grey"
+      "url": "http://localhost:3000/components/panel-grey.html"
     },
     {
       "label": "Panel group",
-      "url": "http://localhost:3000/pages/components/panel-group"
+      "url": "http://localhost:3000/components/panel-group.html"
     },
     {
       "label": "Promo",
-      "url": "http://localhost:3000/pages/components/promo"
+      "url": "http://localhost:3000/components/promo.html"
     },
     {
       "label": "Promo with image",
-      "url": "http://localhost:3000/pages/components/promo-with-image"
+      "url": "http://localhost:3000/components/promo-with-image.html"
     },
     {
       "label": "Promo small",
-      "url": "http://localhost:3000/pages/components/promo-small"
+      "url": "http://localhost:3000/components/promo-small.html"
     },
     {
       "label": "Promo with no description",
-      "url": "http://localhost:3000/pages/components/promo-no-description"
+      "url": "http://localhost:3000/components/promo-no-description.html"
     },
     {
       "label": "Promo group",
-      "url": "http://localhost:3000/pages/components/promo-group"
+      "url": "http://localhost:3000/components/promo-group.html"
     },
     {
       "label": "Review Date",
-      "url": "http://localhost:3000/pages/components/review-date"
+      "url": "http://localhost:3000/components/review-date.html"
     },
     {
       "label": "Tables",
-      "url": "http://localhost:3000/pages/components/tables"
+      "url": "http://localhost:3000/components/tables.html"
     },
     {
       "label": "Warning callout",
-      "url": "http://localhost:3000/pages/components/warning-callout"
+      "url": "http://localhost:3000/components/warning-callout.html"
     }
   ],
   "paths": {
