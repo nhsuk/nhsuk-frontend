@@ -1,23 +1,22 @@
 # Installing using compiled files
 
-### **This documentation is currently being written** 
+When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript. 
 
-When installing the compiled files from dist, you are using compiled and minified versions of the stylesheet. This means that you will not be able to:
+This means that you will not be able to:
 
 - build your own styles or components based on the colour variables or typography and spacing mixins.
 - use the component Nunjucks templates.
+- import components individually.
 
 ## Installation
 
 1. Download the compiled files
 
-    [Download the latest compiled versions of the stylesheet and JavaScript](https://github.com/nhsuk/nhsuk-frontend/tree/master/dist)
-
-    > You can find previous versions and the CHANGELOG on our [project releases page](https://github.com/nhsuk/nhsuk-frontend/releases).
+    [Download the latest version of NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/releases)
 
   2. Include resources  
 
-        Copy the compiled files into a folder, such as `assets`, within your project.
+        Extract the files into a folder, such as `assets`, within your project. Then import the files into your project using the `<link>` and `<script>` tags.
 
       ```html
       <!DOCTYPE html>
@@ -25,9 +24,9 @@ When installing the compiled files from dist, you are using compiled and minifie
         <head>
           <title>Example</title>
 
-          <link rel="stylesheet" href="/assets/css/nhsuk-v0.0.0.min.css">
-          <script src="/assets/js/nhsuk-v0.0.0.min.js" defer></script>
-          <script src="/assets/js/jquery-3.3.1.min.js"></script>
+          <link rel="stylesheet" href="/assets/nhsuk-0.0.0.min.css">
+          <script src="/assets/nhsuk-0.0.0.min.js" defer></script>
+          <script src="/assets/jquery-3.3.1.min.js"></script>
         </head>
         <body>
           <!-- Components -->
@@ -35,10 +34,11 @@ When installing the compiled files from dist, you are using compiled and minifie
       </html>
       ```
 
-## Prototyping quick start
+### Hotlinking to https://assets.nhs.uk
 
-For prototyping we deploy the NHS.UK Frontend stylesheet and JavaScript to https://assets.nhs.uk so that it can be hotlinked to. This is useful if you don't have
-a development environment set up or you want to use a Cloud IDE such as Codepen to quickly put something together.
+**This is still in development and will be available soon.**
+
+For prototyping we deploy the NHS.UK Frontend stylesheet and JavaScript to https://assets.nhs.uk so that it can be hotlinked to. This is useful if you don't have a development environment set up or you want to use a Cloud IDE such as Codepen to quickly put something together.
 
 > Please do not hotlink to https://assets.nhs.uk or use jQuery CDN in production, as we can not guarantee the performance or uptime of these services.
 
@@ -64,3 +64,5 @@ a development environment set up or you want to use a Cloud IDE such as Codepen 
 ```
 
 ### Codepen
+
+[View NHS.UK Frontend templates on Codepen]()
