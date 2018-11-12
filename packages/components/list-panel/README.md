@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### List panel
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel.html)
+[Preview the list panel component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel.html)
 
 ### HTML markup
 
@@ -98,7 +98,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/list-panel/macro.njk' import listPanel %}
 
 {{ listPanel({

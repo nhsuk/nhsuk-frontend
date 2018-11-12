@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Panel
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel.html)
+[Preview the panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel.html)
 
 ### HTML markup
 
@@ -20,6 +20,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/panel/macro.njk' import panel %}
@@ -33,7 +35,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Panel with a label
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
+[Preview the panel with a label component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
 
 ### HTML markup
 
@@ -46,6 +48,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/panel/macro.njk' import panel %}
 
@@ -57,7 +61,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
            
 ### Grey panel
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html)
+[Preview the grey panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html)
 
 ### HTML markup
 
@@ -69,6 +73,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/panel/macro.njk' import panel %}
@@ -83,7 +89,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Panel group
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html)
+[Preview the panel group component](https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html)
 
 ### HTML markup
 
@@ -105,6 +111,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/panel/macro.njk' import panel %}

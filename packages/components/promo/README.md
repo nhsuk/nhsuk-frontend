@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/promo.html)
+[Preview the promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo.html)
 
 ### HTML markup
 
@@ -25,6 +25,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -37,7 +39,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with image
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
 
 ### HTML markup
 
@@ -55,6 +57,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -68,7 +72,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
            
 ### Promo with no description
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
 
 ### HTML markup
 
@@ -84,6 +88,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -95,7 +101,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Small promo
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html)
+[Preview the small promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html)
 
 ### HTML markup
 
@@ -112,6 +118,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -125,7 +133,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo group
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html)
+[Preview the promo group component](https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html)
 
 ## HTML markup
 
@@ -168,6 +176,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 <div class="nhsuk-grid-row nhsuk-promo-group">

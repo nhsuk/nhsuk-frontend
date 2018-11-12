@@ -1,6 +1,6 @@
 # Footer
 
-Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
+Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/footer/).
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/168).
 
@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Footer
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/footer.html)
+[Preview the footer component](https://nhsuk.github.io/nhsuk-frontend/components/footer.html)
 
 ### HTML markup
 
@@ -47,7 +47,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({

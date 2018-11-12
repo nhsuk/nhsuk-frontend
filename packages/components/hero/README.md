@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with heading and content
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/hero.html)
+[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero.html)
 
 ### HTML markup
 
@@ -29,6 +29,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/hero/macro.njk' import hero %}
 
@@ -38,11 +40,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Hero with image, heading and content
+### Hero with image, heading and content
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
 
-## HTML markup
+### HTML markup
 
 ```html
 <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description"  style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');" >
@@ -61,9 +63,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </section>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
@@ -73,11 +77,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Hero with image only
+### Hero with image only
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
 
-## HTML markup
+### HTML markup
 
 ```html
 <section class="nhsuk-hero nhsuk-hero--image"  style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');" >
@@ -86,9 +90,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </section>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({

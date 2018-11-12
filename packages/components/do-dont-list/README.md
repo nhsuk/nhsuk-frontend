@@ -1,6 +1,6 @@
 # Do and don't list
 
-Find out more about the do and don't list component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
+Find out more about the do and don't list component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/do-and-dont-lists/).
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/164).
 
@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Do and don't list
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list.html)
+[Preview the do and don't list component](https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list.html)
 
 ### HTML markup
 

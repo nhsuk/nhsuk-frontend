@@ -13,7 +13,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Details
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/details.html)
+[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details.html)
 
 ### HTML markup
 
@@ -65,7 +65,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Expander
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/expander.html)
+[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/expander.html)
 
 ### HTML markup
 

@@ -1,6 +1,6 @@
 # Care cards
 
-Find out more about the care card component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
+Find out more about the care card component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/care-cards/).
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/160).
 
@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Primary Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html)
+[Preview the primary care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html)
 
 ### HTML markup
 
@@ -65,7 +65,7 @@ If you are using Nunjucks, then macros take the following arguments:
 
 ### Emergency Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html)
+[Preview emergency care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html)
 
 ### HTML markup
 
@@ -121,7 +121,7 @@ If you are using Nunjucks, then macros take the following arguments:
 
 ### Urgent Care card
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
+[Preview urgent care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
 
 ### HTML markup
 

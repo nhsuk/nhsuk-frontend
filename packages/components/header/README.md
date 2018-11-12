@@ -1,6 +1,6 @@
 # Header
 
-Find out more about the header component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
+Find out more about the header component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/header/).
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/169).
 
@@ -17,7 +17,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Header
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/header.html)
+[Preview the header component](https://nhsuk.github.io/nhsuk-frontend/components/header.html)
 
 ### HTML markup
 
@@ -133,6 +133,8 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -167,7 +169,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Header with navigation
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/header-navigation.html)
+[Preview the header with navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header-navigation.html)
 
 ### HTML markup
 
@@ -257,6 +259,8 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -291,7 +295,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Header with search
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/header-search.html)
+[Preview the header with search component](https://nhsuk.github.io/nhsuk-frontend/components/header-search.html)
 
 ### HTML markup
 
@@ -343,6 +347,8 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Nunjucks macro
 
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -377,7 +383,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 
 ### Header with logo (transactional header)
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/header-transactional.html)
+[Preview the header with lgoo component](https://nhsuk.github.io/nhsuk-frontend/components/header-transactional.html)
 
 ### HTML markup
 
@@ -400,6 +406,8 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/header/macro.njk' import header %}

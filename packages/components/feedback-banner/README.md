@@ -13,7 +13,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Feedback banner
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/feedback-banner.html)
+[Preview the feedback banner component](https://nhsuk.github.io/nhsuk-frontend/components/feedback-banner.html)
 
 ### HTML markup
 
@@ -34,6 +34,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 ```
 
 ### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}

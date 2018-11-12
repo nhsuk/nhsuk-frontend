@@ -4,12 +4,10 @@ Find out more about the skip link component and when to use it in the [NHS digit
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/178).
 
-
 ## Dependencies
 
-For this component be fully accessible, you need to make sure you include the required JavaScript. This fixes a VoiceOver issue with the skip link not focussing down to the content, include the skip link JavaScript file.
-
-Include the compiled JavaScript for all components `nhsuk.min.js` in your project.
+For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+compiled JavaScript for all components `nhsuk.min.js` or the individual component JavaScript `skip-link.js`.
 
 ## Quick start examples
 

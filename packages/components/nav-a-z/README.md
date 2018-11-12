@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nav A-Z
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z.html)
+[Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z.html)
 
 ### HTML markup
 
@@ -99,7 +99,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/nav-a-z/macro.njk' import azNav %}
 
 {{ azNav({
