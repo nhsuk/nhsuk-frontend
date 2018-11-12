@@ -1,12 +1,16 @@
 # Table
 
-Find out more about the table component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the table component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/179).
 
-[Preview the table component]()
+## Quick start examples
 
-## HTML markup
+### Simple table
+
+[Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables.html)
+
+### HTML markup
 
 ```html
 <div class="nhsuk-table-responsive">
@@ -36,7 +40,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -82,13 +86,11 @@ Find out more about the table component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Table panel 
+### Table panel
 
-## Example
+[Preview the table panel component](https://nhsuk.github.io/nhsuk-frontend/components/tables-panel.html)
 
-[Preview the table panel component]()
-
-## HTML markup
+### HTML markup
 
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
@@ -121,7 +123,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
