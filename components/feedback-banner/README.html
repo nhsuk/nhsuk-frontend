@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,38 +84,43 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="feedback-banner">Feedback banner</h1>
-<p>Find out more about the feedback banner component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the feedback banner component</a></p>
+<p>Find out more about the feedback banner component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/167">GitHub issue for this component</a>.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+compiled JavaScript for all components <code>nhsuk.min.js</code> or the individual component JavaScript <code>feedback-banner.js</code>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="feedback-banner">Feedback banner</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/feedback-banner.html">Preview the feedback banner component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code>&lt;div id=&quot;nhsuk-feedback-banner&quot; class=&quot;nhsuk-feedback-banner&quot; style=&quot;display: block;&quot;&gt;
+<pre><code class="language-html">&lt;div id=&quot;nhsuk-feedback-banner&quot; class=&quot;nhsuk-feedback-banner&quot;&gt;
   &lt;div class=&quot;nhsuk-width-container&quot;&gt;
     &lt;div class=&quot;nhsuk-grid-row&quot;&gt;
       &lt;div class=&quot;nhsuk-grid-column-full&quot;&gt;
         &lt;div class=&quot;nhsuk-feedback-banner__content&quot;&gt;
           &lt;h2 class=&quot;nhsuk-feedback-banner__heading&quot;&gt;Help us make the NHS website better&lt;/h2&gt;
-          &lt;p class=&quot;nhsuk-feedback-banner__message&quot;&gt;Your feedback helps us improve the NHS website. &lt;a href=&quot;http://www.nhs.uk&quot; class=&quot;nhsuk-u-nowrap&quot;&gt;Take our short survey&lt;/a&gt;.&lt;/p&gt;
-          &lt;button class=&quot;nhsuk-feedback-banner__close&quot; type=&quot;button&quot; onclick=&quot;hideBanner()&quot;&gt;&lt;span role=&quot;text&quot;&gt;Close&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt; feedback invite&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+          &lt;p class=&quot;nhsuk-feedback-banner__message&quot;&gt;Your feedback helps us improve the NHS website. &lt;a href=&quot;https://nhs.uk&quot; class=&quot;nhsuk-u-nowrap&quot;&gt;Take our short survey&lt;/a&gt;.&lt;/p&gt;
+          &lt;button id=&quot;nhsuk-feedback-banner-close&quot; class=&quot;nhsuk-feedback-banner__close&quot; type=&quot;button&quot;&gt;Close&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt; feedback invite&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h3 id="nunjucks-macro">Nunjucks macro</h3>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/feedback-banner/macro.njk&#39; import feedbackBanner %}
 
 {{ feedbackBanner({
   &quot;title&quot;: &quot;Help us make the NHS website better&quot;,
   &quot;content&quot;: &quot;Your feedback helps us improve the NHS website.&quot;,
-  &quot;feedbackURL&quot;: &quot;http://www.nhs.uk&quot;,
-  &quot;feedbackLabel&quot;: &quot;Take our short survey&quot;
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+  &quot;label&quot;: &quot;Take our short survey&quot;
 }) }}</code></pre>
   
 
-          </div>
         </div>
       </div>
 

@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,28 +84,30 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="skip-link">Skip link</h1>
-<p>Find out more about the skip link component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
+<p>Find out more about the skip link component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/178">GitHub issue for this component</a>.</p>
 <h2 id="dependencies">Dependencies</h2>
-<p>For this component be fully accessible, you need to make sure you include the required JavaScript. This fixes a VoiceOver issue with the skip link not focussing down to the content, include the skip link JavaScript file.</p>
-<p>Include the compiled JavaScript for all components <code>nhsuk.min.js</code> in your project.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the skip link component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code class="language-html">&lt;a href=&quot;#maincontent&quot; class=&quot;nhsuk-skip-link&quot;&gt;Skip to main content&lt;/a&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code>{% from &#39;components/skip-link/macro.njk&#39; import skipLink %}
+<p>For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+compiled JavaScript for all components <code>nhsuk.min.js</code> or the individual component JavaScript <code>skip-link.js</code>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="example">Example</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/skip-link.html">Preview the skip link component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;a class=&quot;nhsuk-skip-link&quot; href=&quot;#maincontent&quot;&gt;Skip to main content&lt;/a&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code class="language-html">{% from &#39;components/skip-link/macro.njk&#39; import skipLink %}
 
 {{ skipLink({
   &quot;URL&quot;: &quot;#maincontent&quot;,
   &quot;heading&quot;: &quot;Skip to main content&quot;
 }) }}</code></pre>
+
   
 
-          </div>
         </div>
       </div>
 

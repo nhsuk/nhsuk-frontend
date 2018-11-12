@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,45 +84,50 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="footer">Footer</h1>
-<p>Find out more about the footer component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the footer component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code>&lt;footer role=&quot;contentinfo&quot;&gt;
+<p>Find out more about the footer component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/footer/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/168">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="footer">Footer</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/footer.html">Preview the footer component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;footer role=&quot;contentinfo&quot;&gt;
   &lt;div class=&quot;nhsuk-footer&quot;&gt;
     &lt;div class=&quot;nhsuk-width-container&quot;&gt;
       &lt;ul class=&quot;nhsuk-footer__list&quot;&gt;
         &lt;li class=&quot;nhsuk-footer__logo nhsuk-footer__list-item&quot;&gt;
           &lt;a href=&quot;/&quot; class=&quot;global-footer__link&quot;&gt;
-            &lt;svg class=&quot;nhsuk-logo&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;&gt;
-              &lt;g fill-rule=&quot;nonzero&quot; fill=&quot;none&quot;&gt;
-                &lt;path fill=&quot;#FFF&quot; d=&quot;M0 39.842h98.203V0H0z&quot;&gt;&lt;/path&gt;
-                &lt;path fill=&quot;#0058AD&quot; d=&quot;M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84M42.4 3.817h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816M91.93 11.025c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34&quot;&gt;&lt;/path&gt;
+            &lt;svg class=&quot;nhsuk-logo&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; role=&quot;presentation&quot; focusable=&quot;false&quot;&gt;
+              &lt;g fill=&quot;none&quot;&gt;
+                &lt;path fill=&quot;#fff&quot; d=&quot;M0 39.842h98.203V0H0z&quot;&gt;&lt;/path&gt;
+                &lt;path fill=&quot;#0058ad&quot; d=&quot;M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34&quot;&gt;&lt;/path&gt;
               &lt;/g&gt;
-              &lt;image xlink:href=&quot;&quot; src=&quot;/assets/logos/fallback/logo-nhs.png&quot; width=&quot;99&quot; height=&quot;40&quot; role=&quot;presentation&quot;/&gt;
+              &lt;image xlink:href=&quot;&quot; src=&quot;/assets/logos/fallback/logo-nhs.png&quot;&gt;&lt;/image&gt;
             &lt;/svg&gt;
             &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;NHS homepage&lt;/span&gt;
           &lt;/a&gt;
         &lt;/li&gt;
-        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; class=&quot;nhsuk-footer__list-item-link&quot;href=&quot;https://www.nhs.uk/Pages/nhs-sites.aspx&quot;&gt;NHS sites&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/Pages/nhs-sites.aspx&quot;&gt;NHS sites&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/about-us&quot;&gt;About us&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/Pages/contact-us.aspx&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/contact-us/&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/Personalisation/Login.aspx&quot;&gt;Profile editor login&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
       &lt;ul class=&quot;nhsuk-footer__list&quot;&gt;
-        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/choices/pages/sitemap.aspx&quot;&gt;Sitemap&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/about-us/sitemap/&quot;&gt;Sitemap&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/accessibility/&quot;&gt;Accessibility&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&lt;a class=&quot;nhsuk-footer__list-item-link&quot; href=&quot;https://www.nhs.uk/our-policies/&quot;&gt;Our policies&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;nhsuk-footer__list-item&quot;&gt;&amp;copy; Crown Copyright&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/footer&gt;</code></pre><h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{{ footer({
+&lt;/footer&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/footer/macro.njk&#39; import footer %}
+
+{{ footer({
   &quot;primaryLinks&quot;: [
     {
       &quot;URL&quot;: &quot;https://www.nhs.uk/Pages/nhs-sites.aspx&quot;,
@@ -156,10 +161,8 @@
     }
   ]
 })}}</code></pre>
-
   
 
-          </div>
         </div>
       </div>
 

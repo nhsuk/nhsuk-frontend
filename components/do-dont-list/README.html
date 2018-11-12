@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,18 +84,16 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
-    <h1 id="do-don-t-list">Do &amp; don&#39;t list</h1>
-<h2 id="introduction">Introduction</h2>
-<p>The do &amp; don&#39;t list component helps users see what they should and shouldn&#39;t do in certain situations.</p>
-<h2 id="guidance">Guidance</h2>
-<p>Find out when to use the do &amp; don&#39;t list component in the <a href="https://beta.nhs.uk/service-manual/patterns/do-and-dont-lists/">Digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the important do &amp; don&#39;t list component</a></p>
-<h4 id="markup">Markup</h4>
-<pre><code>&lt;div class=&quot;nhsuk-do-dont-list&quot;&gt;
+    <h1 id="do-and-don-t-list">Do and don&#39;t list</h1>
+<p>Find out more about the do and don&#39;t list component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/do-and-dont-lists/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/164">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="do-and-don-t-list">Do and don&#39;t list</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list.html">Preview the do and don&#39;t list component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-do-dont-list&quot;&gt;
   &lt;h3 class=&quot;nhsuk-do-dont-list__tab-heading&quot;&gt;Do&lt;/h3&gt;
   &lt;ul class=&quot;nhsuk-list nhsuk-list--check&quot;&gt;
     &lt;li&gt;
@@ -151,7 +149,9 @@
     don&#39;t wear the shoes or use the equipment that caused your blister until it heals
     &lt;/li&gt;
   &lt;/ul&gt;
-&lt;/div&gt;</code></pre><h4 id="macro">Macro</h4>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/do-dont-list/macro.njk&#39; import list %}
 
 {{ list({
@@ -187,12 +187,51 @@
       &quot;item&quot;: &quot;wear the shoes or use the equipment that caused your blister until it heals&quot;
     }
   ]
-}) }}</code></pre><h2 id="contribution">Contribution</h2>
-<p>Guidelines on contributing to components can be found at <a href="">Contributing guidelines</a>.</p>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>If you are using Nunjucks, then macros take the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>string</td>
+<td>Yes</td>
+<td>Title to be displayed on the do and don&#39;t list component.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Type of do and don&#39;t list component, &quot;cross&quot;, &quot;tick&quot;</td>
+</tr>
+<tr>
+<td>items</td>
+<td>array</td>
+<td>Yes</td>
+<td>Items to be displayed within the do and don&#39;t list component</td>
+</tr>
+<tr>
+<td>classes</td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the do and dont list container. Separate each class with a space.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the do and don&#39;t list container.</td>
+</tr>
+</tbody></table>
 
   
 
-          </div>
         </div>
       </div>
 

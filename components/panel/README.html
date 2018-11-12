@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,62 +84,60 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="panel">Panel</h1>
-<p>Find out more about the panel component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the panel component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<p>Find out more about the panel component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/175">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="panel">Panel</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel.html">Preview the panel component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel&quot;&gt;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/panel/macro.njk&#39; import panel %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/panel/macro.njk&#39; import panel %}
 
 {{ panel({
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre>
-<h2 id="panel-with-a-label">Panel with a label</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the panel with a label component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+}) }}</code></pre><h3 id="panel-with-a-label">Panel with a label</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html">Preview the panel with a label component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel-with-label&quot;&gt;
   &lt;h3 class=&quot;nhsuk-panel-with-label__label&quot;&gt;Panel heading&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/panel/macro.njk&#39; import panel %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/panel/macro.njk&#39; import panel %}
 
 {{ panel({
   &quot;label&quot;: &quot;Panel heading&quot;,
   &quot;HTML&quot;: &quot;&lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre>
-<h2 id="grey-panel">Grey panel</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the grey panel component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+}) }}</code></pre><h3 id="grey-panel">Grey panel</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html">Preview the grey panel component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel nhsuk-panel--grey&quot;&gt;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/panel/macro.njk&#39; import panel %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/panel/macro.njk&#39; import panel %}
 
 {{ panel({
   &quot;colour&quot;: &quot;grey&quot;,
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre>
-<h2 id="panel-group">Panel group</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the panel group component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+}) }}</code></pre><h3 id="panel-group">Panel group</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html">Preview the panel group component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-panel&quot;&gt;
@@ -154,8 +152,9 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/panel/macro.njk&#39; import panel %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/panel/macro.njk&#39; import panel %}
 
 &lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
@@ -169,10 +168,8 @@
     }) }}
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
   
 
-          </div>
         </div>
       </div>
 

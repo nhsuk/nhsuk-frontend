@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,43 +84,44 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="hero">Hero</h1>
-<p>Find out more about the hero component and when to use it in the  <a href="">NHS digital service manual</a>.</p>
-<h2 id="hero-with-heading-and-text">Hero with heading and text</h2>
-<p><a href="">Preview the hero with heading and text component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<p>Find out more about the hero component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/170">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="hero-with-heading-and-content">Hero with heading and content</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/hero.html">Preview the hero with heading and content component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;section class=&quot;nhsuk-hero&quot;&gt;
   &lt;div class=&quot;nhsuk-width-container nhsuk-hero--border&quot;&gt;
     &lt;div class=&quot;nhsuk-grid-row&quot;&gt;
       &lt;div class=&quot;nhsuk-grid-column-two-thirds&quot;&gt;
         &lt;div class=&quot;nhsuk-hero__wrapper&quot;&gt;
-          &lt;h1 class=&quot;nhsuk-!-margin-bottom-3&quot;&gt;We&#39;re here for you&lt;/h1&gt;
+          &lt;h1 class=&quot;nhsuk-!-margin-bottom-3&quot;&gt;We’re here for you&lt;/h1&gt;
           &lt;p class=&quot;nhsuk-body-l nhsuk-!-margin-bottom-0&quot;&gt;Helping you take control of your health and wellbeing.&lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/hero/macro.njk&#39; import hero %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/hero/macro.njk&#39; import hero %}
 
 {{ hero({
-&quot;heading&quot;: &quot;We&#39;re here for you&quot;,
+&quot;heading&quot;: &quot;We’re here for you&quot;,
 &quot;text&quot;: &quot;Helping you take control of your health and wellbeing.&quot;
-}) }}</code></pre>
-<h2 id="hero-with-an-image-heading-and-text">Hero with an image, heading and text</h2>
-<p><a href="">Preview the hero with an image, heading and text component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code class="language-html">&lt;section class=&quot;nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description&quot; style=&quot;background-image: url(&#39;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&#39;);&quot;&gt;
+}) }}</code></pre><h3 id="hero-with-image-heading-and-content">Hero with image, heading and content</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html">Preview the hero with image, heading and content component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;section class=&quot;nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description&quot;  style=&quot;background-image: url(&#39;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&#39;);&quot; &gt;
   &lt;div class=&quot;nhsuk-hero__overlay&quot;&gt;
     &lt;div class=&quot;nhsuk-width-container nhsuk-hero--border&quot;&gt;
       &lt;div class=&quot;nhsuk-grid-row&quot;&gt;
         &lt;div class=&quot;nhsuk-grid-column-two-thirds&quot;&gt;
           &lt;div class=&quot;nhsuk-hero-content&quot;&gt;
-            &lt;h1 class=&quot;nhsuk-!-margin-bottom-3&quot;&gt;We&#39;re here for you&lt;/h1&gt;
+            &lt;h1 class=&quot;nhsuk-!-margin-bottom-3&quot;&gt;We’re here for you&lt;/h1&gt;
             &lt;p class=&quot;nhsuk-body-l nhsuk-!-margin-bottom-0&quot;&gt;Helping you take control of your health and wellbeing.&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -128,30 +129,30 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/hero/macro.njk&#39; import hero %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/hero/macro.njk&#39; import hero %}
 
 {{ hero({
-&quot;heading&quot;: &quot;We&#39;re here for you&quot;,
-&quot;text&quot;: &quot;Helping you take control of your health and wellbeing.&quot;,
-&quot;imageURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&quot;
-}) }}</code></pre>
-<h2 id="hero-with-an-image-only">Hero with an image only</h2>
-<p><a href="">Preview the hero with an image only component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code class="language-html">&lt;section class=&quot;nhsuk-hero nhsuk-hero--image&quot; style=&quot;background-image: url(&#39;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&#39;);&quot;&gt;
-  &lt;div class=&quot;nhsuk-hero__overlay&quot;&gt;&lt;/div&gt;
+  &quot;heading&quot;: &quot;We’re here for you&quot;,
+  &quot;text&quot;: &quot;Helping you take control of your health and wellbeing.&quot;,
+  &quot;imageURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&quot;
+}) }}</code></pre><h3 id="hero-with-image-only">Hero with image only</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html">Preview the hero with image only component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;section class=&quot;nhsuk-hero nhsuk-hero--image&quot;  style=&quot;background-image: url(&#39;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&#39;);&quot; &gt;
+  &lt;div class=&quot;nhsuk-hero__overlay&quot;&gt;
+  &lt;/div&gt;
 &lt;/section&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/hero/macro.njk&#39; import hero %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/hero/macro.njk&#39; import hero %}
 
 {{ hero({
-&quot;imageURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&quot;
+  &quot;imageURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg&quot;
 }) }}</code></pre>
-
   
 
-          </div>
         </div>
       </div>
 

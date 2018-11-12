@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,14 +84,15 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="table">Table</h1>
-<p>Find out more about the table component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the table component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<p>Find out more about the table component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/179">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="simple-table">Simple table</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/tables.html">Preview the table component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-table-responsive&quot;&gt;
   &lt;table class=&quot;nhsuk-table&quot;&gt;
     &lt;caption class=&quot;nhsuk-table__caption&quot;&gt;Skin symptoms and possible causes&lt;/caption&gt;
@@ -117,7 +118,8 @@
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code class="language-html">{% from &#39;components/tables/macro.njk&#39; import table %}
 
 {{ table({
@@ -159,10 +161,9 @@
     ]
   ]
 }) }}</code></pre>
-<h2 id="table-panel">Table panel</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the table panel component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<h3 id="table-panel">Table panel</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/tables-panel.html">Preview the table panel component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-table__panel-with-heading-tab&quot;&gt;
   &lt;h3 class=&quot;nhsuk-table__heading-tab&quot;&gt;Skin symptoms and possible causes&lt;/h3&gt;
   &lt;div class=&quot;nhsuk-table-responsive&quot;&gt;
@@ -191,7 +192,8 @@
     &lt;/table&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code class="language-html">{% from &#39;components/tables/macro.njk&#39; import table %}
 
 {{ table({
@@ -237,7 +239,6 @@
 
   
 
-          </div>
         </div>
       </div>
 

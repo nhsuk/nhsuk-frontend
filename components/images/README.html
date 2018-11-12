@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,33 +84,32 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
-    <h1 id="image">Image</h1>
-<p>Find out more about the image component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS Digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the image component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+    <h1 id="images">Images</h1>
+<p>Find out more about the images component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/171">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="images">Images</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/images.html">Preview the images component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;figure class=&quot;nhsuk-image&quot;&gt;
-  &lt;img class=&quot;nhsuk-image__img&quot; alt=&quot;Picture of allergic conjunctivitis&quot;
-    src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot;/&gt;
+  &lt;img class=&quot;nhsuk-image__img&quot; alt=&quot;Picture of allergic conjunctivitis&quot; src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot;&gt;
   &lt;figcaption class=&quot;nhsuk-image__caption&quot;&gt;
     Itchy, red, watering eyes
   &lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/images/macro.njk&#39; import image %}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/images/macro.njk&#39; import image %}
 
 {{ image({
   &quot;alt&quot;: &quot;Picture of allergic conjunctivitis&quot;,
   &quot;src&quot;: &quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot;,
   &quot;caption&quot;: &quot;Itchy, red, watering eyes&quot;
 }) }}</code></pre>
-
   
 
-          </div>
         </div>
       </div>
 

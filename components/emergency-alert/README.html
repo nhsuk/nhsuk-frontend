@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,39 +84,41 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="emergency-alert">Emergency alert</h1>
-<p>Find out more about the emergency alert component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the emergency alert component</a></p>
+<p>Find out more about the emergency alert component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/166">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="emergency-alert">Emergency alert</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/emergency-alert.html">Preview the emergency alert component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code>&lt;div id=&quot;nhsuk-global-alert&quot; class=&quot;nhsuk-global-alert&quot;&gt;
+<pre><code class="language-html">&lt;div id=&quot;nhsuk-global-alert&quot; class=&quot;nhsuk-global-alert&quot;&gt;
   &lt;div class=&quot;nhsuk-width-container&quot;&gt;
     &lt;div class=&quot;nhsuk-grid-row&quot;&gt;
       &lt;div class=&quot;nhsuk-grid-column-full&quot;&gt;
         &lt;div class=&quot;nhsuk-global-alert__content&quot;&gt;
           &lt;h2 class=&quot;nhsuk-global-alert__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Alert: &lt;/span&gt;National flu outbreak&lt;/h2&gt;
-          &lt;p class=&quot;nhsuk-global-alert__message&quot;&gt;There has been a national flu outbreak. &lt;a href=&quot;http://www.nhs.uk&quot; class=&quot;nhsuk-u-nowrap&quot;&gt;How does it affect me&lt;/a&gt;&lt;/p&gt;
+          &lt;p class=&quot;nhsuk-global-alert__message&quot;&gt;There has been a national flu outbreak. &lt;a href=&quot;https://www.nhs.uk&quot; class=&quot;nhsuk-u-nowrap&quot;&gt;How does it affect me&lt;/a&gt;&lt;/p&gt;
           &lt;p class=&quot;nhsuk-global-alert__updated&quot;&gt;Updated 23 mins ago&lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h3 id="nunjucks-macro">Nunjucks macro</h3>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/emergency-alert/macro.njk&#39; import emergencyAlert %}
 
 {{ emergencyAlert({
   &quot;title&quot;: &quot;National flu outbreak&quot;,
   &quot;content&quot;: &quot;There has been a national flu outbreak.&quot;,
-  &quot;emergencyURL&quot;: &quot;http://www.nhs.uk&quot;,
-  &quot;emergencyLabel&quot;: &quot;How does it affect me&quot;,
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+  &quot;label&quot;: &quot;How does it affect me&quot;,
   &quot;lastUpdated&quot;: &quot;Updated 23 mins ago&quot;
 }) }}</code></pre>
   
 
-          </div>
         </div>
       </div>
 

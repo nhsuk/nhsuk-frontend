@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,8 +84,7 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="component-api-definition-and-use">Component API definition and use</h1>
 <p>We have chosen as Nunjucks as the templating language for NHS.UK Frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.</p>
@@ -126,9 +125,9 @@
   ]
 }) }}</code></pre><h2 id="use-of-classes-to-specify-variants">Use of classes to specify variants</h2>
 <p>When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.</p>
-<p>Blue care card example:</p>
+<p>Primary Care card example:</p>
 <pre><code>{{ careCard({
-  &quot;class&quot;: &quot;blue&quot;,
+  &quot;type&quot;: &quot;primary&quot;,
   &quot;heading&quot;: &quot;Speak to a GP if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -141,7 +140,7 @@
   &quot;
 }) }}</code></pre><p>Red care card example:</p>
 <pre><code>{{ careCard({
-  &quot;class&quot;: &quot;red&quot;,
+  &quot;type&quot;: &quot;emergency&quot;,
   &quot;heading&quot;: &quot;Ask for an urgent GP appointment if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -154,7 +153,6 @@
 }) }}</code></pre>
   
 
-          </div>
         </div>
       </div>
 

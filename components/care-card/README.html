@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,15 +84,16 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="care-cards">Care cards</h1>
-<p>Find out more about the care card component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="primary-care-card-example">Primary Care card example</h2>
-<p><a href="">Preview the primary care card component</a></p>
-<h4 id="markup">Markup</h4>
-<pre><code>&lt;div class=&quot;nhsuk-care-card&quot;&gt;
+<p>Find out more about the care card component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/care-cards/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/160">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="primary-care-card">Primary Care card</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html">Preview the primary care card component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Non-urgent care: &lt;/span&gt;Speak to a GP if:&lt;/h3&gt;
   &lt;/div&gt;
@@ -105,11 +106,13 @@
     &lt;/ul&gt;
     &lt;p&gt;Tell the receptionist you think it&#39;s chickenpox before going in. They may recommend a special appointment time if other patients are at risk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h4 id="macro">Macro</h4>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;class&quot;: &quot;blue&quot;,
+  &quot;type&quot;: &quot;primary&quot;,
   &quot;heading&quot;: &quot;Speak to a GP if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -120,10 +123,52 @@
   &lt;/ul&gt;
   &lt;p&gt;Tell the receptionist you think it&#39;s chickenpox before going in. They may recommend a special appointment time if other patients are at risk.&lt;/p&gt;
   &quot;
-}) }}</code></pre><h3 id="urgent-care-card">Urgent Care card</h3>
-<p><a href="">Preview the urgent care card component</a></p>
-<h4 id="markup">Markup</h4>
-<pre><code>&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--red&quot;&gt;
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>string</td>
+<td>Yes</td>
+<td>Heading to be used within the care card component</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>string</td>
+<td>Yes</td>
+<td>Content to be used within the care card component</td>
+</tr>
+<tr>
+<td>classes</td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
+</tr>
+</tbody></table>
+<h3 id="emergency-care-card">Emergency Care card</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html">Preview emergency care card component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--emergency&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care low: &lt;/span&gt;Ask for an urgent GP appointment if:&lt;/h3&gt;
   &lt;/div&gt;
@@ -136,11 +181,13 @@
     &lt;/ul&gt;
     &lt;p&gt;In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h4 id="macro">Macro</h4>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;class&quot;: &quot;red&quot;,
+  &quot;type&quot;: &quot;emergency&quot;,
   &quot;heading&quot;: &quot;Ask for an urgent GP appointment if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -150,10 +197,52 @@
     &lt;li&gt;you think your newborn baby has chickenpox&lt;/li&gt;
   &lt;/ul&gt;
   &quot;
-}) }}</code></pre><h3 id="emergency-care-card">Emergency Care card</h3>
-<p><a href="">Preview the emergency care card component</a></p>
-<h4 id="markup">Markup</h4>
-<pre><code>&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--black&quot;&gt;
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>string</td>
+<td>Yes</td>
+<td>Heading to be used within the care card component</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>string</td>
+<td>Yes</td>
+<td>Content to be used within the care card component</td>
+</tr>
+<tr>
+<td>classes</td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
+</tr>
+</tbody></table>
+<h3 id="urgent-care-card">Urgent Care card</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview urgent care card component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--urgent&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care high: &lt;/span&gt;Call 999 if you have sudden chest pain that:&lt;/h3&gt;
   &lt;/div&gt;
@@ -165,11 +254,13 @@
     &lt;/ul&gt;
     &lt;p&gt;You could be having a &lt;a href=&#39;&#39;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h4 id="macro">Macro</h4>
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;class&quot;: &quot;black&quot;,
+  &quot;type&quot;: &quot;urgent&quot;,
   &quot;heading&quot;: &quot;Call 999 if you have sudden chest pain that:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -179,10 +270,51 @@
   &lt;/ul&gt;
   &lt;p&gt;You could be having a &lt;a href=&#39;https://www.nhs.uk\&#39;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
   &quot;
-}) }}</code></pre>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>string</td>
+<td>Yes</td>
+<td>Heading to be used within the care card component</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>string</td>
+<td>Yes</td>
+<td>Content to be used within the care card component</td>
+</tr>
+<tr>
+<td>classes</td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
+</tr>
+</tbody></table>
+
   
 
-          </div>
         </div>
       </div>
 

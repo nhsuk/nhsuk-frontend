@@ -32,7 +32,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
       
-  <a href="#maincontent" class="nhsuk-skip-link">Skip to main content</a>
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
   <header class="nhsuk-header" role="banner">
@@ -84,154 +84,157 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-page-content">
-            
+          
   
     <h1 id="promo">Promo</h1>
-<p>Find out more about the promo component and when to use it in the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a>.</p>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the promo component</a></p>
-<h2 id="html-markup">HTML markup</h2>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-promo nhsuk-promo--small&quot;&gt;
-  &lt;a href=&quot;/news/article&quot;&gt;
-    &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
-      &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Prescription changes&lt;/h3&gt;
-      &lt;p class=&quot;nhsuk-promo__description&quot;&gt;The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/a&gt;
-&lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/promo/macro.njk&#39; import promo%}
-
-{{ promo({
-  &quot;href&quot;: &quot;/news/article&quot;,
-  &quot;heading&quot;: &quot;Prescription changes&quot;,
-  &quot;description&quot;: &quot;The NHS is reducing prescriptions for medicines you can buy in a pharmacy. Find out what this means for you.&quot;
-}) }}</code></pre>
-<h2 id="promo-with-image">Promo with image</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the promo with image component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<p>Find out more about the promo component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS Digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/176">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="promo">Promo</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo.html">Preview the promo component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
-  &lt;a href=&quot;http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;amp;utm_medium=referral&amp;amp;utm_content=web&amp;amp;utm_campaign=partner&quot;&gt;
-    &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);&quot; alt=&quot;&quot;&gt;
+  &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
       &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
       &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
 
 {{ promo({
-  &quot;href&quot;: &quot;http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;amp;utm_medium=referral&amp;amp;utm_content=web&amp;amp;utm_campaign=partner&quot;,
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+  &quot;heading&quot;: &quot;Save a life: give blood&quot;,
+  &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
+}) }}</code></pre><h3 id="promo-with-image">Promo with image</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html">Preview the promo with image component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
+  &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
+    &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
+    &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
+      &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
+      &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
+
+{{ promo({
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre>
-<h2 id="promo-with-no-description">Promo with no description</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the promo with no description component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+}) }}</code></pre><h3 id="promo-with-no-description">Promo with no description</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html">Preview the promo with no description component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
-  &lt;a href=&quot;https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx&quot;&gt;
+  &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
-    &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Access your GP record&lt;/h3&gt;
-  &lt;/div&gt;
+      &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
+    &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
 
 {{ promo({
-  &quot;href&quot;: &quot;https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx&quot;,
-  &quot;heading&quot;: &quot;Access your GP record&quot;
-}) }}</code></pre>
-<h2 id="small-promo">Small promo</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the small promo component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+  &quot;heading&quot;: &quot;Save a life: give blood&quot;
+}) }}</code></pre><h3 id="small-promo">Small promo</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html">Preview the small promo component</a></p>
+<h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo nhsuk-promo--small&quot;&gt;
-  &lt;a href=&quot;https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx&quot;&gt;
+  &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
-    &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Access your GP record&lt;/h3&gt;
-  &lt;/div&gt;
+      &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Access your GP record&lt;/h3&gt;
+      &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
 <h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">{% from &#39;components/promo/macro.njk&#39; import promo%}
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
 
 {{ promo({
   &quot;classes&quot;: &quot;nhsuk-promo--small&quot;,
-  &quot;href&quot;: &quot;https://www.nhs.uk/nhsengland/aboutnhsservices/doctors/pages/gp-online-services.aspx&quot;,
-  &quot;heading&quot;: &quot;Access your GP record&quot;
-}) }}</code></pre>
-<h2 id="promo-group">Promo group</h2>
-<h2 id="example">Example</h2>
-<p><a href="">Preview the promo group component</a></p>
+  &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+  &quot;heading&quot;: &quot;Access your GP record&quot;,
+  &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
+}) }}</code></pre><h3 id="promo-group">Promo group</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html">Preview the promo group component</a></p>
 <h2 id="html-markup">HTML markup</h2>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
-
-  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
-
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
-      &lt;a href=&quot;http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;amp;utm_medium=referral&amp;amp;utm_content=web&amp;amp;utm_campaign=partner&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);&quot; alt=&quot;&quot;&gt;
+      &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
         &lt;/div&gt;
       &lt;/a&gt;
     &lt;/div&gt;
-
   &lt;/div&gt;
-
-  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
-
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
-      &lt;a href=&quot;http://www.blood.co.uk/?utm_source=nhsc_hp_blood&amp;amp;utm_medium=referral&amp;amp;utm_content=web&amp;amp;utm_campaign=partner&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png);&quot; alt=&quot;&quot;&gt;
+      &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
         &lt;/div&gt;
       &lt;/a&gt;
     &lt;/div&gt;
-
   &lt;/div&gt;
-
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
+    &lt;div class=&quot;nhsuk-promo&quot;&gt;
+      &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
+        &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
+          &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
+          &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
-
-  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
-
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
+<pre><code>&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     {{ promo({
-      &quot;href&quot;: &quot;#&quot;,
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
       &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
       &quot;heading&quot;: &quot;Save a life: give blood&quot;,
       &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
     }) }}
-
   &lt;/div&gt;
-
-  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
-
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     {{ promo({
-      &quot;href&quot;: &quot;#&quot;,
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
       &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
       &quot;heading&quot;: &quot;Save a life: give blood&quot;,
       &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
     }) }}
-
   &lt;/div&gt;
-
+  &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
+    {{ promo({
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+      &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
+      &quot;heading&quot;: &quot;Save a life: give blood&quot;,
+      &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
+    }) }}
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
   
 
-          </div>
         </div>
       </div>
 

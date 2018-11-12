@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>NHS.UK Frontend - Skip link</title>
+    <title>NHS.UK Frontend - Urgent care card</title>
 
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
@@ -35,20 +35,33 @@
 
       
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
+<div class="nhsuk-width-container">
+  <main id="maincontent" class="nhsuk-main-wrapper">
 
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <p>To view the skip link component, press tab or navigate to the next element.</p>
-
-          <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
-
-        </div>
-      </div>
-
-    </main>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        
+<div class="nhsuk-care-card nhsuk-care-card--urgent" >
+  <div class="nhsuk-care-card__heading-container">
+    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Call 999 if you have sudden chest pain that:</h3>
   </div>
+  <div class="nhsuk-care-card__content">
+  
+          <ul>
+            <li>spreads to your arms, back, neck or jaw</li>
+            <li>makes your chest feel tight or heavy</li>
+            <li>also started with shortness of breath, sweating and feeling or being sick</li>
+          </ul>
+          <p>You could be having a <a href='https://www.nhs.uk'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+          
+  </div>
+</div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
 
 
 
