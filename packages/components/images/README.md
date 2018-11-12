@@ -1,26 +1,31 @@
-# Image
+# Images
 
-Find out more about the image component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the images component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/171).
 
-[Preview the image component]()
+## Quick start examples
 
-## HTML markup
+### Images
+
+[Preview the images component](https://nhsuk.github.io/nhsuk-frontend/components/images.html)
+
+### HTML markup
 
 ```html
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" alt="Picture of allergic conjunctivitis"
-    src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"/>
+  <img class="nhsuk-image__img" alt="Picture of allergic conjunctivitis" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg">
   <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
   </figcaption>
 </figure>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/images/macro.njk' import image %}
 
 {{ image({

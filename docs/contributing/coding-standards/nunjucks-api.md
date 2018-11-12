@@ -58,10 +58,10 @@ Example:
 ## Use of classes to specify variants
 When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.
 
-Blue care card example:
+Primary Care card example:
 ```
 {{ careCard({
-  "class": "blue",
+  "type": "primary",
   "heading": "Speak to a GP if:",
   "HTML": "
   <ul>
@@ -77,7 +77,7 @@ Blue care card example:
 Red care card example:
 ```
 {{ careCard({
-  "class": "red",
+  "type": "emergency",
   "heading": "Ask for an urgent GP appointment if:",
   "HTML": "
   <ul>

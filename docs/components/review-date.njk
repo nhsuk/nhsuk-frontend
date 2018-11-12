@@ -5,19 +5,19 @@
 
 {% block body %}
 
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper">
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        {{ reviewDate({
-          "lastReview": "12 February 2016",
-          "nextReview": "1 February 2019"
-        }) }}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ reviewDate({
+            "lastReview": "12 February 2016",
+            "nextReview": "1 February 2019"
+          }) }}
+        </div>
       </div>
-    </div>
 
-  </main>
-</div>
+    </main>
+  </div>
 
 {% endblock %}

@@ -47,15 +47,15 @@
     },
     {
       "label": "Blue care card",
-      "url": "http://localhost:3000/pages/components/care-card-blue"
+      "url": "http://localhost:3000/pages/components/care-card-primary"
     },
     {
       "label": "Red care card",
-      "url": "http://localhost:3000/pages/components/care-card-red"
+      "url": "http://localhost:3000/pages/components/care-card-emergency"
     },
     {
       "label": "Black care card",
-      "url": "http://localhost:3000/pages/components/care-card-black"
+      "url": "http://localhost:3000/pages/components/care-card-urgent"
     },
     {
       "label": "Contents list",

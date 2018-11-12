@@ -10,35 +10,33 @@
 
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
-        <div class="nhsuk-page-content">
-          {{ contentsList({
-            items: [
-              {
-                URL: "https://www.nhs.uk/",
-                label: "What is AMD?",
-                current: "true"
-              },
-              {
-                URL: "https://www.nhs.uk",
-                label: "Symptoms"
-              },
-              {
-                URL: "https://www.nhs.uk",
-                label: "Getting diagnosed"
-              }
-              ,
-              {
-                URL: "https://www.nhs.uk",
-                label: "Treatments"
-              }
-              ,
-              {
-                URL: "https://www.nhs.uk",
-                label: "Living with AMD"
-              }
-            ]
-          }) }}
-        </div>
+        {{ contentsList({
+          items: [
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/",
+              text: "What is AMD?",
+              current: "true"
+            },
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/",
+              text: "Symptoms"
+            },
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/",
+              text: "Getting diagnosed"
+            }
+            ,
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/",
+              text: "Treatments"
+            }
+            ,
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/",
+              text: "Living with AMD"
+            }
+          ]
+        }) }}
       </div>
     </div>
 

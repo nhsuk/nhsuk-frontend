@@ -61,16 +61,16 @@
   {{ breadcrumb({
     items: [
       {
-        URL: "https://www.nhs.uk/",
-        label: "Home"
+        text: "Home",
+        href: "https://www.nhs.uk/"
       },
       {
-        URL: "https://www.nhs.uk/conditions",
-        label: "Health A-Z"
+        text: "Health A-Z",
+        href: "https://www.nhs.uk/conditions"
       }
     ],
-    parentURL: "https://www.nhs.uk/conditions/abscess/",
-    parentLabel: "Abscess"
+    href: "https://www.nhs.uk/conditions/abscess/",
+    text: "Abscess"
   }) }}
 {% endblock %}
 
@@ -80,27 +80,27 @@
   {{ contentsList({
     items: [
       {
-        URL: "https://www.nhs.uk/",
-        label: "What is AMD?",
+        href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/",
+        text: "What is AMD?",
         current: "true"
       },
       {
-        URL: "https://www.nhs.uk",
-        label: "Symptoms"
+        href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/",
+        text: "Symptoms"
       },
       {
-        URL: "https://www.nhs.uk",
-        label: "Getting diagnosed"
+        href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/",
+        text: "Getting diagnosed"
       }
       ,
       {
-        URL: "https://www.nhs.uk",
-        label: "Treatments"
+        href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/",
+        text: "Treatments"
       }
       ,
       {
-        URL: "https://www.nhs.uk",
-        label: "Living with AMD"
+        href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/",
+        text: "Living with AMD"
       }
     ]
   }) }}
@@ -120,7 +120,7 @@
   }) }}
 
   {{ careCard({
-    "class": "blue",
+    "type": "primary",
     "heading": "Speak to a GP if:",
     "HTML": "
     <ul>
@@ -134,7 +134,7 @@
   }) }}
 
   {{ careCard({
-    "class": "red",
+    "type": "emergency",
     "heading": "Ask for an urgent GP appointment if:",
     "HTML": "
     <ul>
@@ -147,7 +147,7 @@
   }) }}
 
   {{ careCard({
-    "class": "black",
+    "type": "urgent",
     "heading": "Call 999 if you have sudden chest pain that:",
     "HTML": "
     <ul>
@@ -177,12 +177,12 @@
   }) }}
 
   {{ actionLink({
-    "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
-    "text": "Find a minor injuries unit"
+    "text": "Find a minor injuries unit",
+    "href": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551"
   }) }}
 
   {{ details({
-    "heading": "Where can I find my NHS number?",
+    "text": "Where can I find my NHS number?",
     "HTML": "
     <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
     <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
@@ -198,8 +198,8 @@
   }) }}
 
   {{ details({
-    "class": "nhsuk-expander",
-    "heading": "Opening times",
+    "classes": "nhsuk-expander",
+    "text": "Opening times",
     "HTML": "
     <table>
       <tbody>
@@ -241,8 +241,8 @@
 
   <div class="nhsuk-expander-group">
     {{ details({
-      "class": "nhsuk-expander",
-      "heading": "How to measure your blood glucose levels",
+      "classes": "nhsuk-expander",
+      "text": "How to measure your blood glucose levels",
       "HTML": "
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
       <p>You would have been given:</p>
@@ -255,8 +255,8 @@
       "
     }) }}
     {{ details({
-      "class": "nhsuk-expander",
-      "heading": "When to check your blood glucose level",
+      "classes": "nhsuk-expander",
+      "text": "When to check your blood glucose level",
       "HTML": "
       <p>Try to check your blood:</p>
       <ul>
