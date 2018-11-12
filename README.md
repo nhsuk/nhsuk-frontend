@@ -29,6 +29,11 @@ Please see our [browser support information](/docs/contributing/coding-standards
 
 Please see our [contributing guidelines](/docs/contributing/README.md) on how to set up the project locally and contribute changes to NHS.UK Frontend.
 
+**Special thanks to the following for their contributions:**
+
+- [Government Digital Service (GDS)](https://github.com/alphagov/)
+- [Harry Roberts (csswizardry)](https://github.com/csswizardry)
+
 ## Get in touch
 
 NHS.UK Frontend is actively maintained by a team at NHS Digital, you can contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [send us an email](mailto:nhsdigital.nhsuk-frontend@nhs.net).
