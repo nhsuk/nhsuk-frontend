@@ -1,12 +1,16 @@
 # List panel
 
-Find out more about the list panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the list panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/173).
 
-[Preview the List panel component]()
+## Quick start examples
 
-## HTML markup
+### List panel
+
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel.html)
+
+### HTML markup
 
 ```html
 <div class="nhsuk-list-panel nhsuk-list-panel--mobile">
@@ -92,7 +96,7 @@ Find out more about the list panel component and when to use it in the [NHS Digi
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
 ```html
 {% from 'components/list-panel/macro.njk' import listPanel %}
