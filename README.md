@@ -13,8 +13,8 @@ There are 2 ways you can start using NHS.UK Frontend in your websites and servic
 We recommend installing NHS.UK Frontend via package managers; node package manager (npm), yarn, or the Python Package Index (PyPi).
 
 + [Installing using npm](/docs/installation/installing-with-npm.md)
-+ [Installing using yarn](/docs/installation/installing-with-yarn.md)
-+ [Installing using PyPi](/docs/installation/installing-with-pypi.md)
++ Installing using yarn (available soon)
++ Installing using PyPi (available soon)
 
 ### 2. Install by using compiled files
 
