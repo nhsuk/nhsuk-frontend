@@ -1,12 +1,16 @@
 # Panel
 
-Find out more about the panel component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/175).
 
-[Preview the panel component]()
+## Quick start examples
 
-## HTML markup
+### Panel
+
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel.html)
+
+### HTML markup
 
 ```html
 <div class="nhsuk-panel">
@@ -15,9 +19,9 @@ Find out more about the panel component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -27,13 +31,11 @@ Find out more about the panel component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Panel with a label
+### Panel with a label
 
-## Example
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
 
-[Preview the panel with a label component]()
-
-## HTML markup
+### HTML markup
 
 ```html
 <div class="nhsuk-panel-with-label">
@@ -42,9 +44,9 @@ Find out more about the panel component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -53,13 +55,11 @@ Find out more about the panel component and when to use it in the [NHS digital s
 }) }}
 ```
            
-## Grey panel
+### Grey panel
 
-## Example
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html)
 
-[Preview the grey panel component]()
-
-## HTML markup
+### HTML markup
 
 ```html
 <div class="nhsuk-panel nhsuk-panel--grey">
@@ -68,9 +68,9 @@ Find out more about the panel component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -81,13 +81,11 @@ Find out more about the panel component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Panel group
+### Panel group
 
-## Example
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html)
 
-[Preview the panel group component]()
-
-## HTML markup
+### HTML markup
 
 ```html
 <div class="nhsuk-grid-row nhsuk-panel-group">
@@ -106,9 +104,9 @@ Find out more about the panel component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 <div class="nhsuk-grid-row nhsuk-panel-group">
