@@ -6,25 +6,17 @@
 
 To use NHS.UK Frontend in your projects with npm you must:
 
-1. Have [Node.js](https://nodejs.org/en/) installed.
+1. Have [Node.js](https://nodejs.org/en/) installed. We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, which also includes npm.
 
-   > We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, which also includes npm.
+2. Have a [package.json file](https://docs.npmjs.com/files/package.json) within your project. You can create a default `package.json` file by running `npm init` from the root of your application.
 
-2. Have a [package.json file](https://docs.npmjs.com/files/package.json) within your project. 
-
-   > You can create a default `package.json` file by running `npm init` from the root of your application.
-
-3. Have a pipeline set up to compile Sass files to CSS. 
-
-   > We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass), you can find an example of a `gulpfile.js` script to compile Sass to CSS in the [gulp-sass documentation](https://www.npmjs.com/package/gulp-sass#basic-usage).
+3. Have a pipeline set up to compile Sass files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass), you can find an example of a `gulpfile.js` script to compile Sass to CSS in the [gulp-sass documentation](https://www.npmjs.com/package/gulp-sass#basic-usage).
 
     ```
     npm install gulp gulp-sass --save
     ```
 
-4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks.
-
-   > [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
+4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
 
     ```
     npm install nunjucks --save
@@ -59,31 +51,42 @@ Alternatively you can import each of the individual components separately, meani
 
 ```SCSS
 // Core (required)
-@import 'node_modules/core/all';
+@import 'node_modules/nhsuk-frontend/core/all';
 
-// Individual components (optional)
-@import 'node_modules/components/action-link/action-link';
-@import 'node_modules/components/breadcrumb/breadcrumb';
-@import 'node_modules/components/care-card/care-card';
-@import 'node_modules/components/contents-list/contents-list';
-@import 'node_modules/components/details/details';
-@import 'node_modules/components/do-dont-list/do-dont-list';
-@import 'node_modules/components/emergency-alert/emergency-alert';
-@import 'node_modules/components/feedback-banner/feedback-banner';
-@import 'node_modules/components/footer/footer';
-@import 'node_modules/components/header/header';
-@import 'node_modules/components/hero/hero';
-@import 'node_modules/components/images/images';
-@import 'node_modules/components/inset-text/inset-text';
-@import 'node_modules/components/list-panel/list-panel';
-@import 'node_modules/components/nav-a-z/nav-a-z';
-@import 'node_modules/components/pagination/pagination';
-@import 'node_modules/components/panel/panel';
-@import 'node_modules/components/promo/promo';
-@import 'node_modules/components/review-date/review-date';
-@import 'node_modules/components/skip-link/skip-link';
-@import 'node_modules/components/tables/tables';
-@import 'node_modules/components/warning-callout/warning-callout';
+// Individual component (optional)
+@import 'node_modules/nhsuk-frontend/components/action-link/action-link';
+```
+
+### Optional: Resolving SCSS import paths
+
+If you wish to resolve the above @import paths in your build (in order to avoid prefixing paths with node_modules), you should add node_modules to your Sass include paths.
+
+For example, if your project uses Gulp, you would add the Sass include paths to your Gulp configuration file (for example gulpfile.js) with gulp-sass. Below is an example:
+
+```javascript
+gulp.task('sass', function () {
+  return gulp.src('./styles/**/*.scss')
+    .pipe(sass({
+      includePaths: 'node_modules'
+     }))
+    .pipe(gulp.dest('./css'));
+});
+```
+
+After resolving the import paths you can import all of the NHS.UK Frontend by using:
+
+```SCSS
+@import 'nhsuk-frontend/nhsuk';
+```
+
+or individually:
+
+```SCSS
+// Core (required)
+@import 'nhsuk-frontend/core/all';
+
+// Individual component (optional)
+@import 'nhsuk-frontend/components/action-link/action-link';
 ```
 
 ## Importing JavaScript
@@ -94,20 +97,32 @@ You should include NHS.UK Frontend JavaScript in your application to ensure that
 
 Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of the page using the `defer` attribute. You might wish to copy the file into your project assets directory or reference it straight from `node_modules`.
 
+```html
+    <script src="/path-to-assets/nhsuk.min.js" defer></script>
+    <script src="/path-to-assets/jquery-3.3.1.min.js"></script>
+  </head>
+```
+
+### Optional: node_modules path configuration
+
+In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show these files. Below is a sample configuration using Express.js:
+
+```
+app.use(express.static(path.join(__dirname, '/node_modules')));
+```
+
+```html
+    <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
+    <script src="/nhsuk-frontend/jquery-3.3.1.min.js"></script>
+  </head>
+```
+
 ### jQuery dependency
 
 The search component autocomplete requires jQuery, please ensure you have jQuery included within you project for this to work. In the future we are looking to remove the
 jQuery dependency.
 
 > For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.
-
-### Example
-
-```html
-    <script src="/path-to-assets/nhsuk.min.js" defer></script>
-    <script src="/path-to-assets/jquery-3.3.1.min.js"></script>
-  </head>
-```
 
 ## Importing assets
 
@@ -134,3 +149,7 @@ Add the CSS and JavaScript code to your HTML template:
   </body>
 </html>
 ```
+
+## Thanks to the Government Digital Service (GDS)
+
+This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md) with a few minor adaptations.

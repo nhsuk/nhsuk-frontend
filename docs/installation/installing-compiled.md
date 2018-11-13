@@ -16,7 +16,7 @@ This means that you will not be able to:
 
 2. Include resources  
 
-    Copy the files into folders, such as `styles` and `scripts`, within your project. 
+    Copy the files into folders, such as `css` and `js`, within your project. 
     You must copy the entire `assets` folder to the root of your project.
     Then import the files into the `<head>` of your layout file using the `<link>` and `<script>` tags. 
 
@@ -24,11 +24,11 @@ This means that you will not be able to:
 
     ```html
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/nhsuk-0.0.0.min.css">
+    <link rel="stylesheet" href="css/nhsuk-0.0.0.min.css">
 
     <!-- Scripts -->
-    <script src="scripts/nhsuk-0.0.0.min.js" defer></script>
-    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="js/nhsuk-0.0.0.min.js" defer></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 
     <!-- Favicons -->
     <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
@@ -67,3 +67,7 @@ crossorigin="anonymous"></script>
 ### Codepen
 
 [View NHS.UK Frontend templates on Codepen]()
+
+## Thanks to the Government Digital Service (GDS)
+
+This documentation has been taken from [Installing GOV.UK Frontend from dist](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-from-dist.md) with a few minor adaptations.
