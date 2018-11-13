@@ -24,12 +24,12 @@
     padding-bottom: nhsuk-spacing(0);
   }
 
-  a {
+  > a {
     display: block;
     height: 40px;
     width: 99px;
 
-    .nhsuk-u-visually-hidden {
+    > .nhsuk-u-visually-hidden {
       top: -9999px; // Moves outline on iOS off screen
     }
 

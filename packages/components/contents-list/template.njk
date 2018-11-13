@@ -4,9 +4,9 @@
     {% for item in params.items %}
     <li class="nhsuk-contents-list__item">
       {% if item.current %}
-        <span class="nhsuk-contents-list__current" aria-current="page">{{ item.label }}</span>
+        <span class="nhsuk-contents-list__current" aria-current="page">{{ item.text }}</span>
         {% else %}
-        <a class="nhsuk-contents-list__link" href="{{ item.URL }}">{{ item.label }}</a>
+        <a class="nhsuk-contents-list__link" href="{{ item.href }}">{{ item.text }}</a>
       {% endif %}
     </li>
     {% endfor %}

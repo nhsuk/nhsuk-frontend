@@ -1,5 +1,4 @@
-<section class="nhsuk-hero {% if params.imageURL and params.heading %}nhsuk-hero--image nhsuk-hero--image-description{% elif params.imageURL %}nhsuk-hero--image{% endif %}"
-  {% if params.imageURL %} style="background-image: url('{{ params.imageURL }}');" {% endif %}>
+<section class="nhsuk-hero{% if params.imageURL and params.heading %} nhsuk-hero--image nhsuk-hero--image-description{% elif params.imageURL %} nhsuk-hero--image{% endif %}" {% if params.imageURL %} style="background-image: url('{{ params.imageURL }}');" {% endif %}>
   {% if params.imageURL %}<div class="nhsuk-hero__overlay">{% endif %}
   {% if params.heading %}
   <div class="nhsuk-width-container nhsuk-hero--border">
