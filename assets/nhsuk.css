@@ -1,10 +1,5 @@
 @charset "UTF-8";
 /* ==========================================================================
-   CORE
-   ========================================================================== */
-/* [1] */
-/* [1] */
-/* ==========================================================================
    GENERIC / #BOX-SIZING
    ========================================================================== */
 /**
@@ -124,7 +119,6 @@ a {
  *    render text using sub-pixel anti-aliasing.
  * 3. Override the user agent style margin of 8px.
  * 4. Ensure the page always fills at least the entire height of the viewport.
- *
  */
 html {
   background-color: #005eb8;
@@ -291,7 +285,7 @@ caption {
  * 1. In IE11 the `main` element can be used, but is not recognized  –
  *    meaning it's not defined in IE's default style sheet,
  *    so it uses CSS initial value, which is inline.
-*/
+ */
 .nhsuk-main-wrapper {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -318,7 +312,7 @@ caption {
  * 3. From desktop, add full width gutters
  * 4. As soon as the viewport is greater than the width of the page plus the
  *    gutters, just centre the content instead of adding gutters.
-*/
+ */
 .nhsuk-width-container {
   margin: 0 16px;
   /* [1] */
@@ -340,14 +334,10 @@ caption {
  *
  * For IE8 support, alternate styling is applied to the components using icons.
  */
-/* Default icon size
-   ========================================================================== */
 .nhsuk-icon {
   height: 34px;
   width: 34px; }
 
-/* Default icon colours
-   ========================================================================== */
 .nhsuk-icon__search {
   fill: #005eb8; }
 
@@ -391,8 +381,6 @@ caption {
   .nhsuk-icon__chevron-up path {
     fill: #ffffff; }
 
-/* Icon size adjustments
-   ========================================================================== */
 .nhsuk-icon--size-25 {
   height: 42.5px;
   width: 42.5px; }
@@ -413,14 +401,6 @@ caption {
    STYLES / #LISTS
    ========================================================================== */
 /**
- * The % (silent class) allows code to be extended (@extend) to other elements
- * without bloating the code.
- *
- * @example scss
- *  .foo {
- *    @extend %nhsuk-section-break--xl;
- *   }
- *
  * 1. 'Random number' used to align ul and ol left with content.
  * 2. 'Random number' used to give sufficient spacing between text and icon.
  * 3. 'Random number' used to align icon and text.
@@ -483,14 +463,6 @@ caption {
    STYLES / #SECTION-BREAK
    ========================================================================== */
 /**
- * The % (silent class) allows code to be extended (@extend) to other elements
- * without bloating the code.
- *
- * @example scss
- *  .foo {
- *    @extend %nhsuk-section-break--xl;
- *   }
- *
  * 1. Extended the section-break--l code for usage of a semantic <hr> with
  * no class name.
  *
@@ -540,17 +512,7 @@ hr {
 /* ==========================================================================
    STYLES / #TYPOGRAPHY
    ========================================================================== */
-/* Headings
-   ========================================================================== */
-/**
- * The % (silent class) allows code to be extended (@extend) to other elements
- * without bloating the code.
- *
- * @example scss
- *  .foo {
- *    @extend %nhsuk-heading-xl;
- *   }
- */
+/* Headings */
 h1,
 .nhsuk-heading-xl {
   font-size: 32px;
@@ -701,8 +663,7 @@ h6,
     .nhsuk-heading-xxs {
       margin-bottom: 24px; } }
 
-/* Captions to be used inside headings
-   ========================================================================== */
+/* Captions to be used inside headings */
 .nhsuk-caption-xl {
   font-weight: 400;
   font-size: 24px;
@@ -760,8 +721,7 @@ h6,
   margin-bottom: 0;
   margin-top: 4px; }
 
-/* Body (paragraphs)
-   ========================================================================== */
+/* Body (paragraphs) */
 .nhsuk-body-l {
   font-size: 20px;
   font-size: 1.25rem;
@@ -830,9 +790,9 @@ p,
     .nhsuk-body-s {
       margin-bottom: 24px; } }
 
-/* Contextual adjustments
-   ========================================================================== */
 /**
+ * Contextual adjustments
+ *
  * Add top padding to headings that appear directly after paragraphs.
  *
  * Original code taken from GDS (Government Digital Service)
@@ -922,8 +882,7 @@ ol + .nhsuk-heading-s {
     ol + .nhsuk-heading-s {
       padding-top: 8px; } }
 
-/* Font weight for <strong> and <b>
-   ========================================================================== */
+/* Font weight for <strong> and <b> */
 strong,
 b {
   font-weight: 600; }
@@ -954,9 +913,6 @@ b {
  *
  * Usage: class="nhsuk-u-one-half"
  */
-/* Utility classes are allowed to use !important;
- * so we disable the sass-lint for that rule
-*/
 .nhsuk-u-one-half {
   float: left;
   width: 50% !important; }
@@ -1049,44 +1005,12 @@ b {
 .nhsuk-u-reading-width {
   max-width: 37em; }
 
-/* ==========================================================================
-   UTILITIES / #SPACING
-   ========================================================================== */
-/* Directions for spacing
-   ========================================================================== */
-/**
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- */
-/* Spacing override classes
-   ========================================================================== */
-/**
- * Generate spacing override classes for the given property (e.g. margin)
- * for each point in the spacing scale.
- *
- * @param {String} $property - Property to add spacing to (e.g. 'margin')
- *
- * @example scss
- *   .nhsuk-\!-margin-0 {
- *      margin: 0;
- *   }
- *
- *  .nhsuk-\!-margin-top-1 {
- *     margin-top: [whatever spacing point 1 is...]
- *   }
- *
- * 1. For each point in the spacing scale (defined in settings), create an
- *    override that affects all directions...
- * 2. ... and then an override for each individual direction
- */
-/* [1] */
 .nhsuk-\!-margin-0 {
   margin: 0 !important; }
   @media (min-width: 40.0625em) {
     .nhsuk-\!-margin-0 {
       margin: 0 !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-0 {
   margin-top: 0 !important; }
   @media (min-width: 40.0625em) {
@@ -1117,7 +1041,6 @@ b {
     .nhsuk-\!-margin-1 {
       margin: 4px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-1 {
   margin-top: 4px !important; }
   @media (min-width: 40.0625em) {
@@ -1148,7 +1071,6 @@ b {
     .nhsuk-\!-margin-2 {
       margin: 8px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-2 {
   margin-top: 8px !important; }
   @media (min-width: 40.0625em) {
@@ -1179,7 +1101,6 @@ b {
     .nhsuk-\!-margin-3 {
       margin: 16px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-3 {
   margin-top: 8px !important; }
   @media (min-width: 40.0625em) {
@@ -1210,7 +1131,6 @@ b {
     .nhsuk-\!-margin-4 {
       margin: 24px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-4 {
   margin-top: 16px !important; }
   @media (min-width: 40.0625em) {
@@ -1241,7 +1161,6 @@ b {
     .nhsuk-\!-margin-5 {
       margin: 32px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-5 {
   margin-top: 24px !important; }
   @media (min-width: 40.0625em) {
@@ -1272,7 +1191,6 @@ b {
     .nhsuk-\!-margin-6 {
       margin: 40px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-6 {
   margin-top: 32px !important; }
   @media (min-width: 40.0625em) {
@@ -1303,7 +1221,6 @@ b {
     .nhsuk-\!-margin-7 {
       margin: 48px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-7 {
   margin-top: 40px !important; }
   @media (min-width: 40.0625em) {
@@ -1334,7 +1251,6 @@ b {
     .nhsuk-\!-margin-8 {
       margin: 56px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-8 {
   margin-top: 48px !important; }
   @media (min-width: 40.0625em) {
@@ -1365,7 +1281,6 @@ b {
     .nhsuk-\!-margin-9 {
       margin: 64px !important; } }
 
-/* [2] */
 .nhsuk-\!-margin-top-9 {
   margin-top: 56px !important; }
   @media (min-width: 40.0625em) {
@@ -1390,14 +1305,12 @@ b {
     .nhsuk-\!-margin-left-9 {
       margin-left: 64px !important; } }
 
-/* [1] */
 .nhsuk-\!-padding-0 {
   padding: 0 !important; }
   @media (min-width: 40.0625em) {
     .nhsuk-\!-padding-0 {
       padding: 0 !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-0 {
   padding-top: 0 !important; }
   @media (min-width: 40.0625em) {
@@ -1428,7 +1341,6 @@ b {
     .nhsuk-\!-padding-1 {
       padding: 4px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-1 {
   padding-top: 4px !important; }
   @media (min-width: 40.0625em) {
@@ -1459,7 +1371,6 @@ b {
     .nhsuk-\!-padding-2 {
       padding: 8px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-2 {
   padding-top: 8px !important; }
   @media (min-width: 40.0625em) {
@@ -1490,7 +1401,6 @@ b {
     .nhsuk-\!-padding-3 {
       padding: 16px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-3 {
   padding-top: 8px !important; }
   @media (min-width: 40.0625em) {
@@ -1521,7 +1431,6 @@ b {
     .nhsuk-\!-padding-4 {
       padding: 24px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-4 {
   padding-top: 16px !important; }
   @media (min-width: 40.0625em) {
@@ -1552,7 +1461,6 @@ b {
     .nhsuk-\!-padding-5 {
       padding: 32px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-5 {
   padding-top: 24px !important; }
   @media (min-width: 40.0625em) {
@@ -1583,7 +1491,6 @@ b {
     .nhsuk-\!-padding-6 {
       padding: 40px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-6 {
   padding-top: 32px !important; }
   @media (min-width: 40.0625em) {
@@ -1614,7 +1521,6 @@ b {
     .nhsuk-\!-padding-7 {
       padding: 48px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-7 {
   padding-top: 40px !important; }
   @media (min-width: 40.0625em) {
@@ -1645,7 +1551,6 @@ b {
     .nhsuk-\!-padding-8 {
       padding: 56px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-8 {
   padding-top: 48px !important; }
   @media (min-width: 40.0625em) {
@@ -1676,7 +1581,6 @@ b {
     .nhsuk-\!-padding-9 {
       padding: 64px !important; } }
 
-/* [2] */
 .nhsuk-\!-padding-top-9 {
   padding-top: 56px !important; }
   @media (min-width: 40.0625em) {
@@ -1704,9 +1608,9 @@ b {
 /* ==========================================================================
    UTILITIES / #TYPOGRAPHY
    ========================================================================== */
-/* Font size and line height
-   ========================================================================== */
 /**
+ * Font size and line height
+ *
  * Generate typography override classes for each responsive font map in the
  * typography scale eg .nhsuk-\!-font-size-48
  *
@@ -1866,9 +1770,6 @@ b {
  *
  * Usage: class="nhsuk-\!-width-full"
  */
-/* Utility classes are allowed to use !important;
- * so we disable the sass-lint for that rule
-*/
 .nhsuk-u-width-full {
   width: 100% !important; }
 
@@ -1996,11 +1897,13 @@ b {
  * 5. and core/settings/_typography for size maps.
  * 5. .. but show a back to index page link.
  * 6. Remove spacing between back icon and label.
-**/
+ */
 .nhsuk-breadcrumb {
   background-color: #ffffff;
   padding-bottom: 12px;
-  padding-top: 12px; }
+  /* [1] */
+  padding-top: 12px;
+  /* [1] */ }
   @media print {
     .nhsuk-breadcrumb {
       display: none; } }
@@ -2026,13 +1929,15 @@ b {
   padding: 0; }
   @media (max-width: 40.0525em) {
     .nhsuk-breadcrumb__list {
-      display: none; } }
+      display: none;
+      /* [3] */ } }
 
 .nhsuk-breadcrumb__item {
   font-weight: 400;
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.71429;
+  /* [4] */
   display: inline-block;
   margin: 0; }
   @media (min-width: 40.0625em) {
@@ -2050,6 +1955,7 @@ b {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.71429;
+  /* [4] */
   margin: 0; }
   @media (min-width: 40.0625em) {
     .nhsuk-breadcrumb__back {
@@ -2062,10 +1968,12 @@ b {
       line-height: 1.2; } }
   @media (min-width: 40.0625em) {
     .nhsuk-breadcrumb__back {
-      display: none; } }
+      display: none;
+      /* [5] */ } }
 
 .nhsuk-breadcrumb__backlink {
   left: -8px;
+  /* [6] */
   position: relative; }
 
 /* ==========================================================================
@@ -2219,7 +2127,7 @@ b {
 /**
  * 1. Creates a grey line before each list
  *    item using a ASCII number for the symbol.
-**/
+ */
 .nhsuk-contents-list {
   margin-bottom: 40px; }
   @media (min-width: 40.0625em) {
@@ -2289,10 +2197,13 @@ b {
 
 .nhsuk-details__summary {
   color: #005eb8;
+  /* [1] */
   cursor: pointer;
   display: inline-block;
+  /* [2] */
   padding-left: 24px;
-  position: relative; }
+  position: relative;
+  /* [3] */ }
   .nhsuk-details__summary:hover {
     background-color: #ffcd60;
     box-shadow: 0 0 0 4px #ffcd60;
@@ -2340,10 +2251,12 @@ b {
       text-decoration: none; }
 
 .nhsuk-details__summary-text {
-  text-decoration: underline; }
+  text-decoration: underline;
+  /* [4] */ }
 
 .nhsuk-details__summary::-webkit-details-marker {
-  display: none; }
+  display: none;
+  /* [5] */ }
 
 .nhsuk-details__text {
   border-left: 4px solid #d8dde0;
@@ -2385,6 +2298,7 @@ b {
     .nhsuk-expander .nhsuk-details__summary:hover {
       box-shadow: 0 0 0 4px #ffcd60; }
     .nhsuk-expander .nhsuk-details__summary:hover, .nhsuk-expander .nhsuk-details__summary:active, .nhsuk-expander .nhsuk-details__summary:focus {
+      /* [2] */
       outline: 0; }
   .nhsuk-expander .nhsuk-details__summary-text {
     background: url(/assets/icons/icon-plus.svg) left -2px center no-repeat;
@@ -2406,13 +2320,16 @@ b {
   border-bottom: 1px solid #f0f4f5; }
 
 .nhsuk-expander[open] .nhsuk-details__summary-text {
-  background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; }
+  background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat;
+  /* [3] */ }
 
-.nhsuk-expander-group > .nhsuk-details {
-  margin-bottom: 8px; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-expander-group > .nhsuk-details {
-      margin-bottom: 8px; } }
+.nhsuk-expander-group {
+  /* [4] */ }
+  .nhsuk-expander-group > .nhsuk-details {
+    margin-bottom: 8px; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-expander-group > .nhsuk-details {
+        margin-bottom: 8px; } }
 
 /* ==========================================================================
    COMPONENTS / #DO-DONT-LIST
@@ -2504,7 +2421,8 @@ b {
     .nhsuk-global-alert {
       display: none; } }
   .nhsuk-global-alert a {
-    color: #005eb8; }
+    color: #005eb8;
+    /* [1] */ }
     .nhsuk-global-alert a:focus {
       background-color: #003d78;
       box-shadow: 0 0 0 4px #003d78;
@@ -2581,12 +2499,14 @@ b {
   bottom: 0;
   box-shadow: 0 -4px 0 0 rgba(33, 43, 50, 0.16);
   display: none;
+  /* [1] */
   margin: 0 auto;
   padding-bottom: 24px;
   padding-top: 24px;
   position: fixed;
   width: 100%;
-  z-index: 20; }
+  z-index: 20;
+  /* [2] */ }
   @media print {
     .nhsuk-feedback-banner {
       display: none; } }
@@ -2596,7 +2516,8 @@ b {
   font-size: 1.25rem;
   line-height: 1.4;
   margin: 0;
-  padding-right: 40px; }
+  padding-right: 40px;
+  /* [3] */ }
   @media (min-width: 40.0625em) {
     .nhsuk-feedback-banner__heading {
       font-size: 24px;
@@ -2617,7 +2538,8 @@ b {
 .nhsuk-feedback-banner__message {
   margin-bottom: 0;
   margin-top: 8px;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+  /* [4] */ }
   @media (min-width: 20em) {
     .nhsuk-feedback-banner__message {
       padding-bottom: 0; } }
@@ -2631,6 +2553,7 @@ b {
   border: 0;
   color: #212b32;
   cursor: pointer;
+  /* [6] */
   padding: 0;
   position: absolute;
   right: 0;
@@ -3385,7 +3308,8 @@ b {
 .nhsuk-hero {
   background-color: #005eb8;
   color: #ffffff;
-  position: relative; }
+  position: relative;
+  /* [1] */ }
   @media print {
     .nhsuk-hero {
       color: #212b32;
@@ -3393,6 +3317,7 @@ b {
       .nhsuk-hero:active, .nhsuk-hero:focus, .nhsuk-hero:visited {
         color: #212b32; } }
   .nhsuk-hero .nhsuk-hero--border {
+    /* [2] */
     border-top: 1px solid rgba(255, 255, 255, 0.2); }
 
 .nhsuk-hero__wrapper {
@@ -3415,17 +3340,21 @@ b {
  */
 .nhsuk-hero--image {
   background-position: center right;
+  /* [4] */
   background-repeat: no-repeat;
   background-size: cover; }
   @media only screen {
     .nhsuk-hero--image {
+      /* [5] */
       height: 240px; } }
   @media (min-width: 40.0625em) {
     .nhsuk-hero--image {
       height: 320px; } }
   .nhsuk-hero--image .nhsuk-hero__overlay {
     background-color: rgba(0, 47, 92, 0.1);
-    height: 100%; }
+    /* [6] */
+    height: 100%;
+    /* [7] */ }
 
 /**
  *  Hero component title and description styles.
@@ -3439,15 +3368,19 @@ b {
  * 12. Fallback for triangle on high contrast.
  */
 .nhsuk-hero--image-description {
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  /* [8] */ }
   @media (min-width: 40.0625em) {
     .nhsuk-hero--image-description {
-      margin-bottom: 72px; } }
+      margin-bottom: 72px;
+      /* [8] */ } }
   .nhsuk-hero--image-description .nhsuk-hero-content {
     background-color: #005eb8;
     bottom: -48px;
+    /* [9] */
     color: #ffffff;
     max-width: 565px;
+    /* [10] */
     padding: 32px 40px;
     position: absolute; }
     .nhsuk-hero--image-description .nhsuk-hero-content > *:first-child {
@@ -3469,7 +3402,8 @@ b {
         left: 0;
         max-width: 100%;
         padding: 0;
-        position: relative; } }
+        position: relative;
+        /* [11] */ } }
     .nhsuk-hero--image-description .nhsuk-hero-content:after {
       -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
@@ -3887,7 +3821,8 @@ b {
   .nhsuk-pagination__link--prev .nhsuk-icon {
     left: -6px; }
   .nhsuk-pagination__link--prev .nhsuk-pagination__title {
-    padding-left: 32px; }
+    padding-left: 32px;
+    /* [1] */ }
 
 .nhsuk-pagination__link--next {
   float: right;
@@ -3895,7 +3830,8 @@ b {
   .nhsuk-pagination__link--next .nhsuk-icon {
     right: -6px; }
   .nhsuk-pagination__link--next .nhsuk-pagination__title {
-    padding-right: 32px; }
+    padding-right: 32px;
+    /* [1] */ }
 
 .nhsuk-pagination__title {
   font-size: 20px;
@@ -3913,7 +3849,8 @@ b {
       line-height: 1.15; } }
   @media print {
     .nhsuk-pagination__title:after {
-      content: ' page'; } }
+      content: ' page';
+      /* [2] */ } }
 
 .nhsuk-pagination__page {
   font-size: 14px;
@@ -4038,13 +3975,15 @@ b {
 .nhsuk-panel-group {
   display: flex;
   flex-wrap: wrap;
+  /* [1] */
   margin-bottom: 32px; }
   @media (max-width: 48.0525em) {
     .nhsuk-panel-group {
       margin-bottom: 24px; } }
 
 .nhsuk-panel-group__item {
-  display: flex; }
+  display: flex;
+  /* [1] */ }
   @media (max-width: 48.0525em) {
     .nhsuk-panel-group__item {
       flex: 0 0 100%; } }
@@ -4215,10 +4154,12 @@ b {
  */
 .nhsuk-skip-link {
   left: -9999px;
+  /* [1] */
   padding: 8px;
   position: absolute; }
   .nhsuk-skip-link:active, .nhsuk-skip-link:focus {
     left: 16px;
+    /* [2] */
     top: 16px;
     z-index: 2; }
   .nhsuk-skip-link:visited {
