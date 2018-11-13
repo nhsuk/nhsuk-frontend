@@ -44,17 +44,17 @@ You will need to import a couple of things into your project before you can star
 You need to import styles into the main Sass file in your project. You should place the below code before your own Sass styles.
 
 ```SCSS
-@import 'node_modules/nhsuk-frontend/nhsuk';
+@import 'node_modules/nhsuk-frontend/packages/nhsuk';
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import only the components you require. 
 
 ```SCSS
 // Core (required)
-@import 'node_modules/nhsuk-frontend/core/all';
+@import 'node_modules/nhsuk-frontend/packages/core/all';
 
 // Individual component (optional)
-@import 'node_modules/nhsuk-frontend/components/action-link/action-link';
+@import 'node_modules/nhsuk-frontend/packages/components/action-link/action-link';
 ```
 
 ### Optional: Resolving SCSS import paths
@@ -76,17 +76,17 @@ gulp.task('sass', function () {
 After resolving the import paths you can import all of the NHS.UK Frontend by using:
 
 ```SCSS
-@import 'nhsuk-frontend/nhsuk';
+@import 'nhsuk-frontend/packages/nhsuk';
 ```
 
 or individually:
 
 ```SCSS
 // Core (required)
-@import 'nhsuk-frontend/core/all';
+@import 'nhsuk-frontend/packages/core/all';
 
 // Individual component (optional)
-@import 'nhsuk-frontend/components/action-link/action-link';
+@import 'nhsuk-frontend/packages/components/action-link/action-link';
 ```
 
 ## Importing JavaScript
@@ -99,7 +99,7 @@ Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of
 
 ### node_modules path configuration
 
-In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show these files. Below is a sample configuration using Express.js:
+In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show these files. Below is a sample configuration using [Express.js](https://expressjs.com/):
 
 ```
 app.use(express.static(path.join(__dirname, '/node_modules')));
@@ -107,7 +107,6 @@ app.use(express.static(path.join(__dirname, '/node_modules')));
 
 ```html
     <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
-    <script src="/nhsuk-frontend/jquery-3.3.1.min.js"></script>
   </head>
 ```
 
