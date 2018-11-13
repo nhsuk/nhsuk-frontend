@@ -128,18 +128,18 @@ jQuery dependency.
 
 ## Importing assets
 
-In order to import NHS.UK Frontend images and icons to your project, you should configure your application to reference the `node_modules` folder. Below is a sample configuration using Express.js:
+In order to import NHS.UK Frontend images and icons to your project, you should configure your application to reference the `node_modules` folder, the same as the importing JavaScript. Below is a sample configuration using Express.js:
 
 ```
-app.use('/assets', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/assets')));
+app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/packages')));
 ```
 
 **Favicons**
 
 ```html
-<!--[if IE]><link rel="shortcut icon" href="/favicons/favicon.ico"><![endif]-->
-<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
-<link rel="icon" href="/favicons/favicon.png">
+<!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets//favicons/favicon.ico"><![endif]-->
+<link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+<link rel="icon" href="/nhsuk-frontend/assets//favicons/favicon.png">
 ```
 
 **Icons**
@@ -147,7 +147,7 @@ app.use('/assets', express.static(path.join(__dirname, '/node_modules/nhsuk-fron
 If you are using a templating language, such as nunjucks, you can include icons with:
 
 ```html
-{% include '/icons/icon-arrow-right-circle.svg' %}
+{% include '/nhsuk-frontend/assets/icons/icon-arrow-right-circle.svg' %}
 ```
 
 Alternatively with SVG icons you can just include the code required for that icon:
