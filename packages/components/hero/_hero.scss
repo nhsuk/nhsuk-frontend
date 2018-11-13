@@ -15,9 +15,9 @@
 
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
-  position: relative; // [1] //
+  position: relative; /* [1] */
 
-  .nhsuk-hero--border { // [2] //
+  .nhsuk-hero--border { /* [2] */
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
   }
 
@@ -38,11 +38,11 @@
  */
 
 .nhsuk-hero--image {
-  background-position: center right; // [4] //
+  background-position: center right; /* [4] */
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media only screen { // [5] //
+  @media only screen { /* [5] */
     height: 240px;
   }
 
@@ -51,8 +51,8 @@
   }
 
   .nhsuk-hero__overlay {
-    background-color: $color_transparent_nhsuk-blue-50; // [6] //
-    height: 100%; // [7] //
+    background-color: $color_transparent_nhsuk-blue-50; /* [6] */
+    height: 100%; /* [7] */
   }
 
 }
@@ -70,18 +70,18 @@
  */
 
 .nhsuk-hero--image-description {
-  margin-bottom: 100px; // [8] //
+  margin-bottom: 100px; /* [8] */
 
   @include mq($from: tablet) {
-    margin-bottom: 72px; // [8] //
+    margin-bottom: 72px; /* [8] */
   }
 
   .nhsuk-hero-content {
     @include top-and-bottom();
     background-color: $color_nhsuk-blue;
-    bottom: -48px; // [9] //
+    bottom: -48px; /* [9] */
     color: $color_nhsuk-white;
-    max-width: 565px; // [10] //
+    max-width: 565px; /* [10] */
     padding: nhsuk-spacing(5) nhsuk-spacing(6);
     position: absolute;
 
@@ -101,7 +101,7 @@
       left: 0;
       max-width: 100%;
       padding: 0;
-      position: relative; // [11] //
+      position: relative; /* [11] */
     }
 
     &:after {

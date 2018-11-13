@@ -15,7 +15,7 @@
   padding-top: nhsuk-spacing(4);
 
   a {
-    @include nhsuk-link-style-inverted; // [1] //
+    @include nhsuk-link-style-inverted; /* [1] */
   }
 
 }

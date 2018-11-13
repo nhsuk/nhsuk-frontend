@@ -35,7 +35,7 @@
  */
 
 .nhsuk-panel-group {
-  @include flex(); // [1] //
+  @include flex(); /* [1] */
 
   margin-bottom: nhsuk-spacing(5);
 
@@ -46,7 +46,7 @@
 }
 
 .nhsuk-panel-group__item {
-  @include flex-item(); // [1] //
+  @include flex-item(); /* [1] */
 
   @include mq($until: desktop) {
     margin-bottom: nhsuk-spacing(4);
