@@ -5,42 +5,30 @@ describe('setting screen res', function () {
 
   });
 
-  it('Navigating to Review date Component', function (done) {
-    // this event will automatically be unbound when this
-    // test ends because it's attached to 'cy'
-    cy.on('uncaught:exception', (err, runnable) => {
-      // using mocha's async done callback to finish
-      // this test so we prove that an uncaught exception
-      // was thrown
-      done();
-      // return false to prevent the error from
-      // failing this test
-      return false
-    });
+  it('Navigating to Review date Component', function () {
 
-    // assume this causes an error
     cy
-      .visit(Cypress.config().baseUrl + '/review-date')
+      .visit(Cypress.config().baseUrl + '/review-date.html')
 
   });
 
 
   it('Checking for review date class', function () {
     cy
-      .get('.nhsuk-grid-column-two-thirds').children().should('have.class', 'nhsuk-c-review-date')
+      .get('.nhsuk-grid-column-two-thirds').children().should('have.class', 'nhsuk-review-date')
 
   });
 
 
   it('Checking for Page last reviewed text', function () {
     cy
-      .get('.nhsuk-c-review-date').children().contains('Page last reviewed:').should('have.class', 'nhsuk-body-s')
+      .get('.nhsuk-review-date').children().contains('Page last reviewed:').should('have.class', 'nhsuk-body-s')
 
   });
 
   it('Checking for Next review due', function () {
     cy
-      .get('.nhsuk-c-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
+      .get('.nhsuk-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
 
   });
 

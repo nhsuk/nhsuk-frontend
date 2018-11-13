@@ -40,7 +40,7 @@
   },
 
 
-  "baseUrl": "http://localhost:3000/pages/components/",
+  "baseUrl": "http://localhost:3000/components/",
   "liveUrl": "https://www.nhs.uk/",
   "license": "MIT",
   "chromeWebSecurity": false

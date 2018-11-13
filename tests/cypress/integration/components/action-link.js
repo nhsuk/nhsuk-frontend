@@ -5,31 +5,19 @@ describe('setting screen res', function () {
 
   });
 
-  it('Navigating to Action Link Component', function (done) {
-    // this event will automatically be unbound when this
-    // test ends because it's attached to 'cy'
-    cy.on('uncaught:exception', (err, runnable) => {
-      // using mocha's async done callback to finish
-      // this test so we prove that an uncaught exception
-      // was thrown
-      done();
-      // return false to prevent the error from
-      // failing this test
-      return false
-    });
+  it('Navigating to Action Link Component', function () {
 
-    // assume this causes an error
     cy
-      .visit(Cypress.config().baseUrl + '/action-link')
+      .visit(Cypress.config().baseUrl + '/action-link.html')
 
   });
 
 
   // checking for class name - nhsuk-c-action-link
-  it('Checking for class name - nhsuk-c-action-link', function () {
+  it('Checking for class name - nhsuk-action-link', function () {
 
     cy
-      .get('.nhsuk-page-content').children().should('have.class','nhsuk-c-action-link')
+      .get('.nhsuk-grid-column-two-thirds').first().children().should('have.class','nhsuk-action-link')
 
   });
 
@@ -38,7 +26,7 @@ describe('setting screen res', function () {
   it('Checking for right arrow class', function () {
 
     cy
-      .get('.nhsuk-c-action-link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
+      .get('.nhsuk-action-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
 
   });
 

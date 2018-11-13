@@ -5,29 +5,16 @@ describe('setting screen res', function () {
 
   });
 
-  it('Navigating to Breadcrumb component', function (done) {
-    // this event will automatically be unbound when this
-    // test ends because it's attached to 'cy'
-    cy.on('uncaught:exception', (err, runnable) => {
-      // using mocha's async done callback to finish
-      // this test so we prove that an uncaught exception
-      // was thrown
-      done();
-      // return false to prevent the error from
-      // failing this test
-      return false
-    });
-
-    // assume this causes an error
+  it('Navigating to Breadcrumb component', function () {
     cy
-      .visit(Cypress.config().baseUrl + '/breadcrumb')
+      .visit(Cypress.config().baseUrl + '/breadcrumb.html')
 
   });
 
 
   it('Checking breadcrumb list class', function () {
     cy
-      .get('div').children().should('have.class','nhsuk-c-breadcrumb__list')
+      .get('.nhsuk-width-container').children().should('have.class','nhsuk-breadcrumb__list')
 
   });
 
@@ -45,7 +32,13 @@ describe('setting screen res', function () {
 
   it('Checking href in the breadcrumb', function () {
     cy
-      .get('.nhsuk-c-breadcrumb__item').first().children().should('have.attr', 'href').and('eq', Cypress.config().liveUrl)
+      .get('.nhsuk-breadcrumb__item').first().children().should('have.attr', 'href').and('eq', Cypress.config().liveUrl)
+
+  });
+
+  it('Checking nhsuk-breadcrumb__item class', function () {
+    cy
+      .get('.nhsuk-breadcrumb__list').first().children().should('have.class','nhsuk-breadcrumb__item')
 
   });
 });

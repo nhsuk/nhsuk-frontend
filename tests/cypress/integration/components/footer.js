@@ -5,22 +5,10 @@ describe('setting screen res', function () {
 
   });
 
-  it('Navigating to Footer Component', function (done) {
-    // this event will automatically be unbound when this
-    // test ends because it's attached to 'cy'
-    cy.on('uncaught:exception', (err, runnable) => {
-      // using mocha's async done callback to finish
-      // this test so we prove that an uncaught exception
-      // was thrown
-      done();
-      // return false to prevent the error from
-      // failing this test
-      return false
-    });
+  it('Navigating to Footer Component', function () {
 
-    // assume this causes an error
     cy
-      .visit(Cypress.config().baseUrl + '/footer')
+      .visit(Cypress.config().baseUrl + '/footer.html')
 
   });
 
@@ -56,7 +44,7 @@ describe('setting screen res', function () {
   // checking for visually hidden attr - NHS Homepage
   it('Checking for visually hidden attr - NHS Homepage', function () {
     cy
-      .get('.nhsuk-footer__logo.nhsuk-footer__list-item').children().children().should('have.class', 'visually-hidden', 'NHS homepage')
+      .get('.global-footer__link').children().should('have.class', 'nhsuk-u-visually-hidden', 'NHS homepage')
 
   });
 });
