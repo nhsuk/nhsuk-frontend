@@ -35,39 +35,3 @@ This means that you will not be able to:
     <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
     <link rel="icon" href="assets/favicons/favicon.png">
     ```
-
-### Hotlinking to https://assets.nhs.uk
-
-**This is still in development and will be available soon.**
-
-For prototyping we deploy the compiled CSS, JavaScript and assets to https://assets.nhs.uk so that they can be hotlinked to. 
-This is useful if you don't have a development environment set up or you want to use a Cloud IDE such as Codepen to quickly put something together.
-
-> Please do not hotlink to https://assets.nhs.uk or use jQuery CDN in production, as we can not guarantee the performance or uptime of these services.
-
-### Example
-
-```html
-<!-- Styles -->
-<link rel="stylesheet" href="https://assets.nhs.uk/nhsuk-frontend/nhsuk-0.0.0.min.css">
-
-<!-- Scripts -->
-<script src="https://assets.nhs.uk/nhsuk-frontend/nhsuk-0.0.0.min.js" defer></script>
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
-
-<!-- Favicons -->
-<!--[if IE]><link rel="shortcut icon" href="https://assets.nhs.uk/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
-<link rel="apple-touch-icon" href="https://assets.nhs.uk/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
-<link rel="icon" href="https://assets.nhs.uk/nhsuk-frontend/assets/favicons/favicon.png">
-```
-
-### Codepen
-
-[View NHS.UK Frontend templates on Codepen]()
-
-## Thanks to the Government Digital Service (GDS)
-
-This documentation has been taken from [Installing GOV.UK Frontend from dist](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-from-dist.md) with a few minor adaptations.
