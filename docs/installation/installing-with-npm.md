@@ -96,7 +96,10 @@ Some of our components require JavaScript to function properly, others need Java
 
 You should include NHS.UK Frontend JavaScript in your application to ensure that all users can use it successfully.
 
-Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
+Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 
+
+> The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
+
 You might wish to copy the file into your project or reference it from node_modules.
 
 ```html
