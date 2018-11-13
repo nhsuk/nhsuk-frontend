@@ -13,7 +13,7 @@ To use NHS.UK Frontend in your projects with npm you must:
 3. Have a pipeline set up to compile Sass files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass), you can find an example of a `gulpfile.js` script to compile Sass to CSS in the [gulp-sass documentation](https://www.npmjs.com/package/gulp-sass#basic-usage).
 
     ```
-    npm install gulp gulp-sass --save
+    npm install gulp node-sass gulp-sass --save
     ```
 
 4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
@@ -96,14 +96,19 @@ Some of our components require JavaScript to function properly, others need Java
 
 You should include NHS.UK Frontend JavaScript in your application to ensure that all users can use it successfully.
 
-Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of the page using the `defer` attribute.
+Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
+You might wish to copy the file into your project or reference it from node_modules.
 
-### node_modules path configuration
+```html
+    <script src="path-to-assets/nhsuk.min.js" defer></script>
+  </head>
+```
 
-In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show these files. Below is a sample configuration using [Express.js](https://expressjs.com/):
+In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show this asset. 
+Below is a sample configuration using [Express.js](https://expressjs.com/):
 
 ```
-app.use(express.static(path.join(__dirname, '/node_modules')));
+app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/packages')));
 ```
 
 ```html
@@ -123,15 +128,15 @@ jQuery dependency.
 In order to import NHS.UK Frontend images and icons to your project, you should configure your application to reference the `node_modules` folder. Below is a sample configuration using Express.js:
 
 ```
-app.use(express.static(path.join(__dirname, '/node_modules')));
+app.use('/assets', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/assets')));
 ```
 
 **Favicons**
 
 ```html
-  <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
-  <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
-  <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+<!--[if IE]><link rel="shortcut icon" href="/favicons/favicon.ico"><![endif]-->
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" href="/favicons/favicon.png">
 ```
 
 **Icons**
@@ -139,7 +144,7 @@ app.use(express.static(path.join(__dirname, '/node_modules')));
 If you are using a templating language, such as nunjucks, you can include icons with:
 
 ```html
-{% include '/nhsuk-frontend/assets/icons/icon-arrow-right-circle.svg' %}
+{% include '/icons/icon-arrow-right-circle.svg' %}
 ```
 
 Alternatively with SVG icons you can just include the code required for that icon:
