@@ -17,8 +17,8 @@
   @include print-hide();
 
   background-color: $color_nhsuk-white;
-  padding-bottom: 12px; // [1] //
-  padding-top: 12px; // [1] //
+  padding-bottom: 12px; /* [1] */
+  padding-top: 12px; /* [1] */
 
   .nhsuk-icon__chevron-right {
     fill: $color_nhsuk-grey-3;
@@ -46,7 +46,7 @@
 .nhsuk-breadcrumb__list {
 
   @include mq($until: tablet) {
-    display: none; // [3] //
+    display: none; /* [3] */
   }
 
   list-style: none;
@@ -56,22 +56,22 @@
 }
 
 .nhsuk-breadcrumb__item {
-  @include nhsuk-font(16); // [4] //
+  @include nhsuk-font(16); /* [4] */
   display: inline-block;
   margin: 0;
 }
 
 .nhsuk-breadcrumb__back {
-  @include nhsuk-font(16); // [4] //
+  @include nhsuk-font(16); /* [4] */
   margin: 0;
 
   @include mq($from: tablet) {
-    display: none; // [5] //
+    display: none; /* [5] */
   }
 
 }
 
 .nhsuk-breadcrumb__backlink {
-  left: -8px; // [6] //
+  left: -8px; /* [6] */
   position: relative;
 }
