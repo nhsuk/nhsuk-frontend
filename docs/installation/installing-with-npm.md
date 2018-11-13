@@ -95,15 +95,9 @@ Some of our components require JavaScript to function properly, others need Java
 
 You should include NHS.UK Frontend JavaScript in your application to ensure that all users can use it successfully.
 
-Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of the page using the `defer` attribute. You might wish to copy the file into your project assets directory or reference it straight from `node_modules`.
+Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of the page using the `defer` attribute.
 
-```html
-    <script src="/path-to-assets/nhsuk.min.js" defer></script>
-    <script src="/path-to-assets/jquery-3.3.1.min.js"></script>
-  </head>
-```
-
-### Optional: node_modules path configuration
+### node_modules path configuration
 
 In order to include the JavaScript file directly from the `node_modules` folder, you need to configure your app to show these files. Below is a sample configuration using Express.js:
 
@@ -126,29 +120,40 @@ jQuery dependency.
 
 ## Importing assets
 
-**Documentation being written**
+In order to import NHS.UK Frontend images and icons to your project, you should configure your application to reference the `node_modules` folder. Below is a sample configuration using Express.js:
+
+```
+app.use(express.static(path.join(__dirname, '/node_modules')));
+```
+
+**Favicons**
+
+```html
+  <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+  <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+```
+
+**Icons**
+
+If you are using a templating language, such as nunjucks, you can include icons with:
+
+```html
+{% include '/nhsuk-frontend/assets/icons/icon-arrow-right-circle.svg' %}
+```
+
+Alternatively with SVG icons you can just include the code required for that icon:
+
+```html
+<svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"/>
+</svg>
+```
 
 ## Importing Nunjucks macros (optional)
 
 **Documentation being written**
-
-## Example
-
-Add the CSS and JavaScript code to your HTML template:
-
-```html
-<!DOCTYPE html>
-  <head>
-    <title>Example</title>
-    <link rel="stylesheet" href="/path-to-assets/main.min.css">
-    <script src="/path-to-assets/nhsuk.min.js" defer></script>
-    <script src="/path-to-assets/libraries/jquery-3.3.1.min.js"></script>
-  </head>
-  <body>
-    <!-- Components -->
-  </body>
-</html>
-```
 
 ## Thanks to the Government Digital Service (GDS)
 
