@@ -159,10 +159,6 @@ Alternatively with SVG icons you can just include the code required for that ico
 </svg>
 ```
 
-## Importing Nunjucks macros (optional)
-
-**Documentation being written**
-
 ## Thanks to the Government Digital Service (GDS)
 
 This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md) with a few minor adaptations.
