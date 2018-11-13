@@ -65,10 +65,11 @@ For example, if your project uses Gulp, you would add the Sass include paths to 
 
 ```javascript
 gulp.task('sass', function () {
-  return gulp.src('./styles/**/*.scss')
+  return gulp.src('./sass/**/*.scss')
     .pipe(sass({
       includePaths: 'node_modules'
-     }))
+    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'));
 });
 ```
