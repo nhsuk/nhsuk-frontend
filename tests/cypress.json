@@ -1,0 +1,50 @@
+{
+  "projectId": "97xiif",
+
+
+  "name": "nhsuk-frontend",
+  "version": "0.0.0",
+  "description": "The NHS website frontend styles, for creating NHS websites and services.",
+
+  "scripts": {
+
+
+
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "engines": {
+    "node": "8.11.1"
+  },
+  "repository": {
+
+  },
+
+
+
+  "myiphone3":
+  {
+    "viewportWidth": 320,
+    "viewportHeight": 480
+  },
+
+  "iphone4":
+  {
+
+    "viewportWidth": 320,
+    "viewportHeight": 480
+  },
+
+
+  "baseUrl": "http://localhost:3000/components/",
+  "liveUrl": "https://www.nhs.uk/",
+  "license": "MIT",
+  "chromeWebSecurity": false
+}
+
+
+
