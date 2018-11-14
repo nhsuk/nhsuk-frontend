@@ -87,63 +87,36 @@
           
   
     <h1 id="installing-using-compiled-files">Installing using compiled files</h1>
-<h3 id="this-documentation-is-currently-being-written"><strong>This documentation is currently being written</strong></h3>
-<p>When installing the compiled files from dist, you are using compiled and minified versions of the stylesheet. This means that you will not be able to:</p>
+<p>When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript. </p>
+<p>This means that you will not be able to:</p>
 <ul>
+<li>selectively include CSS for individual components.</li>
 <li>build your own styles or components based on the colour variables or typography and spacing mixins.</li>
 <li>use the component Nunjucks templates.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <ol>
 <li><p>Download the compiled files</p>
-<p> <a href="https://github.com/nhsuk/nhsuk-frontend/tree/master/dist">Download the latest compiled versions of the stylesheet and JavaScript</a></p>
-<blockquote>
-<p>You can find previous versions and the CHANGELOG on our <a href="https://github.com/nhsuk/nhsuk-frontend/releases">project releases page</a>.</p>
-</blockquote>
-<ol start="2">
+<p> <a href="https://github.com/nhsuk/nhsuk-frontend/releases">Download the latest CSS, JavaScript and assets from GitHub</a></p>
+</li>
 <li><p>Include resources  </p>
-<p>  Copy the compiled files into a folder, such as <code>assets</code>, within your project.</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Example&lt;/title&gt;
+<p> Copy the files into folders, such as <code>css</code> and <code>js</code>, within your project. 
+ You must copy the entire <code>assets</code> folder to the root of your project.
+ Then import the files into the <code>&lt;head&gt;</code> of your layout file using the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags. </p>
+<p> Make sure you change the version numbers of the <code>.css</code> and <code>.js</code> files, in the example below, to the version you are using.</p>
+<pre><code class="language-html"> &lt;!-- Styles --&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;css/nhsuk-0.0.0.min.css&quot;&gt;
 
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/nhsuk-v0.0.0.min.css&quot;&gt;
-    &lt;script src=&quot;/assets/js/nhsuk-v0.0.0.min.js&quot; defer&gt;&lt;/script&gt;
-    &lt;script src=&quot;/assets/js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- Components --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+ &lt;!-- Scripts --&gt;
+ &lt;script src=&quot;js/nhsuk-0.0.0.min.js&quot; defer&gt;&lt;/script&gt;
+ &lt;script src=&quot;js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+
+ &lt;!-- Favicons --&gt;
+ &lt;!--[if IE]&gt;&lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/favicons/favicon.ico&quot;&gt;&lt;![endif]--&gt;
+ &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;assets/favicons/apple-touch-icon.png&quot;&gt;
+ &lt;link rel=&quot;icon&quot; href=&quot;assets/favicons/favicon.png&quot;&gt;</code></pre>
 </li>
 </ol>
-</li>
-</ol>
-<h2 id="prototyping-quick-start">Prototyping quick start</h2>
-<p>For prototyping we deploy the NHS.UK Frontend stylesheet and JavaScript to <a href="https://assets.nhs.uk">https://assets.nhs.uk</a> so that it can be hotlinked to. This is useful if you don&#39;t have
-a development environment set up or you want to use a Cloud IDE such as Codepen to quickly put something together.</p>
-<blockquote>
-<p>Please do not hotlink to <a href="https://assets.nhs.uk">https://assets.nhs.uk</a> or use jQuery CDN in production, as we can not guarantee the performance or uptime of these services.</p>
-</blockquote>
-<h3 id="example">Example</h3>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Example&lt;/title&gt;
-
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://assets.nhs.uk/nhsuk-frontend/assets/css/nhsuk-v0.0.0.min.css&quot;&gt;
-    &lt;script src=&quot;https://assets.nhs.uk/nhsuk-frontend/assets/js/nhsuk-v0.0.0.min.js&quot; defer&gt;&lt;/script&gt;
-    &lt;script
-      src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;
-      integrity=&quot;sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=&quot;
-      crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- Components --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h3 id="codepen">Codepen</h3>
 
   
 
