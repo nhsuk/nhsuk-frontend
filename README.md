@@ -13,8 +13,8 @@ There are 2 ways you can start using NHS.UK Frontend in your websites and servic
 We recommend installing NHS.UK Frontend via package managers; node package manager (npm), yarn, or the Python Package Index (PyPi).
 
 + [Installing using npm](/docs/installation/installing-with-npm.md)
-+ [Installing using yarn](/docs/installation/installing-with-yarn.md)
-+ [Installing using PyPi](/docs/installation/installing-with-pypi.md)
++ Installing using yarn (available soon)
++ Installing using PyPi (available soon)
 
 ### 2. Install by using compiled files
 
@@ -28,6 +28,11 @@ Please see our [browser support information](/docs/contributing/coding-standards
 ## Contributing
 
 Please see our [contributing guidelines](/docs/contributing/README.md) on how to set up the project locally and contribute changes to NHS.UK Frontend.
+
+**Special thanks to the following for their contributions:**
+
+- [Government Digital Service (GDS)](https://github.com/alphagov/)
+- [Harry Roberts (csswizardry)](https://github.com/csswizardry)
 
 ## Get in touch
 

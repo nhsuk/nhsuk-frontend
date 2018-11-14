@@ -1,9 +1,10 @@
 # Installing using compiled files
 
-### **This documentation is currently being written** 
+When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript. 
 
-When installing the compiled files from dist, you are using compiled and minified versions of the stylesheet. This means that you will not be able to:
+This means that you will not be able to:
 
+- selectively include CSS for individual components.
 - build your own styles or components based on the colour variables or typography and spacing mixins.
 - use the component Nunjucks templates.
 
@@ -11,56 +12,26 @@ When installing the compiled files from dist, you are using compiled and minifie
 
 1. Download the compiled files
 
-    [Download the latest compiled versions of the stylesheet and JavaScript](https://github.com/nhsuk/nhsuk-frontend/tree/master/dist)
+    [Download the latest CSS, JavaScript and assets from GitHub](https://github.com/nhsuk/nhsuk-frontend/releases)
 
-    > You can find previous versions and the CHANGELOG on our [project releases page](https://github.com/nhsuk/nhsuk-frontend/releases).
+2. Include resources  
 
-  2. Include resources  
+    Copy the files into folders, such as `css` and `js`, within your project. 
+    You must copy the entire `assets` folder to the root of your project.
+    Then import the files into the `<head>` of your layout file using the `<link>` and `<script>` tags. 
 
-        Copy the compiled files into a folder, such as `assets`, within your project.
+    Make sure you change the version numbers of the `.css` and `.js` files, in the example below, to the version you are using.
 
-      ```html
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Example</title>
+    ```html
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/nhsuk-0.0.0.min.css">
 
-          <link rel="stylesheet" href="/assets/css/nhsuk-v0.0.0.min.css">
-          <script src="/assets/js/nhsuk-v0.0.0.min.js" defer></script>
-          <script src="/assets/js/jquery-3.3.1.min.js"></script>
-        </head>
-        <body>
-          <!-- Components -->
-        </body>
-      </html>
-      ```
+    <!-- Scripts -->
+    <script src="js/nhsuk-0.0.0.min.js" defer></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 
-## Prototyping quick start
-
-For prototyping we deploy the NHS.UK Frontend stylesheet and JavaScript to https://assets.nhs.uk so that it can be hotlinked to. This is useful if you don't have
-a development environment set up or you want to use a Cloud IDE such as Codepen to quickly put something together.
-
-> Please do not hotlink to https://assets.nhs.uk or use jQuery CDN in production, as we can not guarantee the performance or uptime of these services.
-
-### Example
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Example</title>
-
-    <link rel="stylesheet" href="https://assets.nhs.uk/nhsuk-frontend/assets/css/nhsuk-v0.0.0.min.css">
-    <script src="https://assets.nhs.uk/nhsuk-frontend/assets/js/nhsuk-v0.0.0.min.js" defer></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!-- Components -->
-  </body>
-</html>
-```
-
-### Codepen
+    <!-- Favicons -->
+    <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
+    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicons/favicon.png">
+    ```
