@@ -126,3 +126,29 @@ $nhsuk-secondary-button-hover-color: $color_shade_nhsuk-blue-35;
 $nhsuk-focus-color: $color_nhsuk-warm-yellow;
 
 $nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
+
+//
+// Forms
+//
+
+$nhsuk-error-color: $color_nhsuk-red;
+$nhsuk-form-border-color: $color_nhsuk-grey-1;
+
+//
+// Buttons
+//
+
+$nhsuk-button-colour: $color_nhsuk-green;
+$nhsuk-button-hover-colour: darken($nhsuk-button-colour, 5%);
+$nhsuk-button-shadow-colour: darken($nhsuk-button-colour, 15%);
+
+$nhsuk-secondary-button-colour: $color_nhsuk-grey-1;
+$nhsuk-secondary-button-hover-colour: darken($nhsuk-secondary-button-colour, 5%);
+$nhsuk-secondary-button-shadow-colour: darken($nhsuk-secondary-button-colour, 15%);
+
+$nhsuk-reverse-button-colour: $color_nhsuk-white;
+$nhsuk-reverse-button-hover-colour: darken($nhsuk-reverse-button-colour, 5%);
+$nhsuk-reverse-button-shadow-colour: $color_nhsuk-black;
+
+$nhsuk-button-text-colour: $color_nhsuk-white;
+$nhsuk-reverse-button-text-colour: $color_nhsuk-black;

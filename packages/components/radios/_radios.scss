@@ -1,0 +1,166 @@
+$govuk-radios-size: nhsuk-spacing(6);
+$govuk-radios-label-padding-left-right: nhsuk-spacing(3);
+// When the default focus width is used on a curved edge it looks visually smaller.
+// So for the circular radios we bump the default to make it look visually consistent.
+$govuk-radios-focus-width: $govuk-focus-width + 1px;
+
+.nhsuk-radios__item {
+  @include nhsuk-font(19);
+
+  display: block;
+
+  position: relative;
+
+  min-height: $govuk-radios-size;
+
+  margin-bottom: nhsuk-spacing(2);
+  padding: 0 0 0 $govuk-radios-size;
+
+  clear: left;
+}
+
+.nhsuk-radios__item:last-child,
+.nhsuk-radios__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.nhsuk-radios__input {
+  position: absolute;
+
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  width: $govuk-radios-size;
+  height: $govuk-radios-size;
+
+  cursor: pointer;
+
+  margin: 0;
+  opacity: 0;
+}
+
+.nhsuk-radios__label {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px $govuk-radios-label-padding-left-right nhsuk-spacing(1);
+  cursor: pointer;
+  // remove 300ms pause on mobile
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.nhsuk-radios__hint {
+  display: block;
+  padding-right: $govuk-radios-label-padding-left-right;
+  padding-left: $govuk-radios-label-padding-left-right;
+}
+
+.nhsuk-radios__input + .nhsuk-radios__label::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: $govuk-radios-size;
+  height: $govuk-radios-size;
+
+  border: $govuk-border-width-form-element solid $color_nhsuk-black;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.nhsuk-radios__input + .nhsuk-radios__label::after {
+  content: "";
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  width: 0;
+  height: 0;
+
+  border: 10px solid $color_nhsuk-black;
+  border-radius: 50%;
+  opacity: 0;
+  background: $color_nhsuk-black;
+}
+
+// Focused state
+.nhsuk-radios__input:focus + .nhsuk-radios__label::before {
+  // Since box-shadows are removed when users customise their colours
+  // We set a transparent outline that is shown instead.
+  // https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+  outline: $govuk-focus-width solid transparent;
+  outline-offset: $govuk-focus-width;
+  box-shadow: 0 0 0 $govuk-radios-focus-width $nhsuk-focus-color;
+}
+
+// Selected state
+.nhsuk-radios__input:checked + .nhsuk-radios__label::after {
+  opacity: 1;
+}
+
+// Disabled state
+.nhsuk-radios__input:disabled,
+.nhsuk-radios__input:disabled + .nhsuk-radios__label {
+  cursor: default;
+}
+
+.nhsuk-radios__input:disabled + .nhsuk-radios__label {
+  opacity: .5;
+}
+
+// Inline variant
+.nhsuk-radios--inline {
+  @include mq ($from: tablet) {
+    @include clearfix;
+
+    .nhsuk-radios__item {
+      margin-right: nhsuk-spacing(4);
+      float: left;
+      clear: none;
+    }
+  }
+
+  // Prevent inline modifier being used with conditional reveals
+  &.nhsuk-radios--conditional {
+    .nhsuk-radios__item {
+      margin-right: 0;
+      float: none;
+    }
+  }
+}
+
+.nhsuk-radios__divider {
+  $govuk-divider-size: $govuk-radios-size !default;
+  @include nhsuk-font(19);
+  color: $color_nhsuk-black;
+  width: $govuk-divider-size;
+  margin-bottom: nhsuk-spacing(2);
+  text-align: center;
+}
+
+$conditional-border-width: $govuk-border-width-mobile;
+// Calculate the amount of padding needed to keep the border centered against the radios.
+$conditional-border-padding: ($govuk-radios-size / 2) - ($conditional-border-width / 2);
+// Move the border centered with the radios
+$conditional-margin-left: $conditional-border-padding;
+// Move the contents of the conditional inline with the label
+$conditional-padding-left: $conditional-border-padding + $govuk-radios-label-padding-left-right;
+
+.nhsuk-radios__conditional {
+  @include nhsuk-responsive-margin(4, "bottom");
+  margin-left: $conditional-margin-left;
+  padding-left: $conditional-padding-left;
+  border-left: $conditional-border-width solid $color_nhsuk-black;
+
+  .js-enabled &--hidden {
+    display: none;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,21 @@
+.nhsuk-select {
+  @include nhsuk-font(19);
+  @include nhsuk-focusable;
+
+  box-sizing: border-box; // should this be global?
+  max-width: 100%;
+  height: 40px;
+  padding: nhsuk-spacing(1);
+  border: $govuk-border-width-form-element solid $color_nhsuk-black; // TODO: Colour alias?
+}
+
+.nhsuk-select option:active,
+.nhsuk-select option:checked,
+.nhsuk-select:focus::-ms-value {
+  color: $color_nhsuk-white;
+  background-color: $color_nhsuk-blue;
+}
+
+.nhsuk-select--error {
+  border: $govuk-border-width-form-element-error solid $nhsuk-error-color;
+}

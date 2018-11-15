@@ -344,3 +344,32 @@
     margin-right: -$nhsuk-gutter-half;
   }
 }
+
+/// Focusable helper
+///
+/// Provides an additional outline to clearly indicate when the target element is
+/// focussed. Used for interactive elements which themselves have some background
+/// or border, such as most form elements.
+///
+
+@mixin nhsuk-focusable {
+  &:focus {
+    outline: $govuk-focus-width solid $nhsuk-focus-color;
+    outline-offset: 0;
+  }
+}
+
+/// Focusable with fill helper
+///
+/// Provides an additional outline and background colour to clearly indicate when
+/// the target element is focussed. Used for interactive text-based elements such
+/// as links.
+///
+
+@mixin nhsuk-focusable-fill {
+  &:focus {
+    outline: $govuk-focus-width solid $nhsuk-focus-color;
+    outline-offset: 0;
+    background-color: $nhsuk-focus-color;
+  }
+}

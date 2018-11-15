@@ -1,0 +1,22 @@
+.nhsuk-textarea {
+  @include nhsuk-font(19);
+  @include nhsuk-focusable;
+
+  box-sizing: border-box; // should this be global?
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  @include nhsuk-responsive-margin(6, "bottom");
+  padding: nhsuk-spacing(1);
+
+  resize: vertical;
+
+  border: $govuk-border-width-form-element solid $color_nhsuk-black; // TODO: Colour alias?
+  border-radius: 0;
+
+  -webkit-appearance: none;
+}
+
+.nhsuk-textarea--error {
+  border: $govuk-border-width-form-element-error solid $nhsuk-error-color;
+}

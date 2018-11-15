@@ -1,0 +1,53 @@
+.nhsuk-error-summary {
+  @include nhsuk-responsive-padding(4);
+  @include nhsuk-responsive-margin(8, "bottom");
+  @include nhsuk-focusable;
+
+  border: $govuk-border-width-mobile solid $nhsuk-error-color;
+  color: $nhsuk-text-color; // TODO: Do we need this?
+
+  @include govuk-media-query($from: tablet) {
+    border: $govuk-border-width solid $nhsuk-error-color;
+  }
+}
+
+.nhsuk-error-summary__title {
+  @include nhsuk-font(24, $weight: bold);
+
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-error-summary__body {
+  @include nhsuk-font(19);
+
+  p {
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+}
+
+// Cross-component class - adjusts styling of list component
+.nhsuk-error-summary__list {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nhsuk-error-summary__list a {
+  @include nhsuk-focusable-fill;
+  @include nhsuk-typography-weight-bold;
+
+  // Override default link styling to use error colour
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $nhsuk-error-color;
+  }
+
+  // When focussed, the text colour needs to be darker to ensure that colour
+  // contrast is still acceptable
+  &:focus {
+    color: $nhsuk-link-focus-color;
+  }
+}

@@ -52,7 +52,7 @@ rules:
 
   # Nesting
   declarations-before-nesting: 2
-  force-attribute-nesting: 2
+  force-attribute-nesting: 0
   force-element-nesting: 2
   force-pseudo-nesting: 2
 
