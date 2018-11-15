@@ -35,7 +35,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/skip-link/macro.njk' import skipLink %}
 
 {{ skipLink({
-  "URL": "#maincontent",
+  "href": "#maincontent",
   "text": "Skip to main content"
 }) }}
 ```
@@ -46,7 +46,7 @@ The skip link Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **URL**             | string   | No        | The value of the skip link href attribute. Default: "#maincontent". |
+| **href**            | string   | No        | The value of the skip link href attribute. Default: "#maincontent". |
 | **text**            | string   | No        | Text of the the skip link. Default: "Skip to main content". |
 | **classes**         | string   | No        | Optional additional classes to add to the skip link. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the skip link. |
