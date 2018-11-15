@@ -34,3 +34,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "nextReview": "1 February 2019"
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The review date Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **lastReview**      | string   | No        | The value of the last review date |
+| **nextReview**      | string   | No        | The value of the next review date |
+| **classes**         | string   | No        | Optional additional classes to add to the review date. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the review date. |
