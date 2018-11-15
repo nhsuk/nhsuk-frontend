@@ -1,12 +1,14 @@
 
+/* ==========================================================================
+   COMPONENTS/ #HINT
+   ========================================================================== */
+
 .nhsuk-hint {
   @include nhsuk-font(19);
 
-  display: block;
-
-  margin-bottom: nhsuk-spacing(3);
-
   color: $nhsuk-secondary-text-color;
+  display: block;
+  margin-bottom: nhsuk-spacing(3);
 }
 
 // Reduces margin-bottom of hint when used after the default label (no class)

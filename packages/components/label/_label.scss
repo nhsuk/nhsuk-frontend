@@ -1,12 +1,15 @@
-.nhsuk-label {
-  @include nhsuk-font(19); // TODO: Do we need this?
+/* ==========================================================================
+   COMPONENTS/ #LABEL
+   ========================================================================== */
 
-  color: $nhsuk-text-color; // TODO: Do we need this?
+.nhsuk-label {
+  @include nhsuk-font(19);
+
   display: block;
   margin-bottom: nhsuk-spacing(1);
 }
 
-// Modifiers that make labels look more like their equivalent headings
+/* Modifiers that make labels look more like their equivalent headings */
 
 .nhsuk-label--xl {
   @include nhsuk-typography-responsive(48);

@@ -88,7 +88,7 @@ $button-shadow-size: 4px;
   // the click event is still fired.
   //
 
-  &:active::before { // sass-lint:disable-line force-pseudo-nesting
+  &:active::before {
     top: -($govuk-border-width-form-element + $button-shadow-size);
   }
 
@@ -126,7 +126,7 @@ $button-shadow-size: 4px;
  * Button disabled states
  */
 
-.nhsuk-button--disabled, // sass-lint:disable-line
+.nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button[disabled] {
   background: $nhsuk-button-colour;

@@ -75,7 +75,7 @@
   text-decoration: underline; /* [4] */
 }
 
-.nhsuk-details__summary::-webkit-details-marker { // sass-lint:disable-line force-pseudo-nesting
+.nhsuk-details__summary::-webkit-details-marker {
   display: none; /* [5] */
 }
 

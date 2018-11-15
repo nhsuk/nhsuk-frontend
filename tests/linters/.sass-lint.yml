@@ -53,8 +53,8 @@ rules:
   # Nesting
   declarations-before-nesting: 2
   force-attribute-nesting: 0
-  force-element-nesting: 2
-  force-pseudo-nesting: 2
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
 
   # Name Formats
   class-name-format: 0 # Revisit in the future

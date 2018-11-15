@@ -368,8 +368,8 @@
 
 @mixin nhsuk-focusable-fill {
   &:focus {
+    background-color: $nhsuk-focus-color;
     outline: $govuk-focus-width solid $nhsuk-focus-color;
     outline-offset: 0;
-    background-color: $nhsuk-focus-color;
   }
 }
