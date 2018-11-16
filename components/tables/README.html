@@ -236,6 +236,132 @@
     ]
   ]
 }) }}</code></pre>
+<h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The table Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>rows</strong></td>
+<td>array</td>
+<td>Yes</td>
+<td>Array of table rows and cells.</td>
+</tr>
+<tr>
+<td><strong>rows.[].text (or) rows.[].html</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>Text or HTML for cells in table rows. If <code>html</code> is specified, the <code>text</code> argument will be ignored.</td>
+</tr>
+<tr>
+<td><strong>rows.[].format</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Specify format of a cell. Currently we only use &quot;numeric&quot;.</td>
+</tr>
+<tr>
+<td><strong>rows.[].colspan</strong></td>
+<td>number</td>
+<td>No</td>
+<td>Specify how many columns a cell extends.</td>
+</tr>
+<tr>
+<td><strong>rows.[].rowspan</strong></td>
+<td>number</td>
+<td>No</td>
+<td>Specify how many rows a cell extends.</td>
+</tr>
+<tr>
+<td><strong>panel</strong></td>
+<td>boolean</td>
+<td>No</td>
+<td>If set to true, the table is rendered inside a <a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html">panel with a label</a>.</td>
+</tr>
+<tr>
+<td><strong>panelClasses</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the panel containing the table. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Heading/label of the panel if the panel argument is set to true.</td>
+</tr>
+<tr>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
+<td>No</td>
+<td>Optional heading level for the heading. Default: 3.</td>
+</tr>
+<tr>
+<td><strong>tableClasses</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the table. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the table.</td>
+</tr>
+<tr>
+<td><strong>caption</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional caption for the table.</td>
+</tr>
+<tr>
+<td><strong>captionClasses</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the table caption. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>head</strong></td>
+<td>array</td>
+<td>No</td>
+<td>Optional array of table head cells.</td>
+</tr>
+<tr>
+<td><strong>head.[].text or head.[].html</strong></td>
+<td>array</td>
+<td>No</td>
+<td>Optional array of table head cells. If <code>html</code> is specified, the <code>text</code> argument will be ignored.</td>
+</tr>
+<tr>
+<td><strong>head.[].colspan</strong></td>
+<td>number</td>
+<td>No</td>
+<td>Specify how many columns a cell extends.</td>
+</tr>
+<tr>
+<td><strong>head.[].rowspan</strong></td>
+<td>number</td>
+<td>No</td>
+<td>Specify how many rows a cell extends.</td>
+</tr>
+<tr>
+<td><strong>head.[].format</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Specify format of a cell. Currently we only use &quot;numeric&quot;.</td>
+</tr>
+<tr>
+<td><strong>firstCellIsHeader</strong></td>
+<td>boolean</td>
+<td>No</td>
+<td>If set to true, first cell in table row will be a TH instead of a TD.</td>
+</tr>
+</tbody></table>
 
   
 
