@@ -1,7 +1,8 @@
+{% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 {% if params.panel%}
 <div class="nhsuk-table__panel-with-heading-tab {%- if params.panelClasses %} {{ params.panelClasses }}{% endif %}">
   {% if params.heading %}
-  <h3 class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h3>
+  <h{{ headingLevel }} class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h{{ headingLevel }}>
   {% endif %}
 {% endif %}
   <div class="nhsuk-table-responsive">
