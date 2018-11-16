@@ -31,3 +31,15 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The warning callout Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **heading**             | string   | Yes       | Heading to be used within the warning callout component. |
+| **HTML**                | string   | Yes       | Content to be used within the warning callout component. |
+| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
+| **classes**             | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
