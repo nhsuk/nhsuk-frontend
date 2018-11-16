@@ -37,6 +37,19 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
+#### Nunjucks arguments
+
+The promo Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **href**            | string   | Yes       | The value of the promo href attribute |
+| **heading**         | string   | Yes       | The text heading of the promo |
+| **description**     | string   | No        | The text description of the promo |
+| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
+
+
 ### Promo with image
 
 [Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
@@ -69,7 +82,20 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "description": "Please register today. Donating blood is easy, and saves lives."
 }) }}
 ```
-           
+
+#### Nunjucks arguments
+
+The promo with image Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **href**            | string   | Yes       | The value of the promo href attribute |
+| **heading**         | string   | Yes       | The text heading of the promo |
+| **imgURL**          | string   | No        | The URL of the image in the promo |
+| **description**     | string   | No        | The text description of the promo |
+| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
+
 ### Promo with no description
 
 [Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
@@ -98,6 +124,18 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "heading": "Save a life: give blood"
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The promo with no description Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **href**            | string   | Yes       | The value of the promo href attribute |
+| **heading**         | string   | Yes       | The text heading of the promo |
+| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
+
 
 ### Small promo
 
@@ -130,6 +168,19 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "description": "Please register today. Donating blood is easy, and saves lives."
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The small promo Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **href**            | string   | Yes       | The value of the promo href attribute |
+| **heading**         | string   | Yes       | The text heading of the promo |
+| **classes**         | string   | Yes       | Additional classes to add to the promo. Separate each class with a space. Must have `nhsuk-promo--small` |
+| **imgURL**          | string   | No        | The URL of the image in the promo |
+| **description**     | string   | No        | The text description of the promo |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
 
 ### Promo group
 
@@ -207,3 +258,16 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   </div>
 </div>
 ```
+
+#### Nunjucks arguments
+
+The promo group Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **href**            | string   | Yes       | The value of the promo href attribute |
+| **heading**         | string   | Yes       | The text heading of the promo |
+| **imgURL**          | string   | No        | The URL of the image in the promo |
+| **description**     | string   | No        | The text description of the promo |
+| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
