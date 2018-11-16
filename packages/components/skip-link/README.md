@@ -47,6 +47,6 @@ The skip link Nunjucks macro takes the following arguments:
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
 | **href**            | string   | No        | The value of the skip link href attribute. Default: "#maincontent". |
-| **text**            | string   | No        | Text of the the skip link. Default: "Skip to main content". |
+| **text**            | string   | No        | The Text of the skip link. Default: "Skip to main content". |
 | **classes**         | string   | No        | Optional additional classes to add to the skip link. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the skip link. |
