@@ -39,9 +39,9 @@ The panel Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the promo component. |
-| **classes**         | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
 
 
 
@@ -77,11 +77,11 @@ The panel with a label Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the promo component. |
-| **label**           | string   | No        | The label of the promo component. |
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **label**           | string   | No        | The label of the panel component. |
 | **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
-| **classes**         | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
 
 
 ### Grey panel
@@ -118,10 +118,10 @@ The grey panel Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the promo component. |
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
 | **colour**          | string   | No        | The colour of the panel. Must be "grey". |
-| **classes**         | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
 
 
 ### Panel group
@@ -174,6 +174,6 @@ The panel group Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the promo component. |
-| **classes**         | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
