@@ -52,12 +52,12 @@ The pagination Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **previousUrl**     | string   | Yes       | The value of the previous link href attribute |
-| **previousPage**    | string   | Yes       | The text of the previous link |
-| **nextUrl**         | string   | Yes       | The value of the next link href attribute |
-| **nextPage**        | string   | Yes       | The text of the next link |
-| **classes**         | string   | No        | Optional additional classes to add to the review date. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the review date. |
+| **previousUrl**     | string   | Yes       | The value of the previous link href attribute. |
+| **previousPage**    | string   | Yes       | The text of the previous link. |
+| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
+| **nextPage**        | string   | Yes       | The text of the next link. |
+| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
 
 
 ### Next pagination
@@ -95,10 +95,10 @@ The next pagination Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **nextUrl**         | string   | Yes       | The value of the next link href attribute |
-| **nextPage**        | string   | Yes       | The text of the next link |
-| **classes**         | string   | No        | Optional additional classes to add to the review date. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the review date. |
+| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
+| **nextPage**        | string   | Yes       | The text of the next link. |
+| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
 
 
 ### Previous pagination
@@ -136,7 +136,7 @@ The previous pagination Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
-| **previousUrl**     | string   | Yes       | The value of the previous link href attribute |
-| **previousPage**    | string   | Yes       | The text of the previous link |
-| **classes**         | string   | No        | Optional additional classes to add to the review date. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the review date. |
+| **previousUrl**     | string   | Yes       | The value of the previous link href attribute. |
+| **previousPage**    | string   | Yes       | The text of the previous link. |
+| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
