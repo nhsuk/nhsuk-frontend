@@ -6,9 +6,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Quick start examples
 
-### Primary Care card
+### Care card non-urgent (blue)
 
-[Preview the primary care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html)
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-non-urgent.html)
 
 ### HTML markup
 
@@ -63,14 +63,14 @@ If you are using Nunjucks, then macros take the following arguments:
 | classes             | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
 | attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
 
-### Emergency Care card
+### Care card urgent (red)
 
-[Preview emergency care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html)
+[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-care-card nhsuk-care-card--emergency">
+<div class="nhsuk-care-card nhsuk-care-card--urgent">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Urgent care low: </span>Ask for an urgent GP appointment if:</h3>
   </div>
@@ -94,7 +94,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/care-card/macro.njk' import careCard %}
 
 {{ careCard({
-  "type": "emergency",
+  "type": "urgent",
   "heading": "Ask for an urgent GP appointment if:",
   "HTML": "
   <ul>
@@ -119,14 +119,14 @@ If you are using Nunjucks, then macros take the following arguments:
 | classes             | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
 | attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
 
-### Urgent Care card
+### Care card emergency (red and black)
 
-[Preview urgent care card component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
+[Preview care card emergency (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-care-card nhsuk-care-card--urgent">
+<div class="nhsuk-care-card nhsuk-care-card--emergency">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Urgent care high: </span>Call 999 if you have sudden chest pain that:</h3>
   </div>
@@ -149,7 +149,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/care-card/macro.njk' import careCard %}
 
 {{ careCard({
-  "type": "urgent",
+  "type": "emergency",
   "heading": "Call 999 if you have sudden chest pain that:",
   "HTML": "
   <ul>

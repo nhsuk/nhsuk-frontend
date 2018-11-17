@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Emergency care card' %}
+{% set title = 'Care card emergency (red and black)' %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% extends 'layout.njk' %}
 
@@ -12,14 +12,14 @@
       <div class="nhsuk-grid-column-two-thirds">
         {{ careCard({
           "type": "emergency",
-          "heading": "Ask for an urgent GP appointment if:",
+          "heading": "Call 999 if you have sudden chest pain that:",
           "HTML": "
           <ul>
-            <li>you're an adult and have chickenpox</li>
-            <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-            <li>you have a weakened immune system and you've been near someone with chickenpox</li>
-            <li>you think your newborn baby has chickenpox</li>
+            <li>spreads to your arms, back, neck or jaw</li>
+            <li>makes your chest feel tight or heavy</li>
+            <li>also started with shortness of breath, sweating and feeling or being sick</li>
           </ul>
+          <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
           "
         }) }}
       </div>
