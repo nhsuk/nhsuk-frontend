@@ -13,85 +13,85 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<nav id="nhsuk-nav-a-z" class="nhsuk-nav-a-z " role="navigation" aria-label="A-Z Navigation">
+<nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A-Z Navigation">
   <ul class="nhsuk-nav-a-z__list">
     <li class="nhsuk-nav-a-z__item">
-      <a href="#A" class="nhsuk-nav-a-z__link">A</a>
+      <a class="nhsuk-nav-a-z__link" href="#A">A</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
       <p class="nhsuk-nav-a-z__link--disabled">B</p>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#C" class="nhsuk-nav-a-z__link">C</a>
+      <a class="nhsuk-nav-a-z__link" href="#C">C</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#D" class="nhsuk-nav-a-z__link">D</a>
+      <a class="nhsuk-nav-a-z__link" href="#D">D</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#E" class="nhsuk-nav-a-z__link">E</a>
+      <a class="nhsuk-nav-a-z__link" href="#E">E</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#F" class="nhsuk-nav-a-z__link">F</a>
+      <a class="nhsuk-nav-a-z__link" href="#F">F</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#G" class="nhsuk-nav-a-z__link">G</a>
+      <a class="nhsuk-nav-a-z__link" href="#G">G</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#H" class="nhsuk-nav-a-z__link">H</a>
+      <a class="nhsuk-nav-a-z__link" href="#H">H</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#I" class="nhsuk-nav-a-z__link">I</a>
+      <a class="nhsuk-nav-a-z__link" href="#I">I</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#J" class="nhsuk-nav-a-z__link">J</a>
+      <a class="nhsuk-nav-a-z__link" href="#J">J</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#K" class="nhsuk-nav-a-z__link">K</a>
+      <a class="nhsuk-nav-a-z__link" href="#K">K</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#L" class="nhsuk-nav-a-z__link">L</a>
+      <a class="nhsuk-nav-a-z__link" href="#L">L</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#M" class="nhsuk-nav-a-z__link">M</a>
+      <a class="nhsuk-nav-a-z__link" href="#M">M</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#N" class="nhsuk-nav-a-z__link">N</a>
+      <a class="nhsuk-nav-a-z__link" href="#N">N</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#O" class="nhsuk-nav-a-z__link">O</a>
+      <a class="nhsuk-nav-a-z__link" href="#O">O</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#P" class="nhsuk-nav-a-z__link">P</a>
+      <a class="nhsuk-nav-a-z__link" href="#P">P</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#Q" class="nhsuk-nav-a-z__link">Q</a>
+      <a class="nhsuk-nav-a-z__link" href="#Q">Q</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#R" class="nhsuk-nav-a-z__link">R</a>
+      <a class="nhsuk-nav-a-z__link" href="#R">R</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#S" class="nhsuk-nav-a-z__link">S</a>
+      <a class="nhsuk-nav-a-z__link" href="#S">S</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#T" class="nhsuk-nav-a-z__link">T</a>
+      <a class="nhsuk-nav-a-z__link" href="#T">T</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#U" class="nhsuk-nav-a-z__link">U</a>
+      <a class="nhsuk-nav-a-z__link" href="#U">U</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#V" class="nhsuk-nav-a-z__link">V</a>
+      <a class="nhsuk-nav-a-z__link" href="#V">V</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#W" class="nhsuk-nav-a-z__link">W</a>
+      <a class="nhsuk-nav-a-z__link" href="#W">W</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#X" class="nhsuk-nav-a-z__link">X</a>
+      <a class="nhsuk-nav-a-z__link" href="#X">X</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#Y" class="nhsuk-nav-a-z__link">Y</a>
+      <a class="nhsuk-nav-a-z__link" href="#Y">Y</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <a href="#Z" class="nhsuk-nav-a-z__link">Z</a>
+      <a class="nhsuk-nav-a-z__link" href="#Z">Z</a>
     </li>
   </ul>
 </nav>
@@ -110,6 +110,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
       label: "A"
     },
     {
+      disable: "true",
       label: "B"
     },
     {
@@ -187,3 +188,15 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   ]
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The nav a-z Nunjucks macro takes the following arguments:
+
+| Name                  | Type     | Required  | Description  |
+| ----------------------|----------|-----------|--------------|
+| **items**             | array    | Yes       | Array of navigation items. |
+| **items.[].label**    | string   | Yes       | The label of the item in the navigation. |
+| **items.[].disable**  | boolean  | No        | If set to true, then the navigation item will not be within an anchor element. |
+| **classes**           | string   | No        | Optional additional classes to add to the nav a-z. Separate each class with a space. |
+| **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the nav a-z. |
