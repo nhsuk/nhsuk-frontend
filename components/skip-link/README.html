@@ -90,8 +90,11 @@
 <p>Find out more about the skip link component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS digital service manual</a>.</p>
 <p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/178">GitHub issue for this component</a>.</p>
 <h2 id="dependencies">Dependencies</h2>
-<p>For this component to work, you need to make sure you include the required JavaScript. You can either include the 
-compiled JavaScript for all components <code>nhsuk.min.js</code> or the individual component JavaScript <code>skip-link.js</code>.</p>
+<p>There is an <a href="https://bugs.webkit.org/show_bug.cgi?id=179011">in-page link bug in VoiceOver on iOS</a> whereby focus remains on the skip link anchor rather than
+the next focusable element of the jumped to content.</p>
+<p>This can be fixed by either including the compiled JavaScript for all components <code>nhsuk.min.js</code> or the individual component JavaScript <code>skip-link.js</code>.</p>
+<p>The fix focuses on the first <code>H1</code> on the page if one exists. If one does not exist, then the default action for in-page links will take place.</p>
+<p>Ensure the correct <code>id</code> value has been added to your main content for the skip link to work.</p>
 <h2 id="quick-start-examples">Quick start examples</h2>
 <h3 id="example">Example</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/skip-link.html">Preview the skip link component</a></p>
@@ -102,9 +105,45 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
 <pre><code class="language-html">{% from &#39;components/skip-link/macro.njk&#39; import skipLink %}
 
 {{ skipLink({
-  &quot;URL&quot;: &quot;#maincontent&quot;,
-  &quot;heading&quot;: &quot;Skip to main content&quot;
+  &quot;href&quot;: &quot;#maincontent&quot;,
+  &quot;text&quot;: &quot;Skip to main content&quot;
 }) }}</code></pre>
+<h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The skip link Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The value of the skip link href attribute. Default: &quot;#maincontent&quot;.</td>
+</tr>
+<tr>
+<td><strong>text</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text of the skip link. Default: &quot;Skip to main content&quot;.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the skip link. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the skip link.</td>
+</tr>
+</tbody></table>
 
   
 

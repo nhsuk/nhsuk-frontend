@@ -90,8 +90,8 @@
 <p>Find out more about the care card component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/care-cards/">NHS Digital service manual</a>.</p>
 <p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/160">GitHub issue for this component</a>.</p>
 <h2 id="quick-start-examples">Quick start examples</h2>
-<h3 id="primary-care-card">Primary Care card</h3>
-<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-primary.html">Preview the primary care card component</a></p>
+<h3 id="care-card-non-urgent-blue-">Care card non-urgent (blue)</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-non-urgent.html">Preview the care card non-urgent (blue) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
@@ -165,10 +165,10 @@
 <td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
 </tr>
 </tbody></table>
-<h3 id="emergency-care-card">Emergency Care card</h3>
-<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-emergency.html">Preview emergency care card component</a></p>
+<h3 id="care-card-urgent-red-">Care card urgent (red)</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview care card urgent (red) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--emergency&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--urgent&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care low: &lt;/span&gt;Ask for an urgent GP appointment if:&lt;/h3&gt;
   &lt;/div&gt;
@@ -187,7 +187,7 @@
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;type&quot;: &quot;emergency&quot;,
+  &quot;type&quot;: &quot;urgent&quot;,
   &quot;heading&quot;: &quot;Ask for an urgent GP appointment if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -239,10 +239,10 @@
 <td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
 </tr>
 </tbody></table>
-<h3 id="urgent-care-card">Urgent Care card</h3>
-<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview urgent care card component</a></p>
+<h3 id="care-card-emergency-red-and-black-">Care card emergency (red and black)</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview care card emergency (red and black) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--urgent&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--emergency&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care high: &lt;/span&gt;Call 999 if you have sudden chest pain that:&lt;/h3&gt;
   &lt;/div&gt;
@@ -260,7 +260,7 @@
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;type&quot;: &quot;urgent&quot;,
+  &quot;type&quot;: &quot;emergency&quot;,
   &quot;heading&quot;: &quot;Call 999 if you have sudden chest pain that:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
