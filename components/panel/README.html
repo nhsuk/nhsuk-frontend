@@ -105,7 +105,37 @@
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h3 id="panel-with-a-label">Panel with a label</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The panel Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HTML</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>HTML content to be used within the promo component.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the warning callout. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the warning callout.</td>
+</tr>
+</tbody></table>
+<h3 id="panel-with-a-label">Panel with a label</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html">Preview the panel with a label component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel-with-label&quot;&gt;
@@ -119,7 +149,49 @@
 {{ panel({
   &quot;label&quot;: &quot;Panel heading&quot;,
   &quot;HTML&quot;: &quot;&lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h3 id="grey-panel">Grey panel</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The panel with a label Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HTML</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>HTML content to be used within the promo component.</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The label of the promo component.</td>
+</tr>
+<tr>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
+<td>No</td>
+<td>Optional heading level for the label  heading. Default: 3</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the warning callout. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the warning callout.</td>
+</tr>
+</tbody></table>
+<h3 id="grey-panel">Grey panel</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html">Preview the grey panel component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel nhsuk-panel--grey&quot;&gt;
@@ -135,7 +207,43 @@
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h3 id="panel-group">Panel group</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The grey panel Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HTML</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>HTML content to be used within the promo component.</td>
+</tr>
+<tr>
+<td><strong>colour</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The colour of the panel. Must be &quot;grey&quot;.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the warning callout. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the warning callout.</td>
+</tr>
+</tbody></table>
+<h3 id="panel-group">Panel group</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html">Preview the panel group component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
@@ -167,7 +275,37 @@
       &quot;HTML&quot;: &quot;&lt;h3&gt;Panel title&lt;/h3&gt; &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
     }) }}
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The panel group Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HTML</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>HTML content to be used within the promo component.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the warning callout. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the warning callout.</td>
+</tr>
+</tbody></table>
+
   
 
         </div>
