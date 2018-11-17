@@ -74,11 +74,11 @@
  * 1. <a> needs to be white because the background colour is black.
  */
 
-.nhsuk-care-card--emergency {
+.nhsuk-care-card--urgent {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 }
 
-.nhsuk-care-card--urgent {
+.nhsuk-care-card--emergency {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-care-card__content {
