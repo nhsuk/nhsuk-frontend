@@ -109,7 +109,49 @@
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h3 id="promo-with-image">Promo with image</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The promo Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The value of the promo href attribute</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The text heading of the promo</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text description of the promo</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
+</tr>
+</tbody></table>
+<h3 id="promo-with-image">Promo with image</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html">Preview the promo with image component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
@@ -130,7 +172,55 @@
   &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h3 id="promo-with-no-description">Promo with no description</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The promo with image Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The value of the promo href attribute</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The text heading of the promo</td>
+</tr>
+<tr>
+<td><strong>imgURL</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The URL of the image in the promo</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text description of the promo</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
+</tr>
+</tbody></table>
+<h3 id="promo-with-no-description">Promo with no description</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html">Preview the promo with no description component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
@@ -147,7 +237,43 @@
 {{ promo({
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;
-}) }}</code></pre><h3 id="small-promo">Small promo</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The promo with no description Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The value of the promo href attribute</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The text heading of the promo</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
+</tr>
+</tbody></table>
+<h3 id="small-promo">Small promo</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html">Preview the small promo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo nhsuk-promo--small&quot;&gt;
@@ -167,7 +293,55 @@
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Access your GP record&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h3 id="promo-group">Promo group</h3>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The small promo Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The value of the promo href attribute</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The text heading of the promo</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>Additional classes to add to the promo. Separate each class with a space. Must have <code>nhsuk-promo--small</code></td>
+</tr>
+<tr>
+<td><strong>imgURL</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The URL of the image in the promo</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text description of the promo</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
+</tr>
+</tbody></table>
+<h3 id="promo-group">Promo group</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html">Preview the promo group component</a></p>
 <h2 id="html-markup">HTML markup</h2>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
@@ -232,7 +406,55 @@
       &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
     }) }}
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The promo group Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>href</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The value of the promo href attribute</td>
+</tr>
+<tr>
+<td><strong>heading</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>The text heading of the promo</td>
+</tr>
+<tr>
+<td><strong>imgURL</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The URL of the image in the promo</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text description of the promo</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
+</tr>
+</tbody></table>
+
   
 
         </div>
