@@ -12,8 +12,6 @@
  * 7. Underline is added to give a visual state of change.
  * 8. Removes right and left margin to make the panel list go right to the
  *    edge of the screen.
- * 9. Margin left used to compensate for the negative margin
- *    on .nhsuk-list-panel--mobile.
  */
 
 .nhsuk-list-panel {
@@ -105,13 +103,6 @@
   padding: nhsuk-spacing(3);
 }
 
-
-.nhsuk-back-to-top__link {
-  @include mq($until: tablet) {
-    margin-left: nhsuk-spacing(3); /* [9] */
-  }
-}
-
 /* COMPONENT / #BACK-TO-TOP
    ========================================================================== */
 
@@ -122,6 +113,8 @@
  * 4. Make same colour as link text.
  * 5. 'Random numbers' used to set the height and width of the icon.
  * 6. 'Random numbers' used to position align icon.
+ * 7. Margin left used to compensate for the negative margin
+ *    on .nhsuk-list-panel--mobile.
  */
 
 .nhsuk-back-to-top__link {
@@ -131,6 +124,10 @@
   margin-top: nhsuk-spacing(3);
   padding-left: 12px; /* [2] */
   position: relative; /* [3] */
+
+  @include mq($until: tablet) {
+    margin-left: nhsuk-spacing(3); /* [7] */
+  }
 
   .nhsuk-icon {
     -ms-transform: rotate(270deg);
