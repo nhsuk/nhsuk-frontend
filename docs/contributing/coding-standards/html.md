@@ -18,7 +18,7 @@ HTML attributes should come in this particular order for easier reading of code.
 
 - `class`
 - `id`, `name`
-- `data-*``
+- `data-*`
 - `src`, `for`, `type`, `href`, `value`
 - `title`, `alt`
 - `role`, `aria-*`
