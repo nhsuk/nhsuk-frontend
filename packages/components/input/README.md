@@ -2,7 +2,7 @@
 
 Find out more about the input component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/222).
 
 ## Quick start examples
 
@@ -38,7 +38,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Input with hint text
 
-[Preview the input with hint text component](TODO)
+[Preview the input with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/input/hint.html)
 
 ### HTML markup
 
@@ -75,7 +75,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Input with error message
 
-[Preview the input with error message component](TODO)
+[Preview the input with error message component](https://nhsuk.github.io/nhsuk-frontend/components/input/error.html)
 
 ### HTML markup
 
@@ -119,7 +119,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Input with width modifier
 
-[Preview the input with width modifier component](TODO)
+[Preview the input with width modifier component](https://nhsuk.github.io/nhsuk-frontend/components/input/custom-width.html)
 
 ### HTML markup
 

@@ -2,13 +2,13 @@
 
 Find out more about the radios component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/224).
 
 ## Quick start examples
 
 ### Radios
 
-[Preview the radios component](https://nhsuk.github.io/nhsuk-frontend/components/radios.html)
+[Preview the radios component](https://nhsuk.github.io/nhsuk-frontend/components/radios/index.html)
 
 ### HTML markup
 
@@ -79,7 +79,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios inline
 
-[Preview the radios inline component](TODO)
+[Preview the radios inline component](https://nhsuk.github.io/nhsuk-frontend/components/radios/inline.html)
 
 ### HTML markup
 
@@ -151,7 +151,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios disabled
 
-[Preview the radios disabled component](TODO)
+[Preview the radios disabled component](https://nhsuk.github.io/nhsuk-frontend/components/radios/disabled.html)
 
 ### HTML markup
 
@@ -223,7 +223,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios with a divider
 
-[Preview the radios with a divider component](TODO)
+[Preview the radios with a divider component](https://nhsuk.github.io/nhsuk-frontend/components/radios/divider.html)
 
 ### HTML markup
 
@@ -302,7 +302,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios with hint text on items
 
-[Preview the radios with hint text on items component](TODO)
+[Preview the radios with hint text on items component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint.html)
 
 ### HTML markup
 
@@ -380,7 +380,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios without fieldset
 
-[Preview the radios without fieldset component](TODO)
+[Preview the radios without fieldset component](https://nhsuk.github.io/nhsuk-frontend/components/radios/without-fieldset.html)
 
 ### HTML markup
 
@@ -441,7 +441,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Radios with hint text and error message
 
-[Preview the radios with hint text and error message component](TODO)
+[Preview the radios with hint text and error message component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint-error.html)
 
 ### HTML markup
 

@@ -2,7 +2,7 @@
 
 Find out more about the hint component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/221).
 
 ## Quick start examples
 

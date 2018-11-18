@@ -2,13 +2,13 @@
 
 Find out more about the select component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/225).
 
 ## Quick start examples
 
 ### Select
 
-[Preview the select component](https://nhsuk.github.io/nhsuk-frontend/components/select.html)
+[Preview the select component](https://nhsuk.github.io/nhsuk-frontend/components/select/index.html)
 
 ### HTML markup
 
@@ -58,7 +58,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Select with hint text and error message
 
-[Preview the select with hint text and error message component](TODO)
+[Preview the select with hint text and error message component](https://nhsuk.github.io/nhsuk-frontend/components/select/hint-error.html)
 
 ### HTML markup
 

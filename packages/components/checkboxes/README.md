@@ -89,7 +89,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Checkboxes with hint text
 
-[Preview the checkboxes with hint text component](TODO)
+[Preview the checkboxes with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/hint.html)
 
 ### HTML markup
 
@@ -169,7 +169,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Checkboxes with disabled item
 
-[Preview the checkboxes with disabled item component](TODO)
+[Preview the checkboxes with disabled item component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/disabled.html)
 
 ### HTML markup
 
@@ -231,7 +231,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Checkboxes with legend as page heading
 
-[Preview the checkboxes with legend as page heading component](TODO)
+[Preview the checkboxes with legend as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/page-heading.html)
 
 ### HTML markup
 
@@ -315,7 +315,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Checkboxes with error message
 
-[Preview the checkboxes with error message component](TODO)
+[Preview the checkboxes with error message component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/error.html)
 
 ### HTML markup
 

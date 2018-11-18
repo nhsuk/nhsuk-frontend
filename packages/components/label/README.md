@@ -2,13 +2,13 @@
 
 Find out more about the label component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/223).
 
 ## Quick start examples
 
 ### Label
 
-[Preview the label component](https://nhsuk.github.io/nhsuk-frontend/components/label.html)
+[Preview the label component](https://nhsuk.github.io/nhsuk-frontend/components/label/index.html)
 
 ### HTML markup
 
@@ -30,7 +30,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Label with bold text
 
-[Preview the label with bold text component](TODO)
+[Preview the label with bold text component](https://nhsuk.github.io/nhsuk-frontend/components/label/bold.html)
 
 ### HTML markup
 
@@ -53,7 +53,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Label as page heading
 
-[Preview the label as page heading component](TODO)
+[Preview the label as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/label/page-heading.html)
 
 ### HTML markup
 

@@ -2,7 +2,7 @@
 
 Find out more about the date input component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/217).
 
 ## Quick start examples
 
@@ -97,7 +97,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Date input with errors
 
-[Preview the date input with errors component](TODO)
+[Preview the date input with errors component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/multiple-errors.html)
 
 ### HTML markup
 
@@ -192,7 +192,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Date input with error on single input
 
-[Preview the date input with error on single input component](TODO)
+[Preview the date input with error on single input component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/error.html)
 
 ### HTML markup
 

@@ -2,13 +2,13 @@
 
 Find out more about the textarea component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](TODO).
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/226).
 
 ## Quick start examples
 
 ### Textarea
 
-[Preview the textarea component](https://nhsuk.github.io/nhsuk-frontend/components/textarea.html)
+[Preview the textarea component](https://nhsuk.github.io/nhsuk-frontend/components/textarea/index.html)
 
 ### HTML markup
 
@@ -45,7 +45,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Textarea with error message
 
-[Preview the textarea with error message component](TODO)
+[Preview the textarea with error message component](https://nhsuk.github.io/nhsuk-frontend/components/textarea/error.html)
 
 ### HTML markup
 
