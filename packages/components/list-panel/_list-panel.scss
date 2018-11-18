@@ -19,6 +19,10 @@
 .nhsuk-list-panel {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
+
+  @include mq($until: tablet) {
+    @include remove-margin-mobile(); /* [8] */
+  }
 }
 
 .nhsuk-list-panel__label {
@@ -101,17 +105,11 @@
   padding: nhsuk-spacing(3);
 }
 
-.nhsuk-list-panel--mobile {
-  @include remove-margin-mobile(); /* [8] */
 
-  .nhsuk-back-to-top__link {
-
-    @include mq($until: tablet) {
-      margin-left: nhsuk-spacing(3); /* [9] */
-    }
-
+.nhsuk-back-to-top__link {
+  @include mq($until: tablet) {
+    margin-left: nhsuk-spacing(3); /* [9] */
   }
-
 }
 
 /* COMPONENT / #BACK-TO-TOP
