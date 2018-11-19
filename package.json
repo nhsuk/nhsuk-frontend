@@ -7,7 +7,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
+    "test:cypress": "npm start & npm run cypress",
     "cypress": "cypress run --project ./tests",
     "test": "npm run lint-css && npm run test:cypress",
     "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
@@ -46,8 +46,7 @@
     "gulp-zip": "^4.2.0",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
-    "sass-lint": "^1.12.1",
-    "start-server-and-test": "^1.7.9"
+    "sass-lint": "^1.12.1"
   },
   "files": [
     "dist",
