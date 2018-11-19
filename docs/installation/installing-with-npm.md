@@ -1,7 +1,5 @@
 # Installing using npm
 
-### **This documentation is currently being written** 
-
 ## Requirements
 
 To use NHS.UK Frontend in your projects with npm you must:
@@ -129,7 +127,7 @@ jQuery dependency.
 
 ## Importing assets
 
-For example, if your project uses [Express.js](https://expressjs.com/), in order to include the asset files directly from the `node_modules` folder, you need to configure your main `app.js` file to show files from this folder
+For example, if your project uses [Express.js](https://expressjs.com/),in order to include the asset files directly from the `node_modules` folder, you need to configure your main `app.js` file to show files from this folder
 
 ```
 app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/packages')));
@@ -158,6 +156,18 @@ Alternatively with SVG icons you can just include the code required for that ico
   <path d="M0 0h24v24H0z" fill="none"/>
   <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"/>
 </svg>
+```
+
+## Importing Nunjucks macros (optional)
+
+Below is an example setup using Express configure views:
+
+```
+nunjucks.configure('node_modules/nhsuk-frontend/components', {
+  autoescape: true,
+  cache: false,
+  express: app
+})
 ```
 
 ## Thanks to the Government Digital Service (GDS)
