@@ -77,6 +77,18 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                | Type     | Required  | Description             |
+| --------------------|----------|-----------|-------------------------|
+| **text (or) html**  | string   | Yes       | Text or HTML to use within the label. If `html` is provided, the `text` argument will be ignored. |
+| **for**             | string   | Yes       | The value of the for attribute, the id of the input the label is associated with. |
+| **isPageHeading**   | boolean  | No        | Whether the label also acts as the heading for the page.|
+| **classes**         | string   | No        | Optional additional classes to add to the label tag. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the label tag. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Label component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/label) with a few minor adaptations.

@@ -62,6 +62,20 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                    | Type     | Required  | Description             |
+| ------------------------|----------|-----------|-------------------------|
+| **describedBy**         | string   | No        | Text or element id to add to the `aria-describedby` attribute to provide description of the group of fields for screenreader users. |
+| **legend**              | object   | No        | Arguments for the legend. |
+| **legend.{}.text (or) legend.{}.html**  | string   | No        | Legend text or HTML. If `html` is provided, the `text` argument will be ignored. |
+| **legend.{}.classes**   | string   | No        | Optional additional classes to add to the legend container. |
+| **legend.{}.isPageHeading**  | boolean   | No  | Whether the legend also acts as the heading for the page. |
+| **classes**             | string   | No        | Optional additional classes to add to the fieldset container. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the fieldset container. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Fieldset component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/fieldset) with a few minor adaptations.

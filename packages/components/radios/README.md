@@ -522,6 +522,32 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                | Type     | Required  | Description                 |
+| --------------------|----------|-----------|-----------------------------|
+| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **idPrefix**        | string   | No        | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.|
+| **name**            | string	 | Yes       | Name attribute for each radio item. |
+| **items**           | array    | Yes       | Array of radio item objects. |
+| **items.{}.text (or) items.{}.html**       | string   | Yes        | Text or HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored. |
+| **items.{}.id**     | string  | No        | Specific id attribute for the radio item. If ommited, then `idPrefix` string will be applied.|
+| **items.{}.name**   | string  | Yes        | Specific name for the radio item. If ommited, then component global `name` string will be applied. |
+| **items.{}.value**  | string   | Yes        | Value for the radio input. |
+| **items.{}.hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **items.{}.divider** | string   | No        | Optional divider text to separate radio items, for example the text "or". |
+| **items.{}.checked** | boolean   | No        | If true, radio will be checked. |
+| **items.{}.conditional** | boolean   | No        | If true, content provided will be revealed when the item is checked. |
+| **items.{}.conditional.html** | boolean   | No        | Provide content for the conditional reveal. |
+| **items.{}.disabled** | boolean   | No        | If true, radio will be disabled. |
+| **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radio input tag. |
+| **classes**         | string   | No        | Optional additional classes to add to the radios container. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radios container. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Radios component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/radios) with a few minor adaptations.

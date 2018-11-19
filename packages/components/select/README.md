@@ -118,6 +118,26 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                | Type     | Required  | Description                 |
+| --------------------|----------|-----------|-----------------------------|
+| **id**              | string   | Yes       | The id for each select box. |
+| **name**            | string   | Yes       | The name of the select, which is submitted with the form data. |
+| **items**           | array	   | Yes       | Array of option items for the select. |
+| **item.value**      | string   | No        | Value for the option item. |
+| **item.text**       | string   | No        | Text for the option item. |
+| **item.selected**   | boolean  | No        | Sets the option as the selected. |
+| **item.disabled**   | boolean  | No        | Sets the option item as disabled. |
+| **item.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to the select option tag. |
+| **label**           | object   | Yes       | Optional label text or HTML by specifying value for either text or html keys. See [label](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/label) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **classes**         | string   | No        | Optional additional classes to add to the select component. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the select component. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Select component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/select) with a few minor adaptations.

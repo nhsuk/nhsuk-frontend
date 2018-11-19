@@ -49,6 +49,21 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                           | Type     | Required  | Description             |
+| ------------------------------|----------|-----------|-------------------------|
+| **titleText (or) titleHtml**  | string   | Yes       | Text or HTML to use for the heading of the error summary block. If `titleHtml` is provided, the `titleText` argument will be ignored. |
+| **descriptionText (or) descriptionHtml**                       | string   | No       | Optional text or HTML description of the errors. If `descriptionhtml` is provided, the `descriptionText` argument will be ignored. |
+| **errorList**             | object  | Yes        | Contains an array of error link items and all their available arguments. |
+| **errorList.{}.href**             | string  | No        | Href attribute for the error link item. If provided item will be an anchor. |
+| **errorList.{}.text (or) errorList.{}.html**             | string  | No        | Text or HTML for the error link item. If `html` is provided, the `text` argument will be ignored. |
+| **errorList.{}.attributes**             | object  | No        | Any extra HTML attributes (for example data attributes) to add to the error link anchor. |
+| **classes**                   | string   | No        | Optional additional classes to add to the error-summary container. Separate each class with a space. |
+| **attributes**                | object   | No        | Any extra HTML attributes (for example data attributes) to add to the error-summary container. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Error summary component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/error-summary) with a few minor adaptations.

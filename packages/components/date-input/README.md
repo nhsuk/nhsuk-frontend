@@ -286,6 +286,25 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name                      | Type     | Required  | Description             |
+| --------------------------|----------|-----------|-------------------------|
+| **id**                    | string   | No        | Optional id. This is used for the main component and to compose id attribute for each item. |
+| **namePrefix**            | string   | No        | Optional prefix. This is used to prefix each `item.name` using `-`. |
+| **items**                 | array    | Yes       | An array of input objects with name, value and optional classes. |
+| **items.{}.id**           | array    | No        | Optional item-specific id. If provided, it will be used instead of the generated id. |
+| **items.{}.name**         | array    | Yes       | Item-specific name attribute. |
+| **items.{}.value**        | string   | No        | Optional item-specific value attribute. If provided, it will be used as the initial value of the input. |
+| **items.{}.label**        | string   | No        | Optional item-specific label text. If provided, this will be used instead of the items.{}.name. |
+| **hint**                  | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**          | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **fieldset**              | object   | No        | Arguments for the fieldset component (e.g. legend). See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
+| **classes**               | string   | No        | Optional additional classes to add to the date-input container. Separate each class with a space. |
+| **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the date-input container. |
+
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Date input component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/date-input) with a few minor adaptations.
