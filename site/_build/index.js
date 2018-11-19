@@ -15,6 +15,7 @@ var rootDir = path.resolve(__dirname, '../..')
  * have to apply some workarounds.
  *
  * - Convert README.md into index pages
+ * - Replace .md links in markdown with .html links
  * - Wrap markdown in the site-specific layout
  */
 module.exports.markdownDocs = function(done) {
@@ -26,6 +27,18 @@ module.exports.markdownDocs = function(done) {
       // README.md should end up being the index.html page
       [/\/README.md$/, '/index.md'],
     ]))
+    .use(function(files, metalsmith, done) {
+      Object.keys(files).forEach(function(key) {
+        var contents = files[key].contents.toString()
+        //replace
+        var regex = /\[([^\]]*?)\]\(([^\)]*?)\.md\)/g
+        contents = contents.replace(regex, function(match, p1, p2) {
+          return `[${p1}](${p2}.html)`;
+        })
+        files[key].contents = new Buffer(contents)
+      })
+      done()
+    })
     .use(inplace()) // convert markdown files to .html
     .use(function(files, metalsmith, done) {
       // Wrap markdown with the page.njk layout
