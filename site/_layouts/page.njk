@@ -1,5 +1,6 @@
 {% from 'components/header/macro.njk' import header %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb as breadcrumbMacro %}
 
 {% extends 'layout.njk' %}
 
@@ -15,7 +16,11 @@
 
 {% block body %}
 
-  {% block breadcrumb %}{% endblock %}
+  {% block breadcrumb %}
+    {% if breadcrumbs %}
+      {{ breadcrumbMacro(breadcrumbs) }}
+    {% endif %}
+  {% endblock %}
 
   <div class="nhsuk-width-container">
     <main id="maincontent" class="nhsuk-main-wrapper">

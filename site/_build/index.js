@@ -5,6 +5,8 @@ var nunjucks = require('nunjucks')
 var inplace = require('metalsmith-in-place')
 var rename = require('metalsmith-rename')
 
+var breadcrumbs = require('./breadcrumbs.js')
+
 var env = nunjucks.configure(['site/_layouts', 'packages'], { autoescape: true });
 var rootDir = path.resolve(__dirname, '../..')
 
@@ -57,6 +59,10 @@ module.exports.markdownDocs = function(done) {
       })
       done()
     })
+    .use(breadcrumbs({
+      // Add a "Home" and a "Docs" breadcrumb
+      baseFilepath: 'home/docs',
+    }))
     .use(rename([
       // use the .njk extension so that inplace can do nunjucks processing
       [/\.html$/, '.njk'],
