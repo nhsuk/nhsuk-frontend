@@ -18,9 +18,8 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
 2. Include resources  
 
-    Copy the files into folders, such as `css` and `js`, within your project. 
-    You must copy the entire `assets` folder to the root of your project.
-    Then import the files into the `<head>` of your layout file using the `<link>` and `<script>` tags. 
+    Copy all 3 folders, `css`, `js` and `assets`, into the root of your project. If you already have a folder structure
+    in place, you will need to copy the individual files into the relevant folders.
 
     Make sure you change the version numbers of the `[latest version].min.css` and `[latest version].min.js` files, 
     in the example below, to the version you are using.
