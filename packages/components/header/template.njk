@@ -1,11 +1,16 @@
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+      <a href="{% if params.href %}{{ params.href }}{% else %}/{% endif %}" class="nhsuk-header__link" aria-label="NHS homepage">
         {% include 'assets/logos/logo-nhs.svg' %}
       </a>
     </div>
   {% if params.showNav == "false" and params.showSearch == "false" %}
+    {% if params.service %}
+    <div class="nhsuk-header__service-name">
+      <a href="{% if params.service.href %}{{ params.service.href }}{% else %}/{% endif %}" class="nhsuk-header__service-name--link">{{ params.service.name }}</a>
+    </div>
+    {% endif %}
   </div>
   {% endif %}
 

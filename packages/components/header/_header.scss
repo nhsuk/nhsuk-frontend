@@ -89,8 +89,31 @@
 
 }
 
+/* Transactional Header with service name */
+
+.nhsuk-header__service-name {
+  float: left;
+  padding-top: 25px;
+
+  @include mq($until: tablet) {
+    padding-bottom: nhsuk-spacing(3);
+    padding-left: nhsuk-spacing(3);
+    padding-top: 0;
+    width: 100%;
+  }
+
+}
+
+.nhsuk-header__service-name--link {
+  @include nhsuk-link-style-white;
+  @include nhsuk-font(19);
+
+  text-decoration: none;
+}
+
 .nhsuk-header__search {
   @include clearfix();
+
   position: relative;
   text-align: right;
 
@@ -102,7 +125,6 @@
 }
 
 .nhsuk-header__search-toggle {
-
   @include toggle-button();
 
   min-height: 40px; /* [2] */
