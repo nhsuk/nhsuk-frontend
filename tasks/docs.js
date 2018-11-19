@@ -10,6 +10,8 @@ var wrap = require('gulp-wrap');
 var replace = require('gulp-replace');
 var open = require('gulp-open');
 
+var metalsmithBuild = require('../site/_build/index.js')
+
 var config = {
   templates: ['site/_layouts', 'packages'],
   dest: 'dist/docs',
@@ -17,17 +19,10 @@ var config = {
 }
 
 /**
- * Turn markdown into html with a nunjucks layout
+ * Turn templates into html with a nunjucks
  */
 function buildHtml() {
-  return gulp.src(['docs/**/*.md', '!docs/**/README.md', 'packages/**/README.md'])
-    .pipe(replace(/\[([^\]]*?)\]\(([^\)]*?)\.md\)/g, function(match, p1, p2) {
-      // replace .md links with .html
-      return `[${p1}](${p2}.html)`;
-    }))
-    .pipe(markdown())
-    .pipe(wrap({src: 'site/_layouts/markdown-wrapper.njk'}))
-    .pipe(gulp.src(['site/**/*.njk']))
+  return gulp.src(['site/**/*.njk'])
     .pipe(gulpNunjucks.compile({
       // site-wide data goes here
       baseUrl: config.baseUrl,
@@ -40,6 +35,13 @@ function buildHtml() {
       extname: '.html',
     }))
     .pipe(gulp.dest(config.dest))
+}
+
+/**
+ * Use metalsmith to turn github-style docs into html
+ */
+function buildDocs(done) {
+  metalsmithBuild.markdownDocs(done)
 }
 
 /**
@@ -99,6 +101,7 @@ function reload() {
 gulp.task('docs:build', gulp.series([
   copyBuiltAssets,
   buildHtml,
+  buildDocs,
   copyBinaryAssets,
   copyThirdParty,
   reload,
