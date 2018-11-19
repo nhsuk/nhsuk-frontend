@@ -21,7 +21,7 @@ $button-shadow-size: 4px;
 
   -webkit-appearance: none;
   background-color: $nhsuk-button-colour;
-  border: $govuk-border-width-form-element solid transparent;
+  border: $nhsuk-border-width-form-element solid transparent;
   border-radius: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
   box-sizing: border-box;
@@ -30,7 +30,7 @@ $button-shadow-size: 4px;
   display: inline-block;
   font-weight: 600;
   margin-top: 0;
-  padding: (nhsuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(2); // s2
+  padding: (nhsuk-spacing(2) - $nhsuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(2); // s2
   position: relative;
   text-align: center;
   vertical-align: top;
@@ -68,13 +68,13 @@ $button-shadow-size: 4px;
   /* 4 */
   &::before {
     background: transparent;
-    bottom: -($govuk-border-width-form-element + $button-shadow-size);
+    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
     content: '';
     display: block;
-    left: -$govuk-border-width-form-element;
+    left: -$nhsuk-border-width-form-element;
     position: absolute;
-    right: -$govuk-border-width-form-element;
-    top: -$govuk-border-width-form-element;
+    right: -$nhsuk-border-width-form-element;
+    top: -$nhsuk-border-width-form-element;
   }
 
   //
@@ -89,7 +89,7 @@ $button-shadow-size: 4px;
   //
 
   &:active::before {
-    top: -($govuk-border-width-form-element + $button-shadow-size);
+    top: -($nhsuk-border-width-form-element + $button-shadow-size);
   }
 
 }

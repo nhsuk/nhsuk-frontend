@@ -6,7 +6,7 @@
   @include nhsuk-font(19);
   @include nhsuk-focusable;
 
-  border: $govuk-border-width-form-element solid $nhsuk-form-border-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   height: 40px;
   max-width: 100%;
@@ -21,5 +21,5 @@
 }
 
 .nhsuk-select--error {
-  border: $govuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
 }

@@ -14,10 +14,10 @@
   @include nhsuk-responsive-margin(8, 'bottom');
   @include nhsuk-focusable;
 
-  border: $govuk-border-width-mobile solid $nhsuk-error-color;
+  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
   @include govuk-media-query($from: tablet) {
-    border: $govuk-border-width solid $nhsuk-error-color;
+    border: $nhsuk-border-width solid $nhsuk-error-color;
   }
 }
 

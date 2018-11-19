@@ -17,7 +17,7 @@
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 1 */
   appearance: none; /* 1 */
-  border: $govuk-border-width-form-element solid $color_nhsuk-black; /* 2 */
+  border: $nhsuk-border-width-form-element solid $color_nhsuk-black; /* 2 */
   border-radius: 0;
   box-sizing: border-box;
   height: 40px;
@@ -37,7 +37,7 @@
 }
 
 .nhsuk-input--error {
-  border: $govuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
 }
 
 // The ex measurements are based on the number of W's that can fit inside the input
