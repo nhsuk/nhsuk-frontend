@@ -1,0 +1,4 @@
+# Do not add any content into this directory. When the site is built, it will
+# be overwritten by the markdown files inside ./docs/
+*
+!.gitignore
