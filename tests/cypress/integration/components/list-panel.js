@@ -8,8 +8,8 @@ describe('List Panel Component', function () {
     cy.visit(Cypress.config().baseUrl + '/list-panel.html')
   });
 
-  it('Checking for class name', function () {
-    cy.get('.nhsuk-list-panel.nhsuk-list-panel--mobile').first().children().should('have.class', 'nhsuk-list-panel__label')
+  it('Checking for class name nhsuk-list-panel__label', function () {
+    cy.get('.nhsuk-grid-column-full').first().children().children().should('have.class', 'nhsuk-list-panel__label')
   });
 
   it('Checking for href - back_to_top', function () {
