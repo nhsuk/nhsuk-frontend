@@ -1,6 +1,7 @@
-<div class="nhsuk-list-panel nhsuk-list-panel--mobile">
+{% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
+<div class="nhsuk-list-panel{%- if params.classes %} {{ params.classes }}{% endif %}"{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   {% if params.label %}
-  <h2 id="{{ params.id }}" class="nhsuk-list-panel__label">{{ params.label }}</h2>
+  <h{{ headingLevel }} class="nhsuk-list-panel__label" id="{{ params.id }}">{{ params.label }}</h{{ headingLevel }}>
   {% endif %}
   {% if params.disable %}
   <div class="nhsuk-list-panel__box{% if params.label %} nhsuk-list-panel__box--with-label {% endif %}">
@@ -10,15 +11,14 @@
   <ul class="nhsuk-list-panel__list{% if params.label %} nhsuk-list-panel__list--with-label {% endif %}">
     {% for item in params.items %}
     <li class="nhsuk-list-panel__item">
-      <a href="{{ item.URL }}" class="nhsuk-list-panel__link">{{ item.link }}</a>
+      <a class="nhsuk-list-panel__link" href="{{ item.URL }}">{{ item.link }}</a>
     </li>
     {% endfor %}
   </ul>
   {% endif %}
-  {% if params.backTop %}
-  {% else %}
+  {% if params.backToTop %}
   <div class="nhsuk-back-to-top">
-    <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+    <a class="nhsuk-back-to-top__link" href="{{ params.backToTopLink }}">
       {% include 'assets/icons/icon-arrow-right.svg' %}
       Back to top
     </a>
