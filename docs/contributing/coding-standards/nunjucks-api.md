@@ -58,7 +58,7 @@ Example:
 ## Use of classes to specify variants
 When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.
 
-Primary Care card example:
+Care card non-urgent (blue) example:
 ```
 {{ careCard({
   "type": "primary",
@@ -74,7 +74,7 @@ Primary Care card example:
   "
 }) }}
 ```
-Red care card example:
+Care card emergency (red and black) example:
 ```
 {{ careCard({
   "type": "emergency",

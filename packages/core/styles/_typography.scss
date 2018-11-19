@@ -2,18 +2,15 @@
    STYLES / #TYPOGRAPHY
    ========================================================================== */
 
-/* Headings
-   ========================================================================== */
+/* Headings */
 
-/**
- * The % (silent class) allows code to be extended (@extend) to other elements
- * without bloating the code.
- *
- * @example scss
- *  .foo {
- *    @extend %nhsuk-heading-xl;
- *   }
- */
+// The % (silent class) allows code to be extended (@extend) to other elements
+// without bloating the code.
+//
+// @example scss
+//  .foo {
+//   @extend %nhsuk-heading-xl;
+//  }
 
 %nhsuk-heading-xl {
   @include nhsuk-typography-responsive(48);
@@ -105,8 +102,7 @@ h6,
   @extend %nhsuk-heading-xxs;
 }
 
-/* Captions to be used inside headings
-   ========================================================================== */
+/* Captions to be used inside headings */
 
 .nhsuk-caption-xl {
   @include nhsuk-font($size: 32);
@@ -136,8 +132,7 @@ h6,
   margin-top: nhsuk-spacing(1);
 }
 
-/* Body (paragraphs)
-   ========================================================================== */
+/* Body (paragraphs) */
 
 %nhsuk-body-l {
   @include nhsuk-typography-responsive(24);
@@ -180,10 +175,10 @@ p,
   @extend %nhsuk-body-s;
 }
 
-/* Contextual adjustments
-   ========================================================================== */
 
 /**
+ * Contextual adjustments
+ *
  * Add top padding to headings that appear directly after paragraphs.
  *
  * Original code taken from GDS (Government Digital Service)
@@ -217,8 +212,7 @@ p,
   }
 }
 
-/* Font weight for <strong> and <b>
-   ========================================================================== */
+/* Font weight for <strong> and <b> */
 
 strong,
 b {

@@ -25,11 +25,11 @@
 }
 
 .nhsuk-details__summary {
-  color: $color_nhsuk-blue; // [1] //
+  color: $color_nhsuk-blue; /* [1] */
   cursor: pointer;
-  display: inline-block; // [2] //
+  display: inline-block; /* [2] */
   padding-left: nhsuk-spacing(4);
-  position: relative; // [3] //
+  position: relative; /* [3] */
 
   @include nhsuk-link-style-hover();
   @include nhsuk-link-style-focus();
@@ -72,11 +72,11 @@
 }
 
 .nhsuk-details__summary-text {
-  text-decoration: underline; // [4] //
+  text-decoration: underline; /* [4] */
 }
 
 .nhsuk-details__summary::-webkit-details-marker { // sass-lint:disable-line force-pseudo-nesting
-  display: none; // [5] //
+  display: none; /* [5] */
 }
 
 .nhsuk-details__text {
@@ -114,7 +114,7 @@
     display: block;
 
     &:before {
-      display: none !important; // sass-lint:disable-line no-important // [1] //
+      display: none !important; // sass-lint:disable-line no-important /* [1] */
     }
 
     &:focus {
@@ -127,7 +127,7 @@
 
     &:hover,
     &:active,
-    &:focus { // [2] //
+    &:focus { /* [2] */
       outline: 0;
     }
 
@@ -158,12 +158,12 @@
   }
 
   .nhsuk-details__summary-text {
-    background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; // [3] //
+    background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; /* [3] */
   }
 
 }
 
-.nhsuk-expander-group { // [4] //
+.nhsuk-expander-group { /* [4] */
 
   > .nhsuk-details {
     @include nhsuk-responsive-margin(2, 'bottom');

@@ -3,12 +3,12 @@
     <ul class="nhsuk-list {% if params.type == 'tick' %}nhsuk-list--check{% else %}nhsuk-list--cross{% endif %}">
       {% for data in params.items %}
       <li>
-      {% if params.type == 'tick' %}
-        {% include 'assets/icons/icon-tick.svg' %}
-      {% else %}
+      {% if params.type == 'cross' %}
         {% include 'assets/icons/icon-cross.svg' %}
+      {% else %}
+        {% include 'assets/icons/icon-tick.svg' %}
       {% endif %}
-      {{ data.item | safe}}
+      {% if params.type == 'cross' %}do not {% endif %}{{ data.item | safe}}
       </li>
       {% endfor %}
     </ul>

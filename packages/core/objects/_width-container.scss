@@ -13,7 +13,7 @@
  * 3. From desktop, add full width gutters
  * 4. As soon as the viewport is greater than the width of the page plus the
  *    gutters, just centre the content instead of adding gutters.
-*/
+ */
 
 @mixin govuk-width-container {
   margin: 0 $nhsuk-gutter-half; /* [1] */

@@ -7,24 +7,26 @@
 {% block body %}
 
   <div class="nhsuk-width-container">
-    <main id="maincontent" class="nhsuk-main-wrapper">
+    <main class="nhsuk-main-wrapper" id="maincontent">
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
           {{ listPanel({
             label: "A",
             id: "A",
+            backToTop: "true",
+            backToTopLink: "#nhsuk-nav-a-z",
             items: [
               {
-                URL: "/index",
+                URL: "/conditions/abdominal-aortic-aneurysm/",
                 link: "AAA"
               },
               {
-                URL: "/index",
+                URL: "/conditions/abdominal-aortic-aneurysm/",
                 link: "Abdominal aortic aneurysm"
               },
               {
-                URL: "/index",
+                URL: "/conditions/abscess/",
                 link: "Abscess"
               }
             ]
@@ -34,19 +36,23 @@
             label: "B",
             id: "B",
             disable: "true",
-            message: "There are currently no medicines listed"
+            backToTop: "true",
+            backToTopLink: "#nhsuk-nav-a-z",
+            message: "There are currently no conditions listed"
           }) }}
 
           {{ listPanel({
             label: "C",
             id: "C",
+            backToTop: "true",
+            backToTopLink: "#nhsuk-nav-a-z",
             items: [
               {
-                URL: "/index",
+                URL: "/conditions/chest-pain/",
                 link: "Chest pain"
               },
               {
-                URL: "/index",
+                URL: "/conditions/cold-sores/",
                 link: "Cold sore"
               }
             ]
@@ -55,17 +61,19 @@
           {{ listPanel({
             label: "D",
             id: "D",
+            backToTop: "true",
+            backToTopLink: "#nhsuk-nav-a-z",
             items: [
               {
-                URL: "/index",
+                URL: "/conditions/dandruff/",
                 link: "Dandruff"
               },
               {
-                URL: "/index",
+                URL: "/conditions/dementia/",
                 link: "Dementia"
               },
               {
-                URL: "/index",
+                URL: "/conditions/toothache/",
                 link: "Dental pain"
               }
             ]
