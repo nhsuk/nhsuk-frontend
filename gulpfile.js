@@ -102,8 +102,28 @@ function thirdPartyAssets() {
     .pipe(gulp.dest('dist/'));
 }
 
+/**
+ * Copy JS files into their relevant folders
+ */
+
+function jsFolder() {
+  return gulp.src('dist/*.min.js')
+    .pipe(clean())
+    .pipe(gulp.dest('dist/js/'));
+}
+
+/**
+ * Copy CSS files into their relevant folders
+ */
+
+function cssFolder() {
+  return gulp.src('dist/*.min.css')
+    .pipe(clean())
+    .pipe(gulp.dest('dist/css/'))
+}
+
 function createZip() {
-  return gulp.src(['dist/*.min.css', 'dist/*.min.js', 'dist/assets/**'], { base: 'dist' })
+  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**'], { base: 'dist' })
     .pipe(zip(`nhsuk-frontend-${package.version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -132,6 +152,8 @@ gulp.task('zip', gulp.series([
   'bundle',
   assets,
   thirdPartyAssets,
+  jsFolder,
+  cssFolder,
   createZip
 ]));
 gulp.task('watch', watch);
