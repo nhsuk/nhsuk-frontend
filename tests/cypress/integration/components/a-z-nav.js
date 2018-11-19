@@ -1,4 +1,8 @@
+
+
+
 describe('A-Z Navigation Component', function () {
+
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -22,6 +26,10 @@ describe('A-Z Navigation Component', function () {
 
   it('Checking navigation role', function () {
     cy.get('#nhsuk-nav-a-z').should('have.attr', 'role', 'navigation')
+  });
+
+  it('Checking for href #A', function () {
+    cy.get('.nhsuk-nav-a-z__list').children().children().should('have.attr', 'href', '#A')
   });
 
 });
