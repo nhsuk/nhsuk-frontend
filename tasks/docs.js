@@ -11,7 +11,7 @@ var replace = require('gulp-replace');
 var open = require('gulp-open');
 
 var config = {
-  templates: ['docs/_templates', 'packages'],
+  templates: ['site/_layouts', 'packages'],
   dest: 'dist/docs',
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
 }
@@ -26,8 +26,8 @@ function buildHtml() {
       return `[${p1}](${p2}.html)`;
     }))
     .pipe(markdown())
-    .pipe(wrap({src: 'docs/_templates/markdown-wrapper.njk'}))
-    .pipe(gulp.src(['docs/**/*.njk']))
+    .pipe(wrap({src: 'site/_layouts/markdown-wrapper.njk'}))
+    .pipe(gulp.src(['site/**/*.njk']))
     .pipe(gulpNunjucks.compile({
       // site-wide data goes here
       baseUrl: config.baseUrl,
