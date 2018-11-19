@@ -93,22 +93,22 @@
 <h3 id="list-panel">List panel</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/list-panel.html">Preview the list panel component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-list-panel nhsuk-list-panel--mobile&quot;&gt;
-  &lt;h2 id=&quot;A&quot; class=&quot;nhsuk-list-panel__label&quot;&gt;A&lt;/h2&gt;
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-list-panel&quot;&gt;
+  &lt;h2 class=&quot;nhsuk-list-panel__label&quot; id=&quot;A&quot; &gt;A&lt;/h2&gt;
   &lt;ul class=&quot;nhsuk-list-panel__list  nhsuk-list-panel__list--with-label &quot;&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;AAA&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/abdominal-aortic-aneurysm/&quot;&gt;AAA&lt;/a&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Abdominal aortic aneurysm&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/abdominal-aortic-aneurysm/&quot;&gt;Abdominal aortic aneurysm&lt;/a&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Abscess&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/abscess/&quot;&gt;Abscess&lt;/a&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
   &lt;div class=&quot;nhsuk-back-to-top&quot;&gt;
-    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-a-z-nav&quot;&gt;
-      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-nav-a-z&quot;&gt;
+      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
       &lt;/svg&gt;
       Back to top
@@ -116,14 +116,14 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;nhsuk-list-panel nhsuk-list-panel--mobile&quot;&gt;
-  &lt;h2 id=&quot;B&quot; class=&quot;nhsuk-list-panel__label&quot;&gt;B&lt;/h2&gt;
+&lt;div class=&quot;nhsuk-list-panel&quot;&gt;
+  &lt;h2 class=&quot;nhsuk-list-panel__label&quot; id=&quot;B&quot;&gt;B&lt;/h2&gt;
   &lt;div class=&quot;nhsuk-list-panel__box  nhsuk-list-panel__box--with-label &quot;&gt;
-    &lt;p class=&quot;nhsuk-list-panel--results-items__no-results&quot;&gt;There are currently no medicines listed&lt;/p&gt;
+    &lt;p class=&quot;nhsuk-list-panel--results-items__no-results&quot;&gt;There are currently no conditions listed&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;nhsuk-back-to-top&quot;&gt;
-    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-a-z-nav&quot;&gt;
-      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-nav-a-z&quot;&gt;
+      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
       &lt;/svg&gt;
       Back to top
@@ -132,19 +132,19 @@
 
 &lt;/div&gt;
 
-&lt;div class=&quot;nhsuk-list-panel nhsuk-list-panel--mobile&quot;&gt;
-  &lt;h2 id=&quot;C&quot; class=&quot;nhsuk-list-panel__label&quot;&gt;C&lt;/h2&gt;
+&lt;div class=&quot;nhsuk-list-panel&quot;&gt;
+  &lt;h2 class=&quot;nhsuk-list-panel__label&quot; id=&quot;C&quot;&gt;C&lt;/h2&gt;
   &lt;ul class=&quot;nhsuk-list-panel__list  nhsuk-list-panel__list--with-label &quot;&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Chest pain&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/chest-pain/&quot;&gt;Chest pain&lt;/a&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Cold sore&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/cold-sores/&quot;&gt;Cold sore&lt;/a&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
   &lt;div class=&quot;nhsuk-back-to-top&quot;&gt;
-    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-a-z-nav&quot;&gt;
-      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-nav-a-z&quot;&gt;
+      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
       &lt;/svg&gt;
       Back to top
@@ -152,22 +152,22 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;nhsuk-list-panel nhsuk-list-panel--mobile&quot;&gt;
-  &lt;h2 id=&quot;D&quot; class=&quot;nhsuk-list-panel__label&quot;&gt;D&lt;/h2&gt;
+&lt;div class=&quot;nhsuk-list-panel&quot;&gt;
+  &lt;h2 class=&quot;nhsuk-list-panel__label&quot; id=&quot;D&quot;&gt;D&lt;/h2&gt;
   &lt;ul class=&quot;nhsuk-list-panel__list  nhsuk-list-panel__list--with-label &quot;&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Dandruff&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/dandruff/&quot;&gt;Dandruff&lt;/a&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Dementia&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/dementia/&quot;&gt;Dementia&lt;/a&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-list-panel__list-item&quot;&gt;
-      &lt;a href=&quot;/index&quot; class=&quot;nhsuk-list-panel__list-item-link&quot;&gt;Dental pain&lt;/a&gt;
+      &lt;a class=&quot;nhsuk-list-panel__list-item-link&quot; href=&quot;/conditions/toothache/&quot;&gt;Dental pain&lt;/a&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
   &lt;div class=&quot;nhsuk-back-to-top&quot;&gt;
-    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-a-z-nav&quot;&gt;
-      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; data-name=&quot;Layer 1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;a class=&quot;nhsuk-back-to-top__link&quot; href=&quot;#nhsuk-nav-a-z&quot;&gt;
+      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__arrow-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;path d=&quot;M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z&quot;&gt;&lt;/path&gt;
       &lt;/svg&gt;
       Back to top
@@ -181,17 +181,19 @@
 {{ listPanel({
   label: &quot;A&quot;,
   id: &quot;A&quot;,
+  backToTop: &quot;true&quot;,
+  backToTopLink: &quot;#nhsuk-nav-a-z&quot;,
   items: [
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/abdominal-aortic-aneurysm/&quot;,
       link: &quot;AAA&quot;
     },
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/abdominal-aortic-aneurysm/&quot;,
       link: &quot;Abdominal aortic aneurysm&quot;
     },
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/abscess/&quot;,
       link: &quot;Abscess&quot;
     }
   ]
@@ -201,19 +203,23 @@
   label: &quot;B&quot;,
   id: &quot;B&quot;,
   disable: &quot;true&quot;,
-  message: &quot;There are currently no medicines listed&quot;
+  backToTop: &quot;true&quot;,
+  backToTopLink: &quot;#nhsuk-nav-a-z&quot;,
+  message: &quot;There are currently no conditions listed&quot;
 }) }}
 
 {{ listPanel({
   label: &quot;C&quot;,
   id: &quot;C&quot;,
+  backToTop: &quot;true&quot;,
+  backToTopLink: &quot;#nhsuk-nav-a-z&quot;,
   items: [
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/chest-pain/&quot;,
       link: &quot;Chest pain&quot;
     },
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/cold-sores/&quot;,
       link: &quot;Cold sore&quot;
     }
   ]
@@ -222,21 +228,107 @@
 {{ listPanel({
   label: &quot;D&quot;,
   id: &quot;D&quot;,
+  backToTop: &quot;true&quot;,
+  backToTopLink: &quot;#nhsuk-nav-a-z&quot;,
   items: [
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/dandruff/&quot;,
       link: &quot;Dandruff&quot;
     },
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/dementia/&quot;,
       link: &quot;Dementia&quot;
     },
     {
-      URL: &quot;/index&quot;,
+      URL: &quot;/conditions/toothache/&quot;,
       link: &quot;Dental pain&quot;
     }
   ]
-}) }}</code></pre>
+}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+<p>The list panel Nunjucks macro takes the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>label</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text label of the list panel.</td>
+</tr>
+<tr>
+<td><strong>id</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The ID of the label heading.</td>
+</tr>
+<tr>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
+<td>No</td>
+<td>Optional heading level for the label heading. Default: 2</td>
+</tr>
+<tr>
+<td><strong>backToTop</strong></td>
+<td>boolean</td>
+<td>No</td>
+<td>If set to true, a back to top link will be displayed.</td>
+</tr>
+<tr>
+<td><strong>backToTopLink</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The href value of the back to top link.</td>
+</tr>
+<tr>
+<td><strong>disable</strong></td>
+<td>boolean</td>
+<td>No</td>
+<td>If set to true, this indicates there are no items in the list panel.</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text value to display if there are no items in the list panel (and disable has been set to true).</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td>array</td>
+<td>No</td>
+<td>Array of list panel items.</td>
+</tr>
+<tr>
+<td><strong>items[].URL</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The href value of an item in the list panel.</td>
+</tr>
+<tr>
+<td><strong>items[].link</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The text value of an item in the list panel.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the list panel. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the list panel.</td>
+</tr>
+</tbody></table>
+
   
 
         </div>
