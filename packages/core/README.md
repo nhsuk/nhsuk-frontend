@@ -19,7 +19,7 @@ large-desktop: 990px
 
 ```html
 <div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper">
+  <main id="maincontent" class="nhsuk-main-wrapper">
     <!-- Grid items -->
   </main>
 </div>
