@@ -45,6 +45,13 @@ function buildDocs(done) {
 }
 
 /**
+ * Use metalsmith to turn site pages into html
+ */
+function buildHtml(done) {
+  metalsmithBuild.buildSite(done)
+}
+
+/**
  * Copy built assets from dist into the documentation directory
  */
 function copyBuiltAssets() {

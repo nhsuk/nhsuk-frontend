@@ -58,3 +58,19 @@ module.exports.markdownDocs = function(done) {
       done()
     })
 }
+
+module.exports.buildSite = function(done) {
+  Metalsmith(rootDir)
+    .source('site/pages')
+    .destination('dist/docs')
+    .clean(false)
+    .use(inplace({
+      engineOptions: {
+        path: ['site/_layouts', 'packages'],
+      }
+    }))
+    .build(function(err) {
+      if (err) throw err
+      done()
+    })
+}
