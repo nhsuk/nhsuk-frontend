@@ -56,7 +56,7 @@ npm start
 
 ## 5. Make your changes
 
-You can read our [getting started documentation](/docs/contributing/getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
+You can read our [getting started documentation](./getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
 
 > If you need help or have any question you can contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [send us an email](mailto:nhsdigital.NHSUK-Frontend@nhs.net)
 

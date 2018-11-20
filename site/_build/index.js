@@ -28,6 +28,7 @@ module.exports.markdownDocs = function(done) {
     .use(rename([
       // README.md should end up being the index.html page
       [/\/README.md$/, '/index.md'],
+      ['README.md', 'index.md'],
     ]))
     .use(function(files, metalsmith, done) {
       Object.keys(files).forEach(function(key) {
