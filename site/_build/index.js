@@ -10,6 +10,15 @@ var breadcrumbs = require('./breadcrumbs.js')
 var env = nunjucks.configure(['site/_layouts', 'packages'], { autoescape: true });
 var rootDir = path.resolve(__dirname, '../..')
 
+/**
+ * engineOptions for the in-place nunjucks compiler
+ */
+var engineOptions = {
+  path: ['site/_layouts', 'packages'],
+  globals: {
+    baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
+  }
+}
 
 /**
  * Take the contents of ./docs/ and convert it into html.
@@ -69,9 +78,7 @@ module.exports.markdownDocs = function(done) {
       [/\.html$/, '.njk'],
     ]))
     .use(inplace({
-      engineOptions: {
-        path: ['site/_layouts', 'packages'],
-      }
+      engineOptions: engineOptions,
     }))
     .build(function(err) {
       if (err) throw err
@@ -85,9 +92,7 @@ module.exports.buildSite = function(done) {
     .destination('dist/docs')
     .clean(false)
     .use(inplace({
-      engineOptions: {
-        path: ['site/_layouts', 'packages'],
-      }
+      engineOptions: engineOptions,
     }))
     .build(function(err) {
       if (err) throw err
