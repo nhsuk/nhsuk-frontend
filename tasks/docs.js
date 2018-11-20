@@ -19,25 +19,6 @@ var config = {
 }
 
 /**
- * Turn templates into html with a nunjucks
- */
-function buildHtml() {
-  return gulp.src(['site/**/*.njk'])
-    .pipe(gulpNunjucks.compile({
-      // site-wide data goes here
-      baseUrl: config.baseUrl,
-    }, {
-      env: new nunjucks.Environment(
-        new nunjucks.FileSystemLoader(config.templates)
-      ),
-    }))
-    .pipe(rename({
-      extname: '.html',
-    }))
-    .pipe(gulp.dest(config.dest))
-}
-
-/**
  * Use metalsmith to turn github-style docs into html
  */
 function buildDocs(done) {

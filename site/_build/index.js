@@ -40,9 +40,9 @@ module.exports.markdownDocs = function(done) {
       ['README.md', 'index.md'],
     ]))
     .use(function(files, metalsmith, done) {
+      // For all files, replace markdown links with .html equivalents
       Object.keys(files).forEach(function(key) {
         var contents = files[key].contents.toString()
-        //replace
         var regex = /\[([^\]]*?)\]\(([^\)]*?)\.md\)/g
         contents = contents.replace(regex, function(match, p1, p2) {
           return `[${p1}](${p2}.html)`;
@@ -86,6 +86,9 @@ module.exports.markdownDocs = function(done) {
     })
 }
 
+/**
+ * Convert nunjuck pages from ./site/pages into html
+ */
 module.exports.buildSite = function(done) {
   Metalsmith(rootDir)
     .source('site/pages')
