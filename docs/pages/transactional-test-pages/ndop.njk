@@ -1,0 +1,68 @@
+{% set title = 'Transactional test page - NHS.UK Frontend' %}
+{% from 'components/button/macro.njk' import button %}
+{% from 'components/fieldset/macro.njk' import fieldset %}
+{% from 'components/input/macro.njk' import input %}
+
+{% extends 'forms.njk' %}
+
+{% set mainWrapperClass = 'nhsuk-main-wrapper--s' %}
+
+{% block header %}
+  <!-- Skip link -->
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
+  <!-- Header -->
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+
+<form>
+
+  <div class="nhsuk-form-group">
+
+    {{ fieldset({
+      "legend": {
+        "text": "Enter your name",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": true
+      }
+    }) }}
+
+    {{ input({
+      "label": {
+        "text": "First name"
+      },
+      "id": "input-example",
+      "name": "test-name",
+      "classes": "nhsuk-input--width-20"
+    }) }}
+
+    {{ input({
+      "label": {
+        "text": "Last name"
+      },
+      "id": "input-example",
+      "name": "test-name",
+      "classes": "nhsuk-input--width-20"
+    }) }}
+
+  </div>
+
+  {{ button({
+    "text": "Continue"
+  }) }}
+
+  <p class="nhsuk-!-margin-bottom-0"><a href="#">Go back</a></p>
+
+</form>
+
+{% endblock %}
+

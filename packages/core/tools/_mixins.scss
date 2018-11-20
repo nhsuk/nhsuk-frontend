@@ -354,8 +354,8 @@
 
 @mixin nhsuk-focusable {
   &:focus {
-    outline: $nhsuk-focus-width solid $nhsuk-focus-color;
-    outline-offset: 0;
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
+    outline: 0;
   }
 }
 

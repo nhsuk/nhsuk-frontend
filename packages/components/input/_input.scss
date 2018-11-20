@@ -17,7 +17,7 @@
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 1 */
   appearance: none; /* 1 */
-  border: $nhsuk-border-width-form-element solid $color_nhsuk-black; /* 2 */
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; /* 2 */
   border-radius: 0;
   box-sizing: border-box;
   height: 40px;

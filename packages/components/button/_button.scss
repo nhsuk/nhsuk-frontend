@@ -30,11 +30,15 @@ $button-shadow-size: 4px;
   display: inline-block;
   font-weight: 600;
   margin-top: 0;
-  padding: (nhsuk-spacing(3) - $nhsuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(3); // s2
+  padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
   position: relative;
   text-align: center;
   vertical-align: top;
   width: auto;
+
+  @include mq($from: tablet) {
+    padding: (nhsuk-spacing(3) - $nhsuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(3); // s2
+  }
 
   /* 2 */
   &:link,
