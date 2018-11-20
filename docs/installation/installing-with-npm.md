@@ -138,7 +138,7 @@ app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nh
 ```html
 <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
 <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
-<link rel="icon" href="/nhsuk-frontend/assets//favicons/favicon.png">
+<link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
 ```
 
 **Icons**
