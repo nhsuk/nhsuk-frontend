@@ -1,0 +1,85 @@
+{% set title = 'Transactional test page - NHS.UK Frontend' %}
+{% from 'components/button/macro.njk' import button %}
+{% from 'components/details/macro.njk' import details %}
+{% from 'components/fieldset/macro.njk' import fieldset %}
+{% from 'components/hint/macro.njk' import hint %}
+{% from 'components/radios/macro.njk' import radios %}
+
+{% extends 'forms.njk' %}
+
+{% set mainWrapperClass = 'nhsuk-main-wrapper--s' %}
+
+{% block header %}
+  <!-- Skip link -->
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
+  <!-- Header -->
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+
+<form>
+
+  <div class="nhsuk-form-group">
+
+    {{ fieldset({
+      "legend": {
+        "text": "Do you know your NHS number?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": true
+      }
+    }) }}
+
+    {{ details({
+      "classes": "nhsuk-!-margin-bottom-5",
+      "text": "Why we ask you for your number",
+      "HTML": "
+      <p>Only Rose Medical Practice sees the personal information you put in this application.</p>
+      "
+    }) }}
+
+    {{ hint({
+      "text": "This is a 10 digit number, like 485 777 3456."
+    }) }}
+
+    {{ hint({
+      "classes": "nhsuk-!-margin-bottom-5",
+      "text": "You can find it on any letter the NHS has sent you, on a prescription, or by logging in to a GP practice online service."
+    }) }}
+
+    {{ radios({
+      "idPrefix": "example",
+      "name": "example",
+      "items": [
+        {
+          "value": "yes",
+          "text": "Yes"
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "checked": true
+        }
+      ]
+    }) }}
+
+  </div>
+
+  {{ button({
+    "text": "Continue"
+  }) }}
+
+  <p class="nhsuk-!-margin-bottom-0"><a href="#">Change my previous answer</a></p>
+
+</form>
+
+{% endblock %}
+

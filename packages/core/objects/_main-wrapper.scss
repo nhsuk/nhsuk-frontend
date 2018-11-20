@@ -24,6 +24,7 @@
 @mixin govuk-main-wrapper {
   @include nhsuk-responsive-padding(7, 'top');
   @include nhsuk-responsive-padding(7, 'bottom');
+  @include top-and-bottom();
   display: block; /* [1] */
 }
 
@@ -38,5 +39,11 @@
 @include govuk-exports('govuk/objects/main-wrapper') {
   .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
+  }
+  .nhsuk-main-wrapper--l {
+    @include govuk-main-wrapper--l;
+  }
+  .nhsuk-main-wrapper--s {
+    @include govuk-main-wrapper--s;
   }
 }

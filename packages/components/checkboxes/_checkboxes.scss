@@ -54,8 +54,8 @@ $nhsuk-checkboxes-label-padding-left-right: nhsuk-spacing(3);
 }
 
 .nhsuk-checkboxes__input + .nhsuk-checkboxes__label::before {
-  background: transparent;
-  border: $nhsuk-border-width-form-element solid $color_nhsuk-black;
+  background: $nhsuk-form-element-background-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   content: '';
   height: $nhsuk-checkboxes-size;
@@ -129,7 +129,7 @@ $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label
 
 .nhsuk-checkboxes__conditional {
   @include nhsuk-responsive-margin(4, 'bottom');
-  border-left: $conditional-border-width solid $color_nhsuk-black;
+  border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
 

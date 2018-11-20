@@ -8,7 +8,7 @@
  */
 
 $nhsuk-radios-size: nhsuk-spacing(6);
-$nhsuk-radios-label-padding-left-right: nhsuk-spacing(3);
+$nhsuk-radios-label-padding-left-right: nhsuk-spacing(2);
 // When the default focus width is used on a curved edge it looks visually smaller.
 // So for the circular radios we bump the default to make it look visually consistent.
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
@@ -57,8 +57,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 }
 
 .nhsuk-radios__input + .nhsuk-radios__label::before {
-  background: transparent;
-  border: $nhsuk-border-width-form-element solid $color_nhsuk-black;
+  background: $nhsuk-form-element-background-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   border-radius: 50%;
   box-sizing: border-box;
   content: '';
@@ -70,8 +70,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 }
 
 .nhsuk-radios__input + .nhsuk-radios__label::after {
-  background: $color_nhsuk-black;
-  border: 10px solid $color_nhsuk-black;
+  background: $nhsuk-form-border-color;
+  border: 10px solid $nhsuk-text-color;
   border-radius: 50%;
   content: '';
   height: 0;
@@ -144,7 +144,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   $nhsuk-divider-size: $nhsuk-radios-size !default;
   @include nhsuk-font(19);
 
-  color: $color_nhsuk-black;
+  color: $nhsuk-text-color;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
@@ -162,7 +162,7 @@ $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-pad
 
 .nhsuk-radios__conditional {
   @include nhsuk-responsive-margin(4, 'bottom');
-  border-left: $conditional-border-width solid $color_nhsuk-black;
+  border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
 

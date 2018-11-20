@@ -17,7 +17,7 @@ $button-shadow-size: 4px;
 .nhsuk-button {
   @include nhsuk-font(19);
   @include nhsuk-focusable;
-  @include nhsuk-responsive-margin(6, 'bottom', $adjustment: $button-shadow-size); // s1
+  @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
   background-color: $nhsuk-button-colour;
@@ -30,15 +30,11 @@ $button-shadow-size: 4px;
   display: inline-block;
   font-weight: 600;
   margin-top: 0;
-  padding: (nhsuk-spacing(2) - $nhsuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(2); // s2
+  padding: (nhsuk-spacing(3) - $nhsuk-border-width-form-element - ($button-shadow-size / 2)) nhsuk-spacing(3); // s2
   position: relative;
   text-align: center;
   vertical-align: top;
-  width: 100%;
-
-  @include mq($from: tablet) {
-    width: auto;
-  }
+  width: auto;
 
   /* 2 */
   &:link,
