@@ -6,6 +6,10 @@
   }
 }
 
+.nhsuk-form-group--wrapper {
+  @include nhsuk-responsive-margin(5, 'bottom');
+}
+
 .nhsuk-form-group--error {
   border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-color;
   padding-left: nhsuk-spacing(3);
