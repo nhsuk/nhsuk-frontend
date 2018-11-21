@@ -87,36 +87,82 @@
           
   
     <h1 id="installing-using-compiled-files">Installing using compiled files</h1>
-<p>When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript. </p>
+<p>When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.</p>
 <p>This means that you will not be able to:</p>
 <ul>
 <li>selectively include CSS for individual components.</li>
 <li>build your own styles or components based on the colour variables or typography and spacing mixins.</li>
 <li>use the component Nunjucks templates.</li>
 </ul>
+<p>If you require any of this functionality, you should <a href="/docs/installation/installing-with-npm.html">install using npm</a> instead.</p>
 <h2 id="installation">Installation</h2>
 <ol>
 <li><p>Download the compiled files</p>
-<p> <a href="https://github.com/nhsuk/nhsuk-frontend/releases">Download the latest CSS, JavaScript and assets from GitHub</a></p>
+<p> <a href="https://github.com/nhsuk/nhsuk-frontend/releases">Download the latest CSS, JavaScript and assets from GitHub (zip file)</a></p>
 </li>
 <li><p>Include resources  </p>
-<p> Copy the files into folders, such as <code>css</code> and <code>js</code>, within your project. 
- You must copy the entire <code>assets</code> folder to the root of your project.
- Then import the files into the <code>&lt;head&gt;</code> of your layout file using the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags. </p>
-<p> Make sure you change the version numbers of the <code>.css</code> and <code>.js</code> files, in the example below, to the version you are using.</p>
+<p> Copy all 3 folders, <code>css</code>, <code>js</code> and <code>assets</code>, into the root of your project. If you already have a folder structure
+ in place, you will need to copy the individual files into the relevant folders.</p>
+<p> Make sure you change the version numbers of the <code>[latest version].min.css</code> and <code>[latest version].min.js</code> files,
+ in the example below, to the version you are using.</p>
 <pre><code class="language-html"> &lt;!-- Styles --&gt;
- &lt;link rel=&quot;stylesheet&quot; href=&quot;css/nhsuk-0.0.0.min.css&quot;&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;css/nhsuk-[latest version].min.css&quot;&gt;
 
  &lt;!-- Scripts --&gt;
- &lt;script src=&quot;js/nhsuk-0.0.0.min.js&quot; defer&gt;&lt;/script&gt;
+ &lt;script src=&quot;js/nhsuk-[latest version].min.js&quot; defer&gt;&lt;/script&gt;
  &lt;script src=&quot;js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
 
  &lt;!-- Favicons --&gt;
  &lt;!--[if IE]&gt;&lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/favicons/favicon.ico&quot;&gt;&lt;![endif]--&gt;
  &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;assets/favicons/apple-touch-icon.png&quot;&gt;
  &lt;link rel=&quot;icon&quot; href=&quot;assets/favicons/favicon.png&quot;&gt;</code></pre>
+<ol start="3">
+<li><p>Create pages using NHS.UK Frontend</p>
+<p>You can now create pages using the NHS.UK Frontend <a href="https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/core#page-layout">grid</a> and <a href="https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/components">components</a>.</p>
 </li>
 </ol>
+</li>
+</ol>
+<h3 id="html-template">HTML template</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!--[if lt IE 9]&gt;&lt;html class=&quot;ie8&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt;&lt;html class=&quot;ie9&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if gt IE 9]&gt;&lt;!--&gt;&lt;html lang=&quot;en&quot;&gt;&lt;!--&lt;![endif]--&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+
+    &lt;title&gt;NHS.UK example&lt;/title&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/nhsuk-[latest version].min.css&quot;&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script src=&quot;js/nhsuk-[latest version].min.js&quot; defer&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- Favicons --&gt;
+    &lt;!--[if IE]&gt;&lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/favicons/favicon.ico&quot;&gt;&lt;![endif]--&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;assets/favicons/apple-touch-icon.png&quot;&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;assets/favicons/favicon.png&quot;&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;!-- Header --&gt;
+    &lt;div class=&quot;nhsuk-width-container&quot;&gt;
+      &lt;main class=&quot;nhsuk-main-wrapper&quot; id=&quot;maincontent&quot;&gt;
+        &lt;div class=&quot;nhsuk-grid-row&quot;&gt;
+          &lt;div class=&quot;nhsuk-grid-column-three-quarters&quot;&gt;
+            &lt;!-- Components --&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+    &lt;!-- Footer --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
   
 
