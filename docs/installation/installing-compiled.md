@@ -1,6 +1,6 @@
 # Installing using compiled files
 
-When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript. 
+When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
 
 This means that you will not be able to:
 
@@ -21,7 +21,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
     Copy all 3 folders, `css`, `js` and `assets`, into the root of your project. If you already have a folder structure
     in place, you will need to copy the individual files into the relevant folders.
 
-    Make sure you change the version numbers of the `[latest version].min.css` and `[latest version].min.js` files, 
+    Make sure you change the version numbers of the `[latest version].min.css` and `[latest version].min.js` files,
     in the example below, to the version you are using.
 
     ```html
@@ -73,7 +73,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
   <body>
     <!-- Header -->
     <div class="nhsuk-width-container">
-      <main id="maincontent" class="nhsuk-main-wrapper">
+      <main class="nhsuk-main-wrapper" id="maincontent">
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-three-quarters">
             <!-- Components -->
