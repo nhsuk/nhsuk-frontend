@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+
+  cypress:
+    build:
+      context: .
+      dockerfile: Dockerfile-cypress
+    expose:
+      - "3000"
