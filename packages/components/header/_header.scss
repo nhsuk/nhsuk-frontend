@@ -107,7 +107,7 @@
 
 .nhsuk-header__service-name--link {
   @include nhsuk-link-style-white;
-  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-font(19);
 
   text-decoration: none;
 }

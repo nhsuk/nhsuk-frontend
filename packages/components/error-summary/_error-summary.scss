@@ -54,6 +54,10 @@
     color: $nhsuk-error-color;
   }
 
+  &:hover {
+    color: $nhsuk-link-hover-color;
+  }
+
   &:focus { /* 3 */
     color: $nhsuk-link-focus-color;
   }
