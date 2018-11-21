@@ -38,6 +38,10 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <link rel="icon" href="assets/favicons/favicon.png">
     ```
 
+  3. Create pages using NHS.UK Frontend
+
+      You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/core#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/components).
+
 ### HTML template
 
 ```html
