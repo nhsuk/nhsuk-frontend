@@ -8,7 +8,7 @@
  */
 
 $nhsuk-radios-size: nhsuk-spacing(6);
-$nhsuk-radios-label-padding-left-right: nhsuk-spacing(2);
+$nhsuk-radios-label-padding-left-right: 12px;
 // When the default focus width is used on a curved edge it looks visually smaller.
 // So for the circular radios we bump the default to make it look visually consistent.
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;

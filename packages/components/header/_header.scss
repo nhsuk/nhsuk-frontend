@@ -93,9 +93,10 @@
 
 .nhsuk-header__service-name {
   float: left;
-  padding-top: 25px;
+  padding-top: 26px;
 
   @include mq($until: tablet) {
+    margin-top: -(nhsuk-spacing(2));
     padding-bottom: nhsuk-spacing(3);
     padding-left: nhsuk-spacing(3);
     padding-top: 0;
@@ -106,7 +107,7 @@
 
 .nhsuk-header__service-name--link {
   @include nhsuk-link-style-white;
-  @include nhsuk-font(19);
+  @include nhsuk-font(19, $weight: bold);
 
   text-decoration: none;
 }
