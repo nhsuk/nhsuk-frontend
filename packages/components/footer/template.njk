@@ -1,23 +1,21 @@
 <footer role="contentinfo">
   <div class="nhsuk-footer">
     <div class="nhsuk-width-container">
+      {% if params.hideLogo == "true" %}
+      {% else %}
+      <div class="nhsuk-footer__logo">
+        <a href="/" class="global-footer__link">
+          {% include 'assets/logos/logo-nhs.svg' %}
+          <span class="nhsuk-u-visually-hidden">NHS homepage</span>
+        </a>
+      </div>
+      {% endif %}
       <ul class="nhsuk-footer__list">
-        <li class="nhsuk-footer__logo nhsuk-footer__list-item">
-          <a href="/" class="global-footer__link">
-            {% include 'assets/logos/logo-nhs.svg' %}
-            <span class="nhsuk-u-visually-hidden">NHS homepage</span>
-          </a>
-        </li>
         {% for item in params.primaryLinks %}
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
       </ul>
-      <ul class="nhsuk-footer__list">
-        {% for item in params.secondaryLinks %}
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
-        {% endfor %}
-        <li class="nhsuk-footer__list-item">&copy; Crown Copyright</li>
-      </ul>
+      <p class="nhsuk-footer__copyright">&copy; Crown Copyright</li>
     </div>
   </div>
 </footer>

@@ -37,7 +37,7 @@ $button-shadow-size: 4px;
   width: auto;
 
   @include mq($from: tablet) {
-    padding: 12px nhsuk-spacing(4); // s2
+    padding: 12px nhsuk-spacing(3); // s2
   }
 
   /* 2 */

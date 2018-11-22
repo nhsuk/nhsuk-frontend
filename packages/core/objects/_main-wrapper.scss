@@ -33,6 +33,7 @@
 }
 
 @mixin govuk-main-wrapper--s {
+  @include nhsuk-responsive-padding(5, 'bottom');
   @include nhsuk-responsive-padding(5, 'top');
 }
 

@@ -50,22 +50,18 @@
     padding-left: 0;
   }
 
+  .nhsuk-logo {
+    border: 0;
+    height: 40px; /* [1] */
+    width: 100px; /* [1] */
+  }
+
 }
 
 .nhsuk-header__link {
   display: block;
   height: 40px; /* [1] */
-  width: 99px; /* [1] */
-
-  &:hover {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $color_shade_nhsuk-blue-35;
-  }
-}
-
-.nhsuk-logo {
-  border: 0;
-  height: 40px; /* [1] */
-  width: 99px; /* [1] */
+  width: 100px; /* [1] */
 }
 
 .nhsuk-header__content {
