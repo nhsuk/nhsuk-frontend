@@ -24,7 +24,7 @@ table {
 
 thead {
   th {
-    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-colour;
+    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
   }
 }
 
@@ -33,7 +33,7 @@ td {
   @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-padding(3);
 
-  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;
+  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
   text-align: left;
 }
 

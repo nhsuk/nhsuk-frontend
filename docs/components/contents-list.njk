@@ -1,0 +1,46 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Contents list' %}
+{% from 'components/contents-list/macro.njk' import contentsList %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main id="maincontent" class="nhsuk-main-wrapper">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        {{ contentsList({
+          items: [
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/",
+              text: "What is AMD?",
+              current: "true"
+            },
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/",
+              text: "Symptoms"
+            },
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/",
+              text: "Getting diagnosed"
+            }
+            ,
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/",
+              text: "Treatments"
+            }
+            ,
+            {
+              href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/",
+              text: "Living with AMD"
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

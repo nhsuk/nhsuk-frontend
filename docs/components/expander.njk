@@ -1,0 +1,60 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Expander' %}
+{% from 'components/details/macro.njk' import details %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "Opening times",
+          "HTML": "
+          <table>
+            <tbody>
+              <tr>
+                <th><strong>Day of the week</strong></th>
+                <th><strong>Opening hours</strong></th>
+              </tr>
+              <tr>
+                <th>Monday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Tuesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Wednesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Thursday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Friday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Saturday</th>
+                <td>9am to 1pm</td>
+              </tr>
+              <tr>
+                <th>Sunday</th>
+                <td>Closed</td>
+              </tr>
+            </tbody>
+          </table>"
+        }) }}
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

@@ -2,7 +2,7 @@
    COMPONENTS / #REVIEW-DATE
    ========================================================================== */
 
-.nhsuk-c-review-date {
+.nhsuk-review-date {
   @include nhsuk-responsive-margin(7, 'top');
-  color: $nhsuk-secondary-text-colour;
+  color: $nhsuk-secondary-text-color;
 }

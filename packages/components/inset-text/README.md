@@ -1,22 +1,32 @@
 # Inset text
 
-Find out more about the inset text component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the inset text component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/inset_text/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/172).
 
-[Preview the inset text component]()
+## Quick start examples
 
-## HTML markup
+### Inset text
 
-    <div class="nhsuk-c-inset-text">
-      <span class="visually-hidden">Information: </span>
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla/" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-    </div>
+[Preview the inset text component](https://nhsuk.github.io/nhsuk-frontend/components/inset-text.html)
 
-## Nunjucks macro
+### HTML markup
 
-    {% from 'components/inset-text/macro.njk' import insetText %}
+```html
+<div class="nhsuk-inset-text">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+</div>
+```
 
-    {{ insetText({
-      "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
-    }) }}
+### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
+{% from 'components/inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
+}) }}
+```

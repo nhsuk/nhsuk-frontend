@@ -1,0 +1,46 @@
+{% from 'components/header/macro.njk' import header %}
+{% from 'components/skip-link/macro.njk' import skipLink %}
+
+{% extends 'layout.njk' %}
+
+{% block header %}
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
+  {{ header() }}
+{% endblock %}
+
+
+{% block body %}
+
+  {% block breadcrumb %}{% endblock %}
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {% block heading %}{% endblock %}
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-page-content">
+            {% block fullWidthContent %}{% endblock %}
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

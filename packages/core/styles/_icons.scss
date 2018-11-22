@@ -8,52 +8,50 @@
  * For IE8 support, alternate styling is applied to the components using icons.
  */
 
-/* Default icon size
-   ========================================================================== */
+// Default icon size
 
 .nhsuk-icon {
   height: $nhsuk-icon-size;
   width: $nhsuk-icon-size;
 }
 
-/* Default icon colours
-   ========================================================================== */
+// Default icon colours
 
 .nhsuk-icon__search {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__chevron-left {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__chevron-right {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__close {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__cross {
-  fill: $colour_nhsuk-red;
+  fill: $color_nhsuk-red;
 }
 
 .nhsuk-icon__tick {
   fill: none;
-  stroke: $colour_nhsuk-green;
+  stroke: $color_nhsuk-green;
 }
 
 .nhsuk-icon__arrow-right {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__arrow-left {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
 }
 
 .nhsuk-icon__arrow-right-circle {
-  fill: $colour_nhsuk-green;
+  fill: $color_nhsuk-green;
 }
 
 .nhsuk-icon__chevron-down {
@@ -62,21 +60,20 @@
   -o-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg); // sass-lint:disable-line property-sort-order
-  fill: $colour_nhsuk-blue; // sass-lint:disable-line property-sort-order
+  fill: $color_nhsuk-blue; // sass-lint:disable-line property-sort-order
   path {
-    fill: $colour_nhsuk-white;
+    fill: $color_nhsuk-white;
   }
 }
 
 .nhsuk-icon__chevron-up {
-  fill: $colour_nhsuk-blue;
+  fill: $color_nhsuk-blue;
   path {
-    fill: $colour_nhsuk-white;
+    fill: $color_nhsuk-white;
   }
 }
 
-/* Icon size adjustments
-   ========================================================================== */
+// Icon size adjustments
 
 .nhsuk-icon--size-25 {
   height: $nhsuk-icon-size * 1.25;

@@ -1,23 +1,29 @@
 # Panel
 
-Find out more about the panel component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/175).
 
-[Preview the panel component]()
+## Quick start examples
 
-## HTML markup
+### Panel
+
+[Preview the panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel.html)
+
+### HTML markup
 
 ```html
-<div class="nhsuk-c-panel">
+<div class="nhsuk-panel">
   <h3>Panel title</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -27,24 +33,36 @@ Find out more about the panel component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Panel with a label
+#### Nunjucks arguments
 
-## Example
+The panel Nunjucks macro takes the following arguments:
 
-[Preview the panel with a label component]()
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
 
-## HTML markup
+
+
+### Panel with a label
+
+[Preview the panel with a label component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
+
+### HTML markup
 
 ```html
-<div class="nhsuk-c-panel-with-label">
-  <h3 class="nhsuk-c-panel-with-label__label">Panel heading</h3>
+<div class="nhsuk-panel-with-label">
+  <h3 class="nhsuk-panel-with-label__label">Panel heading</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -52,25 +70,38 @@ Find out more about the panel component and when to use it in the [NHS digital s
   "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
-           
-## Grey panel
 
-## Example
+#### Nunjucks arguments
 
-[Preview the grey panel component]()
+The panel with a label Nunjucks macro takes the following arguments:
 
-## HTML markup
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **label**           | string   | No        | The label of the panel component. |
+| **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
+
+
+### Grey panel
+
+[Preview the grey panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html)
+
+### HTML markup
 
 ```html
-<div class="nhsuk-c-panel nhsuk-c-panel--grey">
+<div class="nhsuk-panel nhsuk-panel--grey">
   <h3>Panel title</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
@@ -81,24 +112,34 @@ Find out more about the panel component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Panel group
+#### Nunjucks arguments
 
-## Example
+The grey panel Nunjucks macro takes the following arguments:
 
-[Preview the panel group component]()
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **colour**          | string   | No        | The colour of the panel. Must be "grey". |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
 
-## HTML markup
+
+### Panel group
+
+[Preview the panel group component](https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html)
+
+### HTML markup
 
 ```html
-<div class="nhsuk-grid-row nhsuk-c-panel-group">
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
-    <div class="nhsuk-c-panel">
+<div class="nhsuk-grid-row nhsuk-panel-group">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
-    <div class="nhsuk-c-panel">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
@@ -106,21 +147,33 @@ Find out more about the panel component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
 
-```html
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```
 {% from 'components/panel/macro.njk' import panel %}
 
-<div class="nhsuk-grid-row nhsuk-c-panel-group">
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+<div class="nhsuk-grid-row nhsuk-panel-group">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
       "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
-  <div class="nhsuk-grid-column-one-half nhsuk-c-panel-group__item">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
       "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
 </div>
 ```
+
+#### Nunjucks arguments
+
+The panel group Nunjucks macro takes the following arguments:
+
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |

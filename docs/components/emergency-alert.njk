@@ -1,0 +1,16 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Emergency alert' %}
+{% from 'components/emergency-alert/macro.njk' import emergencyAlert %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ emergencyAlert({
+    "title": "National flu outbreak",
+    "content": "There has been a national flu outbreak.",
+    "href": "https://www.nhs.uk",
+    "label": "How does it affect me",
+    "lastUpdated": "Updated 23 mins ago"
+  }) }}
+
+{% endblock %}

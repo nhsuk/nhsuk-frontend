@@ -1,0 +1,23 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Breadcrumb' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: "https://www.nhs.uk/"
+      },
+      {
+        text: "Health A-Z",
+        href: "https://www.nhs.uk/conditions"
+      }
+    ],
+    href: "https://www.nhs.uk/conditions/abscess/",
+    text: "Abscess"
+  }) }}
+
+{% endblock %}

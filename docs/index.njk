@@ -1,0 +1,51 @@
+{% set title = 'Home' %}
+{% from 'components/contents-list/macro.njk' import contentsList %}
+{% from 'components/hero/macro.njk' import hero %}
+{% from 'components/promo/macro.njk' import promo %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+
+  {{ hero({
+    "heading": "NHS.UK Frontend",
+    "text": "All the code you need to start building user interfaces for NHS websites and services."
+  }) }}
+{% endblock %}
+
+{% block fullWidthContent %}
+
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "./pages/install.html",
+        "heading": "Install",
+        "description": "Download and installation instructions."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "./pages/examples.html",
+        "heading": "Examples",
+        "description": "Page layouts and components."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "./pages/about.html",
+        "heading": "About",
+        "description": "Getting support and contributing."
+      }) }}
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="nhsuk-u-reading-width">
+
+    <p>Visit the <a href="https://beta.nhs.uk/service-manual/">NHS digital service manual</a> for guidance and examples.</p>
+
+  </div>
+
+{% endblock %}

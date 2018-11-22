@@ -2,10 +2,9 @@
    UTILITIES / #TYPOGRAPHY
    ========================================================================== */
 
-/* Font size and line height
-   ========================================================================== */
-
 /**
+ * Font size and line height
+ *
  * Generate typography override classes for each responsive font map in the
  * typography scale eg .nhsuk-\!-font-size-48
  *
@@ -24,13 +23,13 @@
 
 /**
  * Generate font weight override classes for normal and bold
- * eg .nhsuk-\!-font-weight-normal
+ * eg .nhsuk-u-font-weight-normal
  */
 
-.nhsuk-\!-font-weight-normal {
+.nhsuk-u-font-weight-normal {
   @include nhsuk-typography-weight-normal($important: true);
 }
 
-.nhsuk-\!-font-weight-bold {
+.nhsuk-u-font-weight-bold {
   @include nhsuk-typography-weight-bold($important: true);
 }

@@ -6,10 +6,10 @@
  * Reading width mixin, add a maximum width
  * to large pieces of content
  *
- * Usage: class="nhsuk-reading-width"
+ * Usage: class="nhsuk-u-reading-width"
  * See tools/mixins
  */
 
-.nhsuk-reading-width {
+.nhsuk-u-reading-width {
   @include reading-width();
 }

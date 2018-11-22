@@ -2,15 +2,15 @@
    STYLES / #SECTION-BREAK
    ========================================================================== */
 
+// The % (silent class) allows code to be extended (@extend) to other elements
+// without bloating the code.
+//
+// @example scss
+//  .foo {
+//   @extend %nhsuk-section-break--xl;
+//  }
+
 /**
- * The % (silent class) allows code to be extended (@extend) to other elements
- * without bloating the code.
- *
- * @example scss
- *  .foo {
- *    @extend %nhsuk-section-break--xl;
- *   }
- *
  * 1. Extended the section-break--l code for usage of a semantic <hr> with
  * no class name.
  *
@@ -55,7 +55,7 @@
 }
 
 %nhsuk-section-break--visible {
-  border-bottom: 1px solid $nhsuk-border-colour;
+  border-bottom: 1px solid $nhsuk-border-color;
 }
 
 .nhsuk-section-break--visible {

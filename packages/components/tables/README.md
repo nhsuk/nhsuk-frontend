@@ -1,12 +1,16 @@
 # Table
 
-Find out more about the table component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/).
+Find out more about the table component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/).
 
-## Example
+To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/179).
 
-[Preview the table component]()
+## Quick start examples
 
-## HTML markup
+### Simple table
+
+[Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables.html)
+
+### HTML markup
 
 ```html
 <div class="nhsuk-table-responsive">
@@ -36,7 +40,9 @@ Find out more about the table component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -82,13 +88,11 @@ Find out more about the table component and when to use it in the [NHS digital s
 }) }}
 ```
 
-## Table panel 
+### Table panel
 
-## Example
+[Preview the table panel component](https://nhsuk.github.io/nhsuk-frontend/components/tables-panel.html)
 
-[Preview the table panel component]()
-
-## HTML markup
+### HTML markup
 
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
@@ -121,7 +125,9 @@ Find out more about the table component and when to use it in the [NHS digital s
 </div>
 ```
 
-## Nunjucks macro
+### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -167,3 +173,29 @@ Find out more about the table component and when to use it in the [NHS digital s
   ]
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The table Nunjucks macro takes the following arguments:
+
+| Name                   | Type       | Required  | Description  |
+| -----------------------|------------|-----------|--------------|
+| **rows**               | array      | Yes       | Array of table rows and cells. |
+| **rows.[].text (or) rows.[].html**  | string | Yes  | Text or HTML for cells in table rows. If `html` is specified, the `text` argument will be ignored. |
+| **rows.[].format**     | string     | No        | Specify format of a cell. Currently we only use "numeric". |
+| **rows.[].colspan**    | number     | No        | Specify how many columns a cell extends. |
+| **rows.[].rowspan**    | number     | No        | Specify how many rows a cell extends. |
+| **panel**              | boolean    | No        | If set to true, the table is rendered inside a [panel with a label](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html). |
+| **panelClasses**       | string     | No        | Optional additional classes to add to the panel containing the table. Separate each class with a space. |
+| **heading**            | string     | No        | Heading/label of the panel if the panel argument is set to true. |
+| **headingLevel** 	     | integer    | No 	      | Optional heading level for the heading. Default: 3. |
+| **tableClasses**       | string     | No        | Optional additional classes to add to the table. Separate each class with a space. |
+| **attributes**         | object     | No        | Any extra HTML attributes (for example data attributes) to add to the table. |
+| **caption**            | string     | No        | Optional caption for the table. |
+| **captionClasses**     | string     | No        | Optional additional classes to add to the table caption. Separate each class with a space. |
+| **head**               | array      | No        | Optional array of table head cells. |
+| **head.[].text or head.[].html**    | array  |  No  | Optional array of table head cells. If `html` is specified, the `text` argument will be ignored. |
+| **head.[].colspan**    | number     | No        | Specify how many columns a cell extends. |
+| **head.[].rowspan**    | number     | No        | Specify how many rows a cell extends. |
+| **head.[].format**     | string     | No        | Specify format of a cell. Currently we only use "numeric". |
+| **firstCellIsHeader**  | boolean    | No        | If set to true, first cell in table row will be a TH instead of a TD. |

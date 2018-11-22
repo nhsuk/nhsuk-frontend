@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var skip = {
 
-    link: document.querySelector('.nhsuk-c-skip-link'),
+    link: document.querySelector('.nhsuk-skip-link'),
     header: document.getElementsByTagName('H1')[0],
 
     doFocus: function(e) {
@@ -22,16 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
-  if (skip.link) {
+  if (skip.link && skip.header) {
 
     skip.link.addEventListener('click', function(e) {
       e.preventDefault();
       skip.doFocus(e);
     });
-
-  }
-
-  if (skip.header) {
 
     skip.header.addEventListener('blur', function(e) {
       skip.doLeave(e);

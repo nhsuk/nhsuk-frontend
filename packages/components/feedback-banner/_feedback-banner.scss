@@ -5,48 +5,45 @@
 /**
  * 1. Hide the banner until it is triggered by Javascript.
  * 2. Bring banner in front of rest of page content.
- * 3. Hide the banner on print stylesheets.
- * 4. Avoid the banner title overlapping close button.
- * 5. Avoid the banner title overlapping close button on
+ * 3. Avoid the banner title overlapping close button.
+ * 4. Avoid the banner title overlapping close button on
  *    small mobile devices (below 320px).
- * 6. Change the cursor to a pointer on hover.
+ * 5. Change the cursor to a pointer on hover.
  */
 
-.nhsuk-c-feedback-banner {
-  background-color: $colour_nhsuk-white;
+.nhsuk-feedback-banner {
+  @include print-hide();
+
+  background-color: $color_nhsuk-white;
   bottom: 0;
   box-shadow: 0 -4px 0 0 $nhsuk-box-shadow;
-  display: none; // [1] //
+  display: none; /* [1] */
   margin: 0 auto;
   padding-bottom: nhsuk-spacing(4);
   padding-top: nhsuk-spacing(4);
   position: fixed;
   width: 100%;
-  z-index: 20; // [2] //
-
-  @include mq($media-type: print) {
-    display: none; // [3] //
-  }
+  z-index: 20; /* [2] */
 
 }
 
-.nhsuk-c-feedback-banner__heading {
+.nhsuk-feedback-banner__heading {
   @include nhsuk-typography-responsive(24);
 
   margin: 0;
-  padding-right: nhsuk-spacing(6); // [4] //
+  padding-right: nhsuk-spacing(6); /* [3] */
 }
 
-.nhsuk-c-feedback-banner__content {
+.nhsuk-feedback-banner__content {
   @include clearfix();
 
   position: relative;
 }
 
-.nhsuk-c-feedback-banner__message {
+.nhsuk-feedback-banner__message {
   margin-bottom: 0;
   margin-top: nhsuk-spacing(2);
-  padding-bottom: nhsuk-spacing(4); // [5] //
+  padding-bottom: nhsuk-spacing(4); /* [4] */
 
   @include mq($from: mobile) {
     padding-bottom: 0;
@@ -54,14 +51,14 @@
 
 }
 
-.nhsuk-c-feedback-banner__close {
+.nhsuk-feedback-banner__close {
   @include nhsuk-typography-responsive(14);
   @include nhsuk-link-style-default;
 
   background: none;
   border: 0;
-  color: $colour_nhsuk-black;
-  cursor: pointer; // [6] //
+  color: $color_nhsuk-black;
+  cursor: pointer; /* [6] */
   padding: 0;
   position: absolute;
   right: 0;

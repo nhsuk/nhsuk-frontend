@@ -4,16 +4,16 @@
       <ul class="nhsuk-footer__list">
         <li class="nhsuk-footer__logo nhsuk-footer__list-item">
           <a href="/" class="global-footer__link">
-            {% include 'assets/logos/nhs-logo.svg' %}
-            <span class="visually-hidden">NHS homepage</span>
+            {% include 'assets/logos/logo-nhs.svg' %}
+            <span class="nhsuk-u-visually-hidden">NHS homepage</span>
           </a>
         </li>
-        {% for item in primaryLinks %}
+        {% for item in params.primaryLinks %}
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
       </ul>
       <ul class="nhsuk-footer__list">
-        {% for item in secondaryLinks %}
+        {% for item in params.secondaryLinks %}
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
         <li class="nhsuk-footer__list-item">&copy; Crown Copyright</li>

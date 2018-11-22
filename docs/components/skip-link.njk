@@ -1,0 +1,25 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Skip link' %}
+{% from 'components/skip-link/macro.njk' import skipLink %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p>To view the skip link component, press tab or navigate to the next element.</p>
+
+          {{ skipLink({
+            "href": "#maincontent",
+            "text": "Skip to main content"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

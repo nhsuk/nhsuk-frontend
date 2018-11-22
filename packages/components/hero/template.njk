@@ -1,11 +1,10 @@
-<section class="nhsuk-c-hero {% if params.imageURL and params.heading %}nhsuk-c-hero--image nhsuk-c-hero--image-description{% elif params.imageURL %}nhsuk-c-hero--image{% endif %}"
-  {% if params.imageURL %} style="background-image: url('{{ params.imageURL }}');" {% endif %}>
-  {% if params.imageURL %}<div class="nhsuk-c-hero__overlay">{% endif %}
+<section class="nhsuk-hero{% if params.imageURL and params.heading %} nhsuk-hero--image nhsuk-hero--image-description{% elif params.imageURL %} nhsuk-hero--image{% endif %}" {% if params.imageURL %} style="background-image: url('{{ params.imageURL }}');" {% endif %}>
+  {% if params.imageURL %}<div class="nhsuk-hero__overlay">{% endif %}
   {% if params.heading %}
-  <div class="nhsuk-width-container nhsuk-c-hero--border">
+  <div class="nhsuk-width-container nhsuk-hero--border">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
-        <div class="{% if params.imageURL %}nhsuk-c-hero-content{% else %}nhsuk-c-hero__wrapper{% endif %}">
+        <div class="{% if params.imageURL %}nhsuk-hero-content{% else %}nhsuk-hero__wrapper{% endif %}">
           <h1 {% if params.text %}class="nhsuk-!-margin-bottom-3"{% endif %}>{{ params.heading }}</h1>
           {% if params.text %}<p class="nhsuk-body-l nhsuk-!-margin-bottom-0">{{ params.text }}</p>{% endif %}
         </div>

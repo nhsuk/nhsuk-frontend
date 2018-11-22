@@ -12,11 +12,10 @@
  *    render text using sub-pixel anti-aliasing.
  * 3. Override the user agent style margin of 8px.
  * 4. Ensure the page always fills at least the entire height of the viewport.
- *
  */
 
 html {
-  background-color: $colour_nhsuk-blue;
+  background-color: $color_nhsuk-blue;
   font-family: $nhsuk-font, $nhsuk-font-fallback;
   overflow-y: scroll; /* [1] */
 }
@@ -24,8 +23,8 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale; /* [2] */
   -webkit-font-smoothing: antialiased; /* [2] */
-  background-color: $colour_nhsuk-grey-5;
-  color: $nhsuk-text-colour;
+  background-color: $color_nhsuk-grey-5;
+  color: $nhsuk-text-color;
   font-size: $nhsuk-base-font-size;
   line-height: _nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
   margin: 0; /* [3] */

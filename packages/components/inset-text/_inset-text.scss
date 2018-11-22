@@ -9,17 +9,18 @@
  *    readability.
  */
 
-.nhsuk-c-inset-text {
+.nhsuk-inset-text {
   @include top-and-bottom(); /* [1] */
   @include reading-width(); /* [2] */
 
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
 
-  border-left: $nhsuk-border-width-inset-text solid $colour_nhsuk-blue;
+  border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
   padding: nhsuk-spacing(3);
 
   @include mq($media-type: print) {
-    border-color: $nhsuk-print-text-colour;
+    border-color: $nhsuk-print-text-color;
   }
+
 }

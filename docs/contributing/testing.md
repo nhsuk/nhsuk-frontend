@@ -1,8 +1,5 @@
+
 # Testing
-
-## Unit tests
-
-> To be completed.
 
 ## Screen resolution testing
 
