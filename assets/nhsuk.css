@@ -3198,7 +3198,8 @@ b {
   .nhsuk-header__navigation-link:focus {
     background-color: transparent;
     box-shadow: inset 0 0 0 4px #ffb81C;
-    color: #005eb8; }
+    color: #005eb8;
+    text-decoration: underline; }
   .nhsuk-header__navigation-link:active {
     background-color: #003d78;
     box-shadow: none;
