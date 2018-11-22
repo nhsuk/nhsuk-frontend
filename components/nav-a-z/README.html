@@ -93,8 +93,8 @@
 <h3 id="nav-a-z">Nav A-Z</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z.html">Preview the nav a-z component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;nav class=&quot;nhsuk-nav-a-z&quot; id=&quot;nhsuk-nav-a-z&quot; role=&quot;navigation&quot; aria-label=&quot;A-Z Navigation&quot;&gt;
-  &lt;ul class=&quot;nhsuk-nav-a-z__list&quot;&gt;
+<pre><code class="language-html">&lt;nav class=&quot;nhsuk-nav-a-z&quot; id=&quot;nhsuk-nav-a-z&quot; role=&quot;navigation&quot; aria-label=&quot;A to Z Navigation&quot;&gt;
+  &lt;ol class=&quot;nhsuk-nav-a-z__list&quot; role=&quot;list&quot;&gt;
     &lt;li class=&quot;nhsuk-nav-a-z__item&quot;&gt;
       &lt;a class=&quot;nhsuk-nav-a-z__link&quot; href=&quot;#A&quot;&gt;A&lt;/a&gt;
     &lt;/li&gt;
@@ -173,7 +173,7 @@
     &lt;li class=&quot;nhsuk-nav-a-z__item&quot;&gt;
       &lt;a class=&quot;nhsuk-nav-a-z__link&quot; href=&quot;#Z&quot;&gt;Z&lt;/a&gt;
     &lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;/ol&gt;
 &lt;/nav&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
