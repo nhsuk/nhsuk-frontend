@@ -133,8 +133,8 @@
 
   }
 
-  .nhsuk-details__summary-text {
-    background: url(/assets/icons/icon-plus.svg) left -2px center no-repeat;
+  .nhsuk-details__summary-text { // Do not use base64. TODO: Refactor this in the future
+    background: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibmhzdWstaWNvbiBuaHN1ay1pY29uX19wbHVzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjMycHgiIGFyaWEtaGlkZGVuPSJ0cnVlIj4gIDxkZWZzPiAgICA8c3R5bGU+ICAgICAgLmNscy0ye2ZpbGw6bm9uZTtzdHJva2U6I2ZmZjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2Utd2lkdGg6MnB4fSAgICA8L3N0eWxlPiAgPC9kZWZzPiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMwMDU3YWIiLz4gIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyIDh2OE04IDEyaDgiLz48L3N2Zz4=) left -2px center no-repeat;
     color: $color_nhsuk-blue;
     cursor: pointer;
     display: block;
@@ -157,8 +157,8 @@
     border-bottom: 1px solid $color_nhsuk-grey-5;
   }
 
-  .nhsuk-details__summary-text {
-    background: url(/assets/icons/icon-minus.svg) left -2px center no-repeat; /* [3] */
+  .nhsuk-details__summary-text { // Do not use base64. TODO: Refactor this in the future
+    background: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibmhzdWstaWNvbiBuaHN1ay1pY29uX19taW51cyIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjMycHgiIGFyaWEtaGlkZGVuPSJ0cnVlIj4gIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIiBmaWxsPSIjMDA1N2FiIi8+ICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik04IDEyaDgiLz48L3N2Zz4=) left -2px center no-repeat; /* [3] */
   }
 
 }
