@@ -83,6 +83,22 @@ function minifyJS() {
     .pipe(gulp.dest('dist/'))
 }
 
+
+/**
+ * Minify javascript without version number for npm
+ */
+function packageJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: `.min`
+    }))
+    .pipe(gulp.dest('packages/'))
+}
+
 /**
  * Copy assets such as icons and images into the distribution
  */
@@ -147,6 +163,7 @@ gulp.task('bundle', gulp.series([
   'build',
   minifyCSS,
   minifyJS,
+  packageJS
 ]))
 gulp.task('zip', gulp.series([
   'bundle',
