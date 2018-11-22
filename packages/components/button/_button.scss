@@ -36,6 +36,10 @@ $button-shadow-size: 4px;
   vertical-align: top;
   width: auto;
 
+  @include mq($from: tablet) {
+    padding: 12px nhsuk-spacing(4); // s2
+  }
+
   /* 2 */
   &:link,
   &:visited,
