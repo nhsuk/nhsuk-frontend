@@ -40,7 +40,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
   3. Create pages using NHS.UK Frontend
 
-      You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/core#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/tree/refactor/docs/packages/components).
+      You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
 
 ### HTML template
 
