@@ -33,6 +33,7 @@ Please see our [contributing guidelines](/docs/contributing/README.md) on how to
 
 - [Government Digital Service (GDS)](https://github.com/alphagov/)
 - [Harry Roberts (csswizardry)](https://github.com/csswizardry)
+- [Phil Sherry](https://github.com/philsherry)
 
 ## Get in touch
 

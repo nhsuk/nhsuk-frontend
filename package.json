@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
