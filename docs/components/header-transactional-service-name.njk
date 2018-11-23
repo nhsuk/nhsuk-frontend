@@ -6,33 +6,11 @@
 {% block body %}
 
   {{ header({
-      "service": {
-        "name": "Find out why your NHS data matters"
+    "transactionalService": {
+        "name": "Register with a GP"
       },
       "showNav": "false",
-      "showSearch": "false",
-      "primaryLinks": [
-        {
-          "url"  : "https://www.nhs.uk/conditions",
-          "label" : "Health A-Z"
-        },
-        {
-          'url' : 'https://www.nhs.uk/live-well/',
-          'label' : 'Live Well'
-        },
-        {
-          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-          'label' : 'Care and support'
-        },
-        {
-          'url'  : 'https://www.nhs.uk/news/',
-          'label' : 'Health news'
-        },
-        {
-          'url' : 'https://www.nhs.uk/service-search',
-          'label' : 'Services near you'
-        }
-      ]
+      "showSearch": "false"
     })
   }}
 

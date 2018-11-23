@@ -19,8 +19,9 @@
 
   <!-- Header -->
   {{ header({
-    "service": {
-        "name": "Find out why your NHS data matters"
+    "transactionalService": {
+        "name": "Find out why your NHS data matters",
+        "longName": "true"
       },
       "showNav": "false",
       "showSearch": "false"
@@ -34,26 +35,23 @@
 
   <div class="nhsuk-form-group nhsuk-form-group--wrapper">
 
-    {{ fieldset({
-      "legend": {
-        "text": "Do you know your NHS number?",
-        "classes": "nhsuk-fieldset__legend--l",
-        "isPageHeading": true
-      }
-    }) }}
-
-    {{ hint({
-      "text": "This is a 10 digit number, like 485 777 3456."
-    }) }}
-
-    {{ hint({
-      "classes": "nhsuk-!-margin-bottom-5",
-      "text": "You can find this on any letter sent to you by the NHS, on a prescription or by logging in to a GP practice online service."
-    }) }}
-
     {{ radios({
       "idPrefix": "example",
       "name": "example",
+      "fieldset": {
+        "legend": {
+          "text": "Do you know your NHS number?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": true
+        }
+      },
+      "hint": {
+        "text": "This is a 10 digit number, like 485 777 3456."
+      },
+      "hint": {
+        "classes": "nhsuk-!-margin-bottom-5",
+      "text": "You can find this on any letter sent to you by the NHS, on a prescription or by logging in to a GP practice online service."
+      },
       "items": [
         {
           "value": "yes",
@@ -61,8 +59,7 @@
         },
         {
           "value": "no",
-          "text": "No",
-          "checked": false
+          "text": "No"
         }
       ]
     }) }}
@@ -71,14 +68,6 @@
 
   {{ button({
     "text": "Continue"
-  }) }}
-
-  {{ details({
-    "text": "Where can I find my NHS number?",
-    "classes": "nhsuk-!-margin-bottom-5",
-    "HTML": "
-    <p>An NHS number is a 10 digit number, like 485 777 3456.</p><p>You can find your NHS number by logging in to a GP practice online service or on any document sent to you by the NHS. This may include:</p><ul><li>prescriptions</li><li>test results</li><li>hospital referral letters</li><li>appointment letters</li></ul><p>You can also ask your GP practice for help if you can`t find your NHS number.</p>
-    "
   }) }}
 
   <p class="nhsuk-!-margin-bottom-0"><a href="#">Go back</a></p>

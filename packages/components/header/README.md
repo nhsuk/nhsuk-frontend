@@ -49,7 +49,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
+            <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -324,7 +324,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <input class="nhsuk-search__input" id="search-field" placeholder="Enter a search term" autocomplete="off" name="search-field" type="search">
+            <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>

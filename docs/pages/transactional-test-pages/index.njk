@@ -18,7 +18,7 @@
 
   <!-- Header -->
   {{ header({
-    "service": {
+    "transactionalService": {
         "name": "Register with a GP"
       },
       "showNav": "false",
@@ -33,26 +33,23 @@
 
   <div class="nhsuk-form-group nhsuk-form-group--wrapper">
 
-    {{ fieldset({
-      "legend": {
-        "text": "Do you know your NHS number?",
-        "classes": "nhsuk-fieldset__legend--l",
-        "isPageHeading": true
-      }
-    }) }}
-
-    {{ hint({
-      "text": "This is a 10 digit number, like 485 777 3456."
-    }) }}
-
-    {{ hint({
-      "classes": "nhsuk-!-margin-bottom-5",
-      "text": "You can find it on any letter the NHS has sent you, on a prescription, or by logging in to a GP practice online service."
-    }) }}
-
     {{ radios({
       "idPrefix": "example",
       "name": "example",
+      "fieldset": {
+        "legend": {
+          "text": "Do you know your NHS number?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": true
+        }
+      },
+      "hint": {
+        "text": "This is a 10 digit number, like 485 777 3456."
+      },
+      "hint": {
+        "classes": "nhsuk-!-margin-bottom-5",
+        "text": "You can find this on any letter sent to you by the NHS, on a prescription or by logging in to a GP practice online service."
+      },
       "items": [
         {
           "value": "yes",
@@ -60,8 +57,7 @@
         },
         {
           "value": "no",
-          "text": "No",
-          "checked": false
+          "text": "No"
         }
       ]
     }) }}

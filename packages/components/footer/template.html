@@ -1,14 +1,14 @@
 <footer role="contentinfo">
   <div class="nhsuk-footer">
     <div class="nhsuk-width-container">
-      {% if params.hideLogo == "true" %}
-      {% else %}
+      {% if params.showLogo == "true" %}
       <div class="nhsuk-footer__logo">
         <a href="/" class="global-footer__link">
           {% include 'assets/logos/logo-nhs.svg' %}
           <span class="nhsuk-u-visually-hidden">NHS homepage</span>
         </a>
       </div>
+      {% else %}
       {% endif %}
       <ul class="nhsuk-footer__list">
         {% for item in params.primaryLinks %}
