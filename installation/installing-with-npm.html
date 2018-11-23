@@ -131,7 +131,7 @@ sass.compiler = require(&#39;node-sass&#39;);
 
 gulp.task(&#39;sass&#39;, function () {
   return gulp.src(&#39;./path-to-sass-files/*.scss&#39;)
-    .pipe(sass()
+    .pipe(sass())
     .pipe(sass().on(&#39;error&#39;, sass.logError))
     .pipe(gulp.dest(&#39;./path-to-css-files/css&#39;));
 });</code></pre>
