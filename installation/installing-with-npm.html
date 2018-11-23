@@ -190,7 +190,7 @@ jQuery dependency.</p>
 <p>For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.</p>
 </blockquote>
 <h2 id="importing-assets-optional-">Importing assets (optional)</h2>
-<p>If you want to import assets such as the favicons and SVG icons, ou might wish to copy the files into your project or reference it from <code>node_modules</code>.</p>
+<p>If you want to import assets such as the favicons and SVG icons, you might wish to copy the files into your project or reference it from <code>node_modules</code>.</p>
 <pre><code class="language-html">&lt;!--[if IE]&gt;&lt;link rel=&quot;shortcut icon&quot; href=&quot;node_modules/nhsuk-frontend/assets/favicons/favicon.ico&quot;&gt;&lt;![endif]--&gt;
 &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;node_modules/nhsuk-frontend/assets/favicons/apple-touch-icon.png&quot;&gt;
 &lt;link rel=&quot;icon&quot; href=&quot;node_modules/nhsuk-frontend/assets/favicons/favicon.png&quot;&gt;</code></pre>
@@ -204,7 +204,8 @@ jQuery dependency.</p>
 <p><strong>Icons</strong></p>
 <pre><code class="language-html">{% include &#39;/nhsuk-frontend/assets/icons/icon-arrow-right-circle.svg&#39; %}</code></pre>
 <h2 id="importing-nunjucks-macros-optional-">Importing Nunjucks macros (optional)</h2>
-<p>Below is an example setup using Express configure views:</p>
+<h3 id="express-js-example">Express.js example</h3>
+<p>If your project uses <a href="https://expressjs.com/">Express.js</a>, to include the nunjucks files directly from the <code>node_modules</code> folder, you need to configure your main <code>app.js</code>:</p>
 <pre><code>nunjucks.configure(&#39;node_modules/nhsuk-frontend/components&#39;, {
   autoescape: true,
   cache: false,
