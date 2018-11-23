@@ -182,7 +182,7 @@ jQuery dependency.
 
 ## Importing assets (optional)
 
-If you want to import assets such as the favicons and SVG icons, ou might wish to copy the files into your project or reference it from `node_modules`.
+If you want to import assets such as the favicons and SVG icons, you might wish to copy the files into your project or reference it from `node_modules`.
 
 ```html
 <!--[if IE]><link rel="shortcut icon" href="node_modules/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
@@ -216,7 +216,9 @@ app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nh
 
 ## Importing Nunjucks macros (optional)
 
-Below is an example setup using Express configure views:
+### Express.js example
+
+If your project uses [Express.js](https://expressjs.com/), to include the nunjucks files directly from the `node_modules` folder, you need to configure your main `app.js`:
 
 ```
 nunjucks.configure('node_modules/nhsuk-frontend/components', {
