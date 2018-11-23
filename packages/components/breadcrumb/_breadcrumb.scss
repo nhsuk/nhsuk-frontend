@@ -63,19 +63,20 @@
   margin-bottom: 0;
   padding-left: 3px; /* [7] */
   padding-right: 27px; /* [7] */
-}
 
-.nhsuk-breadcrumb__list > .nhsuk-breadcrumb__item:first-child {
-  padding-left: 0;
-}
+  &:first-child {
+    padding-left: 0;
+  }
 
-.nhsuk-breadcrumb__list > .nhsuk-breadcrumb__item:last-child {
-  background: none;
+  &:last-child {
+    background: none;
+  }
+
 }
 
 .nhsuk-breadcrumb__back {
   @include nhsuk-font(16); /* [4] */
-  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-left' xmlns='http://www.w3.org/2000/svg' fill='%23005eb8' height='24' width='24' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z'%3E%3C/path%3E%3C/svg%3E") -8px center no-repeat;
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-left' xmlns='http://www.w3.org/2000/svg' fill='%23005eb8' height='24' width='24' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z'%3E%3C/path%3E%3C/svg%3E") -8px center no-repeat; // sass-lint:disable-line quotes
   margin: 0;
   padding-left: nhsuk-spacing(4);
 
