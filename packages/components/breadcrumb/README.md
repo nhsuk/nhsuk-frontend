@@ -59,5 +59,5 @@ If you are using Nunjucks, then macros take the following arguments:
 | items.{}.attributes	| object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item. |
 | href                | string   | Yes       | Link of the current page  |
 | text                | string   | Yes       | Text for the current page |
-| classes             | string   | No        | Optional additional classes to add to the breadcrumnbs container. Separate each class with a space. |
+| classes             | string   | No        | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
 | attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumbs container. |
