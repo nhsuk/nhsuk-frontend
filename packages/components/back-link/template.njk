@@ -1,2 +1,4 @@
-<a href="{%- if params.href %}{{ params.href }}{% else %}#{% endif -%}" class="nhsuk-back-link{%- if params.classes %} {{ params.classes }}{% endif -%}"
+<div class="nhsuk-back-link{%- if params.classes %} {{ params.classes }}{% endif -%}">
+  <a href="{%- if params.href %}{{ params.href }}{% else %}#{% endif -%}" class="nhsuk-back-link__link"
   {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>{% include 'assets/icons/icon-chevron-left.svg' %} {{ (params.html | safe if params.html else (params.text if params.text else 'Back')) }}</a>
+</div>

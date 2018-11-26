@@ -1,4 +1,4 @@
-<header class="nhsuk-header {% if params.transactional or params.transactionalService %} nhsuk-header--transactional {% endif %}" role="banner">
+<header class="nhsuk-header{% if params.transactional or params.transactionalService %} nhsuk-header--transactional {% endif %}" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a href="{% if params.href %}{{ params.href }}{% else %}/{% endif %}" class="nhsuk-header__link {% if params.service %} nhsuk-header__link--service {% endif %}" aria-label="NHS homepage">
@@ -14,7 +14,7 @@
     {% if params.showNav == "false" and params.showSearch == "false"%}
 
     {% if params.transactionalService%}
-    <div class="nhsuk-header__transactional-service-name {% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long {% endif %}">
+    <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long {% endif %}">
       <a href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}" class="nhsuk-header__transactional-service-name--link">{{ params.transactionalService.name }}</a>
     </div>
     {% endif %}

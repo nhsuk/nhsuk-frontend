@@ -15,6 +15,7 @@
 $button-shadow-size: 4px;
 
 .nhsuk-button {
+  @include nhsuk-font(19);
   @include nhsuk-focusable;
   @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
 
@@ -27,16 +28,17 @@ $button-shadow-size: 4px;
   color: $nhsuk-button-text-colour;
   cursor: pointer;
   display: inline-block;
-  font-size: 19px;
-  font-size: 1.1875rem; // sass-lint:disable-line no-duplicate-properties
   font-weight: 600;
-  line-height: 1.47368;
   margin-top: 0;
   padding: 12px nhsuk-spacing(3); // s2
   position: relative;
   text-align: center;
   vertical-align: top;
   width: auto;
+
+  @include mq($until: tablet) {
+    padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
+  }
 
   /* 2 */
   &:link,

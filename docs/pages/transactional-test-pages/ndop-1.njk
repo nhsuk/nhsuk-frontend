@@ -1,4 +1,5 @@
 {% set title = 'Transactional test page - NHS.UK Frontend' %}
+{% from 'components/back-link/macro.njk' import backLink %}
 {% from 'components/button/macro.njk' import button %}
 {% from 'components/fieldset/macro.njk' import fieldset %}
 {% from 'components/input/macro.njk' import input %}
@@ -18,6 +19,7 @@
   {{ header({
     "transactionalService": {
         "name": "Find out why your NHS data matters",
+        "href": "/pages/transactional-test-pages/ndop-1.html",
         "longName": "true"
       },
       "showNav": "false",
@@ -28,7 +30,7 @@
 
 {% block content %}
 
-<form>
+<form action="/pages/transactional-test-pages/ndop-2.html">
 
   <div class="nhsuk-form-group nhsuk-form-group--wrapper">
 
@@ -64,7 +66,11 @@
     "text": "Continue"
   }) }}
 
-  <p class="nhsuk-!-margin-bottom-0"><a href="#">Go back</a></p>
+  {{ backLink({
+    "href": "/pages/transactional-test-pages/ndop-1.html",
+    "text": "Go back",
+    "classes": "nhsuk-!-margin-bottom-0"
+  }) }}
 
 </form>
 

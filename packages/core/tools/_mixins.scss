@@ -373,3 +373,18 @@
     outline-offset: 0;
   }
 }
+
+/// NHS logo size helper
+///
+/// Saves duplicating the code for when using the logo as a link.
+/// Used in the header and footer.
+
+@mixin nhsuk-logo-size {
+  height: 40px;
+  width: 100px;
+}
+
+@mixin nhsuk-logo-size-small {
+  height: 32px;
+  width: 80px;
+}

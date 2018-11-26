@@ -35,6 +35,7 @@
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
  * 15. IE 9 alternative for flexbox
+ * 16. Custom padding-top to vertically align service name and logo
  */
 
 .nhsuk-header {
@@ -51,17 +52,17 @@
   }
 
   .nhsuk-logo {
+    @include nhsuk-logo-size; /* [1] */
+
     border: 0;
-    height: 40px; /* [1] */
-    width: 100px; /* [1] */
   }
 
 }
 
 .nhsuk-header__link {
+  @include nhsuk-logo-size; /* [1] */
+
   display: block;
-  height: 40px; /* [1] */
-  width: 100px; /* [1] */
 }
 
 .nhsuk-header__content {
@@ -81,118 +82,6 @@
       border-bottom: 0;
     }
 
-  }
-
-}
-
-/* Transactional Header with service name */
-
-.nhsuk-header__transactional-service-name {
-  float: left;
-  padding-right: nhsuk-spacing(3);
-  padding-top: 26px;
-
-  @include mq($until: tablet) {
-    padding-top: 28px;
-  }
-
-}
-
-.nhsuk-header__transactional-service-name--long {
-
-  @include mq($until: tablet) {
-    margin-top: -(nhsuk-spacing(2));
-    padding-bottom: nhsuk-spacing(3);
-    padding-left: nhsuk-spacing(3);
-    padding-top: 0;
-    width: 100%;
-  }
-
-}
-
-.nhsuk-header__transactional-service-name--link {
-  @include nhsuk-link-style-white;
-  @include nhsuk-font(19);
-
-  text-decoration: none;
-}
-
-.nhsuk-header--transactional {
-
-  .nhsuk-header__link {
-    display: block;
-    height: 32px;
-    width: 80px;
-  }
-
-  .nhsuk-logo {
-    height: 32px;
-    width: 100px;
-  }
-
-  .nhsuk-header__transactional-service-name {
-    float: left;
-    padding-left: $nhsuk-header-spacing;
-    padding-top: 22px;
-
-    @include mq($until: tablet) {
-      padding-left: 16px;
-      padding-top: nhsuk-spacing(4);
-    }
-
-  }
-
-  .nhsuk-header__transactional-service-name--long {
-
-    @include mq($until: tablet) {
-      padding-top: 0;
-    }
-
-  }
-
-}
-
-.nhsuk-header__link--service {
-  height: auto;
-  margin-bottom: -(nhsuk-spacing(1));
-  text-decoration: none;
-  width: auto;
-
-  @include mq($from: tablet) {
-    -ms-flex-align: center;
-    align-items: center;
-    display: flex;
-    margin-bottom: 0;
-    width: auto;
-  }
-
-  &:focus,
-  &:hover {
-    background: none;
-  }
-
-  &:hover {
-
-    .nhsuk-header__service-name {
-      text-decoration: underline;
-    }
-  }
-
-}
-
-.nhsuk-header__service-name {
-  @include nhsuk-font(19);
-
-  color: $color_nhsuk-white;
-  display: block;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 12px;
-
-  @include mq($from: tablet) {
-    padding-left: nhsuk-spacing(3);
-    padding-right: nhsuk-spacing(3);
-    padding-top: 0;
   }
 
 }
@@ -819,6 +708,115 @@
     .js-show {
       display: block;
     }
+  }
+
+}
+
+/* Transactional Header with service name */
+
+.nhsuk-header__transactional-service-name {
+  float: left;
+  padding-right: nhsuk-spacing(3);
+  padding-top: 26px; /* [16] */
+
+  @include mq($until: tablet) {
+    padding-top: 28px; /* [16] */
+  }
+
+}
+
+.nhsuk-header__transactional-service-name--long {
+
+  @include mq($until: tablet) {
+    margin-top: -(nhsuk-spacing(2));
+    padding: 0 nhsuk-spacing(3) nhsuk-spacing(3);
+    width: 100%;
+  }
+
+}
+
+.nhsuk-header__transactional-service-name--link {
+  @include nhsuk-link-style-white;
+  @include nhsuk-font(19);
+
+  text-decoration: none;
+}
+
+.nhsuk-header--transactional {
+
+  .nhsuk-header__link {
+    @include nhsuk-logo-size-small;
+
+    display: block;
+  }
+
+  .nhsuk-logo {
+    @include nhsuk-logo-size-small;
+  }
+
+  .nhsuk-header__transactional-service-name {
+    float: left;
+    padding-left: $nhsuk-header-spacing;
+    padding-top: 23px; /* [16] */
+
+    @include mq($until: tablet) {
+      padding-left: 16px;
+      padding-top: 25px; /* [16] */
+    }
+
+  }
+
+  .nhsuk-header__transactional-service-name--long {
+
+    @include mq($until: tablet) {
+      padding-top: 0;
+    }
+
+  }
+
+}
+
+.nhsuk-header__link--service {
+  height: auto;
+  margin-bottom: -(nhsuk-spacing(1));
+  text-decoration: none;
+  width: auto;
+
+  @include mq($from: tablet) {
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+    width: auto;
+  }
+
+  &:focus,
+  &:hover {
+    background: none;
+  }
+
+  &:hover {
+
+    .nhsuk-header__service-name {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+.nhsuk-header__service-name {
+  @include nhsuk-font(19);
+
+  color: $color_nhsuk-white;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 12px;
+
+  @include mq($from: tablet) {
+    padding-left: nhsuk-spacing(3);
+    padding-right: nhsuk-spacing(3);
+    padding-top: 0;
   }
 
 }

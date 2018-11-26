@@ -9,23 +9,38 @@
  */
 
 .nhsuk-back-link {
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-back-link__link {
   @include nhsuk-typography-responsive(16);
 
   display: inline-block;
-  margin-bottom: nhsuk-spacing(2);
-  margin-top: nhsuk-spacing(2);
   padding-left: 16px; /* 1 */
   position: relative;
+  text-decoration: none;
 
   .nhsuk-icon__chevron-left {
-    height: 18px;
-    left: -4px; /* 2 */
+    height: 24px;
+    left: -8px; /* 2 */
     position: absolute;
-    top: 3px; /* 3 */
-    width: 18px;
+    top: -1px; /* 3 */
+    width: 24px;
+    color:red;
+  }
+
+  &:visited {
+    color: $nhsuk-link-color;
   }
 
   &:hover {
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:focus {
+    color: $nhsuk-text-color;
+
     .nhsuk-icon__chevron-left {
       fill: $color_nhsuk-black;
     }

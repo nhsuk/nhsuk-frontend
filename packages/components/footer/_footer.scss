@@ -12,15 +12,14 @@
 }
 
 .nhsuk-logo {
+  @include nhsuk-logo-size-small;
+
   border: 0;
-  height: 32px;
   max-width: 100%;
   vertical-align: middle;
-  width: 80px;
 
   @include mq($from: tablet) {
-    height: 40px;
-    width: 100px;
+    @include nhsuk-logo-size;
   }
 
 }
@@ -29,13 +28,12 @@
   @include nhsuk-responsive-padding(4, bottom);
 
   > a {
+    @include nhsuk-logo-size-small;
+
     display: block;
-    height: 32px;
-    width: 80px;
 
     @include mq($from: tablet) {
-      height: 40px;
-      width: 100px;
+      @include nhsuk-logo-size;
     }
 
     > .nhsuk-u-visually-hidden {
@@ -60,6 +58,10 @@
 
 .nhsuk-footer__list-item-link {
   color: $nhsuk-text-color;
+
+  &:visited {
+    color: $nhsuk-text-color;
+  }
 }
 
 .nhsuk-footer__copyright {
