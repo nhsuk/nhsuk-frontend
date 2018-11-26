@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Care card emergency (red and black)' %}
+{% set title = 'Care card immediate (red and black)' %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% extends 'layout.njk' %}
 
@@ -11,7 +11,7 @@
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
         {{ careCard({
-          "type": "emergency",
+          "type": "immediate",
           "heading": "Call 999 if you have sudden chest pain that:",
           "HTML": "
           <ul>
