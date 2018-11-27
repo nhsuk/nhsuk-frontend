@@ -203,6 +203,7 @@ caption {
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px;
   /* [2] */ }
 
@@ -1758,6 +1759,7 @@ b {
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px; }
 
 /* ==========================================================================
@@ -2111,25 +2113,25 @@ b {
     color: #212b32;
     page-break-inside: avoid; } }
 
-.nhsuk-care-card--emergency .nhsuk-care-card__heading-container {
+.nhsuk-care-card--immediate .nhsuk-care-card__heading-container {
   background-color: #da291c;
   color: #ffffff; }
-  .nhsuk-care-card--emergency .nhsuk-care-card__heading-container:after {
+  .nhsuk-care-card--immediate .nhsuk-care-card__heading-container:after {
     border-top: 16px solid #da291c; }
 
 @media print {
-  .nhsuk-care-card--emergency {
+  .nhsuk-care-card--immediate {
     border: 8px solid #212b32;
     color: #212b32;
     page-break-inside: avoid; } }
 
-.nhsuk-care-card--emergency .nhsuk-care-card__content {
+.nhsuk-care-card--immediate .nhsuk-care-card__content {
   background-color: #212b32;
   color: #ffffff; }
-  .nhsuk-care-card--emergency .nhsuk-care-card__content a {
+  .nhsuk-care-card--immediate .nhsuk-care-card__content a {
     color: #ffffff;
     /* [1] */ }
-    .nhsuk-care-card--emergency .nhsuk-care-card__content a:hover, .nhsuk-care-card--emergency .nhsuk-care-card__content a:focus {
+    .nhsuk-care-card--immediate .nhsuk-care-card__content a:hover, .nhsuk-care-card--immediate .nhsuk-care-card__content a:focus {
       color: #212b32;
       /* [1] */ }
 

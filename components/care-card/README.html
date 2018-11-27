@@ -95,7 +95,7 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
-    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Non-urgent care: &lt;/span&gt;Speak to a GP if:&lt;/h3&gt;
+    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span role=&quot;text&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Non-urgent advice: &lt;/span&gt;Speak to a GP if:&lt;/span&gt;&lt;/h3&gt;
   &lt;/div&gt;
   &lt;div class=&quot;nhsuk-care-card__content&quot;&gt;
     &lt;ul&gt;
@@ -112,7 +112,7 @@
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;type&quot;: &quot;primary&quot;,
+  &quot;type&quot;: &quot;non-urgent&quot;,
   &quot;heading&quot;: &quot;Speak to a GP if:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -124,7 +124,7 @@
   &lt;p&gt;Tell the receptionist you think it&#39;s chickenpox before going in. They may recommend a special appointment time if other patients are at risk.&lt;/p&gt;
   &quot;
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<p>The non-urgent care card Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -135,31 +135,37 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>string</td>
 <td>Yes</td>
-<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+<td>Care card component variant type - &quot;non-urgent&quot;</td>
 </tr>
 <tr>
-<td>heading</td>
+<td><strong>heading</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Heading to be used within the care card component</td>
 </tr>
 <tr>
-<td>HTML</td>
+<td><strong>HTML</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Content to be used within the care card component</td>
 </tr>
 <tr>
-<td>classes</td>
-<td>string</td>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
 <td>No</td>
-<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+<td>Optional heading level for the  heading. Default: 3</td>
 </tr>
 <tr>
-<td>attributes</td>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the care card. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
 <td>object</td>
 <td>No</td>
 <td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
@@ -170,7 +176,7 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--urgent&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
-    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care low: &lt;/span&gt;Ask for an urgent GP appointment if:&lt;/h3&gt;
+    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span role=&quot;text&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent advice: &lt;/span&gt;Ask for an urgent GP appointment if:&lt;/span&gt;&lt;/h3&gt;
   &lt;/div&gt;
   &lt;div class=&quot;nhsuk-care-card__content&quot;&gt;
     &lt;ul&gt;
@@ -198,7 +204,7 @@
   &lt;/ul&gt;
   &quot;
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<p>The urgent care card Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -209,42 +215,48 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>string</td>
 <td>Yes</td>
-<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+<td>Care card component variant type - &quot;urgent&quot;</td>
 </tr>
 <tr>
-<td>heading</td>
+<td><strong>heading</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Heading to be used within the care card component</td>
 </tr>
 <tr>
-<td>HTML</td>
+<td><strong>HTML</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Content to be used within the care card component</td>
 </tr>
 <tr>
-<td>classes</td>
-<td>string</td>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
 <td>No</td>
-<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+<td>Optional heading level for the  heading. Default: 3</td>
 </tr>
 <tr>
-<td>attributes</td>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the care card. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
 <td>object</td>
 <td>No</td>
 <td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
 </tr>
 </tbody></table>
-<h3 id="care-card-emergency-red-and-black-">Care card emergency (red and black)</h3>
-<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview care card emergency (red and black) component</a></p>
+<h3 id="care-card-immediate-red-and-black-">Care card immediate (red and black)</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html">Preview care card immediate (red and black) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--emergency&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--immediate&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
-    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Urgent care high: &lt;/span&gt;Call 999 if you have sudden chest pain that:&lt;/h3&gt;
+    &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span role=&quot;text&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Immediate action required: &lt;/span&gt;Call 999 if you have sudden chest pain that:&lt;/span&gt;&lt;/h3&gt;
   &lt;/div&gt;
   &lt;div class=&quot;nhsuk-care-card__content&quot;&gt;
     &lt;ul&gt;
@@ -260,7 +272,7 @@
 <pre><code>{% from &#39;components/care-card/macro.njk&#39; import careCard %}
 
 {{ careCard({
-  &quot;type&quot;: &quot;emergency&quot;,
+  &quot;type&quot;: &quot;immediate&quot;,
   &quot;heading&quot;: &quot;Call 999 if you have sudden chest pain that:&quot;,
   &quot;HTML&quot;: &quot;
   &lt;ul&gt;
@@ -271,7 +283,7 @@
   &lt;p&gt;You could be having a &lt;a href=&#39;https://www.nhs.uk\&#39;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
   &quot;
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<p>The immediate care card Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -282,31 +294,37 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>string</td>
 <td>Yes</td>
-<td>Care card component variant types: &quot;primary&quot;, &quot;emergency&quot;, &quot;urgent&quot;</td>
+<td>Care card component variant type - &quot;immediate&quot;</td>
 </tr>
 <tr>
-<td>heading</td>
+<td><strong>heading</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Heading to be used within the care card component</td>
 </tr>
 <tr>
-<td>HTML</td>
+<td><strong>HTML</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Content to be used within the care card component</td>
 </tr>
 <tr>
-<td>classes</td>
-<td>string</td>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
 <td>No</td>
-<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+<td>Optional heading level for the  heading. Default: 3</td>
 </tr>
 <tr>
-<td>attributes</td>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the care card. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
 <td>object</td>
 <td>No</td>
 <td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
