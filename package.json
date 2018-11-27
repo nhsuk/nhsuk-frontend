@@ -1,7 +1,7 @@
 {
   "name": "nhsuk-frontend",
-  "version": "0.1.4",
-  "description": "NHS.UK Frontend contains all the code you need to start building user interfaces for NHS websites and services.",
+  "version": "0.1.6",
+  "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
     "prepare": "gulp bundle",
@@ -25,6 +25,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "backstopjs": "^3.8.4",
+    "event-stream": "^3.3.4",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",

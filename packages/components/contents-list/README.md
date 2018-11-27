@@ -16,8 +16,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 <nav class="nhsuk-contents-list" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
-    <li class="nhsuk-contents-list__item">
-      <span class="nhsuk-contents-list__current" aria-current="page">What is AMD?</span>
+    <li class="nhsuk-contents-list__item" aria-current="page">
+      <span class="nhsuk-contents-list__current">What is AMD?</span>
     </li>
     <li class="nhsuk-contents-list__item">
       <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">Symptoms</a>
@@ -73,12 +73,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 #### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments: 
+The contents list Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| text                | string   | Yes       | text value of the items in the contents list. |
-| href                | string   | Yes       | href value of the items in contents list. |
-| current             | boolean  | No        | Current active page in the contents list. |
-| classes             | string   | No        | Optional additional classes content list container. Separate each class with a space. |
-| attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to items in the list. |
+| Name                    | Type     | Required  | Description  |
+| ------------------------|----------|-----------|--------------|
+| **items**               | array    | Yes       | Array of items in the contents list. |
+| **items.[].href**       | string   | Yes       | Href value of an item in the contents list. |
+| **items.[].text**       | string   | Yes       | Text value of an item in the contents llst. |
+| **current**             | boolean  | No        | Current active page in the contents list. |
+| **classes**             | string   | No        | Optional additional classes content list container. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to items in the list. |

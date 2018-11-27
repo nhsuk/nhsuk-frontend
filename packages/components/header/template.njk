@@ -1,23 +1,23 @@
 <header class="nhsuk-header{% if params.transactional or params.transactionalService %} nhsuk-header--transactional{% endif %}" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" class="nhsuk-header__link {% if params.service %} nhsuk-header__link--service {% endif %}" aria-label="NHS homepage">
+      <a href="{% if params.href %}{{ params.href }}{% else %}/{% endif %}" class="nhsuk-header__link {% if params.service %} nhsuk-header__link--service {% endif %}" aria-label="NHS homepage">
         {% include 'assets/logos/logo-nhs-white.svg' %}
         {% if params.service %}
-          <span class="nhsuk-header__service-name">
-            {{ params.service.name }}
-          </span>
+        <span class="nhsuk-header__service-name">
+          {{ params.service.name }}
+        </span>
         {% endif %}
       </a>
     </div>
 
     {% if params.showNav == "false" and params.showSearch == "false"%}
 
-      {% if params.transactionalService%}
-        <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long {% endif %}">
-          <a href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}" class="nhsuk-header__transactional-service-name--link">{{ params.transactionalService.name }}</a>
-        </div>
-      {% endif %}
+    {% if params.transactionalService%}
+    <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long {% endif %}">
+      <a href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}" class="nhsuk-header__transactional-service-name--link">{{ params.transactionalService.name }}</a>
+    </div>
+    {% endif %}
 
     {% endif %}
 
@@ -62,7 +62,7 @@
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% for item in params.primaryLinks %}
         <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% endfor %}
@@ -118,7 +118,7 @@
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% for item in params.primaryLinks %}
         <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
         {% endfor %}

@@ -19,7 +19,7 @@ large-desktop: 990px
 
 ```html
 <div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper">
+  <main class="nhsuk-main-wrapper" id="maincontent">
     <!-- Grid items -->
   </main>
 </div>
@@ -134,7 +134,7 @@ $colour_nhsuk-aqua-green: #00A499;
 
 ## Utilities
 
-### Clearfix 
+### Clearfix
 
 ```html
 <div class="nhsuk-u-clear"></div>
@@ -166,7 +166,7 @@ $colour_nhsuk-aqua-green: #00A499;
 <h1 class="nhsuk-u-top-and-bottom"></h1>
 ```
 
-### Prevent text wrapping 
+### Prevent text wrapping
 
 ```html
 <a class="nhsuk-u-nowrap"></a>
