@@ -3,7 +3,7 @@
     <div class="nhsuk-width-container">
       <ul class="nhsuk-footer__list">
         <li class="nhsuk-footer__logo nhsuk-footer__list-item">
-          <a href="/" class="global-footer__link">
+          <a href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" class="global-footer__link" aria-label="NHS homepage">
             <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
               <g fill="none">
                 <path fill="#fff" d="M0 39.842h98.203V0H0z"></path>
@@ -11,17 +11,20 @@
               </g>
               <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png"></image>
             </svg>
-            <span class="nhsuk-u-visually-hidden">NHS homepage</span>
           </a>
         </li>
-        {% for item in params.primaryLinks %}
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
-        {% endfor %}
+        {% if params.primaryLinks %}
+          {% for item in params.primaryLinks %}
+            <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.url}}">{{item.label}}</a></li>
+          {% endfor %}
+        {% endif %}
       </ul>
       <ul class="nhsuk-footer__list">
-        {% for item in params.secondaryLinks %}
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
-        {% endfor %}
+        {% if params.secondaryLinks %}
+          {% for item in params.secondaryLinks %}
+            <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.url}}">{{item.label}}</a></li>
+          {% endfor %}
+        {% endif %}
         <li class="nhsuk-footer__list-item">&copy; Crown Copyright</li>
       </ul>
     </div>

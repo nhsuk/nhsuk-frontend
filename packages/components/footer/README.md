@@ -18,7 +18,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     <div class="nhsuk-width-container">
       <ul class="nhsuk-footer__list">
         <li class="nhsuk-footer__logo nhsuk-footer__list-item">
-          <a href="/" class="global-footer__link">
+          <a href="/" class="global-footer__link" aria-label="NHS homepage">
             <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
               <g fill="none">
                 <path fill="#fff" d="M0 39.842h98.203V0H0z"></path>
@@ -26,7 +26,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
               </g>
               <image xlink:href="" src="/assets/logos/fallback/logo-nhs.png"></image>
             </svg>
-            <span class="nhsuk-u-visually-hidden">NHS homepage</span>
           </a>
         </li>
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Pages/nhs-sites.aspx">NHS sites</a></li>
@@ -55,35 +54,49 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {{ footer({
   "primaryLinks": [
     {
-      "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+      "url": "https://www.nhs.uk/Pages/nhs-sites.aspx",
       "label": "NHS sites"
     },
     {
-      "URL": "https://www.nhs.uk/about-us",
+      "url": "https://www.nhs.uk/about-us",
       "label": "About us"
     },
     {
-      "URL": "https://www.nhs.uk/contact-us/",
+      "url": "https://www.nhs.uk/contact-us/",
       "label": "Contact us"
     },
     {
-      "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
+      "url": "https://www.nhs.uk/Personalisation/Login.aspx",
       "label": "Profile editor login"
     }
   ],
   "secondaryLinks": [
     {
-      "URL": "https://www.nhs.uk/about-us/sitemap/",
+      "url": "https://www.nhs.uk/about-us/sitemap/",
       "label": "Sitemap"
     },
     {
-      'URL': 'https://www.nhs.uk/accessibility/',
+      'url': 'https://www.nhs.uk/accessibility/',
       'label': 'Accessibility'
     },
     {
-      "URL": "https://www.nhs.uk/our-policies/",
+      "url": "https://www.nhs.uk/our-policies/",
       "label": "Our policies"
     }
   ]
 })}}
 ```
+
+#### Nunjucks arguments
+
+The footer Nunjucks macro takes the following arguments:
+
+| Name                         | Type     | Required  | Description  |
+| -----------------------------|----------|-----------|--------------|
+| **primaryLinks**             | array    | No        | Array of primary navigation items for use in the footer. |
+| **primaryLinks.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
+| **primaryLinks.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
+| **secondaryLinks**           | array    | No        | Array of secondary navigation items for use in the footer. |
+| **secondaryLinks.[].url**    | string   | No        | The href of a secondary navigation item in the footer. |
+| **secondaryLinks.[].label**  | string   | No        | The label of a secondary navigation item in the footer. |
+| **homeHref**                 | string   | No        | The href of the home link for the logo. Defaults to "/". |
