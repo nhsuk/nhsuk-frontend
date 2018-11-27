@@ -1,13 +1,13 @@
-<nav class="nhsuk-nav-a-z{%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-nav-a-z"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} role="navigation" aria-label="A-Z Navigation">
-  <ul class="nhsuk-nav-a-z__list">
+<nav class="nhsuk-nav-a-z{%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-nav-a-z"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} role="navigation" aria-label="A to Z Navigation">
+  <ol class="nhsuk-nav-a-z__list" role="list">
     {% for item in params.items %}
       <li class="nhsuk-nav-a-z__item">
         {% if item.disable %}
-          <p class="nhsuk-nav-a-z__link--disabled">{{ item.label }}</p>
+          <span class="nhsuk-nav-a-z__link--disabled">{{ item.label }}</span>
           {% else %}
           <a class="nhsuk-nav-a-z__link" href="#{{ item.label }}">{{ item.label }}</a>
         {% endif %}
       </li>
     {% endfor %}
-  </ul>
+  </ol>
 </nav>
