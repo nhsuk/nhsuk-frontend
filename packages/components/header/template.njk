@@ -81,42 +81,6 @@
           {% include 'assets/icons/icon-search.svg' %}
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
-<<<<<<< HEAD
-      </p>
-      <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile"><a href="/" class="nhsuk-header__navigation-link">Home {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% for item in params.primaryLinks %}
-        <li class="nhsuk-header__navigation-item"><a href="{{item.url}}" class="nhsuk-header__navigation-link">{{item.label}} {% include 'assets/icons/icon-chevron-right.svg' %}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-
-    {% endif %}
-
-    {% if params.showSearch == "true" and params.showNav == "false" %}
-
-      <div class="nhsuk-header__content" id="content-header">
-
-        <div class="nhsuk-header__search">
-          <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
-            {% include 'assets/icons/icon-search.svg' %}
-            <span class="nhsuk-u-visually-hidden">Search</span>
-          </button>
-          <div class="nhsuk-header__search-wrap" id="wrap-search">
-            <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
-              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-              <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
-              <button type="submit" class="nhsuk-search__submit">
-                {% include 'assets/icons/icon-search.svg' %}
-                <span class="nhsuk-u-visually-hidden">Search</span>
-              </button>
-              <button class="nhsuk-search__close" id="close-search">
-                {% include 'assets/icons/icon-close.svg' %}
-                <span class="nhsuk-u-visually-hidden">Close search</span>
-              </button>
-            </form>
-          </div>
-=======
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
@@ -130,7 +94,6 @@
               <span class="nhsuk-u-visually-hidden">Close search</span>
             </button>
           </form>
->>>>>>> master
         </div>
       </div>
 
