@@ -78,7 +78,7 @@
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 }
 
-.nhsuk-care-card--emergency {
+.nhsuk-care-card--immediate {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-care-card__content {
