@@ -96,26 +96,10 @@
 <pre><code class="language-html">&lt;nav class=&quot;nhsuk-breadcrumb&quot; aria-label=&quot;Breadcrumb&quot;&gt;
   &lt;div class=&quot;nhsuk-width-container&quot;&gt;
     &lt;ol class=&quot;nhsuk-breadcrumb__list&quot;&gt;
-      &lt;li class=&quot;nhsuk-breadcrumb__item&quot;&gt;
-        &lt;a href=&quot;https://www.nhs.uk/&quot; class=&quot;nhsuk-breadcrumb__link&quot; &gt;Home&lt;/a&gt; 
-        &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-          &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/li&gt;
-      &lt;li class=&quot;nhsuk-breadcrumb__item&quot;&gt;
-        &lt;a href=&quot;https://www.nhs.uk/conditions&quot; class=&quot;nhsuk-breadcrumb__link&quot; &gt;Health A-Z&lt;/a&gt; 
-        &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-          &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/li&gt;
-      &lt;li class=&quot;nhsuk-breadcrumb__item&quot;&gt;&lt;a href=&quot;https://www.nhs.uk/conditions/abscess/&quot; class=&quot;nhsuk-breadcrumb__link&quot;&gt;Abscess&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;nhsuk-breadcrumb__item&quot;&gt;&lt;a href=&quot;https://www.nhs.uk/&quot; class=&quot;nhsuk-breadcrumb__link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;nhsuk-breadcrumb__item&quot;&gt;&lt;a href=&quot;https://www.nhs.uk/conditions&quot; class=&quot;nhsuk-breadcrumb__link&quot;&gt;Health A-Z&lt;/a&gt;&lt;/li&gt;
     &lt;/ol&gt;
-    &lt;p class=&quot;nhsuk-breadcrumb__back&quot;&gt;
-      &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-left&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-        &lt;path d=&quot;M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z&quot;/&gt;
-      &lt;/svg&gt;
-      &lt;a href=&quot;https://www.nhs.uk/conditions/abscess/&quot; class=&quot;nhsuk-breadcrumb__backlink&quot;&gt;Back to Abscess&lt;/a&gt;
-    &lt;/p&gt;
+    &lt;p class=&quot;nhsuk-breadcrumb__back&quot;&gt;&lt;a href=&quot;https://www.nhs.uk/conditions/abscess/&quot; class=&quot;nhsuk-breadcrumb__backlink&quot;&gt;Back to Abscess&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -136,7 +120,7 @@
   href: &quot;https://www.nhs.uk/conditions/abscess/&quot;,
   text: &quot;Abscess&quot;
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<p>If you are using Nunjucks, then macros take the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -186,7 +170,7 @@
 <td>classes</td>
 <td>string</td>
 <td>No</td>
-<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
+<td>Optional additional classes to add to the breadcrumbs container. Separate each class with a space.</td>
 </tr>
 <tr>
 <td>attributes</td>
