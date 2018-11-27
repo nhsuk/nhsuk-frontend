@@ -46,7 +46,7 @@ function buildHtml() {
  * Copy built assets from dist into the documentation directory
  */
 function copyBuiltAssets() {
-  return gulp.src('dist/*.{css,js}')
+  return gulp.src(['dist/*.{css,js}', 'build/*.js'])
     .pipe(gulp.dest(config.dest + '/assets/'))
 }
 

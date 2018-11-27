@@ -1,18 +1,27 @@
 // Feedback banner
 
-var banner = document.querySelector('#nhsuk-feedback-banner');
-var bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
+const banner = document.querySelector('#nhsuk-feedback-banner');
+const bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
 
-document.addEventListener("DOMContentLoaded", function(){
-  setTimeout(function () {
-    if (typeof(banner) != 'undefined' && banner != null) {
+function showBanner() {
+  if (typeof(banner) != 'undefined' && banner != null) {
+    setTimeout(function () {
       banner.style.display = "block";
-    }
-  }, 3000);
-});
+    }, 3000);
+  }
+}
 
-if (bannerCloseButton) {
-  bannerCloseButton.addEventListener("click", function(){
-    banner.style.display = "none";
-  });
+function hideBanner() {
+  if (bannerCloseButton) {
+    bannerCloseButton.addEventListener("click", function(){
+      if (typeof(banner) != 'undefined' && banner != null) {
+        banner.style.display = "none";
+      }
+    });
+  }
+}
+
+export function init() {
+  showBanner();
+  hideBanner();
 }

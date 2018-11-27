@@ -13,7 +13,8 @@
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
-    "build-gh-release": "gulp zip"
+    "build-gh-release": "gulp zip",
+    "webpack": "webpack"
   },
   "dependencies": {
     "sass-mq": "^4.0.2"
@@ -43,7 +44,9 @@
     "gulp-zip": "^4.2.0",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
   },
   "files": [
     "dist",
