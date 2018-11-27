@@ -1,21 +1,23 @@
-# Contributing to NHS.UK Frontend
+# Contribute to NHS.UK Frontend
 
 ## Requirements
 
-To run NHS.UK Frontend locally you'll need to [set up git](https://help.github.com/articles/set-up-git/) and have [Node.js](https://nodejs.org/en/) installed.
-We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, rather than the latest beta version.
+To run NHS.UK Frontend locally you'll need to:
+* [set up git](https://help.github.com/articles/set-up-git/)
+* [install Node.js](https://nodejs.org/en/)
+We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
 
-> To check if you have git installed, type `git --version`. This should print a version number such as "git version 2.18.0".
+> Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
 
-> To check if Node is installed, type `node -v`. This should print a version number such as "v8.11.3".
+> Type `node -v` to check if Node is installed. This should print a version number like "v8.11.3".
 
 ## 1. Fork the repository
 
-If you're an external contributor make sure to [fork the repository](https://help.github.com/articles/fork-a-repo/) first.
+[Fork the repository](https://help.github.com/articles/fork-a-repo/) first, if you're an external contributor.
 
-## 2. Clone repository
+## 2. Clone the repository
 
-If you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/) you can clone the repository directly:
+You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/). Use this code:
 
 ```
 git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
@@ -23,7 +25,9 @@ git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
 cd nhsuk-frontend
 ```
 
-Otherwise you'll have to clone your own fork:
+You'll have to clone your own fork if you're not a member.
+
+Replace 'Username' in the git clone command below with your GitHub username.
 
 ```
 git clone https://github.com/Username/nhsuk-frontend.git nhsuk-frontend
@@ -31,18 +35,15 @@ git clone https://github.com/Username/nhsuk-frontend.git nhsuk-frontend
 cd nhsuk-frontend
 ```
 
-> If you're cloning you're own fork, make sure you replace 'Username' in the git clone command above with your own GitHub username.
-
 ## 3. Install dependencies
 
-We use [npm](https://docs.npmjs.com/getting-started/what-is-npm) to manage the dependencies in development, which is included with the Nodejs installation.
+We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage the dependencies in development, which is included with the Nodejs installation.
+
+> Make sure you are in the project directory when you run the `npm install` command below. You can switch to the project directory with the command `cd nhsuk-frontend`.
 
 ```
 npm install
 ```
-
-> Make sure you are in the project directory when you run the `npm install` command, you can switch to the project directory with `cd nhsuk-frontend`
-
 
 ## 4. Start a local server
 
@@ -58,10 +59,10 @@ npm start
 
 You can read our [getting started documentation](/docs/contributing/getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
 
-> If you need help or have any question you can contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [send us an email](mailto:nhsdigital.NHSUK-Frontend@nhs.net)
+> Contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [email nhsdigital.NHSUK-Frontend@nhs.net](mailto:nhsdigital.NHSUK-Frontend@nhs.net), if you need help or have any questions.
 
 ## 6. Create a pull request
 
-You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes for one of the NHS.UK Frontend team to review.
+You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK Frontend will review it and approve or feedback on changes required.
 
-If you have cloned your own fork you will need to [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
+You'll need to [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) if you have cloned your own fork.
