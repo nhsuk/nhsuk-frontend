@@ -96,8 +96,8 @@
 <pre><code class="language-html">&lt;nav class=&quot;nhsuk-contents-list&quot; aria-label=&quot;Pages in this guide&quot;&gt;
   &lt;h2 class=&quot;nhsuk-u-visually-hidden&quot;&gt;Contents&lt;/h2&gt;
   &lt;ol class=&quot;nhsuk-contents-list__list&quot;&gt;
-    &lt;li class=&quot;nhsuk-contents-list__item&quot;&gt;
-      &lt;span class=&quot;nhsuk-contents-list__current&quot; aria-current=&quot;page&quot;&gt;What is AMD?&lt;/span&gt;
+    &lt;li class=&quot;nhsuk-contents-list__item&quot; aria-current=&quot;page&quot;&gt;
+      &lt;span class=&quot;nhsuk-contents-list__current&quot;&gt;What is AMD?&lt;/span&gt;
     &lt;/li&gt;
     &lt;li class=&quot;nhsuk-contents-list__item&quot;&gt;
       &lt;a class=&quot;nhsuk-contents-list__link&quot; href=&quot;https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/&quot;&gt;Symptoms&lt;/a&gt;
@@ -144,7 +144,7 @@
     }
   ]
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments: </p>
+<p>The contents list Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -155,31 +155,37 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>text</td>
-<td>string</td>
+<td><strong>items</strong></td>
+<td>array</td>
 <td>Yes</td>
-<td>text value of the items in the contents list.</td>
+<td>Array of items in the contents list.</td>
 </tr>
 <tr>
-<td>href</td>
+<td><strong>items.[].href</strong></td>
 <td>string</td>
 <td>Yes</td>
-<td>href value of the items in contents list.</td>
+<td>Href value of an item in the contents list.</td>
 </tr>
 <tr>
-<td>current</td>
+<td><strong>items.[].text</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>Text value of an item in the contents llst.</td>
+</tr>
+<tr>
+<td><strong>current</strong></td>
 <td>boolean</td>
 <td>No</td>
 <td>Current active page in the contents list.</td>
 </tr>
 <tr>
-<td>classes</td>
+<td><strong>classes</strong></td>
 <td>string</td>
 <td>No</td>
 <td>Optional additional classes content list container. Separate each class with a space.</td>
 </tr>
 <tr>
-<td>attributes</td>
+<td><strong>attributes</strong></td>
 <td>object</td>
 <td>No</td>
 <td>Any extra HTML attributes (for example data attributes) to items in the list.</td>
