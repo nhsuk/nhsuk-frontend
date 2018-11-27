@@ -53,7 +53,6 @@
 
   .nhsuk-logo {
     @include nhsuk-logo-size; /* [1] */
-
     border: 0;
   }
 
@@ -61,7 +60,6 @@
 
 .nhsuk-header__link {
   @include nhsuk-logo-size; /* [1] */
-
   display: block;
 }
 
@@ -101,7 +99,6 @@
 
 .nhsuk-header__search-toggle {
   @include toggle-button();
-
   min-height: 40px; /* [2] */
   padding: nhsuk-spacing(1) nhsuk-spacing(2) 0;
   position: absolute;
@@ -449,7 +446,6 @@
 
 .nhsuk-header__menu-toggle {
   @include toggle-button();
-
   display: block;
   font-size: 18px;
   font-weight: 400;
@@ -483,7 +479,6 @@
 
 .nhsuk-header__navigation {
   @include print-hide();
-
   background-color: $color_nhsuk-white;
   clear: both;
   display: none;
@@ -556,6 +551,7 @@
     background-color: transparent;
     box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
     color: $color_nhsuk-blue;
+    text-decoration: underline;
   }
 
   &:active {
@@ -712,7 +708,10 @@
 
 }
 
-/* Transactional Header with service name */
+
+/**
+ * Transactional Header with service name
+**/
 
 .nhsuk-header__transactional-service-name {
   float: left;
@@ -738,7 +737,6 @@
 .nhsuk-header__transactional-service-name--link {
   @include nhsuk-link-style-white;
   @include nhsuk-font(19);
-
   text-decoration: none;
 }
 
@@ -746,7 +744,6 @@
 
   .nhsuk-header__link {
     @include nhsuk-logo-size-small;
-
     display: block;
   }
 
@@ -793,13 +790,11 @@
   &:focus,
   &:hover {
     background: none;
-  }
-
-  &:hover {
 
     .nhsuk-header__service-name {
       text-decoration: underline;
     }
+
   }
 
 }
