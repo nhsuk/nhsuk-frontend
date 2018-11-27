@@ -444,14 +444,14 @@ caption {
   padding-left: 20px;
   /* [1] */ }
 
-.nhsuk-list--check,
+.nhsuk-list--tick,
 .nhsuk-list--cross {
   list-style: none;
   margin-top: 0;
   padding-left: 40px;
   /* [2] */
   position: relative; }
-  .nhsuk-list--check svg,
+  .nhsuk-list--tick svg,
   .nhsuk-list--cross svg {
     left: -4px;
     /* [3] */

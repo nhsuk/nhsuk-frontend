@@ -95,7 +95,7 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-do-dont-list&quot;&gt;
   &lt;h3 class=&quot;nhsuk-do-dont-list__tab-heading&quot;&gt;Do&lt;/h3&gt;
-  &lt;ul class=&quot;nhsuk-list nhsuk-list--check&quot;&gt;
+  &lt;ul class=&quot;nhsuk-list nhsuk-list--tick&quot;&gt;
     &lt;li&gt;
     &lt;svg class=&quot;nhsuk-icon nhsuk-icon__tick&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
       &lt;path stroke-width=&quot;4&quot; stroke-linecap=&quot;round&quot; d=&quot;M18.4 7.8l-8.5 8.4L5.6 12&quot;&gt;&lt;/path&gt;
@@ -199,31 +199,37 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>title</td>
+<td><strong>title</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Title to be displayed on the do and don&#39;t list component.</td>
 </tr>
 <tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>string</td>
 <td>Yes</td>
 <td>Type of do and don&#39;t list component, &quot;cross&quot;, &quot;tick&quot;</td>
 </tr>
 <tr>
-<td>items</td>
+<td><strong>items</strong></td>
 <td>array</td>
 <td>Yes</td>
 <td>Items to be displayed within the do and don&#39;t list component</td>
 </tr>
 <tr>
-<td>classes</td>
-<td>string</td>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
 <td>No</td>
-<td>Optional additional classes to add to the do and dont list container. Separate each class with a space.</td>
+<td>Optional heading level for the title heading. Default: 3</td>
 </tr>
 <tr>
-<td>attributes</td>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the do and don&#39;t list container. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
 <td>object</td>
 <td>No</td>
 <td>Any extra HTML attributes (for example data attributes) to add to the do and don&#39;t list container.</td>
