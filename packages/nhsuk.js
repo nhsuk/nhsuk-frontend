@@ -1,3 +1,3 @@
-import * as feedbackBanner from './components/feedback-banner/feedback-banner';
+import feedbackBanner from './components/feedback-banner/feedback-banner';
 
-feedbackBanner.init();
+feedbackBanner(3000);
