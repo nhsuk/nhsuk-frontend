@@ -1,3 +1,6 @@
 module.exports = {
-  "extends": "nhsuk"
+  "extends": "nhsuk",
+  "env": {
+    "browser": true,
+  }
 };
