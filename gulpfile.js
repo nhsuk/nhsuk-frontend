@@ -6,6 +6,9 @@ var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
+var webpack = require('webpack');
+var webpackStream = require('webpack-stream');
+var webpackConfig = require('./webpack.config.js');
 
 // Read the package.json so that we can use its metadata such as package.version
 var package = require('./package.json');
@@ -74,6 +77,7 @@ function minifyJS() {
   return gulp.src([
     'dist/*.js',
     '!dist/*.min.js', // don't re-minify minified javascript
+    '!dist/nhsuk.bundle.js', // don't minify webpack javascript
   ])
     .pipe(uglify())
     .pipe(rename({
@@ -90,12 +94,22 @@ function packageJS() {
   return gulp.src([
     'dist/*.js',
     '!dist/*.min.js', // don't re-minify minified javascript
+    '!dist/nhsuk.bundle.js', // don't minify webpack javascript
   ])
     .pipe(uglify())
     .pipe(rename({
       suffix: `.min`
     }))
     .pipe(gulp.dest('packages/'))
+}
+
+/**
+ * Use webpack to build and minify our JavaScript.
+ */
+function webpackJS() {
+  return gulp.src('./packages/nhsuk.js')
+    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(gulp.dest('./dist'));
 }
 
 /**
@@ -156,6 +170,7 @@ gulp.task('style', compileCSS);
 gulp.task('build', gulp.series([
   compileCSS,
   compileJS,
+  webpackJS,
 ]));
 gulp.task('bundle', gulp.series([
   cleanDist,
