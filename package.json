@@ -9,7 +9,7 @@
     "start": "gulp",
     "test": "npm run lint:css",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint packages/components/**/*.js",
+    "lint:js": "eslint **/header/header.js **/skip-link/skip-link.js **/feedback-banner/feedback-banner.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
