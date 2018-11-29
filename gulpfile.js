@@ -61,8 +61,6 @@ function minifyCSS() {
  */
 function compileJS() {
   return gulp.src([
-      'packages/components/header/typeahead.bundle.min.js',
-      'packages/components/header/nhs.typeahead.js',
       'packages/components/header/header.js',
     ])
     .pipe(concat('nhsuk.js'))
