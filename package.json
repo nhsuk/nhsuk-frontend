@@ -18,6 +18,7 @@
     "build-gh-release": "gulp zip"
   },
   "dependencies": {
+    "accessible-autocomplete": "^1.6.2",
     "sass-mq": "^4.0.2"
   },
   "peerDependencies": {

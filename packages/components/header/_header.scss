@@ -35,7 +35,11 @@
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
  * 15. IE 9 alternative for flexbox
+ * 16. Include styles from accessible-autocomplete, see
+ *     https://github.com/alphagov/accessible-autocomplete
  */
+
+@import "node_modules/accessible-autocomplete/src/autocomplete"; /* [16] */
 
 .nhsuk-header {
   @include clearfix();
@@ -123,6 +127,10 @@
   overflow: hidden;
 }
 
+.autocomplete-container {
+  display: inline-block;
+}
+
 
 @include mq($until: tablet) {
 
@@ -156,6 +164,7 @@
     width: 100%;
   }
 
+  .autocomplete__input,
   .nhsuk-search__input {
     -ms-flex-positive: 2; /* [14] */
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
@@ -240,6 +249,7 @@
     display: none;
   }
 
+  .autocomplete__input,
   .nhsuk-search__input {
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
     background-color: $color_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
