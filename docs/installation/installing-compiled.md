@@ -1,14 +1,14 @@
-# Installing using compiled files
+# Install NHS Frontend using our compiled files
 
-When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
+This means that you're using compiled and minified versions of the stylesheet and JavaScript.
 
-This means that you will not be able to:
+So you'll not be able to:
 
-- selectively include CSS for individual components.
-- build your own styles or components based on the colour variables or typography and spacing mixins.
-- use the component Nunjucks templates.
+- include CSS selectively for individual components
+- build your own styles or components, based on colour variables, typography and spacing mixins
+- use the component Nunjucks templates
 
-If you require any of this functionality, you should [install using npm](/docs/installation/installing-with-npm.md) instead.
+If you need any of this functionality, you should [install using npm](/docs/installation/installing-with-npm.md).
 
 ## Installation
 
@@ -19,10 +19,10 @@ If you require any of this functionality, you should [install using npm](/docs/i
 2. Include resources  
 
     Copy all 3 folders, `css`, `js` and `assets`, into the root of your project. If you already have a folder structure
-    in place, you will need to copy the individual files into the relevant folders.
+    in place, you'll need to copy the individual files into the relevant folders.
 
     Make sure you change the version numbers of the `[latest version].min.css` and `[latest version].min.js` files,
-    in the example below, to the version you are using.
+    in the example below, to the version you're using.
 
     ```html
     <!-- Styles -->
@@ -40,7 +40,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
   3. Create pages using NHS.UK Frontend
 
-      You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
+     You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
 
 ### HTML template
 
