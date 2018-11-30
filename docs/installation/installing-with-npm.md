@@ -1,4 +1,4 @@
-# Installing using npm
+# Install NHS.UK Frontend using node package manager (npm)
 
 ## Requirements
 
@@ -14,7 +14,7 @@ To use NHS.UK Frontend in your projects with npm you must:
     npm install gulp node-sass gulp-sass --save
     ```
 
-4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
+4. If you want the option to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
 
     ```
     npm install nunjucks --save
@@ -45,7 +45,7 @@ You need to import styles into the main Sass file in your project. You should pl
 @import 'node_modules/nhsuk-frontend/packages/nhsuk';
 ```
 
-Alternatively you can import each of the individual components separately, meaning you can import only the components you require. 
+You could just import the components you need, by importing individual components separately. 
 
 ```SCSS
 // Core (required)
@@ -57,7 +57,7 @@ Alternatively you can import each of the individual components separately, meani
 
 ### Required: Compiling Sass to CSS
 
-We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass), if your project is using gulp you will need a `gulpfile.js` in the root of your project. 
+We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass). If your project is using gulp, you will need a `gulpfile.js` in the root of your project. 
 
 Below is an example of a `gulpfile.js` that will compile Sass to CSS:
  
@@ -88,14 +88,14 @@ To run the above task, you will need to create a script within your `package.jso
 }
 ```
 
-then to run the script to compile your Sass files to CSS:
+Then to run the script to compile your Sass files to CSS, use this code:
 
 ```
 npm run compile
 ```
 
 
-### Optional: Resolving SCSS import paths
+### Resolving SCSS import paths (optional)
 
 If you wish to resolve the above @import paths in your build (in order to avoid prefixing paths with node_modules), you should add `node_modules` to your Sass include paths.
 
@@ -136,9 +136,9 @@ or individually:
 
 ## Importing JavaScript
 
-Some of our components require JavaScript to function properly, others need JavaScript to improve the usability and accessibility.
+Some of our components require JavaScript to function properly. Others need JavaScript to improve the usability and accessibility.
 
-You should include NHS.UK Frontend JavaScript in your project to ensure that all users can use it successfully.
+You should include NHS.UK Frontend JavaScript in your project, to ensure that all users can use it successfully.
 
 Include the `node_modules/nhsuk-frontend/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 
 
@@ -156,7 +156,7 @@ You might wish to copy the file into your project or reference it from node_modu
   </head>
 ```
 
-Depending on what programming language your project is using and the configuration, you may need to expose the `node_modules` folder in order to include files directly from this folder.
+You might need to expose the `node_modules` folder, to include files directly from this folder. This will depend on the programming language your project is using and its configuration.
 
 ### Express.js example
 
@@ -166,7 +166,7 @@ If your project uses [Express.js](https://expressjs.com/), to include the JavaSc
 app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nhsuk-frontend/packages')));
 ```
 
-After configuring the `node_modules` path in Express.js you can reference the NHS.UK Frontend JavaScript by using:
+After configuring the `node_modules` path in Express.js, you can reference the NHS.UK Frontend JavaScript by using:
 
 ```html
     <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
@@ -175,10 +175,9 @@ After configuring the `node_modules` path in Express.js you can reference the NH
 
 ### jQuery dependency
 
-The search component autocomplete requires jQuery, please ensure you have jQuery included within you project for this to work. In the future we are looking to remove the
-jQuery dependency.
+The search component autocomplete requires jQuery. Please make sure you have jQuery included in your project for this to work. We are planning to remove the jQuery dependency.
 
-> For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.
+> We do not recommend using a jQuery CDN, for performance and security reasons. Have the jQuery dependency hosted local to your project instead.
 
 ## Importing assets (optional)
 
@@ -190,7 +189,7 @@ If you want to import assets such as the favicons and SVG icons, you might wish 
 <link rel="icon" href="node_modules/nhsuk-frontend/assets/favicons/favicon.png">
 ```
 
-Depending on what programming language your project is using and the configuration, you may need to expose the `node_modules` folder in order to include files directly from this folder.
+You might need to expose the `node_modules` folder, to include files directly from it. This depends on your programming language and its configuration.
 
 ### Express.js example
 
@@ -218,7 +217,7 @@ app.use('/nhsuk-frontend', express.static(path.join(__dirname, '/node_modules/nh
 
 ### Express.js example
 
-If your project uses [Express.js](https://expressjs.com/), to include the nunjucks files directly from the `node_modules` folder, you need to configure your main `app.js`:
+You need to configure your main `app.js` to include the nunjucks files directly from the `node_modules` folder, if your project uses [Express.js](https://expressjs.com/).
 
 ```
 nunjucks.configure('node_modules/nhsuk-frontend/components', {
@@ -230,4 +229,4 @@ nunjucks.configure('node_modules/nhsuk-frontend/components', {
 
 ## Thanks to the Government Digital Service (GDS)
 
-This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md) with a few minor adaptations.
+This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md), with a few minor adaptations.
