@@ -3791,10 +3791,6 @@ b {
 .nhsuk-pagination {
   margin-top: 40px;
   margin-bottom: 40px; }
-  .nhsuk-pagination:after {
-    clear: both;
-    content: '';
-    display: block; }
   @media (min-width: 40.0625em) {
     .nhsuk-pagination {
       margin-top: 48px; } }
@@ -3802,11 +3798,36 @@ b {
     .nhsuk-pagination {
       margin-bottom: 48px; } }
 
+.nhsuk-pagination__list:after {
+  clear: both;
+  content: '';
+  display: block; }
+
+.nhsuk-pagination-item--previous {
+  float: left;
+  text-align: left;
+  width: 50%; }
+  .nhsuk-pagination-item--previous .nhsuk-icon {
+    left: -6px; }
+  .nhsuk-pagination-item--previous .nhsuk-pagination__title {
+    padding-left: 32px;
+    /* [1] */ }
+
+.nhsuk-pagination-item--next {
+  float: right;
+  text-align: right;
+  width: 50%; }
+  .nhsuk-pagination-item--next .nhsuk-icon {
+    right: -6px; }
+  .nhsuk-pagination-item--next .nhsuk-pagination__title {
+    padding-right: 32px;
+    /* [1] */ }
+
 .nhsuk-pagination__link {
   display: block;
   position: relative;
   text-decoration: none;
-  width: 50%; }
+  width: 100%; }
   @media print {
     .nhsuk-pagination__link {
       color: #212b32; } }
@@ -3818,33 +3839,17 @@ b {
         color: #212b32;
         margin-top: 0; } }
   .nhsuk-pagination__link:focus {
-    box-shadow: 0 0 0 16px #ffb81C; }
+    box-shadow: 0 0 0 16px #ffb81C;
+    outline: 3px solid #ffb81C; }
   .nhsuk-pagination__link:hover {
-    box-shadow: 0 0 0 16px #ffcd60; }
+    box-shadow: 0 0 0 16px #ffcd60;
+    outline: 3px solid #ffcd60; }
     .nhsuk-pagination__link:hover .nhsuk-pagination__page {
       text-decoration: none; }
   .nhsuk-pagination__link:hover .nhsuk-icon, .nhsuk-pagination__link:focus .nhsuk-icon {
     fill: #212b32; }
   .nhsuk-pagination__link:visited .nhsuk-icon {
     fill: #330072; }
-
-.nhsuk-pagination__link--prev {
-  float: left;
-  text-align: left; }
-  .nhsuk-pagination__link--prev .nhsuk-icon {
-    left: -6px; }
-  .nhsuk-pagination__link--prev .nhsuk-pagination__title {
-    padding-left: 32px;
-    /* [1] */ }
-
-.nhsuk-pagination__link--next {
-  float: right;
-  text-align: right; }
-  .nhsuk-pagination__link--next .nhsuk-icon {
-    right: -6px; }
-  .nhsuk-pagination__link--next .nhsuk-pagination__title {
-    padding-right: 32px;
-    /* [1] */ }
 
 .nhsuk-pagination__title {
   font-size: 20px;
