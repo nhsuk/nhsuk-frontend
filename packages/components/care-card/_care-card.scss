@@ -9,39 +9,47 @@
  *    using the @mixin care-card tools/_mixins.scss.
  *    The same mixin is used for each care card, setting the background
  *    colour,text colour and print border width with the variables.
- * 2. By adding ‘clip-path’ we can draw a polygon that matches the original
- *    triangle to ensure the rectangle does not appear.
- * 3. Care card heading triangle.
- * 4. Care card heading triangle positioning.
- * 5. 'Random number' used for spacing to compensate for the triangle.
- * 6. This shows as a solid border in high contrast mode in Windows, so helps
+ * 2. This shows as a solid border in high contrast mode in Windows, so helps
  *    differentiates care cards from the rest of the content.
+ * 3. 'Random number' for the heading triangle.
+ * 4. 'Random number' for the heading triangle positioning.
+ * 5. 'Random number' used for spacing to compensate for the triangle.
+ * 6. Needed to enable the triangle to show correctly in high contrast mode.
  */
 
 .nhsuk-care-card {
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
   @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); /* [1] */
-  border: 1px solid transparent; /* [6] */
+  border: 1px solid transparent; /* [2] */
 }
 
 .nhsuk-care-card__heading-container {
   padding: nhsuk-spacing(3) nhsuk-spacing(4);
   position: relative;
+}
 
+.nhsuk-care-card__arrow {
+  bottom: -10px; /* [3] */
+  display: block;
+  height: 20px; /* [3] */
+  left: 30px; /* [4] */
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 20px; /* [3] */
+  @include print-hide();
+
+  &:before,
   &:after {
-    -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0); /* [2] */ // sass-lint:disable-line property-sort-order
-    clip-path: polygon(0 0, 50% 100%, 100% 0); /* [2] */ // sass-lint:disable-line property-sort-order
-    border-left: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
-    border-right: $nhsuk-care-card-triangle-border solid transparent; /* [3] */ // sass-lint:disable-line property-sort-order
-    bottom: -$nhsuk-care-card-triangle-border + 1;  /* [4] */ // sass-lint:disable-line property-sort-order
+    border: solid 32px $color_nhsuk-blue; /* [3] */
     content: '';
     display: block;
     height: 0;
     position: absolute;
+    top: 0;
+    transform: rotate(45deg); /* [6] */
     width: 0;
-
-    @include print-hide();
   }
 
 }
@@ -76,10 +84,25 @@
 
 .nhsuk-care-card--urgent {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
+
+  .nhsuk-care-card__arrow {
+    &:before,
+    &:after {
+      border-color: $color_nhsuk-red;
+    }
+  }
+
 }
 
 .nhsuk-care-card--immediate {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
+
+  .nhsuk-care-card__arrow {
+    &:before,
+    &:after {
+      border-color: $color_nhsuk-red;
+    }
+  }
 
   .nhsuk-care-card__content {
     background-color: $color_nhsuk-black;
