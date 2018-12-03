@@ -43,9 +43,13 @@ function autocomplete(config) {
 
     source: getFunnelbackResults,
     templates: {
-     // inputValue: inputValueTemplate,
+    //inputValue: inputValueTemplate,
       suggestion: suggestionTemplate
     }
+  }
+  function inputValueTemplate (result) {
+   
+    
   }
 
 
@@ -60,6 +64,7 @@ function autocomplete(config) {
    var expr = TypedText;
    expr = expr.replace(/\s+/, "|",TypedText);
    var regex = new RegExp(expr,"gi"); //g = global, match all instances & i = case insensitive 
+   result = '<a href="http://google.com/">' + result + '</a>' //link example
    return result.replace(regex, function($1){
        return '<b>'+ $1 +'</b>';
   });
