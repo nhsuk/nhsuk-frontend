@@ -44,3 +44,17 @@
   </div>
 
 {% endblock %}
+
+{% block footer %}
+
+  {{ footer({
+    "showLogo": "false",
+    "primaryLinks": [
+      {
+        "URL": "https://github.com/nhsuk/nhsuk-frontend",
+        "label": "GitHub - NHS.UK Frontend"
+      }
+    ]
+  })}}
+
+{% endblock %}

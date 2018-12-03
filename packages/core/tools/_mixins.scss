@@ -345,3 +345,47 @@
     margin-right: -$nhsuk-gutter-half;
   }
 }
+
+/// Focusable helper
+///
+/// Provides an additional outline to clearly indicate when the target element is
+/// focussed. Used for interactive elements which themselves have some background
+/// or border, such as most form elements.
+///
+
+@mixin nhsuk-focusable {
+  &:focus {
+    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
+    outline: 0;
+  }
+}
+
+/// Focusable with fill helper
+///
+/// Provides an additional outline and background colour to clearly indicate when
+/// the target element is focussed. Used for interactive text-based elements such
+/// as links.
+///
+
+@mixin nhsuk-focusable-fill {
+  &:focus {
+    background-color: $nhsuk-focus-color;
+    outline: $nhsuk-focus-width solid $nhsuk-focus-color;
+    outline-offset: 0;
+  }
+}
+
+/// NHS logo size helper
+///
+/// Saves duplicating the code for when using the logo as a link.
+/// Used in the header and footer.
+
+@mixin nhsuk-logo-size {
+  height: 40px;
+  width: 100px;
+}
+
+@mixin nhsuk-logo-size-small {
+  height: 32px;
+  width: 80px;
+}

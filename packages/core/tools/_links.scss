@@ -82,10 +82,12 @@
 
   &:focus {
     color: $nhsuk-link-focus-color;
+    text-decoration: underline;
   }
 
   &:hover {
     color: $nhsuk-link-hover-color;
+    text-decoration: underline;
   }
 
   &:active {

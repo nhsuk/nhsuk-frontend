@@ -1,0 +1,47 @@
+
+/* ==========================================================================
+   COMPONENTS/ #HINT
+   ========================================================================== */
+
+.nhsuk-hint {
+  @include nhsuk-font(19);
+
+  color: $nhsuk-secondary-text-color;
+  display: block;
+  margin-bottom: nhsuk-spacing(3);
+}
+
+// Reduces margin-bottom of hint when used after the default label (no class)
+// or nhsuk-label--s for better vertical alignment.
+
+// This adjustment will not work when the label is inside the <h1>, however it
+// is unlikely that the default or nhsuk-label--s class would be used in this
+// case.
+
+// This adjustment will not work in browsers that do not support :not().
+// Users with these browsers will see the default size margin (5px larger).
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-hint {
+  margin-bottom: nhsuk-spacing(2);
+}
+
+// Reduces margin-bottom of hint when used after the default legend (no class)
+// or nhsuk-fieldset__legend--s for better vertical alignment.
+
+// This adjustment will not work when the legend is outside the <h1>, however
+// it is unlikely that the default or nhsuk-fieldset__legend--s class would be
+// used in this case.
+
+// This adjustment will not work in browsers that do not support :not().
+// Users with these browsers will see the default size margin (5px larger).
+
+.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl) + .nhsuk-hint {
+  margin-bottom: nhsuk-spacing(2);
+}
+
+// Reduces visual spacing of legend when there is a hint
+
+.nhsuk-fieldset__legend + .nhsuk-hint,
+.nhsuk-fieldset__legend + .nhsuk-hint {
+  margin-top: -(nhsuk-spacing(1));
+}
