@@ -2245,20 +2245,19 @@ b {
  *    using the @mixin care-card tools/_mixins.scss.
  *    The same mixin is used for each care card, setting the background
  *    colour,text colour and print border width with the variables.
- * 2. By adding ‘clip-path’ we can draw a polygon that matches the original
- *    triangle to ensure the rectangle does not appear.
- * 3. Care card heading triangle.
- * 4. Care card heading triangle positioning.
- * 5. 'Random number' used for spacing to compensate for the triangle.
- * 6. This shows as a solid border in high contrast mode in Windows, so helps
+ * 2. This shows as a solid border in high contrast mode in Windows, so helps
  *    differentiates care cards from the rest of the content.
+ * 3. 'Random number' for the heading triangle.
+ * 4. 'Random number' for the heading triangle positioning.
+ * 5. 'Random number' used for spacing to compensate for the triangle.
+ * 6. Needed to enable the triangle to show correctly in high contrast mode.
  */
 .nhsuk-care-card {
   margin-bottom: 40px;
   margin-top: 40px;
   /* [1] */
   border: 1px solid transparent;
-  /* [6] */ }
+  /* [2] */ }
   @media (min-width: 40.0625em) {
     .nhsuk-care-card {
       margin-bottom: 48px; } }
@@ -2268,8 +2267,6 @@ b {
   .nhsuk-care-card .nhsuk-care-card__heading-container {
     background-color: #005eb8;
     color: #ffffff; }
-    .nhsuk-care-card .nhsuk-care-card__heading-container:after {
-      border-top: 16px solid #005eb8; }
   @media print {
     .nhsuk-care-card {
       border: 4px solid #212b32;
@@ -2279,25 +2276,34 @@ b {
 .nhsuk-care-card__heading-container {
   padding: 16px 24px;
   position: relative; }
-  .nhsuk-care-card__heading-container:after {
-    -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
-    /* [2] */
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
-    /* [2] */
-    border-left: 16px solid transparent;
+
+.nhsuk-care-card__arrow {
+  bottom: -10px;
+  /* [3] */
+  display: block;
+  height: 20px;
+  /* [3] */
+  left: 30px;
+  /* [4] */
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 20px;
+  /* [3] */ }
+  @media print {
+    .nhsuk-care-card__arrow {
+      display: none; } }
+  .nhsuk-care-card__arrow:before, .nhsuk-care-card__arrow:after {
+    border: solid 32px #005eb8;
     /* [3] */
-    border-right: 16px solid transparent;
-    /* [3] */
-    bottom: -15px;
-    /* [4] */
     content: '';
     display: block;
     height: 0;
     position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+    /* [6] */
     width: 0; }
-    @media print {
-      .nhsuk-care-card__heading-container:after {
-        display: none; } }
 
 .nhsuk-care-card__heading {
   font-weight: 600;
@@ -2349,8 +2355,6 @@ b {
 .nhsuk-care-card--urgent .nhsuk-care-card__heading-container {
   background-color: #da291c;
   color: #ffffff; }
-  .nhsuk-care-card--urgent .nhsuk-care-card__heading-container:after {
-    border-top: 16px solid #da291c; }
 
 @media print {
   .nhsuk-care-card--urgent {
@@ -2358,17 +2362,21 @@ b {
     color: #212b32;
     page-break-inside: avoid; } }
 
+.nhsuk-care-card--urgent .nhsuk-care-card__arrow:before, .nhsuk-care-card--urgent .nhsuk-care-card__arrow:after {
+  border-color: #da291c; }
+
 .nhsuk-care-card--immediate .nhsuk-care-card__heading-container {
   background-color: #da291c;
   color: #ffffff; }
-  .nhsuk-care-card--immediate .nhsuk-care-card__heading-container:after {
-    border-top: 16px solid #da291c; }
 
 @media print {
   .nhsuk-care-card--immediate {
     border: 8px solid #212b32;
     color: #212b32;
     page-break-inside: avoid; } }
+
+.nhsuk-care-card--immediate .nhsuk-care-card__arrow:before, .nhsuk-care-card--immediate .nhsuk-care-card__arrow:after {
+  border-color: #da291c; }
 
 .nhsuk-care-card--immediate .nhsuk-care-card__content {
   background-color: #212b32;
