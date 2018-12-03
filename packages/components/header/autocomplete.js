@@ -36,11 +36,39 @@ function autocomplete(config) {
   const defaultConfig = {
     element: document.querySelector('#autocomplete-container'),
     id: id,
+    minLength: 2,
     placeholder: fallbackInputElement.placeholder,
     //displayMenu: 'overlay',
     confirmOnBlur: false,
+
     source: getFunnelbackResults,
+    templates: {
+     // inputValue: inputValueTemplate,
+      suggestion: suggestionTemplate
+    }
   }
+
+
+  function suggestionTemplate (result) {
+  var TypedText = document.getElementById(id).value 
+
+ // return  boldSerachTerm(result,TypeText)
+
+   if(!result){
+     return "";
+   }
+   var expr = TypedText;
+   expr = expr.replace(/\s+/, "|",TypedText);
+   var regex = new RegExp(expr,"gi"); //g = global, match all instances & i = case insensitive 
+   return result.replace(regex, function($1){
+       return '<b>'+ $1 +'</b>';
+  });
+
+
+  
+}
+
+
 
   const accessibleAutocompleteConfig = {
     ...defaultConfig,
@@ -50,5 +78,6 @@ function autocomplete(config) {
   document.getElementById(id).remove()
   accessibleAutocomplete(accessibleAutocompleteConfig)
 }
+ 
 
 export default autocomplete
