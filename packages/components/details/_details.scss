@@ -19,7 +19,7 @@
 
 .nhsuk-details {
   @include nhsuk-text-color;
-  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-responsive-margin(4, 'bottom');
   @include nhsuk-typography-responsive(19);
   display: block;
 }
@@ -44,7 +44,7 @@
 
     @include govuk-shape-arrow($direction: right, $base: 14px);
 
-    .nhsuk-details[open] > & { // sass-lint:disable-line force-attribute-nesting
+    .nhsuk-details[open] > & {
       @include govuk-shape-arrow($direction: down, $base: 14px);
     }
   }
@@ -75,7 +75,7 @@
   text-decoration: underline; /* [4] */
 }
 
-.nhsuk-details__summary::-webkit-details-marker { // sass-lint:disable-line force-pseudo-nesting
+.nhsuk-details__summary::-webkit-details-marker {
   display: none; /* [5] */
 }
 
@@ -151,7 +151,7 @@
 
 }
 
-.nhsuk-expander[open] { // sass-lint:disable-line force-attribute-nesting
+.nhsuk-expander[open] {
 
   .nhsuk-details__summary {
     border-bottom: 1px solid $color_nhsuk-grey-5;
