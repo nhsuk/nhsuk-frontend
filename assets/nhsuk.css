@@ -423,6 +423,9 @@ caption {
   .nhsuk-icon__chevron-up path {
     fill: #ffffff; }
 
+.nhsuk-icon__emdash path {
+  fill: #aeb7bd; }
+
 .nhsuk-icon--size-25 {
   height: 42.5px;
   width: 42.5px; }
@@ -2529,15 +2532,12 @@ b {
   padding: 0; }
 
 .nhsuk-contents-list__item {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='19' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E") left 0.75rem no-repeat;
   padding: 0 0 0 32px;
   position: relative; }
-  .nhsuk-contents-list__item:before {
-    color: #aeb7bd;
-    content: '\2014';
-    /* [1] */
-    left: 0;
-    position: absolute;
-    top: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-contents-list__item {
+      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='16' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E") left 0.875rem no-repeat; } }
 
 .nhsuk-contents-list__link {
   display: inline-block; }
