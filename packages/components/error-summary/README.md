@@ -13,16 +13,17 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
-  <h2 class="govuk-error-summary__title" id="error-summary-title">
-    Message to alert the user to a problem goes here
-  </h2>
-  <div class="govuk-error-summary__body">
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">Message to alert the user to a problem goes here</h2>
+  <div class="nhsuk-error-summary__body">
     <p>Optional description of the errors and how to correct them</p>
-
-    <ul class="govuk-list govuk-error-summary__list"> 
-      <li><a href="#example-error-1">Descriptive link to the question with an error</a></li>
-      <li><a href="#example-error-1">Descriptive link to the question with an error</a></li>
+    <ul class="nhsuk-list nhsuk-error-summary__list">
+      <li>
+        <a href="#example-error-1">Descriptive link to the question with an error</a>
+      </li>
+      <li>
+        <a href="#example-error-1">Descriptive link to the question with an error</a>
+      </li>
     </ul>
   </div>
 </div>
