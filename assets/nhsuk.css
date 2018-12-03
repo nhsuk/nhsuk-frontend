@@ -121,7 +121,7 @@ a {
  * 4. Ensure the page always fills at least the entire height of the viewport.
  */
 html {
-  background-color: #005eb8;
+  background-color: #d8dde0;
   font-family: Frutiger W01, Helvetica, Arial, Sans-serif;
   overflow-y: scroll;
   /* [1] */ }
@@ -206,6 +206,27 @@ caption {
   white-space: nowrap;
   width: 1px;
   /* [2] */ }
+
+.nhsuk-form-group {
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-form-group {
+      margin-bottom: 24px; } }
+  .nhsuk-form-group .nhsuk-form-group:last-of-type {
+    margin-bottom: 0; }
+
+.nhsuk-form-group--wrapper {
+  margin-bottom: 24px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-form-group--wrapper {
+      margin-bottom: 32px; } }
+
+.nhsuk-form-group--error {
+  border-left: 5px solid #da291c;
+  padding-left: 16px; }
+  .nhsuk-form-group--error .nhsuk-form-group {
+    border: 0;
+    padding: 0; }
 
 /* ==========================================================================
    OBJECTS / #GRID
@@ -298,6 +319,26 @@ caption {
   @media (min-width: 40.0625em) {
     .nhsuk-main-wrapper {
       padding-bottom: 48px; } }
+  .nhsuk-main-wrapper > *:first-child {
+    margin-top: 0; }
+  .nhsuk-main-wrapper > *:last-child {
+    margin-bottom: 0; }
+
+.nhsuk-main-wrapper--l {
+  padding-top: 48px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-main-wrapper--l {
+      padding-top: 56px; } }
+
+.nhsuk-main-wrapper--s {
+  padding-bottom: 24px;
+  padding-top: 24px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-main-wrapper--s {
+      padding-bottom: 32px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-main-wrapper--s {
+      padding-top: 32px; } }
 
 /* ==========================================================================
    OBJECTS / #WIDTH-CONTAINER
@@ -1888,6 +1929,52 @@ b {
         width: 34px; } }
 
 /* ==========================================================================
+   COMPONENTS/ #BACK-LINK
+   ========================================================================== */
+/**
+ * 1. Allow space for the arrow.
+ * 2. Align the icon with the start of the back link.
+ * 3. Align the icon with the middle of the text.
+ */
+.nhsuk-back-link {
+  margin-bottom: 16px; }
+
+.nhsuk-back-link__link {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: inline-block;
+  padding-left: 16px;
+  /* 1 */
+  position: relative;
+  text-decoration: none; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-back-link__link {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-back-link__link {
+      font-size: 14pt;
+      line-height: 1.2; } }
+  .nhsuk-back-link__link .nhsuk-icon__chevron-left {
+    height: 24px;
+    left: -8px;
+    /* 2 */
+    position: absolute;
+    top: -1px;
+    /* 3 */
+    width: 24px; }
+  .nhsuk-back-link__link:visited {
+    color: #005eb8; }
+  .nhsuk-back-link__link:hover {
+    text-decoration: underline; }
+  .nhsuk-back-link__link:hover, .nhsuk-back-link__link:focus {
+    color: #212b32; }
+    .nhsuk-back-link__link:hover .nhsuk-icon__chevron-left, .nhsuk-back-link__link:focus .nhsuk-icon__chevron-left {
+      fill: #212b32; }
+
+/* ==========================================================================
     COMPONENTS / #BREADCRUMB
    ========================================================================== */
 /**
@@ -1989,6 +2076,161 @@ b {
   left: -8px;
   /* [6] */
   position: relative; }
+
+/* ==========================================================================
+   COMPONENTS/ #BUTTON
+   ========================================================================== */
+/**
+ * 1. Ensure that any global link styles are overridden.
+ * 2. Fix unwanted button padding in Firefox.
+ * 3. Use a pseudo element to expand the click target area to include the
+ *    button's shadow as well, in case users try to click it.
+ */
+.nhsuk-button {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  -webkit-appearance: none;
+  background-color: #007f3b;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #003317;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0;
+  padding: 12px 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  width: auto;
+  /* 2 */
+  /* 3 */
+  /* 4 */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-button {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-button {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-button:focus {
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-button {
+      margin-bottom: 36px; } }
+  @media (max-width: 40.0525em) {
+    .nhsuk-button {
+      padding: 8px 16px; } }
+  .nhsuk-button:link, .nhsuk-button:visited, .nhsuk-button:active, .nhsuk-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
+  .nhsuk-button::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+  .nhsuk-button:hover, .nhsuk-button:focus {
+    background-color: #00662f; }
+  .nhsuk-button:active {
+    box-shadow: none;
+    top: 4px; }
+  .nhsuk-button::before {
+    background: transparent;
+    bottom: -6px;
+    content: '';
+    display: block;
+    left: -2px;
+    position: absolute;
+    right: -2px;
+    top: -2px; }
+  .nhsuk-button:active::before {
+    top: -6px; }
+
+/**
+ * Button variations
+ */
+.nhsuk-button--secondary {
+  background-color: #425563;
+  box-shadow: 0 4px 0 #232e35; }
+  .nhsuk-button--secondary:hover, .nhsuk-button--secondary:focus {
+    background-color: #384854; }
+
+.nhsuk-button--reverse {
+  background-color: #ffffff;
+  box-shadow: 0 4px 0 #212b32;
+  color: #212b32; }
+  .nhsuk-button--reverse:hover, .nhsuk-button--reverse:focus {
+    background-color: #f2f2f2;
+    color: #212b32; }
+
+/**
+ * Button disabled states
+ */
+.nhsuk-button--disabled,
+.nhsuk-button[disabled="disabled"],
+.nhsuk-button[disabled] {
+  background: #007f3b;
+  opacity: 0.5; }
+  .nhsuk-button--disabled:hover,
+  .nhsuk-button[disabled="disabled"]:hover,
+  .nhsuk-button[disabled]:hover {
+    background-color: #007f3b;
+    cursor: default; }
+  .nhsuk-button--disabled:focus,
+  .nhsuk-button[disabled="disabled"]:focus,
+  .nhsuk-button[disabled]:focus {
+    outline: none; }
+  .nhsuk-button--disabled:active,
+  .nhsuk-button[disabled="disabled"]:active,
+  .nhsuk-button[disabled]:active {
+    box-shadow: 0 4px 0 #003317;
+    top: 0; }
+
+.nhsuk-button--secondary--disabled,
+.nhsuk-button--secondary[disabled="disabled"],
+.nhsuk-button--secondary[disabled] {
+  background: #425563;
+  opacity: 0.5; }
+  .nhsuk-button--secondary--disabled:hover,
+  .nhsuk-button--secondary[disabled="disabled"]:hover,
+  .nhsuk-button--secondary[disabled]:hover {
+    background-color: #425563;
+    cursor: default; }
+  .nhsuk-button--secondary--disabled:focus,
+  .nhsuk-button--secondary[disabled="disabled"]:focus,
+  .nhsuk-button--secondary[disabled]:focus {
+    outline: none; }
+  .nhsuk-button--secondary--disabled:active,
+  .nhsuk-button--secondary[disabled="disabled"]:active,
+  .nhsuk-button--secondary[disabled]:active {
+    box-shadow: 0 4px 0 #232e35;
+    top: 0; }
+
+.nhsuk-button--reverse--disabled,
+.nhsuk-button--reverse[disabled="disabled"],
+.nhsuk-button--reverse[disabled] {
+  background: #ffffff;
+  opacity: 0.5; }
+  .nhsuk-button--reverse--disabled:hover,
+  .nhsuk-button--reverse[disabled="disabled"]:hover,
+  .nhsuk-button--reverse[disabled]:hover {
+    background-color: #ffffff;
+    cursor: default; }
+  .nhsuk-button--reverse--disabled:focus,
+  .nhsuk-button--reverse[disabled="disabled"]:focus,
+  .nhsuk-button--reverse[disabled]:focus {
+    outline: none; }
+  .nhsuk-button--reverse--disabled:active,
+  .nhsuk-button--reverse[disabled="disabled"]:active,
+  .nhsuk-button--reverse[disabled]:active {
+    box-shadow: 0 4px 0 #212b32;
+    top: 0; }
 
 /* ==========================================================================
    COMPONENTS / #CARE-CARD
@@ -2136,6 +2378,140 @@ b {
       /* [1] */ }
 
 /* ==========================================================================
+   COMPONENTS/ #CHECKBOXES
+   ========================================================================== */
+/**
+ * 1. remove 300ms pause on mobile.
+ * 2. Fix bug in IE11 caused by transform rotate (-45deg).
+ */
+.nhsuk-checkboxes__item {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  clear: left;
+  display: block;
+  margin-bottom: 8px;
+  min-height: 40px;
+  padding: 0 0 0 40px;
+  position: relative; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-checkboxes__item {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-checkboxes__item {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-checkboxes__item:last-child,
+.nhsuk-checkboxes__item:last-of-type {
+  margin-bottom: 0; }
+
+.nhsuk-checkboxes__input {
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  z-index: 1; }
+
+.nhsuk-checkboxes__label {
+  -ms-touch-action: manipulation;
+  /* 1 */
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 12px 4px;
+  touch-action: manipulation; }
+
+.nhsuk-checkboxes__hint {
+  display: block;
+  padding-left: 12px;
+  padding-right: 12px; }
+
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::before {
+  background: #ffffff;
+  border: 2px solid #425563;
+  box-sizing: border-box;
+  content: '';
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 40px; }
+
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::after {
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 5px 5px;
+  content: '';
+  height: 10px;
+  left: 10px;
+  opacity: 0;
+  /* 2 */
+  position: absolute;
+  top: 13px;
+  transform: rotate(-45deg);
+  width: 22px; }
+
+/*
+ * Focus state
+ *
+ * 1. Since box-shadows are removed when users customise their colours
+ *    We set a transparent outline that is shown instead.
+ *    https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+ */
+.nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
+  box-shadow: 0 0 0 3px #ffb81C;
+  outline: 3px solid transparent;
+  /* 1 */
+  outline-offset: 3px; }
+
+/* Selected state */
+.nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label::after {
+  opacity: 1; }
+
+/* Disabled state */
+.nhsuk-checkboxes__input:disabled,
+.nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+  cursor: default; }
+
+.nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+  opacity: .5; }
+
+/*
+ * Conditional
+ *
+ * 1. Calculate the amount of padding needed to keep the border
+ *    centered against the checkbox.
+ * 2. Move the border centered with the checkbox.
+ * 3. Move the contents of the conditional inline with the label.
+ */
+/* 1 */
+/* 2 */
+/* 3 */
+.nhsuk-checkboxes__conditional {
+  margin-bottom: 16px;
+  border-left: 4px solid #425563;
+  margin-left: 18px;
+  padding-left: 30px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-checkboxes__conditional {
+      margin-bottom: 24px; } }
+  .js-enabled .nhsuk-checkboxes__conditional--hidden {
+    display: none; }
+  .nhsuk-checkboxes__conditional > :last-child {
+    margin-bottom: 0; }
+
+/* ==========================================================================
    COMPONENTS / #CONTENTS-LIST
    ========================================================================== */
 /**
@@ -2170,6 +2546,31 @@ b {
   font-weight: 600; }
 
 /* ==========================================================================
+   COMPONENTS/ #DATE-INPUT
+   ========================================================================== */
+/**
+ * 1. font-size: 0 removes whitespace caused by inline-block
+ */
+.nhsuk-date-input {
+  font-size: 0;
+  /* 1 */ }
+  .nhsuk-date-input:after {
+    clear: both;
+    content: '';
+    display: block; }
+
+.nhsuk-date-input__item {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 24px; }
+
+.nhsuk-date-input__label {
+  display: block; }
+
+.nhsuk-date-input__input {
+  margin-bottom: 0; }
+
+/* ==========================================================================
    COMPONENTS / #DETAILS
    ========================================================================== */
 /**
@@ -2188,7 +2589,7 @@ b {
  */
 .nhsuk-details {
   color: #212b32;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -2198,7 +2599,7 @@ b {
       color: #212b32; } }
   @media (min-width: 40.0625em) {
     .nhsuk-details {
-      margin-bottom: 40px; } }
+      margin-bottom: 24px; } }
   @media (min-width: 40.0625em) {
     .nhsuk-details {
       font-size: 19px;
@@ -2498,6 +2899,115 @@ b {
       line-height: 1.2; } }
 
 /* ==========================================================================
+   COMPONENTS/ #ERROR-MESSAGE
+   ========================================================================== */
+.nhsuk-error-message {
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  clear: both;
+  color: #da291c;
+  display: block;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-message {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-error-message {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+/* ==========================================================================
+   COMPONENTS/ #ERROR-SUMMARY
+   ========================================================================== */
+/**
+ * 1. Cross-component class - adjusts styling of list component.
+ * 2. Override default link styling to use error colour
+ * 3. When focussed, the text colour needs to be darker to ensure that colour
+ *    contrast is still acceptable
+ */
+.nhsuk-error-summary {
+  padding: 16px;
+  margin-bottom: 48px;
+  border: 4px solid #da291c; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary {
+      padding: 24px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary {
+      margin-bottom: 56px; } }
+  .nhsuk-error-summary:focus {
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary {
+      border: 5px solid #da291c; } }
+
+.nhsuk-error-summary__title {
+  font-weight: 600;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary__title {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-error-summary__title {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary__title {
+      margin-bottom: 24px; } }
+
+.nhsuk-error-summary__body {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-error-summary__body {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-error-summary__body {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-error-summary__body p {
+    margin-top: 0;
+    margin-bottom: 16px; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-error-summary__body p {
+        margin-bottom: 24px; } }
+
+.nhsuk-error-summary__list {
+  /* 1 */
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.nhsuk-error-summary__list a {
+  font-weight: 600;
+  /* 2 */ }
+  .nhsuk-error-summary__list a:focus {
+    background-color: #ffb81C;
+    outline: 3px solid #ffb81C;
+    outline-offset: 0; }
+  .nhsuk-error-summary__list a:link, .nhsuk-error-summary__list a:visited, .nhsuk-error-summary__list a:hover, .nhsuk-error-summary__list a:active {
+    color: #da291c; }
+  .nhsuk-error-summary__list a:hover {
+    color: #212b32; }
+  .nhsuk-error-summary__list a:focus {
+    /* 3 */
+    color: #212b32; }
+
+/* ==========================================================================
     COMPONENTS / #FEEDBACK-BANNER
    ========================================================================== */
 /**
@@ -2604,44 +3114,197 @@ b {
       top: auto; } }
 
 /* ==========================================================================
+   COMPONENTS/ #FIELDSET
+   ========================================================================== */
+/**
+ * 1. Fix legend text wrapping in Edge and IE versions:
+ * 2. IE9-11 & Edge 12-13
+ * 3. and IE8-11
+ * 4. Hack to let legends or elements within legends have margins in webkit browsers.
+ * 5. When the legend contains an H1, we want the H1 to inherit all styles from
+ *    the legend. Effectively we want to be able to treat the heading as if it is
+ *    not there.
+ */
+.nhsuk-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+  .nhsuk-fieldset:after {
+    clear: both;
+    content: '';
+    display: block; }
+
+.nhsuk-fieldset__legend {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  /* 1 */
+  color: #212b32;
+  display: table;
+  /* 2 */
+  margin-bottom: 8px;
+  max-width: 100%;
+  /* 1 */
+  overflow: hidden;
+  padding: 0;
+  white-space: normal;
+  /* 4 */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-fieldset__legend {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+/* Heading modifiers */
+.nhsuk-fieldset__legend--xl {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.25;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--xl {
+      font-size: 48px;
+      font-size: 3rem;
+      line-height: 1.16667; } }
+  @media print {
+    .nhsuk-fieldset__legend--xl {
+      font-size: 32pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--xl {
+      margin-bottom: 48px; } }
+
+.nhsuk-fieldset__legend--l {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 24px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--l {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.25; } }
+  @media print {
+    .nhsuk-fieldset__legend--l {
+      font-size: 24pt;
+      line-height: 1.05; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--l {
+      margin-bottom: 32px; } }
+
+.nhsuk-fieldset__legend--m {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--m {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-fieldset__legend--m {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--m {
+      margin-bottom: 24px; } }
+
+.nhsuk-fieldset__legend--s {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--s {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-fieldset__legend--s {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-fieldset__legend--s {
+      margin-bottom: 24px; } }
+
+.nhsuk-fieldset__heading {
+  /* 5 */
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0; }
+
+/* ==========================================================================
    COMPONENTS / #FOOTER
    ========================================================================== */
 .nhsuk-footer {
-  background-color: #005eb8;
-  color: #ffffff; }
+  padding-bottom: 24px;
+  padding-top: 24px;
+  background-color: #d8dde0;
+  border-top: 4px solid #005eb8; }
   @media print {
     .nhsuk-footer {
       display: none; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer {
+      padding-bottom: 32px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer {
+      padding-top: 32px; } }
 
 .nhsuk-logo {
+  height: 32px;
+  width: 80px;
   border: 0;
-  height: 40px;
   max-width: 100%;
-  vertical-align: middle;
-  width: 99px; }
+  vertical-align: middle; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-logo {
+      height: 40px;
+      width: 100px; } }
 
 .nhsuk-footer__logo {
   padding-bottom: 16px; }
   @media (min-width: 40.0625em) {
     .nhsuk-footer__logo {
-      padding-bottom: 0; } }
+      padding-bottom: 24px; } }
   .nhsuk-footer__logo > a {
-    display: block;
-    height: 40px;
-    width: 99px; }
+    height: 32px;
+    width: 80px;
+    display: block; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-footer__logo > a {
+        height: 40px;
+        width: 100px; } }
     .nhsuk-footer__logo > a > .nhsuk-u-visually-hidden {
       top: -9999px; }
-    .nhsuk-footer__logo > a:hover {
-      box-shadow: 0 0 0 4px #003d78; }
 
 .nhsuk-footer__list {
+  padding-bottom: 16px;
   list-style-type: none;
   margin: 0;
-  padding-bottom: 24px;
-  padding-left: 0;
-  padding-top: 24px; }
-  .nhsuk-footer__list:last-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.2); }
+  padding-left: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer__list {
+      padding-bottom: 24px; } }
 
 .nhsuk-footer__list-item {
   font-weight: 400;
@@ -2657,22 +3320,27 @@ b {
     .nhsuk-footer__list-item {
       font-size: 14pt;
       line-height: 1.2; } }
-  @media (min-width: 40.0625em) {
-    .nhsuk-footer__list-item {
-      display: inline-block;
-      margin-bottom: 0;
-      padding-right: 24px; } }
 
 .nhsuk-footer__list-item-link {
-  color: #ffffff; }
+  color: #212b32; }
   .nhsuk-footer__list-item-link:visited {
-    color: #f0f4f5; }
-  .nhsuk-footer__list-item-link:focus {
     color: #212b32; }
-  .nhsuk-footer__list-item-link:hover {
-    color: #212b32; }
-  .nhsuk-footer__list-item-link:active {
-    color: #374047; }
+
+.nhsuk-footer__copyright {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-footer__copyright {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+  @media print {
+    .nhsuk-footer__copyright {
+      font-size: 14pt;
+      line-height: 1.2; } }
 
 /* ==========================================================================
    COMPONENTS / #HEADER
@@ -2710,6 +3378,7 @@ b {
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
  * 15. IE 9 alternative for flexbox
+ * 16. Custom padding-top to vertically align service name and logo
  */
 .nhsuk-header {
   background-color: #005eb8; }
@@ -2720,26 +3389,21 @@ b {
 
 .nhsuk-header__logo {
   float: left;
-  padding: 20px; }
+  padding: 20px 0; }
   @media (min-width: 40.0625em) {
     .nhsuk-header__logo {
       padding-left: 0; } }
+  .nhsuk-header__logo .nhsuk-logo {
+    height: 40px;
+    width: 100px;
+    /* [1] */
+    border: 0; }
 
 .nhsuk-header__link {
-  display: block;
   height: 40px;
+  width: 100px;
   /* [1] */
-  width: 99px;
-  /* [1] */ }
-  .nhsuk-header__link:hover {
-    box-shadow: 0 0 0 4px #003d78; }
-
-.nhsuk-logo {
-  border: 0;
-  height: 40px;
-  /* [1] */
-  width: 99px;
-  /* [1] */ }
+  display: block; }
 
 .nhsuk-header__content:after {
   clear: both;
@@ -2818,7 +3482,6 @@ b {
     margin: 0; }
   .nhsuk-header__logo {
     padding-left: 16px;
-    padding-right: 16px;
     position: relative;
     z-index: 1; }
   .nhsuk-header__search-wrap {
@@ -3309,6 +3972,118 @@ b {
 .ie9 .nhsuk-header__search-wrap .js-show {
   display: block; }
 
+/**
+ * Transactional Header with service name
+**/
+.nhsuk-header__transactional-service-name {
+  float: left;
+  padding-right: 16px;
+  padding-top: 26px;
+  /* [16] */ }
+  @media (max-width: 40.0525em) {
+    .nhsuk-header__transactional-service-name {
+      padding-top: 28px;
+      /* [16] */ } }
+
+@media (max-width: 40.0525em) {
+  .nhsuk-header__transactional-service-name--long {
+    margin-top: -8px;
+    padding: 0 16px 16px;
+    width: 100%; } }
+
+.nhsuk-header__transactional-service-name--link {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none; }
+  .nhsuk-header__transactional-service-name--link:visited {
+    color: #f0f4f5; }
+  .nhsuk-header__transactional-service-name--link:focus {
+    color: #212b32;
+    text-decoration: underline; }
+  .nhsuk-header__transactional-service-name--link:hover {
+    color: #212b32;
+    text-decoration: underline; }
+  .nhsuk-header__transactional-service-name--link:active {
+    color: #374047; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__transactional-service-name--link {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-header__transactional-service-name--link {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-header--transactional .nhsuk-header__link {
+  height: 32px;
+  width: 80px;
+  display: block; }
+
+.nhsuk-header--transactional .nhsuk-logo {
+  height: 32px;
+  width: 80px; }
+
+.nhsuk-header--transactional .nhsuk-header__transactional-service-name {
+  float: left;
+  padding-left: 20px;
+  padding-top: 23px;
+  /* [16] */ }
+  @media (max-width: 40.0525em) {
+    .nhsuk-header--transactional .nhsuk-header__transactional-service-name {
+      padding-left: 16px;
+      padding-top: 25px;
+      /* [16] */ } }
+
+@media (max-width: 40.0525em) {
+  .nhsuk-header--transactional .nhsuk-header__transactional-service-name--long {
+    padding-top: 0; } }
+
+.nhsuk-header__link--service {
+  height: auto;
+  margin-bottom: -4px;
+  text-decoration: none;
+  width: auto; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__link--service {
+      -ms-flex-align: center;
+      align-items: center;
+      display: flex;
+      margin-bottom: 0;
+      width: auto; } }
+  .nhsuk-header__link--service:focus, .nhsuk-header__link--service:hover {
+    background: none; }
+    .nhsuk-header__link--service:focus .nhsuk-header__service-name, .nhsuk-header__link--service:hover .nhsuk-header__service-name {
+      text-decoration: underline; }
+
+.nhsuk-header__service-name {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 12px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__service-name {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-header__service-name {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-header__service-name {
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 0; } }
+
 /* ==========================================================================
    COMPONENTS / #HERO
    ========================================================================== */
@@ -3435,6 +4210,37 @@ b {
           display: none; } }
 
 /* ==========================================================================
+   COMPONENTS/ #HINT
+   ========================================================================== */
+.nhsuk-hint {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #425563;
+  display: block;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-hint {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-hint {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-hint {
+  margin-bottom: 8px; }
+
+.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl) + .nhsuk-hint {
+  margin-bottom: 8px; }
+
+.nhsuk-fieldset__legend + .nhsuk-hint,
+.nhsuk-fieldset__legend + .nhsuk-hint {
+  margin-top: -4px; }
+
+/* ==========================================================================
    COMPONENTS / #IMAGES
    ========================================================================== */
 /**
@@ -3493,6 +4299,80 @@ b {
       line-height: 1.2; } }
 
 /* ==========================================================================
+   COMPONENTS/ #INPUT
+   ========================================================================== */
+/**
+ * 1. Disable inner shadow and remove rounded corners
+ * 2. setting any background-color makes text invisible when changing colours to dark
+ *    backgrounds in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=1335476)
+ *    as background-color and color need to always be set together, color should
+ *    not be set either.
+ */
+.nhsuk-input {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  -moz-appearance: none;
+  /* 1 */
+  -webkit-appearance: none;
+  /* 1 */
+  appearance: none;
+  /* 1 */
+  border: 2px solid #425563;
+  /* 2 */
+  border-radius: 0;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 0;
+  padding: 4px;
+  width: 100%; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-input {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-input {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-input:focus {
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+
+.nhsuk-input::-webkit-outer-spin-button,
+.nhsuk-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+.nhsuk-input[type="number"] {
+  -moz-appearance: textfield; }
+
+.nhsuk-input--error {
+  border: 4px solid #da291c; }
+
+.nhsuk-input--width-30 {
+  max-width: 59ex; }
+
+.nhsuk-input--width-20 {
+  max-width: 41ex; }
+
+.nhsuk-input--width-10 {
+  max-width: 23ex; }
+
+.nhsuk-input--width-5 {
+  max-width: 10.8ex; }
+
+.nhsuk-input--width-4 {
+  max-width: 9ex; }
+
+.nhsuk-input--width-3 {
+  max-width: 7.2ex; }
+
+.nhsuk-input--width-2 {
+  max-width: 5.4ex; }
+
+/* ==========================================================================
    COMPONENTS / #INSET-TEXT
    ========================================================================== */
 /**
@@ -3522,6 +4402,114 @@ b {
   @media print {
     .nhsuk-inset-text {
       border-color: #212b32; } }
+
+/* ==========================================================================
+   COMPONENTS/ #LABEL
+   ========================================================================== */
+.nhsuk-label {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-label {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+/* Modifiers that make labels look more like their equivalent headings */
+.nhsuk-label--xl {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.25;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--xl {
+      font-size: 48px;
+      font-size: 3rem;
+      line-height: 1.16667; } }
+  @media print {
+    .nhsuk-label--xl {
+      font-size: 32pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--xl {
+      margin-bottom: 48px; } }
+
+.nhsuk-label--l {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--l {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.25; } }
+  @media print {
+    .nhsuk-label--l {
+      font-size: 24pt;
+      line-height: 1.05; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--l {
+      margin-bottom: 24px; } }
+
+.nhsuk-label--m {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--m {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-label--m {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--m {
+      margin-bottom: 24px; } }
+
+.nhsuk-label--s {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--s {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-label--s {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-label--s {
+      margin-bottom: 24px; } }
+
+.nhsuk-label-wrapper {
+  margin: 0; }
 
 /* ==========================================================================
    COMPONENT / #LIST-PANEL / #BACK-TO-TOP
@@ -4154,6 +5142,168 @@ b {
     margin-bottom: 0; }
 
 /* ==========================================================================
+   COMPONENTS/ #RADIOS
+   ========================================================================== */
+/**
+ * 1. remove 300ms pause on mobile.
+ * 2. Fix bug in IE11 caused by transform rotate (-45deg).
+ */
+.nhsuk-radios__item {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  clear: left;
+  display: block;
+  margin-bottom: 8px;
+  min-height: 40px;
+  padding: 0 0 0 40px;
+  position: relative; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-radios__item {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-radios__item {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+.nhsuk-radios__item:last-child,
+.nhsuk-radios__item:last-of-type {
+  margin-bottom: 0; }
+
+.nhsuk-radios__input {
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  z-index: 1; }
+
+.nhsuk-radios__label {
+  -ms-touch-action: manipulation;
+  /* 1 */
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 12px 4px;
+  touch-action: manipulation;
+  /* 1 */ }
+
+.nhsuk-radios__hint {
+  display: block;
+  padding-left: 12px;
+  padding-right: 12px; }
+
+.nhsuk-radios__input + .nhsuk-radios__label::before {
+  background: #ffffff;
+  border: 2px solid #425563;
+  border-radius: 50%;
+  box-sizing: border-box;
+  content: '';
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 40px; }
+
+.nhsuk-radios__input + .nhsuk-radios__label::after {
+  background: #425563;
+  border: 10px solid #212b32;
+  border-radius: 50%;
+  content: '';
+  height: 0;
+  left: 10px;
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  width: 0; }
+
+/**
+ * Focused state
+ *
+ * 1. Since box-shadows are removed when users customise their colours
+ *    We set a transparent outline that is shown instead.
+ *    https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+ */
+.nhsuk-radios__input:focus + .nhsuk-radios__label::before {
+  box-shadow: 0 0 0 4px #ffb81C;
+  outline: 3px solid transparent;
+  /* 1 */
+  outline-offset: 3px; }
+
+/* Selected state */
+.nhsuk-radios__input:checked + .nhsuk-radios__label::after {
+  opacity: 1; }
+
+/* Disabled state */
+.nhsuk-radios__input:disabled,
+.nhsuk-radios__input:disabled + .nhsuk-radios__label {
+  cursor: default; }
+
+.nhsuk-radios__input:disabled + .nhsuk-radios__label {
+  opacity: .5; }
+
+/*
+ * Inline variant
+ *
+ * 1. Prevent inline modifier being used with conditional reveals
+ */
+@media (min-width: 40.0625em) {
+  .nhsuk-radios--inline:after {
+    clear: both;
+    content: '';
+    display: block; }
+  .nhsuk-radios--inline .nhsuk-radios__item {
+    clear: none;
+    float: left;
+    margin-right: 24px; } }
+
+.nhsuk-radios--inline.nhsuk-radios--conditional {
+  /* 1 */ }
+  .nhsuk-radios--inline.nhsuk-radios--conditional .nhsuk-radios__item {
+    float: none;
+    margin-right: 0; }
+
+/* Divider variant */
+.nhsuk-radios__divider {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #212b32;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-radios__divider {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-radios__divider {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
+/* Conditional */
+.nhsuk-radios__conditional {
+  margin-bottom: 16px;
+  border-left: 4px solid #425563;
+  margin-left: 18px;
+  padding-left: 30px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-radios__conditional {
+      margin-bottom: 24px; } }
+  .js-enabled .nhsuk-radios__conditional--hidden {
+    display: none; }
+  .nhsuk-radios__conditional > :last-child {
+    margin-bottom: 0; }
+
+/* ==========================================================================
    COMPONENTS / #REVIEW-DATE
    ========================================================================== */
 .nhsuk-review-date {
@@ -4162,6 +5312,41 @@ b {
   @media (min-width: 40.0625em) {
     .nhsuk-review-date {
       margin-top: 48px; } }
+
+/* ==========================================================================
+   COMPONENTS/ #SELECT
+   ========================================================================== */
+.nhsuk-select {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 2px solid #425563;
+  box-sizing: border-box;
+  height: 40px;
+  max-width: 100%;
+  padding: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-select {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-select {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-select:focus {
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+
+.nhsuk-select option:active,
+.nhsuk-select option:checked,
+.nhsuk-select:focus::-ms-value {
+  background-color: #005eb8;
+  color: #ffffff; }
+
+.nhsuk-select--error {
+  border: 4px solid #da291c; }
 
 /* ==========================================================================
    COMPONENTS / #SKIP-LINK
@@ -4284,6 +5469,43 @@ b {
   .nhsuk-table-responsive .nhsuk-table {
     margin: 0;
     /* [1] */ }
+
+/* ==========================================================================
+   COMPONENTS/ #TEXTAREA
+   ========================================================================== */
+.nhsuk-textarea {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-appearance: none;
+  border: 2px solid #425563;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  min-height: 40px;
+  margin-bottom: 32px;
+  padding: 4px;
+  resize: vertical;
+  width: 100%; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-textarea {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-textarea {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  .nhsuk-textarea:focus {
+    box-shadow: 0 0 0 4px #ffb81C;
+    outline: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-textarea {
+      margin-bottom: 40px; } }
+
+.nhsuk-textarea--error {
+  border: 4px solid #da291c; }
 
 /* ==========================================================================
    COMPONENTS / #WARNING-CALLOUT

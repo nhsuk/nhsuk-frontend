@@ -1,0 +1,221 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style=""><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>NHS.UK Frontend - </title>
+
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+    <link rel="stylesheet" href="/nhsuk-frontend/assets/nhsuk.css">
+
+    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
+    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
+
+    <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="/nhsuk-frontend/assets/favicons/favicon.png">
+  </head>
+
+  <body class="">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+      
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+
+  <header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
+        <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+  <path fill="#fff" d="M0 0h40v16H0z"></path>
+  <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+  <image xlink:href="" src="https://assets.nhs.uk/images/nhs-logo-white.png"></image>
+</svg>
+
+        
+      </a>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+</header>
+
+
+
+      
+
+  
+
+  <div class="nhsuk-width-container">
+    <main id="maincontent" class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-page-content">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          
+  
+    <h1 id="error-summary">Error summary</h1>
+<p>Find out more about the error summary component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/">NHS digital service manual</a>.</p>
+<p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/219">GitHub issue for this component</a>.</p>
+<h2 id="quick-start-examples">Quick start examples</h2>
+<h3 id="error-summary">Error summary</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/error-summary/index.html">Preview the error summary component</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;div class=&quot;govuk-error-summary&quot; aria-labelledby=&quot;error-summary-title&quot; role=&quot;alert&quot; tabindex=&quot;-1&quot; data-module=&quot;error-summary&quot;&gt;
+  &lt;h2 class=&quot;govuk-error-summary__title&quot; id=&quot;error-summary-title&quot;&gt;
+    Message to alert the user to a problem goes here
+  &lt;/h2&gt;
+  &lt;div class=&quot;govuk-error-summary__body&quot;&gt;
+    &lt;p&gt;Optional description of the errors and how to correct them&lt;/p&gt;
+
+    &lt;ul class=&quot;govuk-list govuk-error-summary__list&quot;&gt; 
+      &lt;li&gt;&lt;a href=&quot;#example-error-1&quot;&gt;Descriptive link to the question with an error&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#example-error-1&quot;&gt;Descriptive link to the question with an error&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<pre><code>{% from &#39;components/error-summary/macro.njk&#39; import errorSummary %}
+
+{{ errorSummary({
+  &quot;titleText&quot;: &quot;Message to alert the user to a problem goes here&quot;,
+  &quot;descriptionText&quot;: &quot;Optional description of the errors and how to correct them&quot;,
+  &quot;errorList&quot;: [
+    {
+      &quot;text&quot;: &quot;Descriptive link to the question with an error&quot;,
+      &quot;href&quot;: &quot;#example-error-1&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Descriptive link to the question with an error&quot;,
+      &quot;href&quot;: &quot;#example-error-1&quot;
+    }
+  ]
+}) }}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
+<p>If you are using Nunjucks, then macros take the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>titleText (or) titleHtml</strong></td>
+<td>string</td>
+<td>Yes</td>
+<td>Text or HTML to use for the heading of the error summary block. If <code>titleHtml</code> is provided, the <code>titleText</code> argument will be ignored.</td>
+</tr>
+<tr>
+<td><strong>descriptionText (or) descriptionHtml</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional text or HTML description of the errors. If <code>descriptionhtml</code> is provided, the <code>descriptionText</code> argument will be ignored.</td>
+</tr>
+<tr>
+<td><strong>errorList</strong></td>
+<td>object</td>
+<td>Yes</td>
+<td>Contains an array of error link items and all their available arguments.</td>
+</tr>
+<tr>
+<td><strong>errorList.{}.href</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Href attribute for the error link item. If provided item will be an anchor.</td>
+</tr>
+<tr>
+<td><strong>errorList.{}.text (or) errorList.{}.html</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Text or HTML for the error link item. If <code>html</code> is provided, the <code>text</code> argument will be ignored.</td>
+</tr>
+<tr>
+<td><strong>errorList.{}.attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the error link anchor.</td>
+</tr>
+<tr>
+<td><strong>classes</strong></td>
+<td>string</td>
+<td>No</td>
+<td>Optional additional classes to add to the error-summary container. Separate each class with a space.</td>
+</tr>
+<tr>
+<td><strong>attributes</strong></td>
+<td>object</td>
+<td>No</td>
+<td>Any extra HTML attributes (for example data attributes) to add to the error-summary container.</td>
+</tr>
+</tbody></table>
+<h2 id="thanks-to-the-government-digital-service-gds-">Thanks to the Government Digital Service (GDS)</h2>
+<p>This component and documentation has been taken from <a href="https://github.com/alphagov/govuk-frontend/tree/master/package/components/error-summary">GOV.UK Frontend - Error summary component</a> with a few minor adaptations.</p>
+
+  
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+
+      
+
+  <footer role="contentinfo">
+  <div class="nhsuk-footer">
+    <div class="nhsuk-width-container">
+      
+      
+      
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <ul class="nhsuk-footer__list">
+        
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://github.com/nhsuk/nhsuk-frontend">GitHub - NHS.UK Frontend</a></li>
+        
+      </ul>
+      
+      <p class="nhsuk-footer__copyright">&copy; Crown Copyright</li>
+    </div>
+  </div>
+</footer>
+
+
+
+  </body>
+</html>
