@@ -40,23 +40,27 @@ function autocomplete(config) {
     placeholder: fallbackInputElement.placeholder,
     //displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
-    onConfirm: (SelectiedContent) => {
-      console.log(SelectiedContent)
+   onConfirm: (SelectiedContent) => {
+   console.log(SelectiedContent)
     window.open("https://www.nhs.uk/search/?q=" + SelectiedContent, "_self")
-    },
+  },
     source: getFunnelbackResults,
     templates: {
-    //inputValue: inputValueTemplate,
+   // inputValue: inputValueTemplate,
     suggestion: suggestionTemplate
    }
     
   }
 
+function inputValueTemplate(result){
 
+function treff(){
+  window.open(result) // just here so we can inspect the dropdown
+}
+
+}
   function suggestionTemplate (result) {
   var TypedText = document.getElementById(id).value 
-
- // return  boldSerachTerm(result,TypeText)
 
    if(!result){
      return "";
@@ -64,7 +68,8 @@ function autocomplete(config) {
    var expr = TypedText;
    expr = expr.replace(/\s+/, "|",TypedText);
    var regex = new RegExp(expr,"gi"); //g = global, match all instances & i = case insensitive 
-   result = '<a href="http://google.com/">' + result + '</a>' //link example
+   result = '<a href="">' + result + '</a>' //link example - just here for formatting
+ 
    return result.replace(regex, function($1){
        return '<b>'+ $1 +'</b>';
   });
