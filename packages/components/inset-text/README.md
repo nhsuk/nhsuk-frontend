@@ -30,3 +30,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
 }) }}
 ```
+
+#### Nunjucks arguments
+
+The inset text Nunjucks macro takes the following arguments:
+
+| Name                    | Type     | Required  | Description  |
+| ------------------------|----------|-----------|--------------|
+| **HTML**                | string   | Yes       | HTML content to be used within the inset text component. |
+| **classes**             | string   | No        | Optional additional classes to add to the inset text container. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the inset text container. |

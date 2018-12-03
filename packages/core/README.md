@@ -115,21 +115,21 @@ You can find the full list of colour variables and their use in the [NHS Digital
 #### Primary
 
 ```scss
-$colour_nhsuk-blue: #005EB8;
-$colour_nhsuk-white: #FFFFFF;
-$colour_nhsuk-black: #212B32;
-$colour_nhsuk-green: #007F3B;
-$colour_nhsuk-red: #DA291C;
-$colour_nhsuk-yellow: #ffeb3b;
-$colour_nhsuk-purple: #330072;
+$color_nhsuk-blue: #005EB8;
+$color_nhsuk-white: #FFFFFF;
+$color_nhsuk-black: #212B32;
+$color_nhsuk-green: #007F3B;
+$color_nhsuk-red: #DA291C;
+$color_nhsuk-yellow: #ffeb3b;
+$color_nhsuk-purple: #330072;
 ```
 
 #### Secondary
 
 ```scss
-$colour_nhsuk-pale-yellow: #FFF9C4;
-$colour_nhsuk-warm-yellow: #FFB81C;
-$colour_nhsuk-aqua-green: #00A499;
+$color_nhsuk-pale-yellow: #FFF9C4;
+$color_nhsuk-warm-yellow: #FFB81C;
+$color_nhsuk-aqua-green: #00A499;
 ```
 
 ## Utilities
