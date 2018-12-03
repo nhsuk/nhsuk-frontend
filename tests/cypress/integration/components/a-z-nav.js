@@ -21,7 +21,7 @@ describe('A-Z Navigation Component', function () {
   });
 
   it('Checking Aria label - A- Z navigation', function () {
-    cy.get('#nhsuk-nav-a-z').should('have.attr', 'aria-label', 'A-Z Navigation')
+    cy.get('#nhsuk-nav-a-z').should('have.attr', 'aria-label', 'A to Z Navigation')
   });
 
   it('Checking navigation role', function () {
@@ -33,4 +33,3 @@ describe('A-Z Navigation Component', function () {
   });
 
 });
-
