@@ -38,17 +38,17 @@ function autocomplete(config) {
     id: id,
     minLength: 2,
     placeholder: fallbackInputElement.placeholder,
-    //displayMenu: 'overlay',
+    //displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
-
+    onConfirm: (SelectiedContent) => {
+      console.log(SelectiedContent)
+    window.open("https://www.nhs.uk/search/?q=" + SelectiedContent, "_self")
+    },
     source: getFunnelbackResults,
     templates: {
     //inputValue: inputValueTemplate,
-      suggestion: suggestionTemplate
-    }
-  }
-  function inputValueTemplate (result) {
-   
+    suggestion: suggestionTemplate
+   }
     
   }
 
@@ -69,12 +69,7 @@ function autocomplete(config) {
        return '<b>'+ $1 +'</b>';
   });
 
-
-  
 }
-
-
-
   const accessibleAutocompleteConfig = {
     ...defaultConfig,
     ...config,
