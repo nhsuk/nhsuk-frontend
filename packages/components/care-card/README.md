@@ -16,6 +16,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 <div class="nhsuk-care-card">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -74,6 +75,7 @@ The non-urgent care card Nunjucks macro takes the following arguments:
 <div class="nhsuk-care-card nhsuk-care-card--urgent">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -132,6 +134,7 @@ The urgent care card Nunjucks macro takes the following arguments:
 <div class="nhsuk-care-card nhsuk-care-card--immediate">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
