@@ -40,10 +40,9 @@ function autocomplete(config) {
     placeholder: fallbackInputElement.placeholder,
     //displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
-   onConfirm: (SelectiedContent) => {
-   console.log(SelectiedContent)
+    onConfirm: (SelectiedContent) => {
     window.open("https://www.nhs.uk/search/?q=" + SelectiedContent, "_self")
-  },
+    },
     source: getFunnelbackResults,
     templates: {
    // inputValue: inputValueTemplate,
@@ -60,16 +59,18 @@ function treff(){
 
 }
   function suggestionTemplate (result) {
+  var truncateLength = 12;
   var TypedText = document.getElementById(id).value 
-
+  var dots = result.length > truncateLength ? '...' : '';
+  result = result.substring(0, truncateLength)+dots;
    if(!result){
      return "";
    }
    var expr = TypedText;
+  
    expr = expr.replace(/\s+/, "|",TypedText);
    var regex = new RegExp(expr,"gi"); //g = global, match all instances & i = case insensitive 
-   result = '<a href="">' + result + '</a>' //link example - just here for formatting
- 
+  result = '<a href="">' + result + '</a>' //link example - just here for formatting
    return result.replace(regex, function($1){
        return '<b>'+ $1 +'</b>';
   });
@@ -79,9 +80,15 @@ function treff(){
     ...defaultConfig,
     ...config,
   }
+  function stringTruncate(str, length){
+    var dots = str.length > length ? '...' : '';
+    return str.substring(0, length)+dots;
+  };
+ 
 
   document.getElementById(id).remove()
   accessibleAutocomplete(accessibleAutocompleteConfig)
+
 }
  
 
