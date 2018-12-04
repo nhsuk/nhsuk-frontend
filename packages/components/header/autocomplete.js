@@ -37,6 +37,7 @@ function autocomplete(config) {
     element: document.querySelector('#autocomplete-container'),
     id: id,
     minLength: 2,
+    //cssNamespace:
     placeholder: fallbackInputElement.placeholder,
     //displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
@@ -59,15 +60,17 @@ function treff(){
 
 }
   function suggestionTemplate (result) {
-  var truncateLength = 12;
-  var TypedText = document.getElementById(id).value 
+  
+  var truncateLength = 36; //Same value as previous one
   var dots = result.length > truncateLength ? '...' : '';
   result = result.substring(0, truncateLength)+dots;
+
    if(!result){
      return "";
    }
+
+   var TypedText = document.getElementById(id).value 
    var expr = TypedText;
-  
    expr = expr.replace(/\s+/, "|",TypedText);
    var regex = new RegExp(expr,"gi"); //g = global, match all instances & i = case insensitive 
   result = '<a href="">' + result + '</a>' //link example - just here for formatting
@@ -80,12 +83,6 @@ function treff(){
     ...defaultConfig,
     ...config,
   }
-  function stringTruncate(str, length){
-    var dots = str.length > length ? '...' : '';
-    return str.substring(0, length)+dots;
-  };
- 
-
   document.getElementById(id).remove()
   accessibleAutocomplete(accessibleAutocompleteConfig)
 
