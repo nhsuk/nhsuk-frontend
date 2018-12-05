@@ -27,9 +27,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
-  "HTML": "
-  <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  "HTML": "<h3>Panel title</h3>
+  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>""
 }) }}
 ```
 
@@ -67,7 +66,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ panel({
   "label": "Panel heading",
-  "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
 
@@ -108,7 +107,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "colour": "grey",
   "HTML": "
   <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
 
@@ -157,12 +156,12 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
 </div>

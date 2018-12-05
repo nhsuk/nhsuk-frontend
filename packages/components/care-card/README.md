@@ -16,12 +16,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 <div class="nhsuk-care-card">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
       <li>you're not sure it's chickenpox</li>
       <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href='#'>dehydrated</a></li>
+      <li>your child is <a href="#">dehydrated</a></li>
       <li>you're concerned about your child or they get worse</li>
     </ul>
     <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -43,7 +44,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   <ul>
     <li>you're not sure it's chickenpox</li>
     <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-    <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+    <li>your child is <a href=\"https://www.nhs.uk\">dehydrated</a></li>
     <li>you're concerned about your child or they get worse</li>
   </ul>
   <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -74,6 +75,7 @@ The non-urgent care card Nunjucks macro takes the following arguments:
 <div class="nhsuk-care-card nhsuk-care-card--urgent">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -132,6 +134,7 @@ The urgent care card Nunjucks macro takes the following arguments:
 <div class="nhsuk-care-card nhsuk-care-card--immediate">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -139,7 +142,7 @@ The urgent care card Nunjucks macro takes the following arguments:
       <li>makes your chest feel tight or heavy</li>
       <li>also started with shortness of breath, sweating and feeling or being sick</li>
     </ul>
-    <p>You could be having a <a href=''>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+    <p>You could be having a <a href="#">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
   </div>
 </div>
 ```
@@ -160,7 +163,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
     <li>makes your chest feel tight or heavy</li>
     <li>also started with shortness of breath, sweating and feeling or being sick</li>
   </ul>
-  <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+  <p>You could be having a <a href=\"https://www.nhs.uk\">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
   "
 }) }}
 ```

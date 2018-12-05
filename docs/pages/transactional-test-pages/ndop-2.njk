@@ -1,0 +1,82 @@
+{% set title = 'Transactional test page - NHS.UK Frontend' %}
+{% from 'components/back-link/macro.njk' import backLink %}
+{% from 'components/button/macro.njk' import button %}
+{% from 'components/fieldset/macro.njk' import fieldset %}
+{% from 'components/input/macro.njk' import input %}
+{% from 'components/date-input/macro.njk' import dateInput %}
+
+{% extends 'forms.njk' %}
+
+{% set mainWrapperClass = 'nhsuk-main-wrapper--s' %}
+
+{% block header %}
+  <!-- Skip link -->
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
+  <!-- Header -->
+  {{ header({
+    "transactionalService": {
+        "name": "Find out why your NHS data matters",
+        "href": "/pages/transactional-test-pages/ndop-1.html",
+        "longName": "true"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+
+<form action="/pages/transactional-test-pages/ndop-3.html">
+
+  <div class="nhsuk-form-group nhsuk-form-group--wrapper">
+
+    {{ dateInput({
+      "id": "dob",
+      "namePrefix": "dob",
+      "fieldset": {
+        "legend": {
+          "text": "What is your date of birth?",
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      },
+      "hint": {
+        "text": "For example, 31 3 1980"
+      },
+      "items": [
+        {
+          "name": "day",
+          "classes": "nhsuk-input--width-2"
+        },
+        {
+          "name": "month",
+          "classes": "nhsuk-input--width-2"
+        },
+        {
+          "name": "year",
+          "classes": "nhsuk-input--width-4"
+        }
+      ]
+    }) }}
+
+  </div>
+
+  {{ button({
+    "text": "Continue"
+  }) }}
+
+  {{ backLink({
+    "href": "/pages/transactional-test-pages/ndop-1.html",
+    "text": "Go back",
+    "classes": "nhsuk-!-margin-bottom-0"
+  }) }}
+
+</form>
+
+{% endblock %}
+

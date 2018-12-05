@@ -1,0 +1,12 @@
+/* ==========================================================================
+   COMPONENTS/ #ERROR-MESSAGE
+   ========================================================================== */
+
+.nhsuk-error-message {
+  @include nhsuk-font(19, $weight: bold);
+
+  clear: both;
+  color: $nhsuk-error-color;
+  display: block;
+  margin-bottom: nhsuk-spacing(3);
+}
