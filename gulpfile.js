@@ -68,6 +68,7 @@ function concatJS() {
   return gulp.src([
       'packages/components/header/typeahead.bundle.min.js',
       'packages/components/header/nhs.typeahead.js',
+      'packages/components/details/details.js',
       'dist/nhsuk.bundle.js',
     ])
     .pipe(concat('nhsuk.js'))
