@@ -74,7 +74,9 @@ function handleBannerClose() {
 }
 
 function handleBannerSticky() {
-  window.addEventListener('scroll', unstickBanner);
+  if (banner) {
+    window.addEventListener('scroll', unstickBanner);
+  }
 }
 
 function feedbackBanner(delay) {

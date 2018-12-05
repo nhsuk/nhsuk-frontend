@@ -24,6 +24,11 @@
 {% extends 'page.njk' %}
 
 {% block header %}
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
   {{ header({
       "showNav": "true",
       "showSearch": "true",
@@ -51,11 +56,6 @@
       ]
     })
   }}
-
-  {{ skipLink({
-    "URL": "#maincontent",
-    "heading": "Skip to main content"
-  }) }}
 {% endblock %}
 
 {% block breadcrumb %}
