@@ -46,33 +46,23 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {{ footer({
   "primaryLinks": [
     {
-      "url": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+      "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
       "label": "NHS sites"
     },
     {
-      "url": "https://www.nhs.uk/about-us",
+      "URL": "https://www.nhs.uk/about-us",
       "label": "About us"
     },
     {
-      "url": "https://www.nhs.uk/contact-us/",
+      "URL": "https://www.nhs.uk/contact-us/",
       "label": "Contact us"
     },
     {
-      "url": "https://www.nhs.uk/Personalisation/Login.aspx",
-      "label": "Profile editor login"
-    }
-  ],
-  "secondaryLinks": [
-    {
-      "url": "https://www.nhs.uk/about-us/sitemap/",
+      "URL": "https://www.nhs.uk/about-us/sitemap/",
       "label": "Sitemap"
     },
     {
-      'url': 'https://www.nhs.uk/accessibility/',
-      'label': 'Accessibility'
-    },
-    {
-      "url": "https://www.nhs.uk/our-policies/",
+      "URL": "https://www.nhs.uk/our-policies/",
       "label": "Our policies"
     }
   ]
@@ -88,7 +78,5 @@ The footer Nunjucks macro takes the following arguments:
 | **primaryLinks**             | array    | No        | Array of primary navigation items for use in the footer. |
 | **primaryLinks.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
 | **primaryLinks.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
-| **secondaryLinks**           | array    | No        | Array of secondary navigation items for use in the footer. |
-| **secondaryLinks.[].url**    | string   | No        | The href of a secondary navigation item in the footer. |
-| **secondaryLinks.[].label**  | string   | No        | The label of a secondary navigation item in the footer. |
 | **homeHref**                 | string   | No        | The href of the home link for the logo. Defaults to "/". |
+| **showLogo**                 | boolean  | No        | Show or hide the NHS logo in the footer. Logo shows by default. |
