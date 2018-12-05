@@ -161,10 +161,6 @@
   .nhsuk-care-card__heading-container {
     background-color: $heading-background-color;
     color: $heading-text-color;
-
-    &:after {
-      border-top: $nhsuk-care-card-triangle-border solid $heading-background-color;
-    }
   }
 
   @include mq($media-type: print) {
