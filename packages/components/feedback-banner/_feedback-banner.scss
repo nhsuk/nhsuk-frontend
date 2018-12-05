@@ -9,7 +9,6 @@
  * 4. Avoid the banner title overlapping close button on
  *    small mobile devices (below 320px).
  * 5. Change the cursor to a pointer on hover.
- * 6. Repositions the banner into the normal flow of the page, ie not fixed.
  */
 
 .nhsuk-feedback-banner {
@@ -25,11 +24,6 @@
   position: fixed;
   width: 100%;
   z-index: 20; /* [2] */
-
-  &.js-inview { /* [6] */
-    bottom: auto;
-    position: relative;
-  }
 
 }
 
@@ -64,7 +58,7 @@
   background: none;
   border: 0;
   color: $color_nhsuk-black;
-  cursor: pointer; /* [5] */
+  cursor: pointer; /* [6] */
   padding: 0;
   position: absolute;
   right: 0;

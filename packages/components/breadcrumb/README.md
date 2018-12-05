@@ -16,11 +16,10 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a href="/level-one" class="nhsuk-breadcrumb__link">Level one</a></li>
-      <li class="nhsuk-breadcrumb__item"><a href="/level-one/level-two" class="nhsuk-breadcrumb__link">Level two</a></li>
-      <li class="nhsuk-breadcrumb__item"><a href="/level-one/level-two/level-three" class="nhsuk-breadcrumb__link">Level three</a></li>
+      <li class="nhsuk-breadcrumb__item"><a href="https://www.nhs.uk/" class="nhsuk-breadcrumb__link">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a href="https://www.nhs.uk/conditions" class="nhsuk-breadcrumb__link">Health A-Z</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a href="/level-one/level-two/level-three" class="nhsuk-breadcrumb__backlink">Level three</a></p>
+    <p class="nhsuk-breadcrumb__back"><a href="https://www.nhs.uk/conditions/abscess/" class="nhsuk-breadcrumb__backlink">Back to Abscess</a></p>
   </div>
 </nav>
 ```
@@ -35,16 +34,16 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {{ breadcrumb({
   items: [
     {
-      href: "/level-one",
-      text: "Level one"
+      text: "Home",
+      href: "https://www.nhs.uk/"
     },
     {
-      href: "/level-one/level-two",
-      text: "Level two"
+      text: "Health A-Z",
+      href: "https://www.nhs.uk/conditions"
     }
   ],
-  href: "/level-one/level-two/level-three",
-  text: "Level three"
+  href: "https://www.nhs.uk/conditions/abscess/",
+  text: "Abscess"
 }) }}
 ```
 

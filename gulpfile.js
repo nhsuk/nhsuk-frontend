@@ -1,34 +1,36 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const clean = require('gulp-clean');
-const rename = require("gulp-rename");
-const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const del = require('del');
-const uglify = require('gulp-uglify');
-const zip = require('gulp-zip');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
-const package = require('./package.json');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var clean = require('gulp-clean');
+var rename = require("gulp-rename");
+var cleanCSS = require('gulp-clean-css');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var zip = require('gulp-zip');
+var webpack = require('webpack');
+var webpackStream = require('webpack-stream');
+var webpackConfig = require('./webpack.config.js');
+
+// Read the package.json so that we can use its metadata such as package.version
+var package = require('./package.json');
+
 
 /**
- * Import gulp tasks used for creating
- * our website pages.
+ * Import gulp tasks from other files
  */
 require('./tasks/docs.js');
 
-/* Remove all compiled files */
+
+/**
+ * Remove all compiled files
+ */
 function cleanDist() {
   return gulp.src('dist', { allowEmpty: true})
     .pipe(clean())
 }
 
 /**
- * CSS tasks
+ * Build CSS from source
  */
-
-/* Build the CSS from source */
 function compileCSS() {
   return gulp.src(['packages/nhsuk.scss'])
     .pipe(sass())
@@ -39,7 +41,9 @@ function compileCSS() {
     })
 }
 
-/* Minify CSS and add a min.css suffix */
+/**
+ * Minify all compiled css and add a .min.css extension
+ */
 function minifyCSS() {
   return gulp.src([
     'dist/*.css',
@@ -53,55 +57,48 @@ function minifyCSS() {
 }
 
 /**
- * JavaScript tasks
+ * Compile javascript into one file
  */
-
-/* Use Webpack to build and minify the NHS.UK components JS. */
-function webpackJS() {
-  return gulp.src('./packages/nhsuk.js')
-    .pipe(webpackStream(webpackConfig), webpack)
-    .pipe(gulp.dest('./dist'));
-}
-
-/* Concat the NHS.UK components JS */
-function concatJS() {
+function compileJS() {
   return gulp.src([
-      'dist/nhsuk.bundle.js',
+      'packages/components/header/header.js',
     ])
     .pipe(concat('nhsuk.js'))
-    .pipe(gulp.dest(['dist/']));
-}
-
-/* Delete the Webpack nhsuk.bundle.js after its been concatenated. */
-function cleanJS() {
-  return del('dist/nhsuk.bundle.js');
-}
-
-/* Copy jQuery dependency into dist folder for release */
-function thirdPartyAssets() {
-  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
-    .pipe(rename({
-      basename: 'jquery-3.3.1.min',
-    }))
     .pipe(gulp.dest('dist/'));
 }
 
-/* Version the JS file for release */
-function versionJS() {
+/**
+ * Minify all javascript and add a .min.css extension
+ */
+function minifyJS() {
   return gulp.src([
     'dist/*.js',
     '!dist/*.min.js', // don't re-minify minified javascript
     '!dist/nhsuk.bundle.js', // don't minify webpack javascript
   ])
+    .pipe(uglify())
     .pipe(rename({
       suffix: `-${package.version}.min`
     }))
     .pipe(gulp.dest('dist/'))
 }
 
+
 /**
- * Assets tasks
+ * Minify javascript without version number for npm
  */
+function packageJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+    '!dist/nhsuk.bundle.js', // don't minify webpack javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: `.min`
+    }))
+    .pipe(gulp.dest('packages/'))
+}
 
 /**
  * Use webpack to build and minify our JavaScript.
@@ -121,17 +118,29 @@ function assets() {
 }
 
 /**
- * Release tasks
+ * Copy 3rd party assets into the dist directory
+ */
+function thirdPartyAssets() {
+  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
+    .pipe(rename({
+      basename: 'jquery-3.3.1.min',
+    }))
+    .pipe(gulp.dest('dist/'));
+}
+
+/**
+ * Copy JS files into their relevant folders
  */
 
-/* Copy JS files into their relevant folders */
 function jsFolder() {
   return gulp.src('dist/*.min.js')
     .pipe(clean())
     .pipe(gulp.dest('dist/js/'));
 }
 
-/* Copy CSS files into their relevant folders */
+/**
+ * Copy CSS files into their relevant folders
+ */
 
 function cssFolder() {
   return gulp.src('dist/*.min.css')
@@ -146,27 +155,26 @@ function createZip() {
 }
 
 /**
- * Development tasks
+ * Recompile CSS, JS and docs when there are any changes
  */
-
-/* Recompile CSS, JS and docs when there are any changes */
 var watch = function() {
   gulp.watch(['packages/**/*', 'docs/**/*'], gulp.series(['build', 'docs:build']));
 }
+
 
 gulp.task('clean', cleanDist);
 gulp.task('style', compileCSS);
 gulp.task('build', gulp.series([
   compileCSS,
+  compileJS,
   webpackJS,
-  concatJS,
-  cleanJS,
 ]));
 gulp.task('bundle', gulp.series([
   cleanDist,
   'build',
   minifyCSS,
-  versionJS,
+  minifyJS,
+  packageJS
 ]))
 gulp.task('zip', gulp.series([
   'bundle',

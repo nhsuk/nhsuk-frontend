@@ -1,84 +1,88 @@
-/*
- * Header
- *
- * Functionality to toggle the search and menu dropdowns
- * on tablet and mobile devices.
- */
+document.addEventListener('DOMContentLoaded', function() {
 
-/* Shared function to toggle class names */
+  // Search button toggle
+  (function() {
 
-function toggleClass(ele, class1) {
-  /* eslint-disable prefer-template, no-useless-concat, no-param-reassign */
-  const classes = ele.className;
-  const regex = new RegExp('\\b' + ' ' + class1 + '\\b');
-  const hasOne = classes.match(regex);
-  class1 = class1.replace(/\s+/g, '');
-  if (hasOne) {
-    ele.className = classes.replace(regex, '');
-  } else {
-    ele.className = classes + ' ' + class1;
-  }
-}
+    var searchToggle = {
+      searchToggleButton: document.getElementById('toggle-search'),
+      searchClose: document.getElementById('close-search'),
+      searchContainer: document.getElementById('wrap-search'),
+      menuSearchContainer: document.getElementById('content-header'),
 
-/* Search toggle */
+      doToggle: function(e) {
+        e.preventDefault();
 
-const searchToggleButton = document.querySelector('#toggle-search');
-const searchClose = document.querySelector('#close-search');
-const searchContainer = document.querySelector('#wrap-search');
-const menuSearchContainer = document.querySelector('#content-header');
+        if (this.searchToggleButton.hasAttribute("aria-expanded")) {
+          this.searchToggleButton.removeAttribute("aria-expanded")
+        } else {
+          this.searchToggleButton.setAttribute("aria-expanded", "true")
+        }
 
-function toggleSearch(e) {
-  e.preventDefault();
-  if (searchToggleButton.hasAttribute('aria-expanded')) {
-    searchToggleButton.removeAttribute('aria-expanded');
-  } else {
-    searchToggleButton.setAttribute('aria-expanded', 'true');
-  }
-  toggleClass(searchToggleButton, 'is-active');
-  toggleClass(searchContainer, 'js-show');
-  toggleClass(menuSearchContainer, 'js-show');
-}
+        function toggleClass(ele, class1) {
+          var classes = ele.className;
+          var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
+          var hasOne = classes.match(regex);
+          class1 = class1.replace(/\s+/g, '');
+          if (hasOne)
+            ele.className = classes.replace(regex, '');
+          else
+            ele.className = classes + ' ' + class1;
+        }
 
-function handleSearchToggle() {
-  if (searchToggleButton) {
-    searchToggleButton.addEventListener('click', toggleSearch);
-  }
-  if (searchClose) {
-    searchClose.addEventListener('click', toggleSearch);
-  }
-}
+        toggleClass(this.searchToggleButton, 'is-active');
+        toggleClass(this.searchContainer, 'js-show');
+        toggleClass(this.menuSearchContainer, 'js-show');
 
-/* Menu toggle */
+      }
+    };
 
-const menuToggleButton = document.querySelector('#toggle-menu');
-const menuClose = document.querySelector('#close-menu');
-const nav = document.querySelector('#header-navigation');
+    if (searchToggle.searchToggleButton) { searchToggle.searchToggleButton.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
+    if (searchToggle.searchClose) { searchToggle.searchClose.addEventListener('click', function(e) { searchToggle.doToggle(e); }); }
 
-function toggleMenu(e) {
-  e.preventDefault();
-  if (menuToggleButton.hasAttribute('aria-expanded')) {
-    menuToggleButton.removeAttribute('aria-expanded');
-  } else {
-    menuToggleButton.setAttribute('aria-expanded', 'true');
-  }
-  toggleClass(menuToggleButton, 'is-active');
-  toggleClass(nav, 'js-show');
-}
+  }());
 
-function handleMenuToggle() {
-  if (menuToggleButton) {
-    menuToggleButton.addEventListener('click', toggleMenu);
-  }
-  if (menuClose) {
-    menuClose.addEventListener('click', toggleMenu);
-  }
-}
+});
 
-/* Header */
 
-function header() {
-  handleSearchToggle();
-  handleMenuToggle();
-}
+document.addEventListener('DOMContentLoaded', function() {
 
-export default header;
+  // Menu button toggle
+  (function() {
+
+    var menuToggle = {
+      menuToggleButton: document.getElementById('toggle-menu'),
+      menuClose: document.getElementById('close-menu'),
+      nav: document.getElementById('header-navigation'),
+
+      doToggle: function(e) {
+        e.preventDefault();
+
+        if (this.menuToggleButton.hasAttribute("aria-expanded")) {
+          this.menuToggleButton.removeAttribute("aria-expanded")
+        } else {
+          this.menuToggleButton.setAttribute("aria-expanded", "true")
+        }
+
+        function toggleClass(ele, class1) {
+          var classes = ele.className;
+          var regex = new RegExp('\\b' + ' ' + class1 + '\\b');
+          var hasOne = classes.match(regex);
+          class1 = class1.replace(/\s+/g, '');
+          if (hasOne)
+            ele.className = classes.replace(regex, '');
+          else
+            ele.className = classes + ' ' + class1;
+        }
+
+        toggleClass(this.menuToggleButton, 'is-active');
+        toggleClass(this.nav, 'js-show');
+
+      }
+    };
+
+    if (menuToggle.menuToggleButton) { menuToggle.menuToggleButton.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
+    if (menuToggle.menuClose) { menuToggle.menuClose.addEventListener('click', function(e) { menuToggle.doToggle(e); }); }
+
+  }());
+
+});

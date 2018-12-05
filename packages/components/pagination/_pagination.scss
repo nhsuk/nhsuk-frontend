@@ -10,50 +10,16 @@
  */
 
 .nhsuk-pagination {
+  @include clearfix();
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
-}
-
-
-.nhsuk-pagination__list {
-  @include clearfix();
-}
-
-.nhsuk-pagination-item--previous {
-  float: left;
-  text-align: left;
-  width: 50%;
-
-  .nhsuk-icon {
-    left: -6px;
-  }
-
-  .nhsuk-pagination__title {
-    padding-left: nhsuk-spacing(5); /* [1] */
-  }
-
-}
-
-.nhsuk-pagination-item--next {
-  float: right;
-  text-align: right;
-  width: 50%;
-
-  .nhsuk-icon {
-    right: -6px;
-  }
-
-  .nhsuk-pagination__title {
-    padding-right: nhsuk-spacing(5); /* [1] */
-  }
-
 }
 
 .nhsuk-pagination__link {
   display: block;
   position: relative;
   text-decoration: none;
-  width: 100%;
+  width: 50%;
 
   @include mq($media-type: print) {
     color: $color_nhsuk-black;
@@ -72,12 +38,10 @@
 
   &:focus {
     box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
-    outline: 3px solid $nhsuk-link-focus-background-color;
   }
 
   &:hover {
     box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
-    outline: 3px solid $nhsuk-link-hover-background-color;
 
     .nhsuk-pagination__page {
       text-decoration: none;
@@ -100,6 +64,34 @@
       fill: $nhsuk-link-visited-color;
     }
 
+  }
+
+}
+
+.nhsuk-pagination__link--prev {
+  float: left;
+  text-align: left;
+
+  .nhsuk-icon {
+    left: -6px;
+  }
+
+  .nhsuk-pagination__title {
+    padding-left: nhsuk-spacing(5); /* [1] */
+  }
+
+}
+
+.nhsuk-pagination__link--next {
+  float: right;
+  text-align: right;
+
+  .nhsuk-icon {
+    right: -6px;
+  }
+
+  .nhsuk-pagination__title {
+    padding-right: nhsuk-spacing(5); /* [1] */
   }
 
 }
