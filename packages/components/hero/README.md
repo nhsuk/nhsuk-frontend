@@ -1,7 +1,5 @@
 # Hero
 
-Find out more about the hero component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/170).
 
 ## Quick start examples

@@ -1,7 +1,5 @@
 # List panel
 
-Find out more about the list panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/173).
 
 ## Quick start examples
