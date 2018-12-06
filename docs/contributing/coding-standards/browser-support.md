@@ -1,6 +1,11 @@
 # Browser support
 
-Currently, NHS.UK frontend supports the following browsers:
+NHS.UK frontend browser support is shown in the table below.
+
+'Compliant' means that components should look and function as they were designed to do in other modern browsers.
+
+'Functional' means that components may not look exactly as they were designed but must still function properly and be usable without any errors.
+
 
 | Operating system | Browser                                | Support     |
 |----------------- |----------------------------------------|-------------|
@@ -16,10 +21,6 @@ Currently, NHS.UK frontend supports the following browsers:
 | iOS              | Google Chrome (latest 2 versions)      | compliant   |
 | Android          | Google Chrome (latest 2 versions)      | compliant   |
 | Android          | Samsung Internet (latest 2 versions)   | compliant   |
-
-'Compliant' means that components should look and function as they were designed to do in other modern browsers.
-
-'Functional' means that components may not look exactly as they were designed but must still function properly and be usable without any errors.
 
 # Assistive technology support
 
