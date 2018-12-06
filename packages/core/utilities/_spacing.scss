@@ -21,11 +21,11 @@ $_spacing-directions: (
 // @param {String} $property - Property to add spacing to (e.g. 'margin')
 //
 // @example scss
-//   .nhsuk-\!-margin-0 {
+//   .nhsuk-u-margin-0 {
 //      margin: 0;
 //   }
 //
-//  .nhsuk-\!-margin-top-1 {
+//  .nhsuk-u-margin-top-1 {
 //     margin-top: [whatever spacing point 1 is...]
 //   }
 //
@@ -37,7 +37,7 @@ $_spacing-directions: (
   // [1] //
   @each $scale-point, $scale-map in $nhsuk-spacing-responsive-scale {
 
-    .nhsuk-\!-#{$property}-#{$scale-point} {
+    .nhsuk-u-#{$property}-#{$scale-point} {
 
       @include _nhsuk-responsive-spacing($scale-point, $property, 'all', true);
     }
@@ -45,7 +45,7 @@ $_spacing-directions: (
     // [2] //
     @each $direction in $_spacing-directions {
 
-      .nhsuk-\!-#{$property}-#{$direction}-#{$scale-point} {
+      .nhsuk-u-#{$property}-#{$direction}-#{$scale-point} {
         @include _nhsuk-responsive-spacing($scale-point, $property, $direction, true);
       }
     }
