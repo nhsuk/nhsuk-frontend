@@ -1,5 +1,11 @@
 # NHS.UK Frontend Changelog
 
+## 0.5.0 (Prerelease) - TBC
+
+:wrench: **Fixes**
+
+- Footer - Add the ability to change the link of the NHS logo within the nunjucks macro with `homeHref` argument. Also have the logo show by default with the ability to hide it using the `showLogo` argument.
+
 ## 0.4.0 (Prerelease) - Dec 03, 2018
 
 :boom: **Breaking changes**
