@@ -1,10 +1,17 @@
 # NHS.UK Frontend Changelog
 
-## 0.5.0 (Prerelease) - TBC
+## 0.5.0 (Prerelease) - Dec 07, 2018
+
+:boom: **Breaking changes**
+
+- Utility classes - Utility classes should be prefixed with `nhsuk-u` rather than `nhsuk-\!`. ([PR 282](https://github.com/nhsuk/nhsuk-frontend/pull/282))
+
+  If you are using any utility classes in your HTML, such as spacing, width or typography overrides, you need to update your HTML classes from
+  `nhsuk-\!` to `nhsuk-u`.
 
 :wrench: **Fixes**
 
-- Footer - Add the ability to change the link of the NHS logo within the nunjucks macro with `homeHref` argument. Also have the logo show by default with the ability to hide it using the `showLogo` argument.
+- Footer - Add the ability to change the link of the NHS logo within the nunjucks macro with `homeHref` argument. Also have the logo show by default with the ability to hide it using the `showLogo` argument. ([PR 278](https://github.com/nhsuk/nhsuk-frontend/pull/278))
 
 ## 0.4.0 (Prerelease) - Dec 03, 2018
 
