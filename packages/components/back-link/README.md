@@ -27,7 +27,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/back-link/macro.njk' import backLink %}
 
 {{ backLink({
-  "href": "#"
+  "href": "#",
   "text": "Go back"
 }) }}
 ```
