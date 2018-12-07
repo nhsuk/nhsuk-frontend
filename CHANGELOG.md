@@ -4,10 +4,12 @@
 
 :boom: **Breaking changes**
 
-- Utility classes - Utility classes should be prefixed with `nhsuk-u` rather than `nhsuk-\!`. ([PR 282](https://github.com/nhsuk/nhsuk-frontend/pull/282))
+- Utility classes - Utility classes should be prefixed with `nhsuk-u-` rather than `nhsuk-!-`. ([PR 282](https://github.com/nhsuk/nhsuk-frontend/pull/282))
 
   If you are using any utility classes in your HTML, such as spacing, width or typography overrides, you need to update your HTML classes from
-  `nhsuk-\!` to `nhsuk-u`.
+  `nhsuk-!-` to `nhsuk-u-`.
+
+  You can find out more about utility class usage in the [utility class documentation](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/core#utilities).
 
 :wrench: **Fixes**
 
