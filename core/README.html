@@ -86,11 +86,7 @@
     <h1 id="core">Core</h1>
 <p>Core contains all the building blocks (page layout and the responsive grid) and fundamental styles (such as colours and typography) needed for NHS websites and services. These styles are required for all of the components to work.</p>
 <p>Core also is the home of powerful <code>sass</code> features such as variables, mixins, functions and maps.</p>
-<h2 id="breakpoints">Breakpoints</h2>
-<pre><code>mobile: 320px
-tablet: 641px
-desktop: 769px
-large-desktop: 990px</code></pre><h2 id="page-layout">Page layout</h2>
+<h2 id="page-layout">Page layout</h2>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-width-container&quot;&gt;
   &lt;main class=&quot;nhsuk-main-wrapper&quot; id=&quot;maincontent&quot;&gt;
     &lt;!-- Grid items --&gt;
@@ -193,9 +189,38 @@ custom widths on all screen sizes.</p>
 <h3 id="visually-hidden">Visually hidden</h3>
 <p>Hide elements visually but keep it in the DOM, useful for screen readers.</p>
 <pre><code class="language-html">&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;&lt;/span&gt;</code></pre>
-<h2 id="variables-sass-">Variables (Sass)</h2>
-<h3 id="colours">Colours</h3>
-<h4 id="primary">Primary</h4>
+<h2 id="breakpoints">Breakpoints</h2>
+<pre><code>mobile: 320px
+tablet: 641px
+desktop: 769px
+large-desktop: 990px</code></pre><h3 id="media-queries-using-sass-mq-">Media queries (using <a href="https://github.com/sass-mq/sass-mq">sass-mq</a>)</h3>
+<p><code>mq()</code> is a Sass mixin that helps you compose media queries in an elegant way.</p>
+<p><code>mq()</code> takes up to three optional parameters:</p>
+<ul>
+<li><code>$from</code>: inclusive <code>min-width</code> boundary</li>
+<li><code>$until</code>: exclusive <code>max-width</code> boundary</li>
+<li><code>$and</code>: additional custom directives</li>
+</ul>
+<pre><code class="language-scss">.responsive {
+  // Apply styling to mobile and upwards
+  @include mq($from: mobile) {
+    color: red;
+  }
+  // Apply styling up to devices smaller than tablets (exclude tablets)
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  // Same thing, in landscape orientation
+  @include mq($until: tablet, $and: &#39;(orientation: landscape)&#39;) {
+    color: green;
+  }
+  // Apply styling to print media
+  @include mq($media-type: print) {
+    color: orange;
+  }
+}</code></pre>
+<h2 id="colour-variables">Colour variables</h2>
+<h3 id="primary">Primary</h3>
 <pre><code class="language-scss">$color_nhsuk-blue: #005eb8;
 $color_nhsuk-white: #ffffff;
 $color_nhsuk-black: #212b32;
@@ -203,11 +228,11 @@ $color_nhsuk-green: #007f3b;
 $color_nhsuk-red: #da291c;
 $color_nhsuk-yellow: #ffeb3b;
 $color_nhsuk-purple: #330072;</code></pre>
-<h4 id="secondary">Secondary</h4>
+<h3 id="secondary">Secondary</h3>
 <pre><code class="language-scss">$color_nhsuk-pale-yellow: #fff9c4;
 $color_nhsuk-warm-yellow: #ffb81C;
 $color_nhsuk-aqua-green: #00A499;</code></pre>
-<h4 id="greyscale">Greyscale</h4>
+<h3 id="greyscale">Greyscale</h3>
 <pre><code class="language-scss">$color_nhsuk-grey-1: #425563;
 $color_nhsuk-grey-2: #768692;
 $color_nhsuk-grey-3: #aeb7bd;
