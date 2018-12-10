@@ -14,18 +14,16 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a href="/level-one" class="nhsuk-breadcrumb__link">Level one</a></li>
-      <li class="nhsuk-breadcrumb__item"><a href="/level-one/level-two" class="nhsuk-breadcrumb__link">Level two</a></li>
+      <li class="nhsuk-breadcrumb__item"><a href="/level-one" class="nhsuk-breadcrumb__link">Level one</a> </li>
+      <li class="nhsuk-breadcrumb__item"><a href="/level-one/level-two" class="nhsuk-breadcrumb__link">Level two</a> </li>
       <li class="nhsuk-breadcrumb__item"><a href="/level-one/level-two/level-three" class="nhsuk-breadcrumb__link">Level three</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a href="/level-one/level-two/level-three" class="nhsuk-breadcrumb__backlink">Level three</a></p>
+    <p class="nhsuk-breadcrumb__back"><a href="/level-one/level-two/level-three" class="nhsuk-breadcrumb__backlink">Back to Level three</a></p>
   </div>
 </nav>
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
@@ -46,7 +44,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 If you are using Nunjucks, then macros take the following arguments:
 

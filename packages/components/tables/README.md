@@ -28,7 +28,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
         <td class="nhsuk-table__cell ">eczema</td>
-      </tr>  
+      </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">Itchy blisters</td>
         <td class="nhsuk-table__cell ">shingles, chickenpox</td>
@@ -39,8 +39,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -96,7 +94,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 <div class="nhsuk-table__panel-with-heading-tab">
   <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
   <div class="nhsuk-table-responsive">
-    <table class="nhsuk-table">  
+    <table class="nhsuk-table">
       <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
       <thead class="nhsuk-table__head">
         <tr class="nhsuk-table__row">
@@ -124,8 +122,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -172,7 +168,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The table Nunjucks macro takes the following arguments:
 
