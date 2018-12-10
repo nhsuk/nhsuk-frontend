@@ -4,15 +4,6 @@ Core contains all the building blocks (page layout and the responsive grid) and 
 
 Core also is the home of powerful `sass` features such as variables, mixins, functions and maps.
 
-## Breakpoints
-
-```
-mobile: 320px
-tablet: 641px
-desktop: 769px
-large-desktop: 990px
-```
-
 ## Page layout
 
 ```html
@@ -211,11 +202,49 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 <span class="nhsuk-u-visually-hidden"></span>
 ```
 
-## Variables (Sass)
+## Breakpoints
 
-### Colours
+```
+mobile: 320px
+tablet: 641px
+desktop: 769px
+large-desktop: 990px
+```
 
-#### Primary
+### Media queries (using [sass-mq](https://github.com/sass-mq/sass-mq))
+
+`mq()` is a Sass mixin that helps you compose media queries in an elegant way.
+
+`mq()` takes up to three optional parameters:
+
+- `$from`: inclusive `min-width` boundary
+- `$until`: exclusive `max-width` boundary
+- `$and`: additional custom directives
+
+```scss
+.responsive {
+  // Apply styling to mobile and upwards
+  @include mq($from: mobile) {
+    color: red;
+  }
+  // Apply styling up to devices smaller than tablets (exclude tablets)
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  // Same thing, in landscape orientation
+  @include mq($until: tablet, $and: '(orientation: landscape)') {
+    color: green;
+  }
+  // Apply styling to print media
+  @include mq($media-type: print) {
+    color: orange;
+  }
+}
+```
+
+## Colour variables
+
+### Primary
 
 ```scss
 $color_nhsuk-blue: #005eb8;
@@ -227,7 +256,7 @@ $color_nhsuk-yellow: #ffeb3b;
 $color_nhsuk-purple: #330072;
 ```
 
-#### Secondary
+### Secondary
 
 ```scss
 $color_nhsuk-pale-yellow: #fff9c4;
@@ -235,7 +264,7 @@ $color_nhsuk-warm-yellow: #ffb81C;
 $color_nhsuk-aqua-green: #00A499;
 ```
 
-#### Greyscale
+### Greyscale
 
 ```scss
 $color_nhsuk-grey-1: #425563;
