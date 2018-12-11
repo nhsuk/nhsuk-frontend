@@ -1,13 +1,16 @@
 {
   "name": "nhsuk-frontend",
-  "version": "0.5.0",
+  "version": "0.1.6",
   "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint-css",
+    "docker-compose": "docker-compose up",
+    "test:cypress": "npm start & npm run cypress",
+    "cypress": "cypress run --project ./tests",
+    "test": "npm run lint-css & npm run docker-compose & npm start & npm run cypress & npm run backstop:test",
     "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
@@ -22,10 +25,11 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "axe-core": "^3.1.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "backstopjs": "^3.8.4",
-    "event-stream": "^3.3.4",
+    "cypress": "^3.1.2",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
