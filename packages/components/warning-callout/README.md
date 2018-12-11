@@ -14,7 +14,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__heading-tab">Important</h3>
+  <h3 class="nhsuk-warning-callout__label">Important</h3>
   <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 </div>
 ```
@@ -32,7 +32,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The warning callout Nunjucks macro takes the following arguments:
 

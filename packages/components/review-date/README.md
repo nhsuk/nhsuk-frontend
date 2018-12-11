@@ -21,8 +21,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```html
 {% from 'components/review-date/macro.njk' import reviewDate %}
 
