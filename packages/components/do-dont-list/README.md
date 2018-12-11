@@ -15,7 +15,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-do-dont-list">
   <h3 class="nhsuk-do-dont-list__tab-heading">Do</h3>
-  <ul class="nhsuk-list nhsuk-list--check">
+  <ul class="nhsuk-list nhsuk-list--tick">
     <li>
     <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
@@ -119,10 +119,11 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 If you are using Nunjucks, then macros take the following arguments:
 
-| Name         | Type     | Required  | Description |
-| -------------|----------|-----------|-------------|
-| title        | string   | Yes       | Title to be displayed on the do and don't list component. |
-| type         | string   | Yes       | Type of do and don't list component, "cross", "tick" |
-| items        | array    | Yes       | Items to be displayed within the do and don't list component |
-| classes      | string   | No        | Optional additional classes to add to the do and dont list container. Separate each class with a space. |
-| attributes   | object   | No        | Any extra HTML attributes (for example data attributes) to add to the do and don't list container. |
+| Name              | Type     | Required  | Description |
+| ------------------|----------|-----------|-------------|
+| **title**         | string   | Yes       | Title to be displayed on the do and don't list component. |
+| **type**          | string   | Yes       | Type of do and don't list component, "cross", "tick" |
+| **items**         | array    | Yes       | Items to be displayed within the do and don't list component |
+| **headingLevel**  | integer  | No        | Optional heading level for the title heading. Default: 3 |
+| **classes**       | string   | No        | Optional additional classes to add to the do and don't list container. Separate each class with a space. |
+| **attributes**    | object   | No        | Any extra HTML attributes (for example data attributes) to add to the do and don't list container. |

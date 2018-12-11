@@ -2,43 +2,39 @@
 
 NHS.UK Frontend contains all the code you need to start building user interfaces for NHS websites and services.
 
-You can see examples of components, and guidance on when to use them, in the [NHS digital service manual](https://beta.nhs.uk/service-manual).
+Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for examples of components and guidance for when to use them.
 
-## Using NHS.UK Frontend
+## How to install NHS.UK Frontend
 
-There are 2 ways you can start using NHS.UK Frontend in your websites and services.
+### 1. Install with package managers
 
-### 1. Install with package managers (recommended)
+We recommend that you [install NHS.UK Frontend using node package manager (npm)](/docs/installation/installing-with-npm.md).
 
-We recommend installing NHS.UK Frontend via package managers; node package manager (npm), yarn, or the Python Package Index (PyPi).
-
-+ [Installing using npm](/docs/installation/installing-with-npm.md)
-+ Installing using yarn (available soon)
-+ Installing using PyPi (available soon)
+Other package managers will become available in early 2019, such as yarn and Python Package Index (PyPi).
 
 ### 2. Install by using compiled files
 
-If you are not using one of the above package managers, you can install by using our compiled files.
+You can also [install NHS.UK Frontend using our compiled files](/docs/installation/installing-compiled.md), if you are not currently using a package manager.
 
-+ [Installing using compiled files](/docs/installation/installing-compiled.md)
+## Browsers and assistive technology
 
-## Browser support
-Please see our [browser support information](/docs/contributing/coding-standards/browser-support.md) to see which browsers NHS.UK Frontend supports.
+Visit our [support for browsers and assistive technology](/docs/contributing/coding-standards/browser-support.md), for details on operating systems and software.
 
-## Contributing
+## Contribute
 
-Please see our [contributing guidelines](/docs/contributing/README.md) on how to set up the project locally and contribute changes to NHS.UK Frontend.
+[Contribute to NHS.UK Frontend](/docs/contributing/README.md) by following our guidelines.
 
-**Special thanks to the following for their contributions:**
+We created this library with help from:
 
 - [Government Digital Service (GDS)](https://github.com/alphagov/)
 - [Harry Roberts (csswizardry)](https://github.com/csswizardry)
 - [Phil Sherry](https://github.com/philsherry)
+- [Caroline Jarrett](https://twitter.com/cjforms)
 
 ## Get in touch
 
-NHS.UK Frontend is actively maintained by a team at NHS Digital, you can contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [send us an email](mailto:nhsdigital.nhsuk-frontend@nhs.net).
+NHS.UK Frontend is maintained by NHS Digital. Email [nhsdigital.nhsuk-frontend@nhs.net](mailto:nhsdigital.nhsuk-frontend@nhs.net), or open a [Github issue](https://github.com/nhsuk/nhsuk-frontend/issues/new/choose).
 
 ## Licence
 
-Unless stated otherwise, the codebase is released under the MIT License. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
+The codebase is released under the MIT License, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.

@@ -6,14 +6,14 @@
  * Font size and line height
  *
  * Generate typography override classes for each responsive font map in the
- * typography scale eg .nhsuk-\!-font-size-48
+ * typography scale eg .nhsuk-u-font-size-48
  *
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  */
 
 @each $size in map-keys($nhsuk-typography-scale) {
-  .nhsuk-\!-font-size-#{$size} {
+  .nhsuk-u-font-size-#{$size} {
     @include nhsuk-typography-responsive($size, $important: true);
   }
 }

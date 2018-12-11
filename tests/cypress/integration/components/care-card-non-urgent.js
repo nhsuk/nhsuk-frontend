@@ -10,26 +10,25 @@ describe('care-card non-urgent component tests', function () {
   });
 
   it('Checking for nhsuk-care-card class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--primary')
+    cy.get('.nhsuk-care-card')
   });
 
   it('Checking for nhsuk-care-card__heading-container class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--primary').children()
+    cy.get('.nhsuk-care-card').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
   });
 
   it('Checking for nhsuk-care-card__heading class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--primary').children().children()
+    cy.get('.nhsuk-care-card').children().children()
       .should('have.class', 'nhsuk-care-card__heading')
   });
 
   it('Checking for visually hidden class', function () {
-    cy.get('.nhsuk-care-card__heading').children()
-      .should('have.class', 'nhsuk-u-visually-hidden', 'Non-urgent advice: ')
+    cy.get('.nhsuk-u-visually-hidden')
   });
 
   it('Checking for nhsuk-care-card__content class ', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--primary').children()
+    cy.get('.nhsuk-care-card__heading-container').siblings()
       .should('have.class', 'nhsuk-care-card__content')
   });
 
@@ -42,6 +41,11 @@ describe('care-card non-urgent component tests', function () {
   it('Checking font', function () {
     cy.get('.nhsuk-care-card__content')
       .should('have.css', 'font-family').and('eq', '"Frutiger W01", Helvetica, Arial, sans-serif')
+  });
+
+  it('checking for nhsuk-care-card__arrow and aria status', function () {
+    cy.get('.nhsuk-care-card__arrow')
+      .should('have.attr', 'aria-hidden', 'true')
   });
 });
 

@@ -1,0 +1,11 @@
+{#- Define common attributes that we can use across all element types #}
+
+{%- set commonAttributes %} class="nhsuk-button{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} nhsuk-button--disabled{% endif %}"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}{% endset %}
+
+{#- Define common attributes we can use for both button and input types #}
+
+{%- set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"{% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}{% endset %}
+
+<button {%- if params.value %} value="{{ params.value }}"{% endif %} {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
+  {{ params.html | safe if params.html else params.text }}
+</button>

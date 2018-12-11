@@ -1,0 +1,82 @@
+/* ==========================================================================
+   COMPONENTS/ #FIELDSET
+   ========================================================================== */
+
+/**
+ * 1. Fix legend text wrapping in Edge and IE versions:
+ * 2. IE9-11 & Edge 12-13
+ * 3. and IE8-11
+ * 4. Hack to let legends or elements within legends have margins in webkit browsers.
+ * 5. When the legend contains an H1, we want the H1 to inherit all styles from
+ *    the legend. Effectively we want to be able to treat the heading as if it is
+ *    not there.
+ */
+
+.nhsuk-fieldset {
+  @include clearfix;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.nhsuk-fieldset__legend {
+  @include nhsuk-font(19);
+
+  box-sizing: border-box; /* 1 */
+  color: $color_nhsuk-black;
+  display: table; /* 2 */
+  margin-bottom: nhsuk-spacing(2);
+  max-width: 100%; /* 1 */
+  overflow: hidden;
+  padding: 0;
+  white-space: normal;    /* 4 */
+}
+
+/* Heading modifiers */
+
+.nhsuk-fieldset__legend--xl {
+  @include nhsuk-typography-responsive(48);
+
+  display: block;
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(7, 'bottom');
+}
+
+.nhsuk-fieldset__legend--l {
+  @include nhsuk-typography-responsive(32);
+
+  display: block;
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(5, 'bottom');
+}
+
+.nhsuk-fieldset__legend--m {
+  @include nhsuk-typography-responsive(24);
+
+  display: block;
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
+}
+
+.nhsuk-fieldset__legend--s {
+  @include nhsuk-typography-responsive(19);
+
+  display: block;
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-responsive-margin(4, 'bottom');
+}
+
+.nhsuk-fieldset__heading { /* 5 */
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}

@@ -1,7 +1,5 @@
 # Hero
 
-Find out more about the hero component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/170).
 
 ## Quick start examples
@@ -18,8 +16,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
         <div class="nhsuk-hero__wrapper">
-          <h1 class="nhsuk-!-margin-bottom-3">We’re here for you</h1>
-          <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
+          <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
+          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
         </div>
       </div>
     </div>
@@ -53,8 +51,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-hero-content">
-            <h1 class="nhsuk-!-margin-bottom-3">We’re here for you</h1>
-            <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
+            <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
           </div>
         </div>
       </div>

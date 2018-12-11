@@ -15,7 +15,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-care-card">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Non-urgent care: </span>Speak to a GP if:</h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -37,7 +38,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/care-card/macro.njk' import careCard %}
 
 {{ careCard({
-  "type": "primary",
+  "type": "non-urgent",
   "heading": "Speak to a GP if:",
   "HTML": "
   <ul>
@@ -53,15 +54,16 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 #### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments: 
+The non-urgent care card Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| type                | string   | Yes       | Care card component variant types: "primary", "emergency", "urgent" |
-| heading             | string   | Yes       | Heading to be used within the care card component |
-| HTML                | string   | Yes       | Content to be used within the care card component |
-| classes             | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
-| attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
+| Name                    | Type     | Required  | Description  |
+| ------------------------|----------|-----------|--------------|
+| **type**                | string   | Yes       | Care card component variant type - "non-urgent" |
+| **heading**             | string   | Yes       | Heading to be used within the care card component |
+| **HTML**                | string   | Yes       | Content to be used within the care card component |
+| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
+| **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
 
 ### Care card urgent (red)
 
@@ -72,7 +74,8 @@ If you are using Nunjucks, then macros take the following arguments:
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--urgent">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Urgent care low: </span>Ask for an urgent GP appointment if:</h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -109,26 +112,29 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 #### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments: 
+The urgent care card Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| type                | string   | Yes       | Care card component variant types: "primary", "emergency", "urgent" |
-| heading             | string   | Yes       | Heading to be used within the care card component |
-| HTML                | string   | Yes       | Content to be used within the care card component |
-| classes             | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
-| attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
+| Name                    | Type     | Required  | Description  |
+| ------------------------|----------|-----------|--------------|
+| **type**                | string   | Yes       | Care card component variant type - "urgent" |
+| **heading**             | string   | Yes       | Heading to be used within the care card component |
+| **HTML**                | string   | Yes       | Content to be used within the care card component |
+| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
+| **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
 
-### Care card emergency (red and black)
 
-[Preview care card emergency (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
+### Care card immediate (red and black)
+
+[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-care-card nhsuk-care-card--emergency">
+<div class="nhsuk-care-card nhsuk-care-card--immediate">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden">Urgent care high: </span>Call 999 if you have sudden chest pain that:</h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
     <ul>
@@ -149,7 +155,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/care-card/macro.njk' import careCard %}
 
 {{ careCard({
-  "type": "emergency",
+  "type": "immediate",
   "heading": "Call 999 if you have sudden chest pain that:",
   "HTML": "
   <ul>
@@ -163,12 +169,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 ```
 #### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments: 
+The immediate care card Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| type                | string   | Yes       | Care card component variant types: "primary", "emergency", "urgent" |
-| heading             | string   | Yes       | Heading to be used within the care card component |
-| HTML                | string   | Yes       | Content to be used within the care card component |
-| classes             | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
-| attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
+| Name                    | Type     | Required  | Description  |
+| ------------------------|----------|-----------|--------------|
+| **type**                | string   | Yes       | Care card component variant type - "immediate" |
+| **heading**             | string   | Yes       | Heading to be used within the care card component |
+| **HTML**                | string   | Yes       | Content to be used within the care card component |
+| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
+| **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
+| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |

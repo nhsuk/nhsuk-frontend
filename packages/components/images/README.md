@@ -1,7 +1,5 @@
 # Images
 
-Find out more about the images component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/171).
 
 ## Quick start examples

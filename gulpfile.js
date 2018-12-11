@@ -62,7 +62,8 @@ function compileJS() {
       'packages/components/header/nhs.typeahead.js',
       'packages/components/header/header.js',
       'packages/components/feedback-banner/feedback-banner.js',
-      'packages/components/skip-link/skip-link.js'
+      'packages/components/skip-link/skip-link.js',
+      'packages/components/details/details.js'
     ])
     .pipe(concat('nhsuk.js'))
     .pipe(gulp.dest('dist/'));

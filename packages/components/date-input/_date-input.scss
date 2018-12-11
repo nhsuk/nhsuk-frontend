@@ -1,0 +1,27 @@
+/* ==========================================================================
+   COMPONENTS/ #DATE-INPUT
+   ========================================================================== */
+
+/**
+ * 1. font-size: 0 removes whitespace caused by inline-block
+ */
+
+.nhsuk-date-input {
+  @include clearfix;
+
+  font-size: 0; /* 1 */
+}
+
+.nhsuk-date-input__item {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: nhsuk-spacing(4);
+}
+
+.nhsuk-date-input__label {
+  display: block;
+}
+
+.nhsuk-date-input__input {
+  margin-bottom: 0;
+}
