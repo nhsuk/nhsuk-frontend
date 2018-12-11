@@ -38,7 +38,7 @@
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
@@ -95,7 +95,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
 <pre><code class="language-html">&lt;details class=&quot;nhsuk-details&quot;&gt;
   &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-0&quot; aria-expanded=&quot;false&quot;&gt;
     &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
-      Where can I find my NHS number?
+    Where can I find my NHS number?
     &lt;/span&gt;
   &lt;/summary&gt;
   &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-0&quot; aria-hidden=&quot;true&quot;&gt;
@@ -132,12 +132,12 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/expander.html">Preview the expander component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
-  &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-1&quot; aria-expanded=&quot;false&quot;&gt;
+  &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-0&quot; aria-expanded=&quot;false&quot;&gt;
     &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
-      Opening times
+    Opening times
     &lt;/span&gt;
   &lt;/summary&gt;
-  &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-1&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-0&quot; aria-hidden=&quot;true&quot;&gt;
     &lt;table&gt;
       &lt;tbody&gt;
         &lt;tr&gt;
@@ -220,53 +220,17 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
       &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>If you are using Nunjucks, then macros take the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>text</td>
-<td>string</td>
-<td>Yes</td>
-<td>Text to be displayed on the details component.</td>
-</tr>
-<tr>
-<td>HTML</td>
-<td>string</td>
-<td>Yes</td>
-<td>HTML content to be displayed within the details component</td>
-</tr>
-<tr>
-<td>classes</td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the anchor tag. Separate each class with a space.</td>
-</tr>
-<tr>
-<td>attributes</td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the anchor tag.</td>
-</tr>
-</tbody></table>
-<h3 id="expander-group">Expander group</h3>
+}) }}</code></pre><h3 id="expander-group">Expander group</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/expander-group.html">Preview this component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-expander-group&quot;&gt;
   &lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
-    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-2&quot; aria-expanded=&quot;false&quot;&gt;
+    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-0&quot; aria-expanded=&quot;false&quot;&gt;
       &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
       How to measure your blood glucose levels
       &lt;/span&gt;
     &lt;/summary&gt;
-    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-2&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-0&quot; aria-hidden=&quot;true&quot;&gt;
       &lt;p&gt;Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.&lt;/p&gt;
       &lt;p&gt;You would have been given:&lt;/p&gt;
       &lt;ul&gt;
@@ -277,14 +241,13 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
       &lt;/ul&gt;
     &lt;/div&gt;
   &lt;/details&gt;
-
   &lt;details class=&quot;nhsuk-details nhsuk-expander&quot;&gt;
-    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-3&quot; aria-expanded=&quot;false&quot;&gt;
+    &lt;summary class=&quot;nhsuk-details__summary&quot; role=&quot;button&quot; aria-controls=&quot;details-content-1&quot; aria-expanded=&quot;false&quot;&gt;
       &lt;span class=&quot;nhsuk-details__summary-text&quot;&gt;
       When to check your blood glucose level
       &lt;/span&gt;
     &lt;/summary&gt;
-    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-3&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;nhsuk-details__text&quot; id=&quot;details-content-1&quot; aria-hidden=&quot;true&quot;&gt;
       &lt;p&gt;Try to check your blood:&lt;/p&gt;
       &lt;ul&gt;
         &lt;li&gt;before meals&lt;/li&gt;
@@ -327,7 +290,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
     &lt;p&gt;This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.&lt;/p&gt;
     &quot;
   }) }}
-&lt;/div&gt;</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+&lt;/div&gt;</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>If you are using Nunjucks, then macros take the following arguments:</p>
 <table>
 <thead>

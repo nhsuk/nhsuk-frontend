@@ -38,7 +38,7 @@
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
@@ -122,7 +122,13 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
           &lt;form id=&quot;search&quot; class=&quot;nhsuk-header__search-form&quot; action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
             &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
-            &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot; name=&quot;search-field&quot; type=&quot;search&quot;&gt;
+            &lt;span class=&quot;twitter-typeahead&quot; style=&quot;position: relative; display: inline-block;&quot;&gt;
+              &lt;input class=&quot;nhsuk-search__input nhsuk-search__input--shadow nhsuk-u-visually-hidden&quot; autocomplete=&quot;off&quot; type=&quot;search&quot; readonly=&quot;&quot; spellcheck=&quot;false&quot; tabindex=&quot;-1&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot; style=&quot;position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);&quot;&gt;&lt;input class=&quot;nhsuk-search__input tt-input&quot; id=&quot;search-field&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot; name=&quot;search-field&quot; type=&quot;search&quot; spellcheck=&quot;false&quot; dir=&quot;auto&quot; aria-owns=&quot;search-field_listbox&quot; role=&quot;textbox&quot; aria-readonly=&quot;true&quot; aria-autocomplete=&quot;list&quot; style=&quot;position: relative; vertical-align: top; background-color: transparent;&quot;&gt;&lt;span role=&quot;status&quot; aria-live=&quot;polite&quot; style=&quot;position: absolute; padding: 0px; border: 0px; height: 1px; width: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap;&quot;&gt;&lt;/span&gt;
+              &lt;pre aria-hidden=&quot;true&quot; style=&quot;position: absolute; visibility: hidden; white-space: pre; font-family: &amp;quot;Frutiger W01&amp;quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;&quot;&gt;&lt;/pre&gt;
+              &lt;div id=&quot;search-field_listbox&quot; role=&quot;listbox&quot; class=&quot;suggestions-menu&quot; style=&quot;position: absolute; top: 100%; left: 0px; z-index: 100; display: none;&quot;&gt;
+                &lt;div role=&quot;presentation&quot; class=&quot;suggestions-wrapper suggestions-wrapper--suggestions&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/span&gt;
             &lt;button type=&quot;submit&quot; class=&quot;nhsuk-search__submit&quot;&gt;
               &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
                 &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
@@ -155,7 +161,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Home
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -163,7 +169,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/conditions&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Health A-Z
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -171,7 +177,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/live-well/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Live Well
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -179,7 +185,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/conditions/social-care-and-support/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Care and support
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -187,7 +193,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/news/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Health news
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -195,7 +201,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/service-search&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Services near you
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -203,7 +209,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/nav&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -232,55 +237,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
       }
     ]
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The header Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; to show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; to show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks</strong></td>
-<td>array</td>
-<td>No</td>
-<td>Array of navigation links.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].url</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the navigation link.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].label</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The label of the navigation link.</td>
-</tr>
-</tbody></table>
-<h3 id="header-with-navigation">Header with navigation</h3>
+}}</code></pre><h3 id="header-with-navigation">Header with navigation</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-navigation.html">Preview the header with navigation component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;header class=&quot;nhsuk-header&quot; role=&quot;banner&quot;&gt;
@@ -315,7 +272,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Home
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -323,7 +280,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/conditions&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Health A-Z
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -331,7 +288,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/live-well/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Live Well
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -339,7 +296,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/conditions/social-care-and-support/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Care and support
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -347,7 +304,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/news/&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Health news
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -355,7 +312,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;a href=&quot;https://www.nhs.uk/service-search&quot; class=&quot;nhsuk-header__navigation-link&quot;&gt;
           Services near you
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;/&gt;
+            &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -363,7 +320,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/nav&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -392,61 +348,13 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
       }
     ]
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The header with navigation Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; to show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks</strong></td>
-<td>array</td>
-<td>No</td>
-<td>Array of navigation links.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].url</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the navigation link.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].label</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The label of the navigation link.</td>
-</tr>
-</tbody></table>
-<h3 id="header-with-search">Header with search</h3>
+}}</code></pre><h3 id="header-with-search">Header with search</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-search.html">Preview the header with search component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;header class=&quot;nhsuk-header&quot; role=&quot;banner&quot;&gt;
   &lt;div class=&quot;nhsuk-width-container nhsuk-header__container&quot;&gt;
     &lt;div class=&quot;nhsuk-header__logo&quot;&gt;
-      &lt;a href=&quot;/&quot; class=&quot;nhsuk-header__link&quot; aria-label=&quot;NHS homepage&quot;&gt;
+      &lt;a href=&quot;/&quot; class=&quot;nhsuk-header__link &quot; aria-label=&quot;NHS homepage&quot;&gt;
         &lt;svg class=&quot;nhsuk-logo nhsuk-logo--white&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; role=&quot;presentation&quot; focusable=&quot;false&quot; viewBox=&quot;0 0 40 16&quot;&gt;
           &lt;path fill=&quot;#fff&quot; d=&quot;M0 0h40v16H0z&quot;&gt;&lt;/path&gt;
           &lt;path fill=&quot;#005eb8&quot; d=&quot;M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6&quot;&gt;&lt;/path&gt;
@@ -465,7 +373,13 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
           &lt;form id=&quot;search&quot; class=&quot;nhsuk-header__search-form&quot; action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
             &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
-            &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot; name=&quot;search-field&quot; type=&quot;search&quot;&gt;
+            &lt;span class=&quot;twitter-typeahead&quot; style=&quot;position: relative; display: inline-block;&quot;&gt;
+              &lt;input class=&quot;nhsuk-search__input nhsuk-search__input--shadow nhsuk-u-visually-hidden&quot; autocomplete=&quot;off&quot; type=&quot;search&quot; readonly=&quot;&quot; spellcheck=&quot;false&quot; tabindex=&quot;-1&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot; style=&quot;position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);&quot;&gt;&lt;input class=&quot;nhsuk-search__input tt-input&quot; id=&quot;search-field&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot; name=&quot;search-field&quot; type=&quot;search&quot; spellcheck=&quot;false&quot; dir=&quot;auto&quot; aria-owns=&quot;search-field_listbox&quot; role=&quot;textbox&quot; aria-readonly=&quot;true&quot; aria-autocomplete=&quot;list&quot; style=&quot;position: relative; vertical-align: top; background-color: transparent;&quot;&gt;&lt;span role=&quot;status&quot; aria-live=&quot;polite&quot; style=&quot;position: absolute; padding: 0px; border: 0px; height: 1px; width: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap;&quot;&gt;&lt;/span&gt;
+              &lt;pre aria-hidden=&quot;true&quot; style=&quot;position: absolute; visibility: hidden; white-space: pre; font-family: &amp;quot;Frutiger W01&amp;quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;&quot;&gt;&lt;/pre&gt;
+              &lt;div id=&quot;search-field_listbox&quot; role=&quot;listbox&quot; class=&quot;suggestions-menu&quot; style=&quot;position: absolute; top: 100%; left: 0px; z-index: 100; display: none;&quot;&gt;
+                &lt;div role=&quot;presentation&quot; class=&quot;suggestions-wrapper suggestions-wrapper--suggestions&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/span&gt;
             &lt;button type=&quot;submit&quot; class=&quot;nhsuk-search__submit&quot;&gt;
               &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
                 &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
@@ -485,7 +399,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -514,55 +427,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
       }
     ]
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The header with search Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; to show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks</strong></td>
-<td>array</td>
-<td>No</td>
-<td>Array of navigation links.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].url</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the navigation link.</td>
-</tr>
-<tr>
-<td><strong>primaryLinks.[].label</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The label of the navigation link.</td>
-</tr>
-</tbody></table>
-<h3 id="header-with-logo">Header with logo</h3>
+}}</code></pre><h3 id="header-with-logo">Header with logo</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-logo.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header&quot; role=&quot;banner&quot;&gt;
@@ -579,44 +444,13 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
   &quot;showNav&quot;: &quot;false&quot;,
   &quot;showSearch&quot;: &quot;false&quot;
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The header with logo Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-</tbody></table>
-<h3 id="header-with-logo-transactional-header-">Header with logo (transactional header)</h3>
+}}</code></pre><h3 id="header-with-logo-transactional-header-">Header with logo (transactional header)</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-transactional.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header nhsuk-header--transactional&quot; role=&quot;banner&quot;&gt;
@@ -633,7 +467,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -641,43 +474,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &quot;showNav&quot;: &quot;false&quot;,
   &quot;showSearch&quot;: &quot;false&quot;
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The transactional header with logo macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>transactional</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; to show the transactional header with logo.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-</tbody></table>
-<h3 id="header-transactional-with-service-name">Header transactional with service name</h3>
+}}</code></pre><h3 id="header-transactional-with-service-name">Header transactional with service name</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-transactional-service-name.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header nhsuk-header--transactional&quot; role=&quot;banner&quot;&gt;
@@ -697,7 +494,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -708,55 +504,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
     &quot;showNav&quot;: &quot;false&quot;,
     &quot;showSearch&quot;: &quot;false&quot;
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The transactional header with service name macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>transactionalService</strong></td>
-<td>object</td>
-<td>Yes</td>
-<td>Object containing the name and link of the transactional service.</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The name of the transactional service.</td>
-</tr>
-<tr>
-<td><strong>href</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the transactional service. Defaults to &quot;/&quot;.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-</tbody></table>
-<h3 id="header-transactional-with-a-long-service-name">Header transactional with a long service name</h3>
+}}</code></pre><h3 id="header-transactional-with-a-long-service-name">Header transactional with a long service name</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-transactional-long-service-name.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header nhsuk-header--transactional&quot; role=&quot;banner&quot;&gt;
@@ -776,7 +524,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -788,61 +535,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
     &quot;showNav&quot;: &quot;false&quot;,
     &quot;showSearch&quot;: &quot;false&quot;
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The transactional header with a long service name macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>showNav</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the navigation links in the header.</td>
-</tr>
-<tr>
-<td><strong>showSearch</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;false&quot; to not show the site search input form.</td>
-</tr>
-<tr>
-<td><strong>transactionalService</strong></td>
-<td>object</td>
-<td>Yes</td>
-<td>Object containing the name and link of the transactional service.</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The name of the transactional service.</td>
-</tr>
-<tr>
-<td><strong>longName</strong></td>
-<td>boolean</td>
-<td>Yes</td>
-<td>Set to &quot;true&quot; if the transactional name is longer than 22 characters.</td>
-</tr>
-<tr>
-<td><strong>href</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the transactional service. Defaults to &quot;/&quot;.</td>
-</tr>
-<tr>
-<td><strong>homeHref</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The href of the home link for the logo and mobile home link in the navigation links. Defaults to &quot;/&quot;.</td>
-</tr>
-</tbody></table>
-<h3 id="header-with-a-service-name-and-search">Header with a service name and search</h3>
+}}</code></pre><h3 id="header-with-a-service-name-and-search">Header with a service name and search</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header-service-name.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header&quot; role=&quot;banner&quot;&gt;
@@ -890,7 +583,6 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
-<p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 
 {{ header({
@@ -901,7 +593,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
   &quot;showNav&quot;: &quot;false&quot;,
   &quot;showSearch&quot;: &quot;true&quot;
   })
-}}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+}}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>The transactional header with a long service name macro takes the following arguments:</p>
 <table>
 <thead>

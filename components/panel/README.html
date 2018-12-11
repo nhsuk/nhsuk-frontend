@@ -38,7 +38,7 @@
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
@@ -101,37 +101,7 @@
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The panel Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>HTML</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>HTML content to be used within the panel component.</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the panel. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the panel.</td>
-</tr>
-</tbody></table>
-<h3 id="panel-with-a-label">Panel with a label</h3>
+}) }}</code></pre><h3 id="panel-with-a-label">Panel with a label</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html">Preview the panel with a label component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel-with-label&quot;&gt;
@@ -145,49 +115,7 @@
 {{ panel({
   &quot;label&quot;: &quot;Panel heading&quot;,
   &quot;HTML&quot;: &quot;&lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The panel with a label Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>HTML</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>HTML content to be used within the panel component.</td>
-</tr>
-<tr>
-<td><strong>label</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The label of the panel component.</td>
-</tr>
-<tr>
-<td><strong>headingLevel</strong></td>
-<td>integer</td>
-<td>No</td>
-<td>Optional heading level for the label  heading. Default: 3</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the panel. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the panel.</td>
-</tr>
-</tbody></table>
-<h3 id="grey-panel">Grey panel</h3>
+}) }}</code></pre><h3 id="grey-panel">Grey panel</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html">Preview the grey panel component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel nhsuk-panel--grey&quot;&gt;
@@ -203,43 +131,7 @@
   &quot;HTML&quot;: &quot;
   &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The grey panel Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>HTML</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>HTML content to be used within the panel component.</td>
-</tr>
-<tr>
-<td><strong>colour</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The colour of the panel. Must be &quot;grey&quot;.</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the panel. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the panel.</td>
-</tr>
-</tbody></table>
-<h3 id="panel-group">Panel group</h3>
+}) }}</code></pre><h3 id="panel-group">Panel group</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html">Preview the panel group component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
@@ -271,7 +163,7 @@
       &quot;HTML&quot;: &quot;&lt;h3&gt;Panel title&lt;/h3&gt; &lt;p&gt;If you drive you must tell the &lt;a href=&#39;https://www.gov.uk/contact-the-dvla\&#39; title=&#39;External website\&#39;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
     }) }}
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
+&lt;/div&gt;</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>The panel group Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
@@ -287,6 +179,18 @@
 <td>string</td>
 <td>Yes</td>
 <td>HTML content to be used within the panel component.</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td>string</td>
+<td>No</td>
+<td>The label of the panel component.</td>
+</tr>
+<tr>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
+<td>No</td>
+<td>Optional heading level for the label  heading. Default: 3</td>
 </tr>
 <tr>
 <td><strong>classes</strong></td>

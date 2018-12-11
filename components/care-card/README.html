@@ -38,7 +38,7 @@
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
+      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
@@ -90,7 +90,7 @@
 <h3 id="care-card-non-urgent-blue-">Care card non-urgent (blue)</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-non-urgent.html">Preview the care card non-urgent (blue) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
-<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--non-urgent&quot;&gt;
   &lt;div class=&quot;nhsuk-care-card__heading-container&quot;&gt;
     &lt;h3 class=&quot;nhsuk-care-card__heading&quot;&gt;&lt;span role=&quot;text&quot;&gt;&lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Non-urgent advice: &lt;/span&gt;Speak to a GP if:&lt;/span&gt;&lt;/h3&gt;
     &lt;span class=&quot;nhsuk-care-card__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
@@ -99,7 +99,7 @@
     &lt;ul&gt;
       &lt;li&gt;you&#39;re not sure it&#39;s chickenpox&lt;/li&gt;
       &lt;li&gt;the skin around the blisters is red, hot or painful (signs of infection)&lt;/li&gt;
-      &lt;li&gt;your child is &lt;a href=&#39;#&#39;&gt;dehydrated&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;your child is &lt;a href=&quot;https://www.nhs.uk/&quot;&gt;dehydrated&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;you&#39;re concerned about your child or they get worse&lt;/li&gt;
     &lt;/ul&gt;
     &lt;p&gt;Tell the receptionist you think it&#39;s chickenpox before going in. They may recommend a special appointment time if other patients are at risk.&lt;/p&gt;
@@ -121,55 +121,7 @@
   &lt;/ul&gt;
   &lt;p&gt;Tell the receptionist you think it&#39;s chickenpox before going in. They may recommend a special appointment time if other patients are at risk.&lt;/p&gt;
   &quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The non-urgent care card Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>type</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Care card component variant type - &quot;non-urgent&quot;</td>
-</tr>
-<tr>
-<td><strong>heading</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Heading to be used within the care card component</td>
-</tr>
-<tr>
-<td><strong>HTML</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Content to be used within the care card component</td>
-</tr>
-<tr>
-<td><strong>headingLevel</strong></td>
-<td>integer</td>
-<td>No</td>
-<td>Optional heading level for the  heading. Default: 3</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the care card. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
-</tr>
-</tbody></table>
-<h3 id="care-card-urgent-red-">Care card urgent (red)</h3>
+}) }}</code></pre><h3 id="care-card-urgent-red-">Care card urgent (red)</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html">Preview care card urgent (red) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--urgent&quot;&gt;
@@ -184,7 +136,6 @@
       &lt;li&gt;you have a weakened immune system and you&#39;ve been near someone with chickenpox&lt;/li&gt;
       &lt;li&gt;you think your newborn baby has chickenpox&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;p&gt;In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -202,55 +153,7 @@
     &lt;li&gt;you think your newborn baby has chickenpox&lt;/li&gt;
   &lt;/ul&gt;
   &quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The urgent care card Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>type</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Care card component variant type - &quot;urgent&quot;</td>
-</tr>
-<tr>
-<td><strong>heading</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Heading to be used within the care card component</td>
-</tr>
-<tr>
-<td><strong>HTML</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Content to be used within the care card component</td>
-</tr>
-<tr>
-<td><strong>headingLevel</strong></td>
-<td>integer</td>
-<td>No</td>
-<td>Optional heading level for the  heading. Default: 3</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the care card. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the care card.</td>
-</tr>
-</tbody></table>
-<h3 id="care-card-immediate-red-and-black-">Care card immediate (red and black)</h3>
+}) }}</code></pre><h3 id="care-card-immediate-red-and-black-">Care card immediate (red and black)</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html">Preview care card immediate (red and black) component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-care-card nhsuk-care-card--immediate&quot;&gt;
@@ -264,7 +167,7 @@
       &lt;li&gt;makes your chest feel tight or heavy&lt;/li&gt;
       &lt;li&gt;also started with shortness of breath, sweating and feeling or being sick&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;p&gt;You could be having a &lt;a href=&#39;&#39;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
+    &lt;p&gt;You could be having a &lt;a href=&quot;https://www.nhs.uk&quot;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -282,8 +185,8 @@
   &lt;/ul&gt;
   &lt;p&gt;You could be having a &lt;a href=&#39;https://www.nhs.uk\&#39;&gt;heart attack&lt;/a&gt;. Call 999 immediately as you need immediate treatment in hospital.&lt;/p&gt;
   &quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The immediate care card Nunjucks macro takes the following arguments:</p>
+}) }}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
+<p>The care card Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -297,7 +200,7 @@
 <td><strong>type</strong></td>
 <td>string</td>
 <td>Yes</td>
-<td>Care card component variant type - &quot;immediate&quot;</td>
+<td>Care card component variant type - non-urgent, urgent or immediate</td>
 </tr>
 <tr>
 <td><strong>heading</strong></td>
