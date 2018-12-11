@@ -31,23 +31,25 @@ document.addEventListener("DOMContentLoaded", function(){
   // isScrolledIntoView function and spiking CPU, to check when the footer
   // comes in to view, to make the banner not sticky but position it in the
   // normal flow of the page below the footer
-  $(window).scroll(function() {
-    if (!didScroll) {
-      timer = setInterval(function() {
-        if (didScroll) {
-          didScroll = false;
-          clearTimeout(timer);
+  if (typeof(banner) != 'undefined' && banner != null) {
+    $(window).scroll(function() {
+      if (!didScroll) {
+        timer = setInterval(function() {
+          if (didScroll) {
+            didScroll = false;
+            clearTimeout(timer);
 
-          if (isScrolledIntoView(footer)) {
-            banner.classList.add("js-inview")
-          } else {
-            banner.classList.remove("js-inview")
+            if (isScrolledIntoView(footer)) {
+              banner.classList.add("js-inview")
+            } else {
+              banner.classList.remove("js-inview")
+            }
           }
-        }
-      }, 500);
-    }
-    didScroll = true;
-  });
+        }, 500);
+      }
+      didScroll = true;
+    });
+  }
 
 });
 
