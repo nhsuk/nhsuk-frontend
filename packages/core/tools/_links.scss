@@ -85,9 +85,9 @@
 
   &:focus {
     color: $nhsuk-link-focus-color;
-    text-decoration: underline;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
+    text-decoration: underline;
   }
 
   &:hover {
