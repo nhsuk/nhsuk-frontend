@@ -90,7 +90,8 @@ a {
     background-color: #ffb81C;
     box-shadow: 0 0 0 4px #ffb81C;
     color: #212b32;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   a:hover {
     background-color: #ffcd60;
     box-shadow: 0 0 0 4px #ffcd60;
@@ -222,7 +223,7 @@ caption {
       margin-bottom: 32px; } }
 
 .nhsuk-form-group--error {
-  border-left: 5px solid #da291c;
+  border-left: 4px solid #da291c;
   padding-left: 16px; }
   .nhsuk-form-group--error .nhsuk-form-group {
     border: 0;
@@ -2125,7 +2126,8 @@ b {
       line-height: 1.15; } }
   .nhsuk-button:focus {
     box-shadow: 0 0 0 4px #ffb81C;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   @media (min-width: 40.0625em) {
     .nhsuk-button {
       margin-bottom: 36px; } }
@@ -2462,7 +2464,7 @@ b {
   background: transparent;
   border: solid;
   border-top-color: transparent;
-  border-width: 0 0 5px 5px;
+  border-width: 0 0 4px 4px;
   content: '';
   height: 10px;
   left: 10px;
@@ -2481,10 +2483,10 @@ b {
  *    https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
  */
 .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
-  box-shadow: 0 0 0 3px #ffb81C;
-  outline: 3px solid transparent;
+  box-shadow: 0 0 0 4px #ffb81C;
+  outline: 4px solid transparent;
   /* 1 */
-  outline-offset: 3px; }
+  outline-offset: 4px; }
 
 /* Selected state */
 .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label::after {
@@ -2636,7 +2638,8 @@ b {
     background-color: #ffb81C;
     box-shadow: 0 0 0 4px #ffb81C;
     color: #212b32;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   .nhsuk-details__summary:before {
     bottom: 0;
     content: '';
@@ -2849,7 +2852,9 @@ b {
     .nhsuk-global-alert a:focus {
       background-color: #003d78;
       box-shadow: 0 0 0 4px #003d78;
-      color: #ffffff; }
+      color: #ffffff;
+      outline: 4px solid transparent;
+      outline-offset: 4px; }
     .nhsuk-global-alert a:hover {
       background-color: #005eb8;
       box-shadow: 0 0 0 4px #005eb8;
@@ -2949,10 +2954,11 @@ b {
       margin-bottom: 56px; } }
   .nhsuk-error-summary:focus {
     box-shadow: 0 0 0 4px #ffb81C;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   @media (min-width: 40.0625em) {
     .nhsuk-error-summary {
-      border: 5px solid #da291c; } }
+      border: 4px solid #da291c; } }
 
 .nhsuk-error-summary__title {
   font-weight: 600;
@@ -3005,7 +3011,7 @@ b {
   /* 2 */ }
   .nhsuk-error-summary__list a:focus {
     background-color: #ffb81C;
-    outline: 3px solid #ffb81C;
+    outline: 4px solid #ffb81C;
     outline-offset: 0; }
   .nhsuk-error-summary__list a:link, .nhsuk-error-summary__list a:visited, .nhsuk-error-summary__list a:hover, .nhsuk-error-summary__list a:active {
     color: #da291c; }
@@ -3111,7 +3117,8 @@ b {
     background-color: #ffb81C;
     box-shadow: 0 0 0 4px #ffb81C;
     color: #212b32;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   .nhsuk-feedback-banner__close:hover {
     background-color: #ffcd60;
     box-shadow: 0 0 0 4px #ffcd60;
@@ -4015,6 +4022,8 @@ b {
     color: #f0f4f5; }
   .nhsuk-header__transactional-service-name--link:focus {
     color: #212b32;
+    outline: 4px solid transparent;
+    outline-offset: 4px;
     text-decoration: underline; }
   .nhsuk-header__transactional-service-name--link:hover {
     color: #212b32;
@@ -4351,7 +4360,8 @@ b {
       line-height: 1.15; } }
   .nhsuk-input:focus {
     box-shadow: 0 0 0 4px #ffb81C;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
 
 .nhsuk-input::-webkit-outer-spin-button,
 .nhsuk-input::-webkit-inner-spin-button {
@@ -4841,10 +4851,10 @@ b {
         margin-top: 0; } }
   .nhsuk-pagination__link:focus {
     box-shadow: 0 0 0 16px #ffb81C;
-    outline: 3px solid #ffb81C; }
+    outline: 4px solid #ffb81C; }
   .nhsuk-pagination__link:hover {
     box-shadow: 0 0 0 16px #ffcd60;
-    outline: 3px solid #ffcd60; }
+    outline: 4px solid #ffcd60; }
     .nhsuk-pagination__link:hover .nhsuk-pagination__page {
       text-decoration: none; }
   .nhsuk-pagination__link:hover .nhsuk-icon, .nhsuk-pagination__link:focus .nhsuk-icon {
@@ -5244,10 +5254,10 @@ b {
  *    https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
  */
 .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
-  box-shadow: 0 0 0 4px #ffb81C;
-  outline: 3px solid transparent;
+  box-shadow: 0 0 0 5px #ffb81C;
+  outline: 4px solid transparent;
   /* 1 */
-  outline-offset: 3px; }
+  outline-offset: 4px; }
 
 /* Selected state */
 .nhsuk-radios__input:checked + .nhsuk-radios__label::after {
@@ -5350,7 +5360,8 @@ b {
       line-height: 1.15; } }
   .nhsuk-select:focus {
     box-shadow: 0 0 0 4px #ffb81C;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
 
 .nhsuk-select option:active,
 .nhsuk-select option:checked,
@@ -5512,7 +5523,8 @@ b {
       line-height: 1.15; } }
   .nhsuk-textarea:focus {
     box-shadow: 0 0 0 4px #ffb81C;
-    outline: 0; }
+    outline: 4px solid transparent;
+    outline-offset: 4px; }
   @media (min-width: 40.0625em) {
     .nhsuk-textarea {
       margin-bottom: 40px; } }
