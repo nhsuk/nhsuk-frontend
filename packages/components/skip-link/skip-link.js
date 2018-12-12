@@ -32,9 +32,9 @@ function handleHeader() {
   }
 }
 
-function skipLink() {
+function nhsuk_skipLink() { /* eslint-disable-line camelcase */
   handleSkipLink();
   handleHeader();
 }
 
-export default skipLink;
+export default nhsuk_skipLink; /* eslint-disable-line camelcase */

@@ -79,10 +79,10 @@ function handleBannerSticky() {
   }
 }
 
-function feedbackBanner(delay) {
+function nhsuk_feedbackBanner(delay) { /* eslint-disable-line camelcase */
   handleBannerDisplay(delay);
   handleBannerClose();
   handleBannerSticky();
 }
 
-export default feedbackBanner;
+export default nhsuk_feedbackBanner; /* eslint-disable-line camelcase */

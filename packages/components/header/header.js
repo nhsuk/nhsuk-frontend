@@ -76,9 +76,9 @@ function handleMenuToggle() {
 
 /* Header */
 
-function header() {
+function nhsuk_header() { /* eslint-disable-line camelcase */
   handleSearchToggle();
   handleMenuToggle();
 }
 
-export default header;
+export default nhsuk_header; /* eslint-disable-line camelcase */
