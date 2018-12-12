@@ -7,9 +7,11 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test:cypress": "npm run start & npm run cypress",
+    "start-server": "npm start",
+    "cypress_test_ci": "start-server-and-test start-server http://localhost:3000 cypress",
+    "backstop_test_ci": "start-server-and-test start-server http://localhost:3000 backstop:test",
     "cypress": "cypress run --project ./tests",
-    "test": "npm run lint-css && npm run test:cypress && npm run backstop:test",
+    "test": "npm run lint-css && npm run cypress_test_ci && npm run backstop_test_ci",
     "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
@@ -45,7 +47,8 @@
     "gulp-zip": "^4.2.0",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "start-server-and-test": "^1.7.11"
   },
   "files": [
     "dist",
