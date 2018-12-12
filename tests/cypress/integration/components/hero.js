@@ -12,8 +12,8 @@ describe('Hero Image Component', function () {
     cy.get('body > section').should('have.class', 'nhsuk-hero')
   });
 
-  it('Checking for H1 has a class - nhsuk-!-margin-bottom-3', function () {
-    cy.get('h1').should('have.class', 'nhsuk-!-margin-bottom-3','We’re here for you')
+  it('Checking for H1 has a class - nhsuk-u-margin-bottom-3', function () {
+    cy.get('h1').should('have.class', 'nhsuk-u-margin-bottom-3','We’re here for you')
   });
 
 });
@@ -34,11 +34,11 @@ describe('Hero with Image and content Component', function () {
   });
 
   it('Checking for a class - nhsuk-!-margin-bottom-3', function () {
-    cy.get('.nhsuk-hero-content').children().should('have.class', 'nhsuk-!-margin-bottom-3','We’re here for you')
+    cy.get('.nhsuk-hero-content').children().should('have.class', 'nhsuk-u-margin-bottom-3','We’re here for you')
   });
 
-  it('Checking for a class - nhsuk-!-margin-bottom-3', function () {
-    cy.get('.nhsuk-hero-content').children().should('have.class', 'nhsuk-body-l nhsuk-!-margin-bottom-0','nhsuk-body-l nhsuk-!-margin-bottom-0')
+  it('Checking for a class -nhsuk-body-l nhsuk-u-margin-bottom-0', function () {
+    cy.get('.nhsuk-hero-content').children().should('have.class', 'nhsuk-body-l nhsuk-u-margin-bottom-0', 'Helping you take control of your health and wellbeing')
   });
 
   it('Checking for a class - nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description', function () {

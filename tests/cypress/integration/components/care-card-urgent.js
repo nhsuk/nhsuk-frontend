@@ -27,11 +27,11 @@ describe('care-card urgent component tests', function () {
   });
 
   it('Checking for visually hidden class', function () {
-    cy.get('.nhsuk-care-card__heading').children()
-      .should('have.class', 'nhsuk-u-visually-hidden', 'Non-urgent advice: ')
+    cy.get('.nhsuk-care-card__heading').children().children()
+      .should('have.class', 'nhsuk-u-visually-hidden', 'Urgent advice:')
   });
 
-  it('Checking care card title color to be blue', function () {
+  it('Checking care card title color to be red', function () {
     cy.get('.nhsuk-care-card__heading-container')
       .should('have.css', 'background-color')
       .and('eq', 'rgb(218, 41, 28)')

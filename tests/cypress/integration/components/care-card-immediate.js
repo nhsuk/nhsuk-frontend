@@ -4,24 +4,24 @@ describe('care-card emergency component tests', function () {
   });
 
   it('Navigating to emergency care card Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/care-card-emergency.html')
+    cy.visit(Cypress.config().baseUrl + '/care-card-immediate.html')
   });
 
   it('checking for nhsuk-care-card__heading-container class', function () {
     cy.get('.nhsuk-care-card__heading-container')
   });
 
-  it('checking for nhsuk-care-card nhsuk-care-card--emergency class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--emergency')
+  it('nhsuk-care-card nhsuk-care-card--immediate class', function () {
+    cy.get('.nhsuk-care-card.nhsuk-care-card--immediate')
   });
 
   it('checking for nhsuk-care-card__heading-container class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--emergency').children()
+    cy.get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
   });
 
   it('checking for nhsuk-care-card__content class', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--emergency').children()
+    cy.get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__content')
   });
 
@@ -31,8 +31,8 @@ describe('care-card emergency component tests', function () {
   });
 
   it('Checking for visually hidden class', function () {
-    cy.get('.nhsuk-care-card__heading').children()
-      .should('have.class', 'nhsuk-u-visually-hidden', 'Non-urgent advice: ')
+    cy.get('.nhsuk-care-card__heading').children().children()
+      .should('have.class', 'nhsuk-u-visually-hidden')
   });
 
   it('Checking care card title color to be red', function () {
