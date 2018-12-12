@@ -1,7 +1,5 @@
 # Panel
 
-Find out more about the panel component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/175).
 
 ## Quick start examples
@@ -32,18 +30,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
-
-The panel Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
-
-
 ### Panel with a label
 
 [Preview the panel with a label component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
@@ -69,19 +55,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The panel with a label Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **label**           | string   | No        | The label of the panel component. |
-| **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
 
 ### Grey panel
 
@@ -110,18 +83,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The grey panel Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **colour**          | string   | No        | The colour of the panel. Must be "grey". |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
 
 ### Panel group
 
@@ -167,12 +128,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The panel group Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
 | **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **label**           | string   | No        | The label of the panel component. |
+| **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
 | **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |

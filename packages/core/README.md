@@ -4,17 +4,6 @@ Core contains all the building blocks (page layout and the responsive grid) and 
 
 Core also is the home of powerful `sass` features such as variables, mixins, functions and maps.
 
-Find out more about the core styles and patterns in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/).
-
-## Breakpoints
-
-```
-mobile: 320px,
-tablet: 641px,
-desktop: 769px,
-large-desktop: 990px
-```
-
 ## Page layout
 
 ```html
@@ -106,35 +95,27 @@ large-desktop: 990px
 </div>
 ```
 
-## Variables
+### Example page layout
 
-### Colours
-
-You can find the full list of colour variables and their use in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/) or in the [sass-docs]().
-
-#### Primary
-
-```scss
-$color_nhsuk-blue: #005EB8;
-$color_nhsuk-white: #FFFFFF;
-$color_nhsuk-black: #212B32;
-$color_nhsuk-green: #007F3B;
-$color_nhsuk-red: #DA291C;
-$color_nhsuk-yellow: #ffeb3b;
-$color_nhsuk-purple: #330072;
-```
-
-#### Secondary
-
-```scss
-$color_nhsuk-pale-yellow: #FFF9C4;
-$color_nhsuk-warm-yellow: #FFB81C;
-$color_nhsuk-aqua-green: #00A499;
+```html
+<!-- Header -->
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-three-quarters">
+        <!-- Components -->
+      </div>
+    </div>
+  </main>
+</div>
+<!-- Footer -->
 ```
 
 ## Utilities
 
 ### Clearfix
+
+Automatically clear an elements child elements.
 
 ```html
 <div class="nhsuk-u-clear"></div>
@@ -146,6 +127,19 @@ $color_nhsuk-aqua-green: #00A499;
 <p class="nhsuk-u-font-weight-bold"></p>
 ```
 
+### Grid overrides
+
+By default all grid elements will go to 100% width on screen sizes below tablet. These utilities can force
+custom widths on all screen sizes.
+
+```
+nhsuk-u-[grid-size]
+```
+
+```html
+<div class="nhsuk-grid-column-one-half nhsuk-u-one-half"></div>
+```
+
 ### Normal font weight
 
 ```html
@@ -153,6 +147,8 @@ $color_nhsuk-aqua-green: #00A499;
 ```
 
 ### Reading width
+
+Add a maximum width to large pieces of content, to improve readability. 
 
 ```html
 <div class="nhsuk-u-reading-width">
@@ -166,7 +162,33 @@ $color_nhsuk-aqua-green: #00A499;
 <h1 class="nhsuk-u-top-and-bottom"></h1>
 ```
 
+### Spacing overrides
+
+```html
+class="nhsuk-u-margin-[direction]-[spacing]"
+```
+
+#### Remove bottom margin
+
+```html
+<h1 class="nhsuk-u-margin-bottom-0"></h1>
+```
+
+#### Remove all margins
+
+```html
+<h1 class="nhsuk-u-margin-0"></h1>
+```
+
+#### Custom margins
+
+```html
+<h1 class="nhsuk-u-margin-top-1"></h1>
+```
+
 ### Prevent text wrapping
+
+Prevent long anchor links from line breaking on smaller screens.
 
 ```html
 <a class="nhsuk-u-nowrap"></a>
@@ -174,6 +196,80 @@ $color_nhsuk-aqua-green: #00A499;
 
 ### Visually hidden
 
+Hide elements visually but keep it in the DOM, useful for screen readers.
+
 ```html
 <span class="nhsuk-u-visually-hidden"></span>
+```
+
+## Breakpoints
+
+```
+mobile: 320px
+tablet: 641px
+desktop: 769px
+large-desktop: 990px
+```
+
+### Media queries (using [sass-mq](https://github.com/sass-mq/sass-mq))
+
+`mq()` is a Sass mixin that helps you compose media queries in an elegant way.
+
+`mq()` takes up to three optional parameters:
+
+- `$from`: inclusive `min-width` boundary
+- `$until`: exclusive `max-width` boundary
+- `$and`: additional custom directives
+
+```scss
+.responsive {
+  // Apply styling to mobile and upwards
+  @include mq($from: mobile) {
+    color: red;
+  }
+  // Apply styling up to devices smaller than tablets (exclude tablets)
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  // Same thing, in landscape orientation
+  @include mq($until: tablet, $and: '(orientation: landscape)') {
+    color: green;
+  }
+  // Apply styling to print media
+  @include mq($media-type: print) {
+    color: orange;
+  }
+}
+```
+
+## Colour variables
+
+### Primary
+
+```scss
+$color_nhsuk-blue: #005eb8;
+$color_nhsuk-white: #ffffff;
+$color_nhsuk-black: #212b32;
+$color_nhsuk-green: #007f3b;
+$color_nhsuk-red: #da291c;
+$color_nhsuk-yellow: #ffeb3b;
+$color_nhsuk-purple: #330072;
+```
+
+### Secondary
+
+```scss
+$color_nhsuk-pale-yellow: #fff9c4;
+$color_nhsuk-warm-yellow: #ffb81C;
+$color_nhsuk-aqua-green: #00A499;
+```
+
+### Greyscale
+
+```scss
+$color_nhsuk-grey-1: #425563;
+$color_nhsuk-grey-2: #768692;
+$color_nhsuk-grey-3: #aeb7bd;
+$color_nhsuk-grey-4: #d8dde0;
+$color_nhsuk-grey-5: #f0f4f5;
 ```

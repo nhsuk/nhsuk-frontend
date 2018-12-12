@@ -14,7 +14,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer">
+  <div class="nhsuk-footer" id="nhsuk-footer">
     <div class="nhsuk-width-container">
       <div class="nhsuk-footer__logo">
         <a href="/" class="global-footer__link" aria-label="NHS homepage">
@@ -25,12 +25,16 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
           </svg>
         </a>
       </div>
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <ul class="nhsuk-footer__list">
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Pages/nhs-sites.aspx">NHS sites</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us">About us</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/contact-us/">Contact us</a></li>
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/accessibility/">Accessibility</a></li>
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
       </ul>
-      <p class="nhsuk-footer__copyright">&copy; Crown Copyright</li>
+      <p class="nhsuk-footer__copyright">&copy; Crown Copyright
+      </p>
     </div>
   </div>
 </footer>
@@ -38,48 +42,78 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
   "primaryLinks": [
     {
-      "url": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+      "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
       "label": "NHS sites"
     },
     {
-      "url": "https://www.nhs.uk/about-us",
+      "URL": "https://www.nhs.uk/about-us",
       "label": "About us"
     },
     {
-      "url": "https://www.nhs.uk/contact-us/",
+      "URL": "https://www.nhs.uk/contact-us/",
       "label": "Contact us"
     },
     {
-      "url": "https://www.nhs.uk/Personalisation/Login.aspx",
-      "label": "Profile editor login"
-    }
-  ],
-  "secondaryLinks": [
-    {
-      "url": "https://www.nhs.uk/about-us/sitemap/",
+      "URL": "https://www.nhs.uk/about-us/sitemap/",
       "label": "Sitemap"
     },
     {
-      'url': 'https://www.nhs.uk/accessibility/',
-      'label': 'Accessibility'
-    },
-    {
-      "url": "https://www.nhs.uk/our-policies/",
+      "URL": "https://www.nhs.uk/our-policies/",
       "label": "Our policies"
     }
   ]
 })}}
 ```
 
-#### Nunjucks arguments
+### Footer with no logo
+
+[Preview the footer with no logo component](https://nhsuk.github.io/nhsuk-frontend/components/footer-no-logo.html)
+
+### HTML markup
+
+```html
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <ul class="nhsuk-footer__list">
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
+      </ul>
+      <p class="nhsuk-footer__copyright">© Crown Copyright
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+### Nunjucks macro
+
+```
+{% from 'components/footer/macro.njk' import footer %}
+
+{{ footer({
+  "showLogo": "false",
+  "primaryLinks": [
+    {
+      "URL": "https://www.nhs.uk/about-us/sitemap/",
+      "label": "Sitemap"
+    },
+    {
+      "URL": "https://www.nhs.uk/our-policies/",
+      "label": "Our policies"
+    }
+  ]
+})}}
+```
+
+## Nunjucks arguments
 
 The footer Nunjucks macro takes the following arguments:
 
@@ -88,7 +122,5 @@ The footer Nunjucks macro takes the following arguments:
 | **primaryLinks**             | array    | No        | Array of primary navigation items for use in the footer. |
 | **primaryLinks.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
 | **primaryLinks.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
-| **secondaryLinks**           | array    | No        | Array of secondary navigation items for use in the footer. |
-| **secondaryLinks.[].url**    | string   | No        | The href of a secondary navigation item in the footer. |
-| **secondaryLinks.[].label**  | string   | No        | The label of a secondary navigation item in the footer. |
 | **homeHref**                 | string   | No        | The href of the home link for the logo. Defaults to "/". |
+| **showLogo**                 | boolean  | No        | Show or hide the NHS logo in the footer. Logo shows by default. |

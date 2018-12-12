@@ -1,7 +1,5 @@
 # Promo
 
-Find out more about the promo component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/176).
 
 ## Quick start examples
@@ -25,8 +23,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -36,19 +32,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "description": "Please register today. Donating blood is easy, and saves lives."
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The promo Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **href**            | string   | Yes       | The value of the promo href attribute |
-| **heading**         | string   | Yes       | The text heading of the promo |
-| **description**     | string   | No        | The text description of the promo |
-| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
-
 
 ### Promo with image
 
@@ -70,8 +53,6 @@ The promo Nunjucks macro takes the following arguments:
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/promo/macro.njk' import promo%}
 
@@ -82,19 +63,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "description": "Please register today. Donating blood is easy, and saves lives."
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The promo with image Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **href**            | string   | Yes       | The value of the promo href attribute |
-| **heading**         | string   | Yes       | The text heading of the promo |
-| **imgURL**          | string   | No        | The URL of the image in the promo |
-| **description**     | string   | No        | The text description of the promo |
-| **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
 
 ### Promo with no description
 
@@ -113,8 +81,6 @@ The promo with image Nunjucks macro takes the following arguments:
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/promo/macro.njk' import promo%}
@@ -155,8 +121,6 @@ The promo with no description Nunjucks macro takes the following arguments:
 ```
 
 ## Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/promo/macro.njk' import promo%}
@@ -227,8 +191,6 @@ The small promo Nunjucks macro takes the following arguments:
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 <div class="nhsuk-grid-row nhsuk-promo-group">

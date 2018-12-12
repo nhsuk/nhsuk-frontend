@@ -47,7 +47,13 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
+            <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+              <input class="nhsuk-search__input nhsuk-search__input--shadow nhsuk-u-visually-hidden" autocomplete="off" type="search" readonly="" spellcheck="false" tabindex="-1" dir="ltr" aria-hidden="true" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input class="nhsuk-search__input tt-input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search" spellcheck="false" dir="auto" aria-owns="search-field_listbox" role="textbox" aria-readonly="true" aria-autocomplete="list" style="position: relative; vertical-align: top; background-color: transparent;"><span role="status" aria-live="polite" style="position: absolute; padding: 0px; border: 0px; height: 1px; width: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap;"></span>
+              <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Frutiger W01&quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+              <div id="search-field_listbox" role="listbox" class="suggestions-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;">
+                <div role="presentation" class="suggestions-wrapper suggestions-wrapper--suggestions"></div>
+              </div>
+            </span>
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -80,7 +86,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="/" class="nhsuk-header__navigation-link">
           Home
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -88,7 +94,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="https://www.nhs.uk/conditions" class="nhsuk-header__navigation-link">
           Health A-Z
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -96,7 +102,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="https://www.nhs.uk/live-well/" class="nhsuk-header__navigation-link">
           Live Well
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -104,7 +110,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="https://www.nhs.uk/conditions/social-care-and-support/" class="nhsuk-header__navigation-link">
           Care and support
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -112,7 +118,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="https://www.nhs.uk/news/" class="nhsuk-header__navigation-link">
           Health news
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -120,7 +126,7 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
         <a href="https://www.nhs.uk/service-search" class="nhsuk-header__navigation-link">
           Services near you
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -130,8 +136,6 @@ The search component autocomplete requires jQuery, please ensure you have jQuery
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -164,20 +168,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   })
 }}
 ```
-
-#### Nunjucks arguments
-
-The header Nunjucks macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "true" to show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "true" to show the site search input form. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-| **primaryLinks**           | array    | No        | Array of navigation links. |
-| **primaryLinks.[].url**    | string   | No        | The href of the navigation link. |
-| **primaryLinks.[].label**  | string   | No        | The label of the navigation link. |
-
 
 ### Header with navigation
 
@@ -218,7 +208,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="/" class="nhsuk-header__navigation-link">
           Home
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -226,7 +216,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="https://www.nhs.uk/conditions" class="nhsuk-header__navigation-link">
           Health A-Z
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -234,7 +224,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="https://www.nhs.uk/live-well/" class="nhsuk-header__navigation-link">
           Live Well
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -242,7 +232,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="https://www.nhs.uk/conditions/social-care-and-support/" class="nhsuk-header__navigation-link">
           Care and support
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -250,7 +240,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="https://www.nhs.uk/news/" class="nhsuk-header__navigation-link">
           Health news
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -258,7 +248,7 @@ The header Nunjucks macro takes the following arguments:
         <a href="https://www.nhs.uk/service-search" class="nhsuk-header__navigation-link">
           Services near you
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"/>
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
@@ -268,8 +258,6 @@ The header Nunjucks macro takes the following arguments:
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -303,20 +291,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }}
 ```
 
-#### Nunjucks arguments
-
-The header with navigation Nunjucks macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "true" to show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "false" to not show the site search input form. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-| **primaryLinks**           | array    | No        | Array of navigation links. |
-| **primaryLinks.[].url**    | string   | No        | The href of the navigation link. |
-| **primaryLinks.[].label**  | string   | No        | The label of the navigation link. |
-
-
 ### Header with search
 
 [Preview the header with search component](https://nhsuk.github.io/nhsuk-frontend/components/header-search.html)
@@ -327,7 +301,7 @@ The header with navigation Nunjucks macro takes the following arguments:
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+      <a href="/" class="nhsuk-header__link " aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
@@ -346,7 +320,13 @@ The header with navigation Nunjucks macro takes the following arguments:
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
+            <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+              <input class="nhsuk-search__input nhsuk-search__input--shadow nhsuk-u-visually-hidden" autocomplete="off" type="search" readonly="" spellcheck="false" tabindex="-1" dir="ltr" aria-hidden="true" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input class="nhsuk-search__input tt-input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search" spellcheck="false" dir="auto" aria-owns="search-field_listbox" role="textbox" aria-readonly="true" aria-autocomplete="list" style="position: relative; vertical-align: top; background-color: transparent;"><span role="status" aria-live="polite" style="position: absolute; padding: 0px; border: 0px; height: 1px; width: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap;"></span>
+              <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Frutiger W01&quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+              <div id="search-field_listbox" role="listbox" class="suggestions-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;">
+                <div role="presentation" class="suggestions-wrapper suggestions-wrapper--suggestions"></div>
+              </div>
+            </span>
             <button type="submit" class="nhsuk-search__submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -368,8 +348,6 @@ The header with navigation Nunjucks macro takes the following arguments:
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -403,20 +381,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }}
 ```
 
-#### Nunjucks arguments
-
-The header with search Nunjucks macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "true" to show the site search input form. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-| **primaryLinks**           | array    | No        | Array of navigation links. |
-| **primaryLinks.[].url**    | string   | No        | The href of the navigation link. |
-| **primaryLinks.[].label**  | string   | No        | The label of the navigation link. |
-
-
 ### Header with logo
 
 [Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-logo.html)
@@ -441,8 +405,6 @@ The header with search Nunjucks macro takes the following arguments:
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -452,18 +414,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   })
 }}
 ```
-
-#### Nunjucks arguments
-
-The header with logo Nunjucks macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "false" to not show the site search input form. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-
-
 
 ### Header with logo (transactional header)
 
@@ -489,8 +439,6 @@ The header with logo Nunjucks macro takes the following arguments:
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -501,18 +449,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   })
 }}
 ```
-
-#### Nunjucks arguments
-
-The transactional header with logo macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "false" to not show the site search input form. |
-| **transactional**          | boolean  | Yes       | Set to "true" to show the transactional header with logo. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-
 
 ### Header transactional with service name
 
@@ -541,8 +477,6 @@ The transactional header with logo macro takes the following arguments:
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -556,20 +490,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   })
 }}
 ```
-
-#### Nunjucks arguments
-
-The transactional header with service name macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "false" to not show the site search input form. |
-| **transactionalService**   | object   | Yes       | Object containing the name and link of the transactional service. |
-| **name**                   | string   | Yes       | The name of the transactional service. |
-| **href**                   | string   | No        | The href of the transactional service. Defaults to "/". |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-
 
 ### Header transactional with a long service name
 
@@ -598,8 +518,6 @@ The transactional header with service name macro takes the following arguments:
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -614,21 +532,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   })
 }}
 ```
-
-#### Nunjucks arguments
-
-The transactional header with a long service name macro takes the following arguments:
-
-| Name                       | Type     | Required  | Description  |
-| ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
-| **showSearch**             | boolean  | Yes       | Set to "false" to not show the site search input form. |
-| **transactionalService**   | object   | Yes       | Object containing the name and link of the transactional service. |
-| **name**                   | string   | Yes       | The name of the transactional service. |
-| **longName**               | boolean  | Yes       | Set to "true" if the transactional name is longer than 22 characters. |
-| **href**                   | string   | No        | The href of the transactional service. Defaults to "/". |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
-
 
 ### Header with a service name and search
 
@@ -685,8 +588,6 @@ The transactional header with a long service name macro takes the following argu
 
 ### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
 ```
 {% from 'components/header/macro.njk' import header %}
 
@@ -701,7 +602,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }}
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The transactional header with a long service name macro takes the following arguments:
 

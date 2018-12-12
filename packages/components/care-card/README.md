@@ -13,7 +13,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<div class="nhsuk-care-card">
+<div class="nhsuk-care-card nhsuk-care-card--non-urgent">
   <div class="nhsuk-care-card__heading-container">
     <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
@@ -22,7 +22,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     <ul>
       <li>you're not sure it's chickenpox</li>
       <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href="#">dehydrated</a></li>
+      <li>your child is <a href="https://www.nhs.uk/">dehydrated</a></li>
       <li>you're concerned about your child or they get worse</li>
     </ul>
     <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -52,19 +52,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
-
-The non-urgent care card Nunjucks macro takes the following arguments:
-
-| Name                    | Type     | Required  | Description  |
-| ------------------------|----------|-----------|--------------|
-| **type**                | string   | Yes       | Care card component variant type - "non-urgent" |
-| **heading**             | string   | Yes       | Heading to be used within the care card component |
-| **HTML**                | string   | Yes       | Content to be used within the care card component |
-| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
-| **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
-| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
-
 ### Care card urgent (red)
 
 [Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
@@ -84,7 +71,6 @@ The non-urgent care card Nunjucks macro takes the following arguments:
       <li>you have a weakened immune system and you've been near someone with chickenpox</li>
       <li>you think your newborn baby has chickenpox</li>
     </ul>
-    <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
   </div>
 </div>
 ```
@@ -110,20 +96,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
-
-The urgent care card Nunjucks macro takes the following arguments:
-
-| Name                    | Type     | Required  | Description  |
-| ------------------------|----------|-----------|--------------|
-| **type**                | string   | Yes       | Care card component variant type - "urgent" |
-| **heading**             | string   | Yes       | Heading to be used within the care card component |
-| **HTML**                | string   | Yes       | Content to be used within the care card component |
-| **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
-| **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
-| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
-
-
 ### Care card immediate (red and black)
 
 [Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html)
@@ -142,7 +114,7 @@ The urgent care card Nunjucks macro takes the following arguments:
       <li>makes your chest feel tight or heavy</li>
       <li>also started with shortness of breath, sweating and feeling or being sick</li>
     </ul>
-    <p>You could be having a <a href="#">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+    <p>You could be having a <a href="https://www.nhs.uk">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
   </div>
 </div>
 ```
@@ -167,13 +139,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "
 }) }}
 ```
-#### Nunjucks arguments
 
-The immediate care card Nunjucks macro takes the following arguments:
+## Nunjucks arguments
+
+The care card Nunjucks macro takes the following arguments:
 
 | Name                    | Type     | Required  | Description  |
 | ------------------------|----------|-----------|--------------|
-| **type**                | string   | Yes       | Care card component variant type - "immediate" |
+| **type**                | string   | Yes       | Care card component variant type - non-urgent, urgent or immediate |
 | **heading**             | string   | Yes       | Heading to be used within the care card component |
 | **HTML**                | string   | Yes       | Content to be used within the care card component |
 | **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |

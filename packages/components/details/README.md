@@ -1,7 +1,5 @@
 # Details
 
-Find out more about the action link component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/162).
 
 ## Dependencies
@@ -21,7 +19,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
     <span class="nhsuk-details__summary-text">
-      Where can I find my NHS number?
+    Where can I find my NHS number?
     </span>
   </summary>
   <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
@@ -71,12 +69,12 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ```html
 <details class="nhsuk-details nhsuk-expander">
-  <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-1" aria-expanded="false">
+  <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
     <span class="nhsuk-details__summary-text">
-      Opening times
+    Opening times
     </span>
   </summary>
-  <div class="nhsuk-details__text" id="details-content-1" aria-hidden="true">
+  <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
     <table>
       <tbody>
         <tr>
@@ -167,17 +165,6 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
-
-If you are using Nunjucks, then macros take the following arguments:
-
-| Name         | Type     | Required  | Description |
-| -------------|----------|-----------|-------------|
-| text         | string   | Yes       | Text to be displayed on the details component. |
-| HTML         | string   | Yes       | HTML content to be displayed within the details component |
-| classes      | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
-| attributes   | object   | No        | Any extra HTML attributes (for example data attributes) to add to the anchor tag. |
-
 ### Expander group
 
 [Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/expander-group.html)
@@ -187,12 +174,12 @@ If you are using Nunjucks, then macros take the following arguments:
 ```html
 <div class="nhsuk-expander-group">
   <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-2" aria-expanded="false">
+    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
       <span class="nhsuk-details__summary-text">
       How to measure your blood glucose levels
       </span>
     </summary>
-    <div class="nhsuk-details__text" id="details-content-2" aria-hidden="true">
+    <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
       <p>You would have been given:</p>
       <ul>
@@ -203,14 +190,13 @@ If you are using Nunjucks, then macros take the following arguments:
       </ul>
     </div>
   </details>
-
   <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-3" aria-expanded="false">
+    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-1" aria-expanded="false">
       <span class="nhsuk-details__summary-text">
       When to check your blood glucose level
       </span>
     </summary>
-    <div class="nhsuk-details__text" id="details-content-3" aria-hidden="true">
+    <div class="nhsuk-details__text" id="details-content-1" aria-hidden="true">
       <p>Try to check your blood:</p>
       <ul>
         <li>before meals</li>
@@ -261,7 +247,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 If you are using Nunjucks, then macros take the following arguments:
 

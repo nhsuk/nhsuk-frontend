@@ -1,7 +1,5 @@
 # Feedback banner
 
-Find out more about the feedback banner component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/167).
 
 ## Dependencies
@@ -24,7 +22,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       <div class="nhsuk-grid-column-full">
         <div class="nhsuk-feedback-banner__content">
           <h2 class="nhsuk-feedback-banner__heading">Help us make the NHS website better</h2>
-          <p class="nhsuk-feedback-banner__message">Your feedback helps us improve the NHS website. <a href="https://nhs.uk" class="nhsuk-u-nowrap">Take our short survey</a>.</p>
+          <p class="nhsuk-feedback-banner__message">Your feedback helps us improve the NHS website. <a href="https://www.nhs.uk" class="nhsuk-u-nowrap">Take our short survey</a>.</p>
           <button id="nhsuk-feedback-banner-close" class="nhsuk-feedback-banner__close" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
         </div>
       </div>
@@ -34,8 +32,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}

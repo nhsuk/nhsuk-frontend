@@ -1,5 +1,29 @@
 # NHS.UK Frontend Changelog
 
+## 0.5.1 (Prerelease) - Dec 11, 2018
+
+:wrench: **Fixes**
+
+- Feedback banner - Fix an issue with the JavaScript reporting errors within the console log
+when scrolling down the page if the feedback banner did not exist on the page.  ([PR 293](https://github.com/nhsuk/nhsuk-frontend/pull/293))
+
+- Details - Add the missing component JavaScript to the `nhsuk.min.js` bundle. ([PR 285](https://github.com/nhsuk/nhsuk-frontend/pull/285))
+
+## 0.5.0 (Prerelease) - Dec 07, 2018
+
+:boom: **Breaking changes**
+
+- Utility classes - Utility classes should be prefixed with `nhsuk-u-` rather than `nhsuk-!-`. ([PR 282](https://github.com/nhsuk/nhsuk-frontend/pull/282))
+
+  If you are using any utility classes in your HTML, such as spacing, width or typography overrides, you need to update your HTML classes from
+  `nhsuk-!-` to `nhsuk-u-`.
+
+  You can find out more about utility class usage in the [utility class documentation](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/core#utilities).
+
+:wrench: **Fixes**
+
+- Footer - Add the ability to change the link of the NHS logo within the nunjucks macro with `homeHref` argument. Also have the logo show by default with the ability to hide it using the `showLogo` argument. ([PR 278](https://github.com/nhsuk/nhsuk-frontend/pull/278))
+
 ## 0.4.0 (Prerelease) - Dec 03, 2018
 
 :boom: **Breaking changes**
