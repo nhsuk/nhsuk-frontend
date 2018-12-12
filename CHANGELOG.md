@@ -1,5 +1,13 @@
 # NHS.UK Frontend Changelog
 
+## 0.5.2 (Prerelease) - Dec 12, 2018
+
+:wrench: **Fixes**
+
+- Address styling - Add generic styling for the `<address>` element  ([PR 295](https://github.com/nhsuk/nhsuk-frontend/pull/295))
+
+- Focus styles - Add focus styles on links when in High Contrast Mode in Windows to make it easier to distinguish where you are. ([PR 294](https://github.com/nhsuk/nhsuk-frontend/pull/294))
+
 ## 0.5.1 (Prerelease) - Dec 11, 2018
 
 :wrench: **Fixes**
@@ -76,7 +84,7 @@ when scrolling down the page if the feedback banner did not exist on the page.  
 
 - Breadcrumb - Refactor breadcrumb SVG icons to background images. ([PR 246](https://github.com/nhsuk/nhsuk-frontend/pull/246))
 
-  Use the latest [Breadcrumb HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/breadcrumb#html-markup) in your app. 
+  Use the latest [Breadcrumb HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/breadcrumb#html-markup) in your app.
 
 - Care card - Rename care cards to non-urgent, urgent and immediate. ([PR 252](https://github.com/nhsuk/nhsuk-frontend/pull/252))
 
