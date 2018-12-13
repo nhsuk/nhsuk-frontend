@@ -789,7 +789,7 @@ h6,
       margin-bottom: 32px; } }
 
 p,
-.nhsuk-body-m {
+.nhsuk-body-m, address {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -798,18 +798,18 @@ p,
   margin-bottom: 16px; }
   @media (min-width: 40.0625em) {
     p,
-    .nhsuk-body-m {
+    .nhsuk-body-m, address {
       font-size: 19px;
       font-size: 1.1875rem;
       line-height: 1.47368; } }
   @media print {
     p,
-    .nhsuk-body-m {
+    .nhsuk-body-m, address {
       font-size: 14pt;
       line-height: 1.15; } }
   @media (min-width: 40.0625em) {
     p,
-    .nhsuk-body-m {
+    .nhsuk-body-m, address {
       margin-bottom: 24px; } }
 
 p,
@@ -836,6 +836,9 @@ p,
     .nhsuk-body-s {
       margin-bottom: 24px; } }
 
+address {
+  font-style: normal; }
+
 /**
  * Contextual adjustments
  *
@@ -852,9 +855,10 @@ p,
     .nhsuk-body-l + .nhsuk-heading-l {
       padding-top: 8px; } }
 
-p + h2, .nhsuk-body-m + h2,
+p + h2, .nhsuk-body-m + h2, address + h2,
 p + .nhsuk-heading-l,
 .nhsuk-body-m + .nhsuk-heading-l,
+address + .nhsuk-heading-l,
 .nhsuk-body-s + h2,
 .nhsuk-body-s + .nhsuk-heading-l,
 .nhsuk-list + h2,
@@ -865,9 +869,10 @@ ul + .nhsuk-heading-l,
 ol + .nhsuk-heading-l {
   padding-top: 16px; }
   @media (min-width: 40.0625em) {
-    p + h2, .nhsuk-body-m + h2,
+    p + h2, .nhsuk-body-m + h2, address + h2,
     p + .nhsuk-heading-l,
     .nhsuk-body-m + .nhsuk-heading-l,
+    address + .nhsuk-heading-l,
     .nhsuk-body-s + h2,
     .nhsuk-body-s + .nhsuk-heading-l,
     .nhsuk-list + h2,
@@ -878,9 +883,10 @@ ol + .nhsuk-heading-l {
     ol + .nhsuk-heading-l {
       padding-top: 24px; } }
 
-p + h3, .nhsuk-body-m + h3,
+p + h3, .nhsuk-body-m + h3, address + h3,
 p + .nhsuk-heading-m,
 .nhsuk-body-m + .nhsuk-heading-m,
+address + .nhsuk-heading-m,
 .nhsuk-body-s + h3,
 .nhsuk-body-s + .nhsuk-heading-m,
 .nhsuk-list + h3,
@@ -891,8 +897,10 @@ ul + .nhsuk-heading-m,
 ol + .nhsuk-heading-m,
 p + h4,
 .nhsuk-body-m + h4,
+address + h4,
 p + .nhsuk-heading-s,
 .nhsuk-body-m + .nhsuk-heading-s,
+address + .nhsuk-heading-s,
 .nhsuk-body-s + h4,
 .nhsuk-body-s + .nhsuk-heading-s,
 .nhsuk-list + h4,
@@ -903,9 +911,10 @@ ul + .nhsuk-heading-s,
 ol + .nhsuk-heading-s {
   padding-top: 4px; }
   @media (min-width: 40.0625em) {
-    p + h3, .nhsuk-body-m + h3,
+    p + h3, .nhsuk-body-m + h3, address + h3,
     p + .nhsuk-heading-m,
     .nhsuk-body-m + .nhsuk-heading-m,
+    address + .nhsuk-heading-m,
     .nhsuk-body-s + h3,
     .nhsuk-body-s + .nhsuk-heading-m,
     .nhsuk-list + h3,
@@ -916,8 +925,10 @@ ol + .nhsuk-heading-s {
     ol + .nhsuk-heading-m,
     p + h4,
     .nhsuk-body-m + h4,
+    address + h4,
     p + .nhsuk-heading-s,
     .nhsuk-body-m + .nhsuk-heading-s,
+    address + .nhsuk-heading-s,
     .nhsuk-body-s + h4,
     .nhsuk-body-s + .nhsuk-heading-s,
     .nhsuk-list + h4,
