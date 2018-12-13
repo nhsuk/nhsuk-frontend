@@ -614,3 +614,4 @@ The transactional header with a long service name macro takes the following argu
 | **name**                   | string   | Yes       | The name of the service. |
 | **longName**               | boolean  | Yes       | Set to "true" if the service name is longer than 22 characters. |
 | **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
+| **ariaLabel**              | string   | No        | Aria label for the logo href. Defaults to "NHS homepage". |

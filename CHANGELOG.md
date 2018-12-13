@@ -1,5 +1,11 @@
 # NHS.UK Frontend Changelog
 
+## 0.5.3 (Prerelease) - Dec 13, 2018
+
+:new: **New features**
+
+- Header - Add 'aria-label' Nunjucks argument so it can be overridden  ([PR 297](https://github.com/nhsuk/nhsuk-frontend/pull/297))
+
 ## 0.5.2 (Prerelease) - Dec 12, 2018
 
 :wrench: **Fixes**
