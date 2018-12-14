@@ -2,7 +2,7 @@
 
 NHS.UK Frontend contains all the code you need to start building user interfaces for NHS websites and services.
 
-Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for examples of components and guidance for when to use them.
+Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for examples of components and guidance for when to use them. If we haven’t yet published guidance on the component you want, please [email us](mailto:service-manual@nhs.net) or get in touch on the [NHS.UK #standards Slack channel](https://nhsuk.slack.com/messages/standards).
 
 ## How to install NHS.UK Frontend
 
@@ -22,7 +22,7 @@ Visit our [support for browsers and assistive technology](/docs/contributing/cod
 
 ## Contribute
 
-[Contribute to NHS.UK Frontend](/docs/contributing/README.md) by following our guidelines.
+See [our contributing guidelines](/docs/contributing/README.md) to contribute to NHS.UK Frontend.
 
 We created this library with help from:
 
@@ -33,7 +33,7 @@ We created this library with help from:
 
 ## Get in touch
 
-NHS.UK Frontend is maintained by NHS Digital. Email [nhsdigital.nhsuk-frontend@nhs.net](mailto:nhsdigital.nhsuk-frontend@nhs.net), or open a [Github issue](https://github.com/nhsuk/nhsuk-frontend/issues/new/choose).
+NHS.UK Frontend is maintained by NHS Digital. [Email us](mailto:service-manual@nhs.net), open a [Github issue](https://github.com/nhsuk/nhsuk-frontend/issues/new) or get in touch on the [NHS.UK #standards Slack channel](https://nhsuk.slack.com/messages/standards).
 
 ## Licence
 
