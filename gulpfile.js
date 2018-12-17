@@ -88,12 +88,26 @@ function thirdPartyAssets() {
     .pipe(gulp.dest('dist/'));
 }
 
+/* Minify the JS file for release */
+function minifyJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: `.min`
+    }))
+    .pipe(gulp.dest('packages/'))
+}
+
 /* Version the JS file for release */
 function versionJS() {
   return gulp.src([
     'dist/*.js',
     '!dist/*.min.js', // don't re-minify minified javascript
   ])
+    .pipe(uglify())
     .pipe(rename({
       suffix: `-${package.version}.min`
     }))
@@ -158,6 +172,7 @@ gulp.task('bundle', gulp.series([
   cleanDist,
   'build',
   minifyCSS,
+  minifyJS,
   versionJS,
 ]))
 gulp.task('zip', gulp.series([

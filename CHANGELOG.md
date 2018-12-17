@@ -1,5 +1,14 @@
 # NHS.UK Frontend Changelog
 
+## 0.6.0 (Prerelease) - TBC
+
+:new: **New features**
+
+- ES6 JavaScript modules - NHS.UK Frontend JavaScript is now written in ES6 format, meaning you can import individual components
+that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
+
+See more about using ES6 modules in your project in the [importing Javascript documentation](/docs/installation/installing-with-npm.md#importing-javascript).
+
 ## 0.5.1 (Prerelease) - Dec 11, 2018
 
 :wrench: **Fixes**
