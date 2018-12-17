@@ -1,14 +1,17 @@
 {
   "name": "nhsuk-frontend",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "The NHS website frontend styles, for creating NHS websites and services.",
   "sasslintConfig": "config/sass-lint.yml",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint-css",
-    "lint-css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "test": "npm run lint",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:js": "eslint -c ./tests/linters/.eslintrc.js **/header/header.js **/skip-link/skip-link.js **/feedback-banner/feedback-banner.js",
+    "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/docs/components/*.html",
     "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "backstop test --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
@@ -22,9 +25,17 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "backstopjs": "^3.8.4",
+    "del": "^3.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-nhsuk": "^0.16.0",
+    "eslint-plugin-import": "^2.14.0",
     "event-stream": "^3.3.4",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
@@ -41,9 +52,12 @@
     "gulp-uglify": "^3.0.1",
     "gulp-wrap": "^0.14.0",
     "gulp-zip": "^4.2.0",
+    "htmlhint": "^0.10.1",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.3",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "webpack": "^4.27.0",
+    "webpack-stream": "^5.1.1"
   },
   "files": [
     "dist",

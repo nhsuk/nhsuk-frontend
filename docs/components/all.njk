@@ -24,6 +24,11 @@
 {% extends 'page.njk' %}
 
 {% block header %}
+  {{ skipLink({
+    "URL": "#maincontent",
+    "heading": "Skip to main content"
+  }) }}
+
   {{ header({
       "showNav": "true",
       "showSearch": "true",
@@ -51,11 +56,6 @@
       ]
     })
   }}
-
-  {{ skipLink({
-    "URL": "#maincontent",
-    "heading": "Skip to main content"
-  }) }}
 {% endblock %}
 
 {% block breadcrumb %}
@@ -112,7 +112,7 @@
   <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
 
   {{ insetText({
-    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   {{ warningCallout({
@@ -127,7 +127,7 @@
     <ul>
       <li>you're not sure it's chickenpox</li>
       <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+      <li>your child is <a href=\"https://www.nhs.uk\">dehydrated</a></li>
       <li>you're concerned about your child or they get worse</li>
     </ul>
     <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -156,7 +156,7 @@
       <li>makes your chest feel tight or heavy</li>
       <li>also started with shortness of breath, sweating and feeling or being sick</li>
     </ul>
-    <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+    <p>You could be having a <a href=\"https://www.nhs.uk\">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
     "
   }) }}
 
@@ -271,28 +271,28 @@
   </div>
 
   {{ panel({
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   {{ panel({
     "colour": "grey",
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   {{ panel({
     "label": "Panel heading",
-    "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   <div class="nhsuk-grid-row nhsuk-panel-group">
     <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>
@@ -300,12 +300,12 @@
   <div class="nhsuk-grid-row nhsuk-panel-group">
     <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
       {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>

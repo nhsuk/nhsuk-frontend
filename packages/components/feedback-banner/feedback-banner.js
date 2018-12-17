@@ -1,60 +1,86 @@
-// Feedback banner
+/**
+ * Feedback banner
+ *
+ * Javascript to show and hide the feedback banner, showing
+ * the banner can be delayed by a number of seconds.
+ *
+ * The default delay before showing the feedback banner is
+ * 3000ms (3 seconds), this can be changed.
+ *
+ * Usage:
+ * feedbackBanner.init(3000);
+ */
 
-var banner = document.querySelector('#nhsuk-feedback-banner');
-var bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
-var footer = document.getElementById('nhsuk-footer');
+const banner = document.querySelector('#nhsuk-feedback-banner');
+const bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
+const footer = document.querySelector('#nhsuk-footer');
 
-// taken from https://stackoverflow.com/a/22480938
+function showBanner() {
+  if (banner) {
+    banner.style.display = 'block';
+  }
+}
+
+function hideBanner() {
+  if (banner) {
+    banner.style.display = 'none';
+  }
+}
+
 function isScrolledIntoView(el) {
-  var rect = el.getBoundingClientRect();
-  var elemTop = rect.top;
-  var elemBottom = rect.bottom;
+  const rect = el.getBoundingClientRect();
+  const elemTop = rect.top;
+  const elemBottom = rect.bottom;
   // Only completely visible elements return true:
-  // var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+  // const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
   // Partially visible elements return true:
-  var isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+  const isVisible = elemTop < window.innerHeight && elemBottom >= 0;
   return isVisible;
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-
-  setTimeout(function () {
-    if (typeof(banner) != 'undefined' && banner != null) {
-      banner.style.display = "block";
-    }
-  }, 3000);
-
-  var didScroll = false,
-      timer = false;
-
+function unstickBanner() {
+  let didScroll = false;
+  let timer = false;
   // set a timer when scrolling, so as not to be constantly calling the
   // isScrolledIntoView function and spiking CPU, to check when the footer
   // comes in to view, to make the banner not sticky but position it in the
   // normal flow of the page below the footer
-  if (typeof(banner) != 'undefined' && banner != null) {
-    $(window).scroll(function() {
-      if (!didScroll) {
-        timer = setInterval(function() {
-          if (didScroll) {
-            didScroll = false;
-            clearTimeout(timer);
-
-            if (isScrolledIntoView(footer)) {
-              banner.classList.add("js-inview")
-            } else {
-              banner.classList.remove("js-inview")
-            }
-          }
-        }, 500);
+  timer = setInterval(() => {
+    if (didScroll) {
+      didScroll = false;
+      clearTimeout(timer);
+      if (isScrolledIntoView(footer)) {
+        banner.classList.add('js-inview');
+      } else {
+        banner.classList.remove('js-inview');
       }
-      didScroll = true;
-    });
-  }
-
-});
-
-if (bannerCloseButton) {
-  bannerCloseButton.addEventListener("click", function(){
-    banner.style.display = "none";
-  });
+    }
+  }, 500);
+  didScroll = true;
 }
+
+function handleBannerDisplay(delay) {
+  setTimeout(() => {
+    showBanner();
+  }, delay);
+}
+
+function handleBannerClose() {
+  if (bannerCloseButton) {
+    bannerCloseButton.addEventListener('click', hideBanner);
+  }
+}
+
+function handleBannerSticky() {
+  if (banner) {
+    window.addEventListener('scroll', unstickBanner);
+  }
+}
+
+function nhsuk_feedbackBanner(delay) { /* eslint-disable-line camelcase */
+  handleBannerDisplay(delay);
+  handleBannerClose();
+  handleBannerSticky();
+}
+
+export default nhsuk_feedbackBanner; /* eslint-disable-line camelcase */

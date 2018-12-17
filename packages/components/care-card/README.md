@@ -44,7 +44,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   <ul>
     <li>you're not sure it's chickenpox</li>
     <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-    <li>your child is <a href='https://www.nhs.uk/'>dehydrated</a></li>
+    <li>your child is <a href=\"https://www.nhs.uk\">dehydrated</a></li>
     <li>you're concerned about your child or they get worse</li>
   </ul>
   <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -135,7 +135,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
     <li>makes your chest feel tight or heavy</li>
     <li>also started with shortness of breath, sweating and feeling or being sick</li>
   </ul>
-  <p>You could be having a <a href='https://www.nhs.uk\'>heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
+  <p>You could be having a <a href=\"https://www.nhs.uk\">heart attack</a>. Call 999 immediately as you need immediate treatment in hospital.</p>
   "
 }) }}
 ```
