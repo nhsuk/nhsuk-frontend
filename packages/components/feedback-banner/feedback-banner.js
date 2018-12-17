@@ -45,19 +45,17 @@ function unstickBanner() {
   // isScrolledIntoView function and spiking CPU, to check when the footer
   // comes in to view, to make the banner not sticky but position it in the
   // normal flow of the page below the footer
-  if (!didScroll) {
-    timer = setInterval(function () { // eslint-disable-line
-      if (didScroll) {
-        didScroll = false;
-        clearTimeout(timer);
-        if (isScrolledIntoView(footer)) {
-          banner.classList.add('js-inview');
-        } else {
-          banner.classList.remove('js-inview');
-        }
+  timer = setInterval(() => {
+    if (didScroll) {
+      didScroll = false;
+      clearTimeout(timer);
+      if (isScrolledIntoView(footer)) {
+        banner.classList.add('js-inview');
+      } else {
+        banner.classList.remove('js-inview');
       }
-    }, 500);
-  }
+    }
+  }, 500);
   didScroll = true;
 }
 
