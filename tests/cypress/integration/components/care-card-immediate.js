@@ -8,25 +8,25 @@ describe('Care-card immediate component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/care-card-immediate.html')
   });
 
-  it('checking for nhsuk-care-card__heading-container class', function () {
+  it('Checking for nhsuk-care-card__heading-container class', function () {
     cy.get('.nhsuk-care-card__heading-container')
   });
 
-  it('nhsuk-care-card nhsuk-care-card--immediate class', function () {
+  it('Checking for nhsuk-care-card nhsuk-care-card--immediate class', function () {
     cy.get('.nhsuk-care-card.nhsuk-care-card--immediate')
   });
 
-  it('checking for nhsuk-care-card__heading-container class', function () {
+  it('Checking for nhsuk-care-card__heading-container class', function () {
     cy.get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
   });
 
-  it('checking for nhsuk-care-card__content class', function () {
+  it('Checking for nhsuk-care-card__content class', function () {
     cy.get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__content')
   });
 
-  it('checking for nhsuk-care-card__heading class', function () {
+  it('Checking for nhsuk-care-card__heading class', function () {
     cy.get('.nhsuk-care-card__heading-container').children()
       .should('have.class', 'nhsuk-care-card__heading')
   });

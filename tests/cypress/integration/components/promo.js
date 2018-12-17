@@ -23,7 +23,6 @@ describe('Promo component tests', function () {
   it('Checking for href', function () {
     cy.get('.nhsuk-promo__link-wrapper').should('have.attr', 'href')
   });
-
 });
 
 describe('Promo component with image tests', function () {

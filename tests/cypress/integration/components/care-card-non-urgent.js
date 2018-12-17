@@ -42,7 +42,7 @@ describe('Care-card non-urgent component tests', function () {
       .should('have.css', 'font-family').and('eq', '"Frutiger W01", Helvetica, Arial, sans-serif')
   });
 
-  it('checking for nhsuk-care-card__arrow and aria status', function () {
+  it('Checking for nhsuk-care-card__arrow and aria status', function () {
     cy.get('.nhsuk-care-card__arrow')
       .should('have.attr', 'aria-hidden', 'true')
   });

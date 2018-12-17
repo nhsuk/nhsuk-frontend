@@ -8,7 +8,6 @@ describe('List panel component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/list-panel.html')
   });
 
-
   it('Checking for href - back_to_top', function () {
     cy.get('.nhsuk-back-to-top__link').should('have.attr', 'href').and('eq', '#nhsuk-nav-a-z')
   });
@@ -17,7 +16,7 @@ describe('List panel component tests', function () {
     cy.get('.nhsuk-back-to-top')
   });
 
-  it('checking for arrow in the Back to top', function () {
+  it('Checking for arrow in the Back to top', function () {
     cy.get('.nhsuk-back-to-top__link').first().children().should('have.class', 'nhsuk-icon nhsuk-icon__arrow-right')
   });
 

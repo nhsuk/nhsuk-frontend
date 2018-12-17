@@ -54,7 +54,7 @@ describe('Header component tests - iphone 6 screensize', function () {
     cy.get('.nhsuk-header__menu-toggle').should('have.attr', 'aria-label', 'Open menu')
   });
 
-  it('clicking on menu button', function () {
+  it('Clicking on menu button', function () {
     cy.get('#toggle-menu').click()
   });
 

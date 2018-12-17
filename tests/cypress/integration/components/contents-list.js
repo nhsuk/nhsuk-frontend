@@ -19,6 +19,5 @@ describe('Content-list component tests', function () {
   it('Checking for href', function () {
     cy.get('.nhsuk-contents-list__link').should('have.attr', 'href')
   });
-
 });
 

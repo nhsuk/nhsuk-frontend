@@ -33,6 +33,5 @@ describe('Details component tests', function () {
       .get('.nhsuk-details__summary').click()
       .get('.nhsuk-details__summary').should('have.attr','aria-expanded', 'true')
   });
-
-  });
+});
 
