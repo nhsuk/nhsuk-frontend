@@ -1,4 +1,4 @@
-/*
+    /*
  * Skip link
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
@@ -22,13 +22,19 @@ function removeFocus() {
 
 function handleSkipLink() {
   if (skipLinkElement && headingElement) {
-    skipLinkElement.addEventListener('click', addFocus);
+    skipLinkElement.addEventListener('click', function(e) {
+      e.preventDefault();
+      addFocus();
+    })
   }
 }
 
 function handleHeader() {
   if (skipLinkElement && headingElement) {
-    headingElement.addEventListener('blur', removeFocus);
+    headingElement.addEventListener('blur', function(e) {
+      e.preventDefault();
+      removeFocus();
+    });
   }
 }
 

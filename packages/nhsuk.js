@@ -7,6 +7,8 @@ import nhsuk_skipLink from './components/skip-link/skip-link';
 import './components/details/details.polyfill';
 
 // Initialize components
-nhsuk_feedbackBanner(3000);
-nhsuk_header();
-nhsuk_skipLink();
+document.addEventListener('DOMContentLoaded', function() {
+  nhsuk_feedbackBanner(3000);
+  nhsuk_header();
+  nhsuk_skipLink();
+})
