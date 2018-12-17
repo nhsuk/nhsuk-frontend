@@ -98,7 +98,7 @@ function minifyJS() {
     .pipe(rename({
       suffix: `.min`
     }))
-    .pipe(gulp.dest('packages/'))
+    .pipe(gulp.dest('dist/'))
 }
 
 /* Version the JS file for release */
@@ -132,7 +132,7 @@ function assets() {
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
-  return gulp.src('dist/*.min.js')
+  return gulp.src('dist/*.min.js', '!dist/js/nhsuk.min.js')
     .pipe(clean())
     .pipe(gulp.dest('dist/js/'));
 }
@@ -146,7 +146,7 @@ function cssFolder() {
 }
 
 function createZip() {
-  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**'], { base: 'dist' })
+  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], { base: 'dist' })
     .pipe(zip(`nhsuk-frontend-${package.version}.zip`))
     .pipe(gulp.dest('dist'))
 }
