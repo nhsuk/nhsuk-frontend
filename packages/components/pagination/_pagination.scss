@@ -72,12 +72,12 @@
 
   &:focus {
     box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
-    outline: 3px solid $nhsuk-link-focus-background-color;
+    outline: $nhsuk-focus-width solid $nhsuk-link-focus-background-color;
   }
 
   &:hover {
     box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
-    outline: 3px solid $nhsuk-link-hover-background-color;
+    outline: $nhsuk-focus-width solid $nhsuk-link-hover-background-color;
 
     .nhsuk-pagination__page {
       text-decoration: none;
