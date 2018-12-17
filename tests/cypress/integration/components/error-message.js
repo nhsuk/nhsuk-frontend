@@ -18,5 +18,4 @@ describe('Error message Component tests', function () {
       .and('eq', 'rgb(218, 41, 28)')
   });
 
-
 });

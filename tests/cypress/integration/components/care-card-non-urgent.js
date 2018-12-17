@@ -1,6 +1,5 @@
-// TODO: need to add aria expander status and aria label
-
 describe('care-card non-urgent component tests', function () {
+
   beforeEach(function () {
     cy.viewport('macbook-15');
   });

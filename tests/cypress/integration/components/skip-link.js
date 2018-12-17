@@ -7,6 +7,12 @@ describe('Skip link component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/skip-link.html')
   });
 
+  it('Checking for nhsuk-skip-link class', function () {
+    cy.get('.nhsuk-skip-link')
+  });
 
-  // TODO: aria label and the role
+  it('Checking for href', function () {
+    cy.get('.nhsuk-skip-link').should('have.attr','href')
+  });
+
 });

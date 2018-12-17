@@ -1,4 +1,5 @@
 describe('care-card emergency component tests', function () {
+
   beforeEach(function () {
     cy.viewport('macbook-15');
   });

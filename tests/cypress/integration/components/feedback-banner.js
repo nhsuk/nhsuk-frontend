@@ -35,5 +35,4 @@ describe('Feedback-banner component tests', function () {
       .should('have.class', 'nhsuk-u-visually-hidden','feedback invite')
   });
 
- // TODO: aria label and the role
 });

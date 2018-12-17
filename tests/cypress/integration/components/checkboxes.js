@@ -40,5 +40,45 @@ describe('Checkboxes Component tests', function () {
     cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-label nhsuk-checkboxes__label')
 
   });
+
+  it('checking for nhsuk-label nhsuk-checkboxes__label class', function () {
+    cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-label nhsuk-checkboxes__label')
+
+  });
 });
 
+describe('Checkbox disbled component - tests', function () {
+
+  beforeEach(function () {
+    cy.viewport('macbook-15');
+  });
+
+  it('navigating to checkbox disabled Component', function () {
+    cy.visit(Cypress.config().baseUrl + '/checkboxes/disabled.html')
+  });
+
+  it('Checking for checkbox diabled', function () {
+    cy.get('.nhsuk-checkboxes__input').should('be.disabled')
+  });
+
+});
+
+describe('Checkbox with error message - tests', function () {
+
+  beforeEach(function () {
+    cy.viewport('macbook-15');
+  });
+
+  it('navigating to checkbox disabled Component', function () {
+    cy.visit(Cypress.config().baseUrl + '/checkboxes/error.html')
+  });
+
+  it('Checking for nhsuk-error-message class', function () {
+    cy.get('.nhsuk-error-message')
+  });
+
+  it('Checking for nhsuk-error-message class', function () {
+    cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
+  });
+
+});

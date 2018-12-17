@@ -16,7 +16,6 @@ describe('Breadcrumb Component', function () {
     cy.get('nav').should('have.attr','aria-label','Breadcrumb')
   });
 
-
   it('Checking nhsuk-breadcrumb__list class', function () {
     cy.get('.nhsuk-breadcrumb__list').first().children().should('have.class','nhsuk-breadcrumb__item')
   });

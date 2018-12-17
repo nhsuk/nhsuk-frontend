@@ -8,7 +8,6 @@ describe('List Panel Component', function () {
     cy.visit(Cypress.config().baseUrl + '/radios/index.html')
   });
 
-
   it('Checking for href - back_to_top', function () {
     cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
   });

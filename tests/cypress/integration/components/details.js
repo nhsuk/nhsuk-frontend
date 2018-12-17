@@ -1,5 +1,3 @@
-// TODO: need to add aria expander status and aria label
-
 describe('Details component tests', function () {
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -22,7 +20,7 @@ describe('Details component tests', function () {
   });
 
   it('Checking expander default status', function () {
-    cy.get('.nhsuk-details__summary').should('have.attr','aria-controls')
+    cy.get('.nhsuk-details__summary').should('have.attr','aria-expanded', 'false')
   });
 
   it('Checking aria hidden status', function () {
@@ -35,7 +33,6 @@ describe('Details component tests', function () {
       .get('.nhsuk-details__summary').click()
       .get('.nhsuk-details__summary').should('have.attr','aria-expanded', 'true')
   });
-
 
   });
 

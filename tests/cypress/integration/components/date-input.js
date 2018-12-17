@@ -40,7 +40,6 @@ describe('Date-input Component', function () {
 
 });
 
-
 describe('Date-input Component with errors', function () {
 
   beforeEach(function () {
@@ -61,6 +60,31 @@ describe('Date-input Component with errors', function () {
 
   it('Checking for background colour', function () {
     cy.get('.nhsuk-input.nhsuk-date-input__input.nhsuk-input--width-4.nhsuk-input--error')
+      .should('have.css', 'border-color')
+      .and('eq', 'rgb(218, 41, 28)')
+  });
+});
+
+describe('Date-input Component with single error', function () {
+
+  beforeEach(function () {
+    cy.viewport('macbook-15');
+  });
+
+  it('Navigating to Date Input Component for error', function () {
+    cy.visit(Cypress.config().baseUrl + '/date-input/error.html')
+  });
+
+  it('Checking for a class name - nhsuk-form-group nhsuk-form-group--error', function () {
+    cy.get('.nhsuk-form-group.nhsuk-form-group--error').children().should('have.class', 'nhsuk-fieldset')
+  });
+
+  it('Checking for a aria-describedby', function () {
+    cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
+  });
+
+  it('Checking for box border colour', function () {
+    cy.get('.nhsuk-error-message')
       .should('have.css', 'border-color')
       .and('eq', 'rgb(218, 41, 28)')
   });

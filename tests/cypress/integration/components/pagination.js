@@ -8,7 +8,6 @@ describe('Pagination Component', function () {
     cy.visit(Cypress.config().baseUrl + '/pagination.html')
   });
 
-
   it('Checking for aria hidden label', function () {
     cy.get('.nhsuk-pagination').should('have.attr', 'aria-label', 'Pagination')
   });

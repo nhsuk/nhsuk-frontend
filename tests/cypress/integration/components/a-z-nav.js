@@ -1,8 +1,4 @@
-
-
-
 describe('A-Z Navigation Component', function () {
-
 
   beforeEach(function () {
     cy.viewport('macbook-15');

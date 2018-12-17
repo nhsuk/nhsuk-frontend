@@ -29,3 +29,29 @@ describe('Footer Component', function () {
   });
 });
 
+describe('Footer with no logo - Component', function () {
+
+  beforeEach(function () {
+    cy.viewport('macbook-15');
+  });
+
+  it('Navigating to Footer Component', function () {
+    cy.visit(Cypress.config().baseUrl + '/footer-no-logo.html')
+  });
+
+  it('Checking for footer list class', function () {
+    cy.get('.nhsuk-width-container').children().should('have.class', 'nhsuk-footer__list')
+  });
+
+  it('Checking for footer list item class', function () {
+    cy.get('.nhsuk-footer__list').first().children().should('have.class', 'nhsuk-footer__list-item')
+  });
+
+  it('Checking for href', function () {
+    cy.get('.nhsuk-footer__list-item').children().should('have.attr','href')
+  });
+
+  it('Checking for copy right', function () {
+    cy.get('.nhsuk-footer__copyright').hasOwnProperty('© Crown Copyright')
+  });
+});
