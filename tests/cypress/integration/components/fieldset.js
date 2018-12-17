@@ -1,4 +1,4 @@
-describe('Fieldset Component', function () {
+describe('Fieldset component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -15,7 +15,6 @@ describe('Fieldset Component', function () {
   it('Checking for a class name - nhsuk-fieldset__legend', function () {
     cy.get('.nhsuk-fieldset__legend')
   });
-
 });
 
 describe('Fieldset as a page heading - Component', function () {

@@ -20,5 +20,4 @@ describe('Text area component tests', function () {
     cy.get('#more-detail').should('have.class','nhsuk-textarea')
       .should('have.attr','aria-describedby')
   });
-
 });

@@ -1,4 +1,4 @@
-describe('Breadcrumb Component', function () {
+describe('Breadcrumb component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -19,5 +19,4 @@ describe('Breadcrumb Component', function () {
   it('Checking nhsuk-breadcrumb__list class', function () {
     cy.get('.nhsuk-breadcrumb__list').first().children().should('have.class','nhsuk-breadcrumb__item')
   });
-
 });

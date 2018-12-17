@@ -15,8 +15,6 @@ describe('select component tests', function () {
   it('Checking for a class name - nhsuk-label', function () {
     cy.get('.nhsuk-form-group').children().should('have.class','nhsuk-label')
   });
-
-
 });
 
 describe('select component with hint text and error message tests', function () {

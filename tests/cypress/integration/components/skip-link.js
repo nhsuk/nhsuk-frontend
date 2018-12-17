@@ -14,5 +14,4 @@ describe('Skip link component tests', function () {
   it('Checking for href', function () {
     cy.get('.nhsuk-skip-link').should('have.attr','href')
   });
-
 });

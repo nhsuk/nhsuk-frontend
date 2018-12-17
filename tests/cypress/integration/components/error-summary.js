@@ -1,4 +1,4 @@
-describe('Error summary Component tests', function () {
+describe('Error summary component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -26,5 +26,4 @@ describe('Error summary Component tests', function () {
     cy.get('.nhsuk-error-summary')
       .should('have.attr', 'role', 'alert')
   });
-
 });

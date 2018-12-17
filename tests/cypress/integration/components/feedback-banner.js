@@ -34,5 +34,4 @@ describe('Feedback-banner component tests', function () {
       .get('.nhsuk-feedback-banner__content').children().children()
       .should('have.class', 'nhsuk-u-visually-hidden','feedback invite')
   });
-
 });

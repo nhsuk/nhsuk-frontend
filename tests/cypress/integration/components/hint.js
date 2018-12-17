@@ -11,5 +11,4 @@ describe('Hint component tests', function () {
   it('Checking for a class name - nhsuk-hint', function () {
     cy.get('.nhsuk-hint')
   });
-  
 });

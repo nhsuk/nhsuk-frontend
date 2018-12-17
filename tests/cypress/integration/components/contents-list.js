@@ -1,4 +1,4 @@
-describe('Content-list Component', function () {
+describe('Content-list component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -12,7 +12,7 @@ describe('Content-list Component', function () {
     cy.get('.nhsuk-contents-list').should('have.attr', 'aria-label','Pages in this guide')
   });
 
-  it('Checking visually hidden class - Contents', function () {
+  it('Checking visually hidden class contents', function () {
     cy.get('.nhsuk-contents-list').children().should('have.class', 'nhsuk-u-visually-hidden')
   });
 

@@ -1,4 +1,4 @@
-describe('Panel Component', function () {
+describe('Panel component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -11,6 +11,5 @@ describe('Panel Component', function () {
   it('Checking panel class-nhsuk_c_panel', function () {
     cy.get('.nhsuk-grid-column-two-thirds').children().should('have.class', 'nhsuk-panel')
   });
-
 });
 

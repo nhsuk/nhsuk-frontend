@@ -36,5 +36,4 @@ describe('Expander - group components tests', function () {
     cy.get('.nhsuk-expander-group > .nhsuk-details:first > .nhsuk-details__summary').click()
       .should('have.attr','aria-expanded','true')
   });
-
 });

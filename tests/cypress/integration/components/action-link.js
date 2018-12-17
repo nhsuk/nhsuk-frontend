@@ -1,4 +1,4 @@
-describe('Action Link Component', function () {
+describe('Action link component test ', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -19,6 +19,5 @@ describe('Action Link Component', function () {
   it('Checking for aria hidden status - arrow', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right-circle').should('have.attr','aria-hidden', 'true')
   });
-
 });
 

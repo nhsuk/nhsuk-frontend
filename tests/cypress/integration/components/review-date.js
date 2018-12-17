@@ -1,4 +1,4 @@
-describe('Review Date Component', function () {
+describe('Review date component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -19,6 +19,5 @@ describe('Review Date Component', function () {
   it('Checking for Next review due', function () {
     cy.get('.nhsuk-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
   });
-
 });
 

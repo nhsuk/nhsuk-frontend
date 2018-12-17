@@ -1,10 +1,10 @@
-describe('Checkboxes Component tests', function () {
+describe('Checkboxes component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigation to Checkboxes component', function () {
+  it('Navigation to checkboxes component', function () {
     cy.visit(Cypress.config().baseUrl + '/checkboxes')
   });
 
@@ -47,7 +47,7 @@ describe('Checkboxes Component tests', function () {
   });
 });
 
-describe('Checkbox disbled component - tests', function () {
+describe('Checkbox disbled component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -63,7 +63,7 @@ describe('Checkbox disbled component - tests', function () {
 
 });
 
-describe('Checkbox with error message - tests', function () {
+describe('Checkbox with error message tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');

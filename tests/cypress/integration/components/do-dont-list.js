@@ -1,4 +1,4 @@
-describe('Do - Dont List Component', function () {
+describe('Do - dont list component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');

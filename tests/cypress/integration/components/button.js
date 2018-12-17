@@ -1,4 +1,4 @@
-describe('Button Component tests', function () {
+describe('Button component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -8,16 +8,13 @@ describe('Button Component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/button/index.html')
   });
 
-
   it('Checking for nhsuk-button class', function () {
     cy.get('.nhsuk-button')
   });
 
-
   it('Checking for button type', function () {
     cy.get('[type="submit"]')
   });
-
 });
 
 describe('Button disabled Component - tests', function () {
@@ -30,7 +27,6 @@ describe('Button disabled Component - tests', function () {
     cy.visit(Cypress.config().baseUrl + '/button/disabled.html')
   });
 
-
   it('Checking for button type', function () {
     cy.get('[type="submit"]')
   });
@@ -38,7 +34,6 @@ describe('Button disabled Component - tests', function () {
   it('Checking for nhsuk-button class', function () {
     cy.get('.nhsuk-button.nhsuk-button--disabled').should('have.attr', 'aria-disabled', 'true')
   });
-
 });
 
 describe('Secondary button Component - tests', function () {
@@ -51,7 +46,6 @@ describe('Secondary button Component - tests', function () {
     cy.visit(Cypress.config().baseUrl + '/button/secondary.html')
   });
 
-
   it('Checking for button type', function () {
     cy.get('[type="submit"]')
   });
@@ -59,7 +53,6 @@ describe('Secondary button Component - tests', function () {
   it('Checking for nhsuk-button class', function () {
     cy.get('.nhsuk-button.nhsuk-button--secondary')
   });
-
 });
 
 

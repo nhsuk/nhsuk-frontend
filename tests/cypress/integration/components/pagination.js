@@ -1,4 +1,4 @@
-describe('Pagination Component', function () {
+describe('Pagination component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');

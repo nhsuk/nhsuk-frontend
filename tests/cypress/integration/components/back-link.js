@@ -1,4 +1,4 @@
-describe('Back Link Component', function () {
+describe('Back link component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -27,6 +27,5 @@ describe('Back Link Component', function () {
   it('Checking for href', function () {
     cy.get('.nhsuk-back-link__link').should('have.attr','href')
   });
-
 });
 

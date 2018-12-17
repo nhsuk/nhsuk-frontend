@@ -1,4 +1,4 @@
-describe('List Panel Component', function () {
+describe('List panel component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');

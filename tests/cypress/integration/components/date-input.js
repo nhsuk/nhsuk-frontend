@@ -1,4 +1,4 @@
-describe('Date-input Component', function () {
+describe('Date-input Component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -37,7 +37,6 @@ describe('Date-input Component', function () {
       .should('have.css', 'border-color')
       .and('eq', 'rgb(66, 85, 99)')
   });
-
 });
 
 describe('Date-input Component with errors', function () {

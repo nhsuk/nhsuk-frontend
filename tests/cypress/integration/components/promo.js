@@ -1,4 +1,4 @@
-describe('Promo Component', function () {
+describe('Promo component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -26,7 +26,7 @@ describe('Promo Component', function () {
 
 });
 
-describe('Promo Component with image', function () {
+describe('Promo component with image tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -59,10 +59,9 @@ describe('Promo Component with image', function () {
   it('Checking for image presence', function () {
     cy.get('.nhsuk-promo__img').hasOwnProperty('.png')
   });
-
 });
 
-describe('Small Promo Component', function () {
+describe('Small promo component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -79,5 +78,4 @@ describe('Small Promo Component', function () {
   it('Checking for nhsuk-promo__link-wrapper class', function () {
     cy.get('.nhsuk-promo__link-wrapper')
   });
-
 });

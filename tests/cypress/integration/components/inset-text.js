@@ -1,4 +1,4 @@
-describe('Inset text Component', function () {
+describe('Inset text component', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -11,6 +11,5 @@ describe('Inset text Component', function () {
   it('Checking for visually hidden text', function () {
     cy.get('.nhsuk-inset-text').children().should('have.class', 'nhsuk-u-visually-hidden', 'Information: ')
   });
-
 });
 

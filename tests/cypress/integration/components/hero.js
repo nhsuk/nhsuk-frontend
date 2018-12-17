@@ -1,4 +1,4 @@
-describe('Hero Image Component', function () {
+describe('Hero image component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -15,11 +15,9 @@ describe('Hero Image Component', function () {
   it('Checking for H1 has a class - nhsuk-u-margin-bottom-3', function () {
     cy.get('h1').should('have.class', 'nhsuk-u-margin-bottom-3','We’re here for you')
   });
-
 });
 
-
-describe('Hero with Image and content Component', function () {
+describe('Hero with image and content component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -44,5 +42,4 @@ describe('Hero with Image and content Component', function () {
   it('Checking for a class - nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description', function () {
     cy.get('.nhsuk-hero.nhsuk-hero--image.nhsuk-hero--image-description')
   });
-
 });

@@ -25,5 +25,4 @@ describe('warning call out component tests', function () {
       .should('have.css', 'background-color')
       .and('eq', 'rgb(255, 249, 196)')
   });
-
 });

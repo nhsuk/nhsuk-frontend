@@ -1,4 +1,4 @@
-describe('Expander Component tests', function () {
+describe('Expander component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -24,17 +24,14 @@ describe('Expander Component tests', function () {
 
   it('Checking aria controls', function () {
     cy.get('.nhsuk-details__summary').should('have.attr', 'aria-controls', 'details-content-0')
-
   });
 
   it('Checking default expander status', function () {
     cy.get('.nhsuk-details__summary').should('have.attr', 'aria-expanded', 'false')
-
   });
 
   it('Checking expander status after clicking', function () {
     cy.get('.nhsuk-details__summary').click()
       .should('have.attr', 'aria-expanded', 'true')
-
   });
 });

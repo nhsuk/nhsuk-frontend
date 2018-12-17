@@ -1,4 +1,4 @@
-describe('Images Component', function () {
+describe('Images component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -23,6 +23,5 @@ describe('Images Component', function () {
   it('Checking for figcaption', function () {
     cy.get('.nhsuk-image').first().find('figcaption').should('have.class', 'nhsuk-image__caption')
   });
-
 });
 

@@ -35,7 +35,6 @@ describe('Header component tests - 15 inch screen', function () {
   it('Checking for class nhsuk-u-visually-hidden', function () {
     cy.get('.nhsuk-u-visually-hidden').hasOwnProperty('Search')
   });
-
 });
 
 describe('Header component tests - iphone 6 screensize', function () {
@@ -83,6 +82,5 @@ describe('Header component tests - iphone 6 screensize', function () {
   it('Checking for Href', function () {
     cy.get('.nhsuk-header__link').should('have.attr', 'href','/')
   });
-
 });
 

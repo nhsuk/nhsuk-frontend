@@ -18,5 +18,4 @@ describe('Table component tests', function () {
   it('Checking for the table body class', function () {
     cy.get('.nhsuk-table').children().should('have.class', 'nhsuk-table__body')
   });
-
 });

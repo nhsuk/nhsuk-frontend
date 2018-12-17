@@ -1,4 +1,4 @@
-describe('Emergency Alert Component', function () {
+describe('Emergency alert component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -27,5 +27,4 @@ describe('Emergency Alert Component', function () {
   it('Checking for visually hidden element - Alert:', function () {
     cy.get('.nhsuk-global-alert__heading').children().should('have.class','nhsuk-u-visually-hidden', 'Alert:')
   });
-
 });

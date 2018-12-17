@@ -1,4 +1,4 @@
-describe('Error message Component tests', function () {
+describe('Error message component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -17,5 +17,4 @@ describe('Error message Component tests', function () {
       .should('have.css', 'color')
       .and('eq', 'rgb(218, 41, 28)')
   });
-
 });
