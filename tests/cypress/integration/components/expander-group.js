@@ -32,4 +32,9 @@ describe('Expander - group components tests', function () {
     cy.get('.nhsuk-details__summary').should('have.attr', 'aria-controls', 'details-content-0')
   });
 
+  it('Checking for expander status after clicking', function () {
+    cy.get('.nhsuk-expander-group > .nhsuk-details:first > .nhsuk-details__summary').click()
+      .should('have.attr','aria-expanded','true')
+  });
+
 });
