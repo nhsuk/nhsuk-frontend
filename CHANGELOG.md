@@ -12,7 +12,7 @@ the compiled JavaScript file from the `packages/` folder please update your proj
 - ES6 JavaScript modules - NHS.UK Frontend JavaScript is now written in ES6 format, meaning you can import individual components
 that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
 
-See more about using ES6 modules in your project in the [installing with npm - importing Javascript documentation](/docs/installation/installing-with-npm.md#importing-javascript).
+See more about using ES6 modules in your project in the [installing with npm - importing Javascript documentation](/docs/installation/installing-with-npm.md#option-2-import-javascript-using-modules).
 
 ## 0.5.3 (Prerelease) - Dec 13, 2018
 
