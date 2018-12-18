@@ -1,4 +1,4 @@
-# NHS.UK Frontend Changelog
+# NHS.UK frontend Changelog
 
 ## 0.6.0 (Prerelease) - TBC
 
@@ -9,7 +9,7 @@ the compiled JavaScript file from the `packages/` folder please update your proj
 
 :new: **New features**
 
-- ES6 JavaScript modules - NHS.UK Frontend JavaScript is now written in ES6 format, meaning you can import individual components
+- ES6 JavaScript modules - NHS.UK frontend JavaScript is now written in ES6 format, meaning you can import individual components
 that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
 
 See more about using ES6 modules in your project in the [installing with npm - importing Javascript documentation](/docs/installation/installing-with-npm.md#option-2-import-javascript-using-modules).
@@ -88,7 +88,7 @@ when scrolling down the page if the feedback banner did not exist on the page.  
 
 :new: **New features**
 
-- Form elements - All form elements have now been added to NHS.UK Frontend. Including a new transactional header and footer. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
+- Form elements - All form elements have now been added to NHS.UK frontend. Including a new transactional header and footer. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
 - Footer - The footer has had a visual redesign. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
@@ -139,7 +139,7 @@ when scrolling down the page if the feedback banner did not exist on the page.  
 
 ## 0.1.4 (Prerelease) - Nov 13, 2018
 
-:tada: **Initial release of the NHS.UK Frontend**
+:tada: **Initial release of the NHS.UK frontend**
 
 - This release includes all the content page components and the first
 installable npm package.

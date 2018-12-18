@@ -2,7 +2,7 @@
 
 ## Requirements
 
-To use NHS.UK Frontend in your projects with npm you must:
+To use NHS.UK frontend in your projects with npm you must:
 
 1. Have [Node.js](https://nodejs.org/en/) installed. We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, which also includes [npm](https://www.npmjs.com/).
 
@@ -18,7 +18,7 @@ To use NHS.UK Frontend in your projects with npm you must:
 
 ## Installation
 
-Install the NHS.UK Frontend package into your project:
+Install the NHS.UK frontend package into your project:
 
 ```
 npm install nhsuk-frontend --save
@@ -26,7 +26,7 @@ npm install nhsuk-frontend --save
 
 ## Configuration
 
-You will need to import a couple of things into your project before you can start using NHS.UK Frontend:
+You will need to import a couple of things into your project before you can start using NHS.UK frontend:
 
 - [Importing styles](#importing-styles)
 - [Importing JavaScript](#importing-javascript)
@@ -36,7 +36,7 @@ You will need to import a couple of things into your project before you can star
 
 To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
 
-You need to import the NHS.UK Frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
+You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
 ```SCSS
 @import 'node_modules/nhsuk-frontend/packages/nhsuk';
@@ -56,7 +56,7 @@ Alternatively you can import each of the individual components separately, meani
 
 Some of our components require JavaScript to function properly, others need JavaScript to improve the usability and accessibility.
 
-You should include NHS.UK Frontend JavaScript in your project to ensure that all users can use it successfully.
+You should include NHS.UK frontend JavaScript in your project to ensure that all users can use it successfully.
 
 ### Option 1: Include compiled JavaScript
 
