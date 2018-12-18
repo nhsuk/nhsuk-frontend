@@ -1,6 +1,6 @@
 # Installing using compiled files
 
-When installing NHS.UK Frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
+When installing NHS.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
 
 This means that you will not be able to:
 
@@ -38,9 +38,9 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <link rel="icon" href="assets/favicons/favicon.png">
     ```
 
-  3. Create pages using NHS.UK Frontend
+  3. Create pages using NHS.UK frontend
 
-      You can now create pages using the NHS.UK Frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
+      You can now create pages using the NHS.UK frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
 
 ### HTML template
 
