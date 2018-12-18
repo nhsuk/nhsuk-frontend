@@ -1,6 +1,10 @@
 # NHS.UK frontend
 
-NHS.UK frontend contains all the code you need to start building user interfaces for NHS websites and services.
+NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.
+
+You’re welcome to start using it but please be aware that we’re still testing it with NHS.UK teams. We expect to release the tested version in early January 2019.
+
+## Guidance
 
 Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for examples of components and guidance for when to use them. If we haven’t yet published guidance on the component you want, please [email us](mailto:service-manual@nhs.net) or get in touch on the [NHS.UK #standards Slack channel](https://nhsuk.slack.com/messages/standards).
 
