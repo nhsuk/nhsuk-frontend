@@ -1,11 +1,14 @@
 # NHS.UK frontend Changelog
 
-## 0.6.0 (Prerelease) - TBC
+## 0.6.0 (Prerelease) - Dec 18, 2018
 
 :boom: **Breaking changes**
 
 - npm JavaScript file path - The `nhsuk.min.js` file has been moved from `packages/` into `dist/` if you are referencing
 the compiled JavaScript file from the `packages/` folder please update your projects.
+
+- Footer no longer includes a logo and the nunjucks macro arguments have been updated - if you are using the footer nunjucks
+macro then you need to update it. ([PR 300](https://github.com/nhsuk/nhsuk-frontend/pull/300))
 
 :new: **New features**
 
