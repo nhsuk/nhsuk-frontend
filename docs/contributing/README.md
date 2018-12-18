@@ -1,8 +1,8 @@
-# Contribute to NHS.UK Frontend
+# Contribute to NHS.UK frontend
 
 ## Requirements
 
-To run NHS.UK Frontend locally you'll need to:
+To run NHS.UK frontend locally you'll need to:
 * [set up git](https://help.github.com/articles/set-up-git/)
 * [install Node.js](https://nodejs.org/en/)
 We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
@@ -63,6 +63,6 @@ You can read our [getting started documentation](/docs/contributing/getting-star
 
 ## 6. Create a pull request
 
-You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK Frontend will review it and approve or feedback on changes required.
+You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK frontend will review it and approve or feedback on changes required.
 
 You'll need to [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) if you have cloned your own fork.

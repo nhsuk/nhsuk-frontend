@@ -1,6 +1,6 @@
 
 # Component API definition and use
-We have chosen as Nunjucks as the templating language for NHS.UK Frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
+We have chosen as Nunjucks as the templating language for NHS.UK frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
 
 To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and  if so they are documented accordingly.
 
