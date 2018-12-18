@@ -36,7 +36,6 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-nhsuk": "^0.16.0",
     "eslint-plugin-import": "^2.14.0",
-    "event-stream": "^3.3.5",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
