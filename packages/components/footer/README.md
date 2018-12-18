@@ -36,7 +36,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/footer/macro.njk' import footer %}
 
   {{ footer({
-    "primaryLinks": [
+    "links": [
       {
         "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
         "label": "NHS sites"
@@ -66,6 +66,6 @@ The footer Nunjucks macro takes the following arguments:
 
 | Name                         | Type     | Required  | Description  |
 | -----------------------------|----------|-----------|--------------|
-| **primaryLinks**             | array    | No        | Array of primary navigation items for use in the footer. |
-| **primaryLinks.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
-| **primaryLinks.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
+| **links**             | array    | No        | Array of primary navigation items for use in the footer. |
+| **links.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
+| **links.[].label**    | string   | No        | The label of a primary navigation item in the footer. |

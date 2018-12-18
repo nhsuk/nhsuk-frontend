@@ -1,10 +1,10 @@
 <footer role="contentinfo">
   <div class="nhsuk-footer" id="nhsuk-footer">
     <div class="nhsuk-width-container">
-      {% if params.primaryLinks %}
+      {% if params.links %}
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <ul class="nhsuk-footer__list">
-        {% for item in params.primaryLinks %}
+        {% for item in params.links %}
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{item.URL}}">{{item.label}}</a></li>
         {% endfor %}
       </ul>
