@@ -8,23 +8,23 @@ describe('Footer component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/footer.html')
   });
 
-  it('Checking for footer list class', function () {
+  it('To see whether there is a list in the footer', function () {
     cy.get('.nhsuk-width-container').children().should('have.class', 'nhsuk-footer__list')
   });
 
-  it('Checking for footer list item class', function () {
+  it('To see whether there atleast an item in the list', function () {
     cy.get('.nhsuk-footer__list').first().children().should('have.class', 'nhsuk-footer__list-item')
   });
 
-  it('Checking for footer for NHS logo', function () {
+  it('To see whether there is a logo in the link', function () {
     cy.get('.global-footer__link').first().children().should('have.class', 'nhsuk-logo')
   });
 
-  it('Checking for aria label - NHS Homepage', function () {
+  it('To see whether there is a NHS homepage label', function () {
     cy.get('.global-footer__link').should('have.attr','aria-label','NHS homepage')
   });
 
-  it('Checking for href', function () {
+  it('To see whether there is a link in the footer', function () {
     cy.get('.global-footer__link').should('have.attr','href','/')
   });
 });

@@ -68,4 +68,3 @@ describe('Pagination component tests', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-left').should('have.attr', 'aria-hidden')
   });
 });
-

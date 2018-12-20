@@ -8,15 +8,15 @@ describe('Breadcrumb component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/breadcrumb.html')
   });
 
-  it('Checking breadcrumb list class', function () {
+  it('To see whether there is a list in the breadcrumb', function () {
     cy.get('.nhsuk-width-container').children().should('have.class','nhsuk-breadcrumb__list')
   });
 
-  it('Checking aria label - breadcrumb', function () {
+  it('To see the attribute label in the breadcrumb', function () {
     cy.get('nav').should('have.attr','aria-label','Breadcrumb')
   });
 
-  it('Checking nhsuk-breadcrumb__list class', function () {
+  it('To check whether the breadcrumb list has atleast one item', function () {
     cy.get('.nhsuk-breadcrumb__list').first().children().should('have.class','nhsuk-breadcrumb__item')
   });
 });

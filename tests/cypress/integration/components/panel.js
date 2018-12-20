@@ -12,4 +12,3 @@ describe('Panel component tests', function () {
     cy.get('.nhsuk-grid-column-two-thirds').children().should('have.class', 'nhsuk-panel')
   });
 });
-

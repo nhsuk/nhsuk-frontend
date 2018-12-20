@@ -12,24 +12,24 @@ describe('Feedback-banner component tests', function () {
       .get('#nhsuk-feedback-banner')
   });
 
-  it('Check for nhsuk-feedback-banner__content- class', function () {
+  it('To see whether there is a capability to have some content', function () {
     cy.get('#nhsuk-feedback-banner').children().children().children().children()
       .should('have.class', 'nhsuk-feedback-banner__content')
   });
 
-  it('Check for nhsuk-feedback-banner__content- class', function () {
+  it('To see whether there is a capability to have some heading', function () {
     cy.get('.nhsuk-feedback-banner__content').children().should('have.class', 'nhsuk-feedback-banner__heading')
   });
 
-  it('Check for nhsuk-feedback-banner__message- class', function () {
+  it('To see whether there is a capbility to have some message', function () {
     cy.get('.nhsuk-feedback-banner__content').children().should('have.class', 'nhsuk-feedback-banner__message')
   });
 
-  it('Check for button close exists', function () {
+  it('To see whether there is a button in the banner', function () {
     cy.get('#nhsuk-feedback-banner-close').should('have.attr', 'type', 'button')
   });
 
-  it('Check for visually hidden - feedback invite text', function () {
+  it('To check for a hidden text - feedback invite', function () {
     cy
       .get('.nhsuk-feedback-banner__content').children().children()
       .should('have.class', 'nhsuk-u-visually-hidden','feedback invite')

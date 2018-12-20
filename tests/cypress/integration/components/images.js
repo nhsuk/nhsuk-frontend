@@ -24,4 +24,3 @@ describe('Images component tests', function () {
     cy.get('.nhsuk-image').first().find('figcaption').should('have.class', 'nhsuk-image__caption')
   });
 });
-

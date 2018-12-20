@@ -20,4 +20,3 @@ describe('Review date component tests', function () {
     cy.get('.nhsuk-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
   });
 });
-

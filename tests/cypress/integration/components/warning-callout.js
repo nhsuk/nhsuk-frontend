@@ -1,4 +1,4 @@
-describe('warning call out component tests', function () {
+describe('Warning callout component tests', function () {
   beforeEach(function () {
     cy.viewport('macbook-15');
   });

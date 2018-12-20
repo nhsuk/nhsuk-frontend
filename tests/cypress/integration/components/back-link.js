@@ -8,24 +8,23 @@ describe('Back link component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/back-link/index.html')
   });
 
-  it('Checking for class name - nhsuk-action-link', function () {
+  it('To see whether there is a backlink class', function () {
     cy.get('.nhsuk-back-link')
   });
 
-  it('Checking for nhsuk-back-link__link class', function () {
+  it('To see whether there is a link in the component', function () {
     cy.get('.nhsuk-back-link').children().should('have.class','nhsuk-back-link__link')
   });
 
-  it('Checking for nhsuk-icon nhsuk-icon__chevron-left class', function () {
+  it('To see whether there is a arrow in the component', function () {
     cy.get('.nhsuk-back-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__chevron-left')
   });
 
-  it('Checking for aria hidden status - true', function () {
+  it('To see the attribute hidden status', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__chevron-left').should('have.attr','aria-hidden','true')
   });
 
-  it('Checking for href', function () {
+  it('To see a href in the component', function () {
     cy.get('.nhsuk-back-link__link').should('have.attr','href')
   });
 });
-

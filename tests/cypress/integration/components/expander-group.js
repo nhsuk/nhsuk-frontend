@@ -8,31 +8,31 @@ describe('Expander - group components tests', function () {
     cy.visit(Cypress.config().baseUrl + '/expander-group.html')
   });
 
-  it('Checking for nhsuk-expander-group - class', function () {
+  it('To see whether there is a group of expanders', function () {
     cy.get('.nhsuk-expander-group')
   });
 
-  it('Checking for nhsuk-details nhsuk-expander - class', function () {
+  it('To see there is a capability for details in the expander', function () {
     cy.get('.nhsuk-expander-group').first().children().should('have.class', 'nhsuk-details nhsuk-expander')
   });
 
-  it('Checking for nhsuk-details__summary - class', function () {
+  it('To see there is a capability for summary in expander', function () {
     cy.get('.nhsuk-expander-group').first().children().first().children().should('have.class', 'nhsuk-details__summary')
   });
 
-  it('Checking for nhsuk-details__summary-text - class', function () {
+  it('To see there is a capability for summary text in expander', function () {
     cy.get('.nhsuk-expander-group').first().children().first().children().first().children().should('have.class', 'nhsuk-details__summary-text')
   });
 
-  it('Checking for expander status', function () {
+  it('To see the default status of the expander to closed', function () {
     cy.get('.nhsuk-details__summary').should('have.attr', 'aria-expanded', 'false')
   });
 
-  it('Checking for aria controls', function () {
+  it('To see the status of the expander', function () {
     cy.get('.nhsuk-details__summary').should('have.attr', 'aria-controls', 'details-content-0')
   });
 
-  it('Checking for expander status after clicking', function () {
+  it('To see whether expander opens by clicking on it', function () {
     cy.get('.nhsuk-expander-group > .nhsuk-details:first > .nhsuk-details__summary').click()
       .should('have.attr','aria-expanded','true')
   });

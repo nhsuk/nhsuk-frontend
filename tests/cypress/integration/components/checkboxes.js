@@ -8,40 +8,35 @@ describe('Checkboxes component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/checkboxes')
   });
 
-  it('Checking for nhsuk-fieldset class', function () {
+  it('To see whether checkbox field exists', function () {
     cy.get('.nhsuk-form-group').children().should('have.class','nhsuk-fieldset')
   });
 
-  it('Checking for aria-describedby', function () {
+  it('To check whether there is a descriptive', function () {
     cy.get('.nhsuk-fieldset').should('have.attr','aria-describedby')
   });
 
-  it('Checking for nhsuk-fieldset__legend class', function () {
+  it('To check whether there is a legend in the group', function () {
     cy.get('.nhsuk-form-group').children().children().should('have.class','nhsuk-fieldset__legend')
   });
 
-  it('Checking for nhsuk-checkboxes class', function () {
+  it('To check wherether there are checkboxes', function () {
     cy.get('.nhsuk-checkboxes')
   });
 
-  it('Checking for nhsuk-checkboxes__item class', function () {
+  it('To check whether there is a checkbox in the group ', function () {
     cy.get('.nhsuk-checkboxes').first().children().should('have.class','nhsuk-checkboxes__item')
   });
 
-  it('Checking for nhsuk-checkboxes__input class', function () {
+  it('To check whether you can able to input into checkbox', function () {
     cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-checkboxes__input')
   });
 
-  it('Checking for type', function () {
+  it('To check the type of checkbox', function () {
     cy.get('.nhsuk-checkboxes__input').should('have.attr', 'type')
   });
 
-  it('Checking for nhsuk-label nhsuk-checkboxes__label class', function () {
-    cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-label nhsuk-checkboxes__label')
-
-  });
-
-  it('Checking for nhsuk-label nhsuk-checkboxes__label class', function () {
+  it('To check that the checkbox has a label', function () {
     cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-label nhsuk-checkboxes__label')
 
   });
@@ -53,11 +48,11 @@ describe('Checkbox disbled component tests', function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to checkbox disabled Component', function () {
+  it('Navigating to checkbox disabled component', function () {
     cy.visit(Cypress.config().baseUrl + '/checkboxes/disabled.html')
   });
 
-  it('Checking for checkbox diabled', function () {
+  it('To check there is a disabled checkbox', function () {
     cy.get('.nhsuk-checkboxes__input').should('be.disabled')
   });
 });
@@ -72,11 +67,11 @@ describe('Checkbox with error message tests', function () {
     cy.visit(Cypress.config().baseUrl + '/checkboxes/error.html')
   });
 
-  it('Checking for nhsuk-error-message class', function () {
+  it('To check whether there is a error message', function () {
     cy.get('.nhsuk-error-message')
   });
 
-  it('Checking for nhsuk-error-message class', function () {
+  it('To check whether there is a description', function () {
     cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
   });
 });

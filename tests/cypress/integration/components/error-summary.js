@@ -8,22 +8,26 @@ describe('Error summary component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/error-summary/index.html')
   });
 
-  it('Checking for a class name - nhsuk-error-message', function () {
+  it('To see whether there is an error message', function () {
     cy.get('.nhsuk-error-summary').should('have.attr','aria-labelledby')
   });
 
-  it('Checking for a class name nhsuk-error-summary__body', function () {
+  it('To see whether there is list of error messages', function () {
     cy.get('.nhsuk-error-summary__body').children()
       .should('have.class', 'nhsuk-list nhsuk-error-summary__list')
   });
 
-  it('Checking for aria label', function () {
+  it('To see whether there is a label for error message', function () {
     cy.get('.nhsuk-error-summary')
       .should('have.attr', 'aria-labelledby')
   });
 
-  it('Checking for role', function () {
+  it('To see whether there is a error alert', function () {
     cy.get('.nhsuk-error-summary')
       .should('have.attr', 'role', 'alert')
+  });
+
+  it('To see whether there is a text in error message', function () {
+    expect('p').to.not.be.empty
   });
 });

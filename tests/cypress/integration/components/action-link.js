@@ -8,16 +8,15 @@ describe('Action link component test ', function () {
     cy.visit(Cypress.config().baseUrl + '/action-link.html')
   });
 
-  it('Checking for class name - nhsuk-action-link', function () {
+  it('To see whether it has action link class', function () {
     cy.get('.nhsuk-grid-column-two-thirds').first().children().should('have.class','nhsuk-action-link')
   });
 
-  it('Checking for right arrow class', function () {
+  it('To see whether it has a circle with right arrow', function () {
     cy.get('.nhsuk-action-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
   });
 
-  it('Checking for aria hidden status - arrow', function () {
+  it('Check for the aria hidden status', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right-circle').should('have.attr','aria-hidden', 'true')
   });
 });
-

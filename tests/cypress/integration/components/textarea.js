@@ -4,7 +4,7 @@ describe('Text area component tests', function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to hint component', function () {
+  it('Navigating to text area component', function () {
     cy.visit(Cypress.config().baseUrl + '/textarea/index.html')
   });
 

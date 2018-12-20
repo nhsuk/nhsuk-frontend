@@ -83,4 +83,3 @@ describe('Header component tests - iphone 6 screensize', function () {
     cy.get('.nhsuk-header__link').should('have.attr', 'href','/')
   });
 });
-

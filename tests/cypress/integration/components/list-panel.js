@@ -32,4 +32,3 @@ describe('List panel component tests', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right').should('have.attr','aria-hidden','true')
   });
 });
-

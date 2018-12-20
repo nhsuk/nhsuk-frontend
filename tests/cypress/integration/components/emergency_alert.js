@@ -8,23 +8,38 @@ describe('Emergency alert component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/emergency-alert.html')
   });
 
-  it('Checking for class - nhsuk-global-alert', function () {
+  it('To see whether the alert exists', function () {
     cy.get('#nhsuk-global-alert').should('have.class','nhsuk-global-alert')
   });
 
-  it('Checking for alert heading class- nhsuk-global-alert__heading', function () {
+  it('To see whether there is a heading for the alert', function () {
     cy.get('.nhsuk-global-alert__content').children().should('have.class','nhsuk-global-alert__heading')
   });
 
-  it('Checking for alert message class - nhsuk-global-alert__message', function () {
+  it('To see whether there is a message for the alert', function () {
     cy.get('.nhsuk-global-alert__content').children().should('have.class','nhsuk-global-alert__message')
   });
 
-  it('Checking for alert last updated class- nhsuk-global-alert__updated', function () {
+  it('To see whether there is a updated status for the alert', function () {
     cy.get('.nhsuk-global-alert__content').children().should('have.class','nhsuk-global-alert__updated')
   });
 
-  it('Checking for visually hidden element - Alert:', function () {
+  it('To see whether there is a visually hidden text - Alert:', function () {
     cy.get('.nhsuk-global-alert__heading').children().should('have.class','nhsuk-u-visually-hidden', 'Alert:')
+  });
+
+  it('To see whether there is some text in alert heading', function () {
+    cy.get('h2').should('have.class','nhsuk-global-alert__heading');
+    expect('span').to.not.be.empty;
+  });
+
+  it('To see whether there is text in alert message', function () {
+    cy.get('.nhsuk-global-alert__message');
+    expect('p').to.not.be.empty;
+  });
+
+  it('To see whether there is an updated date', function () {
+    cy.get('p').should('have.class','nhsuk-global-alert__updated');
+    expect('p').to.not.be.empty;
   });
 });

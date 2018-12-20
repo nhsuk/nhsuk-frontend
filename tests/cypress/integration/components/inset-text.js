@@ -12,4 +12,3 @@ describe('Inset text component', function () {
     cy.get('.nhsuk-inset-text').children().should('have.class', 'nhsuk-u-visually-hidden', 'Information: ')
   });
 });
-
