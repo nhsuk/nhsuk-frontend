@@ -29,29 +29,29 @@ describe('Footer component tests', function () {
   });
 });
 
-describe('Footer with no logo - Component', function () {
+describe('Footer with no logo component test', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Footer Component', function () {
+  it('Navigating to footer component', function () {
     cy.visit(Cypress.config().baseUrl + '/footer-no-logo.html')
   });
 
-  it('Checking for footer list class', function () {
+  it('To see whether there is a footer list', function () {
     cy.get('.nhsuk-width-container').children().should('have.class', 'nhsuk-footer__list')
   });
 
-  it('Checking for footer list item class', function () {
+  it('To see whether there is an item in the list', function () {
     cy.get('.nhsuk-footer__list').first().children().should('have.class', 'nhsuk-footer__list-item')
   });
 
-  it('Checking for href', function () {
+  it('To see whether there is a link', function () {
     cy.get('.nhsuk-footer__list-item').children().should('have.attr','href')
   });
 
-  it('Checking for copy right', function () {
+  it('To see whether there is a copy right', function () {
     cy.get('.nhsuk-footer__copyright').hasOwnProperty('© Crown Copyright')
   });
 });
