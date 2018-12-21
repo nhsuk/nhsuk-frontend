@@ -30,6 +30,11 @@ These statistics are from the NHS website, using Google analytics, over a 1 year
 
 ## Browser support
 
+'Compliant' means that components should look and function as they were designed to do in other modern browsers.
+
+'Functional' means that components may not look exactly as they were designed but must still function properly and be usable without any errors.
+
+
 | Operating system | Browser                                | Support     |
 |----------------- |----------------------------------------|-------------|
 | Windows          | Internet Explorer 8-10                 | functional  |
@@ -44,10 +49,6 @@ These statistics are from the NHS website, using Google analytics, over a 1 year
 | iOS              | Google Chrome (latest 2 versions)      | compliant   |
 | Android          | Google Chrome (latest 2 versions)      | compliant   |
 | Android          | Samsung Internet (latest 2 versions)   | compliant   |
-
-'Compliant' means that the components must look as good and function as well as they do in other modern browsers.
-
-'Functional' means the components may not look perfect in the given browser, but must still be usable without errors and without 'looking broken'.
 
 ## Assistive technology support
 
