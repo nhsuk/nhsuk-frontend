@@ -9,7 +9,12 @@
     "heading": "Skip to main content"
   }) }}
 
-  {{ header() }}
+  {{ header({
+    "showNav": "false",
+    "showSearch": "false",
+    "homeHref": "https://www.nhs.uk"
+    })
+  }}
 {% endblock %}
 
 
