@@ -8,8 +8,8 @@ var wrap = require('gulp-wrap');
 var replace = require('gulp-replace');
 
 var config = {
-  templates: ['docs/_templates', 'packages'],
-  dest: 'dist/docs',
+  templates: ['app/_templates', 'packages'],
+  dest: 'dist/app',
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
 }
 
@@ -17,14 +17,14 @@ var config = {
  * Turn markdown into html with a nunjucks layout
  */
 function buildHtml() {
-  return gulp.src(['docs/**/*.md', '!docs/**/README.md', 'packages/**/README.md'])
+  return gulp.src(['app/**/*.md', '!app/**/README.md', 'packages/**/README.md'])
     .pipe(replace(/\[([^\]]*?)\]\(([^\)]*?)\.md\)/g, function(match, p1, p2) {
       // replace .md links with .html
       return `[${p1}](${p2}.html)`;
     }))
     .pipe(markdown())
-    .pipe(wrap({src: 'docs/_templates/markdown-wrapper.njk'}))
-    .pipe(gulp.src(['docs/**/*.njk']))
+    .pipe(wrap({src: 'app/_templates/markdown-wrapper.njk'}))
+    .pipe(gulp.src(['app/**/*.njk']))
     .pipe(gulpNunjucks.compile({
       // site-wide data goes here
       baseUrl: config.baseUrl,

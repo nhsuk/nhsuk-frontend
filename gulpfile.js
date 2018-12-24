@@ -173,7 +173,7 @@ function createZip() {
 
 /* Recompile CSS, JS and docs when there are any changes */
 var watch = function() {
-  gulp.watch(['packages/**/*', 'docs/**/*'], gulp.series(['build', 'docs:build']));
+  gulp.watch(['packages/**/*', 'app/**/*'], gulp.series(['build', 'docs:build']));
 }
 
 gulp.task('clean', cleanDist);
