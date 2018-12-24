@@ -1,14 +1,11 @@
 var gulp = require('gulp');
-
 var rename = require('gulp-rename');
 var gulpNunjucks = require('gulp-nunjucks');
 var nunjucks = require('nunjucks');
-var nunjucksMd = require('gulp-nunjucks-md');
 var connect = require('gulp-connect');
 var markdown = require('gulp-markdown');
 var wrap = require('gulp-wrap');
 var replace = require('gulp-replace');
-var open = require('gulp-open');
 
 var config = {
   templates: ['docs/_templates', 'packages'],
@@ -79,23 +76,12 @@ function serve() {
 }
 
 /**
- * Open a browser to show the docs
- */
-function openBrowser() {
-  gulp.src(__filename)
-    .pipe(open({
-      uri: 'http:localhost:3000',
-    }));
-}
-
-/**
  * Reload the connect server
  */
 function reload() {
   return gulp.src(config.dest)
     .pipe(connect.reload())
 }
-
 
 gulp.task('docs:build', gulp.series([
   copyBuiltAssets,
@@ -106,5 +92,5 @@ gulp.task('docs:build', gulp.series([
 ]));
 gulp.task('docs:serve', gulp.series([
   'docs:build',
-  gulp.parallel([serve, openBrowser])
+  gulp.parallel(serve)
 ]));
