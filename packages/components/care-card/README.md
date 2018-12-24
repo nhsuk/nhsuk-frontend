@@ -24,7 +24,7 @@ Find out more about the care card component and when to use it in the [NHS Digit
     <ul>
       <li>you're not sure it's chickenpox</li>
       <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href="https://www.nhs.uk/">dehydrated</a></li>
+      <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
       <li>you're concerned about your child or they get worse</li>
     </ul>
     <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -46,7 +46,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   <ul>
     <li>you're not sure it's chickenpox</li>
     <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-    <li>your child is <a href=\"https://www.nhs.uk\">dehydrated</a></li>
+    <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
     <li>you're concerned about your child or they get worse</li>
   </ul>
   <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
@@ -73,7 +73,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
       <li>you have a weakened immune system and you've been near someone with chickenpox</li>
       <li>you think your newborn baby has chickenpox</li>
     </ul>
-  <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+    <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
   </div>
 </div>
 ```
