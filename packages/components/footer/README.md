@@ -1,8 +1,9 @@
 # Footer
 
-Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/footer/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/168).
+
+## Guidance
+Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/footer/).
 
 ## Quick start examples
 
