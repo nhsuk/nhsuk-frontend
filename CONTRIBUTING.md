@@ -1,66 +1,30 @@
-# Contribute to NHS.UK frontend
+# Contributing to NHS.UK frontend
 
-## Requirements
+Thank you for your interest in contributing to NHS.UK frontend, we really appreciate it. There are a number
+of ways that you can contribute – reporting bugs, fixing bugs, suggesting new components or writing documentation.
 
-To run NHS.UK frontend locally you'll need to:
-* [set up git](https://help.github.com/articles/set-up-git/)
-* [install Node.js](https://nodejs.org/en/)
-We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
+We've compiled a list of contributing guidance to make it easier for you to contribute and to make sure you follow our guidelines for the project.
 
-> Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
+If you have any questions please [email us](mailto:service-manual@nhs.net) or get in touch on the [NHS.UK #standards Slack channel](https://nhsuk.slack.com/messages/standards).
 
-> Type `node -v` to check if Node is installed. This should print a version number like "v8.11.3".
+## Contributing contents
 
-## 1. Fork the repository
+### General
+- [Code of conduct](/code_of_conduct.md)
+- Reporting bugs or issues (Documentation currently being written)
 
-[Fork the repository](https://help.github.com/articles/fork-a-repo/) first, if you're an external contributor.
+### Contributors
+- [Running the application locally](docs/contributing/running-locally.md)
+- [Application architecture](docs/contributing/application-architecture.md)
+- [Coding standards and style guide](docs/contributing/coding-standards/README.md)
+- Testing and linting (Documentation currently being written)
+- [Support for browsers and assistive technology](/docs/contributing/coding-standards/browser-support.md)
+- Git style guide (Documentation currently being written)
+- Updating the CHANGELOG (Documentation currently being written)
 
-## 2. Clone the repository
 
-You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/). Use this code:
-
-```
-git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
-
-cd nhsuk-frontend
-```
-
-You'll have to clone your own fork if you're not a member.
-
-Replace 'Username' in the git clone command below with your GitHub username.
-
-```
-git clone https://github.com/Username/nhsuk-frontend.git nhsuk-frontend
-
-cd nhsuk-frontend
-```
-
-## 3. Install dependencies
-
-We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage the dependencies in development, which is included with the Nodejs installation.
-
-> Make sure you are in the project directory when you run the `npm install` command below. You can switch to the project directory with the command `cd nhsuk-frontend`.
-
-```
-npm install
-```
-
-## 4. Start a local server
-
-This will build files, serve web pages and watch for changes when you save a file.
-
-```
-npm start
-```
-
-> The application will be available at [http://localhost:3000](http://localhost:3000).
-
-## 5. Make your changes
-
-You can read our [getting started documentation](/docs/contributing/getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
-
-## 6. Create a pull request
-
-You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK frontend will review it and approve or feedback on changes required.
-
-You'll need to [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) if you have cloned your own fork.
+### Maintainers
+- Build tasks (Documentation currently being written)
+- Deploying (Documentation currently being written)
+- Versioning (Documentation currently being written)
+- Releasing a new package (Documentation currently being written)
