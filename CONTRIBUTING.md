@@ -59,8 +59,6 @@ npm start
 
 You can read our [getting started documentation](/docs/contributing/getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
 
-> Contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [email nhsdigital.NHSUK-Frontend@nhs.net](mailto:nhsdigital.NHSUK-Frontend@nhs.net), if you need help or have any questions.
-
 ## 6. Create a pull request
 
 You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK frontend will review it and approve or feedback on changes required.
