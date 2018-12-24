@@ -26,7 +26,7 @@ Visit our [support for browsers and assistive technology](/docs/contributing/cod
 
 ## Contribute
 
-See how to [run the project locally](CONTRIBUTING.md) and [contributing guidelines](docs/contributing/getting-started.md) to contribute to NHS.UK frontend.
+Read our [contributing guidelines](CONTRIBUTING.md) to contribute to NHS.UK frontend.
 
 We created this library with help from:
 
