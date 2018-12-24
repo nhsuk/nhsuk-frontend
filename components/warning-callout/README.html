@@ -90,23 +90,24 @@
           
   
     <h1 id="warning-callout">Warning callout</h1>
-<p>Find out more about the warning callout component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/warning_callout/">NHS digital service manual</a>.</p>
 <p>To discuss or contribute to this component, visit the <a href="https://github.com/nhsuk/nhsuk-frontend/issues/180">GitHub issue for this component</a>.</p>
+<h2 id="guidance">Guidance</h2>
+<p>Find out more about the warning callout component and when to use it in the <a href="https://beta.nhs.uk/service-manual/patterns/warning_callout/">NHS digital service manual</a>.</p>
 <h2 id="quick-start-examples">Quick start examples</h2>
 <h3 id="example">Example</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/warning-callout.html">Preview the warning callout component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-warning-callout&quot;&gt;
-  &lt;h3 class=&quot;nhsuk-warning-callout__label&quot;&gt;Important&lt;/h3&gt;
-  &lt;p&gt;If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.&lt;/p&gt;
+  &lt;h3 class=&quot;nhsuk-warning-callout__label&quot;&gt;School, nursery or work&lt;/h3&gt;
+  &lt;p&gt;Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code class="language-html">{% from &#39;components/warning-callout/macro.njk&#39; import warningCallout %}
 
 {{ warningCallout({
-  &quot;heading&quot;: &quot;Important&quot;,
-  &quot;HTML&quot;: &quot;&lt;p&gt;If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.&lt;/p&gt;&quot;
+  &quot;heading&quot;: &quot;School, nursery or work&quot;,
+  &quot;HTML&quot;: &quot;&lt;p&gt;Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.&lt;/p&gt;&quot;
 }) }}</code></pre>
 <h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>The warning callout Nunjucks macro takes the following arguments:</p>
