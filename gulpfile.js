@@ -7,9 +7,7 @@ const concat = require('gulp-concat');
 const del = require('del');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
+const webpack = require('webpack-stream');
 const package = require('./package.json');
 
 /**
@@ -59,8 +57,26 @@ function minifyCSS() {
 /* Use Webpack to build and minify the NHS.UK components JS. */
 function webpackJS() {
   return gulp.src('./packages/nhsuk.js')
-    .pipe(webpackStream(webpackConfig), webpack)
-    .pipe(gulp.dest('./dist'));
+  .pipe(webpack({
+    mode: 'production',
+    output: {
+      filename: 'nhsuk.js',
+    },
+    target: 'web',
+    module: {
+      rules: [
+        {
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
+      ]
+    }
+  }))
+  .pipe(gulp.dest('./dist'));
 }
 
 /* Concat the NHS.UK components JS with third party JS (typeahead). */
@@ -68,7 +84,7 @@ function concatJS() {
   return gulp.src([
       'packages/components/header/typeahead.bundle.min.js',
       'packages/components/header/nhs.typeahead.js',
-      'dist/nhsuk.bundle.js',
+      'dist/nhsuk.js',
     ])
     .pipe(concat('nhsuk.js'))
     .pipe(gulp.dest(['dist/']));
