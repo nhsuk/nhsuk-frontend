@@ -5,4 +5,4 @@
 - [CSS](css.md)
 - [HTML](html.md)
 
-See also [browser support](../../../README.md#browser-support), [support for assistive technology](../../../README.md#assistive-technology-support) and [supporting Internet Explorer 8](../../installation/supporting-internet-explorer-8.md).
+See also [browser support](browser-support.md) and [support for assistive technology](../testing.md#user-content-assistive-technology-support).

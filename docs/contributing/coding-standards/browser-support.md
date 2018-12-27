@@ -35,7 +35,7 @@ NHS.UK frontend browser support is shown in the table below.
 Testing with the various technologies above should cover the vast amount of
 users who use assistive technologies.
 
-We also test that are components:
+We also test that our components:
 
 - are accessible using a keyboard only
 - function correctly when using [high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
