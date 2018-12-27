@@ -17,7 +17,7 @@
 {% set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"{% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}{% endset %}
 
 {% if element == 'a' %}
-<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" role="button" draggable="false">
+<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" role="button" draggable="false"{% if params.disabled %} aria-disabled="true"{% endif %}>
   {{ params.html | safe if params.html else params.text }}
 </a>
 
