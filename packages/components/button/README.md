@@ -11,7 +11,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" class="nhsuk-button">
+<button class="nhsuk-button" type="submit">
   Save and continue
 </button>
 ```
@@ -33,7 +33,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" disabled="disabled" aria-disabled="true" class="nhsuk-button nhsuk-button--disabled">
+<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true">
   Disabled button
 </button>
 ```
@@ -56,7 +56,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" class="nhsuk-button nhsuk-button--secondary">
+<button class="nhsuk-button nhsuk-button--secondary" type="submit">
   Save and continue
 </button>
 ```
@@ -79,7 +79,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" class="nhsuk-button nhsuk-button--secondary nhsuk-button--disabled">
+<button class="nhsuk-button nhsuk-button--secondary nhsuk-button--disabled" type="submit">
   Find my location
 </button>
 ```
@@ -103,7 +103,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" class="nhsuk-button nhsuk-button--reverse">
+<button class="nhsuk-button nhsuk-button--reverse" type="submit">
   Save and continue
 </button>
 ```
@@ -126,7 +126,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<button type="submit" class="nhsuk-button nhsuk-button--reverse nhsuk-button--disabled">
+<button class="nhsuk-button nhsuk-button--reverse nhsuk-button--disabled" type="submit">
   Save and continue
 </button>
 ```
@@ -162,4 +162,3 @@ If you are using Nunjucks, then macros take the following arguments:
 ## Thanks to the Government Digital Service (GDS)
 
 This component and documentation has been taken from [GOV.UK Frontend - Button component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/button) with a few minor adaptations.
-
