@@ -1,10 +1,14 @@
 # NHS.UK frontend Changelog
 
-## 0.7.0 (Prerelease) - TBC
+## 0.7.0 (Prerelease) - Jan 2, 2018
 
 :new: **New features**
 
 - Button component - Add option for button to be also an `<a>` or `<input>` element. ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/324))
+
+:wrench: **Fixes**
+
+- Project structure - move website pages out of the `/docs` folder and into `/app` along with other general project clean up ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/321))
 
 ## 0.6.0 (Prerelease) - Dec 18, 2018
 

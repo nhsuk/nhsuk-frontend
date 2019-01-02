@@ -1,18 +1,15 @@
 var gulp = require('gulp');
-
 var rename = require('gulp-rename');
 var gulpNunjucks = require('gulp-nunjucks');
 var nunjucks = require('nunjucks');
-var nunjucksMd = require('gulp-nunjucks-md');
 var connect = require('gulp-connect');
 var markdown = require('gulp-markdown');
 var wrap = require('gulp-wrap');
 var replace = require('gulp-replace');
-var open = require('gulp-open');
 
 var config = {
-  templates: ['docs/_templates', 'packages'],
-  dest: 'dist/docs',
+  templates: ['app/_templates', 'packages'],
+  dest: 'dist/app',
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
 }
 
@@ -20,14 +17,14 @@ var config = {
  * Turn markdown into html with a nunjucks layout
  */
 function buildHtml() {
-  return gulp.src(['docs/**/*.md', '!docs/**/README.md', 'packages/**/README.md'])
+  return gulp.src(['app/**/*.md', '!app/**/README.md', 'packages/**/README.md'])
     .pipe(replace(/\[([^\]]*?)\]\(([^\)]*?)\.md\)/g, function(match, p1, p2) {
       // replace .md links with .html
       return `[${p1}](${p2}.html)`;
     }))
     .pipe(markdown())
-    .pipe(wrap({src: 'docs/_templates/markdown-wrapper.njk'}))
-    .pipe(gulp.src(['docs/**/*.njk']))
+    .pipe(wrap({src: 'app/_templates/markdown-wrapper.njk'}))
+    .pipe(gulp.src(['app/**/*.njk']))
     .pipe(gulpNunjucks.compile({
       // site-wide data goes here
       baseUrl: config.baseUrl,
@@ -79,23 +76,12 @@ function serve() {
 }
 
 /**
- * Open a browser to show the docs
- */
-function openBrowser() {
-  gulp.src(__filename)
-    .pipe(open({
-      uri: 'http:localhost:3000',
-    }));
-}
-
-/**
  * Reload the connect server
  */
 function reload() {
   return gulp.src(config.dest)
     .pipe(connect.reload())
 }
-
 
 gulp.task('docs:build', gulp.series([
   copyBuiltAssets,
@@ -106,5 +92,5 @@ gulp.task('docs:build', gulp.series([
 ]));
 gulp.task('docs:serve', gulp.series([
   'docs:build',
-  gulp.parallel([serve, openBrowser])
+  gulp.parallel(serve)
 ]));

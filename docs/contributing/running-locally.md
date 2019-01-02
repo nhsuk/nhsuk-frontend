@@ -1,4 +1,4 @@
-# Contribute to NHS.UK frontend
+# Running the application locally
 
 ## Requirements
 
@@ -55,14 +55,6 @@ npm start
 
 > The application will be available at [http://localhost:3000](http://localhost:3000).
 
-## 5. Make your changes
+---
 
-You can read our [getting started documentation](/docs/contributing/getting-started.md) to learn more about our application architecture, tooling, coding standards, testing policies and our pipelines.
-
-> Contact us on [Slack](https://nhsuk.slack.com/messages/CCPLQ9YAJ) or [email nhsdigital.NHSUK-Frontend@nhs.net](mailto:nhsdigital.NHSUK-Frontend@nhs.net), if you need help or have any questions.
-
-## 6. Create a pull request
-
-You will need to [create a pull request](https://help.github.com/articles/creating-a-pull-request/) with your changes. One of the NHS.UK frontend will review it and approve or feedback on changes required.
-
-You'll need to [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) if you have cloned your own fork.
+Next: [Application architecture](application-architecture.md)
