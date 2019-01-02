@@ -9,10 +9,6 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 
 ## Contributing contents
 
-### General
-- [Code of conduct](/code_of_conduct.md)
-- Reporting bugs or issues (Documentation currently being written)
-
 ### Contributors
 - [Running the application locally](docs/contributing/running-locally.md)
 - [Application architecture](docs/contributing/application-architecture.md)
@@ -21,7 +17,6 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 - [Support for browsers and assistive technology](/docs/contributing/coding-standards/browser-support.md)
 - Git style guide (Documentation currently being written)
 - Updating the CHANGELOG (Documentation currently being written)
-
 
 ### Maintainers
 - Build tasks (Documentation currently being written)

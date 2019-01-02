@@ -58,6 +58,7 @@ $button-shadow-size: 4px;
   &:hover,
   &:focus {
     background-color: $nhsuk-button-hover-colour;
+    box-shadow: 0 4px 0 $nhsuk-button-shadow-colour;
   }
 
   &:active {
@@ -107,6 +108,10 @@ $button-shadow-size: 4px;
     background-color: $nhsuk-secondary-button-hover-colour;
   }
 
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-secondary-button-colour;
+  }
+
 }
 
 .nhsuk-button--reverse {
@@ -120,6 +125,18 @@ $button-shadow-size: 4px;
     color: $nhsuk-reverse-button-text-colour;
   }
 
+  &:link {
+    color: $nhsuk-reverse-button-text-colour;
+  }
+
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-reverse-button-colour;
+
+    &:focus {
+      background-color: $nhsuk-reverse-button-colour;
+    }
+  }
+
 }
 
 /**
@@ -129,8 +146,9 @@ $button-shadow-size: 4px;
 .nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button[disabled] {
-  background: $nhsuk-button-colour;
+  background-color: $nhsuk-button-colour;
   opacity: (.5);
+  pointer-events: none;
 
   &:hover {
     background-color: $nhsuk-button-colour;
@@ -138,6 +156,7 @@ $button-shadow-size: 4px;
   }
 
   &:focus {
+    background-color: $nhsuk-button-colour;
     outline: none;
   }
 
@@ -148,10 +167,9 @@ $button-shadow-size: 4px;
 
 }
 
-.nhsuk-button--secondary--disabled, // sass-lint:disable-line
 .nhsuk-button--secondary[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--secondary[disabled] {
-  background: $nhsuk-secondary-button-colour;
+  background-color: $nhsuk-secondary-button-colour;
   opacity: (.5);
 
   &:hover {
@@ -170,10 +188,9 @@ $button-shadow-size: 4px;
 
 }
 
-.nhsuk-button--reverse--disabled, // sass-lint:disable-line
 .nhsuk-button--reverse[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--reverse[disabled] {
-  background: $nhsuk-reverse-button-colour;
+  background-color: $nhsuk-reverse-button-colour;
   opacity: (.5);
 
   &:hover {
