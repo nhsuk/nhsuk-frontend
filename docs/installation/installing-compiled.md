@@ -30,7 +30,6 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     <!-- Scripts -->
     <script src="js/nhsuk-[latest version].min.js" defer></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
 
     <!-- Favicons -->
     <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
@@ -62,7 +61,6 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     <!-- Scripts -->
     <script src="js/nhsuk-[latest version].min.js" defer></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
 
     <!-- Favicons -->
     <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
