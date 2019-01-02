@@ -11,8 +11,6 @@ Find out more about the header component and when to use it in the [NHS Digital 
 For this component to work, you need to make sure you include the required JavaScript. You can either include the
 compiled JavaScript for all components `nhsuk.min.js` or the individual component JavaScript `header.js`.
 
-The search component autocomplete requires jQuery, please ensure you have jQuery included within you project for this to work. In the future we are looking to remove the jQuery dependency. You must also include the typeahead scripts for the autocomplete `typeahead.bundle.min.js` and `nhs.typeahead.js`.
-
 > For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.
 
 ## Quick start examples
