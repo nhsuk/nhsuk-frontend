@@ -5,8 +5,8 @@
 /**
  * 1. Cross-component class - adjusts styling of list component.
  * 2. Override default link styling to use error colour
- * 3. When focused, the text colour needs to be darker to ensure that colour
- *    contrast is still acceptable
+ * 3. When the link has focus, the text colour needs to be darker to ensure that
+ *    colour contrast is still acceptable
  */
 
 .nhsuk-error-summary {
