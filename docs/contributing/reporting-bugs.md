@@ -1,1 +1,0 @@
-# Reporting bugs or issues

@@ -12,10 +12,12 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 ### Contributors
 - [Running the application locally](docs/contributing/running-locally.md)
 - [Application architecture](docs/contributing/application-architecture.md)
-- [Coding standards and style guide](docs/contributing/coding-standards/README.md)
-- Testing and linting (Documentation currently being written)
-- [Support for browsers and assistive technology](/docs/contributing/coding-standards/browser-support.md)
-- Git style guide (Documentation currently being written)
+- [Coding standards and style guide](docs/contributing/coding-standards.md)
+- [Tooling](docs/contributing/tooling.md)
+- [Linting](docs/contributing/linting.md)
+- [Testing](docs/contributing/testing.md)
+- [Support for browsers and assistive technology](/docs/contributing/browser-support.md)
+- [Git style guide](docs/contributing/git-style-guide.md)
 - Updating the CHANGELOG (Documentation currently being written)
 
 ### Maintainers

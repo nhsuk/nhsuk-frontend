@@ -38,4 +38,4 @@ The application generates static HTML pages to preview components, with each com
 
 ---
 
-Next: [Coding standards and style guide](coding-standards/readme.md)
+Next: [Coding standards and style guide](coding-standards.md)

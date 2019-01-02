@@ -102,3 +102,7 @@ clear and viewable. Examples of colour schemes include:
 - different contrast modes
 - inverted colours
 - greyscale
+
+---
+
+Next: [Support for browsers and assistive technology](browser-support.md)
