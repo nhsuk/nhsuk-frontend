@@ -84,6 +84,10 @@
 
 }
 
+.autocomplete-container {
+  display: inline-block;
+}
+
 .nhsuk-header__search {
   @include clearfix();
 
@@ -149,6 +153,7 @@
     width: 100%;
   }
 
+  .autocomplete__input,
   .nhsuk-search__input {
     -ms-flex-positive: 2; /* [14] */
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
@@ -233,6 +238,7 @@
     display: none;
   }
 
+  .autocomplete__input,
   .nhsuk-search__input {
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
     background-color: $color_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
@@ -319,15 +325,23 @@
   border-bottom-right-radius: 0;
 }
 
+/**
+ * Autocomplete
+**/
 
-.twitter-typeahead {
-  display: inline !important; // sass-lint:disable-line no-important /* [6] */
-  width: 100%;
+.autocomplete__wrapper {
+  position: relative;
 }
 
-.suggestions-list {
-  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
-  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
+.autocomplete__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.autocomplete__menu {
+  // sass-lint:disable-block no-vendor-prefixes, no-color-literals
+  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [8] */
+  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [8] */
   background-color: $color_nhsuk-white;
   border-bottom: 1px solid $color_nhsuk-grey-4;
   border-bottom-left-radius: $nhsuk-border-radius;
@@ -335,73 +349,71 @@
   border-left: 1px solid $color_nhsuk-grey-4;
   border-right: 1px solid $color_nhsuk-grey-4;
   border-top: 2px solid $color_nhsuk-blue;
-  box-shadow: 0 0 ($nhsuk-box-shadow-spread - 1) 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-color-literals /* [8] */
+  box-shadow: 0 0 ($nhsuk-box-shadow-spread - 1) 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [8] */
   height: auto;
   list-style: none;
   margin-top: 0;
   overflow-x: hidden;
   overflow-y: auto;
   padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(3);
-  position: absolute;
+  position: fixed;
+  top: 60px;
+  width: 235px;
   z-index: 1; /* [10] */
 }
 
-
 @include mq($until: tablet) {
-
-  .suggestions-menu {
-    position: relative !important; // sass-lint:disable-line no-important /* [6] */
-    top: 0 !important; // sass-lint:disable-line no-important /* [6] */
-  }
-
-  .suggestions-list {
+  .autocomplete__menu {
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    left: auto !important; // sass-lint:disable-line no-important /* [6] */
+    left: auto; /* [6] */
     margin: 0;
     padding-bottom: nhsuk-spacing(3);
-    position: relative !important; // sass-lint:disable-line no-important /* [6] */
-    top: auto !important; // sass-lint:disable-line no-important /* [6] */
-    width: 100% !important; // sass-lint:disable-line no-important /* [6] */
+    position: relative; /* [6] */
+    top: auto; /* [6] */
+    width: 100%; /* [6] */
   }
-
 }
 
-.suggestions-item {
+.autocomplete__option {
   border-bottom: 1px solid $color_nhsuk-grey-5;
   color: $color_nhsuk-blue;
-  cursor: pointer;
   font-size: $nhsuk-base-font-size;
   font-weight: $nhsuk-font-light;
   padding-bottom: 12px; /* [9] */
   text-align: left;
   text-decoration: underline;
 
-  .nhsuk-icon__search {
-    fill: $color_nhsuk-grey-3;
-    float: left;
-    height: 22px; /* [2] */
-    margin: 5px 4px 0 0; /* [7] */
-    width: 22px; /* [2] */
-  }
-
   &:hover,
   &:active {
     text-decoration: none;
   }
 
-  &:hover,
-  &:focus {
-    div {
-      background-color: $color_nhsuk-warm-yellow;
-      box-shadow: 0 0 0 $nhsuk-box-shadow-spread $color_nhsuk-warm-yellow;
-      color: $color_nhsuk-black;
-      display: inline;
-    }
-  }
-
 }
+
+.autocomplete__option--no-results {
+  border-bottom: 0;
+  color: $color_nhsuk-black;
+  font-size: $nhsuk-base-font-size;
+  line-height: $nhsuk-base-line-height;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+
+.autocomplete__menu--visible {
+  display: block;
+}
+
+.autocomplete__menu--hidden {
+  display: none;
+}
+
+/**
+ * Typeahead autocomplete
+**/
 
 .suggestions-item--selected {
   a {
@@ -419,13 +431,6 @@
   font-size: $nhsuk-base-font-size;
   font-weight: $nhsuk-font-bold;
   padding-bottom: 12px; /* [9] */
-  text-align: left;
-}
-
-.suggestions-none  {
-  font-size: $nhsuk-base-font-size;
-  line-height: $nhsuk-base-line-height;
-  margin: 0;
   text-align: left;
 }
 
