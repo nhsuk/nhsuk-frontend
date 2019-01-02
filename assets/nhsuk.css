@@ -2950,8 +2950,8 @@ b {
 /**
  * 1. Cross-component class - adjusts styling of list component.
  * 2. Override default link styling to use error colour
- * 3. When focused, the text colour needs to be darker to ensure that colour
- *    contrast is still acceptable
+ * 3. When the link has focus, the text colour needs to be darker to ensure that
+ *    colour contrast is still acceptable
  */
 .nhsuk-error-summary {
   padding: 16px;
@@ -5250,7 +5250,7 @@ b {
   width: 0; }
 
 /**
- * Focused state
+ * Focus state
  *
  * 1. Since box-shadows are removed when users customise their colours
  *    We set a transparent outline that is shown instead.
@@ -5380,7 +5380,7 @@ b {
    ========================================================================== */
 /**
  * 1. Hides the skip link off the page,
- * 2. until the link is focused to with keyboard tab.
+ * 2. until the link gains focus from keyboard tabbing.
  */
 .nhsuk-skip-link {
   left: -9999px;
