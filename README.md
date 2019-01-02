@@ -22,7 +22,7 @@ You can also [install NHS.UK frontend using our compiled files](/docs/installati
 
 ## Browsers and assistive technology
 
-Visit our [support for browsers and assistive technology](/docs/contributing/coding-standards/browser-support.md), for details on operating systems and software.
+Visit our [support for browsers and assistive technology](/docs/contributing/browser-support.md), for details on operating systems and software.
 
 ## Contribute
 
