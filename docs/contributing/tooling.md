@@ -27,3 +27,7 @@ To run a gulp task, run `./node_modules/.bin/gulp <task_name>` on the command li
 | `watch` | Recompile documentation and distributables when there are changes |
 | `docs:build` | Recompile documentation |
 | `docs:serve` | Serve documentation on port 3000 |
+
+---
+
+Next: [Linting](linting.md)

@@ -6,7 +6,6 @@ NHS.UK frontend browser support is shown in the table below.
 
 'Functional' means that components may not look exactly as they were designed but must still function properly and be usable without any errors.
 
-
 | Operating system | Browser                                | Support     |
 |----------------- |----------------------------------------|-------------|
 | Windows          | Internet Explorer 8-10                 | functional  |
@@ -40,3 +39,7 @@ We also test that our components:
 - are accessible using a keyboard only
 - function correctly when using [high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - function correctly when changing colour schemes in ZoomText
+
+---
+
+Next: [Git style guide](git-style-guide.md)
