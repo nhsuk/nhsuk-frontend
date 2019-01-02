@@ -2152,7 +2152,8 @@ b {
     border: 0;
     padding: 0; }
   .nhsuk-button:hover, .nhsuk-button:focus {
-    background-color: #00662f; }
+    background-color: #00662f;
+    box-shadow: 0 4px 0 #003317; }
   .nhsuk-button:active {
     box-shadow: none;
     top: 4px; }
@@ -2176,6 +2177,8 @@ b {
   box-shadow: 0 4px 0 #232e35; }
   .nhsuk-button--secondary:hover, .nhsuk-button--secondary:focus {
     background-color: #384854; }
+  .nhsuk-button--secondary.nhsuk-button--disabled {
+    background-color: #425563; }
 
 .nhsuk-button--reverse {
   background-color: #ffffff;
@@ -2184,6 +2187,12 @@ b {
   .nhsuk-button--reverse:hover, .nhsuk-button--reverse:focus {
     background-color: #f2f2f2;
     color: #212b32; }
+  .nhsuk-button--reverse:link {
+    color: #212b32; }
+  .nhsuk-button--reverse.nhsuk-button--disabled {
+    background-color: #ffffff; }
+    .nhsuk-button--reverse.nhsuk-button--disabled:focus {
+      background-color: #ffffff; }
 
 /**
  * Button disabled states
@@ -2191,8 +2200,9 @@ b {
 .nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"],
 .nhsuk-button[disabled] {
-  background: #007f3b;
-  opacity: 0.5; }
+  background-color: #007f3b;
+  opacity: 0.5;
+  pointer-events: none; }
   .nhsuk-button--disabled:hover,
   .nhsuk-button[disabled="disabled"]:hover,
   .nhsuk-button[disabled]:hover {
@@ -2201,6 +2211,7 @@ b {
   .nhsuk-button--disabled:focus,
   .nhsuk-button[disabled="disabled"]:focus,
   .nhsuk-button[disabled]:focus {
+    background-color: #007f3b;
     outline: none; }
   .nhsuk-button--disabled:active,
   .nhsuk-button[disabled="disabled"]:active,
@@ -2208,41 +2219,33 @@ b {
     box-shadow: 0 4px 0 #003317;
     top: 0; }
 
-.nhsuk-button--secondary--disabled,
 .nhsuk-button--secondary[disabled="disabled"],
 .nhsuk-button--secondary[disabled] {
-  background: #425563;
+  background-color: #425563;
   opacity: 0.5; }
-  .nhsuk-button--secondary--disabled:hover,
   .nhsuk-button--secondary[disabled="disabled"]:hover,
   .nhsuk-button--secondary[disabled]:hover {
     background-color: #425563;
     cursor: default; }
-  .nhsuk-button--secondary--disabled:focus,
   .nhsuk-button--secondary[disabled="disabled"]:focus,
   .nhsuk-button--secondary[disabled]:focus {
     outline: none; }
-  .nhsuk-button--secondary--disabled:active,
   .nhsuk-button--secondary[disabled="disabled"]:active,
   .nhsuk-button--secondary[disabled]:active {
     box-shadow: 0 4px 0 #232e35;
     top: 0; }
 
-.nhsuk-button--reverse--disabled,
 .nhsuk-button--reverse[disabled="disabled"],
 .nhsuk-button--reverse[disabled] {
-  background: #ffffff;
+  background-color: #ffffff;
   opacity: 0.5; }
-  .nhsuk-button--reverse--disabled:hover,
   .nhsuk-button--reverse[disabled="disabled"]:hover,
   .nhsuk-button--reverse[disabled]:hover {
     background-color: #ffffff;
     cursor: default; }
-  .nhsuk-button--reverse--disabled:focus,
   .nhsuk-button--reverse[disabled="disabled"]:focus,
   .nhsuk-button--reverse[disabled]:focus {
     outline: none; }
-  .nhsuk-button--reverse--disabled:active,
   .nhsuk-button--reverse[disabled="disabled"]:active,
   .nhsuk-button--reverse[disabled]:active {
     box-shadow: 0 4px 0 #212b32;
