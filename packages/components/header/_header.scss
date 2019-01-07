@@ -388,6 +388,7 @@
   margin-bottom: 0;
   text-align: left;
   text-decoration: underline;
+  cursor: pointer;
 
   @include mq($from: tablet) {
     &:last-child {
