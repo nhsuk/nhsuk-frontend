@@ -331,6 +331,7 @@
   border-bottom-right-radius: 0;
 }
 
+
 /**
  * Autocomplete
 **/
@@ -376,7 +377,9 @@
     width: 100%; /* [6] */
   }
 }
-
+.autocomplete__option > * {
+  pointer-events: none;
+}
 .autocomplete__option {
   border-bottom: 1px solid $color_nhsuk-grey-5;
   color: $color_nhsuk-blue;
@@ -392,7 +395,7 @@
       border-bottom: 0;
     }
   }
-
+  
   a {
     display: inline-block;
     padding: 12px;
