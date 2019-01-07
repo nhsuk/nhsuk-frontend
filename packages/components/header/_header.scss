@@ -331,7 +331,6 @@
   border-bottom-right-radius: 0;
 }
 
-
 /**
  * Autocomplete
 **/
@@ -383,6 +382,7 @@
 .autocomplete__option {
   border-bottom: 1px solid $color_nhsuk-grey-5;
   color: $color_nhsuk-blue;
+  cursor: pointer;
   display: block;
   font-size: $nhsuk-base-font-size;
   font-weight: $nhsuk-font-light;
@@ -395,7 +395,6 @@
       border-bottom: 0;
     }
   }
-  
   a {
     display: inline-block;
     padding: 12px;
