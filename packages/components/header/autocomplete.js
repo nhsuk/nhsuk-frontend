@@ -59,8 +59,8 @@ function autocomplete(config) {
     // cssNamespace: ??
     // displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
-    onConfirm: (SelectiedContent) => {
-      window.open('https://www.nhs.uk/search/?q=' + SelectiedContent, '_self');
+    onConfirm: (SelectedContent) => {
+      window.open('https://www.nhs.uk/search/?q=' + SelectedContent, '_self');
     },
     source: getFunnelbackResults,
     templates: {
