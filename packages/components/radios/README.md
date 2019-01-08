@@ -19,7 +19,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     Have you changed your name?
   </legend>
 
-  <span id="example-hint" class="nhsuk-hint">
+  <span class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
   </span>
 
@@ -90,7 +90,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     Have you changed your name?
   </legend>
 
-  <span id="example&#39;-hint" class="nhsuk-hint">
+  <span class="nhsuk-hint" id="example&#39;-hint">
     This includes changing your last name or spelling your name differently.
   </span>
 
@@ -162,7 +162,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     Have you changed your name?
   </legend>
 
-  <span id="example-disabled-hint" class="nhsuk-hint">
+  <span class="nhsuk-hint" id="example-disabled-hint">
     This includes changing your last name or spelling your name differently.
   </span>
 
@@ -332,7 +332,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
         Sign in with GOV.UK Verify
       </label>
-      <span id="gov-2-item-hint" class="nhsuk-hint nhsuk-radios__hint">
+      <span  class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
       </span>
     </div>
@@ -446,17 +446,17 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
 
-  <fieldset class="nhsuk-fieldset app-fieldset--custom-modifier" aria-describedby="example-hint example-error" data-attribute="value" data-second-attribute="second-value">
+  <fieldset class="nhsuk-fieldset app-fieldset--custom-modifier" data-attribute="value" data-second-attribute="second-value" aria-describedby="example-hint example-error" >
 
   <legend class="nhsuk-fieldset__legend">
     Have you changed your name?
   </legend>
 
-  <span id="example-hint" class="nhsuk-hint">
+  <span class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
   </span>
 
-  <span id="example-error" class="nhsuk-error-message">
+  <span  class="nhsuk-error-message" id="example-error">
     Please select an option
   </span>
 
