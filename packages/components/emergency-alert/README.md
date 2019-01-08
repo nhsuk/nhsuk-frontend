@@ -17,7 +17,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <div class="nhsuk-grid-column-full">
         <div class="nhsuk-global-alert__content">
           <h2 class="nhsuk-global-alert__heading"><span class="nhsuk-u-visually-hidden">Alert: </span>National flu outbreak</h2>
-          <p class="nhsuk-global-alert__message">There has been a national flu outbreak. <a href="https://www.nhs.uk" class="nhsuk-u-nowrap">How does it affect me</a></p>
+          <p class="nhsuk-global-alert__message">There has been a national flu outbreak. <a class="nhsuk-u-nowrap" href="https://www.nhs.uk" >How does it affect me</a></p>
           <p class="nhsuk-global-alert__updated">Updated 23 mins ago</p>
         </div>
       </div>

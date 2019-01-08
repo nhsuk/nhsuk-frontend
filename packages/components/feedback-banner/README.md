@@ -16,14 +16,14 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 ### HTML markup
 
 ```html
-<div id="nhsuk-feedback-banner" class="nhsuk-feedback-banner">
+<div class="nhsuk-feedback-banner" id="nhsuk-feedback-banner">
   <div class="nhsuk-width-container">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
         <div class="nhsuk-feedback-banner__content">
           <h2 class="nhsuk-feedback-banner__heading">Help us make the NHS website better</h2>
           <p class="nhsuk-feedback-banner__message">Your feedback helps us improve the NHS website. <a href="https://www.nhs.uk" class="nhsuk-u-nowrap">Take our short survey</a>.</p>
-          <button id="nhsuk-feedback-banner-close" class="nhsuk-feedback-banner__close" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
+          <button class="nhsuk-feedback-banner__close" id="nhsuk-feedback-banner" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
         </div>
       </div>
     </div>
