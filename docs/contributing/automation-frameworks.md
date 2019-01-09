@@ -1,7 +1,7 @@
 As a part of accepting the merge, we are following some rules/ check list. As a part of it we have Cypress and BackstopJS to do some tests against functional and accessibility. It is mandatory that the newly developed component should have a mark-up (HTML template) and should have tests against the mark-up.
 
 ##### 1.Tests and the folder structure:  
-All the tests are need to be written in TESTS folder. There are separate folders for **[BackstopJS](https://github.com/garris/BackstopJS)** and **[Cypress](https://www.cypress.io/)** tests. 
+All the tests are need to be written in [TESTS folder](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests). There are separate folders for [BackstopJS](https://github.com/garris/BackstopJS) and [Cypress](https://www.cypress.io/) tests. 
 
 **1.1Cypress:** This is an automation framework that we are using to check aria attributes, class names, background colour and the font for the components that we are developing. Using this framework, we have developed confidence on certain areas of accessibility (like Visual and audible – by checking the aria attributes) and some functional tests.
 
