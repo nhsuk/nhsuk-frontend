@@ -11,13 +11,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+<nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation" >
   <ol class="nhsuk-nav-a-z__list" role="list">
     <li class="nhsuk-nav-a-z__item">
       <a class="nhsuk-nav-a-z__link" href="#A">A</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <p class="nhsuk-nav-a-z__link--disabled">B</p>
+      <span class="nhsuk-nav-a-z__link--disabled">B</span>
     </li>
     <li class="nhsuk-nav-a-z__item">
       <a class="nhsuk-nav-a-z__link" href="#C">C</a>

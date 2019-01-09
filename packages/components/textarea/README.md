@@ -13,13 +13,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="more-detail">
-    Can you provide more detail?
+  Can you provide more detail?
   </label>
-
-  <span id="more-detail-hint" class="nhsuk-hint">
-    Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
+  <span class="nhsuk-hint" id="more-detail-hint">
+  Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
   </span>
-
   <textarea class="nhsuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
 </div>
 ```
