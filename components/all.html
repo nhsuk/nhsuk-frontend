@@ -38,11 +38,11 @@
   <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a href="/" class="nhsuk-header__link" aria-label="NHS homepage">
+      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
         <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
           <path fill="#fff" d="M0 0h40v16H0z"></path>
           <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
-          <image xlink:href="" src="https://assets.nhs.uk/images/nhs-logo-white.png"></image>
+          <image src="https://assets.nhs.uk/images/nhs-logo-white.png" xlink:href=""></image>
         </svg>
         
       </a>
@@ -66,10 +66,10 @@
             <span class="nhsuk-u-visually-hidden">Search</span>
           </button>
           <div class="nhsuk-header__search-wrap" id="wrap-search">
-            <form id="search" class="nhsuk-header__search-form" action="/search/" method="get" role="search">
+            <form class="nhsuk-header__search-form" id="search"  action="/search/" method="get" role="search">
               <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-              <input class="nhsuk-search__input" id="search-field" placeholder="Search" autocomplete="off" name="search-field" type="search">
-              <button type="submit" class="nhsuk-search__submit">
+              <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+              <button class="nhsuk-search__submit" type="submit">
                 <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
                 </svg>
@@ -100,7 +100,7 @@
       </p>
       <ul class="nhsuk-header__navigation-list">
         <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
-          <a href="/" class="nhsuk-header__navigation-link">
+          <a class="nhsuk-header__navigation-link" href="/">
             Home
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -109,7 +109,7 @@
         </li>
         
           <li class="nhsuk-header__navigation-item">
-            <a href="https://www.nhs.uk/conditions" class="nhsuk-header__navigation-link">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions" >
               Health A-Z
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -118,7 +118,7 @@
           </li>
         
           <li class="nhsuk-header__navigation-item">
-            <a href="https://www.nhs.uk/live-well/" class="nhsuk-header__navigation-link">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/" >
               Live Well
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -127,7 +127,7 @@
           </li>
         
           <li class="nhsuk-header__navigation-item">
-            <a href="https://www.nhs.uk/conditions/social-care-and-support/" class="nhsuk-header__navigation-link">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/" >
               Care and support
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -136,7 +136,7 @@
           </li>
         
           <li class="nhsuk-header__navigation-item">
-            <a href="https://www.nhs.uk/news/" class="nhsuk-header__navigation-link">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/" >
               Health news
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -145,7 +145,7 @@
           </li>
         
           <li class="nhsuk-header__navigation-item">
-            <a href="https://www.nhs.uk/service-search" class="nhsuk-header__navigation-link">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search" >
               Services near you
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -169,21 +169,21 @@
       
 
   
-  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb" >
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       
         
-          <li class="nhsuk-breadcrumb__item"><a href="https://www.nhs.uk/" class="nhsuk-breadcrumb__link" >Home</a> </li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/" >Home</a> </li>
         
       
         
-          <li class="nhsuk-breadcrumb__item"><a href="https://www.nhs.uk/conditions" class="nhsuk-breadcrumb__link" >Health A-Z</a> </li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/conditions" >Health A-Z</a> </li>
         
       
-      <li class="nhsuk-breadcrumb__item"><a href="https://www.nhs.uk/conditions/abscess/" class="nhsuk-breadcrumb__link" >Abscess</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/conditions/abscess/" >Abscess</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a href="https://www.nhs.uk/conditions/abscess/" class="nhsuk-breadcrumb__backlink">Back to Abscess</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/conditions/abscess/" >Back to Abscess</a></p>
   </div>
 </nav>
 
@@ -266,7 +266,7 @@
   
 <div class="nhsuk-care-card nhsuk-care-card--primary" >
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Non-urgent advice: </span>Speak to a GP if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
@@ -286,7 +286,7 @@
   
 <div class="nhsuk-care-card nhsuk-care-card--urgent" >
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
@@ -305,7 +305,7 @@
   
 <div class="nhsuk-care-card nhsuk-care-card--emergency" >
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Non-urgent advice: </span>Call 999 if you have sudden chest pain that:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
@@ -332,8 +332,7 @@
 
 
   <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" alt="Picture of allergic conjunctivitis"
-  src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"/>
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis"/>
   
     <figcaption class="nhsuk-image__caption">
       Itchy, red, watering eyes
@@ -343,8 +342,7 @@
 
 
   <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" alt="Picture of allergic conjunctivitis"
-  src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"/>
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis"/>
   
     <figcaption class="nhsuk-image__caption">
       Itchy, red, watering eyes
@@ -545,7 +543,7 @@
     </div>
   </div>
 
-  <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+  <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination"> 
   <ul class="nhsuk-list nhsuk-pagination__list">
   
     <li class="nhsuk-pagination-item--previous">
@@ -683,7 +681,7 @@
       
       <li>
       
-        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" >
           <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
         </svg>
       
@@ -692,7 +690,7 @@
       
       <li>
       
-        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" >
           <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
         </svg>
       
@@ -701,7 +699,7 @@
       
       <li>
       
-        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" >
           <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
         </svg>
       
@@ -916,7 +914,7 @@
 
 
 
-  <nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+  <nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation" >
   <ol class="nhsuk-nav-a-z__list" role="list">
     
       <li class="nhsuk-nav-a-z__item">
@@ -1200,14 +1198,14 @@
 </footer>
 
 
-  <div id="nhsuk-feedback-banner" class="nhsuk-feedback-banner">
+  <div class="nhsuk-feedback-banner" id="nhsuk-feedback-banner" >
   <div class="nhsuk-width-container">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
         <div class="nhsuk-feedback-banner__content">
           <h2 class="nhsuk-feedback-banner__heading">Help us make the NHS website better</h2>
           <p class="nhsuk-feedback-banner__message">Your feedback helps us improve the NHS website. <a href="https://www.nhs.uk" class="nhsuk-u-nowrap">Take our short survey</a>.</p>
-          <button id="nhsuk-feedback-banner-close" class="nhsuk-feedback-banner__close" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
+          <button class="nhsuk-feedback-banner__close" id="nhsuk-feedback-banner-close" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
         </div>
       </div>
     </div>
