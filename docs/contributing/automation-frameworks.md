@@ -1,4 +1,4 @@
-##Contributing to the automation frameworks
+## Contributing to the automation frameworks
 
 
 #### This document serves as a guide to contribute to the existing automation tests - Cypress and BackstopJS
