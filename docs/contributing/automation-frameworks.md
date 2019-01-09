@@ -20,27 +20,28 @@ Assuming that you have cloned the project, and now you have cypress dependencies
 
 •	You can run the tests in two ways
 
-#### **1.1.4.Using dashboard:** 
+#### **A.Using dashboard:** 
 
 *	Have you terminal pointing to the [test folder](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests) in the nhsuk_frontend. 
 *	Invoke local host by typing “npm start” in the terminal.
 *	In the terminal type “npx cypress open”. This will invoke a dashboard pointing to integration folder where the tests exists.
 *	Clicking on any test will invoke a browser and the tests will run and can be viewed.
 
-#### **1.1.5.Using Command line:** 
+#### **B.Using Command line:** 
 By typing “npm run cypress_ci_tests” will run only the cypress tests. Once the tests are been updated then “npm run test” is used this will run all the tests.
 
-#### **1.1.5.Contributing:** 
+#### **1.1.4.Contributing:** 
 As mentioned earlier that it is mandatory to have mark-up for each component, The Cypress tests should check for the existence of aria attributes, class names and if the component has any click, text entry, date setting then functional tests should be written for them. While contributing, naming tests and naming the test suite are more crucial.
 When using it for the nhsuk frontend library we are more focused on the integration folder. This is the folder that has all the tests for the components that we are developing. For any contribution the tests needed to be updated.
 
-#### **1.1.6.Naming the test suite:**  
+#### **1.1.5.Naming convention for Test Suite and Tests 
+#### **A.Naming the test suite:**  
 
 Here, the name of the test suite is same as the name of the sub folder (i.e. the name of the component) in the packages > components folder.
 
 
 
-#### **1.1.7Naming the tests:** 
+#### **B.Naming the tests:** 
 
 We are aiming to have the test description of the tests to be more non-technical.  
 
