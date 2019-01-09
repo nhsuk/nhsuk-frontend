@@ -46,7 +46,7 @@ We are aiming to have the test description of the tests to be more non-technical
 
 #### **Ex:** 
 
-```html
+```js
 it('To see whether it has a circle with right arrow', function () {
 
   cy.get('.nhsuk-action-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
@@ -54,7 +54,7 @@ it('To see whether it has a circle with right arrow', function () {
   });
 ```
 
-In the example, the test has more non-technical description – text in bold. The test is for checking whether there is a class named “'nhsuk-icon nhsuk-icon__arrow-right-circle”.
+In the example, the test has more non-technical description – text **To see whether it has a circle with right arrow** describes the name of the test. The test is for checking whether there is a class named “'nhsuk-icon nhsuk-icon__arrow-right-circle”.
 
 #### **1.2.BackstopJS:**
  This is a boilerplate framework that is used to check the webpage against all different viewpoints. Using this framework, we gained confidence in terms of responsiveness of the web page.
