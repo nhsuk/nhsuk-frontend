@@ -17,7 +17,7 @@ Find out more about the care card component and when to use it in the [NHS Digit
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Non-urgent advice: </span>Speak to a GP if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
