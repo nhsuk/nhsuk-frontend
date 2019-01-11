@@ -16,7 +16,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 ### HTML markup
 
 ```html
-<div class="nhsuk-feedback-banner" id="nhsuk-feedback-banner" >
+<div class="nhsuk-feedback-banner" id="nhsuk-feedback-banner">
   <div class="nhsuk-width-container">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
