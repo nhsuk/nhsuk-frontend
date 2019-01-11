@@ -63,17 +63,14 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <label class="nhsuk-label" for="select-2">
-    Label text goes here
+  Label text goes here
   </label>
-
-  <span id="select-2-hint" class="nhsuk-hint">
-    Hint text goes here
+  <span class="nhsuk-hint" id="select-2-hint">
+  Hint text goes here
   </span>
-
   <span id="select-2-error" class="nhsuk-error-message">
-    Error message goes here
+  Error message goes here
   </span>
-
   <select class="nhsuk-select nhsuk-select--error" id="select-2" name="select-2" aria-describedby="select-2-hint select-2-error">
     <option value="1">NHS.UK frontend option 1</option>
     <option value="2">NHS.UK frontend option 2</option>

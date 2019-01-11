@@ -43,13 +43,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="input-with-hint-text">
-    National insurance number
+  National insurance number
   </label>
-
-  <span id="input-with-hint-text-hint" class="nhsuk-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’.
+  <span class="nhsuk-hint" id="input-with-hint-text-hint">
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </span>
-
   <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
 </div>
 ```
@@ -80,17 +78,14 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <label class="nhsuk-label" for="input-with-error-message">
-    National Insurance number
+  National Insurance number
   </label>
-
-  <span id="input-with-error-message-hint" class="nhsuk-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’.
+  <span class="nhsuk-hint" id="input-with-error-message-hint">
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </span>
-
   <span id="input-with-error-message-error" class="nhsuk-error-message">
-    Error message goes here
+  Error message goes here
   </span>
-
   <input class="nhsuk-input nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
 </div>
 ```
@@ -124,13 +119,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="input-width-10">
-    National insurance number
+  National insurance number
   </label>
-
-  <span id="input-width-10-hint" class="nhsuk-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’.
+  <span class="nhsuk-hint" id="input-width-10-hint">
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </span>
-
   <input class="nhsuk-input nhsuk-input--width-10" id="input-width-10" name="test-width-10" type="text" aria-describedby="input-width-10-hint">
 </div>
 ```

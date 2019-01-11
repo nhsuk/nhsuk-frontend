@@ -17,12 +17,12 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ```html
 <details class="nhsuk-details">
-  <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+  <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
     Where can I find my NHS number?
     </span>
   </summary>
-  <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
+  <div class="nhsuk-details__text">
     <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
     <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
     <ul>
@@ -69,12 +69,12 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ```html
 <details class="nhsuk-details nhsuk-expander">
-  <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+  <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
     Opening times
     </span>
   </summary>
-  <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
+  <div class="nhsuk-details__text">
     <table>
       <tbody>
         <tr>
@@ -174,12 +174,12 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 ```html
 <div class="nhsuk-expander-group">
   <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+    <summary class="nhsuk-details__summary">
       <span class="nhsuk-details__summary-text">
       How to measure your blood glucose levels
       </span>
     </summary>
-    <div class="nhsuk-details__text" id="details-content-0" aria-hidden="true">
+    <div class="nhsuk-details__text">
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
       <p>You would have been given:</p>
       <ul>
@@ -191,12 +191,12 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
     </div>
   </details>
   <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-1" aria-expanded="false">
+    <summary class="nhsuk-details__summary">
       <span class="nhsuk-details__summary-text">
       When to check your blood glucose level
       </span>
     </summary>
-    <div class="nhsuk-details__text" id="details-content-1" aria-hidden="true">
+    <div class="nhsuk-details__text">
       <p>Try to check your blood:</p>
       <ul>
         <li>before meals</li>

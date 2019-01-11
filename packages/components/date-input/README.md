@@ -13,49 +13,38 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
-
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-
-    <span id="dob-hint" class="nhsuk-hint">
-      For example, 31 3 1980
+    <span class="nhsuk-hint" id="dob-hint">
+    For example, 31 3 1980
     </span>
-
     <div class="nhsuk-date-input" id="dob">
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
-            Day
+          Day
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
-            Month
+          Month
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
-            Year
+          Year
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
         </div>
       </div>
-
     </div>
-
   </fieldset>
 </div>
 ```
@@ -102,53 +91,41 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-errors-hint dob-errors-error" role="group">
-
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-
-    <span id="dob-errors-hint" class="nhsuk-hint">
-      For example, 31 3 1980
+    <span class="nhsuk-hint" id="dob-errors-hint">
+    For example, 31 3 1980
     </span>
-
     <span id="dob-errors-error" class="nhsuk-error-message">
-      Error message goes here
+    Error message goes here
     </span>
-
     <div class="nhsuk-date-input" id="dob-errors">
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-day">
-            Day
+          Day
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-day" name="day" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-month">
-            Month
+          Month
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-month" name="month" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-year">
-            Year
+          Year
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error" id="dob-errors-year" name="year" type="number" pattern="[0-9]*">
         </div>
       </div>
-
     </div>
-
   </fieldset>
 </div>
 ```
@@ -197,53 +174,41 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-day-error-hint dob-day-error-error" role="group">
-
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-
-    <span id="dob-day-error-hint" class="nhsuk-hint">
-      For example, 31 3 1980
+    <span class="nhsuk-hint" id="dob-day-error-hint">
+    For example, 31 3 1980
     </span>
-
     <span id="dob-day-error-error" class="nhsuk-error-message">
-      Error message goes here
+    Error message goes here
     </span>
-
     <div class="nhsuk-date-input" id="dob-day-error">
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-day">
-            Day
+          Day
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-day-error-day" name="dob-day-error-day" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-month">
-            Month
+          Month
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day-error-month" name="dob-day-error-month" type="number" pattern="[0-9]*">
         </div>
       </div>
-
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-year">
-            Year
+          Year
           </label>
-
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-day-error-year" name="dob-day-error-year" type="number" pattern="[0-9]*">
         </div>
       </div>
-
     </div>
-
   </fieldset>
 </div>
 ```

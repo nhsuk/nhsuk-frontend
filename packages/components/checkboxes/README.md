@@ -12,43 +12,34 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
-
-  <legend class="nhsuk-fieldset__legend">
-    What is your nationality?
-  </legend>
-
-  <span id="nationality-hint" class="nhsuk-hint">
+    <legend class="nhsuk-fieldset__legend">
+      What is your nationality?
+    </legend>
+    <span class="nhsuk-hint" id="nationality-hint">
     If you have dual nationality, select all options that are relevant to you.
-  </span>
-
-  <div class="nhsuk-checkboxes">
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+    </span>
+    <div class="nhsuk-checkboxes">
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
         British
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
         Irish
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
         Citizen of another country
-      </label>
+        </label>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 
@@ -93,40 +84,33 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <fieldset class="nhsuk-fieldset">
-
-  <legend class="nhsuk-fieldset__legend">
-    <h1 class="nhsuk-fieldset__heading">
-      How do you want to sign in?
-    </h1>
-  </legend>
-
-  <div class="nhsuk-checkboxes">
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="government-gateway" name="gateway" type="checkbox" value="gov-gateway" aria-describedby="government-gateway-item-hint">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="government-gateway">
+    <legend class="nhsuk-fieldset__legend">
+      <h1 class="nhsuk-fieldset__heading">
+        How do you want to sign in?
+      </h1>
+    </legend>
+    <div class="nhsuk-checkboxes">
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="government-gateway" name="gateway" type="checkbox" value="gov-gateway" aria-describedby="government-gateway-item-hint">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="government-gateway">
         Sign in with Government Gateway
-      </label>
-      <span id="government-gateway-item-hint" class="nhsuk-hint nhsuk-checkboxes__hint">
+        </label>
+        <span class="nhsuk-hint nhsuk-checkboxes__hint" id="government-gateway-item-hint">
         You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.
-      </span>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="nhsuk-verify" name="verify" type="checkbox" value="gov-verify" aria-describedby="nhsuk-verify-item-hint">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-verify">
-        Sign in with GOV.UK Verify
-      </label>
-      <span id="nhsuk-verify-item-hint" class="nhsuk-hint nhsuk-checkboxes__hint">
+        </span>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nhsuk-login" name="verify" type="checkbox" value="nhsuk-verify" aria-describedby="nhsuk-login-item-hint">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-login">
+        Sign in with NHS.UK Login
+        </label>
+        <span class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
-      </span>
+        </span>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 
@@ -235,45 +219,36 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <fieldset class="nhsuk-fieldset" aria-describedby="waste-hint">
-
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-fieldset__heading">
-      Which types of waste do you transport regularly?
-    </h1>
-  </legend>
-
-  <span id="waste-hint" class="nhsuk-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        Which types of waste do you transport regularly?
+      </h1>
+    </legend>
+    <span class="nhsuk-hint" id="waste-hint">
     Select all that apply
-  </span>
-
-  <div class="nhsuk-checkboxes">
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
+    </span>
+    <div class="nhsuk-checkboxes">
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
         Waste from animal carcasses
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
         Waste from mines or quarries
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
         Farm or agricultural waste
-      </label>
+        </label>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 
