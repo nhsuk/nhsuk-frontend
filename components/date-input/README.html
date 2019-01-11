@@ -97,49 +97,38 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;dob-hint&quot; role=&quot;group&quot;&gt;
-
     &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
       What is your date of birth?
     &lt;/legend&gt;
-
-    &lt;span id=&quot;dob-hint&quot; class=&quot;nhsuk-hint&quot;&gt;
-      For example, 31 3 1980
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;dob-hint&quot;&gt;
+    For example, 31 3 1980
     &lt;/span&gt;
-
     &lt;div class=&quot;nhsuk-date-input&quot; id=&quot;dob&quot;&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-day&quot;&gt;
-            Day
+          Day
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2&quot; id=&quot;dob-day&quot; name=&quot;dob-day&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-month&quot;&gt;
-            Month
+          Month
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2&quot; id=&quot;dob-month&quot; name=&quot;dob-month&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-year&quot;&gt;
-            Year
+          Year
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-4&quot; id=&quot;dob-year&quot; name=&quot;dob-year&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
     &lt;/div&gt;
-
   &lt;/fieldset&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -175,53 +164,41 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group nhsuk-form-group--error&quot;&gt;
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;dob-errors-hint dob-errors-error&quot; role=&quot;group&quot;&gt;
-
     &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
       What is your date of birth?
     &lt;/legend&gt;
-
-    &lt;span id=&quot;dob-errors-hint&quot; class=&quot;nhsuk-hint&quot;&gt;
-      For example, 31 3 1980
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;dob-errors-hint&quot;&gt;
+    For example, 31 3 1980
     &lt;/span&gt;
-
     &lt;span id=&quot;dob-errors-error&quot; class=&quot;nhsuk-error-message&quot;&gt;
-      Error message goes here
+    Error message goes here
     &lt;/span&gt;
-
     &lt;div class=&quot;nhsuk-date-input&quot; id=&quot;dob-errors&quot;&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-errors-day&quot;&gt;
-            Day
+          Day
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error&quot; id=&quot;dob-errors-day&quot; name=&quot;day&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-errors-month&quot;&gt;
-            Month
+          Month
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error&quot; id=&quot;dob-errors-month&quot; name=&quot;month&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-errors-year&quot;&gt;
-            Year
+          Year
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error&quot; id=&quot;dob-errors-year&quot; name=&quot;year&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
     &lt;/div&gt;
-
   &lt;/fieldset&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -259,53 +236,41 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group nhsuk-form-group--error&quot;&gt;
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;dob-day-error-hint dob-day-error-error&quot; role=&quot;group&quot;&gt;
-
     &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
       What is your date of birth?
     &lt;/legend&gt;
-
-    &lt;span id=&quot;dob-day-error-hint&quot; class=&quot;nhsuk-hint&quot;&gt;
-      For example, 31 3 1980
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;dob-day-error-hint&quot;&gt;
+    For example, 31 3 1980
     &lt;/span&gt;
-
     &lt;span id=&quot;dob-day-error-error&quot; class=&quot;nhsuk-error-message&quot;&gt;
-      Error message goes here
+    Error message goes here
     &lt;/span&gt;
-
     &lt;div class=&quot;nhsuk-date-input&quot; id=&quot;dob-day-error&quot;&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-day-error-day&quot;&gt;
-            Day
+          Day
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error&quot; id=&quot;dob-day-error-day&quot; name=&quot;dob-day-error-day&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-day-error-month&quot;&gt;
-            Month
+          Month
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-2&quot; id=&quot;dob-day-error-month&quot; name=&quot;dob-day-error-month&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;nhsuk-date-input__item&quot;&gt;
         &lt;div class=&quot;nhsuk-form-group&quot;&gt;
           &lt;label class=&quot;nhsuk-label nhsuk-date-input__label&quot; for=&quot;dob-day-error-year&quot;&gt;
-            Year
+          Year
           &lt;/label&gt;
-
           &lt;input class=&quot;nhsuk-input nhsuk-date-input__input nhsuk-input--width-4&quot; id=&quot;dob-day-error-year&quot; name=&quot;dob-day-error-year&quot; type=&quot;number&quot; pattern=&quot;[0-9]*&quot;&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-
     &lt;/div&gt;
-
   &lt;/fieldset&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>

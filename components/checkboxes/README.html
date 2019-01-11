@@ -96,43 +96,34 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/index.html">Preview the checkboxes component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;nationality-hint&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
-    What is your nationality?
-  &lt;/legend&gt;
-
-  &lt;span id=&quot;nationality-hint&quot; class=&quot;nhsuk-hint&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
+      What is your nationality?
+    &lt;/legend&gt;
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;nationality-hint&quot;&gt;
     If you have dual nationality, select all options that are relevant to you.
-  &lt;/span&gt;
-
-  &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-1&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;british&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-1&quot;&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-1&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;british&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-1&quot;&gt;
         British
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-2&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;irish&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-2&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-2&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;irish&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-2&quot;&gt;
         Irish
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-3&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;other&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-3&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nationality-3&quot; name=&quot;nationality&quot; type=&quot;checkbox&quot; value=&quot;other&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nationality-3&quot;&gt;
         Citizen of another country
-      &lt;/label&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/checkboxes/macro.njk&#39; import checkboxes %}
@@ -166,40 +157,33 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/hint.html">Preview the checkboxes with hint text component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
-    &lt;h1 class=&quot;nhsuk-fieldset__heading&quot;&gt;
-      How do you want to sign in?
-    &lt;/h1&gt;
-  &lt;/legend&gt;
-
-  &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;government-gateway&quot; name=&quot;gateway&quot; type=&quot;checkbox&quot; value=&quot;gov-gateway&quot; aria-describedby=&quot;government-gateway-item-hint&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;government-gateway&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
+      &lt;h1 class=&quot;nhsuk-fieldset__heading&quot;&gt;
+        How do you want to sign in?
+      &lt;/h1&gt;
+    &lt;/legend&gt;
+    &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;government-gateway&quot; name=&quot;gateway&quot; type=&quot;checkbox&quot; value=&quot;gov-gateway&quot; aria-describedby=&quot;government-gateway-item-hint&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;government-gateway&quot;&gt;
         Sign in with Government Gateway
-      &lt;/label&gt;
-      &lt;span id=&quot;government-gateway-item-hint&quot; class=&quot;nhsuk-hint nhsuk-checkboxes__hint&quot;&gt;
+        &lt;/label&gt;
+        &lt;span class=&quot;nhsuk-hint nhsuk-checkboxes__hint&quot; id=&quot;government-gateway-item-hint&quot;&gt;
         You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.
-      &lt;/span&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nhsuk-verify&quot; name=&quot;verify&quot; type=&quot;checkbox&quot; value=&quot;gov-verify&quot; aria-describedby=&quot;nhsuk-verify-item-hint&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nhsuk-verify&quot;&gt;
-        Sign in with GOV.UK Verify
-      &lt;/label&gt;
-      &lt;span id=&quot;nhsuk-verify-item-hint&quot; class=&quot;nhsuk-hint nhsuk-checkboxes__hint&quot;&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;nhsuk-login&quot; name=&quot;verify&quot; type=&quot;checkbox&quot; value=&quot;nhsuk-verify&quot; aria-describedby=&quot;nhsuk-login-item-hint&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;nhsuk-login&quot;&gt;
+        Sign in with NHS.UK Login
+        &lt;/label&gt;
+        &lt;span class=&quot;nhsuk-hint nhsuk-checkboxes__hint&quot; id=&quot;nhsuk-login-item-hint&quot;&gt;
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
-      &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/checkboxes/macro.njk&#39; import checkboxes %}
@@ -286,45 +270,36 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/page-heading.html">Preview the checkboxes with legend as page heading component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;waste-hint&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend nhsuk-fieldset__legend--l&quot;&gt;
-    &lt;h1 class=&quot;nhsuk-fieldset__heading&quot;&gt;
-      Which types of waste do you transport regularly?
-    &lt;/h1&gt;
-  &lt;/legend&gt;
-
-  &lt;span id=&quot;waste-hint&quot; class=&quot;nhsuk-hint&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend nhsuk-fieldset__legend--l&quot;&gt;
+      &lt;h1 class=&quot;nhsuk-fieldset__heading&quot;&gt;
+        Which types of waste do you transport regularly?
+      &lt;/h1&gt;
+    &lt;/legend&gt;
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;waste-hint&quot;&gt;
     Select all that apply
-  &lt;/span&gt;
-
-  &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-1&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;animal&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-1&quot;&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-1&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;animal&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-1&quot;&gt;
         Waste from animal carcasses
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-2&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;mines&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-2&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-2&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;mines&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-2&quot;&gt;
         Waste from mines or quarries
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-3&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;farm&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-3&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-3&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;farm&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-3&quot;&gt;
         Farm or agricultural waste
-      &lt;/label&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/checkboxes/macro.njk&#39; import checkboxes %}

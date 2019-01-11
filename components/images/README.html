@@ -96,10 +96,13 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/images.html">Preview the images component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;figure class=&quot;nhsuk-image&quot;&gt;
-  &lt;img class=&quot;nhsuk-image__img&quot; src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot; alt=&quot;Picture of allergic conjunctivitis&quot;&gt;
+  &lt;img class=&quot;nhsuk-image__img&quot; src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot; alt=&quot;Picture of allergic conjunctivitis&quot;/&gt;
   &lt;figcaption class=&quot;nhsuk-image__caption&quot;&gt;
     Itchy, red, watering eyes
   &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;nhsuk-image&quot;&gt;
+  &lt;img class=&quot;nhsuk-image__img&quot; src=&quot;https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg&quot; alt=&quot;Picture of allergic conjunctivitis&quot;/&gt;
 &lt;/figure&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/images/macro.njk&#39; import image %}

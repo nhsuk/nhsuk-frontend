@@ -124,7 +124,6 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html">Preview the grey panel component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-panel nhsuk-panel--grey&quot;&gt;
-  &lt;h3&gt;Panel title&lt;/h3&gt;
   &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
@@ -141,18 +140,30 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
-    &lt;div class=&quot;nhsuk-panel&quot;&gt;
+    &lt;div class=&quot;nhsuk-panel &quot;&gt;
       &lt;h3&gt;Panel title&lt;/h3&gt;
       &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
-    &lt;div class=&quot;nhsuk-panel&quot;&gt;
+    &lt;div class=&quot;nhsuk-panel &quot;&gt;
       &lt;h3&gt;Panel title&lt;/h3&gt;
       &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+&lt;div class=&quot;nhsuk-grid-row nhsuk-panel-group&quot;&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
+    &lt;div class=&quot;nhsuk-panel &quot;&gt;
+      &lt;h3&gt;Panel title&lt;/h3&gt;
+      &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-panel-group__item&quot;&gt;
+    &lt;div class=&quot;nhsuk-panel &quot;&gt;
+      &lt;h3&gt;Panel title&lt;/h3&gt;
+      &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/panel/macro.njk&#39; import panel %}
