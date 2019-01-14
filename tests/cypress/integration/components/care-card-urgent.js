@@ -27,9 +27,9 @@ describe('Care-card urgent component tests', function () {
       .should('have.class', 'nhsuk-care-card__heading')
   });
 
-  it('To see whether there is a visaully hidden text', function () {
-    cy.get('.nhsuk-care-card__heading').children().children()
-      .should('have.class', 'nhsuk-u-visually-hidden', 'Urgent advice:')
+  it('To check for a visually hidden class', function () {
+    cy.get('.nhsuk-u-visually-hidden')
+      .should('not.be.empty');
   });
 
   it('To see the care card ribbon color to be red', function () {

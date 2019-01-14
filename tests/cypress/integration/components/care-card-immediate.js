@@ -31,9 +31,14 @@ describe('Care-card immediate component tests', function () {
       .should('have.class', 'nhsuk-care-card__heading')
   });
 
-  it('To see whether there is a visually hidden class', function () {
-    cy.get('.nhsuk-care-card__heading').children().children()
+  it('To check for a visually hidden class', function () {
+    cy.get('.nhsuk-care-card__heading').children()
       .should('have.class', 'nhsuk-u-visually-hidden')
+  });
+
+  it('To check for a visually hidden class', function () {
+    cy.get('.nhsuk-u-visually-hidden')
+      .should('not.be.empty');
   });
 
   it('To see whether the care card title color to be red', function () {

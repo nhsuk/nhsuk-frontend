@@ -7,7 +7,11 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint",
+    "start-server": "npm start",
+    "cypress_ci_tests": "start-server-and-test start-server http://localhost:3000 cypress",
+    "backstop_ci_tests": "start-server-and-test start-server http://localhost:3000 backstop:test",
+    "cypress": "cypress run --project ./tests",
+    "test": "npm run cypress_ci_tests && npm run backstop_ci_tests",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js **/header/header.js **/skip-link/skip-link.js **/feedback-banner/feedback-banner.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
@@ -29,6 +33,7 @@
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.4",
     "backstopjs": "^3.8.4",
+    "cypress": "^3.1.2",
     "del": "^3.0.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -51,6 +56,7 @@
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.6",
     "sass-lint": "^1.12.1",
+    "start-server-and-test": "^1.7.11",
     "webpack-stream": "^5.2.1"
   },
   "files": [

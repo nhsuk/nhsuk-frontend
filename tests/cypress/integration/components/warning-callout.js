@@ -20,6 +20,7 @@ describe('Warning callout component tests', function () {
       .should('have.css', 'background-color')
       .and('eq', 'rgb(255, 235, 59)')
   });
+
   it('Checking background colour of the callout', function () {
     cy.get('.nhsuk-warning-callout')
       .should('have.css', 'background-color')
