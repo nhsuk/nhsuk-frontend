@@ -1,0 +1,21 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Error message' %}
+{% from 'components/error-message/macro.njk' import errorMessage %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ errorMessage({
+            "text": "Error message about full name goes here"
+          }) }}
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

@@ -25,23 +25,10 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
-  "HTML": "
-  <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  "HTML": "<h3>Panel title</h3>
+  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>""
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The panel Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
-
 
 ### Panel with a label
 
@@ -65,22 +52,9 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ panel({
   "label": "Panel heading",
-  "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The panel with a label Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **label**           | string   | No        | The label of the panel component. |
-| **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
 
 ### Grey panel
 
@@ -90,7 +64,6 @@ The panel with a label Nunjucks macro takes the following arguments:
 
 ```html
 <div class="nhsuk-panel nhsuk-panel--grey">
-  <h3>Panel title</h3>
   <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
 </div>
 ```
@@ -106,21 +79,9 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
   "colour": "grey",
   "HTML": "
   <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
-
-#### Nunjucks arguments
-
-The grey panel Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
-| **colour**          | string   | No        | The colour of the panel. Must be "grey". |
-| **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |
-
 
 ### Panel group
 
@@ -131,18 +92,30 @@ The grey panel Nunjucks macro takes the following arguments:
 ```html
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel">
+    <div class="nhsuk-panel ">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel">
+    <div class="nhsuk-panel ">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
 </div>
+<div class="nhsuk-grid-row nhsuk-panel-group">
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel ">
+      <h3>Panel title</h3>
+      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+    </div>
+  </div>
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    <div class="nhsuk-panel ">
+      <h3>Panel title</h3>
+      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+    </div>
 ```
 
 ### Nunjucks macro
@@ -155,23 +128,25 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
     }) }}
   </div>
 </div>
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The panel group Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
 | **HTML**            | string   | Yes       | HTML content to be used within the panel component. |
+| **label**           | string   | No        | The label of the panel component. |
+| **headingLevel**    | integer  | No        | Optional heading level for the label  heading. Default: 3 |
 | **classes**         | string   | No        | Optional additional classes to add to the panel. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the panel. |

@@ -1,0 +1,29 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Textarea' %}
+{% from 'components/textarea/macro.njk' import textarea %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ textarea({
+            "name": "more-detail",
+            "id": "more-detail",
+            "label": {
+              "text": "Can you provide more detail?"
+            },
+            "hint": {
+              "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+            }
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

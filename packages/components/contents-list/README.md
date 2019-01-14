@@ -11,7 +11,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<nav class="nhsuk-contents-list" aria-label="Pages in this guide">
+<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
     <li class="nhsuk-contents-list__item" aria-current="page">
@@ -34,8 +34,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```
 
 ### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```
 {% from 'components/contents-list/macro.njk' import contentsList %}
@@ -69,7 +67,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-#### Nunjucks arguments
+## Nunjucks arguments
 
 The contents list Nunjucks macro takes the following arguments:
 

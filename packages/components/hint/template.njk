@@ -1,4 +1,4 @@
-<span {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-hint {%- if params.classes %} {{ params.classes }}{% endif %}"
+<span class="nhsuk-hint {%- if params.classes %} {{ params.classes }}{% endif %}" {%- if params.id %} id="{{ params.id }}"{% endif %} 
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   {{ params.html | safe if params.html else params.text }}
 </span>

@@ -1,0 +1,23 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Back link' %}
+{% from 'components/back-link/macro.njk' import backLink %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ backLink({
+            "href": "#",
+            "text": "Go back"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

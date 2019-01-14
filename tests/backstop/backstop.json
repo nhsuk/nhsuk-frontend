@@ -26,14 +26,6 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "Typography",
-      "url": "http://localhost:3000/components/typography.html"
-    },
-    {
-      "label": "Components",
-      "url": "http://localhost:3000/components/all.html"
-    },
-    {
       "label": "A-Z navigation",
       "url": "http://localhost:3000/components/nav-a-z.html"
     },
@@ -42,24 +34,80 @@
       "url": "http://localhost:3000/components/action-link.html"
     },
     {
+      "label": "Back link",
+      "url": "http://localhost:3000/components/back-link/index.html"
+    },
+    {
       "label": "Breadcrumb",
       "url": "http://localhost:3000/components/breadcrumb.html"
     },
     {
-      "label": "Blue care card",
-      "url": "http://localhost:3000/components/care-card-primary.html"
+      "label": "Button",
+      "url": "http://localhost:3000/components/button/index.html"
     },
     {
-      "label": "Red care card",
-      "url": "http://localhost:3000/components/care-card-emergency.html"
+      "label": "Button disabled",
+      "url": "http://localhost:3000/components/button/disabled.html"
     },
     {
-      "label": "Black care card",
+      "label": "Button secondary",
+      "url": "http://localhost:3000/components/button/secondary.html"
+    },
+    {
+      "label": "Button secondary disabled",
+      "url": "http://localhost:3000/components/button/secondary-disabled.html"
+    },
+    {
+      "label": "Button reverse",
+      "url": "http://localhost:3000/components/button/reverse.html"
+    },
+    {
+      "label": "Button secondary disabled",
+      "url": "http://localhost:3000/components/button/reverse-disabled.html"
+    },
+    {
+      "label": "Care card - Non urgent",
+      "url": "http://localhost:3000/components/care-card-non-urgent.html"
+    },
+    {
+      "label": "Care card - Urgent",
       "url": "http://localhost:3000/components/care-card-urgent.html"
+    },
+    {
+      "label": "Care card - Immediate",
+      "url": "http://localhost:3000/components/care-card-immediate.html"
+    },
+    {
+      "label": "Checkboxes",
+      "url": "http://localhost:3000/components/checkboxes/index.html"
+    },
+    {
+      "label": "Checkboxes with hint text",
+      "url": "http://localhost:3000/components/checkboxes/hint.html"
+    },
+    {
+      "label": "Checkboxes with disabled item",
+      "url": "http://localhost:3000/components/checkboxes/disabled.html"
+    },
+    {
+      "label": "Checkboxes with legend as page heading",
+      "url": "http://localhost:3000/components/checkboxes/page-heading.html"
+    },
+    {
+      "label": "Checkboxes with error message",
+      "url": "http://localhost:3000/components/checkboxes/error.html"
     },
     {
       "label": "Contents list",
       "url": "http://localhost:3000/components/contents-list.html"
+    },
+    {
+      "label": "Date input",
+      "url": "http://localhost:3000/components/date-input/index.html"
+    },
+    {
+      "label": "Date input with multiple errors",
+      "url": "http://localhost:3000/components/date-input/multiple-errors.html"
     },
     {
       "label": "Details",
@@ -67,12 +115,20 @@
       "clickSelector": ".nhsuk-details__summary"
     },
     {
-      "label": "Do & don't list",
+      "label": "Do & Don't list",
       "url": "http://localhost:3000/components/do-dont-list.html"
     },
     {
-      "label": "Emergency Alert",
+      "label": "Emergency alert",
       "url": "http://localhost:3000/components/emergency-alert.html"
+    },
+    {
+      "label": "Error message",
+      "url": "http://localhost:3000/components/error-message/index.html"
+    },
+    {
+      "label": "Error summary",
+      "url": "http://localhost:3000/components/error-summary/index.html"
     },
     {
       "label": "Expander",
@@ -94,33 +150,36 @@
       "url": "http://localhost:3000/components/footer.html"
     },
     {
+      "label": "Fieldset",
+      "url": "http://localhost:3000/components/fieldset/index.html"
+    },
+    {
+      "label": "Fieldset as page heading",
+      "url": "http://localhost:3000/components/fieldset/page-heading.html"
+    },
+    {
       "label": "Header",
       "url": "http://localhost:3000/components/header.html"
+    },
+    {
+      "label": "Header with logo only",
+      "url": "http://localhost:3000/components/header-logo.html"
+    },
+    {
+      "label": "Header with service name and search",
+      "url": "http://localhost:3000/components/header-service-name.html"
     },
     {
       "label": "Header transactional",
       "url": "http://localhost:3000/components/header-transactional.html"
     },
     {
-      "label": "Header with search",
-      "url": "http://localhost:3000/components/header-search.html"
+      "label": "Header transactional with service name",
+      "url": "http://localhost:3000/components/header-transactional-service-name.html"
     },
     {
-      "label": "Header with search open",
-      "url": "http://localhost:3000/components/header-search.html",
-      "clickSelector": "#toggle-search",
-      "viewports": [
-        {
-          "label": "iPhone 5/SE",
-          "width": 320,
-          "height": 568
-        },
-        {
-          "label": "iPhone 6-8",
-          "width": 375,
-          "height": 667
-        }
-      ]
+      "label": "Header transactional with a long service name",
+      "url": "http://localhost:3000/components/header-transactional-long-service-name.html"
     },
     {
       "label": "Header with navigation",
@@ -149,6 +208,27 @@
       ]
     },
     {
+      "label": "Header with search",
+      "url": "http://localhost:3000/components/header-search.html"
+    },
+    {
+      "label": "Header with search open",
+      "url": "http://localhost:3000/components/header-search.html",
+      "clickSelector": "#toggle-search",
+      "viewports": [
+        {
+          "label": "iPhone 5/SE",
+          "width": 320,
+          "height": 568
+        },
+        {
+          "label": "iPhone 6-8",
+          "width": 375,
+          "height": 667
+        }
+      ]
+    },
+    {
       "label": "Hero",
       "url": "http://localhost:3000/components/hero.html"
     },
@@ -161,12 +241,44 @@
       "url": "http://localhost:3000/components/hero-image-content.html"
     },
     {
+      "label": "Hint",
+      "url": "http://localhost:3000/components/hint/index.html"
+    },
+    {
       "label": "Images",
       "url": "http://localhost:3000/components/images.html"
     },
     {
+      "label": "Input",
+      "url": "http://localhost:3000/components/input/index.html"
+    },
+    {
+      "label": "Input with hint text",
+      "url": "http://localhost:3000/components/input/hint.html"
+    },
+    {
+      "label": "Input with error message",
+      "url": "http://localhost:3000/components/input/error.html"
+    },
+    {
+      "label": "Input with width modifier",
+      "url": "http://localhost:3000/components/input/custom-width.html"
+    },
+    {
       "label": "Inset text",
       "url": "http://localhost:3000/components/inset-text.html"
+    },
+    {
+      "label": "Label",
+      "url": "http://localhost:3000/components/label/index.html"
+    },
+    {
+      "label": "Label with bold text",
+      "url": "http://localhost:3000/components/label/index.html"
+    },
+    {
+      "label": "Label as page heading",
+      "url": "http://localhost:3000/components/label/page-heading.html"
     },
     {
       "label": "List panel",
@@ -213,12 +325,60 @@
       "url": "http://localhost:3000/components/promo-group.html"
     },
     {
-      "label": "Review Date",
+      "label": "Radios",
+      "url": "http://localhost:3000/components/radios/index.html"
+    },
+    {
+      "label": "Radios inline",
+      "url": "http://localhost:3000/components/radios/inline.html"
+    },
+    {
+      "label": "Radios disabled",
+      "url": "http://localhost:3000/components/radios/disabled.html"
+    },
+    {
+      "label": "Radios with a divider",
+      "url": "http://localhost:3000/components/radios/divider.html"
+    },
+    {
+      "label": "Radios with hint text",
+      "url": "http://localhost:3000/components/radios/hint.html"
+    },
+    {
+      "label": "Radios without fieldset",
+      "url": "http://localhost:3000/components/radios/without-fieldset.html"
+    },
+    {
+      "label": "Radios with hint text and error message",
+      "url": "http://localhost:3000/components/radios/hint-error.html"
+    },
+    {
+      "label": "Review date",
       "url": "http://localhost:3000/components/review-date.html"
     },
     {
-      "label": "Tables",
+      "label": "Select",
+      "url": "http://localhost:3000/components/select/index.html"
+    },
+    {
+      "label": "Select with hint text and error message",
+      "url": "http://localhost:3000/components/select/hint-error.html"
+    },
+    {
+      "label": "Table",
       "url": "http://localhost:3000/components/tables.html"
+    },
+    {
+      "label": "Table as panel",
+      "url": "http://localhost:3000/components/tables-panel.html"
+    },
+    {
+      "label": "Textarea",
+      "url": "http://localhost:3000/components/textarea/index.html"
+    },
+    {
+      "label": "Textarea with error message",
+      "url": "http://localhost:3000/components/textarea/error.html"
     },
     {
       "label": "Warning callout",

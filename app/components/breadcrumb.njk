@@ -1,0 +1,23 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Breadcrumb' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/level-one",
+        text: "Level one"
+      },
+      {
+        href: "/level-one/level-two",
+        text: "Level two"
+      }
+    ],
+    href: "/level-one/level-two/level-three",
+    text: "Level three"
+  }) }}
+
+{% endblock %}

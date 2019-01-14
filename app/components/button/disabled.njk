@@ -1,0 +1,22 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Button disabled' %}
+{% from 'components/button/macro.njk' import button %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ button({
+            "text": "Disabled button",
+            "disabled": true
+          }) }}
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

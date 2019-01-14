@@ -1,4 +1,54 @@
-# NHS.UK Frontend Changelog
+# NHS.UK frontend Changelog
+
+## 0.7.0 (Prerelease) - Jan 2, 2018
+
+:new: **New features**
+
+- Button component - Add option for button to be also an `<a>` or `<input>` element. ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/324))
+
+:wrench: **Fixes**
+
+- Project structure - move website pages out of the `/docs` folder and into `/app` along with other general project clean up ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/321))
+
+## 0.6.0 (Prerelease) - Dec 18, 2018
+
+:boom: **Breaking changes**
+
+- npm JavaScript file path - The `nhsuk.min.js` file has been moved from `packages/` into `dist/` if you are referencing
+the compiled JavaScript file from the `packages/` folder please update your projects.
+
+- Footer no longer includes a logo and the nunjucks macro arguments have been updated - if you are using the footer nunjucks
+macro then you need to update it. ([PR 300](https://github.com/nhsuk/nhsuk-frontend/pull/300))
+
+:new: **New features**
+
+- ES6 JavaScript modules - NHS.UK frontend JavaScript is now written in ES6 format, meaning you can import individual components
+that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
+
+See more about using ES6 modules in your project in the [installing with npm - importing Javascript documentation](/docs/installation/installing-with-npm.md#option-2-import-javascript-using-modules).
+
+## 0.5.3 (Prerelease) - Dec 13, 2018
+
+:new: **New features**
+
+- Header - Add 'aria-label' Nunjucks argument so it can be overridden  ([PR 297](https://github.com/nhsuk/nhsuk-frontend/pull/297))
+
+## 0.5.2 (Prerelease) - Dec 12, 2018
+
+:wrench: **Fixes**
+
+- Address styling - Add generic styling for the `<address>` element  ([PR 295](https://github.com/nhsuk/nhsuk-frontend/pull/295))
+
+- Focus styles - Add focus styles on links when in High Contrast Mode in Windows to make it easier to distinguish where you are. ([PR 294](https://github.com/nhsuk/nhsuk-frontend/pull/294))
+
+## 0.5.1 (Prerelease) - Dec 11, 2018
+
+:wrench: **Fixes**
+
+- Feedback banner - Fix an issue with the JavaScript reporting errors within the console log
+when scrolling down the page if the feedback banner did not exist on the page.  ([PR 293](https://github.com/nhsuk/nhsuk-frontend/pull/293))
+
+- Details - Add the missing component JavaScript to the `nhsuk.min.js` bundle. ([PR 285](https://github.com/nhsuk/nhsuk-frontend/pull/285))
 
 ## 0.5.0 (Prerelease) - Dec 07, 2018
 
@@ -51,7 +101,7 @@
 
 :new: **New features**
 
-- Form elements - All form elements have now been added to NHS.UK Frontend. Including a new transactional header and footer. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
+- Form elements - All form elements have now been added to NHS.UK frontend. Including a new transactional header and footer. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
 - Footer - The footer has had a visual redesign. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
@@ -67,7 +117,7 @@
 
 - Breadcrumb - Refactor breadcrumb SVG icons to background images. ([PR 246](https://github.com/nhsuk/nhsuk-frontend/pull/246))
 
-  Use the latest [Breadcrumb HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/breadcrumb#html-markup) in your app. 
+  Use the latest [Breadcrumb HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/breadcrumb#html-markup) in your app.
 
 - Care card - Rename care cards to non-urgent, urgent and immediate. ([PR 252](https://github.com/nhsuk/nhsuk-frontend/pull/252))
 
@@ -102,7 +152,7 @@
 
 ## 0.1.4 (Prerelease) - Nov 13, 2018
 
-:tada: **Initial release of the NHS.UK Frontend**
+:tada: **Initial release of the NHS.UK frontend**
 
 - This release includes all the content page components and the first
 installable npm package.

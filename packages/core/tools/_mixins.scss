@@ -344,22 +344,23 @@
 
 /// Focusable helper
 ///
-/// Provides an additional outline to clearly indicate when the target element is
-/// focussed. Used for interactive elements which themselves have some background
+/// Provides an additional outline to clearly indicate when the target element
+/// has focus. Used for interactive elements which themselves have some background
 /// or border, such as most form elements.
 ///
 
 @mixin nhsuk-focusable {
   &:focus {
     box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    outline: 0;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
   }
 }
 
 /// Focusable with fill helper
 ///
 /// Provides an additional outline and background colour to clearly indicate when
-/// the target element is focussed. Used for interactive text-based elements such
+/// the target element has focus. Used for interactive text-based elements such
 /// as links.
 ///
 

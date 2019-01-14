@@ -1,8 +1,10 @@
 # Inset text
 
-Find out more about the inset text component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/inset_text/).
-
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/172).
+
+## Guidance
+
+Find out more about the inset text component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/inset_text/).
 
 ## Quick start examples
 
@@ -27,7 +29,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/inset-text/macro.njk' import insetText %}
 
 {{ insetText({
-  "HTML": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
+  "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
 }) }}
 ```
 

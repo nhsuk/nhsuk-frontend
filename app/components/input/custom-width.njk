@@ -1,0 +1,30 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Input with width modifier' %}
+{% from 'components/input/macro.njk' import input %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ input({
+            "label": {
+              "text": "National insurance number"
+            },
+            "hint": {
+              "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+            },
+            "id": "input-width-10",
+            "name": "test-width-10",
+            "classes": "nhsuk-input--width-10"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

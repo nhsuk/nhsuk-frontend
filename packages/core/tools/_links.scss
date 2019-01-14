@@ -20,7 +20,8 @@
     background-color: $nhsuk-link-focus-background-color;
     box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
     color: $nhsuk-link-focus-color;
-    outline: 0;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
   }
 
   &:hover {
@@ -50,6 +51,8 @@
     background-color: $color_shade_nhsuk-blue-35;
     box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
     color: $color_nhsuk-white;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
   }
 
   &:hover {
@@ -82,6 +85,8 @@
 
   &:focus {
     color: $nhsuk-link-focus-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
     text-decoration: underline;
   }
 
@@ -122,6 +127,7 @@
     background-color: $nhsuk-link-focus-background-color;
     box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
     color: $nhsuk-link-focus-color;
-    outline: 0;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
   }
 }

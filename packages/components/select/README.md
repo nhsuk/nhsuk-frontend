@@ -17,9 +17,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   </label>
 
   <select class="nhsuk-select" id="select-1" name="select-1">
-    <option value="1">NHS.UK Frontend option 1</option>
-    <option value="2" selected>NHS.UK Frontend option 2</option>
-    <option value="3" disabled>NHS.UK Frontend option 3</option>
+    <option value="1">NHS.UK frontend option 1</option>
+    <option value="2" selected>NHS.UK frontend option 2</option>
+    <option value="3" disabled>NHS.UK frontend option 3</option>
   </select>
 </div>
 ```
@@ -38,16 +38,16 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   "items": [
     {
       "value": 1,
-      "text": "NHS.UK Frontend option 1"
+      "text": "NHS.UK frontend option 1"
     },
     {
       "value": 2,
-      "text": "NHS.UK Frontend option 2",
+      "text": "NHS.UK frontend option 2",
       "selected": true
     },
     {
       "value": 3,
-      "text": "NHS.UK Frontend option 3",
+      "text": "NHS.UK frontend option 3",
       "disabled": true
     }
   ]
@@ -63,21 +63,18 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <label class="nhsuk-label" for="select-2">
-    Label text goes here
+  Label text goes here
   </label>
-
-  <span id="select-2-hint" class="nhsuk-hint">
-    Hint text goes here
+  <span class="nhsuk-hint" id="select-2-hint">
+  Hint text goes here
   </span>
-
   <span id="select-2-error" class="nhsuk-error-message">
-    Error message goes here
+  Error message goes here
   </span>
-
   <select class="nhsuk-select nhsuk-select--error" id="select-2" name="select-2" aria-describedby="select-2-hint select-2-error">
-    <option value="1">NHS.UK Frontend option 1</option>
-    <option value="2">NHS.UK Frontend option 2</option>
-    <option value="3">NHS.UK Frontend option 3</option>
+    <option value="1">NHS.UK frontend option 1</option>
+    <option value="2">NHS.UK frontend option 2</option>
+    <option value="3">NHS.UK frontend option 3</option>
   </select>
 </div>
 ```
@@ -102,15 +99,15 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   "items": [
     {
       "value": 1,
-      "text": "NHS.UK Frontend option 1"
+      "text": "NHS.UK frontend option 1"
     },
     {
       "value": 2,
-      "text": "NHS.UK Frontend option 2"
+      "text": "NHS.UK frontend option 2"
     },
     {
       "value": 3,
-      "text": "NHS.UK Frontend option 3"
+      "text": "NHS.UK frontend option 3"
     }
   ]
 }) }}

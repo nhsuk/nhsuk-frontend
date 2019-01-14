@@ -1,0 +1,37 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Checkboxes with disabled item' %}
+{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ checkboxes({
+            "name": "colours",
+            "items": [
+              {
+                "value": "red",
+                "text": "Red"
+              },
+              {
+                "value": "green",
+                "text": "Green"
+              },
+              {
+                "value": "blue",
+                "text": "Blue",
+                "disabled": true
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

@@ -3,45 +3,13 @@
    ========================================================================== */
 
 .nhsuk-footer {
+  @include clearfix();
   @include print-hide();
   @include nhsuk-responsive-padding(5, bottom);
   @include nhsuk-responsive-padding(5, top);
 
   background-color: $color_nhsuk-grey-4;
-  border-top: 4px solid $color_nhsuk-blue;
-}
-
-.nhsuk-logo {
-  @include nhsuk-logo-size-small;
-
-  border: 0;
-  max-width: 100%;
-  vertical-align: middle;
-
-  @include mq($from: tablet) {
-    @include nhsuk-logo-size;
-  }
-
-}
-
-.nhsuk-footer__logo {
-  @include nhsuk-responsive-padding(4, bottom);
-
-  > a {
-    @include nhsuk-logo-size-small;
-
-    display: block;
-
-    @include mq($from: tablet) {
-      @include nhsuk-logo-size;
-    }
-
-    > .nhsuk-u-visually-hidden {
-      top: -9999px; // Moves outline on iOS off screen
-    }
-
-  }
-
+  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
 }
 
 .nhsuk-footer__list {
@@ -50,22 +18,40 @@
   list-style-type: none;
   margin: 0;
   padding-left: nhsuk-spacing(0);
+
+  @include mq($from: desktop) {
+    float: left;
+    padding-bottom: 0;
+    width: 75%;
+  }
 }
 
 .nhsuk-footer__list-item {
   @include nhsuk-font(16);
+
+  @include mq($from: desktop) {
+    float: left;
+    margin-right: nhsuk-spacing(5);
+  }
 }
 
 .nhsuk-footer__list-item-link {
-  color: $nhsuk-text-color;
+  color: $nhsuk-secondary-text-color;
 
   &:visited {
-    color: $nhsuk-text-color;
+    color: $nhsuk-secondary-text-color;
   }
 }
 
 .nhsuk-footer__copyright {
   @include nhsuk-font(16);
 
+  color: $nhsuk-secondary-text-color;
   margin-bottom: 0;
+
+  @include mq($from: desktop) {
+    float: right;
+    text-align: right;
+    width: 25%;
+  }
 }

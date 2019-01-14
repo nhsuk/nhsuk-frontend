@@ -175,6 +175,12 @@ p,
   @extend %nhsuk-body-s;
 }
 
+address {
+  @extend %nhsuk-body-m;
+
+  font-style: normal;
+}
+
 
 /**
  * Contextual adjustments

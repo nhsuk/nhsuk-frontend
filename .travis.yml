@@ -22,7 +22,7 @@ jobs:
       script: npm run build-gh-pages
       deploy:
         provider: pages
-        local-dir: ./dist/docs
+        local-dir: ./dist/app
         skip-cleanup: true
         github-token: $GITHUB_TOKEN
         keep-history: true
