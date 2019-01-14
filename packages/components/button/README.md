@@ -142,6 +142,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   "disabled": true
 }) }}
 ```
+
 ### Button blue
 
 [Preview the button blue component](https://nhsuk.github.io/nhsuk-frontend/components/button/blue.html)
@@ -165,7 +166,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-### Button reverse disabled
+### Button blue disabled
 
 [Preview the button reverse disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/blue-disabled.html)
 
