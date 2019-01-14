@@ -139,6 +139,31 @@ $button-shadow-size: 4px;
 
 }
 
+.nhsuk-button--blue {
+  background-color: $nhsuk-blue-button-colour;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-blue-button-shadow-colour;
+  color: $nhsuk-button-text-colour;
+
+  &:hover,
+  &:focus {
+    background-color: $nhsuk-blue-button-hover-colour;
+    color: $nhsuk-button-text-colour;
+  }
+
+  &:link {
+    color: $nhsuk-button-text-colour;
+  }
+
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-blue-button-colour;
+
+    &:focus {
+      background-color: $nhsuk-blue-button-colour;
+    }
+  }
+
+}
+
 /**
  * Button disabled states
  */
@@ -204,6 +229,27 @@ $button-shadow-size: 4px;
 
   &:active {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour; // s0
+    top: 0;
+  }
+
+}
+
+.nhsuk-button--blue[disabled="disabled"], // sass-lint:disable-line quotes
+.nhsuk-button--blue[disabled] {
+  background-color: $nhsuk-blue-button-colour;
+  opacity: (.5);
+
+  &:hover {
+    background-color: $nhsuk-blue-button-colour;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-blue-button-shadow-colour; // s0
     top: 0;
   }
 

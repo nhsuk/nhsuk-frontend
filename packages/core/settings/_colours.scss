@@ -151,5 +151,9 @@ $nhsuk-reverse-button-colour: $color_nhsuk-white;
 $nhsuk-reverse-button-hover-colour: darken($nhsuk-reverse-button-colour, 5%);
 $nhsuk-reverse-button-shadow-colour: $color_nhsuk-black;
 
+$nhsuk-blue-button-colour: $color_nhsuk-blue;
+$nhsuk-blue-button-hover-colour: darken($nhsuk-blue-button-colour, 5%);
+$nhsuk-blue-button-shadow-colour: darken($nhsuk-blue-button-colour, 15%);
+
 $nhsuk-button-text-colour: $color_nhsuk-white;
 $nhsuk-reverse-button-text-colour: $color_nhsuk-black;
