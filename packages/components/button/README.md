@@ -142,6 +142,52 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   "disabled": true
 }) }}
 ```
+### Button blue
+
+[Preview the button blue component](https://nhsuk.github.io/nhsuk-frontend/components/button/blue.html)
+
+### HTML markup
+
+```html
+<button class="nhsuk-button nhsuk-button--blue" type="submit">
+  Save and continue
+</button>
+```
+
+### Nunjucks macro
+
+```
+{% from 'components/button/macro.njk' import button %}
+
+{{ button({
+  "text": "Save and continue",
+  "classes": "nhsuk-button--blue"
+}) }}
+```
+
+### Button reverse disabled
+
+[Preview the button reverse disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/blue-disabled.html)
+
+### HTML markup
+
+```html
+<button class="nhsuk-button nhsuk-button--blue nhsuk-button--disabled" type="submit">
+  Save and continue
+</button>
+```
+
+### Nunjucks macro
+
+```
+{% from 'components/button/macro.njk' import button %}
+
+{{ button({
+  "text": "Save and continue",
+  "classes": "nhsuk-button--blue",
+  "disabled": true
+}) }}
+```
 
 ## Nunjucks arguments
 
