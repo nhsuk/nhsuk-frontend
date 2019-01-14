@@ -27,7 +27,14 @@ describe('Error summary component tests', function () {
       .should('have.attr', 'role', 'alert')
   });
 
-  it('To see whether there is a text in error message', function () {
+  it('To see whether there is some error message', function () {
+    cy.get('h2').should('have.class','nhsuk-error-summary__title');
+    expect('h2').to.not.be.empty
+  });
+
+  it('To see if there is any message in summary body', function () {
+    cy
+      .get('.nhsuk-error-summary__body').should('not.be.empty');
     expect('p').to.not.be.empty
   });
 });

@@ -40,6 +40,6 @@ describe('Hero with image and content component tests', function () {
   });
 
   it('Checking for a class - nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description', function () {
-    cy.get('.nhsuk-hero.nhsuk-hero--image.nhsuk-hero--image-description')
+    cy.get('.nhsuk-hero.nhsuk-hero--image.nhsuk-hero--image-description').should('not.be.empty')
   });
 });

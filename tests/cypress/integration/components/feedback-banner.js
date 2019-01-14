@@ -34,4 +34,22 @@ describe('Feedback-banner component tests', function () {
       .get('.nhsuk-feedback-banner__content').children().children()
       .should('have.class', 'nhsuk-u-visually-hidden','feedback invite')
   });
+
+  it('To see there is some text in header', function () {
+    cy.get('h2').should('have.class','nhsuk-feedback-banner__heading')
+      .get('.nhsuk-feedback-banner__heading').should('not.be.empty');
+    expect('h2').to.not.be.empty
+  });
+
+  it('To see there is some text in banner', function () {
+    cy.get('.nhsuk-feedback-banner__message')
+      .get('.nhsuk-feedback-banner__message').should('not.be.empty');
+    expect('p').to.not.be.empty
+  });
+
+  it('To see there is some text to close the banner', function () {
+    cy.get('.nhsuk-feedback-banner__close')
+      .get('.nhsuk-feedback-banner__close').should('not.be.empty');
+    expect('span').to.not.be.empty
+  });
 });

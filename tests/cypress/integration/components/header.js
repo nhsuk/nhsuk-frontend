@@ -25,7 +25,18 @@ describe('Header component tests - 15 inch screen', function () {
   });
 
   it('To see whether there is a search term in the search field', function () {
-    cy.get('.nhsuk-u-visually-hidden').hasOwnProperty('Search')
+    cy.get('.nhsuk-u-visually-hidden');
+    expect('span').to.not.be.empty
+  });
+
+  it('To check if there is a search hint in the header', function () {
+    cy.get('.nhsuk-u-visually-hidden');
+    expect('label').to.not.be.empty
+  });
+
+  it('To check if there is some text in navigation link', function () {
+    cy.get('.nhsuk-header__navigation-item');
+    expect('a').to.not.be.empty
   });
 });
 
@@ -73,5 +84,15 @@ describe('Header component tests - iphone 6 screensize', function () {
 
   it('To check for a link to exist in header link', function () {
     cy.get('.nhsuk-header__link').should('have.attr', 'href','/')
+  });
+
+  it('To see whether there is a search term in the search field', function () {
+    cy.get('.nhsuk-u-visually-hidden').hasOwnProperty('Search');
+    //expect('span').to.not.be.empty
+  });
+
+  it('To check if there is some text in navigation link', function () {
+    cy.get('.nhsuk-header__navigation-item').should('not.be.empty');
+    expect('a').to.not.be.empty
   });
 });

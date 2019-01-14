@@ -15,6 +15,12 @@ describe('Fieldset component tests', function () {
   it('To see whether there is a legend in it', function () {
     cy.get('.nhsuk-fieldset__legend')
   });
+
+  it('To see there is some text in the legend', function () {
+    cy.get('.nhsuk-fieldset__legend')
+    .get('.nhsuk-fieldset__legend').should('not.be.empty');
+    expect('legend').to.not.be.empty
+  });
 });
 
 describe('Fieldset as a page heading - Component tests', function () {
@@ -36,6 +42,11 @@ describe('Fieldset as a page heading - Component tests', function () {
   });
 
   it('To see whether there is a heading for field set', function () {
-    cy.get('h1').should('have.class', 'nhsuk-fieldset__heading')
+    cy.get('h1').should('have.class', 'nhsuk-fieldset__heading').should('not.be.empty');
+  });
+
+  it('To see there is some text in the heading', function () {
+    cy.get('h1');
+    expect('h1').to.not.be.empty
   });
 });

@@ -12,11 +12,11 @@ describe('Emergency alert component tests', function () {
     cy.get('#nhsuk-global-alert').should('have.class','nhsuk-global-alert')
   });
 
-  it('To see whether there is a heading for the alert', function () {
+  it('To see whether there is a alert heading', function () {
     cy.get('.nhsuk-global-alert__content').children().should('have.class','nhsuk-global-alert__heading')
   });
 
-  it('To see whether there is a message for the alert', function () {
+  it('To see whether there is a alert message', function () {
     cy.get('.nhsuk-global-alert__content').children().should('have.class','nhsuk-global-alert__message')
   });
 
@@ -29,17 +29,22 @@ describe('Emergency alert component tests', function () {
   });
 
   it('To see whether there is some text in alert heading', function () {
-    cy.get('h2').should('have.class','nhsuk-global-alert__heading');
+    cy
+      .get('h2').should('have.class','nhsuk-global-alert__heading')
+      .get('.nhsuk-global-alert__heading').should('not.be.empty');
     expect('span').to.not.be.empty;
   });
 
   it('To see whether there is text in alert message', function () {
-    cy.get('.nhsuk-global-alert__message');
+    cy
+      .get('.nhsuk-global-alert__message')
+      .get('.nhsuk-global-alert__message').should('not.be.empty');
     expect('p').to.not.be.empty;
   });
 
   it('To see whether there is an updated date', function () {
-    cy.get('p').should('have.class','nhsuk-global-alert__updated');
-    expect('p').to.not.be.empty;
+    cy
+      .get('p').should('have.class','nhsuk-global-alert__updated')
+      .get('.nhsuk-global-alert__updated').should('not.be.empty');
   });
 });

@@ -42,4 +42,17 @@ describe('Care-card urgent component tests', function () {
     cy.get('.nhsuk-care-card__content')
       .should('have.css', 'font-family').and('eq', '"Frutiger W01", Helvetica, Arial, sans-serif')
   });
+
+  it('To see if there is some text in the heading ribbon', function () {
+    cy
+      .get('.nhsuk-care-card__heading').should('not.be.empty');
+    expect('span').to.not.be.empty;
+    expect('text').to.not.be.empty;
+  });
+
+  it('To see if there is some description', function () {
+    cy
+      .get('.nhsuk-care-card__content').should('not.be.empty');
+    expect('li').to.not.be.empty;
+  });
 });

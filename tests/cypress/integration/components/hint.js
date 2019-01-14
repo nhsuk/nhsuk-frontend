@@ -11,4 +11,9 @@ describe('Hint component tests', function () {
   it('Checking for a class name - nhsuk-hint', function () {
     cy.get('.nhsuk-hint')
   });
+
+  it('To see if there is any message in summary body', function () {
+    cy.get('.nhsuk-hint');
+    expect('span').to.not.be.empty
+  });
 });

@@ -12,16 +12,18 @@ describe('Expander - group components tests', function () {
     cy.get('.nhsuk-expander-group')
   });
 
-  it('To see there is a capability for details in the expander', function () {
+  it('To see is there any details in the expander', function () {
     cy.get('.nhsuk-expander-group').first().children().should('have.class', 'nhsuk-details nhsuk-expander')
   });
 
-  it('To see there is a capability for summary in expander', function () {
+  it('To see there is a summary in expander', function () {
     cy.get('.nhsuk-expander-group').first().children().first().children().should('have.class', 'nhsuk-details__summary')
   });
 
-  it('To see there is a capability for summary text in expander', function () {
-    cy.get('.nhsuk-expander-group').first().children().first().children().first().children().should('have.class', 'nhsuk-details__summary-text')
+  it('To see there is some summary text', function () {
+    cy
+      .get('.nhsuk-expander-group').first().children().first().children().first().children().should('have.class', 'nhsuk-details__summary-text')
+      .should('not.be.empty');
   });
 
   it('To see the default status of the expander to closed', function () {

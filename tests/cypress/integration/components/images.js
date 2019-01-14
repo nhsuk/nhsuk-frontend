@@ -8,19 +8,17 @@ describe('Images component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/images.html')
   });
 
-  it('Checking for image class - nhsuk-c-image__img', function () {
-    cy.get('.nhsuk-image').first().children().should('have.class', 'nhsuk-image__img')
+  it('To check if there is any image', function () {
+    cy.get('.nhsuk-image__img').hasOwnProperty('img')
   });
 
-  it('Checking for nhsuk-grid row class', function () {
-    cy.get('#maincontent').children().should('have.class', 'nhsuk-grid-row')
+  it('To check if there is a image description', function () {
+    cy.get('.nhsuk-image__img');
+    expect('alt').to.not.be.empty
   });
 
-  it('Checking for image', function () {
-    cy.get('.nhsuk-image').first().find('img').should('have.class', 'nhsuk-image__img');
-  });
-
-  it('Checking for figcaption', function () {
-    cy.get('.nhsuk-image').first().find('figcaption').should('have.class', 'nhsuk-image__caption')
+  it('To check if there is a image description', function () {
+    cy.get('.nhsuk-image__caption').should('not.be.empty');
+    expect('figcaption').to.not.be.empty
   });
 });

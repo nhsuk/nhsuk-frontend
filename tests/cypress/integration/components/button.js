@@ -15,6 +15,13 @@ describe('Button component tests', function () {
   it('To see the type of button to be submit', function () {
     cy.get('[type="submit"]')
   });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button')
+      .get('.nhsuk-button').should('not.be.empty');
+    expect('text').to.not.be.empty;
+  });
 });
 
 describe('Button disabled Component tests', function () {
@@ -34,6 +41,13 @@ describe('Button disabled Component tests', function () {
   it('To see whether the button is diabled', function () {
     cy.get('.nhsuk-button.nhsuk-button--disabled').should('have.attr', 'aria-disabled', 'true')
   });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button.nhsuk-button--disabled')
+      .get('.nhsuk-button.nhsuk-button--disabled').should('not.be.empty');
+    expect('text').to.not.be.empty;
+  });
 });
 
 describe('Secondary button Component tests', function () {
@@ -52,6 +66,13 @@ describe('Secondary button Component tests', function () {
 
   it('To see whether secondary button exists', function () {
     cy.get('.nhsuk-button.nhsuk-button--secondary')
+  });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button.nhsuk-button--secondary')
+      .get('.nhsuk-button.nhsuk-button--secondary').should('not.be.empty');
+    expect('text').to.not.be.empty;
   });
 });
 
@@ -73,6 +94,13 @@ describe('Secondary diabled button Component tests', function () {
   it('To check whether there is a disabled button', function () {
     cy.get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled')
   });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled')
+      .get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled').should('not.be.empty');
+    expect('text').to.not.be.empty;
+  });
 });
 
 describe('Button reverse Component tests', function () {
@@ -92,6 +120,13 @@ describe('Button reverse Component tests', function () {
   it('To see whether button exists', function () {
     cy.get('.nhsuk-button.nhsuk-button--reverse')
   });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button.nhsuk-button--reverse')
+      .get('.nhsuk-button.nhsuk-button--reverse').should('not.be.empty');
+    expect('text').to.not.be.empty;
+  });
 });
 
 describe('Button reverse disabled Component tests', function () {
@@ -110,5 +145,11 @@ describe('Button reverse disabled Component tests', function () {
 
   it('Checking for a diabled button', function () {
     cy.get('.nhsuk-button.nhsuk-button--reverse.nhsuk-button--disabled')
+  });
+
+  it('To see if there is some text in the button', function () {
+    cy
+      .get('.nhsuk-button.nhsuk-button--reverse.nhsuk-button--disabled').should('not.be.empty');
+    expect('text').to.not.be.empty;
   });
 });

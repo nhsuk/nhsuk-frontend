@@ -11,4 +11,10 @@ describe('Inset text component', function () {
   it('Checking for visually hidden text', function () {
     cy.get('.nhsuk-inset-text').children().should('have.class', 'nhsuk-u-visually-hidden', 'Information: ')
   });
+
+  it('To check if there is some description', function () {
+    cy.get('.nhsuk-u-visually-hidden').should('not.be.empty');
+    expect('p').to.not.be.empty;
+    expect('a').to.not.be.empty
+  });
 });

@@ -32,9 +32,18 @@ describe('Do - dont list component tests', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__cross').should('have.attr', 'aria-hidden', 'true')
   });
 
-  it('To see whether there is some text in Do Dont list', function () {
-    cy.get('.nhsuk-list.nhsuk-list--tick').contains('li');
-    cy.get('.nhsuk-list.nhsuk-list--cross').contains('li');
-    expect('li').to.not.be.empty;
+  it('To see whether there is some text in Do list', function () {
+    cy
+      .get('.nhsuk-list.nhsuk-list--tick').contains('li')
+      .should('not.be.empty');
+  });
+
+  it('To see whether there is some text in Dont list', function () {
+    cy
+      .get('.nhsuk-list.nhsuk-list--cross').contains('li')
+      .should('not.be.empty');
+  });
+  it('To see if there is some text in h3', function () {
+    cy.get('h3').should('have.class','nhsuk-do-dont-list__label');
   });
 });

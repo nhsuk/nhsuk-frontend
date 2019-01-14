@@ -19,4 +19,15 @@ describe('Action link component test ', function () {
   it('Check for the aria hidden status', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right-circle').should('have.attr','aria-hidden', 'true')
   });
+
+  it('To see whether there is some text in the Link', function () {
+    cy
+      .get('.nhsuk-action-link__text').should('not.be.empty');
+      expect('span').to.not.be.empty;
+  });
+
+  it('To see whether there is a link', function () {
+    cy
+      .get('.nhsuk-action-link__link').should('have.attr','href');
+  });
 });

@@ -11,20 +11,11 @@ describe('Details component tests', function () {
     cy.get('.nhsuk-details').children().should('have.class','nhsuk-details__summary')
   });
 
-  it('To see whether there is some text in summary', function () {
-    cy.get('.nhsuk-details__summary').children().should('have.class','nhsuk-details__summary-text');
-
-  });
-
   it('To see whether there is a content in the details components', function () {
     cy.get('.nhsuk-details__summary').should('have.attr','aria-controls', 'details-content-0')
   });
 
-  it('To see whether there is a content in the heading of details component', function () {
-    expect('span').to.not.be.empty;
-  });
-
-  it('To see whether the details component is expanded', function () {
+  it('To see whether the details component default status', function () {
     cy.get('.nhsuk-details__summary').should('have.attr','aria-expanded', 'false')
   });
 
@@ -41,7 +32,21 @@ describe('Details component tests', function () {
 
   it('To see whether there is some text after details component expanded', function () {
     cy
-      .get('.nhsuk-details__summary').click();
+      .get('.nhsuk-details__summary').click()
+      .get('.nhsuk-details__summary').should('not.be.empty');
     expect('p').to.not.be.empty;
+  });
+
+  it('To see if there is any summary text', function () {
+    cy
+      .get('.nhsuk-details__summary-text').should('not.be.empty');
+    expect('p').to.not.be.empty;
+  });
+
+  it('To see if there is any summary text', function () {
+    cy
+      .get('.nhsuk-details__text').should('not.be.empty');
+    expect('p').to.not.be.empty;
+    expect('li').to.not.be.empty;
   });
 });

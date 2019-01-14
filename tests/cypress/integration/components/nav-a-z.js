@@ -8,12 +8,15 @@ describe('A-Z Navigation component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/nav-a-z.html')
   });
 
-  it('Checking for class name - nhsuk-c-a-z-nav__list', function () {
-    cy.get('#nhsuk-nav-a-z').children().should('have.class', 'nhsuk-nav-a-z__list')
+  it('To check if there is any A-Z list', function () {
+    cy.get('#nhsuk-nav-a-z').children().should('have.class', 'nhsuk-nav-a-z__list');
+    expect('#nhsuk-nav-a-z').to.not.be.empty
   });
 
-  it('Checking for class name - nhsuk-nav-a-z__link', function () {
-    cy.get('.nhsuk-nav-a-z__item').first().children().should('have.class', 'nhsuk-nav-a-z__link')
+  it('To check if there is any text in A-Z list', function () {
+    cy
+      .get('.nhsuk-nav-a-z__item').first().children().should('have.class', 'nhsuk-nav-a-z__link')
+      .should('not.be.empty');
   });
 
   it('Checking Aria label - A- Z navigation', function () {
@@ -24,7 +27,7 @@ describe('A-Z Navigation component tests', function () {
     cy.get('#nhsuk-nav-a-z').should('have.attr', 'role', 'navigation')
   });
 
-  it('Checking for href #A', function () {
-    cy.get('.nhsuk-nav-a-z__list').children().children().should('have.attr', 'href', '#A')
+  it('Checking for href', function () {
+    cy.get('.nhsuk-nav-a-z__list').children().children().should('have.attr', 'href')
   });
 });
