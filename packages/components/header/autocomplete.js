@@ -1,4 +1,4 @@
-import accessibleAutocomplete from 'accessible-autocomplete';
+import 'accessible-autocomplete';
 
 function positionsAndWidths() {
   // Get width and position for desktop sizes to position the dropdown.

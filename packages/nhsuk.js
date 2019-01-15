@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', function() {
   nhsuk_header();
   nhsuk_skipLink();
   autocomplete();
-})
+});
