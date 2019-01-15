@@ -4,7 +4,7 @@ describe('Button component tests', function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Button Component', function () {
+  it('Navigating to Button component', function () {
     cy.visit(Cypress.config().baseUrl + '/button/index.html')
   });
 
@@ -17,14 +17,12 @@ describe('Button component tests', function () {
   });
 
   it('To see if there is some text in the button', function () {
-    cy
-      .get('.nhsuk-button')
-      .get('.nhsuk-button').should('not.be.empty');
+    cy.get('.nhsuk-button').should('not.be.empty');
     expect('text').to.not.be.empty;
   });
 });
 
-describe('Button disabled Component tests', function () {
+describe('Button disabled component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -43,20 +41,18 @@ describe('Button disabled Component tests', function () {
   });
 
   it('To see if there is some text in the button', function () {
-    cy
-      .get('.nhsuk-button.nhsuk-button--disabled')
-      .get('.nhsuk-button.nhsuk-button--disabled').should('not.be.empty');
+    cy.get('.nhsuk-button.nhsuk-button--disabled').should('not.be.empty');
     expect('text').to.not.be.empty;
   });
 });
 
-describe('Secondary button Component tests', function () {
+describe('Secondary button component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Button Component', function () {
+  it('Navigating to Secondary button component', function () {
     cy.visit(Cypress.config().baseUrl + '/button/secondary.html')
   });
 
@@ -69,23 +65,20 @@ describe('Secondary button Component tests', function () {
   });
 
   it('To see if there is some text in the button', function () {
-    cy
-      .get('.nhsuk-button.nhsuk-button--secondary')
-      .get('.nhsuk-button.nhsuk-button--secondary').should('not.be.empty');
+    cy.get('.nhsuk-button.nhsuk-button--secondary').should('not.be.empty');
     expect('text').to.not.be.empty;
   });
 });
 
-describe('Secondary diabled button Component tests', function () {
+describe('Secondary diabled button component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Secondary diabled button Component', function () {
+  it('Navigating to Secondary diabled button component', function () {
     cy.visit(Cypress.config().baseUrl + '/button/secondary-disabled.html')
   });
-
 
   it('To see the type of button to be submit', function () {
     cy.get('[type="submit"]')
@@ -96,14 +89,12 @@ describe('Secondary diabled button Component tests', function () {
   });
 
   it('To see if there is some text in the button', function () {
-    cy
-      .get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled')
-      .get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled').should('not.be.empty');
+    cy.get('.nhsuk-button.nhsuk-button--secondary.nhsuk-button--disabled').should('not.be.empty');
     expect('text').to.not.be.empty;
   });
 });
 
-describe('Button reverse Component tests', function () {
+describe('Button reverse component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -122,20 +113,18 @@ describe('Button reverse Component tests', function () {
   });
 
   it('To see if there is some text in the button', function () {
-    cy
-      .get('.nhsuk-button.nhsuk-button--reverse')
-      .get('.nhsuk-button.nhsuk-button--reverse').should('not.be.empty');
+    cy.get('.nhsuk-button.nhsuk-button--reverse').should('not.be.empty');
     expect('text').to.not.be.empty;
   });
 });
 
-describe('Button reverse disabled Component tests', function () {
+describe('Button reverse disabled component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Button Component', function () {
+  it('Navigating to Button component', function () {
     cy.visit(Cypress.config().baseUrl + '/button/reverse-disabled.html')
   });
 

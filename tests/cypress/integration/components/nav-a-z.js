@@ -19,15 +19,15 @@ describe('A-Z Navigation component tests', function () {
       .should('not.be.empty');
   });
 
-  it('Checking Aria label - A- Z navigation', function () {
+  it('To check if there is aria label', function () {
     cy.get('#nhsuk-nav-a-z').should('have.attr', 'aria-label', 'A to Z Navigation')
   });
 
-  it('Checking navigation role', function () {
+  it('To check for navigation role', function () {
     cy.get('#nhsuk-nav-a-z').should('have.attr', 'role', 'navigation')
   });
 
-  it('Checking for href', function () {
+  it('To check if the list has a link', function () {
     cy.get('.nhsuk-nav-a-z__list').children().children().should('have.attr', 'href')
   });
 });

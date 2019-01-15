@@ -38,14 +38,12 @@ describe('Details component tests', function () {
   });
 
   it('To see if there is any summary text', function () {
-    cy
-      .get('.nhsuk-details__summary-text').should('not.be.empty');
+    cy.get('.nhsuk-details__summary-text').should('not.be.empty');
     expect('p').to.not.be.empty;
   });
 
   it('To see if there is any summary text', function () {
-    cy
-      .get('.nhsuk-details__text').should('not.be.empty');
+    cy.get('.nhsuk-details__text').should('not.be.empty');
     expect('p').to.not.be.empty;
     expect('li').to.not.be.empty;
   });

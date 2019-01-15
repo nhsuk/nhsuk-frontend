@@ -17,12 +17,15 @@ describe('Expander - group components tests', function () {
   });
 
   it('To see there is a summary in expander', function () {
-    cy.get('.nhsuk-expander-group').first().children().first().children().should('have.class', 'nhsuk-details__summary')
+    cy
+      .get('.nhsuk-expander-group').first().children().first().children()
+      .should('have.class', 'nhsuk-details__summary')
   });
 
   it('To see there is some summary text', function () {
     cy
-      .get('.nhsuk-expander-group').first().children().first().children().first().children().should('have.class', 'nhsuk-details__summary-text')
+      .get('.nhsuk-expander-group').first().children().first().children().first().children()
+      .should('have.class', 'nhsuk-details__summary-text')
       .should('not.be.empty');
   });
 

@@ -12,16 +12,22 @@ describe('Promo component tests', function () {
     cy.get('div').should('have.class', 'nhsuk-promo__content')
   });
 
-  it('Checking for promo heading class', function () {
-    cy.get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__heading')
+  it('To check there is some text in promo heading', function () {
+    cy
+      .get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__heading')
+      .should('not.be.empty');
+    });
+
+  it('To check there is some text in promo description', function () {
+    cy
+      .get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__description')
+      .should('not.be.empty');
   });
 
-  it('Checking for promo description class', function () {
-    cy.get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__description')
-  });
-
-  it('Checking for href', function () {
-    cy.get('.nhsuk-promo__link-wrapper').should('have.attr', 'href')
+  it('To check there is some text in the promo link', function () {
+    cy
+      .get('.nhsuk-promo__link-wrapper').should('have.attr', 'href')
+      .should('not.be.empty');
   });
 });
 
@@ -35,27 +41,33 @@ describe('Promo component with image tests', function () {
     cy.visit(Cypress.config().baseUrl + '/promo-with-image.html')
   });
 
-  it('Checking for promo content class', function () {
+  it('To check there is a promo component', function () {
     cy.get('div').should('have.class', 'nhsuk-promo__content')
   });
 
-  it('Checking for promo heading class', function () {
-    cy.get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__heading')
+  it('To check if there is some text in promo heading', function () {
+    cy
+      .get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__heading')
+      .should('not.be.empty');
   });
 
-  it('Checking for promo description class', function () {
-    cy.get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__description')
+  it('To check if there is some text in promo description', function () {
+    cy
+      .get('.nhsuk-promo__content').children().should('have.class', 'nhsuk-promo__description')
+      .should('not.be.empty');
   });
 
-  it('Checking for href', function () {
-    cy.get('.nhsuk-promo__link-wrapper').should('have.attr', 'href')
+  it('To check if there is some text in promo link', function () {
+    cy
+      .get('.nhsuk-promo__link-wrapper').should('have.attr', 'href')
+      .should('not.be.empty');
   });
 
-  it('Checking for nhsuk-promo__img', function () {
-    cy.get('.nhsuk-promo__link-wrapper').children().should('have.class', 'nhsuk-promo__img')
+  it('To check if there is an image in promo', function () {
+    cy.get('.nhsuk-promo__img').hasOwnProperty('img')
   });
 
-  it('Checking for image presence', function () {
+  it('To check the image format', function () {
     cy.get('.nhsuk-promo__img').hasOwnProperty('.png')
   });
 });
@@ -70,11 +82,11 @@ describe('Small promo component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/promo-small.html')
   });
 
-  it('Checking for nhsuk-promo.nhsuk-promo--small class', function () {
+  it('To check if there is a promo component', function () {
     cy.get('.nhsuk-promo.nhsuk-promo--small')
   });
 
-  it('Checking for nhsuk-promo__link-wrapper class', function () {
-    cy.get('.nhsuk-promo__link-wrapper')
+  it('To check link is not empty', function () {
+    cy.get('.nhsuk-promo__link-wrapper').should('not.be.empty');
   });
 });

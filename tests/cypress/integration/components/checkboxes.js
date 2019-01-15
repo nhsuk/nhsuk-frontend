@@ -38,33 +38,18 @@ describe('Checkboxes component tests', function () {
   it('To check whether you can able to input into checkbox', function () {
     cy.get('.nhsuk-checkboxes__item').children().should('have.class','nhsuk-checkboxes__input');
   });
-
-  it('To check if there is a label for the checkbox', function () {
-    cy.get('.nhsuk-form-group').children().children().should('have.class','nhsuk-fieldset__legend');
-    expect('text').to.not.be.empty;
-  });
-
+  
   it('To check the type of checkbox', function () {
     cy.get('.nhsuk-checkboxes__input').should('have.attr', 'type')
   });
-
-  it('To check that the checkbox has a label', function () {
-    cy.get('.nhsuk-label nhsuk-checkboxes__label').should('not.be.empty')
-  });
-
+  
   it('To check is there a hint text', function () {
     cy
       .get('.nhsuk-hint').should('not.be.empty');
     expect('span').to.not.be.empty;
   });
-
-  it('To check is there a text in the legend', function () {
-    cy
-      .get('.nhsuk-fieldset__legend').should('not.be.empty');
-    expect('legend').to.not.be.empty;
-  });
-
-  it('To check is there a text in the labwl', function () {
+  
+  it('To check is there a text in the label', function () {
     cy
       .get('.nhsuk-label.nhsuk-checkboxes__label').should('not.be.empty');
     expect('label').to.not.be.empty;

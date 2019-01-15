@@ -7,11 +7,13 @@ describe('Skip link component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/skip-link.html')
   });
 
-  it('Checking for nhsuk-skip-link class', function () {
+  it('To check if there is a skip link component', function () {
     cy.get('.nhsuk-skip-link')
   });
 
-  it('Checking for href', function () {
-    cy.get('.nhsuk-skip-link').should('have.attr','href')
+  it('TO check if there some text in the link', function () {
+    cy
+      .get('.nhsuk-skip-link').should('have.attr','href')
+      .should('not.be.empty');
   });
 });

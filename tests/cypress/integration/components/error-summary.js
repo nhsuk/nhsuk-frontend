@@ -33,8 +33,7 @@ describe('Error summary component tests', function () {
   });
 
   it('To see if there is any message in summary body', function () {
-    cy
-      .get('.nhsuk-error-summary__body').should('not.be.empty');
+    cy.get('.nhsuk-error-summary__body').should('not.be.empty');
     expect('p').to.not.be.empty
   });
 });

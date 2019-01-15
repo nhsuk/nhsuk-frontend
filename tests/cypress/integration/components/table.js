@@ -7,15 +7,21 @@ describe('Table component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/tables.html')
   });
 
-  it('Checking for the table caption class', function () {
-    cy.get('.nhsuk-table').children().should('have.class', 'nhsuk-table__caption')
+  it('To check if there is some text in the table caption', function () {
+    cy
+      .get('.nhsuk-table').children().should('have.class', 'nhsuk-table__caption')
+      .should('not.be.empty');
   });
 
-  it('Checking for the table heading class', function () {
-    cy.get('.nhsuk-table').children().should('have.class', 'nhsuk-table__head')
+  it('To check if there is some text in the heading for table', function () {
+    cy
+      .get('.nhsuk-table').children().should('have.class', 'nhsuk-table__head')
+      .should('not.be.empty');
   });
 
-  it('Checking for the table body class', function () {
-    cy.get('.nhsuk-table').children().should('have.class', 'nhsuk-table__body')
+  it('To check if there is some text in the table body', function () {
+    cy
+      .get('.nhsuk-table').children().should('have.class', 'nhsuk-table__body')
+      .should('not.be.empty');
   });
 });

@@ -1,4 +1,4 @@
-describe('Action link component test ', function () {
+describe('Action link component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -16,18 +16,16 @@ describe('Action link component test ', function () {
     cy.get('.nhsuk-action-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
   });
 
-  it('Check for the aria hidden status', function () {
+  it('To check for aria-hidden status', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right-circle').should('have.attr','aria-hidden', 'true')
   });
 
   it('To see whether there is some text in the Link', function () {
-    cy
-      .get('.nhsuk-action-link__text').should('not.be.empty');
+    cy.get('.nhsuk-action-link__text').should('not.be.empty');
       expect('span').to.not.be.empty;
   });
 
   it('To see whether there is a link', function () {
-    cy
-      .get('.nhsuk-action-link__link').should('have.attr','href');
+    cy.get('.nhsuk-action-link__link').should('have.attr','href');
   });
 });

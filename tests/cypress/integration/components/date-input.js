@@ -1,4 +1,4 @@
-describe('Date-input Component tests', function () {
+describe('Date-input component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
@@ -18,7 +18,6 @@ describe('Date-input Component tests', function () {
 
   it('To see whether there is some text in legend', function () {
     cy
-      .get('.nhsuk-fieldset__legend')
       .get('.nhsuk-fieldset__legend').should('not.be.empty');
     expect('legend').to.not.be.empty;
   });
@@ -28,24 +27,22 @@ describe('Date-input Component tests', function () {
   });
 
   it('To see whether there is some hint text', function () {
-    cy
-      .get('.nhsuk-hint')
-      .get('.nhsuk-hint').should('not.be.empty');
+    cy.get('.nhsuk-hint').should('not.be.empty');
     expect('span').to.not.be.empty;
   });
 
-  it('Checking for a class name - nhsuk-date-input__item', function () {
-    cy.get('.nhsuk-date-input').children().should('have.class', 'nhsuk-date-input__item')
+  it('To see if there is a date input item', function () {
+    cy
+      .get('.nhsuk-date-input').children().should('have.class', 'nhsuk-date-input__item')
+      .should('not.be.empty');
   });
 
   it('To see whether there is some label text for date', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-date-input__label')
-      .get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
+    cy.get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
     expect('label').to.not.be.empty;
   });
 
-  it('Checking for a class name - nhsuk-form-group', function () {
+  it('To see if there is a date input item in the group', function () {
     cy.get('.nhsuk-date-input__item').children().should('have.class', 'nhsuk-form-group')
   });
 
@@ -54,7 +51,8 @@ describe('Date-input Component tests', function () {
   });
 
   it('To see the colour of the date input boxes', function () {
-    cy.get('.nhsuk-input.nhsuk-date-input__input.nhsuk-input--width-2')
+    cy
+      .get('.nhsuk-input.nhsuk-date-input__input.nhsuk-input--width-2')
       .should('have.css', 'border-color')
       .and('eq', 'rgb(66, 85, 99)')
   });
@@ -79,14 +77,14 @@ describe('Date-input component with errors tests', function () {
   });
 
   it('To see whether the boxes colour is red when there is an error', function () {
-    cy.get('.nhsuk-input.nhsuk-date-input__input.nhsuk-input--width-4.nhsuk-input--error')
+    cy
+      .get('.nhsuk-input.nhsuk-date-input__input.nhsuk-input--width-4.nhsuk-input--error')
       .should('have.css', 'border-color')
       .and('eq', 'rgb(218, 41, 28)')
   });
 
   it('To see whether there is some text in legend', function () {
-    cy
-      .get('.nhsuk-fieldset__legend').should('not.be.empty');
+    cy.get('.nhsuk-fieldset__legend').should('not.be.empty');
     expect('legend').to.not.be.empty;
   });
 
@@ -95,24 +93,21 @@ describe('Date-input component with errors tests', function () {
   });
 
   it('To see whether there is some hint text', function () {
-    cy
-      .get('.nhsuk-hint').should('not.be.empty');
+    cy.get('.nhsuk-hint').should('not.be.empty');
     expect('span').to.not.be.empty;
   });
 
-  it('Checking for a class name - nhsuk-date-input__item', function () {
+  it('To check if there is date input item', function () {
     cy.get('.nhsuk-date-input').children().should('have.class', 'nhsuk-date-input__item')
   });
 
   it('To see whether there is some label text for date', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
+    cy.get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
     expect('label').to.not.be.empty;
   });
 
   it('To see whether there is some error hint message', function () {
-    cy
-      .get('#dob-errors-hint').should('not.be.empty');
+    cy.get('#dob-errors-hint').should('not.be.empty');
     expect('span').to.not.be.empty;
   });
 
@@ -124,8 +119,7 @@ describe('Date-input component with errors tests', function () {
   });
 
   it('To see whether there is some text in the label', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
+    cy.get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
     expect('label').to.not.be.empty;
   });
 });
@@ -149,14 +143,14 @@ describe('Date-input component with single error tests', function () {
   });
 
   it('To see red colour for date input box upon error', function () {
-    cy.get('.nhsuk-error-message')
+    cy
+      .get('.nhsuk-error-message')
       .should('have.css', 'border-color')
       .and('eq', 'rgb(218, 41, 28)')
   });
 
   it('To see if there is any text in the legend', function () {
-    cy
-      .get('.nhsuk-fieldset__legend').should('not.be.empty');
+    cy.get('.nhsuk-fieldset__legend').should('not.be.empty');
     expect('legend').to.not.be.empty;
   });
 
@@ -168,8 +162,7 @@ describe('Date-input component with single error tests', function () {
   });
 
   it('To see if there is an error message', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
+    cy.get('.nhsuk-label.nhsuk-date-input__label').should('not.be.empty');
     expect('label').to.not.be.empty;
   });
 });

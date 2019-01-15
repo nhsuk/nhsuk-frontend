@@ -17,7 +17,8 @@ describe('Care-card immediate component tests', function () {
   });
 
   it('To see whether it has a heading container', function () {
-    cy.get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
+    cy
+      .get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
   });
 
@@ -27,34 +28,40 @@ describe('Care-card immediate component tests', function () {
   });
 
   it('To see whether it has heading', function () {
-    cy.get('.nhsuk-care-card__heading-container').children()
+    cy
+      .get('.nhsuk-care-card__heading-container').children()
       .should('have.class', 'nhsuk-care-card__heading')
   });
 
   it('To check for a visually hidden class', function () {
-    cy.get('.nhsuk-care-card__heading').children()
+    cy
+      .get('.nhsuk-care-card__heading').children()
       .should('have.class', 'nhsuk-u-visually-hidden')
   });
 
   it('To check for a visually hidden class', function () {
-    cy.get('.nhsuk-u-visually-hidden')
+    cy
+      .get('.nhsuk-u-visually-hidden')
       .should('not.be.empty');
   });
 
   it('To see whether the care card title color to be red', function () {
-    cy.get('.nhsuk-care-card__heading-container')
+    cy
+      .get('.nhsuk-care-card__heading-container')
       .should('have.css', 'background-color')
       .and('eq', 'rgb(218, 41, 28)')
   });
 
   it('To see whether the care card background color to be black', function () {
-    cy.get('.nhsuk-care-card__content')
+    cy
+      .get('.nhsuk-care-card__content')
       .should('have.css', 'background-color')
       .and('eq', 'rgb(33, 43, 50)')
   });
 
   it('To see whether content has Arial font', function () {
-    cy.get('.nhsuk-care-card__content')
+    cy
+      .get('.nhsuk-care-card__content')
       .should('have.css', 'font-family').and('eq', '"Frutiger W01", Helvetica, Arial, sans-serif')
   });
 

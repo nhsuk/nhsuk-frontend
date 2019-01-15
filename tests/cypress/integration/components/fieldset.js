@@ -17,8 +17,7 @@ describe('Fieldset component tests', function () {
   });
 
   it('To see there is some text in the legend', function () {
-    cy.get('.nhsuk-fieldset__legend')
-    .get('.nhsuk-fieldset__legend').should('not.be.empty');
+    cy.get('.nhsuk-fieldset__legend').should('not.be.empty');
     expect('legend').to.not.be.empty
   });
 });

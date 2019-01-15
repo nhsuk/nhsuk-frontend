@@ -8,23 +8,27 @@ describe('Radio component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/radios/index.html')
   });
 
-  it('Checking for href - back_to_top', function () {
-    cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
+  it('To check if there is aria description', function () {
+    cy
+      .get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
+      .should('not.be.empty');
   });
 
-  it('Checking for nhsuk-radios class', function () {
+  it('To check there is an item in radio group', function () {
     cy.get('.nhsuk-radios').first().children().should('have.class', 'nhsuk-radios__item')
   });
 
-  it('Checking for nhsuk-radios__input class', function () {
+  it('To check if there is radio input', function () {
     cy.get('.nhsuk-radios__item').children().should('have.class', 'nhsuk-radios__input')
   });
 
-  it('Checking for nhsuk-label nhsuk-radios__label class', function () {
-    cy.get('.nhsuk-radios__item').children().should('have.class', 'nhsuk-label nhsuk-radios__label')
+  it('To check if there is some text in radio label', function () {
+    cy
+      .get('.nhsuk-label nhsuk-radios__label')
+      .should('not.be.empty');
   });
 
-  it('Checking for radio button type', function () {
+  it('To check the button type', function () {
     cy.get('[type="radio"]')
   });
 });

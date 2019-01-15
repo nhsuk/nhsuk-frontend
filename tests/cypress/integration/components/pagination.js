@@ -8,63 +8,80 @@ describe('Pagination component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/pagination.html')
   });
 
-  it('Checking for aria hidden label', function () {
+  it('To check for pagination aria label', function () {
     cy.get('.nhsuk-pagination').should('have.attr', 'aria-label', 'Pagination')
   });
 
-  it('Checking for nhsuk-pagination-item--previous in list class', function () {
-    cy.get('.nhsuk-list.nhsuk-pagination__list').children().should('have.class', 'nhsuk-pagination-item--previous')
+  it('To check for previous item exists in the list', function () {
+    cy
+      .get('.nhsuk-list.nhsuk-pagination__list').children().should('have.class', 'nhsuk-pagination-item--previous')
+      .should('not.be.empty');
   });
 
-  it('Checking for nhsuk-pagination-item--next in list class', function () {
-    cy.get('.nhsuk-list.nhsuk-pagination__list').children().should('have.class', 'nhsuk-pagination-item--next')
+  it('To check for next item exists in the list', function () {
+    cy
+      .get('.nhsuk-list.nhsuk-pagination__list').children().should('have.class', 'nhsuk-pagination-item--next')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination prev class', function () {
-    cy.get('.nhsuk-pagination-item--previous').children().should('have.class', 'nhsuk-pagination__link nhsuk-pagination__link--prev')
+  it('To check if there is some text in previous link', function () {
+    cy
+      .get('.nhsuk-pagination-item--previous').children().should('have.class', 'nhsuk-pagination__link nhsuk-pagination__link--prev')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination prev class with left arrow', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').children().should('have.class', 'nhsuk-icon nhsuk-icon__arrow-left')
+  it('To check there is a left arrow for previous link', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').children().should('have.class', 'nhsuk-icon nhsuk-icon__arrow-left')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination page class for previous page', function () {
+  it('To check if there is some text in the previous link', function () {
     cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').first().children().should('have.class', 'nhsuk-pagination__page')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination title class for previous', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').children().should('have.class', 'nhsuk-pagination__title')
+  it('To check there is some text in previous page link title', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').children().should('have.class', 'nhsuk-pagination__title')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination nhsuk-pagination-item--next class', function () {
-    cy.get('.nhsuk-pagination-item--next').children().should('have.class', 'nhsuk-pagination__link nhsuk-pagination__link--next')
+  it('To check there is some text in next page link title', function () {
+    cy
+      .get('.nhsuk-pagination-item--next').children().should('have.class', 'nhsuk-pagination__link nhsuk-pagination__link--next')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination next class with right arrow', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--next').children().should('have.class', 'nhsuk-icon nhsuk-icon__arrow-right')
+  it('To check if there is a right arrow for next page', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--next').children().should('have.class', 'nhsuk-icon nhsuk-icon__arrow-right')
+      .should('not.be.empty');
+  });
+  
+  it('To check if some text exists in next title link', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--next').children().should('have.class', 'nhsuk-pagination__title')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination page class for next', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--next').children().should('have.class', 'nhsuk-pagination__page')
+  it('To check if some text exists in next page link', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--next').should('have.attr', 'href')
+      .should('not.be.empty');
   });
 
-  it('Checking for pagination title class for next', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--next').children().should('have.class', 'nhsuk-pagination__title')
+  it('To check if some text exists in previous page link', function () {
+    cy
+      .get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').should('have.attr', 'href')
+      .should('not.be.empty');
   });
 
-  it('Checking for href in next', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--next').should('have.attr', 'href')
-  });
-
-  it('Checking for href in previous', function () {
-    cy.get('.nhsuk-pagination__link.nhsuk-pagination__link--prev').should('have.attr', 'href')
-  });
-
-  it('Checking for aria hidden in next', function () {
+  it('Checking for hidden attribute next', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-right').should('have.attr', 'aria-hidden')
   });
 
-  it('Checking for aria hidden in previous', function () {
+  it('Checking for hidden attribute previous', function () {
     cy.get('.nhsuk-icon.nhsuk-icon__arrow-left').should('have.attr', 'aria-hidden')
   });
 });

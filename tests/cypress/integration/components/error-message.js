@@ -9,9 +9,7 @@ describe('Error message component tests', function () {
   });
 
   it('To see whether there is some error message', function () {
-    cy
-      .get('.nhsuk-error-message')
-      .get('.nhsuk-error-message').should('not.be.empty');
+    cy.get('.nhsuk-error-message').should('not.be.empty');
     expect('span').to.not.be.empty
   });
 

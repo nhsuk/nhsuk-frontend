@@ -78,7 +78,8 @@ describe('Header component tests - iphone 6 screensize', function () {
   });
 
   it('To check whether there is a description for NHS logo', function () {
-    cy.get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
+    cy
+      .get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
       .should('have.attr', 'aria-label','NHS homepage')
   });
 
@@ -88,7 +89,6 @@ describe('Header component tests - iphone 6 screensize', function () {
 
   it('To see whether there is a search term in the search field', function () {
     cy.get('.nhsuk-u-visually-hidden').hasOwnProperty('Search');
-    //expect('span').to.not.be.empty
   });
 
   it('To check if there is some text in navigation link', function () {

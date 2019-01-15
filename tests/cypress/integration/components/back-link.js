@@ -1,19 +1,19 @@
-describe('Back link component tests', function () {
+describe('Back-link component tests', function () {
 
   beforeEach(function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Back Link Component', function () {
+  it('Navigating to Back-link Component', function () {
     cy.visit(Cypress.config().baseUrl + '/back-link/index.html')
   });
 
-  it('To see whether there is a backlink class', function () {
+  it('To see whether there is a back-link class', function () {
     cy.get('.nhsuk-back-link')
   });
 
   it('To see whether there is a link in the component', function () {
-    cy.get('.nhsuk-back-link').children().should('have.class','nhsuk-back-link__link')
+    cy.get('.nhsuk-back-link').children().should('have.class','nhsuk-back-link__link').should('not.be.empty')
   });
 
   it('To see whether there is a arrow in the component', function () {

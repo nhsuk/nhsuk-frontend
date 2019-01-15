@@ -12,11 +12,15 @@ describe('Review date component tests', function () {
     cy.get('.nhsuk-grid-column-two-thirds').children().should('have.class', 'nhsuk-review-date')
   });
 
-  it('Checking for Page last reviewed text', function () {
-    cy.get('.nhsuk-review-date').children().contains('Page last reviewed:').should('have.class', 'nhsuk-body-s')
+  it('To check if there is last review date', function () {
+    cy
+      .get('.nhsuk-review-date').children().contains('Page last reviewed:').should('have.class', 'nhsuk-body-s')
+      .should('not.be.empty');
   });
 
-  it('Checking for Next review due', function () {
-    cy.get('.nhsuk-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
+  it('To check if there review due date', function () {
+    cy
+      .get('.nhsuk-review-date').children().contains('Next review due:').should('have.class', 'nhsuk-body-s')
+      .should('not.be.empty');
   });
 });

@@ -22,7 +22,8 @@ describe('Breadcrumb component tests', function () {
 
   it('To check whether there is some missing text breadcrumb', function () {
     cy
-      .get('.nhsuk-breadcrumb__item').should('not.be.empty');
+      .get('.nhsuk-breadcrumb__item')
+      .should('not.be.empty');
     expect('a').to.not.be.empty;
   });
 });

@@ -30,7 +30,9 @@ describe('List panel component tests', function () {
   });
 
   it('To check if there is a href ', function () {
-    cy.get('.nhsuk-list-panel__list.nhsuk-list-panel__list--with-label').first().children().children().should('have.attr','href')
+    cy
+      .get('.nhsuk-list-panel__list.nhsuk-list-panel__list--with-label').first().children().children()
+      .should('have.attr','href')
       .should('not.be.empty');
     expect('.nhsuk-list-panel__link').to.not.be.empty
   });

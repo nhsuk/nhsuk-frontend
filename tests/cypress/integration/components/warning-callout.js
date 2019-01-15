@@ -7,21 +7,23 @@ describe('Warning callout component tests', function () {
     cy.visit(Cypress.config().baseUrl + '/warning-callout.html')
   });
 
-  it('Checking for warning callout class', function () {
+  it('To check if there is a warning callout component', function () {
     cy.get('.nhsuk-warning-callout')
   });
 
-  it('Checking for warning callout label class', function () {
-    cy.get('.nhsuk-warning-callout').children().should('have.class', 'nhsuk-warning-callout__label')
+  it('To check if there is some text for callout label', function () {
+    cy
+      .get('.nhsuk-warning-callout').children().should('have.class', 'nhsuk-warning-callout__label')
+      .should('not.be.empty');
   });
 
-  it('Checking background colour of the label', function () {
+  it('To check the background colour', function () {
     cy.get('.nhsuk-warning-callout__label')
       .should('have.css', 'background-color')
       .and('eq', 'rgb(255, 235, 59)')
   });
 
-  it('Checking background colour of the callout', function () {
+  it('To check the colour of the callout', function () {
     cy.get('.nhsuk-warning-callout')
       .should('have.css', 'background-color')
       .and('eq', 'rgb(255, 249, 196)')

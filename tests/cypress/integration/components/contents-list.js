@@ -26,13 +26,15 @@ describe('Content-list component tests', function () {
 
   it('To see whether there is some text in span', function () {
     cy
-      .get('.nhsuk-contents-list__current').should('not.be.empty');
+      .get('.nhsuk-contents-list__current')
+      .should('not.be.empty');
     expect('span').to.not.be.empty;
   });
 
   it('To see whether there is some text in attribute', function () {
     cy
-      .get('.nhsuk-contents-list__link').should('not.be.empty');
+      .get('.nhsuk-contents-list__link')
+      .should('not.be.empty');
     expect('a').to.not.be.empty;
   });
 });

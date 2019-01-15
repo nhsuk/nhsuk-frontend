@@ -36,9 +36,7 @@ describe('Emergency alert component tests', function () {
   });
 
   it('To see whether there is text in alert message', function () {
-    cy
-      .get('.nhsuk-global-alert__message')
-      .get('.nhsuk-global-alert__message').should('not.be.empty');
+    cy.get('.nhsuk-global-alert__message').should('not.be.empty');
     expect('p').to.not.be.empty;
   });
 
