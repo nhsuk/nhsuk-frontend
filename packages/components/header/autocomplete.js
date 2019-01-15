@@ -38,26 +38,6 @@ function getFunnelbackResults(query, populateResults) {
   xhr.send();
 }
 
-function addTitle(result) {
-
-  if (!result) {
-    return '';
-  }
-
-  const listBox = document.getElementById('search-field__listbox');
-  const suggestionsTitle = document.getElementById('suggestions-title');
-
-  if (!document.getElementById('suggestions-title')) {
-    const newLI = document.createElement("li"); // create search suggestions <li> and insert into list
-    const textLI = document.createTextNode("Search suggestions");
-    newLI.setAttribute("id", "suggestions-title");
-    newLI.setAttribute("class", "suggestions-title");
-    newLI.appendChild(textLI);
-    listBox.insertBefore(newLI, listBox.childNodes[0]);
-  }
-
-}
-
 function autocomplete(config) {
   const defaultId = 'search-field';
   const id = (config && config.id) ? config.id : defaultId;
@@ -68,20 +48,9 @@ function autocomplete(config) {
     const dots = result.length > truncateLength ? '...' : '';
     const resultTruncated = result.substring(0, truncateLength) + dots;
     const svgIcon = '<svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path></svg>';
-    const resultsHref = '<a href="https://www.nhs.uk/search?collection=nhs-meta&query=' + result + '">';
-    const typedText = document.getElementById(id).value;
-    const regex = new RegExp(typedText, 'gi');
-    const typedTextStronged = resultTruncated.replace(regex, function ($1) {
-      return '<strong>' + $1 + '</strong>';
-    });
+    const resultsHref = '<a href="https://www.nhs.uk/search?collection=nhs-meta&query=' + result + '">' + result + '</a>';
 
-    const listBox = document.getElementById('search-field__listbox');
-    const suggestionsTitle = document.getElementById('suggestions-title');
-
-    return (
-      addTitle(result),
-      result = svgIcon + resultsHref + typedTextStronged + '</a>'
-    )
+    return svgIcon + resultsHref;
   }
 
   const defaultConfig = {
@@ -107,7 +76,8 @@ function autocomplete(config) {
     ...config,
   };
 
-  document.getElementById(id).remove();
+  const idToremove = document.getElementById(id);
+  idToremove.parentNode.removeChild(idToremove);
   accessibleAutocomplete(accessibleAutocompleteConfig);
 
 }

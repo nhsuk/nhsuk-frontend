@@ -97,7 +97,7 @@
   margin-top: 2px;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(3);
+  padding: nhsuk-spacing(3);
   position: fixed;
   z-index: 1; /* [8] */
 
@@ -156,6 +156,7 @@
 
   &:focus {
     outline: 1px solid transparent;
+    text-decoration: none;
   }
 
   @include mq($from: tablet) {
@@ -163,15 +164,6 @@
       border-bottom: 0;
     }
   }
-}
-
-.suggestions-title {
-  border-bottom: 1px solid $color_nhsuk-grey-4;
-  color: $nhsuk-text-color;
-  font-size: $nhsuk-base-font-size;
-  font-weight: $nhsuk-font-bold;
-  padding-bottom: 12px; /* [9] */
-  text-align: left;
 }
 
 .autocomplete__option--no-results {
