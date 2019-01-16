@@ -62,9 +62,6 @@ function autocomplete(config) {
     id: id,
     minLength: 2,
     placeholder: fallbackInputElement.placeholder,
-    // TO DO:
-    // cssNamespace: ??
-    // displayMenu: 'overlay', this need enable but currently breaks.
     confirmOnBlur: false,
     onConfirm: (SelectedContent) => {
       window.open('https://www.nhs.uk/search?collection=nhs-meta&query=' + SelectedContent, '_self');
