@@ -2,7 +2,7 @@
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <a class="nhsuk-promo__link-wrapper"  href="{{ params.href }}">
     {% if params.imgURL %}
-    <img class="nhsuk-promo__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}" />
+    <img class="nhsuk-promo__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}"/>
     {% endif %}
     <div class="nhsuk-promo__content">
       <h3 class="nhsuk-promo__heading">{{ params.heading | safe }}</h3>

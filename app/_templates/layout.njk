@@ -11,20 +11,20 @@
 
     <title>NHS.UK frontend - {{ title }}</title>
 
-    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
-    <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
-    <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link href="https://www.nhs.uk/" rel="preconnect  dns-prefetch">
+    <link href="https://assets.nhs.uk/" rel="preconnect  dns-prefetch" crossorigin>
 
-    <link rel="stylesheet" href="{{ baseUrl }}/assets/nhsuk.css">
+    <link href="{{ baseUrl }}/assets/nhsuk.css" rel="stylesheet">
 
     <script src="{{ baseUrl }}/assets/nhsuk.js" defer></script>
 
     <!--[if IE]><link rel="shortcut icon" href="{{ baseUrl }}/assets/favicons/favicon.ico"><![endif]-->
     <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
-    <link rel="apple-touch-icon" href="{{ baseUrl }}/assets/favicons/apple-touch-icon.png">
+    <link href="{{ baseUrl }}/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
-    <link rel="icon" href="{{ baseUrl }}/assets/favicons/favicon.png">
+    <link href="{{ baseUrl }}/assets/favicons/favicon.png" rel="icon">
   </head>
 
   <body class="{{ body_class }}">

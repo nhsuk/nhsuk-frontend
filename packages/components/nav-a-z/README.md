@@ -17,7 +17,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <a class="nhsuk-nav-a-z__link" href="#A">A</a>
     </li>
     <li class="nhsuk-nav-a-z__item">
-      <p class="nhsuk-nav-a-z__link--disabled">B</p>
+      <span class="nhsuk-nav-a-z__link--disabled">B</span>
     </li>
     <li class="nhsuk-nav-a-z__item">
       <a class="nhsuk-nav-a-z__link" href="#C">C</a>
