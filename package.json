@@ -19,10 +19,8 @@
     "build-gh-release": "gulp zip"
   },
   "dependencies": {
+    "accessible-autocomplete": "^1.6.2",
     "sass-mq": "^4.0.2"
-  },
-  "peerDependencies": {
-    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -48,7 +46,6 @@
     "gulp-wrap": "^0.14.0",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.1",
-    "jquery": "^3.3.1",
     "nunjucks": "^3.1.6",
     "sass-lint": "^1.12.1",
     "webpack-stream": "^5.2.1"

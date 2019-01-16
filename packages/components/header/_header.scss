@@ -38,6 +38,8 @@
  * 16. Custom padding-top to vertically align service name and logo
  */
 
+@import 'autocomplete';
+
 .nhsuk-header {
   @include clearfix();
   background-color: $color_nhsuk-blue;
@@ -114,6 +116,7 @@
 }
 
 .nhsuk-header__search-form {
+  height: 100%;
   overflow: hidden;
 }
 
@@ -227,6 +230,7 @@
 
   .nhsuk-header__search-wrap {
     display: block;
+    line-height: 0;
   }
 
   .nhsuk-header__search-toggle {
@@ -250,6 +254,8 @@
 
     &:focus {
       border: 1px solid $nhsuk-focus-color;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
       box-shadow: inset 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
       outline: none;
     }
@@ -319,115 +325,6 @@
   border-bottom-right-radius: 0;
 }
 
-
-.twitter-typeahead {
-  display: inline !important; // sass-lint:disable-line no-important /* [6] */
-  width: 100%;
-}
-
-.suggestions-list {
-  -moz-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
-  -webkit-box-shadow: 0 3px 5px 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-vendor-prefixes, no-color-literals /* [8] */
-  background-color: $color_nhsuk-white;
-  border-bottom: 1px solid $color_nhsuk-grey-4;
-  border-bottom-left-radius: $nhsuk-border-radius;
-  border-bottom-right-radius: $nhsuk-border-radius;
-  border-left: 1px solid $color_nhsuk-grey-4;
-  border-right: 1px solid $color_nhsuk-grey-4;
-  border-top: 2px solid $color_nhsuk-blue;
-  box-shadow: 0 0 ($nhsuk-box-shadow-spread - 1) 0 rgba($nhsuk-box-shadow-color, $alpha-transparency-50); // sass-lint:disable-line no-color-literals /* [8] */
-  height: auto;
-  list-style: none;
-  margin-top: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(3);
-  position: absolute;
-  z-index: 1; /* [10] */
-}
-
-
-@include mq($until: tablet) {
-
-  .suggestions-menu {
-    position: relative !important; // sass-lint:disable-line no-important /* [6] */
-    top: 0 !important; // sass-lint:disable-line no-important /* [6] */
-  }
-
-  .suggestions-list {
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    left: auto !important; // sass-lint:disable-line no-important /* [6] */
-    margin: 0;
-    padding-bottom: nhsuk-spacing(3);
-    position: relative !important; // sass-lint:disable-line no-important /* [6] */
-    top: auto !important; // sass-lint:disable-line no-important /* [6] */
-    width: 100% !important; // sass-lint:disable-line no-important /* [6] */
-  }
-
-}
-
-.suggestions-item {
-  border-bottom: 1px solid $color_nhsuk-grey-5;
-  color: $color_nhsuk-blue;
-  cursor: pointer;
-  font-size: $nhsuk-base-font-size;
-  font-weight: $nhsuk-font-light;
-  padding-bottom: 12px; /* [9] */
-  text-align: left;
-  text-decoration: underline;
-
-  .nhsuk-icon__search {
-    fill: $color_nhsuk-grey-3;
-    float: left;
-    height: 22px; /* [2] */
-    margin: 5px 4px 0 0; /* [7] */
-    width: 22px; /* [2] */
-  }
-
-  &:hover,
-  &:active {
-    text-decoration: none;
-  }
-
-  &:hover,
-  &:focus {
-    div {
-      background-color: $color_nhsuk-warm-yellow;
-      box-shadow: 0 0 0 $nhsuk-box-shadow-spread $color_nhsuk-warm-yellow;
-      color: $color_nhsuk-black;
-      display: inline;
-    }
-  }
-
-}
-
-.suggestions-item--selected {
-  a {
-    background-color: $color_nhsuk-warm-yellow;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $color_nhsuk-warm-yellow;
-    color: $color_nhsuk-black;
-    display: inline;
-    text-decoration: none;
-  }
-}
-
-.suggestions-title {
-  border-bottom: 1px solid $color_nhsuk-grey-4;
-  color: $nhsuk-text-color;
-  font-size: $nhsuk-base-font-size;
-  font-weight: $nhsuk-font-bold;
-  padding-bottom: 12px; /* [9] */
-  text-align: left;
-}
-
-.suggestions-none  {
-  font-size: $nhsuk-base-font-size;
-  line-height: $nhsuk-base-line-height;
-  margin: 0;
-  text-align: left;
-}
 
 /* Main navigation
  *

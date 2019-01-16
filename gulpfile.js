@@ -79,31 +79,6 @@ function webpackJS() {
   .pipe(gulp.dest('./dist'));
 }
 
-/* Concat the NHS.UK components JS with third party JS (typeahead). */
-function concatJS() {
-  return gulp.src([
-      'packages/components/header/typeahead.bundle.min.js',
-      'packages/components/header/nhs.typeahead.js',
-      'dist/nhsuk.js',
-    ])
-    .pipe(concat('nhsuk.js'))
-    .pipe(gulp.dest(['dist/']));
-}
-
-/* Delete the Webpack nhsuk.bundle.js after its been concatenated. */
-function cleanJS() {
-  return del('dist/nhsuk.bundle.js');
-}
-
-/* Copy jQuery dependency into dist folder for release */
-function thirdPartyAssets() {
-  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
-    .pipe(rename({
-      basename: 'jquery-3.3.1.min',
-    }))
-    .pipe(gulp.dest('dist/'));
-}
-
 /* Minify the JS file for release */
 function minifyJS() {
   return gulp.src([
@@ -181,8 +156,6 @@ gulp.task('style', compileCSS);
 gulp.task('build', gulp.series([
   compileCSS,
   webpackJS,
-  concatJS,
-  cleanJS,
 ]));
 gulp.task('bundle', gulp.series([
   cleanDist,
@@ -194,7 +167,6 @@ gulp.task('bundle', gulp.series([
 gulp.task('zip', gulp.series([
   'bundle',
   assets,
-  thirdPartyAssets,
   jsFolder,
   cssFolder,
   createZip
