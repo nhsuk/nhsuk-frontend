@@ -1,37 +1,16 @@
+// Core dependencies
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-const rename = require("gulp-rename");
-const cleanCSS = require('gulp-clean-css');
-const zip = require('gulp-zip');
-const package = require('./package.json');
 
-/**
- * Import gulp tasks used for creating
- * our website pages.
- */
+// External dependencies
+const rename = require("gulp-rename");
+const zip = require('gulp-zip');
+
+// Local dependencies
+const package = require('./package.json');
 require('./tasks/docs.js');
 
 /**
- * CSS tasks
- */
-
-/* Build the CSS from source */
-function compileCSS() {
-  return gulp.src(['packages/nhsuk.scss'])
-    .pipe(sass())
-    .pipe(cleanCSS())
-    .pipe(rename({
-      suffix: ".min",
-    }))
-    .pipe(gulp.dest('dist/'))
-    .on('error', (err) => {
-      console.log(err)
-      process.exit(1)
-    })
-}
-
-/**
- * Assets tasks
+ * Release tasks
  */
 
 /**
@@ -41,10 +20,6 @@ function assets() {
   return gulp.src('packages/assets/**')
     .pipe(gulp.dest('dist/assets/'))
 }
-
-/**
- * Release tasks
- */
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
@@ -83,15 +58,10 @@ function createZip() {
 
 /* Recompile CSS, JS and docs when there are any changes */
 var watch = function() {
-  gulp.watch(['packages/**/*', 'app/**/*'], gulp.series(['build', 'docs:build']));
+  gulp.watch(['packages/**/*', 'app/**/*'], gulp.series('docs:build'));
 }
 
-gulp.task('style', compileCSS);
-gulp.task('build', gulp.series([
-  compileCSS
-]));
 gulp.task('bundle', gulp.series([
-  'build',
   versionAssets,
 ]))
 gulp.task('zip', gulp.series([
@@ -105,9 +75,8 @@ gulp.task('watch', watch);
 
 
 /**
- * The default task is to build everything, serve the docs and watch for changes
+ * The default task is to serve the docs and watch for changes
  */
 gulp.task('default', gulp.series([
-  'build',
   gulp.parallel(['docs:serve', watch])
 ]));
