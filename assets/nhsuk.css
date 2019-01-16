@@ -3411,6 +3411,165 @@ b {
  * 15. IE 9 alternative for flexbox
  * 16. Custom padding-top to vertically align service name and logo
  */
+/* ==========================================================================
+   COMPONENTS / #HEADER / #AUTOCOMPLETE
+   ========================================================================== */
+/**
+   * 1. IE 10 prefix for flexbox
+   * 2. Proprietary extension so form field looks the same in Safari
+   * 3. Custom height and width of form items
+   * 4. Custom height and width of svg icons
+   * 5. Custom spacing to position the search icon
+   * 6. Drop shadow on search suggestions dopdown box, custom spread and blur
+   * 7. Needs !important because autocomplete js adds inline styling so need to
+   *    override
+   * 8. Z-index to bring the dropdown to the front
+   * 9. No current spacing at 12px so using this value
+*/
+.autocomplete-container {
+  display: inline-block; }
+  @media (max-width: 40.0525em) {
+    .autocomplete-container {
+      display: inline;
+      width: 100%; } }
+
+.autocomplete__wrapper {
+  position: relative; }
+
+@media (max-width: 40.0525em) {
+  /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
+  .autocomplete__input {
+    -ms-flex-positive: 2;
+    /* [1] */
+    -webkit-appearance: listbox;
+    border-bottom: 1px solid #aeb7bd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-left: 1px solid #aeb7bd;
+    border-right: 0;
+    border-top: 1px solid #aeb7bd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    flex-grow: 2;
+    font-size: inherit;
+    height: 52px;
+    /* [3] */
+    margin: 0;
+    outline: none;
+    padding: 0 16px;
+    width: 100%;
+    /* [3] */ }
+    .autocomplete__input:focus {
+      box-shadow: inset 0 0 0 4px #ffb81C; } }
+
+@media (min-width: 40.0625em) {
+  /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
+  .autocomplete__input {
+    -webkit-appearance: listbox;
+    border: 1px solid #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    font-size: 16px;
+    height: 40px;
+    /* [3] */
+    padding: 0 12px;
+    /* [9] */
+    width: 235px;
+    /* [3] */ }
+    .autocomplete__input:focus {
+      border: 1px solid #ffb81C;
+      box-shadow: inset 0 0 0 3px #ffb81C;
+      outline: none; }
+    .autocomplete__input::placeholder {
+      color: #768692;
+      font-size: 16px; } }
+
+.autocomplete__menu {
+  -moz-box-shadow: 0 3px 5px rgba(66, 84, 98, 0.5);
+  /* [6] */
+  -webkit-box-shadow: 0 3px 5px rgba(66, 84, 98, 0.5);
+  /* [6] */
+  background-color: #ffffff;
+  border-bottom: 1px solid #d8dde0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-left: 1px solid #d8dde0;
+  border-right: 1px solid #d8dde0;
+  box-shadow: 0 0 3px 0 rgba(66, 84, 98, 0.5);
+  /* [6] */
+  list-style: none;
+  margin-top: 2px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  /* [8] */ }
+  @media (max-width: 40.0525em) {
+    .autocomplete__menu {
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+      position: relative;
+      top: auto !important;
+      width: 100% !important; } }
+
+.autocomplete__menu--visible {
+  display: block; }
+
+.autocomplete__menu--hidden {
+  display: none; }
+
+.autocomplete__option {
+  border-bottom: 1px solid #f0f4f5;
+  color: #005eb8;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  padding-bottom: 12px;
+  /* [9] */
+  text-align: left;
+  text-decoration: underline; }
+  .autocomplete__option .nhsuk-icon__search {
+    fill: #aeb7bd;
+    float: left;
+    height: 22px;
+    /* [4] */
+    margin: 5px 4px 0 0;
+    /* [5] */
+    width: 22px;
+    /* [4] */ }
+  .autocomplete__option:hover, .autocomplete__option:active {
+    text-decoration: none; }
+  .autocomplete__option:hover a, .autocomplete__option:focus a {
+    background-color: #ffb81C;
+    box-shadow: 0 0 0 4px #ffb81C;
+    color: #212b32;
+    text-decoration: none; }
+  .autocomplete__option:focus {
+    outline: 1px solid transparent;
+    text-decoration: none; }
+  @media (min-width: 40.0625em) {
+    .autocomplete__option:last-child {
+      border-bottom: 0; } }
+
+.autocomplete__option--no-results {
+  border-bottom: 0;
+  color: #212b32;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none; }
+  @media (max-width: 40.0525em) {
+    .autocomplete__option--no-results {
+      padding: 16px 0; } }
+
 .nhsuk-header {
   background-color: #005eb8; }
   .nhsuk-header:after {
@@ -3506,6 +3665,7 @@ b {
     /* [3] */ }
 
 .nhsuk-header__search-form {
+  height: 100%;
   overflow: hidden; }
 
 @media (max-width: 40.0525em) {
@@ -3609,7 +3769,8 @@ b {
 
 @media (min-width: 40.0625em) {
   .nhsuk-header__search-wrap {
-    display: block; }
+    display: block;
+    line-height: 0; }
   .nhsuk-header__search-toggle {
     display: none; }
   .nhsuk-search__input {
@@ -3631,6 +3792,8 @@ b {
     /* [2] */ }
     .nhsuk-search__input:focus {
       border: 1px solid #ffb81C;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
       box-shadow: inset 0 0 0 3px #ffb81C;
       outline: none; }
     .nhsuk-search__input::placeholder {
@@ -3681,95 +3844,6 @@ b {
 
 .nhsuk-search__submit--withdropdown {
   border-bottom-right-radius: 0; }
-
-.twitter-typeahead {
-  display: inline !important;
-  width: 100%; }
-
-.suggestions-list {
-  -moz-box-shadow: 0 3px 5px 0 rgba(66, 84, 98, 0.5);
-  -webkit-box-shadow: 0 3px 5px 0 rgba(66, 84, 98, 0.5);
-  background-color: #ffffff;
-  border-bottom: 1px solid #d8dde0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-left: 1px solid #d8dde0;
-  border-right: 1px solid #d8dde0;
-  border-top: 2px solid #005eb8;
-  box-shadow: 0 0 3px 0 rgba(66, 84, 98, 0.5);
-  height: auto;
-  list-style: none;
-  margin-top: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 8px 16px 16px;
-  position: absolute;
-  z-index: 1;
-  /* [10] */ }
-
-@media (max-width: 40.0525em) {
-  .suggestions-menu {
-    position: relative !important;
-    top: 0 !important; }
-  .suggestions-list {
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    left: auto !important;
-    margin: 0;
-    padding-bottom: 16px;
-    position: relative !important;
-    top: auto !important;
-    width: 100% !important; } }
-
-.suggestions-item {
-  border-bottom: 1px solid #f0f4f5;
-  color: #005eb8;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 300;
-  padding-bottom: 12px;
-  /* [9] */
-  text-align: left;
-  text-decoration: underline; }
-  .suggestions-item .nhsuk-icon__search {
-    fill: #aeb7bd;
-    float: left;
-    height: 22px;
-    /* [2] */
-    margin: 5px 4px 0 0;
-    /* [7] */
-    width: 22px;
-    /* [2] */ }
-  .suggestions-item:hover, .suggestions-item:active {
-    text-decoration: none; }
-  .suggestions-item:hover div, .suggestions-item:focus div {
-    background-color: #ffb81C;
-    box-shadow: 0 0 0 4px #ffb81C;
-    color: #212b32;
-    display: inline; }
-
-.suggestions-item--selected a {
-  background-color: #ffb81C;
-  box-shadow: 0 0 0 4px #ffb81C;
-  color: #212b32;
-  display: inline;
-  text-decoration: none; }
-
-.suggestions-title {
-  border-bottom: 1px solid #d8dde0;
-  color: #212b32;
-  font-size: 16px;
-  font-weight: 600;
-  padding-bottom: 12px;
-  /* [9] */
-  text-align: left; }
-
-.suggestions-none {
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  text-align: left; }
 
 /* Main navigation
  *

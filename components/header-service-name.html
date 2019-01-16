@@ -19,7 +19,6 @@
     <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
 
     <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-    <script src="/nhsuk-frontend/assets/libraries/jquery.min.js"></script>
 
     <!--[if IE]><link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico"><![endif]-->
     <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
@@ -70,6 +69,7 @@
           <div class="nhsuk-header__search-wrap" id="wrap-search">
             <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
               <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+              <div class="autocomplete-container" id="autocomplete-container"></div>
               <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
               <button class="nhsuk-search__submit" type="submit">
                 <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
