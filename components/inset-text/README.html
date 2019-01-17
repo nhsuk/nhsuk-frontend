@@ -98,14 +98,14 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-inset-text&quot;&gt;
   &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Information: &lt;/span&gt;
-  &lt;p&gt;If you drive you must tell the &lt;a href=&quot;https://www.gov.uk/contact-the-dvla&quot; title=&quot;External website&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=&quot;https://www.gov.uk/dizziness-and-driving&quot; title=&quot;External website&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;You can report any suspected side effect to the &lt;a href=&quot;https://yellowcard.mhra.gov.uk/&quot; title=&quot;External website&quot;&gt;UK safety scheme&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <p>If you’re using Nunjucks macros in production be aware that using <code>html</code> arguments, or ones ending with <code>html</code> can be a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">security risk</a>. More about it in the <a href="https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning">Nunjucks documentation</a>.</p>
 <pre><code>{% from &#39;components/inset-text/macro.njk&#39; import insetText %}
 
 {{ insetText({
-  &quot;HTML&quot;: &quot;&lt;p&gt;If you drive you must tell the &lt;a href=\&quot;https://www.gov.uk/contact-the-dvla\&quot; title=\&quot;External website\&quot;&gt;DVLA&lt;/a&gt; about your vertigo. Visit the GOV.UK website for more information on &lt;a href=\&quot;https://www.gov.uk/dizziness-and-driving\&quot; title=\&quot;External website\&quot;&gt;driving with vertigo&lt;/a&gt;&lt;/p&gt;&quot;
+  &quot;HTML&quot;: &quot;&lt;p&gt;You can report any suspected side effect to the &lt;a href=&quot;https://yellowcard.mhra.gov.uk/&quot; title=&quot;External website&quot;&gt;UK safety scheme&lt;/a&gt;.&lt;/p&gt;&quot;
 }) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
 <p>The inset text Nunjucks macro takes the following arguments:</p>
 <table>
