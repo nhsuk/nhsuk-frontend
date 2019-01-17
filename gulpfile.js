@@ -1,11 +1,19 @@
+// Core dependencies
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+
+// External dependencies
+const babel = require('rollup-plugin-babel');
 const clean = require('gulp-clean');
-const rename = require("gulp-rename");
 const cleanCSS = require('gulp-clean-css');
+const rename = require("gulp-rename");
+const resolve = require('rollup-plugin-node-resolve');
+const rollup = require('rollup-stream');
+const sass = require('gulp-sass');
+const source = require('vinyl-source-stream');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
-const webpack = require('webpack-stream');
+
+// Local dependencies
 const package = require('./package.json');
 
 /**
@@ -48,28 +56,20 @@ function minifyCSS() {
  * JavaScript tasks
  */
 
-/* Use Webpack to build and minify the NHS.UK components JS. */
-function webpackJS() {
-  return gulp.src('./packages/nhsuk.js')
-  .pipe(webpack({
-    mode: 'production',
-    output: {
-      filename: 'nhsuk.js',
-    },
-    target: 'web',
-    module: {
-      rules: [
-        {
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        }
-      ]
-    }
-  }))
+function compileJS() {
+  return rollup({
+    input: './packages/nhsuk.js',
+    format: 'umd',
+    plugins: [
+      resolve({
+        browser: true,
+      }),
+      babel({
+        exclude: 'node_modules/**'
+      })
+    ],
+  })
+  .pipe(source('nhsuk.js'))
   .pipe(gulp.dest('./dist'));
 }
 
@@ -149,7 +149,7 @@ gulp.task('clean', cleanDist);
 gulp.task('style', compileCSS);
 gulp.task('build', gulp.series([
   compileCSS,
-  webpackJS,
+  compileJS,
 ]));
 gulp.task('bundle', gulp.series([
   cleanDist,

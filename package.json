@@ -46,8 +46,11 @@
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.1",
     "nunjucks": "^3.1.6",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-stream": "^1.24.1",
     "sass-lint": "^1.12.1",
-    "webpack-stream": "^5.2.1"
+    "vinyl-source-stream": "^2.0.0"
   },
   "files": [
     "dist",
