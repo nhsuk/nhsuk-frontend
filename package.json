@@ -35,7 +35,6 @@
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
     "gulp-markdown": "^3.0.0",
     "gulp-nunjucks": "^4.0.0",

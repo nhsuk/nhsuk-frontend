@@ -3,8 +3,6 @@ const sass = require('gulp-sass');
 const clean = require('gulp-clean');
 const rename = require("gulp-rename");
 const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const del = require('del');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 const webpack = require('webpack-stream');
@@ -29,12 +27,8 @@ function cleanDist() {
 /* Build the CSS from source */
 function compileCSS() {
   return gulp.src(['packages/nhsuk.scss'])
-    .pipe(sass())
-    .pipe(gulp.dest('dist/'))
-    .on('error', (err) => {
-      console.log(err)
-      process.exit(1)
-    })
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('dist/'));
 }
 
 /* Minify CSS and add a min.css suffix */
