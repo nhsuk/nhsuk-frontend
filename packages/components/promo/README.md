@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo
 
-[Preview the promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo.html)
+[Preview the promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo/index.html)
 
 ### HTML markup
 
@@ -35,7 +35,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with image
 
-[Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html)
 
 ### HTML markup
 
@@ -66,7 +66,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with no description
 
-[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html)
 
 ### HTML markup
 
@@ -105,7 +105,7 @@ The promo with no description Nunjucks macro takes the following arguments:
 
 ### Small promo
 
-[Preview the small promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html)
+[Preview the small promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-small.html)
 
 ### HTML markup
 
@@ -148,7 +148,7 @@ The small promo Nunjucks macro takes the following arguments:
 
 ### Promo group
 
-[Preview the promo group component](https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html)
+[Preview the promo group component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-group.html)
 
 ## HTML markup
 

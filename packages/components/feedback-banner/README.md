@@ -4,14 +4,14 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Dependencies
 
-For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+For this component to work, you need to make sure you include the required JavaScript. You can either include the
 compiled JavaScript for all components `nhsuk.min.js` or the individual component JavaScript `feedback-banner.js`.
 
 ## Quick start examples
 
 ### Feedback banner
 
-[Preview the feedback banner component](https://nhsuk.github.io/nhsuk-frontend/components/feedback-banner.html)
+[Preview the feedback banner component](https://nhsuk.github.io/nhsuk-frontend/components/feedback-banner/index.html)
 
 ### HTML markup
 

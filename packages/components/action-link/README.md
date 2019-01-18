@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Action link
 
-[Preview the action link component](https://nhsuk.github.io/nhsuk-frontend/components/action-link.html)
+[Preview the action link component](https://nhsuk.github.io/nhsuk-frontend/components/action-link/index.html)
 
 ### HTML markup
 

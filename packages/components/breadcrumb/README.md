@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Breadcrumb
 
-[Preview the breadcrumb component](https://nhsuk.github.io/nhsuk-frontend/components/breadcrumb.html)
+[Preview the breadcrumb component](https://nhsuk.github.io/nhsuk-frontend/components/breadcrumb/index.html)
 
 ### HTML markup
 

@@ -4,14 +4,14 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Dependencies
 
-For this component to work, you need to make sure you include the required JavaScript. You can either include the 
+For this component to work, you need to make sure you include the required JavaScript. You can either include the
 compiled JavaScript for all components `nhsuk.min.js` or the individual component JavaScript `details.js`.
 
 ## Quick start examples
 
 ### Details
 
-[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details.html)
+[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details/index.html)
 
 ### HTML markup
 
@@ -63,7 +63,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Expander
 
-[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/expander.html)
+[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander.html)
 
 ### HTML markup
 
@@ -167,7 +167,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Expander group
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/expander-group.html)
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander-group.html)
 
 ### HTML markup
 

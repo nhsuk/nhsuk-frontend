@@ -10,7 +10,7 @@ Find out more about the care card component and when to use it in the [NHS Digit
 
 ### Care card non-urgent (blue)
 
-[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-non-urgent.html)
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-non-urgent.html)
 
 ### HTML markup
 
@@ -56,7 +56,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Care card urgent (red)
 
-[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
+[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-urgent.html)
 
 ### HTML markup
 
@@ -102,7 +102,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Care card immediate (red and black)
 
-[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html)
+[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-immediate.html)
 
 ### HTML markup
 

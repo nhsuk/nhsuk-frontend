@@ -17,7 +17,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header
 
-[Preview the header component](https://nhsuk.github.io/nhsuk-frontend/components/header.html)
+[Preview the header component](https://nhsuk.github.io/nhsuk-frontend/components/header/index.html)
 
 ### HTML markup
 
@@ -165,7 +165,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header with navigation
 
-[Preview the header with navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header-navigation.html)
+[Preview the header with navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-navigation.html)
 
 ### HTML markup
 
@@ -287,7 +287,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header with search
 
-[Preview the header with search component](https://nhsuk.github.io/nhsuk-frontend/components/header-search.html)
+[Preview the header with search component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-search.html)
 
 ### HTML markup
 
@@ -371,7 +371,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header with logo
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-logo.html)
+[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-logo.html)
 
 ### HTML markup
 
@@ -405,7 +405,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header with logo (transactional header)
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-transactional.html)
+[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional.html)
 
 ### HTML markup
 
@@ -440,7 +440,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header transactional with service name
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-transactional-service-name.html)
+[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-service-name.html)
 
 ### HTML markup
 
@@ -481,7 +481,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header transactional with a long service name
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-transactional-long-service-name.html)
+[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-long-service-name.html)
 
 ### HTML markup
 
@@ -523,7 +523,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ### Header with a service name and search
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header-service-name.html)
+[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-service-name.html)
 
 ### HTML markup
 

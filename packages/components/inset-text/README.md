@@ -10,7 +10,7 @@ Find out more about the inset text component and when to use it in the [NHS Digi
 
 ### Inset text
 
-[Preview the inset text component](https://nhsuk.github.io/nhsuk-frontend/components/inset-text.html)
+[Preview the inset text component](https://nhsuk.github.io/nhsuk-frontend/components/inset-text/index.html)
 
 ### HTML markup
 

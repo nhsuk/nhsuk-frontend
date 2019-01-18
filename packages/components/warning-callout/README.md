@@ -10,7 +10,7 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ### Example
 
-[Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout.html)
+[Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
 
 ### HTML markup
 

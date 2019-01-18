@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Contents list
 
-[Preview the contents list component](https://nhsuk.github.io/nhsuk-frontend/components/contents-list.html)
+[Preview the contents list component](https://nhsuk.github.io/nhsuk-frontend/components/contents-list/index.html)
 
 ### HTML markup
 
