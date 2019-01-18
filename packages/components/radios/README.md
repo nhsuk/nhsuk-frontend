@@ -76,28 +76,28 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-form-group">
 
-  <fieldset class="nhsuk-fieldset" aria-describedby="example&#39;-hint">
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
   <legend class="nhsuk-fieldset__legend">
     Have you changed your name?
   </legend>
 
-  <span class="nhsuk-hint" id="example&#39;-hint">
+  <span class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
   </span>
 
   <div class="nhsuk-radios nhsuk-radios--inline">
 
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example&#39;-1" name="example" type="radio" value="yes">
-      <label class="nhsuk-label nhsuk-radios__label" for="example&#39;-1">
+      <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+      <label class="nhsuk-label nhsuk-radios__label" for="example-1">
         Yes
       </label>
     </div>
 
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example&#39;-2" name="example" type="radio" value="no" checked>
-      <label class="nhsuk-label nhsuk-radios__label" for="example&#39;-2">
+      <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
+      <label class="nhsuk-label nhsuk-radios__label" for="example-2">
         No
       </label>
     </div>
@@ -114,7 +114,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
-  "idPrefix": "example'",
+  "idPrefix": "example",
   "classes": "nhsuk-radios--inline",
   "name": "example",
   "fieldset": {
