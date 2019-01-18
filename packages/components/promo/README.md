@@ -66,7 +66,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with no description
 
-[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-no-description.html)
 
 ### HTML markup
 
