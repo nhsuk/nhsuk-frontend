@@ -148,28 +148,28 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
 
-  &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;example&amp;#39;-hint&quot;&gt;
+  &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;example-hint&quot;&gt;
 
   &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
     Have you changed your name?
   &lt;/legend&gt;
 
-  &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example&amp;#39;-hint&quot;&gt;
+  &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example-hint&quot;&gt;
     This includes changing your last name or spelling your name differently.
   &lt;/span&gt;
 
   &lt;div class=&quot;nhsuk-radios nhsuk-radios--inline&quot;&gt;
 
     &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example&amp;#39;-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;yes&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example&amp;#39;-1&quot;&gt;
+      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;yes&quot;&gt;
+      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-1&quot;&gt;
         Yes
       &lt;/label&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example&amp;#39;-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example&amp;#39;-2&quot;&gt;
+      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
+      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-2&quot;&gt;
         No
       &lt;/label&gt;
     &lt;/div&gt;
@@ -182,7 +182,7 @@
 <pre><code>{% from &#39;components/radios/macro.njk&#39; import radios %}
 
 {{ radios({
-  &quot;idPrefix&quot;: &quot;example&#39;&quot;,
+  &quot;idPrefix&quot;: &quot;example&quot;,
   &quot;classes&quot;: &quot;nhsuk-radios--inline&quot;,
   &quot;name&quot;: &quot;example&quot;,
   &quot;fieldset&quot;: {
