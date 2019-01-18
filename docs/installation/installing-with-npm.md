@@ -85,22 +85,19 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
 import nhsuk_header from 'node_modules/nhsuk-frontend/packages/components/header/header';
 import nhsuk_skipLink from 'node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
+import autocomplete from 'node_modules/nhsuk-frontend/packages/components/header/autocomplete';
 
 // HTML5 polyfills
 import 'node_modules/nhsuk-frontend/packages/components/details/details.polyfill';
 
 // Initialize components
-nhsuk_feedbackBanner(3000);
-nhsuk_header();
-nhsuk_skipLink();
+document.addEventListener('DOMContentLoaded', function() {
+  nhsuk_feedbackBanner(3000);
+  nhsuk_header();
+  nhsuk_skipLink();
+  autocomplete();
+})
 ```
-
-### jQuery dependency
-
-The header component search autocomplete requires jQuery, please ensure you have jQuery included within you project for this to work. In the future we are looking to remove the
-jQuery dependency.
-
-> For performance and security reasons, we do not recommend using a jQuery CDN, instead have the jQuery dependency hosted local to your project.
 
 ## Importing assets (optional)
 
