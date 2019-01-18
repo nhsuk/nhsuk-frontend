@@ -4,8 +4,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Dependencies
 
-For this component to work, you need to make sure you include the required JavaScript. You can either include the 
-compiled JavaScript for all components `nhsuk.min.js` or the individual component JavaScript `details.js`.
+For this component to be accessible and compatible with older browsers, include the required polyfill JavaScript. You can either include the compiled JavaScript for all components or just the polyfill JavaScript `details.polyfill.js`.
 
 ## Quick start examples
 
