@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Images
 
-[Preview the images component](https://nhsuk.github.io/nhsuk-frontend/components/images.html)
+[Preview the images component](https://nhsuk.github.io/nhsuk-frontend/components/images/index.html)
 
 ### HTML markup
 

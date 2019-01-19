@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Pagination
 
-[Preview the pagination component](https://nhsuk.github.io/nhsuk-frontend/components/pagination.html)
+[Preview the pagination component](https://nhsuk.github.io/nhsuk-frontend/components/pagination/index.html)
 
 ### HTML markup
 

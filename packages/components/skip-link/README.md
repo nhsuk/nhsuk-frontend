@@ -17,7 +17,7 @@ Ensure the correct `id` value has been added to your main content for the skip l
 
 ### Example
 
-[Preview the skip link component](https://nhsuk.github.io/nhsuk-frontend/components/skip-link.html)
+[Preview the skip link component](https://nhsuk.github.io/nhsuk-frontend/components/skip-link/index.html)
 
 ### HTML markup
 

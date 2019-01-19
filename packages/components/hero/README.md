@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with heading and content
 
-[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero.html)
+[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/index.html)
 
 ### HTML markup
 
@@ -38,7 +38,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with image, heading and content
 
-[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
 
 ### HTML markup
 
@@ -73,7 +73,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with image only
 
-[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
 
 ### HTML markup
 

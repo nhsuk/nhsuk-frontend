@@ -10,7 +10,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 ### Details
 
-[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details.html)
+[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details/index.html)
 
 ### HTML markup
 
@@ -62,7 +62,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Expander
 
-[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/expander.html)
+[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander.html)
 
 ### HTML markup
 
@@ -166,7 +166,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Expander group
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/expander-group.html)
+[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander-group.html)
 
 ### HTML markup
 

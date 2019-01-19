@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### List panel
 
-[Preview the list panel component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel.html)
+[Preview the list panel component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel/index.html)
 
 ### HTML markup
 

@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Example
 
-[Preview the review date component](https://nhsuk.github.io/nhsuk-frontend/components/review-date.html)
+[Preview the review date component](https://nhsuk.github.io/nhsuk-frontend/components/review-date/index.html)
 
 ### HTML markup
 

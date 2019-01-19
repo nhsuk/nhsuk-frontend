@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Nav A-Z
 
-[Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z.html)
+[Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z/index.html)
 
 ### HTML markup
 
