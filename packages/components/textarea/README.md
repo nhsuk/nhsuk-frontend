@@ -50,11 +50,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <label class="nhsuk-label" for="no-ni-reason">
     Why can&#39;t you provide a National Insurance number?
   </label>
-
   <span id="no-ni-reason-error" class="nhsuk-error-message">
     You must provide an explanation
   </span>
-
   <textarea class="nhsuk-textarea nhsuk-textarea--error" id="no-ni-reason" name="no-ni-reason" rows="5" aria-describedby="no-ni-reason-error"></textarea>
 </div>
 ```

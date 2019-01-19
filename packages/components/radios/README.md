@@ -75,36 +75,28 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
-  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-
-  <legend class="nhsuk-fieldset__legend">
-    Have you changed your name?
-  </legend>
-
-  <span class="nhsuk-hint" id="example-hint">
+  <fieldset class="nhsuk-fieldset" aria-describedby="example&#39;-hint">
+    <legend class="nhsuk-fieldset__legend">
+      Have you changed your name?
+    </legend>
+    <span class="nhsuk-hint" id="example&#39;-hint">
     This includes changing your last name or spelling your name differently.
-  </span>
-
-  <div class="nhsuk-radios nhsuk-radios--inline">
-
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
-      <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+    </span>
+    <div class="nhsuk-radios nhsuk-radios--inline">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example&#39;-1" name="example"type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example&#39;-1">
         Yes
-      </label>
-    </div>
-
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
-      <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example&#39;-2" name="example"type="radio" value="no" checked>
+        <label class="nhsuk-label nhsuk-radios__label" for="example&#39;-2">
         No
-      </label>
+        </label>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 
@@ -147,36 +139,28 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <fieldset class="nhsuk-fieldset" aria-describedby="example-disabled-hint">
-
-  <legend class="nhsuk-fieldset__legend">
-    Have you changed your name?
-  </legend>
-
-  <span class="nhsuk-hint" id="example-disabled-hint">
+    <legend class="nhsuk-fieldset__legend">
+      Have you changed your name?
+    </legend>
+    <span class="nhsuk-hint" id="example-disabled-hint">
     This includes changing your last name or spelling your name differently.
-  </span>
-
-  <div class="nhsuk-radios">
-
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-disabled-1" name="example-disabled" type="radio" value="yes" disabled>
-      <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
+    </span>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-disabled-1" name="example-disabled"type="radio" value="yes" disabled>
+        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
         Yes
-      </label>
-    </div>
-
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-disabled-2" name="example-disabled" type="radio" value="no" disabled>
-      <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-disabled-2" name="example-disabled"type="radio" value="no" disabled>
+        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
         No
-      </label>
+        </label>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 
@@ -225,20 +209,20 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     </legend>
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-1" name="example"type="radio" value="government-gateway">
+        <input class="nhsuk-radios__input" id="example-divider-1" name="example" type="radio" value="government-gateway">
         <label class="nhsuk-label nhsuk-radios__label" for="example-divider-1">
         Use Government Gateway
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-2" name="example"type="radio" value="nhsuk-login">
+        <input class="nhsuk-radios__input" id="example-divider-2" name="example" type="radio" value="nhsuk-login">
         <label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
         Use NHS.UK Login
         </label>
       </div>
       <div class="nhsuk-radios__divider">or</div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-4" name="example"type="radio" value="create-account">
+        <input class="nhsuk-radios__input" id="example-divider-4" name="example" type="radio" value="create-account">
         <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
         Create an account
         </label>
@@ -360,32 +344,26 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <div class="nhsuk-radios">
-
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-1" name="colours" type="radio" value="red">
+      <input class="nhsuk-radios__input" id="colours-1" name="colours"type="radio" value="red">
       <label class="nhsuk-label nhsuk-radios__label" for="colours-1">
-        Red
+      Red
       </label>
     </div>
-
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-2" name="colours" type="radio" value="green">
+      <input class="nhsuk-radios__input" id="colours-2" name="colours"type="radio" value="green">
       <label class="nhsuk-label nhsuk-radios__label" for="colours-2">
-        Green
+      Green
       </label>
     </div>
-
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-3" name="colours" type="radio" value="blue">
+      <input class="nhsuk-radios__input" id="colours-3" name="colours"type="radio" value="blue">
       <label class="nhsuk-label nhsuk-radios__label" for="colours-3">
-        Blue
+      Blue
       </label>
     </div>
-
   </div>
-
 </div>
 ```
 

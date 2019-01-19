@@ -191,7 +191,7 @@ The small promo Nunjucks macro takes the following arguments:
   </div>
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
         <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
@@ -202,7 +202,7 @@ The small promo Nunjucks macro takes the following arguments:
   </div>
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
         <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
@@ -230,6 +230,7 @@ The small promo Nunjucks macro takes the following arguments:
         </div>
       </a>
     </div>
+  </div>
 </div>
 ```
 

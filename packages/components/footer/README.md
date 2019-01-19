@@ -36,30 +36,30 @@ Find out more about the footer component and when to use it in the [NHS Digital 
 ```
 {% from 'components/footer/macro.njk' import footer %}
 
-  {{ footer({
-    "links": [
-      {
-        "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "https://www.nhs.uk/about-us",
-        "label": "About us"
-      },
-      {
-        "URL": "https://www.nhs.uk/contact-us/",
-        "label": "Contact us"
-      },
-      {
-        "URL": "https://www.nhs.uk/about-us/sitemap/",
-        "label": "Sitemap"
-      },
-      {
-        "URL": "https://www.nhs.uk/our-policies/",
-        "label": "Our policies"
-      }
-    ]
-  })}}
+{{ footer({
+  "links": [
+    {
+      "URL": "https://www.nhs.uk/Pages/nhs-sites.aspx",
+      "label": "NHS sites"
+    },
+    {
+      "URL": "https://www.nhs.uk/about-us",
+      "label": "About us"
+    },
+    {
+      "URL": "https://www.nhs.uk/contact-us/",
+      "label": "Contact us"
+    },
+    {
+      "URL": "https://www.nhs.uk/about-us/sitemap/",
+      "label": "Sitemap"
+    },
+    {
+      "URL": "https://www.nhs.uk/our-policies/",
+      "label": "Our policies"
+    }
+  ]
+})}}
 ```
 ## Nunjucks arguments
 
