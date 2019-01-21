@@ -171,7 +171,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       </label>
     </div>
     <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="colours-3" name="colours" type="checkbox" value="blue" disabled="">
+      <input class="nhsuk-checkboxes__input" id="colours-3" name="colours" type="checkbox" value="blue" disabled>
       <label class="nhsuk-label nhsuk-checkboxes__label" for="colours-3">
       Blue
       </label>
