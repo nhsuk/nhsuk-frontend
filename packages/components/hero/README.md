@@ -78,7 +78,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image"  style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
+<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
   <div class="nhsuk-hero__overlay">
   </div>
 </section>
