@@ -157,32 +157,26 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group">
-
   <div class="nhsuk-checkboxes">
-
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="colours-1" name="colours" type="checkbox" value="red">
       <label class="nhsuk-label nhsuk-checkboxes__label" for="colours-1">
-        Red
+      Red
       </label>
     </div>
-
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="colours-2" name="colours" type="checkbox" value="green">
       <label class="nhsuk-label nhsuk-checkboxes__label" for="colours-2">
-        Green
+      Green
       </label>
     </div>
-
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="colours-3" name="colours" type="checkbox" value="blue" disabled>
       <label class="nhsuk-label nhsuk-checkboxes__label" for="colours-3">
-        Blue
+      Blue
       </label>
     </div>
-
   </div>
-
 </div>
 ```
 
@@ -294,43 +288,34 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
-
   <fieldset class="nhsuk-fieldset" aria-describedby="waste-error">
-
-  <legend class="nhsuk-fieldset__legend">
-    Which types of waste do you transport regularly?
-  </legend>
-
-  <span id="waste-error" class="nhsuk-error-message">
+    <legend class="nhsuk-fieldset__legend">
+      Which types of waste do you transport regularly?
+    </legend>
+    <span id="waste-error" class="nhsuk-error-message">
     Please select an option
-  </span>
-
-  <div class="nhsuk-checkboxes">
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
+    </span>
+    <div class="nhsuk-checkboxes">
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
         Waste from animal carcasses
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
         Waste from mines or quarries
-      </label>
-    </div>
-
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
+        </label>
+      </div>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
         Farm or agricultural waste
-      </label>
+        </label>
+      </div>
     </div>
-
-  </div>
   </fieldset>
-
 </div>
 ```
 

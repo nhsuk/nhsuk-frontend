@@ -15,7 +15,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <label class="nhsuk-label" for="select-1">
     Label text goes here
   </label>
-
   <select class="nhsuk-select" id="select-1" name="select-1">
     <option value="1">NHS.UK frontend option 1</option>
     <option value="2" selected>NHS.UK frontend option 2</option>

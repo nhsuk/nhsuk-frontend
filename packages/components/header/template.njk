@@ -18,7 +18,7 @@
     {% if params.showNav == "false" and params.showSearch == "false"%}
 
       {% if params.transactionalService%}
-        <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long {% endif %}">
+        <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long{% endif %}">
           <a class="nhsuk-header__transactional-service-name--link" href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}">{{ params.transactionalService.name }}</a>
         </div>
       {% endif %}
@@ -87,7 +87,7 @@
         </li>
         {% for item in params.primaryLinks %}
           <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link" href="{{item.url}}" >
+            <a class="nhsuk-header__navigation-link" href="{{item.url}}">
               {{item.label}}
               <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -115,7 +115,7 @@
             <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
               <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
               <div class="autocomplete-container" id="autocomplete-container"></div>
-              <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
+              <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
               <button class="nhsuk-search__submit" type="submit">
                 <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -158,7 +158,7 @@
       </p>
       <ul class="nhsuk-header__navigation-list">
         <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
-          <a class="nhsuk-header__navigation-link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" >
+          <a class="nhsuk-header__navigation-link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}">
             Home
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -167,7 +167,7 @@
         </li>
         {% for item in params.primaryLinks %}
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="{{item.url}}" >
+          <a class="nhsuk-header__navigation-link" href="{{item.url}}">
             {{item.label}}
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>

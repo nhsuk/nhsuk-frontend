@@ -15,7 +15,6 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <label class="nhsuk-label" for="input-example">
     National Insurance number
   </label>
-
   <input class="nhsuk-input" id="input-example" name="test-name" type="text">
 </div>
 ```

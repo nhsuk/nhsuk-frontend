@@ -15,7 +15,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <li>
     <div class="nhsuk-list-panel">
       <h2 class="nhsuk-list-panel__label" id="A">A</h2>
-      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label ">
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
         <li class="nhsuk-list-panel__item">
           <a class="nhsuk-list-panel__link" href="/conditions/abdominal-aortic-aneurysm/">AAA</a>
         </li>
@@ -39,7 +39,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <li>
     <div class="nhsuk-list-panel">
       <h2 class="nhsuk-list-panel__label" id="B">B</h2>
-      <div class="nhsuk-list-panel__box nhsuk-list-panel__box--with-label ">
+      <div class="nhsuk-list-panel__box nhsuk-list-panel__box--with-label">
         <p class="nhsuk-list-panel--results-items__no-results">There are currently no conditions listed</p>
       </div>
       <div class="nhsuk-back-to-top">
@@ -55,7 +55,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <li>
     <div class="nhsuk-list-panel">
       <h2 class="nhsuk-list-panel__label" id="C">C</h2>
-      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label ">
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
         <li class="nhsuk-list-panel__item">
           <a class="nhsuk-list-panel__link" href="/conditions/chest-pain/">Chest pain</a>
         </li>
@@ -76,7 +76,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <li>
     <div class="nhsuk-list-panel">
       <h2 class="nhsuk-list-panel__label" id="D">D</h2>
-      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label ">
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
         <li class="nhsuk-list-panel__item">
           <a class="nhsuk-list-panel__link" href="/conditions/dandruff/">Dandruff</a>
         </li>
