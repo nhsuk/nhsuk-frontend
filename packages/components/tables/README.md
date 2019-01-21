@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Simple table
 
-[Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables.html)
+[Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/index.html)
 
 ### HTML markup
 
@@ -86,7 +86,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Table panel
 
-[Preview the table panel component](https://nhsuk.github.io/nhsuk-frontend/components/tables-panel.html)
+[Preview the table panel component](https://nhsuk.github.io/nhsuk-frontend/components/tables/tables-panel.html)
 
 ### HTML markup
 

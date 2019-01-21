@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo
 
-[Preview the promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo.html)
+[Preview the promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo/index.html)
 
 ### HTML markup
 
@@ -35,7 +35,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with image
 
-[Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with image component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html)
 
 ### HTML markup
 
@@ -66,7 +66,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Promo with no description
 
-[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo-with-image.html)
+[Preview the promo with no description component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html)
 
 ### HTML markup
 
@@ -105,7 +105,7 @@ The promo with no description Nunjucks macro takes the following arguments:
 
 ### Small promo
 
-[Preview the small promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo-small.html)
+[Preview the small promo component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-small.html)
 
 ### HTML markup
 
@@ -148,7 +148,7 @@ The small promo Nunjucks macro takes the following arguments:
 
 ### Promo group
 
-[Preview the promo group component](https://nhsuk.github.io/nhsuk-frontend/components/promo-group.html)
+[Preview the promo group component](https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-group.html)
 
 ## HTML markup
 
@@ -156,7 +156,7 @@ The small promo Nunjucks macro takes the following arguments:
 <div class="nhsuk-grid-row nhsuk-promo-group">
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
         <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
@@ -167,7 +167,7 @@ The small promo Nunjucks macro takes the following arguments:
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
         <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
@@ -180,7 +180,7 @@ The small promo Nunjucks macro takes the following arguments:
 <div class="nhsuk-grid-row nhsuk-promo-group">
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
         <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
@@ -215,7 +215,7 @@ The small promo Nunjucks macro takes the following arguments:
 <div class="nhsuk-grid-row nhsuk-promo-group">
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo nhsuk-promo--small">
-      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
         </div>
@@ -224,12 +224,13 @@ The small promo Nunjucks macro takes the following arguments:
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo nhsuk-promo--small">
-      <a class="nhsuk-promo__link-wrapper"  href="https://www.nhs.uk">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
         </div>
       </a>
     </div>
+  </div>
 </div>
 ```
 

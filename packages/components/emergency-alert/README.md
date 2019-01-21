@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Emergency alert
 
-[Preview the emergency alert component](https://nhsuk.github.io/nhsuk-frontend/components/emergency-alert.html)
+[Preview the emergency alert component](https://nhsuk.github.io/nhsuk-frontend/components/emergency-alert/index.html)
 
 ### HTML markup
 

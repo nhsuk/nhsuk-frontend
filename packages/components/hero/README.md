@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with heading and content
 
-[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero.html)
+[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/index.html)
 
 ### HTML markup
 
@@ -38,12 +38,12 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with image, heading and content
 
-[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
 
 ### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description"  style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');" >
+<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
   <div class="nhsuk-hero__overlay">
     <div class="nhsuk-width-container nhsuk-hero--border">
       <div class="nhsuk-grid-row">
@@ -73,12 +73,12 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Hero with image only
 
-[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero-image-content.html)
+[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
 
 ### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image"  style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');" >
+<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
   <div class="nhsuk-hero__overlay">
   </div>
 </section>

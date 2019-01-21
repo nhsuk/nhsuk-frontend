@@ -10,14 +10,14 @@ Find out more about the care card component and when to use it in the [NHS Digit
 
 ### Care card non-urgent (blue)
 
-[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-non-urgent.html)
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-non-urgent.html)
 
 ### HTML markup
 
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Non-urgent advice: </span>Speak to a GP if:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
@@ -56,14 +56,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Care card urgent (red)
 
-[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-urgent.html)
+[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-urgent.html)
 
 ### HTML markup
 
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--urgent">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
@@ -102,14 +102,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Care card immediate (red and black)
 
-[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card-immediate.html)
+[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-immediate.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-care-card nhsuk-care-card--immediate" >
+<div class="nhsuk-care-card nhsuk-care-card--immediate">
   <div class="nhsuk-care-card__heading-container">
-    <h3 class="nhsuk-care-card__heading"><span class="nhsuk-u-visually-hidden"><span role="text">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">

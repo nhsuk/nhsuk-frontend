@@ -6,7 +6,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ### Panel
 
-[Preview the panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel.html)
+[Preview the panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel/index.html)
 
 ### HTML markup
 
@@ -32,7 +32,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Panel with a label
 
-[Preview the panel with a label component](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html)
+[Preview the panel with a label component](https://nhsuk.github.io/nhsuk-frontend/components/panel/panel-with-label.html)
 
 ### HTML markup
 
@@ -58,7 +58,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Grey panel
 
-[Preview the grey panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel-grey.html)
+[Preview the grey panel component](https://nhsuk.github.io/nhsuk-frontend/components/panel/panel-grey.html)
 
 ### HTML markup
 
@@ -85,20 +85,20 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Panel group
 
-[Preview the panel group component](https://nhsuk.github.io/nhsuk-frontend/components/panel-group.html)
+[Preview the panel group component](https://nhsuk.github.io/nhsuk-frontend/components/panel/panel-group.html)
 
 ### HTML markup
 
 ```html
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel ">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel ">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
@@ -106,16 +106,18 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel ">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-    <div class="nhsuk-panel ">
+    <div class="nhsuk-panel">
       <h3>Panel title</h3>
       <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
     </div>
+  </div>
+</div>
 ```
 
 ### Nunjucks macro

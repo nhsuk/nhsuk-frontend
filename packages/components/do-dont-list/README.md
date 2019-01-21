@@ -2,14 +2,14 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/164).
 
-## Guidance 
+## Guidance
 Find out more about the do and don't list component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/do-and-dont-lists/).
 
 ## Quick start examples
 
 ### Do and don't list
 
-[Preview the do and don't list component](https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list.html)
+[Preview the do and don't list component](https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list/index.html)
 
 ### HTML markup
 

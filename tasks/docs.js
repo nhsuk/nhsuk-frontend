@@ -56,14 +56,6 @@ function copyBinaryAssets() {
 }
 
 /**
- * Copy 3rd party dependencies
- */
-function copyThirdParty() {
-  return gulp.src('node_modules/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest(config.dest + '/assets/libraries/'))
-}
-
-/**
  * Serve the static docs directory over localhost
  */
 function serve() {
@@ -87,7 +79,6 @@ gulp.task('docs:build', gulp.series([
   copyBuiltAssets,
   buildHtml,
   copyBinaryAssets,
-  copyThirdParty,
   reload,
 ]));
 gulp.task('docs:serve', gulp.series([

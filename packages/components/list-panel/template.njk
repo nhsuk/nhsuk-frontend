@@ -4,11 +4,11 @@
   <h{{ headingLevel }} class="nhsuk-list-panel__label" id="{{ params.id }}">{{ params.label }}</h{{ headingLevel }}>
   {% endif %}
   {% if params.disable %}
-  <div class="nhsuk-list-panel__box{% if params.label %} nhsuk-list-panel__box--with-label {% endif %}">
+  <div class="nhsuk-list-panel__box{% if params.label %} nhsuk-list-panel__box--with-label{% endif %}">
     <p class="nhsuk-list-panel--results-items__no-results">{{ params.message }}</p>
   </div>
   {% else %}
-  <ul class="nhsuk-list-panel__list{% if params.label %} nhsuk-list-panel__list--with-label {% endif %}">
+  <ul class="nhsuk-list-panel__list{% if params.label %} nhsuk-list-panel__list--with-label{% endif %}">
     {% for item in params.items %}
     <li class="nhsuk-list-panel__item">
       <a class="nhsuk-list-panel__link" href="{{ item.URL }}">{{ item.link }}</a>
