@@ -15,6 +15,11 @@ stages:
 jobs:
   include:
     - stage: tests
+      before_install:
+        npm start
+      script:
+        - docker run -v ./tests/backstop:/src -p 3000:3000 backstopjs/backstopjs test
+    - stage: tests
       script: npm test
 
     - stage: master
