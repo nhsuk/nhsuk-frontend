@@ -23,7 +23,11 @@
     "build-gh-release": "gulp zip"
   },
   "dependencies": {
-    "sass-mq": "^4.0.2"
+    "axe": "^3.0.7",
+    "axe-cli": "^3.0.0",
+    "axe-core": "^3.1.2",
+    "sass-mq": "^4.0.2",
+    "slimerjs": "^1.0.0"
   },
   "peerDependencies": {
     "jquery": "^3.3.1"
