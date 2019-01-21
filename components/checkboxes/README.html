@@ -218,32 +218,26 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/disabled.html">Preview the checkboxes with disabled item component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
-
     &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
       &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;colours-1&quot; name=&quot;colours&quot; type=&quot;checkbox&quot; value=&quot;red&quot;&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;colours-1&quot;&gt;
-        Red
+      Red
       &lt;/label&gt;
     &lt;/div&gt;
-
     &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
       &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;colours-2&quot; name=&quot;colours&quot; type=&quot;checkbox&quot; value=&quot;green&quot;&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;colours-2&quot;&gt;
-        Green
+      Green
       &lt;/label&gt;
     &lt;/div&gt;
-
     &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
       &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;colours-3&quot; name=&quot;colours&quot; type=&quot;checkbox&quot; value=&quot;blue&quot; disabled&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;colours-3&quot;&gt;
-        Blue
+      Blue
       &lt;/label&gt;
     &lt;/div&gt;
-
   &lt;/div&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/checkboxes/macro.njk&#39; import checkboxes %}
@@ -333,43 +327,34 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/error.html">Preview the checkboxes with error message component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group nhsuk-form-group--error&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;waste-error&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
-    Which types of waste do you transport regularly?
-  &lt;/legend&gt;
-
-  &lt;span id=&quot;waste-error&quot; class=&quot;nhsuk-error-message&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
+      Which types of waste do you transport regularly?
+    &lt;/legend&gt;
+    &lt;span id=&quot;waste-error&quot; class=&quot;nhsuk-error-message&quot;&gt;
     Please select an option
-  &lt;/span&gt;
-
-  &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-1&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;animal&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-1&quot;&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;nhsuk-checkboxes&quot;&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-1&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;animal&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-1&quot;&gt;
         Waste from animal carcasses
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-2&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;mines&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-2&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-2&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;mines&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-2&quot;&gt;
         Waste from mines or quarries
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-3&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;farm&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-3&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-checkboxes__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-checkboxes__input&quot; id=&quot;waste-3&quot; name=&quot;waste&quot; type=&quot;checkbox&quot; value=&quot;farm&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-checkboxes__label&quot; for=&quot;waste-3&quot;&gt;
         Farm or agricultural waste
-      &lt;/label&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/checkboxes/macro.njk&#39; import checkboxes %}

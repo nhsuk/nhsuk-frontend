@@ -124,6 +124,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
           &lt;form class=&quot;nhsuk-header__search-form&quot; id=&quot;search&quot;  action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
             &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
+            &lt;div class=&quot;autocomplete-container&quot; id=&quot;autocomplete-container&quot;&gt;&lt;/div&gt;
             &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; name=&quot;search-field&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot;&gt;
             &lt;button class=&quot;nhsuk-search__submit&quot; type=&quot;submit&quot;&gt;
               &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
@@ -186,7 +187,7 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;/a&gt;
       &lt;/li&gt;
       &lt;li class=&quot;nhsuk-header__navigation-item&quot;&gt;
-        &lt;a class=&quot;nhsuk-header__navigation-link&quot; href=&quot;https://www.nhs.uk/news/&quot; &gt;
+        &lt;a class=&quot;nhsuk-header__navigation-link&quot; href=&quot;https://www.nhs.uk/news/&quot;&gt;
           Health news
           &lt;svg class=&quot;nhsuk-icon nhsuk-icon__chevron-right&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
             &lt;path d=&quot;M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z&quot;&gt;&lt;/path&gt;
@@ -369,8 +370,9 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
         &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
           &lt;form class=&quot;nhsuk-header__search-form&quot; id=&quot;search&quot; action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
             &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
-            &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; name=&quot;search-field&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot; &gt;
-            &lt;button type=&quot;submit&quot; class=&quot;nhsuk-search__submit&quot;&gt;
+            &lt;div class=&quot;autocomplete-container&quot; id=&quot;autocomplete-container&quot;&gt;&lt;/div&gt;
+            &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; name=&quot;search-field&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot;&gt;
+            &lt;button class=&quot;nhsuk-search__submit&quot; type=&quot;submit&quot;&gt;
               &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
                 &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
               &lt;/svg&gt;
@@ -529,49 +531,49 @@ compiled JavaScript for all components <code>nhsuk.min.js</code> or the individu
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/header/header-service-name.html">Preview the header with logo component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-HTML">&lt;header class=&quot;nhsuk-header&quot; role=&quot;banner&quot;&gt;
-  &lt;div class=&quot;nhsuk-width-container nhsuk-header__container&quot;&gt;
-    &lt;div class=&quot;nhsuk-header__logo&quot;&gt;
-      &lt;a class=&quot;nhsuk-header__link nhsuk-header__link--service &quot; href=&quot;/&quot; aria-label=&quot;NHS homepage&quot;&gt;
-        &lt;svg class=&quot;nhsuk-logo nhsuk-logo--white&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; role=&quot;presentation&quot; focusable=&quot;false&quot; viewBox=&quot;0 0 40 16&quot;&gt;
-          &lt;path fill=&quot;#fff&quot; d=&quot;M0 0h40v16H0z&quot;&gt;&lt;/path&gt;
-          &lt;path fill=&quot;#005eb8&quot; d=&quot;M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6&quot;&gt;&lt;/path&gt;
-          &lt;image src=&quot;https://assets.nhs.uk/images/nhs-logo.png&quot; xlink:href=&quot;&quot;&gt;&lt;/image&gt;
+&lt;div class=&quot;nhsuk-width-container nhsuk-header__container&quot;&gt;
+  &lt;div class=&quot;nhsuk-header__logo&quot;&gt;
+    &lt;a class=&quot;nhsuk-header__link nhsuk-header__link--service &quot; href=&quot;/&quot; aria-label=&quot;NHS homepage&quot;&gt;
+      &lt;svg class=&quot;nhsuk-logo nhsuk-logo--white&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; role=&quot;presentation&quot; focusable=&quot;false&quot; viewBox=&quot;0 0 40 16&quot;&gt;
+        &lt;path fill=&quot;#fff&quot; d=&quot;M0 0h40v16H0z&quot;&gt;&lt;/path&gt;
+        &lt;path fill=&quot;#005eb8&quot; d=&quot;M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6&quot;&gt;&lt;/path&gt;
+        &lt;image src=&quot;https://assets.nhs.uk/images/nhs-logo.png&quot; xlink:href=&quot;&quot;&gt;&lt;/image&gt;
+      &lt;/svg&gt;
+      &lt;span class=&quot;nhsuk-header__service-name&quot;&gt;
+      Digital service manual
+      &lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-header__content&quot; id=&quot;content-header&quot;&gt;
+    &lt;div class=&quot;nhsuk-header__search&quot;&gt;
+      &lt;button class=&quot;nhsuk-header__search-toggle&quot; id=&quot;toggle-search&quot; aria-controls=&quot;search&quot; aria-label=&quot;Open search&quot;&gt;
+        &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+          &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
         &lt;/svg&gt;
-        &lt;span class=&quot;nhsuk-header__service-name&quot;&gt;
-        Digital service manual
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;nhsuk-header__content&quot; id=&quot;content-header&quot;&gt;
-      &lt;div class=&quot;nhsuk-header__search&quot;&gt;
-        &lt;button class=&quot;nhsuk-header__search-toggle&quot; id=&quot;toggle-search&quot; aria-controls=&quot;search&quot; aria-label=&quot;Open search&quot;&gt;
-          &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
-            &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
-          &lt;/svg&gt;
-          &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Search&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
-          &lt;form class=&quot;nhsuk-header__search-form&quot; id=&quot;search&quot; action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
-            &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
-            &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; name=&quot;search-field&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot;&gt;
-            &lt;button class=&quot;nhsuk-search__submit&quot; type=&quot;submit&quot;&gt;
-              &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
-                &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
-              &lt;/svg&gt;
-              &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Search&lt;/span&gt;
-            &lt;/button&gt;
-            &lt;button class=&quot;nhsuk-search__close&quot; id=&quot;close-search&quot;&gt;
-              &lt;svg class=&quot;nhsuk-icon nhsuk-icon__close&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
-                &lt;path d=&quot;M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z&quot;&gt;&lt;/path&gt;
-              &lt;/svg&gt;
-              &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Close search&lt;/span&gt;
-            &lt;/button&gt;
-          &lt;/form&gt;
-        &lt;/div&gt;
+        &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Search&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class=&quot;nhsuk-header__search-wrap&quot; id=&quot;wrap-search&quot;&gt;
+        &lt;form class=&quot;nhsuk-header__search-form&quot; id=&quot;search&quot; action=&quot;/search/&quot; method=&quot;get&quot; role=&quot;search&quot;&gt;
+          &lt;label class=&quot;nhsuk-u-visually-hidden&quot; for=&quot;search-field&quot;&gt;Search the NHS website&lt;/label&gt;
+          &lt;div class=&quot;autocomplete-container&quot; id=&quot;autocomplete-container&quot;&gt;&lt;/div&gt;
+          &lt;input class=&quot;nhsuk-search__input&quot; id=&quot;search-field&quot; name=&quot;search-field&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; autocomplete=&quot;off&quot;&gt;
+          &lt;button class=&quot;nhsuk-search__submit&quot; type=&quot;submit&quot;&gt;
+            &lt;svg class=&quot;nhsuk-icon nhsuk-icon__search&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+              &lt;path d=&quot;M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z&quot;&gt;&lt;/path&gt;
+            &lt;/svg&gt;
+            &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Search&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;button class=&quot;nhsuk-search__close&quot; id=&quot;close-search&quot;&gt;
+            &lt;svg class=&quot;nhsuk-icon nhsuk-icon__close&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+              &lt;path d=&quot;M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z&quot;&gt;&lt;/path&gt;
+            &lt;/svg&gt;
+            &lt;span class=&quot;nhsuk-u-visually-hidden&quot;&gt;Close search&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/form&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/header&gt;</code></pre>
+&lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/header/macro.njk&#39; import header %}
 

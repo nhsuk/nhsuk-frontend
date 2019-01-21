@@ -147,36 +147,28 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/radios/inline.html">Preview the radios inline component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;example-hint&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
-    Have you changed your name?
-  &lt;/legend&gt;
-
-  &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example-hint&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
+      Have you changed your name?
+    &lt;/legend&gt;
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example-hint&quot;&gt;
     This includes changing your last name or spelling your name differently.
-  &lt;/span&gt;
-
-  &lt;div class=&quot;nhsuk-radios nhsuk-radios--inline&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;yes&quot;&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-1&quot;&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;nhsuk-radios nhsuk-radios--inline&quot;&gt;
+      &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;yes&quot;&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-1&quot;&gt;
         Yes
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-2&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-2&quot;&gt;
         No
-      &lt;/label&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/radios/macro.njk&#39; import radios %}
@@ -208,36 +200,28 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/radios/disabled.html">Preview the radios disabled component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;fieldset class=&quot;nhsuk-fieldset&quot; aria-describedby=&quot;example-disabled-hint&quot;&gt;
-
-  &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
-    Have you changed your name?
-  &lt;/legend&gt;
-
-  &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example-disabled-hint&quot;&gt;
+    &lt;legend class=&quot;nhsuk-fieldset__legend&quot;&gt;
+      Have you changed your name?
+    &lt;/legend&gt;
+    &lt;span class=&quot;nhsuk-hint&quot; id=&quot;example-disabled-hint&quot;&gt;
     This includes changing your last name or spelling your name differently.
-  &lt;/span&gt;
-
-  &lt;div class=&quot;nhsuk-radios&quot;&gt;
-
-    &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-disabled-1&quot; name=&quot;example-disabled&quot; type=&quot;radio&quot; value=&quot;yes&quot; disabled&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-disabled-1&quot;&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;nhsuk-radios&quot;&gt;
+      &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-disabled-1&quot; name=&quot;example-disabled&quot; type=&quot;radio&quot; value=&quot;yes&quot; disabled&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-disabled-1&quot;&gt;
         Yes
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-      &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-disabled-2&quot; name=&quot;example-disabled&quot; type=&quot;radio&quot; value=&quot;no&quot; disabled&gt;
-      &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-disabled-2&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-disabled-2&quot; name=&quot;example-disabled&quot; type=&quot;radio&quot; value=&quot;no&quot; disabled&gt;
+        &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-disabled-2&quot;&gt;
         No
-      &lt;/label&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-  &lt;/div&gt;
   &lt;/fieldset&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/radios/macro.njk&#39; import radios %}
@@ -275,20 +259,20 @@
     &lt;/legend&gt;
     &lt;div class=&quot;nhsuk-radios&quot;&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-1&quot; name=&quot;example&quot;type=&quot;radio&quot; value=&quot;government-gateway&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;government-gateway&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-divider-1&quot;&gt;
         Use Government Gateway
         &lt;/label&gt;
       &lt;/div&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-2&quot; name=&quot;example&quot;type=&quot;radio&quot; value=&quot;nhsuk-login&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;nhsuk-login&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-divider-2&quot;&gt;
         Use NHS.UK Login
         &lt;/label&gt;
       &lt;/div&gt;
       &lt;div class=&quot;nhsuk-radios__divider&quot;&gt;or&lt;/div&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-4&quot; name=&quot;example&quot;type=&quot;radio&quot; value=&quot;create-account&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-divider-4&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;create-account&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-divider-4&quot;&gt;
         Create an account
         &lt;/label&gt;
@@ -336,7 +320,7 @@
     &lt;/legend&gt;
     &lt;div class=&quot;nhsuk-radios&quot;&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;gov-1&quot; name=&quot;gov&quot;type=&quot;radio&quot; value=&quot;gateway&quot; aria-describedby=&quot;gov-1-item-hint&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;gov-1&quot; name=&quot;gov&quot; type=&quot;radio&quot; value=&quot;gateway&quot; aria-describedby=&quot;gov-1-item-hint&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;gov-1&quot;&gt;
         Sign in with Government Gateway
         &lt;/label&gt;
@@ -345,7 +329,7 @@
         &lt;/span&gt;
       &lt;/div&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;gov-2&quot; name=&quot;gov&quot;type=&quot;radio&quot; value=&quot;verify&quot; aria-describedby=&quot;gov-2-item-hint&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;gov-2&quot; name=&quot;gov&quot; type=&quot;radio&quot; value=&quot;verify&quot; aria-describedby=&quot;gov-2-item-hint&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;gov-2&quot;&gt;
         Sign in with NHS.UK Login
         &lt;/label&gt;
@@ -388,32 +372,26 @@
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/radios/without-fieldset.html">Preview the radios without fieldset component</a></p>
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-form-group&quot;&gt;
-
   &lt;div class=&quot;nhsuk-radios&quot;&gt;
-
     &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
       &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;colours-1&quot; name=&quot;colours&quot; type=&quot;radio&quot; value=&quot;red&quot;&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;colours-1&quot;&gt;
-        Red
+      Red
       &lt;/label&gt;
     &lt;/div&gt;
-
     &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
       &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;colours-2&quot; name=&quot;colours&quot; type=&quot;radio&quot; value=&quot;green&quot;&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;colours-2&quot;&gt;
-        Green
+      Green
       &lt;/label&gt;
     &lt;/div&gt;
-
     &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
       &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;colours-3&quot; name=&quot;colours&quot; type=&quot;radio&quot; value=&quot;blue&quot;&gt;
       &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;colours-3&quot;&gt;
-        Blue
+      Blue
       &lt;/label&gt;
     &lt;/div&gt;
-
   &lt;/div&gt;
-
 &lt;/div&gt;</code></pre>
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/radios/macro.njk&#39; import radios %}
@@ -450,13 +428,13 @@
     &lt;/span&gt;
     &lt;div class=&quot;nhsuk-radios&quot;&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-1&quot; name=&quot;example&quot;type=&quot;radio&quot; value=&quot;yes&quot;&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-1&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;yes&quot;&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-1&quot;&gt;
         Yes
         &lt;/label&gt;
       &lt;/div&gt;
       &lt;div class=&quot;nhsuk-radios__item&quot;&gt;
-        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-2&quot; name=&quot;example&quot;type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
+        &lt;input class=&quot;nhsuk-radios__input&quot; id=&quot;example-2&quot; name=&quot;example&quot; type=&quot;radio&quot; value=&quot;no&quot; checked&gt;
         &lt;label class=&quot;nhsuk-label nhsuk-radios__label&quot; for=&quot;example-2&quot;&gt;
         No
         &lt;/label&gt;

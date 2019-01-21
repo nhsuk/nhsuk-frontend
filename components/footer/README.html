@@ -114,30 +114,30 @@
 <h3 id="nunjucks-macro">Nunjucks macro</h3>
 <pre><code>{% from &#39;components/footer/macro.njk&#39; import footer %}
 
-  {{ footer({
-    &quot;links&quot;: [
-      {
-        &quot;URL&quot;: &quot;https://www.nhs.uk/Pages/nhs-sites.aspx&quot;,
-        &quot;label&quot;: &quot;NHS sites&quot;
-      },
-      {
-        &quot;URL&quot;: &quot;https://www.nhs.uk/about-us&quot;,
-        &quot;label&quot;: &quot;About us&quot;
-      },
-      {
-        &quot;URL&quot;: &quot;https://www.nhs.uk/contact-us/&quot;,
-        &quot;label&quot;: &quot;Contact us&quot;
-      },
-      {
-        &quot;URL&quot;: &quot;https://www.nhs.uk/about-us/sitemap/&quot;,
-        &quot;label&quot;: &quot;Sitemap&quot;
-      },
-      {
-        &quot;URL&quot;: &quot;https://www.nhs.uk/our-policies/&quot;,
-        &quot;label&quot;: &quot;Our policies&quot;
-      }
-    ]
-  })}}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
+{{ footer({
+  &quot;links&quot;: [
+    {
+      &quot;URL&quot;: &quot;https://www.nhs.uk/Pages/nhs-sites.aspx&quot;,
+      &quot;label&quot;: &quot;NHS sites&quot;
+    },
+    {
+      &quot;URL&quot;: &quot;https://www.nhs.uk/about-us&quot;,
+      &quot;label&quot;: &quot;About us&quot;
+    },
+    {
+      &quot;URL&quot;: &quot;https://www.nhs.uk/contact-us/&quot;,
+      &quot;label&quot;: &quot;Contact us&quot;
+    },
+    {
+      &quot;URL&quot;: &quot;https://www.nhs.uk/about-us/sitemap/&quot;,
+      &quot;label&quot;: &quot;Sitemap&quot;
+    },
+    {
+      &quot;URL&quot;: &quot;https://www.nhs.uk/our-policies/&quot;,
+      &quot;label&quot;: &quot;Our policies&quot;
+    }
+  ]
+})}}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>The footer Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
