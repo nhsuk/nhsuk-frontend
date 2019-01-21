@@ -411,13 +411,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     </span>
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-1" name="example"type="radio" value="yes">
+        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
         <label class="nhsuk-label nhsuk-radios__label" for="example-1">
         Yes
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="example"type="radio" value="no" checked>
+        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
         <label class="nhsuk-label nhsuk-radios__label" for="example-2">
         No
         </label>
