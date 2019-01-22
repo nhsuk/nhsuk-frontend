@@ -4,7 +4,7 @@ describe('Skip link component tests', function () {
   });
 
   it('Navigating to skip link Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/skip-link.html')
+    cy.visit(Cypress.config().baseUrl + '/skip-link/index.html')
   });
 
   it('To check if there is a skip link component', function () {

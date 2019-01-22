@@ -5,7 +5,7 @@ describe('List panel component tests', function () {
   });
 
   it('Navigating to List panel Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/list-panel.html')
+    cy.visit(Cypress.config().baseUrl + '/list-panel/index.html')
   });
 
   it('To check if there are list of Alphabets', function () {

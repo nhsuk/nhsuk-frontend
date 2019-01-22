@@ -4,11 +4,11 @@ describe('Header component tests - 15 inch screen', function () {
   });
 
   it('Navigating to header component', function () {
-    cy.visit(Cypress.config().baseUrl + '/header.html')
+    cy.visit(Cypress.config().baseUrl + '/header/index.html')
   });
 
   it('To see whether there is a search input', function () {
-    cy.get('.nhsuk-search__input.tt-input')
+    cy.get('.nhsuk-header__search-toggle').should('have.attr','aria-controls')
   });
 
   it('To see whether there is a link in NHS Logo', function () {
@@ -46,7 +46,7 @@ describe('Header component tests - iphone 6 screensize', function () {
   });
 
   it('Navigating to Header Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/header.html')
+    cy.visit(Cypress.config().baseUrl + '/header/index.html')
   });
 
   it('To see header has a toggle menu', function () {
@@ -70,7 +70,7 @@ describe('Header component tests - iphone 6 screensize', function () {
   });
 
   it('To see whether there is an search input field', function () {
-    cy.get('.nhsuk-search__input.tt-input')
+    cy.get('.nhsuk-header__search-form').should('has.attr','action','/search/')
   });
 
   it('To see whether there is a link in the header logo', function () {

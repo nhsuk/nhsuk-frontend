@@ -5,7 +5,7 @@ describe('Back-link component tests', function () {
   });
 
   it('Navigating to Back-link Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/back-link/index.html')
+    cy.visit(Cypress.config().baseUrl + '/back-link/')
   });
 
   it('To see whether there is a back-link class', function () {

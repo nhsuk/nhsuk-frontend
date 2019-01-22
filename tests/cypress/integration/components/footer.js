@@ -3,7 +3,7 @@ describe('Footer component tests', function () {
     cy.viewport('macbook-15');
   });
   it('Navigating to Footer Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/footer.html')
+    cy.visit(Cypress.config().baseUrl + '/footer/index.html')
   });
 
   it('To check for any visually hidden text', function () {
@@ -18,6 +18,5 @@ describe('Footer component tests', function () {
 
   it('To check for copyright', function () {
     cy.get('.nhsuk-footer__copyright').hasOwnProperty('© Crown Copyright');
-    expect('p').to.not.be.empty;
   });
 });

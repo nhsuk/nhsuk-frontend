@@ -5,7 +5,7 @@ describe('Checkboxes component tests', function () {
   });
 
   it('Navigation to checkboxes component', function () {
-    cy.visit(Cypress.config().baseUrl + '/checkboxes')
+    cy.visit(Cypress.config().baseUrl + '/checkboxes/index.html')
   });
 
   it('To see whether checkbox field exists', function () {
@@ -56,56 +56,5 @@ describe('Checkboxes component tests', function () {
   });
 });
 
-describe('Checkbox disbled component tests', function () {
 
-  beforeEach(function () {
-    cy.viewport('macbook-15');
-  });
 
-  it('Navigating to checkbox disabled component', function () {
-    cy.visit(Cypress.config().baseUrl + '/checkboxes/disabled.html')
-  });
-
-  it('To check there is a disabled checkbox', function () {
-    cy.get('.nhsuk-checkboxes__input').should('be.disabled')
-  });
-
-  it('To check is there some text in the label', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-checkboxes__label').should('not.be.empty');
-    expect('label').to.not.be.empty;
-  });
-});
-
-describe('Checkbox with error message tests', function () {
-
-  beforeEach(function () {
-    cy.viewport('macbook-15');
-  });
-
-  it('Navigating to checkbox disabled Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/checkboxes/error.html')
-  });
-
-  it('To check whether there is a description', function () {
-    cy.get('.nhsuk-fieldset').should('have.attr', 'aria-describedby')
-  });
-
-  it('To check is there some text in the label', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-checkboxes__label').should('not.be.empty');
-    expect('label').to.not.be.empty;
-  });
-
-  it('To check is there some text in the error message', function () {
-    cy
-      .get('.nhsuk-error-message').should('not.be.empty');
-    expect('label').to.not.be.empty;
-  });
-
-  it('To check is there some text in the legend', function () {
-    cy
-      .get('.nhsuk-label.nhsuk-checkboxes__label').should('not.be.empty');
-    expect('span').to.not.be.empty;
-  });
-});

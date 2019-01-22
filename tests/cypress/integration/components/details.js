@@ -4,7 +4,7 @@ describe('Details component tests', function () {
   });
 
   it('Navigating to details Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/details.html')
+    cy.visit(Cypress.config().baseUrl + '/details/index.html')
   });
 
   it('To see whether there is a summary', function () {

@@ -5,7 +5,7 @@ describe('A-Z Navigation component tests', function () {
   });
 
   it('Navigating to A-Z Navigation', function () {
-    cy.visit(Cypress.config().baseUrl + '/nav-a-z.html')
+    cy.visit(Cypress.config().baseUrl + '/nav-a-z/index.html')
   });
 
   it('To check if there is any A-Z list', function () {

@@ -5,7 +5,7 @@ describe('Action link component tests', function () {
   });
 
   it('Navigating to Action Link Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/action-link.html')
+    cy.visit(Cypress.config().baseUrl + '/action-link/')
   });
 
   it('To see whether it has action link class', function () {

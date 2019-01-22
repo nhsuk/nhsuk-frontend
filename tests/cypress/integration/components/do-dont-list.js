@@ -5,7 +5,7 @@ describe('Do - dont list component tests', function () {
   });
 
   it('Navigating to Do-Dont list Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/do-dont-list.html')
+    cy.visit(Cypress.config().baseUrl + '/do-dont-list/index.html')
   });
 
   it('To see whether there is a Do label', function () {

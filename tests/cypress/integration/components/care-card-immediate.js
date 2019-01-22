@@ -5,7 +5,7 @@ describe('Care-card immediate component tests', function () {
   });
 
   it('Navigating to emergency care card Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/care-card-immediate.html')
+    cy.visit(Cypress.config().baseUrl + '/care-card/care-card-immediate.html')
   });
 
   it('To see whether there ia a container', function () {
@@ -33,12 +33,7 @@ describe('Care-card immediate component tests', function () {
       .should('have.class', 'nhsuk-care-card__heading')
   });
 
-  it('To check for a visually hidden class', function () {
-    cy
-      .get('.nhsuk-care-card__heading').children()
-      .should('have.class', 'nhsuk-u-visually-hidden')
-  });
-
+  
   it('To check for a visually hidden class', function () {
     cy
       .get('.nhsuk-u-visually-hidden')

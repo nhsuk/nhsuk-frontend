@@ -5,7 +5,7 @@ describe('Emergency alert component tests', function () {
   });
 
   it('Navigating to emergency_alert Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/emergency-alert.html')
+    cy.visit(Cypress.config().baseUrl + '/emergency-alert/index.html')
   });
 
   it('To see whether the alert exists', function () {

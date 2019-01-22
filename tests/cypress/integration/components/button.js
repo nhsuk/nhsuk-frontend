@@ -5,7 +5,7 @@ describe('Button component tests', function () {
   });
 
   it('Navigating to Button component', function () {
-    cy.visit(Cypress.config().baseUrl + '/button/index.html')
+    cy.visit(Cypress.config().baseUrl + '/button/')
   });
 
   it('To see whether button exists', function () {

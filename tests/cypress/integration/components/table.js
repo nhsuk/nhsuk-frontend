@@ -4,7 +4,7 @@ describe('Table component tests', function () {
   });
 
   it('Navigating to Table Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/tables.html')
+    cy.visit(Cypress.config().baseUrl + '/tables/index.html')
   });
 
   it('To check if there is some text in the table caption', function () {

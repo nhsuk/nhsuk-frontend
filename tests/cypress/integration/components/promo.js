@@ -5,7 +5,7 @@ describe('Promo component tests', function () {
   });
 
   it('Navigating to Promo Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/promo.html')
+    cy.visit(Cypress.config().baseUrl + '/promo/index.html')
   });
 
   it('Checking for promo content class', function () {
@@ -38,7 +38,7 @@ describe('Promo component with image tests', function () {
   });
 
   it('Navigating to Promo Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/promo-with-image.html')
+    cy.visit(Cypress.config().baseUrl + '/promo/promo-with-image.html')
   });
 
   it('To check there is a promo component', function () {
@@ -79,7 +79,7 @@ describe('Small promo component tests', function () {
   });
 
   it('Navigating to Promo Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/promo-small.html')
+    cy.visit(Cypress.config().baseUrl + '/promo/promo-small.html')
   });
 
   it('To check if there is a promo component', function () {

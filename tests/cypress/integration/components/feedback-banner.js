@@ -4,7 +4,7 @@ describe('Feedback-banner component tests', function () {
   });
 
   it('Navigating to details Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/feedback-banner.html')
+    cy.visit(Cypress.config().baseUrl + '/feedback-banner/index.html')
   });
 
   it('Wait for 3 sec to see the feedback banner', function () {

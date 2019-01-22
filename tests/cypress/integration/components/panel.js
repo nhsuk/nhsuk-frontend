@@ -5,7 +5,7 @@ describe('Panel component tests', function () {
   });
 
   it('Navigating to panel Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/panel.html')
+    cy.visit(Cypress.config().baseUrl + '/panel/index.html')
   });
 
   it('To check there is panel component', function () {

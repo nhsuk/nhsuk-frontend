@@ -5,7 +5,7 @@ describe('Inset text component', function () {
   });
 
   it('Navigating to inset text Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/inset-text.html')
+    cy.visit(Cypress.config().baseUrl + '/inset-text/index.html')
   });
 
   it('Checking for visually hidden text', function () {

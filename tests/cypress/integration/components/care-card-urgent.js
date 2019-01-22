@@ -5,7 +5,7 @@ describe('Care-card urgent component tests', function () {
   });
 
   it('Navigating to urgent care card Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/care-card-urgent.html')
+    cy.visit(Cypress.config().baseUrl + '/care-card/care-card-urgent.html')
   });
 
   it('To see whether the component exists', function () {

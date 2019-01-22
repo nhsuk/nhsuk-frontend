@@ -5,7 +5,7 @@ describe('Expander component tests', function () {
   });
 
   it('Navigating to Expander component', function () {
-    cy.visit(Cypress.config().baseUrl + '/expander.html')
+    cy.visit(Cypress.config().baseUrl + '/details/expander.html')
   });
 
   it('To see whether there is an expander component', function () {

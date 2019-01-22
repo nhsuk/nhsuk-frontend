@@ -5,7 +5,7 @@ describe('Breadcrumb component tests', function () {
   });
 
   it('Navigating to Breadcrumb component', function () {
-    cy.visit(Cypress.config().baseUrl + '/breadcrumb.html')
+    cy.visit(Cypress.config().baseUrl + '/breadcrumb')
   });
 
   it('To see whether there is a list in the breadcrumb', function () {

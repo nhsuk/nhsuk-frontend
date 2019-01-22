@@ -5,7 +5,7 @@ describe('Expander - group components tests', function () {
   });
 
   it('Navigating to EXpander - group Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/expander-group.html')
+    cy.visit(Cypress.config().baseUrl + '/details/expander-group.html')
   });
 
   it('To see whether there is a group of expanders', function () {

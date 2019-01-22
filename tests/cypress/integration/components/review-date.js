@@ -5,7 +5,7 @@ describe('Review date component tests', function () {
   });
 
   it('Navigating to Review date Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/review-date.html')
+    cy.visit(Cypress.config().baseUrl + '/review-date/index.html')
   });
 
   it('Checking for review date class', function () {

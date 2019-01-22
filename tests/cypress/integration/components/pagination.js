@@ -5,7 +5,7 @@ describe('Pagination component tests', function () {
   });
 
   it('Navigating to Pagination Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/pagination.html')
+    cy.visit(Cypress.config().baseUrl + '/pagination/index.html')
   });
 
   it('To check for pagination aria label', function () {

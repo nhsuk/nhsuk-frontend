@@ -4,7 +4,7 @@ describe('Warning callout component tests', function () {
   });
 
   it('Navigating to warning callout Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/warning-callout.html')
+    cy.visit(Cypress.config().baseUrl + '/warning-callout/index.html')
   });
 
   it('To check if there is a warning callout component', function () {

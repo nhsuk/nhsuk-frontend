@@ -5,7 +5,7 @@ describe('Content-list component tests', function () {
   });
 
   it('Navigating to content list Component', function () {
-    cy.visit(Cypress.config().baseUrl + '/contents-list.html')
+    cy.visit(Cypress.config().baseUrl + '/contents-list/index.html')
   });
 
   it('To see whether there is a label', function () {
