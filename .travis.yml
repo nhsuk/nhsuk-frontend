@@ -18,9 +18,13 @@ jobs:
       before_install:
         npm start
       script:
-        - docker run -v ./tests/backstop:/src -p 3000:3000 backstopjs/backstopjs test
-    - stage: tests
-      script: npm test
+        - npm test
+        - npm run cypress_ci_tests
+
+
+    - stage: backstop tests
+      script:
+        - docker run backstopjs/backstopjs -v tests/backstop:/src test /bin/sh -p 127.0.0.1:3000-c "cd /root/test; bundle exec npm run backstop:test;
 
     - stage: master
       name: github pages

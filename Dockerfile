@@ -20,7 +20,6 @@ RUN sudo add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable m
 RUN	apt-get -y update && \
 apt-get -y install google-chrome-stable
 
-RUN apt-get install -y firefox-esr
 
 ports:
   - "3000:3000"
