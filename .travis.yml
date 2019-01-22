@@ -15,8 +15,6 @@ stages:
 jobs:
   include:
     - stage: tests
-      before_install:
-        npm start
       script:
         - npm test
         - npm run cypress_ci_tests
