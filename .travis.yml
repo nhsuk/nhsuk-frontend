@@ -15,12 +15,19 @@ stages:
 jobs:
   include:
     - stage: tests
+      name: Lint
       script:
         - npm test
-        - npm run cypress_ci_tests
 
 
-    - stage: backstop tests
+    - stage: tests
+      name: Cypress-test
+      script:
+        -npm run cypress_ci_tests
+
+
+    - stage: tests
+      name: BackstopJS-test
       before_script:
         - docker run backstopjs/backstopjs -v tests:backstop:src tests
       script:
