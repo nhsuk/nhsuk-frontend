@@ -27,7 +27,7 @@
   "scenarios": [
     {
       "label": "A-Z navigation",
-      "url": "http://host.docker.internal:3000/components/nav-a-z/index.html"
+      "url": "http://localhost:3000/components/nav-a-z/index.html"
     },
     {
       "label": "Action link",
