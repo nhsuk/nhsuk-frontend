@@ -22,7 +22,7 @@ jobs:
 
     - stage: backstop tests
       script:
-        - docker run backstopjs/backstopjs -v tests/backstop:/src test /bin/sh -p 127.0.0.1:3000 -c "cd /root/test; bundle exec npm run backstop:test;"
+        - npm run backstop_in_docker
 
     - stage: master
       name: github pages
