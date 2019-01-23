@@ -24,8 +24,6 @@ apt-get -y install google-chrome-stable
 ports:
   - "3000:3000"
 
-EXPOSE 3000
-
 WORKDIR /src
 
 ENTRYPOINT ["backstop"]
