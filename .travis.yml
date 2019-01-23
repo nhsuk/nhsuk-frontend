@@ -15,9 +15,13 @@ stages:
 jobs:
   include:
     - stage: tests
-      name: Lint and Cypress-tests
+      name: Lint
       script:
         - npm test
+
+    - stage: tests
+      name: Cypress-tests
+      script:
         - npm run cypress_ci_tests
 
     - stage: tests
