@@ -22,7 +22,7 @@ jobs:
 
     - stage: backstop tests
       script:
-        - npm run backstop_in_docker
+        - npm run backstop_ci_tests
 
     - stage: master
       name: github pages
