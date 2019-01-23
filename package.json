@@ -8,7 +8,7 @@
     "build": "gulp build",
     "start": "gulp",
     "start-server": "npm start",
-    "cypress_ci_tests": "start-server-and-test start-server http://localhost:3000 cypress",
+    "cypress_ci_tests": "start-server-and-test start-server http://host.docker.internal:3000 cypress",
     "backstop_ci_tests": "start-server-and-test start-server http://localhost:3000 backstop:test",
     "backstop_ci_ref": "start-server-and-test start-server http://localhost:3000 backstop:ref",
     "cypress": "cypress run --project ./tests",
