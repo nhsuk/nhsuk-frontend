@@ -33,7 +33,7 @@ If you are using Nunjucks, then macros take the following arguments:
 | Name                    | Type     | Required  | Description             |
 | ------------------------|----------|-----------|-------------------------|
 | **text or (html) html** | string   | Yes       | Text or HTML to use within the hint. If `html` is provided, the `text` argument will be ignored. |
-| **id**                  | string   | Yes       | Optional id attribute o add to the hint span tag. |
+| **id**                  | string   | Yes       | Optional id attribute to add to the hint span tag. |
 | **classes**             | string   | No        | Optional additional classes to add to the hint span tag. Separate each class with a space. |
 | **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the input component. |
 
