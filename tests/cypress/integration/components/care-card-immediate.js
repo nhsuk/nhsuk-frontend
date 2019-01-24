@@ -20,6 +20,7 @@ describe('Care-card immediate component tests', function () {
     cy
       .get('.nhsuk-care-card.nhsuk-care-card--immediate').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
+      .should('not.be.empty');
   });
 
   it('To see whether it has a content', function () {

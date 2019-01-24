@@ -12,16 +12,22 @@ describe('Header with navigation component tests - 15 inch screen', function () 
   });
   
   it('To see whether there is a link in NHS Logo', function () {
-    cy.get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
+    cy
+      .get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
+      .should('not.be.empty');
   });
   
   it('To see whether there is a decription in the NHS logo', function () {
-    cy.get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
+    cy
+      .get('.nhsuk-header__logo').first().children().should('have.class', 'nhsuk-header__link')
       .should('have.attr', 'aria-label','NHS homepage')
+      .should('not.be.empty');
   });
   
   it('To see whether there is a link in the header', function () {
-    cy.get('.nhsuk-header__link').should('have.attr', 'href','/')
+    cy
+      .get('.nhsuk-header__link').should('have.attr', 'href','/')
+      .should('not.be.empty');
   });
   
   it('To see whether there is a search term in the search field', function () {

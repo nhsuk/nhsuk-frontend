@@ -12,7 +12,9 @@ describe('Header with navigation component tests - 15 inch screen', function () 
   });
   
   it('To see if there some text in the service name', function () {
-    cy.get('.nhsuk-header__transactional-service-name--link').should('have.attr','href','/')
+    cy
+      .get('.nhsuk-header__transactional-service-name--link').should('have.attr','href','/')
+      .should('not.be.empty');
   });
 });
 
@@ -26,7 +28,9 @@ describe('Header with navigation component tests - iphone 6 screensize', functio
   });
   
   it('To see if there is a service', function () {
-    cy.get('.nhsuk-header__transactional-service-name')
+    cy
+      .get('.nhsuk-header__transactional-service-name')
+      .should('not.be.empty');
   });
   
   it('To see if there some text in the service name', function () {

@@ -24,13 +24,6 @@ jobs:
       script:
         - npm run cypress_ci_tests
 
-    - stage: tests
-      name: BackstopJS-test
-      before_script:
-        - docker run backstopjs/backstopjs -v tests:backstop:src tests
-      script:
-        - npm run backstop_ci_tests
-
     - stage: master
       name: github pages
       script: npm run build-gh-pages

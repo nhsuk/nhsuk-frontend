@@ -16,6 +16,7 @@ describe('Care-card non-urgent component tests', function () {
     cy
       .get('.nhsuk-care-card').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
+      .should('not.be.empty');
   });
 
   it('To check whether heading exists', function () {
@@ -25,7 +26,9 @@ describe('Care-card non-urgent component tests', function () {
   });
 
   it('To see the existance of visually hidden element', function () {
-    cy.get('.nhsuk-u-visually-hidden')
+    cy
+      .get('.nhsuk-u-visually-hidden')
+      .should('not.be.empty');
   });
 
   it('To see whether there is content', function () {

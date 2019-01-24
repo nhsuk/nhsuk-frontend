@@ -17,7 +17,9 @@ describe('Header with navigation component tests - 15 inch screen', function () 
   });
   
   it('To see whether there is a link in the header', function () {
-    cy.get('.nhsuk-header__link').should('have.attr', 'href','/')
+    cy
+      .get('.nhsuk-header__link').should('have.attr', 'href','/')
+      .should('not.be.empty');
   });
   
   it('To see whether there is a search term in the search field', function () {

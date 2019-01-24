@@ -9,11 +9,15 @@ describe('Checkboxes component tests', function () {
   });
 
   it('To see whether checkbox field exists', function () {
-    cy.get('.nhsuk-form-group').children().should('have.class','nhsuk-fieldset')
+    cy
+      .get('.nhsuk-form-group').children().should('have.class','nhsuk-fieldset')
+      .should('not.be.empty');
   });
 
   it('To check whether there is a descriptive', function () {
-    cy.get('.nhsuk-fieldset').should('have.attr','aria-describedby')
+    cy
+      .get('.nhsuk-fieldset').should('have.attr','aria-describedby')
+      .should('not.be.empty');
   });
 
   it('To check whether there is a legend in the group', function () {
@@ -22,13 +26,9 @@ describe('Checkboxes component tests', function () {
 
   it('To check there is some text in legend', function () {
     cy
-      .get('.nhsuk-form-group').children().children().should('have.class','nhsuk-fieldset__legend')
+      .get('.nhsuk-fieldset__legend')
       .should('not.be.empty');
     expect('text').to.not.be.empty;
-  });
-
-  it('To check whether there are checkboxes', function () {
-    cy.get('.nhsuk-checkboxes')
   });
 
   it('To check whether there is a checkbox in the group ', function () {

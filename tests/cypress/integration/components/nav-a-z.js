@@ -29,5 +29,6 @@ describe('A-Z Navigation component tests', function () {
 
   it('To check if the list has a link', function () {
     cy.get('.nhsuk-nav-a-z__list').children().children().should('have.attr', 'href')
+      .should('not.be.empty');
   });
 });

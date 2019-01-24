@@ -23,7 +23,9 @@ describe('Date-input component tests', function () {
   });
 
   it('To check whether there is a hint for the input fields', function () {
-    cy.get('.nhsuk-hint')
+    cy
+      .get('.nhsuk-hint')
+      .should('not.be.empty');
   });
 
   it('To see whether there is some hint text', function () {

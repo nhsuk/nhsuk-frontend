@@ -4,12 +4,12 @@ describe('Back-link component tests', function () {
     cy.viewport('macbook-15');
   });
 
-  it('Navigating to Back-link Component', function () {
+  it('Navigating to back-link Component', function () {
     cy.visit(Cypress.config().baseUrl + '/back-link/')
   });
 
   it('To see whether there is a back-link class', function () {
-    cy.get('.nhsuk-back-link')
+    cy.get('.nhsuk-back-link').should('not.be.empty');
   });
 
   it('To see whether there is a link in the component', function () {

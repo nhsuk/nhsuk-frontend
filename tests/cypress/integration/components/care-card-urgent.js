@@ -16,6 +16,7 @@ describe('Care-card urgent component tests', function () {
     cy
       .get('.nhsuk-care-card.nhsuk-care-card--urgent').children()
       .should('have.class', 'nhsuk-care-card__heading-container')
+      .should('not.be.empty');
   });
 
   it('To see whether there is content', function () {
@@ -47,6 +48,7 @@ describe('Care-card urgent component tests', function () {
     cy
       .get('.nhsuk-care-card__content')
       .should('have.css', 'font-family').and('eq', '"Frutiger W01", Helvetica, Arial, sans-serif')
+      .should('not.be.empty');
   });
 
   it('To see if there is some text in the heading ribbon', function () {
