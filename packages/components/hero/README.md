@@ -93,3 +93,15 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
 }) }}
 ```
+
+## Nunjucks arguments
+
+The transactional header with a long service name macro takes the following arguments:
+
+| Name                       | Type     | Required  | Description  |
+| ---------------------------|----------|-----------|--------------|
+| **heading**                | string   | No        | Text heading of the hero component. |
+| **text**                   | string   | No        | Text content of the hero component. |
+| **imageURL**               | string   | No        | URL of the image of the hero component. |
+| **classes**                | string   | No        | Optional additional classes to add to the hero container. Separate each class with a space. |
+| **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the hero container. |
