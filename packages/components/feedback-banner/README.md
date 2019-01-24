@@ -39,7 +39,20 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 {{ feedbackBanner({
   "title": "Help us make the NHS website better",
   "content": "Your feedback helps us improve the NHS website.",
-  "href": "https://www.nhs.uk",
-  "label": "Take our short survey"
+  "label": "Take our short survey",
+  "href": "https://www.nhs.uk"
 }) }}
 ```
+
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name              | Type     | Required  | Description |
+| ------------------|----------|-----------|-------------|
+| **title**         | string   | Yes       | Title to be displayed in the feedback banner component. |
+| **content**       | string   | Yes       | Content of the feedback banner component |
+| **label**         | string   | No        | Optional text to be displayed within the link at the end of the content |
+| **href**          | string   | No        | Optional value of the link href attribute at the end of the content |
+| **classes**       | string   | No        | Optional additional classes to add to the feedback banner container. Separate each class with a space. |
+| **attributes**    | object   | No        | Any extra HTML attributes (for example data attributes) to add to the feedback banner container. |
