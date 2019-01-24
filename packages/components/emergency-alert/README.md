@@ -11,7 +11,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ### HTML markup
 
 ```html
-<div id="nhsuk-global-alert" class="nhsuk-global-alert">
+<div class="nhsuk-global-alert" id="nhsuk-global-alert">
   <div class="nhsuk-width-container">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
@@ -34,8 +34,22 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {{ emergencyAlert({
   "title": "National flu outbreak",
   "content": "There has been a national flu outbreak.",
-  "href": "https://www.nhs.uk",
   "label": "How does it affect me",
+  "href": "https://www.nhs.uk",
   "lastUpdated": "Updated 23 mins ago"
 }) }}
 ```
+
+## Nunjucks arguments
+
+If you are using Nunjucks, then macros take the following arguments:
+
+| Name              | Type     | Required  | Description |
+| ------------------|----------|-----------|-------------|
+| **title**         | string   | Yes       | Title to be displayed in the emergency alert component. |
+| **content**       | string   | Yes       | Content of the emergency alert component |
+| **label**         | string   | No        | Optional text to be displayed within the link at the end of the content |
+| **href**          | string   | No        | Optional value of the link href attribute at the end of the content |
+| **lastUpdated**   | string   | No        | Optional text displayed below the main content to show last updated message |
+| **classes**       | string   | No        | Optional additional classes to add to the emergency alert container. Separate each class with a space. |
+| **attributes**    | object   | No        | Any extra HTML attributes (for example data attributes) to add to the emergency alert container. |
