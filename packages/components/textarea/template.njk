@@ -14,9 +14,9 @@
     attributes: params.label.attributes,
     for: params.id
   }) | indent(2) | trim }}
-{% if params.hint %}
-  {% set hintId = params.id + '-hint' %}
-  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+{%- if params.hint %}
+  {%- set hintId = params.id + '-hint' %}
+  {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -24,18 +24,21 @@
     html: params.hint.html,
     text: params.hint.text
   }) | indent(2) | trim }}
-{% endif %}
-{% if params.errorMessage %}
-  {% set errorId = params.id + '-error' %}
-  {% set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+{%- endif %}
+{%- if params.errorMessage %}
+  {%- set errorId = params.id + '-error' %}
+  {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,
     html: params.errorMessage.html,
     text: params.errorMessage.text
   }) | indent(2) | trim }}
-{% endif %}
-  <textarea class="nhsuk-textarea {{- ' nhsuk-textarea--error' if params.errorMessage }} {{- ' ' + params.classes if params.classes}}" id="{{ params.id }}" name="{{ params.name }}" rows="{%if params.rows %} {{- params.rows -}} {% else %}5{%endif %}"
+{%- endif %}
+  <textarea class="nhsuk-textarea
+  {%- if params.errorMessage %} nhsuk-textarea--error{% endif %}
+  {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ params.id }}" name="{{ params.name }}" rows="
+  {%- if params.rows %} {{ params.rows }} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ params.value }}</textarea>
 </div>
