@@ -101,85 +101,85 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/nav-a-z/macro.njk' import azNav %}
 
 {{ azNav({
-  items: [
+  "items": [
     {
-      label: "A"
+      "label": "A"
     },
     {
-      disable: "true",
-      label: "B"
+      "disable": "true",
+      "label": "B"
     },
     {
-      label: "C"
+      "label": "C"
     },
     {
-      label: "D"
+      "label": "D"
     },
     {
-      label: "E"
+      "label": "E"
     },
     {
-      label: "F"
+      "label": "F"
     },
     {
-      label: "G"
+      "label": "G"
     },
     {
-      label: "H"
+      "label": "H"
     },
     {
-      label: "I"
+      "label": "I"
     },
     {
-      label: "J"
+      "label": "J"
     },
     {
-      label: "K"
+      "label": "K"
     },
     {
-      label: "L"
+      "label": "L"
     },
     {
-      label: "M"
+      "label": "M"
     },
     {
-      label: "N"
+      "label": "N"
     },
     {
-      label: "O"
+      "label": "O"
     },
     {
-      label: "P"
+      "label": "P"
     },
     {
-      label: "Q"
+      "label": "Q"
     },
     {
-      label: "R"
+      "label": "R"
     },
     {
-      label: "S"
+      "label": "S"
     },
     {
-      label: "T"
+      "label": "T"
     },
     {
-      label: "U"
+      "label": "U"
     },
     {
-      label: "V"
+      "label": "V"
     },
     {
-      label: "W"
+      "label": "W"
     },
     {
-      label: "X"
+      "label": "X"
     },
     {
-      label: "Y"
+      "label": "Y"
     },
     {
-      label: "Z"
+      "label": "Z"
     }
   ]
 }) }}

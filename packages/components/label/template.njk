@@ -1,15 +1,16 @@
 {% if params.html or params.text %}
-{% set labelHtml %}
-<label class="nhsuk-label{%- if params.classes %} {{ params.classes }}{% endif %}"
-  {%- if params.for %} for="{{ params.for }}"{% endif %}
-  {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+{%- set labelHtml %}
+<label class="nhsuk-label
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- if params.for %} for="{{ params.for }}"{% endif %}
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   {{ params.html | safe if params.html else params.text }}
 </label>
-{% endset %}
+{%- endset -%}
 
-{% if params.isPageHeading %}
+{%- if params.isPageHeading %}
 <h1 class="nhsuk-label-wrapper">{{ labelHtml | safe | indent(2) }}</h1>
-{% else %}
+{%- else -%}
 {{ labelHtml | safe }}
-{% endif %}
-{% endif %}
+{%- endif -%}
+{%- endif -%}
