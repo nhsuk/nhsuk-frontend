@@ -40,15 +40,17 @@ We aim to have non-technical descriptions in our tests
 Example:
 
 ```js
-it('To see whether it has a circle with right arrow', function () {
 
-  cy.get('.nhsuk-action-link__link').children().should('have.class','nhsuk-icon nhsuk-icon__arrow-right-circle')
-  
+it('To see whether there is some text in the Link', function () {
+    cy
+      .get('.nhsuk-icon.nhsuk-icon__chevron-left').should('not.be.empty');
+    expect('a').to.not.be.empty;
   });
+});
 ```
 
 In the above example, the test has a non-technical description - *To see whether it has a circle with right arrow* describes the test.
-The test checks that the class `nhsuk-icon nhsuk-icon__arrow-right-circle` exists in the component.
+The test checks that the class `nhsuk-icon.nhsuk-icon__chevron-left` exists in the component.
 
 ### 1.2.BackstopJS
 BackstopJS is a framework used to check changes in webpages at different viewports.
@@ -63,8 +65,8 @@ For every new component that gets added, the backstop.json file should be update
 
 *	Label: Should have easy readable description for the test, we are consider having it as a name of the component.
 * *Ex: “Action Link” for an action link component*
-*	URL: should be localhost:3000 along with name of the component
-* *Ex: "url": "http://localhost:3000/components/do-dont-list.html*
+*	URL: should be base-app:3000 along with name of the component
+* *Ex: "url": "http://base-app:3000/components/do-dont-list.html*
 * For any component that has click action, then “ClickSelector” need to be updated.
  
 ```html
@@ -73,7 +75,19 @@ For every new component that gets added, the backstop.json file should be update
     "clickSelector": ".nhsuk-details__summary"
 ```
 
+As the backstopJS tests are running in docker, the following command can be used to take reference images and test the component.
+
+#### 1.2.4.Commands
+*For capturing reference images of the components
+
+"docker-compose run backstop reference" should be used in terminal that is pointing to the project location
+
+*For running tests on the components
+
+"docker-compose run backstop test" should be used in terminal that is pointing to the project location
+
 ### 2.Reference
 *	Cypress installation page - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements.
 *	BackstopJS installation page - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
 *	List of devices and the browsers that we are supporting  - https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/contributing/testing.md
+* BackstopJS docker image - https://hub.docker.com/r/backstopjs/backstopjs/
