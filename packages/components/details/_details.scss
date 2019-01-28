@@ -86,7 +86,23 @@
   padding-left: nhsuk-spacing(4);
   @include top-and-bottom();
 
-  h1, h2, h3, h4, h5, h6, p, hr, ul, ol, li, a, figure, img, span, div, table {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  hr,
+  ul,
+  ol,
+  li,
+  a,
+  figure,
+  img,
+  span,
+  div,
+  table {
     margin-bottom: nhsuk-spacing(4);
     &:first-child {
       margin-top: 0;
