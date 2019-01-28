@@ -1,5 +1,5 @@
 
-# Testing
+# Manual Testing
 
 ## Screen resolution testing
 

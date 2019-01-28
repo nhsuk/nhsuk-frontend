@@ -15,7 +15,13 @@ stages:
 jobs:
   include:
     - stage: tests
+      name: Lint
       script: npm test
+
+    - stage: tests
+      name: BackstopJS-tests
+      script:
+       - docker-compose run backstop test
 
     - stage: master
       name: github pages

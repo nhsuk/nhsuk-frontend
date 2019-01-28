@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+
+  base-app:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: "echo 'GET /\n\n' | nc localhost 3000"
+      interval: 5s
+      retries: 1
+    command: ./node_modules/.bin/gulp
+
+  backstop:
+    image: "backstopjs/backstopjs"
+    volumes:
+      - ./tests/backstop:/src
+    links:
+      - base-app
+    depends_on:
+      base-app:
+        condition: service_healthy
+    command: test
