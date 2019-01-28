@@ -73,7 +73,7 @@ For every new component that gets added, the backstop.json file should be update
  
 ```html
     "label": "Expander group",
-    "url": "http://localhost:3000/components/expander-group.html",
+    "url": "http://base-app:3000/components/expander-group.html",
     "clickSelector": ".nhsuk-details__summary"
 ```
 
