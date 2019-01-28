@@ -49,8 +49,10 @@ it('To see whether there is some text in the Link', function () {
 });
 ```
 
-In the above example, the test has a non-technical description - *To see whether it has a circle with right arrow* describes the test.
-The test checks that the class `nhsuk-icon.nhsuk-icon__chevron-left` exists in the component.
+In the above example, the test has a non-technical description - *To see whether there is some text in the Link* describes the test.
+The test checks that the class `nhsuk-icon.nhsuk-icon__chevron-left` exists in the component and also checking if there is some text in
+ heading, section, paragraph, links, lists. While contributing we expect to have these checks for any new component
+
 
 ### 1.2.BackstopJS
 BackstopJS is a framework used to check changes in webpages at different viewports.
