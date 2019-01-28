@@ -20,7 +20,11 @@
   },
   "dependencies": {
     "accessible-autocomplete": "^1.6.2",
-    "sass-mq": "^4.0.2"
+    "node-sass": "^4.11.0",
+    "npm": "^6.7.0",
+    "rebuild": "^0.1.2",
+    "sass-mq": "^4.0.2",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -48,6 +52,7 @@
     "htmlhint": "^0.10.1",
     "nunjucks": "^3.1.6",
     "sass-lint": "^1.12.1",
+    "start-server-and-test": "^1.7.11",
     "webpack-stream": "^5.2.1"
   },
   "files": [
