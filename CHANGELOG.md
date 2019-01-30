@@ -1,11 +1,21 @@
 # NHS.UK frontend Changelog
 
+
+## 0.9.0 (Prerelease) - Jan 31, 2019
+
+:new: **New features**
+
+- Emergency alert, feedback banner, footer, header, hero component - Add options for extra classes and attributes in the Nunjucks macro. ([PR 361](https://github.com/nhsuk/nhsuk-frontend/pull/361))
+
+:wrench: **Fixes**
+
+- Footer text amend - Uncapitalised copyright message in footer - 'copyright' rather than 'Copyright' ([PR 360](https://github.com/nhsuk/nhsuk-frontend/pull/360))
+
 ## 0.8.0 (Prerelease) - Jan 17, 2019
 
 :boom: **Breaking changes**
 
 - Header - The autocomplete has been rewritten to remove the dependency on jQuery and now uses [GOV.UK's accessible autocomplete component](https://github.com/alphagov/accessible-autocomplete). You will need to do an `npm install` to update your packages and update the header HTML accordingly. ([PR 342](https://github.com/nhsuk/nhsuk-frontend/pull/342))
-
 
 ## 0.7.0 (Prerelease) - Jan 2, 2019
 
