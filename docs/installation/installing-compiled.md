@@ -212,7 +212,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
             <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
             <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
           </ul>
-          <p class="nhsuk-footer__copyright">&copy; Crown Copyright</p>
+          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
         </div>
       </div>
     </footer>
