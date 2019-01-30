@@ -29,7 +29,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/inset-text/macro.njk' import insetText %}
 
 {{ insetText({
-  "HTML": "<p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>"
+  "HTML": "<p>You can report any suspected side effect to the <a href=\"https://yellowcard.mhra.gov.uk/\" title=\"External website\">UK safety scheme</a>.</p>"
 }) }}
 ```
 
