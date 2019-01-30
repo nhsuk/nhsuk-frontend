@@ -80,11 +80,11 @@ For every new component that gets added, the backstop.json file should be update
 As the backstopJS tests are running in docker, the following command can be used to take reference images and test the component.
 
 #### 1.2.4.Commands
-*For capturing reference images of the components
+* For capturing reference images of the components
 
 "docker-compose run backstop reference" should be used in terminal that is pointing to the project location
 
-*For running tests on the components
+* For running tests on the components
 
 "docker-compose run backstop test" should be used in terminal that is pointing to the project location
 
