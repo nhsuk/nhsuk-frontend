@@ -33,18 +33,18 @@ Docker is installed on the continuous integration service automatically but if y
 
 ### Run tests
 
-To run the tests locally:
+To run the tests:
 
-`docker-compose run backstop test`
+`npm run backstop:test`
 
 ### Update tests
 
 If you want to update the existing tests reference screenshots (following any intentional changes):
 
-`docker-compose run backstop reference`
+`npm run backstop:reference`
 
 ### Add new tests
 
 If you want to add new tests you will need to add the test scenarios to the `backstop.json` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference screenshots:
 
-`docker-compose run backstop reference`
+`npm run backstop:reference`
