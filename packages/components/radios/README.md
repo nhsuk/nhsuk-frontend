@@ -484,8 +484,6 @@ If you are using Nunjucks, then macros take the following arguments:
 | **items.{}.hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **items.{}.divider** | string   | No        | Optional divider text to separate radio items, for example the text "or". |
 | **items.{}.checked** | boolean   | No        | If true, radio will be checked. |
-| **items.{}.conditional** | boolean   | No        | If true, content provided will be revealed when the item is checked. |
-| **items.{}.conditional.html** | boolean   | No        | Provide content for the conditional reveal. |
 | **items.{}.disabled** | boolean   | No        | If true, radio will be disabled. |
 | **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radio input tag. |
 | **classes**         | string   | No        | Optional additional classes to add to the radios container. Separate each class with a space. |
