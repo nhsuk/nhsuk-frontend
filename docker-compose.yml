@@ -18,7 +18,7 @@ services:
   backstop:
     image: "backstopjs/backstopjs"
     volumes:
-      - ./tests/backstop:/src
+      - ./:/src
     links:
       - base-app
     depends_on:
