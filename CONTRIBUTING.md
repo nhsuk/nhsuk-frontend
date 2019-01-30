@@ -16,6 +16,7 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 - [Tooling](docs/contributing/tooling.md)
 - [Linting](docs/contributing/linting.md)
 - [Manual tesing](docs/contributing/testing.md)
+- [Automated testing](docs/contributing/backstopJS_tests)
 - [Support for browsers and assistive technology](/docs/contributing/browser-support.md)
 - [Git style guide](docs/contributing/git-style-guide.md)
 - Updating the CHANGELOG (Documentation currently being written)
