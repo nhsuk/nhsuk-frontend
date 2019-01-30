@@ -2,7 +2,7 @@
 
 This document serves as a guide in contributing tests to the existing BackstopJS framework
 
-Every new component should have tests, 
+Every new component should have tests and the guideline as below 
 
 ## 1.Tests and the folder structure
 All tests should go into the [tests directory](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests). There are separate directory for [BackstopJS](https://github.com/garris/BackstopJS) tests.
