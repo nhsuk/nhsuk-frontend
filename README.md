@@ -2,7 +2,7 @@
 
 NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.
 
-You’re welcome to start using it but please be aware that we’re still testing it with NHS.UK teams. We expect to release the tested version in early January 2019.
+You’re welcome to start using it but please be aware that we’re still testing it with NHS.UK teams. We expect to release the tested version in February 2019.
 
 ## Guidance
 
