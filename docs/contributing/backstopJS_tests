@@ -45,5 +45,5 @@ As the backstopJS tests are running in docker, the following command can be used
 ### 2.Reference
 
 *	BackstopJS installation page - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
-*	List of devices and the browsers that we are supporting  - https://github.com/nhsuk/nhsuk-frontend/blob/backstopjs_docker/docs/contributing/manual_testing.md
+*	List of devices and the browsers that we are supporting  - https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/contributing/manual_testing.md
 * BackstopJS docker image - https://hub.docker.com/r/backstopjs/backstopjs/
