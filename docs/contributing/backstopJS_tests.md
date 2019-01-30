@@ -1,49 +1,50 @@
-# Contributing to the BackstopJS framework
+# Visual regression testing - BackstopJS
 
-This document serves as a guide in contributing tests to the existing BackstopJS framework
+[BackstopJS](https://github.com/garris/BackstopJS) is an open source visual regression testing framework, which automates visual regression testing of UI elements by comparing DOM screenshots over time. Tests can be run at different screen resolutions and also simulate key presses, clicks events and hover states. 
 
-Every new component should have tests and the guideline as below 
+These tests run automatically within the continuous integration pipeline and run during all builds, pull requests and merges.
 
-## 1.Tests and the folder structure
-All tests should go into the [tests directory](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests). There are separate directory for [BackstopJS](https://github.com/garris/BackstopJS) tests.
+For full documentation on the BackstopJS framework, read the [BackstopJS documentation on GitHub](https://github.com/garris/BackstopJS/blob/master/README.md)
 
+## Tests configuration
 
-### 1.2.BackstopJS
-BackstopJS is a framework used to check changes in webpages at different viewports.
+BackstopJS tests configuration and files can be found within the `backstop` folder in the [tests directory](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests).
 
-#### 1.2.1.Working with BackstopJS
+`backstop.json` contains all the test configuration and tests scenarios.
 
-#### 1.2.2.Installing
-Now that you have installed all the dependencies, if you have any further issues in using framework try installing BackstopJS based on the guidelines provided by BackstopJS
+**`id`** – Used for screenshot naming. Set this property when sharing reference files with teammates -- otherwise omit and BackstopJS will auto-generate one for you to avoid naming collisions with BackstopJS resources.
 
-#### 1.2.3.Contributing
-For every new component that gets added, the backstop.json file should be updated with the following information.
+**`viewports`** – An array of screen size objects your DOM will be tested against.  Add as many as you like -- but add at least one.
 
-*	Label: Should have easy readable description for the test, we are consider having it as a name of the component.
-* *Ex: “Action Link” for an action link component*
-*	URL: should be base-app:3000 along with name of the component
-* *Ex: "url": "http://base-app:3000/components/do-dont-list.html*
-* For any component that has click action, then “ClickSelector” need to be updated.
- 
-```html
-    "label": "Expander group",
-    "url": "http://base-app:3000/components/expander-group.html",
-    "clickSelector": ".nhsuk-details__summary"
-```
+**`scenarios`** – This is where you set up your actual tests. The important sub properties are...
 
-As the backstopJS tests are running in docker, the following command can be used to take reference images and test the component.
+- **`scenarios[n].label`** – Required. Also used for screenshot naming.
+- **`scenarios[n].url`** – Required. Tells BackstopJS what endpoint/document you want to test.  This can be an absolute URL or local to your current working directory.
 
-#### 1.2.4.Commands
-* For capturing reference images of the components
+_TIP: no other SCENARIO properties are required. Other properties can just be added as necessary_
 
-"docker-compose run backstop reference" should be used in terminal that is pointing to the project location
+You can find a full list of other SCENARIO properties within the [BackstopJS advanced scenarios documentation](https://github.com/garris/BackstopJS/blob/master/README.md#advanced-scenarios).
 
-* For running tests on the components
+## Test commands
 
-"docker-compose run backstop test" should be used in terminal that is pointing to the project location
+We use [Docker](https://www.docker.com/) to run our tests within a consistent environment.
 
-### 2.Reference
+Docker is installed on the continuous integration service automatically but if you want to run any of the tests locally you will need to have Docker installed.
 
-*	BackstopJS installation page - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
-*	List of devices and the browsers that we are supporting  - https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/contributing/manual_testing.md
-* BackstopJS docker image - https://hub.docker.com/r/backstopjs/backstopjs/
+### Run tests
+
+To run the tests locally:
+
+`docker-compose run backstop test`
+
+### Update tests
+
+If you want to update the existing tests reference screenshots (following any intentional changes):
+
+`docker-compose run backstop reference`
+
+### Add new tests
+
+If you want to add new tests you will need to add the test scenarios to the `backstop.json` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference screenshots:
+
+`docker-compose run backstop reference`
