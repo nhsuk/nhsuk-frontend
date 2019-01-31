@@ -17,7 +17,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       What is your nationality?
     </legend>
     <span class="nhsuk-hint" id="nationality-hint">
-    If you have dual nationality, select all options that are relevant to you.
+    If you have more than 1 nationality, select all options that are relevant to you.
     </span>
     <div class="nhsuk-checkboxes">
       <div class="nhsuk-checkboxes__item">
@@ -35,7 +35,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
         <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
-        Citizen of another country
+        citizen of another country
         </label>
       </div>
     </div>
@@ -57,7 +57,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     }
   },
   "hint": {
-    "text": "If you have dual nationality, select all options that are relevant to you."
+    "text": "If you have more than 1 nationality, select all options that are relevant to you."
   },
   "items": [
     {
@@ -70,7 +70,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     },
     {
       "value": "other",
-      "text": "Citizen of another country"
+      "text": "citizen of another country"
     }
   ]
 }) }}
