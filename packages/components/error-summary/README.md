@@ -13,7 +13,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
   <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-    Message to alert the user to a problem goes here
+    There is a problem
   </h2>
   <div class="nhsuk-error-summary__body">
     <p>
@@ -21,10 +21,10 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     </p>
     <ul class="nhsuk-list nhsuk-error-summary__list">
       <li>
-        <a href="#example-error-1">Descriptive link to the question with an error</a>
+        <a href="#example-error-1">Link to error with explanation</a>
       </li>
       <li>
-        <a href="#example-error-1">Descriptive link to the question with an error</a>
+        <a href="#example-error-1"Link to error with an explanation</a>
       </li>
     </ul>
   </div>
