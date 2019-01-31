@@ -103,7 +103,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="nhsuk-login" name="verify" type="checkbox" value="nhsuk-verify" aria-describedby="nhsuk-login-item-hint">
         <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-login">
-        Sign in with NHS.UK Login
+        Sign in with NHS.UK login
         </label>
         <span class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -140,7 +140,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       "name": "verify",
       "id": "nhsuk-login",
       "value": "nhsuk-verify",
-      "text": "Sign in with NHS.UK Login",
+      "text": "Sign in with NHS.UK login",
       "hint": {
         "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }

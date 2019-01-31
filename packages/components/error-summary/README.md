@@ -24,7 +24,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
         <a href="#example-error-1">Link to error with explanation</a>
       </li>
       <li>
-        <a href="#example-error-1"Link to error with an explanation</a>
+        <a href="#example-error-1">Link to error with explanation</a>
       </li>
     </ul>
   </div>

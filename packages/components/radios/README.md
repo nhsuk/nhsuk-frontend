@@ -286,7 +286,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
         Sign in with Government Gateway
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
-        You&#39;ll have a user ID if you&#39;ve registered for self-assessment or filed a tax return online before.
+        You&#39;ll have a user ID if you've registered for self-assessment or filed a tax return online before.
         </span>
       </div>
       <div class="nhsuk-radios__item">
