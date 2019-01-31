@@ -37,15 +37,15 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 
 {{ errorSummary({
-  "titleText": "Message to alert the user to a problem goes here",
+  "titleText": "This is a problem",
   "descriptionText": "Optional description of the errors and how to correct them",
   "errorList": [
     {
-      "text": "Descriptive link to the question with an error",
+      "text": "Link to error with explanation",
       "href": "#example-error-1"
     },
     {
-      "text": "Descriptive link to the question with an error",
+      "text": "Link to error with explanation",
       "href": "#example-error-1"
     }
   ]
