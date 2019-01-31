@@ -603,3 +603,5 @@ The transactional header with a long service name macro takes the following argu
 | **longName**               | boolean  | Yes       | Set to "true" if the service name is longer than 22 characters. |
 | **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
 | **ariaLabel**              | string   | No        | Aria label for the logo href. Defaults to "NHS homepage". |
+| **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
+| **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |

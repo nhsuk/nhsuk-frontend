@@ -1,4 +1,5 @@
-<details class="nhsuk-details{%- if params.classes %} {{ params.classes }}{% endif %}"
+<details class="nhsuk-details
+{%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -6,6 +7,6 @@
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    {{ params.HTML | safe }}
+    {{- params.HTML | safe }}
   </div>
 </details>

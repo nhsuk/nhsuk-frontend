@@ -106,69 +106,69 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/list-panel/macro.njk' import listPanel %}
 
 {{ listPanel({
-  label: "A",
-  id: "A",
-  backToTop: "true",
-  backToTopLink: "#nhsuk-nav-a-z",
-  items: [
+  "label": "A",
+  "id": "A",
+  "backToTop": "true",
+  "backToTopLink": "#nhsuk-nav-a-z",
+  "items": [
     {
-      URL: "/conditions/abdominal-aortic-aneurysm/",
-      link: "AAA"
+      "URL": "/conditions/abdominal-aortic-aneurysm/",
+      "link": "AAA"
     },
     {
-      URL: "/conditions/abdominal-aortic-aneurysm/",
-      link: "Abdominal aortic aneurysm"
+      "URL": "/conditions/abdominal-aortic-aneurysm/",
+      "link": "Abdominal aortic aneurysm"
     },
     {
-      URL: "/conditions/abscess/",
-      link: "Abscess"
+      "URL": "/conditions/abscess/",
+      "link": "Abscess"
     }
   ]
 }) }}
 
 {{ listPanel({
-  label: "B",
-  id: "B",
-  disable: "true",
-  backToTop: "true",
-  backToTopLink: "#nhsuk-nav-a-z",
-  message: "There are currently no conditions listed"
+  "label": "B",
+  "id": "B",
+  "disable": "true",
+  "backToTop": "true",
+  "backToTopLink": "#nhsuk-nav-a-z",
+  "message": "There are currently no conditions listed"
 }) }}
 
 {{ listPanel({
-  label: "C",
-  id: "C",
-  backToTop: "true",
-  backToTopLink: "#nhsuk-nav-a-z",
-  items: [
+  "label": "C",
+  "id": "C",
+  "backToTop": "true",
+  "backToTopLink": "#nhsuk-nav-a-z",
+  "items": [
     {
-      URL: "/conditions/chest-pain/",
-      link: "Chest pain"
+      "URL": "/conditions/chest-pain/",
+      "link": "Chest pain"
     },
     {
-      URL: "/conditions/cold-sores/",
-      link: "Cold sore"
+      "URL": "/conditions/cold-sores/",
+      "link": "Cold sore"
     }
   ]
 }) }}
 
 {{ listPanel({
-  label: "D",
-  id: "D",
-  backToTop: "true",
-  backToTopLink: "#nhsuk-nav-a-z",
-  items: [
+  "label": "D",
+  "id": "D",
+  "backToTop": "true",
+  "backToTopLink": "#nhsuk-nav-a-z",
+  "items": [
     {
-      URL: "/conditions/dandruff/",
-      link: "Dandruff"
+      "URL": "/conditions/dandruff/",
+      "link": "Dandruff"
     },
     {
-      URL: "/conditions/dementia/",
-      link: "Dementia"
+      "URL": "/conditions/dementia/",
+      "link": "Dementia"
     },
     {
-      URL: "/conditions/toothache/",
-      link: "Dental pain"
+      "URL": "/conditions/toothache/",
+      "link": "Dental pain"
     }
   ]
 }) }}
