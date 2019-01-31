@@ -70,3 +70,5 @@ The footer Nunjucks macro takes the following arguments:
 | **links**             | array    | No        | Array of primary navigation items for use in the footer. |
 | **links.[].url**      | string   | No        | The href of a primary navigation item in the footer. |
 | **links.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
+| **classes**           | string   | No        | Optional additional classes to add to the footer container. Separate each class with a space. |
+| **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the footer container. |

@@ -1,6 +1,8 @@
-<nav class="nhsuk-pagination{% if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"> {% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}
+<nav class="nhsuk-pagination
+{%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <ul class="nhsuk-list nhsuk-pagination__list">
-  {% if params.previousUrl and params.previousPage %}
+  {%- if params.previousUrl and params.previousPage %}
     <li class="nhsuk-pagination-item--previous">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ params.previousUrl }}">
         <span class="nhsuk-pagination__title">Previous</span>
@@ -11,8 +13,8 @@
         </svg>
       </a>
     </li>
-  {% endif %}
-  {% if params.nextUrl and params.nextPage %}
+  {%- endif %}
+  {%- if params.nextUrl and params.nextPage %}
     <li class="nhsuk-pagination-item--next">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.nextUrl }}">
         <span class="nhsuk-pagination__title">Next</span>
@@ -23,6 +25,6 @@
         </svg>
       </a>
     </li>
-  {% endif %}
+  {%- endif %}
   </ul>
 </nav>
