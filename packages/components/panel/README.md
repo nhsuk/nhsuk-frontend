@@ -12,8 +12,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```html
 <div class="nhsuk-panel">
-  <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+  <h3>Live well</h3>
+  <p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>
 </div>
 ```
 
@@ -25,8 +25,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
-  "HTML": "<h3>Panel title</h3>
-  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>""
+  "HTML": "<h3>Live well</h3>
+  <p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>"
 }) }}
 ```
 
@@ -38,8 +38,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ```html
 <div class="nhsuk-panel-with-label">
-  <h3 class="nhsuk-panel-with-label__label">Panel heading</h3>
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+  <h3 class="nhsuk-panel-with-label__label">Live well</h3>
+  <p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>
 </div>
 ```
 
@@ -51,8 +51,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
-  "label": "Panel heading",
-  "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  "label": "Live well",
+  "HTML": "<p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>"
 }) }}
 ```
 
@@ -64,7 +64,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ```html
 <div class="nhsuk-panel nhsuk-panel--grey">
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+  <p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>
 </div>
 ```
 
@@ -78,8 +78,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {{ panel({
   "colour": "grey",
   "HTML": "
-  <h3>Panel title</h3>
-  <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  <h3>Live well</h3>
+  <p>Advice, tips and tools to help you make the best choices about your health and wellbeing</p>"
 }) }}
 ```
 
@@ -93,28 +93,28 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     <div class="nhsuk-panel">
-      <h3>Panel title</h3>
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+      <h3>Eat well</h3>
+      <p>All you need to know about the major food groups and a healthy, balanced diet</p>
     </div>
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     <div class="nhsuk-panel">
-      <h3>Panel title</h3>
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+      <h3>Healthy weight</h3>
+      <p>Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
     </div>
   </div>
 </div>
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     <div class="nhsuk-panel">
-      <h3>Panel title</h3>
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+      <h3>Excercise</h3>
+      <p>Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
     </div>
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     <div class="nhsuk-panel">
-      <h3>Panel title</h3>
-      <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+      <h3>Sleep and tiredness</h3>
+      <p>Find out how to sleep well and the common lifestyle factors that are making you tired</p>
     </div>
   </div>
 </div>
@@ -130,12 +130,22 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Eat well</h3> <p>All you need to know about the major food groups and a healthy, balanced diet</p>"
     }) }}
   </div>
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
-      "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      "HTML": "<h3>Healthy weight</h3> <p>Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>"
+    }) }}
+  </div>
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    {{ panel({
+      "HTML": "<h3>Excercise</h3> <p>Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>"
+    }) }}
+  </div>
+  <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+    {{ panel({
+      "HTML": "<h3>Sleep and tiredness</h3> <p>Find out how to sleep well and the common lifestyle factors that are making you tired</p>"
     }) }}
   </div>
 </div>
