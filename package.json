@@ -1,8 +1,7 @@
 {
   "name": "nhsuk-frontend",
   "version": "0.9.0",
-  "description": "The NHS website frontend styles, for creating NHS websites and services.",
-  "sasslintConfig": "config/sass-lint.yml",
+  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
@@ -24,14 +23,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.4",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
     "backstopjs": "^3.8.5",
     "del": "^3.0.0",
-    "eslint": "^5.11.1",
+    "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-nhsuk": "^0.16.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.16.0",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
@@ -46,7 +45,7 @@
     "gulp-wrap": "^0.14.0",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.1",
-    "nunjucks": "^3.1.6",
+    "nunjucks": "^3.1.7",
     "sass-lint": "^1.12.1",
     "webpack-stream": "^5.2.1"
   },
