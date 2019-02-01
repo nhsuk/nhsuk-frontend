@@ -83,7 +83,7 @@
 <h3 id="html-markup">HTML markup</h3>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-error-summary&quot; aria-labelledby=&quot;error-summary-title&quot; role=&quot;alert&quot; tabindex=&quot;-1&quot; data-module=&quot;error-summary&quot;&gt;
   &lt;h2 class=&quot;nhsuk-error-summary__title&quot; id=&quot;error-summary-title&quot;&gt;
-    Message to alert the user to a problem goes here
+    There is a problem
   &lt;/h2&gt;
   &lt;div class=&quot;nhsuk-error-summary__body&quot;&gt;
     &lt;p&gt;
@@ -91,10 +91,10 @@
     &lt;/p&gt;
     &lt;ul class=&quot;nhsuk-list nhsuk-error-summary__list&quot;&gt;
       &lt;li&gt;
-        &lt;a href=&quot;#example-error-1&quot;&gt;Descriptive link to the question with an error&lt;/a&gt;
+        &lt;a href=&quot;#example-error-1&quot;&gt;Link to error with explanation&lt;/a&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;a href=&quot;#example-error-1&quot;&gt;Descriptive link to the question with an error&lt;/a&gt;
+        &lt;a href=&quot;#example-error-1&quot;&gt;Link to error with explanation&lt;/a&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
@@ -103,15 +103,15 @@
 <pre><code>{% from &#39;components/error-summary/macro.njk&#39; import errorSummary %}
 
 {{ errorSummary({
-  &quot;titleText&quot;: &quot;Message to alert the user to a problem goes here&quot;,
+  &quot;titleText&quot;: &quot;This is a problem&quot;,
   &quot;descriptionText&quot;: &quot;Optional description of the errors and how to correct them&quot;,
   &quot;errorList&quot;: [
     {
-      &quot;text&quot;: &quot;Descriptive link to the question with an error&quot;,
+      &quot;text&quot;: &quot;Link to error with explanation&quot;,
       &quot;href&quot;: &quot;#example-error-1&quot;
     },
     {
-      &quot;text&quot;: &quot;Descriptive link to the question with an error&quot;,
+      &quot;text&quot;: &quot;Link to error with explanation&quot;,
       &quot;href&quot;: &quot;#example-error-1&quot;
     }
   ]
