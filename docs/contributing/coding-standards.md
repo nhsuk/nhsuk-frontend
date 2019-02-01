@@ -10,7 +10,7 @@
 
 ## HTML
 
-Use valid HTML5 where possible.
+Use valid HTML5 where possible, whilst considering earlier versions of browser and lack of support for some HTML5 elements.
 
 Use HTML according to its purpose. Use elements for what they have been created for. This is important for accessibility, reuse and code efficiency reasons.
 
@@ -20,7 +20,7 @@ Use HTML according to its purpose. Use elements for what they have been created 
 - Nested elements should be indented once (two spaces).
 - Always use double quotes, never single quotes, on attributes.
 - Don't include a trailing slash in self-closing elements - the HTML5 spec says they're optional.
-- Don’t omit optional closing tags (e.g. `</li>` or `</body>`).
+- Don't omit optional closing tags (e.g. `</li>` or `</body>`).
 
 ### Attribute order
 

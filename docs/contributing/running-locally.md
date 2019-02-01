@@ -17,29 +17,29 @@ We recommend to use the [long-term support (LTS) version of Nodejs](https://node
 
 ## 2. Clone the repository
 
-You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/). Use this code:
+You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/)
 
 ```
 git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
-
-cd nhsuk-frontend
 ```
 
-You'll have to clone your own fork if you're not a member.
-
-Replace 'Username' in the git clone command below with your GitHub username.
+Otherwise you'll have to clone your own fork
 
 ```
-git clone https://github.com/Username/nhsuk-frontend.git nhsuk-frontend
-
-cd nhsuk-frontend
+git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
 ```
+
+> Replace '[Username]' in the git clone command above with your own GitHub username.
 
 ## 3. Install dependencies
 
-We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage the dependencies in development, which is included with the Nodejs installation.
+We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage third party dependencies.
 
-> Make sure you are in the project directory when you run the `npm install` command below. You can switch to the project directory with the command `cd nhsuk-frontend`.
+Whilst in the project directory you will need to install the dependencies listed in `package.json`
+
+```
+cd nhsuk-frontend
+```
 
 ```
 npm install
