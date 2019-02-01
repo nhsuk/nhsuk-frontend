@@ -2097,6 +2097,12 @@ b {
   /* [6] */
   position: relative; }
 
+/**
+ * IE8 fixes
+ */
+.ie8 .nhsuk-breadcrumb__back {
+  display: none; }
+
 /* ==========================================================================
    COMPONENTS/ #BUTTON
    ========================================================================== */
@@ -4042,6 +4048,22 @@ b {
  * This is because of the NHS branding, navigation
  * and search prominence across the website.
 **/
+.ie8 .nhsuk-header__logo,
+.ie8 .nhsuk-header__transactional-service-name {
+  background-color: #005eb8;
+  display: block;
+  padding-left: 24px;
+  width: 100%; }
+
+.ie8 .nhsuk-header__transactional-service-name {
+  padding-bottom: 12px;
+  padding-top: 0; }
+
+.ie8 .nhsuk-header__search {
+  background-color: #005eb8;
+  clear: both;
+  padding-bottom: 12px; }
+
 .ie8 .nhsuk-header__menu-toggle,
 .ie8 .nhsuk-header__search-toggle,
 .ie8 .nhsuk-search__close,
@@ -4315,6 +4337,20 @@ b {
       @media print {
         .nhsuk-hero--image-description .nhsuk-hero-content:after {
           display: none; } }
+
+/**
+ * IE8 fixes
+ */
+.ie8 .nhsuk-hero--border {
+  background-color: #005eb8; }
+  .ie8 .nhsuk-hero--border .nhsuk-hero__wrapper,
+  .ie8 .nhsuk-hero--border .nhsuk-hero-content {
+    padding: 24px; }
+    .ie8 .nhsuk-hero--border .nhsuk-hero__wrapper h1,
+    .ie8 .nhsuk-hero--border .nhsuk-hero__wrapper p,
+    .ie8 .nhsuk-hero--border .nhsuk-hero-content h1,
+    .ie8 .nhsuk-hero--border .nhsuk-hero-content p {
+      color: #ffffff; }
 
 /* ==========================================================================
    COMPONENTS/ #HINT
