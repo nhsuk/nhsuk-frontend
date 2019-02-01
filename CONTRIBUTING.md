@@ -10,7 +10,7 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 ## Contributing contents
 
 ### General
-- [Code of Conduct](./CODE_OF_CONDUCT.MD)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
 - [Report a bug or issue](https://github.com/nhsuk/nhsuk-frontend/issues/new?template=BUG_REPORT.md)
 
 ### Contributors
