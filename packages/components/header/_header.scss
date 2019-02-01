@@ -550,6 +550,25 @@
 
 .ie8 {
 
+  .nhsuk-header__logo,
+  .nhsuk-header__transactional-service-name {
+    background-color: $color_nhsuk-blue;
+    display: block;
+    padding-left: 24px;
+    width: 100%;
+  }
+
+  .nhsuk-header__transactional-service-name {
+    padding-bottom: 12px;
+    padding-top: 0;
+  }
+
+  .nhsuk-header__search {
+    background-color: $color_nhsuk-blue;
+    clear: both;
+    padding-bottom: 12px;
+  }
+
   .nhsuk-header__menu-toggle,
   .nhsuk-header__search-toggle,
   .nhsuk-search__close,

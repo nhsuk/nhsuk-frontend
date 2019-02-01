@@ -124,3 +124,26 @@
   }
 
 }
+
+
+/**
+ * IE8 fixes
+ */
+
+.ie8 {
+
+  .nhsuk-hero--border {
+    background-color: $color_nhsuk-blue;
+
+    .nhsuk-hero__wrapper,
+    .nhsuk-hero-content {
+      padding: 24px;
+
+      h1,
+      p {
+        color: $color_nhsuk-white;
+      }
+    }
+  }
+
+}
