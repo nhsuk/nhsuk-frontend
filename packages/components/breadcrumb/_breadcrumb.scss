@@ -90,3 +90,16 @@
   left: -8px; /* [6] */
   position: relative;
 }
+
+
+/**
+ * IE8 fixes
+ */
+
+.ie8 {
+
+  .nhsuk-breadcrumb__back {
+    display: none;
+  }
+
+}
