@@ -217,7 +217,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-divider-2" name="example" type="radio" value="nhsuk-login">
         <label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
-        Use NHS.UK Login
+        Use NHS.UK login
         </label>
       </div>
       <div class="nhsuk-radios__divider">or</div>
@@ -252,7 +252,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     },
     {
       "value": "nhsuk-login",
-      "text": "Use NHS.UK Login"
+      "text": "Use NHS.UK login"
     },
     {
       "divider": "or"
@@ -286,13 +286,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
         Sign in with Government Gateway
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
-        You&#39;ll have a user ID if you&#39;ve registered for Self Assessment or filed a tax return online before.
+        You&#39;ll have a user ID if you've registered for self-assessment or filed a tax return online before.
         </span>
       </div>
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="gov-2" name="gov" type="radio" value="verify" aria-describedby="gov-2-item-hint">
         <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
-        Sign in with NHS.UK Login
+        Sign in with NHS.UK login
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -322,12 +322,12 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       "value": "gateway",
       "text": "Sign in with Government Gateway",
       "hint": {
-        "text": "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
+        "text": "You'll have a user ID if you've registered for self-assessment or filed a tax return online before."
       }
     },
     {
       "value": "verify",
-      "text": "Sign in with NHS.UK Login",
+      "text": "Sign in with NHS.UK login",
       "hint": {
         "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }
