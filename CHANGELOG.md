@@ -1,6 +1,12 @@
 # NHS.UK frontend Changelog
 
 
+## 0.9.1 (Prerelease) - Feb 4, 2019
+
+:wrench: **Fixes**
+
+- Header, hero and breadcrumbs - IE8 fixes to make the header and hero components display better, and hidden a back link (used in mobile view) in the breadcrumbs component ([PR 376](https://github.com/nhsuk/nhsuk-frontend/pull/376))
+
 ## 0.9.0 (Prerelease) - Jan 31, 2019
 
 :new: **New features**
