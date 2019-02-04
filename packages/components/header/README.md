@@ -592,16 +592,19 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ## Nunjucks arguments
 
-The transactional header with a long service name macro takes the following arguments:
+The header Nunjucks macro takes the following arguments:
 
 | Name                       | Type     | Required  | Description  |
 | ---------------------------|----------|-----------|--------------|
-| **showNav**                | boolean  | Yes       | Set to "false" to not show the navigation links in the header. |
+| **showNav**                | boolean  | Yes       | Set to "true" to show the navigation links in the header. |
 | **showSearch**             | boolean  | Yes       | Set to "true" to show the site search input form. |
-| **service**                | object   | Yes       | Object containing the name and link of the service. |
-| **name**                   | string   | Yes       | The name of the service. |
-| **longName**               | boolean  | Yes       | Set to "true" if the service name is longer than 22 characters. |
-| **homeHref**               | string   | No        | The href of the home link for the logo and mobile home link in the navigation links. Defaults to "/". |
+| **homeHref**               | string   | No        | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/". |
 | **ariaLabel**              | string   | No        | Aria label for the logo href. Defaults to "NHS homepage". |
+| **primaryLinks**           | array    | No        | Array of navigation links for use in the header |
+| **primaryLinks[].url**     | string   | No        | The href of a navigation item in the header. |
+| **primaryLinks[].label**   | string   | No        | The label of a navigation item in the header. |
+| **transactional**          | string   | No        | Set to "true" if this is a transactional header (with smaller logo). |
+| **transactionalService**   | object   | No        | Object containing the *name* and *href* and optional boolean *longName* of the transactional service. Set this to "true" if the transactional service name is longer than 22 characters. |
+| **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |

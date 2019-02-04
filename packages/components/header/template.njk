@@ -1,3 +1,7 @@
+{# Define some defaults #}
+{% set showNav = params.showNav if params.showNav else "false" %}
+{% set showSearch = params.showSearch if params.showSearch else "false" %}
+
 <header class="nhsuk-header
 {%- if params.transactional or params.transactionalService %} nhsuk-header--transactional{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
@@ -18,7 +22,7 @@
       </a>
     </div>
 
-    {%- if params.showNav == "false" and params.showSearch == "false"%}
+    {%- if showNav == "false" and showSearch == "false"%}
 
       {%- if params.transactionalService%}
         <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long{% endif %}">
@@ -30,7 +34,7 @@
 
     {% endif -%}
 
-    {% if params.showNav == "true" and params.primaryLinks and params.showSearch == "true" %}
+    {% if showNav == "true" and params.primaryLinks and showSearch == "true" %}
 
       <div class="nhsuk-header__content" id="content-header">
 
@@ -103,7 +107,7 @@
 
     {% endif -%}
 
-    {% if params.showSearch == "true" and params.showNav == "false" %}
+    {% if showSearch == "true" and showNav == "false" %}
 
       <div class="nhsuk-header__content" id="content-header">
 
@@ -141,7 +145,7 @@
 
     {% endif -%}
 
-    {% if params.showNav == "true" and params.primaryLinks and params.showSearch == "false" %}
+    {% if showNav == "true" and params.primaryLinks and showSearch == "false" %}
 
       <div class="nhsuk-header__content" id="content-header">
         <div class="nhsuk-header__menu nhsuk-header__menu--only">
