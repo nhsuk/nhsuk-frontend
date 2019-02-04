@@ -13,8 +13,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-review-date">
   <p class="nhsuk-body-s">
-    Page last reviewed: <time>12 February 2016</time><br>
-    Next review due: <time>1 February 2019</time>
+    Page last reviewed: 12 February 2016<br>
+    Next review due: 1 February 2019
   </p>
 </div>
 ```
