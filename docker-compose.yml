@@ -25,7 +25,7 @@ services:
   backstop:
     image: "backstopjs/backstopjs"
     volumes:
-      - ./:/src
+      - ./tests/backstop:/src
     depends_on:
       - proxy_dep
-    command: test --config=tests/backstop/backstop.json
+    command: test
