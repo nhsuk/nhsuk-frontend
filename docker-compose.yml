@@ -13,7 +13,7 @@ services:
       test: "echo -e 'GET / HTTP/1.1\r\nHost: localhost:3000\r\n\r\n' | nc localhost 3000"
       interval: 5s
       retries: 1
-    command: ./node_modules/.bin/gulp
+    command: npm start
 
   # This proxy dependency is a workaround due to depends_on conditions not being
   # honoured when `docker-compose run` is used.
@@ -30,4 +30,4 @@ services:
       - ./:/src
     depends_on:
       - proxy_dep
-    command: test
+    command: test --config=tests/backstop/backstop.json
