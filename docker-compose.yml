@@ -5,8 +5,6 @@ services:
   base-app:
     build:
       context: .
-      args:
-        NODE_ENV: development
     ports:
       - "3000:3000"
     healthcheck:
