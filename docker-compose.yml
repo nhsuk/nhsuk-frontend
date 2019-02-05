@@ -15,13 +15,19 @@ services:
       retries: 1
     command: ./node_modules/.bin/gulp
 
+  # This proxy dependency is a workaround due to depends_on conditions not being
+  # honoured when `docker-compose run` is used.
+  # see https://github.com/docker/compose/issues/4369#issuecomment-274924088
+  proxy_dep:
+    image: "backstopjs/backstopjs"
+    depends_on:
+      base-app:
+        condition: service_healthy
+
   backstop:
     image: "backstopjs/backstopjs"
     volumes:
       - ./:/src
-    links:
-      - base-app
     depends_on:
-      base-app:
-        condition: service_healthy
+      - proxy_dep
     command: test
