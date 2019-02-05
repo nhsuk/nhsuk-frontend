@@ -9,8 +9,8 @@ services:
       - "3000:3000"
     healthcheck:
       test: "echo -e 'GET / HTTP/1.1\r\nHost: localhost:3000\r\n\r\n' | nc localhost 3000"
-      interval: 5s
-      retries: 1
+      interval: 2s
+      retries: 10
     command: npm start
 
   # This proxy dependency is a workaround due to depends_on conditions not being
