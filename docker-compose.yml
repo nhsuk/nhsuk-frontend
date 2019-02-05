@@ -10,7 +10,7 @@ services:
     ports:
       - "3000:3000"
     healthcheck:
-      test: "echo 'GET /\n\n' | nc localhost 3000"
+      test: "echo -e 'GET / HTTP/1.1\r\nHost: localhost:3000\r\n\r\n' | nc localhost 3000"
       interval: 5s
       retries: 1
     command: ./node_modules/.bin/gulp
