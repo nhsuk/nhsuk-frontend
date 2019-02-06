@@ -18,6 +18,8 @@ jobs:
       script: npm test
 
     - stage: tests
+      addons:
+        chrome: stable
       name: Axe_tests
       script:
         - npm run axe_tests
