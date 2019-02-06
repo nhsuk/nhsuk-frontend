@@ -17,6 +17,11 @@ jobs:
     - stage: tests
       script: npm test
 
+    - stage: tests
+      name: Axe_tests
+      script:
+        - npm run axe_tests
+
     - stage: master
       name: github pages
       script: npm run build-gh-pages
