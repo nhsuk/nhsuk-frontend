@@ -6,6 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
+    "start-server": "npm start",
     "test": "npm run lint",
     "axe_tests": "start-server-and-test start-server http://localhost:3000 axe",
     "axe": "axe http://localhost:3000/components/all.html",
