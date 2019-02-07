@@ -384,14 +384,13 @@
       "label": "Warning callout",
       "url": "http://base-app:3000/components/warning-callout/index.html"
     }
-
   ],
   "paths": {
-    "bitmaps_reference": "./bitmaps_reference",
-    "bitmaps_test": "./bitmaps_test",
-    "engine_scripts": "./engine_scripts",
-    "html_report": "./html_report",
-    "ci_report": "./ci_report"
+    "bitmaps_reference": "tests/backstop/bitmaps_reference",
+    "bitmaps_test": "tests/backstop/bitmaps_test",
+    "engine_scripts": "tests/backstop/engine_scripts",
+    "html_report": "tests/backstop/html_report",
+    "ci_report": "tests/backstop/ci_report"
   },
   "report": ["CI"],
   "engine": "puppeteer",
