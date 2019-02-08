@@ -7,6 +7,8 @@ services:
       context: .
     ports:
       - "3000:3000"
+    volumes:
+      - ./:/code
     healthcheck:
       test: "echo -e 'GET / HTTP/1.1\r\nHost: localhost:3000\r\n\r\n' | nc localhost 3000"
       interval: 2s
