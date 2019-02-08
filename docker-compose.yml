@@ -17,13 +17,14 @@ services:
   # honoured when `docker-compose run` is used.
   # see https://github.com/docker/compose/issues/4369#issuecomment-274924088
   proxy_dep:
-    image: "backstopjs/backstopjs"
+    image: "backstopjs/backstopjs:3.9.2"
     depends_on:
       base-app:
         condition: service_healthy
 
   backstop:
     image: "backstopjs/backstopjs"
+
     volumes:
       - ./:/src
     depends_on:
