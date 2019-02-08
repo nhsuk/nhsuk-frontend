@@ -12,7 +12,7 @@
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/*.html",
     "backstop": "npm run backstop:test && npm run backstop:report",
-    "backstop:ref": "docker-compose run backstop reference --config=tests/backstop/backstop.json",
+    "backstop:ref": "docker-compose run --rm backstop reference --config=tests/backstop/backstop.json",
     "backstop:test": "docker-compose run --rm backstop test --config=tests/backstop/backstop.json",
     "backstop:report": "backstop openReport --config=tests/backstop/backstop.json",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
