@@ -60,6 +60,64 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+
+### Fieldset with input fields
+
+[Preview the fieldset component with input fields](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html)
+
+
+### Nunjucks macro
+
+To add input fields inside the fieldset, use the `call` block.
+
+```
+{% from 'components/input/macro.njk' import input %}
+{% from 'components/fieldset/macro.njk' import fieldset %}
+
+{% call fieldset({
+  legend: {
+    text: "What is your address?",
+    "classes": "nhsuk-fieldset__legend--xl",
+    "isPageHeading": true
+  }
+}) %}
+
+  {{ input({
+    "label": {
+      "text": "Address line 1"
+    },
+    "id": "input-address1",
+    "name": "address1"
+  }) }}
+
+  {{ input({
+    "label": {
+      "text": "Address line 2"
+    },
+    "id": "input-address2",
+    "name": "address2"
+  }) }}
+
+  {{ input({
+    "label": {
+      "text": "Town or city"
+    },
+    "id": "input-town-city",
+    "name": "town"
+  }) }}
+
+  {{ input({
+    "label": {
+      "text": "County"
+    },
+    "id": "input-county",
+    "name": "county"
+  }) }}
+
+{% endcall %}
+```
+
+
 ## Nunjucks arguments
 
 If you are using Nunjucks, then macros take the following arguments:
