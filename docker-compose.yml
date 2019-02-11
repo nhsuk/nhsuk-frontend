@@ -7,10 +7,8 @@ services:
       context: .
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/code
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U base-app"]
+      test: "echo -e 'GET / HTTP/1.1\r\nHost: localhost:3000\r\n\r\n' | nc localhost 3000"
       interval: 2s
       retries: 10
     command: npm start
@@ -19,7 +17,7 @@ services:
   # honoured when `docker-compose run` is used.
   # see https://github.com/docker/compose/issues/4369#issuecomment-274924088
   proxy_dep:
-    image: "backstopjs/backstopjs:3.8.8"
+    image: "backstopjs/backstopjs:3.8.5"
     depends_on:
       base-app:
         condition: service_healthy
