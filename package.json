@@ -13,7 +13,7 @@
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/*.html",
     "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
     "backstop:test": "backstop --config=tests/backstop/backstop.js test --docker",
-    "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
+    "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip"
   },
