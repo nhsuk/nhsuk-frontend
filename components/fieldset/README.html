@@ -116,7 +116,87 @@
     &quot;classes&quot;: &quot;nhsuk-fieldset__legend--xl&quot;,
     &quot;isPageHeading&quot;: true
   }
-}) }}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
+}) }}</code></pre><h3 id="fieldset-with-input-fields">Fieldset with input fields</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html">Preview the fieldset component with input fields</a></p>
+<h3 id="html-markup">HTML markup</h3>
+<pre><code class="language-html">&lt;fieldset class=&quot;nhsuk-fieldset&quot;&gt;
+  &lt;legend class=&quot;nhsuk-fieldset__legend nhsuk-fieldset__legend--xl&quot;&gt;
+    &lt;h1 class=&quot;nhsuk-fieldset__heading&quot;&gt;
+      What is your address?
+    &lt;/h1&gt;
+  &lt;/legend&gt;
+  &lt;div class=&quot;nhsuk-form-group&quot;&gt;
+    &lt;label class=&quot;nhsuk-label&quot; for=&quot;input-address1&quot;&gt;
+      Address line 1
+    &lt;/label&gt;
+    &lt;input class=&quot;nhsuk-input&quot; id=&quot;input-address1&quot; name=&quot;address1&quot; type=&quot;text&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-form-group&quot;&gt;
+    &lt;label class=&quot;nhsuk-label&quot; for=&quot;input-address2&quot;&gt;
+      Address line 2
+    &lt;/label&gt;
+    &lt;input class=&quot;nhsuk-input&quot; id=&quot;input-address2&quot; name=&quot;address2&quot; type=&quot;text&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-form-group&quot;&gt;
+    &lt;label class=&quot;nhsuk-label&quot; for=&quot;input-town-city&quot;&gt;
+      Town or city
+    &lt;/label&gt;
+    &lt;input class=&quot;nhsuk-input&quot; id=&quot;input-town-city&quot; name=&quot;town&quot; type=&quot;text&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-form-group&quot;&gt;
+    &lt;label class=&quot;nhsuk-label&quot; for=&quot;input-county&quot;&gt;
+      County
+    &lt;/label&gt;
+    &lt;input class=&quot;nhsuk-input&quot; id=&quot;input-county&quot; name=&quot;county&quot; type=&quot;text&quot;&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;
+</code></pre>
+<h3 id="nunjucks-macro">Nunjucks macro</h3>
+<p>To add input fields inside the fieldset, use the <code>call</code> block.</p>
+<pre><code>{% from &#39;components/input/macro.njk&#39; import input %}
+{% from &#39;components/fieldset/macro.njk&#39; import fieldset %}
+
+{% call fieldset({
+  legend: {
+    text: &quot;What is your address?&quot;,
+    &quot;classes&quot;: &quot;nhsuk-fieldset__legend--xl&quot;,
+    &quot;isPageHeading&quot;: true
+  }
+}) %}
+
+  {{ input({
+    &quot;label&quot;: {
+      &quot;text&quot;: &quot;Address line 1&quot;
+    },
+    &quot;id&quot;: &quot;input-address1&quot;,
+    &quot;name&quot;: &quot;address1&quot;
+  }) }}
+
+  {{ input({
+    &quot;label&quot;: {
+      &quot;text&quot;: &quot;Address line 2&quot;
+    },
+    &quot;id&quot;: &quot;input-address2&quot;,
+    &quot;name&quot;: &quot;address2&quot;
+  }) }}
+
+  {{ input({
+    &quot;label&quot;: {
+      &quot;text&quot;: &quot;Town or city&quot;
+    },
+    &quot;id&quot;: &quot;input-town-city&quot;,
+    &quot;name&quot;: &quot;town&quot;
+  }) }}
+
+  {{ input({
+    &quot;label&quot;: {
+      &quot;text&quot;: &quot;County&quot;
+    },
+    &quot;id&quot;: &quot;input-county&quot;,
+    &quot;name&quot;: &quot;county&quot;
+  }) }}
+
+{% endcall %}</code></pre><h2 id="nunjucks-arguments">Nunjucks arguments</h2>
 <p>If you are using Nunjucks, then macros take the following arguments:</p>
 <table>
 <thead>
