@@ -2,7 +2,7 @@
 
 ## Visual regression testing - BackstopJS
 
-[BackstopJS](https://github.com/garris/BackstopJS) is an open source visual regression testing framework, which automates visual regression testing of UI elements by comparing DOM screenshots over time. Tests can be run at different screen resolutions and also simulate key presses, clicks events and hover states. 
+[BackstopJS](https://github.com/garris/BackstopJS) is an open source visual regression testing framework, which automates visual regression testing of UI elements by comparing DOM screenshots over time. Tests can be run at different screen resolutions and also simulate key presses, clicks events and hover states.
 
 These tests run automatically within the continuous integration pipeline and run during all builds, pull requests and merges.
 
@@ -41,14 +41,23 @@ npm run backstop:test
 
 Each time that a test is run locally a new set of bitmaps will be created in `tests/backstop/<timestamp>/`
 
-Once the test bitmaps are generated, a report comparing the most recent test bitmaps against the current reference bitmaps will display. 
+Once the test bitmaps are generated, a report comparing the most recent test bitmaps against the current reference bitmaps will display.
 
 If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run backstop:clean`.
+
+
+#### Run an individual test
+
+To run a test on an individual scenario, pass a `--filter<scenarioLabelRegex>` argument to just run scenarios matching your scenario label.
+
+```
+npm run backstop:test -- --filter="Action link"
+```
 
 #### Update test references
 
 BackstopJS creates a set of test bitmaps each time tests are run and compares them with the reference bitmaps.
- 
+
 If you have made intentional visual changes, the reference bitmaps need to be updated for the tests (and future tests) to pass.
 
 ```
