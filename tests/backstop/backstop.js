@@ -162,6 +162,10 @@ module.exports = {
       "url": `${TEST_HOST}/components/fieldset/page-heading.html`
     },
     {
+      "label": "Fieldset with inputs",
+      "url": `${TEST_HOST}/components/fieldset/with-inputs.html`
+    },
+    {
       "label": "Header",
       "url": `${TEST_HOST}/components/header/index.html`
     },
