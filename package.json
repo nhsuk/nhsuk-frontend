@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "accessible-autocomplete": "^1.6.2",
-    "minimist": "^1.2.0",
     "sass-mq": "^4.0.2"
   },
   "devDependencies": {
@@ -46,6 +45,7 @@
     "gulp-wrap": "^0.14.0",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.1",
+    "minimist": "^1.2.0",
     "nunjucks": "^3.1.7",
     "sass-lint": "^1.12.1",
     "webpack-stream": "^5.2.1"
