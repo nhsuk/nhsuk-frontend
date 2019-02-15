@@ -1,0 +1,61 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Fieldset with input fields' %}
+{% from 'components/input/macro.njk' import input %}
+{% from 'components/fieldset/macro.njk' import fieldset %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+
+        {% call fieldset({
+          legend: {
+            text: "What is your address?",
+            "classes": "nhsuk-fieldset__legend--xl",
+            "isPageHeading": true
+          }
+        }) %}
+
+          {{ input({
+            "label": {
+              "text": "Address line 1"
+            },
+            "id": "input-address1",
+            "name": "address1"
+          }) }}
+
+          {{ input({
+            "label": {
+              "text": "Address line 2"
+            },
+            "id": "input-address2",
+            "name": "address2"
+          }) }}
+
+          {{ input({
+            "label": {
+              "text": "Town or city"
+            },
+            "id": "input-town-city",
+            "name": "town"
+          }) }}
+
+          {{ input({
+            "label": {
+              "text": "County"
+            },
+            "id": "input-county",
+            "name": "county"
+          }) }}
+
+        {% endcall %}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
