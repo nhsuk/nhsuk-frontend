@@ -11,9 +11,9 @@
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js **/header/header.js **/skip-link/skip-link.js **/feedback-banner/feedback-banner.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/*.html",
-    "backstop:ref": "backstop reference --config=tests/backstop/backstop.json",
-    "backstop:test": "backstop test --config=tests/backstop/backstop.json",
-    "backstop:clean": "rm -rf tests/backstop/backstop_data/bitmaps_test/*",
+    "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
+    "backstop:test": "backstop --config=tests/backstop/backstop.js test --docker",
+    "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip"
   },
@@ -45,6 +45,7 @@
     "gulp-wrap": "^0.14.0",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.1",
+    "minimist": "^1.2.0",
     "nunjucks": "^3.1.7",
     "sass-lint": "^1.12.1",
     "webpack-stream": "^5.2.1"

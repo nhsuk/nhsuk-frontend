@@ -5,6 +5,8 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
+services:
+  - docker
 stages:
   - tests
   - name: master
@@ -15,7 +17,18 @@ stages:
 jobs:
   include:
     - stage: tests
-      script: npm test
+      name: Linting
+      script: npm run lint
+
+    - stage: tests
+      name: Backstop
+      before_script:
+        - npm start &
+      script:
+        # Usually the `backstop test --docker` command would be used to run the tests,
+        # but in travis we need to add a --network="host" flag to the docker-run command
+        # so we compose our own docker-run command.
+        - docker run --rm -it --network="host" --mount type=bind,source="/home/travis/build/nhsuk/nhsuk-frontend",target=/src backstopjs/backstopjs:3.8.5 test --config=tests/backstop/backstop.js --moby --testhost=http://127.0.0.1:3000
 
     - stage: master
       name: github pages
