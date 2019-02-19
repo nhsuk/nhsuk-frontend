@@ -44,7 +44,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <div class="nhsuk-promo">
   <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-    <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="" />
+    <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
     <div class="nhsuk-promo__content">
       <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
       <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -140,7 +140,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo">
       <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
+        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
           <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -151,7 +151,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
     <div class="nhsuk-promo">
       <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
+        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
           <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -164,7 +164,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
       <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
+        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
           <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -175,7 +175,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
       <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
+        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
           <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -186,7 +186,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
   <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
     <div class="nhsuk-promo">
       <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt=""/>
+        <img class="nhsuk-promo__img" src="https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
           <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
