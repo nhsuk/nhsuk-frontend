@@ -38,11 +38,9 @@ For this component to be accessible and compatible with older browsers, include 
 
 #### Nunjucks macro
 
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
+```
 {% from 'components/details/macro.njk' import details %}
 
-```
 {{ details({
   "text": "Where can I find my NHS number?",
   "HTML": "
