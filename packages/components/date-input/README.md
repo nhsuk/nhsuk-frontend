@@ -261,7 +261,7 @@ Find out more about the date input component and when to use it in the [NHS Digi
 
 ### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments:
+The date input Nunjucks macro takes the following arguments:
 
 | Name                      | Type     | Required  | Description             |
 | --------------------------|----------|-----------|-------------------------|
