@@ -73,6 +73,8 @@
 }
 
 .nhsuk-promo__heading {
+  @include nhsuk-font(24, $weight: bold);
+
   margin-bottom: nhsuk-spacing(3);
   text-decoration: underline;
 }
