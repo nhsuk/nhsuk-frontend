@@ -2,13 +2,15 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/203).
 
+Find out more about the button component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/buttons).
+
 ## Quick start examples
 
 ### Button
 
 [Preview the button component](https://nhsuk.github.io/nhsuk-frontend/components/button/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button" type="submit">
@@ -16,7 +18,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -26,11 +28,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Button disabled
 
 [Preview the button disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/disabled.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true">
@@ -38,7 +42,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -49,11 +53,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Button secondary
 
 [Preview the button secondary component](https://nhsuk.github.io/nhsuk-frontend/components/button/secondary.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button nhsuk-button--secondary" type="submit">
@@ -61,7 +67,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -72,11 +78,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Button secondary disabled
 
 [Preview the button secondary disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/secondary-disabled.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--disabled" type="submit">
@@ -84,7 +92,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -96,11 +104,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Button reverse
 
 [Preview the button reverse component](https://nhsuk.github.io/nhsuk-frontend/components/button/reverse.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button nhsuk-button--reverse" type="submit">
@@ -108,7 +118,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -119,11 +129,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Button reverse disabled
 
 [Preview the button reverse disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/reverse-disabled.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <button class="nhsuk-button nhsuk-button--reverse nhsuk-button--disabled" type="submit">
@@ -131,7 +143,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </button>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/button/macro.njk' import button %}
@@ -143,9 +155,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The button Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description             |
 | --------------------|----------|-----------|-------------------------|
@@ -158,6 +172,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **href**           | string   | No       | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined. |
 | **classes**         | string   | No        | Optional additional classes to add to the button element. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 

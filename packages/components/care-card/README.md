@@ -4,7 +4,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Guidance
 
-Find out more about the care card component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/care-cards/).
+Find out more about the care card component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/care-cards).
 
 ## Quick start examples
 
@@ -12,7 +12,7 @@ Find out more about the care card component and when to use it in the [NHS Digit
 
 [Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-non-urgent.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
@@ -32,9 +32,7 @@ Find out more about the care card component and when to use it in the [NHS Digit
 </div>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+#### Nunjucks macro
 
 ```
 {% from 'components/care-card/macro.njk' import careCard %}
@@ -54,11 +52,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
+---
+
 ### Care card urgent (red)
 
 [Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-urgent.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--urgent">
@@ -78,9 +78,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+#### Nunjucks macro
 
 ```
 {% from 'components/care-card/macro.njk' import careCard %}
@@ -100,11 +98,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
+---
+
 ### Care card immediate (red and black)
 
 [Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-immediate.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-care-card nhsuk-care-card--immediate">
@@ -123,9 +123,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+#### Nunjucks macro
 
 ```
 {% from 'components/care-card/macro.njk' import careCard %}
@@ -144,7 +142,9 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-## Nunjucks arguments
+---
+
+### Nunjucks arguments
 
 The care card Nunjucks macro takes the following arguments:
 
@@ -156,3 +156,5 @@ The care card Nunjucks macro takes the following arguments:
 | **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
 | **classes**             | string   | No        | Optional additional classes to add to the care card. Separate each class with a space. |
 | **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the care card. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
