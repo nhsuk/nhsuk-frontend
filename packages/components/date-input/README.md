@@ -2,13 +2,17 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/217).
 
+## Guidance
+
+Find out more about the date input component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/date-input).
+
 ## Quick start examples
 
 ### Date input
 
 [Preview the date input component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -49,7 +53,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/date-input/macro.njk' import dateInput %}
@@ -82,11 +86,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Date input with errors
 
 [Preview the date input with errors component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/multiple-errors.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -130,7 +136,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/date-input/macro.njk' import dateInput %}
@@ -165,11 +171,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Date input with error on single input
 
 [Preview the date input with error on single input component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/error.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -213,7 +221,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/date-input/macro.njk' import dateInput %}
@@ -249,7 +257,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
+
+### Nunjucks arguments
 
 If you are using Nunjucks, then macros take the following arguments:
 
@@ -267,6 +277,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **fieldset**              | object   | No        | Arguments for the fieldset component (e.g. legend). See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
 | **classes**               | string   | No        | Optional additional classes to add to the date-input container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the date-input container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
