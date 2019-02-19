@@ -2,9 +2,10 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/218).
 
-## Quick start examples
+## Guidance
+Find out more about the error message component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/error-message).
 
-### Error message
+## Quick start example
 
 [Preview the error message component](https://nhsuk.github.io/nhsuk-frontend/components/error-message/index.html)
 
@@ -26,9 +27,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments:
+The error message Nunjucks macro takes the following arguments:
 
 | Name                      | Type     | Required  | Description             |
 | --------------------------|----------|-----------|-------------------------|
@@ -36,6 +37,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **id**                    | string   | No        | Optional id attribute to add to the error message span tag. |
 | **classes**               | string   | No        | Optional additional classes to add to the error message span tag. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the error message span tag. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
