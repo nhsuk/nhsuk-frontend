@@ -2,6 +2,10 @@
 
 ## 1.0.1 - Feb 20, 2019
 
+:wrench: **Fixes**
+
+- Panel component - A fix for the panel to go full width of the grid item, rather than just the width of the content. ([Issue 395](https://github.com/nhsuk/nhsuk-frontend/issues/395))
+
 :new: **New features**
 
 - Promo component - Updated the Nunjucks macro and css to allow any level of heading for the promo heading rather than being hardcoded to a `<h3>` ([PR 392](https://github.com/nhsuk/nhsuk-frontend/pull/392))
