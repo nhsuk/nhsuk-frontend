@@ -5026,7 +5026,8 @@ b {
   margin-top: 40px;
   padding: 24px;
   background-color: #ffffff;
-  color: #212b32; }
+  color: #212b32;
+  width: 100%; }
   .nhsuk-panel > *:first-child {
     margin-top: 0; }
   .nhsuk-panel > *:last-child {
