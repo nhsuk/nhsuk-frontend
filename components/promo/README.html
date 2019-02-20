@@ -84,7 +84,7 @@
 <h2 id="quick-start-examples">Quick start examples</h2>
 <h3 id="promo">Promo</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/index.html">Preview the promo component</a></p>
-<h3 id="html-markup">HTML markup</h3>
+<h4 id="html-markup">HTML markup</h4>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
   &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
@@ -93,36 +93,38 @@
     &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h3 id="nunjucks-macro">Nunjucks macro</h3>
-<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h4 id="nunjucks-macro">Nunjucks macro</h4>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo %}
 
 {{ promo({
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h3 id="promo-with-image">Promo with image</h3>
+}) }}</code></pre><hr>
+<h3 id="promo-with-image">Promo with image</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html">Preview the promo with image component</a></p>
-<h3 id="html-markup">HTML markup</h3>
+<h4 id="html-markup">HTML markup</h4>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
   &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-    &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot; /&gt;
+    &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
       &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
       &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h3 id="nunjucks-macro">Nunjucks macro</h3>
-<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h4 id="nunjucks-macro">Nunjucks macro</h4>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo %}
 
 {{ promo({
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h3 id="promo-with-no-description">Promo with no description</h3>
-<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-with-image.html">Preview the promo with no description component</a></p>
-<h3 id="html-markup">HTML markup</h3>
+}) }}</code></pre><hr>
+<h3 id="promo-with-no-description">Promo with no description</h3>
+<p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-no-description.html">Preview the promo with no description component</a></p>
+<h4 id="html-markup">HTML markup</h4>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo&quot;&gt;
   &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
@@ -130,51 +132,16 @@
     &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h3 id="nunjucks-macro">Nunjucks macro</h3>
-<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h4 id="nunjucks-macro">Nunjucks macro</h4>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo %}
 
 {{ promo({
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Save a life: give blood&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The promo with no description Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>href</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The value of the promo href attribute</td>
-</tr>
-<tr>
-<td><strong>heading</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The text heading of the promo</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>No</td>
-<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
-</tr>
-</tbody></table>
+}) }}</code></pre><hr>
 <h3 id="small-promo">Small promo</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-small.html">Preview the small promo component</a></p>
-<h3 id="html-markup">HTML markup</h3>
+<h4 id="html-markup">HTML markup</h4>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-promo nhsuk-promo--small&quot;&gt;
   &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
     &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
@@ -183,70 +150,23 @@
     &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</code></pre>
-<h2 id="nunjucks-macro">Nunjucks macro</h2>
-<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo%}
+<h4 id="nunjucks-macro">Nunjucks macro</h4>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo %}
 
 {{ promo({
   &quot;classes&quot;: &quot;nhsuk-promo--small&quot;,
   &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
   &quot;heading&quot;: &quot;Access your GP record&quot;,
   &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
-}) }}</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The small promo Nunjucks macro takes the following arguments:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>href</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The value of the promo href attribute</td>
-</tr>
-<tr>
-<td><strong>heading</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>The text heading of the promo</td>
-</tr>
-<tr>
-<td><strong>classes</strong></td>
-<td>string</td>
-<td>Yes</td>
-<td>Additional classes to add to the promo. Separate each class with a space. Must have <code>nhsuk-promo--small</code></td>
-</tr>
-<tr>
-<td><strong>imgURL</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The URL of the image in the promo</td>
-</tr>
-<tr>
-<td><strong>description</strong></td>
-<td>string</td>
-<td>No</td>
-<td>The text description of the promo</td>
-</tr>
-<tr>
-<td><strong>attributes</strong></td>
-<td>object</td>
-<td>No</td>
-<td>Any extra HTML attributes (for example data attributes) to add to the promo.</td>
-</tr>
-</tbody></table>
+}) }}</code></pre><hr>
 <h3 id="promo-group">Promo group</h3>
 <p><a href="https://nhsuk.github.io/nhsuk-frontend/components/promo/promo-group.html">Preview the promo group component</a></p>
-<h2 id="html-markup">HTML markup</h2>
+<h4 id="html-markup">HTML markup</h4>
 <pre><code class="language-html">&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
       &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;/&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
@@ -257,7 +177,7 @@
   &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
       &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;/&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
@@ -270,7 +190,7 @@
   &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
       &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;/&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
@@ -281,7 +201,7 @@
   &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
       &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;/&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
@@ -292,7 +212,7 @@
   &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     &lt;div class=&quot;nhsuk-promo&quot;&gt;
       &lt;a class=&quot;nhsuk-promo__link-wrapper&quot; href=&quot;https://www.nhs.uk&quot;&gt;
-        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;/&gt;
+        &lt;img class=&quot;nhsuk-promo__img&quot; src=&quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot; alt=&quot;&quot;&gt;
         &lt;div class=&quot;nhsuk-promo__content&quot;&gt;
           &lt;h3 class=&quot;nhsuk-promo__heading&quot;&gt;Save a life: give blood&lt;/h3&gt;
           &lt;p class=&quot;nhsuk-promo__description&quot;&gt;Please register today. Donating blood is easy, and saves lives.&lt;/p&gt;
@@ -321,8 +241,28 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<h3 id="nunjucks-macro">Nunjucks macro</h3>
-<pre><code>&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
+<h4 id="nunjucks-macro">Nunjucks macro</h4>
+<pre><code>{% from &#39;components/promo/macro.njk&#39; import promo %}
+
+&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
+    {{ promo({
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+      &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
+      &quot;heading&quot;: &quot;Save a life: give blood&quot;,
+      &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
+    }) }}
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
+    {{ promo({
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+      &quot;imgURL&quot;: &quot;https://www.nhs.uk/static/nhsuk_shared/img/homepage/give-blood.png&quot;,
+      &quot;heading&quot;: &quot;Save a life: give blood&quot;,
+      &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
+    }) }}
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
   &lt;div class=&quot;nhsuk-grid-column-one-third nhsuk-promo-group__item&quot;&gt;
     {{ promo({
       &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
@@ -347,8 +287,25 @@
       &quot;description&quot;: &quot;Please register today. Donating blood is easy, and saves lives.&quot;
     }) }}
   &lt;/div&gt;
-&lt;/div&gt;</code></pre><h4 id="nunjucks-arguments">Nunjucks arguments</h4>
-<p>The promo group Nunjucks macro takes the following arguments:</p>
+&lt;/div&gt;
+&lt;div class=&quot;nhsuk-grid-row nhsuk-promo-group&quot;&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
+    {{ promo({
+      &quot;classes&quot;: &quot;nhsuk-promo--small&quot;,
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+      &quot;heading&quot;: &quot;Save a life: give blood&quot;
+    }) }}
+  &lt;/div&gt;
+  &lt;div class=&quot;nhsuk-grid-column-one-half nhsuk-promo-group__item&quot;&gt;
+    {{ promo({
+      &quot;classes&quot;: &quot;nhsuk-promo--small&quot;,
+      &quot;href&quot;: &quot;https://www.nhs.uk&quot;,
+      &quot;heading&quot;: &quot;Save a life: give blood&quot;
+    }) }}
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre><hr>
+<h3 id="nunjucks-arguments">Nunjucks arguments</h3>
+<p>The promo Nunjucks macro takes the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -371,6 +328,12 @@
 <td>The text heading of the promo</td>
 </tr>
 <tr>
+<td><strong>headingLevel</strong></td>
+<td>integer</td>
+<td>No</td>
+<td>Optional heading level for the promo heading. Default: 3</td>
+</tr>
+<tr>
 <td><strong>imgURL</strong></td>
 <td>string</td>
 <td>No</td>
@@ -386,7 +349,7 @@
 <td><strong>classes</strong></td>
 <td>string</td>
 <td>No</td>
-<td>Optional additional classes to add to the promo. Separate each class with a space.</td>
+<td>Optional additional classes to add to the promo. Separate each class with a space. For the small promo, use <code>nhsuk-promo--small</code></td>
 </tr>
 <tr>
 <td><strong>attributes</strong></td>
