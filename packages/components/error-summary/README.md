@@ -55,7 +55,7 @@ Find out more about the error summary component and when to use it in the [NHS D
 
 ### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments:
+The error summary Nunjucks macro takes the following arguments:
 
 | Name                           | Type     | Required  | Description             |
 | ------------------------------|----------|-----------|-------------------------|
