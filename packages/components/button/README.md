@@ -2,6 +2,8 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/203).
 
+## Guidance
+
 Find out more about the button component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/buttons).
 
 ## Quick start examples
