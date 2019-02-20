@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## 1.0.1 - Feb 20, 2019
+
+:wrench: **Fixes**
+
+- Panel component - A fix for the panel to go full width of the grid item, rather than just the width of the content. ([Issue 395](https://github.com/nhsuk/nhsuk-frontend/issues/395))
+
+:new: **New features**
+
+- Promo component - Updated the Nunjucks macro and css to allow any level of heading for the promo heading rather than being hardcoded to a `<h3>` ([PR 392](https://github.com/nhsuk/nhsuk-frontend/pull/392))
+
 ## 1.0.0 - Feb 5, 2019
 
 :tada: **Official release of the NHS.UK frontend**
@@ -11,7 +21,6 @@
 - Review date component - Removed the `<time>` markup around the date because it doesn't have a `datetime` attribute (which can't be automatically generated) and also we can't guarantee that the content will be a valid date/time string ([PR 381](https://github.com/nhsuk/nhsuk-frontend/pull/381))
 
 - Header component - Update of the Nunjucks template and documentation ([PR 380](https://github.com/nhsuk/nhsuk-frontend/pull/380))
-
 
 ## 0.9.1 (Prerelease) - Feb 4, 2019
 
