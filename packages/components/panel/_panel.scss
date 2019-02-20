@@ -4,6 +4,7 @@
 
 .nhsuk-panel {
   @include panel($color_nhsuk-white, $nhsuk-text-color);
+  width: 100%;
 }
 
 /* Panel colour variant
