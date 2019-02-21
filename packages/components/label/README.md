@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 [Preview the label component](https://nhsuk.github.io/nhsuk-frontend/components/label/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <label class="nhsuk-label">
@@ -16,7 +16,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </label>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/label/macro.njk' import label %}
@@ -26,11 +26,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Label with bold text
 
 [Preview the label with bold text component](https://nhsuk.github.io/nhsuk-frontend/components/label/bold.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <label class="nhsuk-label nhsuk-label--s">
@@ -38,7 +40,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </label>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/label/macro.njk' import label %}
@@ -49,11 +51,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Label as page heading
 
 [Preview the label as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/label/page-heading.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <h1 class="nhsuk-label-wrapper">
@@ -63,7 +67,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </h1>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/label/macro.njk' import label %}
@@ -75,9 +79,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The label Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description             |
 | --------------------|----------|-----------|-------------------------|
@@ -86,6 +92,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **isPageHeading**   | boolean  | No        | Whether the label also acts as the heading for the page.|
 | **classes**         | string   | No        | Optional additional classes to add to the label tag. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the label tag. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
