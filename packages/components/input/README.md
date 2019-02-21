@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 [Preview the input component](https://nhsuk.github.io/nhsuk-frontend/components/input/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -19,7 +19,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/input/macro.njk' import input %}
@@ -33,11 +33,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Input with hint text
 
 [Preview the input with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/input/hint.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -51,7 +53,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/input/macro.njk' import input %}
@@ -68,11 +70,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Input with error message
 
 [Preview the input with error message component](https://nhsuk.github.io/nhsuk-frontend/components/input/error.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -89,7 +93,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/input/macro.njk' import input %}
@@ -109,11 +113,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Input with width modifier
 
 [Preview the input with width modifier component](https://nhsuk.github.io/nhsuk-frontend/components/input/custom-width.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -127,7 +133,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/input/macro.njk' import input %}
@@ -145,9 +151,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The input macro takes the following arguments:
 
 | Name                | Type     | Required  | Description             |
 | --------------------|----------|-----------|-------------------------|
@@ -160,6 +168,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes add to the input component. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the input component. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
