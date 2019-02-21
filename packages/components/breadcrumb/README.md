@@ -4,7 +4,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Guidance
 
-Find out more about the breadcrumb component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/breadcrumbs).
+Find out more about the breadcrumb component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/breadcrumbs).
 
 ## Quick start example
 
