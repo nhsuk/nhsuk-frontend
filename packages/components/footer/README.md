@@ -3,11 +3,9 @@
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/168).
 
 ## Guidance
-Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/footer/).
+Find out more about the footer component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/footer).
 
-## Quick start examples
-
-### Footer
+## Quick start example
 
 [Preview the footer component](https://nhsuk.github.io/nhsuk-frontend/components/footer/index.html)
 
@@ -61,7 +59,8 @@ Find out more about the footer component and when to use it in the [NHS Digital 
   ]
 })}}
 ```
-## Nunjucks arguments
+
+### Nunjucks arguments
 
 The footer Nunjucks macro takes the following arguments:
 
@@ -72,3 +71,5 @@ The footer Nunjucks macro takes the following arguments:
 | **links.[].label**    | string   | No        | The label of a primary navigation item in the footer. |
 | **classes**           | string   | No        | Optional additional classes to add to the footer container. Separate each class with a space. |
 | **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the footer container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
