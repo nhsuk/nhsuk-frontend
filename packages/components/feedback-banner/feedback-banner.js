@@ -11,17 +11,15 @@
  * feedbackBanner.init(3000);
  */
 
-const banner = document.querySelector('#nhsuk-feedback-banner');
-const bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
-const footer = document.querySelector('#nhsuk-footer');
-
 function showBanner() {
+  const banner = document.querySelector('#nhsuk-feedback-banner');
   if (banner) {
     banner.style.display = 'block';
   }
 }
 
 function hideBanner() {
+  const banner = document.querySelector('#nhsuk-feedback-banner');
   if (banner) {
     banner.style.display = 'none';
   }
@@ -41,6 +39,8 @@ function isScrolledIntoView(el) {
 function unstickBanner() {
   let didScroll = false;
   let timer = false;
+  const footer = document.querySelector('#nhsuk-footer');
+  const banner = document.querySelector('#nhsuk-feedback-banner');
   // set a timer when scrolling, so as not to be constantly calling the
   // isScrolledIntoView function and spiking CPU, to check when the footer
   // comes in to view, to make the banner not sticky but position it in the
@@ -66,12 +66,14 @@ function handleBannerDisplay(delay) {
 }
 
 function handleBannerClose() {
+  const bannerCloseButton = document.querySelector('#nhsuk-feedback-banner-close');
   if (bannerCloseButton) {
     bannerCloseButton.addEventListener('click', hideBanner);
   }
 }
 
 function handleBannerSticky() {
+  const banner = document.querySelector('#nhsuk-feedback-banner');
   if (banner) {
     window.addEventListener('scroll', unstickBanner);
   }

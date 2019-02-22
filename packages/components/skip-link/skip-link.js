@@ -8,19 +8,20 @@
  * then removes it when focus is off it.
  */
 
-const skipLinkElement = document.querySelector('.nhsuk-skip-link');
-const headingElement = document.getElementsByTagName('H1')[0];
-
 function addFocus() {
+  const headingElement = document.getElementsByTagName('H1')[0];
   headingElement.setAttribute('tabIndex', '-1');
   headingElement.focus();
 }
 
 function removeFocus() {
+  const headingElement = document.getElementsByTagName('H1')[0];
   headingElement.removeAttribute('tabIndex');
 }
 
 function handleSkipLink() {
+  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
+  const headingElement = document.getElementsByTagName('H1')[0];
   if (skipLinkElement && headingElement) {
     skipLinkElement.addEventListener('click', e => { /* eslint-disable-line arrow-parens */
       e.preventDefault();
@@ -30,6 +31,8 @@ function handleSkipLink() {
 }
 
 function handleHeader() {
+  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
+  const headingElement = document.getElementsByTagName('H1')[0];
   if (skipLinkElement && headingElement) {
     headingElement.addEventListener('blur', e => { /* eslint-disable-line arrow-parens */
       e.preventDefault();
