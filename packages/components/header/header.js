@@ -5,8 +5,7 @@
  * on tablet and mobile devices.
  */
 
-/* Shared function to toggle class names */
-
+/* Toggle a class on a given element */
 function toggleClass(ele, class1) {
   /* eslint-disable prefer-template, no-useless-concat, no-param-reassign */
   const classes = ele.className;
@@ -20,72 +19,76 @@ function toggleClass(ele, class1) {
   }
 }
 
-/* Search toggle */
-function toggleSearch(e) {
-  const searchToggleButton = document.querySelector('#toggle-search');
-  const searchContainer = document.querySelector('#wrap-search');
-  const menuSearchContainer = document.querySelector('#content-header');
-
-  e.preventDefault();
-
-  if (searchToggleButton.hasAttribute('aria-expanded')) {
-    searchToggleButton.removeAttribute('aria-expanded');
+/* Toggle the "aria-expanded" attribute on a given element */
+function toggleAriaExpanded(element) {
+  if (element.hasAttribute('aria-expanded')) {
+    element.removeAttribute('aria-expanded');
   } else {
-    searchToggleButton.setAttribute('aria-expanded', 'true');
-  }
-
-  toggleClass(searchToggleButton, 'is-active');
-  toggleClass(searchContainer, 'js-show');
-  toggleClass(menuSearchContainer, 'js-show');
-}
-
-function handleSearchToggle() {
-  const searchToggleButton = document.querySelector('#toggle-search');
-  const searchClose = document.querySelector('#close-search');
-
-  if (searchToggleButton) {
-    searchToggleButton.addEventListener('click', toggleSearch);
-  }
-  if (searchClose) {
-    searchClose.addEventListener('click', toggleSearch);
+    element.setAttribute('aria-expanded', 'true');
   }
 }
+class Search {
+  constructor() {
+    this.searchToggleButton = document.querySelector('#toggle-search');
+    this.searchClose = document.querySelector('#close-search');
+    this.searchContainer = document.querySelector('#wrap-search');
+    this.menuSearchContainer = document.querySelector('#content-header');
 
-/* Menu toggle */
-
-function toggleMenu(e) {
-  const menuToggleButton = document.querySelector('#toggle-menu');
-  const nav = document.querySelector('#header-navigation');
-
-  e.preventDefault();
-
-  if (menuToggleButton.hasAttribute('aria-expanded')) {
-    menuToggleButton.removeAttribute('aria-expanded');
-  } else {
-    menuToggleButton.setAttribute('aria-expanded', 'true');
+    this.attachListeners();
   }
 
-  toggleClass(menuToggleButton, 'is-active');
-  toggleClass(nav, 'js-show');
-}
-
-function handleMenuToggle() {
-  const menuToggleButton = document.querySelector('#toggle-menu');
-  const menuClose = document.querySelector('#close-menu');
-
-  if (menuToggleButton) {
-    menuToggleButton.addEventListener('click', toggleMenu);
+  attachListeners() {
+    if (this.searchToggleButton) {
+      this.searchToggleButton.addEventListener('click', this.toggle.bind(this));
+    }
+    if (this.searchClose) {
+      this.searchClose.addEventListener('click', this.toggle.bind(this));
+    }
   }
-  if (menuClose) {
-    menuClose.addEventListener('click', toggleMenu);
+
+  toggle(e) {
+    e.preventDefault();
+    toggleAriaExpanded(this.searchToggleButton);
+    toggleClass(this.searchToggleButton, 'is-active');
+    toggleClass(this.searchContainer, 'js-show');
+    toggleClass(this.menuSearchContainer, 'js-show');
   }
 }
 
-/* Header */
+class Menu {
+  constructor() {
+    this.menuToggleButton = document.querySelector('#toggle-menu');
+    this.menuClose = document.querySelector('#close-menu');
+    this.nav = document.querySelector('#header-navigation');
 
+    this.attachListeners();
+  }
+
+  attachListeners() {
+    if (this.menuToggleButton) {
+      this.menuToggleButton.addEventListener('click', this.toggle.bind(this));
+    }
+    if (this.menuClose) {
+      this.menuClose.addEventListener('click', this.toggle.bind(this));
+    }
+  }
+
+  toggle() {
+    toggleAriaExpanded(this.menuToggleButton);
+    toggleClass(this.menuToggleButton, 'is-active');
+    toggleClass(this.nav, 'js-show');
+  }
+}
+
+/*
+ * Initialize the search and menu toggles in the menu.
+ * Return an object containing the search and menu objects.
+ */
 function nhsuk_header() { /* eslint-disable-line camelcase */
-  handleSearchToggle();
-  handleMenuToggle();
+  return {
+    menu: new Menu(),
+    search: new Search(),
+  };
 }
 
 export default nhsuk_header; /* eslint-disable-line camelcase */
