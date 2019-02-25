@@ -1,11 +1,8 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var gulpNunjucks = require('gulp-nunjucks');
-var nunjucks = require('nunjucks');
-var connect = require('gulp-connect');
-var markdown = require('gulp-markdown');
-var wrap = require('gulp-wrap');
-var replace = require('gulp-replace');
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const gulpNunjucks = require('gulp-nunjucks');
+const nunjucks = require('nunjucks');
+const connect = require('gulp-connect');
 
 var config = {
   templates: ['app/_templates', 'packages'],
@@ -17,14 +14,7 @@ var config = {
  * Turn markdown into html with a nunjucks layout
  */
 function buildHtml() {
-  return gulp.src(['app/**/*.md', '!app/**/README.md', 'packages/**/README.md'])
-    .pipe(replace(/\[([^\]]*?)\]\(([^\)]*?)\.md\)/g, function(match, p1, p2) {
-      // replace .md links with .html
-      return `[${p1}](${p2}.html)`;
-    }))
-    .pipe(markdown())
-    .pipe(wrap({src: 'app/_templates/markdown-wrapper.njk'}))
-    .pipe(gulp.src(['app/**/*.njk']))
+  return gulp.src(['app/**/*.njk'])
     .pipe(gulpNunjucks.compile({
       // site-wide data goes here
       baseUrl: config.baseUrl,
