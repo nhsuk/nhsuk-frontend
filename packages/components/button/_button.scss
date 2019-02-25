@@ -58,7 +58,6 @@ $button-shadow-size: 4px;
   &:hover,
   &:focus {
     background-color: $nhsuk-button-hover-colour;
-    box-shadow: 0 4px 0 $nhsuk-button-shadow-colour;
   }
 
   &:active {

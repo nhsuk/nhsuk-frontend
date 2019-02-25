@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 1.1.0 - TBC, 2019
+
+:wrench: **Fixes**
+
+- Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
+
 ## 1.0.1 - Feb 20, 2019
 
 :wrench: **Fixes**
