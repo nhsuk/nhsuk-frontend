@@ -27,7 +27,6 @@ function toggleSearch(e) {
   const menuSearchContainer = document.querySelector('#content-header');
 
   e.preventDefault();
-  e.stopImmediatePropagation();
 
   if (searchToggleButton.hasAttribute('aria-expanded')) {
     searchToggleButton.removeAttribute('aria-expanded');
@@ -59,7 +58,6 @@ function toggleMenu(e) {
   const nav = document.querySelector('#header-navigation');
 
   e.preventDefault();
-  e.stopImmediatePropagation();
 
   if (menuToggleButton.hasAttribute('aria-expanded')) {
     menuToggleButton.removeAttribute('aria-expanded');
