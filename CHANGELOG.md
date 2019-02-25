@@ -2,6 +2,10 @@
 
 ## 1.1.0 - TBC
 
+:wrench: **Fixes**
+
+- Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
+
 :new: **New features**
 
 - Summary list component - Use the summary list to summarise information, for example, a user’s responses at the end of a form.
