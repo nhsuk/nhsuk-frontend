@@ -373,6 +373,18 @@ module.exports = {
       "url": `${TEST_HOST}/components/select/hint-error.html`
     },
     {
+      "label": "Summary list",
+      "url": `${TEST_HOST}/components/summary-list/index.html`
+    },
+    {
+      "label": "Summary list without actions",
+      "url": `${TEST_HOST}/components/summary-list/without-actions.html`
+    },
+    {
+      "label": "Summary list without border",
+      "url": `${TEST_HOST}/components/summary-list/without-border.html`
+    },
+    {
       "label": "Table",
       "url": `${TEST_HOST}/components/tables/index.html`
     },

@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## 1.1.0 - TBC
+
+:new: **New features**
+
+- Summary list component - Use the summary list to summarise information, for example, a user’s responses at the end of a form.
+
+  If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/summary-list/summary-list';`
+
+  ([Issue 384](https://github.com/nhsuk/nhsuk-frontend/issues/384))
+
 ## 1.0.1 - Feb 20, 2019
 
 :wrench: **Fixes**
