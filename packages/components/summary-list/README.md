@@ -6,7 +6,7 @@
 
 [Preview the summary list component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <dl class="nhsuk-summary-list">
@@ -72,7 +72,7 @@
 </dl>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from "components/summary-list/macro.njk" import summaryList %}
@@ -151,11 +151,13 @@
 }) }}
 ```
 
+---
+
 ### Summary list without actions
 
 [Preview the summary list without actions component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/without-actions.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <dl class="nhsuk-summary-list">
@@ -197,7 +199,7 @@
 </dl>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from "components/summary-list/macro.njk" import summaryList %}
@@ -240,11 +242,13 @@
 }) }}
 ```
 
+---
+
 ### Summary list without border
 
 [Preview the summary list without border component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/without-border.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
@@ -286,7 +290,7 @@
 </dl>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from "components/summary-list/macro.njk" import summaryList %}
@@ -329,6 +333,8 @@
   ]
 }) }}
 ```
+
+---
 
 ### Nunjucks arguments
 
