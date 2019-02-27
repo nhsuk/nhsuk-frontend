@@ -35,6 +35,8 @@ Docker is installed on the continuous integration service automatically but if y
 
 #### Run tests
 
+Before you run the BackstopJS tests, you must have the application running locally with `npm start`.
+
 ```
 npm run backstop:test
 ```
@@ -44,7 +46,6 @@ Each time that a test is run locally a new set of bitmaps will be created in `te
 Once the test bitmaps are generated, a report comparing the most recent test bitmaps against the current reference bitmaps will display.
 
 If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run backstop:clean`.
-
 
 #### Run an individual test
 
