@@ -5528,6 +5528,128 @@ b {
     color: #212b32; }
 
 /* ==========================================================================
+   COMPONENTS/ #SUMMARY-LIST
+   ========================================================================== */
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. Reset default user agent styles
+ * 2. Automatic wrapping for unbreakable text (e.g. URLs)
+ * 3. .. WebKit/Blink only
+ * 4. .. Standards
+ * 5. In older browsers such as IE8, :last-child is not available,
+ *    so only show the border divider where it is available.
+ */
+.nhsuk-summary-list {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  /* [1] */
+  margin-bottom: 32px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-summary-list {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list {
+      display: table;
+      width: 100%; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list {
+      margin-bottom: 40px; } }
+
+@media (max-width: 40.0525em) {
+  .nhsuk-summary-list__row {
+    border-bottom: 1px solid #d8dde0;
+    margin-bottom: 16px; } }
+
+@media (min-width: 40.0625em) {
+  .nhsuk-summary-list__row {
+    display: table-row; } }
+
+.nhsuk-summary-list__key,
+.nhsuk-summary-list__value,
+.nhsuk-summary-list__actions {
+  margin: 0;
+  /* 1 */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      border-bottom: 1px solid #d8dde0;
+      display: table-cell;
+      padding-bottom: 8px;
+      padding-right: 24px;
+      padding-top: 8px; } }
+
+.nhsuk-summary-list__actions {
+  margin-bottom: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list__actions {
+      padding-right: 0;
+      text-align: right; } }
+
+.nhsuk-summary-list__key,
+.nhsuk-summary-list__value {
+  /* 2 */
+  word-break: break-word;
+  /* 3 */
+  word-break: break-all;
+  /* 4 */ }
+
+.nhsuk-summary-list__key {
+  font-weight: 600;
+  margin-bottom: 4px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-summary-list__key {
+      width: 30%; } }
+
+@media (max-width: 40.0525em) {
+  .nhsuk-summary-list__value {
+    margin-bottom: 16px; } }
+
+.nhsuk-summary-list__value > p {
+  margin-bottom: 8px; }
+
+.nhsuk-summary-list__value > :last-child {
+  margin-bottom: 0; }
+
+.nhsuk-summary-list__actions-list {
+  margin: 0;
+  /* 1 */
+  padding: 0;
+  /* 1 */
+  width: 100%; }
+
+.nhsuk-summary-list__actions-list-item {
+  display: inline;
+  margin-right: 8px;
+  padding-right: 8px; }
+
+/* 5 */
+.nhsuk-summary-list__actions-list-item:not(:last-child) {
+  border-right: 1px solid #d8dde0; }
+
+.nhsuk-summary-list__actions-list-item:last-child {
+  border: 0;
+  margin-right: 0;
+  padding-right: 0; }
+
+.nhsuk-summary-list--no-border .nhsuk-summary-list__key,
+.nhsuk-summary-list--no-border .nhsuk-summary-list__value,
+.nhsuk-summary-list--no-border .nhsuk-summary-list__actions,
+.nhsuk-summary-list--no-border .nhsuk-summary-list__row {
+  border: 0; }
+
+/* ==========================================================================
    COMPONENTS / #TABLE
    ========================================================================== */
 /* Table row hover
