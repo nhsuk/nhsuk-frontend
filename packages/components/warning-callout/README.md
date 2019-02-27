@@ -4,11 +4,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Guidance
 
-Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/patterns/warning_callout/).
+Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/warning-callout).
 
-## Quick start examples
-
-### Example
+## Quick start example
 
 [Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
 
@@ -34,7 +32,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
-## Nunjucks arguments
+### Nunjucks arguments
 
 The warning callout Nunjucks macro takes the following arguments:
 
@@ -45,3 +43,5 @@ The warning callout Nunjucks macro takes the following arguments:
 | **headingLevel**        | integer  | No        | Optional heading level for the  heading. Default: 3 |
 | **classes**             | string   | No        | Optional additional classes to add to the warning callout. Separate each class with a space. |
 | **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the warning callout. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 [Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <section class="nhsuk-hero">
@@ -25,7 +25,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </section>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/hero/macro.njk' import hero %}
@@ -36,11 +36,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Hero with image, heading and content
 
 [Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
@@ -59,7 +61,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </section>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/hero/macro.njk' import hero %}
@@ -71,11 +73,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Hero with image only
 
-[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
+[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
@@ -84,7 +88,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </section>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/hero/macro.njk' import hero %}
@@ -94,9 +98,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-The transactional header with a long service name macro takes the following arguments:
+### Nunjucks arguments
+
+The hero macro takes the following arguments:
 
 | Name                       | Type     | Required  | Description  |
 | ---------------------------|----------|-----------|--------------|
@@ -105,3 +111,5 @@ The transactional header with a long service name macro takes the following argu
 | **imageURL**               | string   | No        | URL of the image of the hero component. |
 | **classes**                | string   | No        | Optional additional classes to add to the hero container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the hero container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

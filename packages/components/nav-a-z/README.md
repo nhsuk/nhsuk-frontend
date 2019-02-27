@@ -2,9 +2,7 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/186).
 
-## Quick start examples
-
-### Nav A-Z
+## Quick start example
 
 [Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z/index.html)
 
@@ -185,7 +183,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-#### Nunjucks arguments
+### Nunjucks arguments
 
 The nav a-z Nunjucks macro takes the following arguments:
 
@@ -196,3 +194,5 @@ The nav a-z Nunjucks macro takes the following arguments:
 | **items.[].disable**  | boolean  | No        | If set to true, then the navigation item will not be within an anchor element. |
 | **classes**           | string   | No        | Optional additional classes to add to the nav a-z. Separate each class with a space. |
 | **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the nav a-z. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

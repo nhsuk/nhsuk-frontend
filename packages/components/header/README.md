@@ -4,7 +4,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ## Guidance
 
-Find out more about the header component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/header/).
+Find out more about the header component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/header).
 
 ## Dependencies
 
@@ -17,7 +17,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 [Preview the header component](https://nhsuk.github.io/nhsuk-frontend/components/header/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <header class="nhsuk-header" role="banner">
@@ -128,7 +128,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -162,11 +162,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header with navigation
 
 [Preview the header with navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-navigation.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <header class="nhsuk-header" role="banner">
@@ -250,7 +252,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -284,11 +286,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header with search
 
 [Preview the header with search component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-search.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <header class="nhsuk-header" role="banner">
@@ -335,7 +339,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -369,11 +373,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header with logo
 
 [Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-logo.html)
 
-### HTML markup
+#### HTML markup
 
 ```HTML
 <header class="nhsuk-header" role="banner">
@@ -391,7 +397,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -403,11 +409,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header with logo (transactional header)
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional.html)
+[Preview the header with logo (transactional header) component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional.html)
 
-### HTML markup
+#### HTML markup
 
 ```HTML
 <header class="nhsuk-header nhsuk-header--transactional" role="banner">
@@ -425,7 +433,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -438,11 +446,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header transactional with service name
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-service-name.html)
+[Preview the header transactional with service name component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-service-name.html)
 
-### HTML markup
+#### HTML markup
 
 ```HTML
 <header class="nhsuk-header nhsuk-header--transactional" role="banner">
@@ -463,7 +473,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -479,11 +489,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header transactional with a long service name
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-long-service-name.html)
+[Preview the header transactional with a long service name component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-long-service-name.html)
 
-### HTML markup
+#### HTML markup
 
 ```HTML
 <header class="nhsuk-header nhsuk-header--transactional" role="banner">
@@ -504,7 +516,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </header>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -521,11 +533,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
+---
+
 ### Header with a service name and search
 
-[Preview the header with logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-service-name.html)
+[Preview the header with a service name and search component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-service-name.html)
 
-### HTML markup
+#### HTML markup
 
 ```HTML
 <header class="nhsuk-header" role="banner">
@@ -574,7 +588,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/header/macro.njk' import header %}
@@ -590,7 +604,9 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
-## Nunjucks arguments
+---
+
+### Nunjucks arguments
 
 The header Nunjucks macro takes the following arguments:
 
@@ -608,3 +624,5 @@ The header Nunjucks macro takes the following arguments:
 | **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
