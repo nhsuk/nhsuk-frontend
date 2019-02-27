@@ -2163,8 +2163,7 @@ b {
     border: 0;
     padding: 0; }
   .nhsuk-button:hover, .nhsuk-button:focus {
-    background-color: #00662f;
-    box-shadow: 0 4px 0 #003317; }
+    background-color: #00662f; }
   .nhsuk-button:active {
     box-shadow: none;
     top: 4px; }
