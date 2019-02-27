@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 [Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-table-responsive">
@@ -38,7 +38,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -84,11 +84,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Table panel
 
 [Preview the table panel component](https://nhsuk.github.io/nhsuk-frontend/components/tables/tables-panel.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
@@ -121,7 +123,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```html
 {% from 'components/tables/macro.njk' import table %}
@@ -168,7 +170,9 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
+
+### Nunjucks arguments
 
 The table Nunjucks macro takes the following arguments:
 
@@ -193,3 +197,5 @@ The table Nunjucks macro takes the following arguments:
 | **head.[].rowspan**    | number     | No        | Specify how many rows a cell extends. |
 | **head.[].format**     | string     | No        | Specify format of a cell. Currently we only use "numeric". |
 | **firstCellIsHeader**  | boolean    | No        | If set to true, first cell in table row will be a TH instead of a TD. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

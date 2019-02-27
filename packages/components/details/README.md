@@ -12,7 +12,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 [Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <details class="nhsuk-details">
@@ -36,13 +36,11 @@ For this component to be accessible and compatible with older browsers, include 
 </details>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
-
-{% from 'components/details/macro.njk' import details %}
+#### Nunjucks macro
 
 ```
+{% from 'components/details/macro.njk' import details %}
+
 {{ details({
   "text": "Where can I find my NHS number?",
   "HTML": "
@@ -60,11 +58,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
+---
+
 ### Expander
 
 [Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <details class="nhsuk-details nhsuk-expander">
@@ -114,9 +114,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </details>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+#### Nunjucks macro
 
 ```
 {% from 'components/details/macro.njk' import details %}
@@ -164,11 +162,13 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 }) }}
 ```
 
+---
+
 ### Expander group
 
-[Preview this component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander-group.html)
+[Preview the expander group component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander-group.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-expander-group">
@@ -208,9 +208,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-### Nunjucks macro
-
-If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+#### Nunjucks macro
 
 ```
 {% from 'components/details/macro.njk' import details %}
@@ -246,9 +244,11 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 </div>
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The details Nunjucks macro takes the following arguments:
 
 | Name         | Type     | Required  | Description |
 | -------------|----------|-----------|-------------|
@@ -256,3 +256,5 @@ If you are using Nunjucks, then macros take the following arguments:
 | HTML         | string   | Yes       | HTML content to be displayed within the expander component |
 | classes      | string   | No        | Optional additional classes to add to the anchor tag. Separate each class with a space. |
 | attributes   | object   | No        | Any extra HTML attributes (for example data attributes) to add to the anchor tag. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

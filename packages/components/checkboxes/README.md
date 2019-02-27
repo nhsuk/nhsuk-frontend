@@ -2,13 +2,17 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/207).
 
+## Guidance
+
+Find out more about the checkboxes component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/checkboxes).
+
 ## Quick start examples
 
 ### Checkboxes
 
 [Preview the checkboxes component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -43,7 +47,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
@@ -76,11 +80,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Checkboxes with hint text
 
 [Preview the checkboxes with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/hint.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -114,7 +120,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
@@ -149,11 +155,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Checkboxes with disabled item
 
 [Preview the checkboxes with disabled item component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/disabled.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -180,7 +188,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
@@ -205,11 +213,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Checkboxes with legend as page heading
 
 [Preview the checkboxes with legend as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/page-heading.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -246,7 +256,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
@@ -280,11 +290,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Checkboxes with error message
 
 [Preview the checkboxes with error message component](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/error.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -319,7 +331,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
@@ -351,9 +363,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The checkboxes Nunjucks macro takes the following arguments:
 
 | Name                      | Type     | Required  | Description             |
 | --------------------------|----------|-----------|-------------------------|
@@ -376,6 +390,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkbox input tag. |
 | **classes**               | string   | No        | Optional additional classes to add to the checkboxes container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkboxes container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 

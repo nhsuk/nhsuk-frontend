@@ -2,13 +2,17 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/224).
 
+## Guidance
+
+Find out more about the radios component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/radios).
+
 ## Quick start examples
 
 ### Radios
 
 [Preview the radios component](https://nhsuk.github.io/nhsuk-frontend/components/radios/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -37,7 +41,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -67,11 +71,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios inline
 
 [Preview the radios inline component](https://nhsuk.github.io/nhsuk-frontend/components/radios/inline.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -100,7 +106,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -131,11 +137,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios disabled
 
 [Preview the radios disabled component](https://nhsuk.github.io/nhsuk-frontend/components/radios/disabled.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -164,7 +172,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -195,11 +203,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios with a divider
 
 [Preview the radios with a divider component](https://nhsuk.github.io/nhsuk-frontend/components/radios/divider.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -232,7 +242,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -265,11 +275,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios with hint text on items
 
 [Preview the radios with hint text on items component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -303,7 +315,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -336,11 +348,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios without fieldset
 
 [Preview the radios without fieldset component](https://nhsuk.github.io/nhsuk-frontend/components/radios/without-fieldset.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -367,7 +381,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -391,11 +405,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Radios with hint text and error message
 
 [Preview the radios with hint text and error message component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint-error.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -427,7 +443,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/radios/macro.njk' import radios %}
@@ -465,9 +481,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The radios Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description                 |
 | --------------------|----------|-----------|-----------------------------|
@@ -488,6 +506,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radio input tag. |
 | **classes**         | string   | No        | Optional additional classes to add to the radios container. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radios container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 

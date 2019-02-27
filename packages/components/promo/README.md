@@ -299,3 +299,5 @@ The promo Nunjucks macro takes the following arguments:
 | **description**     | string   | No        | The text description of the promo |
 | **classes**         | string   | No        | Optional additional classes to add to the promo. Separate each class with a space. For the small promo, use `nhsuk-promo--small` |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the promo. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

@@ -2,13 +2,17 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/225).
 
+## Guidance
+
+Find out more about the select component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/select).
+
 ## Quick start examples
 
 ### Select
 
 [Preview the select component](https://nhsuk.github.io/nhsuk-frontend/components/select/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group">
@@ -23,7 +27,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/select/macro.njk' import select %}
@@ -53,11 +57,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Select with hint text and error message
 
 [Preview the select with hint text and error message component](https://nhsuk.github.io/nhsuk-frontend/components/select/hint-error.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
@@ -78,7 +84,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/select/macro.njk' import select %}
@@ -112,9 +118,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-## Nunjucks arguments
+---
 
-If you are using Nunjucks, then macros take the following arguments:
+### Nunjucks arguments
+
+The select Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description                 |
 | --------------------|----------|-----------|-----------------------------|
@@ -131,6 +139,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes to add to the select component. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the select component. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 

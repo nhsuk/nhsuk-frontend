@@ -2,9 +2,7 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/173).
 
-## Quick start examples
-
-### List panel
+## Quick start example
 
 [Preview the list panel component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel/index.html)
 
@@ -174,7 +172,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-#### Nunjucks arguments
+### Nunjucks arguments
 
 The list panel Nunjucks macro takes the following arguments:
 
@@ -192,3 +190,5 @@ The list panel Nunjucks macro takes the following arguments:
 | **items[].link**    | string   | No        | The text value of an item in the list panel. |
 | **classes**         | string   | No        | Optional additional classes to add to the list panel. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the list panel. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
