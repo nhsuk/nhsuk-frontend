@@ -50,6 +50,18 @@ module.exports = {
       "url": `${TEST_HOST}/components/button/index.html`
     },
     {
+      "label": "Button click",
+      "url": `${TEST_HOST}/components/button/index.html`,
+      "clickSelector": ".nhsuk-button",
+      "viewports": [
+        {
+          "label": "Surface, iPad Pro",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
       "label": "Button disabled",
       "url": `${TEST_HOST}/components/button/disabled.html`
     },
