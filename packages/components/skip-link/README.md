@@ -13,9 +13,7 @@ The fix focuses on the first `H1` on the page if one exists. If one does not exi
 
 Ensure the correct `id` value has been added to your main content for the skip link to work.
 
-## Quick start examples
-
-### Example
+## Quick start example
 
 [Preview the skip link component](https://nhsuk.github.io/nhsuk-frontend/components/skip-link/index.html)
 
@@ -36,7 +34,7 @@ Ensure the correct `id` value has been added to your main content for the skip l
 }) }}
 ```
 
-#### Nunjucks arguments
+### Nunjucks arguments
 
 The skip link Nunjucks macro takes the following arguments:
 
@@ -46,3 +44,5 @@ The skip link Nunjucks macro takes the following arguments:
 | **text**            | string   | No        | The text of the skip link. Default: "Skip to main content". |
 | **classes**         | string   | No        | Optional additional classes to add to the skip link. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the skip link. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

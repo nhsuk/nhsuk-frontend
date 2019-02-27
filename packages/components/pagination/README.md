@@ -8,7 +8,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 [Preview the pagination component](https://nhsuk.github.io/nhsuk-frontend/components/pagination/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
@@ -37,7 +37,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </nav>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/pagination/macro.njk' import pagination %}
@@ -50,23 +50,11 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
-#### Nunjucks arguments
-
-The pagination Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **previousUrl**     | string   | Yes       | The value of the previous link href attribute. |
-| **previousPage**    | string   | Yes       | The text of the previous link. |
-| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
-| **nextPage**        | string   | Yes       | The text of the next link. |
-| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
-
+---
 
 ### Next pagination
 
-### HTML markup
+#### HTML markup
 
 ```html
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
@@ -86,7 +74,7 @@ The pagination Nunjucks macro takes the following arguments:
 
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/pagination/macro.njk' import pagination %}
@@ -97,21 +85,11 @@ The pagination Nunjucks macro takes the following arguments:
 }) }}
 ```
 
-#### Nunjucks arguments
-
-The next pagination Nunjucks macro takes the following arguments:
-
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
-| **nextPage**        | string   | Yes       | The text of the next link. |
-| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
-
+---
 
 ### Previous pagination
 
-### HTML markup
+#### HTML markup
 
 ```html
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
@@ -131,7 +109,7 @@ The next pagination Nunjucks macro takes the following arguments:
 
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/pagination/macro.njk' import pagination %}
@@ -142,13 +120,19 @@ The next pagination Nunjucks macro takes the following arguments:
 }) }}
 ```
 
-#### Nunjucks arguments
+---
 
-The previous pagination Nunjucks macro takes the following arguments:
+### Nunjucks arguments
+
+The pagination Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
 | **previousUrl**     | string   | Yes       | The value of the previous link href attribute. |
 | **previousPage**    | string   | Yes       | The text of the previous link. |
+| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
+| **nextPage**        | string   | Yes       | The text of the next link. |
 | **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

@@ -2,13 +2,17 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/220).
 
+## Guidance
+
+Find out more about the fieldset component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/fieldset).
+
 ## Quick start examples
 
 ### Fieldset
 
 [Preview the fieldset component](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <fieldset class="nhsuk-fieldset">
@@ -18,7 +22,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </fieldset>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/fieldset/macro.njk' import fieldset %}
@@ -30,11 +34,13 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
+
 ### Fieldset as page heading
 
 [Preview the fieldset as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/page-heading.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <fieldset class="nhsuk-fieldset">
@@ -46,7 +52,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 </fieldset>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 ```
 {% from 'components/fieldset/macro.njk' import fieldset %}
@@ -60,13 +66,14 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 }) }}
 ```
 
+---
 
 ### Fieldset with input fields
 
 [Preview the fieldset component with input fields](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html)
 
 
-### HTML markup
+#### HTML markup
 
 ```html
 <fieldset class="nhsuk-fieldset">
@@ -103,7 +110,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
 
 To add input fields inside the fieldset, use the `call` block.
 
@@ -154,10 +161,11 @@ To add input fields inside the fieldset, use the `call` block.
 {% endcall %}
 ```
 
+---
 
-## Nunjucks arguments
+### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments:
+The fieldset Nunjucks macro takes the following arguments:
 
 | Name                    | Type     | Required  | Description             |
 | ------------------------|----------|-----------|-------------------------|
@@ -168,6 +176,8 @@ If you are using Nunjucks, then macros take the following arguments:
 | **legend.{}.isPageHeading**  | boolean   | No  | Whether the legend also acts as the heading for the page. |
 | **classes**             | string   | No        | Optional additional classes to add to the fieldset container. Separate each class with a space. |
 | **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the fieldset container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 

@@ -3,11 +3,9 @@
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/164).
 
 ## Guidance
-Find out more about the do and don't list component and when to use it in the [NHS Digital service manual](https://beta.nhs.uk/service-manual/patterns/do-and-dont-lists/).
+Find out more about the do and don't list component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/do-and-dont-list).
 
-## Quick start examples
-
-### Do and don't list
+## Quick start example
 
 [Preview the do and don't list component](https://nhsuk.github.io/nhsuk-frontend/components/do-dont-list/index.html)
 
@@ -113,9 +111,9 @@ Find out more about the do and don't list component and when to use it in the [N
 }) }}
 ```
 
-## Nunjucks arguments
+### Nunjucks arguments
 
-If you are using Nunjucks, then macros take the following arguments:
+The do and don't list Nunjucks macro takes the following arguments:
 
 | Name              | Type     | Required  | Description |
 | ------------------|----------|-----------|-------------|
@@ -125,3 +123,5 @@ If you are using Nunjucks, then macros take the following arguments:
 | **headingLevel**  | integer  | No        | Optional heading level for the title heading. Default: 3 |
 | **classes**       | string   | No        | Optional additional classes to add to the do and don't list container. Separate each class with a space. |
 | **attributes**    | object   | No        | Any extra HTML attributes (for example data attributes) to add to the do and don't list container. |
+
+If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
