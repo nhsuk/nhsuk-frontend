@@ -2,6 +2,10 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/177).
 
+## Guidance
+
+Find out more about the review date component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/review-date).
+
 ## Quick start example
 
 [Preview the review date component](https://nhsuk.github.io/nhsuk-frontend/components/review-date/index.html)
