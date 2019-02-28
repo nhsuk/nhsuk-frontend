@@ -83,36 +83,33 @@ function autocomplete(config) {
 
 }
 
-if (document.getElementById('wrap-search')) {
+window.addEventListener("load", function(event) {
+  const wrap = document.querySelector('#wrap-search');
 
-  // only add event listener if 'wrap-search' exists to act on
-  window.addEventListener("load", function(event) {
+    if (wrap) {
+        positionsAndWidths();
+        // To deal with window resizing, need to reset positioning of search results dropdown
+        // Use setTimeout on resize so as not to kill CPU
+        // https://developer.mozilla.org/en-US/docs/Web/Events/resize
+        window.addEventListener("resize", resizeThrottler, false);
 
-    positionsAndWidths();
+        let resizeTimeout;
+        function resizeThrottler() {
+          // ignore resize events as long as an actualResizeHandler execution is in the queue
+          if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+              resizeTimeout = null;
+              actualResizeHandler();
+            // The actualResizeHandler will execute at a rate of 15fps
+            }, 66);
+          }
+        }
 
-    // To deal with window resizing, need to reset positioning of search results dropdown
-    // Use setTimeout on resize so as not to kill CPU
-    // https://developer.mozilla.org/en-US/docs/Web/Events/resize
-    window.addEventListener("resize", resizeThrottler, false);
+        function actualResizeHandler() {
+          positionsAndWidths();
+        }
 
-    let resizeTimeout;
-    function resizeThrottler() {
-      // ignore resize events as long as an actualResizeHandler execution is in the queue
-      if ( !resizeTimeout ) {
-        resizeTimeout = setTimeout(function() {
-          resizeTimeout = null;
-          actualResizeHandler();
-         // The actualResizeHandler will execute at a rate of 15fps
-         }, 66);
-      }
     }
-
-    function actualResizeHandler() {
-      positionsAndWidths();
-    }
-
-  });
-
-}
+});
 
 export default autocomplete;

@@ -21,25 +21,28 @@ function toggleClass(ele, class1) {
 }
 
 /* Search toggle */
-
-const searchToggleButton = document.querySelector('#toggle-search');
-const searchClose = document.querySelector('#close-search');
-const searchContainer = document.querySelector('#wrap-search');
-const menuSearchContainer = document.querySelector('#content-header');
-
 function toggleSearch(e) {
+  const searchToggleButton = document.querySelector('#toggle-search');
+  const searchContainer = document.querySelector('#wrap-search');
+  const menuSearchContainer = document.querySelector('#content-header');
+
   e.preventDefault();
+
   if (searchToggleButton.hasAttribute('aria-expanded')) {
     searchToggleButton.removeAttribute('aria-expanded');
   } else {
     searchToggleButton.setAttribute('aria-expanded', 'true');
   }
+
   toggleClass(searchToggleButton, 'is-active');
   toggleClass(searchContainer, 'js-show');
   toggleClass(menuSearchContainer, 'js-show');
 }
 
 function handleSearchToggle() {
+  const searchToggleButton = document.querySelector('#toggle-search');
+  const searchClose = document.querySelector('#close-search');
+
   if (searchToggleButton) {
     searchToggleButton.addEventListener('click', toggleSearch);
   }
@@ -50,22 +53,26 @@ function handleSearchToggle() {
 
 /* Menu toggle */
 
-const menuToggleButton = document.querySelector('#toggle-menu');
-const menuClose = document.querySelector('#close-menu');
-const nav = document.querySelector('#header-navigation');
-
 function toggleMenu(e) {
+  const menuToggleButton = document.querySelector('#toggle-menu');
+  const nav = document.querySelector('#header-navigation');
+
   e.preventDefault();
+
   if (menuToggleButton.hasAttribute('aria-expanded')) {
     menuToggleButton.removeAttribute('aria-expanded');
   } else {
     menuToggleButton.setAttribute('aria-expanded', 'true');
   }
+
   toggleClass(menuToggleButton, 'is-active');
   toggleClass(nav, 'js-show');
 }
 
 function handleMenuToggle() {
+  const menuToggleButton = document.querySelector('#toggle-menu');
+  const menuClose = document.querySelector('#close-menu');
+
   if (menuToggleButton) {
     menuToggleButton.addEventListener('click', toggleMenu);
   }
