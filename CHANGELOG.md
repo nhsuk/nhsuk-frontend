@@ -6,6 +6,10 @@
 
 - Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
 
+- JavaScript variable scope - Globally scoped variables were causing issues with JavaScript frameworks such as Angular, so they have been moved to be locally scoped within functions. However, this could be improved as we have to duplicate variables between the multiple functions, so its likely this is a temporary fix before refactoring our JavaScript to be class based. ([PR 402](https://github.com/nhsuk/nhsuk-frontend/pull/402)), ([Issue 398](https://github.com/nhsuk/nhsuk-frontend/issues/398)).
+
+  The JavaScript files will update automatically, when you update the nhsuk-frontend version and your application will work as normal.
+
 :new: **New features**
 
 - Summary list component - Use the summary list to summarise information, for example, a user’s responses at the end of a form.
