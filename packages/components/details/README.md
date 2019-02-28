@@ -2,6 +2,10 @@
 
 To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/162).
 
+## Guidance
+
+Find out more about the details component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/details).
+
 ## Dependencies
 
 For this component to be accessible and compatible with older browsers, include the required polyfill JavaScript. You can either include the compiled JavaScript for all components or just the polyfill JavaScript `details.polyfill.js`.
@@ -63,6 +67,10 @@ For this component to be accessible and compatible with older browsers, include 
 ### Expander
 
 [Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander.html)
+
+#### Guidance
+
+Find out more about the expander component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/expander).
 
 #### HTML markup
 
