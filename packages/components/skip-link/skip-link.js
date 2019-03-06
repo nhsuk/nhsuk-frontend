@@ -8,42 +8,40 @@
  * then removes it when focus is off it.
  */
 
-function addFocus() {
-  const headingElement = document.getElementsByTagName('H1')[0];
-  headingElement.setAttribute('tabIndex', '-1');
-  headingElement.focus();
-}
+ class Heading {
+   constructor() {
+    this.skipLinkElement = document.querySelector('.nhsuk-skip-link');
+    this.headingElement = document.getElementsByTagName('H1')[0];
 
-function removeFocus() {
-  const headingElement = document.getElementsByTagName('H1')[0];
-  headingElement.removeAttribute('tabIndex');
-}
+    this.attachListeners();
+   }
 
-function handleSkipLink() {
-  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
-  const headingElement = document.getElementsByTagName('H1')[0];
-  if (skipLinkElement && headingElement) {
-    skipLinkElement.addEventListener('click', e => { /* eslint-disable-line arrow-parens */
-      e.preventDefault();
-      addFocus();
-    });
+   attachListeners() {
+    if (this.skipLinkElement) {
+      this.skipLinkElement.addEventListener('click', this.focus.bind(this));
+    }
+    if (this.headingElement) {
+      this.headingElement.addEventListener('blur', this.removeFocus.bind(this));
+    }
   }
-}
 
-function handleHeader() {
-  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
-  const headingElement = document.getElementsByTagName('H1')[0];
-  if (skipLinkElement && headingElement) {
-    headingElement.addEventListener('blur', e => { /* eslint-disable-line arrow-parens */
-      e.preventDefault();
-      removeFocus();
-    });
+  focus(e) {
+    e.preventDefault();
+    this.headingElement.setAttribute('tabIndex', '-1');
+    this.headingElement.focus();
   }
-}
+
+  removeFocus(e) {
+    e.preventDefault();
+    this.headingElement.removeAttribute('tabIndex');
+  }
+
+ }
 
 function nhsuk_skipLink() { /* eslint-disable-line camelcase */
-  handleSkipLink();
-  handleHeader();
+  return {
+    heading: new Heading()
+  };
 }
 
 export default nhsuk_skipLink; /* eslint-disable-line camelcase */
