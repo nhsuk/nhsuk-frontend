@@ -47,7 +47,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 ```html
 <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
   <div class="nhsuk-hero__overlay">
-    <div class="nhsuk-width-container nhsuk-hero--border">
+    <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-hero-content">
