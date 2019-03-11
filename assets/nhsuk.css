@@ -5545,10 +5545,10 @@ b {
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  *
- * 1. Reset default user agent styles
- * 2. Automatic wrapping for unbreakable text (e.g. URLs)
- * 3. .. WebKit/Blink only
- * 4. .. Standards
+ * 1. Required to allow us to wrap words that overflow.
+ * 2. Reset default user agent styles
+ * 3. Automatic wrapping for unbreakable text (e.g. URLs)
+ * 4. Fallback for older browsers only
  * 5. In older browsers such as IE8, :last-child is not available,
  *    so only show the border divider where it is available.
  */
@@ -5558,7 +5558,7 @@ b {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
-  /* [1] */
+  /* [2] */
   margin-bottom: 32px; }
   @media (min-width: 40.0625em) {
     .nhsuk-summary-list {
@@ -5572,6 +5572,8 @@ b {
   @media (min-width: 40.0625em) {
     .nhsuk-summary-list {
       display: table;
+      table-layout: fixed;
+      /* [1] */
       width: 100%; } }
   @media (min-width: 40.0625em) {
     .nhsuk-summary-list {
@@ -5590,7 +5592,7 @@ b {
 .nhsuk-summary-list__value,
 .nhsuk-summary-list__actions {
   margin: 0;
-  /* 1 */ }
+  /* [2] */ }
   @media (min-width: 40.0625em) {
     .nhsuk-summary-list__key,
     .nhsuk-summary-list__value,
@@ -5606,15 +5608,15 @@ b {
   @media (min-width: 40.0625em) {
     .nhsuk-summary-list__actions {
       padding-right: 0;
-      text-align: right; } }
+      text-align: right;
+      width: 20%; } }
 
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value {
-  /* 2 */
-  word-break: break-word;
-  /* 3 */
-  word-break: break-all;
-  /* 4 */ }
+  /* [3] */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* [4] */ }
 
 .nhsuk-summary-list__key {
   font-weight: 600;
@@ -5627,6 +5629,10 @@ b {
   .nhsuk-summary-list__value {
     margin-bottom: 16px; } }
 
+@media (min-width: 40.0625em) {
+  .nhsuk-summary-list__value {
+    width: 50%; } }
+
 .nhsuk-summary-list__value > p {
   margin-bottom: 8px; }
 
@@ -5635,9 +5641,9 @@ b {
 
 .nhsuk-summary-list__actions-list {
   margin: 0;
-  /* 1 */
+  /* [2] */
   padding: 0;
-  /* 1 */
+  /* [2] */
   width: 100%; }
 
 .nhsuk-summary-list__actions-list-item {
@@ -5645,7 +5651,7 @@ b {
   margin-right: 8px;
   padding-right: 8px; }
 
-/* 5 */
+/* [5] */
 .nhsuk-summary-list__actions-list-item:not(:last-child) {
   border-right: 1px solid #d8dde0; }
 
