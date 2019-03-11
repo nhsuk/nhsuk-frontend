@@ -6,10 +6,10 @@
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  *
- * 1. Reset default user agent styles
- * 2. Automatic wrapping for unbreakable text (e.g. URLs)
- * 3. .. WebKit/Blink only
- * 4. .. Standards
+ * 1. Required to allow us to wrap words that overflow.
+ * 2. Reset default user agent styles
+ * 3. Automatic wrapping for unbreakable text (e.g. URLs)
+ * 4. Fallback for older browsers only
  * 5. In older browsers such as IE8, :last-child is not available,
  *    so only show the border divider where it is available.
  */
@@ -19,10 +19,11 @@
 
   @include mq($from: tablet) {
     display: table;
+    table-layout: fixed; /* [1] */
     width: 100%;
   }
 
-  margin: 0; /* [1] */
+  margin: 0; /* [2] */
   @include nhsuk-responsive-margin(6, 'bottom');
 }
 
@@ -39,7 +40,7 @@
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value,
 .nhsuk-summary-list__actions {
-  margin: 0; /* 1 */
+  margin: 0; /* [2] */
 
   @include mq($from: tablet) {
     border-bottom: 1px solid $nhsuk-border-color;
@@ -56,15 +57,16 @@
   @include mq($from: tablet) {
     padding-right: 0;
     text-align: right;
+    width: 20%;
   }
 }
 
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value {
   // sass-lint:disable no-duplicate-properties
-  /* 2 */
-  word-break: break-word; /* 3 */
-  word-break: break-all; /* 4 */
+  /* [3] */
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* [4] */
 }
 
 .nhsuk-summary-list__key {
@@ -81,6 +83,9 @@
   @include mq($until: tablet) {
     margin-bottom: nhsuk-spacing(3);
   }
+  @include mq($from: tablet) {
+    width: 50%;
+  }
 }
 
 .nhsuk-summary-list__value > p {
@@ -92,8 +97,8 @@
 }
 
 .nhsuk-summary-list__actions-list {
-  margin: 0; /* 1 */
-  padding: 0; /* 1 */
+  margin: 0; /* [2] */
+  padding: 0; /* [2] */
   width: 100%;
 }
 
@@ -103,7 +108,7 @@
   padding-right: nhsuk-spacing(2);
 }
 
-/* 5 */
+/* [5] */
 .nhsuk-summary-list__actions-list-item:not(:last-child) {
   border-right: 1px solid $nhsuk-border-color;
 }

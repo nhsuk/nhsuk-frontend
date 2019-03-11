@@ -1,18 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 1.1.0 - TBC
+## 1.1.0 - Mar 11, 2019
 
 :boom: **Breaking changes**
 
 - Hero component - Refactored hero component to not overlap with the header when zooming in / increasing the font size massively. There have been minor HTML changes so please update your code if you are using this component.([PR 411](https://github.com/nhsuk/nhsuk-frontend/pull/411)), ([Issue 400](https://github.com/nhsuk/nhsuk-frontend/issues/400))
-
-:wrench: **Fixes**
-
-- Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
-
-- JavaScript variable scope - Globally scoped variables were causing issues with JavaScript frameworks such as Angular, so they have been moved to be locally scoped within functions. However, this could be improved as we have to duplicate variables between the multiple functions, so its likely this is a temporary fix before refactoring our JavaScript to be class based. ([PR 402](https://github.com/nhsuk/nhsuk-frontend/pull/402)), ([Issue 398](https://github.com/nhsuk/nhsuk-frontend/issues/398)).
-
-  The JavaScript files will update automatically, when you update the nhsuk-frontend version and your application will work as normal.
 
 :new: **New features**
 
@@ -21,6 +13,14 @@
   If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/summary-list/summary-list';`
 
   ([Issue 384](https://github.com/nhsuk/nhsuk-frontend/issues/384))
+
+:wrench: **Fixes**
+
+- Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
+
+- JavaScript variable scope - Globally scoped variables were causing issues with JavaScript frameworks such as Angular, so they have been moved to be locally scoped within functions. However, this could be improved as we have to duplicate variables between the multiple functions, so its likely this is a temporary fix before refactoring our JavaScript to be class based. ([PR 402](https://github.com/nhsuk/nhsuk-frontend/pull/402)), ([Issue 398](https://github.com/nhsuk/nhsuk-frontend/issues/398)).
+
+  The JavaScript files will update automatically, when you update the nhsuk-frontend version and your application will work as normal.
 
 ## 1.0.1 - Feb 20, 2019
 
