@@ -62,6 +62,10 @@ module.exports = {
       ]
     },
     {
+      "label": "Button as a link",
+      "url": `${TEST_HOST}/components/button/link.html`
+    },
+    {
       "label": "Button disabled",
       "url": `${TEST_HOST}/components/button/disabled.html`
     },
@@ -70,16 +74,8 @@ module.exports = {
       "url": `${TEST_HOST}/components/button/secondary.html`
     },
     {
-      "label": "Button secondary disabled",
-      "url": `${TEST_HOST}/components/button/secondary-disabled.html`
-    },
-    {
       "label": "Button reverse",
       "url": `${TEST_HOST}/components/button/reverse.html`
-    },
-    {
-      "label": "Button secondary disabled",
-      "url": `${TEST_HOST}/components/button/reverse-disabled.html`
     },
     {
       "label": "Care card - Non urgent",
