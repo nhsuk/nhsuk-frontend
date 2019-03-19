@@ -6,8 +6,20 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ## Page layout
 
+### Fixed-width container
+
 ```html
 <div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent">
+    <!-- Grid items -->
+  </main>
+</div>
+```
+
+### Fluid-width container
+
+```html
+<div class="nhsuk-width-container-fluid">
   <main class="nhsuk-main-wrapper" id="maincontent">
     <!-- Grid items -->
   </main>

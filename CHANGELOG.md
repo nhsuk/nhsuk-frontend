@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 2.1.0 - TBC, 2019
+
+:new: **New features**
+
+- Fluid width container - Extend the page layout to include a fluid-width container, which spans the entire width of the viewport.
+Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual. 
+([Issue 416](https://github.com/nhsuk/nhsuk-frontend/issues/416))
+
 ## 2.0.0 - Mar 11, 2019
 
 :boom: **Breaking changes**
