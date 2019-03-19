@@ -355,12 +355,14 @@ caption {
  * 3. From desktop, add full width gutters
  * 4. As soon as the viewport is greater than the width of the page plus the
  *    gutters, just centre the content instead of adding gutters.
+ * 5. Full width container, spanning the entire width of the viewport
  */
 .nhsuk-width-container {
   margin: 0 16px;
   /* [1] */
   max-width: 960px;
-  /* [2] */ }
+  /* [2] */
+  /* [4] */ }
   @media (min-width: 48.0625em) {
     .nhsuk-width-container {
       margin: 0 32px;
@@ -368,6 +370,15 @@ caption {
   @media (min-width: 1024px) {
     .nhsuk-width-container {
       margin: 0 auto; } }
+
+.nhsuk-width-container-fluid {
+  margin: 0 16px;
+  max-width: 100%;
+  /* [5] */ }
+  @media (min-width: 48.0625em) {
+    .nhsuk-width-container-fluid {
+      margin: 0 32px;
+      /* [3] */ } }
 
 /* ==========================================================================
    STYLES / #ICONS
