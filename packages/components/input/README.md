@@ -39,6 +39,42 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 ---
 
+### Input with autocomplete attribute
+
+[Preview the input with autocomplete attribute component](https://nhsuk.github.io/nhsuk-frontend/components/input/autocomplete.html)
+
+#### Guidance
+
+See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
+
+#### HTML markup
+
+```html
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="input-with-autocomplete-attribute">
+  Postcode
+  </label>
+  <input class="nhsuk-input" id="input-with-autocomplete-attribute" name="postcode" type="text" autocomplete="postal-code">
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/input/macro.njk' import input %}
+
+{{ input({
+  "label": {
+    "text": "Postcode"
+  },
+  "id": "input-with-autocomplete-attribute",
+  "name": "postcode",
+  "autocomplete": "postal-code"
+}) }}
+```
+
+---
+
 ### Input with hint text
 
 [Preview the input with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/input/hint.html)
@@ -171,6 +207,7 @@ The input macro takes the following arguments:
 | **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes add to the input component. Separate each class with a space. |
+| **autocomplete**          | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the input component. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

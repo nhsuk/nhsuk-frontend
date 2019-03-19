@@ -1,0 +1,27 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Input with autocomplete attribute' %}
+{% from 'components/input/macro.njk' import input %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ input({
+            "label": {
+              "text": "Postcode"
+            },
+            "id": "input-with-autocomplete-attribute",
+            "name": "postcode",
+            "autocomplete": "postal-code"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

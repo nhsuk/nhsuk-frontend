@@ -88,9 +88,96 @@ Find out more about the date input component and when to use it in the [NHS digi
 
 ---
 
+### Date input with autocomplete attribute
+
+[Preview the date input with autocomplete attribute component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/autocomplete.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" aria-describedby="dob-with-autocomplete-attribute-hint" role="group">
+    <legend class="nhsuk-fieldset__legend">
+      What is your date of birth?
+    </legend>
+    <span class="nhsuk-hint" id="dob-with-autocomplete-attribute-hint">
+    For example, 31 3 1980
+    </span>
+    <div class="nhsuk-date-input" id="dob-with-autocomplete-attribute">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-day">
+          Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-day" name="dob-with-autocomplete-day" type="number" autocomplete="bday-day" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-month">
+          Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-month" name="dob-with-autocomplete-month" type="number" autocomplete="bday-month" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-year">
+          Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-with-autocomplete-attribute-year" name="dob-with-autocomplete-year" type="number" autocomplete="bday-year" pattern="[0-9]*">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/date-input/macro.njk' import dateInput %}
+
+{{ dateInput({
+  "id": "dob-with-autocomplete-attribute",
+  "namePrefix": "dob-with-autocomplete",
+  "fieldset": {
+    "legend": {
+      "text": "What is your date of birth?"
+    }
+  },
+  "hint": {
+    "text": "For example, 31 3 1980"
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2",
+      "autocomplete": "bday-day"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2",
+      "autocomplete": "bday-month"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4",
+      "autocomplete": "bday-year"
+    }
+  ]
+}) }}
+```
+
+---
+
 ### Date input with errors
 
 [Preview the date input with errors component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/multiple-errors.html)
+
+#### Guidance
+
+See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
 
 #### HTML markup
 
@@ -275,6 +362,7 @@ The date input Nunjucks macro takes the following arguments:
 | **hint**                  | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **errorMessage**          | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **fieldset**              | object   | No        | Arguments for the fieldset component (e.g. legend). See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
+| **autocomplete**          | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **classes**               | string   | No        | Optional additional classes to add to the date-input container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the date-input container. |
 
