@@ -10,6 +10,8 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
 
 - Prefix error messages with a visually hidden "Error:", to make it clearer to
   users of assistive technologies.
+  
+- Add example and code snippets for a Button as a link and remove the multiple examples for the disabled Button. The Button as a link includes the attribute `draggable="false"` to stop links that are styled as button from being dragged.
 
 ## 2.0.0 - Mar 11, 2019
 
