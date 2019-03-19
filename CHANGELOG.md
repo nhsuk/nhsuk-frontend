@@ -8,6 +8,9 @@
 Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual. 
 ([Issue 416](https://github.com/nhsuk/nhsuk-frontend/issues/416))
 
+- Prefix error messages with a visually hidden "Error:", to make it clearer to
+  users of assistive technologies.
+
 ## 2.0.0 - Mar 11, 2019
 
 :boom: **Breaking changes**

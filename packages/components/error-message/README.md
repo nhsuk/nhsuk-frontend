@@ -13,6 +13,7 @@ Find out more about the error message component and when to use it in the [NHS d
 
 ```html
 <span class="nhsuk-error-message">
+  <span class="nhsuk-u-visually-hidden">Error:</span> 
   Error message about full name goes here
 </span>
 ```
@@ -33,10 +34,11 @@ The error message Nunjucks macro takes the following arguments:
 
 | Name                      | Type     | Required  | Description             |
 | --------------------------|----------|-----------|-------------------------|
-| **text (or) html**        | string   | No        | Text to use within the error message. If `html` is provided, the `text` argument will be ignored. |
+| **text (or) html**        | string   | Yes       | Text to use within the error message. If `html` is provided, the `text` argument will be ignored. |
 | **id**                    | string   | No        | Optional id attribute to add to the error message span tag. |
 | **classes**               | string   | No        | Optional additional classes to add to the error message span tag. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the error message span tag. |
+| **visuallyHiddenText**    | string   | No        | A visually hidden prefix used before the error message. Defaults to "Error" |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
