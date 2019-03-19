@@ -34,6 +34,10 @@
 @mixin nhsuk-width-container-fluid {
   margin: 0 $nhsuk-gutter-half;
   max-width: 100%; /* [5] */
+
+  @include govuk-media-query($from: desktop) {
+    margin: 0 $nhsuk-gutter; /* [3] */
+  }
 }
 
 @include govuk-exports('govuk/objects/width-container') {
