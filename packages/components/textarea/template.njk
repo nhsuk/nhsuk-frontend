@@ -40,5 +40,6 @@
   {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ params.id }}" name="{{ params.name }}" rows="
   {%- if params.rows %} {{ params.rows }} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+  {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
   {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ params.value }}</textarea>
 </div>

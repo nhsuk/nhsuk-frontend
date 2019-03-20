@@ -1,0 +1,48 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Date input with autocomplete attribute' %}
+{% from 'components/date-input/macro.njk' import dateInput %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ dateInput({
+            "id": "dob-with-autocomplete-attribute",
+            "namePrefix": "dob-with-autocomplete",
+            "fieldset": {
+              "legend": {
+                "text": "What is your date of birth?"
+              }
+            },
+            "hint": {
+              "text": "For example, 31 3 1980"
+            },
+            "items": [
+              {
+                "name": "day",
+                "classes": "nhsuk-input--width-2",
+                "autocomplete": "bday-day"
+              },
+              {
+                "name": "month",
+                "classes": "nhsuk-input--width-2",
+                "autocomplete": "bday-month"
+              },
+              {
+                "name": "year",
+                "classes": "nhsuk-input--width-4",
+                "autocomplete": "bday-year"
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
