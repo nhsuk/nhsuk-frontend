@@ -94,6 +94,10 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 
 [Preview the date input with autocomplete attribute component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/autocomplete.html)
 
+#### Guidance
+
+See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
+
 #### HTML markup
 
 ```html
@@ -176,10 +180,6 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 ### Date input with errors
 
 [Preview the date input with errors component](https://nhsuk.github.io/nhsuk-frontend/components/date-input/multiple-errors.html)
-
-#### Guidance
-
-See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
 
 #### HTML markup
 
