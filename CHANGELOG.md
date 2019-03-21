@@ -19,6 +19,21 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
 
   See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
 
+- Enable `pattern` attribute for input component.
+
+  You can now set the `pattern` attribute on input fields using the component macros:
+
+  ```
+  {{ input({
+    "label": {
+      "text": "Pattern example"
+    },
+    "id": "input-with-pattern",
+    "name": "pattern-example",
+    "pattern": "[0-9]*"
+  }) }}
+  ```
+
 ## 2.0.0 - Mar 11, 2019
 
 :boom: **Breaking changes**
