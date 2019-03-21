@@ -98,13 +98,13 @@ Find out more about the table component and when to use it in the [NHS digital s
 
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
-  <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
+  <h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
   <div class="nhsuk-table-responsive">
     <table class="nhsuk-table">
-      <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+      <caption class="nhsuk-table__caption">Other possible causes of your symptoms</caption>
       <thead class="nhsuk-table__head">
         <tr class="nhsuk-table__row">
-          <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
+          <th class="nhsuk-table__header" scope="col">Symptoms</th>
           <th class="nhsuk-table__header" scope="col">Possible cause</th>
         </tr>
       </thead>
@@ -134,12 +134,12 @@ Find out more about the table component and when to use it in the [NHS digital s
 
 {{ table({
   panel: true,
-  heading: "Skin symptoms and possible causes",
-  caption: "Skin symptoms and possible causes",
+  heading: "Conditions similar to impetigo",
+  caption: "Other possible causes of your symptoms",
   firstCellIsHeader: false,
   head: [
     {
-      text: "Skin symptoms"
+      text: "Symptoms"
     },
     {
       text: "Possible cause"
