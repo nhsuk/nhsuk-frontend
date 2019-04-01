@@ -34,6 +34,10 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
   }) }}
   ```
 
+:wrench: **Fixes**
+
+- Header search icon padding has been altered due to the icon not being central for the desktop breakpoint.
+
 ## 2.0.0 - Mar 11, 2019
 
 :boom: **Breaking changes**
