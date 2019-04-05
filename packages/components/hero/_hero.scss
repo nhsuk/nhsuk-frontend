@@ -35,6 +35,7 @@
  * 5. Show more of the image for larger screen sizes
  * 6. Overlay must be min same height as .nhsuk-hero--image to cover the image.
  * 7. Darken the background image with an overlay.
+ * 12. Remove any heights/min heights in Windows high contrast mode.
  */
 
 .nhsuk-hero--image {
@@ -54,8 +55,11 @@
       .nhsuk-hero__overlay {
         height: 320px; /* [6] */
       }
-
     }
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    min-height: 0; /* [12] */
   }
 
   .nhsuk-hero__overlay {
@@ -64,8 +68,14 @@
     @media only screen { /* [4] */
       min-height: 200px; /* [6] */
     }
+
+    @media screen and (-ms-high-contrast: active) {
+      height: auto; /* [12] */
+      min-height: 0; /* [12] */
+    }
   }
 }
+
 
 /**
  *  Hero component description styles.
@@ -74,7 +84,9 @@
  * 9. 'Random number' for the triangle positioning.
  * 10. Needed to enable the triangle to show correctly in high contrast mode.
  * 11. Give the description box a max width.
-  */
+ * 13. Remove the arrow in Windows high contrast mode.
+ * 14. Reduce spacing and change positioning for Windows high contrast mode.
+ */
 
 .nhsuk-hero--image-description {
 
@@ -113,6 +125,11 @@
         transform: rotate(45deg); /* [10] */
         width: 0;
       }
+
+      @media screen and (-ms-high-contrast: active) {
+        display: none; /* [13] */
+      }
+
     }
 
     @include mq($from: tablet) {
@@ -131,9 +148,17 @@
       max-width: 100%;
       padding: 0;
     }
+
+    @media screen and (-ms-high-contrast: active) { /* [14] */
+      bottom: 0;
+      margin-bottom: 0;
+      min-height: 0;
+      padding: nhsuk-spacing(5) 0 0 ;
+      position: relative;
+      top: 0;
+    }
   }
 }
-
 
 /**
  * IE8/9 fixes
