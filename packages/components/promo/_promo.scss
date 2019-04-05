@@ -21,6 +21,7 @@
 
 .nhsuk-promo__link-wrapper {
   background-color: $color_nhsuk-white;
+  border: 1px solid transparent;
   box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
   display: block;
   height: 100%; /* [3] */
