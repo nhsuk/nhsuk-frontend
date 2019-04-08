@@ -56,6 +56,9 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     <title>NHS.UK page template</title>
 
+    <link href="https://www.nhs.uk/" rel="preconnect">
+    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/nhsuk-[latest version].min.css">
 
