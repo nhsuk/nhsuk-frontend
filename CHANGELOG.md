@@ -4,6 +4,8 @@
 
 :new: **New features**
 
+- Hero component - removed background image and arrow and tidied up area around the hero with image and content when in Windows high contrast mode. ([PR 435](https://github.com/nhsuk/nhsuk-frontend/pull/435))
+
 - Add transparent 1px border around promos which appears as a solid border when in Windows high contrast mode. ([PR 433](https://github.com/nhsuk/nhsuk-frontend/pull/433))
 
 - Fluid width container - Extend the page layout to include a fluid-width container, which spans the entire width of the viewport.
