@@ -38,6 +38,8 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
 
 :wrench: **Fixes**
 
+- Reorder the asset `preconnect` and remove unneeded `dns-prefetch` ([Issue 434](https://github.com/nhsuk/nhsuk-frontend/issues/434))
+
 - Header search icon padding has been altered due to the icon not being central for the desktop breakpoint.
 
 ## 2.0.0 - Mar 11, 2019
