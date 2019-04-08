@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 2.1.0 - TBC, 2019
+## 2.1.0 - Apr 8, 2019
 
 :new: **New features**
 
