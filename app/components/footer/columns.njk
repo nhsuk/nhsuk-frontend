@@ -1,0 +1,46 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Footer with list columns' %}
+{% from 'components/footer/macro.njk' import footer %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ footer({
+    "list": "nhsuk-footer__list--three-columns",
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Accessibility"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Profile editor login"
+      }
+    ]
+  })}}
+
+{% endblock %}
