@@ -4266,6 +4266,7 @@ b {
  * 5. Show more of the image for larger screen sizes
  * 6. Overlay must be min same height as .nhsuk-hero--image to cover the image.
  * 7. Darken the background image with an overlay.
+ * 12. Remove any heights/min heights in Windows high contrast mode.
  */
 .nhsuk-hero--image {
   background-position: center right;
@@ -4285,6 +4286,10 @@ b {
     .nhsuk-hero--image .nhsuk-hero__overlay {
       height: 320px;
       /* [6] */ } }
+  @media screen and (-ms-high-contrast: active) {
+    .nhsuk-hero--image {
+      min-height: 0;
+      /* [12] */ } }
   .nhsuk-hero--image .nhsuk-hero__overlay {
     background-color: rgba(0, 47, 92, 0.1);
     /* [7] */ }
@@ -4293,6 +4298,12 @@ b {
         /* [4] */
         min-height: 200px;
         /* [6] */ } }
+    @media screen and (-ms-high-contrast: active) {
+      .nhsuk-hero--image .nhsuk-hero__overlay {
+        height: auto;
+        /* [12] */
+        min-height: 0;
+        /* [12] */ } }
 
 /**
  *  Hero component description styles.
@@ -4301,7 +4312,9 @@ b {
  * 9. 'Random number' for the triangle positioning.
  * 10. Needed to enable the triangle to show correctly in high contrast mode.
  * 11. Give the description box a max width.
-  */
+ * 13. Remove the arrow in Windows high contrast mode.
+ * 14. Reduce spacing and change positioning for Windows high contrast mode.
+ */
 .nhsuk-hero--image-description .nhsuk-hero-content {
   background-color: #005eb8;
   color: #ffffff;
@@ -4341,6 +4354,10 @@ b {
       transform: rotate(45deg);
       /* [10] */
       width: 0; }
+    @media screen and (-ms-high-contrast: active) {
+      .nhsuk-hero--image-description .nhsuk-hero-content .nhsuk-hero__arrow {
+        display: none;
+        /* [13] */ } }
   @media (min-width: 40.0625em) {
     .nhsuk-hero--image-description .nhsuk-hero-content {
       bottom: -48px;
@@ -4360,6 +4377,15 @@ b {
       color: #212b32;
       max-width: 100%;
       padding: 0; } }
+  @media screen and (-ms-high-contrast: active) {
+    .nhsuk-hero--image-description .nhsuk-hero-content {
+      /* [14] */
+      bottom: 0;
+      margin-bottom: 0;
+      min-height: 0;
+      padding: 32px 0 0;
+      position: relative;
+      top: 0; } }
 
 /**
  * IE8/9 fixes
