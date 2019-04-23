@@ -1,20 +1,24 @@
 # NHS.UK frontend Changelog
 
-## 2.1.0 - TBC, 2019
+## 2.1.0 - Apr 8, 2019
 
 :new: **New features**
 
+- Hero component - removed background image and arrow and tidied up area around the hero with image and content when in Windows high contrast mode. ([PR 435](https://github.com/nhsuk/nhsuk-frontend/pull/435))
+
+- Add transparent 1px border around promos which appears as a solid border when in Windows high contrast mode. ([PR 433](https://github.com/nhsuk/nhsuk-frontend/pull/433))
+
 - Fluid width container - Extend the page layout to include a fluid-width container, which spans the entire width of the viewport.
-Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual. 
+Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual.
 ([Issue 416](https://github.com/nhsuk/nhsuk-frontend/issues/416))
 
 - Prefix error messages with a visually hidden "Error:", to make it clearer to
   users of assistive technologies.
-  
+
 - Add example and code snippets for a Button as a link and remove the multiple examples for the disabled Button. The Button as a link includes the attribute `draggable="false"` to stop links that are styled as button from being dragged.
 
 - Enable `autocomplete` attributes for input components. The `autocomplete` attribute can now be enabled on input, date input and textarea components using the component macros parameters.
-  
+
   This was already possible to do with the `attributes` option but this change highlights the new WCAG 2.1 success criteria [Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html) which "is to ensure that the purpose of a form input collecting information about the user can be programmatically determined, so that user agents can extract and present this purpose to users using different modalities".
 
   See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used.
@@ -33,6 +37,18 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
     "pattern": "[0-9]*"
   }) }}
   ```
+
+- Example of social media open graph cards for Twitter and Facebook
+
+  Examples for [Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary.html) and [Facebook](https://developers.facebook.com/docs/sharing/webmasters/) have been added to the GitHub pages layout file and also to the [HTML page template](/docs/installation/installing-compiled.md#html-template).
+
+  The open graph default image has also been added to the `assets/logos` folder of the package.
+
+:wrench: **Fixes**
+
+- Reorder the asset `preconnect` and remove unneeded `dns-prefetch` ([Issue 434](https://github.com/nhsuk/nhsuk-frontend/issues/434))
+
+- Header search icon padding has been altered due to the icon not being central for the desktop breakpoint.
 
 ## 2.0.0 - Mar 11, 2019
 
