@@ -169,7 +169,5 @@
     @include nhsuk-responsive-margin(2, 'bottom');
   }
 
-  > .nhsuk-details:last-child {
-    margin-bottom: 16px;
-  }
+  @include nhsuk-responsive-margin(4, 'bottom');
 }
