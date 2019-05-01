@@ -1,6 +1,26 @@
 // Get the --testhost=... argument from the backstop command
 const arguments = require('minimist')(process.argv.slice(2));
-const TEST_HOST = arguments.testhost || "http://host.docker.internal:3000"
+var TEST_HOST = arguments.testhost || "http://host.docker.internal:3000"
+
+const childProcess = require('child_process')
+var output = ""
+try {
+  output = childProcess.execFileSync("/sbin/ip", ["route"], {encoding: "utf-8"})
+}
+catch (e) {
+  output = ""
+}
+
+const match = output.match(/default via ((?:[0-9]{1,3}\.){3}[0-9]{1,3}) dev eth0/)
+
+let ip = undefined
+if (Array.isArray(match) && match.length >= 2) {
+  ip = match[1]
+}
+
+if (ip) {
+  TEST_HOST = arguments.testhost || `http://${ip}:3000`
+}
 
 module.exports = {
   "id": "nhsuk-frontend",
