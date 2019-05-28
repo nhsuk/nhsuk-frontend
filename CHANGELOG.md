@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 2.1.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Expander group component - Fixed expander group spacing issues when used with components with no top margin ([Issue 439](https://github.com/nhsuk/nhsuk-frontend/issues/439))
+
 ## 2.1.0 - Apr 8, 2019
 
 :new: **New features**
