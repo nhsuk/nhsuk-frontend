@@ -5,9 +5,8 @@
 :wrench: **Fixes**
 
 - Expander group component - Fixed expander group spacing issues when used with components with no top margin ([Issue 439](https://github.com/nhsuk/nhsuk-frontend/issues/439))
-:wrench: Fixes
 
-- Update dependencies to their latest versions - this fixes a common security issue within the node-sass package.
+- Update dependencies to their latest versions - this fixes a common security issue within the node-sass package. See https://github.com/sass/node-sass/issues/2625 for more details
 
 ## 2.1.0 - Apr 8, 2019
 

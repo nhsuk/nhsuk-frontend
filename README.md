@@ -12,7 +12,7 @@ Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for e
 
 We recommend that you [install NHS.UK frontend using node package manager (npm)](/docs/installation/installing-with-npm.md).
 
-Other package managers will become available in early 2019, such as yarn and Python Package Index (PyPi).
+Other package managers will become available in early 2019, such as NuGet and Python Package Index (PyPi).
 
 ### 2. Install by using compiled files
 
@@ -39,4 +39,4 @@ NHS.UK frontend is maintained by NHS Digital. [Email us](mailto:service-manual@n
 
 ## Licence
 
-The codebase is released under the MIT License, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
+The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
