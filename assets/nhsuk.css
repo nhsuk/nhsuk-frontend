@@ -2785,12 +2785,16 @@ b {
   /* [3] */ }
 
 .nhsuk-expander-group {
-  /* [4] */ }
+  /* [4] */
+  margin-bottom: 16px; }
   .nhsuk-expander-group > .nhsuk-details {
     margin-bottom: 8px; }
     @media (min-width: 40.0625em) {
       .nhsuk-expander-group > .nhsuk-details {
         margin-bottom: 8px; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-expander-group {
+      margin-bottom: 24px; } }
 
 /* ==========================================================================
    COMPONENTS / #DO-DONT-LIST
