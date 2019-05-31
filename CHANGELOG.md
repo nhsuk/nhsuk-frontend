@@ -1,6 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 2.1.1 - Unreleased
+## 2.2.0 - Unreleased
+
+:boom: **Breaking changes**
+
+- Remove light font version - The light version of the Frutiger font has been removed as it was only been used in one place. If you are referencing this by either using the SASS `$nhsuk-font-light` variable, or using a font weight of `300` then please make the appropriate style changes. ([PR 460](https://github.com/nhsuk/nhsuk-frontend/pull/460))
 
 :wrench: **Fixes**
 
