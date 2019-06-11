@@ -62,6 +62,7 @@ function autocomplete(config) {
     id: id,
     minLength: 2,
     placeholder: fallbackInputElement.placeholder,
+    name: fallbackInputElement.name,
     confirmOnBlur: false,
     onConfirm: (SelectedContent) => {
       window.open('https://www.nhs.uk/search?collection=nhs-meta&query=' + SelectedContent, '_self');

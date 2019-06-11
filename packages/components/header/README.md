@@ -624,5 +624,7 @@ The header Nunjucks macro takes the following arguments:
 | **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |
+| **searchAction**             | string   | No        | The search action endpoint. Defaults to "/search/" |
+| **searchInputName**             | string   | No        | The name for the search field. Defaults to "search-field" |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
