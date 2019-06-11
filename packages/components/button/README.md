@@ -90,7 +90,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button class="nhsuk-button nhsuk-button--secondary" type="submit">
-  Save and continue
+  Find my location
 </button>
 ```
 
