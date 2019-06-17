@@ -11,6 +11,9 @@
 - Expander group component - Fixed expander group spacing issues when used with components with no top margin ([Issue 439](https://github.com/nhsuk/nhsuk-frontend/issues/439))
 
 - Update dependencies to their latest versions - this fixes a common security issue within the node-sass package. See https://github.com/sass/node-sass/issues/2625 for more details
+- Search autocomplete - Fixed the query parameter on submit. [(Issue 459)](https://github.com/nhsuk/nhsuk-frontend/issues/459)  - Also added two new parameters to the nunjucks template to make it more versatile. [(Issue 458)
+](https://github.com/nhsuk/nhsuk-frontend/issues/458)
+
 
 ## 2.1.0 - Apr 8, 2019
 
