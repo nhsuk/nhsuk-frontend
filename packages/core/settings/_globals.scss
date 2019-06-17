@@ -13,7 +13,7 @@ $nhsuk-font-fallback: Helvetica, Arial, Sans-serif; // [1] //
 $nhsuk-font-family-print: sans-serif !default;
 $nhsuk-font-bold: 600;
 $nhsuk-font-normal: 400;
-$nhsuk-font-light: 300;
+$nhsuk-font-light: $nhsuk-font-normal;
 
 //
 // Font sizing and spacing
