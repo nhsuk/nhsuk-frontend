@@ -1,12 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 2.2.0 - Unreleased
-
-:boom: **Breaking changes**
-
-- Remove light font version - The light version of the Frutiger font has been removed as it was only been used in one place. If you are referencing this by either using the SASS `$nhsuk-font-light` variable, or using a font weight of `300` then please make the appropriate style changes. ([PR 460](https://github.com/nhsuk/nhsuk-frontend/pull/460))
+## 2.1.1 - Unreleased
 
 :wrench: **Fixes**
+
+- Remove light font version - The light version of the Frutiger font has been removed as it was only been used in one place. The SASS `$nhsuk-font-light` variable has been remapped to use the `$nhsuk-font-normal` value as a defensive measure for now until it is decided to remove the `$nhsuk-font-light` variable completely. ([PR 460](https://github.com/nhsuk/nhsuk-frontend/pull/460))
 
 - Expander group component - Fixed expander group spacing issues when used with components with no top margin ([Issue 439](https://github.com/nhsuk/nhsuk-frontend/issues/439))
 
