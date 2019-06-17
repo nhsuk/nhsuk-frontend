@@ -346,29 +346,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 {{ header({
     "showNav": "false",
-    "showSearch": "true",
-    "primaryLinks": [
-      {
-        "url"  : "https://www.nhs.uk/conditions",
-        "label" : "Health A-Z"
-      },
-      {
-        'url' : 'https://www.nhs.uk/live-well/',
-        'label' : 'Live Well'
-      },
-      {
-        'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-        'label' : 'Care and support'
-      },
-      {
-        'url'  : 'https://www.nhs.uk/news/',
-        'label' : 'Health news'
-      },
-      {
-        'url' : 'https://www.nhs.uk/service-search',
-        'label' : 'Services near you'
-      }
-    ]
+    "showSearch": "true"
   })
 }}
 ```
