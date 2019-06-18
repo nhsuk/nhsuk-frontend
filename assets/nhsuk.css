@@ -1068,7 +1068,7 @@ b {
  * See tools/mixins
  */
 .nhsuk-u-reading-width {
-  max-width: 37em; }
+  max-width: 44em; }
 
 .nhsuk-u-margin-0 {
   margin: 0 !important; }
@@ -4570,7 +4570,7 @@ b {
  */
 .nhsuk-inset-text {
   /* [1] */
-  max-width: 37em;
+  max-width: 44em;
   /* [2] */
   margin-bottom: 40px;
   margin-top: 40px;
