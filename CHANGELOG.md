@@ -12,6 +12,8 @@
 - Search autocomplete - Fixed the query parameter on submit. [(Issue 459)](https://github.com/nhsuk/nhsuk-frontend/issues/459)  - Also added two new parameters to the nunjucks template to make it more versatile. [(Issue 458)
 ](https://github.com/nhsuk/nhsuk-frontend/issues/458)
 
+- Fixed `nhsuk-u-reading-width` utility class - the measurement has been adjusted to work with our base font size (16px) ([Issue 462](https://github.com/nhsuk/nhsuk-frontend/issues/462))
+
 
 ## 2.1.0 - Apr 8, 2019
 
