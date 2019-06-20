@@ -32,9 +32,16 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <script src="js/nhsuk-[latest version].min.js" defer></script>
 
     <!-- Favicons -->
-    <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
-    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" href="assets/favicons/favicon.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="assets/favicons/favicon.svg" color="#005eb8">
+    <link rel="icon" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <meta name="msapplication-TileImage" content="assets/favicons/mediumtile-144x144.png">
+    <meta name="msapplication-TileColor" content="#005eb8">
+    <meta name="msapplication-square70x70logo" content="assets/favicons/smalltile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="assets/favicons/mediumtile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="assets/favicons/widetile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="assets/favicons/largetile-310x310.png">
     ```
 
   3. Create pages using NHS.UK frontend
@@ -66,9 +73,16 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <script src="js/nhsuk-[latest version].min.js" defer></script>
 
     <!-- Favicons -->
-    <!--[if IE]><link rel="shortcut icon" href="assets/favicons/favicon.ico"><![endif]-->
-    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" href="assets/favicons/favicon.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="assets/favicons/favicon.svg" color="#005eb8">
+    <link rel="icon" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <meta name="msapplication-TileImage" content="assets/favicons/mediumtile-144x144.png">
+    <meta name="msapplication-TileColor" content="#005eb8">
+    <meta name="msapplication-square70x70logo" content="assets/favicons/smalltile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="assets/favicons/mediumtile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="assets/favicons/widetile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="assets/favicons/largetile-310x310.png">
 
     <!-- Open Graph -->
     <meta property="og:url" content="https://www.nhs.uk">
