@@ -4,7 +4,6 @@
 
 .nhsuk-textarea {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
 
   -webkit-appearance: none;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
@@ -12,10 +11,13 @@
   box-sizing: border-box;
   display: block;
   min-height: 40px;
-  @include nhsuk-responsive-margin(6, 'bottom');
   padding: nhsuk-spacing(1);
   resize: vertical;
   width: 100%;
+
+  &:focus {
+    @include nhsuk-focusable-input;
+  }
 }
 
 .nhsuk-textarea--error {

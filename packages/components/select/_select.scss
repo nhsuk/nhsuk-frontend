@@ -11,6 +11,10 @@
   height: 40px;
   max-width: 100%;
   padding: nhsuk-spacing(1);
+
+  &:focus {
+    @include nhsuk-focusable-input;
+  }
 }
 
 .nhsuk-select option:active,

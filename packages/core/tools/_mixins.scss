@@ -263,24 +263,14 @@
   }
 
   &:focus {
-    background-color: transparent;
-    border-color: $nhsuk-focus-color;
-    box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
-    outline: 0;
+    border: 0;
   }
 
   &:active,
   &.is-active {
     background-color: $color_shade_nhsuk-blue-50;
     border-color: $color_nhsuk-grey-5;
-    box-shadow: none;
     color: $color_nhsuk-grey-5;
-  }
-
-  &.is-active {
-    &:focus {
-      box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
-    }
   }
 
 }
@@ -322,11 +312,7 @@
     }
   }
 
-  &:focus {
-    border-radius: $nhsuk-border-radius;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
-    outline: 0;
-  }
+  @include nhsuk-focusable;
 
 }
 
@@ -351,9 +337,12 @@
 
 @mixin nhsuk-focusable {
   &:focus {
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
+    -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+    box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+    color: $nhsuk-text-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
+    text-decoration: none;
   }
 }
 
@@ -366,10 +355,44 @@
 
 @mixin nhsuk-focusable-fill {
   &:focus {
-    background-color: $nhsuk-focus-color;
-    outline: $nhsuk-focus-width solid $nhsuk-focus-color;
-    outline-offset: 0;
+    background-color: $nhsuk-link-focus-background-color;
+    -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+    box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+    color: $nhsuk-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
+    text-decoration: none;
   }
+}
+
+/// Focusable input (form elements)
+///
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used for interactive text-based elements such
+/// as links.
+
+@mixin nhsuk-focusable-input {
+  border: $nhsuk-focus-width solid $nhsuk-link-focus-border-color;
+  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+  outline: $nhsuk-focus-width solid transparent; /* 1 */
+  outline-offset: $nhsuk-focus-width;
+}
+
+/// Focusable with fill element
+///
+/// Provides an additional outline and background colour to clearly indicate when
+/// the target element has focus. Used for interactive text-based elements such
+/// as links.
+///
+
+@mixin nhsuk-focusable-fill--element {
+  background-color: $nhsuk-link-focus-background-color;
+  -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+  box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
+  color: $nhsuk-text-color;
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: $nhsuk-focus-width;
+  text-decoration: none;
 }
 
 /// NHS logo size helper

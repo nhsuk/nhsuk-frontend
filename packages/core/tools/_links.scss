@@ -16,19 +16,25 @@
     color: $nhsuk-link-visited-color;
   }
 
-  &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
+  &:hover {
+    color: lighten($nhsuk-link-color, 6%);
+    text-decoration: none;
   }
 
-  &:hover {
-    background-color: $nhsuk-link-hover-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
-    color: $nhsuk-link-hover-color;
-    text-decoration: none;
+  @include nhsuk-focusable-fill;
+
+  &:focus {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $color_nhsuk-black;
+    }
+
+    .nhsuk-icon {
+      fill: $color_nhsuk-black;
+    }
   }
 
   &:active {
@@ -109,9 +115,6 @@
 
 @mixin nhsuk-link-style-hover {
   &:hover {
-    background-color: $nhsuk-link-hover-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
-    color: $nhsuk-link-hover-color;
     text-decoration: none;
   }
 }
@@ -123,11 +126,15 @@
 //
 
 @mixin nhsuk-link-style-focus {
+  @include nhsuk-focusable-fill;
+
   &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
+    &:hover {
+      text-decoration: none;
+    }
+
+    .nhsuk-icon {
+      fill: $color_nhsuk-black;
+    }
   }
 }

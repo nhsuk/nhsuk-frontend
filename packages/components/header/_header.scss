@@ -101,6 +101,8 @@
 
 .nhsuk-header__search-toggle {
   @include toggle-button();
+  @include nhsuk-link-style-focus();
+
   min-height: 40px; /* [2] */
   padding: nhsuk-spacing(1) nhsuk-spacing(2) 0;
   position: absolute;
@@ -208,7 +210,15 @@
     }
 
     &:focus {
-      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
+      background-color: $nhsuk-focus-color;
+      border-bottom: 4px solid $nhsuk-link-focus-border-color;
+      box-shadow: inset 0 0 0 4px $nhsuk-focus-color;
+      outline: $nhsuk-focus-width solid transparent;
+      outline-offset: $nhsuk-focus-width;
+
+      .nhsuk-icon {
+        fill: $nhsuk-link-focus-border-color;
+      }
     }
 
     &:active {
@@ -252,17 +262,10 @@
     padding: 0 12px; /* [9] */
     width: 235px; /* [2] */
 
-    &:focus {
-      border: 1px solid $nhsuk-focus-color;
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-      box-shadow: inset 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
-      outline: none;
-    }
-
     &::placeholder {
       color: $color_nhsuk-grey-2;
       font-size: $nhsuk-base-font-size;
+      color:red;
     }
   }
 
@@ -293,7 +296,15 @@
     }
 
     &:focus {
-      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
+      background-color: $nhsuk-focus-color;
+      border-bottom: 4px solid $nhsuk-link-focus-border-color;
+      box-shadow: inset 0 0 0 4px $nhsuk-focus-color;
+      outline: $nhsuk-focus-width solid transparent;
+      outline-offset: $nhsuk-focus-width;
+
+      .nhsuk-icon {
+        fill: $nhsuk-link-focus-border-color;
+      }
     }
 
     &:hover {
@@ -343,6 +354,8 @@
 
 .nhsuk-header__menu-toggle {
   @include toggle-button();
+  @include nhsuk-focusable-fill();
+
   display: block;
   font-size: 18px;
   font-weight: 400;
@@ -420,9 +433,11 @@
 }
 
 .nhsuk-header__navigation-link {
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
   color: $color_nhsuk-blue;
   display: block;
-  padding: nhsuk-spacing(3);
+  padding: 12px nhsuk-spacing(3);
   text-decoration: none;
 
   .nhsuk-icon__chevron-right {
@@ -430,6 +445,12 @@
     position: absolute;
     right: nhsuk-spacing(1);
     top: 11px;
+  }
+
+  &:visited {
+    @include mq($from: large-desktop) {
+      color: $color_nhsuk-white;
+    }
   }
 
   &:hover {
@@ -445,21 +466,13 @@
   }
 
   &:focus {
-    background-color: transparent;
-    box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
-    color: $color_nhsuk-blue;
-    text-decoration: underline;
-  }
-
-  &:active {
-    background-color: $color_shade_nhsuk-blue-35;
+    background-color: $nhsuk-link-focus-background-color;
+    border-bottom: 4px solid $nhsuk-link-focus-border-color;
     box-shadow: none;
-    color: $color_nhsuk-white;
-
-    .nhsuk-icon__chevron-right {
-      fill: $color_nhsuk-white;
-    }
-
+    color: $nhsuk-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
+    text-decoration: none;
   }
 
 }
@@ -512,18 +525,6 @@
     color: $color_nhsuk-white;
     font-size: 17px;
     line-height: normal;
-
-    &:visited {
-      color: $color_nhsuk-white;
-    }
-
-    &:hover {
-      background-color: $color_shade_nhsuk-blue-35;
-    }
-
-    &:focus {
-      color: $color_nhsuk-white;
-    }
 
     &:active {
       background-color: $color_shade_nhsuk-blue-50;
