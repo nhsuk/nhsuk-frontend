@@ -45,7 +45,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 #### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
+<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
   <div class="nhsuk-hero__overlay">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
@@ -70,7 +70,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {{ hero({
   "heading": "We’re here for you",
   "text": "Helping you take control of your health and wellbeing.",
-  "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+  "imageURL": "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
 }) }}
 ```
 
@@ -83,7 +83,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 #### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg');">
+<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
   <div class="nhsuk-hero__overlay">
   </div>
 </section>
@@ -95,7 +95,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
-  "imageURL": "https://www.nhs.uk/static/nhsuk_shared/img/homepage/hero-2.jpg"
+  "imageURL": "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
 }) }}
 ```
 
