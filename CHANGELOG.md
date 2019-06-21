@@ -1,6 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 2.1.1 - Unreleased
+## 2.2.0 - Unreleased
+
+:new: **New features**
+
+- Footer - A variant for footer links to be in lists in 3 columns, which can be used when there are more than just a few links. You can find the markup and example in the [Footer component README](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/footer/README.md#footer-with-list-columns) [(Issue 168)](https://github.com/nhsuk/nhsuk-frontend/issues/168)
 
 :wrench: **Fixes**
 

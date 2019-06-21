@@ -162,6 +162,10 @@ module.exports = {
       "url": `${TEST_HOST}/components/footer/index.html`
     },
     {
+      "label": "Footer with list columns",
+      "url": `${TEST_HOST}/components/footer/columns.html`
+    },
+    {
       "label": "Fieldset",
       "url": `${TEST_HOST}/components/fieldset/index.html`
     },
