@@ -3385,6 +3385,17 @@ b {
       text-align: right;
       width: 25%; } }
 
+@media (min-width: 48.0625em) {
+  .nhsuk-footer__list--three-columns {
+    -moz-column-count: 3;
+    -moz-column-gap: 24px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 24px;
+    column-count: 3;
+    column-gap: 24px; }
+    .nhsuk-footer__list--three-columns li {
+      float: none; } }
+
 /* ==========================================================================
    COMPONENTS / #HEADER
    ========================================================================== */
