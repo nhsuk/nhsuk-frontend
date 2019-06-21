@@ -21,11 +21,16 @@
 
     <script src="{{ baseUrl }}/assets/nhsuk.js" defer></script>
 
-    <!--[if IE]><link rel="shortcut icon" href="{{ baseUrl }}/assets/favicons/favicon.ico"><![endif]-->
-    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
-    <link href="{{ baseUrl }}/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon">
-    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
-    <link href="{{ baseUrl }}/assets/favicons/favicon.png" rel="icon">
+    <link rel="shortcut icon" href="{{ baseUrl }}/assets/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ baseUrl }}/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="{{ baseUrl }}/assets/favicon.svg" color="#005eb8">
+    <link rel="icon" sizes="192x192" href="{{ baseUrl }}/assets/favicon-192x192.png">
+    <meta name="msapplication-TileImage" content="{{ baseUrl }}/assets/mediumtile-144x144.png">
+    <meta name="msapplication-TileColor" content="#005eb8">
+    <meta name="msapplication-square70x70logo" content="{{ baseUrl }}/assets/smalltile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="{{ baseUrl }}/assets/mediumtile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="{{ baseUrl }}/assets/favicons/widetile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="{{ baseUrl }}/assets/favicons/largetile-310x310.png">
 
     <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
     <meta property="og:title" content="NHS.UK frontend library">
