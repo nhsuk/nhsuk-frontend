@@ -83,7 +83,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/cookies-policy/">Cookies</a></li>
       </ul>
-      <p class="nhsuk-footer__copyright">© Crown copyright</p>
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
     </div>
   </div>
 </footer>
