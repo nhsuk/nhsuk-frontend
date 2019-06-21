@@ -50,6 +50,8 @@
 }
 
 .nhsuk-pagination__link {
+  @include nhsuk-link-style-focus;
+
   display: block;
   position: relative;
   text-decoration: none;
@@ -70,26 +72,16 @@
 
   }
 
-  &:focus {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
-    outline: $nhsuk-focus-width solid $nhsuk-link-focus-background-color;
-  }
-
-  &:hover {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
-    outline: $nhsuk-focus-width solid $nhsuk-link-hover-background-color;
-
-    .nhsuk-pagination__page {
-      text-decoration: none;
-    }
-
-  }
-
   &:hover,
   &:focus {
+    color: $color_nhsuk-black;
 
     .nhsuk-icon {
       fill: $color_nhsuk-black;
+    }
+
+    .nhsuk-pagination__page {
+      text-decoration: none;
     }
 
   }
@@ -106,6 +98,7 @@
 
 .nhsuk-pagination__title {
   @include nhsuk-typography-responsive(24);
+
   display: block;
 
   @include mq($media-type: print) {
@@ -118,6 +111,7 @@
 
 .nhsuk-pagination__page {
   @include nhsuk-typography-responsive(16);
+
   display: block;
   text-decoration: underline;
 }

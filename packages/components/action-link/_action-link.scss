@@ -19,59 +19,56 @@
 
 .nhsuk-action-link__link {
   @include nhsuk-font(22);
+  @include nhsuk-link-style-focus;
 
   display: inline-block; /* [1] */
   font-weight: $nhsuk-font-bold;
-  padding-left: 42px; /* [2] */
+  padding-left: 34px; /* [2] */
   position: relative; /* [3] */
   text-decoration: none; /* [4] */
 
   @include mq($until: tablet) {
-    padding-left: 36px; /* [2] */
+    padding-left: 26px; /* [2] */
   }
 
   @include mq($media-type: print) {
     color: $nhsuk-print-text-color;
+    color:red;
 
     &:visited {
       color: $nhsuk-print-text-color;
     }
   }
 
-
-  &:focus {
-    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-color; /* [5] */
-
-    .nhsuk-action-link__text {
-      text-decoration: underline;
-    }
-
-  }
-
   &:hover {
-    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-color; /* [5] */
-
     .nhsuk-action-link__text {
       text-decoration: underline; /* [6] */
     }
+  }
 
+  &:focus {
+    &:hover {
+      .nhsuk-action-link__text {
+        text-decoration: none;
+      }
+    }
   }
 
   .nhsuk-icon__arrow-right-circle {
     @include print-color($nhsuk-print-text-color);
 
     fill: $color_nhsuk-green;
-    height: 40px;
+    height: 32px;
     left: -3px;
     position: absolute;
-    top: -4px;
-    width: 40px;
+    top: 0;
+    width: 32px;
 
     @include mq($until: tablet) {
-      height: 34px;
-      margin-bottom: -9px;
-      top: -3px;
-      width: 34px;
+      height: 24px;
+      margin-bottom: 0;
+      top: 2px;
+      width: 24px;
     }
 
   }

@@ -16,7 +16,6 @@ $button-shadow-size: 4px;
 
 .nhsuk-button {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
   @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
@@ -55,9 +54,14 @@ $button-shadow-size: 4px;
     padding: 0;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $nhsuk-button-hover-colour;
+  }
+
+  @include nhsuk-focusable;
+
+  &:focus {
+    color: $nhsuk-button-text-colour;
   }
 
   &:active {
@@ -102,9 +106,8 @@ $button-shadow-size: 4px;
   background-color: $nhsuk-secondary-button-colour;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour;
 
-  &:hover,
-  &:focus {
-    background-color: $nhsuk-secondary-button-hover-colour;
+  &:hover {
+    background-color: darken($nhsuk-secondary-button-colour, 5%);
   }
 
   &.nhsuk-button--disabled {
@@ -118,9 +121,14 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour;
   color: $nhsuk-reverse-button-text-colour;
 
-  &:hover,
+  &:hover {
+    background-color: darken($nhsuk-reverse-button-colour, 5%);
+    color: $nhsuk-reverse-button-text-colour;
+  }
+
+  @include nhsuk-focusable;
+
   &:focus {
-    background-color: $nhsuk-reverse-button-hover-colour;
     color: $nhsuk-reverse-button-text-colour;
   }
 

@@ -24,6 +24,10 @@
   margin-top: 0;
   padding: nhsuk-spacing(1);
   width: 100%;
+
+  &:focus {
+    @include nhsuk-focusable-input;
+  }
 }
 
 .nhsuk-input::-webkit-outer-spin-button,

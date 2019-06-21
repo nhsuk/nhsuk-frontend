@@ -77,17 +77,13 @@
   text-decoration: none;
 
   &:hover {
-    box-shadow: 0 -1px 0 0 $nhsuk-link-hover-background-color; /* [5] */
-  }
-
-  &:focus {
-    box-shadow: 0 -1px 0 0 $nhsuk-link-focus-background-color; /* [5] */
-  }
-
-  &:hover,
-  &:focus {
-    border-color: transparent; /* [6] */
     text-decoration: underline; /* [7] */
+  }
+
+  &:focus {
+    background-color: $nhsuk-link-focus-background-color;
+    border-bottom: 4px solid $nhsuk-link-focus-border-color;
+    box-shadow: 0 -1px 0 0 $nhsuk-link-focus-background-color;
   }
 
   @include mq($until: tablet) {

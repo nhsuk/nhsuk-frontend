@@ -36,13 +36,4 @@
     text-decoration: underline;
   }
 
-  &:hover,
-  &:focus {
-    color: $nhsuk-text-color;
-
-    .nhsuk-icon__chevron-left {
-      fill: $color_nhsuk-black;
-    }
-  }
-
 }
