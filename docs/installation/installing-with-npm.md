@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
 If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend/assets/` directory or you can reference them straight from the `node_modules` folder.
 
 ```html
-<link rel="apple-touch-icon" href="path-to-assets/apple-touch-icon.png">
-<link rel="icon" href="path-to-assets/favicon.png">
 <link rel="shortcut icon" href="path-to-assets/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="path-to-assets/apple-touch-icon-180x180.png">
 <link rel="mask-icon" href="path-to-assets/favicon.svg" color="#005eb8">
