@@ -25,7 +25,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "babel-loader": "^8.0.6",
-    "backstopjs": "^3.9.13",
+    "backstopjs": "^4.1.9",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-nhsuk": "^0.16.0",
