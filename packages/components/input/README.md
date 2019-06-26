@@ -87,7 +87,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
   National insurance number
   </label>
   <span class="nhsuk-hint" id="input-with-hint-text-hint">
-  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It's on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C'.
   </span>
   <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
 </div>
@@ -103,7 +103,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     "text": "National insurance number"
   },
   "hint": {
-    "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+    "text": "It's on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C'."
   },
   "id": "input-with-hint-text",
   "name": "test-name-2"
@@ -124,7 +124,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
   National Insurance number
   </label>
   <span class="nhsuk-hint" id="input-with-error-message-hint">
-  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It's on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C'.
   </span>
   <span id="input-with-error-message-error" class="nhsuk-error-message">
   Error message goes here
@@ -143,7 +143,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     "text": "National Insurance number"
   },
   "hint": {
-    "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+    "text": "It's on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C'."
   },
   "id": "input-with-error-message",
   "name": "test-name-3",
@@ -167,7 +167,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
   National insurance number
   </label>
   <span class="nhsuk-hint" id="input-width-10-hint">
-  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It's on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C'.
   </span>
   <input class="nhsuk-input nhsuk-input--width-10" id="input-width-10" name="test-width-10" type="text" aria-describedby="input-width-10-hint">
 </div>
@@ -183,7 +183,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     "text": "National insurance number"
   },
   "hint": {
-    "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+    "text": "It's on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C'."
   },
   "id": "input-width-10",
   "name": "test-width-10",

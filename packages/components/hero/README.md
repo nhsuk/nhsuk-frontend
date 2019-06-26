@@ -16,7 +16,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
         <div class="nhsuk-hero__wrapper">
-          <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
+          <h1 class="nhsuk-u-margin-bottom-3">We're here for you</h1>
           <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
         </div>
       </div>
@@ -31,7 +31,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
-"heading": "We’re here for you",
+"heading": "We're here for you",
 "text": "Helping you take control of your health and wellbeing."
 }) }}
 ```
@@ -51,7 +51,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-hero-content">
-            <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
+            <h1 class="nhsuk-u-margin-bottom-3">We're here for you</h1>
             <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
             <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
           </div>
@@ -68,7 +68,7 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
-  "heading": "We’re here for you",
+  "heading": "We're here for you",
   "text": "Helping you take control of your health and wellbeing.",
   "imageURL": "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
 }) }}

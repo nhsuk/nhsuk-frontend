@@ -14,7 +14,7 @@ Find out more about the hint component and when to use it in the [NHS digital se
 
 ```html
 <span class="nhsuk-hint">
-  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It's on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C'.
 </span>
 ```
 
@@ -24,7 +24,7 @@ Find out more about the hint component and when to use it in the [NHS digital se
 {% from 'components/hint/macro.njk' import hint %}
 
 {{ hint({
-  "text": "It’s on your National Insurance card, benefit letter, payslip or P60.\nFor example, ‘QQ 12 34 56 C’.\n"
+  "text": "It's on your National Insurance card, benefit letter, payslip or P60.\nFor example, ‘QQ 12 34 56 C'.\n"
 }) }}
 ```
 

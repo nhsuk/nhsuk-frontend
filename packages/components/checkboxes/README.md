@@ -103,7 +103,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
         Sign in with Government Gateway
         </label>
         <span class="nhsuk-hint nhsuk-checkboxes__hint" id="government-gateway-item-hint">
-        You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.
+        You'll have a user ID if you've registered for Self Assessment or filed a tax return online before.
         </span>
       </div>
       <div class="nhsuk-checkboxes__item">
@@ -112,7 +112,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
         Sign in with NHS.UK login
         </label>
         <span class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
-        You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
+        You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
         </span>
       </div>
     </div>
@@ -139,7 +139,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
       "value": "gov-gateway",
       "text": "Sign in with Government Gateway",
       "hint": {
-        "text": "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before."
+        "text": "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
       }
     },
     {
@@ -148,7 +148,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
       "value": "nhsuk-verify",
       "text": "Sign in with NHS.UK login",
       "hint": {
-        "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+        "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }
     }
   ]
