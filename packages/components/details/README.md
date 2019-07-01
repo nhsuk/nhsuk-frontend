@@ -210,7 +210,7 @@ Find out more about the expander component and when to use it in the [NHS digita
         <li>2 to 3 hours after meals</li>
         <li>before, during (take a break) and after exercise</li>
       </ul>
-      <p>This helps you understand your blood glucose levels and how they're affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+      <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
     </div>
   </details>
 </div>
@@ -246,7 +246,7 @@ Find out more about the expander component and when to use it in the [NHS digita
       <li>2 to 3 hours after meals</li>
       <li>before, during (take a break) and after exercise</li>
     </ul>
-    <p>This helps you understand your blood glucose levels and how they're affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+    <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
     "
   }) }}
 </div>

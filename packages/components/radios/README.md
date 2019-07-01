@@ -307,7 +307,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
         Sign in with NHS.UK login
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
-        You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
+        You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
         </span>
       </div>
     </div>
@@ -341,7 +341,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
       "value": "verify",
       "text": "Sign in with NHS.UK login",
       "hint": {
-        "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+        "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }
     }
   ]
