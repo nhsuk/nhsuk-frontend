@@ -90,11 +90,12 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <meta property="og:description" content="Helping you take control of your health and wellbeing.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
+    <meta property="og:image:alt" content="nhs.uk">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@nhsuk">
     <meta name="twitter:creator" content="@nhsuk">
+    <meta name="twitter:image:alt" content="nhs.uk">
   </head>
 
   <body>
