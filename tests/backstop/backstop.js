@@ -294,7 +294,7 @@ module.exports = {
     },
     {
       "label": "Label with bold text",
-      "url": `${TEST_HOST}/components/label/index.html`
+      "url": `${TEST_HOST}/components/label/bold.html`
     },
     {
       "label": "Label as page heading",

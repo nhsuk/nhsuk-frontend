@@ -1,5 +1,12 @@
 # NHS.UK frontend Changelog
 
+## 2.2.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Updated backstopjs package to 4.1.9 (3.9.13 no longer works)
+- 'Label with bold text' backstop test now uses the correct url
+
 ## 2.2.0 - 24th June 2019
 
 :new: **New features**
