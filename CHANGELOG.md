@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 2.2.1 - 26th June 2019
+## 2.2.1 - Unreleased
 
 :wrench: **Fixes**
 
