@@ -1,7 +1,5 @@
 # Panel
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/175).
-
 ## Quick start examples
 
 ### Panel
