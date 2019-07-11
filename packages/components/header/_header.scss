@@ -558,6 +558,20 @@
     width: 100%;
   }
 
+  .nhsuk-header__link {
+    background: url('https://assets.nhs.uk/images/nhs-logo.png') no-repeat;
+  }
+
+  .nhsuk-header__link--service {
+    &:hover {
+      background: url('https://assets.nhs.uk/images/nhs-logo.png') no-repeat;
+    }
+  }
+
+  .nhsuk-header__service-name {
+    padding-top: 48px;
+  }
+
   .nhsuk-header__transactional-service-name {
     padding-bottom: 12px;
     padding-top: 0;

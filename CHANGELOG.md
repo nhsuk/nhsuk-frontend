@@ -4,11 +4,9 @@
 
 :wrench: **Fixes**
 
-- Open Graph image and meta data - use the latest Open Graph image and meta data from the NHS website. You can find this asset in the `packages/assets/logos` directory and the recommended meta data for Open Graph cards in the [Installing using compiled files - HTML template](https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/installation/installing-compiled.md#html-template)
+- Header - remove the need for the NHS SVG logo fallback within the HTML. This was a fallback for Internet Explorer 8, however this will now be handled with CSS, for IE8 only, resulting in cleaner HTML for other browsers. You can remove `<image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>` from the HTML markup within the Header.
 
-- Update dependencies to their latest versions
-- Updated backstopjs package to 4.1.9 (3.9.13 no longer works)
-- 'Label with bold text' backstop test now uses the correct url
+- Open Graph image and meta data - use the latest Open Graph image and meta data from the NHS website. You can find this asset in the `packages/assets/logos` directory and the recommended meta data for Open Graph cards in the [Installing using compiled files - HTML template](https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/installation/installing-compiled.md#html-template)
 
 ## 2.2.0 - 24th June 2019
 
