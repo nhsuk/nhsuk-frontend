@@ -214,6 +214,15 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 <span class="nhsuk-u-visually-hidden"></span>
 ```
 
+## Typography
+
+### Lede text
+
+```html
+<h1>Live Well</h1>
+<p class="nhsuk-lede-text">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
+```
+
 ## Breakpoints
 
 ```

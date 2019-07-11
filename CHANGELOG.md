@@ -1,6 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 2.2.1 - Unreleased
+## 2.3.0 - Unreleased
+
+:new: **New features**
+
+- Lede text - Lede text styling for use after the `<h1>` element, often used as intro text for the page immediately following the page header. You can see an example of Lede text on the [NHS website Live Well page](https://www.nhs.uk/live-well/), you can find the HTML code for Lede text in the [Typography section in the README](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core#lede-text). ([Issue 106](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/106))
 
 :wrench: **Fixes**
 
