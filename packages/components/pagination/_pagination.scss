@@ -74,11 +74,11 @@
     margin-right: nhsuk-spacing(3);
 
     &:focus {
-      box-shadow: -12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-focus-background-color, -12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-focus-background-color;
+      box-shadow: -12px $nhsuk-box-shadow-pagination 0 20px $nhsuk-link-focus-background-color, -12px (-$nhsuk-box-shadow-pagination) 0 20px $nhsuk-link-focus-background-color;
     }
 
     &:hover {
-      box-shadow: -12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-hover-background-color, -12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-hover-background-color;
+      box-shadow: -12px $nhsuk-box-shadow-pagination 0 20px $nhsuk-link-hover-background-color, -12px (-$nhsuk-box-shadow-pagination) 0 20px $nhsuk-link-hover-background-color;
     }
   }
 
@@ -86,11 +86,11 @@
     margin-left: nhsuk-spacing(3);
 
     &:focus {
-      box-shadow: 12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-focus-background-color, 12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-focus-background-color;
+      box-shadow: 12px $nhsuk-box-shadow-pagination 0 20px $nhsuk-link-focus-background-color, 12px (-$nhsuk-box-shadow-pagination) 0 20px $nhsuk-link-focus-background-color;
     }
 
     &:hover {
-      box-shadow: 12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-hover-background-color, 12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-hover-background-color;
+      box-shadow: 12px $nhsuk-box-shadow-pagination 0 20px $nhsuk-link-hover-background-color, 12px (-$nhsuk-box-shadow-pagination) 0 20px $nhsuk-link-hover-background-color;
     }
   }
 
