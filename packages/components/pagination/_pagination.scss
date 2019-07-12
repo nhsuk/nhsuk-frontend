@@ -14,7 +14,6 @@
   @include nhsuk-responsive-margin(7, 'bottom');
 }
 
-
 .nhsuk-pagination__list {
   @include clearfix();
 }
@@ -31,7 +30,6 @@
   .nhsuk-pagination__title {
     padding-left: nhsuk-spacing(5); /* [1] */
   }
-
 }
 
 .nhsuk-pagination-item--next {
@@ -46,7 +44,6 @@
   .nhsuk-pagination__title {
     padding-right: nhsuk-spacing(5); /* [1] */
   }
-
 }
 
 .nhsuk-pagination__link {
@@ -54,6 +51,10 @@
   position: relative;
   text-decoration: none;
   width: 100%;
+
+  @include mq($media-type: print) {
+    color: $color_nhsuk-black;
+  }
 
   @include mq($media-type: print) {
     color: $color_nhsuk-black;
@@ -67,41 +68,59 @@
       color: $color_nhsuk-black;
       margin-top: 0;
     }
-
   }
 
-  &:focus {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-focus-background-color;
-    outline: $nhsuk-focus-width solid $nhsuk-link-focus-background-color;
-  }
+  &--prev {
+    margin-right: nhsuk-spacing(3);
 
-  &:hover {
-    box-shadow: 0 0 0 $nhsuk-box-shadow-pagination $nhsuk-link-hover-background-color;
-    outline: $nhsuk-focus-width solid $nhsuk-link-hover-background-color;
-
-    .nhsuk-pagination__page {
-      text-decoration: none;
+    &:focus {
+      box-shadow: -12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-focus-background-color, -12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-focus-background-color;
     }
 
+    &:hover {
+      box-shadow: -12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-hover-background-color, -12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-hover-background-color;
+    }
+  }
+
+  &--next {
+    margin-left: nhsuk-spacing(3);
+
+    &:focus {
+      box-shadow: 12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-focus-background-color, 12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-focus-background-color;
+    }
+
+    &:hover {
+      box-shadow: 12px $nhsuk-box-shadow-pagination 0px 20px $nhsuk-link-hover-background-color, 12px (-$nhsuk-box-shadow-pagination) 0px 20px $nhsuk-link-hover-background-color;
+    }
+  }
+
+  &--prev,
+  &--next {
+    @include mq($until: desktop) {
+      margin: 0;
+    }
   }
 
   &:hover,
   &:focus {
-
     .nhsuk-icon {
       fill: $color_nhsuk-black;
     }
+  }
 
+  &:hover {
+    outline: $nhsuk-focus-width solid $nhsuk-link-hover-background-color;
+  }
+
+  &:focus {
+    outline: $nhsuk-focus-width solid $nhsuk-link-focus-background-color;
   }
 
   &:visited {
-
     .nhsuk-icon {
       fill: $nhsuk-link-visited-color;
     }
-
   }
-
 }
 
 .nhsuk-pagination__title {
@@ -113,7 +132,6 @@
       content: ' page'; /* [2] */
     }
   }
-
 }
 
 .nhsuk-pagination__page {
