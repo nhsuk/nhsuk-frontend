@@ -2417,6 +2417,13 @@ b {
       color: #212b32;
       /* [1] */ }
 
+.nhsuk-care-card--immediate .nhsuk-details,
+.nhsuk-care-card--immediate .nhsuk-details__summary {
+  color: #ffffff; }
+
+.nhsuk-care-card--immediate .nhsuk-details__summary:hover, .nhsuk-care-card--immediate .nhsuk-details__summary:focus {
+  color: #212b32; }
+
 /* ==========================================================================
    COMPONENTS/ #CHECKBOXES
    ========================================================================== */
