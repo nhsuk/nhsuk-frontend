@@ -848,6 +848,73 @@ address {
   font-style: normal; }
 
 /**
+ * Lede text
+ *
+ * 1. Apply lede text styling to p and ul within the lede element
+ * 2. Reduces the spacing between the page heading and the lede text
+ */
+.nhsuk-lede-text {
+  font-weight: 400;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  /* [1] */ }
+  @media (min-width: 40.0625em) {
+    .nhsuk-lede-text {
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1.33333; } }
+  @media print {
+    .nhsuk-lede-text {
+      font-size: 18pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-lede-text {
+      margin-bottom: 48px; } }
+  .nhsuk-lede-text p,
+  .nhsuk-lede-text ul {
+    font-weight: 400;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.4; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-lede-text p,
+      .nhsuk-lede-text ul {
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.33333; } }
+    @media print {
+      .nhsuk-lede-text p,
+      .nhsuk-lede-text ul {
+        font-size: 18pt;
+        line-height: 1.15; } }
+
+.nhsuk-lede-text--small {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 24px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-lede-text--small {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-lede-text--small {
+      font-size: 14pt;
+      line-height: 1.15; } }
+  @media (min-width: 40.0625em) {
+    .nhsuk-lede-text--small {
+      margin-bottom: 32px; } }
+
+/* [2] */
+h1 + .nhsuk-lede-text,
+h1 + .nhsuk-lede-text--small {
+  margin-top: -24px; }
+
+/**
  * Contextual adjustments
  *
  * Add top padding to headings that appear directly after paragraphs.
