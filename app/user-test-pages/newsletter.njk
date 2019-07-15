@@ -1,0 +1,108 @@
+{% set title = 'Install - NHS.UK frontend' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    href: "../",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Dementia newsletter signup</h1>
+
+<form name="signup" id="ds_signup" action="/user-test-pages/newsletter-success.html" novalidate="novalidate">
+
+  <input type="hidden" name="addressbookid" value="3285244">
+  <input type="hidden" name="userid" value="164457">
+  <input type="hidden" name="ReturnURL" value="https://www.nhs.uk/conditions/dementia/dementia-information-service-success/">
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Contact details</legend>
+    <div class="nhsuk-form-group" id="ds_firstnameGroup">
+      <label for="ds_firstname" class="nhsuk-label">First name</label>
+      <span style="display:none" id="ds_firstnameError" class="nhsuk-error-message" aria-live="polite"></span>
+      <input type="text" id="ds_firstname" class="nhsuk-input nhsuk-input--width-20" name="cd_FIRSTNAME" required="">
+    </div>
+    <div class="nhsuk-form-group" id="ds_lastnameGroup">
+      <label for="ds_lastname" class="nhsuk-label">Last name</label>
+      <span style="display:none" id="ds_lastnameError" class="nhsuk-error-message" aria-live="polite"></span>
+      <input type="text" id="ds_lastname" class="nhsuk-input nhsuk-input--width-20" name="cd_LASTNAME" required="">
+    </div>
+    <div class="nhsuk-form-group" id="ds_emailGroup">
+      <label for="ds_email" class="nhsuk-label">Email address</label>
+      <span class="nhsuk-hint">For example you@example.com</span>
+      <span style="display:none" id="ds_emailError" class="nhsuk-error-message" aria-live="polite"></span>
+      <input type="email" id="ds_email" class="nhsuk-input nhsuk-input--width-20" name="Email" required="">
+    </div>
+  </fieldset>
+
+  <div id="ds_statusGroup" class="nhsuk-form-group">
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend">Pick one of the following:</legend>
+      <span style="display:none" id="ds_statusError" class="nhsuk-error-message" aria-live="polite"></span>
+      <div class="nhsuk-radios">
+        <div class="nhsuk-radios__item">
+          <input type="radio" class="nhsuk-radios__input" name="cd_DEMENTIAINFO" id="ds_status_1" value="I have been diagnosed with dementia" required="">
+          <label for="ds_status_1" class="nhsuk-label nhsuk-radios__label">I have been diagnosed with dementia</label>
+        </div>
+        <div class="nhsuk-radios__item">
+            <input type="radio" class="nhsuk-radios__input" name="cd_DEMENTIAINFO" id="ds_status_2" value="I am a carer">
+            <label for="ds_status_2" class="nhsuk-label nhsuk-radios__label">I am a carer</label>
+        </div>
+        <div class="nhsuk-radios__item">
+            <input type="radio" class="nhsuk-radios__input" name="cd_DEMENTIAINFO" id="ds_status_3" value="Other">
+            <label for="ds_status_3" class="nhsuk-label nhsuk-radios__label">Other</label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="nhsuk-fieldset">
+      <div id="ds_statusDetailGroup" style="display:none" class="nhsuk-form-group nhsuk-u-margin-top-4">
+        <label for="ds_status_detail" class="nhsuk-label">Please give more detail</label>
+        <input type="text" id="ds_status_detail" class="nhsuk-input" name="status_detail">
+      </div>
+    </fieldset>
+  </div>
+
+  <p>We will send you a weekly email for 6 weeks, and will occasionally send you other relevant health information via email (for example surveys about your use of the service)</p>
+
+  <div id="ds_confirmGroup" class="nhsuk-form-group">
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Agree personalised emails</legend>
+          <span style="display:none" id="ds_tcError" class="nhsuk-error-message" aria-live="polite"></span>
+          <div class="nhsuk-checkboxes">
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms" id="ds_agree_1" value="1" required="">
+              <label for="ds_agree_1" class="nhsuk-label nhsuk-checkboxes__label">I agree to the data I have provided being used to personalise the emails I receive from the NHS website</label>
+          </div>
+        </div>
+    </fieldset>
+  </div>
+
+  <div id="ds_confirmGroup_2" class="nhsuk-form-group">
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Agree use of data to improve services</legend>
+      <span style="display:none" id="ds_tcError_2" class="nhsuk-error-message" aria-live="polite"></span>
+      <div class="nhsuk-checkboxes">
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms_2" id="ds_agree_2" value="1" required="">
+          <label for="ds_agree_2" class="nhsuk-label nhsuk-checkboxes__label">I agree to usage data being collected automatically in order for the NHS website to evaluate and improve the services we provide</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <p>View our full <a href="https://www.nhs.uk/our-policies/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a> and <a href="https://www.nhs.uk/our-policies/privacy-policy/" target="_blank">Privacy Policy</a></p>
+
+  <button type="submit" class="nhsuk-button">Submit</button>
+
+</form>
+
+{% endblock %}

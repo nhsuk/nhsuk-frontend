@@ -1,0 +1,26 @@
+{% set title = 'Install - NHS.UK frontend' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    href: "../",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Success</h1>
+
+<p>You have successfully signed up to the Dementia newsletter.</p>
+
+<p><a href="/user-test-pages">Go back to the home page</a></p>
+
+{% endblock %}
+

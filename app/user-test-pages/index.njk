@@ -1,0 +1,26 @@
+{% set title = 'Install - NHS.UK frontend' %}
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    href: "../",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Test pages</h1>
+
+<ul>
+  <li><a href="/user-test-pages/chickenpox.html">Chickenpox<a></li>
+  <li><a href="/user-test-pages/newsletter.html">Newsletter signup<a></li>
+</ul>
+
+{% endblock %}
