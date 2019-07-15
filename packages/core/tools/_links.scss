@@ -29,11 +29,11 @@
     }
 
     &:visited {
-      color: $color_nhsuk-black;
+      color: $nhsuk-link-focus-color;
     }
 
     .nhsuk-icon {
-      fill: $color_nhsuk-black;
+      fill: $nhsuk-link-focus-color;
     }
   }
 
@@ -134,7 +134,7 @@
     }
 
     .nhsuk-icon {
-      fill: $color_nhsuk-black;
+      fill: $nhsuk-link-focus-color;
     }
   }
 }

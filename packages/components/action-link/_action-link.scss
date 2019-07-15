@@ -33,7 +33,6 @@
 
   @include mq($media-type: print) {
     color: $nhsuk-print-text-color;
-    color:red;
 
     &:visited {
       color: $nhsuk-print-text-color;

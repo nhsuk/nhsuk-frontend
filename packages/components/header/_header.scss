@@ -63,6 +63,20 @@
 .nhsuk-header__link {
   @include nhsuk-logo-size; /* [1] */
   display: block;
+
+  &:hover {
+    .nhsuk-logo {
+      box-shadow: 0px 0px 0px $nhsuk-focus-width $color_shade_nhsuk-blue-35;
+    }
+  }
+
+  &:focus {
+    &:hover {
+      .nhsuk-logo {
+        box-shadow: none;
+      }
+    }
+  }
 }
 
 .nhsuk-header__content {
@@ -265,7 +279,6 @@
     &::placeholder {
       color: $color_nhsuk-grey-2;
       font-size: $nhsuk-base-font-size;
-      color:red;
     }
   }
 
@@ -454,7 +467,7 @@
   }
 
   &:hover {
-    background-color: $color_nhsuk-blue;
+    background-color: $color_shade_nhsuk-blue-35;
     box-shadow: none;
     color: $color_nhsuk-white;
     text-decoration: underline;
@@ -469,7 +482,7 @@
     background-color: $nhsuk-link-focus-background-color;
     border-bottom: 4px solid $nhsuk-link-focus-border-color;
     box-shadow: none;
-    color: $nhsuk-text-color;
+    color: $nhsuk-link-focus-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
     text-decoration: none;
