@@ -1,0 +1,177 @@
+{% set title = 'Install - NHS.UK frontend' %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/test-pages",
+    text: "Test pages"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Chickenpox</h1>
+<p class="nhsuk-lede-text">Chickenpox is common and mostly affects children, although you can get it at any age. It usually gets better by itself within a week without needing to see a GP.</p>
+
+<h2>Check if it's chickenpox</h2>
+
+{{ image({
+  "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
+  "alt": "Small red spots on white skin",
+  "caption": "1. Chickenpox starts with red spots. They can appear anywhere on the body."
+}) }}
+
+{{ image({
+  "src": "https://assets.nhs.uk/prod/images/D2BX3G.2e16d0ba.fill-320x213.jpg",
+  "alt": "Small red spots, filled with fluid, on white skin",
+  "caption": "2. The spots fill with fluid and become blisters. The blisters may burst. They might spread or stay in a small area."
+}) }}
+
+{{ image({
+  "src": "https://assets.nhs.uk/prod/images/BPFRW3.2e16d0ba.fill-320x213.jpg",
+  "alt": "Small red spots with scabs in the centre, on white skin",
+  "caption": "3. The spots scab over. More blisters might appear while others scab over."
+}) }}
+
+<h3>Other symptoms</h3>
+<p>You might get symptoms before or after the spots, including:</p>
+<ul>
+  <li>a high temperature above 38C</li>
+  <li>aches and pains, and generally feeling unwell</li>
+  <li>loss of appetite</li>
+</ul>
+<p>Chickenpox is very itchy and can make children feel miserable, even if they do not have many spots. Chickenpox is usually much worse in adults. </p>
+<p>It's possible to get chickenpox more than once, although it's unusual.</p>
+
+<h3>If you're not sure it's chickenpox</h3>
+<p>Check other <a href="#">rashes in children</a>.</p>
+
+<h2>How to treat chickenpox at home</h2>
+
+{{ warningCallout({
+  "heading": "School, nursery or work",
+  "HTML": "<p>You'll need to stay away from school, nursery or work until all the <a href='#'>spots have crusted over</a>.</p>
+           <p>This is usually 5 days after the spots first appeared.</p>"
+}) }}
+
+{{ list({
+  "title": "Do",
+  "type": "tick",
+  "items": [
+    {
+      "item": "drink plenty of fluid (try ice lollies if your child is not drinking) to avoid dehydration"
+    },
+    {
+      "item": "take <a href='#'>paracetamol</a> to help with pain and discomfort"
+    },
+    {
+      "item": "put socks on your child's hands at night to stop scratching"
+    },
+    {
+      "item": "cut your child's nails"
+    },
+    {
+      "item": "use cooling creams or gels from your pharmacy"
+    },
+    {
+      "item": "speak to a pharmacist about using antihistamine medicine to help itching"
+    },
+    {
+      "item": "bathe in cool water and pat the skin dry (do not rub)"
+    },
+    {
+      "item": "dress in loose clothes"
+    },
+    {
+      "item": "check with your airline if you're going on holiday – many airlines will not allow you to fly with chickenpox"
+    }
+  ]
+}) }}
+
+{{ list({
+  "title": "Don't",
+  "type": "cross",
+  "items": [
+    {
+      "item": "do not use <a href='#'>ibuprofen</a> unless advised to do so by your doctor, as it may cause serious skin infections"
+    },
+    {
+      "item": "do not give aspirin to children under 16"
+    },
+    {
+      "item": "do not be around pregnant women, newborn babies and people with a weakened immune system, as it can be dangerous for them"
+    }
+  ]
+}) }}
+
+{{ careCard({
+  "type": "non-urgent",
+  "heading": "Speak to a GP if:",
+  "HTML": "
+  <ul>
+    <li>you're not sure it's chickenpox</li>
+    <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+    <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
+    <li>you're concerned about your child or they get worse</li>
+  </ul>
+  <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+  "
+}) }}
+
+{{ careCard({
+  "type": "urgent",
+  "heading": "Ask for an urgent GP appointment if:",
+  "HTML": "
+  <ul>
+    <li>you're an adult and have chickenpox</li>
+    <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+    <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+    <li>you think your newborn baby has chickenpox</li>
+  </ul>
+   <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+  "
+}) }}
+
+<h2>It's easy to catch chickenpox</h2>
+<p>You can catch chickenpox by being in the same room as someone with it. </p>
+<p>It's also spread by touching clothes or bedding that has fluid from the blisters on it. </p>
+
+<h3>How long chickenpox is infectious for</h3>
+<p>Chickenpox is infectious from 2 days before the spots appear to until they have crusted over, usually 5 days after they first appeared.</p>
+
+<h3>How soon you get symptoms after coming into contact with chickenpox</h3>
+<p>It takes 1 to 3 weeks from the time you were exposed to chickenpox for the spots to start appearing.</p>
+
+<h2>Chickenpox in pregnancy</h2>
+<p>It's rare to get chickenpox when you're pregnant, and the chance of it causing complications is low.  </p>
+<p>If you do get chickenpox when you're pregnant, there's a small risk of your baby being very ill when it's born. </p>
+<p>Speak to a GP if you have not had chickenpox and have been near someone with it.</p>
+
+<h2>The chickenpox vaccine</h2>
+<p>You can get the chickenpox vaccine on the NHS if there's a risk of harming someone with a weakened immune system. </p>
+<p>For example, a child could be vaccinated if 1 of their parents was having chemotherapy. </p>
+<p>You can pay for the vaccine at some private clinics or travel clinics. It costs between £120 and £200.</p>
+
+<h2>Shingles and chickenpox</h2>
+<p>You cannot catch shingles from someone with chickenpox. </p>
+<p>You can catch chickenpox from someone with shingles if you have not had chickenpox before.</p>
+<p>When you get chickenpox, the virus stays in your body. It can be triggered again if your immune system is low and cause shingles. </p>
+<p>This can be because of stress, certain conditions, or treatments like chemotherapy.</p>
+
+{{ reviewDate({
+  "lastReview": "12 February 2017",
+  "nextReview": "1 February 2020"
+}) }}
+
+{% endblock %}
