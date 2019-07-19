@@ -214,6 +214,8 @@ h1 + .nhsuk-lede-text--small {
  *
  * Add top padding to headings that appear directly after paragraphs.
  *
+ * 1. Removes the padding-top because of the lede-text's increased margin-bottom
+ *
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/nhsuk-frontend
  */
@@ -243,6 +245,11 @@ h1 + .nhsuk-lede-text--small {
   @include mq($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
+}
+
+ /* [1] */
+.nhsuk-lede-text + %nhsuk-heading-l {
+  padding-top: 0;
 }
 
 /* Font weight for <strong> and <b> */
