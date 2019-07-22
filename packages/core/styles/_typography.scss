@@ -181,6 +181,33 @@ address {
   font-style: normal;
 }
 
+/**
+ * Lede text
+ *
+ * 1. Apply lede text styling to p and ul within the lede element
+ * 2. Reduces the spacing between the page heading and the lede text
+ */
+
+.nhsuk-lede-text {
+  @include nhsuk-font(24);
+  @include nhsuk-responsive-margin(7, 'bottom');
+  /* [1] */
+  p,
+  ul {
+    @include nhsuk-font(24);
+  }
+}
+
+.nhsuk-lede-text--small {
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(5, 'bottom');
+}
+
+/* [2] */
+h1 + .nhsuk-lede-text,
+h1 + .nhsuk-lede-text--small {
+  margin-top: - nhsuk-spacing(4);
+}
 
 /**
  * Contextual adjustments

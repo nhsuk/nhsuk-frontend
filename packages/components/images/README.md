@@ -35,6 +35,11 @@ Find out more about the images component and when to use it in the [NHS digital 
   "alt": "Picture of allergic conjunctivitis",
   "caption": "Itchy, red, watering eyes"
 }) }}
+
+{{ image({
+  "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+  "alt": "Picture of allergic conjunctivitis" 
+}) }}
 ```
 
 ### Nunjucks arguments

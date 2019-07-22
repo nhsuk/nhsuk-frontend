@@ -158,6 +158,12 @@ nhsuk-u-[grid-size]
 <p class="nhsuk-u-font-weight-normal"></p>
 ```
 
+### Secondary text colour
+
+```html
+<p class="nhsuk-u-secondary-text-color"></p>
+```
+
 ### Reading width
 
 Add a maximum width to large pieces of content, to improve readability. 
@@ -212,6 +218,15 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 
 ```html
 <span class="nhsuk-u-visually-hidden"></span>
+```
+
+## Typography
+
+### Lede text
+
+```html
+<h1>Live Well</h1>
+<p class="nhsuk-lede-text">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
 ```
 
 ## Breakpoints

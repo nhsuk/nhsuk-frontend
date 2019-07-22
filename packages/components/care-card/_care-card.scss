@@ -120,4 +120,16 @@
 
   }
 
+  .nhsuk-details,
+  .nhsuk-details__summary {
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-details__summary {
+    &:hover,
+    &:focus {
+      color: $color_nhsuk-black;
+    }
+  }
+
 }
