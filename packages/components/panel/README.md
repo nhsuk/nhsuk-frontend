@@ -136,6 +136,8 @@ To discuss or contribute to this component, visit the [GitHub issue for this com
       "HTML": "<h3>Healthy weight</h3> <p>Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>"
     }) }}
   </div>
+ </div>
+ <div class="nhsuk-grid-row nhsuk-panel-group">
   <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
     {{ panel({
       "HTML": "<h3>Excercise</h3> <p>Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>"
