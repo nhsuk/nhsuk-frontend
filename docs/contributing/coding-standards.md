@@ -126,6 +126,43 @@ BEM stands for `Block__Element--Modifier`, not `Block__Element__Element--Modifie
 
 Avoid including multiple elements when naming classes.
 
+### Using ampsersands in selectors
+
+Create separate selectors rather using an `&` in the middle of a selector.
+
+This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g. 
+```scss
+div#nhsuk-ers {
+...
+@import 'node_modules/nhsuk-frontend/packages/core/all'; 
+...
+}
+``` 
+
+Bad: 
+
+```scss
+.nhsuk-checkboxes__conditional {
+  ...
+  .js-enabled &--hidden {
+    ...
+  }
+ ...
+}
+```
+
+Good: 
+
+```scss
+.nhsuk-checkboxes__conditional {
+  ...
+}
+
+.js-enabled .nhsuk-checkboxes__conditional--hidden {
+  ...
+}
+```
+
 ### Single Responsibility Principle
 
 Each class has a single purpose, so you can be sure when making a change to a
