@@ -2629,10 +2629,11 @@ b {
   @media (min-width: 40.0625em) {
     .nhsuk-checkboxes__conditional {
       margin-bottom: 24px; } }
-  .js-enabled .nhsuk-checkboxes__conditional--hidden {
-    display: none; }
   .nhsuk-checkboxes__conditional > :last-child {
     margin-bottom: 0; }
+
+.js-enabled .nhsuk-checkboxes__conditional--hidden {
+  display: none; }
 
 /* ==========================================================================
    COMPONENTS / #CONTENTS-LIST
@@ -2765,15 +2766,6 @@ b {
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
     border-width: 7px 0 7px 12.124px;
     border-left-color: inherit; }
-    .nhsuk-details[open] > .nhsuk-details__summary:before {
-      display: block;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-color: transparent;
-      clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
-      border-width: 12.124px 7px 0 7px;
-      border-top-color: inherit; }
   .nhsuk-details__summary:focus {
     box-shadow: 0 0 0 8px #ffb81C;
     color: #212b32; }
@@ -2785,6 +2777,16 @@ b {
     .nhsuk-details__summary:hover .nhsuk-details__summary-text {
       color: #212b32;
       text-decoration: none; }
+
+.nhsuk-details[open] > .nhsuk-details__summary:before {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  border-width: 12.124px 7px 0 7px;
+  border-top-color: inherit; }
 
 .nhsuk-details__summary-text {
   text-decoration: underline;
@@ -5594,10 +5596,11 @@ b {
   @media (min-width: 40.0625em) {
     .nhsuk-radios__conditional {
       margin-bottom: 24px; } }
-  .js-enabled .nhsuk-radios__conditional--hidden {
-    display: none; }
   .nhsuk-radios__conditional > :last-child {
     margin-bottom: 0; }
+
+.js-enabled .nhsuk-radios__conditional--hidden {
+  display: none; }
 
 /* ==========================================================================
    COMPONENTS / #REVIEW-DATE
