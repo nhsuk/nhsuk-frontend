@@ -44,9 +44,6 @@
 
     @include govuk-shape-arrow($direction: right, $base: 14px);
 
-    .nhsuk-details[open] > & {
-      @include govuk-shape-arrow($direction: down, $base: 14px);
-    }
   }
 
   &:focus {
@@ -66,9 +63,11 @@
       color: $nhsuk-link-hover-color;
       text-decoration: none;
     }
-
   }
+}
 
+.nhsuk-details[open] > .nhsuk-details__summary:before {
+  @include govuk-shape-arrow($direction: down, $base: 14px);
 }
 
 .nhsuk-details__summary-text {
