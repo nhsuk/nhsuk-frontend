@@ -158,6 +158,12 @@ nhsuk-u-[grid-size]
 <p class="nhsuk-u-font-weight-normal"></p>
 ```
 
+### Secondary text colour
+
+```html
+<p class="nhsuk-u-secondary-text-color"></p>
+```
+
 ### Reading width
 
 Add a maximum width to large pieces of content, to improve readability. 
