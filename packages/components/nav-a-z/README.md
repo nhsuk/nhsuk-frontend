@@ -1,7 +1,5 @@
 # Nav A-Z
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/186).
-
 ## Quick start example
 
 [Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-a-z/index.html)

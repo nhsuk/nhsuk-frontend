@@ -89,7 +89,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <meta property="og:title" content="NHS.UK">
     <meta property="og:description" content="Helping you take control of your health and wellbeing.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/logos/open-graph.png">
+    <meta property="og:image" content="[absolute url]/assets/logos/open-graph.png">
     <meta property="og:image:alt" content="nhs.uk">
 
     <meta name="twitter:card" content="summary_large_image">

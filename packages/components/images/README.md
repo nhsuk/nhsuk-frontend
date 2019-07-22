@@ -1,7 +1,5 @@
 # Images
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/171).
-
 ## Guidance
 
 Find out more about the images component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/images).
@@ -34,6 +32,11 @@ Find out more about the images component and when to use it in the [NHS digital 
   "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
   "alt": "Picture of allergic conjunctivitis",
   "caption": "Itchy, red, watering eyes"
+}) }}
+
+{{ image({
+  "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+  "alt": "Picture of allergic conjunctivitis" 
 }) }}
 ```
 
