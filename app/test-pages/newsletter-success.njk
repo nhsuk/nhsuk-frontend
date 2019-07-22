@@ -17,9 +17,12 @@
 
 <h1>Success</h1>
 
-<p>You have successfully signed up to the Dementia newsletter.</p>
+<p class="nhsuk-lede-text">You have successfully signed up to the Dementia newsletter.</p>
 
-<p><a href="/user-test-pages">Go back to the home page</a></p>
+{{ backLink({
+  "href": "/pages/examples.html",
+  "text": "Back to Test pages"
+}) }}
 
 {% endblock %}
 

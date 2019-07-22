@@ -92,6 +92,12 @@
       fill: $nhsuk-link-visited-color;
     }
 
+    &:hover {
+      .nhsuk-icon {
+        fill: $color_nhsuk-black;
+      }
+    }
+
   }
 
 }

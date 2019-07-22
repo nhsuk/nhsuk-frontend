@@ -129,14 +129,14 @@
   background-color: $heading-background-color; // [1] //
   color: $heading-text-color; // [2] //
   display: inline-block; // [3] //
-  margin: nhsuk-spacing(0) -32px nhsuk-spacing(2);
+  margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -32px;
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
   top: -16px; // [5] //
 
   @include mq($until: tablet) {
     margin-left: -24px;
-    margin-right: -24px;
+    margin-right: 0;
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
     top: -8px; // [5] //
   }

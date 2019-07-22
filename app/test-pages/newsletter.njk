@@ -1,4 +1,4 @@
-{% set title = 'Install - NHS.UK frontend' %}
+{% set title = 'Newsletter signup | Test page' %}
 
 {% extends 'page.njk' %}
 
@@ -14,7 +14,7 @@
         text: "Home"
       }
     ],
-    href: "/test-pages",
+    href: "/pages/examples.html",
     text: "Test pages"
   }) }}
 {% endblock %}
@@ -23,25 +23,22 @@
 
 <h1>Dementia newsletter signup</h1>
 
-<form name="signup" id="ds_signup" action="/user-test-pages/newsletter-success.html" >
+<form name="signup" id="ds_signup" action="/test-pages/newsletter-success.html" >
 
   <fieldset class="nhsuk-fieldset">
     <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Contact details</legend>
     <div class="nhsuk-form-group" id="ds_firstnameGroup">
       <label for="ds_firstname" class="nhsuk-label">First name</label>
-      <span style="display:none" id="ds_firstnameError" class="nhsuk-error-message" aria-live="polite"></span>
-      <input type="text" id="ds_firstname" class="nhsuk-input nhsuk-input--width-20" name="cd_FIRSTNAME" required="">
+      <input type="text" id="ds_firstname" class="nhsuk-input nhsuk-input--width-20" name="cd_FIRSTNAME">
     </div>
     <div class="nhsuk-form-group" id="ds_lastnameGroup">
       <label for="ds_lastname" class="nhsuk-label">Last name</label>
-      <span style="display:none" id="ds_lastnameError" class="nhsuk-error-message" aria-live="polite"></span>
-      <input type="text" id="ds_lastname" class="nhsuk-input nhsuk-input--width-20" name="cd_LASTNAME" required="">
+      <input type="text" id="ds_lastname" class="nhsuk-input nhsuk-input--width-20" name="cd_LASTNAME">
     </div>
     <div class="nhsuk-form-group" id="ds_emailGroup">
       <label for="ds_email" class="nhsuk-label">Email address</label>
       <span class="nhsuk-hint">For example you@example.com</span>
-      <span style="display:none" id="ds_emailError" class="nhsuk-error-message" aria-live="polite"></span>
-      <input type="email" id="ds_email" class="nhsuk-input nhsuk-input--width-20" name="Email" required="">
+      <input id="ds_email" class="nhsuk-input nhsuk-input--width-20" name="Email">
     </div>
   </fieldset>
 
@@ -50,7 +47,7 @@
       <legend class="nhsuk-fieldset__legend">Pick one of the following:</legend>
       <div class="nhsuk-radios">
         <div class="nhsuk-radios__item">
-          <input type="radio" class="nhsuk-radios__input" name="cd_DEMENTIAINFO" id="ds_status_1" value="I have been diagnosed with dementia" required="">
+          <input type="radio" class="nhsuk-radios__input" name="cd_DEMENTIAINFO" id="ds_status_1" value="I have been diagnosed with dementia">
           <label for="ds_status_1" class="nhsuk-label nhsuk-radios__label">I have been diagnosed with dementia</label>
         </div>
         <div class="nhsuk-radios__item">
@@ -78,7 +75,7 @@
       <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Agree personalised emails</legend>
           <div class="nhsuk-checkboxes">
             <div class="nhsuk-checkboxes__item">
-              <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms" id="ds_agree_1" value="1" required="">
+              <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms" id="ds_agree_1" value="1">
               <label for="ds_agree_1" class="nhsuk-label nhsuk-checkboxes__label">I agree to the data I have provided being used to personalise the emails I receive from the NHS website</label>
           </div>
         </div>
@@ -90,7 +87,7 @@
       <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Agree use of data to improve services</legend>
       <div class="nhsuk-checkboxes">
         <div class="nhsuk-checkboxes__item">
-          <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms_2" id="ds_agree_2" value="1" required="">
+          <input class="nhsuk-checkboxes__input" type="checkbox" name="agree_terms_2" id="ds_agree_2" value="1">
           <label for="ds_agree_2" class="nhsuk-label nhsuk-checkboxes__label">I agree to usage data being collected automatically in order for the NHS website to evaluate and improve the services we provide</label>
         </div>
       </div>
