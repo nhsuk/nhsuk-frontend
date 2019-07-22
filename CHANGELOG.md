@@ -1,5 +1,12 @@
 # NHS.UK frontend Changelog
 
+
+## 2.3.0 - Unreleased
+
+:wrench: **Fixes**
+
+- Updated details.scss, radios.scss and checkboxes.scss components to remove &s from the middle of selectors and added new selectors that don't use the &s.
+
 ## 2.2.1 - Unreleased
 
 :wrench: **Fixes**
