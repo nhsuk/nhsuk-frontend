@@ -1,7 +1,5 @@
 # Contents list
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/161).
-
 ## Guidance
 
 Find out more about the contents list component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/contents-list).

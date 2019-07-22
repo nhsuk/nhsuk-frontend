@@ -1,7 +1,5 @@
 # Care cards
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/160).
-
 ## Guidance
 
 Find out more about the care card component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/care-cards).

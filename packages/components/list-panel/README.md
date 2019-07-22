@@ -1,7 +1,5 @@
 # List panel
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/173).
-
 ## Quick start example
 
 [Preview the list panel component](https://nhsuk.github.io/nhsuk-frontend/components/list-panel/index.html)

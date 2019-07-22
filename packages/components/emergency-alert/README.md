@@ -1,7 +1,5 @@
 # Emergency alert
 
-To discuss or contribute to this component, visit the [GitHub issue for this component](https://github.com/nhsuk/nhsuk-frontend/issues/166).
-
 ## Quick start example
 
 [Preview the emergency alert component](https://nhsuk.github.io/nhsuk-frontend/components/emergency-alert/index.html)
