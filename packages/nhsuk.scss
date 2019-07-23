@@ -38,3 +38,48 @@
 @import 'components/tables/tables';
 @import 'components/textarea/textarea';
 @import 'components/warning-callout/warning-callout';
+
+// Organisational Header
+
+.app-header--organisation {
+  background-color: $color_nhsuk-white;
+
+  .nhsuk-header__link {
+    height: auto;
+    text-decoration: none;
+    width: auto;
+  }
+
+  .nhsuk-icon__search {
+    fill: $color_nhsuk-white;
+  }
+  .nhsuk-search__submit {
+    background: $color_nhsuk-blue;
+  }
+  .autocomplete__input {
+    border: 1px solid $nhsuk-border-color;
+  }
+}
+
+.app-header-nav {
+  background: $color_nhsuk-blue;
+}
+
+.app-org-title {
+  display: block;
+  font-weight: bold;
+  color: #000;
+  font-size: 30px;
+  line-height: 31px;
+
+  .app-org-title--split {
+    display: block;
+  }
+
+}
+
+.app-org-description {
+  color: $color_nhsuk-blue;
+  font-weight: bold;
+  font-size: 20px;
+}
