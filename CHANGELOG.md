@@ -16,6 +16,9 @@
 
 - Updated details.scss, radios.scss and checkboxes.scss components to remove &s from the middle of selectors and added new selectors that don't use the &s.
 
+- Details component - Additional top padding for a h2 / nhsuk-heading-l which is placed after the details component. [Issue 486](https://github.com/nhsuk/nhsuk-frontend/issues/486)
+
+
 ## 2.2.0 - 24th June 2019
 
 :new: **New features**

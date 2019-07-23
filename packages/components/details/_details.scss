@@ -170,3 +170,7 @@
 
   @include nhsuk-responsive-margin(4, 'bottom');
 }
+
+.nhsuk-details  + %nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, 'top');
+}
