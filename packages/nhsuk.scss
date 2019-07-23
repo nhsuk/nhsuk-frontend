@@ -59,6 +59,11 @@
   .autocomplete__input {
     border: 1px solid $nhsuk-border-color;
   }
+
+  .nhsuk-header__logo .nhsuk-logo {
+    height: 32px;
+    width: 80px;
+  }
 }
 
 .app-header-nav {
@@ -69,8 +74,16 @@
   display: block;
   font-weight: bold;
   color: #000;
-  font-size: 30px;
-  line-height: 31px;
+  font-size: 22px;
+  line-height: 23px;
+  letter-spacing: 0.2px;
+  margin-top: -2px;
+
+  @include mq($until: tablet) {
+    font-size: 17px;
+    line-height: 17px;
+    letter-spacing: 0.1px;
+  }
 
   .app-org-title--split {
     display: block;
@@ -80,6 +93,13 @@
 
 .app-org-description {
   color: $color_nhsuk-blue;
+  display: block;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
+  line-height: 23px;
+
+  @include mq($until: tablet) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
