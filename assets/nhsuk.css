@@ -2873,6 +2873,14 @@ b {
     .nhsuk-expander-group {
       margin-bottom: 24px; } }
 
+.nhsuk-details + h2,
+.nhsuk-details + .nhsuk-heading-l {
+  padding-top: 16px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-details + h2,
+    .nhsuk-details + .nhsuk-heading-l {
+      padding-top: 24px; } }
+
 /* ==========================================================================
    COMPONENTS / #DO-DONT-LIST
    ========================================================================== */
