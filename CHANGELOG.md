@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 2.3.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Hero - Fix issue with the margin below the Hero (with image and description) component and also fix issue with longer content escaping the container of the element ([Issue 432](https://github.com/nhsuk/nhsuk-frontend/issues/432)) & ([Issue 431](https://github.com/nhsuk/nhsuk-frontend/issues/431))
+
 ## 2.3.0 - 23rd July 2019
 
 :new: **New features**

@@ -89,6 +89,11 @@
  */
 
 .nhsuk-hero--image-description {
+  @include nhsuk-responsive-margin(9, 'bottom');
+
+  @include mq($from: tablet) {
+    @include nhsuk-responsive-margin(6, 'bottom');
+  }
 
   .nhsuk-hero-content {
     background-color: $color_nhsuk-blue;
@@ -97,7 +102,10 @@
     padding: nhsuk-spacing(4);
     position: relative;
     top: 70px;
-    width: 85%;
+
+    @include mq($from: 321px) {
+      width: 85%;
+    }
 
     .nhsuk-hero__arrow {
       bottom: -10px; /* [8] */
