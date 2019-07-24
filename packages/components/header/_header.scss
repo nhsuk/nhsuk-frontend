@@ -158,7 +158,6 @@
     display: none;
 
     &.js-show {
-      border-bottom: 4px solid $color_nhsuk-grey-5;
       clear: both;
       display: -ms-flexbox; /* [14] */
       display: flex; // sass-lint:disable-line no-duplicate-properties
@@ -421,10 +420,15 @@
 
     @include mq($until: large-desktop) {
       border-bottom: 4px solid $color_nhsuk-grey-5; /* [12] */
+      border-top: 4px solid $color_nhsuk-grey-5; /* [12] */
 
       .nhsuk-width-container {
         margin: 0 16px;
       }
+    }
+
+    @include mq($from: desktop) {
+      padding: 0 16px;
     }
 
     @include mq($until: desktop) {

@@ -51,12 +51,11 @@
   }
 
   .nhsuk-search__submit {
-    background: $color_nhsuk-blue;
+    background: $color_nhsuk-green;
 
-    .nhsuk-icon__search {
-      fill: $color_nhsuk-white;
+    &:hover {
+      background: darken($color_nhsuk-green, 5%);
     }
-
   }
   .autocomplete__input {
     border: 1px solid $nhsuk-border-color;
