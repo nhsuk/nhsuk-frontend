@@ -61,8 +61,43 @@
   }
 
   .nhsuk-header__logo .nhsuk-logo {
-    height: 32px;
-    width: 80px;
+
+    @include mq($until: tablet) {
+      height: 20px;
+      width: 50px;
+    }
+  }
+
+  .nhsuk-header__navigation {
+    max-width: 100%;
+  }
+
+  .nhsuk-header__search-toggle,
+  .nhsuk-header__menu-toggle {
+    border-color: $color_nhsuk-blue;
+    color: $color_nhsuk-blue;
+
+    .nhsuk-icon {
+      fill: $color_nhsuk-blue;
+    }
+  }
+
+  .nhsuk-header__search-form {
+    @include mq($until: tablet) {
+      padding-top: 0;
+    }
+  }
+
+  .nhsuk-header__menu-toggle:hover, .nhsuk-header__menu-toggle:active, .nhsuk-header__menu-toggle.is-active,
+  .nhsuk-header__search-toggle:hover, .nhsuk-header__search-toggle:active, .nhsuk-header__search-toggle.is-active {
+      background-color: #f0f4f5;
+      border-color: #002f5c;
+      box-shadow: none;
+      color: #002f5c;
+
+      .nhsuk-icon {
+        fill: #002f5c;
+      }
   }
 }
 
@@ -85,6 +120,11 @@
     letter-spacing: 0.1px;
   }
 
+  @media (max-width:375px) {
+    font-size: 13px;
+    line-height: 13px;
+  }
+
   .app-org-title--split {
     display: block;
   }
@@ -101,5 +141,10 @@
   @include mq($until: tablet) {
     font-size: 12px;
     line-height: 18px;
+  }
+
+  @media (max-width:375px) {
+    font-size: 8px;
+    line-height: 13px;
   }
 }

@@ -60,8 +60,8 @@
     border-top-right-radius: 0;
     font-size: $nhsuk-base-font-size;
     height: 40px; /* [3] */
-    padding: 0 12px; /* [8] */
-    width: 235px; /* [3] */
+    padding: 0 12px; /* [9] */
+    width: 200px; /* [3] */
 
     &:focus {
       border: 1px solid $nhsuk-focus-color;
@@ -73,6 +73,12 @@
       color: $color_nhsuk-grey-2;
       font-size: $nhsuk-base-font-size;
     }
+  }
+}
+
+@include mq($from: desktop) {
+  .autocomplete__input {
+    width: 235px;
   }
 }
 
