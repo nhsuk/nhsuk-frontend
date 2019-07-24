@@ -158,9 +158,14 @@
     display: none;
 
     &.js-show {
+      border-bottom: 4px solid $color_nhsuk-grey-5;
       clear: both;
       display: -ms-flexbox; /* [14] */
       display: flex; // sass-lint:disable-line no-duplicate-properties
+      margin-left: -16px;
+      margin-right: -16px;
+      margin-bottom: -20px;
+      padding-top: 20px;
       text-align: left;
     }
   }
