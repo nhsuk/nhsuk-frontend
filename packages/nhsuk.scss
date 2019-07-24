@@ -50,11 +50,13 @@
     width: auto;
   }
 
-  .nhsuk-icon__search {
-    fill: $color_nhsuk-white;
-  }
   .nhsuk-search__submit {
     background: $color_nhsuk-blue;
+
+    .nhsuk-icon__search {
+      fill: $color_nhsuk-white;
+    }
+
   }
   .autocomplete__input {
     border: 1px solid $nhsuk-border-color;
