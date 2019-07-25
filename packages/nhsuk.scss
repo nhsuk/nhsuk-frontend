@@ -39,38 +39,32 @@
 @import 'components/textarea/textarea';
 @import 'components/warning-callout/warning-callout';
 
-// Organisational Header
+// Header --white
 
-.app-header--organisation {
+.nhsuk-header--white {
   background-color: $color_nhsuk-white;
 
-  .nhsuk-header__link {
-    height: auto;
-    text-decoration: none;
-    width: auto;
+  .nhsuk-logo {
+    .nhsuk-logo__background {
+      fill: $color_nhsuk-blue;
+    }
+
+    .nhsuk-logo__text {
+      fill: $color_nhsuk-white;
+    }
   }
 
   .nhsuk-search__submit {
-    background: $color_nhsuk-green;
+    background-color: $color_nhsuk-blue;
 
     &:hover {
-      background: darken($color_nhsuk-green, 5%);
+      background-color: $color_shade_nhsuk-blue-20;
     }
   }
+
   .autocomplete__input {
-    border: 1px solid $nhsuk-border-color;
-  }
-
-  .nhsuk-header__logo .nhsuk-logo {
-
-    @include mq($until: tablet) {
-      height: 20px;
-      width: 50px;
-    }
-  }
-
-  .nhsuk-header__navigation {
-    max-width: 100%;
+    border: 1px solid $color_nhsuk-grey-3;
+    border-right: 0;
   }
 
   .nhsuk-header__search-toggle,
@@ -89,17 +83,83 @@
     }
   }
 
-  .nhsuk-header__menu-toggle:hover, .nhsuk-header__menu-toggle:active, .nhsuk-header__menu-toggle.is-active,
-  .nhsuk-header__search-toggle:hover, .nhsuk-header__search-toggle:active, .nhsuk-header__search-toggle.is-active {
-      background-color: #f0f4f5;
-      border-color: #002f5c;
-      box-shadow: none;
-      color: #002f5c;
+  .nhsuk-header__menu-toggle:hover,
+  .nhsuk-header__menu-toggle:active,
+  .nhsuk-header__menu-toggle.is-active,
+  .nhsuk-header__search-toggle:hover,
+  .nhsuk-header__search-toggle:active,
+  .nhsuk-header__search-toggle.is-active {
+    background-color: $color_nhsuk-blue;
+    border-color: $color_nhsuk-blue;
+    box-shadow: none;
+    color: $color_nhsuk-white;
 
-      .nhsuk-icon {
-        fill: #002f5c;
-      }
+    .nhsuk-icon {
+      fill: $color_nhsuk-white;
+    }
   }
+
+  .app-org-title {
+    color: #000;
+  }
+
+  .app-org-description {
+    color: $color_nhsuk-blue;
+  }
+
+}
+
+// Nav --white
+.nhsuk-header__navigation--white {
+  background-color: $color_nhsuk-white;
+
+  .nhsuk-header__navigation-list {
+    border-color: $color_nhsuk-grey-4;
+  }
+
+  .nhsuk-header__navigation-link {
+    color: $color_nhsuk-blue;
+
+    &:visited {
+      color: $color_nhsuk-blue;
+    }
+
+    &:focus {
+      color: $color_nhsuk-blue;
+    }
+
+    &:hover,
+    &:active,
+    &.is-active {
+      background-color: transparent;
+    }
+  }
+}
+
+// Organisational Header
+
+.app-header--organisation {
+
+  .nhsuk-header__link {
+    height: auto;
+    text-decoration: none;
+    width: auto;
+  }
+
+  .nhsuk-header__logo .nhsuk-logo {
+    height: 32px;
+    width: 80px;
+
+    @media (max-width:450px) {
+      height: 24px;
+      width: 60px;
+    }
+  }
+
+  .nhsuk-header__navigation {
+    max-width: 100%;
+  }
+
 }
 
 .app-header-nav {
@@ -109,21 +169,16 @@
 .app-org-title {
   display: block;
   font-weight: bold;
-  color: #000;
+  color: $color_nhsuk-white;
   font-size: 22px;
   line-height: 23px;
   letter-spacing: 0.2px;
   margin-top: -2px;
 
-  @include mq($until: tablet) {
+  @media (max-width:450px) {
     font-size: 17px;
     line-height: 17px;
     letter-spacing: 0.1px;
-  }
-
-  @media (max-width:375px) {
-    font-size: 13px;
-    line-height: 13px;
   }
 
   .app-org-title--split {
@@ -133,19 +188,19 @@
 }
 
 .app-org-description {
-  color: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
   display: block;
   font-weight: bold;
   font-size: 15px;
   line-height: 23px;
 
-  @include mq($until: tablet) {
+  @media (max-width:450px) {
     font-size: 12px;
     line-height: 18px;
   }
+}
 
-  @media (max-width:375px) {
-    font-size: 8px;
-    line-height: 13px;
-  }
+.app-org-logo {
+  max-width: 100%;
+  width: 300px;
 }
