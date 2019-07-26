@@ -99,11 +99,11 @@
     }
   }
 
-  .app-org-title {
+  .app-organisation-name {
     color: #000;
   }
 
-  .app-org-description {
+  .app-organisation-descriptor {
     color: $color_nhsuk-blue;
   }
 
@@ -166,7 +166,7 @@
   background: $color_nhsuk-blue;
 }
 
-.app-org-title {
+.app-organisation-name {
   display: block;
   font-weight: bold;
   color: $color_nhsuk-white;
@@ -181,13 +181,13 @@
     letter-spacing: 0.1px;
   }
 
-  .app-org-title--split {
+  .app-organisation-name-split {
     display: block;
   }
 
 }
 
-.app-org-description {
+.app-organisation-descriptor {
   color: $color_nhsuk-white;
   display: block;
   font-weight: bold;
