@@ -287,7 +287,7 @@
     font-size: $nhsuk-base-font-size;
     height: nhsuk-spacing(6); /* [2] */
     padding: 0 12px; /* [9] */
-    width: 235px; /* [2] */
+    width: 200px; /* [2] */
 
     &:focus {
       border: 1px solid $nhsuk-focus-color;
@@ -357,6 +357,12 @@
 
 .nhsuk-search__submit--withdropdown {
   border-bottom-right-radius: 0;
+}
+
+@include mq($from: desktop) {
+  .nhsuk-search__input {
+    width: 235px;
+  }
 }
 
 
