@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 2.3.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
+
 ## 2.3.0 - 23rd July 2019
 
 :new: **New features**
