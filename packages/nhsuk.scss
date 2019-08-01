@@ -100,11 +100,11 @@
     }
   }
 
-  .app-organisation-name {
+  .nhsuk-organisation-name {
     color: #000;
   }
 
-  .app-organisation-descriptor {
+  .nhsuk-organisation-descriptor {
     color: $color_nhsuk-blue;
   }
 
@@ -138,7 +138,7 @@
 
 // Organisational Header
 
-.app-header--organisation {
+.nhsuk-header--organisation {
 
   .nhsuk-header__link {
     height: auto;
@@ -154,6 +154,11 @@
       height: 24px;
       width: 60px;
     }
+
+    @media (max-width:375px) {
+      height: 20px;
+      width: 50px;
+    }
   }
 
   .nhsuk-header__navigation {
@@ -162,11 +167,7 @@
 
 }
 
-.app-header-nav {
-  background: $color_nhsuk-blue;
-}
-
-.app-organisation-name {
+.nhsuk-organisation-name {
   display: block;
   font-weight: bold;
   color: $color_nhsuk-white;
@@ -181,26 +182,46 @@
     letter-spacing: 0.1px;
   }
 
-  .app-organisation-name-split {
+  @media (max-width:375px) {
+    font-size: 13px;
+    line-height: 13px;
+  }
+
+  .nhsuk-organisation-name-split {
     display: block;
   }
 
 }
 
-.app-organisation-descriptor {
+.nhsuk-organisation-descriptor {
   color: $color_nhsuk-white;
   display: block;
   font-weight: bold;
   font-size: 15px;
-  line-height: 23px;
+  line-height: 21px;
 
   @media (max-width:450px) {
     font-size: 12px;
     line-height: 18px;
   }
+
+  @media (max-width:375px) {
+    font-size: 10px;
+    line-height: 13px;
+  }
 }
 
-.app-org-logo {
-  max-width: 100%;
-  width: 300px;
+.nhsuk-org-logo {
+  max-height: 100px;
+  max-width: 280px;
+
+  @media (max-width:450px) {
+    max-width: 150px;
+  }
+}
+
+.nhsuk-org-logo[src$=".svg"] {
+  height: auto;
+  max-width: 220px;
+  width: 100%;
 }
