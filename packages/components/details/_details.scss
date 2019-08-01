@@ -45,6 +45,7 @@
 
   }
 
+  &:hover,
   &:focus {
     @include nhsuk-focused-text();
   }
