@@ -65,12 +65,6 @@ $button-shadow-size: 4px;
     outline: $nhsuk-focus-width solid transparent;
   }
 
-  @include nhsuk-focusable;
-
-  &:focus {
-    color: $nhsuk-button-text-colour;
-  }
-
   &:active {
     box-shadow: none;
     top: $button-shadow-size;
