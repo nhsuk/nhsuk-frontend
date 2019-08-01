@@ -12,7 +12,6 @@
 
 .nhsuk-input {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
 
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 1 */
@@ -26,7 +25,7 @@
   width: 100%;
 
   &:focus {
-    @include nhsuk-focusable-input;
+    @include nhsuk-focused-input;
   }
 }
 

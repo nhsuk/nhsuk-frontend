@@ -30,7 +30,7 @@
 
   &:hover {
     background-color: $color_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-4;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-3;
     color: $color_nhsuk-blue;
   }
 
@@ -39,18 +39,7 @@
     box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4;
 
     .nhsuk-promo__heading {
-      background: $nhsuk-link-focus-background-color;
-      -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-      box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-      color: $nhsuk-link-focus-color;
-      outline: $nhsuk-focus-width solid transparent;
-      outline-offset: $nhsuk-focus-width;
-      text-decoration: none;
-    }
-
-    .nhsuk-promo__heading,
-    .nhsuk-promo__description {
-      color: $nhsuk-link-focus-color;
+      @include nhsuk-focused-text();
     }
 
   }

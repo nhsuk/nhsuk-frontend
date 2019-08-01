@@ -17,23 +17,23 @@
   }
 
   &:hover {
-    color: lighten($nhsuk-link-color, 6%);
+    color: $nhsuk-link-hover-color;
     text-decoration: none;
   }
 
-  @include nhsuk-focusable-fill;
-
   &:focus {
+    @include nhsuk-focused-text();
+
     &:hover {
       text-decoration: none;
     }
 
     &:visited {
-      color: $nhsuk-link-focus-color;
+      color: $nhsuk-focus-text-color;
     }
 
     .nhsuk-icon {
-      fill: $nhsuk-link-focus-color;
+      fill: $nhsuk-focus-text-color;
     }
   }
 
@@ -90,7 +90,7 @@
   }
 
   &:focus {
-    color: $nhsuk-link-focus-color;
+    color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
     text-decoration: underline;
@@ -116,25 +116,5 @@
 @mixin nhsuk-link-style-hover {
   &:hover {
     text-decoration: none;
-  }
-}
-
-//
-// Default link focus only styling
-//
-// Usage: @include nhsuk-link-style-focus;
-//
-
-@mixin nhsuk-link-style-focus {
-  @include nhsuk-focusable-fill;
-
-  &:focus {
-    &:hover {
-      text-decoration: none;
-    }
-
-    .nhsuk-icon {
-      fill: $nhsuk-link-focus-color;
-    }
   }
 }

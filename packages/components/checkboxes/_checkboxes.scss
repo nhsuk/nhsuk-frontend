@@ -91,7 +91,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
  */
 
 .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
-  @include nhsuk-focusable-input;
+  @include nhsuk-focused-input();
 }
 
 /* Selected state */

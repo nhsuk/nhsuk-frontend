@@ -81,9 +81,9 @@
   }
 
   &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    border-bottom: 4px solid $nhsuk-link-focus-border-color;
-    box-shadow: 0 -1px 0 0 $nhsuk-link-focus-background-color;
+    background-color: $nhsuk-focus-color;
+    border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+    box-shadow: 0 -1px 0 0 $nhsuk-focus-color;
   }
 
   @include mq($until: tablet) {
@@ -146,12 +146,20 @@
     color: $color_nhsuk-blue;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: $nhsuk-link-hover-color;
 
     .nhsuk-icon {
       fill: $nhsuk-link-hover-color;
+    }
+
+  }
+
+  &:focus {
+    @include nhsuk-focused-text();
+
+    .nhsuk-icon {
+      fill: $nhsuk-focus-text-color;
     }
 
   }

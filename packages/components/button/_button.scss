@@ -19,12 +19,12 @@ $button-shadow-size: 4px;
   @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
-  background-color: $nhsuk-button-colour;
+  background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
   border-radius: 4px;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
   box-sizing: border-box;
-  color: $nhsuk-button-text-colour;
+  color: $nhsuk-button-text-color;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -44,7 +44,7 @@ $button-shadow-size: 4px;
   &:visited,
   &:active,
   &:hover {
-    color: $nhsuk-button-text-colour;
+    color: $nhsuk-button-text-color;
     text-decoration: none;
   }
 
@@ -55,13 +55,14 @@ $button-shadow-size: 4px;
   }
 
   &:hover {
-    background-color: $nhsuk-button-hover-colour;
+    background-color: $nhsuk-button-hover-color;
   }
 
-  @include nhsuk-focusable;
-
   &:focus {
-    color: $nhsuk-button-text-colour;
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
   }
 
   &:active {
@@ -103,44 +104,52 @@ $button-shadow-size: 4px;
  */
 
 .nhsuk-button--secondary {
-  background-color: $nhsuk-secondary-button-colour;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour;
+  background-color: $nhsuk-secondary-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-secondary-button-colour, 5%);
+    background-color: darken($nhsuk-secondary-button-color, 10%);
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
   }
 
   &.nhsuk-button--disabled {
-    background-color: $nhsuk-secondary-button-colour;
+    background-color: $nhsuk-secondary-button-color;
   }
 
 }
 
 .nhsuk-button--reverse {
-  background-color: $nhsuk-reverse-button-colour;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour;
-  color: $nhsuk-reverse-button-text-colour;
+  background-color: $nhsuk-reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color;
+  color: $nhsuk-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-reverse-button-colour, 5%);
-    color: $nhsuk-reverse-button-text-colour;
+    background-color: darken($nhsuk-reverse-button-color, 5%);
+    color: $nhsuk-reverse-button-text-color;
   }
 
-  @include nhsuk-focusable;
-
   &:focus {
-    color: $nhsuk-reverse-button-text-colour;
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
   }
 
   &:link {
-    color: $nhsuk-reverse-button-text-colour;
+    color: $nhsuk-reverse-button-text-color;
   }
 
   &.nhsuk-button--disabled {
-    background-color: $nhsuk-reverse-button-colour;
+    background-color: $nhsuk-reverse-button-color;
 
     &:focus {
-      background-color: $nhsuk-reverse-button-colour;
+      background-color: $nhsuk-reverse-button-color;
     }
   }
 
@@ -153,22 +162,22 @@ $button-shadow-size: 4px;
 .nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button[disabled] {
-  background-color: $nhsuk-button-colour;
+  background-color: $nhsuk-button-color;
   opacity: (.5);
   pointer-events: none;
 
   &:hover {
-    background-color: $nhsuk-button-colour;
+    background-color: $nhsuk-button-color;
     cursor: default;
   }
 
   &:focus {
-    background-color: $nhsuk-button-colour;
+    background-color: $nhsuk-button-color;
     outline: none;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
     top: 0;
   }
 
@@ -176,11 +185,11 @@ $button-shadow-size: 4px;
 
 .nhsuk-button--secondary[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--secondary[disabled] {
-  background-color: $nhsuk-secondary-button-colour;
+  background-color: $nhsuk-secondary-button-color;
   opacity: (.5);
 
   &:hover {
-    background-color: $nhsuk-secondary-button-colour;
+    background-color: $nhsuk-secondary-button-color;
     cursor: default;
   }
 
@@ -189,7 +198,7 @@ $button-shadow-size: 4px;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
     top: 0;
   }
 
@@ -197,11 +206,11 @@ $button-shadow-size: 4px;
 
 .nhsuk-button--reverse[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--reverse[disabled] {
-  background-color: $nhsuk-reverse-button-colour;
+  background-color: $nhsuk-reverse-button-color;
   opacity: (.5);
 
   &:hover {
-    background-color: $nhsuk-reverse-button-colour;
+    background-color: $nhsuk-reverse-button-color;
     cursor: default;
   }
 
@@ -210,7 +219,7 @@ $button-shadow-size: 4px;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
     top: 0;
   }
 

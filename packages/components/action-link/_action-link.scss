@@ -19,13 +19,16 @@
 
 .nhsuk-action-link__link {
   @include nhsuk-font(22);
-  @include nhsuk-link-style-focus;
 
   display: inline-block; /* [1] */
   font-weight: $nhsuk-font-bold;
   padding-left: 34px; /* [2] */
   position: relative; /* [3] */
   text-decoration: none; /* [4] */
+
+  &:focus {
+    @include nhsuk-focused-text();
+  }
 
   @include mq($until: tablet) {
     padding-left: 26px; /* [2] */

@@ -50,8 +50,6 @@
 }
 
 .nhsuk-pagination__link {
-  @include nhsuk-link-style-focus;
-
   display: block;
   position: relative;
   text-decoration: none;

@@ -5,19 +5,20 @@
 /**
  * 1. Cross-component class - adjusts styling of list component.
  * 2. Override default link styling to use error colour
- * 3. When the link has focus, the text colour needs to be darker to ensure that
- *    colour contrast is still acceptable
  */
 
 .nhsuk-error-summary {
   @include nhsuk-responsive-padding(4);
   @include nhsuk-responsive-margin(8, 'bottom');
-  @include nhsuk-focusable;
 
   border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
   @include govuk-media-query($from: tablet) {
     border: $nhsuk-border-width solid $nhsuk-error-color;
+  }
+
+  &:focus {
+    @include nhsuk-focused-text();
   }
 }
 
@@ -43,7 +44,6 @@
 }
 
 .nhsuk-error-summary__list a {
-  @include nhsuk-focusable-fill;
   @include nhsuk-typography-weight-bold;
 
   /* 2 */
@@ -58,8 +58,8 @@
     color: $nhsuk-link-hover-color;
   }
 
-  &:focus { /* 3 */
-    color: $nhsuk-link-focus-color;
+  &:focus {
+    @include nhsuk-focused-text();
   }
 
 }

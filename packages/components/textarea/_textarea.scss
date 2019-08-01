@@ -16,7 +16,7 @@
   width: 100%;
 
   &:focus {
-    @include nhsuk-focusable-input;
+    @include nhsuk-focused-input;
   }
 }
 

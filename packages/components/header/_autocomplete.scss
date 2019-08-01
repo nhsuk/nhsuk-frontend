@@ -51,9 +51,8 @@
 
     &:focus {
       border: none;
-      border-bottom: 4px solid $nhsuk-link-focus-border-color;
-      border: 4px solid $nhsuk-link-focus-border-color;
-      box-shadow: inset 0 0 0 3px $nhsuk-focus-color;
+      border: $nhsuk-focus-width solid $nhsuk-focus-color;
+      box-shadow: inset 0 0 0 3px $nhsuk-focus-text-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
     }
@@ -76,8 +75,8 @@
 
     &:focus {
       border: none;
-      border-bottom: 4px solid $nhsuk-link-focus-border-color;
-      box-shadow: inset 0 0 0 4px $nhsuk-focus-color;
+      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+      box-shadow: inset 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
     }
@@ -141,7 +140,7 @@
     fill: $color_nhsuk-grey-3;
     float: left;
     height: 22px; /* [4] */
-    margin: 5px 4px 0 0; /* [5] */
+    margin: 2px 4px 0 0; /* [5] */
     width: 22px; /* [4] */
   }
 
@@ -150,13 +149,9 @@
     text-decoration: none;
   }
 
-  &:hover,
   &:focus {
     a {
-      background-color: $color_nhsuk-warm-yellow;
-      box-shadow: 0 0 0 $nhsuk-box-shadow-spread $color_nhsuk-warm-yellow;
-      color: $color_nhsuk-black;
-      text-decoration: none;
+      @include nhsuk-focused-text();
     }
   }
 

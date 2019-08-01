@@ -312,7 +312,9 @@
     }
   }
 
-  @include nhsuk-focusable;
+  &:focus {
+    @include nhsuk-focused-text;
+  }
 
 }
 
@@ -326,73 +328,6 @@
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;
   }
-}
-
-/// Focusable helper
-///
-/// Provides an additional outline to clearly indicate when the target element
-/// has focus. Used for interactive elements which themselves have some background
-/// or border, such as most form elements.
-///
-
-@mixin nhsuk-focusable {
-  &:focus {
-    -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-    box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-    text-decoration: none;
-  }
-}
-
-/// Focusable with fill helper
-///
-/// Provides an additional outline and background colour to clearly indicate when
-/// the target element has focus. Used for interactive text-based elements such
-/// as links.
-///
-
-@mixin nhsuk-focusable-fill {
-  &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-    box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-    text-decoration: none;
-  }
-}
-
-/// Focusable input (form elements)
-///
-/// Provides an additional outline and border to clearly indicate when
-/// the target element has focus. Used for interactive text-based elements such
-/// as links.
-
-@mixin nhsuk-focusable-input {
-  border: $nhsuk-focus-width solid $nhsuk-link-focus-border-color;
-  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-  outline: $nhsuk-focus-width solid transparent; /* 1 */
-  outline-offset: $nhsuk-focus-width;
-}
-
-/// Focusable with fill element
-///
-/// Provides an additional outline and background colour to clearly indicate when
-/// the target element has focus. Used for interactive text-based elements such
-/// as links.
-///
-
-@mixin nhsuk-focusable-fill--element {
-  background-color: $nhsuk-link-focus-background-color;
-  -webkit-box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-  box-shadow: $nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, -$nhsuk-focus-width 0px 0px 0px $nhsuk-link-focus-background-color, 0px -$nhsuk-focus-width 0px 0px $nhsuk-link-focus-background-color, 0px 0px 0px $nhsuk-focus-width $nhsuk-link-focus-background-color, 0px $nhsuk-focus-width 0px $nhsuk-focus-width $nhsuk-link-focus-border-color;
-  color: $nhsuk-link-focus-color;
-  outline: $nhsuk-focus-width solid transparent;
-  outline-offset: $nhsuk-focus-width;
-  text-decoration: none;
 }
 
 /// NHS logo size helper
