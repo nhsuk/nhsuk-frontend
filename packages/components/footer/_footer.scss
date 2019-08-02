@@ -38,6 +38,10 @@
 .nhsuk-footer__list-item-link {
   color: $nhsuk-text-color;
 
+  &:hover {
+    color: $nhsuk-text-color;
+  }
+
   &:visited {
     color: $nhsuk-text-color;
   }
