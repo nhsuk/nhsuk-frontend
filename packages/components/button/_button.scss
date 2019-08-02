@@ -66,7 +66,9 @@ $button-shadow-size: 4px;
   }
 
   &:active {
+    background: $nhsuk-button-active-color;
     box-shadow: none;
+    color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
 
@@ -118,6 +120,13 @@ $button-shadow-size: 4px;
     outline: $nhsuk-focus-width solid transparent;
   }
 
+  &:active {
+    background: $nhsuk-secondary-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+
   &.nhsuk-button--disabled {
     background-color: $nhsuk-secondary-button-color;
   }
@@ -139,6 +148,12 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-reverse-button-active-color;
+    box-shadow: none;
+    top: $button-shadow-size;
   }
 
   &:link {
