@@ -82,8 +82,8 @@
 
   &:focus {
     background-color: $nhsuk-focus-color;
-    border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-    box-shadow: 0 -1px 0 0 $nhsuk-focus-color;
+    border-bottom: 1px solid $nhsuk-focus-text-color;
+    box-shadow: inset 0 -4px 0 0 $nhsuk-focus-text-color;
   }
 
   @include mq($until: tablet) {

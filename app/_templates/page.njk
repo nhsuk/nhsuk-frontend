@@ -47,7 +47,7 @@
   {{ header({
     "showNav": "false",
     "showSearch": "false",
-    "homeHref": "https://www.nhs.uk"
+    "homeHref": "/"
     })
   }}
 {% endblock %}
@@ -88,8 +88,24 @@
   {{ footer({
     "links": [
       {
+        "URL": "/",
+        "label": "NHS.UK frontend"
+      },
+      {
+        "URL": "/pages/install.html",
+        "label": "Install"
+      },
+      {
+        "URL": "/pages/examples.html",
+        "label": "Examples"
+      },
+      {
+        "URL": "/pages/about.html",
+        "label": "About"
+      },
+      {
         "URL": "https://github.com/nhsuk/nhsuk-frontend",
-        "label": "GitHub - NHS.UK frontend"
+        "label": "GitHub"
       }
     ]
   })}}

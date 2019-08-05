@@ -1,0 +1,262 @@
+{% set title = 'The NHS website home page | Test page' %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "homeHref": "/test-pages/nhsuk-homepage.html"
+    })
+  }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/pages/examples.html",
+    text: "Test pages"
+  }) }}
+{% endblock %}
+
+{% block body %}
+
+<style>
+.nhsuk-width-container--full {
+  margin: 0;
+  max-width: none; }
+
+.nhsuk-main-wrapper--no-padding {
+  padding: 0; }
+
+.nhsuk-homepage {
+  background: #ffffff; }
+
+.nhsuk-section:first-of-type, .nhsuk-section:nth-of-type(even) {
+  background: #ffffff; }
+  .nhsuk-section:first-of-type .nhsuk-promo a, .nhsuk-section:nth-of-type(even) .nhsuk-promo a {
+    background: #f0f4f5; }
+
+.nhsuk-section:nth-of-type(odd) {
+  background: #f0f4f5; }
+
+@media (min-width: 40.0625em) {
+  .nhsuk-section:nth-of-type(2) {
+    padding-top: 40px; } }
+
+@media (max-width: 26.3125em) {
+  .nhsuk-section:nth-of-type(2) {
+    padding-top: 40px; } }
+
+.nhsuk-section__content {
+  padding-bottom: 64px;
+  padding-top: 64px; }
+  .nhsuk-section__content > *:first-child {
+    margin-top: 0; }
+  .nhsuk-section__content > *:last-child {
+    margin-bottom: 0; }
+  @media (max-width: 48.0525em) {
+    .nhsuk-section__content {
+      padding-bottom: 48px;
+      padding-top: 48px; }
+      .nhsuk-section__content + .nhsuk-section__content {
+        padding-top: 0; } }
+  .nhsuk-section__content h2 {
+    padding-top: 0; }
+
+.nhsuk-section__description {
+  color: #425563; }
+
+.nhsuk-homepage .nhsuk-section__content .nhsuk-action-link {
+  padding-top: 8px; }
+
+.nhsuk-section--with-image {
+  position: relative; }
+  .nhsuk-section--with-image:before {
+    background-image: url("https://www.nhs.uk/static/nhsuk_shared/img/homepage/crosses.b6d55d5ac6b5.svg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 700px;
+    position: absolute;
+    right: 0;
+    width: 48%; }
+    @media (max-width: 48.0525em) {
+      .nhsuk-section--with-image:before {
+        background-image: url("https://www.nhs.uk/static/nhsuk_shared/img/homepage/crosses-mobile.fdc8c2148fba.svg");
+        bottom: auto;
+        height: 125px;
+        left: 0;
+        right: auto;
+        top: -10px;
+        width: 100%; } }
+  @media (max-width: 48.0525em) {
+    .nhsuk-section--with-image {
+      padding-top: 120px; } }
+
+.nhsuk-list-signage {
+  list-style: none;
+  padding-left: 0;
+  padding-top: 8px; }
+  .nhsuk-list-signage li {
+    display: inline-block;
+    margin: 2px 0;
+    width: 100%; }
+    .nhsuk-list-signage li:last-of-type {
+      margin-bottom: 2px; }
+    .nhsuk-list-signage li a {
+      background: #005eb8;
+      color: #ffffff;
+      display: block;
+      padding: 12px 24px;
+      position: relative;
+      text-decoration: none;
+      width: 100%; }
+      @media (max-width: 40.0525em) {
+        .nhsuk-list-signage li a {
+          padding: 12px 16px; } }
+      .nhsuk-list-signage li a:hover {
+        background: #003d78;
+        box-shadow: none;
+        text-decoration: underline; }
+      .nhsuk-list-signage li a:active {
+        background: #002f5c; }
+      .nhsuk-list-signage li a:focus {
+        background: #ffeb3b;
+        box-shadow: inset 0 -4px 0 0 #212b32;
+        color: #212b32; }
+        .nhsuk-list-signage li a:focus .nhsuk-icon {
+        fill: #212b32; }
+      .nhsuk-list-signage li a:focus .nhsuk-icon {
+        fill: #212b32; }
+      .nhsuk-list-signage li a .nhsuk-icon {
+        fill: #ffffff;
+        height: 24px;
+        position: absolute;
+        right: 12px;
+        top: 14px;
+        width: 24px; }
+        @media (max-width: 40.0525em) {
+          .nhsuk-list-signage li a .nhsuk-icon {
+            top: 12px; } }
+
+@media (min-width: 48.0625em) {
+  .nhsuk-list-signage--two-columns {
+    column-count: 2;
+    column-gap: 32px; } }
+</style>
+
+{{ hero({
+  "heading": "We’re here for you",
+  "text": "Helping you take control of your health and wellbeing.",
+  "imageURL": "https://assets.nhs.uk/prod/images/IS_0818_homepage_hero_3_913783962.width-1000.jpg"
+}) }}
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half nhsuk-section__content">
+        <div class="nhsuk-u-reading-width">
+          <h2>Health A to Z</h2>
+          <p class="nhsuk-section__description">Your complete guide to conditions, symptoms and treatments, including what to do and when to get help.</p>
+        </div>
+        {{ actionLink({
+          "text": "Go to Health A to Z",
+          "href": "/test-pages/health-a-to-z.html"
+        }) }}
+      </div>
+      <div class="nhsuk-grid-column-one-half nhsuk-section__content">
+        <div class="nhsuk-u-reading-width">
+          <h2>Medicines A to Z</h2>
+          <p class="nhsuk-section__description">Find out how your medicine works, how and when to take it, possible side effects and answers to your common questions.</p>
+        </div>
+        {{ actionLink({
+          "text": "Go to Medicines A to Z",
+          "href": "#"
+        }) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="nhsuk-section">
+    <div class="nhsuk-width-container">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full nhsuk-section__content">
+          <div class="nhsuk-u-reading-width">
+            <h2>NHS services</h2>
+            <p class="nhsuk-section__description">Find the service you need and book appointments online.</p>
+          </div>
+          <ul class="nhsuk-list-signage nhsuk-list-signage--two-columns">
+            <li>
+                <a href="#">
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/static/nhsuk_base/img/icon-chevron-right-grey.svg" xlink:href="">
+                        </image>
+                    </svg>
+                    Find a pharmacy
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/static/nhsuk_base/img/icon-chevron-right-grey.svg" xlink:href="">
+                        </image>
+                    </svg>
+                    Find a dentist
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/static/nhsuk_base/img/icon-chevron-right-grey.svg" xlink:href="">
+                        </image>
+                    </svg>
+                    Find a GP
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/static/nhsuk_base/img/icon-chevron-right-grey.svg" xlink:href="">
+                        </image>
+                    </svg>
+                    Find your nearest A&amp;E
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                        <image class="nhsuk-icon__chevron-right nhsuk-icon__chevron-right--fallback" src="/static/nhsuk_base/img/icon-chevron-right-grey.svg" xlink:href="">
+                        </image>
+                    </svg>
+                    Find other urgent care services
+                </a>
+            </li>
+          </ul>
+          {{ actionLink({
+            "text": "Find other NHS services",
+            "href": "#"
+          }) }}
+          {{ panel({
+            "HTML": "<h3>If you need help now, but it’s not an emergency</h3>
+            <p>Go to <a href='#'>111.nhs.uk</a> or <a href='tel: 111'>call 111</a>.</p>"
+          }) }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

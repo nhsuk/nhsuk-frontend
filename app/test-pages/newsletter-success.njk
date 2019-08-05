@@ -3,13 +3,24 @@
 {% extends 'page.njk' %}
 
 {% block header %}
-  {{ super() }}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "homeHref": "/test-pages/nhsuk-homepage.html"
+    })
+  }}
 {% endblock %}
 
 {% block breadcrumb %}
   {{ breadcrumb({
-    href: "../",
-    text: "Home"
+    items: [
+      {
+        href: "/",
+        text: "NHS.UK frontend"
+      }
+    ],
+    href: "/pages/examples.html",
+    text: "Test pages"
   }) }}
 {% endblock %}
 

@@ -3,19 +3,24 @@
 {% extends 'page.njk' %}
 
 {% block header %}
-  {{ super() }}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "homeHref": "/test-pages/nhsuk-homepage.html"
+    })
+  }}
 {% endblock %}
 
 {% block breadcrumb %}
   {{ breadcrumb({
     items: [
       {
-        href: "/",
+        href: "/test-pages/nhsuk-homepage.html",
         text: "Home"
       }
     ],
-    href: "/pages/examples.html",
-    text: "Test pages"
+    href: "/test-pages/health-a-to-z.html",
+    text: "Health A to Z"
   }) }}
 {% endblock %}
 
@@ -160,11 +165,6 @@
   "HTML": "<p>Do not worry if you're not sure what the problem is. </p>
            <p>Follow the advice on this page and see a GP if the pain does not get better in 2 weeks.</p>
            <p>You can also read about <a href='#'>pain in other areas of your foot</a>.</p>"
-}) }}
-
-{{ backLink({
-  "href": "/pages/examples.html",
-  "text": "Back to Test pages"
 }) }}
 
 {{ reviewDate({

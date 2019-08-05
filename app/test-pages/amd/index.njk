@@ -3,19 +3,24 @@
 {% extends 'page.njk' %}
 
 {% block header %}
-  {{ super() }}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "homeHref": "/test-pages/nhsuk-homepage.html"
+    })
+  }}
 {% endblock %}
 
 {% block breadcrumb %}
   {{ breadcrumb({
     items: [
       {
-        href: "/",
+        href: "/test-pages/nhsuk-homepage.html",
         text: "Home"
       }
     ],
-    href: "/pages/examples.html",
-    text: "Test pages"
+    href: "/test-pages/health-a-to-z.html",
+    text: "Health A to Z"
   }) }}
 {% endblock %}
 

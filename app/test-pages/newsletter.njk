@@ -3,7 +3,12 @@
 {% extends 'page.njk' %}
 
 {% block header %}
-  {{ super() }}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false",
+      "homeHref": "/test-pages/nhsuk-homepage.html"
+    })
+  }}
 {% endblock %}
 
 {% block breadcrumb %}
@@ -11,7 +16,7 @@
     items: [
       {
         href: "/",
-        text: "Home"
+        text: "NHS.UK frontend"
       }
     ],
     href: "/pages/examples.html",

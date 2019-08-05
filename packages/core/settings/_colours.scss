@@ -104,7 +104,7 @@ $nhsuk-print-text-color: $color_nhsuk-black;
 
 // Links
 $nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: lighten($nhsuk-link-color, 5%);
+$nhsuk-link-hover-color: shade($nhsuk-link-color, 25%);
 $nhsuk-link-active-color: $color_tint_nhsuk-black-10;
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
@@ -133,19 +133,19 @@ $nhsuk-form-element-background-color: $color_nhsuk-white;
 //
 
 $nhsuk-button-color: $color_nhsuk-green;
-$nhsuk-button-hover-color: darken($nhsuk-button-color, 5%);
-$nhsuk-button-active-color: darken($nhsuk-button-color, 15%);
-$nhsuk-button-shadow-color: darken($nhsuk-button-color, 15%);
+$nhsuk-button-hover-color: shade($nhsuk-button-color, 20%);
+$nhsuk-button-active-color: shade($nhsuk-button-color, 50%);
+$nhsuk-button-shadow-color: shade($nhsuk-button-color, 50%);
 
 $nhsuk-secondary-button-color: $color_nhsuk-grey-1;
-$nhsuk-secondary-button-hover-color: darken($nhsuk-secondary-button-color, 5%);
-$nhsuk-secondary-button-active-color: darken($nhsuk-secondary-button-color, 15%);
-$nhsuk-secondary-button-shadow-color: darken($nhsuk-secondary-button-color, 15%);
+$nhsuk-secondary-button-hover-color: shade($nhsuk-secondary-button-color, 20%);
+$nhsuk-secondary-button-active-color: shade($nhsuk-secondary-button-color, 50%);
+$nhsuk-secondary-button-shadow-color: shade($nhsuk-secondary-button-color, 50%);
 
 $nhsuk-reverse-button-color: $color_nhsuk-white;
-$nhsuk-reverse-button-hover-color: darken($nhsuk-reverse-button-color, 5%);
-$nhsuk-reverse-button-active-color: darken($nhsuk-reverse-button-color, 15%);
-$nhsuk-reverse-button-shadow-color: $color_nhsuk-black;
+$nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
+$nhsuk-reverse-button-active-color: shade($nhsuk-reverse-button-color, 50%);
+$nhsuk-reverse-button-shadow-color: shade($nhsuk-reverse-button-color, 50%);
 
 $nhsuk-button-text-color: $color_nhsuk-white;
 $nhsuk-reverse-button-text-color: $color_nhsuk-black;
