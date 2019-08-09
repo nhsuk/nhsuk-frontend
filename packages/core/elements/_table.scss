@@ -10,7 +10,6 @@
 
 table {
   @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
 
   border-spacing: 0;
   vertical-align: top;

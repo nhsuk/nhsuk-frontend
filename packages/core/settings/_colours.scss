@@ -105,7 +105,7 @@ $nhsuk-print-text-color: $color_nhsuk-black;
 // Links
 $nhsuk-link-color: $color_nhsuk-blue;
 $nhsuk-link-hover-color: shade($nhsuk-link-color, 25%);
-$nhsuk-link-active-color: $color_tint_nhsuk-black-10;
+$nhsuk-link-active-color: shade($nhsuk-link-color, 50%);
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
 // Focus

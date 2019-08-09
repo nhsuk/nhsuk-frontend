@@ -249,6 +249,10 @@
 
     &:active {
       background-color: $nhsuk-button-active-color;
+
+      .nhsuk-icon {
+        fill: $color_nhsuk-white;
+      }
     }
 
   }
@@ -337,6 +341,11 @@
 
     &:active {
       background-color: $color_shade_nhsuk-blue-50;
+      border: 0;
+
+      .nhsuk-icon__search {
+        fill: $color_nhsuk-white;
+      }
     }
 
   }

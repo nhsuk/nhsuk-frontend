@@ -47,7 +47,6 @@
 
 .nhsuk-table-responsive {
   @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
 
   display: block; // sass-lint:disable-line property-sort-order
   -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order

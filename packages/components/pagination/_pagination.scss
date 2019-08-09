@@ -71,10 +71,10 @@
   }
 
   &:hover {
-    color: $color_nhsuk-black;
+    color: $nhsuk-link-hover-color;
 
     .nhsuk-icon {
-      fill: $color_nhsuk-black;
+      fill: $nhsuk-link-hover-color;
     }
 
     .nhsuk-pagination__page {
@@ -89,6 +89,15 @@
     .nhsuk-pagination__page {
       text-decoration: none;
     }
+
+    &:visited,
+    &:hover,
+    &:active {
+
+      .nhsuk-icon {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
   }
 
   &:visited {
@@ -99,7 +108,7 @@
 
     &:hover {
       .nhsuk-icon {
-        fill: $color_nhsuk-black;
+        fill: $nhsuk-link-hover-color;
       }
     }
 
