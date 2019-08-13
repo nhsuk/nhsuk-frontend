@@ -15,19 +15,34 @@
  */
 
 .nhsuk-promo {
-  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
-  width: 100%;
-}
-
-.nhsuk-promo__link-wrapper {
   background-color: $color_nhsuk-white;
   border: 1px solid transparent;
   box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
   display: block;
   height: 100%; /* [3] */
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
   position: relative; /* [4] */
   text-decoration: none; /* [5] */
+  width: 100%;
+}
 
+.nhsuk-promo__link-wrapper {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+  }
+  &:active {
+    background-color: $color_nhsuk-grey-5; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-color;
+    top: $nhsuk-box-shadow-link; /* [7] */
+  }
+  &:hover,
+  &:active {
+    .nhsuk-promo__heading {
+      text-decoration: none; /* [6] */
+    }
+  }
   &:focus {
     background-color: $color_nhsuk-white;
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
@@ -35,33 +50,7 @@
     .nhsuk-promo__heading {
       text-decoration: underline; /* [6] */
     }
-
-    .nhsuk-promo__heading,
-    .nhsuk-promo__description {
-      color: $nhsuk-link-focus-color;
-    }
-
   }
-
-  &:hover {
-    background-color: $color_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
-    color: $color_nhsuk-blue;
-  }
-
-  &:active {
-    background-color: $color_nhsuk-grey-5; /* [7] */
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-color;
-    top: $nhsuk-box-shadow-link; /* [7] */
-  }
-
-  &:hover,
-  &:active {
-    .nhsuk-promo__heading {
-      text-decoration: none;
-    }
-  }
-
 }
 
 .nhsuk-promo__img {
@@ -70,7 +59,6 @@
   border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
   display: block;
   width: 100%;
-
 }
 
 .nhsuk-promo__heading {
@@ -83,10 +71,6 @@
 .nhsuk-promo__content {
   @include top-and-bottom();
   @include nhsuk-responsive-padding(5);
-}
-
-.nhsuk-promo__description {
-  color: $nhsuk-secondary-text-color;
 }
 
 /* Promo size variant

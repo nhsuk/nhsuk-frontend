@@ -3,6 +3,7 @@ import nhsuk_feedbackBanner from './components/feedback-banner/feedback-banner';
 import nhsuk_header from './components/header/header';
 import nhsuk_skipLink from './components/skip-link/skip-link';
 import autocomplete from './components/header/autocomplete';
+import nhsuk_promo from './components/promo/promo';
 
 // HTML5 polyfills
 import './components/details/details.polyfill';
@@ -13,4 +14,5 @@ document.addEventListener('DOMContentLoaded', function() {
   nhsuk_header();
   nhsuk_skipLink();
   autocomplete();
+  nhsuk_promo();
 })
