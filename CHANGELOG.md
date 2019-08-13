@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
+- Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk-frontend/issues/485))
 
 ## 2.3.0 - 23rd July 2019
 
