@@ -35,6 +35,7 @@
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
  * 15. IE 9 alternative for flexbox
+ * 16. Use non variable colour to follow NHS England guidelines on logo colour
  */
 
 @import 'autocomplete';
@@ -82,10 +83,6 @@
     max-width: 50%;
   }
 
-}
-
-.nhsuk-header__logo--only {
-  max-width: 100%;
 }
 
 .nhsuk-header__link {
@@ -174,9 +171,9 @@
       clear: both;
       display: -ms-flexbox; /* [14] */
       display: flex; // sass-lint:disable-line no-duplicate-properties
+      margin-bottom: -20px;
       margin-left: -16px;
       margin-right: -16px;
-      margin-bottom: -20px;
       padding-top: 20px;
       text-align: left;
     }
@@ -668,7 +665,7 @@
     }
 
     .nhsuk-header__navigation-item {
-      display: table-cell; /* [15] */
+      display: table-cell; /* [16] */
     }
 
   }
@@ -777,6 +774,7 @@
 }
 
 .nhsuk-header__logo--only {
+  max-width: 100%;
 
   @include mq($from: tablet) {
 
@@ -810,12 +808,12 @@
     height: 32px;
     width: 80px;
 
-    @media (max-width:450px) {
+    @media (max-width: 450px) {
       height: 24px;
       width: 60px;
     }
 
-    @media (max-width:375px) {
+    @media (max-width: 375px) {
       height: 20px;
       width: 50px;
     }
@@ -828,21 +826,21 @@
 }
 
 .nhsuk-organisation-name {
-  display: block;
-  font-weight: bold;
   color: $color_nhsuk-white;
+  display: block;
   font-size: 22px;
+  font-weight: bold;
+  letter-spacing: .2px;
   line-height: 23px;
-  letter-spacing: 0.2px;
   margin-top: -2px;
 
-  @media (max-width:450px) {
+  @media (max-width: 450px) {
     font-size: 17px;
+    letter-spacing: .1px;
     line-height: 17px;
-    letter-spacing: 0.1px;
   }
 
-  @media (max-width:375px) {
+  @media (max-width: 375px) {
     font-size: 13px;
     line-height: 13px;
   }
@@ -856,16 +854,16 @@
 .nhsuk-organisation-descriptor {
   color: $color_nhsuk-white;
   display: block;
-  font-weight: bold;
   font-size: 15px;
+  font-weight: bold;
   line-height: 21px;
 
-  @media (max-width:450px) {
+  @media (max-width: 450px) {
     font-size: 12px;
     line-height: 18px;
   }
 
-  @media (max-width:375px) {
+  @media (max-width: 375px) {
     font-size: 10px;
     line-height: 13px;
   }
@@ -875,12 +873,12 @@
   max-height: 100px;
   max-width: 280px;
 
-  @media (max-width:450px) {
+  @media (max-width: 450px) {
     max-width: 150px;
   }
 }
 
-.nhsuk-org-logo[src$=".svg"] {
+.nhsuk-org-logo[src$='.svg'] {
   height: auto;
   max-width: 220px;
   width: 100%;
@@ -952,7 +950,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000;
+    color: #000; /* [15] */ // sass-lint:disable-line no-color-hex no-color-literals
   }
 
   .nhsuk-organisation-descriptor {
@@ -963,7 +961,7 @@
 
 // Navigation (white)
 
-.nhsuk-header--white-nav{
+.nhsuk-header--white-nav {
   .nhsuk-header__navigation {
     background-color: $color_nhsuk-white;
 
