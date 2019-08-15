@@ -904,6 +904,10 @@
   .nhsuk-search__submit {
     background-color: $color_nhsuk-blue;
 
+    .nhsuk-icon__search {
+      fill: $color_nhsuk-white;
+    }
+
     &:hover {
       background-color: $color_shade_nhsuk-blue-20;
     }
