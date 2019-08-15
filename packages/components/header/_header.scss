@@ -66,12 +66,12 @@
 
   &:hover {
     .nhsuk-logo {
-      box-shadow: 0px 0px 0px $nhsuk-focus-width $color_shade_nhsuk-blue-35;
+      box-shadow: 0 0 0 $nhsuk-focus-width $color_shade_nhsuk-blue-35;
     }
   }
 
   &:focus {
-    box-shadow: $nhsuk-focus-width 0 0 0 $nhsuk-focus-color, -$nhsuk-focus-width 0 0 0 $nhsuk-focus-color, 0 -$nhsuk-focus-width 0 0 $nhsuk-focus-color, 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+    box-shadow: $nhsuk-focus-width 0 0 0 $nhsuk-focus-color, - $nhsuk-focus-width 0 0 0 $nhsuk-focus-color, 0 - $nhsuk-focus-width 0 0 $nhsuk-focus-color, 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     &:hover {
       .nhsuk-logo {
         box-shadow: none;

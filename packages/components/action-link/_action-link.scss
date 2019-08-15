@@ -28,6 +28,13 @@
 
   &:focus {
     @include nhsuk-focused-text();
+
+    &:hover {
+      .nhsuk-action-link__text {
+        text-decoration: none;
+      }
+    }
+
   }
 
   @include mq($until: tablet) {
@@ -45,14 +52,6 @@
   &:hover {
     .nhsuk-action-link__text {
       text-decoration: underline; /* [6] */
-    }
-  }
-
-  &:focus {
-    &:hover {
-      .nhsuk-action-link__text {
-        text-decoration: none;
-      }
     }
   }
 
