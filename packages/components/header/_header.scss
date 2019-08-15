@@ -392,9 +392,6 @@
 
   @include mq($until: desktop) {
     margin-right: 0; /* [11] */
-    position: absolute;
-    right: 252px;
-    top: 0;
   }
 
   @include mq($until: tablet) {
