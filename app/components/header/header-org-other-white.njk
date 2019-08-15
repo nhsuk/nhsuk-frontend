@@ -1,0 +1,41 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Header organisational - White/Blue (PNG logo)' %}
+{% from 'components/header/macro.njk' import header %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+{{ header({
+  "organisation": "true",
+  "organisationName": "Yorkshire Imaging Collaborative",
+  "organisationDescriptor": "Regional Radiology Network",
+  "organisationLogoURL": "https://www.cnwl.nhs.uk/wp-content/themes/CNWL/_lib/img/design/nhs-logo-new.png",
+  "classes": "nhsuk-header--white",
+  "showNav": "true",
+  "showSearch": "true",
+  "primaryLinks": [
+    {
+      "url"  : "#",
+      "label" : "Your hospital visit"
+    },
+    {
+      'url' : '#',
+      'label' : 'Wards and departments'
+    },
+    {
+      'url'  : '#',
+      'label' : 'Conditions and treatments'
+    },
+    {
+      'url'  : '#',
+      'label' : 'Our people'
+    },
+    {
+      'url' : '#',
+      'label' : 'Our research'
+    }
+  ]
+})
+}}
+
+{% endblock %}
