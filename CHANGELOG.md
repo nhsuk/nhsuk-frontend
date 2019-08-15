@@ -6,6 +6,7 @@
 
 - Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
 - Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk-frontend/issues/485))
+- Summary list - Modifying the summary list component to use two-thirds layout
 
 ## 2.3.0 - 23rd July 2019
 
@@ -25,7 +26,6 @@
 
 - Details component - Additional top padding for a h2 / nhsuk-heading-l which is placed after the details component. [Issue 486](https://github.com/nhsuk/nhsuk-frontend/issues/486)
 
-
 ## 2.2.0 - 24th June 2019
 
 :new: **New features**
@@ -41,11 +41,10 @@
 - Expander group component - Fixed expander group spacing issues when used with components with no top margin ([Issue 439](https://github.com/nhsuk/nhsuk-frontend/issues/439))
 
 - Update dependencies to their latest versions - this fixes a common security issue within the node-sass package. See https://github.com/sass/node-sass/issues/2625 for more details
-- Search autocomplete - Fixed the query parameter on submit. [(Issue 459)](https://github.com/nhsuk/nhsuk-frontend/issues/459)  - Also added two new parameters to the nunjucks template to make it more versatile. [(Issue 458)
-](https://github.com/nhsuk/nhsuk-frontend/issues/458)
+- Search autocomplete - Fixed the query parameter on submit. [(Issue 459)](https://github.com/nhsuk/nhsuk-frontend/issues/459) - Also added two new parameters to the nunjucks template to make it more versatile. [(Issue 458)
+  ](https://github.com/nhsuk/nhsuk-frontend/issues/458)
 
 - Fixed `nhsuk-u-reading-width` utility class - the measurement has been adjusted to work with our base font size (16px) ([Issue 462](https://github.com/nhsuk/nhsuk-frontend/issues/462))
-
 
 ## 2.1.0 - Apr 8, 2019
 
@@ -56,8 +55,8 @@
 - Add transparent 1px border around promos which appears as a solid border when in Windows high contrast mode. ([PR 433](https://github.com/nhsuk/nhsuk-frontend/pull/433))
 
 - Fluid width container - Extend the page layout to include a fluid-width container, which spans the entire width of the viewport.
-Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual.
-([Issue 416](https://github.com/nhsuk/nhsuk-frontend/issues/416))
+  Use `.nhsuk-width-container-fluid` for a full width container. Documentation and an example of the fluid-width container can be found on the Layout page in the NHS digital service manual.
+  ([Issue 416](https://github.com/nhsuk/nhsuk-frontend/issues/416))
 
 - Prefix error messages with a visually hidden "Error:", to make it clearer to
   users of assistive technologies.
@@ -178,15 +177,15 @@ Use `.nhsuk-width-container-fluid` for a full width container. Documentation and
 :boom: **Breaking changes**
 
 - npm JavaScript file path - The `nhsuk.min.js` file has been moved from `packages/` into `dist/` if you are referencing
-the compiled JavaScript file from the `packages/` folder please update your projects.
+  the compiled JavaScript file from the `packages/` folder please update your projects.
 
 - Footer no longer includes a logo and the nunjucks macro arguments have been updated - if you are using the footer nunjucks
-macro then you need to update it. ([PR 300](https://github.com/nhsuk/nhsuk-frontend/pull/300))
+  macro then you need to update it. ([PR 300](https://github.com/nhsuk/nhsuk-frontend/pull/300))
 
 :new: **New features**
 
 - ES6 JavaScript modules - NHS.UK frontend JavaScript is now written in ES6 format, meaning you can import individual components
-that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
+  that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
 
 See more about using ES6 modules in your project in the [installing with npm - importing Javascript documentation](/docs/installation/installing-with-npm.md#option-2-import-javascript-using-modules).
 
@@ -194,13 +193,13 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 :new: **New features**
 
-- Header - Add 'aria-label' Nunjucks argument so it can be overridden  ([PR 297](https://github.com/nhsuk/nhsuk-frontend/pull/297))
+- Header - Add 'aria-label' Nunjucks argument so it can be overridden ([PR 297](https://github.com/nhsuk/nhsuk-frontend/pull/297))
 
 ## 0.5.2 (Prerelease) - Dec 12, 2018
 
 :wrench: **Fixes**
 
-- Address styling - Add generic styling for the `<address>` element  ([PR 295](https://github.com/nhsuk/nhsuk-frontend/pull/295))
+- Address styling - Add generic styling for the `<address>` element ([PR 295](https://github.com/nhsuk/nhsuk-frontend/pull/295))
 
 - Focus styles - Add focus styles on links when in High Contrast Mode in Windows to make it easier to distinguish where you are. ([PR 294](https://github.com/nhsuk/nhsuk-frontend/pull/294))
 
@@ -209,7 +208,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 :wrench: **Fixes**
 
 - Feedback banner - Fix an issue with the JavaScript reporting errors within the console log
-when scrolling down the page if the feedback banner did not exist on the page.  ([PR 293](https://github.com/nhsuk/nhsuk-frontend/pull/293))
+  when scrolling down the page if the feedback banner did not exist on the page. ([PR 293](https://github.com/nhsuk/nhsuk-frontend/pull/293))
 
 - Details - Add the missing component JavaScript to the `nhsuk.min.js` bundle. ([PR 285](https://github.com/nhsuk/nhsuk-frontend/pull/285))
 
@@ -318,4 +317,4 @@ when scrolling down the page if the feedback banner did not exist on the page.  
 :tada: **Initial release of the NHS.UK frontend**
 
 - This release includes all the content page components and the first
-installable npm package.
+  installable npm package.
