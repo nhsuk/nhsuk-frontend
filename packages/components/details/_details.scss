@@ -143,10 +143,10 @@
   }
 
   .nhsuk-details__text {
-    @include nhsuk-responsive-padding(4,'bottom');
-    @include nhsuk-responsive-padding(4,'left');
-    @include nhsuk-responsive-padding(4,'right');
-    @include nhsuk-responsive-padding(0,'top');
+    @include nhsuk-responsive-padding(4, 'bottom');
+    @include nhsuk-responsive-padding(4, 'left');
+    @include nhsuk-responsive-padding(4, 'right');
+    @include nhsuk-responsive-padding(0, 'top');
 
     border-left: 0;
     margin-left: 0;

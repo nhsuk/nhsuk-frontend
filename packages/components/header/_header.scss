@@ -261,6 +261,12 @@
     @include close-button();
     margin-left: nhsuk-spacing(3);
     margin-top: nhsuk-spacing(2);
+
+    &:focus {
+      .nhsuk-icon__close {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
   }
 
 }
@@ -449,6 +455,12 @@
   right: nhsuk-spacing(3);
   top: nhsuk-spacing(2);
   white-space: nowrap;
+
+  &:focus {
+    .nhsuk-icon__close {
+      fill: $nhsuk-focus-text-color;
+    }
+  }
 }
 
 .nhsuk-header__navigation-list {

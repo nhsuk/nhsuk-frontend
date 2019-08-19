@@ -242,6 +242,7 @@
 //
 // 1. Remove inner border on buttons for Firefox, see
 //    https://github.com/necolas/normalize.css/issues/393
+// 2. !important overrides focus style border: 0;
 //
 
 @mixin toggle-button() {
@@ -263,7 +264,7 @@
   }
 
   &:focus {
-    border: 0;
+    border: 1px solid $nhsuk-focus-color !important; // sass-lint:disable-line no-important /* [2] */
   }
 
   &:active,
