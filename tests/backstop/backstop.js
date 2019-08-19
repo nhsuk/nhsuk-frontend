@@ -186,10 +186,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/header/header-logo.html`
     },
     {
-      "label": "Header with service name and search",
-      "url": `${TEST_HOST}/components/header/header-service-name.html`
-    },
-    {
       "label": "Header transactional",
       "url": `${TEST_HOST}/components/header/header-transactional.html`
     },
@@ -247,6 +243,22 @@ module.exports = {
           "height": 667
         }
       ]
+    },
+    {
+      "label": "Header organisational",
+      "url": `${TEST_HOST}/components/header/header-org.html`
+    },
+    {
+      "label": "Header organisational with white header",
+      "url": `${TEST_HOST}/components/header/header-org-white.html`
+    },
+    {
+      "label": "Header organisational with white header and navigation",
+      "url": `${TEST_HOST}/components/header/header-org-white-nav.html`
+    },
+    {
+      "label": "Header organisational with PNG logo",
+      "url": `${TEST_HOST}/components/header/header-org-png.html`
     },
     {
       "label": "Hero",
