@@ -620,7 +620,7 @@
   .nhsuk-header__transactional-service-name {
     background-color: $color_nhsuk-blue;
     display: block;
-    padding-left: nhsuk-spacing(4);
+    padding: nhsuk-spacing(2) 0 nhsuk-spacing(2) nhsuk-spacing(2);
     width: 100%;
   }
 
@@ -649,6 +649,12 @@
 
   .nhsuk-header__navigation-item {
     display: table-cell; /* [15] */
+
+    a {
+      &:hover {
+        color: $color_nhsuk-blue;
+      }
+    }
   }
 
   .nhsuk-search__submit {
@@ -890,6 +896,7 @@
 }
 
 .nhsuk-org-logo {
+  border: 0;
   max-height: 100px;
   max-width: 280px;
 
