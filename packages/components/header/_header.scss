@@ -123,7 +123,6 @@
 
   @include mq($from: tablet) {
     float: right;
-    position: relative;
 
     &.js-show {
       border-bottom: 0;
@@ -443,12 +442,12 @@
       border-top: 4px solid $color_nhsuk-grey-5; /* [12] */
 
       .nhsuk-width-container {
-        margin: 0 16px;
+        margin: 0 nhsuk-spacing(3);
       }
     }
 
     @include mq($from: desktop) {
-      padding: 0 16px;
+      padding: 0 nhsuk-spacing(3);
     }
 
     @include mq($until: desktop) {
@@ -621,7 +620,7 @@
   .nhsuk-header__transactional-service-name {
     background-color: $color_nhsuk-blue;
     display: block;
-    padding-left: 24px;
+    padding-left: nhsuk-spacing(4);
     width: 100%;
   }
 
@@ -697,7 +696,7 @@
 
 .nhsuk-header__transactional-service-name {
   float: left;
-  padding-left: 16px;
+  padding-left: nhsuk-spacing(3);
   padding-top: 3px;
 
   @include mq($until: tablet) {
