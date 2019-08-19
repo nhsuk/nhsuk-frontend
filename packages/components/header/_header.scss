@@ -663,7 +663,7 @@
     }
 
     .nhsuk-header__navigation-item {
-      display: table-cell; /* [16] */
+      display: table-cell;
     }
 
   }
@@ -948,7 +948,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [15] */ // sass-lint:disable-line no-color-hex no-color-literals
+    color: #000; /* [16] */ // sass-lint:disable-line no-color-hex no-color-literals
   }
 
   .nhsuk-organisation-descriptor {
