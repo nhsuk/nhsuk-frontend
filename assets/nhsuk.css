@@ -189,10 +189,12 @@ th {
   font-weight: 600; }
 
 caption {
+  -webkit-clip-path: inset(50%);
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
-  margin: -1px;
+  margin: 0;
   overflow: hidden;
   padding: 0;
   position: absolute;
@@ -1892,10 +1894,12 @@ b {
  * See tools/mixins
  */
 .nhsuk-u-visually-hidden {
+  -webkit-clip-path: inset(50%);
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
-  margin: -1px;
+  margin: 0;
   overflow: hidden;
   padding: 0;
   position: absolute;
