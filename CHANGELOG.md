@@ -7,6 +7,9 @@
 - Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
 - Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk-frontend/issues/485))
 - Summary list - Modifying the summary list component to use two-thirds layout
+
+:boom: **Breaking changes**
+
 - Promo - Modifying markup of promo so everything isn't inside an `<a>`. Now uses JS to click the link, with JS disabled the promo box is no longer clickable and the user must click the link within the `<h#>` tag
 
 ## 2.3.0 - 23rd July 2019
