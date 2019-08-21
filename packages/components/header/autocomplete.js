@@ -9,7 +9,6 @@ function positionsAndWidths() {
     const wrapRect = wrap.getBoundingClientRect();
     const listBox = document.getElementById('search-field__listbox');
     listBox.style.width = wrapRect.width + 'px';
-    listBox.style.top = wrapRect.bottom + 'px';
   }
 }
 
