@@ -347,3 +347,21 @@
   height: 32px;
   width: 80px;
 }
+
+// Card mixin
+@mixin card($panel-background-color, $panel-text-color) {
+
+  @include top-and-bottom();
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-padding(5);
+
+  background-color: $panel-background-color;
+  color: $panel-text-color;
+
+  @include mq($media-type: print) {
+    border: 1px solid $nhsuk-print-text-color;
+    page-break-inside: avoid;
+  }
+
+}

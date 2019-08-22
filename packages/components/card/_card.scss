@@ -1,0 +1,4 @@
+.nhsuk-card {
+  @include card($color_nhsuk-white, $nhsuk-text-color);
+  width: 100%;
+}
