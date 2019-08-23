@@ -45,6 +45,10 @@
     "sass-lint": "^1.13.1",
     "webpack-stream": "^5.2.1"
   },
+  "eslintConfig": {
+    "extends": "./tests/linters/.eslintrc.js"
+  },
+  "sasslintConfig": "./tests/linters/.sass-lint.yml",
   "files": [
     "dist",
     "packages"
