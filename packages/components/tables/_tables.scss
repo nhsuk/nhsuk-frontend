@@ -24,7 +24,7 @@
  */
 
 .nhsuk-table__panel-with-heading-tab {
-  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color);
+  @include card-with-label($color_nhsuk-white, $nhsuk-text-color);
 
   .nhsuk-table-responsive,
   .nhsuk-table {

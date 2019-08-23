@@ -1,9 +1,14 @@
 {% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
-<div class="nhsuk-card {% if params.clickableCard %}clickable-card{% endif %}">
+<div class="nhsuk-card 
+  {% if params.clickableCard %}clickable-card {% endif %}
+  {% if params.label %}nhsuk-panel-with-label {% endif %}
+">
   {% if params.href %}
     <a href="{{ params.href }}"><h{{ headingLevel }}>{{ params.heading | safe }}</h{{ headingLevel }}></a>
+  {% elseif params.label %}
+    <h{{ headingLevel }} class="nhsuk-panel-with-label__label">{{ params.label | safe }}</h{{ headingLevel }}>
   {% else %}
-  <h{{ headingLevel }}>{{ params.heading | safe }}</h{{ headingLevel }}>
+    <h{{ headingLevel }}>{{ params.heading | safe }}</h{{ headingLevel }}>
   {% endif %}
   {{ params.HTML | safe }}
 </div>

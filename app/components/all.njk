@@ -3,6 +3,7 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/nav-a-z/macro.njk' import azNav %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% from 'components/card/macro.njk' import card %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
@@ -13,7 +14,6 @@
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/list-panel/macro.njk' import listPanel %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/panel/macro.njk' import panel %}
 {% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
@@ -304,42 +304,42 @@
     }) }}
   </div>
 
-  {{ panel({
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  {{ card({
+    "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  {{ panel({
+  {{ card({
     "colour": "grey",
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  {{ panel({
-    "label": "Panel heading",
+  {{ card({
+    "label": "Card heading",
     "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  <div class="nhsuk-grid-row nhsuk-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  <div class="nhsuk-grid-row nhsuk-card-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>
 
-  <div class="nhsuk-grid-row nhsuk-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+  <div class="nhsuk-grid-row nhsuk-card-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+    <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>

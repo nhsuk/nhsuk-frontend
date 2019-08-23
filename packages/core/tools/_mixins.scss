@@ -69,46 +69,6 @@
 }
 
 //
-// Panel mixin
-//
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
-// See components/_panel
-//
-
-@mixin panel($panel-background-color, $panel-text-color) {
-
-  @include top-and-bottom();
-  @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
-  @include nhsuk-responsive-padding(5);
-
-  background-color: $panel-background-color;
-  color: $panel-text-color;
-
-  @include mq($media-type: print) {
-    border: 1px solid $nhsuk-print-text-color;
-    page-break-inside: avoid;
-  }
-
-}
-
-//
-// Panel with label mixin, inherits panel styling
-// and removes padding top for the label positioning.
-//
-// Used in-conjunction with @mixin heading-label
-//
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
-// See components/_warning-component
-//
-
-@mixin panel-with-label($panel-background-color, $panel-text-color) {
-  @include panel($panel-background-color, $panel-text-color);
-
-  padding-top: 0 !important;  // sass-lint:disable-line no-important
-}
-
-//
 // Heading label mixin, adds a tab heading to
 // warning callout, do and don't lists and panel.
 //
@@ -349,19 +309,25 @@
 }
 
 // Card mixin
-@mixin card($panel-background-color, $panel-text-color) {
+@mixin card($card-background-color, $card-text-color) {
 
   @include top-and-bottom();
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-padding(5);
 
-  background-color: $panel-background-color;
-  color: $panel-text-color;
+  background-color: $card-background-color;
+  color: $card-text-color;
 
   @include mq($media-type: print) {
     border: 1px solid $nhsuk-print-text-color;
     page-break-inside: avoid;
   }
 
+}
+
+@mixin card-with-label($card-background-color, $card-text-color) {
+  @include card($card-background-color, $card-text-color);
+
+  padding-top: 0 !important;  // sass-lint:disable-line no-important
 }

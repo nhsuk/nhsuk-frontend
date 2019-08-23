@@ -1,4 +1,60 @@
+/* ==========================================================================
+   COMPONENTS / #PANEL
+   ========================================================================== */
+
 .nhsuk-card {
   @include card($color_nhsuk-white, $nhsuk-text-color);
   width: 100%;
 }
+
+/* Panel with label
+   ========================================================================== */
+
+.nhsuk-card-with-label {
+  @include card-with-label($color_nhsuk-white, $nhsuk-text-color);
+}
+
+.nhsuk-card-with-label__label {
+  @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
+  @include print-color($nhsuk-print-text-color);
+}
+
+/* Panel group
+   ========================================================================== */
+
+/**
+ * Panel group allows you to have a row of panels.
+ *
+ * 1. Flexbox is used to make each panel in a row the same height.
+ */
+
+.nhsuk-card-group {
+  @include flex(); /* [1] */
+
+  margin-bottom: nhsuk-spacing(5);
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+  }
+
+}
+
+.nhsuk-card-group__item {
+  @include flex-item(); /* [1] */
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .nhsuk-card {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+}
+
