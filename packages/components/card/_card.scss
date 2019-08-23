@@ -58,3 +58,92 @@
 
 }
 
+// CLICKABLE CARD
+.nhsuk-card__link-wrapper {
+  background-color: $color_nhsuk-white;
+  border: 1px solid transparent;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
+  display: block;
+  height: 100%; /* [3] */
+  position: relative; /* [4] */
+  text-decoration: none; /* [5] */
+
+  &:focus {
+    background-color: $color_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+
+    .nhsuk-card__heading {
+      text-decoration: underline; /* [6] */
+    }
+
+    .nhsuk-card__heading,
+    .nhsuk-card__description {
+      color: $nhsuk-link-focus-color;
+    }
+
+  }
+
+  &:hover {
+    background-color: $color_nhsuk-white;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+    color: $color_nhsuk-blue;
+  }
+
+  &:active {
+    background-color: $color_nhsuk-grey-5; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-color;
+    top: $nhsuk-box-shadow-link; /* [7] */
+  }
+
+  &:hover,
+  &:active {
+    .nhsuk-card__heading {
+      text-decoration: none;
+    }
+  }
+
+}
+
+.nhsuk-card__img {
+  @include print-hide();
+
+  border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
+  display: block;
+  width: 100%;
+
+}
+
+.nhsuk-card__heading {
+  @include nhsuk-font(24, $weight: bold);
+
+  margin-bottom: nhsuk-spacing(3);
+  text-decoration: underline;
+}
+
+.nhsuk-card__content {
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
+}
+
+.nhsuk-card__description {
+  color: $nhsuk-secondary-text-color;
+}
+
+/* Card size variant
+   ========================================================================== */
+
+/**
+ * Card small reduces the size of the text heading and description.
+ */
+
+.nhsuk-card--small {
+
+  .nhsuk-card__heading {
+    @include nhsuk-typography-responsive(19);
+  }
+
+  .nhsuk-card__description {
+    @include nhsuk-typography-responsive(16);
+  }
+
+}

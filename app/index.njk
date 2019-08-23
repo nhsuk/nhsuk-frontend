@@ -1,8 +1,8 @@
 {% set title = 'Home' %}
+{% from 'components/card/macro.njk' import card %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/footer/macro.njk' import footer %}
 {% from 'components/hero/macro.njk' import hero %}
-{% from 'components/promo/macro.njk' import promo %}
 
 {% extends 'page.njk' %}
 
@@ -17,29 +17,32 @@
 
 {% block fullWidthContent %}
 
-  <div class="nhsuk-grid-row nhsuk-promo-group">
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-      {{ promo({
+  <div class="nhsuk-grid-row nhsuk-card-group">
+    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
         "href": "./pages/install.html",
         "heading": "Install",
         "headingLevel": "2",
-        "description": "Download and installation instructions."
+        "description": "Download and installation instructions.",
+        "clickableCard": true
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-      {{ promo({
+    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
         "href": "./pages/examples.html",
         "heading": "Examples",
         "headingLevel": "2",
-        "description": "Page layouts, test pages and components."
+        "description": "Page layouts and components.",
+        "clickableCard": true
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-      {{ promo({
+    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
         "href": "./pages/about.html",
         "heading": "About",
         "headingLevel": "2",
-        "description": "Getting support and contributing."
+        "description": "Getting support and contributing.",
+        "clickableCard": true
       }) }}
     </div>
   </div>

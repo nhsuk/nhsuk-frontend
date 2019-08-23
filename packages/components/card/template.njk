@@ -10,5 +10,8 @@
   {% else %}
     <h{{ headingLevel }}>{{ params.heading | safe }}</h{{ headingLevel }}>
   {% endif %}
+  {%- if params.description %}
+    <p class="nhsuk-promo__description">{{ params.description | safe }}</p>
+  {%- endif %}
   {{ params.HTML | safe }}
 </div>
