@@ -153,11 +153,6 @@ module.exports = {
       "clickSelector": ".nhsuk-details__summary"
     },
     {
-      "label": "Feedback banner",
-      "url": `${TEST_HOST}/components/feedback-banner/index.html`,
-      "delay": 5000
-    },
-    {
       "label": "Footer",
       "url": `${TEST_HOST}/components/footer/index.html`
     },
