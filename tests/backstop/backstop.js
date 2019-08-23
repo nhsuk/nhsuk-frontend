@@ -131,10 +131,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/do-dont-list/index.html`
     },
     {
-      "label": "Emergency alert",
-      "url": `${TEST_HOST}/components/emergency-alert/index.html`
-    },
-    {
       "label": "Error message",
       "url": `${TEST_HOST}/components/error-message/index.html`
     },
