@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
     "prepare": "gulp bundle",

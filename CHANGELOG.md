@@ -1,6 +1,32 @@
 # NHS.UK frontend Changelog
 
-## 2.3.2 - 30th September 2019
+## 2.4.0 - Unreleased
+
+:new: **New features**
+
+- Organisational logos - the Header component now supports organisational logos. The organisational logo can be SVG code, with the organisation name and descriptor being editable through code, or a static PNG asset. There is also the ability to change the colour of the header and navigation menu to white or blue (default) ([Issue 446](https://github.com/nhsuk/nhsuk-frontend/issues/446))
+
+  **SVG logo**
+
+  [Preview the header organisational component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org.html)
+
+  Organisation names can be edited as text in the `nhsuk-organisation-name` span element. 
+  Longer organisation names can be split onto multiple lines with `nhsuk-organisation-name-split` span (see NHS England brand guidelines for when this must be done)
+  Organisation descriptor can be used with the `nhsuk-organisation-descriptor` class name span
+
+  See [NHS England brand guidelines - Organisational logos](https://www.england.nhs.uk/nhsidentity/identity-guidelines/organisational-logos/) for more information on Organisational logos.
+
+  **PNG logo**
+
+  [Preview the header organisational with png logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-png.html)
+
+  **Colour variants**
+
+  [Preview the header organisational with white header component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white.html)
+
+  [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
+
+## 2.3.2 - TBC
 
 :wrench: **Fixes**
 

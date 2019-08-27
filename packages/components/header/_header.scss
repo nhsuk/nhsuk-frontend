@@ -616,6 +616,11 @@
 
 .ie8 {
 
+  .nhsuk-header__link {
+    display: inline-block;
+    width: 100%;
+  }
+
   .nhsuk-header__logo,
   .nhsuk-header__transactional-service-name {
     background-color: $color_nhsuk-blue;
