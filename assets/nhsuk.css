@@ -3626,7 +3626,8 @@ b {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 16px;
-  position: fixed;
+  position: absolute;
+  top: 100%;
   z-index: 1;
   /* [8] */ }
   @media (max-width: 40.0525em) {
@@ -3787,7 +3788,7 @@ b {
 
 .nhsuk-header__search-form {
   height: 100%;
-  overflow: hidden; }
+  overflow: visible; }
 
 @media (max-width: 40.0525em) {
   .nhsuk-header__container {
