@@ -98,7 +98,8 @@
   overflow-x: hidden;
   overflow-y: auto;
   padding: nhsuk-spacing(3);
-  position: fixed;
+  position: absolute;
+  top: 100%;
   z-index: 1; /* [8] */
 
   @include mq($until: tablet) {
