@@ -6,9 +6,8 @@
 
 - Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
 - Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk-frontend/issues/485))
-- Summary list - Modifying the summary list component to use two-thirds layout
 - Visually hidden mixin - Fixing margin issue which causes text to be read in the wrong order on VoiceOver
-- Header search - Fixed the search dropdown issue ([Issue 484](https://github.com/nhsuk-frontend/issues/484))
+- Header search - Fixed the search dropdown issue ([Issue 484](https://github.com/nhsuk/nhsuk-frontend/issues/484))
 
 ## 2.3.0 - 23rd July 2019
 
