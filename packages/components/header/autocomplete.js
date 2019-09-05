@@ -83,33 +83,41 @@ function autocomplete(config) {
 
 }
 
-window.addEventListener("load", function(event) {
+window.addEventListener("load", function (event) {
   const wrap = document.querySelector('#wrap-search');
 
-    if (wrap) {
-        positionsAndWidths();
-        // To deal with window resizing, need to reset positioning of search results dropdown
-        // Use setTimeout on resize so as not to kill CPU
-        // https://developer.mozilla.org/en-US/docs/Web/Events/resize
-        window.addEventListener("resize", resizeThrottler, false);
+  if (wrap) {
+    positionsAndWidths();
+    // To deal with window resizing, need to reset positioning of search results dropdown
+    // Use setTimeout on resize so as not to kill CPU
+    // https://developer.mozilla.org/en-US/docs/Web/Events/resize
+    window.addEventListener("resize", resizeThrottler, false);
 
-        let resizeTimeout;
-        function resizeThrottler() {
-          // ignore resize events as long as an actualResizeHandler execution is in the queue
-          if ( !resizeTimeout ) {
-            resizeTimeout = setTimeout(function() {
-              resizeTimeout = null;
-              actualResizeHandler();
-            // The actualResizeHandler will execute at a rate of 15fps
-            }, 66);
-          }
-        }
+    let resizeTimeout;
 
-        function actualResizeHandler() {
-          positionsAndWidths();
-        }
-
+    function resizeThrottler() {
+      // ignore resize events as long as an actualResizeHandler execution is in the queue
+      if (!resizeTimeout) {
+        resizeTimeout = setTimeout(function () {
+          resizeTimeout = null;
+          actualResizeHandler();
+          // The actualResizeHandler will execute at a rate of 15fps
+        }, 66);
+      }
     }
+
+    function actualResizeHandler() {
+      positionsAndWidths();
+    }
+
+  }
+  // Handle the enter keydown event to perform search
+  const input = document.getElementById('search');
+  input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      document.querySelector(".nhsuk-search__submit").click();
+    }
+  });
 });
 
 export default autocomplete;
