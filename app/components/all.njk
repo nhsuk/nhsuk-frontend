@@ -3,7 +3,6 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/nav-a-z/macro.njk' import azNav %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
-{% from 'components/card/macro.njk' import card %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
@@ -14,6 +13,7 @@
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/list-panel/macro.njk' import listPanel %}
 {% from 'components/pagination/macro.njk' import pagination %}
+{% from 'components/panel/macro.njk' import panel %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
 {% from "components/summary-list/macro.njk" import summaryList %}
@@ -303,28 +303,28 @@
     }) }}
   </div>
 
-  {{ card({
+  {{ panel({
     "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  {{ card({
+  {{ panel({
     "colour": "grey",
     "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
-  {{ card({
+  {{ panel({
     "label": "Card heading",
     "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
 
   <div class="nhsuk-grid-row nhsuk-card-group">
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
@@ -332,38 +332,38 @@
 
   <div class="nhsuk-grid-row nhsuk-card-group">
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "HTML": "<h3>Card title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
       }) }}
     </div>
   </div>
   
-  {{ card({
+  {{ panel({
     "href": "https://www.nhs.uk",
     "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
     "heading": "Save a life: give blood",
     "description": "Please register today. Donating blood is easy, and saves lives."
   }) }}
 
-  {{ card({
+  {{ panel({
     "href": "#",
     "heading": "Save a life: give blood",
     "description": "Please register today. Donating blood is easy, and saves lives."
   }) }}
 
-  {{ card({
+  {{ panel({
     "href": "#",
     "heading": "Save a life: give blood"
   }) }}
 
   <div class="nhsuk-grid-row nhsuk-card-group">
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "href": "#",
         "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
         "heading": "Save a life: give blood",
@@ -371,7 +371,7 @@
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "href": "#",
         "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
         "heading": "Save a life: give blood",
@@ -382,14 +382,14 @@
 
   <div class="nhsuk-grid-row nhsuk-card-group">
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "classes": "nhsuk-card--small",
         "href": "#",
         "heading": "Save a life: give blood"
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "classes": "nhsuk-card--small",
         "href": "#",
         "heading": "Save a life: give blood"

@@ -308,16 +308,16 @@
   width: 80px;
 }
 
-// Card mixin
-@mixin card($card-background-color, $card-text-color) {
+// Panel mixin
+@mixin panel($panel-background-color, $panel-text-color) {
 
   @include top-and-bottom();
   @include nhsuk-responsive-margin(7, 'bottom');
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-padding(5);
 
-  background-color: $card-background-color;
-  color: $card-text-color;
+  background-color: $panel-background-color;
+  color: $panel-text-color;
 
   @include mq($media-type: print) {
     border: 1px solid $nhsuk-print-text-color;
@@ -326,8 +326,8 @@
 
 }
 
-@mixin card-with-label($card-background-color, $card-text-color) {
-  @include card($card-background-color, $card-text-color);
+@mixin panel-with-label($panel-background-color, $panel-text-color) {
+  @include panel($panel-background-color, $panel-text-color);
 
   padding-top: 0 !important;  // sass-lint:disable-line no-important
 }

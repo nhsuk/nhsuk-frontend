@@ -1,6 +1,6 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Panel' %}
-{% from 'components/card/macro.njk' import card %}
+{% from 'components/panel/macro.njk' import panel %}
 {% extends 'layout.njk' %}
 
 {% block body %}
@@ -10,22 +10,22 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ card({
+          {{ panel({
             "heading": "Promo like Card",
-            "clickableCard": true,
+            "clickablePanel": true,
             "href": "https://www.nhs.uk",
             "HTML": "<p>This is card, it will be used to combine panel and promo</p>"
           }) }}
-          {{ card({
+          {{ panel({
             "heading": "Link Card",
             "href": "https://www.nhs.uk",
             "HTML": "<p>This is card, it will be used to combine panel and promo</p>"
           }) }}
-          {{ card({
+          {{ panel({
             "heading": "Card",
             "HTML": "<p>This is card, it will be used to combine panel and promo</p>"
           }) }}
-          {{ card({
+          {{ panel({
             "heading": "Card with label",
             "label": "Card with a label",
             "HTML": "<p>This is card, it will be used to combine panel and promo</p>"

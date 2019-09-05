@@ -6,12 +6,12 @@
  * Do and Don't lists help users understand more easily what they should
  * and shouldn't do.
  *
- * 1. Uses @mixin card-with-label from tools/_mixins.
+ * 1. Uses @mixin panel-with-label from tools/_mixins.
  * 2. Uses @mixin heading-label from tools/_mixins.
  */
 
 .nhsuk-do-dont-list {
-  @include card-with-label($color_nhsuk-white, $nhsuk-text-color); /* [1] */
+  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color); /* [1] */
 }
 
 .nhsuk-do-dont-list__label {

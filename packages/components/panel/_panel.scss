@@ -2,19 +2,19 @@
    COMPONENTS / #PANEL
    ========================================================================== */
 
-.nhsuk-card {
-  @include card($color_nhsuk-white, $nhsuk-text-color);
+.nhsuk-panel {
+  @include panel($color_nhsuk-white, $nhsuk-text-color);
   width: 100%;
 }
 
 /* Panel with label
    ========================================================================== */
 
-.nhsuk-card-with-label {
-  @include card-with-label($color_nhsuk-white, $nhsuk-text-color);
+.nhsuk-panel-with-label {
+  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color);
 }
 
-.nhsuk-card-with-label__label {
+.nhsuk-panel-with-label__label {
   @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
   @include print-color($nhsuk-print-text-color);
 }
@@ -28,7 +28,7 @@
  * 1. Flexbox is used to make each panel in a row the same height.
  */
 
-.nhsuk-card-group {
+.nhsuk-panel-group {
   @include flex(); /* [1] */
 
   margin-bottom: nhsuk-spacing(5);
@@ -39,7 +39,7 @@
 
 }
 
-.nhsuk-card-group__item {
+.nhsuk-panel-group__item {
   @include flex-item(); /* [1] */
 
   @include mq($until: desktop) {
@@ -51,7 +51,7 @@
 
   }
 
-  .nhsuk-card {
+  .nhsuk-panel {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -59,7 +59,7 @@
 }
 
 // CLICKABLE CARD
-.nhsuk-card__link-wrapper {
+.nhsuk-panel__link-wrapper {
   background-color: $color_nhsuk-white;
   border: 1px solid transparent;
   box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
@@ -73,12 +73,12 @@
     background-color: $color_nhsuk-white;
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
 
-    .nhsuk-card__heading {
+    .nhsuk-panel__heading {
       text-decoration: underline; /* [6] */
     }
 
-    .nhsuk-card__heading,
-    .nhsuk-card__description {
+    .nhsuk-panel__heading,
+    .nhsuk-panel__description {
       color: $nhsuk-link-focus-color;
     }
 
@@ -88,6 +88,10 @@
     background-color: $color_nhsuk-white;
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
     color: $color_nhsuk-blue;
+
+    p {
+      color: $nhsuk-text-color;
+    }
   }
 
   &:active {
@@ -98,14 +102,14 @@
 
   &:hover,
   &:active {
-    .nhsuk-card__heading {
+    .nhsuk-panel__heading {
       text-decoration: none;
     }
   }
 
 }
 
-.nhsuk-card__img {
+.nhsuk-panel__img {
   @include print-hide();
 
   border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
@@ -114,19 +118,19 @@
 
 }
 
-.nhsuk-card__heading {
+.nhsuk-panel__heading {
   @include nhsuk-font(24, $weight: bold);
 
   margin-bottom: nhsuk-spacing(3);
   text-decoration: underline;
 }
 
-.nhsuk-card__content {
+.nhsuk-panel__content {
   @include top-and-bottom();
   @include nhsuk-responsive-padding(5);
 }
 
-.nhsuk-card__description {
+.nhsuk-panel__description {
   color: $nhsuk-secondary-text-color;
 }
 
@@ -137,13 +141,13 @@
  * Card small reduces the size of the text heading and description.
  */
 
-.nhsuk-card--small {
+.nhsuk-panel--small {
 
-  .nhsuk-card__heading {
+  .nhsuk-panel__heading {
     @include nhsuk-typography-responsive(19);
   }
 
-  .nhsuk-card__description {
+  .nhsuk-panel__description {
     @include nhsuk-typography-responsive(16);
   }
 

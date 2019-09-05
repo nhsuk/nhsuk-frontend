@@ -1,5 +1,5 @@
 {% set title = 'Home' %}
-{% from 'components/card/macro.njk' import card %}
+{% from 'components/panel/macro.njk' import panel %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/footer/macro.njk' import footer %}
 {% from 'components/hero/macro.njk' import hero %}
@@ -19,7 +19,7 @@
 
   <div class="nhsuk-grid-row nhsuk-card-group">
     <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "href": "./pages/install.html",
         "heading": "Install",
         "headingLevel": "2",
@@ -28,7 +28,7 @@
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "href": "./pages/examples.html",
         "heading": "Examples",
         "headingLevel": "2",
@@ -37,7 +37,7 @@
       }) }}
     </div>
     <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
+      {{ panel({
         "href": "./pages/about.html",
         "heading": "About",
         "headingLevel": "2",
