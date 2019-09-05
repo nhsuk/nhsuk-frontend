@@ -308,42 +308,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/pagination/index.html`
     },
     {
-      "label": "Panel",
-      "url": `${TEST_HOST}/components/panel/index.html`
-    },
-    {
-      "label": "Panel with label",
-      "url": `${TEST_HOST}/components/panel/panel-with-label.html`
-    },
-    {
-      "label": "Panel grey",
-      "url": `${TEST_HOST}/components/panel/panel-grey.html`
-    },
-    {
-      "label": "Panel group",
-      "url": `${TEST_HOST}/components/panel/panel-group.html`
-    },
-    {
-      "label": "Promo",
-      "url": `${TEST_HOST}/components/promo/index.html`
-    },
-    {
-      "label": "Promo with image",
-      "url": `${TEST_HOST}/components/promo/promo-with-image.html`
-    },
-    {
-      "label": "Promo small",
-      "url": `${TEST_HOST}/components/promo/promo-small.html`
-    },
-    {
-      "label": "Promo with no description",
-      "url": `${TEST_HOST}/components/promo/promo-no-description.html`
-    },
-    {
-      "label": "Promo group",
-      "url": `${TEST_HOST}/components/promo/promo-group.html`
-    },
-    {
       "label": "Radios",
       "url": `${TEST_HOST}/components/radios/index.html`
     },
