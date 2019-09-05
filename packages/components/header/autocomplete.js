@@ -118,6 +118,15 @@ window.addEventListener("load", function (event) {
       document.querySelector(".nhsuk-search__submit").click();
     }
   });
+  // Calculate scroll percentage to add & remove CSS classes to hide the search dropdown.
+  window.onscroll = function hideDropdown() {
+    var scrollPercent =  ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
+
+    if (scrollPercent > 35) {
+      var dropdown = document.getElementById('search-field__listbox');
+      dropdown.classList.replace('autocomplete__menu--visible', 'autocomplete__menu--hidden');
+    }
+  }
 });
 
 export default autocomplete;
