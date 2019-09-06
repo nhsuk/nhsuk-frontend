@@ -6,13 +6,14 @@
 {% block body %}
 
 {{ header({
-    "organisation": "true",
-    "organisationName": "Central and",
-    "organisationNameSplit": "North West London",
-    "organisationDescriptor": "NHS Foundation Trust",
-    "classes": "nhsuk-header--white",
     "showNav": "true",
     "showSearch": "true",
+    "classes": "nhsuk-header--white",
+    "organisation": {
+      "name": "Central and",
+      "split": "North West London",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",

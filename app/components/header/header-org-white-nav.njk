@@ -6,12 +6,13 @@
 {% block body %}
 
 {{ header({
-    "organisation": "true",
-    "organisationName": "Bradford Teaching Hospitals",
-    "organisationDescriptor": "NHS Foundation Trust",
-    "classes": "nhsuk-header--white nhsuk-header--white-nav",
     "showNav": "true",
     "showSearch": "true",
+    "classes": "nhsuk-header--white nhsuk-header--white-nav",
+    "organisation": {
+      "name": "Bradford Teaching Hospitals",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",

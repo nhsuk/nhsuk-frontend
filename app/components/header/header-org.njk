@@ -6,12 +6,13 @@
 {% block body %}
 
 {{ header({
-    "organisation": "true",
-    "organisationName": "Great Ormond Street",
-    "organisationNameSplit": "Hospital for Children",
-    "organisationDescriptor": "NHS Foundation Trust",
     "showNav": "true",
     "showSearch": "true",
+    "organisation": {
+      "name": "Great Ormond Street",
+      "split": "Hospital for Children",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",

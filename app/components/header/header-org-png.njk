@@ -6,36 +6,37 @@
 {% block body %}
 
 {{ header({
-  "organisation": "true",
-  "organisationName": "Yorkshire Imaging Collaborative",
-  "organisationDescriptor": "Regional Radiology Network",
-  "organisationLogoURL": "https://www.cnwl.nhs.uk/wp-content/themes/CNWL/_lib/img/design/nhs-logo-new.png",
-  "classes": "nhsuk-header--white",
-  "showNav": "true",
-  "showSearch": "true",
-  "primaryLinks": [
-    {
-      "url"  : "#",
-      "label" : "Your hospital visit"
+    "showNav": "true",
+    "showSearch": "true",
+    "classes": "nhsuk-header--white",
+    "organisation": {
+      "name": "Yorkshire Imaging Collaborative",
+      "descriptor": "Regional Radiology Network",
+      "logoURL": "https://www.cnwl.nhs.uk/wp-content/themes/CNWL/_lib/img/design/nhs-logo-new.png"
     },
-    {
-      'url' : '#',
-      'label' : 'Wards and departments'
-    },
-    {
-      'url'  : '#',
-      'label' : 'Conditions and treatments'
-    },
-    {
-      'url'  : '#',
-      'label' : 'Our people'
-    },
-    {
-      'url' : '#',
-      'label' : 'Our research'
-    }
-  ]
-})
+    "primaryLinks": [
+      {
+        "url"  : "#",
+        "label" : "Your hospital visit"
+      },
+      {
+        'url' : '#',
+        'label' : 'Wards and departments'
+      },
+      {
+        'url'  : '#',
+        'label' : 'Conditions and treatments'
+      },
+      {
+        'url'  : '#',
+        'label' : 'Our people'
+      },
+      {
+        'url' : '#',
+        'label' : 'Our research'
+      }
+    ]
+  })
 }}
 
 {% endblock %}

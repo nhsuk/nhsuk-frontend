@@ -640,12 +640,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ```
 {{ header({
-    "organisation": "true",
-    "organisationName": "Great Ormond Street",
-    "organisationNameSplit": "Hospital for Children",
-    "organisationDescriptor": "NHS Foundation Trust",
     "showNav": "true",
     "showSearch": "true",
+    "organisation": {
+      "name": "Great Ormond Street",
+      "split": "Hospital for Children",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",
@@ -800,13 +801,14 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ```
 {{ header({
-    "organisation": "true",
-    "organisationName": "Central and",
-    "organisationNameSplit": "North West London",
-    "organisationDescriptor": "NHS Foundation Trust",
-    "classes": "nhsuk-header--white",
     "showNav": "true",
     "showSearch": "true",
+    "classes": "nhsuk-header--white",
+    "organisation": {
+      "name": "Central and",
+      "split": "North West London",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",
@@ -961,12 +963,13 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ```
 {{ header({
-    "organisation": "true",
-    "organisationName": "Bradford Teaching Hospitals",
-    "organisationDescriptor": "NHS Foundation Trust",
-    "classes": "nhsuk-header--white nhsuk-header--white-nav",
     "showNav": "true",
     "showSearch": "true",
+    "classes": "nhsuk-header--white nhsuk-header--white-nav",
+    "organisation": {
+      "name": "Bradford Teaching Hospitals",
+      "descriptor": "NHS Foundation Trust"
+    },
     "primaryLinks": [
       {
         "url"  : "#",
@@ -1115,36 +1118,37 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ```
 {{ header({
-  "organisation": "true",
-  "organisationName": "Yorkshire Imaging Collaborative",
-  "organisationDescriptor": "Regional Radiology Network",
-  "organisationLogoURL": "https://www.cnwl.nhs.uk/wp-content/themes/CNWL/_lib/img/design/nhs-logo-new.png",
-  "classes": "nhsuk-header--white",
-  "showNav": "true",
-  "showSearch": "true",
-  "primaryLinks": [
-    {
-      "url"  : "#",
-      "label" : "Your hospital visit"
+    "showNav": "true",
+    "showSearch": "true",
+    "classes": "nhsuk-header--white",
+    "organisation": {
+      "name": "Yorkshire Imaging Collaborative",
+      "descriptor": "Regional Radiology Network",
+      "logoURL": "https://www.cnwl.nhs.uk/wp-content/themes/CNWL/_lib/img/design/nhs-logo-new.png"
     },
-    {
-      'url' : '#',
-      'label' : 'Wards and departments'
-    },
-    {
-      'url'  : '#',
-      'label' : 'Conditions and treatments'
-    },
-    {
-      'url'  : '#',
-      'label' : 'Our people'
-    },
-    {
-      'url' : '#',
-      'label' : 'Our research'
-    }
-  ]
-})
+    "primaryLinks": [
+      {
+        "url"  : "#",
+        "label" : "Your hospital visit"
+      },
+      {
+        'url' : '#',
+        'label' : 'Wards and departments'
+      },
+      {
+        'url'  : '#',
+        'label' : 'Conditions and treatments'
+      },
+      {
+        'url'  : '#',
+        'label' : 'Our people'
+      },
+      {
+        'url' : '#',
+        'label' : 'Our research'
+      }
+    ]
+  })
 }}
 ```
 
@@ -1158,7 +1162,12 @@ The header Nunjucks macro takes the following arguments:
 | **showSearch**             | boolean  | Yes       | Set to "true" to show the site search input form. |
 | **homeHref**               | string   | No        | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/". |
 | **ariaLabel**              | string   | No        | Aria label for the logo href. Defaults to "NHS homepage". |
-| **primaryLinks**           | array    | No        | Array of navigation links for use in the header |
+| **organisation**           | object   | No        | Settings for header with organisational logo. |
+| **organisation.name**      | string   | No        | Organisation name value. |
+| **organisation.split**     | string   | No        | Longer organisation names can be split onto multiple lines. |
+| **organisation.descriptor**      | string   | No  | Organisation descriptor. |
+| **organisation.logoURL**   | string   | No        | Organisation logo if using a static asset, such as PNG, is preferred. |
+| **primaryLinks**           | array    | No        | Array of navigation links for use in the header. |
 | **primaryLinks[].url**     | string   | No        | The href of a navigation item in the header. |
 | **primaryLinks[].label**   | string   | No        | The label of a navigation item in the header. |
 | **transactional**          | string   | No        | Set to "true" if this is a transactional header (with smaller logo). |
