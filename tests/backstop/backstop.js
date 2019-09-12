@@ -308,6 +308,26 @@ module.exports = {
       "url": `${TEST_HOST}/components/pagination/index.html`
     },
     {
+      "label": "Panel",
+      "url": `${TEST_HOST}/components/radios/index.html`
+    },
+    {
+      "label": "Panel clickable",
+      "url": `${TEST_HOST}/components/radios/panel-clickable.html`
+    },
+    {
+      "label": "Panel clickable heading",
+      "url": `${TEST_HOST}/components/radios/panel-clickable-heading.html`
+    },
+    {
+      "label": "Panel with label",
+      "url": `${TEST_HOST}/components/radios/panel-with-label.html`
+    },
+    {
+      "label": "Panel group",
+      "url": `${TEST_HOST}/components/radios/panel-group.html`
+    },
+    {
       "label": "Radios",
       "url": `${TEST_HOST}/components/radios/index.html`
     },
