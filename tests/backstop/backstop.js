@@ -309,23 +309,23 @@ module.exports = {
     },
     {
       "label": "Panel",
-      "url": `${TEST_HOST}/components/radios/index.html`
+      "url": `${TEST_HOST}/components/panel/index.html`
     },
     {
       "label": "Panel clickable",
-      "url": `${TEST_HOST}/components/radios/panel-clickable.html`
+      "url": `${TEST_HOST}/components/panel/panel-clickable.html`
     },
     {
       "label": "Panel clickable heading",
-      "url": `${TEST_HOST}/components/radios/panel-clickable-heading.html`
+      "url": `${TEST_HOST}/components/panel/panel-clickable-heading.html`
     },
     {
       "label": "Panel with label",
-      "url": `${TEST_HOST}/components/radios/panel-with-label.html`
+      "url": `${TEST_HOST}/components/panel/panel-with-label.html`
     },
     {
       "label": "Panel group",
-      "url": `${TEST_HOST}/components/radios/panel-group.html`
+      "url": `${TEST_HOST}/components/panel/panel-group.html`
     },
     {
       "label": "Radios",

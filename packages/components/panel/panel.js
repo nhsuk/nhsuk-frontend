@@ -7,4 +7,5 @@ function nhsuk_panel () {
   });
 }
 
-export default nhsuk_panel;
+// export default nhsuk_panel;
+module.exports = nhsuk_panel;
