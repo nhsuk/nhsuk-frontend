@@ -33,7 +33,13 @@
   }
 
   &:hover {
-    text-decoration: underline;
+    border-bottom: 2px solid $nhsuk-link-color;
+    color: $nhsuk-link-color;
+  }
+
+  &:focus {
+    border-bottom: 0;
+    color: $nhsuk-focus-text-color;
   }
 
 }

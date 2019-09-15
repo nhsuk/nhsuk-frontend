@@ -153,6 +153,7 @@ $button-shadow-size: 4px;
   &:active {
     background: $nhsuk-reverse-button-active-color;
     box-shadow: none;
+    color: $color_nhsuk-white;
     top: $button-shadow-size;
   }
 

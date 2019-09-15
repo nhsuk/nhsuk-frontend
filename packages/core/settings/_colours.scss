@@ -23,6 +23,7 @@ $color_nhsuk-green: #007f3b;
 $color_nhsuk-red: #d5281b;
 $color_nhsuk-yellow: #ffeb3b;
 $color_nhsuk-purple: #330072;
+$color_nhsuk-dark-pink: #7C2855;
 
 //
 // Secondary colours
@@ -104,7 +105,7 @@ $nhsuk-print-text-color: $color_nhsuk-black;
 
 // Links
 $nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: shade($nhsuk-link-color, 25%);
+$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
 $nhsuk-link-active-color: shade($nhsuk-link-color, 50%);
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
@@ -144,8 +145,8 @@ $nhsuk-secondary-button-shadow-color: shade($nhsuk-secondary-button-color, 50%);
 
 $nhsuk-reverse-button-color: $color_nhsuk-white;
 $nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
-$nhsuk-reverse-button-active-color: shade($nhsuk-reverse-button-color, 50%);
-$nhsuk-reverse-button-shadow-color: shade($nhsuk-reverse-button-color, 50%);
+$nhsuk-reverse-button-active-color: $color-nhsuk-black;
+$nhsuk-reverse-button-shadow-color: $color-nhsuk-black;
 
 $nhsuk-button-text-color: $color_nhsuk-white;
 $nhsuk-reverse-button-text-color: $color_nhsuk-black;

@@ -26,11 +26,19 @@
   position: relative; /* [3] */
   text-decoration: none; /* [4] */
 
+  &:hover {
+    .nhsuk-action-link__text {
+      color: $nhsuk-link-color;
+      text-decoration: underline; /* [6] */
+    }
+  }
+
   &:focus {
     @include nhsuk-focused-text();
 
     &:hover {
       .nhsuk-action-link__text {
+        color: $nhsuk-focus-text-color;
         text-decoration: none;
       }
     }
@@ -46,12 +54,6 @@
 
     &:visited {
       color: $nhsuk-print-text-color;
-    }
-  }
-
-  &:hover {
-    .nhsuk-action-link__text {
-      text-decoration: underline; /* [6] */
     }
   }
 

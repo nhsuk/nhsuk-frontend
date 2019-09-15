@@ -18,7 +18,9 @@
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+    outline: $nhsuk-focus-width solid transparent;
   }
 }
 
@@ -52,10 +54,6 @@
   &:hover,
   &:active {
     color: $nhsuk-error-color;
-  }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
   }
 
   &:focus {
