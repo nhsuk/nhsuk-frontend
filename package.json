@@ -8,7 +8,7 @@
     "start": "gulp",
     "test": "npm run lint",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
-    "lint:js": "eslint -c ./tests/linters/.eslintrc.js **/header/header.js **/skip-link/skip-link.js **/feedback-banner/feedback-banner.js",
+    "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
