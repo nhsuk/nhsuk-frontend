@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 2.3.2 - TBA
+
+:wrench: **Fixes**
+
+- Header search - Fix javascript error when header search autocomplete is not present on the page ([Issue 531](https://github.com/nhsuk/nhsuk-frontend/issues/531)), add linting to all component JavaScript files, exclude linting from details polyfill, fix linting errors in autocomplete JavaScript, remove unnecessary JavaScript and CSS from autocomplete.
+
 ## 2.3.1 - 10th September 2019
 
 :wrench: **Fixes**
