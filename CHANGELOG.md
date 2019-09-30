@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 2.3.2 - TBA
+## 2.3.2 - 30th September 2019
 
 :wrench: **Fixes**
 
