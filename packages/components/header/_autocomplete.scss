@@ -9,10 +9,8 @@
    * 4. Custom height and width of svg icons
    * 5. Custom spacing to position the search icon
    * 6. Drop shadow on search suggestions dopdown box, custom spread and blur
-   * 7. Needs !important because autocomplete js adds inline styling so need to
-   *    override
-   * 8. Z-index to bring the dropdown to the front
-   * 9. No current spacing at 12px so using this value
+   * 7. Z-index to bring the dropdown to the front
+   * 8. No current spacing at 12px so using this value
 */
 
 .autocomplete-container {
@@ -22,10 +20,6 @@
     display: inline;
     width: 100%;
   }
-}
-
-.autocomplete__wrapper {
-  position: relative;
 }
 
 @include mq($until: tablet) {
@@ -66,7 +60,7 @@
     border-top-right-radius: 0;
     font-size: $nhsuk-base-font-size;
     height: 40px; /* [3] */
-    padding: 0 12px; /* [9] */
+    padding: 0 12px; /* [8] */
     width: 235px; /* [3] */
 
     &:focus {
@@ -100,7 +94,8 @@
   padding: nhsuk-spacing(3);
   position: absolute;
   top: 100%;
-  z-index: 1; /* [8] */
+  width: 100%;
+  z-index: 1; /* [7] */
 
   @include mq($until: tablet) {
     border: 0;
@@ -109,8 +104,6 @@
     padding-left: 0;
     padding-right: 0;
     position: relative;
-    top: auto !important; // sass-lint:disable-line no-important /* [7] */
-    width: 100% !important; // sass-lint:disable-line no-important /* [7] */
   }
 }
 
@@ -127,7 +120,7 @@
   color: $color_nhsuk-blue;
   cursor: pointer;
   font-size: $nhsuk-base-font-size;
-  padding-bottom: 12px; /* [9] */
+  padding-bottom: 12px; /* [8] */
   text-align: left;
   text-decoration: underline;
 
