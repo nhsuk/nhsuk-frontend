@@ -1,5 +1,8 @@
 # NHS.UK frontend Changelog
 
+## 2.3.3 - tbc
+- Update links to Service manual slack in README
+
 ## 2.3.2 - 30th September 2019
 
 :wrench: **Fixes**
