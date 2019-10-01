@@ -26,7 +26,7 @@
 
   [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
 
-## 2.3.2 - TBC
+## 2.3.2 - 30th September 2019
 
 :wrench: **Fixes**
 

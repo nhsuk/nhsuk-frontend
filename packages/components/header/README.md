@@ -43,13 +43,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -320,13 +315,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -546,13 +536,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -707,13 +692,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -869,13 +849,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -1024,13 +999,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container">
-              <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
-                <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 2 or more characters for results.<span>,,</span></div>
-                <input aria-owns="search-field__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="search-field" name="search-field" placeholder="Search" type="text" role="textbox">
-                <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="search-field__listbox" role="listbox" style="width: 279px; top: 60px;"></ul>
-              </div>
-            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
