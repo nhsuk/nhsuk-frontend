@@ -1,6 +1,6 @@
 import { toggleAttribute } from '../../common';
 
-export default () => {
+export default (() => {
   // Does the browser support details component
   const nativeSupport = typeof document.createElement('details').open === 'boolean';
   // Nodelist of all details elements
@@ -72,4 +72,4 @@ export default () => {
       if (!element.hasAttribute('nhsuk-polyfilled')) initDetails(element, index);
     });
   }
-};
+})();
