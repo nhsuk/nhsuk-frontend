@@ -18,7 +18,13 @@
 
   **PNG logo**
 
-  [Preview the header organisational with png logo component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-png.html)
+  You can also use a static asset, such as a PNG image.
+
+  ```
+  <a class="nhsuk-header__link" href="/" aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
+    <img class="nhsuk-org-logo" src="/path-to-assets/logo.png" alt="">
+  </a>
+  ```
 
   **Colour variants**
 

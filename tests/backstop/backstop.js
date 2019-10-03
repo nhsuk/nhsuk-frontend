@@ -257,10 +257,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/header/header-org-white-nav.html`
     },
     {
-      "label": "Header organisational with PNG logo",
-      "url": `${TEST_HOST}/components/header/header-org-png.html`
-    },
-    {
       "label": "Hero",
       "url": `${TEST_HOST}/components/hero/index.html`
     },
