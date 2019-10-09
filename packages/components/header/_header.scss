@@ -501,7 +501,6 @@
   &:hover {
     background-color: transparent;
     box-shadow: none;
-    color: $color_nhsuk-white;
     text-decoration: underline;
 
     .nhsuk-icon__chevron-right {
@@ -587,6 +586,10 @@
     }
 
     &:focus {
+      color: $color_nhsuk-white;
+    }
+
+    &:hover {
       color: $color_nhsuk-white;
     }
 
