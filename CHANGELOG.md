@@ -1,10 +1,16 @@
 # NHS.UK frontend Changelog
 
-## 2.3.2 - 9th October 2019
+## 2.3.3 - 9th October 2019
 
 :wrench: **Fixes**
 
 - Image Markup - Added sizes and srcset attributes to nunjucks template with conditional statement for rendering just src attribute is not more than one image src is provided.
+
+## 2.3.2 - 30th September 2019
+
+:wrench: **Fixes**
+
+- Header search - Fix javascript error when header search autocomplete is not present on the page ([Issue 531](https://github.com/nhsuk/nhsuk-frontend/issues/531)), add linting to all component JavaScript files, exclude linting from details polyfill, fix linting errors in autocomplete JavaScript, remove unnecessary JavaScript and CSS from autocomplete.
 
 ## 2.3.1 - 10th September 2019
 
