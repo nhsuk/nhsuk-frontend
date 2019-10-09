@@ -1,6 +1,10 @@
 module.exports = {
-  "extends": "nhsuk",
+  "extends": [
+    "nhsuk",
+    "plugin:jest/recommended"
+  ],
   "env": {
     "browser": true,
-  }
+  },
+  "plugins": ["jest"],
 };
