@@ -446,10 +446,6 @@
       }
     }
 
-    @include mq($from: desktop) {
-      padding: 0 nhsuk-spacing(3);
-    }
-
     @include mq($until: desktop) {
       .nhsuk-width-container {
         margin: 0;
