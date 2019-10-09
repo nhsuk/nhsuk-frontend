@@ -6,7 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run jest",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
@@ -16,7 +16,9 @@
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
-    "build-gh-release": "gulp zip"
+    "build-gh-release": "gulp zip",
+    "jest:dev": "jest --watch",
+    "jest:ci": "jest --coverage --verbose"
   },
   "dependencies": {
     "accessible-autocomplete": "^1.6.2",
@@ -31,6 +33,7 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-nhsuk": "^0.16.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
@@ -41,6 +44,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.3",
+    "jest": "^24.9.0",
     "minimist": "^1.2.0",
     "node-sass": "^4.12.0",
     "nunjucks": "^3.2.0",
