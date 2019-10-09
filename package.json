@@ -6,7 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run lint && npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
@@ -44,6 +44,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^4.2.0",
     "htmlhint": "^0.10.3",
+    "husky": "^3.0.8",
     "jest": "^24.9.0",
     "minimist": "^1.2.0",
     "node-sass": "^4.12.0",
@@ -67,5 +68,10 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  }
 }
