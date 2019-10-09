@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Details
 
 // FF Support for HTML5's <details> and <summary>
