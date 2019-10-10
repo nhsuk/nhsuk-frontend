@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 2.3.3 - Unreleased
+
+:wrench: **Fixes**
+
+- Images - Add `size` and `srcset` attributes to the images component for responsive loading of images. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
+
 ## 2.3.2 - 30th September 2019
 
 :wrench: **Fixes**
