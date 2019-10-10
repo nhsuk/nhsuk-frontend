@@ -29,7 +29,12 @@
   }
 
   .nhsuk-pagination__title {
-    padding-left: nhsuk-spacing(5); /* [1] */
+    padding-left: nhsuk-spacing(5);
+    /* [1] */
+  }
+
+  .nhsuk-pagination__link--prev {
+    padding-right: nhsuk-spacing(3);
   }
 
 }
@@ -44,7 +49,12 @@
   }
 
   .nhsuk-pagination__title {
-    padding-right: nhsuk-spacing(5); /* [1] */
+    padding-right: nhsuk-spacing(5);
+    /* [1] */
+  }
+
+  .nhsuk-pagination__link--next {
+    padding-left: nhsuk-spacing(3);
   }
 
 }
@@ -110,7 +120,8 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ' page'; /* [2] */
+      content: ' page';
+      /* [2] */
     }
   }
 
