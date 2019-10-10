@@ -61,8 +61,10 @@ BackstopJS creates a set of test bitmaps each time tests are run and compares th
 
 If you have made intentional visual changes, the reference bitmaps need to be updated for the tests (and future tests) to pass.
 
+After running the tests (`npm run backstop:test`) you can update the reference screenshots with:
+
 ```
-npm run backstop:ref
+npm run backstop:approve
 ```
 
 #### Add new tests scenarios
