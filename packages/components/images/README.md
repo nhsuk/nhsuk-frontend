@@ -12,35 +12,32 @@ Find out more about the images component and when to use it in the [NHS digital 
 
 ```html
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis" sizes="(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw" srcset=" https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w, https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w">
   <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
   </figcaption>
 </figure>
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis" sizes="(min-width: 1020px)  min-width: 768px) 50vw, 100vw" srcset=" https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w, https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w">
-  <figcaption class="nhsuk-image__caption">
-    Itchy, red, watering eyes
-  </figcaption>
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
 </figure>
 ```
 
 ### Nunjucks macro
+
 ```
 {% from 'components/images/macro.njk' import image %}
 
 {{ image({
   "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+  "sizes": "(min-width: 1020px) 320px, (min-width: 768px) 50vw, 100vw",
+  "srcset": " https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w, https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w",
   "alt": "Picture of allergic conjunctivitis",
   "caption": "Itchy, red, watering eyes"
 }) }}
 
 {{ image({
   "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-  "sizes": "(min-width: 1020px) 320px,  (min-width: 768px) 50vw, 100vw",
-  "srcset": " https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w, https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w", 
-  "alt": "Picture of allergic conjunctivitis",
-  "caption": "Itchy, red, watering eyes"
+  "alt": "Picture of allergic conjunctivitis"
 }) }}
 ```
 
