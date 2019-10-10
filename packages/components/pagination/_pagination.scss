@@ -9,7 +9,7 @@
  *    to understand in print context.
  */
 
- .nhsuk-pagination {
+.nhsuk-pagination {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
 }
