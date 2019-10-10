@@ -9,7 +9,7 @@
  *    to understand in print context.
  */
 
-.nhsuk-pagination {
+ .nhsuk-pagination {
   @include nhsuk-responsive-margin(7, 'top');
   @include nhsuk-responsive-margin(7, 'bottom');
 }
@@ -29,8 +29,7 @@
   }
 
   .nhsuk-pagination__title {
-    padding-left: nhsuk-spacing(5);
-    /* [1] */
+    padding-left: nhsuk-spacing(5); /* [1] */
   }
 
   .nhsuk-pagination__link--prev {
@@ -49,8 +48,7 @@
   }
 
   .nhsuk-pagination__title {
-    padding-right: nhsuk-spacing(5);
-    /* [1] */
+    padding-right: nhsuk-spacing(5); /* [1] */
   }
 
   .nhsuk-pagination__link--next {
@@ -120,8 +118,7 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ' page';
-      /* [2] */
+      content: ' page'; /* [2] */
     }
   }
 
