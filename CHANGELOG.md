@@ -4,7 +4,7 @@
 
 :wrench: **Fixes**
 
-- Image Markup - Added sizes and srcset attributes to nunjucks template with conditional statement for rendering just src attribute is not more than one image src is provided. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
+- Images - Add `size` and `srcset` attributes to the images component for responsive loading of images. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
 
 ## 2.3.2 - 30th September 2019
 
