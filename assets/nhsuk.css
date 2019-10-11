@@ -3297,7 +3297,6 @@ b {
   margin-bottom: 8px;
   max-width: 100%;
   /* 1 */
-  overflow: hidden;
   padding: 0;
   white-space: normal;
   /* 4 */ }
