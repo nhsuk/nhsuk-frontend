@@ -3295,6 +3295,7 @@ b {
   display: table;
   /* 2 */
   margin-bottom: 8px;
+  margin-top: 0;
   max-width: 100%;
   /* 1 */
   padding: 0;
@@ -3312,13 +3313,11 @@ b {
 
 /* Heading modifiers */
 .nhsuk-fieldset__legend--xl {
+  font-weight: 600;
   font-size: 32px;
   font-size: 2rem;
   line-height: 1.25;
-  display: block;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 40px; }
+  margin-bottom: 16px; }
   @media (min-width: 40.0625em) {
     .nhsuk-fieldset__legend--xl {
       font-size: 48px;
@@ -3328,18 +3327,13 @@ b {
     .nhsuk-fieldset__legend--xl {
       font-size: 32pt;
       line-height: 1.15; } }
-  @media (min-width: 40.0625em) {
-    .nhsuk-fieldset__legend--xl {
-      margin-bottom: 48px; } }
 
 .nhsuk-fieldset__legend--l {
+  font-weight: 600;
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1.33333;
-  display: block;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 24px; }
+  margin-bottom: 16px; }
   @media (min-width: 40.0625em) {
     .nhsuk-fieldset__legend--l {
       font-size: 32px;
@@ -3349,17 +3343,12 @@ b {
     .nhsuk-fieldset__legend--l {
       font-size: 24pt;
       line-height: 1.05; } }
-  @media (min-width: 40.0625em) {
-    .nhsuk-fieldset__legend--l {
-      margin-bottom: 32px; } }
 
 .nhsuk-fieldset__legend--m {
+  font-weight: 600;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.4;
-  display: block;
-  font-weight: 600;
-  margin-top: 0;
   margin-bottom: 16px; }
   @media (min-width: 40.0625em) {
     .nhsuk-fieldset__legend--m {
@@ -3370,17 +3359,12 @@ b {
     .nhsuk-fieldset__legend--m {
       font-size: 18pt;
       line-height: 1.15; } }
-  @media (min-width: 40.0625em) {
-    .nhsuk-fieldset__legend--m {
-      margin-bottom: 24px; } }
 
 .nhsuk-fieldset__legend--s {
+  font-weight: 600;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
-  display: block;
-  font-weight: 600;
-  margin-top: 0;
   margin-bottom: 16px; }
   @media (min-width: 40.0625em) {
     .nhsuk-fieldset__legend--s {
@@ -3391,9 +3375,6 @@ b {
     .nhsuk-fieldset__legend--s {
       font-size: 14pt;
       line-height: 1.15; } }
-  @media (min-width: 40.0625em) {
-    .nhsuk-fieldset__legend--s {
-      margin-bottom: 24px; } }
 
 .nhsuk-fieldset__heading {
   /* 5 */
