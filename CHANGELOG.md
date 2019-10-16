@@ -6,6 +6,7 @@
 
 - Images - Add `size` and `srcset` attributes to the images component for responsive loading of images. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
 - Jaws/NVDA not reading fieldset heading - removing old `overflow: hidden` hack for hint text in legend
+- Fallback font - Fix fallback to be Arial by removing Helvetica.
 
 ## 2.3.2 - 30th September 2019
 
