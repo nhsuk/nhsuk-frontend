@@ -36,21 +36,21 @@
 }
 
 .nhsuk-footer__list-item-link {
-  color: $nhsuk-text-color;
+  color: $nhsuk-secondary-text-color;
 
   &:hover {
     color: $nhsuk-text-color;
   }
 
   &:visited {
-    color: $nhsuk-text-color;
+    color: $nhsuk-secondary-text-color;
   }
 }
 
 .nhsuk-footer__copyright {
   @include nhsuk-font(16);
 
-  color: $nhsuk-text-color;
+  color: $nhsuk-secondary-text-color;
   margin-bottom: 0;
 
   @include mq($from: desktop) {
