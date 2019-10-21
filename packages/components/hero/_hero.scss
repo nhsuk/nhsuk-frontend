@@ -86,6 +86,7 @@
  * 11. Give the description box a max width.
  * 13. Remove the arrow in Windows high contrast mode.
  * 14. Reduce spacing and change positioning for Windows high contrast mode.
+ * 15. Prevent text breaking out of box on smaller sizes
  */
 
 .nhsuk-hero--image-description {
@@ -97,7 +98,6 @@
     padding: nhsuk-spacing(4);
     position: relative;
     top: 70px;
-    width: 85%;
 
     .nhsuk-hero__arrow {
       bottom: -10px; /* [8] */
@@ -130,6 +130,10 @@
         display: none; /* [13] */
       }
 
+    }
+
+    @include mq(375px) { /* [15] */
+      width: 85%;
     }
 
     @include mq($from: tablet) {
