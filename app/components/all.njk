@@ -20,7 +20,6 @@
 {% from "components/summary-list/macro.njk" import summaryList %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
-{% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
 
 {% from 'components/back-link/macro.njk' import backLink %}
 {% from 'components/button/macro.njk' import button %}
@@ -966,11 +965,4 @@
       }
     ]
   })}}
-
-  {{ feedbackBanner({
-    "title": "Help us make the NHS website better",
-    "content": "Your feedback helps us improve the NHS website.",
-    "href": "https://www.nhs.uk",
-    "label": "Take our short survey"
-  }) }}
 {% endblock %}

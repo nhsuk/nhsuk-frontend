@@ -131,10 +131,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/do-dont-list/index.html`
     },
     {
-      "label": "Emergency alert",
-      "url": `${TEST_HOST}/components/emergency-alert/index.html`
-    },
-    {
       "label": "Error message",
       "url": `${TEST_HOST}/components/error-message/index.html`
     },
@@ -151,11 +147,6 @@ module.exports = {
       "label": "Expander group",
       "url": `${TEST_HOST}/components/details/expander-group.html`,
       "clickSelector": ".nhsuk-details__summary"
-    },
-    {
-      "label": "Feedback banner",
-      "url": `${TEST_HOST}/components/feedback-banner/index.html`,
-      "delay": 5000
     },
     {
       "label": "Footer",
