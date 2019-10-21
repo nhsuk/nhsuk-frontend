@@ -24,7 +24,10 @@
 
   #### Variables that have been removed
 
-  The following variables have also been removed from NHS.UK frontend, you can use the suggested replacement if you were using any of them in extended or created components.
+  Some colour variables have also been removed, you can use the suggested replacement if you were using them in components that have been extended or created.
+
+  <details>
+    <summary>View the variables that have been replaced</summary>
 
   | Colour variable removed  | Suggested replacement |
   | ------------- | ------------- |
@@ -54,6 +57,7 @@
   | $nhsuk-focus-colour | $nhsuk-focus-color |
   | $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
   | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+  </details>
 
 :new: **New features**
 
