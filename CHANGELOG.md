@@ -55,6 +55,36 @@ The following variables have also been removed from NHS.UK frontend, you can use
 | $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
 | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
 
+:new: **New features**
+
+- Organisational logos - the Header component now supports organisational logos. The organisational logo can be SVG code, with the organisation name and descriptor being editable through code, or a static PNG asset. There is also the ability to change the colour of the header and navigation menu to white or blue (default) ([Issue 446](https://github.com/nhsuk/nhsuk-frontend/issues/446))
+
+  **SVG logo**
+
+  [Preview the header organisational component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org.html)
+
+  Organisation names can be edited as text in the `nhsuk-organisation-name` span element. 
+  Longer organisation names can be split onto multiple lines with `nhsuk-organisation-name-split` span (see NHS England brand guidelines for when this must be done)
+  Organisation descriptor can be used with the `nhsuk-organisation-descriptor` class name span
+
+  See [NHS England brand guidelines - Organisational logos](https://www.england.nhs.uk/nhsidentity/identity-guidelines/organisational-logos/) for more information on Organisational logos.
+
+  **PNG logo**
+
+  You can also use a static asset, such as a PNG image.
+
+  ```
+  <a class="nhsuk-header__link" href="/" aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
+    <img class="nhsuk-org-logo" src="/path-to-assets/logo.png" alt="">
+  </a>
+  ```
+
+  **Colour variants**
+
+  [Preview the header organisational with white header component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white.html)
+
+  [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
+
 ## 2.3.3 - Unreleased
 
 :wrench: **Fixes**
