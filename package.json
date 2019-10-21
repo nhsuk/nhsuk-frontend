@@ -18,7 +18,7 @@
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
-    "jest:ci": "jest --coverage --verbose"
+    "jest:ci": "jest"
   },
   "dependencies": {
     "accessible-autocomplete": "^1.6.2",
@@ -56,6 +56,11 @@
     "extends": "./tests/linters/.eslintrc.js"
   },
   "sasslintConfig": "./tests/linters/.sass-lint.yml",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
   "files": [
     "dist",
     "packages"
@@ -68,10 +73,5 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
-  }
+  "license": "MIT"
 }
