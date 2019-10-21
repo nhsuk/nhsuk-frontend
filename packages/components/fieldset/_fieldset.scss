@@ -27,8 +27,8 @@
   color: $color_nhsuk-black;
   display: table; /* 2 */
   margin-bottom: nhsuk-spacing(2);
+  margin-top: 0;
   max-width: 100%; /* 1 */
-  overflow: hidden;
   padding: 0;
   white-space: normal;    /* 4 */
 }
@@ -36,43 +36,23 @@
 /* Heading modifiers */
 
 .nhsuk-fieldset__legend--xl {
-  @include nhsuk-typography-responsive(48);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-font($size: 48, $weight: bold);
+  margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-fieldset__legend--l {
-  @include nhsuk-typography-responsive(32);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(5, 'bottom');
+  @include nhsuk-font($size: 32, $weight: bold);
+  margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-fieldset__legend--m {
-  @include nhsuk-typography-responsive(24);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-font($size: 24, $weight: bold);
+  margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-fieldset__legend--s {
-  @include nhsuk-typography-responsive(19);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-font($size: 19, $weight: bold);
+  margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-fieldset__heading { /* 5 */
