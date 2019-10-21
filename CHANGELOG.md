@@ -85,8 +85,6 @@ The following variables have also been removed from NHS.UK frontend, you can use
 
   [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
 
-## 2.3.3 - Unreleased
-
 :wrench: **Fixes**
 
 - Images - Add `size` and `srcset` attributes to the images component for responsive loading of images. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
