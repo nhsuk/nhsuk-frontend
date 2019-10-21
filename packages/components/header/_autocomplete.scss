@@ -44,8 +44,9 @@
     width: 100%; /* [3] */
 
     &:focus {
-      border: $nhsuk-focus-width solid $nhsuk-focus-color;
-      box-shadow: inset 0 0 0 3px $nhsuk-focus-text-color;
+      border: 0;
+      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+      box-shadow: inset 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
     }
