@@ -1,5 +1,60 @@
 # NHS.UK frontend Changelog
 
+## 3.0.0 - Unreleased
+
+:boom: **Breaking changes**
+
+Non-text colour contrast for WCAG 2.1 ([Issue 473](https://github.com/nhsuk/nhsuk-frontend/issues/473)). Our focus states now meets the new WCAG 2.1 level AA requirements.
+
+If you are using NHS.UK frontend by using our compiled files, you won't need to make any changes to your application. If you are using NHS.UK frontend with node package manager (npm), you will need to migrate to the new accessible focus states if you have extended or created components.
+
+### Migrate to the new accessible focus states
+
+#### Mixins that have been removed
+
+You can no longer use the `nhsuk-focusable`, `nhsuk-focusable-fill` or `nhsuk-link-style-focus` Sass mixins, you can use the `nhsuk-focused-text` mixin instead.
+
+Include the `nhsuk-focused-text` mixin inside your component's `:focus` selector. For example:
+
+```scss
+.app-component:focus {
+  @include nhsuk-focused-text;
+}
+```
+
+#### Variables that have been removed
+
+The following variables have also been removed from NHS.UK frontend, you can use the suggested replacement if you were using any of them in extended or created components.
+
+| Colour variable removed  | Suggested replacement |
+| ------------- | ------------- |
+| $color_tint_nhsuk-warm-yellow-30  | $color_nhsuk-warm-yellow  |
+| $color_tint_nhsuk-warm-yellow-10  | $color_nhsuk-warm-yellow  |
+| $nhsuk-link-focus-color | $nhsuk-focus-text-color |
+| $nhsuk-link-hover-background-color | $nhsuk-focus-color |
+| $nhsuk-link-focus-background-color | $nhsuk-focus-color |
+| $nhsuk-link-active-background-color | $nhsuk-focus-color |
+| $nhsuk-button-text-colour | $nhsuk-button-text-color |
+| $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
+| $nhsuk-reverse-button-text-colour | $nhsuk-reverse-button-text-color |
+| $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+| $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
+| $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+| $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
+| $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
+| $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
+| $nhsuk-button-colour | $nhsuk-button-color |
+| $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
+| $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
+| $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+| $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
+| $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
+| $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
+| $nhsuk-reverse-button-shadow-colour | $nhsuk-reverse-button-shadow-color |
+| $nhsuk-focus-colour | $nhsuk-focus-color |
+| $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
+| $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+
 ## 2.3.3 - Unreleased
 
 :wrench: **Fixes**
@@ -23,86 +78,6 @@
 - Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk/nhsuk-frontend/issues/485))
 - Visually hidden mixin - Fix margin issue which causes text to be read in the wrong order on VoiceOver
 - Header search - Fix issue with the search dropdown moving down the page when you scroll ([Issue 484](https://github.com/nhsuk/nhsuk-frontend/issues/484)) and handle the enter keydown event to perform search ([Issue 522](https://github.com/nhsuk/nhsuk-frontend/issues/522))
-
-### Non-text colour contrast for WCAG 2.1 ([Issue 473](https://github.com/nhsuk/nhsuk-frontend/issues/473))
-
-#### Focus states 
-
-The focus state of components now meets the new WCAG 2.1 level AA requirements.
-
-##### Mixins removed (💥 breaking change)
-
-| Colour variable removed  | Suggested replacement |
-| ------------- | ------------- |
-| `@mixin nhsuk-link-style-focus` | `@mixin nhsuk-focused-text` |
-| `@mixin nhsuk-focusable` | `@mixin nhsuk-focused-text` |
-| `@mixin nhsuk-focusable-fill` | `@mixin nhsuk-focused-text` |
-
-##### Mixins added (:new: new feature)
-
-- `@mixin nhsuk-focused-text`
-- `@mixin nhsuk-focused-input`
-- `@mixin nhsuk-focused-button`
-
-##### Migrate to the new accessible focus states
-
-If you've extended or created components, you can no longer use the `nhsuk-focusable` or `nhsuk-focusable-fill` Sass mixins.
-
-Include the `nhsuk-focused-text` mixin inside your component's `:focus` selector. For example:
-
-```scss
-.app-component:focus {
-  @include govuk-focused-text;
-}
-```
-
-#### Colour palette updates
-
-| Colour name | Old value | Replace with|
-| ------------- | ------------- | ------------- |
-| $color_nhsuk-grey-1  | #425563 | #4c6272 |
-| $color_nhsuk-red  | #da291c | #d5281b |
-
-#### Colour variables removed (💥 breaking change)
-
-| Colour variable removed  | Suggested replacement |
-| ------------- | ------------- |
-| $color_tint_nhsuk-warm-yellow-30  | $color_nhsuk-warm-yellow  |
-| $color_tint_nhsuk-warm-yellow-10  | $color_nhsuk-warm-yellow  |
-| $nhsuk-link-focus-color | $nhsuk-focus-text-color |
-| $nhsuk-link-hover-background-color | $nhsuk-focus-color |
-| $nhsuk-link-focus-background-color | $nhsuk-focus-color |
-| $nhsuk-link-active-background-color | $nhsuk-focus-color |
-| $nhsuk-button-text-colour | $nhsuk-button-text-color |
-| $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
-| $nhsuk-reverse-button-text-colour | $nhsuk-reverse-button-text-color |
-| $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
-| $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
-| $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
-| $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
-| $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
-| $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
-| $nhsuk-reverse-button-shadow-colour | $nhsuk-reverse-button-shadow-color |
-
-#### Colour variables added (:new: new feature)
-
-- `$nhsuk-button-active-color: shade($nhsuk-button-color, 50%);`
-- `$nhsuk-secondary-button-active-color: shade($nhsuk-secondary-button-color, 50%);`
-- `$nhsuk-reverse-button-active-color: shade($nhsuk-reverse-button-color, 50%);`
-
-##### Spelling corrections
-
-- `$nhsuk-button-color`
-- `$nhsuk-button-hover-color`
-- `$nhsuk-secondary-button-color`
-- `$nhsuk-secondary-button-hover-color`
-- `$nhsuk-secondary-button-shadow-color`
-- `$nhsuk-reverse-button-color`
-- `$nhsuk-reverse-button-hover-color`
-- `$nhsuk-reverse-button-shadow-color`
-- `$nhsuk-focus-color`
-- `$nhsuk-focus-text-color`
-- `$nhsuk-button-shadow-color`
 
 ## 2.3.0 - 23rd July 2019
 
