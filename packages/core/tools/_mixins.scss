@@ -131,14 +131,14 @@
   background-color: $heading-background-color; // [1] //
   color: $heading-text-color; // [2] //
   display: inline-block; // [3] //
-  margin: nhsuk-spacing(0) -32px nhsuk-spacing(2);
+  margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -32px;
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
   top: -16px; // [5] //
 
   @include mq($until: tablet) {
     margin-left: -24px;
-    margin-right: -24px;
+    margin-right: 0;
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
     top: -8px; // [5] //
   }
@@ -244,6 +244,7 @@
 //
 // 1. Remove inner border on buttons for Firefox, see
 //    https://github.com/necolas/normalize.css/issues/393
+// 2. !important overrides focus style border: 0;
 //
 
 @mixin toggle-button() {
@@ -265,24 +266,14 @@
   }
 
   &:focus {
-    background-color: transparent;
-    border-color: $nhsuk-focus-color;
-    box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
-    outline: 0;
+    border: 1px solid $nhsuk-focus-color !important; // sass-lint:disable-line no-important /* [2] */
   }
 
   &:active,
   &.is-active {
     background-color: $color_shade_nhsuk-blue-50;
     border-color: $color_nhsuk-grey-5;
-    box-shadow: none;
     color: $color_nhsuk-grey-5;
-  }
-
-  &.is-active {
-    &:focus {
-      box-shadow: 0 0 0 ($nhsuk-box-shadow-spread - 1) $nhsuk-focus-color;
-    }
   }
 
 }
@@ -325,9 +316,7 @@
   }
 
   &:focus {
-    border-radius: $nhsuk-border-radius;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
-    outline: 0;
+    @include nhsuk-focused-text;
   }
 
 }
@@ -341,36 +330,6 @@
   @include mq($until: tablet) {
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;
-  }
-}
-
-/// Focusable helper
-///
-/// Provides an additional outline to clearly indicate when the target element
-/// has focus. Used for interactive elements which themselves have some background
-/// or border, such as most form elements.
-///
-
-@mixin nhsuk-focusable {
-  &:focus {
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-  }
-}
-
-/// Focusable with fill helper
-///
-/// Provides an additional outline and background colour to clearly indicate when
-/// the target element has focus. Used for interactive text-based elements such
-/// as links.
-///
-
-@mixin nhsuk-focusable-fill {
-  &:focus {
-    background-color: $nhsuk-focus-color;
-    outline: $nhsuk-focus-width solid $nhsuk-focus-color;
-    outline-offset: 0;
   }
 }
 

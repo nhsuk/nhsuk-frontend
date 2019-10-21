@@ -12,7 +12,6 @@
 
 .nhsuk-input {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
 
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 1 */
@@ -24,6 +23,10 @@
   margin-top: 0;
   padding: nhsuk-spacing(1);
   width: 100%;
+
+  &:focus {
+    @include nhsuk-focused-input;
+  }
 }
 
 .nhsuk-input::-webkit-outer-spin-button,

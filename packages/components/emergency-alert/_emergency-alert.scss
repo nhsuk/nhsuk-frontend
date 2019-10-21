@@ -13,11 +13,6 @@
   background-color: $color_nhsuk-yellow;
   padding-bottom: nhsuk-spacing(4);
   padding-top: nhsuk-spacing(4);
-
-  a {
-    @include nhsuk-link-style-inverted; /* [1] */
-  }
-
 }
 
 .nhsuk-global-alert__heading {

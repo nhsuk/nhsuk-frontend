@@ -1,6 +1,59 @@
 # NHS.UK frontend Changelog
 
-## 2.4.0 - Unreleased
+## 3.0.0 - Unreleased
+
+:boom: **Breaking changes**
+
+Non-text colour contrast for WCAG 2.1 ([Issue 473](https://github.com/nhsuk/nhsuk-frontend/issues/473)). Our focus states now meets the new WCAG 2.1 level AA requirements.
+
+If you are using NHS.UK frontend by using our compiled files, you won't need to make any changes to your application. If you are using NHS.UK frontend with node package manager (npm), you will need to migrate to the new accessible focus states if you have extended or created components.
+
+### Migrate to the new accessible focus states
+
+#### Mixins that have been removed
+
+You can no longer use the `nhsuk-focusable`, `nhsuk-focusable-fill` or `nhsuk-link-style-focus` Sass mixins, you can use the `nhsuk-focused-text` mixin instead.
+
+Include the `nhsuk-focused-text` mixin inside your component's `:focus` selector. For example:
+
+```scss
+.app-component:focus {
+  @include nhsuk-focused-text;
+}
+```
+
+#### Variables that have been removed
+
+The following variables have also been removed from NHS.UK frontend, you can use the suggested replacement if you were using any of them in extended or created components.
+
+| Colour variable removed  | Suggested replacement |
+| ------------- | ------------- |
+| $color_tint_nhsuk-warm-yellow-30  | $color_nhsuk-warm-yellow  |
+| $color_tint_nhsuk-warm-yellow-10  | $color_nhsuk-warm-yellow  |
+| $nhsuk-link-focus-color | $nhsuk-focus-text-color |
+| $nhsuk-link-hover-background-color | $nhsuk-focus-color |
+| $nhsuk-link-focus-background-color | $nhsuk-focus-color |
+| $nhsuk-link-active-background-color | $nhsuk-focus-color |
+| $nhsuk-button-text-colour | $nhsuk-button-text-color |
+| $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
+| $nhsuk-reverse-button-text-colour | $nhsuk-reverse-button-text-color |
+| $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+| $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
+| $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+| $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
+| $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
+| $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
+| $nhsuk-button-colour | $nhsuk-button-color |
+| $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
+| $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
+| $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+| $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
+| $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
+| $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
+| $nhsuk-reverse-button-shadow-colour | $nhsuk-reverse-button-shadow-color |
+| $nhsuk-focus-colour | $nhsuk-focus-color |
+| $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
+| $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
 
 :new: **New features**
 

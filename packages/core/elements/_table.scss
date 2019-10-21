@@ -10,7 +10,6 @@
 
 table {
   @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
 
   border-spacing: 0;
   vertical-align: top;
@@ -25,6 +24,7 @@ table {
 thead {
   th {
     border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
+    vertical-align: middle;
   }
 }
 
@@ -35,6 +35,7 @@ td {
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
   text-align: left;
+  vertical-align: top;
 }
 
 th {

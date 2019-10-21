@@ -4,13 +4,16 @@
 
 .nhsuk-select {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
 
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   height: 40px;
   max-width: 100%;
   padding: nhsuk-spacing(1);
+
+  &:focus {
+    @include nhsuk-focused-input;
+  }
 }
 
 .nhsuk-select option:active,

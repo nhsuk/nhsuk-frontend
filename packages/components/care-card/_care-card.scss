@@ -111,7 +111,6 @@
     a {
       color: $color_nhsuk-white; /* [1] */
 
-      &:hover,
       &:focus {
         color: $color_nhsuk-black; /* [1] */
       }
@@ -126,7 +125,9 @@
   }
 
   .nhsuk-details__summary {
-    &:hover,
+    &:hover {
+      color: $color_nhsuk-white;
+    }
     &:focus {
       color: $color_nhsuk-black;
     }

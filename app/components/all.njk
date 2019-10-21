@@ -17,9 +17,19 @@
 {% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
+{% from "components/summary-list/macro.njk" import summaryList %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 {% from 'components/feedback-banner/macro.njk' import feedbackBanner %}
+
+{% from 'components/back-link/macro.njk' import backLink %}
+{% from 'components/button/macro.njk' import button %}
+{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'components/date-input/macro.njk' import dateInput %}
+{% from 'components/input/macro.njk' import input %}
+{% from 'components/radios/macro.njk' import radios %}
+{% from 'components/select/macro.njk' import select %}
+{% from 'components/textarea/macro.njk' import textarea %}
 
 {% extends 'page.njk' %}
 
@@ -111,6 +121,23 @@
 
   <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
 
+  <h2>Heading level two</h2>
+
+  <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
+
+  <h3>Heading level three</h3>
+
+  <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
+
+  <h4>Heading level four</h4>
+
+  <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
+  <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
+
+  <h2>Heading level two</h2>
+
+  <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
+
   {{ insetText({
     "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
   }) }}
@@ -160,20 +187,28 @@
     "
   }) }}
 
-  {{ reviewDate({
-    "lastReview": "12 February 2016",
-    "nextReview": "1 February 2019"
+  {{ careCard({
+    "type": "immediate",
+    "heading": "Call 999 if you have sudden chest pain that:",
+    "HTML": "
+    <ul>
+      <li>spreads to your arms, back, neck or jaw</li>
+      <li>makes your chest feel tight or heavy</li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
+    </ul>
+    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+    "
   }) }}
 
   {{ image({
     "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
     "caption": "Itchy, red, watering eyes"
   }) }}
 
   {{ image({
     "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+    "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
     "caption": "Itchy, red, watering eyes"
   }) }}
 
@@ -319,7 +354,7 @@
 
   {{ promo({
     "href": "https://www.nhs.uk",
-    "imgURL": "https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg",
+    "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
     "heading": "Save a life: give blood",
     "description": "Please register today. Donating blood is easy, and saves lives."
   }) }}
@@ -339,7 +374,7 @@
     <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
         "href": "#",
-        "imgURL": "https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg",
+        "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
         "heading": "Save a life: give blood",
         "description": "Please register today. Donating blood is easy, and saves lives."
       }) }}
@@ -347,7 +382,7 @@
     <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
       {{ promo({
         "href": "#",
-        "imgURL": "https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg",
+        "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
         "heading": "Save a life: give blood",
         "description": "Please register today. Donating blood is easy, and saves lives."
       }) }}
@@ -512,6 +547,79 @@
     ]
   }) }}
 
+  {{ summaryList({
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: "Sarah Philips"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Date of birth"
+        },
+        value: {
+          text: "5 January 1978"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Contact information"
+        },
+        value: {
+          html: "72 Guild Street<br>London<br>SE23 6FH"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "contact information"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Contact details"
+        },
+        value: {
+          html: '<p>07700 900457</p><p>sarah.philips@example.com</p>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
   {{ azNav({
     items: [
       {
@@ -654,6 +762,171 @@
         link: "Dental pain"
       }
     ]
+  }) }}
+
+  {{ input({
+    "label": {
+      "text": "National Insurance number"
+    },
+    "id": "input-example",
+    "classes": "nhsuk-input--width-20",
+    "name": "test-name"
+  }) }}
+
+  {{ input({
+    "label": {
+      "text": "National Insurance number"
+    },
+    "hint": {
+      "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+    },
+    "id": "input-with-error-message",
+    "classes": "nhsuk-input--width-20",
+    "name": "test-name-3",
+    "errorMessage": {
+      "text": "Error message goes here"
+    }
+  }) }}
+
+  {{ checkboxes({
+    "idPrefix": "nationality",
+    "name": "nationality",
+    "fieldset": {
+      "legend": {
+        "text": "What is your nationality?"
+      }
+    },
+    "hint": {
+      "text": "If you have more than 1 nationality, select all options that are relevant to you."
+    },
+    "items": [
+      {
+        "value": "british",
+        "text": "British"
+      },
+      {
+        "value": "irish",
+        "text": "Irish"
+      },
+      {
+        "value": "other",
+        "text": "citizen of another country"
+      }
+    ]
+  }) }}
+
+  {{ radios({
+    "idPrefix": "example",
+    "name": "example",
+    "fieldset": {
+      "legend": {
+        "text": "Have you changed your name?"
+      }
+    },
+    "hint": {
+      "text": "This includes changing your last name or spelling your name differently."
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No",
+        "checked": true
+      }
+    ]
+  }) }}
+
+  {{ dateInput({
+    "id": "dob",
+    "namePrefix": "dob",
+    "fieldset": {
+      "legend": {
+        "text": "What is your date of birth?"
+      }
+    },
+    "hint": {
+      "text": "For example, 31 3 1980"
+    },
+    "items": [
+      {
+        "name": "day",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "month",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "year",
+        "classes": "nhsuk-input--width-4"
+      }
+    ]
+  }) }}
+
+  {{ textarea({
+    "name": "more-detail",
+    "id": "more-detail",
+    "label": {
+      "text": "Can you provide more detail?"
+    },
+    "hint": {
+      "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+    }
+  }) }}
+
+  {{ select({
+    "id": "select-1",
+    "name": "select-1",
+    "label": {
+      "text": "Label text goes here"
+    },
+    "items": [
+      {
+        "value": 1,
+        "text": "NHS.UK frontend option 1"
+      },
+      {
+        "value": 2,
+        "text": "NHS.UK frontend option 2",
+        "selected": true
+      },
+      {
+        "value": 3,
+        "text": "NHS.UK frontend option 3",
+        "disabled": true
+      }
+    ]
+  }) }}
+
+  <div class="nhsuk-form-group">
+
+    {{ button({
+      "text": "Save and continue",
+      "classes": "nhsuk-u-margin-bottom-0"
+    }) }}
+
+  </div>
+
+  <div class="nhsuk-form-group">
+
+    {{ button({
+      "text": "Find my location",
+      "classes": "nhsuk-button--secondary nhsuk-u-margin-bottom-0"
+    }) }}
+
+  </div>
+
+  {{ reviewDate({
+    "lastReview": "12 February 2016",
+    "nextReview": "1 February 2019"
+  }) }}
+
+  {{ backLink({
+    "href": "#",
+    "text": "Go back"
   }) }}
 
 {% endblock %}

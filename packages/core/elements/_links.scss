@@ -24,3 +24,11 @@ a {
   }
 
 }
+
+.ie8 {
+  a {
+    &:focus {
+      outline: 1px dotted $nhsuk-focus-text-color;
+    }
+  }
+}

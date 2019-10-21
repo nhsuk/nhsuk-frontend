@@ -28,31 +28,31 @@
   position: relative; /* [4] */
   text-decoration: none; /* [5] */
 
-  &:focus {
-    background-color: $color_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
-
-    .nhsuk-promo__heading {
-      text-decoration: underline; /* [6] */
-    }
-
-    .nhsuk-promo__heading,
-    .nhsuk-promo__description {
-      color: $nhsuk-link-focus-color;
-    }
-
-  }
-
   &:hover {
     background-color: $color_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-3;
     color: $color_nhsuk-blue;
   }
 
+  &:focus {
+    background-color: $color_nhsuk-white;
+    box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4;
+
+    .nhsuk-promo__heading {
+      @include nhsuk-focused-text();
+    }
+
+  }
+
   &:active {
-    background-color: $color_nhsuk-grey-5; /* [7] */
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-link-active-background-color;
+    background-color: $color_nhsuk-white; /* [7] */
+    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-4;
     top: $nhsuk-box-shadow-link; /* [7] */
+
+    .nhsuk-promo__heading {
+      background: none;
+      box-shadow: none;
+    }
   }
 
   &:hover,
@@ -76,6 +76,7 @@
 .nhsuk-promo__heading {
   @include nhsuk-font(24, $weight: bold);
 
+  display: inline-block;
   margin-bottom: nhsuk-spacing(3);
   text-decoration: underline;
 }
