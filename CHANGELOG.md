@@ -675,6 +675,7 @@
 - Jaws/NVDA not reading fieldset heading - removing old `overflow: hidden` hack for hint text in legend ([Issue 534](https://github.com/nhsuk/nhsuk-frontend/issues/534))
 - Fallback font - Fix fallback to be Arial by removing Helvetica.
 - Fieldset legend - Fix bottom margin of fieldset legend heading modifiers to make spacing consistent.
+- Hero - Prevent text breaking out of box on smaller screen sizes ([Issue 432](https://github.com/nhsuk/nhsuk-frontend/issues/432))
 
 ## 2.3.2 - 30th September 2019
 
