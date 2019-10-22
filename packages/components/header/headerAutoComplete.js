@@ -1,4 +1,4 @@
-import AutoComplete from './autoComplete';
+import AutoComplete from './autoCompleteConfig';
 
 /**
  * Function to build truncated result with svg for search autocomplete
