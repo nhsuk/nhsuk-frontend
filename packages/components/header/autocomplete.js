@@ -1,83 +1,64 @@
-import accessibleAutocomplete from 'accessible-autocomplete';
+import AccessibleAutoComplete from 'accessible-autocomplete';
 
-function getFunnelbackQueryUrl(query) {
-  const FUNNELBACK_QUERY_PATH = 'https://nhs.funnelback.co.uk/s/suggest.json';
-  const FUNNELBACK_MAX_RESULTS = 10;
-  return `${FUNNELBACK_QUERY_PATH}?collection=nhs-meta&partial_query=${query}&sort=0&fmt=json++&profile=&show=${FUNNELBACK_MAX_RESULTS}`;
-}
+/**
+ @typedef autocompleteConfig
+ @type {Object}
+ Optional param for NHS.UK functionality
+ @property {string=} formId ID of form element containing autocomplete.
+ Required params for accessible-autocomplete
+ @property {string} inputId ID of the input field.
+ @property {string} containerId ID of element in which the autocomplete will be rendered in.
+ @property {function} source Function called on input change
+*/
 
-function getFunnelbackResults(query, populateResults) {
-  const url = getFunnelbackQueryUrl(query);
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      const data = JSON.parse(xhr.responseText);
-      const results = data.map(item => item.disp);
-      populateResults(results);
-    } else {
-      // TODO: nice error messaging here
-      // console.warn(xhr);
-    }
-  };
-  xhr.send();
-}
+/**
+ * Create an autocomplete.
+ * @param {autocompleteConfig} config
+*/
+export default (config) => {
+  const formId = config.formId;
+  const inputId = config.inputId;
+  const containerId = config.containerId;
 
-function autocomplete(config) {
-  const defaultId = 'search-field';
-  const id = (config && config.id) ? config.id : defaultId;
-  const fallbackInputElement = document.getElementById(id);
+  const form = document.getElementById(formId);
+  const input = document.getElementById(inputId);
+  const container = document.getElementById(containerId);
 
-  if (!fallbackInputElement) {
-    return;
-  }
-
-  function suggestionTemplate(result) {
-    const truncateLength = 36;
-    const dots = result.length > truncateLength ? '...' : '';
-    const resultTruncated = result.substring(0, truncateLength) + dots;
-    const svgIcon = '<svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path></svg>';
-    const resultsHref = `<a href="https://www.nhs.uk/search?collection=nhs-meta&query=${result}">${resultTruncated}</a>`;
-
-    return svgIcon + resultsHref;
-  }
-
-  const defaultConfig = {
-    confirmOnBlur: false,
-    element: document.querySelector('#autocomplete-container'),
-    id,
-    minLength: 2,
-    name: fallbackInputElement.name,
-    onConfirm: (SelectedContent) => {
-      window.open(`https://www.nhs.uk/search?collection=nhs-meta&query=${SelectedContent}`, '_self');
-    },
-    placeholder: fallbackInputElement.placeholder,
-    source: getFunnelbackResults,
-    templates: {
-      suggestion: suggestionTemplate,
-    },
-  };
-
-  const accessibleAutocompleteConfig = {
-    ...defaultConfig,
-    ...config,
-  };
-
-  const idToremove = document.getElementById(id);
-  idToremove.parentNode.removeChild(idToremove);
-  accessibleAutocomplete(accessibleAutocompleteConfig);
-}
-
-window.addEventListener('load', () => {
-  // Handle the enter keydown event to perform search
-  const input = document.getElementById('search');
-  if (input) {
-    input.addEventListener('keyup', (event) => {
-      if (event.keyCode === 13) {
-        document.querySelector('.nhsuk-search__submit').click();
-      }
+  /**
+   * Adds event to catch enter presses when the main input is focused and submits the form
+  */
+  const addFormEvents = () => {
+    // Attach event to form as the original input element is cloned by autoComplete plugin
+    form.addEventListener('keyup', ({ keyCode }) => {
+      // Submit search using current input value if input is focused and enter is pressed
+      if (keyCode === 13 && document.activeElement.id === inputId) form.submit();
     });
-  }
-});
+  };
 
-export default autocomplete;
+  const initAutoComplete = () => {
+    const defaultConfig = {
+      confirmOnBlur: false,
+      element: container,
+      id: inputId,
+      minLength: 2,
+      name: input.name,
+      placeholder: input.placeholder,
+    };
+
+    // Remove original search input as it will be replaced by accessibleAutocomplete
+    input.parentNode.removeChild(input);
+
+    // Initialise accessibleAutocomplete
+    AccessibleAutoComplete({
+      ...defaultConfig,
+      ...config,
+    });
+  };
+
+  // Add autocomplete functionality if required config options exist
+  if (input && container && config.source) {
+    initAutoComplete();
+    // If form element exists then add events to add standard form functionality
+    if (form) addFormEvents();
+  }
+};
