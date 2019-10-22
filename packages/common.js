@@ -21,10 +21,10 @@ export const toggleClass = (element, className) => {
 };
 
 /**
-   * Toggle a boolean attribute on a HTML element
-   * @param {HTMLElement} element
-   * @param {string} attr
-  */
+ * Toggle a boolean attribute on a HTML element
+ * @param {HTMLElement} element
+ * @param {string} attr
+*/
 export const toggleAttribute = (element, attr) => {
   // Return without error if element or attr are missing
   if (!element || !attr) return;
