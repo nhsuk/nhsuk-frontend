@@ -1,4 +1,3 @@
-
 import AutoComplete from './headerAutoComplete';
 import MenuToggle from './menuToggle';
 import SearchToggle from './searchToggle';

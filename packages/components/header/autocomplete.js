@@ -16,9 +16,7 @@ import AccessibleAutoComplete from 'accessible-autocomplete';
  * @param {autocompleteConfig} config
 */
 export default (config) => {
-  const formId = config.formId;
-  const inputId = config.inputId;
-  const containerId = config.containerId;
+  const { formId, inputId, containerId } = config;
 
   const form = document.getElementById(formId);
   const input = document.getElementById(inputId);
