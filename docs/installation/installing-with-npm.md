@@ -82,19 +82,16 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import nhsuk_header from 'node_modules/nhsuk-frontend/packages/components/header/header';
-import nhsuk_skipLink from 'node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
-import autocomplete from 'node_modules/nhsuk-frontend/packages/components/header/autocomplete';
-
-// HTML5 polyfills
-import 'node_modules/nhsuk-frontend/packages/components/details/details.polyfill';
+import Header from './components/header/header';
+import SkipLink from './components/skip-link/skip-link';
+import Details from './components/details/details';
 
 // Initialize components
-document.addEventListener('DOMContentLoaded', function() {
-  nhsuk_header();
-  nhsuk_skipLink();
-  autocomplete();
-})
+document.addEventListener('DOMContentLoaded', () => {
+  Details();
+  Header();
+  SkipLink();
+});
 ```
 
 ## Importing assets (optional)
