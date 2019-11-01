@@ -1,6 +1,18 @@
-import SearchToggle from './searchToggle';
+import SearchToggle from '../../packages/components/header/searchToggle';
+const nunjucks = require('nunjucks');
 
 // Mock HTML
+const getHtml = async () => {
+  try {
+    const mockHtml = await nunjucks.render('/app/components/action-link/index.njk');
+    console.log(mockHtml);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getHtml();
+
 const toggleButtonHtml = '<button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search" aria-expanded="false"><span class="nhsuk-u-visually-hidden">Search</span></button>';
 const closeButtonHtml = '<button class="nhsuk-search__close" id="close-search"><span class="nhsuk-u-visually-hidden">Close search</span></button>';
 const searchContainerHtml = '<div class="nhsuk-header__search-wrap" id="wrap-search"></div>';

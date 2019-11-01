@@ -1,4 +1,4 @@
-import SkipLink from './skip-link';
+import SkipLink from '../../packages/components/skip-link/skip-link';
 
 // Mock HTML
 const skipLinkHtml = '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>';
