@@ -27,7 +27,7 @@
       </thead>
       {%- endif %}
       <tbody class="nhsuk-table__body">
-        {%- for row in params.rows %}
+        {%- for row in params.rows | hideEmpty %}
         <tr class="nhsuk-table__row">
         {%- for cell in row %}
           {%- if loop.first and params.firstCellIsHeader %}

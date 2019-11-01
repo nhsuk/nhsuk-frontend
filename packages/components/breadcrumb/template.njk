@@ -2,7 +2,7 @@
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-  {%- for item in params.items %}
+  {%- for item in params.items | hideEmpty %}
     {%- if item.href %}
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.text }}</a>{% if not loop.last %}{% endif %}</li>
     {%- endif -%}

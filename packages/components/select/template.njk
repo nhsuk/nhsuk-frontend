@@ -41,7 +41,7 @@
     {%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}"
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-  {%- for item in params.items %}
+  {%- for item in params.items | hideEmpty %}
     <option value="{{ item.value }}"
       {{-" selected" if item.selected }}
       {{-" disabled" if item.disabled }}

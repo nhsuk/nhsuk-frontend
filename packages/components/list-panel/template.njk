@@ -11,7 +11,7 @@
   </div>
   {%- else -%}
   <ul class="nhsuk-list-panel__list{% if params.label %} nhsuk-list-panel__list--with-label{% endif %}">
-    {%- for item in params.items %}
+    {%- for item in params.items | hideEmpty %}
     <li class="nhsuk-list-panel__item">
       <a class="nhsuk-list-panel__link" href="{{ item.URL }}">{{ item.link }}</a>
     </li>

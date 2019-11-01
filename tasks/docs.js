@@ -20,7 +20,7 @@ const env = new nunjucks.Environment(
 /**
  * Add custom nunjucks filter to remove false values from lists
  */
-env.addFilter('hideEmpty', arr => arr.filter((val) => {
+env.addFilter('hideEmpty', (arr) => arr.filter((val) => {
   if (val.hideEmpty || !val) return false;
   return true;
 }));

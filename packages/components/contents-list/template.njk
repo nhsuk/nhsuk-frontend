@@ -3,7 +3,7 @@
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
-    {%- for item in params.items %}
+    {%- for item in params.items | hideEmpty %}
       {%- if item.current %}
         <li class="nhsuk-contents-list__item" aria-current="page">
           <span class="nhsuk-contents-list__current">{{ item.text }}</span>

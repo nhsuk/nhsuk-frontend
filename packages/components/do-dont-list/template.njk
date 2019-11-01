@@ -4,7 +4,7 @@
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <h{{ headingLevel }} class="nhsuk-do-dont-list__label">{{ params.title }}</h{{ headingLevel }}>
   <ul class="nhsuk-list {% if params.type == 'tick' %}nhsuk-list--tick{% else %}nhsuk-list--cross{% endif %}">
-    {%- for data in params.items %}
+    {%- for data in params.items | hideEmpty %}
     <li>
     {%- if params.type == 'cross' %}
       <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
