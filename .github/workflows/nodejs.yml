@@ -15,4 +15,6 @@ jobs:
     - name: Run linting
       run: npm run test
     - name: Run backstop
-      run: npm run backstop:test
+      run: |
+        npm start
+        npm run backstop:test
