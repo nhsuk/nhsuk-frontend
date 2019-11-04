@@ -68,11 +68,7 @@
     width: 200px; /* [3] */
 
     &:focus {
-<<<<<<< HEAD
       border: 1px solid $nhsuk-focus-color;
-=======
-      border: 0;
->>>>>>> update header focus styles
       box-shadow: inset 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
