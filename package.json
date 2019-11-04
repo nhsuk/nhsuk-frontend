@@ -12,7 +12,7 @@
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
-    "backstop:test": "backstop test --docker",
+    "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
