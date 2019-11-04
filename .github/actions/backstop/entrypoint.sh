@@ -3,7 +3,7 @@
 # Exit if any subcommand fails
 set -e 
 
-setup="NODE_ENV=development npm install &&"
+setup="NODE_ENV=development npm install --no-package-lock &&"
 
 echo "## Running Action"
 args=$@

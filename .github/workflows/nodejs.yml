@@ -10,8 +10,8 @@ jobs:
         node-version: [12.x]
     steps:
     - uses: actions/checkout@v1
+    - uses: ./.github/actions/backstop
     - name: Install dependencies
       run: npm install
     - name: Run linting
       run: npm run test
-    - uses: ./.github/actions/backstop
