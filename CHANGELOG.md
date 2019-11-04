@@ -1,16 +1,14 @@
 # NHS.UK frontend Changelog
 
-## 3.0.0 - Unreleased
+## 3.0.0 - 5th November 2019
 
 :boom: **Breaking changes**
 
 - Non-text colour contrast for WCAG 2.1 ([Issue 473](https://github.com/nhsuk/nhsuk-frontend/issues/473)). Our focus states now meets the new WCAG 2.1 level AA requirements.
 
-  If you are using Sass, you will need to migrate to the new accessible focus states if you have extended or created new components.
+  If you are using Sass and have created new components, you will need to migrate to the new accessible focus states.
 
-  ### Migrate to the new accessible focus states
-
-  #### Mixins that have been removed
+  ### Mixins that have been removed
 
   The Sass mixins `nhsuk-focusable`, `nhsuk-focusable-fill` or `nhsuk-link-style-focus` have been removed, you can use the `nhsuk-focused-text` mixin instead.
 
@@ -22,12 +20,12 @@
   }
   ```
 
-  #### Variables that have been removed
+  ### Colour variables that have been removed
 
   Some colour variables have also been removed, you can use the suggested replacement if you were using them in components that have been extended or created.
 
   <details>
-    <summary>View the variables that have been replaced</summary>
+    <summary>View the colour variables that have been replaced</summary>
 
   | Colour variable removed  | Suggested replacement |
   | ------------- | ------------- |
@@ -61,9 +59,11 @@
 
   <hr>
 
+:boom: **Breaking changes**
+
 - Deprecation of the [Feedback banner](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/151) and [Emergency alert](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/149) components.
 
-   If you are using Sass and JavaScript (ES6) imports, you will need to remove the Sass and JavaScript (ES6) imports for these components. You will also no longer be able to use the Nunjucks macros for these components.
+   If you are using Sass and JavaScript (ES6) imports, you will need to remove the imports for these components. You will also no longer be able to use the Nunjucks macros.
 
   **Sass**
 
@@ -88,6 +88,32 @@
   ```js
   nhsuk_feedbackBanner(3000);
   ```
+
+  <hr>
+
+:boom: **Breaking changes**
+
+- Refactor component JavaScript to make it more robust and using the latest ES6 coding standards ([Issue 425](https://github.com/nhsuk/nhsuk-frontend/issues/425)) ([Issue 450](https://github.com/nhsuk/nhsuk-frontend/issues/450))
+
+  **JavaScript**
+
+  If you are importing component JavaScript with ES6 imports, you will need to update the imports to:
+
+  ```js
+  // Components
+  import Header from './components/header/header';
+  import SkipLink from './components/skip-link/skip-link';
+  import Details from './components/details/details';
+
+  // Initialize components
+  document.addEventListener('DOMContentLoaded', () => {
+    Details();
+    Header();
+    SkipLink();
+  });
+  ```
+
+  If you are already importing JavaScript with these export names, you can change the default export name.
 
 :new: **New features**
 
@@ -127,6 +153,7 @@
 - Fieldset legend - Fix bottom margin of fieldset legend heading modifiers to make spacing consistent.
 - Hero - Prevent text breaking out of box on smaller screen sizes ([Issue 432](https://github.com/nhsuk/nhsuk-frontend/issues/432))
 - Table - Update table cell padding to align content
+- Header search autocomplete - Use the latest version of GOV.UK accessible autocomplete ([Issue 538](https://github.com/nhsuk/nhsuk-frontend/issues/538))
 
 ## 2.3.2 - 30th September 2019
 
