@@ -44,7 +44,7 @@
 
   ### Mixins that have been removed
 
-  The Sass mixins `nhsuk-focusable`, `nhsuk-focusable-fill` or `nhsuk-link-style-focus` have been removed. You can use the `nhsuk-focused-text` mixin instead.
+  The Sass mixins `nhsuk-focusable`, `nhsuk-focusable-fill` or `nhsuk-link-style-focus` have been removed, you can use the `nhsuk-focused-text` mixin instead.
 
   Include the `nhsuk-focused-text` mixin inside your component's `:focus` selector. For example:
 
