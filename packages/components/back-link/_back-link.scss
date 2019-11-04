@@ -33,8 +33,17 @@
   }
 
   &:hover {
-    color: $nhsuk-link-color;
     text-decoration: underline;
+
+    .nhsuk-icon__chevron-left {
+      fill: $nhsuk-link-hover-color;
+    }
+  }
+
+  &:focus {
+    .nhsuk-icon__chevron-left {
+      fill: $nhsuk-focus-text-color;
+    }
   }
 
 }
