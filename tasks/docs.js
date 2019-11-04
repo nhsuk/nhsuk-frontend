@@ -4,11 +4,11 @@ const gulpNunjucks = require('gulp-nunjucks');
 const nunjucks = require('nunjucks');
 const connect = require('gulp-connect');
 
-var config = {
-  templates: ['app/_templates', 'packages'],
-  dest: 'dist/app',
+const config = {
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
-}
+  dest: 'dist/app',
+  templates: ['app/_templates', 'packages'],
+};
 
 /**
  * Turn markdown into html with a nunjucks layout
@@ -26,7 +26,7 @@ function buildHtml() {
     .pipe(rename({
       extname: '.html',
     }))
-    .pipe(gulp.dest(config.dest))
+    .pipe(gulp.dest(config.dest));
 }
 
 /**
@@ -34,7 +34,7 @@ function buildHtml() {
  */
 function copyBuiltAssets() {
   return gulp.src('dist/*.{css,js}')
-    .pipe(gulp.dest(config.dest + '/assets/'))
+    .pipe(gulp.dest(`${config.dest}/assets/`));
 }
 
 /**
@@ -42,7 +42,7 @@ function copyBuiltAssets() {
  */
 function copyBinaryAssets() {
   return gulp.src('packages/assets/**/*')
-    .pipe(gulp.dest(config.dest + '/assets/'))
+    .pipe(gulp.dest(`${config.dest}/assets/`));
 }
 
 /**
@@ -50,10 +50,10 @@ function copyBinaryAssets() {
  */
 function serve() {
   connect.server({
-    root: config.dest,
+    host: '0.0.0.0',
     livereload: true,
     port: 3000,
-    host: '0.0.0.0',
+    root: config.dest,
   });
 }
 
@@ -62,7 +62,7 @@ function serve() {
  */
 function reload() {
   return gulp.src(config.dest)
-    .pipe(connect.reload())
+    .pipe(connect.reload());
 }
 
 gulp.task('docs:build', gulp.series([
@@ -71,7 +71,8 @@ gulp.task('docs:build', gulp.series([
   copyBinaryAssets,
   reload,
 ]));
+
 gulp.task('docs:serve', gulp.series([
   'docs:build',
-  gulp.parallel(serve)
+  gulp.parallel(serve),
 ]));

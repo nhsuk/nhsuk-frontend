@@ -21,6 +21,10 @@ jobs:
       script: npm run lint
 
     - stage: tests
+      name: Jest
+      script: npm run jest:ci
+
+    - stage: tests
       name: Backstop
       before_script:
         - npm start &

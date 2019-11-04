@@ -6,7 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
@@ -16,10 +16,12 @@
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
-    "build-gh-release": "gulp zip"
+    "build-gh-release": "gulp zip",
+    "jest:dev": "jest --watch",
+    "jest:ci": "jest"
   },
   "dependencies": {
-    "accessible-autocomplete": "^1.6.2",
+    "accessible-autocomplete": "^2.0.1",
     "sass-mq": "^4.0.2"
   },
   "devDependencies": {
@@ -27,20 +29,23 @@
     "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
     "backstopjs": "^4.3.2",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-config-nhsuk": "^0.16.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-nhsuk": "^1.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.20.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.10.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-connect": "^5.7.0",
-    "gulp-nunjucks": "^4.0.0",
+    "gulp-nunjucks": "^5.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^4.2.0",
-    "htmlhint": "^0.10.3",
+    "gulp-zip": "^5.0.1",
+    "htmlhint": "^0.11.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
     "minimist": "^1.2.0",
     "node-sass": "^4.12.0",
     "nunjucks": "^3.2.0",
@@ -51,6 +56,11 @@
     "extends": "./tests/linters/.eslintrc.js"
   },
   "sasslintConfig": "./tests/linters/.sass-lint.yml",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
   "files": [
     "dist",
     "packages"
