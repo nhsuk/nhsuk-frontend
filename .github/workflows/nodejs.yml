@@ -14,3 +14,5 @@ jobs:
       run: npm install
     - name: Run linting
       run: npm run test
+    - name: Run backstop
+      run: npm run backstop:test
