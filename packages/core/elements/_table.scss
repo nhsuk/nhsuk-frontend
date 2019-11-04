@@ -24,18 +24,23 @@ table {
 thead {
   th {
     border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
-    vertical-align: middle;
   }
 }
 
 th,
 td {
   @include nhsuk-typography-responsive(19);
-  @include nhsuk-responsive-padding(3);
+  @include nhsuk-responsive-padding(3, 'bottom');
+  @include nhsuk-responsive-padding(4, 'right');
+  @include nhsuk-responsive-padding(3, 'top');
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
   text-align: left;
   vertical-align: top;
+
+  &:last-child {
+    padding-right: 0;
+  }
 }
 
 th {
