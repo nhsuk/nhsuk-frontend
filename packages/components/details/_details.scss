@@ -31,7 +31,9 @@
   padding-left: nhsuk-spacing(4);
   position: relative; /* [3] */
 
-  @include nhsuk-link-style-hover();
+  &:hover {
+    color: $nhsuk-link-hover-color;
+  }
 
   &:before {
     bottom: 0;
@@ -114,6 +116,12 @@
 
     &:before {
       display: none !important; // sass-lint:disable-line no-important /* [1] */
+    }
+
+    &:hover {
+      .nhsuk-details__summary-text {
+        color: $nhsuk-link-hover-color;
+      }
     }
 
     &:focus {
