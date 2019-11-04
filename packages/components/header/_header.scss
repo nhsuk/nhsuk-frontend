@@ -927,21 +927,6 @@
       }
 
     }
-
-    &:focus {
-      background: $nhsuk-focus-color;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-
-      .nhsuk-organisation-name,
-      .nhsuk-organisation-descriptor {
-        color: $nhsuk-focus-text-color;
-      }
-
-      .nhsuk-logo {
-        box-shadow: none;
-      }
-
-    }
   }
 
   .nhsuk-header__logo .nhsuk-logo {
