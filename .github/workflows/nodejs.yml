@@ -14,7 +14,4 @@ jobs:
       run: npm install
     - name: Run linting
       run: npm run test
-    - name: Start server
-      run: npm start
-    - name: Run backstop
-      run: npm run backstop:test
+    - uses: ./.github/actions/backstop
