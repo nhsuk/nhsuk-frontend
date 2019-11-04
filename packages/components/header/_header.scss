@@ -580,10 +580,7 @@
 
   }
 
-  &:active {
-    color: $color_nhsuk-white;
-  }
-
+  &:active,
   &:focus {
     background-color: $nhsuk-focus-color;
     border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;

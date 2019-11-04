@@ -32,6 +32,10 @@
     background-color: $color_nhsuk-white;
     box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-3;
     color: $color_nhsuk-blue;
+
+    .nhsuk-promo__heading {
+      color: $nhsuk-link-hover-color;
+    }
   }
 
   &:focus {
