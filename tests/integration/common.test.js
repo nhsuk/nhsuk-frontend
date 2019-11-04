@@ -18,7 +18,6 @@ describe('toggleAttribute util', () => {
   });
 
   describe('Adds attribute with value of "true"', () => {
-
     it('if the element currently has no attribute', () => {
       expect(testElement).toBeDefined();
       toggleAttribute(testElement, attr);
