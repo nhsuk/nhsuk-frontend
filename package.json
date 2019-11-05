@@ -16,7 +16,7 @@
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "backstop:ci": "start-server-and-test start http://localhost:3000 backstop:ci:docker",
-    "backstop:ci:docker": "docker run --rm -it -t=false --mount type=bind,source='/home/runner/work/nhsuk-frontend/nhsuk-frontend',target=/src backstopjs/backstopjs:4.3.2 test '--config=./tests/backstop/backstop.js' '--moby'",
+    "backstop:ci:docker": "docker run --rm -it -t=false --network='host' --testhost=http://127.0.0.1:3000 --mount type=bind,source='/home/runner/work/nhsuk-frontend/nhsuk-frontend',target=/src backstopjs/backstopjs:4.3.2 test '--config=./tests/backstop/backstop.js' --moby",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip"
   },
