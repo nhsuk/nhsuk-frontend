@@ -5,14 +5,20 @@ on: pull_request
 jobs:
   test:
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node-version: [12.x]
+    
+    services:
+      docker:
+        image: backstopjs/backstopjs
+
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: npm install
     - name: Run linting
       run: npm test
-    - name: Install dependencies
+    - name: Run backstop
       run: npm run backstop:ci
