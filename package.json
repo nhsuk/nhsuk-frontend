@@ -15,6 +15,7 @@
     "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
+    "backstop:ci": "start-server-and-test start http://localhost:3000 backstop:test",
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip"
   },
@@ -44,6 +45,7 @@
     "minimist": "^1.2.0",
     "nunjucks": "^3.2.0",
     "sass-lint": "^1.13.1",
+    "start-server-and-test": "^1.10.6",
     "webpack-stream": "^5.2.1"
   },
   "eslintConfig": {
