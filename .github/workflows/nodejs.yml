@@ -24,7 +24,5 @@ jobs:
     - name: Run linting
       run: npm test
     - name: Run backstop
-      run: npm run backstop:test
-      env:
-        TEST_HOST: http://localhost:3000
+      run: npm run backstop:ci
       
