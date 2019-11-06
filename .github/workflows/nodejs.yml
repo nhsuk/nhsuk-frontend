@@ -13,6 +13,8 @@ jobs:
     services:
       docker:
         image: backstopjs/backstopjs
+    env:
+      TEST_HOST: http://localhost:3000
 
     steps:
     - uses: actions/checkout@v1
