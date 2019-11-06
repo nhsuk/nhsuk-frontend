@@ -13,6 +13,7 @@ jobs:
     services:
       docker:
         image: backstopjs/backstopjs
+        
     env:
       TEST_HOST: http://localhost:3000
 
@@ -23,4 +24,4 @@ jobs:
     - name: Run linting
       run: npm test
     - name: Run backstop
-      run: npm run backstop:ci
+      run: npm run backstop:test
