@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 3.0.0 - 5 November 2019
+## 3.0.0 - 7 November 2019
 
 :boom: **Breaking changes**
 
