@@ -13,9 +13,6 @@ jobs:
     services:
       docker:
         image: backstopjs/backstopjs
-        
-    env:
-      TEST_HOST: http://localhost:3000
 
     steps:
     - uses: actions/checkout@v1
@@ -24,4 +21,4 @@ jobs:
     - name: Run linting
       run: npm test
     - name: Run backstop
-      run: npm run backstop:test
+      run: TEST_HOST=http://localhost:3000 npm run backstop:test
