@@ -11,7 +11,7 @@
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
-    "backstop:ref": "start-server-and-test start http://localhost:3000 'backstop --config=tests/backstop/backstop.js reference --docker'",
+    "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
     "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
     "backstop:ci": "start-server-and-test start http://localhost:3000 backstop:test",
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
