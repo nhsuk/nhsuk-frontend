@@ -8,7 +8,7 @@ jobs:
     
     services:
       docker:
-        image: node/12-alpine
+        image: node:12-alpine
 
     steps:
     - uses: actions/checkout@v1
