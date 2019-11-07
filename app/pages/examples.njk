@@ -1,4 +1,4 @@
-{% set title = 'Examples - NHS.UK frontend' %}
+{% set title = 'Examples' %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 
 {% extends 'page.njk' %}
@@ -10,7 +10,7 @@
 {% block breadcrumb %}
   {{ breadcrumb({
     href: "../",
-    text: "Home"
+    text: "NHS.UK frontend"
   }) }}
 {% endblock %}
 
@@ -19,7 +19,6 @@
   <h1>Examples</h1>
 
   <h2>Components</h2>
-
   <ul class="nhsuk-list">
     <li><a href="../components/action-link/index.html">Action link</a></li>
     <li><a href="../components/back-link/index.html">Back link</a></li>
@@ -44,25 +43,22 @@
     <li><a href="../components/date-input/multiple-errors.html">Date input with multiple errors</a></li>
     <li><a href="../components/details/index.html">Details</a></li>
     <li><a href="../components/do-dont-list/index.html">Do and Don't list</a></li>
-    <li><a href="../components/emergency-alert/index.html">Emergency alert</a></li>
     <li><a href="../components/error-message/index.html">Error message</a></li>
     <li><a href="../components/error-summary/index.html">Error summary</a></li>
     <li><a href="../components/details/expander.html">Expander</a></li>
     <li><a href="../components/details/expander-group.html">Expander group</a></li>
-    <li><a href="../components/feedback-banner/index.html">Feedback banner</a></li>
     <li><a href="../components/fieldset/index.html">Fieldset</a></li>
     <li><a href="../components/fieldset/page-heading.html">Fieldset as page heading</a></li>
     <li><a href="../components/fieldset/with-inputs.html">Fieldset with inputs</a></li>
     <li><a href="../components/footer/index.html">Footer</a></li>
     <li><a href="../components/footer/columns.html">Footer with list columns</a></li>
     <li><a href="../components/header/index.html">Header</a></li>
+    <li><a href="../components/header/header-navigation.html">Header with navigation</a></li>
+    <li><a href="../components/header/header-search.html">Header with search</a></li>
     <li><a href="../components/header/header-logo.html">Header with logo only</a></li>
-    <li><a href="../components/header/header-service-name.html">Header with service name and search</a></li>
     <li><a href="../components/header/header-transactional.html">Header transactional</a></li>
     <li><a href="../components/header/header-transactional-service-name.html">Header transactional with service name</a></li>
     <li><a href="../components/header/header-transactional-long-service-name.html">Header transactional with a long service name</a></li>
-    <li><a href="../components/header/header-navigation.html">Header with navigation</a></li>
-    <li><a href="../components/header/header-search.html">Header with search</a></li>
     <li><a href="../components/hero/index.html">Hero</a></li>
     <li><a href="../components/hero/hero-image.html">Hero with image</a></li>
     <li><a href="../components/hero/hero-image-content.html">Hero with image with content</a></li>
@@ -109,6 +105,14 @@
     <li><a href="../components/textarea/autocomplete.html">Textarea with autocomplete attribute</a></li>
     <li><a href="../components/textarea/error.html">Textarea with error message</a></li>
     <li><a href="../components/warning-callout/index.html">Warning callout</a></li>
+  </ul>
+
+  <h3>Experimental</h3>
+
+  <ul class="nhsuk-list">
+    <li><a href="../components/header/header-org.html">Header organisational</a></li>
+    <li><a href="../components/header/header-org-white.html">Header organisational with white header</a></li>
+    <li><a href="../components/header/header-org-white-nav.html">Header organisational with white header and navigation</a></li>
   </ul>
 
 {% endblock %}

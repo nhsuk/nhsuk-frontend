@@ -1,49 +1,28 @@
 /*
- * Skip link
+ * NHS.UK skip link.
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when elected so the next focusable element is not at the jumped to area.
- * This Javascript hack focuses on the first page <h1> element
- * (if one exists, which it should) by adding tabindex = -1 to it and
- * then removes it when focus is off it.
  */
 
-function addFocus() {
-  const headingElement = document.getElementsByTagName('H1')[0];
-  headingElement.setAttribute('tabIndex', '-1');
-  headingElement.focus();
-}
+export default () => {
+  // Assign required DOM elements
+  const heading = document.querySelector('h1');
+  const skipLink = document.querySelector('.nhsuk-skip-link');
 
-function removeFocus() {
-  const headingElement = document.getElementsByTagName('H1')[0];
-  headingElement.removeAttribute('tabIndex');
-}
-
-function handleSkipLink() {
-  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
-  const headingElement = document.getElementsByTagName('H1')[0];
-  if (skipLinkElement && headingElement) {
-    skipLinkElement.addEventListener('click', e => { /* eslint-disable-line arrow-parens */
-      e.preventDefault();
-      addFocus();
+  const addEvents = () => {
+    // Add tabindex = -1 and apply focus to heading on skip link click
+    skipLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      heading.setAttribute('tabIndex', '-1');
+      heading.focus();
     });
-  }
-}
-
-function handleHeader() {
-  const skipLinkElement = document.querySelector('.nhsuk-skip-link');
-  const headingElement = document.getElementsByTagName('H1')[0];
-  if (skipLinkElement && headingElement) {
-    headingElement.addEventListener('blur', e => { /* eslint-disable-line arrow-parens */
-      e.preventDefault();
-      removeFocus();
+    // Remove tabindex from heading on blur
+    heading.addEventListener('blur', (event) => {
+      event.preventDefault();
+      heading.removeAttribute('tabIndex');
     });
-  }
-}
+  };
 
-function nhsuk_skipLink() { /* eslint-disable-line camelcase */
-  handleSkipLink();
-  handleHeader();
-}
-
-export default nhsuk_skipLink; /* eslint-disable-line camelcase */
+  if (heading && skipLink) addEvents();
+};

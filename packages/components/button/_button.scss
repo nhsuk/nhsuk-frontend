@@ -16,16 +16,15 @@ $button-shadow-size: 4px;
 
 .nhsuk-button {
   @include nhsuk-font(19);
-  @include nhsuk-focusable;
   @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
-  background-color: $nhsuk-button-colour;
+  background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
   border-radius: 4px;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
   box-sizing: border-box;
-  color: $nhsuk-button-text-colour;
+  color: $nhsuk-button-text-color;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -45,7 +44,7 @@ $button-shadow-size: 4px;
   &:visited,
   &:active,
   &:hover {
-    color: $nhsuk-button-text-colour;
+    color: $nhsuk-button-text-color;
     text-decoration: none;
   }
 
@@ -55,13 +54,21 @@ $button-shadow-size: 4px;
     padding: 0;
   }
 
-  &:hover,
+  &:hover {
+    background-color: $nhsuk-button-hover-color;
+  }
+
   &:focus {
-    background-color: $nhsuk-button-hover-colour;
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
   }
 
   &:active {
+    background: $nhsuk-button-active-color;
     box-shadow: none;
+    color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
 
@@ -99,40 +106,66 @@ $button-shadow-size: 4px;
  */
 
 .nhsuk-button--secondary {
-  background-color: $nhsuk-secondary-button-colour;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour;
+  background-color: $nhsuk-secondary-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
 
-  &:hover,
+  &:hover {
+    background-color: darken($nhsuk-secondary-button-color, 10%);
+  }
+
   &:focus {
-    background-color: $nhsuk-secondary-button-hover-colour;
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-secondary-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
   }
 
   &.nhsuk-button--disabled {
-    background-color: $nhsuk-secondary-button-colour;
+    background-color: $nhsuk-secondary-button-color;
   }
 
 }
 
 .nhsuk-button--reverse {
-  background-color: $nhsuk-reverse-button-colour;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour;
-  color: $nhsuk-reverse-button-text-colour;
+  background-color: $nhsuk-reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color;
+  color: $nhsuk-reverse-button-text-color;
 
-  &:hover,
+  &:hover {
+    background-color: darken($nhsuk-reverse-button-color, 5%);
+    color: $nhsuk-reverse-button-text-color;
+  }
+
   &:focus {
-    background-color: $nhsuk-reverse-button-hover-colour;
-    color: $nhsuk-reverse-button-text-colour;
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-reverse-button-active-color;
+    box-shadow: none;
+    color: $color_nhsuk-white;
+    top: $button-shadow-size;
   }
 
   &:link {
-    color: $nhsuk-reverse-button-text-colour;
+    color: $nhsuk-reverse-button-text-color;
   }
 
   &.nhsuk-button--disabled {
-    background-color: $nhsuk-reverse-button-colour;
+    background-color: $nhsuk-reverse-button-color;
 
     &:focus {
-      background-color: $nhsuk-reverse-button-colour;
+      background-color: $nhsuk-reverse-button-color;
     }
   }
 
@@ -145,22 +178,22 @@ $button-shadow-size: 4px;
 .nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button[disabled] {
-  background-color: $nhsuk-button-colour;
+  background-color: $nhsuk-button-color;
   opacity: (.5);
   pointer-events: none;
 
   &:hover {
-    background-color: $nhsuk-button-colour;
+    background-color: $nhsuk-button-color;
     cursor: default;
   }
 
   &:focus {
-    background-color: $nhsuk-button-colour;
+    background-color: $nhsuk-button-color;
     outline: none;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
     top: 0;
   }
 
@@ -168,11 +201,11 @@ $button-shadow-size: 4px;
 
 .nhsuk-button--secondary[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--secondary[disabled] {
-  background-color: $nhsuk-secondary-button-colour;
+  background-color: $nhsuk-secondary-button-color;
   opacity: (.5);
 
   &:hover {
-    background-color: $nhsuk-secondary-button-colour;
+    background-color: $nhsuk-secondary-button-color;
     cursor: default;
   }
 
@@ -181,7 +214,7 @@ $button-shadow-size: 4px;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
     top: 0;
   }
 
@@ -189,11 +222,11 @@ $button-shadow-size: 4px;
 
 .nhsuk-button--reverse[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--reverse[disabled] {
-  background-color: $nhsuk-reverse-button-colour;
+  background-color: $nhsuk-reverse-button-color;
   opacity: (.5);
 
   &:hover {
-    background-color: $nhsuk-reverse-button-colour;
+    background-color: $nhsuk-reverse-button-color;
     cursor: default;
   }
 
@@ -202,8 +235,20 @@ $button-shadow-size: 4px;
   }
 
   &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
     top: 0;
   }
 
+}
+
+/**
+ * IE8 fix for focus styles
+ */
+
+.ie8 {
+  .nhsuk-button {
+    &:focus {
+      outline: 1px dotted $nhsuk-focus-text-color;
+    }
+  }
 }

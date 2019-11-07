@@ -41,6 +41,10 @@
   &:visited {
     color: $nhsuk-secondary-text-color;
   }
+
+  &:hover {
+    color: $nhsuk-text-color;
+  }
 }
 
 .nhsuk-footer__copyright {

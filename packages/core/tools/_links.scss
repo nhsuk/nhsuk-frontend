@@ -16,55 +16,29 @@
     color: $nhsuk-link-visited-color;
   }
 
-  &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-  }
-
   &:hover {
-    background-color: $nhsuk-link-hover-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
     color: $nhsuk-link-hover-color;
     text-decoration: none;
   }
 
+  &:focus {
+    @include nhsuk-focused-text();
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $nhsuk-focus-text-color;
+    }
+
+    .nhsuk-icon {
+      fill: $nhsuk-focus-text-color;
+    }
+  }
+
   &:active {
     color: $nhsuk-link-active-color;
-  }
-
-}
-
-//
-// Inverted link styling, used in the emergency alert banner.
-//
-// Usage: @include nhsuk-link-style-inverted;
-//
-
-@mixin nhsuk-link-style-inverted {
-
-  color: $nhsuk-link-color;
-
-  &:focus {
-    background-color: $color_shade_nhsuk-blue-35;
-    box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
-    color: $color_nhsuk-white;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-  }
-
-  &:hover {
-    background-color: $color_nhsuk-blue;
-    box-shadow: 0 0 0 4px $color_nhsuk-blue;
-    color: $color_nhsuk-white;
-  }
-
-  &:active {
-    background-color: $color_shade_nhsuk-blue-50;
-    box-shadow: 0 0 0 4px $color_shade_nhsuk-blue-35;
-    color: $color_nhsuk-white;
   }
 
 }
@@ -84,7 +58,7 @@
   }
 
   &:focus {
-    color: $nhsuk-link-focus-color;
+    color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
     text-decoration: underline;
@@ -109,25 +83,6 @@
 
 @mixin nhsuk-link-style-hover {
   &:hover {
-    background-color: $nhsuk-link-hover-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-hover-background-color;
-    color: $nhsuk-link-hover-color;
     text-decoration: none;
-  }
-}
-
-//
-// Default link focus only styling
-//
-// Usage: @include nhsuk-link-style-focus;
-//
-
-@mixin nhsuk-link-style-focus {
-  &:focus {
-    background-color: $nhsuk-link-focus-background-color;
-    box-shadow: 0 0 0 4px $nhsuk-link-focus-background-color;
-    color: $nhsuk-link-focus-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
   }
 }

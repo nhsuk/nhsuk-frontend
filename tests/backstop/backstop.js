@@ -131,10 +131,6 @@ module.exports = {
       "url": `${TEST_HOST}/components/do-dont-list/index.html`
     },
     {
-      "label": "Emergency alert",
-      "url": `${TEST_HOST}/components/emergency-alert/index.html`
-    },
-    {
       "label": "Error message",
       "url": `${TEST_HOST}/components/error-message/index.html`
     },
@@ -151,11 +147,6 @@ module.exports = {
       "label": "Expander group",
       "url": `${TEST_HOST}/components/details/expander-group.html`,
       "clickSelector": ".nhsuk-details__summary"
-    },
-    {
-      "label": "Feedback banner",
-      "url": `${TEST_HOST}/components/feedback-banner/index.html`,
-      "delay": 5000
     },
     {
       "label": "Footer",
@@ -184,10 +175,6 @@ module.exports = {
     {
       "label": "Header with logo only",
       "url": `${TEST_HOST}/components/header/header-logo.html`
-    },
-    {
-      "label": "Header with service name and search",
-      "url": `${TEST_HOST}/components/header/header-service-name.html`
     },
     {
       "label": "Header transactional",
@@ -247,6 +234,18 @@ module.exports = {
           "height": 667
         }
       ]
+    },
+    {
+      "label": "Header organisational",
+      "url": `${TEST_HOST}/components/header/header-org.html`
+    },
+    {
+      "label": "Header organisational with white header",
+      "url": `${TEST_HOST}/components/header/header-org-white.html`
+    },
+    {
+      "label": "Header organisational with white header and navigation",
+      "url": `${TEST_HOST}/components/header/header-org-white-nav.html`
     },
     {
       "label": "Hero",
