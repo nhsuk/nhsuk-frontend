@@ -1,6 +1,6 @@
-module.exports = async (page, scenario, vp) => {
-  console.log('SCENARIO > ' + scenario.label);
-  await require('./clickAndHoverHelper')(page, scenario);
+const clickAndHoverHelper = require('./clickAndHoverHelper');
 
-  // add more ready handlers here...
+module.exports = async (page, scenario) => {
+  console.log(`SCENARIO > ${scenario.label}`);
+  await clickAndHoverHelper(page, scenario);
 };
