@@ -590,6 +590,10 @@
     outline-offset: $nhsuk-focus-width;
     text-decoration: none;
 
+    &:hover {
+      background-color: $nhsuk-focus-color;
+    }
+
     &:visited {
       background-color: $nhsuk-focus-color;
       color: $nhsuk-focus-text-color;

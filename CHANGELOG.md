@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 3.0.1 - 7 November 2019
+
+:wrench: **Fixes**
+
+- Main nav link - fix focus state + hover state style
+
 ## 3.0.0 - 7 November 2019
 
 :boom: **Breaking changes**
