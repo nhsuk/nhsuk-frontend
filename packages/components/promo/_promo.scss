@@ -30,7 +30,6 @@
 
   &:hover {
     background-color: $color_nhsuk-white;
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-3;
     color: $color_nhsuk-blue;
 
     .nhsuk-promo__heading {
@@ -50,7 +49,7 @@
 
   &:active {
     background-color: $color_nhsuk-white; /* [7] */
-    box-shadow: 0 0 0 $nhsuk-box-shadow-link $color_nhsuk-grey-4;
+    box-shadow: none;
     top: $nhsuk-box-shadow-link; /* [7] */
 
     .nhsuk-promo__heading {
