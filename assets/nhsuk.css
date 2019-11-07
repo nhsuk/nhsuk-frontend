@@ -5521,7 +5521,6 @@ b {
   /* [5] */ }
   .nhsuk-promo__link-wrapper:hover {
     background-color: #ffffff;
-    box-shadow: 0 0 0 4px #aeb7bd;
     color: #005eb8; }
     .nhsuk-promo__link-wrapper:hover .nhsuk-promo__heading {
       color: #7C2855; }
@@ -5537,7 +5536,7 @@ b {
   .nhsuk-promo__link-wrapper:active {
     background-color: #ffffff;
     /* [7] */
-    box-shadow: 0 0 0 4px #d8dde0;
+    box-shadow: none;
     top: 4px;
     /* [7] */ }
     .nhsuk-promo__link-wrapper:active .nhsuk-promo__heading {
