@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>NHS.UK frontend - Components</title>
+    <title>Components - NHS.UK frontend</title>
 
     <link href="https://www.nhs.uk/" rel="preconnect">
     <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
@@ -57,11 +57,10 @@
 
 <header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
-    <div class="nhsuk-header__logo">
-      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        <svg class="nhsuk-logo nhsuk-logo--white" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
-          <path fill="#fff" d="M0 0h40v16H0z"></path>
-          <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+    <div class="nhsuk-header__logo"><a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
           <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
         </svg>
       </a>
@@ -106,64 +105,66 @@
     </div>
 
     <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
-      <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
-        <button class="nhsuk-header__navigation-close" id="close-menu">
-          <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-          </svg>
-          <span class="nhsuk-u-visually-hidden">Close menu</span>
-        </button>
-      </p>
-      <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
-          <a class="nhsuk-header__navigation-link" href="/">
-            Home
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+      <div class="nhsuk-width-container">
+        <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
+          <button class="nhsuk-header__navigation-close" id="close-menu">
+            <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
             </svg>
-          </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
-            Health A-Z
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
-            Live Well
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
-            Care and support
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/">
-            Health news
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search">
-            Services near you
-            <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-            </svg>
-          </a>
-        </li>
-      </ul>
+            <span class="nhsuk-u-visually-hidden">Close menu</span>
+          </button>
+        </p>
+        <ul class="nhsuk-header__navigation-list">
+          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
+            <a class="nhsuk-header__navigation-link" href="/">
+              Home
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
+              Health A-Z
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
+              Live Well
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
+              Care and support
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/">
+              Health news
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search">
+              Services near you
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     </header>
@@ -230,6 +231,23 @@
           
 
   <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
+
+  <h2>Heading level two</h2>
+
+  <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
+
+  <h3>Heading level three</h3>
+
+  <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
+
+  <h4>Heading level four</h4>
+
+  <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
+  <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
+
+  <h2>Heading level two</h2>
+
+  <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
 
   <div class="nhsuk-inset-text">
   <span class="nhsuk-u-visually-hidden">Information: </span>
@@ -303,16 +321,26 @@
 
 
   
-  <div class="nhsuk-review-date">
-    <p class="nhsuk-body-s">
-      Page last reviewed: 12 February 2016<br>
-      Next review due: 1 February 2019
-    </p>
+<div class="nhsuk-care-card nhsuk-care-card--immediate">
+  <div class="nhsuk-care-card__heading-container">
+    <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span></h3>
+    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
+  <div class="nhsuk-care-card__content">
+  
+    <ul>
+      <li>spreads to your arms, back, neck or jaw</li>
+      <li>makes your chest feel tight or heavy</li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
+    </ul>
+    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+    
+  </div>
+</div>
 
 
   <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
   <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
   </figcaption>
@@ -320,7 +348,7 @@
 
 
   <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
   <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
   </figcaption>
@@ -530,7 +558,7 @@
   
 <div class="nhsuk-promo">
   <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk">
-    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt="">
+    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg" alt="">
     <div class="nhsuk-promo__content">
       <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
       <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -565,7 +593,7 @@
       
 <div class="nhsuk-promo">
   <a class="nhsuk-promo__link-wrapper" href="#">
-    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt="">
+    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg" alt="">
     <div class="nhsuk-promo__content">
       <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
       <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -578,7 +606,7 @@
       
 <div class="nhsuk-promo">
   <a class="nhsuk-promo__link-wrapper" href="#">
-    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/MS_1018_give_blood.2e16d0ba.fill-2400x1350.jpg" alt="">
+    <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg" alt="">
     <div class="nhsuk-promo__content">
       <h3 class="nhsuk-promo__heading">Save a life: give blood</h3>
       <p class="nhsuk-promo__description">Please register today. Donating blood is easy, and saves lives.</p>
@@ -759,6 +787,83 @@
 </div>
 
 
+  <dl class="nhsuk-summary-list">
+  
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Name
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        Sarah Philips
+      </dd>
+      
+        <dd class="nhsuk-summary-list__actions">
+          
+            <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+        </dd>
+      
+    </div>
+  
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Date of birth
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        5 January 1978
+      </dd>
+      
+        <dd class="nhsuk-summary-list__actions">
+          
+            <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
+                </a>
+          
+        </dd>
+      
+    </div>
+  
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Contact information
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        72 Guild Street<br>London<br>SE23 6FH
+      </dd>
+      
+        <dd class="nhsuk-summary-list__actions">
+          
+            <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> contact information</span>
+                </a>
+          
+        </dd>
+      
+    </div>
+  
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Contact details
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        <p>07700 900457</p><p>sarah.philips@example.com</p>
+      </dd>
+      
+        <dd class="nhsuk-summary-list__actions">
+          
+            <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                </a>
+          
+        </dd>
+      
+    </div>
+  
+</dl>
+
+
   <nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
   <ol class="nhsuk-nav-a-z__list" role="list">
     <li class="nhsuk-nav-a-z__item">
@@ -900,6 +1005,267 @@
 </div>
 
 
+  
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="input-example">
+    National Insurance number
+  </label>
+  <input class="nhsuk-input nhsuk-input--width-20" id="input-example" name="test-name" type="text">
+</div>
+
+
+  
+
+<div class="nhsuk-form-group nhsuk-form-group--error">
+  <label class="nhsuk-label" for="input-with-error-message">
+    National Insurance number
+  </label>
+  <span class="nhsuk-hint" id="input-with-error-message-hint">
+    It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  </span>
+  <span class="nhsuk-error-message" id="input-with-error-message-error">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Error message goes here
+  </span>
+  <input class="nhsuk-input nhsuk-input--width-20 nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
+</div>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
+  <legend class="nhsuk-fieldset__legend">
+    What is your nationality?
+  </legend>
+
+  <span class="nhsuk-hint" id="nationality-hint">
+    If you have more than 1 nationality, select all options that are relevant to you.
+  </span>
+
+
+  <div class="nhsuk-checkboxes">
+    
+    
+    
+    
+    
+    
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+        British
+      </label>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
+        Irish
+      </label>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+        citizen of another country
+      </label>
+    </div>
+    
+    
+  </div>
+  </fieldset>
+
+
+</div>
+
+
+  
+
+<div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+  <legend class="nhsuk-fieldset__legend">
+    Have you changed your name?
+  </legend>
+
+  <span class="nhsuk-hint" id="example-hint">
+    This includes changing your last name or spelling your name differently.
+  </span>
+
+  <div class="nhsuk-radios">
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+      <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+        Yes
+      </label>
+    </div>
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
+      <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+        No
+      </label>
+    </div>
+  </div>
+  </fieldset>
+
+</div>
+
+
+  
+
+
+
+
+  
+<div class="nhsuk-form-group">
+<fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
+  <legend class="nhsuk-fieldset__legend">
+    What is your date of birth?
+  </legend>
+<span class="nhsuk-hint" id="dob-hint">
+    For example, 31 3 1980
+  </span>
+
+
+  <div class="nhsuk-date-input" id="dob">
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
+          Day
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+      </div>
+    </div>
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
+          Month
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+      </div>
+    </div>
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
+          Year
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+      </div>
+    </div></div></fieldset>
+
+
+</div>
+
+
+  
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="more-detail">
+    Can you provide more detail?
+  </label>
+  <span class="nhsuk-hint" id="more-detail-hint">
+    Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
+  </span>
+  <textarea class="nhsuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+
+  
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="select-1">
+    Label text goes here
+  </label>
+  <select class="nhsuk-select" id="select-1" name="select-1">
+    <option value="1">NHS.UK frontend option 1</option>
+    <option value="2" selected>NHS.UK frontend option 2</option>
+    <option value="3" disabled>NHS.UK frontend option 3</option>
+  </select>
+</div>
+
+
+  <div class="nhsuk-form-group">
+
+    
+
+
+  
+    
+  
+
+
+
+
+<button class="nhsuk-button nhsuk-u-margin-bottom-0" type="submit">
+  Save and continue
+</button>
+
+
+
+
+  </div>
+
+  <div class="nhsuk-form-group">
+
+    
+
+
+  
+    
+  
+
+
+
+
+<button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" type="submit">
+  Find my location
+</button>
+
+
+
+
+  </div>
+
+  
+  <div class="nhsuk-review-date">
+    <p class="nhsuk-body-s">
+      Page last reviewed: 12 February 2016<br>
+      Next review due: 1 February 2019
+    </p>
+  </div>
+
+
+  <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="#">
+  <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+  </svg>
+  Go back</a>
+</div>
+
+
 
         </div>
       </div>
@@ -925,21 +1291,6 @@
     </div>
   </div>
 </footer>
-
-
-  <div class="nhsuk-feedback-banner" id="nhsuk-feedback-banner">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full">
-        <div class="nhsuk-feedback-banner__content">
-          <h2 class="nhsuk-feedback-banner__heading">Help us make the NHS website better</h2>
-          <p class="nhsuk-feedback-banner__message">Your feedback helps us improve the NHS website. <a class="nhsuk-u-nowrap" href="https://www.nhs.uk">Take our short survey</a></p>
-          <button class="nhsuk-feedback-banner__close" id="nhsuk-feedback-banner-close" type="button">Close<span class="nhsuk-u-visually-hidden"> feedback invite</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
   </body>
