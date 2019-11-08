@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Details keydown - following the details polyfill refactor, we've fixed an issue with keydown events not opening or closing the component
+- Search defaults - change default header search URL to use nhs.uk search
 
 ## 3.0.1 - 8 November 2019
 
