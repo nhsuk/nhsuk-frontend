@@ -61,7 +61,7 @@ export default () => {
     summary.addEventListener('keydown', (event) => {
       if (event.keyCode === 13 || event.keyCode === 32) {
         event.preventDefault();
-        toggleDetails();
+        summary.click();
       }
     });
   };
