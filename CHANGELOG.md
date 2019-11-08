@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 3.0.1 - 8 November 2019
+
+:wrench: **Fixes**
+
+- Focus states - following the focus styles changes, we've fixed an issue with the header navigation link styling
+
 ## 3.0.0 - 7 November 2019
 
 :boom: **Breaking changes**
