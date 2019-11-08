@@ -4072,6 +4072,9 @@ b {
     outline: 4px solid transparent;
     outline-offset: 4px;
     text-decoration: none; }
+    .nhsuk-header__navigation-link:active:hover, .nhsuk-header__navigation-link:focus:hover {
+      background-color: #ffeb3b;
+      color: #212b32; }
     .nhsuk-header__navigation-link:active:visited, .nhsuk-header__navigation-link:focus:visited {
       background-color: #ffeb3b;
       color: #212b32; }
