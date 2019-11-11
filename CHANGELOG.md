@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 3.0.2 - 11 November 2019
+
+:wrench: **Fixes**
+
+- Details keydown - following the details polyfill refactor, we've fixed an issue with keydown events not opening or closing the component
+
 ## 3.0.1 - 8 November 2019
 
 :wrench: **Fixes**
