@@ -12,8 +12,6 @@ Visit the [NHS digital service manual](https://beta.nhs.uk/service-manual) for e
 
 We recommend that you [install NHS.UK frontend using node package manager (npm)](/docs/installation/installing-with-npm.md).
 
-Other package managers will become available in early 2019, such as NuGet and Python Package Index (PyPi).
-
 ### 2. Install by using compiled files
 
 You can also [install NHS.UK frontend using our compiled files](/docs/installation/installing-compiled.md), if you are not currently using a package manager.
