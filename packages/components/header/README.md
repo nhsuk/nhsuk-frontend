@@ -41,10 +41,10 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <div class="autocomplete-container" id="autocomplete-container"></div>
-            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -313,10 +313,10 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <div class="autocomplete-container" id="autocomplete-container"></div>
-            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -534,10 +534,10 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <div class="autocomplete-container" id="autocomplete-container"></div>
-            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -690,10 +690,10 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <div class="autocomplete-container" id="autocomplete-container"></div>
-            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -847,10 +847,10 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <span class="nhsuk-u-visually-hidden">Search</span>
         </button>
         <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="/search/" method="get" role="search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <div class="autocomplete-container" id="autocomplete-container"></div>
-            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -994,7 +994,7 @@ The header Nunjucks macro takes the following arguments:
 | **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |
-| **searchAction**             | string   | No        | The search action endpoint. Defaults to "/search/" |
-| **searchInputName**             | string   | No        | The name for the search field. Defaults to "search-field" |
+| **searchAction**             | string   | No        | The search action endpoint. Defaults to "https://www.nhs.uk/search/" |
+| **searchInputName**             | string   | No        | The name for the search field. Defaults to "q" |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
