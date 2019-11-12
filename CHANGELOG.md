@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 3.0.3 - Unreleased
+
+:wrench: **Fixes**
+
+- Expander - fix the Expander plus and minus icon sizing on IE11 ([Issue 564](https://github.com/nhsuk/nhsuk-frontend/issues/564))
+
 ## 3.0.2 - 11 November 2019
 
 :wrench: **Fixes**
