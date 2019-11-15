@@ -1,5 +1,23 @@
 # NHS.UK frontend Changelog
 
+## 3.1.0 - Unreleased
+
+:boom: **Breaking changes**
+
+- Fixed [Issue 563](https://github.com/nhsuk/nhsuk-frontend/issues/563)
+  - `transactionalService` parameter now deprecated. To set transactional service header, use normal service with the transactional flag. e.g:
+  ```
+  {{ header({
+      "transactional": "true",
+      "service": {
+        "name": "Register with a GP"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+  ```
+
 ## 3.0.2 - 11 November 2019
 
 :wrench: **Fixes**
@@ -136,7 +154,7 @@
 
   [Preview the header organisational component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org.html)
 
-  Organisation names can be edited as text in the `nhsuk-organisation-name` span element. 
+  Organisation names can be edited as text in the `nhsuk-organisation-name` span element.
   Longer organisation names can be split onto multiple lines with `nhsuk-organisation-name-split` span. (The NHS England brand guidelines explain when this must be done.)
   The organisation descriptor can be used with the `nhsuk-organisation-descriptor` class name span.
 
