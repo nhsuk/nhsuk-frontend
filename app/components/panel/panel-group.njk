@@ -9,32 +9,34 @@
     <main class="nhsuk-main-wrapper" id="maincontent">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-grid-row nhsuk-card-group">
-            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-grid-row nhsuk-panel-group">
+            <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
               {{ panel({
                 "heading": "Card",
-                "HTML": "<p>This is a card, it will be used to combine panel and promo</p>"
+                "HTML": "<p>This is a panel, it will be used to combine panel and promo</p>"
               }) }}
             </div>
-            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+            <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
               {{ panel({
                 "heading": "Card with label",
                 "label": "Card with a label",
-                "HTML": "<p>This is a card, it will be used to combine panel and promo</p>"
+                "HTML": "<p>This is a panel, it will be used to combine panel and promo</p>"
               }) }}
             </div>
           </div>
-          <div class="nhsuk-grid-row nhsuk-card-group">
-            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-grid-row nhsuk-panel-group">
+            <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
               {{ panel({
                 "heading": "Card",
-                "HTML": "<p>This is a card, it will be used to combine panel and promo</p>"
+                "clickablePanel": true,
+                "href": "https://www.nhs.uk/",
+                "HTML": "<p>This is a panel, it will be used to combine panel and promo</p>"
               }) }}
             </div>
-            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+            <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
               {{ panel({
                 "heading": "Card group",
-                "HTML": "<p>This is a card, it will be used to combine panel and promo</p>"
+                "HTML": "<p>This is a panel, it will be used to combine panel and promo</p>"
               }) }}
             </div>
           </div>
