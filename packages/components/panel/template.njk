@@ -3,6 +3,9 @@
   {% if params.clickablePanel %}clickable-panel {% endif %}
   {% if params.label %}nhsuk-panel-with-label {% endif %}
 ">
+  {% if params.imgUrl %}
+  <img class="nhsuk-panel__img" src="{{ params.imgUrl }}" alt="{{ params.imgAlt }}">
+  {%- endif %}
   {% if params.href %}
     <h{{ headingLevel }}><a href="{{ params.href }}">{{ params.heading | safe }}</a></h{{ headingLevel }}>
   {% elseif params.label %}
