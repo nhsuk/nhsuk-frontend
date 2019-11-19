@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 4.0.0 - 31 March 2020 
+
+:boom: **Breaking changes**
+
+- Promo & Panel - Combining promo and panel into a new Panel component which contains functionality of both.
+
 ## 3.0.4 - 24 March 2020
 
 :wrench: **Fixes**
