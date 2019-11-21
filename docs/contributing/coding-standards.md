@@ -142,9 +142,9 @@ div#nhsuk-ers {
 Bad: 
 
 ```scss
-.nhsuk-checkboxes__conditional {
+.nhsuk-block__element {
   ...
-  .js-enabled &--hidden {
+  .app-custom &--modifier {
     ...
   }
  ...
@@ -154,11 +154,11 @@ Bad:
 Good: 
 
 ```scss
-.nhsuk-checkboxes__conditional {
+.nhsuk-block__element {
   ...
 }
 
-.js-enabled .nhsuk-checkboxes__conditional--hidden {
+.app-custom .nhsuk-block__element--modifier {
   ...
 }
 ```

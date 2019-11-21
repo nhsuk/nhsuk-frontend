@@ -110,32 +110,3 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
   opacity: .5;
 }
-
-/*
- * Conditional
- *
- * 1. Calculate the amount of padding needed to keep the border
- *    centered against the checkbox.
- * 2. Move the border centered with the checkbox.
- * 3. Move the contents of the conditional inline with the label.
- */
-
-$conditional-border-width: $nhsuk-border-width-mobile;
-$conditional-border-padding: ($nhsuk-checkboxes-size / 2) - ($conditional-border-width / 2); /* 1 */
-$conditional-margin-left: $conditional-border-padding; /* 2 */
-$conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; /* 3 */
-
-.nhsuk-checkboxes__conditional {
-  @include nhsuk-responsive-margin(4, 'bottom');
-  border-left: $conditional-border-width solid $nhsuk-form-border-color;
-  margin-left: $conditional-margin-left;
-  padding-left: $conditional-padding-left;
-
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-.js-enabled .nhsuk-checkboxes__conditional--hidden {
-  display: none;
-}

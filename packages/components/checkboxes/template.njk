@@ -11,13 +11,6 @@
    aria-describedby – for example hints or error messages -#}
 {% set describedBy = "" %}
 
-{% set isConditional = false %}
-{% for item in params.items %}
-  {% if item.conditional %}
-    {% set isConditional = true %}
-  {% endif %}
-{% endfor %}
-
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
@@ -42,19 +35,16 @@
   }) | indent(2) | trim }}
 {% endif %}
   <div class="nhsuk-checkboxes {%- if params.classes %} {{ params.classes }}{% endif %}"
-    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
-    {%- if isConditional %} data-module="checkboxes"{% endif -%}>
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
     {% for item in params.items %}
     {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
     {% set name = item.name if item.name else params.name %}
-    {% set conditionalId = "conditional-" + id %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
     {% set itemHintId = id + '-item-hint' %}
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="{{ id }}" name="{{ name }}" type="checkbox" value="{{ item.value }}"
       {{-" checked" if item.checked }}
       {{-" disabled" if item.disabled }}
-      {%- if item.conditional %} data-aria-controls="{{ conditionalId }}"{% endif -%}
       {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
       {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
       {{ label({
@@ -74,11 +64,6 @@
       }) | indent(6) | trim }}
       {%- endif %}
     </div>
-    {% if item.conditional %}
-      <div class="nhsuk-checkboxes__conditional{% if not item.checked %} nhsuk-checkboxes__conditional--hidden{% endif %}" id="{{ conditionalId }}">
-        {{ item.conditional.html | safe }}
-      </div>
-    {% endif %}
     {% endfor %}
   </div>
 {% endset -%}

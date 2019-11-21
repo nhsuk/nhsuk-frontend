@@ -113,8 +113,6 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 /*
  * Inline variant
- *
- * 1. Prevent inline modifier being used with conditional reveals
  */
 
 .nhsuk-radios--inline {
@@ -125,13 +123,6 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
       clear: none;
       float: left;
       margin-right: nhsuk-spacing(4);
-    }
-  }
-
-  &.nhsuk-radios--conditional { /* 1 */
-    .nhsuk-radios__item {
-      float: none;
-      margin-right: 0;
     }
   }
 }
@@ -146,29 +137,4 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
-}
-
-/* Conditional */
-
-$conditional-border-width: $nhsuk-border-width-mobile;
-// Calculate the amount of padding needed to keep the border centered against the radios.
-$conditional-border-padding: ($nhsuk-radios-size / 2) - ($conditional-border-width / 2);
-// Move the border centered with the radios
-$conditional-margin-left: $conditional-border-padding;
-// Move the contents of the conditional inline with the label
-$conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
-
-.nhsuk-radios__conditional {
-  @include nhsuk-responsive-margin(4, 'bottom');
-  border-left: $conditional-border-width solid $nhsuk-form-border-color;
-  margin-left: $conditional-margin-left;
-  padding-left: $conditional-padding-left;
-
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-.js-enabled .nhsuk-radios__conditional--hidden {
-  display: none;
 }
