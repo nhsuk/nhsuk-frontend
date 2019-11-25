@@ -18,6 +18,7 @@ describe('NHS.UK panel', () => {
   describe('should add wrapper class to panel', () => {
     it('if clickable-panel class exists', () => {
       initTest(panelHtml);
+      panel.click();
       expect(panel.classList).toContain(panelWrapper);
     });
   });
