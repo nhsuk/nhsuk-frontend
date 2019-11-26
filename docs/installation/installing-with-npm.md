@@ -90,6 +90,7 @@ import Details from 'node_modules/nhsuk-frontend/packages/components/details/det
 document.addEventListener('DOMContentLoaded', () => {
   Details();
   Header();
+  Panel();
   SkipLink();
 });
 ```
