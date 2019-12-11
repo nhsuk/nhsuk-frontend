@@ -6,7 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run jest:ci",
     "jest": "jest",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
