@@ -112,6 +112,12 @@
       }
     }
 
+    &:focus {
+      .nhsuk-icon {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
+
   }
 
 }

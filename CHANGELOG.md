@@ -8,6 +8,7 @@
 - Button - fix the active state text colour for button as a link
 - Back button - fix the text hover colour for visited links
 - Breadcrumb - fix the text hover colour for visited links
+- Pagination - fix the pagination arrow colour on active and visited links
 
 ## 3.0.2 - 11 November 2019
 
