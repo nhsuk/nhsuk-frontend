@@ -63,6 +63,10 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
+
+    &:visited {
+      color: $nhsuk-button-text-color;
+    }
   }
 
   &:active {
@@ -159,6 +163,10 @@ $button-shadow-size: 4px;
 
   &:link {
     color: $nhsuk-reverse-button-text-color;
+
+    &:active {
+      color: $color_nhsuk-white;
+    }
   }
 
   &.nhsuk-button--disabled {

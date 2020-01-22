@@ -5,6 +5,10 @@
 :wrench: **Fixes**
 
 - Expander - fix the Expander plus and minus icon sizing on IE11 ([Issue 564](https://github.com/nhsuk/nhsuk-frontend/issues/564))
+- Button - fix the active state text colour for button as a link
+- Back button - fix the text hover colour for visited links
+- Breadcrumb - fix the text hover colour for visited links
+- Pagination - fix the pagination arrow colour on active and visited links
 
 ## 3.0.2 - 11 November 2019
 

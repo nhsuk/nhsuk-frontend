@@ -33,6 +33,7 @@
   }
 
   &:hover {
+    color: $nhsuk-link-hover-color;
     text-decoration: underline;
 
     .nhsuk-icon__chevron-left {
