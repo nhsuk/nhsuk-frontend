@@ -37,6 +37,7 @@
  * 15. IE 9 alternative for flexbox
  * 16. Use non variable colour to follow NHS England guidelines on logo colour
  * 17. On print stylesheets remove the header link
+ * 18. Remove random top margin in Safari
  */
 
 @import 'autocomplete';
@@ -461,6 +462,10 @@
 
   @include mq($until: tablet) {
     right: 48px;
+  }
+
+  @include mq($from: tablet, $until: large-desktop) {
+    margin-top: 0; /* [18] */
   }
 
   &:focus {
