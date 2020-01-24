@@ -3405,6 +3405,7 @@ b {
  * 15. IE 9 alternative for flexbox
  * 16. Use non variable colour to follow NHS England guidelines on logo colour
  * 17. On print stylesheets remove the header link
+ * 18. Remove random top margin in Safari
  */
 /* ==========================================================================
    COMPONENTS / #HEADER / #AUTOCOMPLETE
@@ -3958,6 +3959,10 @@ b {
   @media (max-width: 40.0525em) {
     .nhsuk-header__menu-toggle {
       right: 48px; } }
+  @media (min-width: 40.0625em) and (max-width: 61.865em) {
+    .nhsuk-header__menu-toggle {
+      margin-top: 0;
+      /* [18] */ } }
   .nhsuk-header__menu-toggle:focus {
     background-color: #ffeb3b;
     border: 0;
