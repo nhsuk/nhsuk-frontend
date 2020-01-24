@@ -15,6 +15,7 @@
  * 4. 'Random number' for the heading triangle positioning.
  * 5. 'Random number' used for spacing to compensate for the triangle.
  * 6. Needed to enable the triangle to show correctly in high contrast mode.
+ * 7. Prevent additional padding on headings
  */
 
 .nhsuk-care-card {
@@ -59,6 +60,7 @@
   @include print-color($nhsuk-print-text-color);
 
   margin: 0;
+  padding-top: 0; /* [7] */
 }
 
 .nhsuk-care-card__content {

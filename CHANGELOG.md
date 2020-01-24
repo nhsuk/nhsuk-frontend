@@ -10,6 +10,7 @@
 - Breadcrumb - fix the text hover colour for visited links
 - Pagination - fix the pagination arrow colour on active and visited links
 - Header - remove random margin from the Menu button on Safari ([PR 581](https://github.com/nhsuk/nhsuk-frontend/pull/581))
+- Care card - prevent additional padding on care card headings
 
 ## 3.0.2 - 11 November 2019
 
