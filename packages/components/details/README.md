@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the details component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/details).
+Find out more about the details component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/details).
 
 ## Dependencies
 
@@ -68,7 +68,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 #### Guidance
 
-Find out more about the expander component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/expander).
+Find out more about the expander component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/expander).
 
 #### HTML markup
 

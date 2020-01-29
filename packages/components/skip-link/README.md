@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the skip link component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/skip-link).
+Find out more about the skip link component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/skip-link).
 
 ## Dependencies
 
