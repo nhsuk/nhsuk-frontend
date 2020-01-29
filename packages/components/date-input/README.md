@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the date input component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/date-input).
+Find out more about the date input component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/date-input).
 
 Note: The `pattern` attribute is not valid HTML for inputs where the type attribute is number. It is added deliberately to [force numeric keypads on iOS devices](http://bradfrost.com/blog/post/better-numerical-inputs-for-mobile-forms/). See also [presenting iOS keyboards](https://stackoverflow.com/questions/25425181/iphone-ios-presenting-html-5-keyboard-for-postal-codes) for visual examples of iOS keyboards and attributes.
 

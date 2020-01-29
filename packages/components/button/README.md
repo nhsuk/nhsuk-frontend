@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the button component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/buttons).
+Find out more about the button component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/buttons).
 
 ## Quick start examples
 

@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the select component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/select).
+Find out more about the select component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/select).
 
 ## Quick start examples
 

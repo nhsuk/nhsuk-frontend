@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the textarea component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/textarea).
+Find out more about the textarea component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/textarea).
 
 ## Quick start examples
 

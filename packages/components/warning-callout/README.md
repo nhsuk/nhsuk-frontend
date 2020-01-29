@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/warning-callout).
+Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/warning-callout).
 
 ## Quick start example
 

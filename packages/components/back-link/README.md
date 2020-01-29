@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the back link component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link).
+Find out more about the back link component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/back-link).
 
 ## Quick start example
 

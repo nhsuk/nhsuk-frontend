@@ -1,7 +1,7 @@
 # Error summary
 
 ## Guidance
-Find out more about the error summary component and when to use it in the [NHS digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/error-summary).
+Find out more about the error summary component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/error-summary).
 
 ## Quick start example
 
