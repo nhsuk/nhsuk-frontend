@@ -82,9 +82,9 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import Header from './components/header/header';
-import SkipLink from './components/skip-link/skip-link';
-import Details from './components/details/details';
+import Header from 'node_modules/nhsuk-frontend/packages/components/header/header';
+import SkipLink from 'node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
+import Details from 'node_modules/nhsuk-frontend/packages/components/details/details';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
