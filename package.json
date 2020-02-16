@@ -21,7 +21,7 @@
     "jest:ci": "jest"
   },
   "dependencies": {
-    "accessible-autocomplete": "^2.0.1",
+    "accessible-autocomplete": "^2.0.2",
     "sass-mq": "^5.0.1"
   },
   "devDependencies": {
