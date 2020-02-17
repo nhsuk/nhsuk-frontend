@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 3.0.3 - Unreleased
+## 3.0.3 - 17 February 2020
 
 :wrench: **Fixes**
 
