@@ -49,7 +49,8 @@ jobs:
       script: npm run build-gh-release
       deploy:
         provider: releases
-        api_key: $GITHUB_TOKEN
+        edge: true
+        api_token: $GITHUB_TOKEN
         file_glob: true
         file: ./dist/nhsuk-frontend-*.zip
         skip_cleanup: true
@@ -60,6 +61,7 @@ jobs:
       name: publish to npm
       deploy:
         provider: npm
+        edge: true
         email: $NPM_EMAIL
         api_key: $NPM_API_KEY
         on:
