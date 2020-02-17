@@ -50,7 +50,7 @@ jobs:
       deploy:
         provider: releases
         edge: true
-        api_token: $GITHUB_TOKEN
+        token: $GITHUB_TOKEN
         file_glob: true
         file: ./dist/nhsuk-frontend-*.zip
         skip_cleanup: true
@@ -63,7 +63,7 @@ jobs:
         provider: npm
         edge: true
         email: $NPM_EMAIL
-        api_key: $NPM_API_KEY
+        api_token: $NPM_API_KEY
         on:
           tags: true
         skip_cleanup: true
