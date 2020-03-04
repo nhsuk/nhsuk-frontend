@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 3.0.4 - Unreleased
+
+:wrench: **Fixes**
+
+- Breadcrumb - fix the text colour on :focus:hover ([Issue 589](https://github.com/nhsuk/nhsuk-frontend/issues/589))
+
 ## 3.0.3 - 17 February 2020
 
 :wrench: **Fixes**
@@ -149,7 +155,7 @@
 
   [Preview the header organisational component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org.html)
 
-  Organisation names can be edited as text in the `nhsuk-organisation-name` span element. 
+  Organisation names can be edited as text in the `nhsuk-organisation-name` span element.
   Longer organisation names can be split onto multiple lines with `nhsuk-organisation-name-split` span. (The NHS England brand guidelines explain when this must be done.)
   The organisation descriptor can be used with the `nhsuk-organisation-descriptor` class name span.
 
