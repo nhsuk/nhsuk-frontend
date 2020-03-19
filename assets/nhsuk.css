@@ -2288,7 +2288,9 @@ b {
     color: #212b32;
     outline: 4px solid transparent; }
     .nhsuk-button:focus:visited {
-      color: #ffffff; }
+      color: #212b32; }
+      .nhsuk-button:focus:visited:active {
+        color: #ffffff; }
   .nhsuk-button:active {
     background: #00401e;
     box-shadow: none;
