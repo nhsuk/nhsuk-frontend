@@ -6,6 +6,7 @@
 
 - Breadcrumb - fix the text colour on :focus:hover ([Issue 589](https://github.com/nhsuk/nhsuk-frontend/issues/589))
 - Transactional Header - fix the text colour on :focus:hover for non visited links ([Issue 592](https://github.com/nhsuk/nhsuk-frontend/issues/592))
+- Button - fix the text colour on :focus :visited states and remove the role="button" from button as a link example ([Issue 593](https://github.com/nhsuk/nhsuk-frontend/issues/593)) ([Issue 425](https://github.com/nhsuk/nhsuk-frontend/issues/425))
 
 ## 3.0.3 - 17 February 2020
 

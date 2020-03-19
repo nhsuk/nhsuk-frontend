@@ -23,8 +23,7 @@
  {%- endset -%}
 
 {% if element == 'a' %}
-<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" role="button" draggable="false"
-  {%- if params.disabled %} aria-disabled="true"{% endif %}>
+<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" draggable="false"{%- if params.disabled %} aria-disabled="true"{% endif %}>
   {{ params.html | safe if params.html else params.text }}
 </a>
 

@@ -65,7 +65,12 @@ $button-shadow-size: 4px;
     outline: $nhsuk-focus-width solid transparent;
 
     &:visited {
-      color: $nhsuk-button-text-color;
+      color: $nhsuk-focus-text-color;
+
+      &:active {
+        color: $color_nhsuk-white;
+      }
+
     }
   }
 
