@@ -4259,6 +4259,8 @@ b {
     color: #ffffff; }
   .nhsuk-header__transactional-service-name--link:focus {
     text-decoration: none; }
+    .nhsuk-header__transactional-service-name--link:focus:hover {
+      color: #212b32; }
 
 .nhsuk-header--transactional .nhsuk-header__link {
   height: 32px;
