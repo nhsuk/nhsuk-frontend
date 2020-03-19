@@ -37,7 +37,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<a href="/" role="button" draggable="false" class="nhsuk-button">
+<a href="/" class="nhsuk-button" draggable="false">
   Link button
 </a>
 ```
