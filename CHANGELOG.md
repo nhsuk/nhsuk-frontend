@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Breadcrumb - fix the text colour on :focus:hover ([Issue 589](https://github.com/nhsuk/nhsuk-frontend/issues/589))
+- Transactional Header - fix the text colour on :focus:hover for non visited links ([Issue 592](https://github.com/nhsuk/nhsuk-frontend/issues/592))
 
 ## 3.0.3 - 17 February 2020
 
