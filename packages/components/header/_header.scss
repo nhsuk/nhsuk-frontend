@@ -807,6 +807,11 @@
 
   &:focus {
     text-decoration: none;
+
+    &:hover {
+      color: $nhsuk-text-color;
+    }
+
   }
 }
 
