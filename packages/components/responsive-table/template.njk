@@ -1,0 +1,31 @@
+<table role="table" class="nhsuk-responsive-table 
+  {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
+  {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {%- if params.caption %}
+  <caption class="nhsuk-table__caption
+  {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</caption>
+  {%- endif %}
+  {%- if params.head %}
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+    {%- for item in params.head %}
+      <th role="columnheader" class="nhsuk-table__header
+      {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}" scope="col">
+        {{ item.html |safe if item.html else item.text }}
+      </th>
+    {%- endfor %}
+    </tr>
+  </thead>
+  {%- endif %}
+  <tbody class="nhsuk-table__body">
+    {%- for row in params.rows %}
+    <tr role="row">
+    {%- for cell in row %}
+      <td role="cell" class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %}">
+        <span class="nhsuk-responsive-table__heading">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
+      </td>
+    {%- endfor %}
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
