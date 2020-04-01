@@ -310,9 +310,9 @@
 
 /// Panel mixin
 /// 
-/// Two variants of the panel
-/// 1. Default panel
-/// 2. Panel with blue label heading
+/// Default panel
+/// See components/_panel
+
 @mixin panel($panel-background-color, $panel-text-color) {
 
   @include top-and-bottom();
@@ -330,6 +330,15 @@
 
 }
 
+//
+// Panel with label mixin, inherits panel styling
+// and removes padding top for the label positioning.
+//
+// Used in-conjunction with @mixin heading-label
+//
+// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+// See components/_warning-component
+//
 @mixin panel-with-label($panel-background-color, $panel-text-color) {
   @include panel($panel-background-color, $panel-text-color);
 
