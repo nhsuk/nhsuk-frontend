@@ -308,7 +308,11 @@
   width: 80px;
 }
 
-// Panel mixin
+/// Panel mixin
+/// 
+/// Two variants of the panel
+/// 1. Default panel
+/// 2. Panel with blue label heading
 @mixin panel($panel-background-color, $panel-text-color) {
 
   @include top-and-bottom();
