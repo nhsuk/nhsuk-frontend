@@ -5,9 +5,9 @@ $mobile: 768px;
   width: 100%;
 
   thead {
+    -webkit-clip-path: inset(50%);
     border: 0;
     clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
     height: 1px;
     margin: 0;
@@ -18,8 +18,8 @@ $mobile: 768px;
     width: 1px;
 
     @media (min-width: $mobile) {
-      clip: auto;
       -webkit-clip-path: none;
+      clip: auto;
       clip-path: none;
       display: table-header-group;
       height: auto;
@@ -39,7 +39,7 @@ $mobile: 768px;
       }
 
       @media (max-width: $mobile) {
-        padding: 0 0.5em;
+        padding: 0 .5em;
       }
 
       @media (min-width: $mobile) {
@@ -56,7 +56,7 @@ $mobile: 768px;
 
       td {
         display: block; // For browsers that don't support flexbox
-        display: flex;
+        display: flex; // sass-lint:disable-line no-duplicate-properties 
         justify-content: space-between;
         min-width: 1px;
         text-align: right;
@@ -94,10 +94,10 @@ $mobile: 768px;
 }
 
 .table-foot {
-  border-bottom: 1px solid #bfc1c3;
+  border-bottom: 1px solid $color_nhsuk-grey-4;
   display: flex;
   font-size: 19px;
   font-weight: 700;
   justify-content: space-between;
-  padding: 0.75em 0 0.75em;
+  padding: .75em 0;
 }
