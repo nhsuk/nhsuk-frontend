@@ -1,4 +1,22 @@
 /**
+ * Add a class on a HTML element
+ * @param {HTMLElement} element
+ * @param {string} className
+*/
+export const addClass = (element, className) => {
+  // Return without error if element or class are missing
+  if (!element || !className) return;
+  // Set a ref to the passed element and its classes
+  const elemRef = element;
+  const classes = element.className;
+  // Regex to check if class already exists on element
+  const regex = new RegExp(`\\b ${className}\\b`);
+  if (!classes.match(regex)) {
+    elemRef.className = `${classes} ${className.trim()}`;
+  }
+};
+
+/**
  * Toggle a class on a HTML element
  * @param {HTMLElement} element
  * @param {string} className
@@ -31,4 +49,20 @@ export const toggleAttribute = (element, attr) => {
   // Toggle attribute value. Treat no existing attr same as when set to false
   const value = (element.getAttribute(attr) === 'true') ? 'false' : 'true';
   element.setAttribute(attr, value);
+};
+
+/**
+ * Toggle a toggle a class on conditional content for an input based on checked state
+ * @param {HTMLElement} input input element
+ * @param {string} className class to toggle
+*/
+export const toggleConditionalInput = (input, className) => {
+  // If the input has conditional content it had a data-aria-controls attribute
+  const conditionalId = input.getAttribute('aria-controls');
+  if (conditionalId) {
+    // Get the conditional element from the input data-aria-controls attribute
+    const conditionalElement = document.getElementById(conditionalId);
+    toggleClass(conditionalElement, className);
+    toggleAttribute(input, 'aria-expanded');
+  }
 };
