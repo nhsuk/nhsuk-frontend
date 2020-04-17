@@ -26,7 +26,7 @@
 .nhsuk-table__panel-with-heading-tab {
   @include panel-with-label($color_nhsuk-white, $nhsuk-text-color);
 
-  .nhsuk-table-responsive,
+  .nhsuk-table-container,
   .nhsuk-table {
     margin: 0; /* [1] */
   }
@@ -40,12 +40,12 @@
 ========================================================================== */
 
 /**
- * Responsive table is used to ensure the table does not break the container.
+ * Table continer is used to ensure the table does not break the container.
  *
  * 1. Margin is removed so there isn't double spacing.
  */
 
-.nhsuk-table-responsive {
+.nhsuk-table-container {
   @include nhsuk-responsive-margin(7, 'bottom');
 
   display: block; // sass-lint:disable-line property-sort-order

@@ -6,7 +6,7 @@
   <h{{ headingLevel }} class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h{{ headingLevel }}>
   {%- endif %}
 {%- endif %}
-  <div class="nhsuk-table-responsive">
+  <div class="nhsuk-table-container">
     <table class="nhsuk-table
       {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
       {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>

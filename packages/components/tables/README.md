@@ -13,7 +13,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### HTML markup
 
 ```html
-<div class="nhsuk-table-responsive">
+<div class="nhsuk-table-container">
   <table class="nhsuk-table">
     <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
     <thead class="nhsuk-table__head">
@@ -97,7 +97,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
   <h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
-  <div class="nhsuk-table-responsive">
+  <div class="nhsuk-table-container">
     <table class="nhsuk-table">
       <caption class="nhsuk-table__caption">Other possible causes of your symptoms</caption>
       <thead class="nhsuk-table__head">

@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 4.0.0 - 17 April 2020
+
+:boom: **Breaking changes**
+- Tables - Adding new responsive table component
+- Tables - Renaming old responsive table class to `nhsuk-table-container` as it is more appropriate
+
 ## 3.1.0 - 24 April 2020
 
 :new: **New features**

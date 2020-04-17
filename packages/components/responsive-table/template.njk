@@ -1,4 +1,4 @@
-<table role="table" class="nhsuk-responsive-table 
+<table role="table" class="nhsuk-table-responsive 
   {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
   {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   {%- if params.caption %}
@@ -22,7 +22,7 @@
     <tr role="row">
     {%- for cell in row %}
       <td role="cell" class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
-        <span class="nhsuk-responsive-table__heading">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
+        <span class="nhsuk-table-responsive__heading">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
       </td>
     {%- endfor %}
     </tr>
