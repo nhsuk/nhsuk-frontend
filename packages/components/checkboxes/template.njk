@@ -41,20 +41,22 @@
     text: params.errorMessage.text
   }) | indent(2) | trim }}
 {% endif %}
-  <div class="nhsuk-checkboxes {%- if params.classes %} {{ params.classes }}{% endif %}"
-    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
-    {%- if isConditional %} data-module="checkboxes"{% endif -%}>
+  <div class="nhsuk-checkboxes {%- if params.classes %} {{ params.classes }}{% endif %} {%- if isConditional %} nhsuk-checkboxes--conditional{% endif -%}"
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
     {% for item in params.items %}
     {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
     {% set name = item.name if item.name else params.name %}
     {% set conditionalId = "conditional-" + id %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
     {% set itemHintId = id + '-item-hint' %}
+	  {%- if item.divider %}
+    <div class="nhsuk-checkboxes__divider">{{ item.divider }}</div>
+    {%- else %}
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="{{ id }}" name="{{ name }}" type="checkbox" value="{{ item.value }}"
       {{-" checked" if item.checked }}
       {{-" disabled" if item.disabled }}
-      {%- if item.conditional %} data-aria-controls="{{ conditionalId }}"{% endif -%}
+      {%- if item.conditional %} aria-controls="{{ conditionalId }}" aria-expanded="{{"true" if item.checked else "false"}}"{% endif -%}
       {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
       {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
       {{ label({
@@ -75,9 +77,10 @@
       {%- endif %}
     </div>
     {% if item.conditional %}
-      <div class="nhsuk-checkboxes__conditional{% if not item.checked %} nhsuk-checkboxes__conditional--hidden{% endif %}" id="{{ conditionalId }}">
-        {{ item.conditional.html | safe }}
-      </div>
+    <div class="nhsuk-checkboxes__conditional{% if not item.checked %} nhsuk-checkboxes__conditional--hidden{% endif %}" id="{{ conditionalId }}">
+      {{ item.conditional.html | safe }}
+    </div>
+    {% endif %}
     {% endif %}
     {% endfor %}
   </div>

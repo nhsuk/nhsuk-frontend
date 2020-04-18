@@ -111,6 +111,19 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   opacity: .5;
 }
 
+/* Divider variant */
+
+.nhsuk-checkboxes__divider {
+  $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
+  @include nhsuk-font(19);
+
+  color: $nhsuk-text-color;
+  margin-bottom: nhsuk-spacing(2);
+  text-align: center;
+  width: $nhsuk-divider-size;
+}
+
+
 /*
  * Conditional
  *
