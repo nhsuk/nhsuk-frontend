@@ -10,7 +10,7 @@ export const addClass = (element, className) => {
   const elemRef = element;
   const classes = element.className;
   // Regex to check if class already exists on element
-  const regex = new RegExp(`\\b ${className}\\b`);
+  const regex = new RegExp(`\\b${className}\\b`);
   if (!classes.match(regex)) {
     elemRef.className = `${classes} ${className.trim()}`;
   }
@@ -28,7 +28,7 @@ export const toggleClass = (element, className) => {
   const elemRef = element;
   const classes = element.className;
   // Regex to check if class already exists on element
-  const regex = new RegExp(`\\b ${className}\\b`);
+  const regex = new RegExp(`\\b${className}\\b`);
   if (classes.match(regex)) {
     // Remove class if it already exists
     elemRef.className = classes.replace(regex, '');
@@ -57,12 +57,16 @@ export const toggleAttribute = (element, attr) => {
  * @param {string} className class to toggle
 */
 export const toggleConditionalInput = (input, className) => {
+  // Return without error if input or class are missing
+  if (!input || !className) return;
   // If the input has conditional content it had a data-aria-controls attribute
   const conditionalId = input.getAttribute('aria-controls');
   if (conditionalId) {
     // Get the conditional element from the input data-aria-controls attribute
     const conditionalElement = document.getElementById(conditionalId);
-    toggleClass(conditionalElement, className);
-    toggleAttribute(input, 'aria-expanded');
+    if (conditionalElement) {
+      toggleClass(conditionalElement, className);
+      toggleAttribute(input, 'aria-expanded');
+    }
   }
 };
