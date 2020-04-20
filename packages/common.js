@@ -12,7 +12,7 @@ export const addClass = (element, className) => {
   // Regex to check if class already exists on element
   const regex = new RegExp(`\\b${className}\\b`);
   if (!classes.match(regex)) {
-    elemRef.className = `${classes} ${className.trim()}`;
+    elemRef.className = `${classes} ${className}`.trim();
   }
 };
 
@@ -34,7 +34,7 @@ export const toggleClass = (element, className) => {
     elemRef.className = classes.replace(regex, '');
   } else {
     // Add class if it doesnt already exist
-    elemRef.className = `${classes} ${className.trim()}`;
+    elemRef.className = `${classes} ${className}`.trim();
   }
 };
 
