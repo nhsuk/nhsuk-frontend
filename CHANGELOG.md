@@ -8,6 +8,7 @@
 - Radios with conditional content - add functionality to show and hide conditional content when radio is checked
 
 :wrench: **Fixes**
+
 - Removed unnecessary JavaScript linting NPM packages
 - Fix toggleClass util which duplicated classes if there was no other class before it, more tests added
 
