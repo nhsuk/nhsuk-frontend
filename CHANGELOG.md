@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## 3.0.5 - TBC
+
+:new: **New features**
+
+- Checkboxes with conditional content - add functionality to show and hide conditional content when checkbox is checked
+- Radios with conditional content - add functionality to show and hide conditional content when radio is checked
+
+:wrench: **Fixes**
+- Fix toggleClass util which duplicated classes if there was no other class before it, more tests added
+
 ## 3.0.4 - 24 March 2020
 
 :wrench: **Fixes**
