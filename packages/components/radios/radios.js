@@ -13,11 +13,11 @@ export default () => {
   const conditionalInputs = document.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__conditional');
 
   // Add event listener to every radio button
-  radioInputs.forEach((radioButton) => {
+  Array.prototype.slice.call(radioInputs).forEach((radioButton) => {
     radioButton.addEventListener('change', (e) => {
       // Hide all conditional content on all input clicks
       radioInputs.forEach((input) => input.setAttribute('aria-expanded', 'false'));
-      conditionalInputs.forEach((input) => addClass(input, 'nhsuk-radios__conditional--hidden'));
+      Array.prototype.slice.call(conditionalInputs).forEach((input) => addClass(input, 'nhsuk-radios__conditional--hidden'));
       // Toggle conditional content based on checked state
       toggleConditionalInput(e.target, 'nhsuk-radios__conditional--hidden');
     });

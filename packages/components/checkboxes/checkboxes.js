@@ -11,7 +11,7 @@ export default () => {
   const checkboxInputs = document.querySelectorAll('.nhsuk-checkboxes--conditional .nhsuk-checkboxes__input');
 
   // Add event listener to every checkbox button
-  checkboxInputs.forEach((checkboxButton) => {
+  Array.prototype.slice.call(checkboxInputs).forEach((checkboxButton) => {
     checkboxButton.addEventListener('change', (e) => {
       // Toggle conditional content based on checked state
       toggleConditionalInput(e.target, 'nhsuk-checkboxes__conditional--hidden');
