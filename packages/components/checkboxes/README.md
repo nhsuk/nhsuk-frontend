@@ -531,7 +531,7 @@ The checkboxes Nunjucks macro takes the following arguments:
 | **items.{}.conditional.html** | boolean   | No        | Provide content for the conditional reveal. |
 | **items.{}.disabled** | boolean   | No        | If true, checkbox will be disabled. |
 | **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkbox input tag. |
-| **items.{}.conditional.{}.html** | string   | No        | HTML to be displayed when the checbox is checked |
+| **items.{}.conditional.{}.html** | string   | No        | HTML to be displayed when the checkbox is checked |
 | **classes**               | string   | No        | Optional additional classes to add to the checkboxes container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkboxes container. |
 
