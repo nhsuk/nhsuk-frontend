@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 3.0.5 - TBC
+## 3.1.0 - TBC
 
 :new: **New features**
 
