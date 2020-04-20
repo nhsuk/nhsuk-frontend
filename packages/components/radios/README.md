@@ -481,6 +481,151 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ---
 
+### Radios with conditional content
+
+[Preview the radios with conditonal content](https://nhsuk.github.io/nhsuk-frontend/components/radios/conditional.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        How would you prefer to be contacted?
+      </h1>
+    </legend>
+    <span class="nhsuk-hint" id="contact-hint">
+      Select one option.
+    </span>
+    <div class="nhsuk-radios nhsuk-radios--conditional">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+          Email
+        </label>
+      </div>
+      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email">
+            Email address
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+        </div>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+          Phone
+        </label>
+      </div>  
+      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="phone">
+            Phone number
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
+        </div>
+      </div>  
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+          Text message
+        </label>
+      </div>
+      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-3">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">
+            Mobile phone number
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/radios/macro.njk' import radios %}
+{% from 'components/input/macro.njk' import input %}
+
+{% set emailHtml %}
+  {{ input({
+    id: "email",
+    name: "email",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Email address"
+    }
+  }) }}
+{% endset -%}
+
+{% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%}
+
+{{ radios({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "How would you prefer to be contacted?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": "Select one option."
+  },
+  "items": [
+    {
+      "value": "email",
+      "text": "Email",
+      "conditional": {
+        "html": emailHtml
+      }
+    },
+    {
+      "value": "phone",
+      "text": "Phone",
+      "conditional": {
+        "html": phoneHtml
+      }
+    },
+    {
+      "value": "text",
+      "text": "Text message",
+      "conditional": {
+        "html": mobileHtml
+      }
+    }
+  ]
+}) }}
+```
+
+---
+
 ### Nunjucks arguments
 
 The radios Nunjucks macro takes the following arguments:
@@ -502,6 +647,7 @@ The radios Nunjucks macro takes the following arguments:
 | **items.{}.checked** | boolean   | No        | If true, radio will be checked. |
 | **items.{}.disabled** | boolean   | No        | If true, radio will be disabled. |
 | **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radio input tag. |
+| **items.{}.conditional.{}.html** | string   | No        | HTML to be displayed when the radio is checked |
 | **classes**         | string   | No        | Optional additional classes to add to the radios container. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radios container. |
 

@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Radios with hint text' %}
+{% set title = 'Radios with conditonal content' %}
 {% from 'components/radios/macro.njk' import radios %}
 {% from 'components/input/macro.njk' import input %}
 {% extends 'layout.njk' %}
@@ -55,7 +55,7 @@
               }
             },
             "hint": {
-              "text": "Please select one"
+              "text": "Select one option."
             },
             "items": [
               {
