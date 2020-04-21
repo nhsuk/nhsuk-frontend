@@ -520,18 +520,18 @@ The checkboxes Nunjucks macro takes the following arguments:
 | **idPrefix**        | string   | No        | String to prefix id for each checkbox item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead. |
 | **name**            | string	 | Yes       | Name attribute for each checkbox item. |
 | **items**           | array    | Yes       | Array of checkbox items objects. |
-| **items.{}.text (or) items.{}.html**       | string   | Yes        | Text or HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored. |
-| **items.{}.id**     | string  | No        | Specific id attribute for the checkbox item. If omitted, then `idPrefix` string will be applied.|
-| **items.{}.name**   | string  | Yes        | Specific name for the checkbox item. If omitted, then component global `name` string will be applied. |
-| **items.{}.value**  | string   | Yes        | Value for the checkbox input. |
-| **items.{}.hint**   | object   | No        | Provide optional hint to each checkbox item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **items.{}.divider** | string   | No        | Optional divider text to separate checkbox items, for example the text "or". |
-| **items.{}.checked** | boolean   | No        | If true, checkbox will be checked. |
-| **items.{}.conditional** | boolean   | No        | If true, content provided will be revealed when the item is checked. |
-| **items.{}.conditional.html** | boolean   | No        | Provide content for the conditional reveal. |
-| **items.{}.disabled** | boolean   | No        | If true, checkbox will be disabled. |
-| **items.{}.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkbox input tag. |
-| **items.{}.conditional.{}.html** | string   | No        | HTML to be displayed when the checkbox is checked |
+| **items[].text (or) items[].html**       | string   | Yes        | Text or HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored. |
+| **items[].id**     | string  | No        | Specific id attribute for the checkbox item. If omitted, then `idPrefix` string will be applied.|
+| **items[].name**   | string  | Yes        | Specific name for the checkbox item. If omitted, then component global `name` string will be applied. |
+| **items[].value**  | string   | Yes        | Value for the checkbox input. |
+| **items[].hint**   | object   | No        | Provide optional hint to each checkbox item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **items[].divider** | string   | No        | Optional divider text to separate checkbox items, for example the text "or". |
+| **items[].checked** | boolean   | No        | If true, checkbox will be checked. |
+| **items[].conditional** | boolean   | No        | If true, content provided will be revealed when the item is checked. |
+| **items[].conditional.html** | boolean   | No        | Provide content for the conditional reveal. |
+| **items[].disabled** | boolean   | No        | If true, checkbox will be disabled. |
+| **items[].attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkbox input tag. |
+| **items[].conditional.html** | string   | No        | HTML to be displayed when the checkbox is checked |
 | **classes**               | string   | No        | Optional additional classes to add to the checkboxes container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkboxes container. |
 

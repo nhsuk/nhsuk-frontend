@@ -51,9 +51,9 @@ The breadcrumb Nunjucks macro takes the following arguments:
 | Name                | Type     | Required  | Description  |
 | --------------------|----------|-----------|--------------|
 | items               | array    | Yes       | Array of breadcrumbs item objects. |
-| items.{}.text       | string   | Yes       | Text to use within the breadcrumbs item. |
-| items.{}.href	      | string   | Yes       | Link for the breadcrumbs item. |
-| items.{}.attributes	| object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item. |
+| items[].text       | string   | Yes       | Text to use within the breadcrumbs item. |
+| items[].href	      | string   | Yes       | Link for the breadcrumbs item. |
+| items[].attributes	| object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item. |
 | href                | string   | Yes       | Link of the current page  |
 | text                | string   | Yes       | Text for the current page |
 | classes             | string   | No        | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
