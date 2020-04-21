@@ -6,11 +6,13 @@
 
 - Checkboxes with conditional content - add functionality to show and hide conditional content when checkbox is checked
 - Radios with conditional content - add functionality to show and hide conditional content when radio is checked
+- JS utils - add addClass, removeClass, getClasses and hasClass utils 
 
 :wrench: **Fixes**
 
-- Removed unnecessary JavaScript linting NPM packages
-- Fix toggleClass util which duplicated classes if there was no other class before it, more tests added
+- Tidy dependencies - Removed unnecessary JavaScript linting NPM packages
+- JS utils - Fix toggleClass util which duplicated classes if there was no other class before it, more tests added
+- Nunjucks documentation - describe items as arrays not objects ([Issue 604](https://github.com/nhsuk/nhsuk-frontend/issues/604))
 
 ## 3.0.4 - 24 March 2020
 
