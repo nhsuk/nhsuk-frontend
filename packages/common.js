@@ -29,8 +29,12 @@ export const removeClass = (element, className) => {
   // Return without error if element or class are missing
   if (!element || !className) return;
   if (hasClass(element, className)) {
-    const classes = getClasses(element, className);
-    element.setAttribute('class', classes.filter((existingClass) => existingClass !== className));
+    // Array of all existing classes
+    const existingClasses = getClasses(element, className);
+    // String of existing classes minus the class to remove
+    const newClasses = existingClasses.filter((existingClass) => existingClass !== className).join(' ');
+    // Set class attribute to the new classes
+    element.setAttribute('class', newClasses);
   }
 };
 
@@ -43,7 +47,7 @@ export const addClass = (element, className) => {
   // Return without error if element or class are missing
   if (!element || !className) return;
   if (!hasClass(element, className)) {
-    removeClass(element, className);
+    // Set class attribute to the new classes
     element.setAttribute('class', `${element.className} ${className}`.trim());
   }
 };
