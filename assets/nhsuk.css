@@ -2695,6 +2695,26 @@ b {
 .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
   opacity: .5; }
 
+/* Divider variant */
+.nhsuk-checkboxes__divider {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #212b32;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 40px; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-checkboxes__divider {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.47368; } }
+  @media print {
+    .nhsuk-checkboxes__divider {
+      font-size: 14pt;
+      line-height: 1.15; } }
+
 /*
  * Conditional
  *
