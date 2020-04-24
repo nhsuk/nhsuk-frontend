@@ -6,7 +6,34 @@
 
 - Checkboxes with conditional content - add functionality to show and hide conditional content when checkbox is checked
 - Radios with conditional content - add functionality to show and hide conditional content when radio is checked
-- JS utils - add addClass, removeClass, getClasses and hasClass utils 
+- JS utils - add addClass, removeClass, getClasses and hasClass utils
+
+  **Conditional and polyfill JavaScript**
+
+  If you are importing component JavaScript with ES6 imports, you will need to update your imports to include the JavaScript:
+  
+  ```javascript
+  // Components
+  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
+  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
+  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
+  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
+  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+
+  // Polyfills
+  import '../node_modules/nhsuk-frontend/packages/polyfills';
+
+  // Initialize components
+  document.addEventListener('DOMContentLoaded', () => {
+    Details();
+    Header();
+    SkipLink();
+    Radios();
+    Checkboxes();
+  });
+  ```
+
+  Note: You may need to change the path to `node_modules` depending on your project structure.
 
 :wrench: **Fixes**
 
