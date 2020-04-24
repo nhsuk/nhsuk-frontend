@@ -58,6 +58,12 @@ Some of our components require JavaScript to function properly, others need Java
 
 You should include NHS.UK frontend JavaScript in your project to ensure that all users can use it successfully.
 
+Add the following JavaScript to the top of the `<body>` section of your page template:
+
+```
+document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+```
+
 ### Option 1: Include compiled JavaScript
 
 Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 

@@ -10,6 +10,12 @@
 
   **Conditional and polyfill JavaScript**
 
+  Add the following JavaScript to the top of the `<body>` section of your page template:
+
+  ```
+  document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+  ```
+
   If you are importing component JavaScript with ES6 imports, you will need to update your imports to include the JavaScript:
   
   ```javascript

@@ -44,7 +44,15 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <meta name="msapplication-square310x310logo" content="assets/favicons/largetile-310x310.png">
     ```
 
-  3. Create pages using NHS.UK frontend
+  3. Get the JavaScript working
+
+    Add the following JavaScript to the top of the `<body>` section of your page template:
+
+    ```
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    ```
+
+  4. Create pages using NHS.UK frontend
 
       You can now create pages using the NHS.UK frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
 
@@ -99,6 +107,8 @@ If you require any of this functionality, you should [install using npm](/docs/i
   </head>
 
   <body>
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
     <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
     <header class="nhsuk-header" role="banner">
