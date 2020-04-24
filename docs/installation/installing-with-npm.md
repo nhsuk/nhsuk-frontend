@@ -58,6 +58,12 @@ Some of our components require JavaScript to function properly, others need Java
 
 You should include NHS.UK frontend JavaScript in your project to ensure that all users can use it successfully.
 
+Add the following JavaScript to the top of the `<body>` section of your page template:
+
+```
+document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+```
+
 ### Option 1: Include compiled JavaScript
 
 Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 
@@ -82,15 +88,22 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import Header from 'node_modules/nhsuk-frontend/packages/components/header/header';
-import SkipLink from 'node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
-import Details from 'node_modules/nhsuk-frontend/packages/components/details/details';
+import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
+import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
+import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
+import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
+import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+
+// Polyfills
+import '../node_modules/nhsuk-frontend/packages/polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
   Details();
   Header();
   SkipLink();
+  Radios();
+  Checkboxes();
 });
 ```
 
