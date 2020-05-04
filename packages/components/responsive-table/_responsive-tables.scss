@@ -29,8 +29,8 @@ $mobile: 768px;
     }
   }
 
-  tbody {
-    tr {
+  .nhsuk-table__body {
+    .nhsuk-table__row {
       display: block;
       margin-bottom: 1.5em;
 
@@ -56,14 +56,12 @@ $mobile: 768px;
 
       td {
         display: block; // For browsers that don't support flexbox
-        display: flex; // sass-lint:disable-line no-duplicate-properties 
+        display: flex; // sass-lint:disable-line no-duplicate-properties
         justify-content: space-between;
         min-width: 1px;
-        text-align: right;
 
         @media (min-width: $mobile) {
           display: table-cell;
-          text-align: left;
         }
 
         @media (max-width: $mobile) {
@@ -84,12 +82,6 @@ $mobile: 768px;
 
   @media (min-width: $mobile) {
     display: none;
-  }
-}
-
-.nhsuk-reponsive-table__numeric {
-  @media (min-width: $mobile) {
-    text-align: right;
   }
 }
 
