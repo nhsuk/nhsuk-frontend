@@ -72,3 +72,81 @@
   text-align: right;
 }
 
+$mobile: 768px;
+
+.nhsuk-table-responsive {
+  margin-bottom: 0;
+  width: 100%;
+
+  thead {
+    @include visually-hidden;
+
+    @media (min-width: $mobile) {
+      @include visually-shown(table-header-group);
+    }
+  }
+
+  .nhsuk-table__body {
+    .nhsuk-table__row {
+      display: block;
+      margin-bottom: 1.5em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: $mobile) {
+        padding: 0 .5em;
+      }
+
+      @media (min-width: $mobile) {
+        display: table-row;
+      }
+
+      th {
+        text-align: right;
+
+        @media (min-width: $mobile) {
+          text-align: left;
+        }
+      }
+
+      td {
+        display: block; // For browsers that don't support flexbox
+        display: flex; // sass-lint:disable-line no-duplicate-properties
+        justify-content: space-between;
+        min-width: 1px;
+
+        @media (min-width: $mobile) {
+          display: table-cell;
+        }
+
+        @media (max-width: $mobile) {
+          padding-right: 0;
+          &:last-child {
+            border-bottom: 3px solid $color_nhsuk-grey-4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nhsuk-table-responsive__heading {
+  font-weight: 700;
+  padding-right: 1em;
+  text-align: left;
+
+  @media (min-width: $mobile) {
+    display: none;
+  }
+}
+
+.table-foot {
+  border-bottom: 1px solid $color_nhsuk-grey-4;
+  display: flex;
+  font-size: 19px;
+  font-weight: 700;
+  justify-content: space-between;
+  padding: .75em 0;
+}
