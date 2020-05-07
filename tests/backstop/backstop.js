@@ -411,7 +411,7 @@ module.exports = {
     },
     {
       "label": "Responsive table",
-      "url": `${TEST_HOST}/components/table/responsive-table.html`
+      "url": `${TEST_HOST}/components/tables/responsive-table.html`
     },
     {
       "label": "Table as panel",
