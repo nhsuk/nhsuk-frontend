@@ -5,6 +5,9 @@
 :boom: **Breaking changes**
 - Tables - Adding new responsive table component
 - Tables - Renaming old responsive table class to `nhsuk-table-container` as it is more appropriate
+Two solutions are available for this breaking change
+- Modify your HTML to replace the old `nhsuk-responsive-table` class with `nhuks-table-container`
+- Replace existing table markup with new responsive table component in the [service manual](https://service-manual.nhs.uk/)
 
 ## 3.1.0 - 24 April 2020
 
