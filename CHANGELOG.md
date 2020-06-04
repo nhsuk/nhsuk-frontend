@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
+- Fix styles for the `nhsuk-link-style-white`
 
 ## 3.1.0 - 24 April 2020
 
