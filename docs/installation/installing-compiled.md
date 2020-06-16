@@ -46,11 +46,11 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
   3. Get the JavaScript working
 
-    Add the following JavaScript to the top of the `<body>` section of your page template:
+      Add the following JavaScript to the top of the `<body>` section of your page template:
 
-    ```
-    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-    ```
+      ```
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+      ```
 
   4. Create pages using NHS.UK frontend
 
