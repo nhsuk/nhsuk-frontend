@@ -38,11 +38,21 @@
 /// Focused radio input (form element)
 /// 
 /// Provides an additional outline and border to clearly indicate when
-/// the target element has focus. Used by radios and checkbox.
+/// the target element has focus. Used by radios.
 
-@mixin nhsuk-focused-radio-checkbox {
+@mixin nhsuk-focused-radio {
   border: 4px solid $nhsuk-focus-text-color;
   box-shadow: 0 0 0 4px $nhsuk-focus-color;
+}
+
+/// Focused checkbox input (form element)
+/// 
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used by checkbox.
+
+@mixin nhsuk-focused-checkbox {
+  border: 4px solid $nhsuk-focus-text-color;
+  box-shadow: 0 0 0 3px $nhsuk-focus-color;
 }
 
 /// Focused button
