@@ -26,7 +26,7 @@
 ///
 /// Provides an additional outline and border to clearly indicate when
 /// the target element has focus. Used for interactive input-based elements such
-/// as text inputs radios.
+/// as text inputs.
 
 @mixin nhsuk-focused-input {
   border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
