@@ -11,7 +11,7 @@
 
 @mixin nhsuk-focused-text {
   background-color: $nhsuk-focus-color;
-  box-shadow: 0 -2px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+  box-shadow: 0 -2px $nhsuk-focus-color, 0 4px $nhsuk-focus-text-color;
   color: $nhsuk-focus-text-color;
   // When colours are overridden, for example when users have a dark mode,
   // backgrounds and box-shadows disappear, so we need to ensure there's a
@@ -26,13 +26,23 @@
 ///
 /// Provides an additional outline and border to clearly indicate when
 /// the target element has focus. Used for interactive input-based elements such
-/// as text inputs and radios.
+/// as text inputs radios.
 
 @mixin nhsuk-focused-input {
   border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
   box-shadow: inset 0 0 0 2px;
   outline: $nhsuk-focus-width solid $nhsuk-focus-color; /* 1 */
   outline-offset: 0;
+}
+
+/// Focused radio input (form element)
+/// 
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used by radios and checkbox.
+
+@mixin nhsuk-focused-radio-checkbox {
+  border: 4px solid $nhsuk-focus-text-color;
+  box-shadow: 0 0 0 4px $nhsuk-focus-color;
 }
 
 /// Focused button
