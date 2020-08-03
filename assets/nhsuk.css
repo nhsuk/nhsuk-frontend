@@ -2812,6 +2812,7 @@ b {
  * 4. Only underline the text, not the arrow
  * 5. Remove the default details marker so we can style our own consistently and
  *    ensure it displays in Firefox
+ * 6. Custom padding to left align the details text with the summary
  */
 .nhsuk-details {
   color: #212b32;
@@ -2895,7 +2896,8 @@ b {
   border-left: 4px solid #d8dde0;
   margin-top: 8px;
   padding: 16px;
-  padding-left: 24px; }
+  padding-left: 20px;
+  /* [6] */ }
   .nhsuk-details__text > *:first-child {
     margin-top: 0; }
   .nhsuk-details__text > *:last-child {
