@@ -52,7 +52,7 @@
 
 @mixin nhsuk-focused-checkbox {
   border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-  box-shadow: 0 0 0 3px $nhsuk-focus-color;
+  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
 }
 
 /// Focused button
