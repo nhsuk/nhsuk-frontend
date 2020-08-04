@@ -4259,15 +4259,15 @@ b {
   line-height: 1.5;
   text-decoration: none; }
   .nhsuk-header__transactional-service-name--link:visited {
-    color: #f0f4f5; }
+    color: #ffffff; }
+  .nhsuk-header__transactional-service-name--link:hover {
+    color: #ffffff;
+    text-decoration: none; }
   .nhsuk-header__transactional-service-name--link:focus {
     color: #212b32;
     outline: 4px solid transparent;
     outline-offset: 4px;
-    text-decoration: underline; }
-  .nhsuk-header__transactional-service-name--link:hover {
-    color: #7C2855;
-    text-decoration: underline; }
+    text-decoration: none; }
   .nhsuk-header__transactional-service-name--link:active {
     color: #002f5c; }
   @media (min-width: 40.0625em) {
