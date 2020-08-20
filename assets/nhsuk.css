@@ -2179,13 +2179,13 @@ b {
   .nhsuk-breadcrumb__item:last-child {
     background: none; }
 
-.nhsuk-breadcrumb__link:focus:hover {
-  color: #212b32; }
-
 .nhsuk-breadcrumb__link:visited {
   color: #005eb8; }
   .nhsuk-breadcrumb__link:visited:hover {
     color: #7C2855; }
+
+.nhsuk-breadcrumb__link:focus:hover {
+  color: #212b32; }
 
 .nhsuk-breadcrumb__back {
   font-weight: 400;
