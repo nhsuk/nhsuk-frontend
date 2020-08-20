@@ -5,12 +5,16 @@
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
+    "build:css": "node-sass --recursive --output-style compressed packages/nhsuk.scss > dist/nhsuk-$npm_package_version.min.css",
+    "build:js": "npm run webpack",
+    "clean": "touch dist/tmp.txt && rm -rf dist/*",
     "start": "gulp",
     "test": "npm run lint && npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
+    "nuke": "npm run clean && rm -rf node_modules/",
     "backstop:ref": "backstop --config=tests/backstop/backstop.js reference --docker",
     "backstop:test": "backstop --config=tests/backstop/backstop.js test --docker",
     "backstop:approve": "backstop --config=tests/backstop/backstop.js approve",
@@ -18,7 +22,8 @@
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
-    "jest:ci": "jest"
+    "jest:ci": "jest",
+    "webpack": "webpack"
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.3",
