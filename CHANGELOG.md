@@ -6,6 +6,7 @@
 
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
 - Fix styles for the `nhsuk-link-style-white`
+- Fix breadcrumb link color when `:visited` and `:focus`
 
 ## 3.1.0 - 24 April 2020
 
