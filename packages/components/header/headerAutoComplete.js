@@ -32,7 +32,9 @@ const source = (query, populateResults) => {
   // Build URL for search endpoint
   // const rootUrl = 'https://nhs.funnelback.co.uk/s/suggest.json';
   // const maxResults = 10;
-  // const fullUrl = `${rootUrl}?collection=nhs-meta&partial_query=${query}&sort=0&fmt=json++&profile=&show=${maxResults}`;
+  // const fullUrl =
+  // `${rootUrl}?collection=nhs-meta&partial_query=
+  // ${query}&sort=0&fmt=json++&profile=&show=${maxResults}`;
   // const maxResults = 10;
   const rootUrl = 'https://nhsuk-apim-dev-uks.azure-api.net/site-search/Autocomplete';
   const fullUrl = `${rootUrl}?q=${query}&api-version=1`;
