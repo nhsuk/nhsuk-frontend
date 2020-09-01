@@ -414,6 +414,10 @@ module.exports = {
       "url": `${TEST_HOST}/components/tables/tables-panel.html`
     },
     {
+      "label": "Tag",
+      "url": `${TEST_HOST}/components/tag/index.html`
+    },
+    {
       "label": "Textarea",
       "url": `${TEST_HOST}/components/textarea/index.html`
     },
