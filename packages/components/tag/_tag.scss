@@ -20,7 +20,7 @@
 /* Colour variants
   ========================================================================== */
 
-.nhsuk-tag--white	{
+.nhsuk-tag--white {
   background-color: $color_nhsuk-white;
   border-color: $color_nhsuk-black;
   color: $color_nhsuk-black;
@@ -32,13 +32,13 @@
   color: shade($color_nhsuk-grey-1, 30%);
 }
 
-.nhsuk-tag--green	{
+.nhsuk-tag--green {
   background-color: tint($color_nhsuk-green, 80%);
   border-color: shade($color_nhsuk-green, 40%);
   color: shade($color_nhsuk-green, 40%);
 }
 
-.nhsuk-tag--aqua-green	{
+.nhsuk-tag--aqua-green {
   background-color: tint($color_nhsuk-aqua-green, 80%);
   border-color: shade($color_nhsuk-aqua-green, 50%);
   color: shade($color_nhsuk-aqua-green, 50%);
@@ -62,7 +62,7 @@
   color: shade($color_nhsuk-pink, 50%);
 }
 
-.nhsuk-tag--red	{
+.nhsuk-tag--red {
   background-color: tint($color_nhsuk-red, 80%);
   border-color: shade($color_nhsuk-red, 50%);
   color: shade($color_nhsuk-red, 50%);
