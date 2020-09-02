@@ -12,7 +12,24 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
+```
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
+    <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+  </div>
+</div>
+```
+
 #### Nunjucks macro
+
+```
+{{ card({
+  "heading": "If you need help now, but it’s not an emergency",
+  "headingLevel": "3",
+  "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+}) }}
+```
 
 ### Clickable card
 
@@ -20,7 +37,30 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
+```
+<div class="nhsuk-card nhsuk-card--clickable ">
+  <div class="nhsuk-card__content">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="#">
+        Introduction to care and support
+      </a>
+    </h2>
+    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
+  </div>
+</div>
+```
+
 #### Nunjucks macro
+
+```
+{{ card({
+  "href": "#",
+  "clickable": "true",
+  "heading": "Introduction to care and support",
+  "headingClasses": "nhsuk-heading-m",
+  "description": "A quick guide for people who have care and support needs and their carers."
+}) }}
+```
 
 ### Card with an image
 
@@ -28,7 +68,32 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
+```
+<div class="nhsuk-card nhsuk-card--clickable ">
+  <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">
+  <div class="nhsuk-card__content">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="#">
+        Exercise
+      </a>
+    </h2>
+    <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
+  </div>
+</div>
+```
+
 #### Nunjucks macro
+
+```
+{{ card({
+  "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+  "href": "#",
+  "clickable": "true",
+  "heading": "Exercise",
+  "headingClasses": "nhsuk-heading-m",
+  "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+}) }}
+```
 
 ### Card group
 
@@ -36,7 +101,240 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
+```
+<h2>Halves</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">      
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Introduction to care and support
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">   
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Help from social services and charitiest
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">       
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Money, work and benefits
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs.</p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Care after a hospital stay
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards.</p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h2>Thirds</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">    
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            5 steps to mental wellbeing
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better.</p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">  
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Healthy weight
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight.</p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">        
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="#">
+            Exercise
+          </a>
+        </h2>
+        <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h2>Quarters</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">  
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Applicants</a></p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Jobs</a></p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Services</a></p>
+      </div>
+    </div>
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
+    <div class="nhsuk-card nhsuk-card--clickable ">
+      <div class="nhsuk-card__content">
+        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Messages</a></p>
+      </div>
+    </div>
+  </li>
+</ul>
+```
+
 #### Nunjucks macro
+
+```
+<h2>Halves</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Introduction to care and support",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "A quick guide for people who have care and support needs and their carers."
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Help from social services and charitiest",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Includes helplines, needs assessments, advocacy and reporting abuse."
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Money, work and benefits",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "How to pay for care and support, and where you can get help with costs."
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Care after a hospital stay",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Includes hospital discharge and care and support afterwards."
+    }) }}
+  </li>
+</ul>
+
+<h2>Thirds</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "5 steps to mental wellbeing",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Practical advice to help you feel mentally and emotionally better."
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Healthy weight",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "heading": "Exercise",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+    }) }}
+  </li>
+</ul>
+
+<h2>Quarters</h2>
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+    {{ card({
+      "clickable": "true",
+      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Applicants</a></p>"
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+    {{ card({
+      "clickable": "true",
+      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Jobs</a></p>"
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+    {{ card({
+      "clickable": "true",
+      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Services</a></p>"
+    }) }}
+  </li>
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+    {{ card({
+      "clickable": "true",
+      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Messages</a></p>"
+    }) }}
+  </li>
+</ul>
+```
 
 ### Nunjucks arguments
 
