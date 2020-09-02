@@ -2,6 +2,14 @@
    COMPONENTS / #CARD
    ========================================================================== */
 
+/**
+ * 1. Is needed for the :active top positioning.
+ * 2. Border is used to create a divider between the white content
+ *    box and an image.
+ * 3. Creates the 'pressed down' effect when clicked.
+ * 4. Removes heading padding-top set by the default ul.
+ */
+
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
 $card-border-color: $color_nhsuk-grey-4;
@@ -12,14 +20,14 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   background: $color_nhsuk-white;
   border: $card-border-width solid $card-border-color;
-  position: relative;
+  position: relative; /* [1] */
   width: 100%;
 }
 
 .nhsuk-card__img {
   @include print-hide();
 
-  border-bottom: $card-border-width solid $color_nhsuk-grey-5;
+  border-bottom: $card-border-width solid $color_nhsuk-grey-5; /* [2] */
   display: block;
   width: 100%;
 }
@@ -65,7 +73,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   &:active {
     border-color: $card-border-hover-color;
-    bottom: - $card-border-width;
+    bottom: - $card-border-width; /* [3] */
   }
 }
 
@@ -92,7 +100,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   + .nhsuk-heading-l,
   + h3,
   + .nhsuk-heading-m, {
-    padding-top: 0;
+    padding-top: 0; /* [4] */
   }
 }
 
