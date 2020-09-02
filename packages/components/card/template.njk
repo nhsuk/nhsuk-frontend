@@ -23,8 +23,9 @@
     {%- endif %}
     {%- if params.descriptionHtml %}
     {{ params.descriptionHtml | safe }}
-    {%- else %}
+    {%- elif params.description %}
     <p class="nhsuk-card__description">{{ params.description | safe }}</p>
+    {%- else %}
     {%- endif %}
   </div>
 </div>
