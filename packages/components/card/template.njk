@@ -7,7 +7,9 @@
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
   {%- endif %}
   <div class="nhsuk-card__content">
-    {%- if params.heading %}
+    {%- if params.headingHtml %}
+    {{ params.headingHtml | safe }}
+    {%- else %}
     <h{{ headingLevel }} class="nhsuk-card__heading
     {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}">
       {%- if params.href %}
@@ -18,13 +20,11 @@
       {{ params.heading }}
       {%- endif %}
     </h{{ headingLevel }}>
-    {%- else %}
-    {{ params.headingHtml| safe }}
     {%- endif %}
-    {%- if params.description %}
-    <p class="nhsuk-card__description">{{ params.description | safe }}</p>
-    {%- else %}
+    {%- if params.descriptionHtml %}
     {{ params.descriptionHtml | safe }}
+    {%- else %}
+    <p class="nhsuk-card__description">{{ params.description | safe }}</p>
     {%- endif %}
   </div>
 </div>

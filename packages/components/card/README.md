@@ -340,8 +340,19 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 The card Nunjucks macro takes the following arguments:
 
-| Name                      | Type     | Required  | Description             |
-| --------------------------|----------|-----------|-------------------------|
-
+| Name                | Type     | Required  | Description  |
+| --------------------|----------|-----------|--------------|
+| **heading**         | string   | Yes       | Text heading of the card. If headingHtml is provided, the heading argument will be ignored. |
+| **headingHtml**         | string   | Yes       | HTML heading of the card. If headingHtml is provided, the heading argument will be ignored. |
+| **headingClasses**         | string   | No        | Optional additional classes to add to heading. Separate each class with a space. |
+| **headingLevel**    | integer  | No        | Optional heading level for the card heading. Default: 2 |
+| **href**            | string   | No       | The value of the card href attribute |
+| **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
+| **imgURL**          | string   | No        | The URL of the image in the card |
+| **imgALT**          | string   | No        | The alternative text of the image in the card |
+| **description**     | string   | No        | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |
+| **descriptionHtml**     | string   | No        | HTML to use within the card content. If descriptionHtml is provided, the description argument will be ignored. |
+| **classes**         | string   | No        | Optional additional classes to add to the card. Separate each class with a space. |
+| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the card. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
