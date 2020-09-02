@@ -1,0 +1,156 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Card - Card group' %}
+{% from 'components/card/macro.njk' import card %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+        <h2>Halfs</h2>
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Introduction to care and support</a></h2>
+                <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Help from social services and charities</a></h2>
+                <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Money, work and benefits</a></h2>
+                <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs.</p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Care after a hospital stay</a></h2>
+                <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards.</p>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+        <h2>Thirds</h2>
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <img class="nhsuk-card__img" src="/images/card-image-mental.jpg" alt="">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">5 steps to mental wellbeing</a></h2>
+                <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better.</p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <img class="nhsuk-card__img" src="/images/card-image-weight.jpg" alt="">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Healthy weight</a></h2>
+                <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight.</p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <img class="nhsuk-card__img" src="/images/card-image-exercise.jpg" alt="">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m"><a href="#">Exercise</a></h2>
+                <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+        <h2>Quarters</h2>
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <p>
+                  <span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91</span>
+                  <a href="#" class="nhsuk-card__link nhsuk-link--unvisited">Applicants</a>
+                </p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <p>
+                  <span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23</span>
+                  <a href="#" class="nhsuk-card__link nhsuk-link--unvisited">Jobs</a>
+                </p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <p>
+                  <span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8</span>
+                  <a href="#" class="nhsuk-card__link nhsuk-link--unvisited">Services</a>
+                </p>
+              </div>
+            </div>
+
+          </li>
+          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <p>
+                  <span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33</span>
+                  <a href="#" class="nhsuk-card__link nhsuk-link--unvisited">Messages</a>
+                </p>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

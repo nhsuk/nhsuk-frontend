@@ -1,0 +1,121 @@
+/* ==========================================================================
+   COMPONENTS / #CARD
+   ========================================================================== */
+
+$card-border-width: 1px;
+$card-border-bottom-width: nhsuk-spacing(1);
+$card-border-color: $color_nhsuk-grey-4;
+$card-border-hover-color: $color_nhsuk-grey-3;
+
+.nhsuk-card {
+  @include nhsuk-responsive-margin(5, 'bottom');
+
+  background: $color_nhsuk-white;
+  border: $card-border-width solid $card-border-color;
+  position: relative;
+  width: 100%;
+}
+
+.nhsuk-card__img {
+  @include print-hide();
+
+  border-bottom: $card-border-width solid $color_nhsuk-grey-5;
+  display: block;
+  width: 100%;
+}
+
+.nhsuk-card__content {
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
+
+  position: relative;
+}
+
+.nhsuk-card__heading,
+.nhsuk-card__metadata,
+.nhsuk-card__description {
+  margin-bottom: nhsuk-spacing(3);
+}
+
+/* Clickable card
+  ========================================================================== */
+
+.nhsuk-card--clickable {
+  border-bottom-width: $card-border-bottom-width;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+
+    .nhsuk-card__heading a,
+    .nhsuk-card__link {
+      color: $nhsuk-link-hover-color;
+      text-decoration: none;
+
+      &:focus {
+        color: $nhsuk-focus-text-color;
+      }
+    }
+
+  }
+
+  &:hover {
+    border-color: $card-border-hover-color;
+  }
+
+  &:active {
+    border-color: $card-border-hover-color;
+    bottom: - $card-border-width;
+  }
+}
+
+/* Card group
+  ========================================================================== */
+
+/**
+* Card group allows you to have a row of cards.
+*
+* Flexbox is used to make each card in a row the same height.
+*/
+
+.nhsuk-card-group {
+  @include flex();
+
+  margin-bottom: nhsuk-spacing(3);
+  padding: 0;
+
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(5);
+  }
+}
+
+.nhsuk-card-group__item {
+  @include flex-item();
+
+  list-style-type: none;
+  margin-bottom: 0;
+
+  .nhsuk-card {
+    margin-bottom: nhsuk-spacing(5);
+  }
+
+  @include mq($until: desktop) {
+
+    .nhsuk-card {
+      margin-bottom: nhsuk-spacing(3);
+    }
+
+    &:last-child .nhsuk-card {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.nhsuk-card-group {
+ + h2,
+ + .nhsuk-heading-l,
+ + h3,
+ + .nhsuk-heading-m, {
+   padding-top: 0;
+ }
+}
