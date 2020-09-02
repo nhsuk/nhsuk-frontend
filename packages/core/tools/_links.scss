@@ -86,3 +86,40 @@
     text-decoration: none;
   }
 }
+
+/// No visited state link mixin
+///
+/// Used in cases where it is not helpful to distinguish between visited and
+/// non-visited links.
+///
+/// For example, navigation links to pages with dynamic content like admin
+/// dashboards. The content on the page is changing all the time, so the fact
+/// that you’ve visited it before is not important.
+///
+/// If you use this mixin in a component you must also include the
+/// nhsuk-link-style-default mixin in order to get the focus state.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-no-visited-state;
+///   }
+///
+
+@mixin nhsuk-link-style-no-visited-state {
+  &:link {
+    color: $nhsuk-link-color;
+  }
+
+  &:visited {
+    color: $nhsuk-link-color;
+  }
+
+  &:hover {
+    color: $nhsuk-link-hover-color;
+  }
+
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
+}
