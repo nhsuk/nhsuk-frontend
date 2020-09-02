@@ -7,7 +7,7 @@
  * 2. Border is used to create a divider between the white content
  *    box and an image.
  * 3. Creates the 'pressed down' effect when clicked.
- * 4. Removes heading padding-top set by the default ul.
+ * 4. Removes padding-top from headings directly after the card group.
  */
 
 $card-border-width: 1px;
