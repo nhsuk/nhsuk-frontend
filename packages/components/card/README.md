@@ -24,6 +24,8 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```
+{% from 'components/card/macro.njk' import card %}
+
 {{ card({
   "heading": "If you need help now, but it’s not an emergency",
   "headingLevel": "3",
@@ -53,6 +55,8 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```
+{% from 'components/card/macro.njk' import card %}
+
 {{ card({
   "href": "#",
   "clickable": "true",
@@ -85,6 +89,8 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```
+{% from 'components/card/macro.njk' import card %}
+
 {{ card({
   "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
   "href": "#",
@@ -233,6 +239,8 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```
+{% from 'components/card/macro.njk' import card %}
+
 <h2>Halves</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
