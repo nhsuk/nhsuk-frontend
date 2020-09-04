@@ -8,6 +8,9 @@
  *    box and an image.
  * 3. Creates the 'pressed down' effect when clicked.
  * 4. Removes padding-top from headings directly after the card group.
+ * 5. Includes the border width to achieve the correct left alignment.
+ * 6. Stops the heading from spanning the full width of the card.
+ * 7. Removes padding top for the feature heading positioning.
  */
 
 $card-border-width: 1px;
@@ -16,7 +19,7 @@ $card-border-color: $color_nhsuk-grey-4;
 $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card {
-  @include nhsuk-responsive-margin(5, 'bottom');
+  @include nhsuk-responsive-margin(7, 'bottom');
 
   background: $color_nhsuk-white;
   border: $card-border-width solid $card-border-color;
@@ -93,7 +96,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding: 0;
 
   @include mq($until: desktop) {
-    margin-bottom: nhsuk-spacing(5);
+    margin-bottom: nhsuk-spacing(6);
   }
 
   + h2,
@@ -124,4 +127,34 @@ $card-border-hover-color: $color_nhsuk-grey-3;
       margin-bottom: 0;
     }
   }
+}
+
+/* Card feature
+  ========================================================================== */
+
+.nhsuk-card--feature {
+  @include nhsuk-responsive-margin(7, 'top');
+}
+
+.nhsuk-card__heading--feature {
+  background: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
+  display: inline-block;
+  left: - (nhsuk-spacing(4) + $card-border-width); /* [5] */
+  margin-bottom: nhsuk-spacing(3);
+  margin-right: - nhsuk-spacing(4); /* [6] */
+  padding: nhsuk-spacing(2) nhsuk-spacing(4);
+  position: relative;
+  top: - nhsuk-spacing(2);
+
+  @include mq($from: tablet) {
+    left: - (nhsuk-spacing(5) + $card-border-width); /* [5] */
+    margin-right: - nhsuk-spacing(5); /* [6] */
+    padding: nhsuk-spacing(2) nhsuk-spacing(5);
+    top: - nhsuk-spacing(3);
+  }
+}
+
+.nhsuk-card__content--feature {
+  padding-top: 0 !important; // sass-lint:disable-line no-important /* [7] */
 }

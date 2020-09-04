@@ -82,12 +82,6 @@
   padding: nhsuk-spacing(3);
   padding-left: 20px; /* [6] */
   @include top-and-bottom();
-
-  p {
-    margin-bottom: nhsuk-spacing(4);
-    margin-top: 0;
-  }
-
 }
 
 /**
@@ -102,8 +96,19 @@
  *    margin between them so they sit together.
  */
 
+$expander-border-width: 1px;
+$expander-border-bottom-width: nhsuk-spacing(1);
+$expander-border-color: $color_nhsuk-grey-4;
+$expander-border-hover-color: $color_nhsuk-grey-3;
+
 .nhsuk-expander {
   background-color: $color_nhsuk-white;
+  border: $expander-border-width solid $expander-border-color;
+  border-bottom-width: $expander-border-bottom-width;
+
+  &:hover {
+    border-color: $expander-border-hover-color;
+  }
 
   .nhsuk-details__summary {
     background-color: $color_nhsuk-white;
@@ -144,7 +149,7 @@
     color: $color_nhsuk-blue;
     cursor: pointer;
     display: inline-block;
-    padding: nhsuk-spacing(2) nhsuk-spacing(2) nhsuk-spacing(2) 38px;
+    padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
     position: relative;
   }
 
@@ -162,6 +167,7 @@
 }
 
 .nhsuk-expander[open] {
+  border-bottom-width: $expander-border-width;
 
   .nhsuk-details__summary {
 

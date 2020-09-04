@@ -94,6 +94,10 @@ module.exports = {
       "url": `${TEST_HOST}/components/card/card-group.html`
     },
     {
+      "label": "Card - Card group",
+      "url": `${TEST_HOST}/components/card/feature-card.html`
+    },
+    {
       "label": "Care card - Non urgent",
       "url": `${TEST_HOST}/components/care-card/care-card-non-urgent.html`
     },

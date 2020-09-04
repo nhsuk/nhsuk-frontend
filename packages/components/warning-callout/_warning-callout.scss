@@ -8,7 +8,7 @@
  */
 
 .nhsuk-warning-callout {
-  @include panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color); /* [1] */
+  @include panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color, $color_nhsuk-yellow); /* [1] */
 }
 
 .nhsuk-warning-callout__label {

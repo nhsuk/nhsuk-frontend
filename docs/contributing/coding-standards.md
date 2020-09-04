@@ -63,7 +63,7 @@ The naming convention follows this pattern:
 
 .nhsuk-card              // Block - the root of a component
 .nhsuk-card__heading     // Element - a part of the block
-.nhsuk-card--small       // Modifier - a variant of the block
+.nhsuk-card--clickable   // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element

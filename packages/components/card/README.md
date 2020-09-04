@@ -344,6 +344,37 @@ Find out more about the card component and when to use it in the [NHS digital se
 </ul>
 ```
 
+### Feature
+
+[Preview the feature card component](https://nhsuk.github.io/nhsuk-frontend/components/card/feature-card.html)
+
+#### HTML markup
+
+```
+<div class="nhsuk-card nhsuk-card--feature ">
+  <div class="nhsuk-card__content
+   nhsuk-card__content--feature ">
+    <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">
+      Feature card heading
+    </h2>
+    <p class="nhsuk-card__description">Feature card description.</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+{{ card({
+  "feature": "true",
+  "heading": "Feature card heading",
+  "headingClasses": "nhsuk-heading-m",
+  "description": "Feature card description."
+}) }}
+```
+
 ### Nunjucks arguments
 
 The card Nunjucks macro takes the following arguments:
@@ -356,6 +387,7 @@ The card Nunjucks macro takes the following arguments:
 | **headingLevel**    | integer  | No        | Optional heading level for the card heading. Default: 2 |
 | **href**            | string   | No       | The value of the card href attribute |
 | **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
+| **feature**            | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied. |
 | **imgURL**          | string   | No        | The URL of the image in the card |
 | **imgALT**          | string   | No        | The alternative text of the image in the card |
 | **description**     | string   | No        | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |

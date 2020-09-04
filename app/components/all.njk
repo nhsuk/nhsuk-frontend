@@ -118,6 +118,36 @@
 
 {% block content %}
 
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingLevel": "3",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+
+  {{ card({
+    "href": "#",
+    "clickable": "true",
+    "heading": "Introduction to care and support",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "A quick guide for people who have care and support needs and their carers."
+  }) }}
+
+  {{ card({
+    "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+    "href": "#",
+    "clickable": "true",
+    "heading": "Exercise",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+  }) }}
+
+  {{ card({
+    "feature": "true",
+    "heading": "Feature card heading",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Feature card description"
+  }) }}
+
   <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
 
   <h2>Heading level two</h2>
@@ -1007,4 +1037,104 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block fullWidthContent %}
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Help from social services and charitiest",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Includes helplines, needs assessments, advocacy and reporting abuse."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Money, work and benefits",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "How to pay for care and support, and where you can get help with costs."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Care after a hospital stay",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Includes hospital discharge and care and support afterwards."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "5 steps to mental wellbeing",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Practical advice to help you feel mentally and emotionally better."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Healthy weight",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Exercise",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Applicants</a></p>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Jobs</a></p>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Services</a></p>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Messages</a></p>"
+      }) }}
+    </li>
+  </ul>
+
 {% endblock %}
