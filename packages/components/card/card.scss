@@ -141,7 +141,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   color: $color_nhsuk-white;
   display: inline-block;
   left: - (nhsuk-spacing(4) + $card-border-width); /* [5] */
-  margin-bottom: nhsuk-spacing(3);
+  margin-bottom: nhsuk-spacing(2);
   margin-right: - nhsuk-spacing(4); /* [6] */
   padding: nhsuk-spacing(2) nhsuk-spacing(4);
   position: relative;
