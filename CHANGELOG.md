@@ -1,6 +1,12 @@
 # NHS.UK frontend Changelog
 
-## 3.1.1 - Unreleased
+## 3.2.0 - Unreleased
+
+:new: **New features**
+
+- Tag component - Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status.
+
+  If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/tag/tag';`
 
 :wrench: **Fixes**
 
