@@ -122,4 +122,8 @@
   &:active {
     color: $nhsuk-link-active-color;
   }
+
+  &:focus {
+    color: $nhsuk-focus-text-color;
+  }
 }
