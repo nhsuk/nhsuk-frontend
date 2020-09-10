@@ -6172,6 +6172,92 @@ b {
   text-align: right; }
 
 /* ==========================================================================
+   #TAG
+   ========================================================================== */
+.nhsuk-tag {
+  font-weight: 600;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1;
+  background-color: #0055a6;
+  border: 1px solid #0055a6;
+  color: #ffffff;
+  display: inline-block;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  text-decoration: none; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-tag {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1; } }
+  @media print {
+    .nhsuk-tag {
+      font-size: 14pt;
+      line-height: 1; } }
+
+/* Colour variants
+  ========================================================================== */
+.nhsuk-tag--white {
+  background-color: #ffffff;
+  border-color: #212b32;
+  color: #212b32; }
+
+.nhsuk-tag--grey {
+  background-color: #dbe0e3;
+  border-color: #354550;
+  color: #354550; }
+
+.nhsuk-tag--green {
+  background-color: #cce5d8;
+  border-color: #004c23;
+  color: #004c23; }
+
+.nhsuk-tag--aqua-green {
+  background-color: #ccedeb;
+  border-color: #00524d;
+  color: #00524d; }
+
+.nhsuk-tag--blue {
+  background-color: #ccdff1;
+  border-color: #004281;
+  color: #004281; }
+
+.nhsuk-tag--purple {
+  background-color: #d6cce3;
+  border-color: #240050;
+  color: #240050; }
+
+.nhsuk-tag--pink {
+  background-color: #efd3e3;
+  border-color: #57133a;
+  color: #57133a; }
+
+.nhsuk-tag--red {
+  background-color: #f7d4d1;
+  border-color: #6b140e;
+  color: #6b140e; }
+
+.nhsuk-tag--orange {
+  background-color: #ffdc8e;
+  border-color: #4d3708;
+  color: #4d3708; }
+
+.nhsuk-tag--yellow {
+  background-color: #fff59d;
+  border-color: #4d4712;
+  color: #4d4712; }
+
+/* Remove tag border
+  ========================================================================== */
+.nhsuk-tag--no-border {
+  border: 0; }
+
+/* ==========================================================================
    COMPONENTS/ #TEXTAREA
    ========================================================================== */
 .nhsuk-textarea {
