@@ -1,0 +1,88 @@
+/* ==========================================================================
+   #TAG
+   ========================================================================== */
+
+.nhsuk-tag {
+  @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
+  background-color: shade($color_nhsuk-blue, 10%);
+  border: 1px solid shade($color_nhsuk-blue, 10%);
+  color: $color_nhsuk-white;
+  display: inline-block;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  padding-bottom: nhsuk-spacing(1);
+  padding-left: nhsuk-spacing(2);
+  padding-right: nhsuk-spacing(2);
+  padding-top: nhsuk-spacing(1);
+  text-decoration: none;
+}
+
+/* Colour variants
+  ========================================================================== */
+
+.nhsuk-tag--white {
+  background-color: $color_nhsuk-white;
+  border-color: $color_nhsuk-black;
+  color: $color_nhsuk-black;
+}
+
+.nhsuk-tag--grey {
+  background-color: tint($color_nhsuk-grey-1, 80%);
+  border-color: shade($color_nhsuk-grey-1, 30%);
+  color: shade($color_nhsuk-grey-1, 30%);
+}
+
+.nhsuk-tag--green {
+  background-color: tint($color_nhsuk-green, 80%);
+  border-color: shade($color_nhsuk-green, 40%);
+  color: shade($color_nhsuk-green, 40%);
+}
+
+.nhsuk-tag--aqua-green {
+  background-color: tint($color_nhsuk-aqua-green, 80%);
+  border-color: shade($color_nhsuk-aqua-green, 50%);
+  color: shade($color_nhsuk-aqua-green, 50%);
+}
+
+.nhsuk-tag--blue {
+  background-color: tint($color_nhsuk-blue, 80%);
+  border-color: shade($color_nhsuk-blue, 30%);
+  color: shade($color_nhsuk-blue, 30%);
+}
+
+.nhsuk-tag--purple {
+  background-color: tint($color_nhsuk-purple, 80%);
+  border-color: shade($color_nhsuk-purple, 30%);
+  color: shade($color_nhsuk-purple, 30%);
+}
+
+.nhsuk-tag--pink {
+  background-color: tint($color_nhsuk-pink, 80%);
+  border-color: shade($color_nhsuk-pink, 50%);
+  color: shade($color_nhsuk-pink, 50%);
+}
+
+.nhsuk-tag--red {
+  background-color: tint($color_nhsuk-red, 80%);
+  border-color: shade($color_nhsuk-red, 50%);
+  color: shade($color_nhsuk-red, 50%);
+}
+
+.nhsuk-tag--orange {
+  background-color: tint($color_nhsuk-warm-yellow, 50%);
+  border-color: shade($color_nhsuk-warm-yellow, 70%);
+  color: shade($color_nhsuk-warm-yellow, 70%);
+}
+
+.nhsuk-tag--yellow {
+  background-color: tint($color_nhsuk-yellow, 50%);
+  border-color: shade($color_nhsuk-yellow, 70%);
+  color: shade($color_nhsuk-yellow, 70%);
+}
+
+/* Remove tag border
+  ========================================================================== */
+
+.nhsuk-tag--no-border {
+  border: 0;
+}

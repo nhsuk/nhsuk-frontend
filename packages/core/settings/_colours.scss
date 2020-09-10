@@ -20,10 +20,10 @@ $color_nhsuk-blue: #005eb8;
 $color_nhsuk-white: #ffffff;
 $color_nhsuk-black: #212b32;
 $color_nhsuk-green: #007f3b;
-$color_nhsuk-red: #d5281b;
-$color_nhsuk-yellow: #ffeb3b;
 $color_nhsuk-purple: #330072;
 $color_nhsuk-dark-pink: #7C2855;
+$color_nhsuk-red: #d5281b;
+$color_nhsuk-yellow: #ffeb3b;
 
 //
 // Secondary colours
@@ -31,7 +31,9 @@ $color_nhsuk-dark-pink: #7C2855;
 
 $color_nhsuk-pale-yellow: #fff9c4;
 $color_nhsuk-warm-yellow: #ffb81C;
+$color_nhsuk-orange: #ED8B00;
 $color_nhsuk-aqua-green: #00A499;
+$color_nhsuk-pink: #AE2573;
 
 //
 // Greyscale
@@ -43,7 +45,6 @@ $color_nhsuk-grey-3: #aeb7bd;
 $color_nhsuk-grey-4: #d8dde0;
 $color_nhsuk-grey-5: #f0f4f5;
 
-
 //
 // RGB and alpha values
 //
@@ -52,7 +53,6 @@ $color_nhsuk-grey-5: #f0f4f5;
 
 $color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha-transparency-50: .5;
-
 
 //
 // Functions for tint and shade

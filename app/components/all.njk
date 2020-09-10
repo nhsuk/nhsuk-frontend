@@ -19,6 +19,7 @@
 {% from 'components/skip-link/macro.njk' import skipLink %}
 {% from "components/summary-list/macro.njk" import summaryList %}
 {% from 'components/tables/macro.njk' import table %}
+{% from 'components/tag/macro.njk' import tag %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 
 {% from 'components/back-link/macro.njk' import backLink %}
@@ -762,6 +763,137 @@
       }
     ]
   }) }}
+
+  <table class="nhsuk-table">
+    <thead class="nhsuk-table__head">
+      <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Class name</th>
+        <th class="nhsuk-table__header" scope="col" style="width: 120px">Tag</th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag</code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Active"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--white </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Started",
+            classes: "nhsuk-tag--white"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--grey </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Not started",
+            classes: "nhsuk-tag--grey"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--green </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "New",
+            classes: "nhsuk-tag--green"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--aqua-green </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Active",
+            classes: "nhsuk-tag--aqua-green"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--blue </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Pending",
+            classes: "nhsuk-tag--blue"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--purple </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Received",
+            classes: "nhsuk-tag--purple"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--pink </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Sent",
+            classes: "nhsuk-tag--pink"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--red </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Rejected",
+            classes: "nhsuk-tag--red"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--orange </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Declined",
+            classes: "nhsuk-tag--orange"
+          })}}
+        </td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+          <code> nhsuk-tag--yellow </code>
+        </td>
+        <td class="nhsuk-table__cell">
+          {{ tag({
+            text: "Delayed",
+            classes: "nhsuk-tag--yellow"
+          })}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   {{ input({
     "label": {
