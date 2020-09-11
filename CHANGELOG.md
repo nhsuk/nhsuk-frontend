@@ -13,7 +13,7 @@
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
 - Fix styles for the `nhsuk-link-style-white`
 - Fix breadcrumb link color when `:visited` and `:focus`
-- Warning callout - update the macro template to prefix custom headings with `<span class="nhsuk-u-visually-hidden">Important:</span>` so we convey the importance of the message to screen reader users.
+- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users.
 
 ## 3.1.0 - 24 April 2020
 
