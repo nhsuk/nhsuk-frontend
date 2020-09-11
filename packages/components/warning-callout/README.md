@@ -6,18 +6,49 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ## Quick start example
 
+### Warning callout
+
 [Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
 
-### HTML markup
+#### HTML markup
 
 ```html
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">School, nursery or work</h3>
+  <h3 class="nhsuk-warning-callout__label">Important</h3>
   <p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
 </div>
 ```
 
-### Nunjucks macro
+#### Nunjucks macro
+
+If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
+
+```html
+{% from 'components/warning-callout/macro.njk' import warningCallout %}
+
+{{ warningCallout({
+  "heading": "Important",
+  "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+### Warning callout with custom heading
+
+[Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-warning-callout">
+  <h3 class="nhsuk-warning-callout__label">
+    <span class="nhsuk-u-visually-hidden">Important: </span>
+    School, nursery or work
+  </h3>
+  <p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
+</div>
+```
+
+#### Nunjucks macro
 
 If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 

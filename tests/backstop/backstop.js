@@ -428,6 +428,10 @@ module.exports = {
     {
       "label": "Warning callout",
       "url": `${TEST_HOST}/components/warning-callout/index.html`
+    },
+    {
+      "label": "Warning callout with custom heading",
+      "url": `${TEST_HOST}/components/warning-callout/custom-heading.html`
     }
   ],
   "paths": {
