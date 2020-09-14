@@ -3,6 +3,7 @@ import AutoComplete from './autoCompleteConfig';
 // Search variables which can be set from HTML
 const searchApiUrl = window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST || 'https://www.nhs.uk/s/suggest.json';
 const searchPageUrl = window.NHSUK_SETTINGS.SEARCH_TEST_HOST || 'https://www.nhs.uk/search/';
+
 /**
  * Function to build truncated result with svg for search autocomplete
  * @param {string} result String containing individual result from autocomplete source function
