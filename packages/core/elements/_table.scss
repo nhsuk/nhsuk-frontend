@@ -4,8 +4,6 @@
 
 /**
  * 1. Force `<table>`s to be full-width by default.
- * 2. Captions are used to improve accessibility,
- *    but we do not need them visually displayed.
  */
 
 table {
@@ -48,5 +46,6 @@ th {
 }
 
 caption {
-  @include visually-hidden; /* [2] */
+  @include nhsuk-font($size: 22, $weight: bold);
+  text-align: left;
 }

@@ -52,6 +52,27 @@
 }
 
 //
+// Visually shown mixin, used for displaying
+// content visually that has previously been hidden
+// by visually-hidden
+// Differences between mobile and desktop views
+// Use $display-property to assign display
+//
+// Usage: @include visually-shown(table-header-group);
+//
+
+@mixin visually-shown($display-property) {
+  -webkit-clip-path: initial;
+  clip: auto;
+  clip-path: initial;
+  display: $display-property;
+  height: auto;
+  overflow: auto;
+  position: relative;
+  width: auto;
+}
+
+//
 // Top and bottom margin mixin, remove
 // the top and bottom margin spacing
 //

@@ -13,7 +13,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### HTML markup
 
 ```html
-<div class="nhsuk-table-responsive">
+<div class="nhsuk-table-container">
   <table class="nhsuk-table">
     <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
     <thead class="nhsuk-table__head">
@@ -97,7 +97,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
   <h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
-  <div class="nhsuk-table-responsive">
+  <div class="nhsuk-table-container">
     <table class="nhsuk-table">
       <caption class="nhsuk-table__caption">Other possible causes of your symptoms</caption>
       <thead class="nhsuk-table__head">
@@ -174,6 +174,135 @@ Find out more about the table component and when to use it in the [NHS digital s
 
 ---
 
+### Responsive table
+
+[Preview the responsive table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/responsive-table.html)
+
+#### HTML markup
+
+```html
+<table role="table" class="nhsuk-table-responsive">
+  <caption class="nhsuk-table__caption">Ibuprofen syrup dosages for children</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Age
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How much?
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How often?
+      </th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row" >
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>3 to 5 months (weighing more than 5kg)
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>2.5ml
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row" >
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>6 to 11 months
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>2.5l
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 to 4 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row" >
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>1 to 3 years
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>5ml
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+#### Nunjucks macro
+
+```html
+{% from 'components/tables/macro.njk' import table %}
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "Ibuprofen syrup dosages for children",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Age"
+    },
+    {
+      text: "How much?"
+    },
+    {
+      text: "How often?"
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Age",
+        text: "3 to 5 months (weighing more than 5kg)"
+      },
+      {
+        header: "How much?",
+        text: "2.5ml"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 times in 24 hours"
+      }
+    ],
+    [
+      {
+        header: "Age",
+        text: "6 to 11 months"
+      },
+      {
+        header: "How much?",
+        text: "2.5l"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 to 4 times in 24 hours"
+      }
+    ],
+    [
+      {
+        header: "Age",
+        text: "1 to 3 years"
+      },
+      {
+        header: "How much?",
+        text: "5ml"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 times in 24 hours"
+      }
+    ]
+  ]
+}) }}
+```
+
+---
+
 ### Nunjucks arguments
 
 The table Nunjucks macro takes the following arguments:
@@ -199,5 +328,6 @@ The table Nunjucks macro takes the following arguments:
 | **head.[].rowspan**    | number     | No        | Specify how many rows a cell extends. |
 | **head.[].format**     | string     | No        | Specify format of a cell. Currently we only use "numeric". |
 | **firstCellIsHeader**  | boolean    | No        | If set to true, first cell in table row will be a TH instead of a TD. |
+| **responsive**         | boolean    | No        | If set to true, responsive table classes will be applied. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
