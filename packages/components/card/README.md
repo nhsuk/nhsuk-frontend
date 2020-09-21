@@ -205,31 +205,31 @@ Find out more about the card component and when to use it in the [NHS digital se
 <h2>Quarters</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">   
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+        <h2><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0">91</span><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a></h2>
+      </div>
+    </div>
+  </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">  
-    <div class="nhsuk-card nhsuk-card--clickable ">
+    <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
-        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Applicants</a></p>
+        <h2><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0">23</span><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a></h2>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
-    <div class="nhsuk-card nhsuk-card--clickable ">
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">   
+    <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
-        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Jobs</a></p>
+        <h2><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0">8</span><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a></h2>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
-    <div class="nhsuk-card nhsuk-card--clickable ">
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+    <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
-        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Services</a></p>
-      </div>
-    </div>
-  </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">      
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <p><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33</span><a href="#" class="nhsuk-card__link nhsuk-link--no-visited-state">Messages</a></p>
+        <h2><span class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0">33</span><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a></h2>
       </div>
     </div>
   </li>
@@ -320,25 +320,25 @@ Find out more about the card component and when to use it in the [NHS digital se
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Applicants</a></p>"
+      "headingHtml": "<h2><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0\">91</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Applicants</a></h2>"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Jobs</a></p>"
+      "headingHtml": "<h2><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0\">23</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Jobs</a></h2>"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Services</a></p>"
+      "headingHtml": "<h2><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0\">8</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Services</a></h2>"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-link--no-visited-state\">Messages</a></p>"
+      "headingHtml": "<h2><span class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-0\">33</span><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Messages</a></h2>"
     }) }}
   </li>
 </ul>
