@@ -414,6 +414,10 @@ module.exports = {
       "url": `${TEST_HOST}/components/tables/tables-panel.html`
     },
     {
+      "label": "Tag",
+      "url": `${TEST_HOST}/components/tag/index.html`
+    },
+    {
       "label": "Textarea",
       "url": `${TEST_HOST}/components/textarea/index.html`
     },
@@ -424,6 +428,10 @@ module.exports = {
     {
       "label": "Warning callout",
       "url": `${TEST_HOST}/components/warning-callout/index.html`
+    },
+    {
+      "label": "Warning callout with custom heading",
+      "url": `${TEST_HOST}/components/warning-callout/custom-heading.html`
     }
   ],
   "paths": {

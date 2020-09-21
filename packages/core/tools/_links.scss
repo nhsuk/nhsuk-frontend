@@ -54,19 +54,19 @@
   color: $color_nhsuk-white;
 
   &:visited {
-    color: $color_nhsuk-grey-5;
+    color: $color_nhsuk-white;
+  }
+
+  &:hover {
+    color: $color_nhsuk-white;
+    text-decoration: none;
   }
 
   &:focus {
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
-    text-decoration: underline;
-  }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   &:active {

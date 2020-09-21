@@ -1,11 +1,20 @@
 # NHS.UK frontend Changelog
 
-## 3.1.1 - Unreleased
+## 3.2.0 - Unreleased
+
+:new: **New features**
+
+- Tag component - Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status.
+
+  If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/tag/tag';`
 
 :wrench: **Fixes**
 
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
 - Focus styling - Fixing issues with focus state on input and text area which caused resizing ([Issue 600](https://github.com/nhsuk/nhsuk-frontend/issues/600) and [Issue 613](https://github.com/nhsuk/nhsuk-frontend/issues/613))
+- Fix styles for the `nhsuk-link-style-white`
+- Fix breadcrumb link color when `:visited` and `:focus`
+- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users.
 
 ## 3.1.0 - 24 April 2020
 
