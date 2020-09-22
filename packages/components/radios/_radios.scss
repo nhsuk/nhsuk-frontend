@@ -91,7 +91,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
  */
 
 .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
-  @include nhsuk-focused-input();
+  @include nhsuk-focused-radio();
 }
 
 /* Selected state */
