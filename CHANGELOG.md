@@ -9,12 +9,35 @@
   If you are using the current responsive table class `nhsuk-table-responsive` you will need to rename the `nhsuk-table-responsive` class to `nhsuk-table-container`.
 
   [Preview the responsive table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/responsive-table.html)
+  
+- Remove Panel and Promo components
+
+  The panel and promo were two components in the NHS.UK frontend that did not have guidance in the service manual. They both also shared a lot of the same structure and design. This confused users of the design system, with people not knowing when and how to use the components.
+
+  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have combined the two components into one new component, a card, along with improving the accessibility. 
+
+  <details>
+    <summary>How to replace a panel or promo with a card</summary>
+    Instructions to go here
+  </details>
+
+  ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
 :new: **New features**
 
-- Tag component - Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status.
+- Add Card component
 
-  If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/tag/tag';`
+  Use a card instead of a panel or promo to provide users with a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks. 
+
+  ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
+
+- Add Tag component
+
+  Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status. 
+
+  ([PR 626](https://github.com/nhsuk/nhsuk-frontend/pull/626))
+
+- Add `nhsuk-link--no-visited-state` mixin - for where it is not helpful to distinguish between visited and non-visited links.
 
 :wrench: **Fixes**
 
@@ -22,7 +45,14 @@
 - Focus styling - Fixing issues with focus state on input and text area which caused resizing ([Issue 600](https://github.com/nhsuk/nhsuk-frontend/issues/600) and [Issue 613](https://github.com/nhsuk/nhsuk-frontend/issues/613))
 - Fix styles for the `nhsuk-link-style-white`
 - Fix breadcrumb link color when `:visited` and `:focus`
-- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users.
+- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users. ([PR 630](https://github.com/nhsuk/nhsuk-frontend/pull/630))
+- Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS. 
+
+  Including adding a 1px border to:
+  - care cards (non-urgent and urgent)
+  - do and don't list
+  - expander
+  - warning callout
 
 ## 3.1.0 - 24 April 2020
 
