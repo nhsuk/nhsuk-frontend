@@ -2678,10 +2678,7 @@ b {
  */
 .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
   border: 4px solid #212b32;
-  box-shadow: 0 0 0 4px #ffeb3b;
-  outline: 4px solid transparent;
-  /* 1 */
-  outline-offset: 4px; }
+  box-shadow: 0 0 0 4px #ffeb3b; }
 
 /* Selected state */
 .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label::after {
@@ -4863,11 +4860,11 @@ b {
       font-size: 14pt;
       line-height: 1.15; } }
   .nhsuk-input:focus {
-    border: 4px solid #212b32;
-    box-shadow: 0 0 0 4px #ffeb3b;
-    outline: 4px solid transparent;
+    border: 2px solid #212b32;
+    box-shadow: inset 0 0 0 2px;
+    outline: 4px solid #ffeb3b;
     /* 1 */
-    outline-offset: 4px; }
+    outline-offset: 0; }
 
 .nhsuk-input::-webkit-outer-spin-button,
 .nhsuk-input::-webkit-inner-spin-button {
@@ -5795,10 +5792,7 @@ b {
  */
 .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
   border: 4px solid #212b32;
-  box-shadow: 0 0 0 4px #ffeb3b;
-  outline: 4px solid transparent;
-  /* 1 */
-  outline-offset: 4px; }
+  box-shadow: 0 0 0 4px #ffeb3b; }
 
 /* Selected state */
 .nhsuk-radios__input:checked + .nhsuk-radios__label::after {
@@ -5901,11 +5895,11 @@ b {
       font-size: 14pt;
       line-height: 1.15; } }
   .nhsuk-select:focus {
-    border: 4px solid #212b32;
-    box-shadow: 0 0 0 4px #ffeb3b;
-    outline: 4px solid transparent;
+    border: 2px solid #212b32;
+    box-shadow: inset 0 0 0 2px;
+    outline: 4px solid #ffeb3b;
     /* 1 */
-    outline-offset: 4px; }
+    outline-offset: 0; }
 
 .nhsuk-select option:active,
 .nhsuk-select option:checked,
@@ -6284,11 +6278,11 @@ b {
       font-size: 14pt;
       line-height: 1.15; } }
   .nhsuk-textarea:focus {
-    border: 4px solid #212b32;
-    box-shadow: 0 0 0 4px #ffeb3b;
-    outline: 4px solid transparent;
+    border: 2px solid #212b32;
+    box-shadow: inset 0 0 0 2px;
+    outline: 4px solid #ffeb3b;
     /* 1 */
-    outline-offset: 4px; }
+    outline-offset: 0; }
 
 .nhsuk-textarea--error {
   border: 4px solid #d5281b; }
