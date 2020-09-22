@@ -36,7 +36,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Warning callout with custom heading
 
-[Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
+[Preview the warning callout with custom heading component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/custom-heading.html)
 
 #### HTML markup
 
