@@ -4,7 +4,7 @@ import AutoComplete from './autoCompleteConfig';
  * Function to build truncated result with svg for search autocomplete
  * @param {string} result String containing individual result from autocomplete source function
  * @returns {string} String of HTML containing passed result
-*/
+ */
 const suggestion = (result) => {
   const truncateLength = 36;
   const dots = result.length > truncateLength ? '...' : '';
@@ -21,7 +21,7 @@ const suggestion = (result) => {
  * Function to populate the search autocomplete.
  * @param {string} query Query to pass to search API
  * @param {function} populateResults Callback function passed to source by autocomplete plugin
-*/
+ */
 const source = (query, populateResults) => {
   // Build URL for search endpoint
   const rootUrl = 'https://nhs.funnelback.co.uk/s/suggest.json';
