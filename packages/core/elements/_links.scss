@@ -2,6 +2,7 @@
    ELEMENTS / #LINKS
    ========================================================================== */
 
+
 /**
  * Our basic `<a>` elements only need very minimal styling.
  * It uses the @mixin nhsuk-link-style-default within tools/links.
@@ -13,22 +14,22 @@
  */
 
 a {
-  @include nhsuk-link-style-default;
-
-  @include mq($media-type: print) {
-    &:after {
-      color: $color_nhsuk-black;
-      content: ' (Link: ' attr(href) ')'; /* [1] */
-      font-size: 14pt; /* [2] */
+    @include nhsuk-link-style-default;
+    @include mq($media-type: print) {
+        &:after {
+            color: $color_hseuk-black;
+            content: ' (Link: ' attr(href) ')';
+            /* [1] */
+            font-size: 14pt;
+            /* [2] */
+        }
     }
-  }
-
 }
 
 .ie8 {
-  a {
-    &:focus {
-      outline: 1px dotted $nhsuk-focus-text-color;
+    a {
+        &:focus {
+            outline: 1px dotted $nhsuk-focus-text-color;
+        }
     }
-  }
 }

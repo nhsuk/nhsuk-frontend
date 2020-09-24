@@ -4,7 +4,7 @@
 ## Screen resolution testing
 
 You should test at all the standard device screen resolutions and the top 8 screen
-resolutions for [NHS.UK](https://www.nhs.uk) (in both landscape and portrait mode).
+resolutions for [HSE](https://www.nhs.uk) (in both landscape and portrait mode).
 This combined will give us confidence that it will work for the majority of our users.
 
 ### Standard devices

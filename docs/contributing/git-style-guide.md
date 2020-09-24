@@ -29,7 +29,7 @@ After the summary line should come a blank line, followed by a more detailed des
 We are reducing the extra code and overheads for Internet Explorer 8,
 so we are removing fallback icons. We have replaced a fallback icon
 with the text search so it still functions.
-See https://github.com/nhsuk/nhsuk-frontend/issues/94
+See https://github.com/hse-digital/nhsuk-frontend/issues/94
 
 ```
 

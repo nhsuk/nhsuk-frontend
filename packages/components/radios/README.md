@@ -225,7 +225,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-divider-2" name="example" type="radio" value="nhsuk-login">
         <label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
-        Use NHS.UK login
+        Use HSE login
         </label>
       </div>
       <div class="nhsuk-radios__divider">or</div>
@@ -260,7 +260,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
     },
     {
       "value": "nhsuk-login",
-      "text": "Use NHS.UK login"
+      "text": "Use HSE login"
     },
     {
       "divider": "or"
@@ -302,7 +302,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="gov-2" name="gov" type="radio" value="verify" aria-describedby="gov-2-item-hint">
         <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
-        Sign in with NHS.UK login
+        Sign in with HSE login
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -337,7 +337,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
     },
     {
       "value": "verify",
-      "text": "Sign in with NHS.UK login",
+      "text": "Sign in with HSE login",
       "hint": {
         "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }
@@ -632,9 +632,9 @@ The radios Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description                 |
 | --------------------|----------|-----------|-----------------------------|
-| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **idPrefix**        | string   | No        | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.|
 | **name**            | string	 | Yes       | Name attribute for each radio item. |
 | **items**           | array    | Yes       | Array of radio item objects. |
@@ -642,7 +642,7 @@ The radios Nunjucks macro takes the following arguments:
 | **items[].id**     | string  | No        | Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.|
 | **items[].name**   | string  | Yes        | Specific name for the radio item. If omitted, then component global `name` string will be applied. |
 | **items[].value**  | string   | Yes        | Value for the radio input. |
-| **items[].hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **items[].hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **items[].divider** | string   | No        | Optional divider text to separate radio items, for example the text "or". |
 | **items[].checked** | boolean   | No        | If true, radio will be checked. |
 | **items[].disabled** | boolean   | No        | If true, radio will be disabled. |

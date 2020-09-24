@@ -127,9 +127,9 @@ The textarea Nunjucks macro takes the following arguments:
 | **name**            | string   | Yes       | The name of the textarea, which is submitted with the form data. |
 | **rows**            | string   | No        | Optional number of textarea rows (default is 5 rows). |
 | **value**           | string   | No        | Optional initial value of the textarea. |
-| **label**           | object   | Yes       | Arguments for the label component. See [label](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/label) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **label**           | object   | Yes       | Arguments for the label component. See [label](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/label) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes to add to the textarea tag. Separate each class with a space. |
 | **autocomplete**          | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |

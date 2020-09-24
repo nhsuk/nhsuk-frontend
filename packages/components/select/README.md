@@ -18,9 +18,9 @@ Find out more about the select component and when to use it in the [NHS digital 
     Label text goes here
   </label>
   <select class="nhsuk-select" id="select-1" name="select-1">
-    <option value="1">NHS.UK frontend option 1</option>
-    <option value="2" selected>NHS.UK frontend option 2</option>
-    <option value="3" disabled>NHS.UK frontend option 3</option>
+    <option value="1">HSE frontend option 1</option>
+    <option value="2" selected>HSE frontend option 2</option>
+    <option value="3" disabled>HSE frontend option 3</option>
   </select>
 </div>
 ```
@@ -39,16 +39,16 @@ Find out more about the select component and when to use it in the [NHS digital 
   "items": [
     {
       "value": 1,
-      "text": "NHS.UK frontend option 1"
+      "text": "HSE frontend option 1"
     },
     {
       "value": 2,
-      "text": "NHS.UK frontend option 2",
+      "text": "HSE frontend option 2",
       "selected": true
     },
     {
       "value": 3,
-      "text": "NHS.UK frontend option 3",
+      "text": "HSE frontend option 3",
       "disabled": true
     }
   ]
@@ -75,9 +75,9 @@ Find out more about the select component and when to use it in the [NHS digital 
   Error message goes here
   </span>
   <select class="nhsuk-select nhsuk-select--error" id="select-2" name="select-2" aria-describedby="select-2-hint select-2-error">
-    <option value="1">NHS.UK frontend option 1</option>
-    <option value="2">NHS.UK frontend option 2</option>
-    <option value="3">NHS.UK frontend option 3</option>
+    <option value="1">HSE frontend option 1</option>
+    <option value="2">HSE frontend option 2</option>
+    <option value="3">HSE frontend option 3</option>
   </select>
 </div>
 ```
@@ -102,15 +102,15 @@ Find out more about the select component and when to use it in the [NHS digital 
   "items": [
     {
       "value": 1,
-      "text": "NHS.UK frontend option 1"
+      "text": "HSE frontend option 1"
     },
     {
       "value": 2,
-      "text": "NHS.UK frontend option 2"
+      "text": "HSE frontend option 2"
     },
     {
       "value": 3,
-      "text": "NHS.UK frontend option 3"
+      "text": "HSE frontend option 3"
     }
   ]
 }) }}
@@ -132,9 +132,9 @@ The select Nunjucks macro takes the following arguments:
 | **item.selected**   | boolean  | No        | Sets the option as the selected. |
 | **item.disabled**   | boolean  | No        | Sets the option item as disabled. |
 | **item.attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to the select option tag. |
-| **label**           | object   | Yes       | Optional label text or HTML by specifying value for either text or html keys. See [label](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/label) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **label**           | object   | Yes       | Optional label text or HTML by specifying value for either text or html keys. See [label](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/label) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes to add to the select component. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the select component. |
 

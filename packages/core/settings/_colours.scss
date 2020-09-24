@@ -1,7 +1,6 @@
 // ==========================================================================
 // SETTINGS / #COLOURS
 // ==========================================================================
-
 //
 // NHS colour palette
 //
@@ -13,62 +12,51 @@
 //
 // We use the word color, not colour, for variables.
 //
-
 // sass-lint:disable no-color-hex
-
-$color_nhsuk-blue: #005eb8;
-$color_nhsuk-white: #ffffff;
-$color_nhsuk-black: #212b32;
-$color_nhsuk-green: #007f3b;
-$color_nhsuk-red: #d5281b;
-$color_nhsuk-yellow: #ffeb3b;
-$color_nhsuk-purple: #330072;
-$color_nhsuk-dark-pink: #7C2855;
-
+$color_hseuk-red: #981e32; // brand colour
+$color_hseuk-blue: #005eb8; // NHS blue
+$color_hseuk-white: #ffffff;
+$color_hseuk-black: #111111;
+$color_hseuk-green: #007f3b; // NHS 
+$color_hseuk-yellow: #ffeb3b; // NHS
+$color_hseuk-purple: #330072; // NHS
+$color_hseuk-dark-pink: #7C2855; // NHS
+$color_hseuk-error: #d4351c;
 //
 // Secondary colours
 //
-
-$color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81C;
-$color_nhsuk-aqua-green: #00A499;
-
+$color_hseuk-pale-yellow: #fff9c4;
+$color_hseuk-warm-yellow: #ffb81C;
+$color_hseuk-aqua-green: #00A499;
 //
 // Greyscale
 //
-
-$color_nhsuk-grey-1: #4c6272;
-$color_nhsuk-grey-2: #768692;
-$color_nhsuk-grey-3: #aeb7bd;
-$color_nhsuk-grey-4: #d8dde0;
-$color_nhsuk-grey-5: #f0f4f5;
-
-
+$color_hseuk-grey-1: #4c6272;
+$color_hseuk-grey-2: #768692;
+$color_hseuk-grey-3: #aeb7bd;
+$color_hseuk-grey-4: #d8dde0;
+$color_hseuk-grey-5: #f0f4f5;
 //
 // RGB and alpha values
 //
 // Used to create drop/box shadows e.g. for search suggestions dropdown
 //
-
-$color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
+$color_hseuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha-transparency-50: .5;
-
-
 //
 // Functions for tint and shade
 //
 // Usage: tint(color, percentage)
-//        tint($color_nhsuk-black, 10%)
+//        tint($color_hseuk-black, 10%)
 //        shade(color, percentage)
-//        shade($color_nhsuk-blue, 50%)
+//        shade($color_hseuk-red, 50%)
 //
-
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+    @return mix(white, $color, $percentage);
 }
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+    @return mix(black, $color, $percentage);
 }
 
 //
@@ -81,72 +69,55 @@ $alpha-transparency-50: .5;
 // 5. used for primary button and action link icon :hover states
 // 6. used for primary button and action link icon :active states
 //
-
-$color_tint_nhsuk-black-10: tint($color_nhsuk-black, 10%); // [1] //
-
-$color_shade_nhsuk-blue-20: shade($color_nhsuk-blue, 20%); // [2] //
-$color_shade_nhsuk-blue-35: shade($color_nhsuk-blue, 35%); // [3] //
-$color_shade_nhsuk-blue-50: shade($color_nhsuk-blue, 50%); // [4] //
-
-$color_shade_nhsuk-green-35: shade($color_nhsuk-green, 35%); // [5] //
-$color_shade_nhsuk-green-50: shade($color_nhsuk-green, 50%); // [6] //
-
-$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, .2);
+$color_tint_nhsuk-black-10: tint($color_hseuk-black, 10%); // [1] //
+$color_shade_nhsuk-blue-20: shade($color_hseuk-red, 20%); // [2] //
+$color_shade_nhsuk-blue-35: shade($color_hseuk-red, 35%); // [3] //
+$color_shade_nhsuk-blue-50: shade($color_hseuk-red, 50%); // [4] //
+$color_shade_nhsuk-green-35: shade($color_hseuk-green, 35%); // [5] //
+$color_shade_nhsuk-green-50: shade($color_hseuk-green, 50%); // [6] //
+$color_transparent_nhsuk-white-20: rgba($color_hseuk-white, .2);
 $color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, .1);
-
 //
 // Colour aliases
 //
-
 // Text
-$nhsuk-text-color: $color_nhsuk-black;
-$nhsuk-secondary-text-color: $color_nhsuk-grey-1;
-$nhsuk-print-text-color: $color_nhsuk-black;
-
+$nhsuk-text-color: $color_hseuk-black;
+$nhsuk-secondary-text-color: $color_hseuk-grey-1;
+$nhsuk-print-text-color: $color_hseuk-black;
 // Links
-$nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
+$nhsuk-link-color: $color_hseuk-red;
+$nhsuk-link-hover-color: $color_hseuk-dark-pink;
 $nhsuk-link-active-color: shade($nhsuk-link-color, 50%);
-$nhsuk-link-visited-color: $color_nhsuk-purple;
-
+$nhsuk-link-visited-color: $color_hseuk-purple;
 // Focus
-$nhsuk-focus-color: $color_nhsuk-yellow;
-$nhsuk-focus-text-color: $color_nhsuk-black;
-
+$nhsuk-focus-color: $color_hseuk-yellow;
+$nhsuk-focus-text-color: $color_hseuk-black;
 // Border
-$nhsuk-border-color: $color_nhsuk-grey-4;
+$nhsuk-border-color: $color_hseuk-grey-4;
 $nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
-
 // Box shadow
 $nhsuk-box-shadow: rgba(33, 43, 50, .16);
-$nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
-
+$nhsuk-box-shadow-color: $color_hseuk-grey-1-rgb;
 //
 // Forms
 //
-
-$nhsuk-error-color: $color_nhsuk-red;
-$nhsuk-form-border-color: $color_nhsuk-grey-1;
-$nhsuk-form-element-background-color: $color_nhsuk-white;
-
+$nhsuk-error-color: $color_hseuk-error;
+$nhsuk-form-border-color: $color_hseuk-grey-1;
+$nhsuk-form-element-background-color: $color_hseuk-white;
 //
 // Buttons
 //
-
-$nhsuk-button-color: $color_nhsuk-green;
+$nhsuk-button-color: $color_hseuk-green;
 $nhsuk-button-hover-color: shade($nhsuk-button-color, 20%);
 $nhsuk-button-active-color: shade($nhsuk-button-color, 50%);
 $nhsuk-button-shadow-color: shade($nhsuk-button-color, 50%);
-
-$nhsuk-secondary-button-color: $color_nhsuk-grey-1;
+$nhsuk-secondary-button-color: $color_hseuk-grey-1;
 $nhsuk-secondary-button-hover-color: shade($nhsuk-secondary-button-color, 20%);
 $nhsuk-secondary-button-active-color: shade($nhsuk-secondary-button-color, 50%);
 $nhsuk-secondary-button-shadow-color: shade($nhsuk-secondary-button-color, 50%);
-
-$nhsuk-reverse-button-color: $color_nhsuk-white;
+$nhsuk-reverse-button-color: $color_hseuk-white;
 $nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
-$nhsuk-reverse-button-active-color: $color-nhsuk-black;
-$nhsuk-reverse-button-shadow-color: $color-nhsuk-black;
-
-$nhsuk-button-text-color: $color_nhsuk-white;
-$nhsuk-reverse-button-text-color: $color_nhsuk-black;
+$nhsuk-reverse-button-active-color: $color_hseuk-black;
+$nhsuk-reverse-button-shadow-color: $color_hseuk-black;
+$nhsuk-button-text-color: $color_hseuk-white;
+$nhsuk-reverse-button-text-color: $color_hseuk-black;

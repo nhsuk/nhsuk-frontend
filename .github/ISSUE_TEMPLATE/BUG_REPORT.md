@@ -36,7 +36,7 @@ Include the following as a minimum e.g.
 * Browser: Google Chrome
 * Browser version: 59.0.3071.109
 *
-* NHS.UK frontend package version: 1.0.0
+* HSE frontend package version: 1.0.0
 * Node version: v10.15.0
 * npm version: 6.5.0
 -->
@@ -45,7 +45,7 @@ Include the following as a minimum e.g.
 * Operating System:
 * Browser:
 * Browser version:
-* NHS.UK frontend package version:
+* HSE frontend package version:
 * Node version:
 * npm version:
 

@@ -10,7 +10,7 @@ For full documentation on the BackstopJS framework, read the [BackstopJS documen
 
 ### Tests configuration
 
-BackstopJS tests configuration and files can be found within the `backstop` folder in the [tests directory](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests).
+BackstopJS tests configuration and files can be found within the `backstop` folder in the [tests directory](https://github.com/hse-digital/nhsuk-frontend/tree/master/tests).
 
 `backstop.js` contains all the test configuration and tests scenarios.
 

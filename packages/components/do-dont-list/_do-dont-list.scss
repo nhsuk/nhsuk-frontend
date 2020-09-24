@@ -2,6 +2,7 @@
    COMPONENTS / #DO-DONT-LIST
    ========================================================================== */
 
+
 /**
  * Do and Don't lists help users understand more easily what they should
  * and shouldn't do.
@@ -11,10 +12,12 @@
  */
 
 .nhsuk-do-dont-list {
-  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color); /* [1] */
+    @include panel-with-label($color_hseuk-white, $nhsuk-text-color);
+    /* [1] */
 }
 
 .nhsuk-do-dont-list__label {
-  @include heading-label($color_nhsuk-blue, $color_nhsuk-white); /* [2] */
-  @include print-color($nhsuk-print-text-color);
+    @include heading-label($color_hseuk-red, $color_hseuk-white);
+    /* [2] */
+    @include print-color($nhsuk-print-text-color);
 }

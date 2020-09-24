@@ -1,6 +1,6 @@
-# Contributing to NHS.UK frontend
+# Contributing to HSE frontend
 
-Thank you for your interest in contributing to NHS.UK frontend, we really appreciate it. There are a number
+Thank you for your interest in contributing to HSE frontend, we really appreciate it. There are a number
 of ways that you can contribute – reporting bugs, fixing bugs, suggesting new components or writing documentation.
 
 We've compiled a list of contributing guidance to make it easier for you to contribute and to make sure you follow our guidelines for the project.
@@ -11,7 +11,7 @@ If you have any questions please [email us](mailto:service-manual@nhs.net) or ge
 
 ### General
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
-- [Report a bug or issue](https://github.com/nhsuk/nhsuk-frontend/issues/new?template=BUG_REPORT.md)
+- [Report a bug or issue](https://github.com/hse-digital/nhsuk-frontend/issues/new?template=BUG_REPORT.md)
 
 ### Contributors
 - [Running the application locally](docs/contributing/running-locally.md)

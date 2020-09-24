@@ -274,29 +274,29 @@ large-desktop: 990px
 ### Primary
 
 ```scss
-$color_nhsuk-blue: #005eb8;
-$color_nhsuk-white: #ffffff;
-$color_nhsuk-black: #212b32;
-$color_nhsuk-green: #007f3b;
-$color_nhsuk-red: #da291c;
-$color_nhsuk-yellow: #ffeb3b;
-$color_nhsuk-purple: #330072;
+$color_hseuk-red: #005eb8;
+$color_hseuk-white: #ffffff;
+$color_hseuk-black: #212b32;
+$color_hseuk-green: #007f3b;
+$color_hseuk-red: #da291c;
+$color_hseuk-yellow: #ffeb3b;
+$color_hseuk-purple: #330072;
 ```
 
 ### Secondary
 
 ```scss
-$color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81C;
-$color_nhsuk-aqua-green: #00A499;
+$color_hseuk-pale-yellow: #fff9c4;
+$color_hseuk-warm-yellow: #ffb81C;
+$color_hseuk-aqua-green: #00A499;
 ```
 
 ### Greyscale
 
 ```scss
-$color_nhsuk-grey-1: #425563;
-$color_nhsuk-grey-2: #768692;
-$color_nhsuk-grey-3: #aeb7bd;
-$color_nhsuk-grey-4: #d8dde0;
-$color_nhsuk-grey-5: #f0f4f5;
+$color_hseuk-grey-1: #425563;
+$color_hseuk-grey-2: #768692;
+$color_hseuk-grey-3: #aeb7bd;
+$color_hseuk-grey-4: #d8dde0;
+$color_hseuk-grey-5: #f0f4f5;
 ```

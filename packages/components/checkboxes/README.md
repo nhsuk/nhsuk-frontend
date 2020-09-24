@@ -107,7 +107,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="nhsuk-login" name="verify" type="checkbox" value="nhsuk-verify" aria-describedby="nhsuk-login-item-hint">
         <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-login">
-        Sign in with NHS.UK login
+        Sign in with HSE login
         </label>
         <span class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -144,7 +144,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
       "name": "verify",
       "id": "nhsuk-login",
       "value": "nhsuk-verify",
-      "text": "Sign in with NHS.UK login",
+      "text": "Sign in with HSE login",
       "hint": {
         "text": "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
       }
@@ -514,9 +514,9 @@ The checkboxes Nunjucks macro takes the following arguments:
 
 | Name                      | Type     | Required  | Description             |
 | --------------------------|----------|-----------|-------------------------|
-| **fieldset**              | object   | No        | Arguments for the fieldset component (e.g. legend). See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
-| **hint**                  | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**          | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **fieldset**              | object   | No        | Arguments for the fieldset component (e.g. legend). See [fieldset](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
+| **hint**                  | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**          | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **idPrefix**        | string   | No        | String to prefix id for each checkbox item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead. |
 | **name**            | string	 | Yes       | Name attribute for each checkbox item. |
 | **items**           | array    | Yes       | Array of checkbox items objects. |
@@ -524,7 +524,7 @@ The checkboxes Nunjucks macro takes the following arguments:
 | **items[].id**     | string  | No        | Specific id attribute for the checkbox item. If omitted, then `idPrefix` string will be applied.|
 | **items[].name**   | string  | Yes        | Specific name for the checkbox item. If omitted, then component global `name` string will be applied. |
 | **items[].value**  | string   | Yes        | Value for the checkbox input. |
-| **items[].hint**   | object   | No        | Provide optional hint to each checkbox item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **items[].hint**   | object   | No        | Provide optional hint to each checkbox item. See [hint](https://github.com/hse-digital/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **items[].divider** | string   | No        | Optional divider text to separate checkbox items, for example the text "or". |
 | **items[].checked** | boolean   | No        | If true, checkbox will be checked. |
 | **items[].conditional** | boolean   | No        | If true, content provided will be revealed when the item is checked. |

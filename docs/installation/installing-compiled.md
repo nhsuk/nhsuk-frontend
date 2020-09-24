@@ -1,6 +1,6 @@
 # Installing using compiled files
 
-When installing NHS.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
+When installing HSE frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
 
 This means that you will not be able to:
 
@@ -14,7 +14,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
 1. Download the compiled files
 
-    [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/nhsuk/nhsuk-frontend/releases)
+    [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/hse-digital/nhsuk-frontend/releases)
 
 2. Include resources  
 
@@ -52,9 +52,9 @@ If you require any of this functionality, you should [install using npm](/docs/i
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
       ```
 
-  4. Create pages using NHS.UK frontend
+  4. Create pages using HSE frontend
 
-      You can now create pages using the NHS.UK frontend [grid](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components).
+      You can now create pages using the HSE frontend [grid](https://github.com/hse-digital/nhsuk-frontend/blob/master/packages/core/README.md#page-layout) and [components](https://github.com/hse-digital/nhsuk-frontend/blob/master/packages/components).
 
 ### HTML template
 
@@ -69,7 +69,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>NHS.UK page template</title>
+    <title>HSE page template</title>
 
     <link href="https://www.nhs.uk/" rel="preconnect">
     <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
@@ -94,7 +94,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     <!-- Open Graph -->
     <meta property="og:url" content="https://www.nhs.uk">
-    <meta property="og:title" content="NHS.UK">
+    <meta property="og:title" content="HSE">
     <meta property="og:description" content="Helping you take control of your health and wellbeing.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="[absolute url]/assets/logos/open-graph.png">

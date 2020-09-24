@@ -26,7 +26,7 @@ The application generates static HTML pages to preview components, with each com
 
 `packages/`
 
-  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+  HSE frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 `tasks/`
 

@@ -1,6 +1,6 @@
 # Browser support
 
-NHS.UK frontend browser support is shown in the table below.
+HSE frontend browser support is shown in the table below.
 
 'Compliant' means that components should look and function as they were designed to do in other modern browsers.
 
