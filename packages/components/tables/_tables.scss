@@ -12,9 +12,9 @@
  */
 
 .nhsuk-table__row {
-    &:hover {
-        background-color: $color_hseuk-grey-5;
-    }
+  &:hover {
+    background-color: $color_hseuk-grey-5;
+  }
 }
 
 
@@ -27,16 +27,16 @@
  */
 
 .nhsuk-table__panel-with-heading-tab {
-    @include panel-with-label($color_hseuk-white, $nhsuk-text-color);
-    .nhsuk-table-responsive,
-    .nhsuk-table {
-        margin: 0;
-        /* [1] */
-    }
+  @include panel-with-label($color_hseuk-white, $nhsuk-text-color);
+  .nhsuk-table-responsive,
+  .nhsuk-table {
+    margin: 0;
+    /* [1] */
+  }
 }
 
 .nhsuk-table__heading-tab {
-    @include heading-label($color_hseuk-red, $color_hseuk-white);
+  @include heading-label($color_hseuk-red, $color_hseuk-white);
 }
 
 
@@ -51,16 +51,16 @@
  */
 
 .nhsuk-table-responsive {
-    @include nhsuk-responsive-margin(7, 'bottom');
-    display: block; // sass-lint:disable-line property-sort-order
-    -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order
-    -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line property-sort-order
-    overflow-x: auto; // sass-lint:disable-line property-sort-order
-    width: 100%;
-    .nhsuk-table {
-        margin: 0;
-        /* [1] */
-    }
+  @include nhsuk-responsive-margin(7, 'bottom');
+  display: block; // sass-lint:disable-line property-sort-order
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order
+  -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line property-sort-order
+  overflow-x: auto; // sass-lint:disable-line property-sort-order
+  width: 100%;
+  .nhsuk-table {
+    margin: 0;
+    /* [1] */
+  }
 }
 
 
@@ -74,5 +74,5 @@
 
 .nhsuk-table__header--numeric,
 .nhsuk-table__cell--numeric {
-    text-align: right;
+  text-align: right;
 }

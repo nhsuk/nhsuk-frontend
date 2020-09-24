@@ -16,23 +16,23 @@
  */
 
 html {
-    background-color: $color_hseuk-grey-4;
-    font-family: $nhsuk-font, $nhsuk-font-fallback;
-    overflow-y: scroll;
-    /* [1] */
+  background-color: $color_hseuk-grey-4;
+  font-family: $nhsuk-font, $nhsuk-font-fallback;
+  overflow-y: scroll;
+  /* [1] */
 }
 
 body {
-    -moz-osx-font-smoothing: grayscale;
-    /* [2] */
-    -webkit-font-smoothing: antialiased;
-    /* [2] */
-    background-color: $color_hseuk-grey-5;
-    color: $nhsuk-text-color;
-    font-size: $nhsuk-base-font-size;
-    line-height: _nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
-    margin: 0;
-    /* [3] */
-    min-height: 100%;
-    /* [4] */
+  -moz-osx-font-smoothing: grayscale;
+  /* [2] */
+  -webkit-font-smoothing: antialiased;
+  /* [2] */
+  background-color: $color_hseuk-grey-5;
+  color: $nhsuk-text-color;
+  font-size: $nhsuk-base-font-size;
+  line-height: _nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
+  margin: 0;
+  /* [3] */
+  min-height: 100%;
+  /* [4] */
 }

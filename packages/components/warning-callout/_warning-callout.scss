@@ -9,11 +9,11 @@
  */
 
 .nhsuk-warning-callout {
-    @include panel-with-label($color_hseuk-pale-yellow, $nhsuk-text-color);
-    /* [1] */
+  @include panel-with-label($color_hseuk-pale-yellow, $nhsuk-text-color);
+  /* [1] */
 }
 
 .nhsuk-warning-callout__label {
-    @include heading-label($color_hseuk-yellow, $nhsuk-text-color);
-    /* [2] */
+  @include heading-label($color_hseuk-yellow, $nhsuk-text-color);
+  /* [2] */
 }

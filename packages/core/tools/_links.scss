@@ -7,29 +7,29 @@
 // Usage: @include nhsuk-link-style-default;
 //
 @mixin nhsuk-link-style-default {
-    color: $nhsuk-link-color;
-    &:visited {
-        color: $nhsuk-link-visited-color;
-    }
+  color: $nhsuk-link-color;
+  &:visited {
+    color: $nhsuk-link-visited-color;
+  }
+  &:hover {
+    color: $nhsuk-link-hover-color;
+    text-decoration: none;
+  }
+  &:focus {
+    @include nhsuk-focused-text();
     &:hover {
-        color: $nhsuk-link-hover-color;
-        text-decoration: none;
+      text-decoration: none;
     }
-    &:focus {
-        @include nhsuk-focused-text();
-        &:hover {
-            text-decoration: none;
-        }
-        &:visited {
-            color: $nhsuk-focus-text-color;
-        }
-        .nhsuk-icon {
-            fill: $nhsuk-focus-text-color;
-        }
+    &:visited {
+      color: $nhsuk-focus-text-color;
     }
-    &:active {
-        color: $nhsuk-link-active-color;
+    .nhsuk-icon {
+      fill: $nhsuk-focus-text-color;
     }
+  }
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
 }
 
 //
@@ -38,23 +38,23 @@
 // Usage: @include nhsuk-link-style-white;
 //
 @mixin nhsuk-link-style-white {
+  color: $color_hseuk-white;
+  &:visited {
     color: $color_hseuk-white;
-    &:visited {
-        color: $color_hseuk-white;
-    }
-    &:hover {
-        color: $color_hseuk-white;
-        text-decoration: none;
-    }
-    &:focus {
-        color: $nhsuk-focus-text-color;
-        outline: $nhsuk-focus-width solid transparent;
-        outline-offset: $nhsuk-focus-width;
-        text-decoration: none;
-    }
-    &:active {
-        color: $nhsuk-link-active-color;
-    }
+  }
+  &:hover {
+    color: $color_hseuk-white;
+    text-decoration: none;
+  }
+  &:focus {
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
+    text-decoration: none;
+  }
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
 }
 
 //
@@ -63,7 +63,7 @@
 // Usage: @include nhsuk-link-style-hover;
 //
 @mixin nhsuk-link-style-hover {
-    &:hover {
-        text-decoration: none;
-    }
+  &:hover {
+    text-decoration: none;
+  }
 }

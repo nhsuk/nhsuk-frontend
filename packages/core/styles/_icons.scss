@@ -11,97 +11,97 @@
 
 // Default icon size
 .nhsuk-icon {
-    height: $nhsuk-icon-size;
-    width: $nhsuk-icon-size;
+  height: $nhsuk-icon-size;
+  width: $nhsuk-icon-size;
 }
 
 // Default icon colours
 .nhsuk-icon__search {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__chevron-left {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__chevron-right {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__close {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__cross {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__tick {
-    stroke: $color_hseuk-green;
+  stroke: $color_hseuk-green;
 }
 
 .nhsuk-icon__arrow-right {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__arrow-left {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__arrow-right-circle {
-    fill: $color_hseuk-green;
+  fill: $color_hseuk-green;
 }
 
 .nhsuk-icon__chevron-down {
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg); // sass-lint:disable-line property-sort-order
-    fill: $color_hseuk-red; // sass-lint:disable-line property-sort-order
-    path {
-        fill: $color_hseuk-white;
-    }
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); // sass-lint:disable-line property-sort-order
+  fill: $color_hseuk-red; // sass-lint:disable-line property-sort-order
+  path {
+    fill: $color_hseuk-white;
+  }
 }
 
 .nhsuk-icon__chevron-up {
-    fill: $color_hseuk-red;
-    path {
-        fill: $color_hseuk-white;
-    }
+  fill: $color_hseuk-red;
+  path {
+    fill: $color_hseuk-white;
+  }
 }
 
 .nhsuk-icon__emdash {
-    path {
-        fill: $color_hseuk-grey-3;
-    }
+  path {
+    fill: $color_hseuk-grey-3;
+  }
 }
 
 .nhsuk-icon__plus {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 .nhsuk-icon__minus {
-    fill: $color_hseuk-red;
+  fill: $color_hseuk-red;
 }
 
 // Icon size adjustments
 .nhsuk-icon--size-25 {
-    height: $nhsuk-icon-size * 1.25;
-    width: $nhsuk-icon-size * 1.25;
+  height: $nhsuk-icon-size * 1.25;
+  width: $nhsuk-icon-size * 1.25;
 }
 
 .nhsuk-icon--size-50 {
-    height: $nhsuk-icon-size * 1.5;
-    width: $nhsuk-icon-size * 1.5;
+  height: $nhsuk-icon-size * 1.5;
+  width: $nhsuk-icon-size * 1.5;
 }
 
 .nhsuk-icon--size-75 {
-    height: $nhsuk-icon-size * 1.75;
-    width: $nhsuk-icon-size * 1.75;
+  height: $nhsuk-icon-size * 1.75;
+  width: $nhsuk-icon-size * 1.75;
 }
 
 .nhsuk-icon--size-100 {
-    height: $nhsuk-icon-size * 2;
-    width: $nhsuk-icon-size * 2;
+  height: $nhsuk-icon-size * 2;
+  width: $nhsuk-icon-size * 2;
 }

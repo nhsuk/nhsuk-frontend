@@ -8,11 +8,11 @@
 // See utilities/clearfix
 //
 @mixin clearfix() {
-    &:after {
-        clear: both;
-        content: '';
-        display: block;
-    }
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
 }
 
 //
@@ -23,7 +23,7 @@
 // See utilities/reading-width
 //
 @mixin reading-width() {
-    max-width: 44em;
+  max-width: 44em;
 }
 
 //
@@ -34,17 +34,17 @@
 // See utilities/visually-hidden
 //
 @mixin visually-hidden() {
-    -webkit-clip-path: inset(50%);
-    border: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  -webkit-clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 //
@@ -55,12 +55,12 @@
 // See utilities/top-and-bottom
 //
 @mixin top-and-bottom() {
-    &>*:first-child {
-        margin-top: 0;
-    }
-    &>*:last-child {
-        margin-bottom: 0;
-    }
+  &>*:first-child {
+    margin-top: 0;
+  }
+  &>*:last-child {
+    margin-bottom: 0;
+  }
 }
 
 //
@@ -70,16 +70,16 @@
 // See components/_panel
 //
 @mixin panel($panel-background-color, $panel-text-color) {
-    @include top-and-bottom();
-    @include nhsuk-responsive-margin(7, 'bottom');
-    @include nhsuk-responsive-margin(7, 'top');
-    @include nhsuk-responsive-padding(5);
-    background-color: $panel-background-color;
-    color: $panel-text-color;
-    @include mq($media-type: print) {
-        border: 1px solid $nhsuk-print-text-color;
-        page-break-inside: avoid;
-    }
+  @include top-and-bottom();
+  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-padding(5);
+  background-color: $panel-background-color;
+  color: $panel-text-color;
+  @include mq($media-type: print) {
+    border: 1px solid $nhsuk-print-text-color;
+    page-break-inside: avoid;
+  }
 }
 
 //
@@ -92,8 +92,8 @@
 // See components/_warning-component
 //
 @mixin panel-with-label($panel-background-color, $panel-text-color) {
-    @include panel($panel-background-color, $panel-text-color);
-    padding-top: 0 !important; // sass-lint:disable-line no-important
+  @include panel($panel-background-color, $panel-text-color);
+  padding-top: 0 !important; // sass-lint:disable-line no-important
 }
 
 //
@@ -113,25 +113,25 @@
 //    sit just outside the box.
 //
 @mixin heading-label($heading-background-color, $heading-text-color) {
-    @include nhsuk-typography-responsive(24);
-    background-color: $heading-background-color; // [1] //
-    color: $heading-text-color; // [2] //
-    display: inline-block; // [3] //
-    margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -32px;
-    padding: nhsuk-spacing(2) nhsuk-spacing(5);
-    position: relative;
-    top: -16px; // [5] //
-    @include mq($until: tablet) {
-        margin-left: -24px;
-        margin-right: 0;
-        padding: nhsuk-spacing(2) nhsuk-spacing(4);
-        top: -8px; // [5] //
-    }
-    @include mq($media-type: print) {
-        background: none;
-        color: $color_hseuk-black;
-        top: 0;
-    }
+  @include nhsuk-typography-responsive(24);
+  background-color: $heading-background-color; // [1] //
+  color: $heading-text-color; // [2] //
+  display: inline-block; // [3] //
+  margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -32px;
+  padding: nhsuk-spacing(2) nhsuk-spacing(5);
+  position: relative;
+  top: -16px; // [5] //
+  @include mq($until: tablet) {
+    margin-left: -24px;
+    margin-right: 0;
+    padding: nhsuk-spacing(2) nhsuk-spacing(4);
+    top: -8px; // [5] //
+  }
+  @include mq($media-type: print) {
+    background: none;
+    color: $color_hseuk-black;
+    top: 0;
+  }
 }
 
 //
@@ -142,15 +142,15 @@
 // See components/_care-card
 //
 @mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
-    .nhsuk-care-card__heading-container {
-        background-color: $heading-background-color;
-        color: $heading-text-color;
-    }
-    @include mq($media-type: print) {
-        border: $print-border-size solid $nhsuk-print-text-color;
-        color: $nhsuk-print-text-color;
-        page-break-inside: avoid;
-    }
+  .nhsuk-care-card__heading-container {
+    background-color: $heading-background-color;
+    color: $heading-text-color;
+  }
+  @include mq($media-type: print) {
+    border: $print-border-size solid $nhsuk-print-text-color;
+    color: $nhsuk-print-text-color;
+    page-break-inside: avoid;
+  }
 }
 
 //
@@ -161,15 +161,15 @@
 // See components/_care-card
 //
 @mixin print-color($print-color) {
-    @include mq($media-type: print) {
-        color: $print-color;
-        fill: $print-color;
-        &:active,
-        &:focus,
-        &:visited {
-            color: $nhsuk-print-text-color;
-        }
+  @include mq($media-type: print) {
+    color: $print-color;
+    fill: $print-color;
+    &:active,
+    &:focus,
+    &:visited {
+      color: $nhsuk-print-text-color;
     }
+  }
 }
 
 //
@@ -179,9 +179,9 @@
 // See components/_care-card
 //
 @mixin print-hide() {
-    @include mq($media-type: print) {
-        display: none;
-    }
+  @include mq($media-type: print) {
+    display: none;
+  }
 }
 
 //
@@ -189,8 +189,8 @@
 // Usage: @include flex();
 //
 @mixin flex() {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 //
@@ -198,10 +198,10 @@
 // Usage: @include flex-item();
 //
 @mixin flex-item() {
-    display: flex;
-    @include mq($until: desktop) {
-        flex: 0 0 100%;
-    }
+  display: flex;
+  @include mq($until: desktop) {
+    flex: 0 0 100%;
+  }
 }
 
 //
@@ -216,28 +216,28 @@
 // 2. !important overrides focus style border: 0;
 //
 @mixin toggle-button() {
-    background-color: transparent;
-    border: 1px solid $color_hseuk-white;
-    border-radius: $nhsuk-border-radius;
-    color: $color_hseuk-white;
-    cursor: pointer;
-    &::-moz-focus-inner {
-        border: 0; // [1] //
-    }
-    &:hover {
-        background-color: $color_shade_nhsuk-blue-35;
-        border-color: $color_hseuk-grey-5;
-        box-shadow: none;
-    }
-    &:focus {
-        border: 1px solid $nhsuk-focus-color !important; // sass-lint:disable-line no-important /* [2] */
-    }
-    &:active,
-    &.is-active {
-        background-color: $color_shade_nhsuk-blue-50;
-        border-color: $color_hseuk-grey-5;
-        color: $color_hseuk-grey-5;
-    }
+  background-color: transparent;
+  border: 1px solid $color_hseuk-white;
+  border-radius: $nhsuk-border-radius;
+  color: $color_hseuk-white;
+  cursor: pointer;
+  &::-moz-focus-inner {
+    border: 0; // [1] //
+  }
+  &:hover {
+    background-color: $color_shade_nhsuk-blue-35;
+    border-color: $color_hseuk-grey-5;
+    box-shadow: none;
+  }
+  &:focus {
+    border: 1px solid $nhsuk-focus-color !important; // sass-lint:disable-line no-important /* [2] */
+  }
+  &:active,
+  &.is-active {
+    background-color: $color_shade_nhsuk-blue-50;
+    border-color: $color_hseuk-grey-5;
+    color: $color_hseuk-grey-5;
+  }
 }
 
 //
@@ -253,28 +253,28 @@
 //    https://github.com/necolas/normalize.css/issues/393
 //
 @mixin close-button() {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    height: 40px; // [1] //
-    padding: 0;
-    width: 40px; // [1] //
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 40px; // [1] //
+  padding: 0;
+  width: 40px; // [1] //
+  .nhsuk-icon__close {
+    fill: $color_hseuk-red;
+    height: 40px; // [2] //
+    width: 40px; // [2] //
+  }
+  &::-moz-focus-inner {
+    border: 0; // [3] //
+  }
+  &:hover {
     .nhsuk-icon__close {
-        fill: $color_hseuk-red;
-        height: 40px; // [2] //
-        width: 40px; // [2] //
+      fill: $nhsuk-secondary-button-hover-color;
     }
-    &::-moz-focus-inner {
-        border: 0; // [3] //
-    }
-    &:hover {
-        .nhsuk-icon__close {
-            fill: $nhsuk-secondary-button-hover-color;
-        }
-    }
-    &:focus {
-        @include nhsuk-focused-text;
-    }
+  }
+  &:focus {
+    @include nhsuk-focused-text;
+  }
 }
 
 //
@@ -282,10 +282,10 @@
 // margin at tablet breakpoint.
 //
 @mixin remove-margin-mobile() {
-    @include mq($until: tablet) {
-        margin-left: -$nhsuk-gutter-half;
-        margin-right: -$nhsuk-gutter-half;
-    }
+  @include mq($until: tablet) {
+    margin-left: -$nhsuk-gutter-half;
+    margin-right: -$nhsuk-gutter-half;
+  }
 }
 
 /// NHS logo size helper
@@ -293,11 +293,11 @@
 /// Saves duplicating the code for when using the logo as a link.
 /// Used in the header and footer.
 @mixin nhsuk-logo-size {
-    height: 80px;
-    width: 80px;
+  height: 80px;
+  width: 80px;
 }
 
 @mixin nhsuk-logo-size-small {
-    height: 36px;
-    width: 36px;
+  height: 36px;
+  width: 36px;
 }

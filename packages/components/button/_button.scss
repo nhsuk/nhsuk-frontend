@@ -15,85 +15,85 @@
 // increase the bottom margin to include it (s1).
 $button-shadow-size: 4px;
 .nhsuk-button {
-    @include nhsuk-font(19);
-    @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
-    -webkit-appearance: none;
-    background-color: $nhsuk-button-color;
-    border: $nhsuk-border-width-form-element solid transparent;
-    border-radius: 4px;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
-    box-sizing: border-box;
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
+  -webkit-appearance: none;
+  background-color: $nhsuk-button-color;
+  border: $nhsuk-border-width-form-element solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
+  box-sizing: border-box;
+  color: $nhsuk-button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0;
+  padding: 12px nhsuk-spacing(3); // s2
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  width: auto;
+  @include mq($until: tablet) {
+    padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
+  }
+  /* 2 */
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
     color: $nhsuk-button-text-color;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 600;
-    margin-top: 0;
-    padding: 12px nhsuk-spacing(3); // s2
-    position: relative;
-    text-align: center;
-    vertical-align: top;
-    width: auto;
-    @include mq($until: tablet) {
-        padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
+    text-decoration: none;
+  }
+  /* 3 */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  &:hover {
+    background-color: $nhsuk-button-hover-color;
+  }
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+    &:visited {
+      color: $nhsuk-focus-text-color;
+      &:active {
+        color: $color_hseuk-white;
+      }
     }
-    /* 2 */
-    &:link,
-    &:visited,
-    &:active,
-    &:hover {
-        color: $nhsuk-button-text-color;
-        text-decoration: none;
-    }
-    /* 3 */
-    &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
-    }
-    &:hover {
-        background-color: $nhsuk-button-hover-color;
-    }
-    &:focus {
-        background: $nhsuk-focus-color;
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-        color: $nhsuk-focus-text-color;
-        outline: $nhsuk-focus-width solid transparent;
-        &:visited {
-            color: $nhsuk-focus-text-color;
-            &:active {
-                color: $color_hseuk-white;
-            }
-        }
-    }
-    &:active {
-        background: $nhsuk-button-active-color;
-        box-shadow: none;
-        color: $nhsuk-button-text-color;
-        top: $button-shadow-size;
-    }
-    /* 4 */
-    &::before {
-        background: transparent;
-        bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
-        content: '';
-        display: block;
-        left: -$nhsuk-border-width-form-element;
-        position: absolute;
-        right: -$nhsuk-border-width-form-element;
-        top: -$nhsuk-border-width-form-element;
-    }
-    //
-    // When the button is active it is shifted down by $button-shadow-size to
-    // denote a 'pressed' state. If the user happened to click at the very top
-    // of the button, their mouse is no longer over the button (because it has
-    // 'moved beneath them') and so the click event is not fired.
-    //
-    // This corrects that by shifting the top of the pseudo element so that it
-    // continues to cover the area that the user originally clicked, which means
-    // the click event is still fired.
-    //
-    &:active::before {
-        top: -($nhsuk-border-width-form-element + $button-shadow-size);
-    }
+  }
+  &:active {
+    background: $nhsuk-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+  /* 4 */
+  &::before {
+    background: transparent;
+    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
+    content: '';
+    display: block;
+    left: -$nhsuk-border-width-form-element;
+    position: absolute;
+    right: -$nhsuk-border-width-form-element;
+    top: -$nhsuk-border-width-form-element;
+  }
+  //
+  // When the button is active it is shifted down by $button-shadow-size to
+  // denote a 'pressed' state. If the user happened to click at the very top
+  // of the button, their mouse is no longer over the button (because it has
+  // 'moved beneath them') and so the click event is not fired.
+  //
+  // This corrects that by shifting the top of the pseudo element so that it
+  // continues to cover the area that the user originally clicked, which means
+  // the click event is still fired.
+  //
+  &:active::before {
+    top: -($nhsuk-border-width-form-element + $button-shadow-size);
+  }
 }
 
 
@@ -102,60 +102,60 @@ $button-shadow-size: 4px;
  */
 
 .nhsuk-button--secondary {
+  background-color: $nhsuk-secondary-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
+  &:hover {
+    background-color: darken($nhsuk-secondary-button-color, 10%);
+  }
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+  &:active {
+    background: $nhsuk-secondary-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+  &.nhsuk-button--disabled {
     background-color: $nhsuk-secondary-button-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
-    &:hover {
-        background-color: darken($nhsuk-secondary-button-color, 10%);
-    }
-    &:focus {
-        background: $nhsuk-focus-color;
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-        color: $nhsuk-focus-text-color;
-        outline: $nhsuk-focus-width solid transparent;
-    }
-    &:active {
-        background: $nhsuk-secondary-button-active-color;
-        box-shadow: none;
-        color: $nhsuk-button-text-color;
-        top: $button-shadow-size;
-    }
-    &.nhsuk-button--disabled {
-        background-color: $nhsuk-secondary-button-color;
-    }
+  }
 }
 
 .nhsuk-button--reverse {
-    background-color: $nhsuk-reverse-button-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color;
+  background-color: $nhsuk-reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color;
+  color: $nhsuk-reverse-button-text-color;
+  &:hover {
+    background-color: darken($nhsuk-reverse-button-color, 5%);
     color: $nhsuk-reverse-button-text-color;
-    &:hover {
-        background-color: darken($nhsuk-reverse-button-color, 5%);
-        color: $nhsuk-reverse-button-text-color;
-    }
-    &:focus {
-        background: $nhsuk-focus-color;
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-        color: $nhsuk-focus-text-color;
-        outline: $nhsuk-focus-width solid transparent;
-    }
+  }
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+  &:active {
+    background: $nhsuk-reverse-button-active-color;
+    box-shadow: none;
+    color: $color_hseuk-white;
+    top: $button-shadow-size;
+  }
+  &:link {
+    color: $nhsuk-reverse-button-text-color;
     &:active {
-        background: $nhsuk-reverse-button-active-color;
-        box-shadow: none;
-        color: $color_hseuk-white;
-        top: $button-shadow-size;
+      color: $color_hseuk-white;
     }
-    &:link {
-        color: $nhsuk-reverse-button-text-color;
-        &:active {
-            color: $color_hseuk-white;
-        }
+  }
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-reverse-button-color;
+    &:focus {
+      background-color: $nhsuk-reverse-button-color;
     }
-    &.nhsuk-button--disabled {
-        background-color: $nhsuk-reverse-button-color;
-        &:focus {
-            background-color: $nhsuk-reverse-button-color;
-        }
-    }
+  }
 }
 
 
@@ -166,55 +166,55 @@ $button-shadow-size: 4px;
 .nhsuk-button--disabled,
 .nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button[disabled] {
+  background-color: $nhsuk-button-color;
+  opacity: (.5);
+  pointer-events: none;
+  &:hover {
     background-color: $nhsuk-button-color;
-    opacity: (.5);
-    pointer-events: none;
-    &:hover {
-        background-color: $nhsuk-button-color;
-        cursor: default;
-    }
-    &:focus {
-        background-color: $nhsuk-button-color;
-        outline: none;
-    }
-    &:active {
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
-        top: 0;
-    }
+    cursor: default;
+  }
+  &:focus {
+    background-color: $nhsuk-button-color;
+    outline: none;
+  }
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
+    top: 0;
+  }
 }
 
 .nhsuk-button--secondary[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--secondary[disabled] {
+  background-color: $nhsuk-secondary-button-color;
+  opacity: (.5);
+  &:hover {
     background-color: $nhsuk-secondary-button-color;
-    opacity: (.5);
-    &:hover {
-        background-color: $nhsuk-secondary-button-color;
-        cursor: default;
-    }
-    &:focus {
-        outline: none;
-    }
-    &:active {
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
-        top: 0;
-    }
+    cursor: default;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
+    top: 0;
+  }
 }
 
 .nhsuk-button--reverse[disabled="disabled"], // sass-lint:disable-line quotes
 .nhsuk-button--reverse[disabled] {
+  background-color: $nhsuk-reverse-button-color;
+  opacity: (.5);
+  &:hover {
     background-color: $nhsuk-reverse-button-color;
-    opacity: (.5);
-    &:hover {
-        background-color: $nhsuk-reverse-button-color;
-        cursor: default;
-    }
-    &:focus {
-        outline: none;
-    }
-    &:active {
-        box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
-        top: 0;
-    }
+    cursor: default;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
+    top: 0;
+  }
 }
 
 
@@ -223,9 +223,9 @@ $button-shadow-size: 4px;
  */
 
 .ie8 {
-    .nhsuk-button {
-        &:focus {
-            outline: 1px dotted $nhsuk-focus-text-color;
-        }
+  .nhsuk-button {
+    &:focus {
+      outline: 1px dotted $nhsuk-focus-text-color;
     }
+  }
 }

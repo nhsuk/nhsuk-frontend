@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .nhsuk-panel {
-    @include panel($color_hseuk-white, $nhsuk-text-color);
-    width: 100%;
+  @include panel($color_hseuk-white, $nhsuk-text-color);
+  width: 100%;
 }
 
 
@@ -12,7 +12,7 @@
    ========================================================================== */
 
 .nhsuk-panel--grey {
-    background-color: $color_hseuk-grey-5;
+  background-color: $color_hseuk-grey-5;
 }
 
 
@@ -20,12 +20,12 @@
    ========================================================================== */
 
 .nhsuk-panel-with-label {
-    @include panel-with-label($color_hseuk-white, $nhsuk-text-color);
+  @include panel-with-label($color_hseuk-white, $nhsuk-text-color);
 }
 
 .nhsuk-panel-with-label__label {
-    @include heading-label($color_hseuk-red, $color_hseuk-white);
-    @include print-color($nhsuk-print-text-color);
+  @include heading-label($color_hseuk-red, $color_hseuk-white);
+  @include print-color($nhsuk-print-text-color);
 }
 
 
@@ -40,25 +40,25 @@
  */
 
 .nhsuk-panel-group {
-    @include flex();
-    /* [1] */
-    margin-bottom: nhsuk-spacing(5);
-    @include mq($until: desktop) {
-        margin-bottom: nhsuk-spacing(4);
-    }
+  @include flex();
+  /* [1] */
+  margin-bottom: nhsuk-spacing(5);
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 .nhsuk-panel-group__item {
-    @include flex-item();
-    /* [1] */
-    @include mq($until: desktop) {
-        margin-bottom: nhsuk-spacing(4);
-        &:last-child {
-            margin-bottom: 0;
-        }
+  @include flex-item();
+  /* [1] */
+  @include mq($until: desktop) {
+    margin-bottom: nhsuk-spacing(4);
+    &:last-child {
+      margin-bottom: 0;
     }
-    .nhsuk-panel {
-        margin-bottom: 0;
-        margin-top: 0;
-    }
+  }
+  .nhsuk-panel {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 }
