@@ -7,9 +7,10 @@
 <header class="nhsuk-header
 {%- if params.transactional or params.transactionalService %} nhsuk-header--transactional{% endif %}
 {%- if params.organisation and params.organisation.name %} nhsuk-header--organisation{% endif %}
-{%- if params.classes %} {{ params.classes }}{% endif %}" role="banner" {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}" {% endfor %}>
+{%- if params.classes %} {{ params.classes }}{% endif %}" role="banner" 
+{%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}" {% endfor %}>
   <div class="nhsuk-width-container nhsuk-header__container">
-    <div class="nhsuk-header__logo {%- if showNav == " false" and showSearch == " false"%} nhsuk-header__logo--only{%- endif %}"="false"%} nhsuk-header__logo--only{%- endif %}"">
+    <div class="nhsuk-header__logo {%- if showNav == "false" and showSearch == "false"%} nhsuk-header__logo--only{%- endif %}">
       {%- if params.organisation %}
         <a class="nhsuk-header__link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
           {%- if params.organisation.logoURL %}
@@ -25,12 +26,8 @@
               </g>
               <image xlink:href="" src="https://services.hse.gov.uk/img/hse.svg"></image>
             </svg>
-            <span class="nhsuk-organisation-name">{{ params.organisation.name }}
-              {% if params.organisation.split %}
-                <span class="nhsuk-organisation-name-split">{{ params.organisation.split }}</span>{% endif %}
-            </span>
-            {% if params.organisation.descriptor %}
-              <span class="nhsuk-organisation-descriptor">{{ params.organisation.descriptor }}</span>{% endif %}
+            <span class="nhsuk-organisation-name">{{ params.organisation.name }}{% if params.organisation.split %}<span class="nhsuk-organisation-name-split">{{ params.organisation.split }}</span>{% endif %}</span>
+            {% if params.organisation.descriptor %}<span class="nhsuk-organisation-descriptor">{{ params.organisation.descriptor }}</span>{% endif %}
           {%- endif %}
         </a>
       {%- else -%}
@@ -62,8 +59,7 @@
         </div>
       {%- endif %}
 
-    </div>
-    {# close nhsuk-header__container #}
+    </div>{# close nhsuk-header__container #}
 
   {% endif -%}
 
@@ -105,8 +101,7 @@
 
     </div>
 
-  </div>
-  {# close nhsuk-header__container #}
+  </div>{# close nhsuk-header__container #}
 
   <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
     <div class="nhsuk-width-container">
@@ -122,8 +117,7 @@
       <ul class="nhsuk-header__navigation-list">
         <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
           <a class="nhsuk-header__navigation-link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}">
-            {% if params.homeText %}{{ params.homeText }}
-            {% else %}Home{% endif %}
+            {% if params.homeText %}{{ params.homeText }}{% else %}Home{% endif %}
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
             </svg>
@@ -179,8 +173,7 @@
 
   </div>
 
-</div>
-{# close nhsuk-header__container #}
+</div>{# close nhsuk-header__container #}
 
 {% endif -%}
 
@@ -191,8 +184,7 @@
     <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
   </div>
 </div>
-</div>
-{# close nhsuk-header__container #}
+</div>{# close nhsuk-header__container #}
 
 <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
 <div class="nhsuk-width-container">
