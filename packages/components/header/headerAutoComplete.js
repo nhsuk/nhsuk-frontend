@@ -1,12 +1,11 @@
 import AutoComplete from './autoCompleteConfig';
 
-// Check if search URLs are set as globals on window object
-const overwriteSearchApiUrl = window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST;
-const overwriteSearchPageUrl = window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST;
-
-// Use URL from global or default to live URLs
-const searchApiUrl = overwriteSearchApiUrl ? window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST : 'https://www.nhs.uk/s/suggest.json';
-const searchPageUrl = overwriteSearchPageUrl ? window.NHSUK_SETTINGS.SEARCH_TEST_HOST : 'https://www.nhs.uk/search/';
+/**
+ * Check if search URLs are set as globals on window object,
+ * Use URL from global or default to live URLs
+*/
+const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://www.nhs.uk/s/suggest.json';
+const searchPageUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SEARCH_TEST_HOST) || 'https://www.nhs.uk/search/';
 
 /**
  * Function to build truncated result with svg for search autocomplete

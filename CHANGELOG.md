@@ -207,7 +207,7 @@
 
 - Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference. 
 
-  Add the below code to a base HTML file or any pages that will use search.
+  Add the below code to a base HTML file or any pages that use search.
 
 ```HTML
     <script>
