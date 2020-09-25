@@ -14,17 +14,98 @@
 
   The panel and promo were two components in the NHS.UK frontend that did not have guidance in the service manual. They both also shared a lot of the same structure and design. This confused users of the design system, with people not knowing when and how to use the components.
 
-  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have combined the two components into one new component, a card, along with improving the accessibility. 
+  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have fixed this issue and combined the two components into one new component, a card component. 
+
+  <details>
+    <summary>If you are using a panel component</summary>
+
+    You will need to replace the panel component with a card component.
+
+    ### For Nunjucks macro
+
+    You need to:
+    - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
+    - replace `{{ panel({` with `{{ card({`
+    - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
+    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+
+    For example:
+
+    #### Old Nunjucks macro (Panel)
+
+    ```
+    {% from 'components/panel/macro.njk' import panel %}
+
+    {{ panel({
+      "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+
+    #### New Nunjucks macro (Card)
+
+    ##### Changing the heading level
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "heading": "If you need help now, but it’s not an emergency",
+      "headingLevel": "3",
+      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+    
+    ##### Changing the heading size
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "heading": "If you need help now, but it’s not an emergency",
+      "headingClasses": "nhsuk-heading-m",
+      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+    
+    ### For HTML
+    
+    You need to:
+    - replace all `nhsuk-panel` classes to `nhsuk-card`
+
+    For example:
+
+    #### Old HTML (Panel)
+
+    ```
+    <div class="nhsuk-panel nhsuk-panel--grey">
+      <h3>If you need help now, but it’s not an emergency</h3>
+      <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+    </div>
+    ```
+
+    #### New HTML (Card)
+
+    ```
+    <div class="nhsuk-card>
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
+        <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+      </div>
+    </div>
+    ```
+  </details>
 
   <details>
     <summary>If you are using a promo component</summary>
 
-    ### If using Nunjucks macro
+    You will need to replace the promo component with a card component.
+
+    ### For Nunjucks macro
 
     You need to:
     - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
     - replace `{{ promo({` with `{{ card({`
-    - declare the heading level size and heading classes because the default heading level is now 2 instead of 3
+    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
     For example:
 
@@ -42,7 +123,7 @@
 
     #### New Nunjucks macro (Card)
 
-    Changing the heading level:
+    ##### Changing the heading level
 
     ```
     {% from 'components/card/macro.njk' import card %}
@@ -55,7 +136,7 @@
     }) }
     ```
     
-    Changing the heading size:
+    ##### Changing the heading size
 
     ```
     {% from 'components/card/macro.njk' import card %}
@@ -68,7 +149,7 @@
     }) }
     ```
     
-    ### If using HTML
+    ### For HTML
     
     You need to:
     - replace all `nhsuk-promo` classes to `nhsuk-card`
@@ -104,11 +185,7 @@
       </div>
     </div>
     ```
-
-
   </details>
-
-
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
