@@ -3,6 +3,7 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/nav-a-z/macro.njk' import azNav %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% from 'components/card/macro.njk' import card %}
 {% from 'components/care-card/macro.njk' import careCard %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
@@ -13,8 +14,6 @@
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/list-panel/macro.njk' import listPanel %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/panel/macro.njk' import panel %}
-{% from 'components/promo/macro.njk' import promo %}
 {% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
 {% from "components/summary-list/macro.njk" import summaryList %}
@@ -118,6 +117,36 @@
 {% endblock %}
 
 {% block content %}
+
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingLevel": "3",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+
+  {{ card({
+    "href": "#",
+    "clickable": "true",
+    "heading": "Introduction to care and support",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "A quick guide for people who have care and support needs and their carers."
+  }) }}
+
+  {{ card({
+    "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+    "href": "#",
+    "clickable": "true",
+    "heading": "Exercise",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+  }) }}
+
+  {{ card({
+    "feature": "true",
+    "heading": "Feature card heading",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Feature card description"
+  }) }}
 
   <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
 
@@ -310,106 +339,12 @@
     }) }}
   </div>
 
-  {{ panel({
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-  }) }}
-
-  {{ panel({
-    "colour": "grey",
-    "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-  }) }}
-
-  {{ panel({
-    "label": "Panel heading",
-    "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-  }) }}
-
-  <div class="nhsuk-grid-row nhsuk-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-      }) }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-      }) }}
-    </div>
-  </div>
-
-  <div class="nhsuk-grid-row nhsuk-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-      }) }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      {{ panel({
-        "HTML": "<h3>Panel title</h3> <p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-      }) }}
-    </div>
-  </div>
-
   {{ pagination({
     "previousUrl": "/section/treatments",
     "previousPage": "Treatments",
     "nextUrl": "/section/symptoms",
     "nextPage": "Symptoms"
   }) }}
-
-  {{ promo({
-    "href": "https://www.nhs.uk",
-    "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
-    "heading": "Save a life: give blood",
-    "description": "Please register today. Donating blood is easy, and saves lives."
-  }) }}
-
-  {{ promo({
-    "href": "#",
-    "heading": "Save a life: give blood",
-    "description": "Please register today. Donating blood is easy, and saves lives."
-  }) }}
-
-  {{ promo({
-    "href": "#",
-    "heading": "Save a life: give blood"
-  }) }}
-
-  <div class="nhsuk-grid-row nhsuk-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-      {{ promo({
-        "href": "#",
-        "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
-        "heading": "Save a life: give blood",
-        "description": "Please register today. Donating blood is easy, and saves lives."
-      }) }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-      {{ promo({
-        "href": "#",
-        "imgURL": "https://assets.nhs.uk/prod/images/PHE_0119_Weaning_02jpg.2e16d0ba.fill-2400x1350.jpg",
-        "heading": "Save a life: give blood",
-        "description": "Please register today. Donating blood is easy, and saves lives."
-      }) }}
-    </div>
-  </div>
-
-  <div class="nhsuk-grid-row nhsuk-promo-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-      {{ promo({
-        "classes": "nhsuk-promo--small",
-        "href": "#",
-        "heading": "Save a life: give blood"
-      }) }}
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-      {{ promo({
-        "classes": "nhsuk-promo--small",
-        "href": "#",
-        "heading": "Save a life: give blood"
-      }) }}
-    </div>
-  </div>
 
   {{ list({
     "title": "Do",
@@ -1102,4 +1037,104 @@
       }
     ]
   })}}
+{% endblock %}
+
+{% block fullWidthContent %}
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Help from social services and charitiest",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Includes helplines, needs assessments, advocacy and reporting abuse."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Money, work and benefits",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "How to pay for care and support, and where you can get help with costs."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Care after a hospital stay",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Includes hospital discharge and care and support afterwards."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "5 steps to mental wellbeing",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Practical advice to help you feel mentally and emotionally better."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Healthy weight",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Exercise",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91 <span class=\"nhsuk-u-visually-hidden\">Applicants</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Applicants</a>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23 <span class=\"nhsuk-u-visually-hidden\">Jobs</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Jobs</a>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8 <span class=\"nhsuk-u-visually-hidden\">Services</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Services</a>"
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        "clickable": "true",
+        "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33 <span class=\"nhsuk-u-visually-hidden\">Messages</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Messages</a>"
+      }) }}
+    </li>
+  </ul>
+
 {% endblock %}

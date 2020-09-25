@@ -26,7 +26,11 @@
 }
 
 .nhsuk-care-card__heading-container {
-  padding: nhsuk-spacing(3) nhsuk-spacing(4);
+  @include nhsuk-responsive-padding(5, 'left');
+  @include nhsuk-responsive-padding(5, 'right');
+
+  padding-bottom: nhsuk-spacing(3);
+  padding-top: nhsuk-spacing(3);
   position: relative;
 }
 
@@ -40,6 +44,10 @@
   transform: rotate(45deg);
   width: 20px; /* [3] */
   @include print-hide();
+
+  @include mq($from: tablet) {
+    left: 38px; /* [4] */
+  }
 
   &:before,
   &:after {
@@ -65,9 +73,14 @@
 
 .nhsuk-care-card__content {
   @include top-and-bottom();
+  @include nhsuk-responsive-padding(5, 'bottom');
+  @include nhsuk-responsive-padding(5, 'left');
+  @include nhsuk-responsive-padding(5, 'right');
 
   background-color: $color_nhsuk-white;
-  padding: nhsuk-spacing(5) nhsuk-spacing(4) nhsuk-spacing(4); /* [5] */
+  border: 1px solid $color_nhsuk-grey-4;
+  border-top: 0;
+  padding-top: nhsuk-spacing(5); /* [5] */
 
   @include mq($from: tablet) {
     padding-bottom: nhsuk-spacing(5);
@@ -108,6 +121,7 @@
 
   .nhsuk-care-card__content {
     background-color: $color_nhsuk-black;
+    border: 0;
     color: $color_nhsuk-white;
 
     a {

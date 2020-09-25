@@ -61,9 +61,9 @@ The naming convention follows this pattern:
 .block__element {}
 .block--modifier {}
 
-.nhsuk-promo              // Block - the root of a component
-.nhsuk-promo__heading     // Element - a part of the block
-.nhsuk-promo--small       // Modifier - a variant of the block
+.nhsuk-card              // Block - the root of a component
+.nhsuk-card__heading     // Element - a part of the block
+.nhsuk-card--clickable   // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element
@@ -331,7 +331,7 @@ You can find NHS.UK frontend components in `packages/components`.
 
 Components must use the `.nhsuk-` namespace.
 
-For example, `.nhsuk-promo`.
+For example, `.nhsuk-card`.
 
 ### Writing SCSS for components
 

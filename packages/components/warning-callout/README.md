@@ -60,7 +60,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
 
 {{ warningCallout({
-  "heading": "School, nursery or work",
+  "heading": "Important",
   "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
 }) }}
 ```

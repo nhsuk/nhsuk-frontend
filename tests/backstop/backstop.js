@@ -78,6 +78,26 @@ module.exports = {
       "url": `${TEST_HOST}/components/button/reverse.html`
     },
     {
+      "label": "Card - Basic card",
+      "url": `${TEST_HOST}/components/card/basic-card.html`
+    },
+    {
+      "label": "Card - Clickable card",
+      "url": `${TEST_HOST}/components/card/clickable-card.html`
+    },
+    {
+      "label": "Card - Card with image",
+      "url": `${TEST_HOST}/components/card/card-with-image.html`
+    },
+    {
+      "label": "Card - Card group",
+      "url": `${TEST_HOST}/components/card/card-group.html`
+    },
+    {
+      "label": "Card - Card group",
+      "url": `${TEST_HOST}/components/card/feature-card.html`
+    },
+    {
       "label": "Care card - Non urgent",
       "url": `${TEST_HOST}/components/care-card/care-card-non-urgent.html`
     },
@@ -311,42 +331,6 @@ module.exports = {
     {
       "label": "Pagination",
       "url": `${TEST_HOST}/components/pagination/index.html`
-    },
-    {
-      "label": "Panel",
-      "url": `${TEST_HOST}/components/panel/index.html`
-    },
-    {
-      "label": "Panel with label",
-      "url": `${TEST_HOST}/components/panel/panel-with-label.html`
-    },
-    {
-      "label": "Panel grey",
-      "url": `${TEST_HOST}/components/panel/panel-grey.html`
-    },
-    {
-      "label": "Panel group",
-      "url": `${TEST_HOST}/components/panel/panel-group.html`
-    },
-    {
-      "label": "Promo",
-      "url": `${TEST_HOST}/components/promo/index.html`
-    },
-    {
-      "label": "Promo with image",
-      "url": `${TEST_HOST}/components/promo/promo-with-image.html`
-    },
-    {
-      "label": "Promo small",
-      "url": `${TEST_HOST}/components/promo/promo-small.html`
-    },
-    {
-      "label": "Promo with no description",
-      "url": `${TEST_HOST}/components/promo/promo-no-description.html`
-    },
-    {
-      "label": "Promo group",
-      "url": `${TEST_HOST}/components/promo/promo-group.html`
     },
     {
       "label": "Radios",

@@ -4,6 +4,7 @@ import SkipLink from './components/skip-link/skip-link';
 import Details from './components/details/details';
 import Radios from './components/radios/radios';
 import Checkboxes from './components/checkboxes/checkboxes';
+import Card from './components/card/card';
 
 import './polyfills';
 
@@ -14,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
   SkipLink();
   Radios();
   Checkboxes();
+  Card();
 });

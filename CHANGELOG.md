@@ -9,12 +9,201 @@
   If you are using the current responsive table class `nhsuk-table-responsive` you will need to rename the `nhsuk-table-responsive` class to `nhsuk-table-container`.
 
   [Preview the responsive table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/responsive-table.html)
+  
+- Remove Panel and Promo components
+
+  The panel and promo were two components in the NHS.UK frontend that did not have guidance in the service manual. They both also shared a lot of the same structure and design. This confused users of the design system, with people not knowing when and how to use the components.
+
+  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have fixed this issue and combined the two components into one new component, a card component. 
+
+  <details>
+    <summary>If you are using a panel component</summary>
+
+    You will need to replace the panel component with a card component.
+
+    ### For Nunjucks macro
+
+    You need to:
+    - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
+    - replace `{{ panel({` with `{{ card({`
+    - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
+    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+
+    For example:
+
+    #### Old Nunjucks macro (Panel)
+
+    ```
+    {% from 'components/panel/macro.njk' import panel %}
+
+    {{ panel({
+      "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+
+    #### New Nunjucks macro (Card)
+
+    ##### Changing the heading level
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "heading": "If you need help now, but it’s not an emergency",
+      "headingLevel": "3",
+      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+    
+    ##### Changing the heading size
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "heading": "If you need help now, but it’s not an emergency",
+      "headingClasses": "nhsuk-heading-m",
+      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+    }) }}
+    ```
+    
+    ### For HTML
+    
+    You need to:
+    - replace all `nhsuk-panel` classes to `nhsuk-card`
+
+    For example:
+
+    #### Old HTML (Panel)
+
+    ```
+    <div class="nhsuk-panel nhsuk-panel--grey">
+      <h3>If you need help now, but it’s not an emergency</h3>
+      <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+    </div>
+    ```
+
+    #### New HTML (Card)
+
+    ```
+    <div class="nhsuk-card>
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
+        <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+      </div>
+    </div>
+    ```
+  </details>
+
+  <details>
+    <summary>If you are using a promo component</summary>
+
+    You will need to replace the promo component with a card component.
+
+    ### For Nunjucks macro
+
+    You need to:
+    - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
+    - replace `{{ promo({` with `{{ card({`
+    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+
+    For example:
+
+    #### Old Nunjucks macro (Promo)
+
+    ```
+    {% from 'components/promo/macro.njk' import promo %}
+
+    {{ promo({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }}
+    ```
+
+    #### New Nunjucks macro (Card)
+
+    ##### Changing the heading level
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "headingLevel": "3",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }
+    ```
+    
+    ##### Changing the heading size
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }
+    ```
+    
+    ### For HTML
+    
+    You need to:
+    - replace all `nhsuk-promo` classes to `nhsuk-card`
+    - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
+    - add `nhsuk-card--clickable` class to make entire card clickable
+
+    For example:
+
+    #### Old HTML (Promo)
+
+    ```
+    <div class="nhsuk-promo">
+      <a class="nhsuk-promo__link-wrapper" href="#">
+        <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+        <div class="nhsuk-promo__content">
+          <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
+          <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+        </div>
+      </a>
+    </div>
+    ```
+
+    #### New HTML (Card)
+
+    ```
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">
+          <a class="nhsuk-card__link" href="#">Kickstart your health</a>
+        </h3>
+        <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+      </div>
+    </div>
+    ```
+  </details>
+
+  ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
 :new: **New features**
 
-- Tag component - Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status.
+- Add Card component
 
-  If you are importing all styles with `@import 'node_modules/nhsuk-frontend/packages/nhsuk';` you will automatically have access to the new component when you update. Alternatively if you are importing each of the individual components separately you will need to import the component with `@import 'node_modules/nhsuk-frontend/packages/components/tag/tag';`
+  Use a card instead of a panel or promo to provide users with a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks. 
+
+  ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
+
+- Add Tag component
+
+  Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status. 
+
+  ([PR 626](https://github.com/nhsuk/nhsuk-frontend/pull/626))
+
+- Add `nhsuk-link--no-visited-state` mixin - for where it is not helpful to distinguish between visited and non-visited links.
 
 :wrench: **Fixes**
 
@@ -22,7 +211,14 @@
 - Focus styling - Fixing issues with focus state on input and text area which caused resizing ([Issue 600](https://github.com/nhsuk/nhsuk-frontend/issues/600) and [Issue 613](https://github.com/nhsuk/nhsuk-frontend/issues/613))
 - Fix styles for the `nhsuk-link-style-white`
 - Fix breadcrumb link color when `:visited` and `:focus`
-- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users.
+- Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users. ([PR 630](https://github.com/nhsuk/nhsuk-frontend/pull/630))
+- Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS. 
+
+  Including adding a 1px border to:
+  - care cards (non-urgent and urgent)
+  - do and don't list
+  - expander
+  - warning callout
 
 ## 3.1.0 - 24 April 2020
 
