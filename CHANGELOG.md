@@ -19,7 +19,7 @@
   <details>
     <summary>If you are using a promo component</summary>
 
-    #### Using Nunjucks macro
+    ### If using Nunjucks macro
 
     You need to:
     - replace `{% from 'components/promo/macro.njk' import promo %}` with {% from 'components/card/macro.njk' import card %}
@@ -28,7 +28,7 @@
 
     For example:
 
-    Old Nunjucks macro (Promo)
+    #### Old Nunjucks macro (Promo)
 
     ```
     {% from 'components/promo/macro.njk' import promo %}
@@ -40,9 +40,9 @@
     }) }}
     ```
 
-    New Nunjucks macro (Card)
+    #### New Nunjucks macro (Card)
 
-    - change the heading level
+    Changing the heading level:
 
     ```
     {% from 'components/card/macro.njk' import card %}
@@ -55,7 +55,7 @@
     }) }
     ```
     
-    - change the heading size
+    Changing the heading size:
 
     ```
     {% from 'components/card/macro.njk' import card %}
@@ -68,7 +68,7 @@
     }) }
     ```
     
-    #### Using HTML
+    ### If using HTML
     
     You need to:
     - replace all `nhsuk-promo` classes to `nhsuk-card`
@@ -77,7 +77,7 @@
 
     For example:
 
-    Old HTML (Promo)
+    #### Old HTML (Promo)
 
     ```
     <div class="nhsuk-promo">
@@ -91,7 +91,7 @@
     </div>
     ```
 
-    New HTML (Card)
+    #### New HTML (Card)
 
     ```
     <div class="nhsuk-card nhsuk-card--clickable">
