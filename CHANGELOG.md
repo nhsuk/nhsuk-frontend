@@ -22,7 +22,7 @@
     ### If using Nunjucks macro
 
     You need to:
-    - replace `{% from 'components/promo/macro.njk' import promo %}` with {% from 'components/card/macro.njk' import card %}
+    - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
     - replace `{{ promo({` with `{{ card({`
     - declare the heading level size and heading classes because the default heading level is now 2 instead of 3
 
