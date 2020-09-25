@@ -3,5 +3,8 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/*.js',
   ],
+  globals: {
+    window: true,
+  },
   verbose: true,
 };

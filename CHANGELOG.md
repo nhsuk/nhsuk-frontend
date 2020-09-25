@@ -205,6 +205,18 @@
 
 - Add `nhsuk-link--no-visited-state` mixin - for where it is not helpful to distinguish between visited and non-visited links.
 
+- Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference. 
+
+  Add the below code to a base HTML file or any pages that use search.
+
+```HTML
+    <script>
+      window.NHSUK_SETTINGS = {};
+      window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST = "[CUSTOM API ENDPOINT]";
+      window.NHSUK_SETTINGS.SEARCH_TEST_HOST = "[CUSTOM SEARCH PAGE URL]";
+    </script>
+```
+
 :wrench: **Fixes**
 
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
@@ -237,7 +249,7 @@
   ```
 
   If you are importing component JavaScript with ES6 imports, you will need to update your imports to include the JavaScript:
-  
+
   ```javascript
   // Components
   import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
