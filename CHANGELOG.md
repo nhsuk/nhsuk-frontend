@@ -1,6 +1,14 @@
 # NHS.UK frontend Changelog
 
-## 3.2.0 - Unreleased
+## 4.0.0 - Unreleased
+
+:boom: **Breaking changes**
+
+- Tables - New responsive table component, when viewed on a desktop the table component will behave like any other table. However, when viewed on a mobile the table collapses into what appears to be a group list style component. ([Pull request 635](https://github.com/nhsuk/nhsuk-frontend/pull/635))
+
+  If you are using the current responsive table class `nhsuk-table-responsive` you will need to rename the `nhsuk-table-responsive` class to `nhsuk-table-container`.
+
+  [Preview the responsive table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/responsive-table.html)
 
 :new: **New features**
 
