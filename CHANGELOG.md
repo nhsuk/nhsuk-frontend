@@ -17,9 +17,98 @@
   There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have combined the two components into one new component, a card, along with improving the accessibility. 
 
   <details>
-    <summary>How to replace a panel or promo with a card</summary>
-    Instructions to go here
+    <summary>If you are using a promo component</summary>
+
+    #### Using Nunjucks macro
+
+    You need to:
+    - replace `{% from 'components/promo/macro.njk' import promo %}` with {% from 'components/card/macro.njk' import card %}
+    - replace `{{ promo({` with `{{ card({`
+    - declare the heading level size and heading classes because the default heading level is now 2 instead of 3
+
+    For example:
+
+    Old Nunjucks macro (Promo)
+
+    ```
+    {% from 'components/promo/macro.njk' import promo %}
+
+    {{ promo({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }}
+    ```
+
+    New Nunjucks macro (Card)
+
+    - changing the heading level
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "headingLevel": "3",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }
+    ```
+    
+    - changing the heading size
+
+    ```
+    {% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "https://www.nhs.uk",
+      "heading": "Save a life: give blood",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Please register today. Donating blood is easy, and saves lives."
+    }) }
+    ```
+    
+    #### Using HTML
+    
+    You need to:
+    - replace all `nhsuk-promo` classes to `nhsuk-card`
+    - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
+    - add `nhsuk-card--clickable` class to make entire card clickable
+
+    For example:
+
+    Old HTML (Promo)
+
+    ```
+    <div class="nhsuk-promo">
+      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk/better-health/">
+        <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+        <div class="nhsuk-promo__content">
+          <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
+          <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+        </div>
+      </a>
+    </div>
+    ```
+
+    New HTML (Card)
+
+    ```
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+      <div class="nhsuk-card__content">
+        <h3 class="nhsuk-card__heading">
+          <a class="nhsuk-card__link" href="https://www.nhs.uk/better-health/">Kickstart your health</a>
+        </h3>
+        <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+      </div>
+    </div>
+    ```
+
+
   </details>
+
+
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
