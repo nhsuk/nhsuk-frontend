@@ -162,7 +162,7 @@
 
     ```
     <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper" href="https://www.nhs.uk/better-health/">
+      <a class="nhsuk-promo__link-wrapper" href="#">
         <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
         <div class="nhsuk-promo__content">
           <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
@@ -179,7 +179,7 @@
       <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
       <div class="nhsuk-card__content">
         <h3 class="nhsuk-card__heading">
-          <a class="nhsuk-card__link" href="https://www.nhs.uk/better-health/">Kickstart your health</a>
+          <a class="nhsuk-card__link" href="#">Kickstart your health</a>
         </h3>
         <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
       </div>
