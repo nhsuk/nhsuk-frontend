@@ -42,7 +42,7 @@
 
     New Nunjucks macro (Card)
 
-    - changing the heading level
+    - change the heading level
 
     ```
     {% from 'components/card/macro.njk' import card %}
@@ -55,7 +55,7 @@
     }) }
     ```
     
-    - changing the heading size
+    - change the heading size
 
     ```
     {% from 'components/card/macro.njk' import card %}
