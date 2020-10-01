@@ -1,5 +1,5 @@
 # Installing using compiled files
-
+# Step By Step
 When installing NHS.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
 
 This means that you will not be able to:
