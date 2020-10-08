@@ -17,9 +17,9 @@ Find out more about the textarea component and when to use it in the [NHS digita
   <label class="nhsuk-label" for="more-detail">
   Can you provide more detail?
   </label>
-  <span class="nhsuk-hint" id="more-detail-hint">
+  <div class="nhsuk-hint" id="more-detail-hint">
   Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
-  </span>
+  </div>
   <textarea class="nhsuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
 </div>
 ```

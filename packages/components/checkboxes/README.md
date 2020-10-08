@@ -18,9 +18,9 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
     <legend class="nhsuk-fieldset__legend">
       What is your nationality?
     </legend>
-    <span class="nhsuk-hint" id="nationality-hint">
+    <div class="nhsuk-hint" id="nationality-hint">
     If you have more than 1 nationality, select all options that are relevant to you.
-    </span>
+    </div>
     <div class="nhsuk-checkboxes">
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
@@ -100,18 +100,18 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
         <label class="nhsuk-label nhsuk-checkboxes__label" for="government-gateway">
         Sign in with Government Gateway
         </label>
-        <span class="nhsuk-hint nhsuk-checkboxes__hint" id="government-gateway-item-hint">
+        <div class="nhsuk-hint nhsuk-checkboxes__hint" id="government-gateway-item-hint">
         You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.
-        </span>
+        </div>
       </div>
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="nhsuk-login" name="verify" type="checkbox" value="nhsuk-verify" aria-describedby="nhsuk-login-item-hint">
         <label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-login">
         Sign in with NHS.UK login
         </label>
-        <span class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
+        <div class="nhsuk-hint nhsuk-checkboxes__hint" id="nhsuk-login-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
-        </span>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -227,9 +227,9 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
         Which types of waste do you transport regularly?
       </h1>
     </legend>
-    <span class="nhsuk-hint" id="waste-hint">
+    <div class="nhsuk-hint" id="waste-hint">
     Select all that apply
-    </span>
+    </div>
     <div class="nhsuk-checkboxes">
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
@@ -377,9 +377,9 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
         How would you prefer to be contacted?
       </h1>
     </legend>
-    <span class="nhsuk-hint" id="contact-hint">
+    <div class="nhsuk-hint" id="contact-hint">
       Select all options that are relevant to you.
-    </span>
+    </div>
     <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
       <div class="nhsuk-checkboxes__item">
         <input class="nhsuk-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
