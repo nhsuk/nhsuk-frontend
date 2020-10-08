@@ -219,6 +219,7 @@
 
 :wrench: **Fixes**
 
+- Hints - changed hints to be div instead of span to allow multi-line elements ([Issue 620](https://github.com/nhsuk/nhsuk-frontend/issues/620))
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
 - Focus styling - Fixing issues with focus state on input and text area which caused resizing ([Issue 600](https://github.com/nhsuk/nhsuk-frontend/issues/600) and [Issue 613](https://github.com/nhsuk/nhsuk-frontend/issues/613))
 - Fix styles for the `nhsuk-link-style-white`
