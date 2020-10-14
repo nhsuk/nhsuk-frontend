@@ -20,9 +20,9 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-    <span class="nhsuk-hint" id="dob-hint">
+    <div class="nhsuk-hint" id="dob-hint">
     For example, 31 3 1980
-    </span>
+    </div>
     <div class="nhsuk-date-input" id="dob">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -104,9 +104,9 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-    <span class="nhsuk-hint" id="dob-with-autocomplete-attribute-hint">
+    <div class="nhsuk-hint" id="dob-with-autocomplete-attribute-hint">
     For example, 31 3 1980
-    </span>
+    </div>
     <div class="nhsuk-date-input" id="dob-with-autocomplete-attribute">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -187,9 +187,9 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-    <span class="nhsuk-hint" id="dob-errors-hint">
+    <div class="nhsuk-hint" id="dob-errors-hint">
     For example, 31 3 1980
-    </span>
+    </div>
     <span id="dob-errors-error" class="nhsuk-error-message">
     Error message goes here
     </span>
@@ -272,9 +272,9 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
     <legend class="nhsuk-fieldset__legend">
       What is your date of birth?
     </legend>
-    <span class="nhsuk-hint" id="dob-day-error-hint">
+    <div class="nhsuk-hint" id="dob-day-error-hint">
     For example, 31 3 1980
-    </span>
+    </div>
     <span id="dob-day-error-error" class="nhsuk-error-message">
     Error message goes here
     </span>

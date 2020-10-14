@@ -18,9 +18,9 @@ Find out more about the radios component and when to use it in the [NHS digital 
     <legend class="nhsuk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <span class="nhsuk-hint" id="example-hint">
+    <div class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
-    </span>
+    </div>
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
@@ -83,9 +83,9 @@ Find out more about the radios component and when to use it in the [NHS digital 
     <legend class="nhsuk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <span class="nhsuk-hint" id="example-hint">
+    <div class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
-    </span>
+    </div>
     <div class="nhsuk-radios nhsuk-radios--inline">
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
@@ -149,9 +149,9 @@ Find out more about the radios component and when to use it in the [NHS digital 
     <legend class="nhsuk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <span class="nhsuk-hint" id="example-disabled-hint">
+    <div class="nhsuk-hint" id="example-disabled-hint">
     This includes changing your last name or spelling your name differently.
-    </span>
+    </div>
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-disabled-1" name="example-disabled" type="radio" value="yes" disabled>
@@ -295,18 +295,18 @@ Find out more about the radios component and when to use it in the [NHS digital 
         <label class="nhsuk-label nhsuk-radios__label" for="gov-1">
         Sign in with Government Gateway
         </label>
-        <span class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
+        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
         You&#39;ll have a user ID if you've registered for self-assessment or filed a tax return online before.
-        </span>
+        </div>
       </div>
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="gov-2" name="gov" type="radio" value="verify" aria-describedby="gov-2-item-hint">
         <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
         Sign in with NHS.UK login
         </label>
-        <span class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
+        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
-        </span>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -417,9 +417,9 @@ Find out more about the radios component and when to use it in the [NHS digital 
     <legend class="nhsuk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <span class="nhsuk-hint" id="example-hint">
+    <div class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
-    </span>
+    </div>
     <span id="example-error" class="nhsuk-error-message">
     Please select an option
     </span>
@@ -495,9 +495,9 @@ Find out more about the radios component and when to use it in the [NHS digital 
         How would you prefer to be contacted?
       </h1>
     </legend>
-    <span class="nhsuk-hint" id="contact-hint">
+    <div class="nhsuk-hint" id="contact-hint">
       Select one option.
-    </span>
+    </div>
     <div class="nhsuk-radios nhsuk-radios--conditional">
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
