@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 4.0.0 - Unreleased
+## 4.0.0 - 26 October 2020
 
 :boom: **Breaking changes**
 
