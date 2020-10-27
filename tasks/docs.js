@@ -50,7 +50,7 @@ function copyBinaryAssets() {
  */
 function serve() {
   connect.server({
-    host: '0.0.0.0',
+    host: 'localhost',
     livereload: true,
     port: 3000,
     root: config.dest,
