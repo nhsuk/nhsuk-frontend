@@ -6,7 +6,7 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 const webpack = require('webpack-stream');
-const package = require('./package.json');
+const { version } = require('./package.json');
 
 /**
  * Import gulp tasks used for creating
@@ -43,7 +43,7 @@ function minifyCSS() {
   ])
     .pipe(cleanCSS())
     .pipe(rename({
-      suffix: `-${package.version}.min`
+      suffix: `-${version}.min`
     }))
     .pipe(gulp.dest('dist/'))
 }
