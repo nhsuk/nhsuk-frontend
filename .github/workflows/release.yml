@@ -15,10 +15,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-        - name: Run linting
+      - name: Run linting
         run: npm run lint
-      
-        - name: Run tests
+    
+      - name: Run tests
         run: npm test
 
       - name: Upload Release Artifact
