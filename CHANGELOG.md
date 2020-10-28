@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## TBC
+
+:wrench: **Fixes**
+
+- Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions 
+
 ## 4.0.0 - 26 October 2020
 
 :boom: **Breaking changes**
