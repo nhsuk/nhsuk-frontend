@@ -1,4 +1,4 @@
-const TEST_HOST = process.env.HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : 'localhost';
+const TEST_HOST = process.env.HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : '0.0.0.0';
 const TEST_URL = `http://${TEST_HOST}:3000/components`;
 
 module.exports = {
