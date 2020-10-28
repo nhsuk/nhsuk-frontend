@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  release:
+    types: created
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run linting
+        run: npm run lint
+    
+      - name: Run tests
+        run: npm test
+
+      - name: Upload Release Artifact
+        uses: ./.github/actions/upload_release_artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_path: ./dist/my-artifact.zip
+          asset_name: my-artifact.zip
+
+      - name: Publish to NPM
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_API_KEY }}" > ~/.npmrc
+          npm publish
