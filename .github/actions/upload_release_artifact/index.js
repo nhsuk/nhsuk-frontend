@@ -4,14 +4,12 @@ const fs = require('fs');
 
 (async () => {
   try {
-    // Get package version from package.json
-    const { version } = JSON.parse(fs.readFileSync('./package.json'));
-
-    // Get event object from release creation, handy for understanding what else you can do
+    // Get event object from GitHub release creation, handy for understanding what else you can do
     const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
     console.log(event);
 
-    const octokit = github.getOctokit(process.env.GITHUB_TOKEN)
+    // Get asset path and create asset name from package.json version
+    const { version } = JSON.parse(fs.readFileSync('./package.json'));
     const assetPath = `./dist/nhsuk-frontend-${version}.zip`;
     const assetName = `nhsuk-frontend-${version}.zip`;
     
@@ -24,6 +22,8 @@ const fs = require('fs');
     // Upload a release asset
     // API Documentation: https://developer.github.com/v3/repos/releases/#upload-a-release-asset
     // Octokit Documentation: https://octokit.github.io/rest.js/#octokit-routes-repos-upload-release-asset
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN)
+
     await octokit.repos.uploadReleaseAsset({
       url: event.release.upload_url,
       headers,
@@ -32,6 +32,7 @@ const fs = require('fs');
     });
 
   } catch (error) {
+    // Set actions error message
     core.setFailed(error.message);
   }
 })();
