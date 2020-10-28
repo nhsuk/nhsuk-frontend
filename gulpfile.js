@@ -173,6 +173,7 @@ gulp.task('zip', gulp.series([
   cssFolder,
   createZip,
 ]));
+
 gulp.task('watch', watch);
 
 /**
