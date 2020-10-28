@@ -1,4 +1,4 @@
-name: Release
+name: Create release
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
 
-      - name: Create Release
+      - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -42,7 +42,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload release asset
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
@@ -64,7 +64,7 @@ jobs:
           FOLDER: ./dist/app
           CLEAN: true
           
-      - name: Publish npm package
+      - name: Publish NPM package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
