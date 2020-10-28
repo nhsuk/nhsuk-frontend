@@ -1,8 +1,0 @@
-name: 'Upload release artifact'
-inputs:
-  event:
-    description: 'Uploads an artifact to a GitHub release'
-    required: true
-runs:
-  using: 'node12'
-  main: 'index.js'
