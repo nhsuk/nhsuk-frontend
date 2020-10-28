@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const { GitHub } = require('@actions/github');
 const fs = require('fs');
+const { version } = require('./package.json');
 
 (async () => {
   try {
@@ -9,8 +10,8 @@ const fs = require('fs');
 
     // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
     const github = new GitHub(process.env.GITHUB_TOKEN);
-    const assetPath = core.getInput('asset_path', { required: true });
-    const assetName = core.getInput('asset_name', { required: true });
+    const assetPath = `./dist/nhsuk-frontend-${version}.zip`;
+    const assetName = `nhsuk-frontend-${version}.zip`;
     
     // Determine content-length for header to upload asset
     const contentLength = filePath => fs.statSync(filePath).size;
