@@ -1,10 +1,12 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-const { version } = require('./package.json');
 
 (async () => {
   try {
+    // Get package version from package.json
+    const { version } = JSON.parse(fs.readFileSync('./package.json'));
+
     // Get event object from release creation, handy for understanding what else you can do
     const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
     console.log(event);
