@@ -802,16 +802,7 @@
   text-decoration: none;
 
   &:hover {
-    color: $color_nhsuk-white;
-  }
-
-  &:focus {
-    text-decoration: none;
-
-    &:hover {
-      color: $nhsuk-text-color;
-    }
-
+    text-decoration: underline;
   }
 }
 
