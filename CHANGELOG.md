@@ -1,10 +1,11 @@
 # NHS.UK frontend Changelog
 
-## TBC
+## 4.0.1 - Unreleased
 
 :wrench: **Fixes**
 
-- Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions 
+- Transactional header - changed service name link style to include an underline on hover ([Issue 653](https://github.com/nhsuk/nhsuk-frontend/issues/653))
+- Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 
 ## 4.0.0 - 26 October 2020
 
