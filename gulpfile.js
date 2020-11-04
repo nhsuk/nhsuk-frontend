@@ -1,12 +1,12 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const clean = require('gulp-clean');
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 const webpack = require('webpack-stream');
-const package = require('./package.json');
+const { version } = require('./package.json');
 
 /**
  * Import gulp tasks used for creating
@@ -16,8 +16,8 @@ require('./tasks/docs.js');
 
 /* Remove all compiled files */
 function cleanDist() {
-  return gulp.src('dist', { allowEmpty: true})
-    .pipe(clean())
+  return gulp.src('dist', { allowEmpty: true })
+    .pipe(clean());
 }
 
 /**
@@ -30,9 +30,9 @@ function compileCSS() {
     .pipe(sass())
     .pipe(gulp.dest('dist/'))
     .on('error', (err) => {
-      console.log(err)
-      process.exit(1)
-    })
+      console.log(err);
+      process.exit(1);
+    });
 }
 
 /* Minify CSS and add a min.css suffix */
@@ -43,9 +43,9 @@ function minifyCSS() {
   ])
     .pipe(cleanCSS())
     .pipe(rename({
-      suffix: `-${package.version}.min`
+      suffix: `-${version}.min`,
     }))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 }
 
 /**
@@ -55,26 +55,26 @@ function minifyCSS() {
 /* Use Webpack to build and minify the NHS.UK components JS. */
 function webpackJS() {
   return gulp.src('./packages/nhsuk.js')
-  .pipe(webpack({
-    mode: 'production',
-    output: {
-      filename: 'nhsuk.js',
-    },
-    target: 'web',
-    module: {
-      rules: [
-        {
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        }
-      ]
-    }
-  }))
-  .pipe(gulp.dest('./dist'));
+    .pipe(webpack({
+      mode: 'production',
+      module: {
+        rules: [
+          {
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
+            },
+          },
+        ],
+      },
+      output: {
+        filename: 'nhsuk.js',
+      },
+      target: 'web',
+    }))
+    .pipe(gulp.dest('./dist'));
 }
 
 /* Minify the JS file for release */
@@ -85,9 +85,9 @@ function minifyJS() {
   ])
     .pipe(uglify())
     .pipe(rename({
-      suffix: `.min`
+      suffix: '.min',
     }))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 }
 
 /* Version the JS file for release */
@@ -98,9 +98,9 @@ function versionJS() {
   ])
     .pipe(uglify())
     .pipe(rename({
-      suffix: `-${package.version}.min`
+      suffix: `-${version}.min`,
     }))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 }
 
 /**
@@ -112,7 +112,7 @@ function versionJS() {
  */
 function assets() {
   return gulp.src('packages/assets/**')
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/assets/'));
 }
 
 /**
@@ -131,13 +131,13 @@ function jsFolder() {
 function cssFolder() {
   return gulp.src('dist/*.min.css')
     .pipe(clean())
-    .pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('dist/css/'));
 }
 
 function createZip() {
   return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], { base: 'dist' })
-    .pipe(zip(`nhsuk-frontend-${package.version}.zip`))
-    .pipe(gulp.dest('dist'))
+    .pipe(zip(`nhsuk-frontend-${version}.zip`))
+    .pipe(gulp.dest('dist'));
 }
 
 /**
@@ -145,32 +145,36 @@ function createZip() {
  */
 
 /* Recompile CSS, JS and docs when there are any changes */
-var watch = function() {
+function watch() {
   gulp.watch(['packages/**/*', 'app/**/*'], gulp.series(['build', 'docs:build']));
 }
 
 gulp.task('clean', cleanDist);
+
 gulp.task('style', compileCSS);
+
 gulp.task('build', gulp.series([
   compileCSS,
   webpackJS,
 ]));
+
 gulp.task('bundle', gulp.series([
   cleanDist,
   'build',
   minifyCSS,
   minifyJS,
   versionJS,
-]))
+]));
+
 gulp.task('zip', gulp.series([
   'bundle',
   assets,
   jsFolder,
   cssFolder,
-  createZip
+  createZip,
 ]));
-gulp.task('watch', watch);
 
+gulp.task('watch', watch);
 
 /**
  * The default task is to build everything, serve the docs and watch for changes
@@ -178,5 +182,5 @@ gulp.task('watch', watch);
 gulp.task('default', gulp.series([
   cleanDist,
   'build',
-  gulp.parallel(['docs:serve', watch])
+  gulp.parallel(['docs:serve', watch]),
 ]));
