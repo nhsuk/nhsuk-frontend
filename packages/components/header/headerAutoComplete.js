@@ -4,7 +4,7 @@ import AutoComplete from './autoCompleteConfig';
  * Check if search URLs are set as globals on window object,
  * Use URL from global or default to live URLs
 */
-const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://www.nhs.uk/s/suggest.json';
+const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://api.nhs.uk/site-search/autocomplete';
 const searchPageUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SEARCH_TEST_HOST) || 'https://www.nhs.uk/search/';
 
 /**
@@ -29,9 +29,9 @@ const suggestion = (result) => {
 */
 const source = (query, populateResults) => {
   // Build URL for search endpoint
-  const maxResults = 10;
-  const fullUrl = `${searchApiUrl}?collection=nhs-meta&partial_query=${query}&sort=0&fmt=json++&profile=&show=${maxResults}&q=${query}&api-version=1`;
-
+  // const maxResults = 10;
+  const fullUrl = `${searchApiUrl}?q=${query}&api-version=1`;
+  console.log(fullUrl);
   // Async request for results based on query param
   const xhr = new XMLHttpRequest();
   xhr.open('GET', fullUrl);
@@ -40,7 +40,7 @@ const source = (query, populateResults) => {
       // Array of display values from json
       const results = JSON.parse(xhr.responseText)
         // Handle new search API or Funnelback
-        .map((result) => result.query || result.disp);
+        .map((result) => result.query);
 
       // Fire callback from autoComplete plugin
       populateResults(results);
