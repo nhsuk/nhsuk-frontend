@@ -63,6 +63,7 @@ export default () => {
   AutoComplete({
     containerId: 'autocomplete-container',
     formId: 'search',
+    showNoOptionsFound: false,
     inputId: 'search-field',
     onConfirm,
     source,
