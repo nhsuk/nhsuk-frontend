@@ -38,7 +38,6 @@ const source = (query, populateResults) => {
   xhr.onload = () => {
     if (xhr.status === 200) {
       // Array of display values from json
-      console.log(fullUrl);
       const results = JSON.parse(xhr.responseText)
         // Handle new search API
         .map((result) => result.query);
