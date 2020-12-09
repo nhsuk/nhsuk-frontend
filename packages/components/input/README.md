@@ -200,13 +200,15 @@ The input macro takes the following arguments:
 | **id**              | string   | Yes       | The id of the input. |
 | **name**            | string   | Yes       | The name of the input, which is submitted with the form data. |
 | **type**            | string   | No        | Type of input control to render. Defaults to "text".|
-| **value**           | string   | No        | Optional initial value of the input.|
-| **label**           | object   | No        | Arguments for the label component. See label component.|
+| **inputmode**       | string   | No        | Optional value for [inputmode](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). |
+| **value**           | string   | No        | Optional initial value of the input. |
+| **label**           | object   | No        | Arguments for the label component. See label component. |
 | **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
 | **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes add to the input component. Separate each class with a space. |
 | **autocomplete**    | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **pattern**         | string   | No        | Attribute to [provide a regular expression pattern](https://www.w3.org/TR/html51/sec-forms.html#the-pattern-attribute), used to match allowed character combinations for the input value. |
+| **spellcheck**      | boolean | No         | Optional field to enable or disable the spellcheck attribute on the input. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the input component. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
