@@ -1,6 +1,10 @@
 # NHS.UK frontend Changelog
 
-## 4.0.1 - Unreleased
+## 4.1.0 - Unreleased
+
+:new: **New features**
+
+- Add `inputmode` and `spellcheck` options to the text input component Nunjucks macro
 
 :wrench: **Fixes**
 
