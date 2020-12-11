@@ -4,7 +4,8 @@
 
 :new: **New features**
 
-- Add `inputmode` and `spellcheck` options to the text input component Nunjucks macro
+- Text input component - add `inputmode` and `spellcheck` options to the Nunjucks macro
+- Date input component - change `type="number"` to `inputmode="numeric"`
 
 :wrench: **Fixes**
 
