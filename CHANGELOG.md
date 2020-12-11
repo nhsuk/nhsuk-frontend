@@ -14,6 +14,7 @@
 - Transactional header - changed service name link style to include an underline on hover ([Issue 653](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 - Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
+- Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
 
 ## 4.0.0 - 26 October 2020
 
