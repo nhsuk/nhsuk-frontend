@@ -1,6 +1,11 @@
 # NHS.UK frontend Changelog
 
-## 4.0.1 - Unreleased
+## 4.1.0 - Unreleased
+
+:new: **New features**
+
+- Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
+- Change `type="number"` to `inputmode="numeric"` for the date input component
 
 :wrench: **Fixes**
 

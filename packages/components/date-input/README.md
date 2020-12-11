@@ -29,7 +29,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
           Day
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob-day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -37,7 +37,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
           Month
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob-month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -45,7 +45,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
           Year
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob-year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-day">
           Day
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-day" name="dob-with-autocomplete-day" type="number" autocomplete="bday-day" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-day" name="dob-with-autocomplete-day" inputmode="numeric" type="text" autocomplete="bday-day" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -121,7 +121,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-month">
           Month
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-month" name="dob-with-autocomplete-month" type="number" autocomplete="bday-month" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-month" name="dob-with-autocomplete-month" inputmode="numeric" type="text" autocomplete="bday-month" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -129,7 +129,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-year">
           Year
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-with-autocomplete-attribute-year" name="dob-with-autocomplete-year" type="number" autocomplete="bday-year" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-with-autocomplete-attribute-year" name="dob-with-autocomplete-year" inputmode="numeric" type="text" autocomplete="bday-year" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-day">
           Day
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-day" name="day" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-day" name="day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -207,7 +207,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-month">
           Month
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-month" name="month" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-month" name="month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -215,7 +215,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-year">
           Year
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error" id="dob-errors-year" name="year" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error" id="dob-errors-year" name="year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -284,7 +284,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-day">
           Day
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-day-error-day" name="dob-day-error-day" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-day-error-day" name="dob-day-error-day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -292,7 +292,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-month">
           Month
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day-error-month" name="dob-day-error-month" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day-error-month" name="dob-day-error-month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -300,7 +300,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
           <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-year">
           Year
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-day-error-year" name="dob-day-error-year" type="number" pattern="[0-9]*">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-day-error-year" name="dob-day-error-year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
