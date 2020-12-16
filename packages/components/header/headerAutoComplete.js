@@ -4,7 +4,7 @@ import AutoComplete from './autoCompleteConfig';
  * Check if search URLs are set as globals on window object,
  * Use URL from global or default to live URLs
 */
-const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://nhsuk-apim-stag-uks.azure-api.net/site-search/Autocomplete';
+const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://api.nhs.uk/site-search/Autocomplete';
 const searchPageUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SEARCH_TEST_HOST) || 'https://www.nhs.uk/search/';
 
 /**
