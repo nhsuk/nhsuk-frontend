@@ -29,7 +29,6 @@ const suggestion = (result) => {
 */
 const source = (query, populateResults) => {
   // Build URL for search endpoint
-  // const maxResults = 10;
   const fullUrl = `${searchApiUrl}?q=${query}&api-version=1`;
 
   // Async request for results based on query param
