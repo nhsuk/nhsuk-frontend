@@ -27,9 +27,9 @@ export default (config) => {
   */
   const addFormEvents = () => {
     // Attach event to form as the original input element is cloned by autoComplete plugin
-    form.addEventListener('keyup', ({ keyCode }) => {
+    form.addEventListener('keyup', ({ key }) => {
       // Submit search using current input value if input is focused and enter is pressed
-      if (keyCode === 13 && document.activeElement.id === inputId) form.submit();
+      if (key === 'Enter' && document.activeElement.id === inputId) form.submit();
     });
   };
 

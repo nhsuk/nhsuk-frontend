@@ -4,7 +4,7 @@ import AutoComplete from './autoCompleteConfig';
  * Check if search URLs are set as globals on window object,
  * Use URL from global or default to live URLs
 */
-const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://www.nhs.uk/s/suggest.json';
+const searchApiUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST) || 'https://api.nhs.uk/site-search/Autocomplete';
 const searchPageUrl = (window.NHSUK_SETTINGS && window.NHSUK_SETTINGS.SEARCH_TEST_HOST) || 'https://www.nhs.uk/search/';
 
 /**
@@ -18,9 +18,7 @@ const suggestion = (result) => {
   const resultTruncated = result.substring(0, truncateLength) + dots;
   return `
     <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path></svg>
-    <a href="${searchPageUrl}?q=${result}">
-      ${resultTruncated}
-    </a>
+    ${resultTruncated}
   `;
 };
 
@@ -31,8 +29,7 @@ const suggestion = (result) => {
 */
 const source = (query, populateResults) => {
   // Build URL for search endpoint
-  const maxResults = 10;
-  const fullUrl = `${searchApiUrl}?collection=nhs-meta&partial_query=${query}&sort=0&fmt=json++&profile=&show=${maxResults}&q=${query}&api-version=1`;
+  const fullUrl = `${searchApiUrl}?q=${query}&api-version=1`;
 
   // Async request for results based on query param
   const xhr = new XMLHttpRequest();
@@ -41,8 +38,8 @@ const source = (query, populateResults) => {
     if (xhr.status === 200) {
       // Array of display values from json
       const results = JSON.parse(xhr.responseText)
-        // Handle new search API or Funnelback
-        .map((result) => result.query || result.disp);
+        // Handle new search API
+        .map((result) => result.query);
 
       // Fire callback from autoComplete plugin
       populateResults(results);
@@ -52,11 +49,22 @@ const source = (query, populateResults) => {
   xhr.send();
 };
 
+/**
+ * Callback function to redirect to NHS Search page when an
+ * option is selected either with click or enter.
+ * @param {string} result Query to pass to search page URL
+*/
+const onConfirm = (result) => {
+  window.location.href = `${searchPageUrl}?q=${result}`;
+};
+
 export default () => {
   AutoComplete({
     containerId: 'autocomplete-container',
     formId: 'search',
     inputId: 'search-field',
+    onConfirm,
+    showNoOptionsFound: false,
     source,
     templates: {
       suggestion,

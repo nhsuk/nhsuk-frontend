@@ -1,12 +1,20 @@
 # NHS.UK frontend Changelog
 
-## 4.0.1 - Unreleased
+## 4.1.0 - Unreleased
+
+:new: **New features**
+
+- Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
+- Change `type="number"` to `inputmode="numeric"` for the date input component
 
 :wrench: **Fixes**
 
+- Align items to the top in the Summary list component ([Issue 663](https://github.com/nhsuk/nhsuk-frontend/issues/663))
 - Ensure the NHS logo SVG is a valid SVG file by adding `xlink` namespace to the markup ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657))
 - Transactional header - changed service name link style to include an underline on hover ([Issue 653](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
+- Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
+- Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
 
 ## 4.0.0 - 26 October 2020
 
@@ -17,12 +25,12 @@
   If you are using the current responsive table class `nhsuk-table-responsive` you will need to rename the `nhsuk-table-responsive` class to `nhsuk-table-container`.
 
   [Preview the responsive table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/responsive-table.html)
-  
+
 - Remove Panel and Promo components
 
   The panel and promo were two components in the NHS.UK frontend that did not have guidance in the service manual. They both also shared a lot of the same structure and design. This confused users of the design system, with people not knowing when and how to use the components.
 
-  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have fixed this issue and combined the two components into one new component, a card component. 
+  There was also an accessibility issue with the content of the promo component being all contained within a link (anchor tag) causing a difficult experience for screenreader users. We have fixed this issue and combined the two components into one new component, a card component.
 
   <details>
     <summary>If you are using a panel component</summary>
@@ -62,7 +70,7 @@
       "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
     }) }}
     ```
-    
+
     ##### Changing the heading size
 
     ```
@@ -74,9 +82,9 @@
       "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
     }) }}
     ```
-    
+
     ### For HTML
-    
+
     You need to:
     - replace all `nhsuk-panel` classes to `nhsuk-card`
 
@@ -143,7 +151,7 @@
       "description": "Please register today. Donating blood is easy, and saves lives."
     }) }
     ```
-    
+
     ##### Changing the heading size
 
     ```
@@ -156,9 +164,9 @@
       "description": "Please register today. Donating blood is easy, and saves lives."
     }) }
     ```
-    
+
     ### For HTML
-    
+
     You need to:
     - replace all `nhsuk-promo` classes to `nhsuk-card`
     - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
@@ -201,13 +209,13 @@
 
 - Add Card component
 
-  Use a card instead of a panel or promo to provide users with a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks. 
+  Use a card instead of a panel or promo to provide users with a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks.
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
 - Add Tag component
 
-  Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status. 
+  Use the tag component when it’s possible for something to have more than one status and it’s useful for the user to know about that status.
 
   ([PR 626](https://github.com/nhsuk/nhsuk-frontend/pull/626))
 
@@ -233,7 +241,7 @@
 - Fix styles for the `nhsuk-link-style-white`
 - Fix breadcrumb link color when `:visited` and `:focus`
 - Warning callout - update Nunjucks macro template so custom headings get prefixed with `<span class="nhsuk-u-visually-hidden">Important:</span>` to convey the importance of the message to screen reader users. ([PR 630](https://github.com/nhsuk/nhsuk-frontend/pull/630))
-- Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS. 
+- Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS.
 
   Including adding a 1px border to:
   - care cards (non-urgent and urgent)
