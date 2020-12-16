@@ -1,9 +1,16 @@
 # NHS.UK frontend Changelog
 
-## 4.0.1 - Unreleased
+## 4.1.0 - Unreleased
+
+:new: **New features**
+
+- Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
+- Change `type="number"` to `inputmode="numeric"` for the date input component
 
 :wrench: **Fixes**
 
+- Align items to the top in the Summary list component ([Issue 663](https://github.com/nhsuk/nhsuk-frontend/issues/663))
+- Ensure the NHS logo SVG is a valid SVG file by adding `xlink` namespace to the markup ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657))
 - Transactional header - changed service name link style to include an underline on hover ([Issue 653](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 - Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
