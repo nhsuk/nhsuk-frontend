@@ -16,7 +16,7 @@
     "backstop:ci": "start-server-and-test start http://0.0.0.0:3000 backstop:test",
     "backstop:approve": "backstop --config=./tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend' gulp docs:build",
+    "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend/' gulp docs:build",
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
     "jest:ci": "jest"

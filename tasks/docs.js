@@ -5,7 +5,7 @@ const nunjucks = require('nunjucks');
 const connect = require('gulp-connect');
 
 const config = {
-  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '',
+  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
   dest: 'dist/app',
   templates: ['app/_templates', 'packages'],
 };
