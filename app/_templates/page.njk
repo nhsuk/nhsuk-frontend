@@ -46,7 +46,7 @@
   {{ header({
     "showNav": "false",
     "showSearch": "false",
-    "homeHref": "/nhsuk-frontend/"
+    "homeHref": baseUrl
     })
   }}
 {% endblock %}
@@ -87,19 +87,19 @@
   {{ footer({
     "links": [
       {
-        "URL": "/nhsuk-frontend/",
+        "URL": baseUrl,
         "label": "NHS.UK frontend"
       },
       {
-        "URL": "/pages/install.html",
+        "URL": baseUrl + "pages/install.html",
         "label": "Install"
       },
       {
-        "URL": "/pages/examples.html",
+        "URL": baseUrl + "pages/examples.html",
         "label": "Examples"
       },
       {
-        "URL": "/pages/about.html",
+        "URL": baseUrl + "pages/about.html",
         "label": "About"
       },
       {
