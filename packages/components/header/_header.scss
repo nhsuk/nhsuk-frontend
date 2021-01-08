@@ -1086,6 +1086,7 @@
 
       @include mq($until: tablet) {
         border: $nhsuk-focus-width solid $nhsuk-focus-color;
+        padding: 0 13px;
       }
     }
   }
