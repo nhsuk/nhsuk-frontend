@@ -10,8 +10,6 @@
  * 2. Reset default user agent styles
  * 3. Automatic wrapping for unbreakable text (e.g. URLs)
  * 4. Fallback for older browsers only
- * 5. In older browsers such as IE8, :last-child is not available,
- *    so only show the border divider where it is available.
  */
 
 .nhsuk-summary-list {
@@ -109,7 +107,6 @@
   padding-right: nhsuk-spacing(2);
 }
 
-/* [5] */
 .nhsuk-summary-list__actions-list-item:not(:last-child) {
   border-right: 1px solid $nhsuk-border-color;
 }

@@ -60,9 +60,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
 ```html
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]-->
-<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
