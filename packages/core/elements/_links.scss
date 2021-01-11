@@ -25,14 +25,6 @@ a {
 
 }
 
-.ie8 {
-  a {
-    &:focus {
-      outline: 1px dotted $nhsuk-focus-text-color;
-    }
-  }
-}
-
 .nhsuk-link--no-visited-state {
   @include nhsuk-link-style-no-visited-state;
 }

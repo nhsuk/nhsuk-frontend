@@ -6,15 +6,48 @@
 
 - Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
 - Change `type="number"` to `inputmode="numeric"` for the date input component
+- Updated browser and assistive technology support documentation - remove support for IE8-10
 
 :wrench: **Fixes**
 
 - Align items to the top in the Summary list component ([Issue 663](https://github.com/nhsuk/nhsuk-frontend/issues/663))
-- Ensure the NHS logo SVG is a valid SVG file by adding `xlink` namespace to the markup ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657))
 - Transactional header - changed service name link style to include an underline on hover ([Issue 653](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 - Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
 - Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
+- Removing support for IE8-10 and updating the NHS logo SVG html means the `xlink:href` is no longer an issue ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657), [PR 673](https://github.com/nhsuk/nhsuk-frontend/pull/673)). This also fixes the issue of not being able to select or focus on the NHS logo when using VoiceOver on iOS ([PR 631](https://github.com/nhsuk/nhsuk-frontend/pull/631))
+
+:boom: **Breaking changes**
+
+- Header, breadcrumb, button and hero - the CSS for IE 8 and 9 for these components have been removed. Therefore if you update to this version then the conditionals for the `<html>` element will have no effect so you should remove them. So instead of having something like this:
+
+  ```
+  <!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+  ```
+
+  You will only now need this:
+  ```
+  <html lang="en">
+  ```
+
+  You can also change the svg NHS logo html to remove the reference to the png which was to support older versions of IE, which is now no longer required.
+
+  Previous code:
+  ```
+  <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation" focusable="false" viewBox="0 0 40 16">
+    <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+    <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+    <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+  </svg>
+  ```
+
+  New code:
+  ```
+  <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16">
+    <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+    <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+  </svg>  
+  ```  
 
 ## 4.0.0 - 26 October 2020
 
