@@ -4,7 +4,10 @@
 
 :new: **New features**
 
-- Updated browser and assistive technology support documentation - remove support for IE8-10
+- Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
+
+:wrench: **Fixes**
+
 - Removing support for IE8-10 and updating the NHS logo SVG html means the `xlink:href` is no longer an issue ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657), [PR 673](https://github.com/nhsuk/nhsuk-frontend/pull/673)). This also fixes the issue of not being able to select or focus on the NHS logo when using VoiceOver on iOS ([PR 631](https://github.com/nhsuk/nhsuk-frontend/pull/631))
 
 :boom: **Breaking changes**
