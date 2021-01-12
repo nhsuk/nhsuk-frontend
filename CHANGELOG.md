@@ -6,7 +6,7 @@
 
 - Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
 - Change `type="number"` to `inputmode="numeric"` for the date input component
-- Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
+- Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post [Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/) by GOV.UK for more information on why we have done this.
 
 :wrench: **Fixes**
 
