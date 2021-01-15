@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Vendor in Sass-MQ
+
 ## 4.1.0 - Unreleased
 
 :new: **New features**
@@ -36,171 +42,178 @@
     <summary>If you are using a panel component</summary>
 
     You will need to replace the panel component with a card component.
+  You will need to replace the panel component with a card component.
 
-    ### For Nunjucks macro
+  ### For Nunjucks macro
 
-    You need to:
-    - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
-    - replace `{{ panel({` with `{{ card({`
-    - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
-    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+  You need to:
 
-    For example:
+  - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{{ panel({` with `{{ card({`
+  - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
+  - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
-    #### Old Nunjucks macro (Panel)
+  For example:
 
-    ```
-    {% from 'components/panel/macro.njk' import panel %}
+  #### Old Nunjucks macro (Panel)
 
-    {{ panel({
-      "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/panel/macro.njk' import panel %}
 
-    #### New Nunjucks macro (Card)
+  {{ panel({
+    "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    ##### Changing the heading level
+  #### New Nunjucks macro (Card)
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading level
 
-    {{ card({
-      "heading": "If you need help now, but it’s not an emergency",
-      "headingLevel": "3",
-      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ##### Changing the heading size
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingLevel": "3",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading size
 
-    {{ card({
-      "heading": "If you need help now, but it’s not an emergency",
-      "headingClasses": "nhsuk-heading-m",
-      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ### For HTML
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingClasses": "nhsuk-heading-m",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    You need to:
-    - replace all `nhsuk-panel` classes to `nhsuk-card`
+  ### For HTML
 
-    For example:
+  You need to:
 
-    #### Old HTML (Panel)
+  - replace all `nhsuk-panel` classes to `nhsuk-card`
 
-    ```
-    <div class="nhsuk-panel nhsuk-panel--grey">
-      <h3>If you need help now, but it’s not an emergency</h3>
-      <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+  For example:
+
+  #### Old HTML (Panel)
+
+  ```
+  <div class="nhsuk-panel nhsuk-panel--grey">
+    <h3>If you need help now, but it’s not an emergency</h3>
+    <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+  </div>
+  ```
+
+  #### New HTML (Card)
+
+  ```
+  <div class="nhsuk-card>
+    <div class="nhsuk-card__content">
+      <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
+      <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
     </div>
-    ```
+  </div>
+  ```
 
-    #### New HTML (Card)
-
-    ```
-    <div class="nhsuk-card>
-      <div class="nhsuk-card__content">
-        <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
-        <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
-      </div>
-    </div>
-    ```
   </details>
 
   <details>
     <summary>If you are using a promo component</summary>
 
-    You will need to replace the promo component with a card component.
+  You will need to replace the promo component with a card component.
 
-    ### For Nunjucks macro
+  ### For Nunjucks macro
 
-    You need to:
-    - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
-    - replace `{{ promo({` with `{{ card({`
-    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+  You need to:
 
-    For example:
+  - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{{ promo({` with `{{ card({`
+  - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
-    #### Old Nunjucks macro (Promo)
+  For example:
 
-    ```
-    {% from 'components/promo/macro.njk' import promo %}
+  #### Old Nunjucks macro (Promo)
 
-    {{ promo({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }}
-    ```
+  ```
+  {% from 'components/promo/macro.njk' import promo %}
 
-    #### New Nunjucks macro (Card)
+  {{ promo({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
+  ```
 
-    ##### Changing the heading level
+  #### New Nunjucks macro (Card)
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading level
 
-    {{ card({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "headingLevel": "3",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ##### Changing the heading size
+  {{ card({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "headingLevel": "3",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }
+  ```
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading size
 
-    {{ card({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "headingClasses": "nhsuk-heading-m",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ### For HTML
+  {{ card({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }
+  ```
 
-    You need to:
-    - replace all `nhsuk-promo` classes to `nhsuk-card`
-    - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
-    - add `nhsuk-card--clickable` class to make entire card clickable
+  ### For HTML
 
-    For example:
+  You need to:
 
-    #### Old HTML (Promo)
+  - replace all `nhsuk-promo` classes to `nhsuk-card`
+  - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
+  - add `nhsuk-card--clickable` class to make entire card clickable
 
-    ```
-    <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper" href="#">
-        <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
-        <div class="nhsuk-promo__content">
-          <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
-          <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
-        </div>
-      </a>
-    </div>
-    ```
+  For example:
 
-    #### New HTML (Card)
+  #### Old HTML (Promo)
 
-    ```
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
-      <div class="nhsuk-card__content">
-        <h3 class="nhsuk-card__heading">
-          <a class="nhsuk-card__link" href="#">Kickstart your health</a>
-        </h3>
-        <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+  ```
+  <div class="nhsuk-promo">
+    <a class="nhsuk-promo__link-wrapper" href="#">
+      <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+      <div class="nhsuk-promo__content">
+        <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
+        <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
       </div>
+    </a>
+  </div>
+  ```
+
+  #### New HTML (Card)
+
+  ```
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+    <div class="nhsuk-card__content">
+      <h3 class="nhsuk-card__heading">
+        <a class="nhsuk-card__link" href="#">Kickstart your health</a>
+      </h3>
+      <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
     </div>
-    ```
+  </div>
+  ```
+
   </details>
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
@@ -221,7 +234,7 @@
 
 - Add `nhsuk-link--no-visited-state` mixin - for where it is not helpful to distinguish between visited and non-visited links.
 
-- Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference. 
+- Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference.
 
   Add the below code to a base HTML file or any pages that use search.
 
@@ -244,6 +257,7 @@
 - Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS.
 
   Including adding a 1px border to:
+
   - care cards (non-urgent and urgent)
   - do and don't list
   - expander
@@ -269,17 +283,17 @@
 
   ```javascript
   // Components
-  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
-  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
-  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
-  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
-  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+  import Header from "../node_modules/nhsuk-frontend/packages/components/header/header";
+  import SkipLink from "../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link";
+  import Details from "../node_modules/nhsuk-frontend/packages/components/details/details";
+  import Radios from "../node_modules/nhsuk-frontend/packages/components/radios/radios";
+  import Checkboxes from "../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes";
 
   // Polyfills
-  import '../node_modules/nhsuk-frontend/packages/polyfills';
+  import "../node_modules/nhsuk-frontend/packages/polyfills";
 
   // Initialize components
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     Details();
     Header();
     SkipLink();
@@ -357,34 +371,35 @@
   <details>
     <summary>View the colour variables that have been replaced</summary>
 
-  | Colour variable removed  | Suggested replacement |
-  | ------------- | ------------- |
-  | $color_tint_nhsuk-warm-yellow-30  | $color_nhsuk-warm-yellow  |
-  | $color_tint_nhsuk-warm-yellow-10  | $color_nhsuk-warm-yellow  |
-  | $nhsuk-link-focus-color | $nhsuk-focus-text-color |
-  | $nhsuk-link-hover-background-color | $nhsuk-focus-color |
-  | $nhsuk-link-focus-background-color | $nhsuk-focus-color |
-  | $nhsuk-link-active-background-color | $nhsuk-focus-color |
-  | $nhsuk-button-text-colour | $nhsuk-button-text-color |
-  | $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
-  | $nhsuk-reverse-button-text-colour | $nhsuk-reverse-button-text-color |
-  | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
-  | $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
-  | $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+  | Colour variable removed               | Suggested replacement                |
+  | ------------------------------------- | ------------------------------------ |
+  | $color_tint_nhsuk-warm-yellow-30      | $color_nhsuk-warm-yellow             |
+  | $color_tint_nhsuk-warm-yellow-10      | $color_nhsuk-warm-yellow             |
+  | $nhsuk-link-focus-color               | $nhsuk-focus-text-color              |
+  | $nhsuk-link-hover-background-color    | $nhsuk-focus-color                   |
+  | $nhsuk-link-focus-background-color    | $nhsuk-focus-color                   |
+  | $nhsuk-link-active-background-color   | $nhsuk-focus-color                   |
+  | $nhsuk-button-text-colour             | $nhsuk-button-text-color             |
+  | $nhsuk-button-hover-colour            | $nhsuk-button-hover-color            |
+  | $nhsuk-reverse-button-text-colour     | $nhsuk-reverse-button-text-color     |
+  | $nhsuk-button-shadow-colour           | $nhsuk-button-shadow-color           |
+  | $nhsuk-secondary-button-colour        | $nhsuk-secondary-button-color        |
+  | $nhsuk-secondary-button-hover-colour  | $nhsuk-secondary-button-hover-color  |
   | $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
-  | $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
-  | $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
-  | $nhsuk-button-colour | $nhsuk-button-color |
-  | $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
-  | $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
-  | $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+  | $nhsuk-reverse-button-colour          | $nhsuk-reverse-button-color          |
+  | $nhsuk-reverse-button-hover-colour    | $nhsuk-reverse-button-hover-color    |
+  | $nhsuk-button-colour                  | $nhsuk-button-color                  |
+  | $nhsuk-button-hover-colour            | $nhsuk-button-hover-color            |
+  | $nhsuk-secondary-button-colour        | $nhsuk-secondary-button-color        |
+  | $nhsuk-secondary-button-hover-colour  | $nhsuk-secondary-button-hover-color  |
   | $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
-  | $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
-  | $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
-  | $nhsuk-reverse-button-shadow-colour | $nhsuk-reverse-button-shadow-color |
-  | $nhsuk-focus-colour | $nhsuk-focus-color |
-  | $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
-  | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+  | $nhsuk-reverse-button-colour          | $nhsuk-reverse-button-color          |
+  | $nhsuk-reverse-button-hover-colour    | $nhsuk-reverse-button-hover-color    |
+  | $nhsuk-reverse-button-shadow-colour   | $nhsuk-reverse-button-shadow-color   |
+  | $nhsuk-focus-colour                   | $nhsuk-focus-color                   |
+  | $nhsuk-focus-text-colour              | $nhsuk-focus-text-color              |
+  | $nhsuk-button-shadow-colour           | $nhsuk-button-shadow-color           |
+
   </details>
 
   <hr>
@@ -393,17 +408,18 @@
 
 - Deprecation of the [Feedback banner](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/151) and [Emergency alert](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/149) components.
 
-   If you are using Sass and JavaScript (ES6) imports, you will need to remove the imports for these components. You will also no longer be able to use the Nunjucks macros.
+  If you are using Sass and JavaScript (ES6) imports, you will need to remove the imports for these components. You will also no longer be able to use the Nunjucks macros.
 
   **Sass**
 
   If you are importing component styles individually, you will need to remove the imports for the emergency alert and feedback banner:
 
   ```scss
-  @import 'node_modules/nhsuk-frontend/packages/components/emergency-alert/emergency-alert';
+  @import "node_modules/nhsuk-frontend/packages/components/emergency-alert/emergency-alert";
   ```
+
   ```scss
-  @import 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
+  @import "node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner";
   ```
 
   If you import all the component styles with `@import 'node_modules/nhsuk-frontend/packages/core/all';`, you don't need to update your Sass imports.
@@ -413,8 +429,9 @@
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
   ```js
-  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
+  import nhsuk_feedbackBanner from "node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner";
   ```
+
   ```js
   nhsuk_feedbackBanner(3000);
   ```
@@ -431,12 +448,12 @@
 
   ```js
   // Components
-  import Header from './components/header/header';
-  import SkipLink from './components/skip-link/skip-link';
-  import Details from './components/details/details';
+  import Header from "./components/header/header";
+  import SkipLink from "./components/skip-link/skip-link";
+  import Details from "./components/details/details";
 
   // Initialize components
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     Details();
     Header();
     SkipLink();
