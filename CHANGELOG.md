@@ -15,6 +15,7 @@
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 - Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
 - Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
+- Search input focus state style fix (mobile) - adjust padding to prevent the text from jumping when the field receives focus ([Issue 675](https://github.com/nhsuk/nhsuk-frontend/issues/675), [PR 678](https://github.com/nhsuk/nhsuk-frontend/pull/678))
 
 ## 4.0.0 - 26 October 2020
 
