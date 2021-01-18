@@ -35,9 +35,8 @@
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
  * 15. IE 9 alternative for flexbox
- * 16. Use non variable colour to follow NHS England guidelines on logo colour
- * 17. On print stylesheets remove the header link
- * 18. Remove random top margin in Safari
+ * 16. On print stylesheets remove the header link
+ * 17. Remove random top margin in Safari
  */
 
 @import 'autocomplete';
@@ -99,6 +98,10 @@
   @include nhsuk-logo-size; /* [1] */
   display: block;
 
+  &:focus {
+    box-shadow: none;
+  }
+
   &:hover {
     .nhsuk-logo {
       box-shadow: 0 0 0 $nhsuk-focus-width $color_shade_nhsuk-blue-35;
@@ -107,18 +110,13 @@
 
   &:focus {
     .nhsuk-logo {
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-    }
-    &:hover {
-      .nhsuk-logo {
-        box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-      }
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
   }
 
   @include mq($media-type: print) {
     &:after {
-      content: ''; /* [17] */
+      content: ''; /* [16] */
     }
   }
 
@@ -136,7 +134,7 @@
   position: relative;
 
   &.js-show {
-    border-bottom: 4px solid $color_nhsuk-grey-5; /* [12] */
+    border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
   }
 
   @include mq($from: tablet) {
@@ -179,7 +177,7 @@
 
   &:focus {
     @include nhsuk-focused-button();
-    box-shadow: none;
+    box-shadow: 0 0 0 2px $nhsuk-focus-color, 0 $nhsuk-focus-width 0 2px $nhsuk-focus-text-color;
   }
 
 }
@@ -281,8 +279,7 @@
 
     &:focus {
       background-color: $nhsuk-focus-color;
-      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-      box-shadow: inset 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+      box-shadow: 0 -4px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
 
@@ -299,20 +296,13 @@
       }
     }
 
-    &:active {
-      background-color: $nhsuk-button-active-color;
-
-      .nhsuk-icon {
-        fill: $color_nhsuk-white;
-      }
-    }
-
   }
 
   .nhsuk-search__close {
     @include close-button();
 
-    margin-left: nhsuk-spacing(3);
+    margin-left: nhsuk-spacing(2);
+    margin-right: - nhsuk-spacing(2);
     margin-top: nhsuk-spacing(2);
 
     &:focus {
@@ -370,8 +360,6 @@
     height: nhsuk-spacing(6); /* [2] */
     line-height: inherit;
     outline: none;
-    padding-left: 9px; /* [7] */
-    padding-top: 2px; /* [7] */
     width: 44px; /* [2] */
 
     .nhsuk-icon__search {
@@ -385,6 +373,7 @@
 
     &:hover {
       background-color: $color_shade_nhsuk-blue-35;
+      border: 1px solid white;
       cursor: pointer;
 
       .nhsuk-icon__search {
@@ -394,8 +383,7 @@
 
     &:focus {
       @include nhsuk-focused-button();
-
-      box-shadow: none;
+      box-shadow: 0 -2px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
 
     &:active {
@@ -465,13 +453,13 @@
   }
 
   @include mq($from: tablet, $until: large-desktop) {
-    margin-top: 0; /* [18] */
+    margin-top: 0; /* [17] */
   }
 
   &:focus {
     @include nhsuk-focused-button;
 
-    box-shadow: none;
+    box-shadow: 0 0 0 2px $nhsuk-focus-color, 0 $nhsuk-focus-width 0 2px $nhsuk-focus-text-color;
   }
 
 }
@@ -500,8 +488,8 @@
     display: block;
 
     @include mq($until: large-desktop) {
-      border-bottom: 4px solid $color_nhsuk-grey-5; /* [12] */
-      border-top: 4px solid $color_nhsuk-grey-5; /* [12] */
+      border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
+      border-top: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
 
       .nhsuk-width-container {
         margin: 0 nhsuk-spacing(3);
@@ -528,7 +516,7 @@
   @include close-button();
   overflow: hidden;
   position: absolute;
-  right: nhsuk-spacing(3);
+  right: nhsuk-spacing(2);
   top: nhsuk-spacing(2);
   white-space: nowrap;
 
@@ -553,8 +541,8 @@
 
 .nhsuk-header__navigation-link {
   @include nhsuk-font(16);
-  border-bottom: 4px solid transparent;
-  border-top: 4px solid transparent;
+  border-bottom: nhsuk-spacing(1) solid transparent;
+  border-top: nhsuk-spacing(1) solid transparent;
   color: $color_nhsuk-blue;
   display: block;
   padding: 12px nhsuk-spacing(3);
@@ -568,16 +556,21 @@
   }
 
   &:visited {
+    color: $color_nhsuk-blue;
+
     @include mq($from: large-desktop) {
       color: $color_nhsuk-white;
     }
   }
 
   &:hover {
-    background-color: $color_shade_nhsuk-blue-35;
     box-shadow: none;
-    color: $color_nhsuk-white;
+    color: $color_nhsuk-blue;
     text-decoration: underline;
+
+    @include mq($from: large-desktop) {
+      color: $color_nhsuk-white;
+    }
 
     .nhsuk-icon__chevron-right {
       fill: $color_nhsuk-blue;
@@ -598,6 +591,10 @@
     &:hover {
       background-color: $nhsuk-focus-color;
       color: $nhsuk-focus-text-color;
+
+      .nhsuk-icon__chevron-right {
+        fill: $nhsuk-focus-text-color;
+      }
     }
 
     &:visited {
@@ -630,7 +627,7 @@
     background-color: $color_nhsuk-blue;
     display: block;
     margin: 0 auto;
-    max-width: $nhsuk-page-width;
+    max-width: $nhsuk-page-width + nhsuk-spacing(9);
   }
 
   .nhsuk-header__navigation-list {
@@ -659,18 +656,6 @@
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-white;
     line-height: normal;
-
-    &:active {
-      background-color: $color_shade_nhsuk-blue-50;
-      color: $color_nhsuk-grey-5;
-    }
-
-    &:hover,
-    &:active,
-    &.is-active {
-      background-color: $color_shade_nhsuk-blue-20;
-    }
-
   }
 
 }
@@ -848,11 +833,15 @@
 
   &:focus {
     background: $nhsuk-focus-color;
-    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
 
     .nhsuk-header__service-name {
       color: $nhsuk-focus-text-color;
       text-decoration: none;
+    }
+
+    .nhsuk-logo {
+      box-shadow: none;
     }
 
   }
@@ -871,14 +860,6 @@
     padding-left: nhsuk-spacing(3);
   }
 
-  @include mq($until: desktop) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 450px) {
-    font-size: 14px;
-  }
-
 }
 
 .nhsuk-header__logo--only {
@@ -891,6 +872,7 @@
       align-items: center;
       display: flex;
       margin-bottom: 0;
+      max-width: 270px;
       width: auto;
     }
 
@@ -912,7 +894,8 @@
     width: auto;
 
     &:hover {
-      box-shadow: 0 1px 0 0 $color_nhsuk-white;
+      color: white;
+      text-decoration: underline;
 
       .nhsuk-logo {
         box-shadow: none;
@@ -921,7 +904,7 @@
 
     &:focus {
       background: $nhsuk-focus-color;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
 
       .nhsuk-organisation-name,
       .nhsuk-organisation-descriptor {
@@ -932,6 +915,9 @@
         box-shadow: none;
       }
 
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -1029,19 +1015,6 @@
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
 
-  .nhsuk-header__link {
-    &:hover {
-      .nhsuk-logo {
-        box-shadow: none;
-      }
-    }
-    &:focus {
-      .nhsuk-logo {
-        box-shadow: $nhsuk-focus-width 0 0 0 $nhsuk-focus-color, - $nhsuk-focus-width 0 0 0 $nhsuk-focus-color, 0 - $nhsuk-focus-width 0 0 $nhsuk-focus-color, 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
-      }
-    }
-  }
-
   .nhsuk-logo {
     .nhsuk-logo__background {
       fill: $color_nhsuk-blue;
@@ -1050,6 +1023,19 @@
     .nhsuk-logo__text {
       fill: $color_nhsuk-white;
     }
+  }
+
+  .nhsuk-header__link {
+
+    &:hover {
+      color: $nhsuk-text-color;
+      text-decoration: underline;
+
+      .nhsuk-organisation-descriptor {
+        color: $nhsuk-text-color;
+      }
+    }
+
   }
 
   .nhsuk-search__submit {
@@ -1061,14 +1047,11 @@
 
     &:hover {
       background-color: $color_shade_nhsuk-blue-20;
+      border-color: $color_shade_nhsuk-blue-20;
     }
 
     &:focus {
       background-color: $nhsuk-focus-color;
-
-      @include mq($from: tablet) {
-        border: 1px solid $nhsuk-focus-text-color;
-      }
 
       .nhsuk-icon__search {
         fill: $nhsuk-focus-text-color;
@@ -1079,13 +1062,12 @@
   .autocomplete__input,
   .nhsuk-search__input {
     border: 1px solid $color_nhsuk-grey-3;
-    border-right: 0;
 
     &:focus {
-      border: 1px solid $nhsuk-focus-text-color;
+      border: 2px solid $nhsuk-focus-text-color;
 
       @include mq($until: tablet) {
-        border: $nhsuk-focus-width solid $nhsuk-focus-color;
+        border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
       }
     }
   }
@@ -1101,10 +1083,8 @@
 
     &.is-active,
     &:hover {
-      background-color: $color_nhsuk-blue;
-      border-color: $color_nhsuk-blue;
-      box-shadow: none;
       color: $color_nhsuk-white;
+      border-color: $color_shade_nhsuk-blue-20;
 
       .nhsuk-icon {
         fill: $color_nhsuk-white;
@@ -1112,10 +1092,11 @@
     }
 
     &:focus {
-      @include nhsuk-focused-button();
+      color: $nhsuk-focus-text-color;
 
-      border: 1px solid $nhsuk-focus-text-color !important;  // sass-lint:disable-line no-important
-      box-shadow: none;
+      .nhsuk-icon {
+        fill: $nhsuk-focus-text-color;
+      }
     }
   }
 
@@ -1126,7 +1107,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [16] */ // sass-lint:disable-line no-color-hex no-color-literals
+    color: $nhsuk-text-color;
   }
 
   .nhsuk-organisation-descriptor {
@@ -1147,23 +1128,6 @@
 
 }
 
-.nhsuk-header--organisation.nhsuk-header--white {
-  .nhsuk-header__link {
-
-    &:hover {
-      box-shadow: 0 1px 0 0 $color_nhsuk-blue;
-    }
-
-    &:focus {
-      box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-color;
-
-      .nhsuk-logo {
-        box-shadow: none;
-      }
-    }
-  }
-}
-
 // Navigation (white)
 
 .nhsuk-header--white-nav {
@@ -1171,7 +1135,7 @@
     background-color: $color_nhsuk-white;
 
     .nhsuk-header__navigation-list {
-      border-top: 1px solid $color_nhsuk-grey-4;
+      border-top: 1px solid $color_nhsuk-grey-5;
     }
 
     .nhsuk-header__navigation-link {
@@ -1179,12 +1143,6 @@
 
       &:visited {
         color: $color_nhsuk-blue;
-      }
-
-      &:hover,
-      &:active,
-      &.is-active {
-        background-color: transparent;
       }
 
       &:focus {
