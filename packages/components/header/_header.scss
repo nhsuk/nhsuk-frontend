@@ -34,9 +34,9 @@
  * 13. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
  * 14. IE 10 prefix for flexbox
- * 15. IE 9 alternative for flexbox
- * 16. On print stylesheets remove the header link
- * 17. Remove random top margin in Safari
+ * 16. Use non variable colour to follow NHS England guidelines on logo colour
+ * 17. On print stylesheets remove the header link
+ * 18. Remove random top margin in Safari
  */
 
 @import 'autocomplete';
@@ -114,7 +114,7 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ''; /* [16] */
+      content: ''; /* [17] */
     }
   }
 
@@ -451,7 +451,7 @@
   }
 
   @include mq($from: tablet, $until: large-desktop) {
-    margin-top: 0; /* [17] */
+    margin-top: 0; /* [18] */
   }
 
   &:focus {
@@ -1105,7 +1105,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: $nhsuk-text-color;
+    color: #000; /* [16] */ // sass-lint:disable-line no-color-hex no-color-literals
   }
 
   .nhsuk-organisation-descriptor {
