@@ -12,11 +12,12 @@
    * 7. Z-index to bring the dropdown to the front
    * 8. No current spacing at 12px so using this value
    * 9. Z-index to being search box to the front for focus state style
+   * 10. Custom padding to stop text jumping on focus
 */
 
 .autocomplete-container {
   display: inline-block;
-  z-index: 1; /* [1] */
+  z-index: 1; /* [9] */
 
   @include mq($until: tablet) {
     display: inline;
@@ -50,7 +51,7 @@
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
-      padding: 0 13px;
+      padding: 0 13px; /* [10] */
     }
   }
 }
@@ -75,7 +76,7 @@
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
-      padding: 0 11px; /* [9] */
+      padding: 0 11px; /* [10] */
     }
 
     &::placeholder {
