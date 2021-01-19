@@ -6,6 +6,7 @@
 
 - Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
 - Change `type="number"` to `inputmode="numeric"` for the date input component
+- Add a colon after the word Important on the warning callout component ([Issue 670](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 
 :wrench: **Fixes**
 
@@ -17,6 +18,7 @@
 - Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
 - Vendor in Sass-MQ (PR [#601](https://github.com/nhsuk/nhsuk-frontend/pull/601))
 - Update header focus styles to fix accessibility issue (PR [#684](https://github.com/nhsuk/nhsuk-frontend/pull/684))
+- Remove the full stops from the card component examples ([Issue 669](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 
 ## 4.0.0 - 26 October 2020
 
