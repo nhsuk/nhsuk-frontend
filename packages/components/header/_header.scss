@@ -38,6 +38,8 @@
  * 16. Use non variable colour to follow NHS England guidelines on logo colour
  * 17. On print stylesheets remove the header link
  * 18. Remove random top margin in Safari
+ * 19. Align close icon with nav item arrow icons
+ * 20. Add nhsuk-spacing(9) to align right and left main nav with header
  */
 
 @import 'autocomplete';
@@ -301,7 +303,7 @@
     @include close-button();
 
     margin-left: nhsuk-spacing(2);
-    margin-right: - nhsuk-spacing(2);
+    margin-right: - nhsuk-spacing(2); /* [19] */
     margin-top: nhsuk-spacing(2);
 
     &:focus {
