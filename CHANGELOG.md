@@ -15,6 +15,7 @@
 - Switch from Travis CI to GitHub actions - Due to slow and inconsistent builds we have moved our CI to GitHub actions
 - Android search suggestions bug - when selecting an option from the suggestions in Chrome the form didn't populate and submit, this is now fixed.
 - Expander - Set width and height on expander SVG images to avoid squashed display in IE10 ([PR 668](https://github.com/nhsuk/nhsuk-frontend/pull/668))
+- Vendor in Sass-MQ (PR [#601](https://github.com/nhsuk/nhsuk-frontend/pull/601))
 
 ## 4.0.0 - 26 October 2020
 
@@ -221,7 +222,7 @@
 
 - Add `nhsuk-link--no-visited-state` mixin - for where it is not helpful to distinguish between visited and non-visited links.
 
-- Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference. 
+- Custom search API endpoint – Improving the search experience it's now possible to define a custom API endpoint in the HTML. The JavaScript will check the window object to look for a new API reference, if nothing is found it will default to the standard NHS reference. 
 
   Add the below code to a base HTML file or any pages that use search.
 
@@ -810,3 +811,4 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 - This release includes all the content page components and the first
   installable npm package.
+
