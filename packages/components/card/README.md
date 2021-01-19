@@ -16,7 +16,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 <div class="nhsuk-card">
   <div class="nhsuk-card__content">
     <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
-    <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+    <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a></p>
   </div>
 </div>
 ```
@@ -29,7 +29,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 {{ card({
   "heading": "If you need help now, but it’s not an emergency",
   "headingLevel": "3",
-  "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
 }) }}
 ```
 
@@ -47,7 +47,7 @@ Find out more about the card component and when to use it in the [NHS digital se
         Introduction to care and support
       </a>
     </h2>
-    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
+    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
   </div>
 </div>
 ```
@@ -62,7 +62,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   "clickable": "true",
   "heading": "Introduction to care and support",
   "headingClasses": "nhsuk-heading-m",
-  "description": "A quick guide for people who have care and support needs and their carers."
+  "description": "A quick guide for people who have care and support needs and their carers"
 }) }}
 ```
 
@@ -81,7 +81,7 @@ Find out more about the card component and when to use it in the [NHS digital se
         Exercise
       </a>
     </h2>
-    <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
+    <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
   </div>
 </div>
 ```
@@ -97,7 +97,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   "clickable": "true",
   "heading": "Exercise",
   "headingClasses": "nhsuk-heading-m",
-  "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+  "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
 }) }}
 ```
 
@@ -119,7 +119,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Introduction to care and support
           </a>
         </h2>
-        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
+        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
       </div>
     </div>
   </li>
@@ -131,7 +131,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Help from social services and charitiest
           </a>
         </h2>
-        <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>
+        <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse</p>
       </div>
     </div>
   </li>
@@ -143,7 +143,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Money, work and benefits
           </a>
         </h2>
-        <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs.</p>
+        <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs</p>
       </div>
     </div>
   </li>
@@ -155,7 +155,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Care after a hospital stay
           </a>
         </h2>
-        <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards.</p>
+        <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards</p>
       </div>
     </div>
   </li>
@@ -172,7 +172,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             5 steps to mental wellbeing
           </a>
         </h2>
-        <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better.</p>
+        <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better</p>
       </div>
     </div>
   </li>
@@ -184,7 +184,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Healthy weight
           </a>
         </h2>
-        <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight.</p>
+        <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
       </div>
     </div>
   </li>
@@ -196,7 +196,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Exercise
           </a>
         </h2>
-        <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
+        <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
       </div>
     </div>
   </li>
@@ -254,7 +254,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Introduction to care and support",
       "headingClasses": "nhsuk-heading-m",
-      "description": "A quick guide for people who have care and support needs and their carers."
+      "description": "A quick guide for people who have care and support needs and their carers"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
@@ -263,7 +263,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Help from social services and charitiest",
       "headingClasses": "nhsuk-heading-m",
-      "description": "Includes helplines, needs assessments, advocacy and reporting abuse."
+      "description": "Includes helplines, needs assessments, advocacy and reporting abuse"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
@@ -272,7 +272,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Money, work and benefits",
       "headingClasses": "nhsuk-heading-m",
-      "description": "How to pay for care and support, and where you can get help with costs."
+      "description": "How to pay for care and support, and where you can get help with costs"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
@@ -281,7 +281,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Care after a hospital stay",
       "headingClasses": "nhsuk-heading-m",
-      "description": "Includes hospital discharge and care and support afterwards."
+      "description": "Includes hospital discharge and care and support afterwards"
     }) }}
   </li>
 </ul>
@@ -295,7 +295,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "5 steps to mental wellbeing",
       "headingClasses": "nhsuk-heading-m",
-      "description": "Practical advice to help you feel mentally and emotionally better."
+      "description": "Practical advice to help you feel mentally and emotionally better"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
@@ -304,7 +304,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Healthy weight",
       "headingClasses": "nhsuk-heading-m",
-      "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
+      "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight"
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
@@ -313,7 +313,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       "clickable": "true",
       "heading": "Exercise",
       "headingClasses": "nhsuk-heading-m",
-      "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     }) }}
   </li>
 </ul>
@@ -361,7 +361,7 @@ Find out more about the card component and when to use it in the [NHS digital se
     <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">
       Feature card heading
     </h2>
-    <p class="nhsuk-card__description">Feature card description.</p>
+    <p class="nhsuk-card__description">Feature card description</p>
   </div>
 </div>
 ```
@@ -375,7 +375,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   "feature": "true",
   "heading": "Feature card heading",
   "headingClasses": "nhsuk-heading-m",
-  "description": "Feature card description."
+  "description": "Feature card description"
 }) }}
 ```
 
