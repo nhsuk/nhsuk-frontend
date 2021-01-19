@@ -6,7 +6,7 @@
 // We use sass-mq module for media queries
 //
 // 1. Import sass-mq from our vendor dependencies folder opposed to node_modules
-// incase node_modules is not installed in the folder relative to the root folder
+// in case node_modules is not installed in the folder relative to the root folder
 //
 
 $sass-mq-already-included: false !default;
