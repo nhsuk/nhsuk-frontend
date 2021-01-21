@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 4.1.0 - Unreleased
+## 4.1.0 - 21 January 2021
 
 :new: **New features**
 
