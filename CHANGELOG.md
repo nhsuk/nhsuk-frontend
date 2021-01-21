@@ -6,12 +6,14 @@
 
 - Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
 - add ability to not display the 'do not' prefix on list items that have the type 'cross' for the do and don't list component
+- Add helper class `nhsuk-header--service-name-inline` to make a service name inline with the NHS logo on smaller screens
 
 :wrench: **Fixes**
 
 - Removing support for IE8-10 and updating the NHS logo SVG html means the `xlink:href` is no longer an issue ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657), [PR 673](https://github.com/nhsuk/nhsuk-frontend/pull/673)). This also fixes the issue of not being able to select or focus on the NHS logo when using VoiceOver on iOS ([PR 631](https://github.com/nhsuk/nhsuk-frontend/pull/631))
 - Fix Create release GitHub Action which wasn't publishing to NPM ([Issue 691](https://github.com/nhsuk/nhsuk-frontend/issues/691))
 - Modifying the Card JavaScript to reference Card rather than the old Panel and adding Card to the NPM docs.
+- Remove `max-width` from service header with a logo only 
 
 :boom: **Breaking changes**
 

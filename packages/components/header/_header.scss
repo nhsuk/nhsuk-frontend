@@ -747,6 +747,26 @@
 
 }
 
+.nhsuk-header--service-name-inline {
+  .nhsuk-header__link--service {
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    height: auto;
+    margin-bottom: 0;
+    text-decoration: none;
+    width: auto;
+  }
+
+  .nhsuk-header__service-name {
+    @include mq($until: large-desktop) {
+      font-size: 19px;
+      line-height: 20px;
+      padding-left: nhsuk-spacing(3);
+    }
+  }
+}
+
 .nhsuk-header__service-name {
   @include nhsuk-font(19);
 
@@ -771,7 +791,6 @@
       align-items: center;
       display: flex;
       margin-bottom: 0;
-      max-width: 270px;
       width: auto;
     }
 
