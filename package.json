@@ -50,6 +50,9 @@
     "start-server-and-test": "^1.11.7",
     "webpack-stream": "^5.2.1"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "eslintConfig": {
     "extends": "./tests/linters/.eslintrc.js"
   },
