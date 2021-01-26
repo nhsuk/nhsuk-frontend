@@ -16,7 +16,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/nhsuk/nhsuk-frontend/releases)
 
-2. Include resources  
+2. Include resources
 
     Copy all 3 folders, `css`, `js` and `assets`, into the root of your project. If you already have a folder structure
     in place, you will need to copy the individual files into the relevant folders.
@@ -60,9 +60,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
 ```html
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]-->
-<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
