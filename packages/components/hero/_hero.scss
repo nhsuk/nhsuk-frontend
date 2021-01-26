@@ -163,30 +163,3 @@
     }
   }
 }
-
-/**
- * IE8/9 fixes
- */
-
-.ie8 {
-
-  .nhsuk-hero-content {
-    background-color: $color_nhsuk-blue;
-    color: $color_nhsuk-white;
-    padding: 24px;
-
-    .nhsuk-hero__arrow {
-      display: none;
-    }
-  }
-}
-
-.ie9 {
-
-  .nhsuk-hero-content {
-
-    .nhsuk-hero__arrow {
-      display: none;
-    }
-  }
-}

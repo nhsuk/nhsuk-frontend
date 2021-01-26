@@ -5,9 +5,8 @@
 /**
  * 1. Fix legend text wrapping in Edge and IE versions:
  * 2. IE9-11 & Edge 12-13
- * 3. and IE8-11
- * 4. Hack to let legends or elements within legends have margins in webkit browsers.
- * 5. When the legend contains an H1, we want the H1 to inherit all styles from
+ * 3. Hack to let legends or elements within legends have margins in webkit browsers.
+ * 4. When the legend contains an H1, we want the H1 to inherit all styles from
  *    the legend. Effectively we want to be able to treat the heading as if it is
  *    not there.
  */
@@ -30,7 +29,7 @@
   margin-top: 0;
   max-width: 100%; /* 1 */
   padding: 0;
-  white-space: normal;    /* 4 */
+  white-space: normal;    /* 3 */
 }
 
 /* Heading modifiers */
@@ -55,7 +54,7 @@
   margin-bottom: nhsuk-spacing(3);
 }
 
-.nhsuk-fieldset__heading { /* 5 */
+.nhsuk-fieldset__heading { /* 4 */
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
