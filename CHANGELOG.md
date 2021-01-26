@@ -62,6 +62,7 @@
 - Vendor in Sass-MQ (PR [#601](https://github.com/nhsuk/nhsuk-frontend/pull/601))
 - Update header focus styles to fix accessibility issue (PR [#684](https://github.com/nhsuk/nhsuk-frontend/pull/684))
 - Remove the full stops from the card component examples ([Issue 669](https://github.com/nhsuk/nhsuk-frontend/issues/653))
+- Modifying the Card JavaScript to reference Card rather than the old Panel and adding Card to the NPM docs.
 
 ## 4.0.0 - 26 October 2020
 

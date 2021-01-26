@@ -93,6 +93,7 @@ import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-li
 import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
 import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
 import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+import Card from '../node_modules/nhsuk-frontend/packages/components/card/card';
 
 // Polyfills
 import '../node_modules/nhsuk-frontend/packages/polyfills';
@@ -104,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   SkipLink();
   Radios();
   Checkboxes();
+  Card();
 });
 ```
 
