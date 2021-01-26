@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
     "prepare": "gulp bundle",
@@ -49,6 +49,9 @@
     "sass-lint": "^1.13.1",
     "start-server-and-test": "^1.11.7",
     "webpack-stream": "^5.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "eslintConfig": {
     "extends": "./tests/linters/.eslintrc.js"

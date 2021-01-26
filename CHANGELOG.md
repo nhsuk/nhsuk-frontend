@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 4.1.1 - TBC
+
+:wrench: **Fixes**
+
+- Fix Create release GitHub Action which wasn't publishing to NPM ([Issue 691](https://github.com/nhsuk/nhsuk-frontend/issues/691))
+
 ## 4.1.0 - 21 January 2021
 
 :new: **New features**
