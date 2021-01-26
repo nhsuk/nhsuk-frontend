@@ -6,7 +6,7 @@ Find out more about the details component and when to use it in the [NHS digital
 
 ## Dependencies
 
-For this component to be accessible and compatible with older browsers, include the required polyfill JavaScript. You can either include the compiled JavaScript for all components or just the polyfill JavaScript `details.polyfill.js`.
+For this component to be accessible and compatible with older browsers, include the required polyfill JavaScript. You can either include the compiled JavaScript for all components or just the polyfill JavaScript `details.js`.
 
 ## Quick start examples
 
