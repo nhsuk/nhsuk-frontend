@@ -33,13 +33,11 @@
  * 12. Custom border value between expanded search and expanded menu if both open at the same time
  * 13. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
- * 14. IE 10 prefix for flexbox
- * 15. IE 9 alternative for flexbox
- * 16. Use non variable colour to follow NHS England guidelines on logo colour
- * 17. On print stylesheets remove the header link
- * 18. Remove random top margin in Safari
- * 19. Align close icon with nav item arrow icons
- * 20. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 14. Use non variable colour to follow NHS England guidelines on logo colour
+ * 15. On print stylesheets remove the header link
+ * 16. Remove random top margin in Safari
+ * 17. Align close icon with nav item arrow icons
+ * 18. Add nhsuk-spacing(9) to align right and left main nav with header
  */
 
 @import 'autocomplete';
@@ -117,7 +115,7 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ''; /* [17] */
+      content: ''; /* [15] */
     }
   }
 
@@ -205,7 +203,6 @@
 
     &.js-show {
       clear: both;
-      display: -ms-flexbox; /* [14] */
       display: flex; // sass-lint:disable-line no-duplicate-properties
       margin-bottom: -20px;
       margin-left: -16px;
@@ -217,14 +214,12 @@
 
   .nhsuk-header__search-form {
     background-color: $color_nhsuk-white;
-    display: -ms-flexbox; /* [14] */
     display: flex; // sass-lint:disable-line no-duplicate-properties
     padding: nhsuk-spacing(3);
     width: 100%;
   }
 
   .nhsuk-search__input {
-    -ms-flex-positive: 2; /* [14] */
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
     background-color: $color_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
@@ -303,7 +298,7 @@
     @include close-button();
 
     margin-left: nhsuk-spacing(2);
-    margin-right: - nhsuk-spacing(2); /* [19] */
+    margin-right: - nhsuk-spacing(2); /* [17] */
     margin-top: nhsuk-spacing(2);
 
     &:focus {
@@ -454,7 +449,7 @@
   }
 
   @include mq($from: tablet, $until: large-desktop) {
-    margin-top: 0; /* [18] */
+    margin-top: 0; /* [16] */
   }
 
   &:focus {
@@ -628,12 +623,11 @@
     background-color: $color_nhsuk-blue;
     display: block;
     margin: 0 auto;
-    max-width: $nhsuk-page-width + nhsuk-spacing(9);
+    max-width: $nhsuk-page-width + nhsuk-spacing(9); /* [18] */
   }
 
   .nhsuk-header__navigation-list {
     border-top: 1px solid $nhsuk-secondary-border-color;
-    display: -ms-flexbox; /* [14] */
     display: flex; // sass-lint:disable-line no-duplicate-properties
     justify-content: space-between;
     padding: 0;
@@ -661,102 +655,6 @@
 
 }
 
-/**
- * Internet Explorer >= 9 specific styles
- *
- * The header component is the only component that
- * supports earlier version of IE.
- * This is because of the NHS branding, navigation
- * and search prominence across the website.
-**/
-
-
-.ie8 {
-
-  .nhsuk-header__link {
-    display: inline-block;
-    width: 100%;
-  }
-
-  .nhsuk-header__logo,
-  .nhsuk-header__transactional-service-name {
-    background-color: $color_nhsuk-blue;
-    display: block;
-    padding: nhsuk-spacing(2) 0 nhsuk-spacing(2) nhsuk-spacing(2);
-    width: 100%;
-  }
-
-  .nhsuk-header__transactional-service-name {
-    padding-bottom: 12px;
-    padding-top: 0;
-  }
-
-  .nhsuk-header__search {
-    background-color: $color_nhsuk-blue;
-    clear: both;
-    padding-bottom: 12px;
-  }
-
-  .nhsuk-header__menu-toggle,
-  .nhsuk-header__search-toggle,
-  .nhsuk-search__close,
-  .nhsuk-header__navigation-title,
-  .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
-    display: none;
-  }
-
-  .nhsuk-header__navigation-list {
-    display: table;
-  }
-
-  .nhsuk-header__navigation-item {
-    display: table-cell; /* [15] */
-
-    a {
-      &:hover {
-        color: $color_nhsuk-blue;
-      }
-    }
-  }
-
-  .nhsuk-search__submit {
-    height: auto;
-    width: auto;
-
-    .nhsuk-u-visually-hidden {
-      height: auto;
-      position: relative;
-      width: auto;
-    }
-  }
-
-  .nhsuk-header__navigation {
-    display: block;
-  }
-
-}
-
-.ie9 {
-
-  @include mq($from: large-desktop) {
-
-    .nhsuk-header__navigation-list {
-      display: table;
-    }
-
-    .nhsuk-header__navigation-item {
-      display: table-cell;
-    }
-
-  }
-
-  .nhsuk-header__search-wrap {
-    .js-show {
-      display: block;
-    }
-  }
-
-}
 
 /**
  * Transactional Header with service name
@@ -1108,7 +1006,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [16] */ // sass-lint:disable-line no-color-hex no-color-literals
+    color: #000; /* [14] */ // sass-lint:disable-line no-color-hex no-color-literals
   }
 
   .nhsuk-organisation-descriptor {

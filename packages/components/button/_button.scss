@@ -253,15 +253,3 @@ $button-shadow-size: 4px;
   }
 
 }
-
-/**
- * IE8 fix for focus styles
- */
-
-.ie8 {
-  .nhsuk-button {
-    &:focus {
-      outline: 1px dotted $nhsuk-focus-text-color;
-    }
-  }
-}
