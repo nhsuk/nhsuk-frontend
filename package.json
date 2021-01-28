@@ -21,9 +21,6 @@
     "jest:dev": "jest --watch",
     "jest:ci": "jest"
   },
-  "dependencies": {
-    "accessible-autocomplete": "^2.0.3"
-  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
