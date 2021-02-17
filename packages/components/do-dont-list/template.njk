@@ -16,7 +16,7 @@
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
       </svg>
     {%- endif %}
-      {% if params.type == 'cross' %}do not {% endif %}{{ data.item | safe}}
+      {% if params.type == 'cross' %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe}}
     </li>
     {%- endfor %}
   </ul>

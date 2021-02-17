@@ -118,6 +118,7 @@ The do and don't list Nunjucks macro takes the following arguments:
 | **title**         | string   | Yes       | Title to be displayed on the do and don't list component. |
 | **type**          | string   | Yes       | Type of do and don't list component, "cross", "tick" |
 | **items**         | array    | Yes       | Items to be displayed within the do and don't list component |
+| **hidePrefix**    | boolean  | No        | If set to true when type is "cross", then removes the default "do not" text prefix to each item |
 | **headingLevel**  | integer  | No        | Optional heading level for the title heading. Default: 3 |
 | **classes**       | string   | No        | Optional additional classes to add to the do and don't list container. Separate each class with a space. |
 | **attributes**    | object   | No        | Any extra HTML attributes (for example data attributes) to add to the do and don't list container. |

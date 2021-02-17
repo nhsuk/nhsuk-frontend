@@ -5,6 +5,7 @@
 :new: **New features**
 
 - Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
+- add ability to not display the 'do not' prefix on list items that have the type 'cross' for the do and don't list component
 
 :wrench: **Fixes**
 
