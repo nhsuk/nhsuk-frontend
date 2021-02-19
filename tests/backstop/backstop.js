@@ -198,6 +198,14 @@ module.exports = {
       url: `${TEST_URL}/header/header-logo.html`,
     },
     {
+      label: 'Header with a service name',
+      url: `${TEST_URL}/header/header-service-name.html`,
+    },
+    {
+      label: 'Header with a service name, search and navigation',
+      url: `${TEST_URL}/header/header-service-name-with-nav.html`,
+    },
+    {
       label: 'Header transactional',
       url: `${TEST_URL}/header/header-transactional.html`,
     },
