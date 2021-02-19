@@ -4,15 +4,16 @@
 
 /**
    * 1. IE 10 prefix for flexbox
-   * 2. Proprietary extension so form field looks the same in Safari
-   * 3. Custom height and width of form items
-   * 4. Custom height and width of svg icons
-   * 5. Custom spacing to position the search icon
-   * 6. Drop shadow on search suggestions dopdown box, custom spread and blur
-   * 7. Z-index to bring the dropdown to the front
-   * 8. No current spacing at 12px so using this value
-   * 9. Z-index to being search box to the front for focus state style
-   * 10. Custom padding to stop text jumping on focus
+   * 2. Chrome, Edge and IE10-11 prefix for placeholder colour
+   * 3. Proprietary extension so form field looks the same in Safari
+   * 4. Custom height and width of form items
+   * 5. Custom height and width of svg icons
+   * 6. Custom spacing to position the search icon
+   * 7. Drop shadow on search suggestions dopdown box, custom spread and blur
+   * 8. Z-index to bring the dropdown to the front
+   * 9. No current spacing at 12px so using this value
+   * 10. Z-index to being search box to the front for focus state style
+   * 11. Custom padding to stop text jumping on focus
 */
 
 .autocomplete-container {
@@ -25,11 +26,26 @@
   }
 }
 
+.autocomplete__input {
+  &::placeholder { /* [2] */
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+  &:-ms-input-placeholder { /* [2] */
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+  &::-webkit-input-placeholder { /* [2] */
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+}
+
 @include mq($until: tablet) {
   /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
   .autocomplete__input {
     -ms-flex-positive: 2; /* [1] */
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [2] */
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [3] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -40,18 +56,18 @@
     border-top-right-radius: 0;
     flex-grow: 2;
     font-size: inherit;
-    height: 52px; /* [3] */
+    height: 52px; /* [4] */
     margin: 0;
     outline: none;
     padding: 0 nhsuk-spacing(3);
-    width: 100%; /* [3] */
+    width: 100%; /* [4] */
 
     &:focus {
       border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
-      padding: 0 13px; /* [10] */
+      padding: 0 13px; /* [11] */
     }
   }
 }
@@ -59,7 +75,7 @@
 @include mq($from: tablet) {
   /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
   .autocomplete__input {
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [2] */
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [3] */
     border: 1px solid $color_nhsuk-white;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -67,21 +83,16 @@
     border-top-left-radius: $nhsuk-border-radius;
     border-top-right-radius: 0;
     font-size: $nhsuk-base-font-size;
-    height: 40px; /* [3] */
-    padding: 0 12px; /* [9] */
-    width: 200px; /* [3] */
+    height: 40px; /* [4] */
+    padding: 0 12px; /* [10] */
+    width: 200px; /* [4] */
 
     &:focus {
       border: 2px solid $nhsuk-focus-text-color;
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
-      padding: 0 11px; /* [10] */
-    }
-
-    &::placeholder {
-      color: $color_nhsuk-grey-2;
-      font-size: $nhsuk-base-font-size;
+      padding: 0 11px; /* [11] */
     }
   }
 }
@@ -94,8 +105,8 @@
 
 .autocomplete__menu {
   // sass-lint:disable-block no-vendor-prefixes, no-color-literals
-  -moz-box-shadow: 0 3px 5px rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [6] */
-  -webkit-box-shadow: 0 3px 5px rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [6] */
+  -moz-box-shadow: 0 3px 5px rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [7] */
+  -webkit-box-shadow: 0 3px 5px rgba($nhsuk-box-shadow-color, $alpha-transparency-50); /* [8] */
   background-color: $color_nhsuk-white;
   border-bottom: 1px solid $color_nhsuk-grey-4;
   border-bottom-left-radius: $nhsuk-border-radius;
@@ -111,7 +122,7 @@
   position: absolute;
   top: 100%;
   width: 100%;
-  z-index: 1; /* [7] */
+  z-index: 1; /* [9] */
 
   @include mq($until: tablet) {
     border: 0;
@@ -136,16 +147,16 @@
   color: $color_nhsuk-blue;
   cursor: pointer;
   font-size: $nhsuk-base-font-size;
-  padding-bottom: 12px; /* [8] */
+  padding-bottom: 12px; /* [10] */
   text-align: left;
   text-decoration: underline;
 
   .nhsuk-icon__search {
     fill: $color_nhsuk-grey-3;
     float: left;
-    height: 22px; /* [4] */
-    margin: 2px 4px 0 0; /* [5] */
-    width: 22px; /* [4] */
+    height: 22px; /* [5] */
+    margin: 2px 4px 0 0; /* [6] */
+    width: 22px; /* [7] */
   }
 
   &:hover,

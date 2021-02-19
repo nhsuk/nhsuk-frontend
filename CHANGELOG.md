@@ -13,6 +13,7 @@
 - Fix Create release GitHub Action which wasn't publishing to NPM ([Issue 691](https://github.com/nhsuk/nhsuk-frontend/issues/691))
 - Modifying the Card JavaScript to reference Card rather than the old Panel and adding Card to the NPM docs.
 - Give the Action link icon sufficient contrast when used in the Care card immediate variant ([Issue 588](https://github.com/nhsuk/nhsuk-frontend/issues/588))
+- Fix the insufficient colour contrast ratio for the Search placeholder text ([Issue 687](https://github.com/nhsuk/nhsuk-frontend/issues/687))
 
 :boom: **Breaking changes**
 
