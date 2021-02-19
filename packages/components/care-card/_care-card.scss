@@ -16,6 +16,7 @@
  * 5. 'Random number' used for spacing to compensate for the triangle.
  * 6. Needed to enable the triangle to show correctly in high contrast mode.
  * 7. Prevent additional padding on headings
+ * 8. Give the action link icon sufficient contrast when used in the immediate variant
  */
 
 .nhsuk-care-card {
@@ -146,6 +147,12 @@
     }
     &:focus {
       color: $color_nhsuk-black;
+    }
+  }
+
+  .nhsuk-action-link__link {
+    .nhsuk-icon__arrow-right-circle {
+      fill: $color_nhsuk-white; /* [8] */
     }
   }
 
