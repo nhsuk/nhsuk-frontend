@@ -5,7 +5,7 @@
     <div class="nhsuk-width-container">
       {%- if params.links %}
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list {%- if params.list %} {{ params.list }}{% endif %}">
+      <ul class="nhsuk-footer__list">
         {%- for item in params.links %}
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
         {%- endfor %}

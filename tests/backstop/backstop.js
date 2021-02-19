@@ -178,10 +178,6 @@ module.exports = {
       url: `${TEST_URL}/footer/index.html`,
     },
     {
-      label: 'Footer with list columns',
-      url: `${TEST_URL}/footer/columns.html`,
-    },
-    {
       label: 'Fieldset',
       url: `${TEST_URL}/fieldset/index.html`,
     },

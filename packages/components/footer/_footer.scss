@@ -59,18 +59,3 @@
     width: 25%;
   }
 }
-
-@include mq($from: desktop) {
-  .nhsuk-footer__list--three-columns {
-    -moz-column-count: 3;
-    -moz-column-gap: nhsuk-spacing(4);
-    -webkit-column-count: 3;
-    -webkit-column-gap: nhsuk-spacing(4);
-    column-count: 3;
-    column-gap: nhsuk-spacing(4);
-
-    li {
-      float: none;
-    }
-  }
-}

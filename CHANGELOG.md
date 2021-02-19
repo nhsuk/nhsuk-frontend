@@ -45,6 +45,8 @@
   </svg>
   ```
 
+  - Footer - removed the Footer with list columns variant, the HTML class `nhsuk-footer__list--three-columns` and `list` Nunjucks parameter has been removed. The Footer will fallback to the regular footer on Desktop and stay the same on mobile. ([Issue 575](https://github.com/nhsuk/nhsuk-frontend/issues/575))
+
 ## 4.1.0 - 21 January 2021
 
 :new: **New features**
