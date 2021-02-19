@@ -14,6 +14,7 @@
 - Modifying the Card JavaScript to reference Card rather than the old Panel and adding Card to the NPM docs.
 - Give the Action link icon sufficient contrast when used in the Care card immediate variant ([Issue 588](https://github.com/nhsuk/nhsuk-frontend/issues/588))
 - Fix the insufficient colour contrast ratio for the Search placeholder text ([Issue 687](https://github.com/nhsuk/nhsuk-frontend/issues/687))
+- Remove `max-width` from service header with a logo only ([PR 705](https://github.com/nhsuk/nhsuk-frontend/pull/705))
 
 :boom: **Breaking changes**
 
