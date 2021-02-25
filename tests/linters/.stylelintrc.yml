@@ -44,7 +44,7 @@ rules:
   # Stylistic/Whitespace
   string-quotes: single
   selector-attribute-quotes: always
-  #indentation: 2
+  indentation: 2
   no-eol-whitespace: true
   number-no-trailing-zeros: true
   number-leading-zero: never
