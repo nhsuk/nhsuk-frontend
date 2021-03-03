@@ -759,6 +759,10 @@
     padding-left: nhsuk-spacing(3);
   }
 
+  @include mq($until: large-desktop) {
+    max-width: 220px;
+  }
+
 }
 
 .nhsuk-header__logo--only {
