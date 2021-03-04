@@ -39,6 +39,16 @@
 
 - Footer - removed the Footer with list columns variant, the HTML class `nhsuk-footer__list--three-columns` and `list` Nunjucks parameter has been removed. The Footer will fallback to the regular footer on Desktop and stay the same on mobile. ([Issue 575](https://github.com/nhsuk/nhsuk-frontend/issues/575))
 
+- Review date - the Review date component has been removed and refactored into a pattern on the NHS digital service manual - ([Reassure users that information is up-to-date](https://service-manual.nhs.uk/design-system/patterns/reassure-users-that-information-is-up-to-date)).
+
+  The Review date component styles can be achieved by using a number of existing modifier and utility classes so does not need to be a individual component. This also allows for more customisation (such as margin and padding)
+
+  ```
+  <p class="nhsuk-body-s nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color">Updated: January 2020</p>
+  ```
+
+  You will need to remove the `nhsuk-review-date` component (and Nunjucks macro) from your application and move to the modifier and utility class based one.
+
 :new: **New features**
 
 - Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.

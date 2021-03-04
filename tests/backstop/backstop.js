@@ -370,10 +370,6 @@ module.exports = {
       clickSelector: '#contact-1',
     },
     {
-      label: 'Review date',
-      url: `${TEST_URL}/review-date/index.html`,
-    },
-    {
       label: 'Select',
       url: `${TEST_URL}/select/index.html`,
     },

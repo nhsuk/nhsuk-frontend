@@ -9,7 +9,6 @@
 {% from 'components/images/macro.njk' import image %}
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/tables/macro.njk' import table %}
 {% from 'components/warning-callout/macro.njk' import warningCallout %}
@@ -474,11 +473,6 @@
           {{ actionLink({
             "URL": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551",
             "text": "Find a minor injuries unit"
-          }) }}
-
-          {{ reviewDate({
-            "lastReview": "12 February 2016",
-            "nextReview": "1 February 2019"
           }) }}
 
           <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">

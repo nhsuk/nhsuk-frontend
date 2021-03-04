@@ -14,7 +14,6 @@
 {% from 'components/inset-text/macro.njk' import insetText %}
 {% from 'components/list-panel/macro.njk' import listPanel %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/review-date/macro.njk' import reviewDate %}
 {% from 'components/skip-link/macro.njk' import skipLink %}
 {% from "components/summary-list/macro.njk" import summaryList %}
 {% from 'components/tables/macro.njk' import table %}
@@ -989,11 +988,6 @@
     }) }}
 
   </div>
-
-  {{ reviewDate({
-    "lastReview": "12 February 2016",
-    "nextReview": "1 February 2019"
-  }) }}
 
   {{ backLink({
     "href": "#",
