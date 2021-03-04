@@ -1,5 +1,10 @@
 import { toggleAttribute } from '../../common';
 
+/**
+ * Ensure details component is cross browser and accessible
+ * Test at http://0.0.0.0:3000/components/details/index.html
+*/
+
 export default () => {
   // Does the browser support details component
   const nativeSupport = typeof document.createElement('details').open === 'boolean';
@@ -55,7 +60,7 @@ export default () => {
     };
 
     // Toggle details onclick
-    summary.addEventListener('click', () => toggleDetails());
+    summary.addEventListener('click', toggleDetails);
 
     // Call toggle details on enter and space key events
     summary.addEventListener('keydown', (event) => {
@@ -68,7 +73,7 @@ export default () => {
 
   // Initialise details for any new details element
   if (allDetails.length) {
-    Array.prototype.slice.call(allDetails).forEach((element, index) => {
+    allDetails.forEach((element, index) => {
       if (!element.hasAttribute('nhsuk-polyfilled')) initDetails(element, index);
     });
   }
