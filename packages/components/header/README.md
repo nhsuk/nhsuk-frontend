@@ -43,7 +43,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container"></div>
             <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -315,7 +314,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container"></div>
             <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -536,7 +534,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container"></div>
             <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -692,7 +689,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container"></div>
             <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -849,7 +845,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-            <div class="autocomplete-container" id="autocomplete-container"></div>
             <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
             <button class="nhsuk-search__submit" type="submit">
               <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

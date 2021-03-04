@@ -23,24 +23,20 @@
  * 4. Remove inner border on buttons for Firefox, see
  *    https://github.com/necolas/normalize.css/issues/393
  * 5. Proprietary extension so form field looks the same in Safari
- * 6. Needs !important because typeahead js adds inline styling so need to
- *    override
- * 7. Custom spacing to position the search icon
- * 8. Drop shadow on search suggestions dopdown box, custom spread and blur
- * 9. No current spacing at 12px so using this value
- * 10. Z-index to bring the dropdown to the front
- * 11. Custom margin to move menu toggle past the search toggle button
- * 12. Custom border value between expanded search and expanded menu if both open at the same time
- * 13. Don't display the link address for the logo anchor, see
+ * 6. Custom spacing to position the search icon
+ * 7. Drop shadow on search suggestions dopdown box, custom spread and blur
+ * 8. No current spacing at 12px so using this value
+ * 9. Z-index to bring the dropdown to the front
+ * 10. Custom margin to move menu toggle past the search toggle button
+ * 11. Custom border value between expanded search and expanded menu if both open at the same time
+ * 12. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
- * 14. Use non variable colour to follow NHS England guidelines on logo colour
- * 15. On print stylesheets remove the header link
- * 16. Remove random top margin in Safari
- * 17. Align close icon with nav item arrow icons
- * 18. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 13. Use non variable colour to follow NHS England guidelines on logo colour
+ * 14. On print stylesheets remove the header link
+ * 15. Remove random top margin in Safari
+ * 16. Align close icon with nav item arrow icons
+ * 17. Add nhsuk-spacing(9) to align right and left main nav with header
  */
-
-@import 'autocomplete';
 
 .nhsuk-header {
   @include clearfix();
@@ -186,6 +182,21 @@
   overflow: visible;
 }
 
+.nhsuk-search__input {
+  &::placeholder {
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+  &:-ms-input-placeholder {
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+  &::-webkit-input-placeholder {
+    color: $color_nhsuk-grey-1;
+    font-size: $nhsuk-base-font-size;
+  }
+
+}
 
 @include mq($until: tablet) {
 
@@ -220,8 +231,8 @@
   }
 
   .nhsuk-search__input {
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
-    background-color: $color_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
+    -ms-flex-positive: 2; /* [1] */
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [3] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -232,15 +243,21 @@
     border-top-right-radius: 0;
     flex-grow: 2;
     font-size: inherit;
-    height: 52px; /* [2] */
+    height: 52px; /* [4] */
     margin: 0;
     outline: none;
     padding: 0 nhsuk-spacing(3);
-    width: 100%; /* [2] */
+    width: 100%; /* [4] */
+    z-index: 1;
 
     &:focus {
-      box-shadow: inset 0 0 0 $nhsuk-box-shadow-spread $nhsuk-focus-color;
+      border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+      outline: $nhsuk-focus-width solid transparent;
+      outline-offset: $nhsuk-focus-width;
+      padding: 0 13px; /* [11] */
     }
+
   }
 
   .nhsuk-search__submit {
@@ -324,23 +341,24 @@
 
   .nhsuk-search__input {
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
-    background-color: $color_nhsuk-white !important; // sass-lint:disable-line no-important /* [6] */
     border: 1px solid $color_nhsuk-white;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
     border-top-left-radius: $nhsuk-border-radius;
     border-top-right-radius: 0;
-    display: block;
-    float: left;
     font-size: $nhsuk-base-font-size;
     height: nhsuk-spacing(6); /* [2] */
     padding: 0 12px; /* [9] */
     width: 200px; /* [2] */
 
-    &::placeholder {
-      color: $color_nhsuk-grey-2;
-      font-size: $nhsuk-base-font-size;
+    &:focus {
+      border: 2px solid $nhsuk-focus-text-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+      outline: $nhsuk-focus-width solid transparent;
+      outline-offset: $nhsuk-focus-width;
+      padding: 0 11px; /* [11] */
     }
+
   }
 
   .nhsuk-search__submit {
@@ -961,7 +979,6 @@
     }
   }
 
-  .autocomplete__input,
   .nhsuk-search__input {
     border: 1px solid $color_nhsuk-grey-3;
 
