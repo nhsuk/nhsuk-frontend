@@ -14,7 +14,7 @@
 // We use the word color, not colour, for variables.
 //
 
-// sass-lint:disable no-color-hex
+/* stylelint-disable color-no-hex */
 
 $color_nhsuk-blue: #005eb8;
 $color_nhsuk-white: #ffffff;
@@ -45,6 +45,7 @@ $color_nhsuk-grey-3: #aeb7bd;
 $color_nhsuk-grey-4: #d8dde0;
 $color_nhsuk-grey-5: #f0f4f5;
 
+/* stylelint-enable color-no-hex */
 //
 // RGB and alpha values
 //

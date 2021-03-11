@@ -10,6 +10,7 @@
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "lint:stylelint": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "backstop --config=./tests/backstop/backstop.js reference --docker",
     "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
@@ -20,6 +21,11 @@
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
     "jest:ci": "jest"
+  },
+  "dependencies": {
+    "accessible-autocomplete": "^2.0.3",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -45,6 +51,7 @@
     "sass": "^1.32.11",
     "sass-lint": "^1.13.1",
     "start-server-and-test": "^1.11.7",
+    "stylelint": "^13.10.0",
     "webpack-stream": "^5.2.1"
   },
   "publishConfig": {

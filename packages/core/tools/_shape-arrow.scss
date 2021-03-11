@@ -14,7 +14,7 @@
 // @return {Number} Calculated height of the triangle
 //
 
-// sass-lint:disable property-sort-order, quotes, shorthand-values
+/* stylelint-disable string-quotes, order/properties-alphabetical-order */
 
 @function _govuk-equilateral-height($base) {
   $square-root-of-three: 1.732;

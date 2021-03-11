@@ -132,13 +132,7 @@
     $font-size: map-get($breakpoint-map, 'font-size');
     $font-size-rem: nhsuk-px-to-rem($font-size);
 
-    $line-height: _nhsuk-line-height(
-      $line-height: if($override-line-height,
-        $override-line-height,
-        map-get($breakpoint-map, 'line-height')
-      ),
-      $font-size: $font-size
-    );
+    $line-height: _nhsuk-line-height($line-height: if($override-line-height, $override-line-height, map-get($breakpoint-map, 'line-height')), $font-size: $font-size);
 
     // [1] //
     $font-size: $font-size iff($important, !important);

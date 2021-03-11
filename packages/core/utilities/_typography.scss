@@ -3,8 +3,7 @@
    ========================================================================== */
 
 // Utility classes are allowed to use !important;
-// so we disable the sass-lint for that rule
-// sass-lint:disable no-important
+// so we disable stylelint for that rule
 
 /**
  * Font size and line height
@@ -47,5 +46,5 @@
  */
 
 .nhsuk-u-secondary-text-color {
-  color: $nhsuk-secondary-text-color !important;
+  color: $nhsuk-secondary-text-color !important; /* stylelint-disable-line declaration-no-important */
 }

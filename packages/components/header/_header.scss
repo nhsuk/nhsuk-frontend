@@ -231,8 +231,8 @@
   }
 
   .nhsuk-search__input {
-    -ms-flex-positive: 2; /* [1] */
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [3] */
+    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
+    background-color: $color_nhsuk-white !important; /* stylelint-disable-line declaration-no-important */ /* [6] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -341,6 +341,7 @@
 
   .nhsuk-search__input {
     -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
+    background-color: $color_nhsuk-white !important; /* stylelint-disable-line declaration-no-important */ /* [6] */
     border: 1px solid $color_nhsuk-white;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -732,9 +733,9 @@
   width: auto;
 
   @include mq($from: large-desktop) {
-    -ms-flex-align: center;
     align-items: center;
     display: flex;
+    -ms-flex-align: center;
     margin-bottom: 0;
     width: auto;
   }
@@ -789,9 +790,9 @@
   @include mq($from: tablet) {
 
     .nhsuk-header__link--service {
-      -ms-flex-align: center;
       align-items: center;
       display: flex;
+      -ms-flex-align: center;
       margin-bottom: 0;
       width: auto;
     }
@@ -924,7 +925,7 @@
   }
 }
 
-.nhsuk-org-logo[src$='.svg'] {
+.nhsuk-org-logo[src $= '.svg'] {
   height: auto;
   max-width: 220px;
   width: 100%;
@@ -1026,7 +1027,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [14] */ // sass-lint:disable-line no-color-hex no-color-literals
+    color: #000; /* [14] */  /* stylelint-disable-line color-no-hex */
   }
 
   .nhsuk-organisation-descriptor {

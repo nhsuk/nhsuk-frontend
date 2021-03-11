@@ -13,11 +13,11 @@
   background-color: $color_nhsuk-white;
   border-bottom: 1px solid $color_nhsuk-grey-4;
 
-  @include nhsuk-responsive-margin(6, 'bottom');
-  @include nhsuk-responsive-margin(6, 'top');
-
   margin-left: 0; /* [1] */
   margin-right: 0; /* [1] */
+
+  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-responsive-margin(6, 'top');
 
   @include mq($from: desktop) {
     width: 66.66667%; /* [2] */

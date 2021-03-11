@@ -126,13 +126,13 @@
   }
 
   .nhsuk-icon {
-    -ms-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
     fill: $color_nhsuk-blue; /* [4] */
     height: 19px; /* [5] */
     left: -8px; /* [6] */
     position: absolute;
     top: 4px; /* [6] */
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
     width: 19px; /* [5] */
 
