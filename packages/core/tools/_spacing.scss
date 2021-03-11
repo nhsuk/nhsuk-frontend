@@ -22,8 +22,6 @@
 // https://github.com/alphagov/govuk-frontend
 //
 
-// sass-lint:disable no-important
-
 @function nhsuk-spacing($spacing-point) {
 
   $actual-input-type: type-of($spacing-point);

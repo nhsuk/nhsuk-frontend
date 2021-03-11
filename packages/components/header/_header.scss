@@ -214,7 +214,7 @@
 
     &.js-show {
       clear: both;
-      display: flex; // sass-lint:disable-line no-duplicate-properties
+      display: flex;
       margin-bottom: -20px;
       margin-left: -16px;
       margin-right: -16px;
@@ -225,14 +225,13 @@
 
   .nhsuk-header__search-form {
     background-color: $color_nhsuk-white;
-    display: flex; // sass-lint:disable-line no-duplicate-properties
+    display: flex;
     padding: nhsuk-spacing(3);
     width: 100%;
   }
 
   .nhsuk-search__input {
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
-    background-color: $color_nhsuk-white !important; /* stylelint-disable-line declaration-no-important */ /* [6] */
+    -webkit-appearance: listbox; /* [5] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -242,6 +241,7 @@
     border-top-left-radius: $nhsuk-border-radius;
     border-top-right-radius: 0;
     flex-grow: 2;
+    -ms-flex-positive: 2; /* [1] */
     font-size: inherit;
     height: 52px; /* [4] */
     margin: 0;
@@ -340,8 +340,7 @@
   }
 
   .nhsuk-search__input {
-    -webkit-appearance: listbox; // sass-lint:disable-line prefixes /* [5] */
-    background-color: $color_nhsuk-white !important; /* stylelint-disable-line declaration-no-important */ /* [6] */
+    -webkit-appearance: listbox; /* [5] */
     border: 1px solid $color_nhsuk-white;
     border-bottom-left-radius: $nhsuk-border-radius;
     border-bottom-right-radius: 0;
@@ -382,7 +381,7 @@
       width: 27px; /* [3] */
     }
 
-    &::-moz-focus-inner { // sass-lint:disable-line no-vendor-prefixes
+    &::-moz-focus-inner {
       border: 0; /* [4] */
     }
 
@@ -647,7 +646,7 @@
 
   .nhsuk-header__navigation-list {
     border-top: 1px solid $nhsuk-secondary-border-color;
-    display: flex; // sass-lint:disable-line no-duplicate-properties
+    display: flex;
     justify-content: space-between;
     padding: 0;
     width: 100%;

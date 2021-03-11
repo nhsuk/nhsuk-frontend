@@ -11,10 +11,10 @@
 .nhsuk-table-container {
   @include nhsuk-responsive-margin(7, 'bottom');
 
-  display: block; // sass-lint:disable-line property-sort-order
-  -webkit-overflow-scrolling: touch; // sass-lint:disable-line property-sort-order
-  -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line property-sort-order
-  overflow-x: auto; // sass-lint:disable-line property-sort-order
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
   width: 100%;
 
   .nhsuk-table {
@@ -119,7 +119,7 @@
 
       td {
         display: block; // For browsers that don't support flexbox
-        display: flex; // sass-lint:disable-line no-duplicate-properties
+        display: flex;
         justify-content: space-between; /* [5] */
         min-width: 1px; /* [6] */
         @media all and (-ms-high-contrast: none) { /* [10] */

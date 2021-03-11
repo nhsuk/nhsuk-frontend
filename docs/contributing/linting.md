@@ -333,7 +333,7 @@ Good:
 
 ### Remove trailing whitespace
 
-More write up on [supported rules](https://github.com/sasstools/sass-lint/tree/master/docs/rules).
+More write up on [supported rules](https://stylelint.io/user-guide/rules/list).
 
 ---
 

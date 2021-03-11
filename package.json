@@ -21,9 +21,6 @@
     "jest:dev": "jest --watch",
     "jest:ci": "jest"
   },
-  "dependencies": {
-    "accessible-autocomplete": "^2.0.3"
-  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -46,7 +43,6 @@
     "minimist": "^1.2.5",
     "nunjucks": "^3.2.2",
     "sass": "^1.32.11",
-    "sass-lint": "^1.13.1",
     "start-server-and-test": "^1.11.7",
     "stylelint": "^13.10.0",
     "stylelint-order": "^4.1.0",
