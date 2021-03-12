@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    COMPONENTS / #TABLE
    ========================================================================== */
@@ -21,7 +20,6 @@
   .nhsuk-table {
     margin: 0; /* [1] */
   }
-
 }
 
 /* Table row hover
@@ -45,7 +43,11 @@
  */
 
 .nhsuk-table__panel-with-heading-tab {
-  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color, $color_nhsuk-grey-4);
+  @include panel-with-label(
+    $color_nhsuk-white,
+    $nhsuk-text-color,
+    $color_nhsuk-grey-4
+  );
 
   .nhsuk-table-container,
   .nhsuk-table {
@@ -70,6 +72,7 @@
  * 7. Aligning content to the right on mobile
  * 8. Aligning mobile header to left to split it from the data
  * 9. Hiding mobile specific header from desktop view
+ * 10. Adding a display block value due to IE 11 not having full flex support
  */
 
 .nhsuk-table-responsive {
@@ -119,6 +122,9 @@
         display: flex; // sass-lint:disable-line no-duplicate-properties
         justify-content: space-between; /* [5] */
         min-width: 1px; /* [6] */
+        @media all and (-ms-high-contrast: none) { /* [10] */
+          display: block;
+        }
 
         @include mq($from: desktop) {
           display: table-cell;
@@ -147,4 +153,3 @@
 .nhsuk-table__cell--numeric {
   text-align: right;
 }
-

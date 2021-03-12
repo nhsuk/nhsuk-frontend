@@ -39,7 +39,7 @@
 
 - Footer - removed the Footer with list columns variant, the HTML class `nhsuk-footer__list--three-columns` and `list` Nunjucks parameter has been removed. The Footer will fallback to the regular footer on Desktop and stay the same on mobile. ([Issue 575](https://github.com/nhsuk/nhsuk-frontend/issues/575))
 
-- Review date - the Review date component has been removed and refactored into a pattern on the NHS digital service manual - ([Reassure users that information is up-to-date](https://service-manual.nhs.uk/design-system/patterns/reassure-users-that-information-is-up-to-date)).
+- Review date - the Review date component has been removed and refactored into a pattern on the NHS digital service manual - ([Reassure users that a page is up to date](https://service-manual.nhs.uk/design-system/patterns/reassure-users-that-a-page-is-up-to-date)).
 
   The Review date component styles can be achieved by using a number of existing modifier and utility classes so does not need to be a individual component. This also allows for more customisation (such as margin and padding)
 
@@ -66,6 +66,7 @@ NHS website specific and uses a third party supplier for the search results. ([I
 - Fix the insufficient colour contrast ratio for the Search placeholder text ([Issue 687](https://github.com/nhsuk/nhsuk-frontend/issues/687))
 - Remove `max-width` from service header with a logo only ([PR 705](https://github.com/nhsuk/nhsuk-frontend/pull/705))
 - Add a `max-width` to the service header with service name to accommodate longer service names ([Issue 708](https://github.com/nhsuk/nhsuk-frontend/issues/708))
+- Setting IE to use display block for the responsive table on small resolutions ([Issue 712](https://github.com/nhsuk/nhsuk-frontend/issues/712))
 
 
 ## 4.1.0 - 21 January 2021
