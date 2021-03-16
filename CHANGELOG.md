@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 5.0.0 - 26 March 2021
+## 5.0.0 - 16 March 2021
 
 :boom: **Breaking changes**
 
