@@ -35,20 +35,6 @@ html {
   src: url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot?#iefix") format("eot"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2") format("woff2"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff") format("woff"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.ttf") format("truetype"), url("https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg"); }
 
 /* ==========================================================================
-   GENERIC / #IE
-   ========================================================================== */
-/**
- * Add the correct display for HTML5 elements in IE 9-.
- */
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block; }
-
-/* ==========================================================================
    ELEMENTS / #FORMS
    ========================================================================== */
 /**
@@ -102,9 +88,6 @@ a {
       /* [1] */
       font-size: 14pt;
       /* [2] */ } }
-
-.ie8 a:focus {
-  outline: 1px dotted #212b32; }
 
 .nhsuk-link--no-visited-state:link {
   color: #005eb8; }
@@ -409,11 +392,6 @@ caption {
 /* ==========================================================================
    STYLES / #ICONS
    ========================================================================== */
-/**
- * We use SVGs for our icons, with no PNG fallback.
- *
- * For IE8 support, alternate styling is applied to the components using icons.
- */
 .nhsuk-icon {
   height: 34px;
   width: 34px; }
@@ -2234,12 +2212,6 @@ b {
     .nhsuk-breadcrumb__backlink:visited:hover {
       color: #7C2855; }
 
-/**
- * IE8 fixes
- */
-.ie8 .nhsuk-breadcrumb__back {
-  display: none; }
-
 /* ==========================================================================
    COMPONENTS/ #BUTTON
    ========================================================================== */
@@ -2427,12 +2399,6 @@ b {
     box-shadow: 0 4px 0 #212b32;
     top: 0; }
 
-/**
- * IE8 fix for focus styles
- */
-.ie8 .nhsuk-button:focus {
-  outline: 1px dotted #212b32; }
-
 /* ==========================================================================
    COMPONENTS / #CARD
    ========================================================================== */
@@ -2590,6 +2556,7 @@ b {
  * 5. 'Random number' used for spacing to compensate for the triangle.
  * 6. Needed to enable the triangle to show correctly in high contrast mode.
  * 7. Prevent additional padding on headings
+ * 8. Give the action link icon sufficient contrast when used in the immediate variant
  */
 .nhsuk-care-card {
   margin-bottom: 40px;
@@ -2766,6 +2733,10 @@ b {
 
 .nhsuk-care-card--immediate .nhsuk-details__summary:focus {
   color: #212b32; }
+
+.nhsuk-care-card--immediate .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
+  fill: #ffffff;
+  /* [8] */ }
 
 /* ==========================================================================
    COMPONENTS/ #CHECKBOXES
@@ -3371,9 +3342,8 @@ b {
 /**
  * 1. Fix legend text wrapping in Edge and IE versions:
  * 2. IE9-11 & Edge 12-13
- * 3. and IE8-11
- * 4. Hack to let legends or elements within legends have margins in webkit browsers.
- * 5. When the legend contains an H1, we want the H1 to inherit all styles from
+ * 3. Hack to let legends or elements within legends have margins in webkit browsers.
+ * 4. When the legend contains an H1, we want the H1 to inherit all styles from
  *    the legend. Effectively we want to be able to treat the heading as if it is
  *    not there.
  */
@@ -3402,7 +3372,7 @@ b {
   /* 1 */
   padding: 0;
   white-space: normal;
-  /* 4 */ }
+  /* 3 */ }
   @media (min-width: 40.0625em) {
     .nhsuk-fieldset__legend {
       font-size: 19px;
@@ -3479,7 +3449,7 @@ b {
       line-height: 1.15; } }
 
 .nhsuk-fieldset__heading {
-  /* 5 */
+  /* 4 */
   font-size: inherit;
   font-weight: inherit;
   margin: 0; }
@@ -3568,17 +3538,6 @@ b {
       text-align: right;
       width: 25%; } }
 
-@media (min-width: 48.0625em) {
-  .nhsuk-footer__list--three-columns {
-    -moz-column-count: 3;
-    -moz-column-gap: 24px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 24px;
-    column-count: 3;
-    column-gap: 24px; }
-    .nhsuk-footer__list--three-columns li {
-      float: none; } }
-
 /* ==========================================================================
    COMPONENTS / #HEADER
    ========================================================================== */
@@ -3603,195 +3562,20 @@ b {
  * 4. Remove inner border on buttons for Firefox, see
  *    https://github.com/necolas/normalize.css/issues/393
  * 5. Proprietary extension so form field looks the same in Safari
- * 6. Needs !important because typeahead js adds inline styling so need to
- *    override
- * 7. Custom spacing to position the search icon
- * 8. Drop shadow on search suggestions dopdown box, custom spread and blur
- * 9. No current spacing at 12px so using this value
- * 10. Z-index to bring the dropdown to the front
- * 11. Custom margin to move menu toggle past the search toggle button
- * 12. Custom border value between expanded search and expanded menu if both open at the same time
- * 13. Don't display the link address for the logo anchor, see
+ * 6. Custom spacing to position the search icon
+ * 7. Drop shadow on search suggestions dopdown box, custom spread and blur
+ * 8. No current spacing at 12px so using this value
+ * 9. Z-index to bring the dropdown to the front
+ * 10. Custom margin to move menu toggle past the search toggle button
+ * 11. Custom border value between expanded search and expanded menu if both open at the same time
+ * 12. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
- * 14. IE 10 prefix for flexbox
- * 15. IE 9 alternative for flexbox
- * 16. Use non variable colour to follow NHS England guidelines on logo colour
- * 17. On print stylesheets remove the header link
- * 18. Remove random top margin in Safari
- * 19. Align close icon with nav item arrow icons
- * 20. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 13. Use non variable colour to follow NHS England guidelines on logo colour
+ * 14. On print stylesheets remove the header link
+ * 15. Remove random top margin in Safari
+ * 16. Align close icon with nav item arrow icons
+ * 17. Add nhsuk-spacing(9) to align right and left main nav with header
  */
-/* ==========================================================================
-   COMPONENTS / #HEADER / #AUTOCOMPLETE
-   ========================================================================== */
-/**
-   * 1. IE 10 prefix for flexbox
-   * 2. Proprietary extension so form field looks the same in Safari
-   * 3. Custom height and width of form items
-   * 4. Custom height and width of svg icons
-   * 5. Custom spacing to position the search icon
-   * 6. Drop shadow on search suggestions dopdown box, custom spread and blur
-   * 7. Z-index to bring the dropdown to the front
-   * 8. No current spacing at 12px so using this value
-   * 9. Z-index to being search box to the front for focus state style
-   * 10. Custom padding to stop text jumping on focus
-*/
-.autocomplete-container {
-  display: inline-block;
-  z-index: 1;
-  /* [9] */ }
-  @media (max-width: 40.0525em) {
-    .autocomplete-container {
-      display: inline;
-      width: 100%; } }
-
-@media (max-width: 40.0525em) {
-  /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
-  .autocomplete__input {
-    -ms-flex-positive: 2;
-    /* [1] */
-    -webkit-appearance: listbox;
-    border-bottom: 1px solid #aeb7bd;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 0;
-    border-left: 1px solid #aeb7bd;
-    border-right: 0;
-    border-top: 1px solid #aeb7bd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    flex-grow: 2;
-    font-size: inherit;
-    height: 52px;
-    /* [3] */
-    margin: 0;
-    outline: none;
-    padding: 0 16px;
-    width: 100%;
-    /* [3] */ }
-    .autocomplete__input:focus {
-      border: 4px solid #212b32;
-      box-shadow: 0 0 0 4px #ffeb3b;
-      outline: 4px solid transparent;
-      outline-offset: 4px;
-      padding: 0 13px;
-      /* [10] */ } }
-
-@media (min-width: 40.0625em) {
-  /* duplicate of .nhsuk-search__input in _header.scss, for non javascript version */
-  .autocomplete__input {
-    -webkit-appearance: listbox;
-    border: 1px solid #ffffff;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 0;
-    border-right: 0;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    font-size: 16px;
-    height: 40px;
-    /* [3] */
-    padding: 0 12px;
-    /* [9] */
-    width: 200px;
-    /* [3] */ }
-    .autocomplete__input:focus {
-      border: 2px solid #212b32;
-      box-shadow: 0 0 0 4px #ffeb3b;
-      outline: 4px solid transparent;
-      outline-offset: 4px;
-      padding: 0 11px;
-      /* [10] */ }
-    .autocomplete__input::placeholder {
-      color: #768692;
-      font-size: 16px; } }
-
-@media (min-width: 48.0625em) {
-  .autocomplete__input {
-    width: 235px; } }
-
-.autocomplete__menu {
-  -moz-box-shadow: 0 3px 5px rgba(66, 84, 98, 0.5);
-  /* [6] */
-  -webkit-box-shadow: 0 3px 5px rgba(66, 84, 98, 0.5);
-  /* [6] */
-  background-color: #ffffff;
-  border-bottom: 1px solid #d8dde0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-left: 1px solid #d8dde0;
-  border-right: 1px solid #d8dde0;
-  box-shadow: 0 0 3px 0 rgba(66, 84, 98, 0.5);
-  /* [6] */
-  list-style: none;
-  margin-top: 2px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 16px;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  z-index: 1;
-  /* [7] */ }
-  @media (max-width: 40.0525em) {
-    .autocomplete__menu {
-      border: 0;
-      box-shadow: none;
-      margin: 0;
-      padding-left: 0;
-      padding-right: 0;
-      position: relative; } }
-
-.autocomplete__menu--visible {
-  display: block; }
-
-.autocomplete__menu--hidden {
-  display: none; }
-
-.autocomplete__option {
-  border-bottom: 1px solid #f0f4f5;
-  color: #005eb8;
-  cursor: pointer;
-  font-size: 16px;
-  padding-bottom: 12px;
-  /* [8] */
-  text-align: left;
-  text-decoration: underline; }
-  .autocomplete__option .nhsuk-icon__search {
-    fill: #aeb7bd;
-    float: left;
-    height: 22px;
-    /* [4] */
-    margin: 2px 4px 0 0;
-    /* [5] */
-    width: 22px;
-    /* [4] */ }
-  .autocomplete__option:hover, .autocomplete__option:active {
-    text-decoration: none; }
-  .autocomplete__option:focus {
-    outline: 1px solid transparent;
-    text-decoration: none; }
-    .autocomplete__option:focus a {
-      background-color: #ffeb3b;
-      box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
-      color: #212b32;
-      outline: 4px solid transparent;
-      text-decoration: none; }
-  @media (min-width: 40.0625em) {
-    .autocomplete__option:last-child {
-      border-bottom: 0; } }
-
-.autocomplete__option--no-results {
-  border-bottom: 0;
-  color: #212b32;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  text-decoration: none; }
-  @media (max-width: 40.0525em) {
-    .autocomplete__option--no-results {
-      padding: 16px 0; } }
-
 .nhsuk-header {
   background-color: #005eb8; }
   .nhsuk-header:after {
@@ -3850,7 +3634,7 @@ b {
   @media print {
     .nhsuk-header__link:after {
       content: '';
-      /* [17] */ } }
+      /* [15] */ } }
   .nhsuk-header__link:hover, .nhsuk-header__link:active, .nhsuk-header__link:focus {
     background-color: transparent; }
 
@@ -3930,6 +3714,18 @@ b {
   height: 100%;
   overflow: visible; }
 
+.nhsuk-search__input::placeholder {
+  color: #4c6272;
+  font-size: 16px; }
+
+.nhsuk-search__input:-ms-input-placeholder {
+  color: #4c6272;
+  font-size: 16px; }
+
+.nhsuk-search__input::-webkit-input-placeholder {
+  color: #4c6272;
+  font-size: 16px; }
+
 @media (max-width: 40.0525em) {
   .nhsuk-header__container {
     margin: 0; }
@@ -3940,8 +3736,6 @@ b {
     display: none; }
     .nhsuk-header__search-wrap.js-show {
       clear: both;
-      display: -ms-flexbox;
-      /* [14] */
       display: flex;
       margin-bottom: -20px;
       margin-left: -16px;
@@ -3950,16 +3744,13 @@ b {
       text-align: left; }
   .nhsuk-header__search-form {
     background-color: #ffffff;
-    display: -ms-flexbox;
-    /* [14] */
     display: flex;
     padding: 16px;
     width: 100%; }
   .nhsuk-search__input {
     -ms-flex-positive: 2;
-    /* [14] */
+    /* [1] */
     -webkit-appearance: listbox;
-    background-color: #ffffff !important;
     border-bottom: 1px solid #aeb7bd;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 0;
@@ -3971,14 +3762,20 @@ b {
     flex-grow: 2;
     font-size: inherit;
     height: 52px;
-    /* [2] */
+    /* [4] */
     margin: 0;
     outline: none;
     padding: 0 16px;
     width: 100%;
-    /* [2] */ }
+    /* [4] */
+    z-index: 1; }
     .nhsuk-search__input:focus {
-      box-shadow: inset 0 0 0 4px #ffeb3b; }
+      border: 4px solid #212b32;
+      box-shadow: 0 0 0 4px #ffeb3b;
+      outline: 4px solid transparent;
+      outline-offset: 4px;
+      padding: 0 13px;
+      /* [11] */ }
   .nhsuk-search__submit {
     background-color: #007f3b;
     border: 0;
@@ -4026,7 +3823,7 @@ b {
     width: 40px;
     margin-left: 8px;
     margin-right: -8px;
-    /* [19] */
+    /* [17] */
     margin-top: 8px; }
     .nhsuk-search__close .nhsuk-icon__close {
       fill: #005eb8;
@@ -4053,14 +3850,11 @@ b {
     display: none; }
   .nhsuk-search__input {
     -webkit-appearance: listbox;
-    background-color: #ffffff !important;
     border: 1px solid #ffffff;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 0;
     border-top-left-radius: 4px;
     border-top-right-radius: 0;
-    display: block;
-    float: left;
     font-size: 16px;
     height: 40px;
     /* [2] */
@@ -4068,9 +3862,13 @@ b {
     /* [9] */
     width: 200px;
     /* [2] */ }
-    .nhsuk-search__input::placeholder {
-      color: #768692;
-      font-size: 16px; }
+    .nhsuk-search__input:focus {
+      border: 2px solid #212b32;
+      box-shadow: 0 0 0 4px #ffeb3b;
+      outline: 4px solid transparent;
+      outline-offset: 4px;
+      padding: 0 11px;
+      /* [11] */ }
   .nhsuk-search__submit {
     background-color: #f0f4f5;
     border: 0;
@@ -4178,7 +3976,7 @@ b {
   @media (min-width: 40.0625em) and (max-width: 61.865em) {
     .nhsuk-header__menu-toggle {
       margin-top: 0;
-      /* [18] */ } }
+      /* [16] */ } }
   .nhsuk-header__menu-toggle:focus {
     background-color: #ffeb3b;
     border: 0;
@@ -4336,11 +4134,10 @@ b {
     background-color: #005eb8;
     display: block;
     margin: 0 auto;
-    max-width: 1024px; }
+    max-width: 1024px;
+    /* [18] */ }
   .nhsuk-header__navigation-list {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    display: -ms-flexbox;
-    /* [14] */
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -4356,70 +4153,6 @@ b {
   .nhsuk-header__navigation-link {
     color: #ffffff;
     line-height: normal; } }
-
-/**
- * Internet Explorer >= 9 specific styles
- *
- * The header component is the only component that
- * supports earlier version of IE.
- * This is because of the NHS branding, navigation
- * and search prominence across the website.
-**/
-.ie8 .nhsuk-header__link {
-  display: inline-block;
-  width: 100%; }
-
-.ie8 .nhsuk-header__logo,
-.ie8 .nhsuk-header__transactional-service-name {
-  background-color: #005eb8;
-  display: block;
-  padding: 8px 0 8px 8px;
-  width: 100%; }
-
-.ie8 .nhsuk-header__transactional-service-name {
-  padding-bottom: 12px;
-  padding-top: 0; }
-
-.ie8 .nhsuk-header__search {
-  background-color: #005eb8;
-  clear: both;
-  padding-bottom: 12px; }
-
-.ie8 .nhsuk-header__menu-toggle,
-.ie8 .nhsuk-header__search-toggle,
-.ie8 .nhsuk-search__close,
-.ie8 .nhsuk-header__navigation-title,
-.ie8 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
-  display: none; }
-
-.ie8 .nhsuk-header__navigation-list {
-  display: table; }
-
-.ie8 .nhsuk-header__navigation-item {
-  display: table-cell;
-  /* [15] */ }
-  .ie8 .nhsuk-header__navigation-item a:hover {
-    color: #005eb8; }
-
-.ie8 .nhsuk-search__submit {
-  height: auto;
-  width: auto; }
-  .ie8 .nhsuk-search__submit .nhsuk-u-visually-hidden {
-    height: auto;
-    position: relative;
-    width: auto; }
-
-.ie8 .nhsuk-header__navigation {
-  display: block; }
-
-@media (min-width: 61.875em) {
-  .ie9 .nhsuk-header__navigation-list {
-    display: table; }
-  .ie9 .nhsuk-header__navigation-item {
-    display: table-cell; } }
-
-.ie9 .nhsuk-header__search-wrap .js-show {
-  display: block; }
 
 /**
  * Transactional Header with service name
@@ -4527,6 +4260,9 @@ b {
   @media (min-width: 61.875em) {
     .nhsuk-header__service-name {
       padding-left: 16px; } }
+  @media (max-width: 61.865em) {
+    .nhsuk-header__service-name {
+      max-width: 220px; } }
 
 .nhsuk-header__logo--only {
   max-width: 100%; }
@@ -4536,7 +4272,6 @@ b {
       align-items: center;
       display: flex;
       margin-bottom: 0;
-      max-width: 270px;
       width: auto; }
     .nhsuk-header__logo--only .nhsuk-header__service-name {
       padding-left: 16px; } }
@@ -4655,14 +4390,11 @@ b {
       background-color: #ffeb3b; }
       .nhsuk-header--white .nhsuk-search__submit:focus .nhsuk-icon__search {
         fill: #212b32; }
-  .nhsuk-header--white .autocomplete__input,
   .nhsuk-header--white .nhsuk-search__input {
     border: 1px solid #aeb7bd; }
-    .nhsuk-header--white .autocomplete__input:focus,
     .nhsuk-header--white .nhsuk-search__input:focus {
       border: 2px solid #212b32; }
       @media (max-width: 40.0525em) {
-        .nhsuk-header--white .autocomplete__input:focus,
         .nhsuk-header--white .nhsuk-search__input:focus {
           border: 4px solid #212b32; } }
   .nhsuk-header--white .nhsuk-header__search-toggle,
@@ -4692,7 +4424,7 @@ b {
       padding-top: 0; } }
   .nhsuk-header--white .nhsuk-organisation-name {
     color: #000;
-    /* [16] */ }
+    /* [14] */ }
   .nhsuk-header--white .nhsuk-organisation-descriptor {
     color: #005eb8; }
   .nhsuk-header--white .nhsuk-header__transactional-service-name--link {
@@ -4882,19 +4614,6 @@ b {
       padding: 32px 0 0;
       position: relative;
       top: 0; } }
-
-/**
- * IE8/9 fixes
- */
-.ie8 .nhsuk-hero-content {
-  background-color: #005eb8;
-  color: #ffffff;
-  padding: 24px; }
-  .ie8 .nhsuk-hero-content .nhsuk-hero__arrow {
-    display: none; }
-
-.ie9 .nhsuk-hero-content .nhsuk-hero__arrow {
-  display: none; }
 
 /* ==========================================================================
    COMPONENTS/ #HINT
@@ -5743,16 +5462,6 @@ b {
   display: none; }
 
 /* ==========================================================================
-   COMPONENTS / #REVIEW-DATE
-   ========================================================================== */
-.nhsuk-review-date {
-  margin-top: 40px;
-  color: #4c6272; }
-  @media (min-width: 40.0625em) {
-    .nhsuk-review-date {
-      margin-top: 48px; } }
-
-/* ==========================================================================
    COMPONENTS/ #SELECT
    ========================================================================== */
 .nhsuk-select {
@@ -5821,8 +5530,6 @@ b {
  * 2. Reset default user agent styles
  * 3. Automatic wrapping for unbreakable text (e.g. URLs)
  * 4. Fallback for older browsers only
- * 5. In older browsers such as IE8, :last-child is not available,
- *    so only show the border divider where it is available.
  */
 .nhsuk-summary-list {
   font-weight: 400;
@@ -5924,7 +5631,6 @@ b {
   margin-right: 8px;
   padding-right: 8px; }
 
-/* [5] */
 .nhsuk-summary-list__actions-list-item:not(:last-child) {
   border-right: 1px solid #d8dde0; }
 
@@ -6048,6 +5754,7 @@ b {
  * 7. Aligning content to the right on mobile
  * 8. Aligning mobile header to left to split it from the data
  * 9. Hiding mobile specific header from desktop view
+ * 10. Adding a display block value due to IE 11 not having full flex support
  */
 .nhsuk-table-responsive {
   margin-bottom: 0;
@@ -6107,6 +5814,10 @@ b {
       /* [5] */
       min-width: 1px;
       /* [6] */ }
+      @media all and (-ms-high-contrast: none) {
+        .nhsuk-table-responsive .nhsuk-table__body .nhsuk-table__row td {
+          /* [10] */
+          display: block; } }
       @media (min-width: 48.0625em) {
         .nhsuk-table-responsive .nhsuk-table__body .nhsuk-table__row td {
           display: table-cell; } }
