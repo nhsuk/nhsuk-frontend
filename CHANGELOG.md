@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 5.0.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
+
 ## 5.0.0 - 26 March 2021
 
 :boom: **Breaking changes**
