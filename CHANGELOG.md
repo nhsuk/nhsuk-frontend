@@ -2,6 +2,10 @@
 
 ## 5.0.1 - Unreleased
 
+:new: **New features**
+
+- Updated code of conduct to link to latest version of Contributor Covenant
+
 :wrench: **Fixes**
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
