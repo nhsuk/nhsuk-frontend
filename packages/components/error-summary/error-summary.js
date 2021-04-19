@@ -20,7 +20,7 @@ function getAssociatedLegendOrLabel(input) {
     const legends = fieldset.getElementsByTagName('legend');
 
     if (legends.length) {
-      const [candidateLegend] = legends;
+      const candidateLegend = legends[0]; // eslint-disable-line prefer-destructuring
 
       // If the input type is radio or checkbox, always use the legend if there
       // is one.
