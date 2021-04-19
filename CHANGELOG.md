@@ -6,6 +6,7 @@
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
 - Ensure Error Summary receives keyboard focus when rendered ([Issue 702](https://github.com/nhsuk/nhsuk-frontend/issues/702)).
+- Enhance Error Summary link focus behaviour such that the nearest label/legend remains in view when scrolling ([PR 725](https://github.com/nhsuk/nhsuk-frontend/pull/725)).
 
 ## 5.0.0 - 16 March 2021
 
