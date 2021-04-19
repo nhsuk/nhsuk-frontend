@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
+- Ensure Error Summary receives keyboard focus when rendered ([Issue 702](https://github.com/nhsuk/nhsuk-frontend/issues/702)).
 
 ## 5.0.0 - 16 March 2021
 
@@ -889,4 +890,3 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 - This release includes all the content page components and the first
   installable npm package.
-
