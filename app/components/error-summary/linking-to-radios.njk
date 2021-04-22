@@ -1,0 +1,62 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Error summary' %}
+{% from 'components/error-summary/macro.njk' import errorSummary %}
+{% from 'components/radios/macro.njk' import radios %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ errorSummary({
+            "titleText": "There is a problem",
+            "descriptionHtml": "Optional description of the errors and how to correct them.<br>Note that the error summary should receive focus on page load using the JavaScript that comes with this component.",
+            "errorList": [
+              {
+                "text": "Link to radio error with explanation (Note how it links to the first radio)",
+                "href": "#example-1"
+              }
+            ]
+          }) }}
+
+          <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+          {{ radios({
+            "idPrefix": "example",
+            "name": "radios-example",
+            "errorMessage": {
+              "text": "Please select an option"
+            },
+            "fieldset": {
+              "legend": {
+                "text": "Have you changed your name?",
+                "classes": "nhsuk-fieldset__legend--m"
+              }
+            },
+            "hint": {
+              "text": "Clicking an error summary link should scroll the top of this radio fieldset into view."
+            },
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }) }}
+
+          <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
