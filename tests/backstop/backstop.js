@@ -164,6 +164,14 @@ module.exports = {
       url: `${TEST_URL}/error-summary/index.html`,
     },
     {
+      label: 'Error summary with link to an input field',
+      url: `${TEST_URL}/error-summary/linking-to-input.html`,
+    },
+    {
+      label: 'Error summary with link to a radio field',
+      url: `${TEST_URL}/error-summary/linking-to-radios.html`,
+    },
+    {
       label: 'Expander',
       url: `${TEST_URL}/details/expander.html`,
       clickSelector: '.nhsuk-details__summary',
