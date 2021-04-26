@@ -41,8 +41,8 @@
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "minimist": "^1.2.5",
-    "node-sass": "^4.14.1",
     "nunjucks": "^3.2.2",
+    "sass": "^1.32.11",
     "sass-lint": "^1.13.1",
     "start-server-and-test": "^1.11.7",
     "webpack-stream": "^5.2.1"
