@@ -1,0 +1,33 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Footer' %}
+{% from 'components/footer/macro.njk' import footer %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Accessibility statement"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Privacy policy"
+      },
+      {
+        "URL": "#",
+        "label": "Terms and conditions"
+      }
+    ]
+  })}}
+
+{% endblock %}
