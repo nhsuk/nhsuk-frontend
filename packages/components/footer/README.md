@@ -18,11 +18,11 @@ Find out more about the footer component and when to use it in the [NHS digital 
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <ul class="nhsuk-footer__list">
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/nhs-sites/">NHS sites</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/">About us</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/contact-us/">Contact us</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Contact us</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Cookies</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a></li>
+        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a></li>
       </ul>
       <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
     </div>
@@ -38,24 +38,24 @@ Find out more about the footer component and when to use it in the [NHS digital 
 {{ footer({
   "links": [
     {
-      "URL": "https://www.nhs.uk/nhs-sites/",
-      "label": "NHS sites"
+      "URL": "#",
+      "label": "Accessibility statement"
     },
     {
-      "URL": "https://www.nhs.uk/about-us/",
-      "label": "About us"
-    },
-    {
-      "URL": "https://www.nhs.uk/contact-us/",
+      "URL": "#",
       "label": "Contact us"
     },
     {
-      "URL": "https://www.nhs.uk/about-us/sitemap/",
-      "label": "Sitemap"
+      "URL": "#",
+      "label": "Cookies"
     },
     {
-      "URL": "https://www.nhs.uk/our-policies/",
-      "label": "Our policies"
+      "URL": "#",
+      "label": "Privacy policy"
+    },
+    {
+      "URL": "#",
+      "label": "Terms and conditions"
     }
   ]
 })}}
