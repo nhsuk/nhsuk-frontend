@@ -16,8 +16,12 @@
 
 html {
   background-color: $color_nhsuk-grey-4;
-  font-family: $nhsuk-font, $nhsuk-font-fallback;
   overflow-y: scroll; /* [1] */
+
+  @if $nhsuk-include-font-face {
+    @include _nhsuk-font-face-frutiger;
+    font-family: $nhsuk-font, $nhsuk-font-fallback;
+  }
 }
 
 body {
