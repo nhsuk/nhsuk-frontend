@@ -1,12 +1,29 @@
 # NHS.UK frontend Changelog
 
-## 5.0.1 - Unreleased
+## 5.1.0 - Unreleased
+
+:new: **New features**
+
+- Ensure Error Summary receives keyboard focus when rendered ([Issue 702](https://github.com/nhsuk/nhsuk-frontend/issues/702)).
+- Enhance Error Summary link focus behaviour such that the nearest label/legend remains in view when scrolling ([PR 725](https://github.com/nhsuk/nhsuk-frontend/pull/725)).
+
+  If you are importing component JavaScript with ES6 imports, you will need to update your imports to include the Error Summary JavaScript:
+
+  ```javascript
+  // Components
+  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary';
+
+  // Initialize components
+  document.addEventListener('DOMContentLoaded', () => {
+    ErrorSummary();
+  });
+  ```
+
+  Note: You may need to change the path to `node_modules` depending on your project structure.
 
 :wrench: **Fixes**
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
-- Ensure Error Summary receives keyboard focus when rendered ([Issue 702](https://github.com/nhsuk/nhsuk-frontend/issues/702)).
-- Enhance Error Summary link focus behaviour such that the nearest label/legend remains in view when scrolling ([PR 725](https://github.com/nhsuk/nhsuk-frontend/pull/725)).
 
 ## 5.0.0 - 16 March 2021
 
