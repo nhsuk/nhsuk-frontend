@@ -30,10 +30,6 @@ module.exports = {
   onReadyScript: 'puppet/onReady.js',
   scenarios: [
     {
-      label: 'A-Z navigation',
-      url: `${TEST_URL}/nav-a-z/index.html`,
-    },
-    {
       label: 'Action link',
       url: `${TEST_URL}/action-link/index.html`,
     },
@@ -335,10 +331,6 @@ module.exports = {
     {
       label: 'Label as page heading',
       url: `${TEST_URL}/label/page-heading.html`,
-    },
-    {
-      label: 'List panel',
-      url: `${TEST_URL}/list-panel/index.html`,
     },
     {
       label: 'Pagination',
