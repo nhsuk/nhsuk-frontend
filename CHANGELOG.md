@@ -1,5 +1,23 @@
 # NHS.UK frontend Changelog
 
+## 6.0.0 - Unreleased
+
+:boom: **Breaking changes**
+
+- Deprecate the Nav A-Z and List panel components
+
+  Both of these components can be achieved using existing styles or components, so we do not need separate code for them. 
+
+  Nav A-Z
+
+  ... 
+  ...
+
+  List panel
+
+  ... 
+  ...
+
 ## 5.2.0 - 22 September 2021
 
 :new: **New features**
