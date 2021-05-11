@@ -229,6 +229,14 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 <p class="nhsuk-lede-text">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
 ```
 
+### Font
+
+The default `@font-face`, "Frutiger", is loaded from `https://assets.nhs.uk`. The host for the fonts can be
+overridden or disabled entirely.
+
+- `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
+- `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
+
 ## Breakpoints
 
 ```

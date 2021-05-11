@@ -8,12 +8,14 @@
 // 1. Fallback fonts if Frutiger fails to load
 //
 
-$nhsuk-font: Frutiger W01;
-$nhsuk-font-fallback: Arial, Sans-serif; // [1] //
+$nhsuk-font: Frutiger W01 !default;
+$nhsuk-font-fallback: Arial, Sans-serif !default; // [1] //
 $nhsuk-font-family-print: sans-serif !default;
-$nhsuk-font-bold: 600;
-$nhsuk-font-normal: 400;
-$nhsuk-font-light: $nhsuk-font-normal;
+$nhsuk-font-bold: 600 !default;
+$nhsuk-font-normal: 400 !default;
+$nhsuk-font-light: $nhsuk-font-normal !default;
+$nhsuk-fonts-path: 'https://assets.nhs.uk/fonts/' !default;
+$nhsuk-include-font-face: true !default;
 
 //
 // Font sizing and spacing
