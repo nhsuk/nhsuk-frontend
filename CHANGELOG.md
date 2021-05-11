@@ -20,6 +20,8 @@
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
+- Added `$nhsuk-fonts-path` and `$nhsuk-include-font-face` variables to allow for self-hosted fonts or
+disabling font altogether
 
 :wrench: **Fixes**
 
