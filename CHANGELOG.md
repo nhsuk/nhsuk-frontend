@@ -23,6 +23,12 @@
 - Added `$nhsuk-fonts-path` and `$nhsuk-include-font-face` variables to allow for self-hosted fonts or
 disabling font altogether
 
+  The default `@font-face`, "Frutiger", is loaded from `https://assets.nhs.uk`. The host for the fonts can be
+  overridden or disabled entirely.
+
+  - `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
+  - `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
+
 :wrench: **Fixes**
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
