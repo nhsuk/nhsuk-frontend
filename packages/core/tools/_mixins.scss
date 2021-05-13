@@ -38,9 +38,9 @@
 //
 
 @mixin visually-hidden() {
-  -webkit-clip-path: inset(50%);
   border: 0;
   clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
   margin: 0;
@@ -62,8 +62,8 @@
 //
 
 @mixin visually-shown($display-property) {
-  -webkit-clip-path: initial;
   clip: auto;
+  -webkit-clip-path: initial;
   clip-path: initial;
   display: $display-property;
   height: auto;
@@ -127,7 +127,7 @@
   @include panel($panel-background-color, $panel-text-color);
 
   border: 1px solid $panel-border-color;
-  padding-top: 0 !important;  // sass-lint:disable-line no-important
+  padding-top: 0 !important;  /* stylelint-disable-line declaration-no-important */
 }
 
 //
@@ -288,7 +288,7 @@
   }
 
   &:focus {
-    border: 1px solid $nhsuk-focus-color !important; // sass-lint:disable-line no-important /* [2] */
+    border: 1px solid $nhsuk-focus-color !important; /* stylelint-disable-line declaration-no-important */ /* [2] */
   }
 
   &:active,

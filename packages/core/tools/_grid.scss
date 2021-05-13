@@ -94,10 +94,10 @@ $_nhsuk-grid-widths: (
 
   .#{$class}-#{$width} {
     box-sizing: border-box;
+    padding: 0 $nhsuk-gutter-half;
     @if $at != desktop {
       width: 100%;
     }
-    padding: 0 $nhsuk-gutter-half;
     @include govuk-media-query($from: $at) {
       float: $float;
       width: grid-width($width);

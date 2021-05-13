@@ -41,7 +41,6 @@
 
 // Reduces visual spacing of legend when there is a hint
 
-.nhsuk-fieldset__legend + .nhsuk-hint,
 .nhsuk-fieldset__legend + .nhsuk-hint {
   margin-top: -(nhsuk-spacing(1));
 }

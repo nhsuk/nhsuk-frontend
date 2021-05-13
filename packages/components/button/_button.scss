@@ -187,9 +187,9 @@ $button-shadow-size: 4px;
 /**
  * Button disabled states
  */
-
+/* stylelint-disable string-quotes */
 .nhsuk-button--disabled,
-.nhsuk-button[disabled="disabled"], // sass-lint:disable-line quotes
+.nhsuk-button[disabled="disabled"],
 .nhsuk-button[disabled] {
   background-color: $nhsuk-button-color;
   opacity: (.5);
@@ -212,7 +212,7 @@ $button-shadow-size: 4px;
 
 }
 
-.nhsuk-button--secondary[disabled="disabled"], // sass-lint:disable-line quotes
+.nhsuk-button--secondary[disabled="disabled"],
 .nhsuk-button--secondary[disabled] {
   background-color: $nhsuk-secondary-button-color;
   opacity: (.5);
@@ -233,7 +233,7 @@ $button-shadow-size: 4px;
 
 }
 
-.nhsuk-button--reverse[disabled="disabled"], // sass-lint:disable-line quotes
+.nhsuk-button--reverse[disabled="disabled"],
 .nhsuk-button--reverse[disabled] {
   background-color: $nhsuk-reverse-button-color;
   opacity: (.5);

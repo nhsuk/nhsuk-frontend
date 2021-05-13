@@ -9,7 +9,7 @@
     "test": "npm run lint && npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
-    "lint:css": "sass-lint -c ./tests/linters/.sass-lint.yml 'packages/**/*.scss' -v -q",
+    "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "backstop --config=./tests/backstop/backstop.js reference --docker",
     "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
@@ -43,8 +43,10 @@
     "minimist": "^1.2.5",
     "nunjucks": "^3.2.2",
     "sass": "^1.32.11",
-    "sass-lint": "^1.13.1",
     "start-server-and-test": "^1.11.7",
+    "stylelint": "^13.10.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0",
     "webpack-stream": "^5.2.1"
   },
   "publishConfig": {
@@ -53,7 +55,6 @@
   "eslintConfig": {
     "extends": "./tests/linters/.eslintrc.js"
   },
-  "sasslintConfig": "./tests/linters/.sass-lint.yml",
   "husky": {
     "hooks": {
       "pre-push": "npm test"
