@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   Radios();
   SkipLink();
 
-  var $tabs = document.querySelectorAll('[data-module="govuk-tabs"]');
-  nodeListForEach($tabs, function ($tabs) {
+  var $tabs = document.querySelectorAll('[data-module="nhsuk-tabs"]');
+  Array.from($tabs).forEach(function ($tabs) {
     new Tabs($tabs).init();
   });
 });
