@@ -1,0 +1,262 @@
+{% set title = 'Tabs' %}
+
+{% from "components/tabs/macro.njk" import tabs %}
+{% from "components/tables/macro.njk" import table %}
+
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+            {% set pastDayHtml %}
+            <h2 class="nhsuk-heading-l">Past day</h2>
+            {{ table({
+            head: [
+                {
+                text: "Case manager"
+                },
+                {
+                text: "Cases opened"
+                },
+                {
+                text: "Cases closed"
+                }
+            ],
+            rows: [
+                [
+                {
+                    text: "David Francis"
+                },
+                {
+                    text: "3"
+                },
+                {
+                    text: "0"
+                }
+                ],
+                [
+                {
+                    text: "Paul Farmer"
+                },
+                {
+                    text: "1"
+                },
+                {
+                    text: "0"
+                }
+                ],
+                [
+                {
+                    text: "Rita Patel"
+                },
+                {
+                    text: "2"
+                },
+                {
+                    text: "0"
+                }
+                ]
+            ]
+            }) }}
+            {% endset -%}
+
+            {% set pastWeekHtml %}
+            <h2 class="nhsuk-heading-l">Past week</h2>
+            {{ table({
+            head: [
+                {
+                text: "Case manager"
+                },
+                {
+                text: "Cases opened"
+                },
+                {
+                text: "Cases closed"
+                }
+            ],
+            rows: [
+                [
+                {
+                    text: "David Francis"
+                },
+                {
+                    text: "24"
+                },
+                {
+                    text: "18"
+                }
+                ],
+                [
+                {
+                    text: "Paul Farmer"
+                },
+                {
+                    text: "16"
+                },
+                {
+                    text: "20"
+                }
+                ],
+                [
+                {
+                    text: "Rita Patel"
+                },
+                {
+                    text: "24"
+                },
+                {
+                    text: "27"
+                }
+                ]
+            ]
+            }) }}
+            {% endset -%}
+
+            {% set pastMonthHtml %}
+            <h2 class="nhsuk-heading-l">Past month</h2>
+            {{ table({
+            head: [
+                {
+                text: "Case manager"
+                },
+                {
+                text: "Cases opened"
+                },
+                {
+                text: "Cases closed"
+                }
+            ],
+            rows: [
+                [
+                {
+                    text: "David Francis"
+                },
+                {
+                    text: "98"
+                },
+                {
+                    text: "95"
+                }
+                ],
+                [
+                {
+                    text: "Paul Farmer"
+                },
+                {
+                    text: "122"
+                },
+                {
+                    text: "131"
+                }
+                ],
+                [
+                {
+                    text: "Rita Patel"
+                },
+                {
+                    text: "126"
+                },
+                {
+                    text: "142"
+                }
+                ]
+            ]
+            }) }}
+            {% endset -%}
+
+            {% set pastYearHtml %}
+            <h2 class="nhsuk-heading-l">Past year</h2>
+            {{ table({
+            head: [
+                {
+                text: "Case manager"
+                },
+                {
+                text: "Cases opened"
+                },
+                {
+                text: "Cases closed"
+                }
+            ],
+            rows: [
+                [
+                {
+                    text: "David Francis"
+                },
+                {
+                    text: "1380"
+                },
+                {
+                    text: "1472"
+                }
+                ],
+                [
+                {
+                    text: "Paul Farmer"
+                },
+                {
+                    text: "1129"
+                },
+                {
+                    text: "1083"
+                }
+                ],
+                [
+                {
+                    text: "Rita Patel"
+                },
+                {
+                    text: "1539"
+                },
+                {
+                    text: "1265"
+                }
+                ]
+            ]
+            }) }}
+            {% endset -%}
+
+            {{ tabs({
+            items: [
+                {
+                label: "Past day",
+                id: "past-day",
+                panel: {
+                    html: pastDayHtml
+                }
+                },
+                {
+                label: "Past week",
+                id: "past-week",
+                panel: {
+                    html: pastWeekHtml
+                }
+                },
+                {
+                label: "Past month",
+                id: "past-month",
+                panel: {
+                    html: pastMonthHtml
+                }
+                },
+                {
+                label: "Past year",
+                id: "past-year",
+                panel: {
+                    html: pastYearHtml
+                }
+                }
+            ]
+            }) }}
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
