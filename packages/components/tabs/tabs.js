@@ -46,11 +46,11 @@ Tabs.prototype.setup = function () {
 
   $tabList.setAttribute('role', 'tablist');
 
-  Array.from($tabListItems).forEach(function ($item) {
+  $tabListItems.forEach(function ($item) {
     $item.setAttribute('role', 'presentation');
   });
 
-  Array.from($tabs).forEach(
+  $tabs.forEach(
     function ($tab) {
       // Set HTML attributes
       this.setAttributes($tab);
@@ -89,11 +89,11 @@ Tabs.prototype.teardown = function () {
 
   $tabList.removeAttribute('role');
 
-  Array.from($tabListItems).forEach(function ($item) {
+  $tabListItems.forEach(function ($item) {
     $item.removeAttribute('role', 'presentation');
   });
 
-  Array.from($tabs).forEach(
+  $tabs.forEach(
     function ($tab) {
       // Remove events
       $tab.removeEventListener('click', $tab.boundTabClick, true);
@@ -284,4 +284,9 @@ Tabs.prototype.getHref = function ($tab) {
   return hash;
 };
 
-export default Tabs;
+export default () => {
+  var $tabs = document.querySelectorAll('[data-module="nhsuk-tabs"]');
+  $tabs.forEach(function ($tabs) {
+    new Tabs($tabs).init();
+  });
+}

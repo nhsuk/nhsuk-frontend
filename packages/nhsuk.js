@@ -19,9 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   Header();
   Radios();
   SkipLink();
-
-  var $tabs = document.querySelectorAll('[data-module="nhsuk-tabs"]');
-  Array.from($tabs).forEach(function ($tabs) {
-    new Tabs($tabs).init();
-  });
+  Tabs();
 });
