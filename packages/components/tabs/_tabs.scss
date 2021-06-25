@@ -74,13 +74,13 @@
 
       position: relative;
 
-      margin-top: -nhsuk-spacing(1);
+      margin-top: -(nhsuk-spacing(1));
 
       // Compensation for border (otherwise we get a shift)
       margin-bottom: -$border-width;
-      padding-top: nhsuk-spacing(3) - $border-width;
+      padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
       padding-right: nhsuk-spacing(4) - $border-width;
-      padding-bottom: nhsuk-spacing(3) + $border-width;
+      padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
       padding-left: nhsuk-spacing(4) - $border-width;
 
       border: $border-width solid $nhsuk-border-color;
@@ -94,7 +94,7 @@
     }
 
     .nhsuk-tabs__tab {
-      //   @include nhsuk-link-style-text;
+      @include nhsuk-link-style-text;
 
       margin-bottom: 0;
 
