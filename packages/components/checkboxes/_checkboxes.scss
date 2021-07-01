@@ -134,7 +134,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
  */
 
 $conditional-border-width: $nhsuk-border-width-mobile;
-$conditional-border-padding: ($nhsuk-checkboxes-size / 2) - ($conditional-border-width / 2); /* 1 */
+$conditional-border-padding: ($nhsuk-checkboxes-size * 0.5) - ($conditional-border-width * 0.5); /* 1 */
 $conditional-margin-left: $conditional-border-padding; /* 2 */
 $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; /* 3 */
 
