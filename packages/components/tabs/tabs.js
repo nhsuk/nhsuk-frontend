@@ -4,16 +4,20 @@
 // import "../../vendor/polyfills/Element/prototype/previousElementSibling";
 // import "../../vendor/polyfills/Event"; // addEventListener and event.target normaliziation
 
-function Tabs($module) {
+function Tabs($module, namespace, responsive) {
   this.$module = $module;
-  this.$tabs = $module.querySelectorAll('.nhsuk-tabs__tab');
+  this.namespace = namespace;
+  this.responsive = responsive;
+  this.$tabs = $module.querySelectorAll(`.${this.namespace}__tab`);
 
-  this.keys = { left: 37, right: 39, up: 38, down: 40 };
-  this.jsHiddenClass = 'nhsuk-tabs__panel--hidden';
+  this.keys = {
+    left: 37, right: 39, up: 38, down: 40,
+  };
+  this.jsHiddenClass = `${this.namespace}__panel--hidden`;
 }
 
 Tabs.prototype.init = function () {
-  if (typeof window.matchMedia === 'function') {
+  if (typeof window.matchMedia === 'function' && this.responsive) {
     this.setupResponsiveChecks();
   } else {
     this.setup();
@@ -35,10 +39,10 @@ Tabs.prototype.checkMode = function () {
 };
 
 Tabs.prototype.setup = function () {
-  var $module = this.$module;
-  var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.nhsuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item');
+  const { $module } = this;
+  const { $tabs } = this;
+  const $tabList = $module.querySelector(`.${this.namespace}__list`);
+  const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`);
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return;
@@ -46,12 +50,12 @@ Tabs.prototype.setup = function () {
 
   $tabList.setAttribute('role', 'tablist');
 
-  $tabListItems.forEach(function ($item) {
+  $tabListItems.forEach(($item) => {
     $item.setAttribute('role', 'presentation');
   });
 
   $tabs.forEach(
-    function ($tab) {
+    ($tab) => {
       // Set HTML attributes
       this.setAttributes($tab);
 
@@ -65,11 +69,11 @@ Tabs.prototype.setup = function () {
 
       // Remove old active panels
       this.hideTab($tab);
-    }.bind(this)
+    }
   );
 
   // Show either the active tab according to the URL's hash or the first tab
-  var $activeTab = this.getTab(window.location.hash) || this.$tabs[0];
+  const $activeTab = this.getTab(window.location.hash) || this.$tabs[0];
   this.showTab($activeTab);
 
   // Handle hashchange events
@@ -78,10 +82,10 @@ Tabs.prototype.setup = function () {
 };
 
 Tabs.prototype.teardown = function () {
-  var $module = this.$module;
-  var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.nhsuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item');
+  const { $module } = this;
+  const { $tabs } = this;
+  const $tabList = $module.querySelector(`.${this.namespace}__list`);
+  const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`);
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return;
@@ -89,19 +93,19 @@ Tabs.prototype.teardown = function () {
 
   $tabList.removeAttribute('role');
 
-  $tabListItems.forEach(function ($item) {
+  $tabListItems.forEach(($item) => {
     $item.removeAttribute('role', 'presentation');
   });
 
   $tabs.forEach(
-    function ($tab) {
+    ($tab) => {
       // Remove events
       $tab.removeEventListener('click', $tab.boundTabClick, true);
       $tab.removeEventListener('keydown', $tab.boundTabKeydown, true);
 
       // Unset HTML attributes
       this.unsetAttributes($tab);
-    }.bind(this)
+    }
   );
 
   // Remove hashchange event handler
@@ -109,8 +113,8 @@ Tabs.prototype.teardown = function () {
 };
 
 Tabs.prototype.onHashChange = function (e) {
-  var hash = window.location.hash;
-  var $tabWithHash = this.getTab(hash);
+  const { hash } = window.location;
+  const $tabWithHash = this.getTab(hash);
   if (!$tabWithHash) {
     return;
   }
@@ -122,7 +126,7 @@ Tabs.prototype.onHashChange = function (e) {
   }
 
   // Show either the active tab according to the URL's hash or the first tab
-  var $previousTab = this.getCurrentTab();
+  const $previousTab = this.getCurrentTab();
 
   this.hideTab($previousTab);
   this.showTab($tabWithHash);
@@ -140,20 +144,20 @@ Tabs.prototype.showTab = function ($tab) {
 };
 
 Tabs.prototype.getTab = function (hash) {
-  return this.$module.querySelector('.nhsuk-tabs__tab[href="' + hash + '"]');
+  return this.$module.querySelector(`.${this.namespace}__tab[href="${hash}"]`);
 };
 
 Tabs.prototype.setAttributes = function ($tab) {
   // set tab attributes
-  var panelId = this.getHref($tab).slice(1);
-  $tab.setAttribute('id', 'tab_' + panelId);
+  const panelId = this.getHref($tab).slice(1);
+  $tab.setAttribute('id', `tab_${panelId}`);
   $tab.setAttribute('role', 'tab');
   $tab.setAttribute('aria-controls', panelId);
   $tab.setAttribute('aria-selected', 'false');
   $tab.setAttribute('tabindex', '-1');
 
   // set panel attributes
-  var $panel = this.getPanel($tab);
+  const $panel = this.getPanel($tab);
   $panel.setAttribute('role', 'tabpanel');
   $panel.setAttribute('aria-labelledby', $tab.id);
   $panel.classList.add(this.jsHiddenClass);
@@ -168,31 +172,32 @@ Tabs.prototype.unsetAttributes = function ($tab) {
   $tab.removeAttribute('tabindex');
 
   // unset panel attributes
-  var $panel = this.getPanel($tab);
+  const $panel = this.getPanel($tab);
   $panel.removeAttribute('role');
   $panel.removeAttribute('aria-labelledby');
+  $panel.removeAttribute('tabindex');
   $panel.classList.remove(this.jsHiddenClass);
 };
 
 Tabs.prototype.onTabClick = function (e) {
-  if (!e.target.classList.contains('nhsuk-tabs__tab')) {
+  if (!e.target.classList.contains(`${this.namespace}__tab`)) {
     // Allow events on child DOM elements to bubble up to tab parent
     return false;
   }
   e.preventDefault();
-  var $newTab = e.target;
-  var $currentTab = this.getCurrentTab();
+  const $newTab = e.target;
+  const $currentTab = this.getCurrentTab();
   this.hideTab($currentTab);
   this.showTab($newTab);
   this.createHistoryEntry($newTab);
 };
 
 Tabs.prototype.createHistoryEntry = function ($tab) {
-  var $panel = this.getPanel($tab);
+  const $panel = this.getPanel($tab);
 
   // Save and restore the id
   // so the page doesn't jump when a user clicks a tab (which changes the hash)
-  var id = $panel.id;
+  const { id } = $panel;
   $panel.id = '';
   this.changingHash = true;
   window.location.hash = this.getHref($tab).slice(1);
@@ -215,10 +220,10 @@ Tabs.prototype.onTabKeydown = function (e) {
 };
 
 Tabs.prototype.activateNextTab = function () {
-  var currentTab = this.getCurrentTab();
-  var nextTabListItem = currentTab.parentNode.nextElementSibling;
+  const currentTab = this.getCurrentTab();
+  const nextTabListItem = currentTab.parentNode.nextElementSibling;
   if (nextTabListItem) {
-    var nextTab = nextTabListItem.querySelector('.nhsuk-tabs__tab');
+    var nextTab = nextTabListItem.querySelector(`.${this.namespace}__tab`);
   }
   if (nextTab) {
     this.hideTab(currentTab);
@@ -229,10 +234,12 @@ Tabs.prototype.activateNextTab = function () {
 };
 
 Tabs.prototype.activatePreviousTab = function () {
-  var currentTab = this.getCurrentTab();
-  var previousTabListItem = currentTab.parentNode.previousElementSibling;
+  const currentTab = this.getCurrentTab();
+  const previousTabListItem = currentTab.parentNode.previousElementSibling;
   if (previousTabListItem) {
-    var previousTab = previousTabListItem.querySelector('.nhsuk-tabs__tab');
+    var previousTab = previousTabListItem.querySelector(
+      `.${this.namespace}__tab`
+    );
   }
   if (previousTab) {
     this.hideTab(currentTab);
@@ -243,35 +250,35 @@ Tabs.prototype.activatePreviousTab = function () {
 };
 
 Tabs.prototype.getPanel = function ($tab) {
-  var $panel = this.$module.querySelector(this.getHref($tab));
+  const $panel = this.$module.querySelector(this.getHref($tab));
   return $panel;
 };
 
 Tabs.prototype.showPanel = function ($tab) {
-  var $panel = this.getPanel($tab);
+  const $panel = this.getPanel($tab);
   $panel.classList.remove(this.jsHiddenClass);
 };
 
 Tabs.prototype.hidePanel = function (tab) {
-  var $panel = this.getPanel(tab);
+  const $panel = this.getPanel(tab);
   $panel.classList.add(this.jsHiddenClass);
 };
 
 Tabs.prototype.unhighlightTab = function ($tab) {
   $tab.setAttribute('aria-selected', 'false');
-  $tab.parentNode.classList.remove('nhsuk-tabs__list-item--selected');
+  $tab.parentNode.classList.remove(`${this.namespace}__list-item--selected`);
   $tab.setAttribute('tabindex', '-1');
 };
 
 Tabs.prototype.highlightTab = function ($tab) {
   $tab.setAttribute('aria-selected', 'true');
-  $tab.parentNode.classList.add('nhsuk-tabs__list-item--selected');
+  $tab.parentNode.classList.add(`${this.namespace}__list-item--selected`);
   $tab.setAttribute('tabindex', '0');
 };
 
 Tabs.prototype.getCurrentTab = function () {
   return this.$module.querySelector(
-    '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
+    `.${this.namespace}__list-item--selected .${this.namespace}__tab`
   );
 };
 
@@ -279,14 +286,14 @@ Tabs.prototype.getCurrentTab = function () {
 // should be a utility function most prob
 // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
 Tabs.prototype.getHref = function ($tab) {
-  var href = $tab.getAttribute('href');
-  var hash = href.slice(href.indexOf('#'), href.length);
+  const href = $tab.getAttribute('href');
+  const hash = href.slice(href.indexOf('#'), href.length);
   return hash;
 };
 
-export default () => {
-  var $tabs = document.querySelectorAll('[data-module="nhsuk-tabs"]');
-  $tabs.forEach(function ($tabs) {
-    new Tabs($tabs).init();
+export default (namespace = 'nhsuk-tabs', responsive = true) => {
+  const $tabs = document.querySelectorAll(`[data-module="${namespace}"]`);
+  $tabs.forEach(($tabs) => {
+    new Tabs($tabs, namespace, responsive).init();
   });
-}
+};
