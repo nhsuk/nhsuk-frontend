@@ -9,252 +9,43 @@
 
   <div class="nhsuk-width-container">
     <main class="nhsuk-main-wrapper" id="maincontent">
+      {% set tabOneContent %}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>        
+      {% endset -%}
 
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-            {% set pastDayHtml %}
-            <h2 class="nhsuk-heading-l">Past day</h2>
-            {{ table({
-            head: [
-                {
-                text: "Case manager"
-                },
-                {
-                text: "Cases opened"
-                },
-                {
-                text: "Cases closed"
-                }
-            ],
-            rows: [
-                [
-                {
-                    text: "David Francis"
-                },
-                {
-                    text: "3"
-                },
-                {
-                    text: "0"
-                }
-                ],
-                [
-                {
-                    text: "Paul Farmer"
-                },
-                {
-                    text: "1"
-                },
-                {
-                    text: "0"
-                }
-                ],
-                [
-                {
-                    text: "Rita Patel"
-                },
-                {
-                    text: "2"
-                },
-                {
-                    text: "0"
-                }
-                ]
-            ]
-            }) }}
-            {% endset -%}
+      {% set tabTwoContent %}
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>        
+      {% endset -%}
 
-            {% set pastWeekHtml %}
-            <h2 class="nhsuk-heading-l">Past week</h2>
-            {{ table({
-            head: [
-                {
-                text: "Case manager"
-                },
-                {
-                text: "Cases opened"
-                },
-                {
-                text: "Cases closed"
-                }
-            ],
-            rows: [
-                [
-                {
-                    text: "David Francis"
-                },
-                {
-                    text: "24"
-                },
-                {
-                    text: "18"
-                }
-                ],
-                [
-                {
-                    text: "Paul Farmer"
-                },
-                {
-                    text: "16"
-                },
-                {
-                    text: "20"
-                }
-                ],
-                [
-                {
-                    text: "Rita Patel"
-                },
-                {
-                    text: "24"
-                },
-                {
-                    text: "27"
-                }
-                ]
-            ]
-            }) }}
-            {% endset -%}
+      {% set tabThreeContent %}
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>        
+      {% endset -%}
 
-            {% set pastMonthHtml %}
-            <h2 class="nhsuk-heading-l">Past month</h2>
-            {{ table({
-            head: [
-                {
-                text: "Case manager"
-                },
-                {
-                text: "Cases opened"
-                },
-                {
-                text: "Cases closed"
-                }
-            ],
-            rows: [
-                [
-                {
-                    text: "David Francis"
-                },
-                {
-                    text: "98"
-                },
-                {
-                    text: "95"
-                }
-                ],
-                [
-                {
-                    text: "Paul Farmer"
-                },
-                {
-                    text: "122"
-                },
-                {
-                    text: "131"
-                }
-                ],
-                [
-                {
-                    text: "Rita Patel"
-                },
-                {
-                    text: "126"
-                },
-                {
-                    text: "142"
-                }
-                ]
-            ]
-            }) }}
-            {% endset -%}
-
-            {% set pastYearHtml %}
-            <h2 class="nhsuk-heading-l">Past year</h2>
-            {{ table({
-            head: [
-                {
-                text: "Case manager"
-                },
-                {
-                text: "Cases opened"
-                },
-                {
-                text: "Cases closed"
-                }
-            ],
-            rows: [
-                [
-                {
-                    text: "David Francis"
-                },
-                {
-                    text: "1380"
-                },
-                {
-                    text: "1472"
-                }
-                ],
-                [
-                {
-                    text: "Paul Farmer"
-                },
-                {
-                    text: "1129"
-                },
-                {
-                    text: "1083"
-                }
-                ],
-                [
-                {
-                    text: "Rita Patel"
-                },
-                {
-                    text: "1539"
-                },
-                {
-                    text: "1265"
-                }
-                ]
-            ]
-            }) }}
-            {% endset -%}
-
-            {{ tabs({
-            items: [
-                {
-                label: "Past day",
-                id: "past-day",
-                panel: {
-                    html: pastDayHtml
-                }
-                },
-                {
-                label: "Past week",
-                id: "past-week",
-                panel: {
-                    html: pastWeekHtml
-                }
-                },
-                {
-                label: "Past month",
-                id: "past-month",
-                panel: {
-                    html: pastMonthHtml
-                }
-                },
-                {
-                label: "Past year",
-                id: "past-year",
-                panel: {
-                    html: pastYearHtml
-                }
-                }
-            ]
-            }) }}
-
-        </div>
-      </div>
+      {{ tabs({
+        items: [
+          {
+            label: "Tab one",
+            id: "tab-one",
+            panel: {
+              html: tabOneContent
+            }
+          },
+          {
+            label: "Tab two",
+            id: "tab-two",
+            panel: {
+              html: tabTwoContent
+            }
+          },
+          {
+            label: "Tab three",
+            id: "tab-three",
+            panel: {
+              html: tabThreeContent
+            }
+          }
+        ]
+      }) }}
 
     </main>
   </div>
