@@ -13,7 +13,7 @@
 // https://github.com/alphagov/govuk-frontend
 //
 
-@use "sass:math";
+@use 'sass:math';
 
 @function nhsuk-em($value, $context-font-size) {
   @if (unitless($value)) {

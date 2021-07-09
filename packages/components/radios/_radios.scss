@@ -152,7 +152,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 $conditional-border-width: $nhsuk-border-width-mobile;
 // Calculate the amount of padding needed to keep the border centered against the radios.
-$conditional-border-padding: ($nhsuk-radios-size * 0.5) - ($conditional-border-width * 0.5);
+$conditional-border-padding: ($nhsuk-radios-size * .5) - ($conditional-border-width * .5);
 // Move the border centered with the radios
 $conditional-margin-left: $conditional-border-padding;
 // Move the contents of the conditional inline with the label

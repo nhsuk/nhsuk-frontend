@@ -15,11 +15,11 @@
 // so we disable stylelint for that rule
 /* stylelint-disable declaration-no-important */
 
-@use "sass:math";
+@use 'sass:math';
 
 .nhsuk-u-one-half {
   float: left;
-  width: percentage(1 * 0.5) !important;
+  width: percentage(1 * .5) !important;
 }
 
 .nhsuk-u-one-third {
@@ -34,12 +34,12 @@
 
 .nhsuk-u-one-quarter {
   float: left;
-  width: percentage(1 * 0.25) !important;
+  width: percentage(1 * .25) !important;
 }
 
 .nhsuk-u-three-quarters {
   float: left;
-  width: percentage(3 * 0.25) !important;
+  width: percentage(3 * .25) !important;
 }
 
 /**
@@ -58,7 +58,7 @@
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
-    width: percentage(1 * 0.5) !important;
+    width: percentage(1 * .5) !important;
   }
 }
 
@@ -82,7 +82,7 @@
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
-    width: percentage(1 * 0.25) !important;
+    width: percentage(1 * .25) !important;
   }
 }
 
@@ -90,6 +90,6 @@
   width: 100% !important;
   @include mq($from: tablet) {
     float: left;
-    width: percentage(3 * 0.25) !important;
+    width: percentage(3 * .25) !important;
   }
 }
