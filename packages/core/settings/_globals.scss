@@ -36,7 +36,7 @@ $nhsuk-icon-size: 34px !default;
 
 $nhsuk-page-width: 960px;
 $nhsuk-gutter: 32px;
-$nhsuk-gutter-half: $nhsuk-gutter / 2;
+$nhsuk-gutter-half: $nhsuk-gutter * .5;
 
 //
 // Border sizes
