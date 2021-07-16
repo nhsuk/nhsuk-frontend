@@ -806,7 +806,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
 
-#### HTML markup 
+#### HTML markup
 
 ```html
 <header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-nav" role="banner">
@@ -976,7 +976,7 @@ The header Nunjucks macro takes the following arguments:
 | **primaryLinks[].label**   | string   | No        | The label of a navigation item in the header. |
 | **transactional**          | string   | No        | Set to "true" if this is a transactional header (with smaller logo). |
 | **transactionalService**   | object   | No        | Object containing the *name* and *href* and optional boolean *longName* of the transactional service. Set this to "true" if the transactional service name is longer than 22 characters. |
-| **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
+| **service**                | object   | No        | Object containing the *name* of the service. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |
 | **searchAction**             | string   | No        | The search action endpoint. Defaults to "https://www.nhs.uk/search/" |
