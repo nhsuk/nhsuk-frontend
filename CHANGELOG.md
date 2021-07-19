@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 6.0.0 - Unreleased
+
+:wrench: **Fixes**
+
+- Address SASS deprecation warnings ([Issue 752](https://github.com/nhsuk/nhsuk-frontend/issues/752)).
+
 ## 5.1.0 - 14 May 2021
 
 :new: **New features**
