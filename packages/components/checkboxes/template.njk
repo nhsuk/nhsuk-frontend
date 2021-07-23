@@ -56,6 +56,7 @@
       <input class="nhsuk-checkboxes__input" id="{{ id }}" name="{{ name }}" type="checkbox" value="{{ item.value }}"
       {{-" checked" if item.checked }}
       {{-" disabled" if item.disabled }}
+      {%- if item.behaviour %} data-behaviour="{{ item.behaviour }}"{% endif -%}
       {%- if item.conditional %} aria-controls="{{ conditionalId }}" aria-expanded="{{"true" if item.checked else "false"}}"{% endif -%}
       {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
       {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
