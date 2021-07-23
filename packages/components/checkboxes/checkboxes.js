@@ -6,7 +6,7 @@ import { toggleConditionalInput } from '../../common';
 */
 
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
-  const allInputsWithSameName = document.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
+  const allInputsWithSameName = input.form.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
   Array.from(allInputsWithSameName).map((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
 };
 
@@ -17,7 +17,7 @@ const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
  * This is useful for when a “None of these" checkbox is checked.
  */
 const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
-  const allInputsWithSameName = document.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
+  const allInputsWithSameName = input.form.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
 
   allInputsWithSameName.forEach((inputWithSameName) => {
     const hasSameFormOwner = input.form === inputWithSameName.form;
@@ -37,7 +37,7 @@ const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
  * "None of these" checkbox in the same fieldset.
  */
 const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
-  const allInputsWithSameNameAndExclusiveBehaviour = document.querySelectorAll(
+  const allInputsWithSameNameAndExclusiveBehaviour = input.form.querySelectorAll(
     `input[data-behaviour="exclusive"][type="checkbox"][name="${input.name}"]`
   );
 
