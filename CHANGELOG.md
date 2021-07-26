@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 5.1.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Transactional header defaults to wrapping underneath the logo without the need for a modifier ([Issue 720](https://github.com/nhsuk/nhsuk-frontend/issues/720)).
+
 ## 5.1.0 - 14 May 2021
 
 :new: **New features**

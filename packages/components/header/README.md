@@ -455,44 +455,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 }}
 ```
 
-### Header transactional with a long service name
-
-[Preview the header transactional with a long service name component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-long-service-name.html)
-
-#### HTML markup
-
-```HTML
-<header class="nhsuk-header nhsuk-header--transactional" role="banner">
-  <div class="nhsuk-width-container nhsuk-header__container">
-    <div class="nhsuk-header__logo nhsuk-header__logo--only">
-      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16">
-          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
-          <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
-        </svg>
-      </a>
-    </div>
-    <div class="nhsuk-header__transactional-service-name nhsuk-header__transactional-service-name--long">
-      <a class="nhsuk-header__transactional-service-name--link" href="/">Find out why your NHS data matters</a>
-    </div>
-  </div>
-</header>
-```
-
-#### Nunjucks macro
-
-```
-{{ header({
-    "transactionalService": {
-      "name": "Find out why your NHS data matters",
-      "longName": "true"
-    },
-    "showNav": "false",
-    "showSearch": "false"
-  })
-}}
-```
-
 ### Header organisational
 
 [Preview the header organisational component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org.html)
@@ -806,7 +768,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
 
-#### HTML markup 
+#### HTML markup
 
 ```html
 <header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-nav" role="banner">
@@ -975,7 +937,7 @@ The header Nunjucks macro takes the following arguments:
 | **primaryLinks[].url**     | string   | No        | The href of a navigation item in the header. |
 | **primaryLinks[].label**   | string   | No        | The label of a navigation item in the header. |
 | **transactional**          | string   | No        | Set to "true" if this is a transactional header (with smaller logo). |
-| **transactionalService**   | object   | No        | Object containing the *name* and *href* and optional boolean *longName* of the transactional service. Set this to "true" if the transactional service name is longer than 22 characters. |
+| **transactionalService**   | object   | No        | Object containing the *name* and *href* of the transactional service. |
 | **service**                | object   | No        | Object containing the *name* and optional boolean *longName* of the service. Set this to "true" if the service name is longer than 22 characters. |
 | **classes**                | string   | No        | Optional additional classes to add to the header container. Separate each class with a space. |
 | **attributes**             | object   | No        | Any extra HTML attributes (for example data attributes) to add to the header container. |

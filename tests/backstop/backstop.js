@@ -222,10 +222,6 @@ module.exports = {
       url: `${TEST_URL}/header/header-transactional-service-name.html`,
     },
     {
-      label: 'Header transactional with a long service name',
-      url: `${TEST_URL}/header/header-transactional-long-service-name.html`,
-    },
-    {
       label: 'Header with navigation',
       url: `${TEST_URL}/header/header-navigation.html`,
     },

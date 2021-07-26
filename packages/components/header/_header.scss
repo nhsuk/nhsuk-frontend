@@ -683,19 +683,11 @@
   padding-left: nhsuk-spacing(3);
   padding-top: 3px;
 
-  @include mq($until: tablet) {
-    padding-top: nhsuk-spacing(1);
-  }
-}
-
-.nhsuk-header__transactional-service-name--long {
-
   @include mq($until: large-desktop) {
     padding-left: 0;
     padding-top: nhsuk-spacing(2);
     width: 100%;
   }
-
 }
 
 .nhsuk-header__transactional-service-name--link {
