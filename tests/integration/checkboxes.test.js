@@ -13,10 +13,10 @@ describe('Checkboxes module', () => {
 
   describe('displays conditional content', () => {
     it('when checking the input', () => {
-      document.body.innerHTML = `<div class="nhsuk-checkboxes--conditional">
+      document.body.innerHTML = `<form><div class="nhsuk-checkboxes--conditional">
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
-            </div>`;
+            </div></form>`;
       const input = document.querySelector('#input-1');
       const conditional = document.querySelector('#conditional-1');
       Checkboxes();
@@ -28,10 +28,10 @@ describe('Checkboxes module', () => {
 
   describe('hides conditional content', () => {
     it('when unchecking the input', () => {
-      document.body.innerHTML = `<div class="nhsuk-checkboxes--conditional">
+      document.body.innerHTML = `<form><div class="nhsuk-checkboxes--conditional">
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
-            </div>`;
+            </div></form>`;
       const input = document.querySelector('#input-1');
       const conditional = document.querySelector('#conditional-1');
       Checkboxes();
