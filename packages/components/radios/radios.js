@@ -12,7 +12,7 @@ export default () => {
   /**
    * Update all conditional reveals to match checked state
   */
-  const syncAllConditionalReveals = () => {    
+  const syncAllConditionalReveals = () => {
     radioInputs.forEach((input) => toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden'));
   };
 
@@ -21,9 +21,9 @@ export default () => {
   // event is fired, so we need to sync after the pageshow event in browsers
   // that support it.
   if ('onpageshow' in window) {
-    window.addEventListener('pageshow', syncAllConditionalReveals)
+    window.addEventListener('pageshow', syncAllConditionalReveals);
   } else {
-    window.addEventListener('DOMContentLoaded', syncAllConditionalReveals)
+    window.addEventListener('DOMContentLoaded', syncAllConditionalReveals);
   }
 
   // Although we've set up handlers to sync state on the pageshow or
