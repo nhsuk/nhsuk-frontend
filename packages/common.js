@@ -27,10 +27,10 @@ export const toggleConditionalInput = (input, className) => {
     if (conditionalElement) {
       if (input.checked) {
         conditionalElement.classList.remove(className);
-        input.setAttribute('aria-expanded', false);
+        input.setAttribute('aria-expanded', true);
       } else {
         conditionalElement.classList.add(className);
-        input.setAttribute('aria-expanded', true);
+        input.setAttribute('aria-expanded', false);
       }      
     }
   }
