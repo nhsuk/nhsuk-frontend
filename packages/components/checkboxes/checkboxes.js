@@ -4,10 +4,9 @@ import { toggleConditionalInput } from '../../common';
  * Conditionally show content when a checkbox button is checked
  * Test at http://0.0.0.0:3000/components/checkboxes/conditional.html
 */
-
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
   const allInputsWithSameName = input.form.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
-  Array.from(allInputsWithSameName).map((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
+  allInputsWithSameName.forEach((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
 };
 
 /**
@@ -74,6 +73,21 @@ export default () => {
       unCheckExclusiveInputs(event.target);
     }
   };
+
+  // When the page is restored after navigating 'back' in some browsers the
+  // state of form controls is not restored until *after* the DOMContentLoaded
+  // event is fired, so we need to sync after the pageshow event in browsers
+  // that support it.
+  if ('onpageshow' in window) {
+    window.addEventListener('pageshow', () => checkboxInputs.forEach((input) => syncAllConditionalReveals(input)));
+  } else {
+    window.addEventListener('DOMContentLoaded', () => checkboxInputs.forEach((input) => syncAllConditionalReveals(input)));
+  }
+
+  // Although we've set up handlers to sync state on the pageshow or
+  // DOMContentLoaded event, init could be called after those events have fired,
+  // for example if they are added to the page dynamically, so sync now too.
+  checkboxInputs.forEach((input) => syncAllConditionalReveals(input));
 
   // Attach handleClick as click to checkboxInputs
   checkboxInputs.forEach((checkboxButton) => {
