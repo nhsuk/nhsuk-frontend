@@ -5,8 +5,8 @@ import { toggleConditionalInput } from '../../common';
  * Test at http://0.0.0.0:3000/components/checkboxes/conditional.html
 */
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
-  const allInputsWithSameName = input.form.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
-  allInputsWithSameName.forEach((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
+  const allInputsInForm = input.form.querySelectorAll(`input[type="checkbox"]`);
+  allInputsInForm.forEach((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
 };
 
 /**
@@ -16,9 +16,11 @@ const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
  * This is useful for when a “None of these" checkbox is checked.
  */
 const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
-  const allInputsWithSameName = input.form.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
+  const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
+    `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
+  );
 
-  allInputsWithSameName.forEach((inputWithSameName) => {
+  allInputsInSameExclusiveGroup.forEach((inputWithSameName) => {
     const hasSameFormOwner = input.form === inputWithSameName.form;
     if (hasSameFormOwner && inputWithSameName !== input) {
       inputWithSameName.checked = false; // eslint-disable-line no-param-reassign
@@ -36,11 +38,11 @@ const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
  * "None of these" checkbox in the same fieldset.
  */
 const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
-  const allInputsWithSameNameAndExclusiveBehaviour = input.form.querySelectorAll(
-    `input[data-behaviour="exclusive"][type="checkbox"][name="${input.name}"]`
+  const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
+    `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
   );
 
-  allInputsWithSameNameAndExclusiveBehaviour.forEach((exclusiveInput) => {
+  allExclusiveInputsInSameExclusiveGroup.forEach((exclusiveInput) => {
     const hasSameFormOwner = input.form === exclusiveInput.form;
     if (hasSameFormOwner) {
       exclusiveInput.checked = false; // eslint-disable-line no-param-reassign
@@ -52,7 +54,7 @@ const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
 
 export default () => {
   // Checkbox input DOMElements inside a conditional form group
-  const checkboxInputs = document.querySelectorAll('.nhsuk-checkboxes--conditional .nhsuk-checkboxes__input');
+  const checkboxInputs = document.querySelectorAll('.nhsuk-checkboxes .nhsuk-checkboxes__input');
 
   /**
    * Toggle classes and attributes
@@ -67,7 +69,7 @@ export default () => {
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if (event.target.getAttribute('data-behaviour') === 'exclusive') {
+    if (event.target.hasAttribute("data-checkbox-exclusive")) {
       unCheckAllInputsExcept(event.target);
     } else {
       unCheckExclusiveInputs(event.target);

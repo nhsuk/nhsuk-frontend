@@ -62,6 +62,8 @@
                 {
                   "value": "email",
                   "text": "Email",
+                  "name": "email",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": emailHtml
                   }
@@ -69,6 +71,8 @@
                 {
                   "value": "phone",
                   "text": "Phone",
+                  "name": "phone",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": phoneHtml
                   }
@@ -76,17 +80,21 @@
                 {
                   "value": "text",
                   "text": "Text message",
+                  "name": "text",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": mobileHtml
                   }
                 },
                 {
-                  divider: "or"
+                  "divider": "or"
                 },
                 {
-                  value: "none",
-                  text: "None of the above",
-                  behaviour: "exclusive"
+                  "value": "none",
+                  "text": "None of the above",
+                  "name": "none",
+                  "exclusive": true,
+                  "exclusiveGroup": "communication-preferences"
                 }
               ]
             }) }}
