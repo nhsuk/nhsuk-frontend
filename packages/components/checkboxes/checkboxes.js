@@ -12,7 +12,7 @@ const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
 /**
  * Uncheck other checkboxes
  *
- * Find any other checkbox inputs with the same name value, and uncheck them.
+ * Find any other checkbox inputs with the checkbox group value, and uncheck them.
  * This is useful for when a “None of these" checkbox is checked.
  */
 const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
@@ -33,7 +33,7 @@ const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
 /**
  * Uncheck exclusive inputs
  *
- * Find any checkbox inputs with the same name value and the 'exclusive' behaviour,
+ * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
  * and uncheck them. This helps prevent someone checking both a regular checkbox and a
  * "None of these" checkbox in the same fieldset.
  */
