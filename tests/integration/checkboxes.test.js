@@ -6,14 +6,14 @@ describe('Checkboxes module', () => {
       Checkboxes();
     });
     it('if there are no conditional checkboxes inside the container', () => {
-      document.body.innerHTML = '<div class="nhsuk-checkboxes--conditional"></div>';
+      document.body.innerHTML = '<div class="nhsuk-checkboxes"></div>';
       Checkboxes();
     });
   });
 
   describe('displays conditional content', () => {
     it('when checking the input', () => {
-      document.body.innerHTML = `<form><div class="nhsuk-checkboxes--conditional">
+      document.body.innerHTML = `<form><div class="nhsuk-checkboxes">
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
             </div></form>`;
@@ -28,7 +28,7 @@ describe('Checkboxes module', () => {
 
   describe('hides conditional content', () => {
     it('when unchecking the input', () => {
-      document.body.innerHTML = `<form><div class="nhsuk-checkboxes--conditional">
+      document.body.innerHTML = `<form><div class="nhsuk-checkboxes">
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
             </div></form>`;
