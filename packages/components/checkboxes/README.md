@@ -510,7 +510,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with "none of the above" option
 
-[Preview the checkboxes with "none of the above" option](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/conditional.html)
+[Preview the checkboxes with "none of the above" option](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/none-of-the-above.html)
 
 #### HTML markup
 
