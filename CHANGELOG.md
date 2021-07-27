@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 5.2.0 - Unreleased
+
+:new: **New features**
+
+- Add "None of these" JavaScript behaviour to checkboxes - allowing all checkboxes in a group to be automatically unchecked when the "None of the above" option is checked ([PR 756](https://github.com/nhsuk/nhsuk-frontend/pull/756))
+
 ## 5.1.0 - 14 May 2021
 
 :new: **New features**
