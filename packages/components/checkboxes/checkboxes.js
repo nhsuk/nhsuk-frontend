@@ -5,7 +5,7 @@ import { toggleConditionalInput } from '../../common';
  * Test at http://0.0.0.0:3000/components/checkboxes/conditional.html
 */
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
-  const allInputsInForm = input.form.querySelectorAll(`input[type="checkbox"]`);
+  const allInputsInForm = input.form.querySelectorAll('input[type="checkbox"]');
   allInputsInForm.forEach((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'));
 };
 
@@ -69,7 +69,7 @@ export default () => {
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if (event.target.hasAttribute("data-checkbox-exclusive")) {
+    if (event.target.hasAttribute('data-checkbox-exclusive')) {
       unCheckAllInputsExcept(event.target);
     } else {
       unCheckExclusiveInputs(event.target);
