@@ -4,10 +4,11 @@
 // import "../../vendor/polyfills/Element/prototype/previousElementSibling";
 // import "../../vendor/polyfills/Event"; // addEventListener and event.target normaliziation
 
-function Tabs($module, namespace, responsive) {
+function Tabs($module, namespace, responsive, historyEnabled) {
   this.$module = $module;
   this.namespace = namespace;
   this.responsive = responsive;
+  this.historyEnabled = historyEnabled;
   this.$tabs = $module.querySelectorAll(`.${this.namespace}__tab`);
 
   this.keys = {
@@ -77,8 +78,10 @@ Tabs.prototype.setup = function setup() {
   this.showTab($activeTab);
 
   // Handle hashchange events
-  $module.boundOnHashChange = this.onHashChange.bind(this);
-  window.addEventListener('hashchange', $module.boundOnHashChange, true);
+  if (this.historyEnabled) {
+    $module.boundOnHashChange = this.onHashChange.bind(this);
+    window.addEventListener('hashchange', $module.boundOnHashChange, true);
+  }
 };
 
 Tabs.prototype.teardown = function teardown() {
@@ -108,8 +111,10 @@ Tabs.prototype.teardown = function teardown() {
     }
   );
 
-  // Remove hashchange event handler
-  window.removeEventListener('hashchange', $module.boundOnHashChange, true);
+  if (this.historyEnabled) {
+    // Remove hashchange event handler
+    window.removeEventListener('hashchange', $module.boundOnHashChange, true);
+  }
 };
 
 Tabs.prototype.onHashChange = function onHashChange() {
@@ -193,15 +198,17 @@ Tabs.prototype.onTabClick = function onTabClick(e) { // eslint-disable-line cons
 };
 
 Tabs.prototype.createHistoryEntry = function createHistoryEntry($tab) {
-  const $panel = this.getPanel($tab);
+  if (this.historyEnabled) {
+    const $panel = this.getPanel($tab);
 
-  // Save and restore the id
-  // so the page doesn't jump when a user clicks a tab (which changes the hash)
-  const { id } = $panel;
-  $panel.id = '';
-  this.changingHash = true;
-  window.location.hash = this.getHref($tab).slice(1);
-  $panel.id = id;
+    // Save and restore the id
+    // so the page doesn't jump when a user clicks a tab (which changes the hash)
+    const { id } = $panel;
+    $panel.id = '';
+    this.changingHash = true;
+    window.location.hash = this.getHref($tab).slice(1);
+    $panel.id = id;
+  }
 };
 
 Tabs.prototype.onTabKeydown = function onTabKeydown(e) {
@@ -297,9 +304,16 @@ Tabs.prototype.getHref = function getHref($tab) {
   return hash;
 };
 
-export default (namespace = 'nhsuk-tabs', responsive = true) => {
+/**
+ * Main function to invoke tabs. Can be called as follows to alter various features
+ *
+ * Tabs({historyEnabled: false});
+ * Tabs({responsive: false});
+ * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
+ */
+export default ({ namespace = 'nhsuk-tabs', responsive = true, historyEnabled = true } = {}) => {
   const tabs = document.querySelectorAll(`[data-module="${namespace}"]`);
   tabs.forEach((el) => {
-    new Tabs(el, namespace, responsive).init();
+    new Tabs(el, namespace, responsive, historyEnabled).init();
   });
 };
