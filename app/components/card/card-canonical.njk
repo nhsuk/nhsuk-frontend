@@ -1,0 +1,29 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Card - Card with an image' %}
+{% from 'components/card/macro.njk' import card %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half">
+
+        {{ card({
+          "canonical": "true",
+          "clickable": "true",
+          "href": "#",
+          "heading": "Find services near you",
+          "headingClasses": "nhsuk-heading-m",
+          "description": "Find your nearest NHS services, including pharmacies, GPs, and A&E"
+        }) }}
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}
