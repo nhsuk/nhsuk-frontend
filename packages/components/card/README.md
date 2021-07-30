@@ -379,6 +379,41 @@ Find out more about the card component and when to use it in the [NHS digital se
 }) }}
 ```
 
+### Canonical
+
+[Preview the canonical card component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-canonical.html)
+
+#### HTML markup
+
+```
+<div class="nhsuk-card nhsuk-card--clickable nhsuk-card--canonical">
+  <div class="nhsuk-card__content nhsuk-card__content--canonical">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="#">
+        Introduction to care and support
+      </a>
+    </h2>
+    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+  </div>
+  <svg class="nhsuk-icon nhsuk-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+{{ card({
+  "canonical": "true",
+  "clickable": "true",
+  "href": "#",
+  "heading": "Find services near you",
+  "headingClasses": "nhsuk-heading-m",
+  "description": "Find your nearest NHS services, including pharmacies, GPs, and A&E"
+}) }}
+```
+
 ### Nunjucks arguments
 
 The card Nunjucks macro takes the following arguments:
@@ -392,6 +427,7 @@ The card Nunjucks macro takes the following arguments:
 | **href**            | string   | No       | The value of the card href attribute |
 | **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
 | **feature**            | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied. |
+| **canonical**            | boolean | No       | If set to true, then the class `nhsuk-card--canonical` and `nhsuk-card__content--canonical` will be applied. |
 | **imgURL**          | string   | No        | The URL of the image in the card |
 | **imgALT**          | string   | No        | The alternative text of the image in the card |
 | **description**     | string   | No        | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |
