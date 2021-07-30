@@ -98,6 +98,10 @@ module.exports = {
       url: `${TEST_URL}/card/feature-card.html`,
     },
     {
+      label: 'Card - Card canonical',
+      url: `${TEST_URL}/card/card-canonical.html`,
+    },
+    {
       label: 'Care card - Non urgent',
       url: `${TEST_URL}/care-card/care-card-non-urgent.html`,
     },
