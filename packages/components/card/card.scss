@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /**
- * 1. Is needed for the :active top positioning.
+ * 1. Is needed for the :active top positioning, and invisible clickable overlay.
  * 2. Border is used to create a divider between the white content
  *    box and an image.
  * 3. Creates the 'pressed down' effect when clicked.
@@ -38,8 +38,6 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card__content {
   @include top-and-bottom();
   @include nhsuk-responsive-padding(5);
-
-  position: relative;
 }
 
 .nhsuk-card__heading,
@@ -54,20 +52,17 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card--clickable {
   border-bottom-width: $card-border-bottom-width;
 
-  &:hover,
-  &:active {
-    cursor: pointer;
-
-    .nhsuk-card__heading a,
-    .nhsuk-card__link {
-      color: $nhsuk-link-hover-color;
-      text-decoration: none;
-
-      &:focus {
-        color: $nhsuk-focus-text-color;
-      }
+  .nhsuk-card__heading a,
+  .nhsuk-card__link {
+    &::before {
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
     }
-
   }
 
   &:hover {

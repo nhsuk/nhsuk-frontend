@@ -1,5 +1,4 @@
 // Components
-import Card from './components/card/card';
 import Checkboxes from './components/checkboxes/checkboxes';
 import Details from './components/details/details';
 import ErrorSummary from './components/error-summary/error-summary';
@@ -11,7 +10,6 @@ import './polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
-  Card();
   Checkboxes();
   Details();
   ErrorSummary();
