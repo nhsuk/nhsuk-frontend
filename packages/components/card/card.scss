@@ -11,6 +11,7 @@
  * 5. Includes the border width to achieve the correct left alignment.
  * 6. Stops the heading from spanning the full width of the card.
  * 7. Removes padding top for the feature heading positioning.
+ * 8. Trick IE10 into rendering the invisible clickable area. Without this it does not.
  */
 
 $card-border-width: 1px;
@@ -62,6 +63,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
       position: absolute;
       right: 0;
       top: 0;
+      background-color: rgba(255,255,255,0);  /* [8] */
     }
   }
 
