@@ -40,7 +40,7 @@
     {%- if showNav == "false" and showSearch == "false"%}
 
       {%- if params.transactionalService%}
-        <div class="nhsuk-header__transactional-service-name{% if params.transactionalService.longName %} nhsuk-header__transactional-service-name--long{% endif %}">
+        <div class="nhsuk-header__transactional-service-name">
           <a class="nhsuk-header__transactional-service-name--link" href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}">{{ params.transactionalService.name }}</a>
         </div>
       {%- endif %}
