@@ -11,9 +11,14 @@
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
           {{ siblingNav({
+            "classes": "example",
+            "attributes": {
+              "data-attribute": "value",
+              "data-second-attribute": "second-value"
+            },
             "items": [
               {
-                "isActive": "true",
+                "active": "true",
                 "text": "Main symptoms of COVID-19",
                 "href": "/main-symptoms"
               },

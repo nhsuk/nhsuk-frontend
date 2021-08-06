@@ -1,27 +1,28 @@
-# Nav A-Z
+# Nav Sibling
 
 ## Quick start example
 
-[Preview the nav a-z component](https://nhsuk.github.io/nhsuk-frontend/components/nav-sibling/index.html)
+[Preview the nav sibling component](https://nhsuk.github.io/nhsuk-frontend/components/nav-sibling/index.html)
 
 ### HTML markup
 
 ```html
-<nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
-  <ol class="nhsuk-nav-a-z__list" role="list">
-    <li class="nhsuk-nav-a-z__item">
-      <a class="nhsuk-nav-a-z__link" href="#A">A</a>
+<nav role="navigation" class="nhsuk-nav-sibling">
+  <ul class="nhsuk-nav-sibling__list">
+    <li class="nhsuk-nav-sibling__item is-active" >
+      Main symptoms of COVID-19
     </li>
-    <li class="nhsuk-nav-a-z__item">
-      <span class="nhsuk-nav-a-z__link--disabled">B</span>
+    <li class="nhsuk-nav-sibling__item">
+      <a class="nhsuk-nav-sibling__link" href="/coronavirus-in-children">
+        COVID-19 symptoms in children
+      </a>
     </li>
-    <li class="nhsuk-nav-a-z__item">
-      <a class="nhsuk-nav-a-z__link" href="#C">C</a>
+    <li class="nhsuk-nav-sibling__item">
+      <a class="nhsuk-nav-sibling__link" href="/what-to-do-if-you-get-symptoms-again">
+        What to do if you get symptoms again
+      </a>
     </li>
-    <li class="nhsuk-nav-a-z__item">
-      <a class="nhsuk-nav-a-z__link" href="#D">D</a>
-    </li>
-  </ol>
+  </ul>
 </nav>
 ```
 
@@ -30,10 +31,10 @@
 ```
 {% from 'components/nav-sibling/macro.njk' import siblingNav %}
 
-{{ azNav({
+{{ siblingNav({
   "items": [
     {
-      "isActive": "true",
+      "active": "true",
       "text": "Main symptoms of COVID-19",
       "href": "/main-symptoms"
     },
@@ -51,14 +52,14 @@
 
 ### Nunjucks arguments
 
-The nav a-z Nunjucks macro takes the following arguments:
+The nav sibling Nunjucks macro takes the following arguments:
 
 | Name                  | Type     | Required  | Description  |
 | ----------------------|----------|-----------|--------------|
 | **items**             | array    | Yes       | Array of navigation items. |
 | **items.[].label**    | string   | Yes       | The label of the item in the navigation. |
-| **items.[].disable**  | boolean  | No        | If set to true, then the navigation item will not be within an anchor element. |
-| **classes**           | string   | No        | Optional additional classes to add to the nav a-z. Separate each class with a space. |
-| **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the nav a-z. |
+| **items.[].active**  | boolean  | No        | If set to true, then the navigation item will not be within an anchor element. |
+| **classes**           | string   | No        | Optional additional classes to add to the nav sibling. Separate each class with a space. |
+| **attributes**        | object   | No        | Any extra HTML attributes (for example data attributes) to add to the nav sibling. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

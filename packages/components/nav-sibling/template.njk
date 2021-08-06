@@ -1,14 +1,15 @@
-<nav role="navigation" class="app-related-nav__nav-section 
+
+<nav role="navigation" class="nhsuk-nav-sibling 
 {%- if params.classes %} {{ params.classes }}{% endif %}" {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
-  <ul class="app-related-nav__list beta-hub-sibling-nav__list">
+  <ul class="nhsuk-nav-sibling__list">
     {%- for item in params.items %}
-      {%- if item.isActive %}
-        <li class="beta-hub-sibling-nav__item  beta-hub-sibling-nav--current is-active" >
+      {%- if item.active %}
+        <li class="nhsuk-nav-sibling__item is-active" >
           {{ item.text }}
         </li>
       {%- else %}
-        <li class="beta-hub-sibling-nav__item ">
-          <a href="{{ item.href }}">
+        <li class="nhsuk-nav-sibling__item">
+          <a class="nhsuk-nav-sibling__link" href="{{ item.href }}">
             {{ item.text }}
           </a>
         </li>
@@ -16,23 +17,3 @@
     {%- endfor %}
   </ul>
 </nav>
-
-
-{# 
-
-
-<nav class="nhsuk-nav-a-z
-{%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation"
-{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
-  <ol class="nhsuk-nav-a-z__list" role="list">
-    {%- for item in params.items %}
-    <li class="nhsuk-nav-a-z__item">
-      {%- if item.disable %}
-        <span class="nhsuk-nav-a-z__link--disabled">{{ item.label }}</span>
-      {%- else %}
-        <a class="nhsuk-nav-a-z__link" href="#{{ item.label }}">{{ item.label }}</a>
-      {%- endif %}
-    </li>
-    {%- endfor %}
-  </ol>
-</nav> #}
