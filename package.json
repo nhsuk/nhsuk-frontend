@@ -12,7 +12,7 @@
     "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "backstop --config=./tests/backstop/backstop.js reference --docker",
-    "backstop:test": "backstop --config=./tests/backstop/backstop.js test --docker",
+    "backstop:test": "concurrently \"npm start\" \"wait-on http://localhost:3000 && backstop --config=./tests/backstop/backstop.js test --docker\"",
     "backstop:ci": "start-server-and-test start http://0.0.0.0:3000 backstop:test",
     "backstop:approve": "backstop --config=./tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "backstopjs": "^5.0.8",
+    "concurrently": "^6.2.0",
     "eslint": "^7.18.0",
     "eslint-config-nhsuk": "^1.0.0",
     "gulp": "^4.0.2",
@@ -72,5 +73,8 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "wait-on": "^6.0.0"
+  }
 }
