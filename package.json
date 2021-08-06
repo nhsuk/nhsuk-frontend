@@ -49,6 +49,7 @@
     "stylelint": "^13.10.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0",
+    "wait-on": "^6.0.0",
     "webpack-stream": "^5.2.1"
   },
   "publishConfig": {
@@ -75,7 +76,5 @@
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "wait-on": "^6.0.0"
-  }
+  "dependencies": {}
 }
