@@ -75,6 +75,5 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }
