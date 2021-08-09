@@ -16,10 +16,8 @@
 
 .nhsuk-breadcrumb {
   @include print-hide();
-
-  background-color: $color_nhsuk-white;
-  padding-bottom: 12px; /* [1] */
-  padding-top: 12px; /* [1] */
+  padding-bottom: nhsuk-spacing(3);
+  padding-top: 20px;
 
   .nhsuk-icon__chevron-right {
     fill: $color_nhsuk-grey-3;
