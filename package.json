@@ -11,7 +11,7 @@
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
-    "backstop:ref": "backstop --config=./tests/backstop/backstop.js reference --docker",
+    "backstop:ref": "concurrently \"npm start\" \"wait-on http://localhost:3000 && backstop --config=./tests/backstop/backstop.js reference --docker\"",
     "backstop:test": "concurrently \"npm start\" \"wait-on http://localhost:3000 && backstop --config=./tests/backstop/backstop.js test --docker\"",
     "backstop:ci": "start-server-and-test start http://0.0.0.0:3000 backstop:citest",
     "backstop:citest": "backstop --config=./tests/backstop/backstop.js test --docker",
