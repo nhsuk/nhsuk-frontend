@@ -9,6 +9,7 @@
 :wrench: **Fixes**
 
 - Transactional header defaults to wrapping underneath the logo without the need for a modifier ([Issue 720](https://github.com/nhsuk/nhsuk-frontend/issues/720)).
+- Add width, height, stroke and fill attributes to inline SVGs in order that they render at appropriate sizes when viewed with disabled/broken/missing CSS  ([PR 761](https://github.com/nhsuk/nhsuk-frontend/pull/761)).
 
 ## 5.1.0 - 14 May 2021
 
