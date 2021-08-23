@@ -508,6 +508,170 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ---
 
+### Checkboxes with "none of the above" option
+
+[Preview the checkboxes with "none of the above" option](https://nhsuk.github.io/nhsuk-frontend/components/checkboxes/none-of-the-above.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        How would you prefer to be contacted?
+      </h1>
+    </legend>
+
+    <div class="nhsuk-hint" id="contact-hint">
+      Select all options that are relevant to you.
+    </div>
+
+    <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+      <div class="nhsuk-checkboxes__item">
+        <input
+          class="nhsuk-checkboxes__input" id="contact-1" name="email" type="checkbox" value="email" data-checkbox-exclusive-group="communication-preferences" aria-controls="conditional-contact-1" aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1">Email</label>
+      </div>
+
+      <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-1">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email"> Email address </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text" />
+        </div>
+      </div>
+
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="contact-2" name="phone" type="checkbox" value="phone" data-checkbox-exclusive-group="communication-preferences" aria-controls="conditional-contact-2" aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">Phone</label>
+      </div>
+
+      <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="phone"> Phone number </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text" />
+        </div>
+      </div>
+
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="contact-3" name="text" type="checkbox" value="text" data-checkbox-exclusive-group="communication-preferences" aria-controls="conditional-contact-3" aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">Text message</label>
+      </div>
+
+      <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-3">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile"> Mobile phone number </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text" />
+        </div>
+      </div>
+
+      <div class="nhsuk-checkboxes__divider">or</div>
+
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="contact-5" name="none" type="checkbox" value="none" data-checkbox-exclusive data-checkbox-exclusive-group="communication-preferences" />
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-5">None of the above</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'components/input/macro.njk' import input %}
+
+{% set emailHtml %}
+  {{ input({
+    id: "email",
+    name: "email",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Email address"
+    }
+  }) }}
+{% endset -%}
+
+{% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%}
+  
+{{ checkboxes({
+  "idPrefix": "contact",
+  "name": "contact",
+  "fieldset": {
+    "legend": {
+      "text": "How would you prefer to be contacted?",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": "true"
+    }
+  },
+  "hint": {
+    "text": "Select all options that are relevant to you."
+  },
+  "items": [
+    {
+      "value": "email",
+      "text": "Email",
+      "name": "email",
+      "exclusiveGroup": "communication-preferences",
+      "conditional": {
+        "html": emailHtml
+      }
+    },
+    {
+      "value": "phone",
+      "text": "Phone",
+      "name": "phone",
+      "exclusiveGroup": "communication-preferences",
+      "conditional": {
+        "html": phoneHtml
+      }
+    },
+    {
+      "value": "text",
+      "text": "Text message",
+      "name": "text",
+      "exclusiveGroup": "communication-preferences",
+      "conditional": {
+        "html": mobileHtml
+      }
+    },
+    {
+      "divider": "or"
+    },
+    {
+      "value": "none",
+      "text": "None of the above",
+      "name": "none",
+      "exclusive": true,
+      "exclusiveGroup": "communication-preferences"
+    }
+  ]
+}) }}
+```
+
+---
+
 ### Nunjucks arguments
 
 The checkboxes Nunjucks macro takes the following arguments:
@@ -534,6 +698,8 @@ The checkboxes Nunjucks macro takes the following arguments:
 | **items[].conditional.html** | string   | No        | HTML to be displayed when the checkbox is checked |
 | **classes**               | string   | No        | Optional additional classes to add to the checkboxes container. Separate each class with a space. |
 | **attributes**            | object   | No        | Any extra HTML attributes (for example data attributes) to add to the checkboxes container. |
+| **exclusive** | boolean | No | If set to `true`, marks this checkbox as the "None" option in a "None of these" type behaviour. Unchecking all other checkboxes in the group when "None" is clicked |
+| **exclusiveGroup** | string | No | Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a "None of these" scenario. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
