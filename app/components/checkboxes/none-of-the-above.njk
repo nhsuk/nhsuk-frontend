@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Checkboxes with conditional content' %}
+{% set title = 'Checkboxes with "none of the above" option' %}
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% from 'components/input/macro.njk' import input %}
 {% extends 'layout.njk' %}
@@ -62,6 +62,8 @@
                 {
                   "value": "email",
                   "text": "Email",
+                  "name": "email",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": emailHtml
                   }
@@ -69,6 +71,8 @@
                 {
                   "value": "phone",
                   "text": "Phone",
+                  "name": "phone",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": phoneHtml
                   }
@@ -76,9 +80,21 @@
                 {
                   "value": "text",
                   "text": "Text message",
+                  "name": "text",
+                  "exclusiveGroup": "communication-preferences",
                   "conditional": {
                     "html": mobileHtml
                   }
+                },
+                {
+                  "divider": "or"
+                },
+                {
+                  "value": "none",
+                  "text": "None of the above",
+                  "name": "none",
+                  "exclusive": true,
+                  "exclusiveGroup": "communication-preferences"
                 }
               ]
             }) }}

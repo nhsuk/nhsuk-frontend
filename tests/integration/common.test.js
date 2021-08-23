@@ -81,9 +81,11 @@ describe('toggleConditionalInput util', () => {
       const content = document.querySelector('div');
       expect(input).not.toBeNull();
       expect(content).not.toBeNull();
+      input.checked = true;
       toggleConditionalInput(input, 'hidden');
       expect(content.classList.contains('hidden')).toEqual(false);
       expect(input.getAttribute('aria-expanded')).toEqual('true');
+      input.checked = false;
       toggleConditionalInput(input, 'hidden');
       expect(content.classList.contains('hidden')).toEqual(true);
       expect(input.getAttribute('aria-expanded')).toEqual('false');
@@ -95,9 +97,11 @@ describe('toggleConditionalInput util', () => {
       const content = document.querySelector('div');
       expect(input).not.toBeNull();
       expect(content).not.toBeNull();
+      input.checked = false;
       toggleConditionalInput(input, 'hidden');
       expect(content.classList.contains('hidden')).toEqual(true);
       expect(input.getAttribute('aria-expanded')).toEqual('false');
+      input.checked = true;
       toggleConditionalInput(input, 'hidden');
       expect(content.classList.contains('hidden')).toEqual(false);
       expect(input.getAttribute('aria-expanded')).toEqual('true');

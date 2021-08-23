@@ -135,6 +135,10 @@ module.exports = {
       clickSelector: '#contact-1',
     },
     {
+      label: 'Checkboxes with "none of the above" option',
+      url: `${TEST_URL}/checkboxes/none-of-the-above.html`,
+    },
+    {
       label: 'Contents list',
       url: `${TEST_URL}/contents-list/index.html`,
     },
