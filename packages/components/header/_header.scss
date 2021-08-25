@@ -352,11 +352,11 @@
     width: 200px; /* [2] */
 
     &:focus {
-      border: 2px solid $nhsuk-focus-text-color;
+      border: 4px solid $nhsuk-focus-text-color;
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
-      padding: 0 11px; /* [11] */
+      padding: 0 9px; /* [11] */
     }
 
   }
