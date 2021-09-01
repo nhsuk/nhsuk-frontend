@@ -9,7 +9,6 @@
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/header/macro.njk' import header %}
-{% from 'components/hero/macro.njk' import hero %}
 {% from 'components/footer/macro.njk' import footer %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
@@ -43,6 +42,9 @@
   }) }}
 
   {{ header({
+    "service": {
+    "name": "Frontend library"
+    },
     "showNav": "false",
     "showSearch": "false",
     "homeHref": baseUrl
@@ -85,10 +87,6 @@
 
   {{ footer({
     "links": [
-      {
-        "URL": baseUrl,
-        "label": "NHS.UK frontend"
-      },
       {
         "URL": baseUrl + "pages/install.html",
         "label": "Install"

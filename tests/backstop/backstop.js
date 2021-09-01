@@ -285,18 +285,6 @@ module.exports = {
       url: `${TEST_URL}/header/header-org-white-nav.html`,
     },
     {
-      label: 'Hero',
-      url: `${TEST_URL}/hero/index.html`,
-    },
-    {
-      label: 'Hero with image',
-      url: `${TEST_URL}/hero/hero-image.html`,
-    },
-    {
-      label: 'Hero with image and content',
-      url: `${TEST_URL}/hero/hero-image-content.html`,
-    },
-    {
       label: 'Hint',
       url: `${TEST_URL}/hint/index.html`,
     },
