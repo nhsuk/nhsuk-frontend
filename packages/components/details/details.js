@@ -8,7 +8,7 @@ import { toggleAttribute } from '../../common';
 export default () => {
   // Does the browser support details component
   const nativeSupport = typeof document.createElement('details').open === 'boolean';
-  if(nativeSupport) {
+  if (nativeSupport) {
     return;
   }
 
