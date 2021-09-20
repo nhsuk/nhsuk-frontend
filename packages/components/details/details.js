@@ -8,6 +8,10 @@ import { toggleAttribute } from '../../common';
 export default () => {
   // Does the browser support details component
   const nativeSupport = typeof document.createElement('details').open === 'boolean';
+  if (nativeSupport) {
+    return;
+  }
+
   // Nodelist of all details elements
   const allDetails = document.querySelectorAll('details');
 
@@ -41,21 +45,18 @@ export default () => {
     } else {
       summary.setAttribute('aria-expanded', 'false');
       content.setAttribute('aria-hidden', 'true');
-      // Hide content on browsers without native details support
-      if (!nativeSupport) content.style.display = 'none';
+      content.style.display = 'none';
     }
 
     const toggleDetails = () => {
       toggleAttribute(summary, 'aria-expanded');
       toggleAttribute(content, 'aria-hidden');
 
-      if (!nativeSupport) {
-        content.style.display = content.getAttribute('aria-hidden') === 'true' ? 'none' : '';
-        if (element.hasAttribute('open')) {
-          element.removeAttribute('open');
-        } else {
-          element.setAttribute('open', 'open');
-        }
+      content.style.display = content.getAttribute('aria-hidden') === 'true' ? 'none' : '';
+      if (element.hasAttribute('open')) {
+        element.removeAttribute('open');
+      } else {
+        element.setAttribute('open', 'open');
       }
     };
 
