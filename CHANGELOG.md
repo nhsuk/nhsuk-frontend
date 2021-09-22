@@ -1,11 +1,23 @@
 # NHS.UK frontend Changelog
 
-## 5.1.1 - Unreleased
+## 5.3.0 - Unreleased
+
+:new: **New features**
+
+- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762))
+
+## 5.2.0 - 22 September 2021
+
+:new: **New features**
+
+- Add "None of these" JavaScript behaviour to checkboxes - allowing all checkboxes in a group to be automatically unchecked when the "None of the above" option is checked ([PR 756](https://github.com/nhsuk/nhsuk-frontend/pull/756))
 
 :wrench: **Fixes**
 
 - Transactional header defaults to wrapping underneath the logo without the need for a modifier ([Issue 720](https://github.com/nhsuk/nhsuk-frontend/issues/720)).
-- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762))
+- Add width, height, stroke and fill attributes to inline SVGs in order that they render at appropriate sizes when viewed with disabled/broken/missing CSS  ([PR 761](https://github.com/nhsuk/nhsuk-frontend/pull/761)).
+- Search input focus state style (desktop) – fix border width ([Issue 768](https://github.com/nhsuk/nhsuk-frontend/issues/768), [PR 771](https://github.com/nhsuk/nhsuk-frontend/pull/771)).
+- Stop polyfilling details elements in browsers that support it natively since the polyfill was causing issues with JAWS/Firefox ([Issue 754](https://github.com/nhsuk/nhsuk-frontend/issues/754), [PR 773](https://github.com/nhsuk/nhsuk-frontend/pull/773))
 
 ## 5.1.0 - 14 May 2021
 
