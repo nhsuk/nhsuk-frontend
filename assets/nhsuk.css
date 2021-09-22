@@ -5012,11 +5012,11 @@ b {
     /* [2] */
   }
   .nhsuk-search__input:focus {
-    border: 2px solid #212b32;
+    border: 4px solid #212b32;
     box-shadow: 0 0 0 4px #ffeb3b;
     outline: 4px solid transparent;
     outline-offset: 4px;
-    padding: 0 11px;
+    padding: 0 9px;
     /* [11] */
   }
 
@@ -5398,14 +5398,8 @@ b {
   padding-left: 16px;
   padding-top: 3px;
 }
-@media (max-width: 40.0525em) {
-  .nhsuk-header__transactional-service-name {
-    padding-top: 4px;
-  }
-}
-
 @media (max-width: 61.865em) {
-  .nhsuk-header__transactional-service-name--long {
+  .nhsuk-header__transactional-service-name {
     padding-left: 0;
     padding-top: 8px;
     width: 100%;
