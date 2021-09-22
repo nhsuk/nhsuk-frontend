@@ -15,6 +15,9 @@ function Tabs($module, namespace, responsive, historyEnabled) {
     down: 40, left: 37, right: 39, up: 38,
   };
   this.jsHiddenClass = `${this.namespace}__panel--hidden`;
+
+  this.showEvent = new Event('tab.show');
+  this.hideEvent = new Event('tab.hide');
 }
 
 Tabs.prototype.init = function init() {
@@ -270,11 +273,13 @@ Tabs.prototype.getPanel = function getPanel($tab) {
 Tabs.prototype.showPanel = function showPanel($tab) {
   const $panel = this.getPanel($tab);
   $panel.classList.remove(this.jsHiddenClass);
+  $panel.dispatchEvent(this.showEvent);
 };
 
 Tabs.prototype.hidePanel = function hidePanel(tab) {
   const $panel = this.getPanel(tab);
   $panel.classList.add(this.jsHiddenClass);
+  $panel.dispatchEvent(this.hideEvent);
 };
 
 Tabs.prototype.unhighlightTab = function unhighlightTab($tab) {

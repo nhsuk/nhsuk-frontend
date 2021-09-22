@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   Header();
   Radios();
   SkipLink();
-  Tabs({historyEnabled: false});
+  Tabs();
 });
