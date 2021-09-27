@@ -16,8 +16,8 @@ function Tabs($module, namespace, responsive, historyEnabled) {
   };
   this.jsHiddenClass = `${this.namespace}__panel--hidden`;
 
-  this.showEvent = new Event('tab.show');
-  this.hideEvent = new Event('tab.hide');
+  this.showEvent = new CustomEvent('tab.show');
+  this.hideEvent = new CustomEvent('tab.hide');
 }
 
 Tabs.prototype.init = function init() {
