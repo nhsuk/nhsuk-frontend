@@ -36,6 +36,8 @@
  * 15. Remove random top margin in Safari
  * 16. Align close icon with nav item arrow icons
  * 17. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 18.
+ * 19. Hide input checkboxes from UI. These are required for menu and search bar toggling when JS is disabled
  */
 
 .nhsuk-header {
@@ -174,7 +176,23 @@
     @include nhsuk-focused-button();
     box-shadow: 0 0 0 2px $nhsuk-focus-color, 0 $nhsuk-focus-width 0 2px $nhsuk-focus-text-color;
   }
+}
 
+input#noJsSearchToggle {
+  display: none; /* [19] */
+}
+
+.nhsuk-header__search-toggle--no-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  body.js-enabled & {
+    display: none;
+  }
 }
 
 .nhsuk-header__search-form {
@@ -212,7 +230,8 @@
   .nhsuk-header__search-wrap {
     display: none;
 
-    &.js-show {
+    &.js-show,
+    #noJsSearchToggle:checked ~ .nhsuk-header & {
       clear: both;
       display: flex;
       margin-bottom: -20px;
@@ -322,6 +341,10 @@
       .nhsuk-icon__close {
         fill: $nhsuk-focus-text-color;
       }
+    }
+
+    body:not(.js-enabled) & {
+      position: relative;
     }
   }
 
@@ -475,7 +498,23 @@
 
     box-shadow: 0 0 0 2px $nhsuk-focus-color, 0 $nhsuk-focus-width 0 2px $nhsuk-focus-text-color;
   }
+}
 
+input#noJsMenuToggle {
+  display: none; /* [19] */
+}
+
+.nhsuk-header__menu-toggle--no-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  body.js-enabled & {
+    display: none;
+  }
 }
 
 /* 'only' modifier for when there is only the menu in the header, no search
@@ -498,7 +537,8 @@
   display: none;
   overflow: hidden;
 
-  &.js-show {
+  &.js-show,
+  #noJsMenuToggle:checked ~ .nhsuk-header & {
     display: block;
 
     @include mq($until: large-desktop) {
