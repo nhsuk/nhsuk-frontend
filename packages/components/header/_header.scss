@@ -183,6 +183,19 @@
 }
 
 .nhsuk-search__input {
+  -webkit-appearance: listbox; /* [5] */
+  border-bottom-left-radius: $nhsuk-border-radius;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: $nhsuk-border-radius;
+  border-top-right-radius: 0;
+  padding: 0 nhsuk-spacing(3);
+  &:focus {
+    border: 4px solid $nhsuk-focus-text-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
+    padding: 0 9px; /* [11] */
+  }
   &::placeholder {
     color: $color_nhsuk-grey-1;
     font-size: $nhsuk-base-font-size;
@@ -196,6 +209,26 @@
     font-size: $nhsuk-base-font-size;
   }
 
+}
+
+.nhsuk-search__submit {
+  border: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: $nhsuk-border-radius;
+  border-top-left-radius: 0;
+  border-top-right-radius: $nhsuk-border-radius;
+  float: right;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+
+  &::-moz-focus-inner {
+    border: 0; /* [4] */
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @include mq($until: tablet) {
@@ -231,48 +264,24 @@
   }
 
   .nhsuk-search__input {
-    -webkit-appearance: listbox; /* [5] */
     border-bottom: 1px solid $color_nhsuk-grey-3;
-    border-bottom-left-radius: $nhsuk-border-radius;
-    border-bottom-right-radius: 0;
     border-left: 1px solid $color_nhsuk-grey-3;
     border-right: 0;
     border-top: 1px solid $color_nhsuk-grey-3;
-    border-top-left-radius: $nhsuk-border-radius;
-    border-top-right-radius: 0;
     flex-grow: 2;
     -ms-flex-positive: 2; /* [1] */
     font-size: inherit;
     height: 52px; /* [4] */
     margin: 0;
     outline: none;
-    padding: 0 nhsuk-spacing(3);
     width: 100%; /* [4] */
     z-index: 1;
-
-    &:focus {
-      border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-      outline: $nhsuk-focus-width solid transparent;
-      outline-offset: $nhsuk-focus-width;
-      padding: 0 13px; /* [11] */
-    }
-
   }
 
   .nhsuk-search__submit {
     background-color: $color_nhsuk-green;
-    border: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: $nhsuk-border-radius;
-    border-top-left-radius: 0;
-    border-top-right-radius: $nhsuk-border-radius;
-    float: right;
-    font-size: inherit;
     height: 52px; /* [2] */
-    line-height: inherit;
     margin: 0;
-    outline: none;
     padding: nhsuk-spacing(2) nhsuk-spacing(2) 0;
 
     .nhsuk-icon__search {
@@ -281,13 +290,8 @@
       width: 38px; /* [3] */
     }
 
-    &::-moz-focus-inner {
-      border: 0; /* [4] */
-    }
-
     &:hover {
       background-color: $nhsuk-button-hover-color;
-      cursor: pointer;
     }
 
     &:focus {
@@ -340,40 +344,16 @@
   }
 
   .nhsuk-search__input {
-    -webkit-appearance: listbox; /* [5] */
     border: 1px solid $color_nhsuk-white;
-    border-bottom-left-radius: $nhsuk-border-radius;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: $nhsuk-border-radius;
-    border-top-right-radius: 0;
     font-size: $nhsuk-base-font-size;
     height: nhsuk-spacing(6); /* [2] */
-    padding: 0 12px; /* [9] */
     width: 200px; /* [2] */
-
-    &:focus {
-      border: 4px solid $nhsuk-focus-text-color;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
-      outline: $nhsuk-focus-width solid transparent;
-      outline-offset: $nhsuk-focus-width;
-      padding: 0 9px; /* [11] */
-    }
-
   }
 
   .nhsuk-search__submit {
     background-color: $color_nhsuk-grey-5;
-    border: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: $nhsuk-border-radius;
-    border-top-left-radius: 0;
-    border-top-right-radius: $nhsuk-border-radius;
     display: block;
-    float: right;
-    font-size: inherit;
     height: nhsuk-spacing(6); /* [2] */
-    line-height: inherit;
-    outline: none;
     width: 44px; /* [2] */
 
     .nhsuk-icon__search {
@@ -381,14 +361,9 @@
       width: 27px; /* [3] */
     }
 
-    &::-moz-focus-inner {
-      border: 0; /* [4] */
-    }
-
     &:hover {
       background-color: $color_shade_nhsuk-blue-35;
       border: 1px solid $color_nhsuk-white;
-      cursor: pointer;
 
       .nhsuk-icon__search {
         fill: $color_nhsuk-white;
