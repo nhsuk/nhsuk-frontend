@@ -412,10 +412,6 @@
   text-decoration: none;
   z-index: 1;
 
-  @include mq($until: desktop) {
-    margin-right: 0; /* [6] */
-  }
-
   @include mq($until: tablet) {
     right: 48px;
   }
