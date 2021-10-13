@@ -23,19 +23,14 @@
  * 4. Remove inner border on buttons for Firefox, see
  *    https://github.com/necolas/normalize.css/issues/393
  * 5. Proprietary extension so form field looks the same in Safari
- * 6. Custom spacing to position the search icon
- * 7. Drop shadow on search suggestions dopdown box, custom spread and blur
- * 8. No current spacing at 12px so using this value
- * 9. Z-index to bring the dropdown to the front
- * 10. Custom margin to move menu toggle past the search toggle button
- * 11. Custom border value between expanded search and expanded menu if both open at the same time
- * 12. Don't display the link address for the logo anchor, see
+ * 6. Custom margin to move menu toggle past the search toggle button
+ * 7. Custom border value between expanded search and expanded menu if both open at the same time
+ * 8. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
- * 13. Use non variable colour to follow NHS England guidelines on logo colour
- * 14. On print stylesheets remove the header link
- * 15. Remove random top margin in Safari
- * 16. Align close icon with nav item arrow icons
- * 17. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 9. Use non variable colour to follow NHS England guidelines on logo colour
+ * 10. Remove random top margin in Safari
+ * 11. Align close icon with nav item arrow icons
+ * 12. Add nhsuk-spacing(9) to align right and left main nav with header
  */
 
 .nhsuk-header {
@@ -116,7 +111,7 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ''; /* [15] */
+      content: ''; /* [8] */
     }
   }
 
@@ -134,7 +129,7 @@
   position: relative;
 
   &.js-show {
-    border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
+    border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [7] */
   }
 
   @include mq($from: tablet) {
@@ -230,7 +225,7 @@
     box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
-    padding: 0 9px; /* [11] */
+    padding: 0 9px;
   }
   &::placeholder {
     color: $color_nhsuk-grey-1;
@@ -251,7 +246,7 @@
     border-right: 0;
     border-top: 1px solid $color_nhsuk-grey-3;
     flex-grow: 2;
-    -ms-flex-positive: 2; /* [1] */
+    -ms-flex-positive: 2;
     font-size: inherit;
     height: 52px; /* [4] */
     margin: 0;
@@ -368,7 +363,7 @@
     @include close-button();
 
     margin-left: nhsuk-spacing(2);
-    margin-right: - nhsuk-spacing(2); /* [17] */
+    margin-right: - nhsuk-spacing(2); /* [11] */
     margin-top: nhsuk-spacing(2);
 
     &:focus {
@@ -411,14 +406,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: $nhsuk-base-line-height;
-  margin-right: 0; /* [11] */
+  margin-right: 0; /* [6] */
   padding: 7px nhsuk-spacing(3);
   position: relative;
   text-decoration: none;
   z-index: 1;
 
   @include mq($until: desktop) {
-    margin-right: 0; /* [11] */
+    margin-right: 0; /* [6] */
   }
 
   @include mq($until: tablet) {
@@ -426,7 +421,7 @@
   }
 
   @include mq($from: tablet, $until: large-desktop) {
-    margin-top: 0; /* [16] */
+    margin-top: 0; /* [10] */
   }
 
   @include mq($from: large-desktop) {
@@ -465,8 +460,8 @@
     display: block;
 
     @include mq($until: large-desktop) {
-      border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
-      border-top: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [12] */
+      border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [7] */
+      border-top: nhsuk-spacing(1) solid $color_nhsuk-grey-5; /* [7] */
 
       .nhsuk-width-container {
         margin: 0 nhsuk-spacing(3);
@@ -484,7 +479,7 @@
     background-color: $color_nhsuk-blue;
     display: block;
     margin: 0 auto;
-    max-width: $nhsuk-page-width + nhsuk-spacing(9); /* [18] */
+    max-width: $nhsuk-page-width + nhsuk-spacing(9); /* [12] */
   }
 }
 
@@ -971,7 +966,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [14] */  /* stylelint-disable-line color-no-hex */
+    color: #000; /* [9] */  /* stylelint-disable-line color-no-hex */
   }
 
   .nhsuk-organisation-descriptor {
