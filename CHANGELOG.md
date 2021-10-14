@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 5.2.1 - Unreleased
+
+:wrench: **Fixes**
+
+- Tidying and removing of duplicate styles in header SCSS ([Issue 711](https://github.com/nhsuk/nhsuk-frontend/issues/711)), ([PR 779](https://github.com/nhsuk/nhsuk-frontend/pull/779)).
+
 ## 5.2.0 - 22 September 2021
 
 :new: **New features**
