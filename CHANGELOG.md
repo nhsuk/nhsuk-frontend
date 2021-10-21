@@ -1,9 +1,12 @@
 # NHS.UK frontend Changelog
 
-## 5.3.0 - Unreleased
+## 5.2.1 - Unreleased
 
-:new: **New features**
+:wrench: **Fixes**
 
+- Tidying and removing of duplicate styles in header SCSS ([Issue 711](https://github.com/nhsuk/nhsuk-frontend/issues/711)), ([PR 779](https://github.com/nhsuk/nhsuk-frontend/pull/779)).
+- Removal of unnecessary static `aria-label="Open menu"` on the header menu button. Included more descriptive `aria-expanded="false"` on page load.
+- Fixing misaligned search magnifiying glass in header on landscape iOS devices ([Issue 781](https://github.com/nhsuk/nhsuk-frontend/issues/781), [PR 782](https://github.com/nhsuk/nhsuk-frontend/pull/782))
 - Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762))
 
 ## 5.2.0 - 22 September 2021
