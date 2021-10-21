@@ -6,6 +6,7 @@
 
 - Tidying and removing of duplicate styles in header SCSS ([Issue 711](https://github.com/nhsuk/nhsuk-frontend/issues/711)), ([PR 779](https://github.com/nhsuk/nhsuk-frontend/pull/779)).
 - Removal of unnecessary static `aria-label="Open menu"` on the header menu button. Included more descriptive `aria-expanded="false"` on page load.
+- Fixing misaligned search magnifiying glass in header on landscape iOS devices ([Issue 781](https://github.com/nhsuk/nhsuk-frontend/issues/781), [PR 782](https://github.com/nhsuk/nhsuk-frontend/pull/782))
 
 ## 5.2.0 - 22 September 2021
 
