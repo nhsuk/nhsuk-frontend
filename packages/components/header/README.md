@@ -926,6 +926,7 @@ The header Nunjucks macro takes the following arguments:
 | ---------------------------|----------|-----------|--------------|
 | **showNav**                | boolean  | Yes       | Set to "true" to show the navigation links in the header. |
 | **showSearch**             | boolean  | Yes       | Set to "true" to show the site search input form. |
+| **searchExposedAlways**    | boolean  | No        | Set to "true" to show the site search input exposed constantly. |
 | **homeHref**               | string   | No        | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/". |
 | **ariaLabel**              | string   | No        | Aria label for the logo href. Defaults to "NHS homepage". |
 | **organisation**           | object   | No        | Settings for header with organisational logo. |
