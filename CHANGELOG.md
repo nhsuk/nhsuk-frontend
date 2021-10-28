@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 5.2.1 - Unreleased
+## 5.2.1 - 28 October 2021
 
 :wrench: **Fixes**
 
