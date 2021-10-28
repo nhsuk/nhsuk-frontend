@@ -4626,19 +4626,14 @@ b {
  * 4. Remove inner border on buttons for Firefox, see
  *    https://github.com/necolas/normalize.css/issues/393
  * 5. Proprietary extension so form field looks the same in Safari
- * 6. Custom spacing to position the search icon
- * 7. Drop shadow on search suggestions dopdown box, custom spread and blur
- * 8. No current spacing at 12px so using this value
- * 9. Z-index to bring the dropdown to the front
- * 10. Custom margin to move menu toggle past the search toggle button
- * 11. Custom border value between expanded search and expanded menu if both open at the same time
- * 12. Don't display the link address for the logo anchor, see
+ * 6. Custom margin to move menu toggle past the search toggle button
+ * 7. Custom border value between expanded search and expanded menu if both open at the same time
+ * 8. Don't display the link address for the logo anchor, see
  *     core/elements/_links.scss
- * 13. Use non variable colour to follow NHS England guidelines on logo colour
- * 14. On print stylesheets remove the header link
- * 15. Remove random top margin in Safari
- * 16. Align close icon with nav item arrow icons
- * 17. Add nhsuk-spacing(9) to align right and left main nav with header
+ * 9. Use non variable colour to follow NHS England guidelines on logo colour
+ * 10. Remove random top margin in Safari
+ * 11. Align close icon with nav item arrow icons
+ * 12. Add nhsuk-spacing(9) to align right and left main nav with header
  */
 .nhsuk-header {
   background-color: #005eb8;
@@ -4659,12 +4654,19 @@ b {
 }
 @media (max-width: 40.0525em) {
   .nhsuk-header__container {
+    margin: 0;
     padding: 16px;
   }
 }
 
 .nhsuk-header__logo {
   float: left;
+}
+@media (max-width: 40.0525em) {
+  .nhsuk-header__logo {
+    position: relative;
+    z-index: 1;
+  }
 }
 .nhsuk-header__logo .nhsuk-logo__background {
   fill: #ffffff;
@@ -4722,7 +4724,7 @@ b {
 @media print {
   .nhsuk-header__link:after {
     content: "";
-    /* [15] */
+    /* [8] */
   }
 }
 .nhsuk-header__link:hover, .nhsuk-header__link:active, .nhsuk-header__link:focus {
@@ -4744,7 +4746,7 @@ b {
 }
 .nhsuk-header__content.js-show {
   border-bottom: 4px solid #f0f4f5;
-  /* [12] */
+  /* [7] */
 }
 @media (min-width: 40.0625em) {
   .nhsuk-header__content {
@@ -4822,35 +4824,26 @@ b {
 .nhsuk-header__search-toggle:focus .nhsuk-icon {
   fill: #212b32;
 }
+@media (min-width: 40.0625em) {
+  .nhsuk-header__search-toggle {
+    display: none;
+  }
+}
 
 .nhsuk-header__search-form {
   height: 100%;
   overflow: visible;
 }
-
-.nhsuk-search__input::placeholder {
-  color: #4c6272;
-  font-size: 16px;
-}
-.nhsuk-search__input:-ms-input-placeholder {
-  color: #4c6272;
-  font-size: 16px;
-}
-.nhsuk-search__input::-webkit-input-placeholder {
-  color: #4c6272;
-  font-size: 16px;
+@media (max-width: 40.0525em) {
+  .nhsuk-header__search-form {
+    background-color: #ffffff;
+    display: flex;
+    padding: 16px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 40.0525em) {
-  .nhsuk-header__container {
-    margin: 0;
-  }
-
-  .nhsuk-header__logo {
-    position: relative;
-    z-index: 1;
-  }
-
   .nhsuk-header__search-wrap {
     display: none;
   }
@@ -4863,61 +4856,101 @@ b {
     padding-top: 16px;
     text-align: left;
   }
-
-  .nhsuk-header__search-form {
-    background-color: #ffffff;
-    display: flex;
-    padding: 16px;
-    width: 100%;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-header__search-wrap {
+    display: block;
+    line-height: 0;
   }
+}
 
+.nhsuk-search__input {
+  -webkit-appearance: listbox;
+  /* [5] */
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  padding: 0 16px;
+}
+.nhsuk-search__input:focus {
+  border: 4px solid #212b32;
+  box-shadow: 0 0 0 4px #ffeb3b;
+  outline: 4px solid transparent;
+  outline-offset: 4px;
+  padding: 0 9px;
+}
+.nhsuk-search__input::placeholder {
+  color: #4c6272;
+  font-size: 16px;
+}
+.nhsuk-search__input:-ms-input-placeholder {
+  color: #4c6272;
+  font-size: 16px;
+}
+.nhsuk-search__input::-webkit-input-placeholder {
+  color: #4c6272;
+  font-size: 16px;
+}
+@media (max-width: 40.0525em) {
   .nhsuk-search__input {
-    -webkit-appearance: listbox;
-    /* [5] */
     border-bottom: 1px solid #aeb7bd;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 0;
     border-left: 1px solid #aeb7bd;
     border-right: 0;
     border-top: 1px solid #aeb7bd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
     flex-grow: 2;
     -ms-flex-positive: 2;
-    /* [1] */
     font-size: inherit;
     height: 52px;
     /* [4] */
     margin: 0;
     outline: none;
-    padding: 0 16px;
     width: 100%;
     /* [4] */
     z-index: 1;
   }
-  .nhsuk-search__input:focus {
-    border: 4px solid #212b32;
-    box-shadow: 0 0 0 4px #ffeb3b;
-    outline: 4px solid transparent;
-    outline-offset: 4px;
-    padding: 0 13px;
-    /* [11] */
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-search__input {
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    height: 40px;
+    /* [2] */
+    width: 200px;
+    /* [2] */
   }
+}
+@media (min-width: 48.0625em) {
+  .nhsuk-search__input {
+    width: 235px;
+  }
+}
 
+.nhsuk-search__submit {
+  border: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 4px;
+  float: right;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+  padding: 0;
+}
+.nhsuk-search__submit::-moz-focus-inner {
+  border: 0;
+  /* [4] */
+}
+.nhsuk-search__submit:hover {
+  cursor: pointer;
+}
+@media (max-width: 40.0525em) {
   .nhsuk-search__submit {
     background-color: #007f3b;
-    border: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 4px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 4px;
-    float: right;
-    font-size: inherit;
     height: 52px;
     /* [2] */
-    line-height: inherit;
     margin: 0;
-    outline: none;
     padding: 8px 8px 0;
   }
   .nhsuk-search__submit .nhsuk-icon__search {
@@ -4927,13 +4960,8 @@ b {
     width: 38px;
     /* [3] */
   }
-  .nhsuk-search__submit::-moz-focus-inner {
-    border: 0;
-    /* [4] */
-  }
   .nhsuk-search__submit:hover {
     background-color: #00662f;
-    cursor: pointer;
   }
   .nhsuk-search__submit:focus {
     background-color: #ffeb3b;
@@ -4950,7 +4978,52 @@ b {
   .nhsuk-search__submit:focus .nhsuk-icon {
     fill: #212b32;
   }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-search__submit {
+    background-color: #f0f4f5;
+    display: block;
+    height: 40px;
+    /* [2] */
+    width: 44px;
+    /* [2] */
+  }
+  .nhsuk-search__submit .nhsuk-icon__search {
+    height: 27px;
+    /* [3] */
+    width: 27px;
+    /* [3] */
+  }
+  .nhsuk-search__submit:hover {
+    background-color: #003d78;
+    border: 1px solid #ffffff;
+  }
+  .nhsuk-search__submit:hover .nhsuk-icon__search {
+    fill: #ffffff;
+  }
+  .nhsuk-search__submit:focus {
+    background-color: #ffeb3b;
+    border: 0;
+    box-shadow: 0 4px 0 0 #212b32;
+    color: #212b32;
+    outline: 4px solid transparent;
+    /* 1 */
+    outline-offset: 4px;
+    box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+  }
+  .nhsuk-search__submit:focus .nhsuk-icon {
+    fill: #212b32;
+  }
+  .nhsuk-search__submit:active {
+    background-color: #002f5c;
+    border: 0;
+  }
+  .nhsuk-search__submit:active .nhsuk-icon__search {
+    fill: #ffffff;
+  }
+}
 
+@media (max-width: 40.0525em) {
   .nhsuk-search__close {
     background-color: transparent;
     border: 0;
@@ -4960,7 +5033,7 @@ b {
     width: 40px;
     margin-left: 8px;
     margin-right: -8px;
-    /* [17] */
+    /* [11] */
     margin-top: 8px;
   }
   .nhsuk-search__close .nhsuk-icon__close {
@@ -4986,100 +5059,11 @@ b {
   }
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-header__search-wrap {
-    display: block;
-    line-height: 0;
-  }
-
-  .nhsuk-header__search-toggle {
-    display: none;
-  }
-
-  .nhsuk-search__input {
-    -webkit-appearance: listbox;
-    /* [5] */
-    border: 1px solid #ffffff;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    font-size: 16px;
-    height: 40px;
-    /* [2] */
-    padding: 0 12px;
-    /* [9] */
-    width: 200px;
-    /* [2] */
-  }
-  .nhsuk-search__input:focus {
-    border: 4px solid #212b32;
-    box-shadow: 0 0 0 4px #ffeb3b;
-    outline: 4px solid transparent;
-    outline-offset: 4px;
-    padding: 0 9px;
-    /* [11] */
-  }
-
-  .nhsuk-search__submit {
-    background-color: #f0f4f5;
-    border: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 4px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 4px;
-    display: block;
-    float: right;
-    font-size: inherit;
-    height: 40px;
-    /* [2] */
-    line-height: inherit;
-    outline: none;
-    width: 44px;
-    /* [2] */
-  }
-  .nhsuk-search__submit .nhsuk-icon__search {
-    height: 27px;
-    /* [3] */
-    width: 27px;
-    /* [3] */
-  }
-  .nhsuk-search__submit::-moz-focus-inner {
-    border: 0;
-    /* [4] */
-  }
-  .nhsuk-search__submit:hover {
-    background-color: #003d78;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-  }
-  .nhsuk-search__submit:hover .nhsuk-icon__search {
-    fill: #ffffff;
-  }
-  .nhsuk-search__submit:focus {
-    background-color: #ffeb3b;
-    border: 0;
-    box-shadow: 0 4px 0 0 #212b32;
-    color: #212b32;
-    outline: 4px solid transparent;
-    /* 1 */
-    outline-offset: 4px;
-    box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
-  }
-  .nhsuk-search__submit:focus .nhsuk-icon {
-    fill: #212b32;
-  }
-  .nhsuk-search__submit:active {
-    background-color: #002f5c;
-    border: 0;
-  }
-  .nhsuk-search__submit:active .nhsuk-icon__search {
-    fill: #ffffff;
-  }
-
   .nhsuk-search__close {
     display: none;
   }
 }
+
 .nhsuk-search__input--withdropdown {
   border-bottom-left-radius: 0;
 }
@@ -5088,11 +5072,6 @@ b {
   border-bottom-right-radius: 0;
 }
 
-@media (min-width: 48.0625em) {
-  .nhsuk-search__input {
-    width: 235px;
-  }
-}
 /* Main navigation
  *
  * Appears below the header strip
@@ -5117,7 +5096,7 @@ b {
   font-weight: 400;
   line-height: 24px;
   margin-right: 0;
-  /* [11] */
+  /* [6] */
   padding: 7px 16px;
   position: relative;
   text-decoration: none;
@@ -5141,12 +5120,6 @@ b {
   border-color: #f0f4f5;
   color: #f0f4f5;
 }
-@media (max-width: 48.0525em) {
-  .nhsuk-header__menu-toggle {
-    margin-right: 0;
-    /* [11] */
-  }
-}
 @media (max-width: 40.0525em) {
   .nhsuk-header__menu-toggle {
     right: 48px;
@@ -5155,7 +5128,12 @@ b {
 @media (min-width: 40.0625em) and (max-width: 61.865em) {
   .nhsuk-header__menu-toggle {
     margin-top: 0;
-    /* [16] */
+    /* [10] */
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsuk-header__menu-toggle {
+    display: none;
   }
 }
 .nhsuk-header__menu-toggle:focus {
@@ -5199,9 +5177,9 @@ b {
 @media (max-width: 61.865em) {
   .nhsuk-header__navigation.js-show {
     border-bottom: 4px solid #f0f4f5;
-    /* [12] */
+    /* [7] */
     border-top: 4px solid #f0f4f5;
-    /* [12] */
+    /* [7] */
   }
   .nhsuk-header__navigation.js-show .nhsuk-width-container {
     margin: 0 16px;
@@ -5212,12 +5190,26 @@ b {
     margin: 0;
   }
 }
+@media (min-width: 61.875em) {
+  .nhsuk-header__navigation {
+    background-color: #005eb8;
+    display: block;
+    margin: 0 auto;
+    max-width: 1024px;
+    /* [12] */
+  }
+}
 
 .nhsuk-header__navigation-title {
   font-weight: 600;
   margin-bottom: 0;
   padding: 16px;
   position: relative;
+}
+@media (min-width: 61.875em) {
+  .nhsuk-header__navigation-title {
+    display: none;
+  }
 }
 
 .nhsuk-header__navigation-close {
@@ -5260,11 +5252,30 @@ b {
   margin: 0;
   padding-left: 0;
 }
+@media (min-width: 61.875em) {
+  .nhsuk-header__navigation-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+  }
+}
 
 .nhsuk-header__navigation-item {
   border-top: 1px solid #f0f4f5;
   margin-bottom: 0;
   position: relative;
+}
+@media (min-width: 61.875em) {
+  .nhsuk-header__navigation-item {
+    border-top: 0;
+    margin: 0;
+    text-align: center;
+  }
+  .nhsuk-header__navigation-item .nhsuk-icon__chevron-right {
+    display: none;
+  }
 }
 
 .nhsuk-header__navigation-link {
@@ -5290,6 +5301,12 @@ b {
   .nhsuk-header__navigation-link {
     font-size: 14pt;
     line-height: 1.2;
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsuk-header__navigation-link {
+    color: #ffffff;
+    line-height: normal;
   }
 }
 .nhsuk-header__navigation-link .nhsuk-icon__chevron-right {
@@ -5340,56 +5357,18 @@ b {
   color: #212b32;
 }
 
-/**
- * Large desktop styles
-**/
 @media (min-width: 61.875em) {
-  .nhsuk-header__menu-toggle {
-    display: none;
-  }
-
-  .nhsuk-header__navigation-title {
-    display: none;
-  }
-
   .nhsuk-header__navigation-item--for-mobile {
     display: none;
   }
+}
 
-  .nhsuk-header__navigation {
-    background-color: #005eb8;
-    display: block;
-    margin: 0 auto;
-    max-width: 1024px;
-    /* [18] */
-  }
-
-  .nhsuk-header__navigation-list {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    width: 100%;
-  }
-
+@media (min-width: 61.875em) {
   .nhsuk-header__navigation-list--small {
     justify-content: flex-start;
   }
-
-  .nhsuk-header__navigation-item {
-    border-top: 0;
-    margin: 0;
-    text-align: center;
-  }
-  .nhsuk-header__navigation-item .nhsuk-icon__chevron-right {
-    display: none;
-  }
-
-  .nhsuk-header__navigation-link {
-    color: #ffffff;
-    line-height: normal;
-  }
 }
+
 /**
  * Transactional Header with service name
 **/
@@ -5743,7 +5722,7 @@ b {
 }
 .nhsuk-header--white .nhsuk-organisation-name {
   color: #000;
-  /* [14] */
+  /* [9] */
   /* stylelint-disable-line color-no-hex */
 }
 .nhsuk-header--white .nhsuk-organisation-descriptor {
