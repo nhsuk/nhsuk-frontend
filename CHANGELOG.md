@@ -6,7 +6,11 @@
 
 - Care Card refactor
 
-Care Card is now a variant of the Card component.
+care card is now a variant of the card component.
+
+We've reworked the care cards component as a pattern to "Help users decide when and where to get care".  We've done this for 2 reasons.
+1. The care cards component was designed to deal with a specific problem in the context of health information. But we've seen teams use care cards in other ways and contexts with mixed results. By rewriting care cards as a pattern, we hope it's clearer what problem they're designed to solve.
+2. We're tidying up the frontend, reducing duplication in the code, making it easier to maintain and improving its performance. We're taking out things which aren't components in their own right. Care cards are a variation of the card component, used as a solution to a specific need, so we're taking them out of the frontend in a breaking change release today.
 
 - Remove Nav A-Z component & List panel component
 
