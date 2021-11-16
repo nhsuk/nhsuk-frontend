@@ -4,9 +4,9 @@
 
 :boom: **Breaking changes**
 
-- Care Card refactor
+- Care card refactor
 
-care card is now a variant of the card component.
+Care card is now a variant of the card component.
 
 We've reworked the care cards component as a pattern to "Help users decide when and where to get care".  We've done this for 2 reasons.
 1. The care cards component was designed to deal with a specific problem in the context of health information. But we've seen teams use care cards in other ways and contexts with mixed results. By rewriting care cards as a pattern, we hope it's clearer what problem they're designed to solve.
