@@ -381,7 +381,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card non-urgent (blue)
 
-[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/care-card/care-card-non-urgent.html)
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-non-urgent.html)
 
 #### HTML markup
 
