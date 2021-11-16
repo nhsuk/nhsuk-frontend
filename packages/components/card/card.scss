@@ -20,10 +20,10 @@
  * 11. 'Random number' used for spacing to compensate for the triangle.
  * 12. Needed to enable the triangle to show correctly in high contrast mode.
  * 13. Prevent additional padding on headings
- * 14. Give the action link icon sufficient contrast when used in the immediate variant
+ * 14. Give the action link icon sufficient contrast when used in the emergency variant
  * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
- * 16. Immediate care card <a> needs to be white because the background colour is black.
- * 17. Give the action link icon sufficient contrast when used in the immediate variant
+ * 16. Emergency care card <a> needs to be white because the background colour is black.
+ * 17. Give the action link icon sufficient contrast when used in the emergency variant
  */
 
 $card-border-width: 1px;
@@ -239,7 +239,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 }
 
-.nhsuk-card--care--immediate {
+.nhsuk-card--care--emergency {
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-card--care__arrow {
