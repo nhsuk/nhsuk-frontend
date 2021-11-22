@@ -309,6 +309,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
           <li><a href="#">List item as a link</a></li>
         </ul>
 ```
+
 ## 5.2.1 - 28 October 2021
 
 :wrench: **Fixes**
