@@ -477,9 +477,9 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ---
 
-### Care card immediate (red and black)
+### Care card emergency (red and black)
 
-[Preview care card immediate (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-immediate.html)
+[Preview care card emergency (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-emergency.html)
 
 #### HTML markup
 

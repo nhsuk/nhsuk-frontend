@@ -300,7 +300,7 @@ Care card urgent (red) example:
 Care card emergency (red and black) example:
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--immediate">
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
 ```
 
 ---
