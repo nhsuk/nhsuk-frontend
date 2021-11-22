@@ -102,8 +102,8 @@ module.exports = {
       url: `${TEST_URL}/card/care-card-urgent.html`,
     },
     {
-      label: 'Care card - Immediate',
-      url: `${TEST_URL}/card/care-card-immediate.html`,
+      label: 'Care card - Emergency',
+      url: `${TEST_URL}/card/care-card-emergency.html`,
     },
     {
       label: 'Checkboxes',
