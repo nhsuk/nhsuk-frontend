@@ -131,6 +131,10 @@ module.exports = {
       clickSelector: '#contact-1',
     },
     {
+      label: 'Checkboxes with "none of the above" option',
+      url: `${TEST_URL}/checkboxes/none-of-the-above.html`,
+    },
+    {
       label: 'Contents list',
       url: `${TEST_URL}/contents-list/index.html`,
     },
@@ -216,10 +220,6 @@ module.exports = {
     {
       label: 'Header transactional with service name',
       url: `${TEST_URL}/header/header-transactional-service-name.html`,
-    },
-    {
-      label: 'Header transactional with a long service name',
-      url: `${TEST_URL}/header/header-transactional-long-service-name.html`,
     },
     {
       label: 'Header with navigation',
