@@ -95,15 +95,15 @@ module.exports = {
     },
     {
       label: 'Care card - Non urgent',
-      url: `${TEST_URL}/care-card/care-card-non-urgent.html`,
+      url: `${TEST_URL}/card/care-card-non-urgent.html`,
     },
     {
       label: 'Care card - Urgent',
-      url: `${TEST_URL}/care-card/care-card-urgent.html`,
+      url: `${TEST_URL}/card/care-card-urgent.html`,
     },
     {
-      label: 'Care card - Immediate',
-      url: `${TEST_URL}/care-card/care-card-immediate.html`,
+      label: 'Care card - Emergency',
+      url: `${TEST_URL}/card/care-card-emergency.html`,
     },
     {
       label: 'Checkboxes',

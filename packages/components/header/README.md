@@ -30,7 +30,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
       </div>
       <div class="nhsuk-header__search">
         <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
@@ -179,7 +179,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu nhsuk-header__menu--only">
-        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
       </div>
     </div>
   </div>
@@ -476,7 +476,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
       </div>
       <div class="nhsuk-header__search">
         <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
@@ -630,7 +630,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
       </div>
       <div class="nhsuk-header__search">
         <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
@@ -785,7 +785,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__menu">
-        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
       </div>
       <div class="nhsuk-header__search">
         <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
