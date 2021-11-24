@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 6.0.0 - 22 November 2021
+## 6.0.0 - 29 November 2021
 
 :boom: **Breaking changes**
 
@@ -304,10 +304,10 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
 ```
 <ul class="nhsuk-list nhsuk-list--border">
-          <li><a href="#">List item as a link</a></li>
-          <li><a href="#">List item as a link</a></li>
-          <li><a href="#">List item as a link</a></li>
-        </ul>
+  <li><a href="#">List item as a link</a></li>
+  <li><a href="#">List item as a link</a></li>
+  <li><a href="#">List item as a link</a></li>
+</ul>
 ```
 
 ## 5.2.1 - 28 October 2021

@@ -177,7 +177,7 @@
 // different coloured care cards.
 //
 // Usage: @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
-// See components/_card
+// See components/card/card
 //
 
 @mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
