@@ -266,27 +266,6 @@ We should use **camelCase** for naming attributes.
 
 When a component accepts a *single array of items* for an output, such as checkboxes or radios, we accept an ***"items"*** array of objects.  Table component is an exception is it can contain multiple array for rows, head, footer where there is need to for more specific names.
 
-Example:
-
-```
-{{ listPanel({
-  items: [
-    {
-      URL: "/aaa",
-      link: "AAA"
-    },
-    {
-      URL: "/abdominal",
-      link: "Abdominal aortic aneurysm"
-    },
-    {
-      URL: "/abscess",
-      link: "Abscess"
-    }
-  ]
-}) }}
-```
-
 ### Use of classes to specify variants
 
 When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.

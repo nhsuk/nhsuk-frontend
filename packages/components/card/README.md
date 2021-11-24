@@ -445,7 +445,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   <div class="nhsuk-card__content">
     <ul>
       <li>you're an adult and have chickenpox</li>
-      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
       <li>you have a weakened immune system and you've been near someone with chickenpox</li>
       <li>you think your newborn baby has chickenpox</li>
     </ul>
@@ -466,7 +466,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   "descriptionHtml": "
   <ul>
     <li>you're an adult and have chickenpox</li>
-    <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+    <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
     <li>you have a weakened immune system and you've been near someone with chickenpox</li>
     <li>you think your newborn baby has chickenpox</li>
   </ul>
@@ -484,7 +484,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### HTML markup
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--immediate">
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
   <div class="nhsuk-card--care__heading-container">
     <h3 class="nhsuk-card--care__heading">
       <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
@@ -508,7 +508,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
-  "type": "immediate",
+  "type": "emergency",
   "heading": "Call 999 if you have sudden chest pain that:",
   "headingLevel": 3,
   "descriptionHtml": "
@@ -535,7 +535,7 @@ The card Nunjucks macro takes the following arguments:
 | **href**            | string   | No       | The value of the card href attribute |
 | **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
 | **feature**            | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied. |
-| **type**                | string   | No       | Care card component variant type - non-urgent, urgent or immediate |
+| **type**                | string   | No       | Care card component variant type - non-urgent, urgent or emergency |
 | **imgURL**          | string   | No        | The URL of the image in the card |
 | **imgALT**          | string   | No        | The alternative text of the image in the card |
 | **description**     | string   | No        | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |

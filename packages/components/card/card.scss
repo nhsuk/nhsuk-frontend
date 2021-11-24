@@ -23,7 +23,6 @@
  * 14. Give the action link icon sufficient contrast when used in the emergency variant
  * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
  * 16. Emergency care card <a> needs to be white because the background colour is black.
- * 17. Give the action link icon sufficient contrast when used in the emergency variant
  */
 
 $card-border-width: 1px;
@@ -282,7 +281,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   .nhsuk-action-link__link {
     .nhsuk-icon__arrow-right-circle {
-      fill: $color_nhsuk-white; /* [17] */
+      fill: $color_nhsuk-white; /* [14] */
     }
   }
 
