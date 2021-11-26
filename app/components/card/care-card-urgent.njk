@@ -1,6 +1,6 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Care card urgent (red)' %}
-{% from 'components/care-card/macro.njk' import careCard %}
+{% set title = 'Card - Care card urgent (red)' %}
+{% from 'components/card/macro.njk' import card %}
 {% extends 'layout.njk' %}
 
 {% block body %}
@@ -10,10 +10,12 @@
 
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
-        {{ careCard({
+
+        {{ card({
           "type": "urgent",
           "heading": "Ask for an urgent GP appointment if:",
-          "HTML": "
+          "headingLevel": 3,
+          "descriptionHtml": "
           <ul>
             <li>you're an adult and have chickenpox</li>
             <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
@@ -23,6 +25,7 @@
           <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
           "
         }) }}
+
       </div>
     </div>
 

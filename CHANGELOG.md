@@ -1,5 +1,315 @@
 # NHS.UK frontend Changelog
 
+## 6.0.0 - 29 November 2021
+
+:boom: **Breaking changes**
+
+- Care card refactor
+
+Care card is now a variant of the card component.
+
+We've reworked the care cards component as a pattern to "Help users decide when and where to get care".  We've done this for 2 reasons.
+1. The care cards component was designed to deal with a specific problem in the context of health information. But we've seen teams use care cards in other ways and contexts with mixed results. By rewriting care cards as a pattern, we hope it's clearer what problem they're designed to solve.
+2. We're tidying up the frontend, reducing duplication in the code, making it easier to maintain and improving its performance. We're taking out things which aren't components in their own right. Care cards are a variation of the card component, used as a solution to a specific need, so we're taking them out of the frontend in a breaking change release today.
+
+- Remove Nav A-Z component & List panel component
+
+The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual. 
+
+### Nav A-Z
+
+#### Old code:
+
+```
+<nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+  <ol class="nhsuk-nav-a-z__list" role="list">
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#A">A</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <span class="nhsuk-nav-a-z__link--disabled">B</span>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#C">C</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#D">D</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#E">E</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#F">F</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#G">G</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#H">H</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#I">I</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#J">J</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#K">K</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#L">L</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#M">M</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#N">N</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#O">O</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#P">P</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#Q">Q</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#R">R</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#S">S</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#T">T</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#U">U</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#V">V</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#W">W</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#X">X</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#Y">Y</a>
+    </li>
+    <li class="nhsuk-nav-a-z__item">
+      <a class="nhsuk-nav-a-z__link" href="#Z">Z</a>
+    </li>
+  </ol>
+</nav>
+```
+
+#### New code:
+
+The nav A-Z component can be recreated using `nhsuk-list`.
+
+```
+<nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+  <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">A</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">B</span>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">C</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">D</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#E">E</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#F">F</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#G">G</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#H">H</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#I">I</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#J">J</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#K">K</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#L">L</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#M">M</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#N">N</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#O">O</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#P">P</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Q">Q</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#R">R</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#S">S</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#T">T</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#U">U</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#V">V</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#W">W</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#X">X</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Y">Y</a>
+    </li>
+    <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+      <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Z">Z</a>
+    </li>
+  </ol>
+</nav>
+```
+
+The new code uses a new utility class:
+
+```
+.nhsuk-u-float-left {
+  float: left !important;
+}
+```
+
+All the other code already exists and the spacing utility classes can be customised to fit into your design.
+
+### List panel
+
+#### Old code:
+
+```
+<ol class="nhsuk-list">
+  <li>
+    <div class="nhsuk-list-panel">
+      <h2 class="nhsuk-list-panel__label" id="A">A</h2>
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/abdominal-aortic-aneurysm/">AAA</a>
+        </li>
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a>
+        </li>
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/abscess/">Abscess</a>
+        </li>
+      </ul>
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="19" height="19">
+            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+          </svg>
+          Back to top
+        </a>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="nhsuk-list-panel">
+      <h2 class="nhsuk-list-panel__label" id="B">B</h2>
+      <div class="nhsuk-list-panel__box nhsuk-list-panel__box--with-label">
+        <p class="nhsuk-list-panel--results-items__no-results">There are currently no conditions listed</p>
+      </div>
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="19" height="19">
+            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+          </svg>
+          Back to top
+        </a>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="nhsuk-list-panel">
+      <h2 class="nhsuk-list-panel__label" id="C">C</h2>
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/chest-pain/">Chest pain</a>
+        </li>
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/cold-sores/">Cold sore</a>
+        </li>
+      </ul>
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="19" height="19">
+            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+          </svg>
+          Back to top
+        </a>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="nhsuk-list-panel">
+      <h2 class="nhsuk-list-panel__label" id="D">D</h2>
+      <ul class="nhsuk-list-panel__list nhsuk-list-panel__list--with-label">
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/dandruff/">Dandruff</a>
+        </li>
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/dementia/">Dementia</a>
+        </li>
+        <li class="nhsuk-list-panel__item">
+          <a class="nhsuk-list-panel__link" href="/conditions/toothache/">Dental pain</a>
+        </li>
+      </ul>
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="19" height="19">
+            <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+          </svg>
+          Back to top
+        </a>
+      </div>
+    </div>
+  </li>
+</ol>
+```
+
+The list panel component can be recreated by adding `nhsuk-list--border` to the [list styles in typography](https://service-manual.nhs.uk/design-system/styles/typography#lists)
+
+#### New code:
+
+```
+<ul class="nhsuk-list nhsuk-list--border">
+  <li><a href="#">List item as a link</a></li>
+  <li><a href="#">List item as a link</a></li>
+  <li><a href="#">List item as a link</a></li>
+</ul>
+```
+
 ## 5.2.1 - 28 October 2021
 
 :wrench: **Fixes**
