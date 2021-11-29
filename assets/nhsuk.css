@@ -3175,6 +3175,18 @@ b {
  * 5. Includes the border width to achieve the correct left alignment.
  * 6. Stops the heading from spanning the full width of the card.
  * 7. Removes padding top for the feature heading positioning.
+ * 8. Default care card colour set to blue (non-urgent care card) -
+ *    using the @mixin care-card tools/_mixins.scss.
+ *    The same mixin is used for each care card, setting the background
+ *    colour,text colour and print border width with the variables.
+ * 9. 'Random number' for the heading triangle.
+ * 10. 'Random number' for the heading triangle positioning.
+ * 11. 'Random number' used for spacing to compensate for the triangle.
+ * 12. Needed to enable the triangle to show correctly in high contrast mode.
+ * 13. Prevent additional padding on headings
+ * 14. Give the action link icon sufficient contrast when used in the emergency variant
+ * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
+ * 16. Emergency care card <a> needs to be white because the background colour is black.
  */
 .nhsuk-card {
   margin-bottom: 40px;
@@ -3341,55 +3353,30 @@ b {
   /* [7] */
 }
 
-/* ==========================================================================
-   COMPONENTS / #CARE-CARD
-   ========================================================================== */
-/**
- * Care card default styles.
- *
- * 1. Default care card colour set to blue (non-urgent care card) -
- *    using the @mixin care-card tools/_mixins.scss.
- *    The same mixin is used for each care card, setting the background
- *    colour,text colour and print border width with the variables.
- * 2. This shows as a solid border in high contrast mode in Windows, so helps
- *    differentiates care cards from the rest of the content.
- * 3. 'Random number' for the heading triangle.
- * 4. 'Random number' for the heading triangle positioning.
- * 5. 'Random number' used for spacing to compensate for the triangle.
- * 6. Needed to enable the triangle to show correctly in high contrast mode.
- * 7. Prevent additional padding on headings
- * 8. Give the action link icon sufficient contrast when used in the immediate variant
- */
-.nhsuk-care-card {
-  margin-bottom: 40px;
+/* Care card
+  ========================================================================== */
+.nhsuk-card--care {
   margin-top: 40px;
-  /* [1] */
-  border: 1px solid transparent;
-  /* [2] */
+  /* [8] */
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-care-card {
-    margin-bottom: 48px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card {
+  .nhsuk-card--care {
     margin-top: 48px;
   }
 }
-.nhsuk-care-card .nhsuk-care-card__heading-container {
+.nhsuk-card--care .nhsuk-card--care__heading-container {
   background-color: #005eb8;
   color: #ffffff;
 }
 @media print {
-  .nhsuk-care-card {
+  .nhsuk-card--care {
     border: 4px solid #212b32;
     color: #212b32;
     page-break-inside: avoid;
   }
 }
 
-.nhsuk-care-card__heading-container {
+.nhsuk-card--care__heading-container {
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 16px;
@@ -3397,194 +3384,143 @@ b {
   position: relative;
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-care-card__heading-container {
+  .nhsuk-card--care__heading-container {
     padding-left: 32px;
   }
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-care-card__heading-container {
+  .nhsuk-card--care__heading-container {
     padding-right: 32px;
   }
 }
 
-.nhsuk-care-card__arrow {
-  bottom: -10px;
-  /* [3] */
-  display: block;
-  height: 20px;
-  /* [3] */
-  left: 30px;
-  /* [4] */
-  overflow: hidden;
-  position: absolute;
-  transform: rotate(45deg);
-  width: 20px;
-  /* [3] */
-}
-@media print {
-  .nhsuk-care-card__arrow {
-    display: none;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card__arrow {
-    left: 38px;
-    /* [4] */
-  }
-}
-.nhsuk-care-card__arrow:before, .nhsuk-care-card__arrow:after {
-  border: solid 32px #005eb8;
-  /* [3] */
-  content: "";
-  display: block;
-  height: 0;
-  position: absolute;
-  top: 0;
-  transform: rotate(45deg);
-  /* [6] */
-  width: 0;
-}
-
-.nhsuk-care-card__heading {
+.nhsuk-card--care__heading {
   font-weight: 600;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.4;
   margin: 0;
   padding-top: 0;
-  /* [7] */
+  /* [13] */
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-care-card__heading {
+  .nhsuk-card--care__heading {
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 1.33333;
   }
 }
 @media print {
-  .nhsuk-care-card__heading {
+  .nhsuk-card--care__heading {
     font-size: 18pt;
     line-height: 1.15;
   }
 }
 @media print {
-  .nhsuk-care-card__heading {
+  .nhsuk-card--care__heading {
     color: #212b32;
     fill: #212b32;
   }
-  .nhsuk-care-card__heading:active, .nhsuk-care-card__heading:focus, .nhsuk-care-card__heading:visited {
+  .nhsuk-card--care__heading:active, .nhsuk-card--care__heading:focus, .nhsuk-card--care__heading:visited {
     color: #212b32;
   }
 }
 
-.nhsuk-care-card__content {
-  padding-bottom: 24px;
-  padding-left: 24px;
-  padding-right: 24px;
-  background-color: #ffffff;
-  border: 1px solid #d8dde0;
-  border-top: 0;
-  padding-top: 32px;
-  /* [5] */
-}
-.nhsuk-care-card__content > *:first-child {
-  margin-top: 0;
-}
-.nhsuk-care-card__content > *:last-child {
-  margin-bottom: 0;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card__content {
-    padding-bottom: 32px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card__content {
-    padding-left: 32px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card__content {
-    padding-right: 32px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-care-card__content {
-    padding-bottom: 32px;
-    padding-top: 36px;
-    /* [5] */
-  }
+.nhsuk-card--care__arrow {
+  bottom: -10px;
+  /* [9] */
+  display: block;
+  height: 20px;
+  /* [9] */
+  left: 30px;
+  /* [10] */
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 20px;
+  /* [9] */
 }
 @media print {
-  .nhsuk-care-card__content {
-    color: #212b32;
-    fill: #212b32;
-  }
-  .nhsuk-care-card__content:active, .nhsuk-care-card__content:focus, .nhsuk-care-card__content:visited {
-    color: #212b32;
+  .nhsuk-card--care__arrow {
+    display: none;
   }
 }
+@media (min-width: 40.0625em) {
+  .nhsuk-card--care__arrow {
+    left: 38px;
+    /* [10] */
+  }
+}
+.nhsuk-card--care__arrow:before, .nhsuk-card--care__arrow:after {
+  border: solid 32px #005eb8;
+  /* [9] */
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(45deg);
+  /* [12] */
+  width: 0;
+}
 
-/**
- * Card card variations style.
- *
- * 1. <a> needs to be white because the background colour is black.
- */
-.nhsuk-care-card--urgent .nhsuk-care-card__heading-container {
+.nhsuk-card--care--urgent .nhsuk-card--care__heading-container {
   background-color: #d5281b;
   color: #ffffff;
 }
 @media print {
-  .nhsuk-care-card--urgent {
+  .nhsuk-card--care--urgent {
     border: 6px solid #212b32;
     color: #212b32;
     page-break-inside: avoid;
   }
 }
-.nhsuk-care-card--urgent .nhsuk-care-card__arrow:before, .nhsuk-care-card--urgent .nhsuk-care-card__arrow:after {
+.nhsuk-card--care--urgent .nhsuk-card--care__arrow:before, .nhsuk-card--care--urgent .nhsuk-card--care__arrow:after {
   border-color: #d5281b;
 }
 
-.nhsuk-care-card--immediate .nhsuk-care-card__heading-container {
+.nhsuk-card--care--emergency .nhsuk-card--care__heading-container {
   background-color: #d5281b;
   color: #ffffff;
 }
 @media print {
-  .nhsuk-care-card--immediate {
+  .nhsuk-card--care--emergency {
     border: 8px solid #212b32;
     color: #212b32;
     page-break-inside: avoid;
   }
 }
-.nhsuk-care-card--immediate .nhsuk-care-card__arrow:before, .nhsuk-care-card--immediate .nhsuk-care-card__arrow:after {
+.nhsuk-card--care--emergency .nhsuk-card--care__arrow:before, .nhsuk-card--care--emergency .nhsuk-card--care__arrow:after {
   border-color: #d5281b;
 }
-.nhsuk-care-card--immediate .nhsuk-care-card__content {
+.nhsuk-card--care--emergency .nhsuk-card__content {
   background-color: #212b32;
   border: 0;
   color: #ffffff;
+  position: static;
+  /* [15] */
 }
-.nhsuk-care-card--immediate .nhsuk-care-card__content a {
+.nhsuk-card--care--emergency .nhsuk-card__content a {
   color: #ffffff;
-  /* [1] */
+  /* [16] */
 }
-.nhsuk-care-card--immediate .nhsuk-care-card__content a:focus {
+.nhsuk-card--care--emergency .nhsuk-card__content a:focus {
   color: #212b32;
-  /* [1] */
+  /* [16] */
 }
-.nhsuk-care-card--immediate .nhsuk-details,
-.nhsuk-care-card--immediate .nhsuk-details__summary {
+.nhsuk-card--care--emergency .nhsuk-details,
+.nhsuk-card--care--emergency .nhsuk-details__summary {
   color: #ffffff;
 }
-.nhsuk-care-card--immediate .nhsuk-details__summary:hover {
+.nhsuk-card--care--emergency .nhsuk-details__summary:hover {
   color: #ffffff;
 }
-.nhsuk-care-card--immediate .nhsuk-details__summary:focus {
+.nhsuk-card--care--emergency .nhsuk-details__summary:focus {
   color: #212b32;
 }
-.nhsuk-care-card--immediate .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
+.nhsuk-card--care--emergency .nhsuk-action-link__link .nhsuk-icon__arrow-right-circle {
   fill: #ffffff;
-  /* [8] */
+  /* [14] */
 }
 
 /* ==========================================================================
@@ -6359,333 +6295,6 @@ b {
 
 .nhsuk-label-wrapper {
   margin: 0;
-}
-
-/* ==========================================================================
-   COMPONENT / #LIST-PANEL / #BACK-TO-TOP
-   ========================================================================== */
-/**
- * 1. Allows <a> padding and margin to be respected.
- * 2. Removes default margin-bottom from heading.
- * 3. 'Random number' used give heading the correct placement.
- * 4. Overrides the default bullet list style.
- * 5. Overrides default link box-shadow.
- * 6. Removes the grey border on hover.
- * 7. Underline is added to give a visual state of change.
- * 8. Removes right and left margin to make the panel list go right to the
- *    edge of the screen.
- */
-.nhsuk-list-panel {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-list-panel {
-    margin-top: 48px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-list-panel {
-    margin-bottom: 48px;
-  }
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-list-panel {
-    /* [8] */
-  }
-}
-@media (max-width: 40.0525em) and (max-width: 40.0525em) {
-  .nhsuk-list-panel {
-    margin-left: -16px;
-    margin-right: -16px;
-  }
-}
-
-.nhsuk-list-panel__label {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1.33333;
-  background-color: #005eb8;
-  color: #ffffff;
-  display: inline-block;
-  /* [1] */
-  margin-bottom: 0;
-  /* [2] */
-  padding: 8px 16px;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-list-panel__label {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.25;
-  }
-}
-@media print {
-  .nhsuk-list-panel__label {
-    font-size: 24pt;
-    line-height: 1.05;
-  }
-}
-@media print {
-  .nhsuk-list-panel__label {
-    color: #212b32;
-    margin-top: 0;
-  }
-}
-
-.nhsuk-list-panel__list,
-.nhsuk-list-panel__box {
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-}
-@media print {
-  .nhsuk-list-panel__list,
-.nhsuk-list-panel__box {
-    border-top: 0;
-  }
-}
-
-.nhsuk-list-panel__list--with-label,
-.nhsuk-list-panel__box--with-label {
-  border-top: 2px solid #005eb8;
-  margin: -28px 0 0;
-  /* [3] */
-  padding: 27px 0 0;
-  /* [3] */
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-list-panel__list--with-label,
-.nhsuk-list-panel__box--with-label {
-    margin: -24px 0 0;
-    /* [3] */
-    padding: 23px 0 0;
-    /* [3] */
-  }
-}
-
-.nhsuk-list-panel__item {
-  background-color: #ffffff;
-  list-style: none;
-  /* [4] */
-  margin-bottom: 0;
-}
-
-.nhsuk-list-panel__link {
-  border-bottom: 1px solid #d8dde0;
-  display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-}
-.nhsuk-list-panel__link:hover {
-  text-decoration: underline;
-  /* [7] */
-}
-.nhsuk-list-panel__link:focus {
-  background-color: #ffeb3b;
-  border-bottom: 1px solid #212b32;
-  box-shadow: inset 0 -4px 0 0 #212b32;
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-list-panel__link {
-    padding: 8px 16px;
-  }
-}
-
-.nhsuk-list-panel--results-items__no-results {
-  border-bottom: 1px solid #d8dde0;
-  color: #4c6272;
-  margin: 0;
-  padding: 16px;
-}
-
-/* COMPONENT / #BACK-TO-TOP
-   ========================================================================== */
-/**
- * 1. Allows <a> padding and margin to be respected.
- * 2. 'Random number' used to provide space for icon.
- * 3. Allows icon to be positioned absolute.
- * 4. Make same colour as link text.
- * 5. 'Random numbers' used to set the height and width of the icon.
- * 6. 'Random numbers' used to position align icon.
- * 7. Margin left used to compensate for the negative margin
- *    on .nhsuk-list-panel--mobile.
- */
-.nhsuk-back-to-top__link {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5;
-  display: inline-block;
-  /* [1] */
-  margin-top: 16px;
-  padding-left: 12px;
-  /* [2] */
-  position: relative;
-  /* [3] */
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-back-to-top__link {
-    font-size: 19px;
-    font-size: 1.1875rem;
-    line-height: 1.47368;
-  }
-}
-@media print {
-  .nhsuk-back-to-top__link {
-    font-size: 14pt;
-    line-height: 1.15;
-  }
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-back-to-top__link {
-    margin-left: 16px;
-    /* [7] */
-  }
-}
-.nhsuk-back-to-top__link .nhsuk-icon {
-  fill: #005eb8;
-  /* [4] */
-  height: 19px;
-  /* [5] */
-  left: -8px;
-  /* [6] */
-  position: absolute;
-  top: 4px;
-  /* [6] */
-  -ms-transform: rotate(270deg);
-  -webkit-transform: rotate(270deg);
-  transform: rotate(270deg);
-  width: 19px;
-  /* [5] */
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-back-to-top__link .nhsuk-icon {
-    top: 2px;
-    /* [6] */
-  }
-}
-.nhsuk-back-to-top__link:visited {
-  color: #005eb8;
-}
-.nhsuk-back-to-top__link:hover {
-  color: #7C2855;
-}
-.nhsuk-back-to-top__link:hover .nhsuk-icon {
-  fill: #7C2855;
-}
-.nhsuk-back-to-top__link:focus {
-  background-color: #ffeb3b;
-  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
-  color: #212b32;
-  outline: 4px solid transparent;
-  text-decoration: none;
-}
-.nhsuk-back-to-top__link:focus .nhsuk-icon {
-  fill: #212b32;
-}
-@media print {
-  .nhsuk-back-to-top__link {
-    display: none;
-  }
-}
-
-/* ==========================================================================
-   COMPONENT / #nav-a-z
-   ========================================================================== */
-/**
- * 1. Clearfix added to the A-Z nav to clear float: left;
- *    on the .nhsuk-a-z-nav__list-item.
- * 2. Used to wrap the list items.
- * 3. Removes bullets from list item..
- * 4. Gives equal spacing around each list item.
- * 5. 'Random number' gives adequate spacing for touch navigation.
- */
-.nhsuk-nav-a-z {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-nav-a-z {
-    margin-top: 48px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-nav-a-z {
-    margin-bottom: 48px;
-  }
-}
-@media print {
-  .nhsuk-nav-a-z {
-    display: none;
-  }
-}
-
-.nhsuk-nav-a-z__list {
-  /* [1] */
-  padding: 0;
-}
-.nhsuk-nav-a-z__list:after {
-  clear: both;
-  content: "";
-  display: block;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-nav-a-z__list {
-    padding: 0;
-  }
-}
-
-.nhsuk-nav-a-z__item {
-  float: left;
-  /* [2] */
-  list-style: none;
-  /* [3] */
-  margin: 1px;
-  /* [4] */
-}
-
-.nhsuk-nav-a-z__link,
-.nhsuk-nav-a-z__link--disabled {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.55556;
-  display: block;
-  min-width: 34px;
-  /* [5] */
-  padding-bottom: 8px;
-  padding-top: 8px;
-  text-align: center;
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-nav-a-z__link,
-.nhsuk-nav-a-z__link--disabled {
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 1.45455;
-  }
-}
-@media print {
-  .nhsuk-nav-a-z__link,
-.nhsuk-nav-a-z__link--disabled {
-    font-size: 18pt;
-    line-height: 1.15;
-  }
-}
-@media (max-width: 40.0525em) {
-  .nhsuk-nav-a-z__link,
-.nhsuk-nav-a-z__link--disabled {
-    min-width: 36px;
-    /* [5] */
-  }
-}
-
-.nhsuk-nav-a-z__link--disabled {
-  color: #4c6272;
-}
-
-.nhsuk-nav-a-z__link.is-active {
-  background-color: #005eb8;
-  color: #ffffff;
 }
 
 /* ==========================================================================
