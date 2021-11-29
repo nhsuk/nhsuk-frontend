@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 6.0.1 - 29 November 2021
+
+#:wrench: **Fixes**
+
+- Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right` 
+
 ## 6.0.0 - 29 November 2021
 
 :boom: **Breaking changes**
@@ -11,6 +17,7 @@ Care card is now a variant of the card component.
 We've reworked the care cards component as a pattern to "Help users decide when and where to get care".  We've done this for 2 reasons.
 1. The care cards component was designed to deal with a specific problem in the context of health information. But we've seen teams use care cards in other ways and contexts with mixed results. By rewriting care cards as a pattern, we hope it's clearer what problem they're designed to solve.
 2. We're tidying up the frontend, reducing duplication in the code, making it easier to maintain and improving its performance. We're taking out things which aren't components in their own right. Care cards are a variation of the card component, used as a solution to a specific need, so we're taking them out of the frontend in a breaking change release today.
+3. Type 'immmediate' has changed to 'emergency' & 'primary' has changed to 'non-urgent'. (Help users decide when and where to get care (care cards))[https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care]
 
 - Remove Nav A-Z component & List panel component
 
