@@ -1,0 +1,108 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Checkboxes with "none of the above" option' %}
+{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'components/input/macro.njk' import input %}
+{% extends 'layout.njk' %}
+
+{% set emailHtml %}
+  {{ input({
+    id: "email",
+    name: "email",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Email address"
+    }
+  }) }}
+{% endset -%}
+
+{% set phoneHtml %}
+  {{ input({
+    id: "phone",
+    name: "phone",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% set mobileHtml %}
+  {{ input({
+    id: "mobile",
+    name: "mobile",
+    classes: "nhsuk-u-width-two-thirds",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+{% endset -%}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <form>
+            {{ checkboxes({
+              "idPrefix": "contact",
+              "name": "contact",
+              "fieldset": {
+                "legend": {
+                  "text": "How would you prefer to be contacted?",
+                  "classes": "nhsuk-fieldset__legend--l",
+                  "isPageHeading": "true"
+                }
+              },
+              "hint": {
+                "text": "Select all options that are relevant to you."
+              },
+              "items": [
+                {
+                  "value": "email",
+                  "text": "Email",
+                  "name": "email",
+                  "exclusiveGroup": "communication-preferences",
+                  "conditional": {
+                    "html": emailHtml
+                  }
+                },
+                {
+                  "value": "phone",
+                  "text": "Phone",
+                  "name": "phone",
+                  "exclusiveGroup": "communication-preferences",
+                  "conditional": {
+                    "html": phoneHtml
+                  }
+                },
+                {
+                  "value": "text",
+                  "text": "Text message",
+                  "name": "text",
+                  "exclusiveGroup": "communication-preferences",
+                  "conditional": {
+                    "html": mobileHtml
+                  }
+                },
+                {
+                  "divider": "or"
+                },
+                {
+                  "value": "none",
+                  "text": "None of the above",
+                  "name": "none",
+                  "exclusive": true,
+                  "exclusiveGroup": "communication-preferences"
+                }
+              ]
+            }) }}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

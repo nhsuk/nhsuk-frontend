@@ -1,7 +1,7 @@
 import MenuToggle from './menuToggle';
 
 // Mock HTML
-const toggleButtonHtml = '<button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>';
+const toggleButtonHtml = '<button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>';
 const closeButtonHtml = '<button class="nhsuk-header__navigation-close" id="close-menu"><span class="nhsuk-u-visually-hidden">Close menu</span></button>';
 const navHtml = '<nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation"></nav>';
 

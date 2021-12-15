@@ -11,6 +11,18 @@
  * 5. Includes the border width to achieve the correct left alignment.
  * 6. Stops the heading from spanning the full width of the card.
  * 7. Removes padding top for the feature heading positioning.
+ * 8. Default care card colour set to blue (non-urgent care card) -
+ *    using the @mixin care-card tools/_mixins.scss.
+ *    The same mixin is used for each care card, setting the background
+ *    colour,text colour and print border width with the variables.
+ * 9. 'Random number' for the heading triangle.
+ * 10. 'Random number' for the heading triangle positioning.
+ * 11. 'Random number' used for spacing to compensate for the triangle.
+ * 12. Needed to enable the triangle to show correctly in high contrast mode.
+ * 13. Prevent additional padding on headings
+ * 14. Give the action link icon sufficient contrast when used in the emergency variant
+ * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
+ * 16. Emergency care card <a> needs to be white because the background colour is black.
  */
 
 $card-border-width: 1px;
@@ -102,7 +114,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   + h2,
   + .nhsuk-heading-l,
   + h3,
-  + .nhsuk-heading-m, {
+  + .nhsuk-heading-m {
     padding-top: 0; /* [4] */
   }
 }
@@ -157,4 +169,120 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card__content--feature {
   padding-top: 0 !important; /* stylelint-disable-line declaration-no-important */ /* [7] */
+}
+
+
+/* Care card
+  ========================================================================== */
+
+.nhsuk-card--care {
+  @include nhsuk-responsive-margin(7, 'top');
+  @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); /* [8] */
+}
+
+.nhsuk-card--care__heading-container {
+  @include nhsuk-responsive-padding(5, 'left');
+  @include nhsuk-responsive-padding(5, 'right');
+
+  padding-bottom: nhsuk-spacing(3);
+  padding-top: nhsuk-spacing(3);
+  position: relative;
+}
+
+.nhsuk-card--care__heading {
+  @include nhsuk-font(24, $weight: bold);
+  @include print-color($nhsuk-print-text-color);
+
+  margin: 0;
+  padding-top: 0; /* [13] */
+}
+
+.nhsuk-card--care__arrow {
+  bottom: -10px; /* [9] */
+  display: block;
+  height: 20px; /* [9] */
+  left: 30px; /* [10] */
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 20px; /* [9] */
+  @include print-hide();
+
+  @include mq($from: tablet) {
+    left: 38px; /* [10] */
+  }
+
+  &:before,
+  &:after {
+    border: solid 32px $color_nhsuk-blue; /* [9] */
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg); /* [12] */
+    width: 0;
+  }
+
+}
+
+.nhsuk-card--care--urgent {
+  @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
+
+  .nhsuk-card--care__arrow {
+    &:before,
+    &:after {
+      border-color: $color_nhsuk-red;
+    }
+  }
+
+}
+
+.nhsuk-card--care--emergency {
+  @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
+
+  .nhsuk-card--care__arrow {
+    &:before,
+    &:after {
+      border-color: $color_nhsuk-red;
+    }
+  }
+
+  .nhsuk-card__content {
+    background-color: $color_nhsuk-black;
+    border: 0;
+    color: $color_nhsuk-white;
+    position: static; /* [15] */
+
+    a {
+      color: $color_nhsuk-white; /* [16] */
+
+      &:focus {
+        color: $color_nhsuk-black; /* [16] */
+      }
+
+    }
+
+  }
+
+  .nhsuk-details,
+  .nhsuk-details__summary {
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-details__summary {
+    &:hover {
+      color: $color_nhsuk-white;
+    }
+    &:focus {
+      color: $color_nhsuk-black;
+    }
+  }
+
+  .nhsuk-action-link__link {
+    .nhsuk-icon__arrow-right-circle {
+      fill: $color_nhsuk-white; /* [14] */
+    }
+  }
+
 }

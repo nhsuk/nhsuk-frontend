@@ -25,8 +25,13 @@ export const toggleConditionalInput = (input, className) => {
     // Get the conditional element from the input data-aria-controls attribute
     const conditionalElement = document.getElementById(conditionalId);
     if (conditionalElement) {
-      conditionalElement.classList.toggle(className);
-      toggleAttribute(input, 'aria-expanded');
+      if (input.checked) {
+        conditionalElement.classList.remove(className);
+        input.setAttribute('aria-expanded', true);
+      } else {
+        conditionalElement.classList.add(className);
+        input.setAttribute('aria-expanded', false);
+      }      
     }
   }
 };
