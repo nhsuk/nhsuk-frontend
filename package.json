@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "5.2.1",
+  "version": "6.0.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
     "prepare": "gulp bundle",
@@ -26,7 +26,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
-    "backstopjs": "^5.0.8",
+    "backstopjs": "^5.3.7",
     "concurrently": "^6.2.0",
     "eslint": "^7.18.0",
     "eslint-config-nhsuk": "^1.0.0",

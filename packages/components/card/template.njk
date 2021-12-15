@@ -1,25 +1,50 @@
 {% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
-<div class="nhsuk-card{% if params.clickable %} nhsuk-card--clickable{% endif %}{% if params.feature %} nhsuk-card--feature{% endif %}{%- if params.classes %} {{ params.classes }}{% endif %}" {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
-  {%- if params.imgURL %}
+
+<div class="nhsuk-card
+{%- if params.clickable %} nhsuk-card--clickable{% endif %}
+{%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}
+{%- if params.feature %} nhsuk-card--feature{% endif %}
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+{%- if params.imgURL %}
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
-  {%- endif %}
-  <div class="nhsuk-card__content{% if params.feature %} nhsuk-card__content--feature{% endif %}">
+{%- endif %}
+  <div class="{% if not params.type %}nhsuk-card__content
+              {% if params.feature %} nhsuk-card__content--feature{% endif %}
+              {% else %}nhsuk-card--care__heading-container{% endif %}">
     {%- if params.headingHtml %}
-    {{ params.headingHtml | safe }}
+      {{ params.headingHtml | safe }}
     {%- else %}
-    <h{{ headingLevel }} class="nhsuk-card__heading{% if params.feature %} nhsuk-card__heading--feature{% endif %} {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}">
-      {%- if params.href and params.feature != "true" %}
-      <a class="nhsuk-card__link" href="{{ params.href }}">{{ params.heading | safe }}</a>
+    <h{{ headingLevel }} class="{% if params.type %}nhsuk-card--care__heading{% else %}nhsuk-card__heading{% endif %}{% if params.feature %} nhsuk-card__heading--feature{% endif %} {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}">
+      {%- if params.href and not params.feature %}
+        <a class="nhsuk-card__link" href="{{ params.href }}">{{ params.heading | safe }}</a>
+      {%- else %}
+      {%- if params.type %}
+      <span role="text"><span class="nhsuk-u-visually-hidden">
+      {%- if params.type === 'non-urgent' %}Non-urgent advice:
+      {%- elseif params.type === 'urgent' %}Urgent advice:
+      {%- elseif params.type === 'emergency' %}Immediate action required:
+      {%- else %}Non-urgent advice:{% endif %} </span>{{ params.heading }}</span>
       {%- else %}
       {{ params.heading }}
+      {% endif %}
       {%- endif %}
     </h{{ headingLevel }}>
-    {%- endif %}
-    {%- if params.descriptionHtml %}
-    {{ params.descriptionHtml | safe }}
-    {%- elif params.description %}
-    <p class="nhsuk-card__description">{{ params.description | safe }}</p>
-    {%- else %}
-    {%- endif %}
+  {%- if params.type %}
+    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  {% endif %}
+  {%- endif %}
+  {%- if params.type %}
+  <div class="nhsuk-card__content">
+{%- endif %}
+{%- if params.descriptionHtml %}
+  {{ params.descriptionHtml | safe }}
+{%- elif params.HTML %}
+  {{ params.HTML | safe }}
+{%- elif params.description %}
+  <p class="nhsuk-card__description">{{ params.description | safe }}</p>
+{%- else %}
+{%- endif %}
   </div>
 </div>
