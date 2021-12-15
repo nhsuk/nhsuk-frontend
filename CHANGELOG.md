@@ -323,7 +323,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 ```
 
 ## 5.2.1 - 28 October 2021
->>>>>>> master
 
 :wrench: **Fixes**
 
