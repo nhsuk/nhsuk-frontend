@@ -13,7 +13,7 @@
 
 ## 6.0.1 - 29 November 2021
 
-#:wrench: **Fixes**
+:wrench: **Fixes**
 
 - Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right` 
 
