@@ -6,6 +6,11 @@
 
 - Added utility classes `nhsuk-u-text-align-left`, `nhsuk-u-text-align-centre` and `nhsuk-u-text-align-right`
 
+:wrench: **Fixes**
+- Updated dependancies in `package.json` & generated new `package-lock.json`
+- Changed spelling mistake `charitiest` to `charities`
+- Fixed card component example format
+
 ## 6.0.1 - 29 November 2021
 
 #:wrench: **Fixes**
