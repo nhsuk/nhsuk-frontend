@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 6.1.0 - Unreleased
+
+:new: **New features**
+
+- Added utility classes `nhsuk-u-text-align-left`, `nhsuk-u-text-align-centre` and `nhsuk-u-text-align-right`
+
 ## 6.0.1 - 29 November 2021
 
 #:wrench: **Fixes**
