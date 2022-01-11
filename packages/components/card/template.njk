@@ -9,9 +9,9 @@
 {%- if params.imgURL %}
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
 {%- endif %}
-  <div class="{% if not params.type %}nhsuk-card__content
-              {% if params.feature %} nhsuk-card__content--feature{% endif %}
-              {% else %}nhsuk-card--care__heading-container{% endif %}">
+  <div class="{%- if not params.type %}nhsuk-card__content
+              {%- if params.feature %} nhsuk-card__content--feature{% endif %}
+              {%- else %}nhsuk-card--care__heading-container{% endif %}">
     {%- if params.headingHtml %}
       {{ params.headingHtml | safe }}
     {%- else %}
