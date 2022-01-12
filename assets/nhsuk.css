@@ -2374,6 +2374,22 @@ b {
 }
 
 /* ==========================================================================
+   UTILITIES / #TEXT-ALIGN
+   ========================================================================== */
+/* stylelint-disable declaration-no-important */
+.nhsuk-u-text-align-left {
+  text-align: left !important;
+}
+
+.nhsuk-u-text-align-centre {
+  text-align: center !important;
+}
+
+.nhsuk-u-text-align-right {
+  text-align: right !important;
+}
+
+/* ==========================================================================
    UTILITIES / #TYPOGRAPHY
    ========================================================================== */
 /**
