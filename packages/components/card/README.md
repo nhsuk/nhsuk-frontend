@@ -111,7 +111,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 <h2>Halves</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">      
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -123,19 +123,19 @@ Find out more about the card component and when to use it in the [NHS digital se
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">   
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
           <a class="nhsuk-card__link" href="#">
-            Help from social services and charitiest
+            Help from social services and charities
           </a>
         </h2>
         <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">       
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -164,7 +164,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 <h2>Thirds</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">    
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -176,7 +176,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">  
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -188,7 +188,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">        
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable ">
       <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -205,7 +205,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 <h2>Quarters</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">   
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
         <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p>
@@ -213,7 +213,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">  
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
         <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p>
@@ -221,7 +221,7 @@ Find out more about the card component and when to use it in the [NHS digital se
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">   
+  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
         <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p>
@@ -261,7 +261,7 @@ Find out more about the card component and when to use it in the [NHS digital se
     {{ card({
       "href": "#",
       "clickable": "true",
-      "heading": "Help from social services and charitiest",
+      "heading": "Help from social services and charities",
       "headingClasses": "nhsuk-heading-m",
       "description": "Includes helplines, needs assessments, advocacy and reporting abuse"
     }) }}
@@ -379,6 +379,149 @@ Find out more about the card component and when to use it in the [NHS digital se
 }) }}
 ```
 
+### Care card non-urgent (blue)
+
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-non-urgent.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+  <div class="nhsuk-card--care__heading-container">
+    <h3 class="nhsuk-card--care__heading">
+      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
+    </h3>
+    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  <div class="nhsuk-card__content">
+    <ul>
+      <li>you're not sure it's chickenpox</li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+      <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+      <li>you're concerned about your child or they get worse</li>
+    </ul>
+    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+{{ card({
+  "type": "non-urgent",
+  "heading": "Speak to a GP if:",
+  "headingLevel": 3,
+  "descriptionHtml": "
+  <ul>
+    <li>you're not sure it's chickenpox</li>
+    <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+    <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
+    <li>you're concerned about your child or they get worse</li>
+  </ul>
+  <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+  "
+}) }}
+```
+
+---
+
+### Care card urgent (red)
+
+[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-urgent.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
+  <div class="nhsuk-card--care__heading-container">
+    <h3 class="nhsuk-card--care__heading">
+      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>
+    </h3>
+    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  <div class="nhsuk-card__content">
+    <ul>
+      <li>you're an adult and have chickenpox</li>
+      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
+      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+      <li>you think your newborn baby has chickenpox</li>
+    </ul>
+    <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+{{ card({
+  "type": "urgent",
+  "heading": "Ask for an urgent GP appointment if:",
+  "headingLevel": 3,
+  "descriptionHtml": "
+  <ul>
+    <li>you're an adult and have chickenpox</li>
+    <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
+    <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+    <li>you think your newborn baby has chickenpox</li>
+  </ul>
+  <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+  "
+}) }}
+```
+
+---
+
+### Care card emergency (red and black)
+
+[Preview care card emergency (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-emergency.html)
+
+#### HTML markup
+
+```html
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+  <div class="nhsuk-card--care__heading-container">
+    <h3 class="nhsuk-card--care__heading">
+      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
+    </h3>
+    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  <div class="nhsuk-card__content">
+    <ul>
+      <li>spreads to your arms, back, neck or jaw</li>
+      <li>makes your chest feel tight or heavy</li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
+    </ul>
+    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+{{ card({
+  "type": "emergency",
+  "heading": "Call 999 if you have sudden chest pain that:",
+  "headingLevel": 3,
+  "descriptionHtml": "
+  <ul>
+    <li>spreads to your arms, back, neck or jaw</li>
+    <li>makes your chest feel tight or heavy</li>
+    <li>also started with shortness of breath, sweating and feeling or being sick</li>
+  </ul>
+  <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+  "
+}) }}
+```
+
 ### Nunjucks arguments
 
 The card Nunjucks macro takes the following arguments:
@@ -392,6 +535,7 @@ The card Nunjucks macro takes the following arguments:
 | **href**            | string   | No       | The value of the card href attribute |
 | **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
 | **feature**            | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied. |
+| **type**                | string   | No       | Care card component variant type - non-urgent, urgent or emergency |
 | **imgURL**          | string   | No        | The URL of the image in the card |
 | **imgALT**          | string   | No        | The alternative text of the image in the card |
 | **description**     | string   | No        | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |

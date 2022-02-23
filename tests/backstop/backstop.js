@@ -30,10 +30,6 @@ module.exports = {
   onReadyScript: 'puppet/onReady.js',
   scenarios: [
     {
-      label: 'A-Z navigation',
-      url: `${TEST_URL}/nav-a-z/index.html`,
-    },
-    {
       label: 'Action link',
       url: `${TEST_URL}/action-link/index.html`,
     },
@@ -99,15 +95,15 @@ module.exports = {
     },
     {
       label: 'Care card - Non urgent',
-      url: `${TEST_URL}/care-card/care-card-non-urgent.html`,
+      url: `${TEST_URL}/card/care-card-non-urgent.html`,
     },
     {
       label: 'Care card - Urgent',
-      url: `${TEST_URL}/care-card/care-card-urgent.html`,
+      url: `${TEST_URL}/card/care-card-urgent.html`,
     },
     {
-      label: 'Care card - Immediate',
-      url: `${TEST_URL}/care-card/care-card-immediate.html`,
+      label: 'Care card - Emergency',
+      url: `${TEST_URL}/card/care-card-emergency.html`,
     },
     {
       label: 'Checkboxes',
@@ -133,6 +129,10 @@ module.exports = {
       label: 'Checkboxes with conditional content',
       url: `${TEST_URL}/checkboxes/conditional.html`,
       clickSelector: '#contact-1',
+    },
+    {
+      label: 'Checkboxes with "none of the above" option',
+      url: `${TEST_URL}/checkboxes/none-of-the-above.html`,
     },
     {
       label: 'Contents list',
@@ -331,10 +331,6 @@ module.exports = {
     {
       label: 'Label as page heading',
       url: `${TEST_URL}/label/page-heading.html`,
-    },
-    {
-      label: 'List panel',
-      url: `${TEST_URL}/list-panel/index.html`,
     },
     {
       label: 'Pagination',
