@@ -4,7 +4,7 @@
   <ul class="nhsuk-nav-sideways__list">
     {%- for item in params.items %}
       {%- if item.active %}
-        <li class="nhsuk-nav-sideways__item is-active" >
+        <li class="nhsuk-nav-sideways__item is-active" aria-current="page">
           {{ item.text }}
         </li>
       {%- else %}
