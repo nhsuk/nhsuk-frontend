@@ -1,0 +1,32 @@
+/* ==========================================================================
+   COMPONENT / #nav-a-z
+   ========================================================================== */
+
+/**
+ * 1. Clearfix added to the A-Z nav to clear float: left;
+ *    on the .nhsuk-a-z-nav__list-item.
+ * 2. Used to wrap the list items.
+ * 3. Removes bullets from list item..
+ * 4. Gives equal spacing around each list item.
+ * 5. 'Random number' gives adequate spacing for touch navigation.
+ */
+
+.nhsuk-nav-sibling__list {
+  list-style: none; /* [2] */
+  margin: 0;
+  padding-left: 12px;  /* [1] */
+}
+
+.nhsuk-nav-sibling__item {
+  padding-bottom: nhsuk-spacing(1);
+  padding-top: nhsuk-spacing(1);
+
+  &.is-active {
+    border-left: 4px solid $color_nhsuk-black;
+    color: $color_nhsuk-black;
+    margin-left: -12px; /* [3] */
+    padding-left: 8px; /* [4] */
+  }
+
+}
+

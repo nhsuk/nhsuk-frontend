@@ -1,0 +1,42 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Navigation sideways' %}
+{% from 'components/nav-sideways/macro.njk' import navSidways %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          {{ navSidways({
+            "classes": "example",
+            "attributes": {
+              "data-attribute": "value",
+              "data-second-attribute": "second-value",
+              "aria-label": "Pages in this quide"
+            },
+            "items": [
+              {
+                "active": "true",
+                "text": "Main symptoms of COVID-19",
+                "href": "#"
+              },
+              {
+                "text": "COVID-19 symptoms in children",
+                "href": "#"
+              },
+              {
+                "text": "What to do if you get symptoms again",
+                "href": "#"
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
