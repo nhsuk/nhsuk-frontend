@@ -11,13 +11,13 @@
  * 5. 'Random number' gives adequate spacing for touch navigation.
  */
 
-.nhsuk-nav-sibling__list {
+.nhsuk-nav-sideways__list {
   list-style: none; /* [2] */
   margin: 0;
   padding-left: 12px;  /* [1] */
 }
 
-.nhsuk-nav-sibling__item {
+.nhsuk-nav-sideways__item {
   padding-bottom: nhsuk-spacing(1);
   padding-top: nhsuk-spacing(1);
 

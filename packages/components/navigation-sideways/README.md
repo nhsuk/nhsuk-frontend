@@ -7,18 +7,18 @@
 ### HTML markup
 
 ```html
-<nav role="navigation" class="nhsuk-nav-sibling">
-  <ul class="nhsuk-nav-sibling__list">
-    <li class="nhsuk-nav-sibling__item is-active" >
+<nav role="navigation" class="nhsuk-nav-sideways">
+  <ul class="nhsuk-nav-sideways__list">
+    <li class="nhsuk-nav-sideways__item is-active" >
       Main symptoms of COVID-19
     </li>
-    <li class="nhsuk-nav-sibling__item">
-      <a class="nhsuk-nav-sibling__link" href="/coronavirus-in-children">
+    <li class="nhsuk-nav-sideways__item">
+      <a class="nhsuk-nav-sideways__link" href="/coronavirus-in-children">
         COVID-19 symptoms in children
       </a>
     </li>
-    <li class="nhsuk-nav-sibling__item">
-      <a class="nhsuk-nav-sibling__link" href="/what-to-do-if-you-get-symptoms-again">
+    <li class="nhsuk-nav-sideways__item">
+      <a class="nhsuk-nav-sideways__link" href="/what-to-do-if-you-get-symptoms-again">
         What to do if you get symptoms again
       </a>
     </li>
