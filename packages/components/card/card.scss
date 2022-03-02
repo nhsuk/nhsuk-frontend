@@ -160,10 +160,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 
-/* Card canonical
+/* Card arrow
   ========================================================================== */
 
-.nhsuk-card--canonical {
+.nhsuk-card--arrow {
 
   .nhsuk-icon {
     display: block;
@@ -175,6 +175,6 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 }
 
-.nhsuk-card__content--canonical {
+.nhsuk-card__content--arrow {
   padding-right: 75px;
 }
