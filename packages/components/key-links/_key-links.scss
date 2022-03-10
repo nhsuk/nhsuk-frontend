@@ -1,0 +1,16 @@
+/* ==========================================================================
+   COMPONENTS / #KEY-LINKS
+   ========================================================================== */
+
+.nhsuk-key-links {
+  @include nhsuk-responsive-margin(7, 'bottom');
+}
+
+.nhsuk-key-links__list {
+  list-style: none;
+  padding: 0;
+}
+
+.nhsuk-key-links__item {
+  @extend %nhsuk-heading-s;
+}

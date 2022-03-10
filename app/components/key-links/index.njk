@@ -1,0 +1,35 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Key links' %}
+{% from 'components/key-links/macro.njk' import keyLinks %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        {{ keyLinks({
+          items: [
+            {
+              href: "https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms/main-symptoms/",
+              text: "Main symptoms of COVID-19 "
+            },
+            {
+              href: "https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms/coronavirus-in-children/",
+              text: "COVID-19 symptoms in children "
+            },
+            {
+              href: "https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms/what-to-do-if-you-get-symptoms-again/",
+              text: "What to do if you get symptoms again "
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}
