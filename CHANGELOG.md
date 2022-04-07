@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 6.2.0
+
+:new: **New features**
+
+- Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811)).
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
