@@ -42,7 +42,7 @@ CharacterCount.prototype.init = function init() {
   }
 
   // Remove hard limit if set
-  $module.removeAttribute('maxlength');
+  $textarea.removeAttribute('maxlength');
 
   // When the page is restored after navigating 'back' in some browsers the
   // state of the character count is not restored until *after* the DOMContentLoaded
