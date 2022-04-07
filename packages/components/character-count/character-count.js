@@ -14,7 +14,7 @@ CharacterCount.prototype.defaults = {
 // Initialize component
 CharacterCount.prototype.init = function init() {
   // Check for module
-  const { $module, $textarea, $countMessage } = this.$module;
+  const { $module, $textarea, $countMessage } = this;
 
   if (!$textarea || !$countMessage) {
     return;
