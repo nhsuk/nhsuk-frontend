@@ -1,5 +1,10 @@
 # NHS.UK frontend Changelog
 
+## 6.1.1 - Unreleased
+
+:wrench: **Fixes**
+- Add missing `nhsuk-list--border` utility class
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
