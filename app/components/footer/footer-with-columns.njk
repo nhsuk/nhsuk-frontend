@@ -1,0 +1,105 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Footer' %}
+{% from 'components/footer/macro.njk' import footer %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ footer({
+    "columns": true,
+    "columnOne": [
+      {
+        "URL": "#",
+        "label": "Home"
+      },
+      {
+        "URL": "#",
+        "label": "Health A to Z"
+      },
+      {
+        "URL": "#",
+        "label": "Live Well"
+      },
+      {
+        "URL": "#",
+        "label": "Mental health"
+      },
+      {
+        "URL": "#",
+        "label": "Care and support"
+      },
+      {
+        "URL": "#",
+        "label": "Pregnancy"
+      },                              
+      {
+        "URL": "#",
+        "label": "NHS services"
+      }, 
+      {
+        "URL": "#",
+        "label": "Coronavirus (COVID-19)"
+      }          
+    ],
+    "columnTwo": [
+      {
+        "URL": "#",
+        "label": "NHS App"
+      },
+      {
+        "URL": "#",
+        "label": "Find my NHS number"
+      }, 
+      {
+        "URL": "#",
+        "label": "Your health records"
+      }, 
+      {
+        "URL": "#",
+        "label": "About the NHS"
+      },
+      {
+        "URL": "#",
+        "label": "Healthcare abroad"
+      }                          
+    ],
+    "columnThree": [
+      {
+        "URL": "#",
+        "label": "Contact us"
+      }, 
+      {
+        "URL": "#",
+        "label": "Other NHS websites"
+      }, 
+      {
+        "URL": "#",
+        "label": "Profile editor login"
+      }
+    ],
+    "columnFour": [
+      {
+        "URL": "#",
+        "label": "About us"
+      }, 
+      {
+        "URL": "#",
+        "label": "Accessibility statement"
+      }, 
+      {
+        "URL": "#",
+        "label": "Our policies"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      } 
+    ]         
+  })}}
+
+{% endblock %}
+
+
+
+
+

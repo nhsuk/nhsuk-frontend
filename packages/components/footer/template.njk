@@ -10,8 +10,40 @@
         <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
         {%- endfor %}
       </ul>
-      {% endif %}
       <p class="nhsuk-footer__copyright">{% if params.copyright %}{{ params.copyright | safe }}{% else %}&copy; Crown copyright{% endif %}</p>
+      {% endif %}
+      {%- if params.columns %}
+        <div class="beta-nhsuk-footer">
+        {%- if params.columnOne %}  
+          <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
+            {%- for item in params.columnOne %}
+              <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item"><a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
+        {%- if params.columnTwo %}  
+          <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
+            {%- for item in params.columnTwo %}
+              <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item"><a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
+        {%- if params.columnThree %}  
+          <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
+            {%- for item in params.columnThree %}
+              <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item"><a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
+        {%- if params.columnFour %}  
+          <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
+            {%- for item in params.columnFour %}
+              <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item"><a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
+        </div>                        
+      {% endif %}
     </div>
   </div>
 </footer>
