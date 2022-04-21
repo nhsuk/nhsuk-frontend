@@ -38,7 +38,6 @@ Find out more about the character component and when to use it in the [NHS digit
   <div
     class="nhsuk-hint nhsuk-character-count__message"
     id="more-detail-info"
-    aria-live="polite"
   >
     You can enter up to 200 characters
   </div>
@@ -98,7 +97,6 @@ Find out more about the character component and when to use it in the [NHS digit
   <div
     class="nhsuk-hint nhsuk-character-count__message"
     id="more-detail-info"
-    aria-live="polite"
   >
     You can enter up to 200 characters
   </div>
@@ -158,7 +156,6 @@ Find out more about the character component and when to use it in the [NHS digit
   <div
     class="nhsuk-hint nhsuk-character-count__message"
     id="more-detail-info"
-    aria-live="polite"
   >
     You can enter up to 200 words
   </div>

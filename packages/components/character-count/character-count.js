@@ -1,9 +1,9 @@
 function CharacterCount($module) {
   this.$module = $module;
   this.$textarea = $module.querySelector('.nhsuk-js-character-count');
-  if (this.$textarea) {
-    this.$countMessage = document.getElementById(`${this.$textarea.id}-info`);
-  }
+  this.$visibleCountMessage = null;
+  this.$screenReaderCountMessage = null;
+  this.lastInputTimestamp = null;
 }
 
 CharacterCount.prototype.defaults = {
@@ -13,16 +13,42 @@ CharacterCount.prototype.defaults = {
 
 // Initialize component
 CharacterCount.prototype.init = function init() {
-  // Check for module
-  const { $module, $textarea, $countMessage } = this;
-
-  if (!$textarea || !$countMessage) {
+  // Check that required elements are present
+  if (!this.$textarea) {
     return;
   }
 
-  // We move count message right after the field
+  // Check for module
+  const { $module } = this;
+  const { $textarea } = this;
+  const $fallbackLimitMessage = document.getElementById(`${$textarea.id}-info`);
+
+  // Move the fallback count message to be immediately after the textarea
   // Kept for backwards compatibility
-  $textarea.insertAdjacentElement('afterend', $countMessage);
+  $textarea.insertAdjacentElement('afterend', $fallbackLimitMessage);
+
+  // Create the *screen reader* specific live-updating counter
+  // This doesn't need any styling classes, as it is never visible
+  const $screenReaderCountMessage = document.createElement('div');
+  $screenReaderCountMessage.className = 'nhsuk-character-count__sr-status nhsuk-u-visually-hidden';
+  $screenReaderCountMessage.setAttribute('aria-live', 'polite');
+  this.$screenReaderCountMessage = $screenReaderCountMessage;
+  $fallbackLimitMessage.insertAdjacentElement(
+    'afterend',
+    $screenReaderCountMessage
+  );
+
+  // Create our live-updating counter element, copying the classes from the
+  // fallback element for backwards compatibility as these may have been configured
+  const $visibleCountMessage = document.createElement('div');
+  $visibleCountMessage.className = $fallbackLimitMessage.className;
+  $visibleCountMessage.classList.add('nhsuk-character-count__status');
+  $visibleCountMessage.setAttribute('aria-hidden', 'true');
+  this.$visibleCountMessage = $visibleCountMessage;
+  $fallbackLimitMessage.insertAdjacentElement('afterend', $visibleCountMessage);
+
+  // Hide the fallback limit message
+  $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden');
 
   // Read options set using dataset ('data-' values)
   this.options = this.getDataset($module);
@@ -44,21 +70,20 @@ CharacterCount.prototype.init = function init() {
   // Remove hard limit if set
   $textarea.removeAttribute('maxlength');
 
+  this.bindChangeEvents();
+
   // When the page is restored after navigating 'back' in some browsers the
   // state of the character count is not restored until *after* the DOMContentLoaded
-  // event is fired, so we need to sync after the pageshow event in browsers
-  // that support it.
+  // event is fired, so we need to manually update it after the pageshow event
+  // in browsers that support it.
   if ('onpageshow' in window) {
-    window.addEventListener('pageshow', this.sync.bind(this));
+    window.addEventListener('pageshow', this.updateCountMessage.bind(this));
   } else {
-    window.addEventListener('DOMContentLoaded', this.sync.bind(this));
+    window.addEventListener(
+      'DOMContentLoaded',
+      this.updateCountMessage.bind(this)
+    );
   }
-
-  this.sync();
-};
-
-CharacterCount.prototype.sync = function sync() {
-  this.bindChangeEvents();
   this.updateCountMessage();
 };
 
@@ -80,18 +105,20 @@ CharacterCount.prototype.getDataset = function getDataset(element) {
 
 // Counts characters or words in text
 CharacterCount.prototype.count = function count(text) {
+  let length;
   if (this.options.maxwords) {
     const tokens = text.match(/\S+/g) || []; // Matches consecutive non-whitespace chars
-    return tokens.length;
+    length = tokens.length; // eslint-disable-line prefer-destructuring
+  } else {
+    length = text.length; // eslint-disable-line prefer-destructuring
   }
-
-  return text.length;
+  return length;
 };
 
 // Bind input propertychange to the elements and update based on the change
 CharacterCount.prototype.bindChangeEvents = function bindChangeEvents() {
   const { $textarea } = this;
-  $textarea.addEventListener('keyup', this.checkIfValueChanged.bind(this));
+  $textarea.addEventListener('keyup', this.handleKeyUp.bind(this));
 
   // Bind focus/blur events to start/stop polling
   $textarea.addEventListener('focus', this.handleFocus.bind(this));
@@ -109,41 +136,68 @@ CharacterCount.prototype.checkIfValueChanged = function checkIfValueChanged() {
   }
 };
 
-// Update message box
+// Helper function to update both the visible and screen reader-specific
+// counters simultaneously (e.g. on init)
 CharacterCount.prototype.updateCountMessage = function updateCountMessage() {
-  const countElement = this.$textarea;
-  const { options, maxLength } = this;
-  const countMessage = this.$countMessage;
+  this.updateVisibleCountMessage();
+  this.updateScreenReaderCountMessage();
+};
 
-  // Determine the remaining number of characters/words
-  const currentLength = this.count(countElement.value);
-  const remainingNumber = maxLength - currentLength;
+// Update visible counter
+CharacterCount.prototype.updateVisibleCountMessage = function updateVisibleCountMessage() {
+  const { $textarea } = this;
+  const { $visibleCountMessage } = this;
+  const remainingNumber = this.maxLength - this.count($textarea.value);
 
-  // Set threshold if presented in options
-  const thresholdPercent = options.threshold ? options.threshold : 0;
-  const thresholdValue = (maxLength * thresholdPercent) / 100;
-  if (thresholdValue > currentLength) {
-    countMessage.classList.add('nhsuk-character-count__message--disabled');
-    // Ensure threshold is hidden for users of assistive technologies
-    countMessage.setAttribute('aria-hidden', true);
+  // If input is over the threshold, remove the disabled class which renders the
+  // counter invisible.
+  if (this.isOverThreshold()) {
+    $visibleCountMessage.classList.remove(
+      'nhsuk-character-count__message--disabled'
+    );
   } else {
-    countMessage.classList.remove('nhsuk-character-count__message--disabled');
-    // Ensure threshold is visible for users of assistive technologies
-    countMessage.removeAttribute('aria-hidden');
+    $visibleCountMessage.classList.add(
+      'nhsuk-character-count__message--disabled'
+    );
   }
 
   // Update styles
   if (remainingNumber < 0) {
-    countElement.classList.add('nhsuk-textarea--error');
-    countMessage.classList.remove('nhsuk-hint');
-    countMessage.classList.add('nhsuk-error-message');
+    $textarea.classList.add('nhsuk-textarea--error');
+    $visibleCountMessage.classList.remove('nhsuk-hint');
+    $visibleCountMessage.classList.add('nhsuk-error-message');
   } else {
-    countElement.classList.remove('nhsuk-textarea--error');
-    countMessage.classList.remove('nhsuk-error-message');
-    countMessage.classList.add('nhsuk-hint');
+    $textarea.classList.remove('nhsuk-textarea--error');
+    $visibleCountMessage.classList.remove('nhsuk-error-message');
+    $visibleCountMessage.classList.add('nhsuk-hint');
   }
 
   // Update message
+  $visibleCountMessage.innerHTML = this.formattedUpdateMessage();
+};
+
+// Update screen reader-specific counter
+CharacterCount.prototype.updateScreenReaderCountMessage = function updateScreenReaderCountMessage() { // eslint-disable-line max-len
+  const { $screenReaderCountMessage } = this;
+
+  // If over the threshold, remove the aria-hidden attribute, allowing screen
+  // readers to announce the content of the element.
+  if (this.isOverThreshold()) {
+    $screenReaderCountMessage.removeAttribute('aria-hidden');
+  } else {
+    $screenReaderCountMessage.setAttribute('aria-hidden', true);
+  }
+
+  // Update message
+  $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage();
+};
+
+// Format update message
+CharacterCount.prototype.formattedUpdateMessage = function formattedUpdateMessage() {
+  const { $textarea } = this;
+  const { options } = this;
+  const remainingNumber = this.maxLength - this.count($textarea.value);
+
   let charVerb = 'remaining';
   let charNoun = 'character';
   let displayNumber = remainingNumber;
@@ -155,12 +209,50 @@ CharacterCount.prototype.updateCountMessage = function updateCountMessage() {
   charVerb = remainingNumber < 0 ? 'too many' : 'remaining';
   displayNumber = Math.abs(remainingNumber);
 
-  countMessage.innerHTML = `You have ${displayNumber} ${charNoun} ${charVerb}`;
+  return `You have ${displayNumber} ${charNoun} ${charVerb}`;
+};
+
+// Checks whether the value is over the configured threshold for the input.
+// If there is no configured threshold, it is set to 0 and this function will
+// always return true.
+CharacterCount.prototype.isOverThreshold = function isOverThreshold() {
+  const { $textarea } = this;
+  const { options } = this;
+
+  // Determine the remaining number of characters/words
+  const currentLength = this.count($textarea.value);
+  const { maxLength } = this;
+
+  // Set threshold if presented in options
+  const thresholdPercent = options.threshold ? options.threshold : 0;
+  const thresholdValue = (maxLength * thresholdPercent) / 100;
+
+  return thresholdValue <= currentLength;
+};
+
+// Update the visible character counter and keep track of when the last update
+// happened for each keypress
+CharacterCount.prototype.handleKeyUp = function handleKeyUp() {
+  this.updateVisibleCountMessage();
+  this.lastInputTimestamp = Date.now();
 };
 
 CharacterCount.prototype.handleFocus = function handleFocus() {
-  // Check if value changed on focus
-  this.valueChecker = setInterval(this.checkIfValueChanged.bind(this), 1000);
+  // If the field is focused, and a keyup event hasn't been detected for at
+  // least 1000 ms (1 second), then run the manual change check.
+  // This is so that the update triggered by the manual comparison doesn't
+  // conflict with debounced KeyboardEvent updates.
+  this.valueChecker = setInterval(
+    () => {
+      if (
+        !this.lastInputTimestamp
+        || Date.now() - 500 >= this.lastInputTimestamp
+      ) {
+        this.checkIfValueChanged();
+      }
+    },
+    1000
+  );
 };
 
 CharacterCount.prototype.handleBlur = function handleBlur() {
