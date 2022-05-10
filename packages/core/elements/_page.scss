@@ -22,6 +22,9 @@ html {
     @include _nhsuk-font-face-frutiger;
     font-family: $nhsuk-font, $nhsuk-font-fallback;
   }
+  @else {
+    font-family: $nhsuk-font-fallback;
+  }
 }
 
 body {

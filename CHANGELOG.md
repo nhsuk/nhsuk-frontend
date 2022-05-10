@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- `font-family` is now being set (to the fallback font) even when not including NHS typefaces
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
