@@ -286,3 +286,21 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 
 }
+
+
+/* Card arrow
+  ========================================================================== */
+
+.beta-nhsuk-card__content--arrow {
+  padding-right: 75px;
+
+  .beta-nhsuk-icon {
+    display: block;
+    fill: $color_nhsuk-blue;
+    margin-top: - nhsuk-spacing(2);
+    position: absolute;
+    right: nhsuk-spacing(4);
+    top: 50%;
+  }
+
+}
