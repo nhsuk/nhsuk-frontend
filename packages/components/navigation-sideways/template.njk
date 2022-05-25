@@ -1,0 +1,24 @@
+<nav role="navigation" class="nhsuk-navigation-sideways 
+{%- if params.classes %} {{ params.classes }}{% endif %}" {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+  <h2 class="nhsuk-u-font-size-24">
+    More in
+    <a href="{%- if params.href %}{{ params.href }}{% else %}#{% endif %}">
+      {{ params.heading }}
+    </a>
+  </h2>
+  <ul class="beta-nhsuk-navigation-sideways__list">
+    {%- for item in params.items %}
+      {%- if item.active %}
+        <li class="beta-nhsuk-navigation-sideways__item is-active" aria-current="page">
+          {{ item.text }}
+        </li>
+      {%- else %}
+        <li class="beta-nhsuk-navigation-sideways__item">
+          <a class="nhsuk-navigation-sideways__link" href="{{ item.href }}">
+            {{ item.text }}
+          </a>
+        </li>
+      {%- endif %}
+    {%- endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   COMPONENT / #nav-a-z
+   ========================================================================== */
+
+/**
+ * 1. Removes bullets from list item
+ * 2. Pulls nav item out to sit in alignment with the rest of the nav
+ * 3. Gives spacing to the li from the current marker.
+ */
+
+.beta-nhsuk-navigation-sideways__list {
+  list-style: none; /* [1] */
+  margin: 0;
+  padding-left: 12px;
+}
+
+.beta-nhsuk-navigation-sideways__item {
+  padding-bottom: nhsuk-spacing(1);
+  padding-top: nhsuk-spacing(1);
+
+  &.is-active {
+    border-left: 4px solid $color_nhsuk-black;
+    color: $color_nhsuk-black;
+    margin-left: -12px; /* [2] */
+    padding-left: 8px; /* [3] */
+  }
+
+}

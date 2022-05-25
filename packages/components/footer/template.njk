@@ -42,7 +42,8 @@
             {%- endfor %}
           </ul>
         {% endif %}
-        </div>                        
+        </div>
+        <p class="beta-nhsuk-footer__copyright">{% if params.copyright %}{{ params.copyright | safe }}{% else %}&copy; Crown copyright{% endif %}</p>                        
       {% endif %}
     </div>
   </div>
