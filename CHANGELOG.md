@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Correctly assess whether the details component is supported on browsers
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
