@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 6.1.0-beta.0 - 25 May 2022
+
+:new: **New beta components**
+
+- Added card with arrow
+- Added sideways navigation
+- Added beta footer with columns
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
