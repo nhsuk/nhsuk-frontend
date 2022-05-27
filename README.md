@@ -1,4 +1,8 @@
-# NHS.UK frontend
+# NHS.UK frontend (beta)
+
+This version of the frontend library is experimental, the beta components within this version may not work as expected. 
+
+Any issues can be reported in the #beta channel on the [NHS digital service manual Slack workspace](https://join.slack.com/t/nhs-service-manual/shared_invite/zt-19l0rgr1z-3SNDa6h7h_LwKZEnl4PbXA).
 
 NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.
 
