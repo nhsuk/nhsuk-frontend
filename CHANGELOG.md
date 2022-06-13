@@ -1,8 +1,19 @@
 # NHS.UK frontend Changelog
 
+## 6.1.0 - 12 January 2022
+
+:new: **New features**
+
+- Added utility classes `nhsuk-u-text-align-left`, `nhsuk-u-text-align-centre` and `nhsuk-u-text-align-right`
+
+:wrench: **Fixes**
+- Updated dependancies in `package.json` & generated new `package-lock.json`
+- Changed spelling mistake `charitiest` to `charities`
+- Fixed card component example format
+
 ## 6.0.1 - 29 November 2021
 
-#:wrench: **Fixes**
+:wrench: **Fixes**
 
 - Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right` 
 
