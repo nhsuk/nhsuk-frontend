@@ -37,6 +37,7 @@
 
 .nhsuk-tabs__panel {
   @include nhsuk-responsive-margin(8, 'bottom');
+  background-color: $color_nhsuk-white;
 }
 
 // JavaScript enabled
@@ -69,7 +70,7 @@
 
     .nhsuk-tabs__list-item--selected {
       $border-width: 1px;
-      background-color: $color_nhsuk-grey-5;
+      background-color: $color_nhsuk-white;
       border: $border-width solid $nhsuk-border-color;
       border-bottom: 0;
       margin-bottom: -$border-width;  // Compensation for border (otherwise we get a shift)
