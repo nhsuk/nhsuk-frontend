@@ -104,8 +104,8 @@
       @include nhsuk-responsive-margin(0, 'bottom');
       border: 1px solid $nhsuk-border-color;
       border-top: 0;
-      padding: nhsuk-spacing(6) nhsuk-spacing(4);
       background-color: $color_nhsuk-white;
+      padding: nhsuk-spacing(6) nhsuk-spacing(4);
 
       & > :last-child {
         margin-bottom: 0;
