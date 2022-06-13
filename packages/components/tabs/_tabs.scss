@@ -37,7 +37,6 @@
 
 .nhsuk-tabs__panel {
   @include nhsuk-responsive-margin(8, 'bottom');
-  background-color: $color_nhsuk-white;
 }
 
 // JavaScript enabled
@@ -106,6 +105,7 @@
       border: 1px solid $nhsuk-border-color;
       border-top: 0;
       padding: nhsuk-spacing(6) nhsuk-spacing(4);
+      background-color: $color_nhsuk-white;
 
       & > :last-child {
         margin-bottom: 0;
