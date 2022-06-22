@@ -126,6 +126,11 @@ module.exports = {
       url: `${TEST_URL}/checkboxes/error.html`,
     },
     {
+      label: 'Checkboxes with error message - focused',
+      url: `${TEST_URL}/checkboxes/error.html`,
+      clickSelector: '#waste-1',
+    },
+    {
       label: 'Checkboxes with conditional content',
       url: `${TEST_URL}/checkboxes/conditional.html`,
       clickSelector: '#contact-1',
@@ -390,7 +395,7 @@ module.exports = {
     {
       label: 'Select with hint text and error message - focused',
       url: `${TEST_URL}/select/hint-error.html`,
-      clickSelector: '#select-2',
+      clickSelector: '[for=select-2]',
     },
     {
       label: 'Summary list',
