@@ -4,6 +4,9 @@ plugins:
 - "stylelint-order"
 - "stylelint-scss"
 
+extends:
+- "stylelint-config-standard-scss"
+
 rules:
   # Rules explanations can be found: https://stylelint.io/user-guide/rules/list
   # Disable rule/s for the entire file: /* stylelint-disable selector-no-id, declaration-no-important */

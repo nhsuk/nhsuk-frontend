@@ -1,5 +1,12 @@
 # NHS.UK frontend Changelog
 
+## 7.0.0.alpha - Unrealesed
+
+:wrench: **Maintenance**
+
+- Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass).
+- Upgrade all dependencies to their latest versions.
+
 ## 6.1.1 - 13 June 2022
 
 :wrench: **Fixes**

@@ -23,34 +23,35 @@
     "jest:ci": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "babel-loader": "^8.2.2",
-    "backstopjs": "^5.4.4",
-    "concurrently": "^6.4.0",
-    "eslint": "^7.32.0",
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "backstopjs": "^6.1.0",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.19.0",
     "eslint-config-nhsuk": "^1.0.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-connect": "^5.7.0",
-    "gulp-nunjucks": "^5.0.2",
+    "gulp-nunjucks": "^5.1.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^5.0.2",
-    "htmlhint": "^0.14.2",
-    "husky": "^4.3.8",
-    "jest": "^26.6.3",
-    "minimist": "^1.2.5",
-    "nunjucks": "^3.2.2",
-    "sass": "^1.44.0",
+    "gulp-zip": "^5.1.0",
+    "htmlhint": "^1.1.4",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "minimist": "^1.2.6",
+    "nunjucks": "^3.2.3",
+    "sass": "^1.53.0",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^13.13.1",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0",
-    "wait-on": "^6.0.0",
-    "webpack-stream": "^5.2.1"
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
+    "wait-on": "^6.0.1",
+    "webpack-stream": "^7.0.0"
   },
   "publishConfig": {
     "access": "public"
@@ -75,5 +76,8 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "16.16.0"
+  }
 }
