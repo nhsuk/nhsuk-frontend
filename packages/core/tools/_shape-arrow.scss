@@ -19,7 +19,7 @@
 @function _govuk-equilateral-height($base) {
   $square-root-of-three: 1.732;
 
-  @return ($base / 2) * $square-root-of-three;
+  @return ($base * .5) * $square-root-of-three;
 }
 
 //
@@ -49,7 +49,7 @@
   border-style: solid;
   border-color: transparent; // 1
 
-  $perpendicular: $base / 2;
+  $perpendicular: $base * .5;
 
   @if ($height == null) {
     $height: _govuk-equilateral-height($base);
