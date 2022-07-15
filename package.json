@@ -9,7 +9,7 @@
     "test": "npm run lint && npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
-    "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
+    "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.js 'packages/**/*.scss'",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:ref": "concurrently \"npm start\" \"wait-on http://localhost:3000 && backstop --config=./tests/backstop/backstop.js reference --docker\"",
     "backstop:test": "concurrently \"npm start\" \"wait-on http://localhost:3000 && backstop --config=./tests/backstop/backstop.js test --docker\"",
@@ -46,10 +46,9 @@
     "nunjucks": "^3.2.3",
     "sass": "^1.53.0",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^14.9.1",
-    "stylelint-config-standard-scss": "^4.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.3.0",
+    "stylelint": "^13.13.1",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0",
     "wait-on": "^6.0.1",
     "webpack-stream": "^7.0.0"
   },
@@ -79,5 +78,8 @@
   "license": "MIT",
   "volta": {
     "node": "16.16.0"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^28.1.3"
   }
 }
