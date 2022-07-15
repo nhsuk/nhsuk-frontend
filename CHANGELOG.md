@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha - Unrealesed
+## 7.0.0.alpha.0 - Unreleased
 
 :wrench: **Maintenance**
 
