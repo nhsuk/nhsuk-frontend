@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## 6.1.1 - 13 June 2022
+
+:wrench: **Fixes**
+
+- Remove duplicated width attributes on plus and minus icon SVGs - fixing validation and rendering issues with these icons
+
+:wrench: **Maintenance**
+
+- Refreshed dependencies to make dependabot happy
+
 ## 6.1.0 - 12 January 2022
 
 :new: **New features**
