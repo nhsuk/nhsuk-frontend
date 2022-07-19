@@ -24,7 +24,13 @@ class Tabs {
   }
 
   setupResponsiveChecks() {
-    this.mql = window.matchMedia('(min-width: 40.0625em)');
+    // $mq-breakpoints: (
+    // mobile: 320px,
+    // tablet: 641px,
+    // desktop: 769px,
+    // large - desktop: 990px
+    // );
+    this.mql = window.matchMedia('(min-width: 641px)');
     this.mql.addEventListener('change', this.checkMode.bind(this));
     this.checkMode();
   }
