@@ -6,7 +6,7 @@ Find out more about the tabs component and when to use it in the [NHS digital se
 
 ## Quick start example
 
-[Preview the table component](https://nhsuk.github.io/nhsuk-frontend/components/tables/index.html)
+[Preview the tabs component](https://nhsuk.github.io/nhsuk-frontend/components/tabs/index.html)
 
 ### HTML markup
 
