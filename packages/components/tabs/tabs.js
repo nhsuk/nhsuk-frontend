@@ -192,8 +192,8 @@ class Tabs {
 
   onTabClick(e) {
     if (!e.target.classList.contains(`${this.namespace}__tab`)) {
-      // Allow events on child DOM elements to bubble up to tab parent
-      return;
+      e.stopPropagation();
+      e.preventDefault();
     }
     e.preventDefault();
     const $newTab = e.target;
