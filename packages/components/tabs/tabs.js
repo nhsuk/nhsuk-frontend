@@ -65,8 +65,10 @@ class Tabs {
         this.setAttributes($tab);
 
         // Save bounded functions to use when removing event listeners during teardown
-        $tab.boundTabClick = this.onTabClick.bind(this); // eslint-disable-line no-param-reassign
-        $tab.boundTabKeydown = this.onTabKeydown.bind(this); // eslint-disable-line no-param-reassign
+        // eslint-disable-next-line no-param-reassign
+        $tab.boundTabClick = this.onTabClick.bind(this);
+        // eslint-disable-next-line no-param-reassign
+        $tab.boundTabKeydown = this.onTabKeydown.bind(this);
 
         // Handle events
         $tab.addEventListener('click', $tab.boundTabClick, true);
@@ -87,6 +89,7 @@ class Tabs {
       window.addEventListener('hashchange', $module.boundOnHashChange, true);
     }
   }
+
   teardown() {
     const { $module } = this;
     const { $tabs } = this;
@@ -119,6 +122,7 @@ class Tabs {
       window.removeEventListener('hashchange', $module.boundOnHashChange, true);
     }
   }
+
   onHashChange() {
     const { hash } = window.location;
     const $tabWithHash = this.getTab(hash);
@@ -139,20 +143,24 @@ class Tabs {
     this.showTab($tabWithHash);
     $tabWithHash.focus();
   }
+
   hideTab($tab) {
     this.unhighlightTab($tab);
     this.hidePanel($tab);
   }
+
   showTab($tab) {
     this.highlightTab($tab);
     this.showPanel($tab);
   }
+
   getTab(hash) {
     return this.$module.querySelector(`.${this.namespace}__tab[href="${hash}"]`);
   }
+
   setAttributes($tab) {
     // set tab attributes
-    const panelId = this.getHref($tab).slice(1);
+    const panelId = Tabs.getHref($tab).slice(1);
     $tab.setAttribute('id', `tab_${panelId}`);
     $tab.setAttribute('role', 'tab');
     $tab.setAttribute('aria-controls', panelId);
@@ -185,7 +193,7 @@ class Tabs {
   onTabClick(e) {
     if (!e.target.classList.contains(`${this.namespace}__tab`)) {
       // Allow events on child DOM elements to bubble up to tab parent
-      return false;
+      return;
     }
     e.preventDefault();
     const $newTab = e.target;
@@ -204,7 +212,7 @@ class Tabs {
       const { id } = $panel;
       $panel.id = '';
       this.changingHash = true;
-      window.location.hash = this.getHref($tab).slice(1);
+      window.location.hash = Tabs.getHref($tab).slice(1);
       $panel.id = id;
     }
   }
@@ -261,7 +269,7 @@ class Tabs {
   }
 
   getPanel($tab) {
-    const $panel = this.$module.querySelector(this.getHref($tab));
+    const $panel = this.$module.querySelector(Tabs.getHref($tab));
     return $panel;
   }
 
@@ -298,7 +306,7 @@ class Tabs {
   // this is because IE doesn't always return the actual value but a relative full path
   // should be a utility function most prob
   // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
-  getHref($tab) {
+  static getHref($tab) {
     const href = $tab.getAttribute('href');
     const hash = href.slice(href.indexOf('#'), href.length);
     return hash;
