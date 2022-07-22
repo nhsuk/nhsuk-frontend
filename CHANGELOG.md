@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha.1 - Unreleased
+## 7.0.0.alpha.2 - Not yet published
 
 :new: **New features**
 
