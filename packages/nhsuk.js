@@ -7,6 +7,7 @@ import ErrorSummary from './components/error-summary/error-summary';
 import Header from './components/header/header';
 import Radios from './components/radios/radios';
 import SkipLink from './components/skip-link/skip-link';
+import Tabs from './components/tabs/tabs';
 
 import './polyfills';
 
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   Header();
   Radios();
   SkipLink();
+  Tabs();
 });

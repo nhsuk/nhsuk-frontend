@@ -414,6 +414,10 @@ module.exports = {
       url: `${TEST_URL}/tables/tables-panel.html`,
     },
     {
+      label: 'Tabs',
+      url: `${TEST_URL}/tabs/index.html`,
+    },
+    {
       label: 'Tag',
       url: `${TEST_URL}/tag/index.html`,
     },
