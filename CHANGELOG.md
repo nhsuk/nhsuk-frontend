@@ -1,18 +1,17 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha.0 - Unreleased
+## 7.0.0.alpha.1 - Unreleased
 
 :new: **New features**
 
 - Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811)).
+- Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828)).
 
 :wrench: **Maintenance**
 
 - Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
 - Upgrade all dependencies to their latest versions where possible
 - Pinned the Node version to the latest LTS version at the time of publishing (16.16.0). In environments where Volta is installed the appropriate version will be used.
-- Merged in proposed tabs ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828)).
-
 
 ## 6.1.1 - 13 June 2022
 
