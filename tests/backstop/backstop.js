@@ -106,6 +106,18 @@ module.exports = {
       url: `${TEST_URL}/card/care-card-emergency.html`,
     },
     {
+      label: 'Character Count - max characters',
+      url: `${TEST_URL}/character-count/index.html`,
+    },
+    {
+      label: 'Character Count - with threshold',
+      url: `${TEST_URL}/character-count/threshold.html`,
+    },
+    {
+      label: 'Character Count - max words',
+      url: `${TEST_URL}/character-count/words.html`,
+    },
+    {
       label: 'Checkboxes',
       url: `${TEST_URL}/checkboxes/index.html`,
     },

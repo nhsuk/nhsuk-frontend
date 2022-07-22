@@ -3,6 +3,7 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/card/macro.njk' import card %}
+{% from 'components/character-count/macro.njk' import characterCount %}
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% from 'components/details/macro.njk' import details %}
 {% from 'components/header/macro.njk' import header %}
@@ -782,6 +783,18 @@
   {{ textarea({
     "name": "more-detail",
     "id": "more-detail",
+    "label": {
+      "text": "Can you provide more detail?"
+    },
+    "hint": {
+      "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+    }
+  }) }}
+
+  {{ characterCount({
+    "name": "more-detail",
+    "id": "more-detail",
+    "maxlength": 200,
     "label": {
       "text": "Can you provide more detail?"
     },

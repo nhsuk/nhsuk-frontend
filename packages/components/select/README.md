@@ -142,4 +142,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Select component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/select) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Select component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/select) with a few minor adaptations.
