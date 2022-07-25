@@ -20,7 +20,10 @@
 // This adjustment will not work in browsers that do not support :not().
 // Users with these browsers will see the default size margin (5px larger).
 
-.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl)
+.nhsuk-label
+	:not(.nhsuk-label--m)
+	:not(.nhsuk-label--l)
+	:not(.nhsuk-label--xl)
 	+ .nhsuk-hint {
 	margin-bottom: nhsuk-spacing(2);
 }

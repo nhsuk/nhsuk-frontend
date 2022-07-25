@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ["airbnb-base/legacy", "plugin:prettier/recommended"],
+	extends: ["airbnb-base", "plugin:prettier/recommended"],
 	parser: "@babel/eslint-parser",
 	parserOptions: {
 		requireConfigFile: false,
