@@ -9,42 +9,41 @@
  */
 
 .nhsuk-back-link {
-  margin-bottom: nhsuk-spacing(3);
+	margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-back-link__link {
-  @include nhsuk-typography-responsive(16);
+	@include nhsuk-typography-responsive(16);
 
-  display: inline-block;
-  padding-left: 16px; /* 1 */
-  position: relative;
-  text-decoration: none;
+	display: inline-block;
+	padding-left: 16px; /* 1 */
+	position: relative;
+	text-decoration: none;
 
-  .nhsuk-icon__chevron-left {
-    height: 24px;
-    left: -8px; /* 2 */
-    position: absolute;
-    top: -1px; /* 3 */
-    width: 24px;
-  }
+	.nhsuk-icon__chevron-left {
+		height: 24px;
+		left: -8px; /* 2 */
+		position: absolute;
+		top: -1px; /* 3 */
+		width: 24px;
+	}
 
-  &:visited {
-    color: $nhsuk-link-color;
-  }
+	&:visited {
+		color: $nhsuk-link-color;
+	}
 
-  &:hover {
-    color: $nhsuk-link-hover-color;
-    text-decoration: underline;
+	&:hover {
+		color: $nhsuk-link-hover-color;
+		text-decoration: underline;
 
-    .nhsuk-icon__chevron-left {
-      fill: $nhsuk-link-hover-color;
-    }
-  }
+		.nhsuk-icon__chevron-left {
+			fill: $nhsuk-link-hover-color;
+		}
+	}
 
-  &:focus {
-    .nhsuk-icon__chevron-left {
-      fill: $nhsuk-focus-text-color;
-    }
-  }
-
+	&:focus {
+		.nhsuk-icon__chevron-left {
+			fill: $nhsuk-focus-text-color;
+		}
+	}
 }

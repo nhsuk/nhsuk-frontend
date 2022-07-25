@@ -14,9 +14,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ```html
 <fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend">
-    What is your address?
-  </legend>
+	<legend class="nhsuk-fieldset__legend">What is your address?</legend>
 </fieldset>
 ```
 
@@ -42,11 +40,9 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ```html
 <fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-    <h1 class="nhsuk-fieldset__heading">
-      What is your address?
-    </h1>
-  </legend>
+	<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+		<h1 class="nhsuk-fieldset__heading">What is your address?</h1>
+	</legend>
 </fieldset>
 ```
 
@@ -70,42 +66,40 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 [Preview the fieldset component with input fields](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html)
 
-
 #### HTML markup
 
 ```html
 <fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-    <h1 class="nhsuk-fieldset__heading">
-      What is your address?
-    </h1>
-  </legend>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-address1">
-      Address line 1
-    </label>
-    <input class="nhsuk-input" id="input-address1" name="address1" type="text">
-  </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-address2">
-      Address line 2
-    </label>
-    <input class="nhsuk-input" id="input-address2" name="address2" type="text">
-  </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-town-city">
-      Town or city
-    </label>
-    <input class="nhsuk-input" id="input-town-city" name="town" type="text">
-  </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-county">
-      County
-    </label>
-    <input class="nhsuk-input" id="input-county" name="county" type="text">
-  </div>
+	<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+		<h1 class="nhsuk-fieldset__heading">What is your address?</h1>
+	</legend>
+	<div class="nhsuk-form-group">
+		<label class="nhsuk-label" for="input-address1"> Address line 1 </label>
+		<input
+			class="nhsuk-input"
+			id="input-address1"
+			name="address1"
+			type="text"
+		/>
+	</div>
+	<div class="nhsuk-form-group">
+		<label class="nhsuk-label" for="input-address2"> Address line 2 </label>
+		<input
+			class="nhsuk-input"
+			id="input-address2"
+			name="address2"
+			type="text"
+		/>
+	</div>
+	<div class="nhsuk-form-group">
+		<label class="nhsuk-label" for="input-town-city"> Town or city </label>
+		<input class="nhsuk-input" id="input-town-city" name="town" type="text" />
+	</div>
+	<div class="nhsuk-form-group">
+		<label class="nhsuk-label" for="input-county"> County </label>
+		<input class="nhsuk-input" id="input-county" name="county" type="text" />
+	</div>
 </fieldset>
-
 ```
 
 #### Nunjucks macro
@@ -165,15 +159,15 @@ To add input fields inside the fieldset, use the `call` block.
 
 The fieldset Nunjucks macro takes the following arguments:
 
-| Name                    | Type     | Required  | Description             |
-| ------------------------|----------|-----------|-------------------------|
-| **describedBy**         | string   | No        | Text or element id to add to the `aria-describedby` attribute to provide description of the group of fields for screenreader users. |
-| **legend**              | object   | No        | Arguments for the legend. |
-| **legend.{}.text (or) legend.{}.html**  | string   | No        | Legend text or HTML. If `html` is provided, the `text` argument will be ignored. |
-| **legend.{}.classes**   | string   | No        | Optional additional classes to add to the legend container. |
-| **legend.{}.isPageHeading**  | boolean   | No  | Whether the legend also acts as the heading for the page. |
-| **classes**             | string   | No        | Optional additional classes to add to the fieldset container. Separate each class with a space. |
-| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the fieldset container. |
+| Name                                   | Type    | Required | Description                                                                                                                         |
+| -------------------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **describedBy**                        | string  | No       | Text or element id to add to the `aria-describedby` attribute to provide description of the group of fields for screenreader users. |
+| **legend**                             | object  | No       | Arguments for the legend.                                                                                                           |
+| **legend.{}.text (or) legend.{}.html** | string  | No       | Legend text or HTML. If `html` is provided, the `text` argument will be ignored.                                                    |
+| **legend.{}.classes**                  | string  | No       | Optional additional classes to add to the legend container.                                                                         |
+| **legend.{}.isPageHeading**            | boolean | No       | Whether the legend also acts as the heading for the page.                                                                           |
+| **classes**                            | string  | No       | Optional additional classes to add to the fieldset container. Separate each class with a space.                                     |
+| **attributes**                         | object  | No       | Any extra HTML attributes (for example data attributes) to add to the fieldset container.                                           |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 

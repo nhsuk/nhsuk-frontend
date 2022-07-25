@@ -13,18 +13,17 @@
  */
 
 a {
-  @include nhsuk-link-style-default;
+	@include nhsuk-link-style-default;
 
-  @include mq($media-type: print) {
-    &:after {
-      color: $color_nhsuk-black;
-      content: ' (Link: ' attr(href) ')'; /* [1] */
-      font-size: 14pt; /* [2] */
-    }
-  }
-
+	@include mq($media-type: print) {
+		&:after {
+			color: $color_nhsuk-black;
+			content: " (Link: " attr(href) ")"; /* [1] */
+			font-size: 14pt; /* [2] */
+		}
+	}
 }
 
 .nhsuk-link--no-visited-state {
-  @include nhsuk-link-style-no-visited-state;
+	@include nhsuk-link-style-no-visited-state;
 }

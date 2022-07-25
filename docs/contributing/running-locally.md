@@ -3,9 +3,10 @@
 ## Requirements
 
 To run NHS.UK frontend locally you'll need to:
-* [set up git](https://help.github.com/articles/set-up-git/)
-* [install Node.js](https://nodejs.org/en/)
-We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
+
+- [set up git](https://help.github.com/articles/set-up-git/)
+- [install Node.js](https://nodejs.org/en/)
+  We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
 
 > Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
 

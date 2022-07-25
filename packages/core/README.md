@@ -10,9 +10,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
-    <!-- Grid items -->
-  </main>
+	<main class="nhsuk-main-wrapper" id="maincontent">
+		<!-- Grid items -->
+	</main>
 </div>
 ```
 
@@ -20,9 +20,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-width-container-fluid">
-  <main class="nhsuk-main-wrapper" id="maincontent">
-    <!-- Grid items -->
-  </main>
+	<main class="nhsuk-main-wrapper" id="maincontent">
+		<!-- Grid items -->
+	</main>
 </div>
 ```
 
@@ -32,9 +32,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-full">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -42,9 +42,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-three-quarters">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-three-quarters">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -52,9 +52,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-one-half">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-one-half">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -62,9 +62,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-two-thirds">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -72,9 +72,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-one-third">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-one-third">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -82,9 +82,9 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-one-quarter">
-    <!-- Component -->
-  </div>
+	<div class="nhsuk-grid-column-one-quarter">
+		<!-- Component -->
+	</div>
 </div>
 ```
 
@@ -92,18 +92,17 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 
 ```html
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
-    <!-- Component -->
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-one-half">
-        <!-- Component -->
-      </div>
-      <div class="nhsuk-grid-column-one-half">
-        <!-- Component -->
-      </div>
-    </div>
-
-  </div>
+	<div class="nhsuk-grid-column-two-thirds">
+		<!-- Component -->
+		<div class="nhsuk-grid-row">
+			<div class="nhsuk-grid-column-one-half">
+				<!-- Component -->
+			</div>
+			<div class="nhsuk-grid-column-one-half">
+				<!-- Component -->
+			</div>
+		</div>
+	</div>
 </div>
 ```
 
@@ -112,13 +111,13 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
 ```html
 <!-- Header -->
 <div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-three-quarters">
-        <!-- Components -->
-      </div>
-    </div>
-  </main>
+	<main class="nhsuk-main-wrapper" id="maincontent">
+		<div class="nhsuk-grid-row">
+			<div class="nhsuk-grid-column-three-quarters">
+				<!-- Components -->
+			</div>
+		</div>
+	</main>
 </div>
 <!-- Footer -->
 ```
@@ -166,7 +165,7 @@ nhsuk-u-[grid-size]
 
 ### Reading width
 
-Add a maximum width to large pieces of content, to improve readability. 
+Add a maximum width to large pieces of content, to improve readability.
 
 ```html
 <div class="nhsuk-u-reading-width">
@@ -226,7 +225,10 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 
 ```html
 <h1>Live Well</h1>
-<p class="nhsuk-lede-text">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
+<p class="nhsuk-lede-text">
+	Advice, tips and tools to help you make the best choices about your health and
+	wellbeing.
+</p>
 ```
 
 ### Font
@@ -258,22 +260,22 @@ large-desktop: 990px
 
 ```scss
 .responsive {
-  // Apply styling to mobile and upwards
-  @include mq($from: mobile) {
-    color: red;
-  }
-  // Apply styling up to devices smaller than tablets (exclude tablets)
-  @include mq($until: tablet) {
-    color: blue;
-  }
-  // Same thing, in landscape orientation
-  @include mq($until: tablet, $and: '(orientation: landscape)') {
-    color: green;
-  }
-  // Apply styling to print media
-  @include mq($media-type: print) {
-    color: orange;
-  }
+	// Apply styling to mobile and upwards
+	@include mq($from: mobile) {
+		color: red;
+	}
+	// Apply styling up to devices smaller than tablets (exclude tablets)
+	@include mq($until: tablet) {
+		color: blue;
+	}
+	// Same thing, in landscape orientation
+	@include mq($until: tablet, $and: "(orientation: landscape)") {
+		color: green;
+	}
+	// Apply styling to print media
+	@include mq($media-type: print) {
+		color: orange;
+	}
 }
 ```
 
@@ -295,8 +297,8 @@ $color_nhsuk-purple: #330072;
 
 ```scss
 $color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81C;
-$color_nhsuk-aqua-green: #00A499;
+$color_nhsuk-warm-yellow: #ffb81c;
+$color_nhsuk-aqua-green: #00a499;
 ```
 
 ### Greyscale
