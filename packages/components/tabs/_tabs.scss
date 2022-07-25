@@ -23,7 +23,7 @@
 	&:before {
 		color: $nhsuk-text-color;
 		content: "\2014 "; // "— "
-		margin-left: -nhsuk-spacing(5);
+		margin-left: -(nhsuk-spacing(5));
 		padding-right: nhsuk-spacing(1);
 	}
 }
