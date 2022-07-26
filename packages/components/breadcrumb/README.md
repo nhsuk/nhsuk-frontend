@@ -44,35 +44,22 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 ### Nunjucks macro
 
 ```
-{%
-from
-'components/breadcrumb/macro.njk'
-import
-breadcrumb
-%}
-{{
-breadcrumb({
-items:
-[
-{
+{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+
+{{ breadcrumb({
+  items: [
+    {
       href: "/level-one",
       text: "Level one"
     },
     {
-href:
-"/level-one/level-two",
-text:
-"Level
-two"
-}
-],
-href:
-"/level-one/level-two/level-three",
-text:
-"Level
-three"
-})
-}}
+      href: "/level-one/level-two",
+      text: "Level two"
+    }
+  ],
+  href: "/level-one/level-two/level-three",
+  text: "Level three"
+}) }}
 ```
 
 ### Nunjucks arguments
