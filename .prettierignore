@@ -3,4 +3,5 @@ dist/*
 tests/backstop/*
 .github/*
 coverage/*
-coverage/*
+package-lock.json
+package.json
