@@ -1,1 +1,6 @@
-**
+node_modules/*
+dist/*
+tests/backstop/*
+.github/*
+coverage/*
+coverage/*
