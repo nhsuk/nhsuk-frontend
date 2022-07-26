@@ -15,7 +15,8 @@ Find out more about the warning callout component and when to use it in the [NHS
 ```html
 <div class="nhsuk-warning-callout">
 	<h3 class="nhsuk-warning-callout__label">
-		Important<span class="nhsuk-u-visually-hidden">:</span>
+		Important
+		<span class="nhsuk-u-visually-hidden">:</span>
 	</h3>
 	<p>
 		If you develop symptoms of anaphylaxis, such as difficulty breathing, you
@@ -50,7 +51,7 @@ warningCallout({ "heading": "Important", "HTML": "
 <div class="nhsuk-warning-callout">
 	<h3 class="nhsuk-warning-callout__label">
 		<span role="text">
-			<span class="nhsuk-u-visually-hidden">Important: </span>
+			<span class="nhsuk-u-visually-hidden">Important:</span>
 			School, nursery or work
 		</span>
 	</h3>

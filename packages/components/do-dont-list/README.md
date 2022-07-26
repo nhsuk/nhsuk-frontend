@@ -22,14 +22,12 @@ Find out more about the do and don't list component and when to use it in the [N
 				fill="none"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					stroke-width="4"
 					stroke-linecap="round"
 					d="M18.4 7.8l-8.5 8.4L5.6 12"
-					stroke="#007f3b"
-				></path>
+					stroke="#007f3b"></path>
 			</svg>
 			cover blisters that are likely to burst with a soft plaster or dressing
 		</li>
@@ -41,14 +39,12 @@ Find out more about the do and don't list component and when to use it in the [N
 				fill="none"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					stroke-width="4"
 					stroke-linecap="round"
 					d="M18.4 7.8l-8.5 8.4L5.6 12"
-					stroke="#007f3b"
-				></path>
+					stroke="#007f3b"></path>
 			</svg>
 			wash your hands before touching a burst blister
 		</li>
@@ -60,14 +56,12 @@ Find out more about the do and don't list component and when to use it in the [N
 				fill="none"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					stroke-width="4"
 					stroke-linecap="round"
 					d="M18.4 7.8l-8.5 8.4L5.6 12"
-					stroke="#007f3b"
-				></path>
+					stroke="#007f3b"></path>
 			</svg>
 			allow the fluid in a burst blister to drain before covering it with a
 			plaster or dressing
@@ -84,16 +78,13 @@ Find out more about the do and don't list component and when to use it in the [N
 				viewBox="0 0 24 24"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 				<path
 					d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 			</svg>
 			do not burst a blister yourself
 		</li>
@@ -104,16 +95,13 @@ Find out more about the do and don't list component and when to use it in the [N
 				viewBox="0 0 24 24"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 				<path
 					d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 			</svg>
 			do not peel the skin off a burst blister
 		</li>
@@ -124,16 +112,13 @@ Find out more about the do and don't list component and when to use it in the [N
 				viewBox="0 0 24 24"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 				<path
 					d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 			</svg>
 			do not pick at the edges of the remaining skin
 		</li>
@@ -144,16 +129,13 @@ Find out more about the do and don't list component and when to use it in the [N
 				viewBox="0 0 24 24"
 				aria-hidden="true"
 				width="34"
-				height="34"
-			>
+				height="34">
 				<path
 					d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 				<path
 					d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"
-					fill="#d5281b"
-				></path>
+					fill="#d5281b"></path>
 			</svg>
 			do not wear the shoes or use the equipment that caused your blister until
 			it heals

@@ -47,8 +47,7 @@
 ```html
 <section
 	class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description"
-	style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');"
->
+	style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
 	<div class="nhsuk-hero__overlay">
 		<div class="nhsuk-width-container">
 			<div class="nhsuk-grid-row">
@@ -90,8 +89,7 @@
 ```html
 <section
 	class="nhsuk-hero nhsuk-hero--image"
-	style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');"
->
+	style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
 	<div class="nhsuk-hero__overlay"></div>
 </section>
 ```

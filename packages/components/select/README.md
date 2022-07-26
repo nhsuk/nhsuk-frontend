@@ -14,7 +14,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<label class="nhsuk-label" for="select-1"> Label text goes here </label>
+	<label class="nhsuk-label" for="select-1">Label text goes here</label>
 	<select class="nhsuk-select" id="select-1" name="select-1">
 		<option value="1">NHS.UK frontend option 1</option>
 		<option value="2" selected>NHS.UK frontend option 2</option>
@@ -63,7 +63,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
-	<label class="nhsuk-label" for="select-2"> Label text goes here </label>
+	<label class="nhsuk-label" for="select-2">Label text goes here</label>
 	<div class="nhsuk-hint" id="select-2-hint">Hint text goes here</div>
 	<span id="select-2-error" class="nhsuk-error-message">
 		Error message goes here
@@ -72,8 +72,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 		class="nhsuk-select nhsuk-select--error"
 		id="select-2"
 		name="select-2"
-		aria-describedby="select-2-hint select-2-error"
-	>
+		aria-describedby="select-2-hint select-2-error">
 		<option value="1">NHS.UK frontend option 1</option>
 		<option value="2">NHS.UK frontend option 2</option>
 		<option value="3">NHS.UK frontend option 3</option>

@@ -57,8 +57,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="input-with-autocomplete-attribute"
 		name="postcode"
 		type="text"
-		autocomplete="postal-code"
-	/>
+		autocomplete="postal-code" />
 </div>
 ```
 
@@ -99,8 +98,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="input-with-hint-text"
 		name="test-name-2"
 		type="text"
-		aria-describedby="input-with-hint-text-hint"
-	/>
+		aria-describedby="input-with-hint-text-hint" />
 </div>
 ```
 
@@ -146,8 +144,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="input-with-error-message"
 		name="test-name-3"
 		type="text"
-		aria-describedby="input-with-error-message-hint input-with-error-message-error"
-	/>
+		aria-describedby="input-with-error-message-hint input-with-error-message-error" />
 </div>
 ```
 
@@ -193,8 +190,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="input-width-10"
 		name="test-width-10"
 		type="text"
-		aria-describedby="input-width-10-hint"
-	/>
+		aria-describedby="input-width-10-hint" />
 </div>
 ```
 

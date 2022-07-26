@@ -27,8 +27,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="nationality-1"
 					name="nationality"
 					type="checkbox"
-					value="british"
-				/>
+					value="british" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
 					British
 				</label>
@@ -39,8 +38,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="nationality-2"
 					name="nationality"
 					type="checkbox"
-					value="irish"
-				/>
+					value="irish" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
 					Irish
 				</label>
@@ -51,8 +49,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="nationality-3"
 					name="nationality"
 					type="checkbox"
-					value="other"
-				/>
+					value="other" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
 					citizen of another country
 				</label>
@@ -117,18 +114,15 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					name="gateway"
 					type="checkbox"
 					value="gov-gateway"
-					aria-describedby="government-gateway-item-hint"
-				/>
+					aria-describedby="government-gateway-item-hint" />
 				<label
 					class="nhsuk-label nhsuk-checkboxes__label"
-					for="government-gateway"
-				>
+					for="government-gateway">
 					Sign in with Government Gateway
 				</label>
 				<div
 					class="nhsuk-hint nhsuk-checkboxes__hint"
-					id="government-gateway-item-hint"
-				>
+					id="government-gateway-item-hint">
 					You’ll have a user ID if you’ve registered for Self Assessment or
 					filed a tax return online before.
 				</div>
@@ -140,15 +134,13 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					name="verify"
 					type="checkbox"
 					value="nhsuk-verify"
-					aria-describedby="nhsuk-login-item-hint"
-				/>
+					aria-describedby="nhsuk-login-item-hint" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="nhsuk-login">
 					Sign in with NHS.UK login
 				</label>
 				<div
 					class="nhsuk-hint nhsuk-checkboxes__hint"
-					id="nhsuk-login-item-hint"
-				>
+					id="nhsuk-login-item-hint">
 					You’ll have an account if you’ve already proved your identity with
 					either Barclays, CitizenSafe, Digidentity, Experian, Post Office,
 					Royal Mail or SecureIdentity.
@@ -211,8 +203,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 				id="colours-1"
 				name="colours"
 				type="checkbox"
-				value="red"
-			/>
+				value="red" />
 			<label class="nhsuk-label nhsuk-checkboxes__label" for="colours-1">
 				Red
 			</label>
@@ -223,8 +214,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 				id="colours-2"
 				name="colours"
 				type="checkbox"
-				value="green"
-			/>
+				value="green" />
 			<label class="nhsuk-label nhsuk-checkboxes__label" for="colours-2">
 				Green
 			</label>
@@ -236,8 +226,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 				name="colours"
 				type="checkbox"
 				value="blue"
-				disabled
-			/>
+				disabled />
 			<label class="nhsuk-label nhsuk-checkboxes__label" for="colours-3">
 				Blue
 			</label>
@@ -295,8 +284,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-1"
 					name="waste"
 					type="checkbox"
-					value="animal"
-				/>
+					value="animal" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
 					Waste from animal carcasses
 				</label>
@@ -307,8 +295,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-2"
 					name="waste"
 					type="checkbox"
-					value="mines"
-				/>
+					value="mines" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
 					Waste from mines or quarries
 				</label>
@@ -319,8 +306,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-3"
 					name="waste"
 					type="checkbox"
-					value="farm"
-				/>
+					value="farm" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
 					Farm or agricultural waste
 				</label>
@@ -388,8 +374,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-1"
 					name="waste"
 					type="checkbox"
-					value="animal"
-				/>
+					value="animal" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
 					Waste from animal carcasses
 				</label>
@@ -400,8 +385,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-2"
 					name="waste"
 					type="checkbox"
-					value="mines"
-				/>
+					value="mines" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
 					Waste from mines or quarries
 				</label>
@@ -412,8 +396,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					id="waste-3"
 					name="waste"
 					type="checkbox"
-					value="farm"
-				/>
+					value="farm" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
 					Farm or agricultural waste
 				</label>
@@ -483,24 +466,21 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					type="checkbox"
 					value="email"
 					aria-controls="conditional-contact-1"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1">
 					Email
 				</label>
 			</div>
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-1"
-			>
+				id="conditional-contact-1">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="email"> Email address </label>
+					<label class="nhsuk-label" for="email">Email address</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="email"
 						name="email"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 			<div class="nhsuk-checkboxes__item">
@@ -511,24 +491,21 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					type="checkbox"
 					value="phone"
 					aria-controls="conditional-contact-2"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
 					Phone
 				</label>
 			</div>
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-2"
-			>
+				id="conditional-contact-2">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="phone"> Phone number </label>
+					<label class="nhsuk-label" for="phone">Phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="phone"
 						name="phone"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 			<div class="nhsuk-checkboxes__item">
@@ -539,24 +516,21 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					type="checkbox"
 					value="text"
 					aria-controls="conditional-contact-3"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
 					Text message
 				</label>
 			</div>
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-3"
-			>
+				id="conditional-contact-3">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="mobile"> Mobile phone number </label>
+					<label class="nhsuk-label" for="mobile">Mobile phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="mobile"
 						name="mobile"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 		</div>
@@ -673,25 +647,22 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					value="email"
 					data-checkbox-exclusive-group="communication-preferences"
 					aria-controls="conditional-contact-1"
-					aria-expanded="false"
-				/>
-				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1"
-					>Email</label
-				>
+					aria-expanded="false" />
+				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1">
+					Email
+				</label>
 			</div>
 
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-1"
-			>
+				id="conditional-contact-1">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="email"> Email address </label>
+					<label class="nhsuk-label" for="email">Email address</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="email"
 						name="email"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 
@@ -704,25 +675,22 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					value="phone"
 					data-checkbox-exclusive-group="communication-preferences"
 					aria-controls="conditional-contact-2"
-					aria-expanded="false"
-				/>
-				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2"
-					>Phone</label
-				>
+					aria-expanded="false" />
+				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
+					Phone
+				</label>
 			</div>
 
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-2"
-			>
+				id="conditional-contact-2">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="phone"> Phone number </label>
+					<label class="nhsuk-label" for="phone">Phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="phone"
 						name="phone"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 
@@ -735,25 +703,22 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					value="text"
 					data-checkbox-exclusive-group="communication-preferences"
 					aria-controls="conditional-contact-3"
-					aria-expanded="false"
-				/>
-				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3"
-					>Text message</label
-				>
+					aria-expanded="false" />
+				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
+					Text message
+				</label>
 			</div>
 
 			<div
 				class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-				id="conditional-contact-3"
-			>
+				id="conditional-contact-3">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="mobile"> Mobile phone number </label>
+					<label class="nhsuk-label" for="mobile">Mobile phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="mobile"
 						name="mobile"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 
@@ -767,11 +732,10 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 					type="checkbox"
 					value="none"
 					data-checkbox-exclusive
-					data-checkbox-exclusive-group="communication-preferences"
-				/>
-				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-5"
-					>None of the above</label
-				>
+					data-checkbox-exclusive-group="communication-preferences" />
+				<label class="nhsuk-label nhsuk-checkboxes__label" for="contact-5">
+					None of the above
+				</label>
 			</div>
 		</div>
 	</fieldset>

@@ -20,8 +20,7 @@ Find out more about the images component and when to use it in the [NHS digital 
 		srcset="
 			https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
 			https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w
-		"
-	/>
+		" />
 	<figcaption class="nhsuk-image__caption">
 		Itchy, red, watering eyes
 	</figcaption>
@@ -30,8 +29,7 @@ Find out more about the images component and when to use it in the [NHS digital 
 	<img
 		class="nhsuk-image__img"
 		src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg"
-		alt="Picture of allergic conjunctivitis"
-	/>
+		alt="Picture of allergic conjunctivitis" />
 </figure>
 ```
 

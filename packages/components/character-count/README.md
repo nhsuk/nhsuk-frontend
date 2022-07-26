@@ -16,8 +16,7 @@ Find out more about the character component and when to use it in the [NHS digit
 <div
 	class="nhsuk-character-count"
 	data-module="nhsuk-character-count"
-	data-maxlength="200"
->
+	data-maxlength="200">
 	<div class="nhsuk-form-group">
 		<label class="nhsuk-label" for="more-detail">
 			Can you provide more detail?
@@ -31,8 +30,7 @@ Find out more about the character component and when to use it in the [NHS digit
 			id="more-detail"
 			name="more-detail"
 			rows="5"
-			aria-describedby="more-detail-hint"
-		></textarea>
+			aria-describedby="more-detail-hint"></textarea>
 	</div>
 
 	<div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-info">
@@ -72,8 +70,7 @@ Find out more about the character component and when to use it in the [NHS digit
 	class="nhsuk-character-count"
 	data-module="nhsuk-character-count"
 	data-maxlength="200"
-	data-threshold="75"
->
+	data-threshold="75">
 	<div class="nhsuk-form-group">
 		<label class="nhsuk-label" for="more-detail">
 			Can you provide more detail?
@@ -87,8 +84,7 @@ Find out more about the character component and when to use it in the [NHS digit
 			id="more-detail"
 			name="more-detail"
 			rows="5"
-			aria-describedby="more-detail-hint"
-		></textarea>
+			aria-describedby="more-detail-hint"></textarea>
 	</div>
 
 	<div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-info">
@@ -128,8 +124,7 @@ Find out more about the character component and when to use it in the [NHS digit
 <div
 	class="nhsuk-character-count"
 	data-module="nhsuk-character-count"
-	data-maxwords="200"
->
+	data-maxwords="200">
 	<div class="nhsuk-form-group">
 		<label class="nhsuk-label" for="more-detail">
 			Can you provide more detail?
@@ -143,8 +138,7 @@ Find out more about the character component and when to use it in the [NHS digit
 			id="more-detail"
 			name="more-detail"
 			rows="5"
-			aria-describedby="more-detail-hint"
-		></textarea>
+			aria-describedby="more-detail-hint"></textarea>
 	</div>
 
 	<div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-info">

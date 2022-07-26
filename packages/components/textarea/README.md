@@ -26,8 +26,7 @@ Find out more about the textarea component and when to use it in the [NHS digita
 		id="more-detail"
 		name="more-detail"
 		rows="5"
-		aria-describedby="more-detail-hint"
-	></textarea>
+		aria-describedby="more-detail-hint"></textarea>
 </div>
 ```
 
@@ -70,8 +69,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="textarea-with-autocomplete-attribute"
 		name="address"
 		rows="5"
-		autocomplete="street-address"
-	></textarea>
+		autocomplete="street-address"></textarea>
 </div>
 ```
 
@@ -111,8 +109,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 		id="no-ni-reason"
 		name="no-ni-reason"
 		rows="5"
-		aria-describedby="no-ni-reason-error"
-	></textarea>
+		aria-describedby="no-ni-reason-error"></textarea>
 </div>
 ```
 

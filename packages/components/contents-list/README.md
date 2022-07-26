@@ -14,8 +14,7 @@ Find out more about the contents list component and when to use it in the [NHS d
 <nav
 	class="nhsuk-contents-list"
 	role="navigation"
-	aria-label="Pages in this guide"
->
+	aria-label="Pages in this guide">
 	<h2 class="nhsuk-u-visually-hidden">Contents</h2>
 	<ol class="nhsuk-contents-list__list">
 		<li class="nhsuk-contents-list__item" aria-current="page">
@@ -24,30 +23,30 @@ Find out more about the contents list component and when to use it in the [NHS d
 		<li class="nhsuk-contents-list__item">
 			<a
 				class="nhsuk-contents-list__link"
-				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/"
-				>Symptoms</a
-			>
+				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">
+				Symptoms
+			</a>
 		</li>
 		<li class="nhsuk-contents-list__item">
 			<a
 				class="nhsuk-contents-list__link"
-				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/"
-				>Getting diagnosed</a
-			>
+				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">
+				Getting diagnosed
+			</a>
 		</li>
 		<li class="nhsuk-contents-list__item">
 			<a
 				class="nhsuk-contents-list__link"
-				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/"
-				>Treatments</a
-			>
+				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">
+				Treatments
+			</a>
 		</li>
 		<li class="nhsuk-contents-list__item">
 			<a
 				class="nhsuk-contents-list__link"
-				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/"
-				>Living with AMD</a
-			>
+				href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">
+				Living with AMD
+			</a>
 		</li>
 	</ol>
 </nav>

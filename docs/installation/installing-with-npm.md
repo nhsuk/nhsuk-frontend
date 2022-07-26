@@ -119,35 +119,28 @@ If you want to import assets such as the NHS logo, favicons and SVG icons, you m
 <link
 	rel="shortcut icon"
 	href="path-to-assets/favicon.ico"
-	type="image/x-icon"
-/>
+	type="image/x-icon" />
 <link
 	rel="apple-touch-icon"
-	href="path-to-assets/apple-touch-icon-180x180.png"
-/>
+	href="path-to-assets/apple-touch-icon-180x180.png" />
 <link rel="mask-icon" href="path-to-assets/favicon.svg" color="#005eb8" />
 <link rel="icon" sizes="192x192" href="path-to-assets/favicon-192x192.png" />
 <meta
 	name="msapplication-TileImage"
-	content="path-to-assets/mediumtile-144x144.png"
-/>
+	content="path-to-assets/mediumtile-144x144.png" />
 <meta name="msapplication-TileColor" content="#005eb8" />
 <meta
 	name="msapplication-square70x70logo"
-	content="path-to-assets/smalltile-70x70.png"
-/>
+	content="path-to-assets/smalltile-70x70.png" />
 <meta
 	name="msapplication-square150x150logo"
-	content="path-to-assets/mediumtile-150x150.png"
-/>
+	content="path-to-assets/mediumtile-150x150.png" />
 <meta
 	name="msapplication-wide310x150logo"
-	content="path-to-assets/widetile-310x150.png"
-/>
+	content="path-to-assets/widetile-310x150.png" />
 <meta
 	name="msapplication-square310x310logo"
-	content="path-to-assets/largetile-310x310.png"
-/>
+	content="path-to-assets/largetile-310x310.png" />
 ```
 
 ## Thanks to the Government Digital Service (GDS)

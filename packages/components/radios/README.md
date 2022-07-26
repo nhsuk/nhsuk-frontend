@@ -26,8 +26,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-1"
 					name="example"
 					type="radio"
-					value="yes"
-				/>
+					value="yes" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
 					Yes
 				</label>
@@ -39,8 +38,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="example"
 					type="radio"
 					value="no"
-					checked
-				/>
+					checked />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
 					No
 				</label>
@@ -102,8 +100,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-1"
 					name="example"
 					type="radio"
-					value="yes"
-				/>
+					value="yes" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
 					Yes
 				</label>
@@ -115,8 +112,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="example"
 					type="radio"
 					value="no"
-					checked
-				/>
+					checked />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
 					No
 				</label>
@@ -180,8 +176,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="example-disabled"
 					type="radio"
 					value="yes"
-					disabled
-				/>
+					disabled />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
 					Yes
 				</label>
@@ -193,8 +188,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="example-disabled"
 					type="radio"
 					value="no"
-					disabled
-				/>
+					disabled />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
 					No
 				</label>
@@ -254,8 +248,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-divider-1"
 					name="example"
 					type="radio"
-					value="government-gateway"
-				/>
+					value="government-gateway" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-1">
 					Use Government Gateway
 				</label>
@@ -266,8 +259,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-divider-2"
 					name="example"
 					type="radio"
-					value="nhsuk-login"
-				/>
+					value="nhsuk-login" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
 					Use NHS.UK login
 				</label>
@@ -279,8 +271,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-divider-4"
 					name="example"
 					type="radio"
-					value="create-account"
-				/>
+					value="create-account" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
 					Create an account
 				</label>
@@ -345,8 +336,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="gov"
 					type="radio"
 					value="gateway"
-					aria-describedby="gov-1-item-hint"
-				/>
+					aria-describedby="gov-1-item-hint" />
 				<label class="nhsuk-label nhsuk-radios__label" for="gov-1">
 					Sign in with Government Gateway
 				</label>
@@ -362,8 +352,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="gov"
 					type="radio"
 					value="verify"
-					aria-describedby="gov-2-item-hint"
-				/>
+					aria-describedby="gov-2-item-hint" />
 				<label class="nhsuk-label nhsuk-radios__label" for="gov-2">
 					Sign in with NHS.UK login
 				</label>
@@ -428,11 +417,8 @@ Find out more about the radios component and when to use it in the [NHS digital 
 				id="colours-1"
 				name="colours"
 				type="radio"
-				value="red"
-			/>
-			<label class="nhsuk-label nhsuk-radios__label" for="colours-1">
-				Red
-			</label>
+				value="red" />
+			<label class="nhsuk-label nhsuk-radios__label" for="colours-1">Red</label>
 		</div>
 		<div class="nhsuk-radios__item">
 			<input
@@ -440,8 +426,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 				id="colours-2"
 				name="colours"
 				type="radio"
-				value="green"
-			/>
+				value="green" />
 			<label class="nhsuk-label nhsuk-radios__label" for="colours-2">
 				Green
 			</label>
@@ -452,8 +437,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 				id="colours-3"
 				name="colours"
 				type="radio"
-				value="blue"
-			/>
+				value="blue" />
 			<label class="nhsuk-label nhsuk-radios__label" for="colours-3">
 				Blue
 			</label>
@@ -500,8 +484,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 		class="nhsuk-fieldset app-fieldset--custom-modifier"
 		aria-describedby="example-hint example-error"
 		data-attribute="value"
-		data-second-attribute="second-value"
-	>
+		data-second-attribute="second-value">
 		<legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
 		<div class="nhsuk-hint" id="example-hint">
 			This includes changing your last name or spelling your name differently.
@@ -516,8 +499,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					id="example-1"
 					name="example"
 					type="radio"
-					value="yes"
-				/>
+					value="yes" />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
 					Yes
 				</label>
@@ -529,8 +511,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					name="example"
 					type="radio"
 					value="no"
-					checked
-				/>
+					checked />
 				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
 					No
 				</label>
@@ -604,24 +585,21 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					type="radio"
 					value="email"
 					aria-controls="conditional-contact-1"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-radios__label" for="contact-1">
 					Email
 				</label>
 			</div>
 			<div
 				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-1"
-			>
+				id="conditional-contact-1">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="email"> Email address </label>
+					<label class="nhsuk-label" for="email">Email address</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="email"
 						name="email"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 			<div class="nhsuk-radios__item">
@@ -632,24 +610,21 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					type="radio"
 					value="phone"
 					aria-controls="conditional-contact-2"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-radios__label" for="contact-2">
 					Phone
 				</label>
 			</div>
 			<div
 				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-2"
-			>
+				id="conditional-contact-2">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="phone"> Phone number </label>
+					<label class="nhsuk-label" for="phone">Phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="phone"
 						name="phone"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 			<div class="nhsuk-radios__item">
@@ -660,24 +635,21 @@ Find out more about the radios component and when to use it in the [NHS digital 
 					type="radio"
 					value="text"
 					aria-controls="conditional-contact-3"
-					aria-expanded="false"
-				/>
+					aria-expanded="false" />
 				<label class="nhsuk-label nhsuk-radios__label" for="contact-3">
 					Text message
 				</label>
 			</div>
 			<div
 				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-3"
-			>
+				id="conditional-contact-3">
 				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="mobile"> Mobile phone number </label>
+					<label class="nhsuk-label" for="mobile">Mobile phone number</label>
 					<input
 						class="nhsuk-input nhsuk-u-width-two-thirds"
 						id="mobile"
 						name="mobile"
-						type="text"
-					/>
+						type="text" />
 				</div>
 			</div>
 		</div>

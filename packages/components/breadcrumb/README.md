@@ -18,24 +18,24 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 				<a class="nhsuk-breadcrumb__link" href="/level-one">Level one</a>
 			</li>
 			<li class="nhsuk-breadcrumb__item">
-				<a class="nhsuk-breadcrumb__link" href="/level-one/level-two"
-					>Level two</a
-				>
+				<a class="nhsuk-breadcrumb__link" href="/level-one/level-two">
+					Level two
+				</a>
 			</li>
 			<li class="nhsuk-breadcrumb__item">
 				<a
 					class="nhsuk-breadcrumb__link"
-					href="/level-one/level-two/level-three"
-					>Level three</a
-				>
+					href="/level-one/level-two/level-three">
+					Level three
+				</a>
 			</li>
 		</ol>
 		<p class="nhsuk-breadcrumb__back">
 			<a
 				class="nhsuk-breadcrumb__backlink"
-				href="/level-one/level-two/level-three"
-				>Back to Level three</a
-			>
+				href="/level-one/level-two/level-three">
+				Back to Level three
+			</a>
 		</p>
 	</div>
 </nav>
@@ -44,22 +44,35 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 ### Nunjucks macro
 
 ```
-{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
-
-{{ breadcrumb({
-  items: [
-    {
+{%
+from
+'components/breadcrumb/macro.njk'
+import
+breadcrumb
+%}
+{{
+breadcrumb({
+items:
+[
+{
       href: "/level-one",
       text: "Level one"
     },
     {
-      href: "/level-one/level-two",
-      text: "Level two"
-    }
-  ],
-  href: "/level-one/level-two/level-three",
-  text: "Level three"
-}) }}
+href:
+"/level-one/level-two",
+text:
+"Level
+two"
+}
+],
+href:
+"/level-one/level-two/level-three",
+text:
+"Level
+three"
+})
+}}
 ```
 
 ### Nunjucks arguments

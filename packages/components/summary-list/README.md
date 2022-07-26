@@ -16,7 +16,7 @@
 		<dd class="nhsuk-summary-list__actions">
 			<a href="#">
 				Change
-				<span class="nhsuk-u-visually-hidden"> name</span>
+				<span class="nhsuk-u-visually-hidden">name</span>
 			</a>
 		</dd>
 	</div>
@@ -26,7 +26,7 @@
 		<dd class="nhsuk-summary-list__actions">
 			<a href="#">
 				Change
-				<span class="nhsuk-u-visually-hidden"> date of birth</span>
+				<span class="nhsuk-u-visually-hidden">date of birth</span>
 			</a>
 		</dd>
 	</div>
@@ -34,12 +34,15 @@
 		<dt class="nhsuk-summary-list__key">Contact information</dt>
 		<dd class="nhsuk-summary-list__value">
 			72 Guild Street
-			<br />London <br />SE23 6FH
+			<br />
+			London
+			<br />
+			SE23 6FH
 		</dd>
 		<dd class="nhsuk-summary-list__actions">
 			<a href="#">
 				Change
-				<span class="nhsuk-u-visually-hidden"> contact information</span>
+				<span class="nhsuk-u-visually-hidden">contact information</span>
 			</a>
 		</dd>
 	</div>
@@ -52,7 +55,7 @@
 		<dd class="nhsuk-summary-list__actions">
 			<a href="#">
 				Change
-				<span class="nhsuk-u-visually-hidden"> contact details</span>
+				<span class="nhsuk-u-visually-hidden">contact details</span>
 			</a>
 		</dd>
 	</div>
@@ -160,7 +163,10 @@
 		<dt class="nhsuk-summary-list__key">Contact information</dt>
 		<dd class="nhsuk-summary-list__value">
 			72 Guild Street
-			<br />London <br />SE23 6FH
+			<br />
+			London
+			<br />
+			SE23 6FH
 		</dd>
 	</div>
 	<div class="nhsuk-summary-list__row">
@@ -238,7 +244,10 @@
 		<dt class="nhsuk-summary-list__key">Contact information</dt>
 		<dd class="nhsuk-summary-list__value">
 			72 Guild Street
-			<br />London <br />SE23 6FH
+			<br />
+			London
+			<br />
+			SE23 6FH
 		</dd>
 	</div>
 	<div class="nhsuk-summary-list__row">

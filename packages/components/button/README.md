@@ -35,7 +35,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<a href="/" class="nhsuk-button" draggable="false"> Link button </a>
+<a href="/" class="nhsuk-button" draggable="false">Link button</a>
 ```
 
 #### Nunjucks macro
@@ -62,8 +62,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 	class="nhsuk-button nhsuk-button--disabled"
 	type="submit"
 	disabled="disabled"
-	aria-disabled="true"
->
+	aria-disabled="true">
 	Disabled button
 </button>
 ```

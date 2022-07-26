@@ -389,10 +389,10 @@ Find out more about the card component and when to use it in the [NHS digital se
 <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
 	<div class="nhsuk-card--care__heading-container">
 		<h3 class="nhsuk-card--care__heading">
-			<span role="text"
-				><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak
-				to a GP if:</span
-			>
+			<span role="text">
+				<span class="nhsuk-u-visually-hidden">Non-urgent advice:</span>
+				Speak to a GP if:
+			</span>
 		</h3>
 		<span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 	</div>
@@ -449,10 +449,10 @@ Find out more about the card component and when to use it in the [NHS digital se
 <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
 	<div class="nhsuk-card--care__heading-container">
 		<h3 class="nhsuk-card--care__heading">
-			<span role="text"
-				><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an
-				urgent GP appointment if:</span
-			>
+			<span role="text">
+				<span class="nhsuk-u-visually-hidden">Urgent advice:</span>
+				Ask for an urgent GP appointment if:
+			</span>
 		</h3>
 		<span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 	</div>
@@ -511,10 +511,10 @@ Find out more about the card component and when to use it in the [NHS digital se
 <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
 	<div class="nhsuk-card--care__heading-container">
 		<h3 class="nhsuk-card--care__heading">
-			<span role="text"
-				><span class="nhsuk-u-visually-hidden">Immediate action required: </span
-				>Call 999 if you have sudden chest pain that:</span
-			>
+			<span role="text">
+				<span class="nhsuk-u-visually-hidden">Immediate action required:</span>
+				Call 999 if you have sudden chest pain that:
+			</span>
 		</h3>
 		<span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 	</div>

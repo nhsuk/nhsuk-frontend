@@ -131,39 +131,44 @@ your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
 	<tbody class="nhsuk-table__body">
 		<tr role="row" class="nhsuk-table__row">
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age </span>3 to 5 months
-				(weighing more than 5kg)
+				<span class="nhsuk-table-responsive__heading">Age</span>
+				3 to 5 months (weighing more than 5kg)
 			</td>
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much? </span>2.5ml
+				<span class="nhsuk-table-responsive__heading">How much?</span>
+				2.5ml
 			</td>
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often? </span>Max 3
-				times in 24 hours
-			</td>
-		</tr>
-		<tr role="row" class="nhsuk-table__row">
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age </span>6 to 11 months
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much? </span>2.5l
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 to
-				4 times in 24 hours
+				<span class="nhsuk-table-responsive__heading">How often?</span>
+				Max 3 times in 24 hours
 			</td>
 		</tr>
 		<tr role="row" class="nhsuk-table__row">
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age </span>1 to 3 years
+				<span class="nhsuk-table-responsive__heading">Age</span>
+				6 to 11 months
 			</td>
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much? </span>5ml
+				<span class="nhsuk-table-responsive__heading">How much?</span>
+				2.5l
 			</td>
 			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often? </span>Max 3
-				times in 24 hours
+				<span class="nhsuk-table-responsive__heading">How often?</span>
+				Max 3 to 4 times in 24 hours
+			</td>
+		</tr>
+		<tr role="row" class="nhsuk-table__row">
+			<td role="cell" class="nhsuk-table__cell">
+				<span class="nhsuk-table-responsive__heading">Age</span>
+				1 to 3 years
+			</td>
+			<td role="cell" class="nhsuk-table__cell">
+				<span class="nhsuk-table-responsive__heading">How much?</span>
+				5ml
+			</td>
+			<td role="cell" class="nhsuk-table__cell">
+				<span class="nhsuk-table-responsive__heading">How often?</span>
+				Max 3 times in 24 hours
 			</td>
 		</tr>
 	</tbody>

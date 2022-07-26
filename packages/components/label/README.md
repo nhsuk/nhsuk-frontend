@@ -9,7 +9,7 @@
 #### HTML markup
 
 ```html
-<label class="nhsuk-label"> National Insurance number </label>
+<label class="nhsuk-label">National Insurance number</label>
 ```
 
 #### Nunjucks macro
@@ -31,7 +31,7 @@
 #### HTML markup
 
 ```html
-<label class="nhsuk-label nhsuk-label--s"> National Insurance number </label>
+<label class="nhsuk-label nhsuk-label--s">National Insurance number</label>
 ```
 
 #### Nunjucks macro
@@ -55,7 +55,7 @@
 
 ```html
 <h1 class="nhsuk-label-wrapper">
-	<label class="nhsuk-label nhsuk-label--xl"> National Insurance number </label>
+	<label class="nhsuk-label nhsuk-label--xl">National Insurance number</label>
 </h1>
 ```
 
