@@ -38,3 +38,23 @@ if (!Element.prototype.closest) {
     return null;
   };
 }
+
+/**
+ * IE polyfill for CustomEvent
+ */
+if (typeof window.CustomEvent !== "function") {
+
+  function CustomEvent(event, params) {
+    params = params || { bubbles: false, cancelable: false, detail: null };
+    var evt = document.createEvent("CustomEvent");
+    evt.initCustomEvent(
+      event,
+      params.bubbles,
+      params.cancelable,
+      params.detail
+    );
+    return evt;
+  }
+
+  window.CustomEvent = CustomEvent;
+}

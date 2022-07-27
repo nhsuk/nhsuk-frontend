@@ -1,5 +1,14 @@
 # NHS.UK frontend Changelog
 
+## 7.0.0.alpha.0 - Unreleased
+
+:wrench: **Maintenance**
+
+- Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
+- Upgrade all dependencies to their latest versions where possible
+- Pinned the Node version to the latest LTS version at the time of publishing (16.16.0). In environments where Volta is installed the appropriate version will be used.
+
+
 ## 6.1.1 - 13 June 2022
 
 :wrench: **Fixes**
