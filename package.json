@@ -1,7 +1,7 @@
 {
-  "name": "nhsuk-frontend",
-  "version": "7.0.0-alpha.0",
-  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "name": "nhsuk-tabs",
+  "version": "6.1.1",
+  "description": "NHS.UK tabs component.",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
