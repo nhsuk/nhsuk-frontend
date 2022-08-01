@@ -1,17 +1,18 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha.2 - Not yet published
+## 7.0.0.alpha.2 - 1 Aug 2022
 
 :new: **New features**
 
-- Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811)).
-- Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828)).
+- Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811))
+- Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828))
 
 :wrench: **Maintenance**
 
 - Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
 - Upgrade all dependencies to their latest versions where possible
-- Pinned the Node version to the latest LTS version at the time of publishing (16.16.0). In environments where Volta is installed the appropriate version will be used.
+- Pinned the Node version to the latest LTS version at the time of publishing (16.16.0). In environments where Volta is installed the appropriate version will be used
+- Updates code formatting conventions to fall mostly in line with Prettier's recommendations. Have an opinion? [Share it!](https://github.com/nhsuk/nhsuk-frontend/discussions/827#discussioncomment-3188144) Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
 
 ## 6.1.1 - 13 June 2022
 
