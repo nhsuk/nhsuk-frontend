@@ -7,7 +7,7 @@
 // patterns such as colours and font-weight
 //
 
-@use 'sass:math';
+@use "sass:math";
 
 // Text colour
 // ==========================================================================
@@ -20,11 +20,11 @@
 //
 
 @mixin nhsuk-text-color {
-  color: $nhsuk-text-color;
+	color: $nhsuk-text-color;
 
-  @include govuk-media-query($media-type: print) {
-    color: $nhsuk-print-text-color;
-  }
+	@include govuk-media-query($media-type: print) {
+		color: $nhsuk-print-text-color;
+	}
 }
 
 // Normal font weight
@@ -36,7 +36,7 @@
 //
 
 @mixin nhsuk-typography-weight-normal($important: false) {
-  font-weight: $nhsuk-font-normal iff($important, !important);
+	font-weight: $nhsuk-font-normal iff($important, !important);
 }
 
 // Bold font weight
@@ -48,7 +48,7 @@
 //
 
 @mixin nhsuk-typography-weight-bold($important: false) {
-  font-weight: $nhsuk-font-bold iff($important, !important);
+	font-weight: $nhsuk-font-bold iff($important, !important);
 }
 
 // Line height
@@ -65,15 +65,18 @@
 //
 
 @function _nhsuk-line-height($line-height, $font-size) {
-  @if not unitless($line-height) and unit($line-height) == unit($font-size) {
-    // Explicitly rounding to 5 decimal places to match the node-sass/libsass default precision.
-    // This is expanded to 10 in dart-sass and results in significant line height differences
-    // Therefore by rounding it here we achieve consistent rendering across node-sass and dart-sass
-    $ten-to-the-power-five: 100000;
-    $line-height: math.div(round(math.div($line-height, $font-size) * $ten-to-the-power-five), $ten-to-the-power-five);
-  }
+	@if not unitless($line-height) and unit($line-height) == unit($font-size) {
+		// Explicitly rounding to 5 decimal places to match the node-sass/libsass default precision.
+		// This is expanded to 10 in dart-sass and results in significant line height differences
+		// Therefore by rounding it here we achieve consistent rendering across node-sass and dart-sass
+		$ten-to-the-power-five: 100000;
+		$line-height: math.div(
+			round(math.div($line-height, $font-size) * $ten-to-the-power-five),
+			$ten-to-the-power-five
+		);
+	}
 
-  @return $line-height;
+	@return $line-height;
 }
 
 // Responsive typography
@@ -120,42 +123,53 @@
 //    are used in calculations
 //
 
-@mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
+@mixin nhsuk-typography-responsive(
+	$size,
+	$override-line-height: false,
+	$important: false
+) {
+	@if not map-has-key($nhsuk-typography-scale, $size) {
+		@error "Unknown font size `#{$size}` - expected a point from the typography scale.";
+	}
 
-  @if not map-has-key($nhsuk-typography-scale, $size) {
-    @error 'Unknown font size `#{$size}` - expected a point from the typography scale.';
-  }
+	$font-map: map-get($nhsuk-typography-scale, $size);
 
-  $font-map: map-get($nhsuk-typography-scale, $size);
+	@each $breakpoint, $breakpoint-map in $font-map {
+		$font-size: map-get($breakpoint-map, "font-size");
+		$font-size-rem: nhsuk-px-to-rem($font-size);
 
-  @each $breakpoint, $breakpoint-map in $font-map {
-    $font-size: map-get($breakpoint-map, 'font-size');
-    $font-size-rem: nhsuk-px-to-rem($font-size);
+		$line-height: _nhsuk-line-height(
+			$line-height:
+				if(
+					$override-line-height,
+					$override-line-height,
+					map-get($breakpoint-map, "line-height")
+				),
+			$font-size: $font-size,
+		);
 
-    $line-height: _nhsuk-line-height($line-height: if($override-line-height, $override-line-height, map-get($breakpoint-map, 'line-height')), $font-size: $font-size);
+		// [1] //
+		$font-size: $font-size iff($important, !important);
+		$font-size-rem: $font-size-rem iff($important, !important);
+		$line-height: $line-height iff($important, !important);
 
-    // [1] //
-    $font-size: $font-size iff($important, !important);
-    $font-size-rem: $font-size-rem iff($important, !important);
-    $line-height: $line-height iff($important, !important);
-
-    @if $breakpoint == null {
-      font-size: $font-size;
-      font-size: $font-size-rem;
-      line-height: $line-height;
-    } @else if $breakpoint == 'print' {
-      @include govuk-media-query($media-type: print) {
-        font-size: $font-size;
-        line-height: $line-height;
-      }
-    } @else {
-      @include govuk-media-query($from: $breakpoint) {
-        font-size: $font-size;
-        font-size: $font-size-rem;
-        line-height: $line-height;
-      }
-    }
-  }
+		@if $breakpoint == null {
+			font-size: $font-size;
+			font-size: $font-size-rem;
+			line-height: $line-height;
+		} @else if $breakpoint == "print" {
+			@include govuk-media-query($media-type: print) {
+				font-size: $font-size;
+				line-height: $line-height;
+			}
+		} @else {
+			@include govuk-media-query($from: $breakpoint) {
+				font-size: $font-size;
+				font-size: $font-size-rem;
+				line-height: $line-height;
+			}
+		}
+	}
 }
 
 // Font
@@ -178,14 +192,16 @@
 //
 
 @mixin nhsuk-font($size, $weight: normal, $line-height: false) {
+	@if $weight == normal {
+		@include nhsuk-typography-weight-normal;
+	} @else if $weight == bold {
+		@include nhsuk-typography-weight-bold;
+	}
 
-  @if $weight == normal {
-    @include nhsuk-typography-weight-normal;
-  } @else if $weight == bold {
-    @include nhsuk-typography-weight-bold;
-  }
-
-  @if $size {
-    @include nhsuk-typography-responsive($size, $override-line-height: $line-height);
-  }
+	@if $size {
+		@include nhsuk-typography-responsive(
+			$size,
+			$override-line-height: $line-height
+		);
+	}
 }

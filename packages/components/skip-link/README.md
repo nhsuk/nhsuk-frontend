@@ -28,23 +28,19 @@ Ensure the correct `id` value has been added to your main content for the skip l
 ### Nunjucks macro
 
 ```html
-{% from 'components/skip-link/macro.njk' import skipLink %}
-
-{{ skipLink({
-  "href": "#maincontent",
-  "text": "Skip to main content"
-}) }}
+{% from 'components/skip-link/macro.njk' import skipLink %} {{ skipLink({
+"href": "#maincontent", "text": "Skip to main content" }) }}
 ```
 
 ### Nunjucks arguments
 
 The skip link Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **href**            | string   | No        | The value of the skip link href attribute. Default: "#maincontent". |
-| **text**            | string   | No        | The text of the skip link. Default: "Skip to main content". |
-| **classes**         | string   | No        | Optional additional classes to add to the skip link. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the skip link. |
+| Name           | Type   | Required | Description                                                                            |
+| -------------- | ------ | -------- | -------------------------------------------------------------------------------------- |
+| **href**       | string | No       | The value of the skip link href attribute. Default: "#maincontent".                    |
+| **text**       | string | No       | The text of the skip link. Default: "Skip to main content".                            |
+| **classes**    | string | No       | Optional additional classes to add to the skip link. Separate each class with a space. |
+| **attributes** | object | No       | Any extra HTML attributes (for example data attributes) to add to the skip link.       |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

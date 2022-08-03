@@ -1,1 +1,7 @@
-**
+node_modules/*
+dist/*
+tests/backstop/*
+.github/*
+coverage/*
+package-lock.json
+package.json

@@ -10,11 +10,11 @@ To use NHS.UK frontend in your projects with npm you must:
 
 3. Have a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS.
 
-4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
+4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-    ```
-    npm install nunjucks --save
-    ````
+   ```
+   npm install nunjucks --save
+   ```
 
 ## Installation
 
@@ -66,7 +66,7 @@ document.body.className = ((document.body.className) ? document.body.className +
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 
+Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
 
 > The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 
@@ -88,26 +88,26 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import Card from './components/card/card';
-import Checkboxes from './components/checkboxes/checkboxes';
-import Details from './components/details/details';
-import ErrorSummary from './components/error-summary/error-summary';
-import Header from './components/header/header';
-import Radios from './components/radios/radios';
-import SkipLink from './components/skip-link/skip-link';
+import Card from "./components/card/card";
+import Checkboxes from "./components/checkboxes/checkboxes";
+import Details from "./components/details/details";
+import ErrorSummary from "./components/error-summary/error-summary";
+import Header from "./components/header/header";
+import Radios from "./components/radios/radios";
+import SkipLink from "./components/skip-link/skip-link";
 
 // Polyfills
-import '../node_modules/nhsuk-frontend/packages/polyfills';
+import "../node_modules/nhsuk-frontend/packages/polyfills";
 
 // Initialize components
-document.addEventListener('DOMContentLoaded', () => {
-  Card();
-  Checkboxes();
-  Details();
-  ErrorSummary();
-  Header();
-  Radios();
-  SkipLink();
+document.addEventListener("DOMContentLoaded", () => {
+	Card();
+	Checkboxes();
+	Details();
+	ErrorSummary();
+	Header();
+	Radios();
+	SkipLink();
 });
 ```
 
@@ -116,16 +116,31 @@ document.addEventListener('DOMContentLoaded', () => {
 If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend/assets/` directory or you can reference them straight from the `node_modules` folder.
 
 ```html
-<link rel="shortcut icon" href="path-to-assets/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="path-to-assets/apple-touch-icon-180x180.png">
-<link rel="mask-icon" href="path-to-assets/favicon.svg" color="#005eb8">
-<link rel="icon" sizes="192x192" href="path-to-assets/favicon-192x192.png">
-<meta name="msapplication-TileImage" content="path-to-assets/mediumtile-144x144.png">
-<meta name="msapplication-TileColor" content="#005eb8">
-<meta name="msapplication-square70x70logo" content="path-to-assets/smalltile-70x70.png">
-<meta name="msapplication-square150x150logo" content="path-to-assets/mediumtile-150x150.png">
-<meta name="msapplication-wide310x150logo" content="path-to-assets/widetile-310x150.png">
-<meta name="msapplication-square310x310logo" content="path-to-assets/largetile-310x310.png">
+<link
+	rel="shortcut icon"
+	href="path-to-assets/favicon.ico"
+	type="image/x-icon" />
+<link
+	rel="apple-touch-icon"
+	href="path-to-assets/apple-touch-icon-180x180.png" />
+<link rel="mask-icon" href="path-to-assets/favicon.svg" color="#005eb8" />
+<link rel="icon" sizes="192x192" href="path-to-assets/favicon-192x192.png" />
+<meta
+	name="msapplication-TileImage"
+	content="path-to-assets/mediumtile-144x144.png" />
+<meta name="msapplication-TileColor" content="#005eb8" />
+<meta
+	name="msapplication-square70x70logo"
+	content="path-to-assets/smalltile-70x70.png" />
+<meta
+	name="msapplication-square150x150logo"
+	content="path-to-assets/mediumtile-150x150.png" />
+<meta
+	name="msapplication-wide310x150logo"
+	content="path-to-assets/widetile-310x150.png" />
+<meta
+	name="msapplication-square310x310logo"
+	content="path-to-assets/largetile-310x310.png" />
 ```
 
 ## Thanks to the Government Digital Service (GDS)

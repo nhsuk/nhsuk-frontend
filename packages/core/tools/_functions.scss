@@ -13,16 +13,16 @@
 // https://github.com/alphagov/govuk-frontend
 //
 
-@use 'sass:math';
+@use "sass:math";
 
 @function nhsuk-em($value, $context-font-size) {
-  @if (unitless($value)) {
-    $value: $value * 1px;
-  }
-  @if (unitless($context-font-size)) {
-    $context-font-size: $context-font-size * 1px;
-  }
-  @return math.div($value, $context-font-size) * 1em;
+	@if (unitless($value)) {
+		$value: $value * 1px;
+	}
+	@if (unitless($context-font-size)) {
+		$context-font-size: $context-font-size * 1px;
+	}
+	@return math.div($value, $context-font-size) * 1em;
 }
 
 // Convert pixels to rem
@@ -37,9 +37,9 @@
 //
 
 @function nhsuk-px-to-rem($value) {
-  @if (unitless($value)) {
-    $value: $value * 1px;
-  }
+	@if (unitless($value)) {
+		$value: $value * 1px;
+	}
 
-  @return math.div($value, $nhsuk-base-font-size) * 1rem;
+	@return math.div($value, $nhsuk-base-font-size) * 1rem;
 }

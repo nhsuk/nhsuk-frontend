@@ -3,9 +3,9 @@
 
 /* stylelint-disable indentation */
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
-                  // See https://github.com/sass-mq/sass-mq/pull/10
+// See https://github.com/sass-mq/sass-mq/pull/10
 
-@use 'sass:math';
+@use "sass:math";
 
 /// Base font size on the `<body>` element
 /// @type Number (unit)
@@ -38,10 +38,10 @@ $mq-responsive: true !default;
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    1300px
+	mobile: 320px,
+	tablet: 740px,
+	desktop: 980px,
+	wide: 1300px,
 ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
@@ -91,15 +91,16 @@ $mq-media-type: all !default;
 ///
 /// @requires $mq-base-font-size
 /// @returns {Number}
-@function mq-px2em($px, $base-font-size: $mq-base-font-size) { /* stylelint-disable-line scss/at-function-pattern */
+@function mq-px2em($px, $base-font-size: $mq-base-font-size) {
+	/* stylelint-disable-line scss/at-function-pattern */
 
-    @if unitless($px) {
-        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels."; /* stylelint-disable-line at-rule-disallowed-list, string-quotes */
-        @return mq-px2em($px * 1px, $base-font-size);
-    } @else if unit($px) == em {
-        @return $px;
-    }
-    @return math.div($px, $base-font-size) * 1em;
+	@if unitless($px) {
+		@warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels."; /* stylelint-disable-line at-rule-disallowed-list, string-quotes */
+		@return mq-px2em($px * 1px, $base-font-size);
+	} @else if unit($px) == em {
+		@return $px;
+	}
+	@return math.div($px, $base-font-size) * 1em;
 }
 
 /// Get a breakpoint's width
@@ -114,11 +115,11 @@ $mq-media-type: all !default;
 ///
 /// @returns {Number} Value in pixels
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
-    @if map-has-key($breakpoints, $name) {
-        @return map-get($breakpoints, $name);
-    } @else {
-        @warn "Breakpoint #{$name} wasn't found in $breakpoints."; /* stylelint-disable-line at-rule-disallowed-list */
-    }
+	@if map-has-key($breakpoints, $name) {
+		@return map-get($breakpoints, $name);
+	} @else {
+		@warn "Breakpoint #{$name} wasn't found in $breakpoints."; /* stylelint-disable-line at-rule-disallowed-list */
+	}
 }
 
 /// Media Query mixin
@@ -169,71 +170,82 @@ $mq-media-type: all !default;
 ///    }
 ///  }
 @mixin mq(
-    $from: false,
-    $until: false,
-    $and: false,
-    $media-type: $mq-media-type,
-    $breakpoints: $mq-breakpoints,
-    $responsive: $mq-responsive,
-    $static-breakpoint: $mq-static-breakpoint
+	$from: false,
+	$until: false,
+	$and: false,
+	$media-type: $mq-media-type,
+	$breakpoints: $mq-breakpoints,
+	$responsive: $mq-responsive,
+	$static-breakpoint: $mq-static-breakpoint
 ) {
-    $min-width: 0;
-    $max-width: 0;
-    $media-query: '';
+	$min-width: 0;
+	$max-width: 0;
+	$media-query: "";
 
-    // From: this breakpoint (inclusive)
-    @if $from {
-        @if type-of($from) == number {
-            $min-width: mq-px2em($from);
-        } @else {
-            $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
-        }
-    }
+	// From: this breakpoint (inclusive)
+	@if $from {
+		@if type-of($from) == number {
+			$min-width: mq-px2em($from);
+		} @else {
+			$min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
+		}
+	}
 
-    // Until: that breakpoint (exclusive)
-    @if $until {
-        @if type-of($until) == number {
-            $max-width: mq-px2em($until);
-        } @else {
-            $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
-        }
-    }
+	// Until: that breakpoint (exclusive)
+	@if $until {
+		@if type-of($until) == number {
+			$max-width: mq-px2em($until);
+		} @else {
+			$max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) -
+				0.01em;
+		}
+	}
 
-    // Responsive support is disabled, rasterize the output outside @media blocks
-    // The browser will rely on the cascade itself.
-    @if $responsive == false {
-        $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-        $target-width: mq-px2em($static-breakpoint-width);
+	// Responsive support is disabled, rasterize the output outside @media blocks
+	// The browser will rely on the cascade itself.
+	@if $responsive == false {
+		$static-breakpoint-width: mq-get-breakpoint-width(
+			$static-breakpoint,
+			$breakpoints
+		);
+		$target-width: mq-px2em($static-breakpoint-width);
 
-        // Output only rules that start at or span our target width
-        @if (
-            $and == false
-            and $min-width <= $target-width
-            and (
-                $until == false or $max-width >= $target-width
-            )
-            and $media-type != 'print'
-        ) {
-            @content;
-        }
-    }
+		// Output only rules that start at or span our target width
+		@if (
+			$and ==
+				false and
+				$min-width <=
+				$target-width and
+				($until == false or $max-width >= $target-width) and
+				$media-type !=
+				"print"
+		) {
+			@content;
+		}
+	}
 
-    // Responsive support is enabled, output rules inside @media queries
-    @else {
-        @if $min-width != 0 { $media-query: '#{$media-query} and (min-width: #{$min-width})'; }
-        @if $max-width != 0 { $media-query: '#{$media-query} and (max-width: #{$max-width})'; }
-        @if $and { $media-query: '#{$media-query} and #{$and}'; }
+	// Responsive support is enabled, output rules inside @media queries
+	@else {
+		@if $min-width != 0 {
+			$media-query: "#{$media-query} and (min-width: #{$min-width})";
+		}
+		@if $max-width != 0 {
+			$media-query: "#{$media-query} and (max-width: #{$max-width})";
+		}
+		@if $and {
+			$media-query: "#{$media-query} and #{$and}";
+		}
 
-        // Remove unnecessary media query prefix 'all and '
-        @if ($media-type == 'all' and $media-query != '') {
-            $media-type: '';
-            $media-query: str-slice(unquote($media-query), 6);
-        }
+		// Remove unnecessary media query prefix 'all and '
+		@if ($media-type == "all" and $media-query != "") {
+			$media-type: "";
+			$media-query: str-slice(unquote($media-query), 6);
+		}
 
-        @media #{$media-type + $media-query} {
-            @content;
-        }
-    }
+		@media #{$media-type + $media-query} {
+			@content;
+		}
+	}
 }
 
 /// Quick sort
@@ -243,27 +255,27 @@ $mq-media-type: all !default;
 /// @param {List} $list - List to sort
 /// @returns {List} Sorted List
 @function _mq-quick-sort($list) {
-    $less:  ();
-    $equal: ();
-    $large: ();
+	$less: ();
+	$equal: ();
+	$large: ();
 
-    @if length($list) > 1 {
-        $seed: nth($list, ceil(length($list) * .5));
+	@if length($list) > 1 {
+		$seed: nth($list, ceil(length($list) * 0.5));
 
-        @each $item in $list {
-            @if ($item == $seed) {
-                $equal: append($equal, $item);
-            } @else if ($item < $seed) {
-                $less: append($less, $item);
-            } @else if ($item > $seed) {
-                $large: append($large, $item);
-            }
-        }
+		@each $item in $list {
+			@if ($item == $seed) {
+				$equal: append($equal, $item);
+			} @else if ($item < $seed) {
+				$less: append($less, $item);
+			} @else if ($item > $seed) {
+				$large: append($large, $item);
+			}
+		}
 
-        @return join(join(_mq-quick-sort($less), $equal), _mq-quick-sort($large));
-    }
+		@return join(join(_mq-quick-sort($less), $equal), _mq-quick-sort($large));
+	}
 
-    @return $list;
+	@return $list;
 }
 
 /// Sort a map by values (works with numbers only)
@@ -272,23 +284,28 @@ $mq-media-type: all !default;
 /// @param {Map} $map - Map to sort
 /// @returns {Map} Map sorted by value
 @function _mq-map-sort-by-value($map) {
-    $map-sorted: ();
-    $map-keys: map-keys($map);
-    $map-values: map-values($map);
-    $map-values-sorted: _mq-quick-sort($map-values);
+	$map-sorted: ();
+	$map-keys: map-keys($map);
+	$map-values: map-values($map);
+	$map-values-sorted: _mq-quick-sort($map-values);
 
-    // Reorder key/value pairs based on key values
-    @each $value in $map-values-sorted {
-        $index: index($map-values, $value);
-        $key: nth($map-keys, $index);
-        $map-sorted: map-merge($map-sorted, ($key: $value));
+	// Reorder key/value pairs based on key values
+	@each $value in $map-values-sorted {
+		$index: index($map-values, $value);
+		$key: nth($map-keys, $index);
+		$map-sorted: map-merge(
+			$map-sorted,
+			(
+				$key: $value,
+			)
+		);
 
-        // Unset the value in $map-values to prevent the loop
-        // from finding the same index twice
-        $map-values: set-nth($map-values, $index, 0);
-    }
+		// Unset the value in $map-values to prevent the loop
+		// from finding the same index twice
+		$map-values: set-nth($map-values, $index, 0);
+	}
 
-    @return $map-sorted;
+	@return $map-sorted;
 }
 
 /// Add a breakpoint
@@ -302,9 +319,11 @@ $mq-media-type: all !default;
 ///  @include mq-add-breakpoint(tvscreen, 1920px);
 ///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
-    $new-breakpoint: ($name: $width);
-    $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
-    $mq-breakpoints: _mq-map-sort-by-value($mq-breakpoints) !global;
+	$new-breakpoint: (
+		$name: $width,
+	);
+	$mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
+	$mq-breakpoints: _mq-map-sort-by-value($mq-breakpoints) !global;
 }
 
 /// Show the active breakpoint in the top right corner of the viewport
@@ -323,30 +342,33 @@ $mq-media-type: all !default;
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 /* stylelint-disable color-no-hex */
-@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
-    body:before {
-        background-color: #FCF8E3;
-        border-bottom: 1px solid #FBEED5;
-        border-left: 1px solid #FBEED5;
-        color: #C09853;
-        font: small-caption;
-        padding: 3px 6px;
-        pointer-events: none;
-        position: fixed;
-        right: 0;
-        top: 0;
-        z-index: 100;
-        /* stylelint-enable color-no-hex */
-        // Loop through the breakpoints that should be shown
-        @each $show-breakpoint in $show-breakpoints {
-            $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
-            @include mq($show-breakpoint, $breakpoints: $breakpoints) {
-                content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})"; /* stylelint-disable-line string-quotes */
-            }
-        }
-    }
+@mixin mq-show-breakpoints(
+	$show-breakpoints: $mq-show-breakpoints,
+	$breakpoints: $mq-breakpoints
+) {
+	body:before {
+		background-color: #fcf8e3;
+		border-bottom: 1px solid #fbeed5;
+		border-left: 1px solid #fbeed5;
+		color: #c09853;
+		font: small-caption;
+		padding: 3px 6px;
+		pointer-events: none;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 100;
+		/* stylelint-enable color-no-hex */
+		// Loop through the breakpoints that should be shown
+		@each $show-breakpoint in $show-breakpoints {
+			$width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
+			@include mq($show-breakpoint, $breakpoints: $breakpoints) {
+				content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})"; /* stylelint-disable-line string-quotes */
+			}
+		}
+	}
 }
 
 @if length($mq-show-breakpoints) > 0 {
-    @include mq-show-breakpoints;
+	@include mq-show-breakpoints;
 }
