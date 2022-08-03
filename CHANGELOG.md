@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha.2 - 1 Aug 2022
+## 7.0.0.alpha.2 - 3 Aug 2022
 
 :new: **New features**
 
