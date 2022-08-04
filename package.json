@@ -1,7 +1,7 @@
 {
-  "name": "nhsuk-tabs",
+  "name": "nhsuk-gallery-tabs",
   "version": "6.1.1",
-  "description": "NHS.UK tabs component.",
+  "description": "NHS.UK tabs for use with gallery component.",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
