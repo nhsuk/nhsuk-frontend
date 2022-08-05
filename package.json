@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-gallery-tabs",
-  "version": "6.1.1",
+  "version": "1.0.0",
   "description": "NHS.UK tabs for use with gallery component.",
   "scripts": {
     "prepare": "gulp bundle",
@@ -70,7 +70,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+    "url": "git+https://github.com/prembonsall/nhsuk-gallery-tabs"
   },
   "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
   "bugs": {
