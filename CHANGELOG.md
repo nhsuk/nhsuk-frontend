@@ -1,9 +1,9 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 6.1.2 - 8 August 2022
 
 :wrench: **Fixes**
-
+- Add missing `nhsuk-list--border` utility class
 - Reduce input and textarea error border widths to eliminate text movement / dimension changes when focusing and unfocusing a field with an error ([Issue 825](https://github.com/nhsuk/nhsuk-frontend/issues/825)), ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
 
 ## 6.1.1 - 13 June 2022
