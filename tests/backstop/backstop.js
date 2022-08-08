@@ -126,6 +126,11 @@ module.exports = {
       url: `${TEST_URL}/checkboxes/error.html`,
     },
     {
+      label: 'Checkboxes with error message - focused',
+      url: `${TEST_URL}/checkboxes/error.html`,
+      clickSelector: '#waste-1',
+    },
+    {
       label: 'Checkboxes with conditional content',
       url: `${TEST_URL}/checkboxes/conditional.html`,
       clickSelector: '#contact-1',
@@ -313,6 +318,11 @@ module.exports = {
       url: `${TEST_URL}/input/error.html`,
     },
     {
+      label: 'Input with error message - focused',
+      url: `${TEST_URL}/input/error.html`,
+      clickSelector: '#input-with-error-message',
+    },
+    {
       label: 'Input with width modifier',
       url: `${TEST_URL}/input/custom-width.html`,
     },
@@ -365,6 +375,11 @@ module.exports = {
       url: `${TEST_URL}/radios/hint-error.html`,
     },
     {
+      label: 'Radios with hint text and error message - focused',
+      url: `${TEST_URL}/radios/hint-error.html`,
+      clickSelector: '#example-2',
+    },    
+    {
       label: 'Radios with conditional content',
       url: `${TEST_URL}/radios/conditional.html`,
       clickSelector: '#contact-1',
@@ -376,6 +391,11 @@ module.exports = {
     {
       label: 'Select with hint text and error message',
       url: `${TEST_URL}/select/hint-error.html`,
+    },
+    {
+      label: 'Select with hint text and error message - focused',
+      url: `${TEST_URL}/select/hint-error.html`,
+      clickSelector: '[for=select-2]',
     },
     {
       label: 'Summary list',
@@ -412,6 +432,11 @@ module.exports = {
     {
       label: 'Textarea with error message',
       url: `${TEST_URL}/textarea/error.html`,
+    },
+    {
+      label: 'Textarea with error message - focused',
+      url: `${TEST_URL}/textarea/error.html`,
+      clickSelector: '#no-ni-reason',
     },
     {
       label: 'Warning callout',
