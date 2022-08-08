@@ -281,6 +281,12 @@ class Tabs {
 
   hidePanel(tab) {
     const $panel = this.getPanel(tab);
+    const $sumamry = $panel.querySelector('.nhsuk-details__summary');
+    const $details = $panel.querySelector('details');
+    const $openAttr = $details.getAttribute('open') !== null;
+    if ($openAttr === true) {
+      $sumamry.click();
+    }
     $panel.classList.add(this.jsHiddenClass);
     $panel.dispatchEvent(this.hideEvent);
   }
