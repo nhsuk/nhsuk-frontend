@@ -1438,6 +1438,16 @@ b {
   }
 }
 
+/**
+ * Adds a grey border to the bottom of an <li> tag
+ *
+ * Usage: class="nhsuk-list--border"
+ */
+.nhsuk-list--border li {
+  border-bottom: 1px solid #d8dde0;
+  padding: 8px 0 16px;
+}
+
 /* ==========================================================================
    UTILITIES / #READING-WIDTH
    ========================================================================== */
@@ -5973,7 +5983,7 @@ b {
 }
 
 .nhsuk-input--error {
-  border: 4px solid #d5281b;
+  border: 2px solid #d5281b;
 }
 
 .nhsuk-input--width-30 {
@@ -6572,7 +6582,7 @@ b {
 }
 
 .nhsuk-select--error {
-  border: 4px solid #d5281b;
+  border: 2px solid #d5281b;
 }
 
 /* ==========================================================================
@@ -7121,7 +7131,7 @@ b {
 }
 
 .nhsuk-textarea--error {
-  border: 4px solid #d5281b;
+  border: 2px solid #d5281b;
 }
 
 /* ==========================================================================
