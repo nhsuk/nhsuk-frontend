@@ -17,15 +17,15 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
         run: npm install
-      
+
       - name: Run linting
         run: npm run lint
-    
+
       - name: Run tests
         run: npm test
 
@@ -43,12 +43,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name:  ${{ github.ref }}
+          release_name: ${{ github.ref }}
           draft: false
           prerelease: false
 
       - name: Upload release asset
-        id: upload-release-asset 
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
           asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
           asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
-      
+
       - name: Build GitHub pages
         run: npm run build-gh-pages
 
@@ -68,7 +68,7 @@ jobs:
           BRANCH: gh-pages
           FOLDER: ./dist/app
           CLEAN: true
-          
+
       - name: Publish NPM package
         run: npm publish
         env:
