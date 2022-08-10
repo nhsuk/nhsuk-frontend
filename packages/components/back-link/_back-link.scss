@@ -14,7 +14,11 @@
 
 .nhsuk-back-link__link {
   @include nhsuk-typography-responsive(16);
+  @include nhsuk-link-style-default;
 
+  background: none;
+  border: none;
+  cursor: pointer;
   display: inline-block;
   padding-left: 16px; /* 1 */
   position: relative;
@@ -46,5 +50,4 @@
       fill: $nhsuk-focus-text-color;
     }
   }
-
 }

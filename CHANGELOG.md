@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:new: **New features**
+
+- Allow back-link component to be a button element
+
 ## 6.1.2 - 8 August 2022
 
 :wrench: **Fixes**
