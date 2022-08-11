@@ -191,13 +191,22 @@ class Tabs {
   }
 
   onTabClick(e) {
+    const { $module } = this;
     if (!e.target.classList.contains(`${this.namespace}__tab`)) {
       e.stopPropagation();
-      e.preventDefault();
     }
     e.preventDefault();
     const $newTab = e.target;
     const $currentTab = this.getCurrentTab();
+    if ($newTab === $currentTab) {
+      //Enter key has been pressed on the current tab
+      const $tabListPanels = $module.querySelectorAll(`.${this.namespace}__panel`);
+      for (var i = 0; i < $tabListPanels.length; i++) {
+        if (!$tabListPanels[i].classList.contains(`${this.namespace}__panel--hidden`)) {
+          $tabListPanels[i].classList.add(`${this.namespace}__panel--hidden`);
+        }
+      }
+    }
     this.hideTab($currentTab);
     this.showTab($newTab);
     this.createHistoryEntry($newTab);
@@ -229,7 +238,6 @@ class Tabs {
         this.activateNextTab();
         e.preventDefault();
         break;
-
       default:
     }
   }
@@ -243,8 +251,8 @@ class Tabs {
       nextTab = nextTabListItem.querySelector(`.${this.namespace}__tab`);
     }
     if (nextTab) {
-      this.hideTab(currentTab);
-      this.showTab(nextTab);
+      this.unhighlightTab(currentTab);
+      this.highlightTab(nextTab);
       nextTab.focus();
       this.createHistoryEntry(nextTab);
     }
@@ -261,8 +269,8 @@ class Tabs {
       );
     }
     if (previousTab) {
-      this.hideTab(currentTab);
-      this.showTab(previousTab);
+      this.unhighlightTab(currentTab);
+      this.highlightTab(previousTab);
       previousTab.focus();
       this.createHistoryEntry(previousTab);
     }
