@@ -1,4 +1,5 @@
 // Components
+import Button from "./components/button/button";
 import Card from './components/card/card';
 import Checkboxes from './components/checkboxes/checkboxes';
 import Details from './components/details/details';
@@ -11,6 +12,7 @@ import './polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
+  Button();
   Card();
   Checkboxes();
   Details();
