@@ -20,7 +20,7 @@ class Button {
   handleKeyDown(event) {
     // get the target element
 
-    const target = { event };
+    const { target } = event;
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
     if (
       target.getAttribute('role') === 'button'
@@ -38,7 +38,7 @@ class Button {
    * double clicking buttons.
    */
   debounce(event) {
-    const target = { event };
+    const { target } = event;
     // Check the button that is clicked on has the preventDoubleClick feature enabled
     if (target.getAttribute('data-prevent-double-click') !== 'true') {
       return;
