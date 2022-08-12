@@ -25,7 +25,6 @@ class Button {
 			event.keyCode === this.KEY_SPACE
 		) {
 			event.preventDefault();
-			console.log("here");
 			// trigger the target's click event
 			target.click();
 		}
@@ -66,7 +65,7 @@ class Button {
 }
 
 export default () => {
-	const buttons = document.querySelectorAll('[role="button"], .nhsuk-button');
+	const buttons = document.querySelectorAll('[data-module="nhsuk-button"]');
 	buttons.forEach((el) => {
 		new Button(el).init();
 	});

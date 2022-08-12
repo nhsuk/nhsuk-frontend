@@ -3,8 +3,10 @@
 ## Unreleased
 
 :new: **New features**
-- Add `role="button"` to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
-- Add simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
+- Button improvements
+  - Add `role="button"` to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
+  - Add simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
+  - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
 
 ## 6.1.2 - 8 August 2022
 
