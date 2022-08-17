@@ -198,8 +198,13 @@ class Tabs {
     e.preventDefault();
     const $newTab = e.target;
     const $currentTab = this.getCurrentTab();
+    let enterPressed = false;
     if (e.screenX === 0) {
       // Enter key has been pressed on the current tab
+      enterPressed = true;
+    }
+
+    if (enterPressed) {
       const $tabListPanels = $module.querySelectorAll(`.${this.namespace}__panel`);
       for (var i = 0; i < $tabListPanels.length; i++) {
         if (!$tabListPanels[i].classList.contains(`${this.namespace}__panel--hidden`)) {
@@ -207,10 +212,11 @@ class Tabs {
         }
       }
     }
+    
     this.hideTab($currentTab);
     this.showTab($newTab);
     this.createHistoryEntry($newTab);
-    if (e.screenX === 0) {
+    if (enterPressed) {
       this.getPanel($currentTab).querySelector('img').focus();
     }
   }
