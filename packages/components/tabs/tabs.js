@@ -198,7 +198,6 @@ class Tabs {
     e.preventDefault();
     const $newTab = e.target;
     const $currentTab = this.getCurrentTab();
-    // if ($newTab === $currentTab) {
     if (e.screenX === 0) {
       //Enter key has been pressed on the current tab
       const $tabListPanels = $module.querySelectorAll(`.${this.namespace}__panel`);
