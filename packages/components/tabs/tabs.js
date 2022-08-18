@@ -206,13 +206,13 @@ class Tabs {
 
     if (enterPressed) {
       const $tabListPanels = $module.querySelectorAll(`.${this.namespace}__panel`);
-      for (var i = 0; i < $tabListPanels.length; i++) {
+      for (let i = 0; i < $tabListPanels.length; i++) {
         if (!$tabListPanels[i].classList.contains(`${this.namespace}__panel--hidden`)) {
           $tabListPanels[i].classList.add(`${this.namespace}__panel--hidden`);
         }
       }
     }
-    
+
     this.hideTab($currentTab);
     this.showTab($newTab);
     this.createHistoryEntry($newTab);
