@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NHS.UK Tabs() Initialisation should match the snapshot before and after initialisation 1`] = `
+"
+<div class=\\"nhsuk-tabs\\" data-module=\\"nhsuk-tabs\\">
+	<h2 class=\\"nhsuk-tabs__title\\">Contents</h2>
+	<ul class=\\"nhsuk-tabs__list\\">
+		<li class=\\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-one\\">Tab one</a>
+		</li>
+		<li class=\\"nhsuk-tabs__list-item\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-two\\">Tab two</a>
+		</li>
+		<li class=\\"nhsuk-tabs__list-item\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-three\\">Tab three</a>
+		</li>
+	</ul>
+	<div class=\\"nhsuk-tabs__panel\\" id=\\"tab-one\\"><p>Tab one content</p></div>
+	<div class=\\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\\" id=\\"tab-two\\"><p>Tab two content</p></div>
+	<div class=\\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\\" id=\\"tab-three\\"><p>Tab three content</p></div>
+</div>"
+`;
+
+exports[`NHS.UK Tabs() Initialisation should match the snapshot before and after initialisation 2`] = `
+"
+<div class=\\"nhsuk-tabs\\" data-module=\\"nhsuk-tabs\\">
+	<h2 class=\\"nhsuk-tabs__title\\">Contents</h2>
+	<ul class=\\"nhsuk-tabs__list\\" role=\\"tablist\\">
+		<li class=\\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\\" role=\\"presentation\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-one\\" id=\\"tab_tab-one\\" role=\\"tab\\" aria-controls=\\"tab-one\\" aria-selected=\\"true\\" tabindex=\\"0\\">Tab one</a>
+		</li>
+		<li class=\\"nhsuk-tabs__list-item\\" role=\\"presentation\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-two\\" id=\\"tab_tab-two\\" role=\\"tab\\" aria-controls=\\"tab-two\\" aria-selected=\\"false\\" tabindex=\\"-1\\">Tab two</a>
+		</li>
+		<li class=\\"nhsuk-tabs__list-item\\" role=\\"presentation\\">
+			<a class=\\"nhsuk-tabs__tab\\" href=\\"#tab-three\\" id=\\"tab_tab-three\\" role=\\"tab\\" aria-controls=\\"tab-three\\" aria-selected=\\"false\\" tabindex=\\"-1\\">Tab three</a>
+		</li>
+	</ul>
+	<div class=\\"nhsuk-tabs__panel\\" id=\\"tab-one\\" role=\\"tabpanel\\" aria-labelledby=\\"tab_tab-one\\"><p>Tab one content</p></div>
+	<div class=\\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\\" id=\\"tab-two\\" role=\\"tabpanel\\" aria-labelledby=\\"tab_tab-two\\"><p>Tab two content</p></div>
+	<div class=\\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\\" id=\\"tab-three\\" role=\\"tabpanel\\" aria-labelledby=\\"tab_tab-three\\"><p>Tab three content</p></div>
+</div>"
+`;
