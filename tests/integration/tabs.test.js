@@ -1,11 +1,5 @@
 import Tabs from "../../packages/components/tabs/tabs";
 
-// helpers
-
-function dqs(selector) {
-	return document.querySelector(selector);
-}
-
 const validTabsMarkup = `
 <div class="nhsuk-tabs" data-module="nhsuk-tabs">
 	<h2 class="nhsuk-tabs__title">Contents</h2>
@@ -24,6 +18,12 @@ const validTabsMarkup = `
 	<div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-two"><p>Tab two content</p></div>
 	<div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-three"><p>Tab three content</p></div>
 </div>`;
+
+const setupTest = () => {
+	document.body.innerHTML = "";
+	document.body.innerHTML = validTabsMarkup;
+	Tabs();
+};
 
 describe("NHS.UK Tabs()", () => {
 	describe("Basics", () => {
@@ -44,16 +44,43 @@ describe("NHS.UK Tabs()", () => {
 		});
 	});
 
+	describe("Tab selection and activation", () => {
+		it("should activate first tab on initialisation", () => {
+			setupTest();
+			const links = document.querySelectorAll("ul.nhsuk-tabs__list li a");
+			expect(links[0].getAttribute("aria-selected")).toBe("true");
+		});
+
+		it("should activate a selected tab when selecting it", () => {
+			setupTest();
+			const links = document.querySelectorAll("ul.nhsuk-tabs__list li a");
+			expect(links[0].getAttribute("aria-selected")).toBe("true");
+			links[2].click();
+			expect(links[0].getAttribute("aria-selected")).toBe("false");
+			expect(links[2].getAttribute("aria-selected")).toBe("true");
+		});
+
+		it("should activate the selected panel content when a tab is selected", () => {
+			setupTest();
+			const panels = document.querySelectorAll(".nhsuk-tabs__panel");
+			console.log(document.body.innerHTML);
+			console.log(panels[0].outerHTML);
+			// Expect the first panel to be visible
+			expect(panels[0].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
+				true
+			);
+			expect(panels[1].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
+				true
+			);
+			expect(panels[2].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
+				false
+			);
+		});
+
+		//	TODO: THE PREVIOUS TEST IS INTERFERRING WITH THE NEXT ONE!!!
+	});
+
 	describe("Accessibility", () => {
-		// beforeEach(() => {
-		// 	// Set up markup and initialise tabs
-		// 	document.body.innerHTML = validTabsMarkup;
-		// 	Tabs();
-		// });
-		// afterEach(() => {
-		// 	// Reset the dom after each test
-		// 	document.body.innerHTML = null;
-		// });
 		// todo: Keyboard - left right etc
 		// todo: ARIA updates
 	});
