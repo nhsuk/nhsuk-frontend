@@ -2,7 +2,6 @@
 
 {% from "components/tabs/macro.njk" import tabs %}
 {% from "components/tables/macro.njk" import table %}
-{% from 'components/details/macro.njk' import details %}
 
 {% extends 'layout.njk' %}
 
@@ -13,21 +12,6 @@
       {% set tabOneContent %}
         <h2>Tab one content</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>        
-        {{ details({
-          "text": "Where can I find my NHS number?",
-          "HTML": "
-          <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-          <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-          <ul>
-            <li>prescriptions</li>
-            <li>test results</li>
-            <li>hospital referral letters</li>
-            <li>appointment letters</li>
-            <li>your NHS medical card</li>
-          </ul>
-          <p>Ask your GP practice for help if you can't find your NHS number.</p>
-          "
-        }) }}
       {% endset -%}
 
       {% set tabTwoContent %}
