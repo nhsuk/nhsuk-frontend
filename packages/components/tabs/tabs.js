@@ -211,6 +211,7 @@ class Tabs {
       }
     }
 
+    this.hideTab($currentTab);
     this.showTab($newTab);
     this.createHistoryEntry($newTab);
     if (enterPressed) {
