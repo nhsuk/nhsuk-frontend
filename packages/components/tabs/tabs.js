@@ -292,6 +292,7 @@ class Tabs {
     const $panel = this.getPanel($tab);
     $panel.classList.remove(this.jsHiddenClass);
     $panel.dispatchEvent(this.showEvent);
+    $tab.parentNode.classList.add(`${this.namespace}__list-item--selected`);
   }
 
   hidePanel(tab) {
@@ -304,23 +305,24 @@ class Tabs {
     }
     $panel.classList.add(this.jsHiddenClass);
     $panel.dispatchEvent(this.hideEvent);
+    tab.parentNode.classList.remove(`${this.namespace}__list-item--selected`);
   }
 
   unhighlightTab($tab) {
     $tab.setAttribute('aria-selected', 'false');
-    $tab.parentNode.classList.remove(`${this.namespace}__list-item--selected`);
+    $tab.parentNode.classList.remove(`${this.namespace}__list-item--active`);
     $tab.setAttribute('tabindex', '-1');
   }
 
   highlightTab($tab) {
     $tab.setAttribute('aria-selected', 'true');
-    $tab.parentNode.classList.add(`${this.namespace}__list-item--selected`);
+    $tab.parentNode.classList.add(`${this.namespace}__list-item--active`);
     $tab.setAttribute('tabindex', '0');
   }
 
   getCurrentTab() {
     return this.$module.querySelector(
-      `.${this.namespace}__list-item--selected .${this.namespace}__tab`
+      `.${this.namespace}__list-item--active .${this.namespace}__tab`
     );
   }
 
