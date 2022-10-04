@@ -211,6 +211,11 @@ class Tabs {
       }
     }
 
+    const $tabList = $module.querySelectorAll(`.${this.namespace}__list-item--selected`);
+    for (let i = 0; i < $tabList.length; i++) {
+      $tabList[i].classList.remove(`${this.namespace}__list-item--selected`);
+    }
+
     this.hideTab($currentTab);
     this.showTab($newTab);
     this.createHistoryEntry($newTab);
@@ -305,7 +310,6 @@ class Tabs {
     }
     $panel.classList.add(this.jsHiddenClass);
     $panel.dispatchEvent(this.hideEvent);
-    tab.parentNode.classList.remove(`${this.namespace}__list-item--selected`);
   }
 
   unhighlightTab($tab) {
