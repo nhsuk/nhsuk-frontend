@@ -76,18 +76,13 @@ describe("NHS.UK Tabs()", () => {
 				false
 			);
 		});
-
-		//	TODO: THE PREVIOUS TEST IS INTERFERRING WITH THE NEXT ONE!!!
 	});
 
-	describe("Accessibility", () => {
-		// todo: Keyboard - left right etc
-		// todo: ARIA updates
-	});
+	test.todo("Accessibility");
 
-	describe("Responsive behaviour", () => {});
+	test.todo("Responsive behaviour");
 
-	describe("Teardown", () => {});
+	test.todo("Teardown");
 
-	describe("Event methods", () => {}); // Hide, show, get, tabs, panels
+	test.todo("Event methods"); // Hide, show, get, tabs, panels
 });
