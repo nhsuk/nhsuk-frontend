@@ -49,8 +49,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__content {
-  @include top-and-bottom();
-  @include nhsuk-responsive-padding(5);
+	@include top-and-bottom();
+	@include nhsuk-responsive-padding(5);
 }
 
 .nhsuk-card__heading,
@@ -65,19 +65,19 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card--clickable {
 	border-bottom-width: $card-border-bottom-width;
 
-  .nhsuk-card__heading a,
-  .nhsuk-card__link {
-    &::before {
-      background-color: rgba(255, 255, 255, 0); /* [17] */
-      bottom: 0;
-      content: '';
-      display: block;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  }
+	.nhsuk-card__heading a,
+	.nhsuk-card__link {
+		&::before {
+			background-color: rgba(255, 255, 255, 0); /* [17] */
+			bottom: 0;
+			content: "";
+			display: block;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
 
 	&:active {
 		border-color: $card-border-hover-color;
