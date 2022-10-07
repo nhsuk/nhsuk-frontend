@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /**
- * 1. Is needed for the :active top positioning.
+ * 1. Is needed for the :active top positioning, and invisible clickable overlay.
  * 2. Border is used to create a divider between the white content
  *    box and an image.
  * 3. Creates the 'pressed down' effect when clicked.
@@ -23,6 +23,7 @@
  * 14. Give the action link icon sufficient contrast when used in the emergency variant
  * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
  * 16. Emergency care card <a> needs to be white because the background colour is black.
+ * 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
  */
 
 $card-border-width: 1px;
@@ -48,10 +49,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__content {
-	@include top-and-bottom();
-	@include nhsuk-responsive-padding(5);
-
-	position: relative;
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
 }
 
 .nhsuk-card__heading,
@@ -66,24 +65,19 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card--clickable {
 	border-bottom-width: $card-border-bottom-width;
 
-	&:hover,
-	&:active {
-		cursor: pointer;
-
-		.nhsuk-card__heading a,
-		.nhsuk-card__link {
-			color: $nhsuk-link-hover-color;
-			text-decoration: none;
-
-			&:focus {
-				color: $nhsuk-focus-text-color;
-			}
-		}
-	}
-
-	&:hover {
-		border-color: $card-border-hover-color;
-	}
+  .nhsuk-card__heading a,
+  .nhsuk-card__link {
+    &::before {
+      background-color: rgba(255, 255, 255, 0); /* [17] */
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 
 	&:active {
 		border-color: $card-border-hover-color;
