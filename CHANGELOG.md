@@ -1,11 +1,17 @@
 # NHS.UK frontend Changelog
 
-## 7.0.0.alpha.2 - 3 Aug 2022
+## 7.0.0.alpha - unreleased
 
 :new: **New features**
 
 - Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811))
 - Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828))
+
+:recycle: **Changes**
+
+- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).  
+  This change removes the `Card` component's associated JavaScript. If you are bundling this yourself in your pipeline you will need to edit your JS entrypoint to remove the lines which read: `import Card from '[wherever]';` and `Card();`
+  You do not need to update your html as part of this change - this remains the same.
 
 :wrench: **Maintenance**
 
