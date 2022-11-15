@@ -10,7 +10,7 @@
       {{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}
     </p>
     {% endif -%}
-    <ul class="nhsuk-list nhsuk-error-summary__list">
+    <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
     {%- for item in params.errorList %}
       <li>
       {%- if item.href %}
