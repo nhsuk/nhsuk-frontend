@@ -1,7 +1,5 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
-
 ## 6.1.3 - TBA
 
 :wrench: **Fixes**
