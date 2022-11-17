@@ -7,6 +7,8 @@
 
 - Fix issue of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842))
 
+- Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
+
 ## 6.1.2 - 8 August 2022
 
 :wrench: **Fixes**

@@ -38,6 +38,10 @@ module.exports = {
       url: `${TEST_URL}/back-link/index.html`,
     },
     {
+      label: 'Back link as button',
+      url: `${TEST_URL}/back-link/button.html`,
+    },
+    {
       label: 'Breadcrumb',
       url: `${TEST_URL}/breadcrumb/index.html`,
     },
