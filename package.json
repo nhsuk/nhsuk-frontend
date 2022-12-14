@@ -6,7 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "npm run lint && npm run jest:ci",
+    "test": "concurrently \"npm start\" \"wait-on http://localhost:3000 && npm run jest:ci\"",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
@@ -42,7 +42,7 @@
     "gulp-zip": "^5.0.2",
     "htmlhint": "^0.14.2",
     "husky": "^4.3.8",
-    "jest": "^26.6.3",
+    "jest": "^29.3.1",
     "minimist": "^1.2.5",
     "nunjucks": "^3.2.2",
     "sass": "^1.44.0",
@@ -78,5 +78,9 @@
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.1",
+    "jest-environment-puppeteer": "^6.2.0",
+    "playwright": "^1.28.1"
+  }
 }
