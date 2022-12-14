@@ -27,7 +27,7 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm test
+        run: npm test:ci
 
       - name: Build release artifact
         run: npm run build-gh-release
