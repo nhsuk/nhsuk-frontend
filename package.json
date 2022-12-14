@@ -48,6 +48,7 @@
     "jest-environment-puppeteer": "^6.2.0",
     "minimist": "^1.2.5",
     "nunjucks": "^3.2.2",
+    "puppeteer": "^19.4.0",
     "sass": "^1.44.0",
     "start-server-and-test": "^1.14.0",
     "stylelint": "^13.13.1",
@@ -80,5 +81,6 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }
