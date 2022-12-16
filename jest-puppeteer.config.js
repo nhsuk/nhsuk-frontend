@@ -28,4 +28,11 @@ module.exports = {
     ],
     waitForInitialPage: false,
   },
+
+  server: {
+    command: "npm start",
+    port: 8080,
+
+    waitOnScheme: {},
+  },
 };

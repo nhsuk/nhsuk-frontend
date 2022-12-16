@@ -6,8 +6,7 @@
     "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
-    "test": "concurrently \"npm start\" \"wait-on http://localhost:3000 && npm run jest:ci\"",
-    "test:ci": "start-server-and-test start http://0.0.0.0:3000 jest:ci",
+    "test": "npm run jest:ci",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.yml 'packages/**/*.scss'",
@@ -21,7 +20,8 @@
     "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend/' gulp docs:build",
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
-    "jest:ci": "jest"
+    "jest:ci": "jest",
+    "jest:clearCache": "jest --clearCache"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

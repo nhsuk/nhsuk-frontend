@@ -52,7 +52,7 @@ function serve() {
   connect.server({
     host: '0.0.0.0',
     livereload: true,
-    port: 3000,
+    port: 8080,
     root: config.dest,
   });
 }

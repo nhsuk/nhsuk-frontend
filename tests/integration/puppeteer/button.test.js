@@ -1,16 +1,21 @@
 import puppeteer from "puppeteer";
 
 describe("Button", () => {
+  let page;
+  let browser;
+
+  beforeAll(async () => {
+    browser = await puppeteer.launch({ headless: false });
+    page = await browser.newPage();
+
+    await page.goto("http://localhost:8080/components/button/link.html");
+  });
+
+  afterAll(async () => {
+    await browser.close();
+  });
+
   describe("Button as link", () => {
-    let page;
-
-    beforeAll(async () => {
-      const browser = await puppeteer.launch();
-      page = await browser.newPage();
-
-      await page.goto("http://localhost:3000/components/button/link.html");
-    });
-
     it("triggers the click event when the space key is pressed", async () => {
       const pathname = await page.evaluate(() =>
         document.body.getElementsByTagName("a")[0].getAttribute("href")
@@ -71,7 +76,7 @@ describe("Button", () => {
 
     describe("not enabled", () => {
       beforeEach(async () => {
-        await page.goto("http://localhost:3000/components/button/index.html");
+        await page.goto("http://localhost:8080/components/button/index.html");
         await trackClicks(page);
       });
 
@@ -88,7 +93,7 @@ describe("Button", () => {
     describe("using data-attributes", () => {
       beforeEach(async () => {
         await page.goto(
-          "http://localhost:3000/components/button/prevent-double-click.html"
+          "http://localhost:8080/components/button/prevent-double-click.html"
         );
         await trackClicks(page);
       });
