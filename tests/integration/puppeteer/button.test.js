@@ -5,7 +5,7 @@ describe("Button", () => {
   let browser;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch({ headless: false });
+    browser = await puppeteer.launch();
     page = await browser.newPage();
 
     await page.goto("http://localhost:8080/components/button/link.html");
