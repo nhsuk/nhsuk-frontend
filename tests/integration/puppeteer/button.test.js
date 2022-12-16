@@ -8,7 +8,7 @@ describe("Button", () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
 
-    await page.goto("http://localhost:8080/components/button/link.html");
+    await page.goto("http://localhost:3000/components/button/link.html");
   });
 
   afterAll(async () => {
@@ -76,7 +76,7 @@ describe("Button", () => {
 
     describe("not enabled", () => {
       beforeEach(async () => {
-        await page.goto("http://localhost:8080/components/button/index.html");
+        await page.goto("http://localhost:3000/components/button/index.html");
         await trackClicks(page);
       });
 
@@ -93,7 +93,7 @@ describe("Button", () => {
     describe("using data-attributes", () => {
       beforeEach(async () => {
         await page.goto(
-          "http://localhost:8080/components/button/prevent-double-click.html"
+          "http://localhost:3000/components/button/prevent-double-click.html"
         );
         await trackClicks(page);
       });

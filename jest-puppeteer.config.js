@@ -31,8 +31,7 @@ module.exports = {
 
   server: {
     command: "npm start",
-    port: 8080,
-
-    waitOnScheme: {},
+    port: 3000,
+    launchTimeout: 30000,
   },
 };
