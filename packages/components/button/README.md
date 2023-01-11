@@ -166,6 +166,7 @@ The button Nunjucks macro takes the following arguments:
 | **href**           | string   | No       | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined. |
 | **classes**         | string   | No        | Optional additional classes to add to the button element. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |
+| **preventDoubleClick** | boolean | No | Prevent accidental double clicks on submit buttons from submitting forms multiple times |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
