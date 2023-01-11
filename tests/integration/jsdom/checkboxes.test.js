@@ -1,4 +1,4 @@
-import Checkboxes from '../../packages/components/checkboxes/checkboxes';
+import Checkboxes from '../../../packages/components/checkboxes/checkboxes';
 
 describe('Checkboxes module', () => {
   describe('does not throw an error', () => {

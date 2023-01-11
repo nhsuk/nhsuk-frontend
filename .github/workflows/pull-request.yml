@@ -13,7 +13,10 @@ jobs:
     - name: Install dependencies
       run: npm install
     
-    - name: Run linting and tests
+    - name: Run linting
+      run: npm run lint
+    
+    - name: Run tests
       run: npm test
   
     - name: Run backstop

@@ -1,4 +1,4 @@
-import SearchToggle from '../../packages/components/header/searchToggle';
+import SearchToggle from '../../../packages/components/header/searchToggle';
 
 const toggleButtonHtml = '<button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search" aria-expanded="false"><span class="nhsuk-u-visually-hidden">Search</span></button>';
 const closeButtonHtml = '<button class="nhsuk-search__close" id="close-search"><span class="nhsuk-u-visually-hidden">Close search</span></button>';

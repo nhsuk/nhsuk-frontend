@@ -13,7 +13,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button" type="submit">
+<button class="nhsuk-button" type="submit" data-module="nhsuk-button">
   Save and continue
 </button>
 ```
@@ -37,7 +37,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<a href="/" class="nhsuk-button" draggable="false">
+<a href="/" class="nhsuk-button" draggable="false" role="button" data-module="nhsuk-button">
   Link button
 </a>
 ```
@@ -62,7 +62,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true">
+<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true" data-module="nhsuk-button">
   Disabled button
 </button>
 ```
@@ -87,7 +87,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--secondary" type="submit">
+<button class="nhsuk-button nhsuk-button--secondary" type="submit" data-module="nhsuk-button">
   Find my location
 </button>
 ```
@@ -112,7 +112,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--reverse" type="submit">
+<button class="nhsuk-button nhsuk-button--reverse" type="submit" data-module="nhsuk-button">
   Save and continue
 </button>
 ```
@@ -125,6 +125,29 @@ Find out more about the button component and when to use it in the [NHS digital 
 {{ button({
   "text": "Save and continue",
   "classes": "nhsuk-button--reverse"
+}) }}
+```
+
+---
+
+### Button with double click prevention
+
+#### HTML markup
+
+```html
+<button class="nhsuk-button" type="submit" data-prevent-double-click="true" data-module="nhsuk-button">
+  Save and continue
+</button>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/button/macro.njk' import button %}
+
+{{ button({
+  "text": "Save and continue",
+  "preventDoubleClick": true
 }) }}
 ```
 
@@ -143,6 +166,7 @@ The button Nunjucks macro takes the following arguments:
 | **href**           | string   | No       | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined. |
 | **classes**         | string   | No        | Optional additional classes to add to the button element. Separate each class with a space. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |
+| **preventDoubleClick** | boolean | No | Prevent accidental double clicks on submit buttons from submitting forms multiple times |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
