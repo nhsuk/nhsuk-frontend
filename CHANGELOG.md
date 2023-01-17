@@ -1,8 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
-
-## 6.2.0 - TBA
+## 6.2.0 - 17 January 2023
 
 :new: **New features**
 - Button improvements
