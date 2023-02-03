@@ -2,32 +2,26 @@ const TEST_HOST = process.env.HOSTNAME === 'docker-desktop' ? 'host.docker.inter
 const TEST_URL = `http://${TEST_HOST}:3000/components`;
 
 module.exports = {
+  asyncCaptureLimit: 5,
+  asyncCompareLimit: 50,
+  debug: false,
+  debugWindow: false,
   dockerCommandTemplate: 'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
+  engine: 'puppeteer',
+  engineOptions: {
+    args: ['--no-sandbox'],
+  },
   id: 'nhsuk-frontend',
-  viewports: [
-    {
-      label: 'iPhone 5/SE',
-      width: 320,
-      height: 568,
-    },
-    {
-      label: 'iPhone 6-8',
-      width: 375,
-      height: 667,
-    },
-    {
-      label: 'iPad',
-      width: 768,
-      height: 1024,
-    },
-    {
-      label: 'Surface, iPad Pro',
-      width: 1366,
-      height: 768,
-    },
-  ],
   onBeforeScript: 'puppet/onBefore.js',
   onReadyScript: 'puppet/onReady.js',
+  paths: {
+    bitmaps_reference: 'tests/backstop/bitmaps_reference',
+    bitmaps_test: 'tests/backstop/bitmaps_test',
+    ci_report: 'tests/backstop/ci_report',
+    engine_scripts: 'tests/backstop/engine_scripts',
+    html_report: 'tests/backstop/html_report',
+  },
+  report: ['browser'],
   scenarios: [
     {
       label: 'Action link',
@@ -38,6 +32,10 @@ module.exports = {
       url: `${TEST_URL}/back-link/index.html`,
     },
     {
+      label: 'Back link as button',
+      url: `${TEST_URL}/back-link/button.html`,
+    },
+    {
       label: 'Breadcrumb',
       url: `${TEST_URL}/breadcrumb/index.html`,
     },
@@ -46,14 +44,14 @@ module.exports = {
       url: `${TEST_URL}/button/index.html`,
     },
     {
+      clickSelector: '.nhsuk-button',
       label: 'Button click',
       url: `${TEST_URL}/button/index.html`,
-      clickSelector: '.nhsuk-button',
       viewports: [
         {
+          height: 768,
           label: 'Surface, iPad Pro',
           width: 1366,
-          height: 768,
         },
       ],
     },
@@ -138,9 +136,14 @@ module.exports = {
       url: `${TEST_URL}/checkboxes/error.html`,
     },
     {
+      clickSelector: '#waste-1',
+      label: 'Checkboxes with error message - focused',
+      url: `${TEST_URL}/checkboxes/error.html`,
+    },
+    {
+      clickSelector: '#contact-1',
       label: 'Checkboxes with conditional content',
       url: `${TEST_URL}/checkboxes/conditional.html`,
-      clickSelector: '#contact-1',
     },
     {
       label: 'Checkboxes with "none of the above" option',
@@ -159,9 +162,9 @@ module.exports = {
       url: `${TEST_URL}/date-input/multiple-errors.html`,
     },
     {
+      clickSelector: '.nhsuk-details__summary',
       label: 'Details',
       url: `${TEST_URL}/details/index.html`,
-      clickSelector: '.nhsuk-details__summary',
     },
     {
       label: "Do & Don't list",
@@ -184,14 +187,14 @@ module.exports = {
       url: `${TEST_URL}/error-summary/linking-to-radios.html`,
     },
     {
+      clickSelector: '.nhsuk-details__summary',
       label: 'Expander',
       url: `${TEST_URL}/details/expander.html`,
-      clickSelector: '.nhsuk-details__summary',
     },
     {
+      clickSelector: '.nhsuk-details__summary',
       label: 'Expander group',
       url: `${TEST_URL}/details/expander-group.html`,
-      clickSelector: '.nhsuk-details__summary',
     },
     {
       label: 'Footer',
@@ -238,24 +241,24 @@ module.exports = {
       url: `${TEST_URL}/header/header-navigation.html`,
     },
     {
+      clickSelector: '#toggle-menu',
       label: 'Header with navigation open',
       url: `${TEST_URL}/header/header-navigation.html`,
-      clickSelector: '#toggle-menu',
       viewports: [
         {
+          height: 568,
           label: 'iPhone 5/SE',
           width: 320,
-          height: 568,
         },
         {
+          height: 667,
           label: 'iPhone 6-8',
           width: 375,
-          height: 667,
         },
         {
+          height: 1024,
           label: 'iPad',
           width: 768,
-          height: 1024,
         },
       ],
     },
@@ -264,19 +267,19 @@ module.exports = {
       url: `${TEST_URL}/header/header-search.html`,
     },
     {
+      clickSelector: '#toggle-search',
       label: 'Header with search open',
       url: `${TEST_URL}/header/header-search.html`,
-      clickSelector: '#toggle-search',
       viewports: [
         {
+          height: 568,
           label: 'iPhone 5/SE',
           width: 320,
-          height: 568,
         },
         {
+          height: 667,
           label: 'iPhone 6-8',
           width: 375,
-          height: 667,
         },
       ],
     },
@@ -322,6 +325,11 @@ module.exports = {
     },
     {
       label: 'Input with error message',
+      url: `${TEST_URL}/input/error.html`,
+    },
+    {
+      clickSelector: '#input-with-error-message',
+      label: 'Input with error message - focused',
       url: `${TEST_URL}/input/error.html`,
     },
     {
@@ -377,9 +385,14 @@ module.exports = {
       url: `${TEST_URL}/radios/hint-error.html`,
     },
     {
+      clickSelector: '#example-2',
+      label: 'Radios with hint text and error message - focused',
+      url: `${TEST_URL}/radios/hint-error.html`,
+    },
+    {
+      clickSelector: '#contact-1',
       label: 'Radios with conditional content',
       url: `${TEST_URL}/radios/conditional.html`,
-      clickSelector: '#contact-1',
     },
     {
       label: 'Select',
@@ -387,6 +400,11 @@ module.exports = {
     },
     {
       label: 'Select with hint text and error message',
+      url: `${TEST_URL}/select/hint-error.html`,
+    },
+    {
+      clickSelector: '[for=select-2]',
+      label: 'Select with hint text and error message - focused',
       url: `${TEST_URL}/select/hint-error.html`,
     },
     {
@@ -430,6 +448,11 @@ module.exports = {
       url: `${TEST_URL}/textarea/error.html`,
     },
     {
+      clickSelector: '#no-ni-reason',
+      label: 'Textarea with error message - focused',
+      url: `${TEST_URL}/textarea/error.html`,
+    },
+    {
       label: 'Warning callout',
       url: `${TEST_URL}/warning-callout/index.html`,
     },
@@ -438,20 +461,26 @@ module.exports = {
       url: `${TEST_URL}/warning-callout/custom-heading.html`,
     },
   ],
-  paths: {
-    bitmaps_reference: 'tests/backstop/bitmaps_reference',
-    bitmaps_test: 'tests/backstop/bitmaps_test',
-    engine_scripts: 'tests/backstop/engine_scripts',
-    html_report: 'tests/backstop/html_report',
-    ci_report: 'tests/backstop/ci_report',
-  },
-  report: ['browser'],
-  engine: 'puppeteer',
-  engineOptions: {
-    args: ['--no-sandbox'],
-  },
-  asyncCaptureLimit: 5,
-  asyncCompareLimit: 50,
-  debug: false,
-  debugWindow: false,
+  viewports: [
+    {
+      height: 568,
+      label: 'iPhone 5/SE',
+      width: 320,
+    },
+    {
+      height: 667,
+      label: 'iPhone 6-8',
+      width: 375,
+    },
+    {
+      height: 1024,
+      label: 'iPad',
+      width: 768,
+    },
+    {
+      height: 768,
+      label: 'Surface, iPad Pro',
+      width: 1366,
+    },
+  ],
 };

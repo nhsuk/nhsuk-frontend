@@ -1,4 +1,5 @@
 // Components
+import Button from "./components/button/button";
 import CharacterCount from "./components/character-count/character-count";
 import Checkboxes from "./components/checkboxes/checkboxes";
 import Details from "./components/details/details";
@@ -13,6 +14,8 @@ import "./polyfills";
 // Initialize components
 document.addEventListener("DOMContentLoaded", () => {
 	CharacterCount();
+	Button();
+	Card();
 	Checkboxes();
 	Details();
 	ErrorSummary();

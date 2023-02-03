@@ -20,6 +20,27 @@
 - Pinned the Node version to the latest LTS version at the time of publishing (16.16.0). In environments where Volta is installed the appropriate version will be used
 - Updates code formatting conventions to fall mostly in line with Prettier's recommendations. Have an opinion? [Share it!](https://github.com/nhsuk/nhsuk-frontend/discussions/827#discussioncomment-3188144) Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
 
+## 6.2.0 - 17 January 2023
+
+:new: **New features**
+- Button improvements
+  - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
+  - Add optional `data-prevent-double-click="true"` attribute to buttons to trigger simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
+  - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
+  
+- Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
+
+:wrench: **Fixes**
+- Fix issue with VoiceOver on Safari (iOS and macOS) not announcing a list as a list. This affects some components that have a list with style `list-style-type: none`, ie those that have a class of `nhsuk-list` on the `<ul>`. This fixes the do/don't list and the error summary components. The contents list and pagination components don't seem to be affected.
+
+- Fix issue of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842))
+
+## 6.1.2 - 8 August 2022
+
+:wrench: **Fixes**
+- Add missing `nhsuk-list--border` utility class
+- Reduce input and textarea error border widths to eliminate text movement / dimension changes when focusing and unfocusing a field with an error ([Issue 825](https://github.com/nhsuk/nhsuk-frontend/issues/825)), ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
+
 ## 6.1.1 - 13 June 2022
 
 :wrench: **Fixes**
