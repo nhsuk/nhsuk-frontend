@@ -13,13 +13,9 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<<<<<<< HEAD
-<button class="nhsuk-button" type="submit">Save and continue</button>
-=======
 <button class="nhsuk-button" type="submit" data-module="nhsuk-button">
-  Save and continue
+	Save and continue
 </button>
->>>>>>> main
 ```
 
 #### Nunjucks macro
@@ -41,13 +37,14 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<<<<<<< HEAD
-<a href="/" class="nhsuk-button" draggable="false">Link button</a>
-=======
-<a href="/" class="nhsuk-button" draggable="false" role="button" data-module="nhsuk-button">
-  Link button
+<a
+	href="/"
+	class="nhsuk-button"
+	draggable="false"
+	role="button"
+	data-module="nhsuk-button">
+	Link button
 </a>
->>>>>>> main
 ```
 
 #### Nunjucks macro
@@ -70,17 +67,13 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<<<<<<< HEAD
 <button
 	class="nhsuk-button nhsuk-button--disabled"
 	type="submit"
 	disabled="disabled"
-	aria-disabled="true">
+	aria-disabled="true"
+	data-module="nhsuk-button">
 	Disabled button
-=======
-<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true" data-module="nhsuk-button">
-  Disabled button
->>>>>>> main
 </button>
 ```
 
@@ -104,13 +97,14 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<<<<<<< HEAD
 <button class="nhsuk-button nhsuk-button--secondary" type="submit">
 	Find my location
-=======
-<button class="nhsuk-button nhsuk-button--secondary" type="submit" data-module="nhsuk-button">
-  Find my location
->>>>>>> main
+	<button
+		class="nhsuk-button nhsuk-button--secondary"
+		type="submit"
+		data-module="nhsuk-button">
+		Find my location
+	</button>
 </button>
 ```
 
@@ -134,8 +128,11 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--reverse" type="submit" data-module="nhsuk-button">
-  Save and continue
+<button
+	class="nhsuk-button nhsuk-button--reverse"
+	type="submit"
+	data-module="nhsuk-button">
+	Save and continue
 </button>
 ```
 
@@ -157,8 +154,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button" type="submit" data-prevent-double-click="true" data-module="nhsuk-button">
-  Save and continue
+<button
+	class="nhsuk-button"
+	type="submit"
+	data-prevent-double-click="true"
+	data-module="nhsuk-button">
+	Save and continue
 </button>
 ```
 
@@ -177,18 +178,18 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 The button Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description             |
-| --------------------|----------|-----------|-------------------------|
-| **element**         | string   | No        | Whether to use an `input`, `button` or `a` element to create the button. In most cases you will not need to set this as it will be configured automatically if you use `href` or `html`. |
-| **text (or) html**  | string   | Yes       | Text or HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `button` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `input`.|
-| **name**            | string   | Yes       | Name for the `input` or `button`. This has no effect on `a` elements. |
-| **type**            | string   | Yes       | Type of `input` or `button` – `button`, `submit` or `reset`. Defaults to `submit`. This has no effect on `a` elements. |
-| **value**           | string   | Yes       | Value for the `button` tag. This has no effect on `a` or `input` elements. |
-| **disabled**        | boolean   | No       | Whether the button should be disabled. For button and input elements, `disabled` and `aria-disabled` attributes will be set automatically. |
-| **href**           | string   | No       | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined. |
-| **classes**         | string   | No        | Optional additional classes to add to the button element. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |
-| **preventDoubleClick** | boolean | No | Prevent accidental double clicks on submit buttons from submitting forms multiple times |
+| Name                   | Type    | Required | Description                                                                                                                                                                                                                                                                |
+| ---------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **element**            | string  | No       | Whether to use an `input`, `button` or `a` element to create the button. In most cases you will not need to set this as it will be configured automatically if you use `href` or `html`.                                                                                   |
+| **text (or) html**     | string  | Yes      | Text or HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `button` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `input`. |
+| **name**               | string  | Yes      | Name for the `input` or `button`. This has no effect on `a` elements.                                                                                                                                                                                                      |
+| **type**               | string  | Yes      | Type of `input` or `button` – `button`, `submit` or `reset`. Defaults to `submit`. This has no effect on `a` elements.                                                                                                                                                     |
+| **value**              | string  | Yes      | Value for the `button` tag. This has no effect on `a` or `input` elements.                                                                                                                                                                                                 |
+| **disabled**           | boolean | No       | Whether the button should be disabled. For button and input elements, `disabled` and `aria-disabled` attributes will be set automatically.                                                                                                                                 |
+| **href**               | string  | No       | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined.                                                                                                                                     |
+| **classes**            | string  | No       | Optional additional classes to add to the button element. Separate each class with a space.                                                                                                                                                                                |
+| **attributes**         | object  | No       | Any extra HTML attributes (for example data attributes) to add to the textarea tag.                                                                                                                                                                                        |
+| **preventDoubleClick** | boolean | No       | Prevent accidental double clicks on submit buttons from submitting forms multiple times                                                                                                                                                                                    |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
