@@ -29,118 +29,118 @@
 ///
 
 $nhsuk-typography-scale: (
-	64: (
-		null: (
-			font-size: 48px,
-			line-height: 56px,
-		),
-		tablet: (
-			font-size: 64px,
-			line-height: 72px,
-		),
-		print: (
-			font-size: 53pt,
-			line-height: 1.1,
-		),
-	),
-	48: (
-		null: (
-			font-size: 32px,
-			line-height: 40px,
-		),
-		tablet: (
-			font-size: 48px,
-			line-height: 56px,
-		),
-		print: (
-			font-size: 32pt,
-			line-height: 1.15,
-		),
-	),
-	32: (
-		null: (
-			font-size: 24px,
-			line-height: 32px,
-		),
-		tablet: (
-			font-size: 32px,
-			line-height: 40px,
-		),
-		print: (
-			font-size: 24pt,
-			line-height: 1.05,
-		),
-	),
-	24: (
-		null: (
-			font-size: 20px,
-			line-height: 28px,
-		),
-		tablet: (
-			font-size: 24px,
-			line-height: 32px,
-		),
-		print: (
-			font-size: 18pt,
-			line-height: 1.15,
-		),
-	),
-	22: (
-		null: (
-			font-size: 18px,
-			line-height: 28px,
-		),
-		tablet: (
-			font-size: 22px,
-			line-height: 32px,
-		),
-		print: (
-			font-size: 18pt,
-			line-height: 1.15,
-		),
-	),
-	19: (
-		null: (
-			font-size: 16px,
-			line-height: 24px,
-		),
-		tablet: (
-			font-size: 19px,
-			line-height: 28px,
-		),
-		print: (
-			font-size: 14pt,
-			line-height: 1.15,
-		),
-	),
-	16: (
-		null: (
-			font-size: 14px,
-			line-height: 24px,
-		),
-		tablet: (
-			font-size: 16px,
-			line-height: 24px,
-		),
-		print: (
-			font-size: 14pt,
-			line-height: 1.2,
-		),
-	),
-	14: (
-		null: (
-			font-size: 12px,
-			line-height: 20px,
-		),
-		tablet: (
-			font-size: 14px,
-			line-height: 24px,
-		),
-		print: (
-			font-size: 12pt,
-			line-height: 1.2,
-		),
-	),
+  64: (
+    null: (
+      font-size: 48px,
+      line-height: 56px,
+    ),
+    tablet: (
+      font-size: 64px,
+      line-height: 72px,
+    ),
+    print: (
+      font-size: 53pt,
+      line-height: 1.1,
+    ),
+  ),
+  48: (
+    null: (
+      font-size: 32px,
+      line-height: 40px,
+    ),
+    tablet: (
+      font-size: 48px,
+      line-height: 56px,
+    ),
+    print: (
+      font-size: 32pt,
+      line-height: 1.15,
+    ),
+  ),
+  32: (
+    null: (
+      font-size: 24px,
+      line-height: 32px,
+    ),
+    tablet: (
+      font-size: 32px,
+      line-height: 40px,
+    ),
+    print: (
+      font-size: 24pt,
+      line-height: 1.05,
+    ),
+  ),
+  24: (
+    null: (
+      font-size: 20px,
+      line-height: 28px,
+    ),
+    tablet: (
+      font-size: 24px,
+      line-height: 32px,
+    ),
+    print: (
+      font-size: 18pt,
+      line-height: 1.15,
+    ),
+  ),
+  22: (
+    null: (
+      font-size: 18px,
+      line-height: 28px,
+    ),
+    tablet: (
+      font-size: 22px,
+      line-height: 32px,
+    ),
+    print: (
+      font-size: 18pt,
+      line-height: 1.15,
+    ),
+  ),
+  19: (
+    null: (
+      font-size: 16px,
+      line-height: 24px,
+    ),
+    tablet: (
+      font-size: 19px,
+      line-height: 28px,
+    ),
+    print: (
+      font-size: 14pt,
+      line-height: 1.15,
+    ),
+  ),
+  16: (
+    null: (
+      font-size: 14px,
+      line-height: 24px,
+    ),
+    tablet: (
+      font-size: 16px,
+      line-height: 24px,
+    ),
+    print: (
+      font-size: 14pt,
+      line-height: 1.2,
+    ),
+  ),
+  14: (
+    null: (
+      font-size: 12px,
+      line-height: 20px,
+    ),
+    tablet: (
+      font-size: 14px,
+      line-height: 24px,
+    ),
+    print: (
+      font-size: 12pt,
+      line-height: 1.2,
+    ),
+  ),
 ) !default;
 
 // Font weights

@@ -15,45 +15,45 @@
 /* stylelint-disable declaration-no-important */
 
 .nhsuk-u-width-full {
-	width: 100% !important;
+  width: 100% !important;
 }
 
 .nhsuk-u-width-three-quarters {
-	width: 100% !important;
+  width: 100% !important;
 
-	@include mq($from: tablet) {
-		width: 75% !important;
-	}
+  @include mq($from: tablet) {
+    width: 75% !important;
+  }
 }
 
 .nhsuk-u-width-two-thirds {
-	width: 100% !important;
+  width: 100% !important;
 
-	@include mq($from: tablet) {
-		width: 66.66% !important;
-	}
+  @include mq($from: tablet) {
+    width: 66.66% !important;
+  }
 }
 
 .nhsuk-u-width-one-half {
-	width: 100% !important;
+  width: 100% !important;
 
-	@include mq($from: tablet) {
-		width: 50% !important;
-	}
+  @include mq($from: tablet) {
+    width: 50% !important;
+  }
 }
 
 .nhsuk-u-width-one-third {
-	width: 100% !important;
+  width: 100% !important;
 
-	@include mq($from: tablet) {
-		width: 33.33% !important;
-	}
+  @include mq($from: tablet) {
+    width: 33.33% !important;
+  }
 }
 
 .nhsuk-u-width-one-quarter {
-	width: 100% !important;
+  width: 100% !important;
 
-	@include mq($from: tablet) {
-		width: 25% !important;
-	}
+  @include mq($from: tablet) {
+    width: 25% !important;
+  }
 }

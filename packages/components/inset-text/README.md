@@ -12,14 +12,14 @@ Find out more about the inset text component and when to use it in the [NHS digi
 
 ```html
 <div class="nhsuk-inset-text">
-	<span class="nhsuk-u-visually-hidden">Information:</span>
-	<p>
-		You can report any suspected side effect to the
-		<a href="https://yellowcard.mhra.gov.uk/" title="External website">
-			UK safety scheme
-		</a>
-		.
-	</p>
+  <span class="nhsuk-u-visually-hidden">Information:</span>
+  <p>
+    You can report any suspected side effect to the
+    <a href="https://yellowcard.mhra.gov.uk/" title="External website">
+      UK safety scheme
+    </a>
+    .
+  </p>
 </div>
 ```
 

@@ -13,14 +13,14 @@ import "./polyfills";
 
 // Initialize components
 document.addEventListener("DOMContentLoaded", () => {
-	CharacterCount();
-	Button();
-	Card();
-	Checkboxes();
-	Details();
-	ErrorSummary();
-	Header();
-	Radios();
-	SkipLink();
-	Tabs();
+  CharacterCount();
+  Button();
+  Card();
+  Checkboxes();
+  Details();
+  ErrorSummary();
+  Header();
+  Radios();
+  SkipLink();
+  Tabs();
 });

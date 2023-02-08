@@ -14,31 +14,31 @@ Find out more about the table component and when to use it in the [NHS digital s
 
 ```html
 <div class="nhsuk-table-container">
-	<table class="nhsuk-table">
-		<caption class="nhsuk-table__caption">
-			Skin symptoms and possible causes
-		</caption>
-		<thead class="nhsuk-table__head">
-			<tr class="nhsuk-table__row">
-				<th class="nhsuk-table__header" scope="col">Skin symptoms</th>
-				<th class="nhsuk-table__header" scope="col">Possible cause</th>
-			</tr>
-		</thead>
-		<tbody class="nhsuk-table__body">
-			<tr class="nhsuk-table__row">
-				<td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
-				<td class="nhsuk-table__cell ">cold sores</td>
-			</tr>
-			<tr class="nhsuk-table__row">
-				<td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
-				<td class="nhsuk-table__cell ">eczema</td>
-			</tr>
-			<tr class="nhsuk-table__row">
-				<td class="nhsuk-table__cell">Itchy blisters</td>
-				<td class="nhsuk-table__cell ">shingles, chickenpox</td>
-			</tr>
-		</tbody>
-	</table>
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption">
+      Skin symptoms and possible causes
+    </caption>
+    <thead class="nhsuk-table__head">
+      <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
+        <th class="nhsuk-table__header" scope="col">Possible cause</th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
+        <td class="nhsuk-table__cell ">cold sores</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
+        <td class="nhsuk-table__cell ">eczema</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Itchy blisters</td>
+        <td class="nhsuk-table__cell ">shingles, chickenpox</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 ```
 
@@ -63,36 +63,36 @@ caption: "Skin symptoms and possible causes", firstCellIsHeader: false, head: [
 
 ```html
 <div class="nhsuk-table__panel-with-heading-tab">
-	<h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
-	<div class="nhsuk-table-container">
-		<table class="nhsuk-table">
-			<caption class="nhsuk-table__caption">
-				Other possible causes of your symptoms
-			</caption>
-			<thead class="nhsuk-table__head">
-				<tr class="nhsuk-table__row">
-					<th class="nhsuk-table__header" scope="col">Symptoms</th>
-					<th class="nhsuk-table__header" scope="col">Possible cause</th>
-				</tr>
-			</thead>
-			<tbody class="nhsuk-table__body">
-				<tr class="nhsuk-table__row">
-					<td class="nhsuk-table__cell">
-						Blisters on lips or around the mouth
-					</td>
-					<td class="nhsuk-table__cell ">cold sores</td>
-				</tr>
-				<tr class="nhsuk-table__row">
-					<td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
-					<td class="nhsuk-table__cell ">eczema</td>
-				</tr>
-				<tr class="nhsuk-table__row">
-					<td class="nhsuk-table__cell">Itchy blisters</td>
-					<td class="nhsuk-table__cell ">shingles, chickenpox</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+  <h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
+  <div class="nhsuk-table-container">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">
+        Other possible causes of your symptoms
+      </caption>
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col">Symptoms</th>
+          <th class="nhsuk-table__header" scope="col">Possible cause</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">
+            Blisters on lips or around the mouth
+          </td>
+          <td class="nhsuk-table__cell ">cold sores</td>
+        </tr>
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
+          <td class="nhsuk-table__cell ">eczema</td>
+        </tr>
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">Itchy blisters</td>
+          <td class="nhsuk-table__cell ">shingles, chickenpox</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 ```
 
@@ -118,60 +118,60 @@ your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
 
 ```html
 <table role="table" class="nhsuk-table-responsive">
-	<caption class="nhsuk-table__caption">
-		Ibuprofen syrup dosages for children
-	</caption>
-	<thead role="rowgroup" class="nhsuk-table__head">
-		<tr role="row">
-			<th role="columnheader" class="" scope="col">Age</th>
-			<th role="columnheader" class="" scope="col">How much?</th>
-			<th role="columnheader" class="" scope="col">How often?</th>
-		</tr>
-	</thead>
-	<tbody class="nhsuk-table__body">
-		<tr role="row" class="nhsuk-table__row">
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age</span>
-				3 to 5 months (weighing more than 5kg)
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much?</span>
-				2.5ml
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often?</span>
-				Max 3 times in 24 hours
-			</td>
-		</tr>
-		<tr role="row" class="nhsuk-table__row">
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age</span>
-				6 to 11 months
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much?</span>
-				2.5l
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often?</span>
-				Max 3 to 4 times in 24 hours
-			</td>
-		</tr>
-		<tr role="row" class="nhsuk-table__row">
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">Age</span>
-				1 to 3 years
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How much?</span>
-				5ml
-			</td>
-			<td role="cell" class="nhsuk-table__cell">
-				<span class="nhsuk-table-responsive__heading">How often?</span>
-				Max 3 times in 24 hours
-			</td>
-		</tr>
-	</tbody>
+  <caption class="nhsuk-table__caption">
+    Ibuprofen syrup dosages for children
+  </caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">Age</th>
+      <th role="columnheader" class="" scope="col">How much?</th>
+      <th role="columnheader" class="" scope="col">How often?</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age</span>
+        3 to 5 months (weighing more than 5kg)
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much?</span>
+        2.5ml
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often?</span>
+        Max 3 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age</span>
+        6 to 11 months
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much?</span>
+        2.5l
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often?</span>
+        Max 3 to 4 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age</span>
+        1 to 3 years
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much?</span>
+        5ml
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often?</span>
+        Max 3 times in 24 hours
+      </td>
+    </tr>
+  </tbody>
 </table>
 ```
 

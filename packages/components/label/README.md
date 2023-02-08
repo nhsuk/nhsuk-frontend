@@ -55,7 +55,7 @@
 
 ```html
 <h1 class="nhsuk-label-wrapper">
-	<label class="nhsuk-label nhsuk-label--xl">National Insurance number</label>
+  <label class="nhsuk-label nhsuk-label--xl">National Insurance number</label>
 </h1>
 ```
 

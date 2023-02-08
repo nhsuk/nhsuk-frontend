@@ -419,7 +419,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   // Initialize components
   document.addEventListener("DOMContentLoaded", () => {
-  	ErrorSummary();
+    ErrorSummary();
   });
   ```
 
@@ -800,11 +800,11 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   // Initialize components
   document.addEventListener("DOMContentLoaded", () => {
-  	Details();
-  	Header();
-  	SkipLink();
-  	Radios();
-  	Checkboxes();
+    Details();
+    Header();
+    SkipLink();
+    Radios();
+    Checkboxes();
   });
   ```
 
@@ -866,7 +866,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   ```scss
   .app-component:focus {
-  	@include nhsuk-focused-text;
+    @include nhsuk-focused-text;
   }
   ```
 
@@ -960,9 +960,9 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   // Initialize components
   document.addEventListener("DOMContentLoaded", () => {
-  	Details();
-  	Header();
-  	SkipLink();
+    Details();
+    Header();
+    SkipLink();
   });
   ```
 

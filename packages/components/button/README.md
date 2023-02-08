@@ -14,7 +14,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button class="nhsuk-button" type="submit" data-module="nhsuk-button">
-	Save and continue
+  Save and continue
 </button>
 ```
 
@@ -38,12 +38,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <a
-	href="/"
-	class="nhsuk-button"
-	draggable="false"
-	role="button"
-	data-module="nhsuk-button">
-	Link button
+  href="/"
+  class="nhsuk-button"
+  draggable="false"
+  role="button"
+  data-module="nhsuk-button">
+  Link button
 </a>
 ```
 
@@ -68,12 +68,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button
-	class="nhsuk-button nhsuk-button--disabled"
-	type="submit"
-	disabled="disabled"
-	aria-disabled="true"
-	data-module="nhsuk-button">
-	Disabled button
+  class="nhsuk-button nhsuk-button--disabled"
+  type="submit"
+  disabled="disabled"
+  aria-disabled="true"
+  data-module="nhsuk-button">
+  Disabled button
 </button>
 ```
 
@@ -98,13 +98,13 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button class="nhsuk-button nhsuk-button--secondary" type="submit">
-	Find my location
-	<button
-		class="nhsuk-button nhsuk-button--secondary"
-		type="submit"
-		data-module="nhsuk-button">
-		Find my location
-	</button>
+  Find my location
+  <button
+    class="nhsuk-button nhsuk-button--secondary"
+    type="submit"
+    data-module="nhsuk-button">
+    Find my location
+  </button>
 </button>
 ```
 
@@ -129,10 +129,10 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button
-	class="nhsuk-button nhsuk-button--reverse"
-	type="submit"
-	data-module="nhsuk-button">
-	Save and continue
+  class="nhsuk-button nhsuk-button--reverse"
+  type="submit"
+  data-module="nhsuk-button">
+  Save and continue
 </button>
 ```
 
@@ -155,11 +155,11 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ```html
 <button
-	class="nhsuk-button"
-	type="submit"
-	data-prevent-double-click="true"
-	data-module="nhsuk-button">
-	Save and continue
+  class="nhsuk-button"
+  type="submit"
+  data-prevent-double-click="true"
+  data-module="nhsuk-button">
+  Save and continue
 </button>
 ```
 

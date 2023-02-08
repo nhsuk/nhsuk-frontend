@@ -1,4 +1,4 @@
 module.exports = {
-	bracketSameLine: true,
-	htmlWhitespaceSensitivity: "ignore",
+  bracketSameLine: true,
+  htmlWhitespaceSensitivity: "ignore",
 };

@@ -14,19 +14,19 @@ Find out more about the textarea component and when to use it in the [NHS digita
 
 ```html
 <div class="nhsuk-form-group">
-	<label class="nhsuk-label" for="more-detail">
-		Can you provide more detail?
-	</label>
-	<div class="nhsuk-hint" id="more-detail-hint">
-		Don&#39;t include personal or financial information, eg your National
-		Insurance number or credit card details.
-	</div>
-	<textarea
-		class="nhsuk-textarea"
-		id="more-detail"
-		name="more-detail"
-		rows="5"
-		aria-describedby="more-detail-hint"></textarea>
+  <label class="nhsuk-label" for="more-detail">
+    Can you provide more detail?
+  </label>
+  <div class="nhsuk-hint" id="more-detail-hint">
+    Don&#39;t include personal or financial information, eg your National
+    Insurance number or credit card details.
+  </div>
+  <textarea
+    class="nhsuk-textarea"
+    id="more-detail"
+    name="more-detail"
+    rows="5"
+    aria-describedby="more-detail-hint"></textarea>
 </div>
 ```
 
@@ -61,15 +61,15 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group">
-	<label class="nhsuk-label" for="textarea-with-autocomplete-attribute">
-		Full address
-	</label>
-	<textarea
-		class="nhsuk-textarea"
-		id="textarea-with-autocomplete-attribute"
-		name="address"
-		rows="5"
-		autocomplete="street-address"></textarea>
+  <label class="nhsuk-label" for="textarea-with-autocomplete-attribute">
+    Full address
+  </label>
+  <textarea
+    class="nhsuk-textarea"
+    id="textarea-with-autocomplete-attribute"
+    name="address"
+    rows="5"
+    autocomplete="street-address"></textarea>
 </div>
 ```
 
@@ -98,18 +98,18 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
-	<label class="nhsuk-label" for="no-ni-reason">
-		Why can&#39;t you provide a National Insurance number?
-	</label>
-	<span id="no-ni-reason-error" class="nhsuk-error-message">
-		You must provide an explanation
-	</span>
-	<textarea
-		class="nhsuk-textarea nhsuk-textarea--error"
-		id="no-ni-reason"
-		name="no-ni-reason"
-		rows="5"
-		aria-describedby="no-ni-reason-error"></textarea>
+  <label class="nhsuk-label" for="no-ni-reason">
+    Why can&#39;t you provide a National Insurance number?
+  </label>
+  <span id="no-ni-reason-error" class="nhsuk-error-message">
+    You must provide an explanation
+  </span>
+  <textarea
+    class="nhsuk-textarea nhsuk-textarea--error"
+    id="no-ni-reason"
+    name="no-ni-reason"
+    rows="5"
+    aria-describedby="no-ni-reason-error"></textarea>
 </div>
 ```
 

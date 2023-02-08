@@ -214,7 +214,7 @@ Example:
  */
 
 .X-class {
-	color: red; /* [1] */
+  color: red; /* [1] */
 }
 ```
 

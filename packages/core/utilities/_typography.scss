@@ -16,9 +16,9 @@
  */
 
 @each $size in map-keys($nhsuk-typography-scale) {
-	.nhsuk-u-font-size-#{$size} {
-		@include nhsuk-typography-responsive($size, $important: true);
-	}
+  .nhsuk-u-font-size-#{$size} {
+    @include nhsuk-typography-responsive($size, $important: true);
+  }
 }
 
 /* Weights
@@ -30,11 +30,11 @@
  */
 
 .nhsuk-u-font-weight-normal {
-	@include nhsuk-typography-weight-normal($important: true);
+  @include nhsuk-typography-weight-normal($important: true);
 }
 
 .nhsuk-u-font-weight-bold {
-	@include nhsuk-typography-weight-bold($important: true);
+  @include nhsuk-typography-weight-bold($important: true);
 }
 
 /* Colours
@@ -46,5 +46,5 @@
  */
 
 .nhsuk-u-secondary-text-color {
-	color: $nhsuk-secondary-text-color !important; /* stylelint-disable-line declaration-no-important */
+  color: $nhsuk-secondary-text-color !important; /* stylelint-disable-line declaration-no-important */
 }

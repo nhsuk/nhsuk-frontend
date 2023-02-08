@@ -10,124 +10,124 @@
  */
 
 .nhsuk-pagination {
-	@include nhsuk-responsive-margin(7, "top");
-	@include nhsuk-responsive-margin(7, "bottom");
+  @include nhsuk-responsive-margin(7, "top");
+  @include nhsuk-responsive-margin(7, "bottom");
 }
 
 .nhsuk-pagination__list {
-	@include clearfix();
+  @include clearfix();
 }
 
 .nhsuk-pagination-item--previous {
-	float: left;
-	text-align: left;
-	width: 50%;
+  float: left;
+  text-align: left;
+  width: 50%;
 
-	.nhsuk-icon {
-		left: -6px;
-	}
+  .nhsuk-icon {
+    left: -6px;
+  }
 
-	.nhsuk-pagination__title {
-		padding-left: nhsuk-spacing(5); /* [1] */
-	}
+  .nhsuk-pagination__title {
+    padding-left: nhsuk-spacing(5); /* [1] */
+  }
 }
 
 .nhsuk-pagination-item--next {
-	float: right;
-	text-align: right;
-	width: 50%;
+  float: right;
+  text-align: right;
+  width: 50%;
 
-	.nhsuk-icon {
-		right: -6px;
-	}
+  .nhsuk-icon {
+    right: -6px;
+  }
 
-	.nhsuk-pagination__title {
-		padding-right: nhsuk-spacing(5); /* [1] */
-	}
+  .nhsuk-pagination__title {
+    padding-right: nhsuk-spacing(5); /* [1] */
+  }
 }
 
 .nhsuk-pagination__link {
-	display: block;
-	position: relative;
-	text-decoration: none;
-	width: 100%;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
 
-	@include mq($media-type: print) {
-		color: $color_nhsuk-black;
-	}
+  @include mq($media-type: print) {
+    color: $color_nhsuk-black;
+  }
 
-	.nhsuk-icon {
-		position: absolute;
-		top: -2px;
+  .nhsuk-icon {
+    position: absolute;
+    top: -2px;
 
-		@include mq($media-type: print) {
-			color: $color_nhsuk-black;
-			margin-top: 0;
-		}
-	}
+    @include mq($media-type: print) {
+      color: $color_nhsuk-black;
+      margin-top: 0;
+    }
+  }
 
-	&:hover {
-		color: $nhsuk-link-hover-color;
+  &:hover {
+    color: $nhsuk-link-hover-color;
 
-		.nhsuk-icon {
-			fill: $nhsuk-link-hover-color;
-		}
+    .nhsuk-icon {
+      fill: $nhsuk-link-hover-color;
+    }
 
-		.nhsuk-pagination__page {
-			text-decoration: none;
-		}
-	}
+    .nhsuk-pagination__page {
+      text-decoration: none;
+    }
+  }
 
-	&:focus {
-		@include nhsuk-focused-text;
+  &:focus {
+    @include nhsuk-focused-text;
 
-		.nhsuk-pagination__page {
-			text-decoration: none;
-		}
+    .nhsuk-pagination__page {
+      text-decoration: none;
+    }
 
-		&:visited,
-		&:hover,
-		&:active {
-			.nhsuk-icon {
-				fill: $nhsuk-focus-text-color;
-			}
-		}
-	}
+    &:visited,
+    &:hover,
+    &:active {
+      .nhsuk-icon {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
+  }
 
-	&:visited {
-		.nhsuk-icon {
-			fill: $nhsuk-link-visited-color;
-		}
+  &:visited {
+    .nhsuk-icon {
+      fill: $nhsuk-link-visited-color;
+    }
 
-		&:hover {
-			.nhsuk-icon {
-				fill: $nhsuk-link-hover-color;
-			}
-		}
+    &:hover {
+      .nhsuk-icon {
+        fill: $nhsuk-link-hover-color;
+      }
+    }
 
-		&:focus {
-			.nhsuk-icon {
-				fill: $nhsuk-focus-text-color;
-			}
-		}
-	}
+    &:focus {
+      .nhsuk-icon {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
+  }
 }
 
 .nhsuk-pagination__title {
-	@include nhsuk-typography-responsive(24);
+  @include nhsuk-typography-responsive(24);
 
-	display: block;
+  display: block;
 
-	@include mq($media-type: print) {
-		&:after {
-			content: " page"; /* [2] */
-		}
-	}
+  @include mq($media-type: print) {
+    &:after {
+      content: " page"; /* [2] */
+    }
+  }
 }
 
 .nhsuk-pagination__page {
-	@include nhsuk-typography-responsive(16);
+  @include nhsuk-typography-responsive(16);
 
-	display: block;
-	text-decoration: underline;
+  display: block;
+  text-decoration: underline;
 }

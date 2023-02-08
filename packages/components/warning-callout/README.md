@@ -14,15 +14,15 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ```html
 <div class="nhsuk-warning-callout">
-	<h3 class="nhsuk-warning-callout__label">
-		Important
-		<span class="nhsuk-u-visually-hidden">:</span>
-	</h3>
-	<p>
-		If you develop symptoms of anaphylaxis, such as difficulty breathing, you
-		should inject yourself in the outer thigh before seeking emergency medical
-		help.
-	</p>
+  <h3 class="nhsuk-warning-callout__label">
+    Important
+    <span class="nhsuk-u-visually-hidden">:</span>
+  </h3>
+  <p>
+    If you develop symptoms of anaphylaxis, such as difficulty breathing, you
+    should inject yourself in the outer thigh before seeking emergency medical
+    help.
+  </p>
 </div>
 ```
 
@@ -34,9 +34,9 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/warning-callout/macro.njk' import warningCallout %} {{
 warningCallout({ "heading": "Important", "HTML": "
 <p>
-	If you develop symptoms of anaphylaxis, such as difficulty breathing, you
-	should inject yourself in the outer thigh before seeking emergency medical
-	help.
+  If you develop symptoms of anaphylaxis, such as difficulty breathing, you
+  should inject yourself in the outer thigh before seeking emergency medical
+  help.
 </p>
 " }) }}
 ```
@@ -49,16 +49,16 @@ warningCallout({ "heading": "Important", "HTML": "
 
 ```html
 <div class="nhsuk-warning-callout">
-	<h3 class="nhsuk-warning-callout__label">
-		<span role="text">
-			<span class="nhsuk-u-visually-hidden">Important:</span>
-			School, nursery or work
-		</span>
-	</h3>
-	<p>
-		Stay away from school, nursery or work until all the spots have crusted
-		over. This is usually 5 days after the spots first appeared.
-	</p>
+  <h3 class="nhsuk-warning-callout__label">
+    <span role="text">
+      <span class="nhsuk-u-visually-hidden">Important:</span>
+      School, nursery or work
+    </span>
+  </h3>
+  <p>
+    Stay away from school, nursery or work until all the spots have crusted
+    over. This is usually 5 days after the spots first appeared.
+  </p>
 </div>
 ```
 
@@ -70,8 +70,8 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/warning-callout/macro.njk' import warningCallout %} {{
 warningCallout({ "heading": "School, nursery or work", "HTML": "
 <p>
-	Stay away from school, nursery or work until all the spots have crusted over.
-	This is usually 5 days after the spots first appeared.
+  Stay away from school, nursery or work until all the spots have crusted over.
+  This is usually 5 days after the spots first appeared.
 </p>
 " }) }}
 ```

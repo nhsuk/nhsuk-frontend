@@ -14,37 +14,37 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-		<legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
-		<div class="nhsuk-hint" id="example-hint">
-			This includes changing your last name or spelling your name differently.
-		</div>
-		<div class="nhsuk-radios">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-1"
-					name="example"
-					type="radio"
-					value="yes" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
-					Yes
-				</label>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-2"
-					name="example"
-					type="radio"
-					value="no"
-					checked />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
-					No
-				</label>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+    <legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="nhsuk-hint" id="example-hint">
+      This includes changing your last name or spelling your name differently.
+    </div>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-1"
+          name="example"
+          type="radio"
+          value="yes" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          Yes
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-2"
+          name="example"
+          type="radio"
+          value="no"
+          checked />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -88,37 +88,37 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-		<legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
-		<div class="nhsuk-hint" id="example-hint">
-			This includes changing your last name or spelling your name differently.
-		</div>
-		<div class="nhsuk-radios nhsuk-radios--inline">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-1"
-					name="example"
-					type="radio"
-					value="yes" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
-					Yes
-				</label>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-2"
-					name="example"
-					type="radio"
-					value="no"
-					checked />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
-					No
-				</label>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+    <legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="nhsuk-hint" id="example-hint">
+      This includes changing your last name or spelling your name differently.
+    </div>
+    <div class="nhsuk-radios nhsuk-radios--inline">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-1"
+          name="example"
+          type="radio"
+          value="yes" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          Yes
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-2"
+          name="example"
+          type="radio"
+          value="no"
+          checked />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -163,38 +163,38 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset" aria-describedby="example-disabled-hint">
-		<legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
-		<div class="nhsuk-hint" id="example-disabled-hint">
-			This includes changing your last name or spelling your name differently.
-		</div>
-		<div class="nhsuk-radios">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-disabled-1"
-					name="example-disabled"
-					type="radio"
-					value="yes"
-					disabled />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
-					Yes
-				</label>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-disabled-2"
-					name="example-disabled"
-					type="radio"
-					value="no"
-					disabled />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
-					No
-				</label>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-disabled-hint">
+    <legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="nhsuk-hint" id="example-disabled-hint">
+      This includes changing your last name or spelling your name differently.
+    </div>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-disabled-1"
+          name="example-disabled"
+          type="radio"
+          value="yes"
+          disabled />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
+          Yes
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-disabled-2"
+          name="example-disabled"
+          type="radio"
+          value="no"
+          disabled />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -239,45 +239,45 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset">
-		<legend class="nhsuk-fieldset__legend">How do you want to sign in?</legend>
-		<div class="nhsuk-radios">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-divider-1"
-					name="example"
-					type="radio"
-					value="government-gateway" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-1">
-					Use Government Gateway
-				</label>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-divider-2"
-					name="example"
-					type="radio"
-					value="nhsuk-login" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
-					Use NHS.UK login
-				</label>
-			</div>
-			<div class="nhsuk-radios__divider">or</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-divider-4"
-					name="example"
-					type="radio"
-					value="create-account" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
-					Create an account
-				</label>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend">How do you want to sign in?</legend>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-divider-1"
+          name="example"
+          type="radio"
+          value="government-gateway" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-1">
+          Use Government Gateway
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-divider-2"
+          name="example"
+          type="radio"
+          value="nhsuk-login" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
+          Use NHS.UK login
+        </label>
+      </div>
+      <div class="nhsuk-radios__divider">or</div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-divider-4"
+          name="example"
+          type="radio"
+          value="create-account" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
+          Create an account
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -324,46 +324,46 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset">
-		<legend class="nhsuk-fieldset__legend">
-			<h1 class="nhsuk-fieldset__heading">How do you want to sign in?</h1>
-		</legend>
-		<div class="nhsuk-radios">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="gov-1"
-					name="gov"
-					type="radio"
-					value="gateway"
-					aria-describedby="gov-1-item-hint" />
-				<label class="nhsuk-label nhsuk-radios__label" for="gov-1">
-					Sign in with Government Gateway
-				</label>
-				<div class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
-					You&#39;ll have a user ID if you've registered for self-assessment or
-					filed a tax return online before.
-				</div>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="gov-2"
-					name="gov"
-					type="radio"
-					value="verify"
-					aria-describedby="gov-2-item-hint" />
-				<label class="nhsuk-label nhsuk-radios__label" for="gov-2">
-					Sign in with NHS.UK login
-				</label>
-				<div class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
-					You’ll have an account if you’ve already proved your identity with
-					either Barclays, CitizenSafe, Digidentity, Experian, Post Office,
-					Royal Mail or SecureIdentity.
-				</div>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend">
+      <h1 class="nhsuk-fieldset__heading">How do you want to sign in?</h1>
+    </legend>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="gov-1"
+          name="gov"
+          type="radio"
+          value="gateway"
+          aria-describedby="gov-1-item-hint" />
+        <label class="nhsuk-label nhsuk-radios__label" for="gov-1">
+          Sign in with Government Gateway
+        </label>
+        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
+          You&#39;ll have a user ID if you've registered for self-assessment or
+          filed a tax return online before.
+        </div>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="gov-2"
+          name="gov"
+          type="radio"
+          value="verify"
+          aria-describedby="gov-2-item-hint" />
+        <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
+          Sign in with NHS.UK login
+        </label>
+        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
+          You’ll have an account if you’ve already proved your identity with
+          either Barclays, CitizenSafe, Digidentity, Experian, Post Office,
+          Royal Mail or SecureIdentity.
+        </div>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -410,39 +410,39 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<div class="nhsuk-radios">
-		<div class="nhsuk-radios__item">
-			<input
-				class="nhsuk-radios__input"
-				id="colours-1"
-				name="colours"
-				type="radio"
-				value="red" />
-			<label class="nhsuk-label nhsuk-radios__label" for="colours-1">Red</label>
-		</div>
-		<div class="nhsuk-radios__item">
-			<input
-				class="nhsuk-radios__input"
-				id="colours-2"
-				name="colours"
-				type="radio"
-				value="green" />
-			<label class="nhsuk-label nhsuk-radios__label" for="colours-2">
-				Green
-			</label>
-		</div>
-		<div class="nhsuk-radios__item">
-			<input
-				class="nhsuk-radios__input"
-				id="colours-3"
-				name="colours"
-				type="radio"
-				value="blue" />
-			<label class="nhsuk-label nhsuk-radios__label" for="colours-3">
-				Blue
-			</label>
-		</div>
-	</div>
+  <div class="nhsuk-radios">
+    <div class="nhsuk-radios__item">
+      <input
+        class="nhsuk-radios__input"
+        id="colours-1"
+        name="colours"
+        type="radio"
+        value="red" />
+      <label class="nhsuk-label nhsuk-radios__label" for="colours-1">Red</label>
+    </div>
+    <div class="nhsuk-radios__item">
+      <input
+        class="nhsuk-radios__input"
+        id="colours-2"
+        name="colours"
+        type="radio"
+        value="green" />
+      <label class="nhsuk-label nhsuk-radios__label" for="colours-2">
+        Green
+      </label>
+    </div>
+    <div class="nhsuk-radios__item">
+      <input
+        class="nhsuk-radios__input"
+        id="colours-3"
+        name="colours"
+        type="radio"
+        value="blue" />
+      <label class="nhsuk-label nhsuk-radios__label" for="colours-3">
+        Blue
+      </label>
+    </div>
+  </div>
 </div>
 ```
 
@@ -480,44 +480,44 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
-	<fieldset
-		class="nhsuk-fieldset app-fieldset--custom-modifier"
-		aria-describedby="example-hint example-error"
-		data-attribute="value"
-		data-second-attribute="second-value">
-		<legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
-		<div class="nhsuk-hint" id="example-hint">
-			This includes changing your last name or spelling your name differently.
-		</div>
-		<span id="example-error" class="nhsuk-error-message">
-			Please select an option
-		</span>
-		<div class="nhsuk-radios">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-1"
-					name="example"
-					type="radio"
-					value="yes" />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-1">
-					Yes
-				</label>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="example-2"
-					name="example"
-					type="radio"
-					value="no"
-					checked />
-				<label class="nhsuk-label nhsuk-radios__label" for="example-2">
-					No
-				</label>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset
+    class="nhsuk-fieldset app-fieldset--custom-modifier"
+    aria-describedby="example-hint example-error"
+    data-attribute="value"
+    data-second-attribute="second-value">
+    <legend class="nhsuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="nhsuk-hint" id="example-hint">
+      This includes changing your last name or spelling your name differently.
+    </div>
+    <span id="example-error" class="nhsuk-error-message">
+      Please select an option
+    </span>
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-1"
+          name="example"
+          type="radio"
+          value="yes" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          Yes
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="example-2"
+          name="example"
+          type="radio"
+          value="no"
+          checked />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 
@@ -569,91 +569,91 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ```html
 <div class="nhsuk-form-group">
-	<fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
-		<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-			<h1 class="nhsuk-fieldset__heading">
-				How would you prefer to be contacted?
-			</h1>
-		</legend>
-		<div class="nhsuk-hint" id="contact-hint">Select one option.</div>
-		<div class="nhsuk-radios nhsuk-radios--conditional">
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="contact-1"
-					name="contact"
-					type="radio"
-					value="email"
-					aria-controls="conditional-contact-1"
-					aria-expanded="false" />
-				<label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-					Email
-				</label>
-			</div>
-			<div
-				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-1">
-				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="email">Email address</label>
-					<input
-						class="nhsuk-input nhsuk-u-width-two-thirds"
-						id="email"
-						name="email"
-						type="text" />
-				</div>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="contact-2"
-					name="contact"
-					type="radio"
-					value="phone"
-					aria-controls="conditional-contact-2"
-					aria-expanded="false" />
-				<label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-					Phone
-				</label>
-			</div>
-			<div
-				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-2">
-				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="phone">Phone number</label>
-					<input
-						class="nhsuk-input nhsuk-u-width-two-thirds"
-						id="phone"
-						name="phone"
-						type="text" />
-				</div>
-			</div>
-			<div class="nhsuk-radios__item">
-				<input
-					class="nhsuk-radios__input"
-					id="contact-3"
-					name="contact"
-					type="radio"
-					value="text"
-					aria-controls="conditional-contact-3"
-					aria-expanded="false" />
-				<label class="nhsuk-label nhsuk-radios__label" for="contact-3">
-					Text message
-				</label>
-			</div>
-			<div
-				class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-				id="conditional-contact-3">
-				<div class="nhsuk-form-group">
-					<label class="nhsuk-label" for="mobile">Mobile phone number</label>
-					<input
-						class="nhsuk-input nhsuk-u-width-two-thirds"
-						id="mobile"
-						name="mobile"
-						type="text" />
-				</div>
-			</div>
-		</div>
-	</fieldset>
+  <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        How would you prefer to be contacted?
+      </h1>
+    </legend>
+    <div class="nhsuk-hint" id="contact-hint">Select one option.</div>
+    <div class="nhsuk-radios nhsuk-radios--conditional">
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="contact-1"
+          name="contact"
+          type="radio"
+          value="email"
+          aria-controls="conditional-contact-1"
+          aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+          Email
+        </label>
+      </div>
+      <div
+        class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
+        id="conditional-contact-1">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email">Email address</label>
+          <input
+            class="nhsuk-input nhsuk-u-width-two-thirds"
+            id="email"
+            name="email"
+            type="text" />
+        </div>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="contact-2"
+          name="contact"
+          type="radio"
+          value="phone"
+          aria-controls="conditional-contact-2"
+          aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+          Phone
+        </label>
+      </div>
+      <div
+        class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
+        id="conditional-contact-2">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="phone">Phone number</label>
+          <input
+            class="nhsuk-input nhsuk-u-width-two-thirds"
+            id="phone"
+            name="phone"
+            type="text" />
+        </div>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input
+          class="nhsuk-radios__input"
+          id="contact-3"
+          name="contact"
+          type="radio"
+          value="text"
+          aria-controls="conditional-contact-3"
+          aria-expanded="false" />
+        <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+          Text message
+        </label>
+      </div>
+      <div
+        class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
+        id="conditional-contact-3">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="mobile">Mobile phone number</label>
+          <input
+            class="nhsuk-input nhsuk-u-width-two-thirds"
+            id="mobile"
+            name="mobile"
+            type="text" />
+        </div>
+      </div>
+    </div>
+  </fieldset>
 </div>
 ```
 

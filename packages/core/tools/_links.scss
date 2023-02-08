@@ -9,36 +9,36 @@
 //
 
 @mixin nhsuk-link-style-default {
-	color: $nhsuk-link-color;
+  color: $nhsuk-link-color;
 
-	&:visited {
-		color: $nhsuk-link-visited-color;
-	}
+  &:visited {
+    color: $nhsuk-link-visited-color;
+  }
 
-	&:hover {
-		color: $nhsuk-link-hover-color;
-		text-decoration: none;
-	}
+  &:hover {
+    color: $nhsuk-link-hover-color;
+    text-decoration: none;
+  }
 
-	&:focus {
-		@include nhsuk-focused-text();
+  &:focus {
+    @include nhsuk-focused-text();
 
-		&:hover {
-			text-decoration: none;
-		}
+    &:hover {
+      text-decoration: none;
+    }
 
-		&:visited {
-			color: $nhsuk-focus-text-color;
-		}
+    &:visited {
+      color: $nhsuk-focus-text-color;
+    }
 
-		.nhsuk-icon {
-			fill: $nhsuk-focus-text-color;
-		}
-	}
+    .nhsuk-icon {
+      fill: $nhsuk-focus-text-color;
+    }
+  }
 
-	&:active {
-		color: $nhsuk-link-active-color;
-	}
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
 }
 
 //
@@ -48,27 +48,27 @@
 //
 
 @mixin nhsuk-link-style-white {
-	color: $color_nhsuk-white;
+  color: $color_nhsuk-white;
 
-	&:visited {
-		color: $color_nhsuk-white;
-	}
+  &:visited {
+    color: $color_nhsuk-white;
+  }
 
-	&:hover {
-		color: $color_nhsuk-white;
-		text-decoration: none;
-	}
+  &:hover {
+    color: $color_nhsuk-white;
+    text-decoration: none;
+  }
 
-	&:focus {
-		color: $nhsuk-focus-text-color;
-		outline: $nhsuk-focus-width solid transparent;
-		outline-offset: $nhsuk-focus-width;
-		text-decoration: none;
-	}
+  &:focus {
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+    outline-offset: $nhsuk-focus-width;
+    text-decoration: none;
+  }
 
-	&:active {
-		color: $nhsuk-link-active-color;
-	}
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
 }
 
 //
@@ -78,9 +78,9 @@
 //
 
 @mixin nhsuk-link-style-hover {
-	&:hover {
-		text-decoration: none;
-	}
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 /// No visited state link mixin
@@ -103,25 +103,25 @@
 ///
 
 @mixin nhsuk-link-style-no-visited-state {
-	&:link {
-		color: $nhsuk-link-color;
-	}
+  &:link {
+    color: $nhsuk-link-color;
+  }
 
-	&:visited {
-		color: $nhsuk-link-color;
-	}
+  &:visited {
+    color: $nhsuk-link-color;
+  }
 
-	&:hover {
-		color: $nhsuk-link-hover-color;
-	}
+  &:hover {
+    color: $nhsuk-link-hover-color;
+  }
 
-	&:active {
-		color: $nhsuk-link-active-color;
-	}
+  &:active {
+    color: $nhsuk-link-active-color;
+  }
 
-	&:focus {
-		color: $nhsuk-focus-text-color;
-	}
+  &:focus {
+    color: $nhsuk-focus-text-color;
+  }
 }
 
 /// Text link styles
@@ -140,19 +140,19 @@
 ///
 
 @mixin nhsuk-link-style-text {
-	&:link,
-	&:visited {
-		color: $nhsuk-text-color;
-	}
+  &:link,
+  &:visited {
+    color: $nhsuk-text-color;
+  }
 
-	// Force a colour change on hover to work around a bug in Safari
-	// https://bugs.webkit.org/show_bug.cgi?id=224483
-	&:hover {
-		color: rgba($nhsuk-text-color, 0.99);
-	}
+  // Force a colour change on hover to work around a bug in Safari
+  // https://bugs.webkit.org/show_bug.cgi?id=224483
+  &:hover {
+    color: rgba($nhsuk-text-color, 0.99);
+  }
 
-	&:active,
-	&:focus {
-		color: $nhsuk-text-color;
-	}
+  &:active,
+  &:focus {
+    color: $nhsuk-text-color;
+  }
 }

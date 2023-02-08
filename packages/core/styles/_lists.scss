@@ -17,64 +17,64 @@
  */
 
 %nhsuk-list {
-	@include nhsuk-typography-responsive(19);
-	@include nhsuk-responsive-margin(4, "bottom");
+  @include nhsuk-typography-responsive(19);
+  @include nhsuk-responsive-margin(4, "bottom");
 
-	list-style-type: none;
-	margin-top: 0;
-	padding-left: 0;
+  list-style-type: none;
+  margin-top: 0;
+  padding-left: 0;
 }
 
 %nhsuk-list > li {
-	@include nhsuk-responsive-margin(2, "bottom");
+  @include nhsuk-responsive-margin(2, "bottom");
 
-	&:last-child {
-		margin-bottom: 0;
-	}
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 %nhsuk-list--bullet {
-	list-style-type: disc;
-	padding-left: 20px; /* [1] */
+  list-style-type: disc;
+  padding-left: 20px; /* [1] */
 }
 
 .nhsuk-list--bullet {
-	@extend %nhsuk-list--bullet;
+  @extend %nhsuk-list--bullet;
 }
 
 %nhsuk-list--number {
-	list-style-type: decimal;
-	padding-left: 20px; /* [1] */
+  list-style-type: decimal;
+  padding-left: 20px; /* [1] */
 }
 
 .nhsuk-list--number {
-	@extend %nhsuk-list--number;
+  @extend %nhsuk-list--number;
 }
 
 .nhsuk-list {
-	@extend %nhsuk-list;
+  @extend %nhsuk-list;
 }
 
 ul {
-	@extend %nhsuk-list;
-	@extend %nhsuk-list--bullet;
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--bullet;
 }
 
 ol {
-	@extend %nhsuk-list;
-	@extend %nhsuk-list--number;
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--number;
 }
 
 .nhsuk-list--tick,
 .nhsuk-list--cross {
-	list-style: none;
-	margin-top: 0;
-	padding-left: 40px; /* [2] */
-	position: relative;
+  list-style: none;
+  margin-top: 0;
+  padding-left: 40px; /* [2] */
+  position: relative;
 
-	svg {
-		left: -4px; /* [3] */
-		margin-top: -5px; /* [3] */
-		position: absolute;
-	}
+  svg {
+    left: -4px; /* [3] */
+    margin-top: -5px; /* [3] */
+    position: absolute;
+  }
 }

@@ -10,7 +10,7 @@
  */
 
 .nhsuk-u-nowrap {
-	@include mq($until: tablet) {
-		white-space: nowrap;
-	}
+  @include mq($until: tablet) {
+    white-space: nowrap;
+  }
 }

@@ -14,7 +14,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ```html
 <fieldset class="nhsuk-fieldset">
-	<legend class="nhsuk-fieldset__legend">What is your address?</legend>
+  <legend class="nhsuk-fieldset__legend">What is your address?</legend>
 </fieldset>
 ```
 
@@ -40,9 +40,9 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ```html
 <fieldset class="nhsuk-fieldset">
-	<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-		<h1 class="nhsuk-fieldset__heading">What is your address?</h1>
-	</legend>
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+    <h1 class="nhsuk-fieldset__heading">What is your address?</h1>
+  </legend>
 </fieldset>
 ```
 
@@ -70,33 +70,33 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ```html
 <fieldset class="nhsuk-fieldset">
-	<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-		<h1 class="nhsuk-fieldset__heading">What is your address?</h1>
-	</legend>
-	<div class="nhsuk-form-group">
-		<label class="nhsuk-label" for="input-address1">Address line 1</label>
-		<input
-			class="nhsuk-input"
-			id="input-address1"
-			name="address1"
-			type="text" />
-	</div>
-	<div class="nhsuk-form-group">
-		<label class="nhsuk-label" for="input-address2">Address line 2</label>
-		<input
-			class="nhsuk-input"
-			id="input-address2"
-			name="address2"
-			type="text" />
-	</div>
-	<div class="nhsuk-form-group">
-		<label class="nhsuk-label" for="input-town-city">Town or city</label>
-		<input class="nhsuk-input" id="input-town-city" name="town" type="text" />
-	</div>
-	<div class="nhsuk-form-group">
-		<label class="nhsuk-label" for="input-county">County</label>
-		<input class="nhsuk-input" id="input-county" name="county" type="text" />
-	</div>
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+    <h1 class="nhsuk-fieldset__heading">What is your address?</h1>
+  </legend>
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="input-address1">Address line 1</label>
+    <input
+      class="nhsuk-input"
+      id="input-address1"
+      name="address1"
+      type="text" />
+  </div>
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="input-address2">Address line 2</label>
+    <input
+      class="nhsuk-input"
+      id="input-address2"
+      name="address2"
+      type="text" />
+  </div>
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="input-town-city">Town or city</label>
+    <input class="nhsuk-input" id="input-town-city" name="town" type="text" />
+  </div>
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="input-county">County</label>
+    <input class="nhsuk-input" id="input-county" name="county" type="text" />
+  </div>
 </fieldset>
 ```
 
