@@ -12,8 +12,7 @@ Find out more about the hint component and when to use it in the [NHS digital se
 
 ```html
 <div class="nhsuk-hint">
-  It’s on your National Insurance card, benefit letter, payslip or P60. For
-  example, ‘QQ 12 34 56 C’.
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
 </div>
 ```
 

@@ -13,9 +13,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button" type="submit" data-module="nhsuk-button">
-  Save and continue
-</button>
+<button class="nhsuk-button" type="submit" data-module="nhsuk-button">Save and continue</button>
 ```
 
 #### Nunjucks macro
@@ -37,14 +35,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<a
-  href="/"
-  class="nhsuk-button"
-  draggable="false"
-  role="button"
-  data-module="nhsuk-button">
-  Link button
-</a>
+<a href="/" class="nhsuk-button" draggable="false" role="button" data-module="nhsuk-button">Link button</a>
 ```
 
 #### Nunjucks macro
@@ -99,10 +90,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 ```html
 <button class="nhsuk-button nhsuk-button--secondary" type="submit">
   Find my location
-  <button
-    class="nhsuk-button nhsuk-button--secondary"
-    type="submit"
-    data-module="nhsuk-button">
+  <button class="nhsuk-button nhsuk-button--secondary" type="submit" data-module="nhsuk-button">
     Find my location
   </button>
 </button>
@@ -128,12 +116,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button
-  class="nhsuk-button nhsuk-button--reverse"
-  type="submit"
-  data-module="nhsuk-button">
-  Save and continue
-</button>
+<button class="nhsuk-button nhsuk-button--reverse" type="submit" data-module="nhsuk-button">Save and continue</button>
 ```
 
 #### Nunjucks macro
@@ -154,11 +137,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button
-  class="nhsuk-button"
-  type="submit"
-  data-prevent-double-click="true"
-  data-module="nhsuk-button">
+<button class="nhsuk-button" type="submit" data-prevent-double-click="true" data-module="nhsuk-button">
   Save and continue
 </button>
 ```

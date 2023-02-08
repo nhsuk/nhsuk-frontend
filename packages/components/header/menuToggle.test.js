@@ -15,8 +15,7 @@ let nav;
 
 // Helper to set DOM Elements
 const initTest = (html) => {
-  document.body.innerHTML =
-    html || toggleButtonHtml + closeButtonHtml + navHtml;
+  document.body.innerHTML = html || toggleButtonHtml + closeButtonHtml + navHtml;
   toggleButton = document.querySelector(".nhsuk-header__menu-toggle");
   closeButton = document.querySelector(".nhsuk-header__navigation-close");
   nav = document.querySelector(".nhsuk-header__navigation");

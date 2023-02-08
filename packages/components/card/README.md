@@ -399,9 +399,7 @@ Find out more about the card component and when to use it in the [NHS digital se
   <div class="nhsuk-card__content">
     <ul>
       <li>you're not sure it's chickenpox</li>
-      <li>
-        the skin around the blisters is red, hot or painful (signs of infection)
-      </li>
+      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
       <li>
         your child is
         <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a>
@@ -409,8 +407,8 @@ Find out more about the card component and when to use it in the [NHS digital se
       <li>you're concerned about your child or they get worse</li>
     </ul>
     <p>
-      Tell the receptionist you think it's chickenpox before going in. They may
-      recommend a special appointment time if other patients are at risk.
+      Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if
+      other patients are at risk.
     </p>
   </div>
 </div>
@@ -459,20 +457,13 @@ Find out more about the card component and when to use it in the [NHS digital se
   <div class="nhsuk-card__content">
     <ul>
       <li>you're an adult and have chickenpox</li>
-      <li>
-        you're pregnant and haven't had chickenpox before and you've been near
-        someone with it
-      </li>
-      <li>
-        you have a weakened immune system and you've been near someone with
-        chickenpox
-      </li>
+      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
+      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
       <li>you think your newborn baby has chickenpox</li>
     </ul>
     <p>
-      In these situations, your GP can prescribe medicine to prevent
-      complications. You need to take it within 24 hours of the spots coming
-      out.
+      In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours
+      of the spots coming out.
     </p>
   </div>
 </div>
@@ -522,15 +513,9 @@ Find out more about the card component and when to use it in the [NHS digital se
     <ul>
       <li>spreads to your arms, back, neck or jaw</li>
       <li>makes your chest feel tight or heavy</li>
-      <li>
-        also started with shortness of breath, sweating and feeling or being
-        sick
-      </li>
+      <li>also started with shortness of breath, sweating and feeling or being sick</li>
     </ul>
-    <p>
-      You could be having a heart attack. Call 999 immediately as you need
-      immediate treatment in hospital.
-    </p>
+    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
   </div>
 </div>
 ```

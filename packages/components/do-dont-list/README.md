@@ -23,11 +23,7 @@ Find out more about the do and don't list component and when to use it in the [N
         aria-hidden="true"
         width="34"
         height="34">
-        <path
-          stroke-width="4"
-          stroke-linecap="round"
-          d="M18.4 7.8l-8.5 8.4L5.6 12"
-          stroke="#007f3b"></path>
+        <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
       </svg>
       cover blisters that are likely to burst with a soft plaster or dressing
     </li>
@@ -40,11 +36,7 @@ Find out more about the do and don't list component and when to use it in the [N
         aria-hidden="true"
         width="34"
         height="34">
-        <path
-          stroke-width="4"
-          stroke-linecap="round"
-          d="M18.4 7.8l-8.5 8.4L5.6 12"
-          stroke="#007f3b"></path>
+        <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
       </svg>
       wash your hands before touching a burst blister
     </li>
@@ -57,14 +49,9 @@ Find out more about the do and don't list component and when to use it in the [N
         aria-hidden="true"
         width="34"
         height="34">
-        <path
-          stroke-width="4"
-          stroke-linecap="round"
-          d="M18.4 7.8l-8.5 8.4L5.6 12"
-          stroke="#007f3b"></path>
+        <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
       </svg>
-      allow the fluid in a burst blister to drain before covering it with a
-      plaster or dressing
+      allow the fluid in a burst blister to drain before covering it with a plaster or dressing
     </li>
   </ul>
 </div>
@@ -137,8 +124,7 @@ Find out more about the do and don't list component and when to use it in the [N
           d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"
           fill="#d5281b"></path>
       </svg>
-      do not wear the shoes or use the equipment that caused your blister until
-      it heals
+      do not wear the shoes or use the equipment that caused your blister until it heals
     </li>
   </ul>
 </div>

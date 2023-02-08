@@ -11,14 +11,8 @@ Find out more about the error summary component and when to use it in the [NHS d
 ### HTML markup
 
 ```html
-<div
-  class="nhsuk-error-summary"
-  aria-labelledby="error-summary-title"
-  role="alert"
-  tabindex="-1">
-  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-    There is a problem
-  </h2>
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">There is a problem</h2>
   <div class="nhsuk-error-summary__body">
     <p>Describe the errors and how to correct them</p>
     <ul class="nhsuk-list nhsuk-error-summary__list">
@@ -54,38 +48,26 @@ Find out more about the error summary component and when to use it in the [NHS d
 ### HTML markup
 
 ```html
-<div
-  class="nhsuk-error-summary"
-  aria-labelledby="error-summary-title"
-  role="alert"
-  tabindex="-1">
-  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-    There is a problem
-  </h2>
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">There is a problem</h2>
   <div class="nhsuk-error-summary__body">
     <p>
       Optional description of the errors and how to correct them.
       <br />
-      Note that the error summary should receive focus on page load using the
-      JavaScript that comes with this component.
+      Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
     </p>
     <ul class="nhsuk-list nhsuk-error-summary__list">
       <li>
-        <a href="#input-with-error-message">
-          Link to input error with explanation
-        </a>
+        <a href="#input-with-error-message">Link to input error with explanation</a>
       </li>
     </ul>
   </div>
 </div>
 
 <div class="nhsuk-form-group nhsuk-form-group--error">
-  <label class="nhsuk-label" for="input-with-error-message">
-    National Insurance number
-  </label>
+  <label class="nhsuk-label" for="input-with-error-message">National Insurance number</label>
   <div class="nhsuk-hint" id="input-with-error-message-hint">
-    Clicking an error summary link should scroll the top of this input&#39;s
-    label into view.
+    Clicking an error summary link should scroll the top of this input&#39;s label into view.
   </div>
   <span class="nhsuk-error-message" id="input-with-error-message-error">
     <span class="nhsuk-u-visually-hidden">Error:</span>
@@ -139,43 +121,28 @@ Find out more about the error summary component and when to use it in the [NHS d
 ### HTML markup
 
 ```html
-<div
-  class="nhsuk-error-summary"
-  aria-labelledby="error-summary-title"
-  role="alert"
-  tabindex="-1">
-  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-    There is a problem
-  </h2>
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">There is a problem</h2>
   <div class="nhsuk-error-summary__body">
     <p>
       Optional description of the errors and how to correct them.
       <br />
-      Note that the error summary should receive focus on page load using the
-      JavaScript that comes with this component.
+      Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
     </p>
     <ul class="nhsuk-list nhsuk-error-summary__list">
       <li>
-        <a href="#example-1">
-          Link to radio error with explanation (Note how it links to the first
-          radio)
-        </a>
+        <a href="#example-1">Link to radio error with explanation (Note how it links to the first radio)</a>
       </li>
     </ul>
   </div>
 </div>
 
 <div class="nhsuk-form-group nhsuk-form-group--error">
-  <fieldset
-    class="nhsuk-fieldset"
-    aria-describedby="example-hint example-error">
-    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-      Have you changed your name?
-    </legend>
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint example-error">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">Have you changed your name?</legend>
 
     <div class="nhsuk-hint" id="example-hint">
-      Clicking an error summary link should scroll the top of this radio
-      fieldset into view.
+      Clicking an error summary link should scroll the top of this radio fieldset into view.
     </div>
 
     <span class="nhsuk-error-message" id="example-error">
@@ -185,27 +152,13 @@ Find out more about the error summary component and when to use it in the [NHS d
 
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input
-          class="nhsuk-radios__input"
-          id="example-1"
-          name="radios-example"
-          type="radio"
-          value="yes" />
-        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-          Yes
-        </label>
+        <input class="nhsuk-radios__input" id="example-1" name="radios-example" type="radio" value="yes" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">Yes</label>
       </div>
 
       <div class="nhsuk-radios__item">
-        <input
-          class="nhsuk-radios__input"
-          id="example-2"
-          name="radios-example"
-          type="radio"
-          value="no" />
-        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-          No
-        </label>
+        <input class="nhsuk-radios__input" id="example-2" name="radios-example" type="radio" value="no" />
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">No</label>
       </div>
     </div>
   </fieldset>

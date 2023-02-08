@@ -17,9 +17,7 @@ class CharacterCount {
     // Check for module
     const { $module } = this;
     const { $textarea } = this;
-    const $fallbackLimitMessage = document.getElementById(
-      `${$textarea.id}-info`
-    );
+    const $fallbackLimitMessage = document.getElementById(`${$textarea.id}-info`);
 
     // Move the fallback count message to be immediately after the textarea
     // Kept for backwards compatibility
@@ -28,14 +26,10 @@ class CharacterCount {
     // Create the *screen reader* specific live-updating counter
     // This doesn't need any styling classes, as it is never visible
     const $screenReaderCountMessage = document.createElement("div");
-    $screenReaderCountMessage.className =
-      "nhsuk-character-count__sr-status nhsuk-u-visually-hidden";
+    $screenReaderCountMessage.className = "nhsuk-character-count__sr-status nhsuk-u-visually-hidden";
     $screenReaderCountMessage.setAttribute("aria-live", "polite");
     this.$screenReaderCountMessage = $screenReaderCountMessage;
-    $fallbackLimitMessage.insertAdjacentElement(
-      "afterend",
-      $screenReaderCountMessage
-    );
+    $fallbackLimitMessage.insertAdjacentElement("afterend", $screenReaderCountMessage);
 
     // Create our live-updating counter element, copying the classes from the
     // fallback element for backwards compatibility as these may have been configured
@@ -44,10 +38,7 @@ class CharacterCount {
     $visibleCountMessage.classList.add("nhsuk-character-count__status");
     $visibleCountMessage.setAttribute("aria-hidden", "true");
     this.$visibleCountMessage = $visibleCountMessage;
-    $fallbackLimitMessage.insertAdjacentElement(
-      "afterend",
-      $visibleCountMessage
-    );
+    $fallbackLimitMessage.insertAdjacentElement("afterend", $visibleCountMessage);
 
     // Hide the fallback limit message
     $fallbackLimitMessage.classList.add("nhsuk-u-visually-hidden");
@@ -81,10 +72,7 @@ class CharacterCount {
     if ("onpageshow" in window) {
       window.addEventListener("pageshow", this.updateCountMessage.bind(this));
     } else {
-      window.addEventListener(
-        "DOMContentLoaded",
-        this.updateCountMessage.bind(this)
-      );
+      window.addEventListener("DOMContentLoaded", this.updateCountMessage.bind(this));
     }
     this.updateCountMessage();
   }
@@ -156,13 +144,9 @@ class CharacterCount {
     // If input is over the threshold, remove the disabled class which renders the
     // counter invisible.
     if (this.isOverThreshold()) {
-      $visibleCountMessage.classList.remove(
-        "nhsuk-character-count__message--disabled"
-      );
+      $visibleCountMessage.classList.remove("nhsuk-character-count__message--disabled");
     } else {
-      $visibleCountMessage.classList.add(
-        "nhsuk-character-count__message--disabled"
-      );
+      $visibleCountMessage.classList.add("nhsuk-character-count__message--disabled");
     }
 
     // Update styles
@@ -247,10 +231,7 @@ class CharacterCount {
     // This is so that the update triggered by the manual comparison doesn't
     // conflict with debounced KeyboardEvent updates.
     this.valueChecker = setInterval(() => {
-      if (
-        !this.lastInputTimestamp ||
-        Date.now() - 500 >= this.lastInputTimestamp
-      ) {
+      if (!this.lastInputTimestamp || Date.now() - 500 >= this.lastInputTimestamp) {
         this.checkIfValueChanged();
       }
     }, 1000);
@@ -268,9 +249,7 @@ CharacterCount.prototype.defaults = {
 };
 
 export default () => {
-  const characterCounts = document.querySelectorAll(
-    '[data-module="nhsuk-character-count"]'
-  );
+  const characterCounts = document.querySelectorAll('[data-module="nhsuk-character-count"]');
   characterCounts.forEach((el) => {
     new CharacterCount(el).init();
   });

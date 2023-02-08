@@ -14,10 +14,7 @@ module.exports = {
   "color-no-hex": true,
   "color-named": "never",
   "at-rule-disallowed-list": ["debug", "warn"],
-  "declaration-block-no-duplicate-properties": [
-    true,
-    { ignore: ["consecutive-duplicates-with-different-values"] },
-  ], // Permits fallbacks
+  "declaration-block-no-duplicate-properties": [true, { ignore: ["consecutive-duplicates-with-different-values"] }], // Permits fallbacks
   "block-no-empty": true,
   "selector-max-id": 0,
   "declaration-no-important": true,

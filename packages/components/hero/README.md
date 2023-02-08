@@ -15,9 +15,7 @@
       <div class="nhsuk-grid-column-two-thirds">
         <div class="nhsuk-hero__wrapper">
           <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
-          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">
-            Helping you take control of your health and wellbeing.
-          </p>
+          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
         </div>
       </div>
     </div>
@@ -54,9 +52,7 @@
         <div class="nhsuk-grid-column-two-thirds">
           <div class="nhsuk-hero-content">
             <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">
-              Helping you take control of your health and wellbeing.
-            </p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
             <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
           </div>
         </div>

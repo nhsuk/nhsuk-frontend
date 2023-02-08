@@ -134,10 +134,7 @@ function assets() {
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
-  return gulp
-    .src("dist/*.min.js", "!dist/js/nhsuk.min.js")
-    .pipe(clean())
-    .pipe(gulp.dest("dist/js/"));
+  return gulp.src("dist/*.min.js", "!dist/js/nhsuk.min.js").pipe(clean()).pipe(gulp.dest("dist/js/"));
 }
 
 /* Copy CSS files into their relevant folders */
@@ -148,15 +145,7 @@ function cssFolder() {
 
 function createZip() {
   return gulp
-    .src(
-      [
-        "dist/css/*.min.css",
-        "dist/js/*.min.js",
-        "dist/assets/**",
-        "!dist/js/nhsuk.min.js",
-      ],
-      { base: "dist" }
-    )
+    .src(["dist/css/*.min.css", "dist/js/*.min.js", "dist/assets/**", "!dist/js/nhsuk.min.js"], { base: "dist" })
     .pipe(zip(`nhsuk-frontend-${version}.zip`))
     .pipe(gulp.dest("dist"));
 }
@@ -167,10 +156,7 @@ function createZip() {
 
 /* Recompile CSS, JS and docs when there are any changes */
 function watch() {
-  gulp.watch(
-    ["packages/**/*", "app/**/*"],
-    gulp.series(["build", "docs:build"])
-  );
+  gulp.watch(["packages/**/*", "app/**/*"], gulp.series(["build", "docs:build"]));
 }
 
 gulp.task("clean", cleanDist);
@@ -179,22 +165,13 @@ gulp.task("style", compileCSS);
 
 gulp.task("build", gulp.series([compileCSS, webpackJS]));
 
-gulp.task(
-  "bundle",
-  gulp.series([cleanDist, "build", minifyCSS, minifyJS, versionJS])
-);
+gulp.task("bundle", gulp.series([cleanDist, "build", minifyCSS, minifyJS, versionJS]));
 
-gulp.task(
-  "zip",
-  gulp.series(["bundle", assets, jsFolder, cssFolder, createZip])
-);
+gulp.task("zip", gulp.series(["bundle", assets, jsFolder, cssFolder, createZip]));
 
 gulp.task("watch", watch);
 
 /**
  * The default task is to build everything, serve the docs and watch for changes
  */
-gulp.task(
-  "default",
-  gulp.series([cleanDist, "build", gulp.parallel(["docs:serve", watch])])
-);
+gulp.task("default", gulp.series([cleanDist, "build", gulp.parallel(["docs:serve", watch])]));

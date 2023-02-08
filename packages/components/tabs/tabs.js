@@ -50,9 +50,7 @@ class Tabs {
     const { $module } = this;
     const { $tabs } = this;
     const $tabList = $module.querySelector(`.${this.namespace}__list`);
-    const $tabListItems = $module.querySelectorAll(
-      `.${this.namespace}__list-item`
-    );
+    const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`);
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return;
@@ -97,9 +95,7 @@ class Tabs {
     const { $module } = this;
     const { $tabs } = this;
     const $tabList = $module.querySelector(`.${this.namespace}__list`);
-    const $tabListItems = $module.querySelectorAll(
-      `.${this.namespace}__list-item`
-    );
+    const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`);
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return;
@@ -158,9 +154,7 @@ class Tabs {
   }
 
   getTab(hash) {
-    return this.$module.querySelector(
-      `.${this.namespace}__tab[href="${hash}"]`
-    );
+    return this.$module.querySelector(`.${this.namespace}__tab[href="${hash}"]`);
   }
 
   setAttributes($tab) {
@@ -261,9 +255,7 @@ class Tabs {
     let previousTab;
 
     if (previousTabListItem) {
-      previousTab = previousTabListItem.querySelector(
-        `.${this.namespace}__tab`
-      );
+      previousTab = previousTabListItem.querySelector(`.${this.namespace}__tab`);
     }
     if (previousTab) {
       this.hideTab(currentTab);
@@ -303,9 +295,7 @@ class Tabs {
   }
 
   getCurrentTab() {
-    return this.$module.querySelector(
-      `.${this.namespace}__list-item--selected .${this.namespace}__tab`
-    );
+    return this.$module.querySelector(`.${this.namespace}__list-item--selected .${this.namespace}__tab`);
   }
 
   // this is because IE doesn't always return the actual value but a relative full path
@@ -325,11 +315,7 @@ class Tabs {
  * Tabs({responsive: false});
  * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
  */
-export default ({
-  namespace = "nhsuk-tabs",
-  responsive = true,
-  historyEnabled = true,
-} = {}) => {
+export default ({ namespace = "nhsuk-tabs", responsive = true, historyEnabled = true } = {}) => {
   const tabs = document.querySelectorAll(`[data-module="${namespace}"]`);
   tabs.forEach((el) => {
     new Tabs(el, namespace, responsive, historyEnabled).init();

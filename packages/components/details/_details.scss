@@ -113,12 +113,10 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     background-color: $color_nhsuk-white;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
-    padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4)
-      nhsuk-spacing(4);
+    padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
 
     @include mq($until: tablet) {
-      padding: nhsuk-spacing(3) - $nhsuk-focus-width nhsuk-spacing(3)
-        nhsuk-spacing(3);
+      padding: nhsuk-spacing(3) - $nhsuk-focus-width nhsuk-spacing(3) nhsuk-spacing(3);
     }
 
     &:before {

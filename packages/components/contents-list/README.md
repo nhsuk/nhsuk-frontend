@@ -11,10 +11,7 @@ Find out more about the contents list component and when to use it in the [NHS d
 ### HTML markup
 
 ```html
-<nav
-  class="nhsuk-contents-list"
-  role="navigation"
-  aria-label="Pages in this guide">
+<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
     <li class="nhsuk-contents-list__item" aria-current="page">

@@ -65,9 +65,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <label class="nhsuk-label" for="select-2">Label text goes here</label>
   <div class="nhsuk-hint" id="select-2-hint">Hint text goes here</div>
-  <span id="select-2-error" class="nhsuk-error-message">
-    Error message goes here
-  </span>
+  <span id="select-2-error" class="nhsuk-error-message">Error message goes here</span>
   <select
     class="nhsuk-select nhsuk-select--error"
     id="select-2"

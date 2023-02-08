@@ -7,8 +7,7 @@ import { toggleAttribute } from "../../common";
 
 export default () => {
   // Does the browser support details component
-  const nativeSupport =
-    typeof document.createElement("details").open === "boolean";
+  const nativeSupport = typeof document.createElement("details").open === "boolean";
   if (nativeSupport) {
     return;
   }
@@ -29,15 +28,11 @@ export default () => {
     if (!element.id) element.setAttribute("id", `nhsuk-details${index}`);
 
     // Set content element and give it an ID if it doesn't already have one
-    const content = document.querySelector(
-      `#${element.id} .nhsuk-details__text`
-    );
+    const content = document.querySelector(`#${element.id} .nhsuk-details__text`);
     if (!content.id) content.setAttribute("id", `nhsuk-details__text${index}`);
 
     // Set summary element
-    const summary = document.querySelector(
-      `#${element.id} .nhsuk-details__summary`
-    );
+    const summary = document.querySelector(`#${element.id} .nhsuk-details__summary`);
 
     // Set initial summary aria attributes
     summary.setAttribute("role", "button");
@@ -57,8 +52,7 @@ export default () => {
       toggleAttribute(summary, "aria-expanded");
       toggleAttribute(content, "aria-hidden");
 
-      content.style.display =
-        content.getAttribute("aria-hidden") === "true" ? "none" : "";
+      content.style.display = content.getAttribute("aria-hidden") === "true" ? "none" : "";
       if (element.hasAttribute("open")) {
         element.removeAttribute("open");
       } else {
@@ -81,8 +75,7 @@ export default () => {
   // Initialise details for any new details element
   if (allDetails.length) {
     allDetails.forEach((element, index) => {
-      if (!element.hasAttribute("nhsuk-polyfilled"))
-        initDetails(element, index);
+      if (!element.hasAttribute("nhsuk-polyfilled")) initDetails(element, index);
     });
   }
 };

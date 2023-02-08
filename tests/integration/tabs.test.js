@@ -66,15 +66,9 @@ describe("NHS.UK Tabs()", () => {
       console.log(document.body.innerHTML);
       console.log(panels[0].outerHTML);
       // Expect the first panel to be visible
-      expect(panels[0].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
-        true
-      );
-      expect(panels[1].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
-        true
-      );
-      expect(panels[2].classList.contains("nhsuk-tabs__panel--hidden")).toBe(
-        false
-      );
+      expect(panels[0].classList.contains("nhsuk-tabs__panel--hidden")).toBe(true);
+      expect(panels[1].classList.contains("nhsuk-tabs__panel--hidden")).toBe(true);
+      expect(panels[2].classList.contains("nhsuk-tabs__panel--hidden")).toBe(false);
     });
   });
 

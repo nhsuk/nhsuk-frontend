@@ -24,9 +24,8 @@ If the commit refers to a ticket ID, then reference that in the commit message:
 After the summary line should come a blank line, followed by a more detailed description, which should wrap at around 72 characters.
 
 ```html
-[refs #94] Remove search icon IE8 fallback icon We are reducing the extra code
-and overheads for Internet Explorer 8, so we are removing fallback icons. We
-have replaced a fallback icon with the text search so it still functions. See
+[refs #94] Remove search icon IE8 fallback icon We are reducing the extra code and overheads for Internet Explorer 8, so
+we are removing fallback icons. We have replaced a fallback icon with the text search so it still functions. See
 https://github.com/nhsuk/nhsuk-frontend/issues/94
 ```
 

@@ -121,11 +121,7 @@
 // See components/_warning-component
 //
 
-@mixin panel-with-label(
-  $panel-background-color,
-  $panel-text-color,
-  $panel-border-color
-) {
+@mixin panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
   @include panel($panel-background-color, $panel-text-color);
 
   border: 1px solid $panel-border-color;
@@ -182,11 +178,7 @@
 // See components/card/card
 //
 
-@mixin care-card(
-  $heading-background-color,
-  $heading-text-color,
-  $print-border-size
-) {
+@mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
   .nhsuk-card--care__heading-container {
     background-color: $heading-background-color;
     color: $heading-text-color;

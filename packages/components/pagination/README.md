@@ -16,9 +16,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
   <ul class="nhsuk-list nhsuk-pagination__list">
     <li class="nhsuk-pagination-item--previous">
-      <a
-        class="nhsuk-pagination__link nhsuk-pagination__link--prev"
-        href="/section/treatments">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="/section/treatments">
         <span class="nhsuk-pagination__title">Previous</span>
         <span class="nhsuk-u-visually-hidden">:</span>
         <span class="nhsuk-pagination__page">Treatments</span>
@@ -35,9 +33,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
       </a>
     </li>
     <li class="nhsuk-pagination-item--next">
-      <a
-        class="nhsuk-pagination__link nhsuk-pagination__link--next"
-        href="/section/symptoms">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="/section/symptoms">
         <span class="nhsuk-pagination__title">Next</span>
         <span class="nhsuk-u-visually-hidden">:</span>
         <span class="nhsuk-pagination__page">Symptoms</span>
@@ -80,9 +76,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
   <ul class="nhsuk-list nhsuk-pagination__list">
     <li class="nhsuk-pagination-item--next">
-      <a
-        class="nhsuk-pagination__link nhsuk-pagination__link--next"
-        href="/section/symptoms">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="/section/symptoms">
         <span class="nhsuk-pagination__title">Next</span>
         <span class="nhsuk-u-visually-hidden">:</span>
         <span class="nhsuk-pagination__page">Symptoms</span>
@@ -123,9 +117,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
   <ul class="nhsuk-list nhsuk-pagination__list">
     <li class="nhsuk-pagination-item--previous">
-      <a
-        class="nhsuk-pagination__link nhsuk-pagination__link--prev"
-        href="/section/treatments">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="/section/treatments">
         <span class="nhsuk-pagination__title">Previous</span>
         <span class="nhsuk-u-visually-hidden">:</span>
         <span class="nhsuk-pagination__page">Treatments</span>

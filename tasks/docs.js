@@ -23,9 +23,7 @@ function buildHtml() {
           baseUrl: config.baseUrl,
         },
         {
-          env: new nunjucks.Environment(
-            new nunjucks.FileSystemLoader(config.templates)
-          ),
+          env: new nunjucks.Environment(new nunjucks.FileSystemLoader(config.templates)),
         }
       )
     )
@@ -48,9 +46,7 @@ function copyBuiltAssets() {
  * Copy logos, icons and other binary assets
  */
 function copyBinaryAssets() {
-  return gulp
-    .src("packages/assets/**/*")
-    .pipe(gulp.dest(`${config.dest}/assets/`));
+  return gulp.src("packages/assets/**/*").pipe(gulp.dest(`${config.dest}/assets/`));
 }
 
 /**
@@ -72,9 +68,6 @@ function reload() {
   return gulp.src(config.dest).pipe(connect.reload());
 }
 
-gulp.task(
-  "docs:build",
-  gulp.series([copyBuiltAssets, buildHtml, copyBinaryAssets, reload])
-);
+gulp.task("docs:build", gulp.series([copyBuiltAssets, buildHtml, copyBinaryAssets, reload]));
 
 gulp.task("docs:serve", gulp.series(["docs:build", gulp.parallel(serve)]));

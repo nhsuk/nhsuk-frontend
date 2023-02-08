@@ -12,9 +12,7 @@ Find out more about the action link component and when to use it in the [NHS dig
 
 ```html
 <div class="nhsuk-action-link">
-  <a
-    class="nhsuk-action-link__link"
-    href="https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551">
+  <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551">
     <svg
       class="nhsuk-icon nhsuk-icon__arrow-right-circle"
       xmlns="http://www.w3.org/2000/svg"

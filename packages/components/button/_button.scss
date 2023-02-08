@@ -16,11 +16,7 @@ $button-shadow-size: 4px;
 
 .nhsuk-button {
   @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(
-    5,
-    "bottom",
-    $adjustment: $button-shadow-size
-  ); // s1
+  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;

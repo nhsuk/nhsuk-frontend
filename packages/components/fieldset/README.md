@@ -75,19 +75,11 @@ Find out more about the fieldset component and when to use it in the [NHS digita
   </legend>
   <div class="nhsuk-form-group">
     <label class="nhsuk-label" for="input-address1">Address line 1</label>
-    <input
-      class="nhsuk-input"
-      id="input-address1"
-      name="address1"
-      type="text" />
+    <input class="nhsuk-input" id="input-address1" name="address1" type="text" />
   </div>
   <div class="nhsuk-form-group">
     <label class="nhsuk-label" for="input-address2">Address line 2</label>
-    <input
-      class="nhsuk-input"
-      id="input-address2"
-      name="address2"
-      type="text" />
+    <input class="nhsuk-input" id="input-address2" name="address2" type="text" />
   </div>
   <div class="nhsuk-form-group">
     <label class="nhsuk-label" for="input-town-city">Town or city</label>

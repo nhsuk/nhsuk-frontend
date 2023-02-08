@@ -21,9 +21,7 @@ Find out more about the images component and when to use it in the [NHS digital 
       https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-640x427.jpg 640w,
       https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-767x511.jpg 767w
     " />
-  <figcaption class="nhsuk-image__caption">
-    Itchy, red, watering eyes
-  </figcaption>
+  <figcaption class="nhsuk-image__caption">Itchy, red, watering eyes</figcaption>
 </figure>
 <figure class="nhsuk-image">
   <img

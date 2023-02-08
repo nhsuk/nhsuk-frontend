@@ -15,9 +15,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 ```html
 <div class="nhsuk-table-container">
   <table class="nhsuk-table">
-    <caption class="nhsuk-table__caption">
-      Skin symptoms and possible causes
-    </caption>
+    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
     <thead class="nhsuk-table__head">
       <tr class="nhsuk-table__row">
         <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
@@ -45,12 +43,10 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ panel: false,
-caption: "Skin symptoms and possible causes", firstCellIsHeader: false, head: [
-{ text: "Skin symptoms" }, { text: "Possible cause" } ], rows: [ [ { text:
-"Blisters on lips or around the mouth" }, { text: "cold sores" } ], [ { text:
-"Itchy, dry, cracked, sore" }, { text: "eczema" } ], [ { text: "Itchy blisters"
-}, { text: "shingles, chickenpox" } ] ] }) }}
+{% from 'components/tables/macro.njk' import table %} {{ table({ panel: false, caption: "Skin symptoms and possible
+causes", firstCellIsHeader: false, head: [ { text: "Skin symptoms" }, { text: "Possible cause" } ], rows: [ [ { text:
+"Blisters on lips or around the mouth" }, { text: "cold sores" } ], [ { text: "Itchy, dry, cracked, sore" }, { text:
+"eczema" } ], [ { text: "Itchy blisters" }, { text: "shingles, chickenpox" } ] ] }) }}
 ```
 
 ---
@@ -66,9 +62,7 @@ caption: "Skin symptoms and possible causes", firstCellIsHeader: false, head: [
   <h3 class="nhsuk-table__heading-tab">Conditions similar to impetigo</h3>
   <div class="nhsuk-table-container">
     <table class="nhsuk-table">
-      <caption class="nhsuk-table__caption">
-        Other possible causes of your symptoms
-      </caption>
+      <caption class="nhsuk-table__caption">Other possible causes of your symptoms</caption>
       <thead class="nhsuk-table__head">
         <tr class="nhsuk-table__row">
           <th class="nhsuk-table__header" scope="col">Symptoms</th>
@@ -77,9 +71,7 @@ caption: "Skin symptoms and possible causes", firstCellIsHeader: false, head: [
       </thead>
       <tbody class="nhsuk-table__body">
         <tr class="nhsuk-table__row">
-          <td class="nhsuk-table__cell">
-            Blisters on lips or around the mouth
-          </td>
+          <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
           <td class="nhsuk-table__cell ">cold sores</td>
         </tr>
         <tr class="nhsuk-table__row">
@@ -99,12 +91,10 @@ caption: "Skin symptoms and possible causes", firstCellIsHeader: false, head: [
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ panel: true,
-heading: "Conditions similar to impetigo", caption: "Other possible causes of
-your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
-"Possible cause" } ], rows: [ [ { text: "Blisters on lips or around the mouth"
-}, { text: "cold sores" } ], [ { text: "Itchy, dry, cracked, sore" }, { text:
-"eczema" } ], [ { text: "Itchy blisters" }, { text: "shingles, chickenpox" } ] ]
+{% from 'components/tables/macro.njk' import table %} {{ table({ panel: true, heading: "Conditions similar to impetigo",
+caption: "Other possible causes of your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
+"Possible cause" } ], rows: [ [ { text: "Blisters on lips or around the mouth" }, { text: "cold sores" } ], [ { text:
+"Itchy, dry, cracked, sore" }, { text: "eczema" } ], [ { text: "Itchy blisters" }, { text: "shingles, chickenpox" } ] ]
 }) }}
 ```
 
@@ -118,9 +108,7 @@ your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
 
 ```html
 <table role="table" class="nhsuk-table-responsive">
-  <caption class="nhsuk-table__caption">
-    Ibuprofen syrup dosages for children
-  </caption>
+  <caption class="nhsuk-table__caption">Ibuprofen syrup dosages for children</caption>
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
       <th role="columnheader" class="" scope="col">Age</th>
@@ -178,16 +166,13 @@ your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ responsive:
-true, panel: false, caption: "Ibuprofen syrup dosages for children",
-firstCellIsHeader: false, head: [ { text: "Age" }, { text: "How much?" }, {
-text: "How often?" } ], rows: [ [ { header: "Age", text: "3 to 5 months
-(weighing more than 5kg)" }, { header: "How much?", text: "2.5ml" }, { header:
-"How often?", text: "Max 3 times in 24 hours" } ], [ { header: "Age", text: "6
-to 11 months" }, { header: "How much?", text: "2.5l" }, { header: "How often?",
-text: "Max 3 to 4 times in 24 hours" } ], [ { header: "Age", text: "1 to 3
-years" }, { header: "How much?", text: "5ml" }, { header: "How often?", text:
-"Max 3 times in 24 hours" } ] ] }) }}
+{% from 'components/tables/macro.njk' import table %} {{ table({ responsive: true, panel: false, caption: "Ibuprofen
+syrup dosages for children", firstCellIsHeader: false, head: [ { text: "Age" }, { text: "How much?" }, { text: "How
+often?" } ], rows: [ [ { header: "Age", text: "3 to 5 months (weighing more than 5kg)" }, { header: "How much?", text:
+"2.5ml" }, { header: "How often?", text: "Max 3 times in 24 hours" } ], [ { header: "Age", text: "6 to 11 months" }, {
+header: "How much?", text: "2.5l" }, { header: "How often?", text: "Max 3 to 4 times in 24 hours" } ], [ { header:
+"Age", text: "1 to 3 years" }, { header: "How much?", text: "5ml" }, { header: "How often?", text: "Max 3 times in 24
+hours" } ] ] }) }}
 ```
 
 ---

@@ -17,9 +17,7 @@ describe("Button", () => {
 
   describe("Button as link", () => {
     it("triggers the click event when the space key is pressed", async () => {
-      const pathname = await page.evaluate(() =>
-        document.body.getElementsByTagName("a")[0].getAttribute("href")
-      );
+      const pathname = await page.evaluate(() => document.body.getElementsByTagName("a")[0].getAttribute("href"));
 
       await page.focus('a[role="button"]');
 
@@ -27,10 +25,7 @@ describe("Button", () => {
       // so we return a promise that is fulfilled when the navigation and the keyboard action are
       // respectively fulfilled
       // this is somewhat counter intuitive, as we humans expect to act and then wait for something.
-      await Promise.all([
-        page.waitForNavigation(),
-        page.keyboard.press("Space"),
-      ]);
+      await Promise.all([page.waitForNavigation(), page.keyboard.press("Space")]);
 
       const url = new URL(await page.url());
       expect(url.pathname).toBe(pathname);
@@ -93,9 +88,7 @@ describe("Button", () => {
 
     describe("using data-attributes", () => {
       beforeEach(async () => {
-        await page.goto(
-          "http://localhost:3000/components/button/prevent-double-click.html"
-        );
+        await page.goto("http://localhost:3000/components/button/prevent-double-click.html");
         await trackClicks(page);
       });
 

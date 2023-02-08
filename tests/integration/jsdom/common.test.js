@@ -1,7 +1,4 @@
-import {
-  toggleAttribute,
-  toggleConditionalInput,
-} from "../../../packages/common";
+import { toggleAttribute, toggleConditionalInput } from "../../../packages/common";
 
 describe("toggleAttribute util", () => {
   const attr = "test-attribute";
@@ -93,8 +90,7 @@ describe("toggleConditionalInput util", () => {
     });
 
     it("if the aria-controls element is valid and content is not hidden", () => {
-      document.body.innerHTML =
-        '<input aria-controls="content" aria-expanded="true" /><div id="content" />';
+      document.body.innerHTML = '<input aria-controls="content" aria-expanded="true" /><div id="content" />';
       const input = document.querySelector("input");
       const content = document.querySelector("div");
       expect(input).not.toBeNull();

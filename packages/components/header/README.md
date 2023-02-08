@@ -22,12 +22,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        <svg
-          class="nhsuk-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 16"
-          height="40"
-          width="100">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
           <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
           <path
             class="nhsuk-logo__text"
@@ -46,11 +41,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </div>
       <div class="nhsuk-header__search">
-        <button
-          class="nhsuk-header__search-toggle"
-          id="toggle-search"
-          aria-controls="search"
-          aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg
             class="nhsuk-icon nhsuk-icon__search"
             xmlns="http://www.w3.org/2000/svg"
@@ -71,9 +62,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             action="https://www.nhs.uk/search/"
             method="get"
             role="search">
-            <label class="nhsuk-u-visually-hidden" for="search-field">
-              Search the NHS website
-            </label>
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input
               class="nhsuk-search__input"
               id="search-field"
@@ -139,8 +128,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li
-          class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
           <a class="nhsuk-header__navigation-link" href="/">
             Home
             <svg
@@ -156,9 +144,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/conditions">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
             Health A-Z
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -173,9 +159,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/live-well/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
             Live Well
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -190,9 +174,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/conditions/social-care-and-support/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
             Care and support
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -207,9 +189,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/news/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/">
             Health news
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -224,9 +204,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/service-search">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search">
             Services near you
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -291,12 +269,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        <svg
-          class="nhsuk-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 16"
-          height="40"
-          width="100">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
           <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
           <path
             class="nhsuk-logo__text"
@@ -341,8 +314,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li
-          class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
           <a class="nhsuk-header__navigation-link" href="/">
             Home
             <svg
@@ -358,9 +330,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/conditions">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
             Health A-Z
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -375,9 +345,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/live-well/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
             Live Well
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -392,9 +360,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/conditions/social-care-and-support/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
             Care and support
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -409,9 +375,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/news/">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/">
             Health news
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -426,9 +390,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a
-            class="nhsuk-header__navigation-link"
-            href="https://www.nhs.uk/service-search">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search">
             Services near you
             <svg
               class="nhsuk-icon nhsuk-icon__chevron-right"
@@ -493,12 +455,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        <svg
-          class="nhsuk-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 16"
-          height="40"
-          width="100">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
           <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
           <path
             class="nhsuk-logo__text"
@@ -508,11 +465,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-        <button
-          class="nhsuk-header__search-toggle"
-          id="toggle-search"
-          aria-controls="search"
-          aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg
             class="nhsuk-icon nhsuk-icon__search"
             xmlns="http://www.w3.org/2000/svg"
@@ -533,9 +486,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             action="https://www.nhs.uk/search/"
             method="get"
             role="search">
-            <label class="nhsuk-u-visually-hidden" for="search-field">
-              Search the NHS website
-            </label>
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input
               class="nhsuk-search__input"
               id="search-field"
@@ -863,21 +814,11 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### HTML markup
 
 ```html
-<header
-  class="nhsuk-header nhsuk-header--organisation nhsuk-header--white"
-  role="banner">
+<header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a
-        class="nhsuk-header__link"
-        href="/"
-        aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
-        <svg
-          class="nhsuk-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 16"
-          height="40"
-          width="100">
+      <a class="nhsuk-header__link" href="/" aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
           <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
           <path
             class="nhsuk-logo__text"
@@ -901,11 +842,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </div>
       <div class="nhsuk-header__search">
-        <button
-          class="nhsuk-header__search-toggle"
-          id="toggle-search"
-          aria-controls="search"
-          aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg
             class="nhsuk-icon nhsuk-icon__search"
             xmlns="http://www.w3.org/2000/svg"
@@ -926,9 +863,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             action="https://www.nhs.uk/search/"
             method="get"
             role="search">
-            <label class="nhsuk-u-visually-hidden" for="search-field">
-              Search the NHS website
-            </label>
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input
               class="nhsuk-search__input"
               id="search-field"
@@ -994,8 +929,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li
-          class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
           <a class="nhsuk-header__navigation-link" href="/">
             Home
             <svg
@@ -1136,21 +1070,11 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### HTML markup
 
 ```html
-<header
-  class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-nav"
-  role="banner">
+<header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-nav" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
-      <a
-        class="nhsuk-header__link"
-        href="/"
-        aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
-        <svg
-          class="nhsuk-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 16"
-          height="40"
-          width="100">
+      <a class="nhsuk-header__link" href="/" aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
           <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
           <path
             class="nhsuk-logo__text"
@@ -1174,11 +1098,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </div>
       <div class="nhsuk-header__search">
-        <button
-          class="nhsuk-header__search-toggle"
-          id="toggle-search"
-          aria-controls="search"
-          aria-label="Open search">
+        <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
           <svg
             class="nhsuk-icon nhsuk-icon__search"
             xmlns="http://www.w3.org/2000/svg"
@@ -1199,9 +1119,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             action="https://www.nhs.uk/search/"
             method="get"
             role="search">
-            <label class="nhsuk-u-visually-hidden" for="search-field">
-              Search the NHS website
-            </label>
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input
               class="nhsuk-search__input"
               id="search-field"
@@ -1267,8 +1185,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         </button>
       </p>
       <ul class="nhsuk-header__navigation-list">
-        <li
-          class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
           <a class="nhsuk-header__navigation-link" href="/">
             Home
             <svg

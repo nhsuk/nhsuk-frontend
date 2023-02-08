@@ -38,12 +38,7 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
     // [2] //
     @each $direction in $_spacing-directions {
       .nhsuk-u-#{$property}-#{$direction}-#{$scale-point} {
-        @include _nhsuk-responsive-spacing(
-          $scale-point,
-          $property,
-          $direction,
-          true
-        );
+        @include _nhsuk-responsive-spacing($scale-point, $property, $direction, true);
       }
     }
   }

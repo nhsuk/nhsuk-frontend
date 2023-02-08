@@ -90,12 +90,7 @@ $_nhsuk-grid-widths: (
 //   @include govuk-grid-column(one-half, $float: right);
 //
 
-@mixin govuk-grid-column(
-  $width: full,
-  $float: left,
-  $at: desktop,
-  $class: "nhsuk-grid-column"
-) {
+@mixin govuk-grid-column($width: full, $float: left, $at: desktop, $class: "nhsuk-grid-column") {
   .#{$class}-#{$width} {
     box-sizing: border-box;
     padding: 0 $nhsuk-gutter-half;
