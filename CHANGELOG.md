@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 6.2.1 - TBA
+
+:wrench: **Fixes**
+
+- Adds missing `open` parameter to `details` nunjucks component #856
+
 ## 6.2.0 - 17 January 2023
 
 :new: **New features**
@@ -7,7 +13,7 @@
   - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
   - Add optional `data-prevent-double-click="true"` attribute to buttons to trigger simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
   - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
-  
+
 - Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
 
 :wrench: **Fixes**
@@ -46,7 +52,7 @@
 
 :wrench: **Fixes**
 
-- Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right` 
+- Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right`
 
 ## 6.0.0 - 29 November 2021
 
@@ -63,7 +69,7 @@ We've reworked the care cards component as a pattern to "Help users decide when 
 
 - Remove Nav A-Z component & List panel component
 
-The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual. 
+The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual.
 
 ### Nav A-Z
 
