@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Character Count - max characters' %}
+{% set title = 'Character Count - with maxlength attribute' %}
 {% from 'components/character-count/macro.njk' import characterCount %}
 {% extends 'layout.njk' %}
 
@@ -13,7 +13,10 @@
           {{ characterCount({
             "name": "more-detail",
             "id": "more-detail",
-            "maxlength": 10,
+            "maxlength": 11,
+            "attributes": {
+                "maxlength": 11
+            },
             "label": {
               "text": "Can you provide more detail?"
             },

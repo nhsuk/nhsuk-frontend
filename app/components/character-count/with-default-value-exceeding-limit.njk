@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Character Count - max characters' %}
+{% set title = 'Character Count - with default value exceeding limit' %}
 {% from 'components/character-count/macro.njk' import characterCount %}
 {% extends 'layout.njk' %}
 
@@ -14,6 +14,7 @@
             "name": "more-detail",
             "id": "more-detail",
             "maxlength": 10,
+            "value": "012345678901234567890123456789123",
             "label": {
               "text": "Can you provide more detail?"
             },

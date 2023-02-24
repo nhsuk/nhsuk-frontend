@@ -15,7 +15,6 @@ import "./polyfills";
 document.addEventListener("DOMContentLoaded", () => {
   CharacterCount();
   Button();
-  Card();
   Checkboxes();
   Details();
   ErrorSummary();
