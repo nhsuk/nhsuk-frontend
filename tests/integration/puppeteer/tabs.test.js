@@ -10,6 +10,10 @@ describe("Tabs", () => {
     page = await browser.newPage();
   });
 
+  afterAll(async () => {
+    await browser.close();
+  });
+
   describe("when JavaScript is unavailable or fails", () => {
     beforeAll(async () => {
       await page.setJavaScriptEnabled(false);

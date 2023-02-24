@@ -13,6 +13,10 @@ describe("Character count", () => {
     page = await browser.newPage();
   });
 
+  afterAll(async () => {
+    await browser.close();
+  });
+
   describe("when JavaScript is unavailable or fails", () => {
     afterAll(async () => {
       await page.setJavaScriptEnabled(true);
