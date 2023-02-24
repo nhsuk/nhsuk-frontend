@@ -168,37 +168,41 @@ describe("Tabs", () => {
     });
   });
 
-  // describe("when a hash associated with a tab panel is passed in the URL", () => {
-  //   it("should indicate the open state of the associated tab", async () => {
-  //     await goTo(page, "/components/tabs/preview/#past-week");
+  describe("when a hash associated with a tab panel is passed in the URL", () => {
+    it("should indicate the open state of the associated tab", async () => {
+      await Promise.all([
+        page.goto("http://localhost:3000/components/tabs/index.html#tab-two"),
+        page.waitForNavigation(),
+      ]);
 
-  //     const currentTabAriaSelected = await page.evaluate(() =>
-  //       document.body.querySelector('.nhsuk-tabs__tab[href="#past-week"]').getAttribute("aria-selected")
-  //     );
-  //     expect(currentTabAriaSelected).toEqual("true");
+      const currentTabAriaSelected = await page.evaluate(() =>
+        document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]').getAttribute("aria-selected")
+      );
+      expect(currentTabAriaSelected).toEqual("true");
 
-  //     const currentTabClasses = await page.evaluate(
-  //       () => document.body.querySelector('.nhsuk-tabs__tab[href="#past-week"]').parentElement.className
-  //     );
-  //     expect(currentTabClasses).toContain("nhsuk-tabs__list-item--selected");
+      const currentTabClasses = await page.evaluate(
+        () => document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]').parentElement.className
+      );
+      expect(currentTabClasses).toContain("nhsuk-tabs__list-item--selected");
 
-  //     const currentTabPanelIsHidden = await page.evaluate(() =>
-  //       document.getElementById("past-week").classList.contains("nhsuk-tabs__panel--hidden")
-  //     );
-  //     expect(currentTabPanelIsHidden).toBeFalsy();
-  //   });
+      const currentTabPanelIsHidden = await page.evaluate(() =>
+        document.getElementById("tab-two").classList.contains("nhsuk-tabs__panel--hidden")
+      );
+      expect(currentTabPanelIsHidden).toBeFalsy();
+    });
 
-  //   it("should only update based on hashes that are tabs", async () => {
-  //     await goToComponent(page, "tabs", {
-  //       exampleName: "tabs-with-anchor-in-panel",
-  //     });
+    it("should only update based on hashes that are tabs", async () => {
+      await Promise.all([
+        page.goto("http://localhost:3000/components/tabs/tabs-with-anchor-in-panel.html"),
+        page.waitForNavigation(),
+      ]);
 
-  //     await page.click('[href="#anchor"]');
+      await page.click('[href="#anchor"]');
 
-  //     const activeElementId = await page.evaluate(() => document.activeElement.id);
-  //     expect(activeElementId).toEqual("anchor");
-  //   });
-  // });
+      const activeElementId = await page.evaluate(() => document.activeElement.id);
+      expect(activeElementId).toEqual("anchor");
+    });
+  });
 
   describe("when rendered on a small device", () => {
     beforeEach(async () => {
