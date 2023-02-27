@@ -9,6 +9,6 @@
   {% endfor %}
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ params.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ params.text}}</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ params.href }}">Back to {{ params.text }}</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ params.href }}"><span class="nhsuk-u-visually-hidden">Back to </span>{{ params.text }}</a></p>
   </div>
 </nav>
