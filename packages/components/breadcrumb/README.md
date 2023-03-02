@@ -25,7 +25,10 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
       </li>
     </ol>
     <p class="nhsuk-breadcrumb__back">
-      <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three"><span class="nhsuk-u-visually-hidden">Back to </span>L Level three</a>
+      <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+        <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+        Level three
+      </a>
     </p>
   </div>
 </nav>
