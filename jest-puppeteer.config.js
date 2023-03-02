@@ -33,5 +33,6 @@ module.exports = {
     command: "npm start",
     port: 3000,
     launchTimeout: 30000,
+    host: "127.0.0.1",
   },
 };
