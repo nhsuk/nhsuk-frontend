@@ -1,4 +1,4 @@
-import { toggleAttribute } from "../../common";
+import { toggleAttribute } from '../../common'
 
 /**
  * Ensure details component is cross browser and accessible
@@ -7,13 +7,13 @@ import { toggleAttribute } from "../../common";
 
 export default () => {
   // Does the browser support details component
-  const nativeSupport = typeof document.createElement("details").open === "boolean";
+  const nativeSupport = typeof document.createElement('details').open === 'boolean'
   if (nativeSupport) {
-    return;
+    return
   }
 
   // Nodelist of all details elements
-  const allDetails = document.querySelectorAll("details");
+  const allDetails = document.querySelectorAll('details')
 
   /**
    * Adds all necessary functionality to a details element
@@ -22,60 +22,60 @@ export default () => {
    */
   const initDetails = (element, index) => {
     // Set details element as polyfilled to prevent duplicate events being added
-    element.setAttribute("nhsuk-polyfilled", "true");
+    element.setAttribute('nhsuk-polyfilled', 'true')
 
     // Give details element an ID if it doesn't already have one
-    if (!element.id) element.setAttribute("id", `nhsuk-details${index}`);
+    if (!element.id) element.setAttribute('id', `nhsuk-details${index}`)
 
     // Set content element and give it an ID if it doesn't already have one
-    const content = document.querySelector(`#${element.id} .nhsuk-details__text`);
-    if (!content.id) content.setAttribute("id", `nhsuk-details__text${index}`);
+    const content = document.querySelector(`#${element.id} .nhsuk-details__text`)
+    if (!content.id) content.setAttribute('id', `nhsuk-details__text${index}`)
 
     // Set summary element
-    const summary = document.querySelector(`#${element.id} .nhsuk-details__summary`);
+    const summary = document.querySelector(`#${element.id} .nhsuk-details__summary`)
 
     // Set initial summary aria attributes
-    summary.setAttribute("role", "button");
-    summary.setAttribute("aria-controls", content.id);
-    summary.setAttribute("tabIndex", "0");
-    const openAttr = element.getAttribute("open") !== null;
+    summary.setAttribute('role', 'button')
+    summary.setAttribute('aria-controls', content.id)
+    summary.setAttribute('tabIndex', '0')
+    const openAttr = element.getAttribute('open') !== null
     if (openAttr === true) {
-      summary.setAttribute("aria-expanded", "true");
-      content.setAttribute("aria-hidden", "false");
+      summary.setAttribute('aria-expanded', 'true')
+      content.setAttribute('aria-hidden', 'false')
     } else {
-      summary.setAttribute("aria-expanded", "false");
-      content.setAttribute("aria-hidden", "true");
-      content.style.display = "none";
+      summary.setAttribute('aria-expanded', 'false')
+      content.setAttribute('aria-hidden', 'true')
+      content.style.display = 'none'
     }
 
     const toggleDetails = () => {
-      toggleAttribute(summary, "aria-expanded");
-      toggleAttribute(content, "aria-hidden");
+      toggleAttribute(summary, 'aria-expanded')
+      toggleAttribute(content, 'aria-hidden')
 
-      content.style.display = content.getAttribute("aria-hidden") === "true" ? "none" : "";
-      if (element.hasAttribute("open")) {
-        element.removeAttribute("open");
+      content.style.display = content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
+      if (element.hasAttribute('open')) {
+        element.removeAttribute('open')
       } else {
-        element.setAttribute("open", "open");
+        element.setAttribute('open', 'open')
       }
-    };
+    }
 
     // Toggle details onclick
-    summary.addEventListener("click", toggleDetails);
+    summary.addEventListener('click', toggleDetails)
 
     // Call toggle details on enter and space key events
-    summary.addEventListener("keydown", (event) => {
+    summary.addEventListener('keydown', (event) => {
       if (event.keyCode === 13 || event.keyCode === 32) {
-        event.preventDefault();
-        summary.click();
+        event.preventDefault()
+        summary.click()
       }
-    });
-  };
+    })
+  }
 
   // Initialise details for any new details element
   if (allDetails.length) {
     allDetails.forEach((element, index) => {
-      if (!element.hasAttribute("nhsuk-polyfilled")) initDetails(element, index);
-    });
+      if (!element.hasAttribute('nhsuk-polyfilled')) initDetails(element, index)
+    })
   }
-};
+}

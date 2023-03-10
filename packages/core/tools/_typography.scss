@@ -133,7 +133,7 @@
 
     $line-height: _nhsuk-line-height(
       $line-height: if($override-line-height, $override-line-height, map-get($breakpoint-map, "line-height")),
-      $font-size: $font-size,
+      $font-size: $font-size
     );
 
     // [1] //
