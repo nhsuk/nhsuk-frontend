@@ -7,6 +7,31 @@
 - Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811))
 - Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828))
 
+:boom: **Breaking changes**
+
+- Breadcrumb update
+
+We iterated the breadcrumb, removing the white banner and bringing the breadcrumb link closer to the page heading, which it relates to, giving the heading context of where it sits within the site. Instead of having this:
+
+```
+  <p class="nhsuk-breadcrumb__back">
+    <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+      Back to Level three
+    </a>
+  </p>
+```
+
+You will only now need this:
+
+```
+  <p class="nhsuk-breadcrumb__back">
+    <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+      <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+      Level three
+    </a>
+  </p>
+```
+
 :recycle: **Changes**
 
 - Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).  
