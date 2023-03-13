@@ -10,32 +10,34 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ checkboxes({
-            "name": "waste",
-            "errorMessage": {
-              "text": "Please select an option"
-            },
-            "fieldset": {
-              "legend": {
-                "text": "Which types of waste do you transport regularly?",
-                "classes": "nhsuk-fieldset__legend--m"
-              }
-            },
-            "items": [
-              {
-                "value": "animal",
-                "text": "Waste from animal carcasses"
+          <form>
+            {{ checkboxes({
+              "name": "waste",
+              "errorMessage": {
+                "text": "Please select an option"
               },
-              {
-                "value": "mines",
-                "text": "Waste from mines or quarries"
+              "fieldset": {
+                "legend": {
+                  "text": "Which types of waste do you transport regularly?",
+                  "classes": "nhsuk-fieldset__legend--m"
+                }
               },
-              {
-                "value": "farm",
-                "text": "Farm or agricultural waste"
-              }
-            ]
-          }) }}
+              "items": [
+                {
+                  "value": "animal",
+                  "text": "Waste from animal carcasses"
+                },
+                {
+                  "value": "mines",
+                  "text": "Waste from mines or quarries"
+                },
+                {
+                  "value": "farm",
+                  "text": "Farm or agricultural waste"
+                }
+              ]
+            }) }}
+          </form>
         </div>
       </div>
 
