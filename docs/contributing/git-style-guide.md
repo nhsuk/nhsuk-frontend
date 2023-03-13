@@ -26,9 +26,11 @@ After the summary line should come a blank line, followed by a more detailed des
 ```html
 [refs #94] Remove search icon IE8 fallback icon
 
-We are reducing the extra code and overheads for Internet Explorer 8, so
-we are removing fallback icons. We have replaced a fallback icon with the text search so it still functions. See
-https://github.com/nhsuk/nhsuk-frontend/issues/94
+We are reducing the extra code and overheads for Internet Explorer 8,
+so we are removing fallback icons. We have replaced a fallback icon
+with the text search so it still functions.
+See https://github.com/nhsuk/nhsuk-frontend/issues/94
+
 ```
 
 If including a link to a ticket make sure it is publicly viewable.

@@ -14,8 +14,10 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 ```html
 <div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-example">National Insurance number</label>
-  <input class="nhsuk-input" id="input-example" name="test-name" type="text" />
+  <label class="nhsuk-label" for="input-example">
+    National Insurance number
+  </label>
+  <input class="nhsuk-input" id="input-example" name="test-name" type="text">
 </div>
 ```
 
@@ -47,13 +49,10 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-with-autocomplete-attribute">Postcode</label>
-  <input
-    class="nhsuk-input"
-    id="input-with-autocomplete-attribute"
-    name="postcode"
-    type="text"
-    autocomplete="postal-code" />
+  <label class="nhsuk-label" for="input-with-autocomplete-attribute">
+  Postcode
+  </label>
+  <input class="nhsuk-input" id="input-with-autocomplete-attribute" name="postcode" type="text" autocomplete="postal-code">
 </div>
 ```
 
@@ -82,16 +81,13 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-with-hint-text">National insurance number</label>
+  <label class="nhsuk-label" for="input-with-hint-text">
+  National insurance number
+  </label>
   <div class="nhsuk-hint" id="input-with-hint-text-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <input
-    class="nhsuk-input"
-    id="input-with-hint-text"
-    name="test-name-2"
-    type="text"
-    aria-describedby="input-with-hint-text-hint" />
+  <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
 </div>
 ```
 
@@ -122,17 +118,16 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
-  <label class="nhsuk-label" for="input-with-error-message">National Insurance number</label>
+  <label class="nhsuk-label" for="input-with-error-message">
+  National Insurance number
+  </label>
   <div class="nhsuk-hint" id="input-with-error-message-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <span id="input-with-error-message-error" class="nhsuk-error-message">Error message goes here</span>
-  <input
-    class="nhsuk-input nhsuk-input--error"
-    id="input-with-error-message"
-    name="test-name-3"
-    type="text"
-    aria-describedby="input-with-error-message-hint input-with-error-message-error" />
+  <span id="input-with-error-message-error" class="nhsuk-error-message">
+  Error message goes here
+  </span>
+  <input class="nhsuk-input nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
 </div>
 ```
 
@@ -166,16 +161,13 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ```html
 <div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-width-10">National insurance number</label>
+  <label class="nhsuk-label" for="input-width-10">
+  National insurance number
+  </label>
   <div class="nhsuk-hint" id="input-width-10-hint">
-    It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
+  It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <input
-    class="nhsuk-input nhsuk-input--width-10"
-    id="input-width-10"
-    name="test-width-10"
-    type="text"
-    aria-describedby="input-width-10-hint" />
+  <input class="nhsuk-input nhsuk-input--width-10" id="input-width-10" name="test-width-10" type="text" aria-describedby="input-width-10-hint">
 </div>
 ```
 
@@ -223,4 +215,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Input component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/input) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Input component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/input) with a few minor adaptations.

@@ -13,7 +13,9 @@ Find out more about the tag component and when to use it in the [NHS digital ser
 #### HTML markup
 
 ```html
-<strong class="nhsuk-tag">Active</strong>
+<strong class="nhsuk-tag">
+  Active
+</strong>
 ```
 
 #### Nunjucks macro
@@ -33,7 +35,9 @@ See the full list of tag colours on the [NHS digital service manual](https://ser
 #### HTML markup
 
 ```html
-<strong class="nhsuk-tag nhsuk-tag--grey">Inactive</strong>
+<strong class="nhsuk-tag nhsuk-tag--grey">
+  Inactive
+</strong>
 ```
 
 #### Nunjucks macro

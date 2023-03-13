@@ -18,32 +18,16 @@ Find out more about the contents list component and when to use it in the [NHS d
       <span class="nhsuk-contents-list__current">What is AMD?</span>
     </li>
     <li class="nhsuk-contents-list__item">
-      <a
-        class="nhsuk-contents-list__link"
-        href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">
-        Symptoms
-      </a>
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">Symptoms</a>
     </li>
     <li class="nhsuk-contents-list__item">
-      <a
-        class="nhsuk-contents-list__link"
-        href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">
-        Getting diagnosed
-      </a>
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">Getting diagnosed</a>
     </li>
     <li class="nhsuk-contents-list__item">
-      <a
-        class="nhsuk-contents-list__link"
-        href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">
-        Treatments
-      </a>
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">Treatments</a>
     </li>
     <li class="nhsuk-contents-list__item">
-      <a
-        class="nhsuk-contents-list__link"
-        href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">
-        Living with AMD
-      </a>
+      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">Living with AMD</a>
     </li>
   </ol>
 </nav>
