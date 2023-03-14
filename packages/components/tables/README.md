@@ -43,10 +43,47 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ panel: false, caption: "Skin symptoms and possible
-causes", firstCellIsHeader: false, head: [ { text: "Skin symptoms" }, { text: "Possible cause" } ], rows: [ [ { text:
-"Blisters on lips or around the mouth" }, { text: "cold sores" } ], [ { text: "Itchy, dry, cracked, sore" }, { text:
-"eczema" } ], [ { text: "Itchy blisters" }, { text: "shingles, chickenpox" } ] ] }) }}
+{% from 'components/tables/macro.njk' import table %}
+
+{{ table({
+  panel: false,
+  caption: "Skin symptoms and possible causes",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Skin symptoms"
+    },
+    {
+      text: "Possible cause"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Blisters on lips or around the mouth"
+      },
+      {
+        text: "cold sores"
+      }
+    ],
+    [
+      {
+        text: "Itchy, dry, cracked, sore"
+      },
+      {
+        text: "eczema"
+      }
+    ],
+    [
+      {
+        text: "Itchy blisters"
+      },
+      {
+        text: "shingles, chickenpox"
+      }
+    ]
+  ]
+}) }}
 ```
 
 ---
@@ -91,10 +128,47 @@ causes", firstCellIsHeader: false, head: [ { text: "Skin symptoms" }, { text: "P
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ panel: true, heading: "Conditions similar to impetigo",
-caption: "Other possible causes of your symptoms", firstCellIsHeader: false, head: [ { text: "Symptoms" }, { text:
-"Possible cause" } ], rows: [ [ { text: "Blisters on lips or around the mouth" }, { text: "cold sores" } ], [ { text:
-"Itchy, dry, cracked, sore" }, { text: "eczema" } ], [ { text: "Itchy blisters" }, { text: "shingles, chickenpox" } ] ]
+{% from 'components/tables/macro.njk' import table %}
+
+{{ table({
+  panel: true,
+  heading: "Conditions similar to impetigo",
+  caption: "Other possible causes of your symptoms",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Symptoms"
+    },
+    {
+      text: "Possible cause"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Blisters on lips or around the mouth"
+      },
+      {
+        text: "cold sores"
+      }
+    ],
+    [
+      {
+        text: "Itchy, dry, cracked, sore"
+      },
+      {
+        text: "eczema"
+      }
+    ],
+    [
+      {
+        text: "Itchy blisters"
+      },
+      {
+        text: "shingles, chickenpox"
+      }
+    ]
+  ]
 }) }}
 ```
 
@@ -111,52 +185,49 @@ caption: "Other possible causes of your symptoms", firstCellIsHeader: false, hea
   <caption class="nhsuk-table__caption">Ibuprofen syrup dosages for children</caption>
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
-      <th role="columnheader" class="" scope="col">Age</th>
-      <th role="columnheader" class="" scope="col">How much?</th>
-      <th role="columnheader" class="" scope="col">How often?</th>
+      <th role="columnheader" class="" scope="col">
+        Age
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How much?
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How often?
+      </th>
     </tr>
   </thead>
   <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
+    <tr role="row" class="nhsuk-table__row" >
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">Age</span>
-        3 to 5 months (weighing more than 5kg)
+        <span class="nhsuk-table-responsive__heading">Age </span>3 to 5 months (weighing more than 5kg)
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How much?</span>
-        2.5ml
+        <span class="nhsuk-table-responsive__heading">How much? </span>2.5ml
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How often?</span>
-        Max 3 times in 24 hours
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
       </td>
     </tr>
-    <tr role="row" class="nhsuk-table__row">
+    <tr role="row" class="nhsuk-table__row" >
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">Age</span>
-        6 to 11 months
+        <span class="nhsuk-table-responsive__heading">Age </span>6 to 11 months
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How much?</span>
-        2.5l
+        <span class="nhsuk-table-responsive__heading">How much? </span>2.5l
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How often?</span>
-        Max 3 to 4 times in 24 hours
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 to 4 times in 24 hours
       </td>
     </tr>
-    <tr role="row" class="nhsuk-table__row">
+    <tr role="row" class="nhsuk-table__row" >
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">Age</span>
-        1 to 3 years
+        <span class="nhsuk-table-responsive__heading">Age </span>1 to 3 years
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How much?</span>
-        5ml
+        <span class="nhsuk-table-responsive__heading">How much? </span>5ml
       </td>
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading">How often?</span>
-        Max 3 times in 24 hours
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
       </td>
     </tr>
   </tbody>
@@ -166,13 +237,68 @@ caption: "Other possible causes of your symptoms", firstCellIsHeader: false, hea
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %} {{ table({ responsive: true, panel: false, caption: "Ibuprofen
-syrup dosages for children", firstCellIsHeader: false, head: [ { text: "Age" }, { text: "How much?" }, { text: "How
-often?" } ], rows: [ [ { header: "Age", text: "3 to 5 months (weighing more than 5kg)" }, { header: "How much?", text:
-"2.5ml" }, { header: "How often?", text: "Max 3 times in 24 hours" } ], [ { header: "Age", text: "6 to 11 months" }, {
-header: "How much?", text: "2.5l" }, { header: "How often?", text: "Max 3 to 4 times in 24 hours" } ], [ { header:
-"Age", text: "1 to 3 years" }, { header: "How much?", text: "5ml" }, { header: "How often?", text: "Max 3 times in 24
-hours" } ] ] }) }}
+{% from 'components/tables/macro.njk' import table %}
+{{ table({
+  responsive: true,
+  panel: false,
+  caption: "Ibuprofen syrup dosages for children",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Age"
+    },
+    {
+      text: "How much?"
+    },
+    {
+      text: "How often?"
+    }
+  ],
+  rows: [
+    [
+      {
+        header: "Age",
+        text: "3 to 5 months (weighing more than 5kg)"
+      },
+      {
+        header: "How much?",
+        text: "2.5ml"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 times in 24 hours"
+      }
+    ],
+    [
+      {
+        header: "Age",
+        text: "6 to 11 months"
+      },
+      {
+        header: "How much?",
+        text: "2.5l"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 to 4 times in 24 hours"
+      }
+    ],
+    [
+      {
+        header: "Age",
+        text: "1 to 3 years"
+      },
+      {
+        header: "How much?",
+        text: "5ml"
+      },
+      {
+        header: "How often?",
+        text: "Max 3 times in 24 hours"
+      }
+    ]
+  ]
+}) }}
 ```
 
 ---

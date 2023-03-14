@@ -109,11 +109,11 @@ module.exports = {
     },
     {
       label: 'Character Count - with threshold',
-      url: `${TEST_URL}/character-count/threshold.html`,
+      url: `${TEST_URL}/character-count/with-threshold.html`,
     },
     {
       label: 'Character Count - max words',
-      url: `${TEST_URL}/character-count/words.html`,
+      url: `${TEST_URL}/character-count/with-word-count.html`,
     },
     {
       label: 'Checkboxes',
@@ -483,4 +483,4 @@ module.exports = {
       width: 1366,
     },
   ],
-};
+}

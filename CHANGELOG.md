@@ -440,10 +440,10 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   ```javascript
   // Components
-  import ErrorSummary from "../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary";
+  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary';
 
   // Initialize components
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     ErrorSummary();
   });
   ```
@@ -814,17 +814,17 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   ```javascript
   // Components
-  import Header from "../node_modules/nhsuk-frontend/packages/components/header/header";
-  import SkipLink from "../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link";
-  import Details from "../node_modules/nhsuk-frontend/packages/components/details/details";
-  import Radios from "../node_modules/nhsuk-frontend/packages/components/radios/radios";
-  import Checkboxes from "../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes";
+  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
+  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
+  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
+  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
+  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
 
   // Polyfills
-  import "../node_modules/nhsuk-frontend/packages/polyfills";
+  import '../node_modules/nhsuk-frontend/packages/polyfills';
 
   // Initialize components
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     Details();
     Header();
     SkipLink();
@@ -946,11 +946,11 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   If you are importing component styles individually, you will need to remove the imports for the emergency alert and feedback banner:
 
   ```scss
-  @import "node_modules/nhsuk-frontend/packages/components/emergency-alert/emergency-alert";
+  @import 'node_modules/nhsuk-frontend/packages/components/emergency-alert/emergency-alert';
   ```
 
   ```scss
-  @import "node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner";
+  @import 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
   ```
 
   If you import all the component styles with `@import 'node_modules/nhsuk-frontend/packages/core/all';`, you don't need to update your Sass imports.
@@ -960,7 +960,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
   ```js
-  import nhsuk_feedbackBanner from "node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner";
+  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
   ```
 
   ```js
@@ -979,12 +979,12 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   ```js
   // Components
-  import Header from "./components/header/header";
-  import SkipLink from "./components/skip-link/skip-link";
-  import Details from "./components/details/details";
+  import Header from './components/header/header';
+  import SkipLink from './components/skip-link/skip-link';
+  import Details from './components/details/details';
 
   // Initialize components
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     Details();
     Header();
     SkipLink();

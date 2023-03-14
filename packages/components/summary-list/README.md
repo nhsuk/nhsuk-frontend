@@ -11,43 +11,53 @@
 ```html
 <dl class="nhsuk-summary-list">
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Name</dt>
-    <dd class="nhsuk-summary-list__value">Sarah Philips</dd>
+    <dt class="nhsuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Sarah Philips
+    </dd>
     <dd class="nhsuk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden">name</span>
+        <span class="nhsuk-u-visually-hidden"> name</span>
       </a>
     </dd>
   </div>
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Date of birth</dt>
-    <dd class="nhsuk-summary-list__value">5 January 1978</dd>
+    <dt class="nhsuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      5 January 1978
+    </dd>
     <dd class="nhsuk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden">date of birth</span>
+        <span class="nhsuk-u-visually-hidden"> date of birth</span>
       </a>
     </dd>
   </div>
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact information</dt>
+    <dt class="nhsuk-summary-list__key">
+      Contact information
+    </dt>
     <dd class="nhsuk-summary-list__value">
       72 Guild Street
-      <br />
-      London
-      <br />
-      SE23 6FH
+      <br>London
+      <br>SE23 6FH
     </dd>
     <dd class="nhsuk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden">contact information</span>
+        <span class="nhsuk-u-visually-hidden"> contact information</span>
       </a>
     </dd>
   </div>
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact details</dt>
+    <dt class="nhsuk-summary-list__key">
+      Contact details
+    </dt>
     <dd class="nhsuk-summary-list__value">
       <p class="nhsuk-body">07700 900457</p>
       <p class="nhsuk-body">sarah.phillips@example.com</p>
@@ -55,7 +65,7 @@
     <dd class="nhsuk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden">contact details</span>
+        <span class="nhsuk-u-visually-hidden"> contact details</span>
       </a>
     </dd>
   </div>
@@ -152,25 +162,35 @@
 ```html
 <dl class="nhsuk-summary-list">
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Name</dt>
-    <dd class="nhsuk-summary-list__value">Sarah Philips</dd>
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Date of birth</dt>
-    <dd class="nhsuk-summary-list__value">5 January 1978</dd>
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact information</dt>
+    <dt class="nhsuk-summary-list__key">
+      Name
+    </dt>
     <dd class="nhsuk-summary-list__value">
-      72 Guild Street
-      <br />
-      London
-      <br />
-      SE23 6FH
+      Sarah Philips
     </dd>
   </div>
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact details</dt>
+    <dt class="nhsuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      5 January 1978
+    </dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Contact information
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      72 Guild Street
+      <br>London
+      <br>SE23 6FH
+    </dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Contact details
+    </dt>
     <dd class="nhsuk-summary-list__value">
       <p class="nhsuk-body">07700 900457</p>
       <p class="nhsuk-body">sarah.phillips@example.com</p>
@@ -233,25 +253,35 @@
 ```html
 <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Name</dt>
-    <dd class="nhsuk-summary-list__value">Sarah Philips</dd>
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Date of birth</dt>
-    <dd class="nhsuk-summary-list__value">5 January 1978</dd>
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact information</dt>
+    <dt class="nhsuk-summary-list__key">
+      Name
+    </dt>
     <dd class="nhsuk-summary-list__value">
-      72 Guild Street
-      <br />
-      London
-      <br />
-      SE23 6FH
+      Sarah Philips
     </dd>
   </div>
   <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Contact details</dt>
+    <dt class="nhsuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      5 January 1978
+    </dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Contact information
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      72 Guild Street
+      <br>London
+      <br>SE23 6FH
+    </dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Contact details
+    </dt>
     <dd class="nhsuk-summary-list__value">
       <p class="nhsuk-body">07700 900457</p>
       <p class="nhsuk-body">sarah.phillips@example.com</p>
@@ -332,4 +362,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Summary list component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/summary-list) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Summary list component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/summary-list) with a few minor adaptations.

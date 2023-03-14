@@ -13,7 +13,9 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button" type="submit" data-module="nhsuk-button">Save and continue</button>
+<button class="nhsuk-button" type="submit" data-module="nhsuk-button">
+  Save and continue
+</button>
 ```
 
 #### Nunjucks macro
@@ -35,7 +37,9 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<a href="/" class="nhsuk-button" draggable="false" role="button" data-module="nhsuk-button">Link button</a>
+<a href="/" class="nhsuk-button" draggable="false" role="button" data-module="nhsuk-button">
+  Link button
+</a>
 ```
 
 #### Nunjucks macro
@@ -58,12 +62,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button
-  class="nhsuk-button nhsuk-button--disabled"
-  type="submit"
-  disabled="disabled"
-  aria-disabled="true"
-  data-module="nhsuk-button">
+<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true" data-module="nhsuk-button">
   Disabled button
 </button>
 ```
@@ -88,11 +87,8 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--secondary" type="submit">
+<button class="nhsuk-button nhsuk-button--secondary" type="submit" data-module="nhsuk-button">
   Find my location
-  <button class="nhsuk-button nhsuk-button--secondary" type="submit" data-module="nhsuk-button">
-    Find my location
-  </button>
 </button>
 ```
 
@@ -116,7 +112,9 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--reverse" type="submit" data-module="nhsuk-button">Save and continue</button>
+<button class="nhsuk-button nhsuk-button--reverse" type="submit" data-module="nhsuk-button">
+  Save and continue
+</button>
 ```
 
 #### Nunjucks macro
@@ -174,4 +172,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Button component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/button) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Button component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/button) with a few minor adaptations.

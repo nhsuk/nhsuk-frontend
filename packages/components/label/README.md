@@ -9,7 +9,9 @@
 #### HTML markup
 
 ```html
-<label class="nhsuk-label">National Insurance number</label>
+<label class="nhsuk-label">
+  National Insurance number
+</label>
 ```
 
 #### Nunjucks macro
@@ -31,7 +33,9 @@
 #### HTML markup
 
 ```html
-<label class="nhsuk-label nhsuk-label--s">National Insurance number</label>
+<label class="nhsuk-label nhsuk-label--s">
+  National Insurance number
+</label>
 ```
 
 #### Nunjucks macro
@@ -55,7 +59,9 @@
 
 ```html
 <h1 class="nhsuk-label-wrapper">
-  <label class="nhsuk-label nhsuk-label--xl">National Insurance number</label>
+  <label class="nhsuk-label nhsuk-label--xl">
+    National Insurance number
+  </label>
 </h1>
 ```
 
@@ -89,4 +95,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Label component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/label) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Label component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/label) with a few minor adaptations.

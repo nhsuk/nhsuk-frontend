@@ -17,43 +17,35 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 ```html
 <div class="nhsuk-form-group">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
-    <legend class="nhsuk-fieldset__legend">What is your date of birth?</legend>
-    <div class="nhsuk-hint" id="dob-hint">For example, 31 3 1980</div>
+    <legend class="nhsuk-fieldset__legend">
+      What is your date of birth?
+    </legend>
+    <div class="nhsuk-hint" id="dob-hint">
+    For example, 31 3 1980
+    </div>
     <div class="nhsuk-date-input" id="dob">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">Day</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-            id="dob-day"
-            name="dob-day"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
+          Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob-day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">Month</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-            id="dob-month"
-            name="dob-month"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
+          Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob-month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">Year</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
-            id="dob-year"
-            name="dob-year"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
+          Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob-year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -109,46 +101,35 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 ```html
 <div class="nhsuk-form-group">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-with-autocomplete-attribute-hint" role="group">
-    <legend class="nhsuk-fieldset__legend">What is your date of birth?</legend>
-    <div class="nhsuk-hint" id="dob-with-autocomplete-attribute-hint">For example, 31 3 1980</div>
+    <legend class="nhsuk-fieldset__legend">
+      What is your date of birth?
+    </legend>
+    <div class="nhsuk-hint" id="dob-with-autocomplete-attribute-hint">
+    For example, 31 3 1980
+    </div>
     <div class="nhsuk-date-input" id="dob-with-autocomplete-attribute">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-day">Day</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-            id="dob-with-autocomplete-attribute-day"
-            name="dob-with-autocomplete-day"
-            inputmode="numeric"
-            type="text"
-            autocomplete="bday-day"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-day">
+          Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-day" name="dob-with-autocomplete-day" inputmode="numeric" type="text" autocomplete="bday-day" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-month">Month</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-            id="dob-with-autocomplete-attribute-month"
-            name="dob-with-autocomplete-month"
-            inputmode="numeric"
-            type="text"
-            autocomplete="bday-month"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-month">
+          Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-with-autocomplete-attribute-month" name="dob-with-autocomplete-month" inputmode="numeric" type="text" autocomplete="bday-month" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-year">Year</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
-            id="dob-with-autocomplete-attribute-year"
-            name="dob-with-autocomplete-year"
-            inputmode="numeric"
-            type="text"
-            autocomplete="bday-year"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-with-autocomplete-attribute-year">
+          Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-with-autocomplete-attribute-year" name="dob-with-autocomplete-year" inputmode="numeric" type="text" autocomplete="bday-year" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -203,44 +184,38 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-errors-hint dob-errors-error" role="group">
-    <legend class="nhsuk-fieldset__legend">What is your date of birth?</legend>
-    <div class="nhsuk-hint" id="dob-errors-hint">For example, 31 3 1980</div>
-    <span id="dob-errors-error" class="nhsuk-error-message">Error message goes here</span>
+    <legend class="nhsuk-fieldset__legend">
+      What is your date of birth?
+    </legend>
+    <div class="nhsuk-hint" id="dob-errors-hint">
+    For example, 31 3 1980
+    </div>
+    <span id="dob-errors-error" class="nhsuk-error-message">
+    Error message goes here
+    </span>
     <div class="nhsuk-date-input" id="dob-errors">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-day">Day</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error"
-            id="dob-errors-day"
-            name="day"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-day">
+          Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-day" name="day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-month">Month</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error"
-            id="dob-errors-month"
-            name="month"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-month">
+          Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-errors-month" name="month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-year">Year</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error"
-            id="dob-errors-year"
-            name="year"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-errors-year">
+          Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error" id="dob-errors-year" name="year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -294,44 +269,38 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 ```html
 <div class="nhsuk-form-group nhsuk-form-group--error">
   <fieldset class="nhsuk-fieldset" aria-describedby="dob-day-error-hint dob-day-error-error" role="group">
-    <legend class="nhsuk-fieldset__legend">What is your date of birth?</legend>
-    <div class="nhsuk-hint" id="dob-day-error-hint">For example, 31 3 1980</div>
-    <span id="dob-day-error-error" class="nhsuk-error-message">Error message goes here</span>
+    <legend class="nhsuk-fieldset__legend">
+      What is your date of birth?
+    </legend>
+    <div class="nhsuk-hint" id="dob-day-error-hint">
+    For example, 31 3 1980
+    </div>
+    <span id="dob-day-error-error" class="nhsuk-error-message">
+    Error message goes here
+    </span>
     <div class="nhsuk-date-input" id="dob-day-error">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-day">Day</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error"
-            id="dob-day-error-day"
-            name="dob-day-error-day"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-day">
+          Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error" id="dob-day-error-day" name="dob-day-error-day" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-month">Month</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-            id="dob-day-error-month"
-            name="dob-day-error-month"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-month">
+          Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day-error-month" name="dob-day-error-month" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-year">Year</label>
-          <input
-            class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
-            id="dob-day-error-year"
-            name="dob-day-error-year"
-            inputmode="numeric"
-            type="text"
-            pattern="[0-9]*" />
+          <label class="nhsuk-label nhsuk-date-input__label" for="dob-day-error-year">
+          Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-day-error-year" name="dob-day-error-year" inputmode="numeric" type="text" pattern="[0-9]*">
         </div>
       </div>
     </div>
@@ -402,4 +371,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Date input component](https://github.com/alphagov/govuk-frontend/tree/master/package/govuk/components/date-input) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Date input component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/date-input) with a few minor adaptations.

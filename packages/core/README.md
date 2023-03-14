@@ -102,6 +102,7 @@ Core also is the home of powerful `sass` features such as variables, mixins, fun
         <!-- Component -->
       </div>
     </div>
+
   </div>
 </div>
 ```
@@ -266,7 +267,7 @@ large-desktop: 990px
     color: blue;
   }
   // Same thing, in landscape orientation
-  @include mq($until: tablet, $and: "(orientation: landscape)") {
+  @include mq($until: tablet, $and: '(orientation: landscape)') {
     color: green;
   }
   // Apply styling to print media
@@ -294,8 +295,8 @@ $color_nhsuk-purple: #330072;
 
 ```scss
 $color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81c;
-$color_nhsuk-aqua-green: #00a499;
+$color_nhsuk-warm-yellow: #ffb81C;
+$color_nhsuk-aqua-green: #00A499;
 ```
 
 ### Greyscale

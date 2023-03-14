@@ -14,18 +14,18 @@
  * - The closest parent `<label>`
  */
 function getAssociatedLegendOrLabel(input) {
-  const fieldset = input.closest("fieldset");
+  const fieldset = input.closest('fieldset')
 
   if (fieldset) {
-    const legends = fieldset.getElementsByTagName("legend");
+    const legends = fieldset.getElementsByTagName('legend')
 
     if (legends.length) {
-      const candidateLegend = legends[0]; // eslint-disable-line prefer-destructuring
+      const candidateLegend = legends[0] // eslint-disable-line prefer-destructuring
 
       // If the input type is radio or checkbox, always use the legend if there
       // is one.
-      if (input.type === "checkbox" || input.type === "radio") {
-        return candidateLegend;
+      if (input.type === 'checkbox' || input.type === 'radio') {
+        return candidateLegend
       }
 
       // For other input types, only scroll to the fieldset’s legend (instead of
@@ -34,22 +34,22 @@ function getAssociatedLegendOrLabel(input) {
       //
       // This should avoid situations where the input either ends up off the
       // screen, or obscured by a software keyboard.
-      const legendTop = candidateLegend.getBoundingClientRect().top;
-      const inputRect = input.getBoundingClientRect();
+      const legendTop = candidateLegend.getBoundingClientRect().top
+      const inputRect = input.getBoundingClientRect()
 
       // If the browser doesn't support Element.getBoundingClientRect().height
       // or window.innerHeight (like IE8), bail and just link to the label.
       if (inputRect.height && window.innerHeight) {
-        const inputBottom = inputRect.top + inputRect.height;
+        const inputBottom = inputRect.top + inputRect.height
 
         if (inputBottom - legendTop < window.innerHeight / 2) {
-          return candidateLegend;
+          return candidateLegend
         }
       }
     }
   }
 
-  return document.querySelector(`label[for='${input.getAttribute("id")}']`) || input.closest("label");
+  return document.querySelector(`label[for='${input.getAttribute('id')}']`) || input.closest('label')
 }
 
 /**
@@ -69,27 +69,27 @@ function getAssociatedLegendOrLabel(input) {
  */
 function focusTarget(target) {
   // If the element that was clicked was not a link, return early
-  if (target.tagName !== "A" || target.href === false) {
-    return false;
+  if (target.tagName !== 'A' || target.href === false) {
+    return false
   }
 
-  const input = document.querySelector(target.hash);
+  const input = document.querySelector(target.hash)
   if (!input) {
-    return false;
+    return false
   }
 
-  const legendOrLabel = getAssociatedLegendOrLabel(input);
+  const legendOrLabel = getAssociatedLegendOrLabel(input)
   if (!legendOrLabel) {
-    return false;
+    return false
   }
 
   // Scroll the legend or label into view *before* calling focus on the input to
   // avoid extra scrolling in browsers that don't support `preventScroll` (which
   // at time of writing is most of them...)
-  legendOrLabel.scrollIntoView();
-  input.focus({ preventScroll: true });
+  legendOrLabel.scrollIntoView()
+  input.focus({ preventScroll: true })
 
-  return true;
+  return true
 }
 
 /**
@@ -97,20 +97,20 @@ function focusTarget(target) {
  */
 function handleClick(event) {
   if (focusTarget(event.target)) {
-    event.preventDefault();
+    event.preventDefault()
   }
 }
 
 export default ({ focusOnPageLoad = true } = {}) => {
   // Error summary component
-  const errorSummary = document.querySelector(".nhsuk-error-summary");
+  const errorSummary = document.querySelector('.nhsuk-error-summary')
 
   if (errorSummary) {
     // Focus error summary component if it exists
 
     if (focusOnPageLoad) {
-      errorSummary.focus();
+      errorSummary.focus()
     }
-    errorSummary.addEventListener("click", handleClick);
+    errorSummary.addEventListener('click', handleClick)
   }
-};
+}

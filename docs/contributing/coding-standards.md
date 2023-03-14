@@ -274,13 +274,13 @@ When a component has multiple visual presentations, such as the care cards, we m
 Care card urgent (red) example:
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent"></div>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
 ```
 
 Care card emergency (red and black) example:
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency"></div>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
 ```
 
 ---

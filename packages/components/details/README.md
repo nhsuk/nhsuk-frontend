@@ -19,7 +19,9 @@ For this component to be accessible and compatible with older browsers, include 
 ```html
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">Where can I find my NHS number?</span>
+    <span class="nhsuk-details__summary-text">
+    Where can I find my NHS number?
+    </span>
   </summary>
   <div class="nhsuk-details__text">
     <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
@@ -73,7 +75,9 @@ Find out more about the expander component and when to use it in the [NHS digita
 ```html
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">Opening times</span>
+    <span class="nhsuk-details__summary-text">
+    Opening times
+    </span>
   </summary>
   <div class="nhsuk-details__text">
     <table>
@@ -176,7 +180,9 @@ Find out more about the expander component and when to use it in the [NHS digita
 <div class="nhsuk-expander-group">
   <details class="nhsuk-details nhsuk-expander">
     <summary class="nhsuk-details__summary">
-      <span class="nhsuk-details__summary-text">How to measure your blood glucose levels</span>
+      <span class="nhsuk-details__summary-text">
+      How to measure your blood glucose levels
+      </span>
     </summary>
     <div class="nhsuk-details__text">
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -191,7 +197,9 @@ Find out more about the expander component and when to use it in the [NHS digita
   </details>
   <details class="nhsuk-details nhsuk-expander">
     <summary class="nhsuk-details__summary">
-      <span class="nhsuk-details__summary-text">When to check your blood glucose level</span>
+      <span class="nhsuk-details__summary-text">
+      When to check your blood glucose level
+      </span>
     </summary>
     <div class="nhsuk-details__text">
       <p>Try to check your blood:</p>
@@ -200,10 +208,7 @@ Find out more about the expander component and when to use it in the [NHS digita
         <li>2 to 3 hours after meals</li>
         <li>before, during (take a break) and after exercise</li>
       </ul>
-      <p>
-        This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should
-        help you have more stable blood glucose levels.
-      </p>
+      <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
     </div>
   </details>
 </div>

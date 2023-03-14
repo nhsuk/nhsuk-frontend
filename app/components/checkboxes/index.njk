@@ -10,33 +10,35 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ checkboxes({
-            "idPrefix": "nationality",
-            "name": "nationality",
-            "fieldset": {
-              "legend": {
-                "text": "What is your nationality?",
-                "classes": "nhsuk-fieldset__legend--m"
-              }
-            },
-            "hint": {
-              "text": "If you have more than 1 nationality, select all options that are relevant to you."
-            },
-            "items": [
-              {
-                "value": "british",
-                "text": "British"
+          <form>
+            {{ checkboxes({
+              "idPrefix": "nationality",
+              "name": "nationality",
+              "fieldset": {
+                "legend": {
+                  "text": "What is your nationality?",
+                  "classes": "nhsuk-fieldset__legend--m"
+                }
               },
-              {
-                "value": "irish",
-                "text": "Irish"
+              "hint": {
+                "text": "If you have more than 1 nationality, select all options that are relevant to you."
               },
-              {
-                "value": "other",
-                "text": "citizen of another country"
-              }
-            ]
-          }) }}
+              "items": [
+                {
+                  "value": "british",
+                  "text": "British"
+                },
+                {
+                  "value": "irish",
+                  "text": "Irish"
+                },
+                {
+                  "value": "other",
+                  "text": "citizen of another country"
+                }
+              ]
+            }) }}
+          </form>
         </div>
       </div>
 
