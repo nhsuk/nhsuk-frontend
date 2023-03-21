@@ -1,16 +1,61 @@
 # NHS.UK frontend Changelog
 
+## 7.0.0 - unreleased
+
+:new: **New features**
+
+- Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811))
+- Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828))
+
+:boom: **Breaking changes**
+
+- Breadcrumb update
+
+We iterated the breadcrumb, removing the white banner and bringing the breadcrumb link closer to the page heading, which it relates to, giving the heading context of where it sits within the site. Instead of having this:
+
+```
+  <p class="nhsuk-breadcrumb__back">
+    <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+      Back to Level three
+    </a>
+  </p>
+```
+
+You will only now need this:
+
+```
+  <p class="nhsuk-breadcrumb__back">
+    <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+      <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+      Level three
+    </a>
+  </p>
+```
+
+:recycle: **Changes**
+
+- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).  
+  This change removes the `Card` component's associated JavaScript. If you are bundling this yourself in your pipeline you will need to edit your JS entrypoint to remove the lines which read: `import Card from '[wherever]';` and `Card();`
+  You do not need to update your html as part of this change - this remains the same.
+
+:wrench: **Maintenance**
+
+- Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
+- Upgrade all dependencies to their latest versions where possible
+- Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Have an opinion? [Share it!](https://github.com/nhsuk/nhsuk-frontend/discussions/827#discussioncomment-3188144) Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
+
 ## 6.2.0 - 17 January 2023
 
 :new: **New features**
+
 - Button improvements
   - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
   - Add optional `data-prevent-double-click="true"` attribute to buttons to trigger simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
   - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
-  
 - Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
 
 :wrench: **Fixes**
+
 - Fix issue with VoiceOver on Safari (iOS and macOS) not announcing a list as a list. This affects some components that have a list with style `list-style-type: none`, ie those that have a class of `nhsuk-list` on the `<ul>`. This fixes the do/don't list and the error summary components. The contents list and pagination components don't seem to be affected.
 
 - Fix issue of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842))
@@ -18,6 +63,7 @@
 ## 6.1.2 - 8 August 2022
 
 :wrench: **Fixes**
+
 - Add missing `nhsuk-list--border` utility class
 - Reduce input and textarea error border widths to eliminate text movement / dimension changes when focusing and unfocusing a field with an error ([Issue 825](https://github.com/nhsuk/nhsuk-frontend/issues/825)), ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
 
@@ -38,6 +84,7 @@
 - Added utility classes `nhsuk-u-text-align-left`, `nhsuk-u-text-align-centre` and `nhsuk-u-text-align-right`
 
 :wrench: **Fixes**
+
 - Updated dependancies in `package.json` & generated new `package-lock.json`
 - Changed spelling mistake `charitiest` to `charities`
 - Fixed card component example format
@@ -46,7 +93,7 @@
 
 :wrench: **Fixes**
 
-- Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right` 
+- Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right`
 
 ## 6.0.0 - 29 November 2021
 
@@ -56,14 +103,15 @@
 
 Care card is now a variant of the card component.
 
-We've reworked the care cards component as a pattern to "Help users decide when and where to get care".  We've done this for 2 reasons.
+We've reworked the care cards component as a pattern to "Help users decide when and where to get care". We've done this for 2 reasons.
+
 1. The care cards component was designed to deal with a specific problem in the context of health information. But we've seen teams use care cards in other ways and contexts with mixed results. By rewriting care cards as a pattern, we hope it's clearer what problem they're designed to solve.
 2. We're tidying up the frontend, reducing duplication in the code, making it easier to maintain and improving its performance. We're taking out things which aren't components in their own right. Care cards are a variation of the card component, used as a solution to a specific need, so we're taking them out of the frontend in a breaking change release today.
 3. Type 'immmediate' has changed to 'emergency' & 'primary' has changed to 'non-urgent'. (Help users decide when and where to get care (care cards))[https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care]
 
 - Remove Nav A-Z component & List panel component
 
-The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual. 
+The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual.
 
 ### Nav A-Z
 
@@ -376,7 +424,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 :wrench: **Fixes**
 
 - Transactional header defaults to wrapping underneath the logo without the need for a modifier ([Issue 720](https://github.com/nhsuk/nhsuk-frontend/issues/720)).
-- Add width, height, stroke and fill attributes to inline SVGs in order that they render at appropriate sizes when viewed with disabled/broken/missing CSS  ([PR 761](https://github.com/nhsuk/nhsuk-frontend/pull/761)).
+- Add width, height, stroke and fill attributes to inline SVGs in order that they render at appropriate sizes when viewed with disabled/broken/missing CSS ([PR 761](https://github.com/nhsuk/nhsuk-frontend/pull/761)).
 - Search input focus state style (desktop) – fix border width ([Issue 768](https://github.com/nhsuk/nhsuk-frontend/issues/768), [PR 771](https://github.com/nhsuk/nhsuk-frontend/pull/771)).
 - Stop polyfilling details elements in browsers that support it natively since the polyfill was causing issues with JAWS/Firefox ([Issue 754](https://github.com/nhsuk/nhsuk-frontend/issues/754), [PR 773](https://github.com/nhsuk/nhsuk-frontend/pull/773))
 
@@ -400,8 +448,9 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
+
 - Added `$nhsuk-fonts-path` and `$nhsuk-include-font-face` variables to allow for self-hosted fonts or
-disabling font altogether
+  disabling font altogether
 
   The default `@font-face`, "Frutiger", is loaded from `https://assets.nhs.uk`. The host for the fonts can be
   overridden or disabled entirely.
@@ -425,6 +474,7 @@ disabling font altogether
   ```
 
   You will only now need this:
+
   ```
   <html lang="en">
   ```
@@ -432,6 +482,7 @@ disabling font altogether
   You can also change the svg NHS logo html to remove the reference to the png which was to support older versions of IE, which is now no longer required.
 
   Previous code:
+
   ```
   <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation" focusable="false" viewBox="0 0 40 16">
     <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
@@ -441,6 +492,7 @@ disabling font altogether
   ```
 
   New code:
+
   ```
   <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16">
     <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
@@ -449,7 +501,6 @@ disabling font altogether
   ```
 
   As our list of supported browsers has changed we are now able to use more JavaScript APIs and properties without polyfilling or writing our own solutions. JavaScript has been refactored to remove IE8-10 JavaScript polyfills and utils.
-
 
 - Footer - removed the Footer with list columns variant, the HTML class `nhsuk-footer__list--three-columns` and `list` Nunjucks parameter has been removed. The Footer will fallback to the regular footer on Desktop and stay the same on mobile. ([Issue 575](https://github.com/nhsuk/nhsuk-frontend/issues/575))
 
@@ -464,11 +515,11 @@ disabling font altogether
   You will need to remove the `nhsuk-review-date` component (and Nunjucks macro) from your application and move to the modifier and utility class based one.
 
 - Header search autocomplete - the Header search autocomplete has been removed and extracted into a separate package. The search implementation in the library and service manual is very
-NHS website specific and uses a third party supplier for the search results. ([Issue 568](https://github.com/nhsuk/nhsuk-frontend/issues/568))
+  NHS website specific and uses a third party supplier for the search results. ([Issue 568](https://github.com/nhsuk/nhsuk-frontend/issues/568))
 
 :new: **New features**
 
-- Updated browser and assistive technology support documentation - remove support for IE8-10.  Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
+- Updated browser and assistive technology support documentation - remove support for IE8-10. Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
 - add ability to not display the 'do not' prefix on list items that have the type 'cross' for the do and don't list component
 
 :wrench: **Fixes**
@@ -521,172 +572,178 @@ NHS website specific and uses a third party supplier for the search results. ([I
   <details>
     <summary>If you are using a panel component</summary>
 
-    You will need to replace the panel component with a card component.
+  You will need to replace the panel component with a card component.
 
-    ### For Nunjucks macro
+  ### For Nunjucks macro
 
-    You need to:
-    - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
-    - replace `{{ panel({` with `{{ card({`
-    - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
-    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+  You need to:
 
-    For example:
+  - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{{ panel({` with `{{ card({`
+  - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
+  - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
-    #### Old Nunjucks macro (Panel)
+  For example:
 
-    ```
-    {% from 'components/panel/macro.njk' import panel %}
+  #### Old Nunjucks macro (Panel)
 
-    {{ panel({
-      "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/panel/macro.njk' import panel %}
 
-    #### New Nunjucks macro (Card)
+  {{ panel({
+    "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    ##### Changing the heading level
+  #### New Nunjucks macro (Card)
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading level
 
-    {{ card({
-      "heading": "If you need help now, but it’s not an emergency",
-      "headingLevel": "3",
-      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ##### Changing the heading size
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingLevel": "3",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading size
 
-    {{ card({
-      "heading": "If you need help now, but it’s not an emergency",
-      "headingClasses": "nhsuk-heading-m",
-      "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-    }) }}
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ### For HTML
+  {{ card({
+    "heading": "If you need help now, but it’s not an emergency",
+    "headingClasses": "nhsuk-heading-m",
+    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+  }) }}
+  ```
 
-    You need to:
-    - replace all `nhsuk-panel` classes to `nhsuk-card`
+  ### For HTML
 
-    For example:
+  You need to:
 
-    #### Old HTML (Panel)
+  - replace all `nhsuk-panel` classes to `nhsuk-card`
 
-    ```
-    <div class="nhsuk-panel nhsuk-panel--grey">
-      <h3>If you need help now, but it’s not an emergency</h3>
-      <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+  For example:
+
+  #### Old HTML (Panel)
+
+  ```
+  <div class="nhsuk-panel nhsuk-panel--grey">
+    <h3>If you need help now, but it’s not an emergency</h3>
+    <p>Go to <a href="#">111.nhs.uk</a> or <a href="tel: 111">call 111</a>.</p>
+  </div>
+  ```
+
+  #### New HTML (Card)
+
+  ```
+  <div class="nhsuk-card>
+    <div class="nhsuk-card__content">
+      <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
+      <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
     </div>
-    ```
+  </div>
+  ```
 
-    #### New HTML (Card)
-
-    ```
-    <div class="nhsuk-card>
-      <div class="nhsuk-card__content">
-        <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
-        <p>Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
-      </div>
-    </div>
-    ```
   </details>
 
   <details>
     <summary>If you are using a promo component</summary>
 
-    You will need to replace the promo component with a card component.
+  You will need to replace the promo component with a card component.
 
-    ### For Nunjucks macro
+  ### For Nunjucks macro
 
-    You need to:
-    - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
-    - replace `{{ promo({` with `{{ card({`
-    - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
+  You need to:
 
-    For example:
+  - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{{ promo({` with `{{ card({`
+  - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
-    #### Old Nunjucks macro (Promo)
+  For example:
 
-    ```
-    {% from 'components/promo/macro.njk' import promo %}
+  #### Old Nunjucks macro (Promo)
 
-    {{ promo({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }}
-    ```
+  ```
+  {% from 'components/promo/macro.njk' import promo %}
 
-    #### New Nunjucks macro (Card)
+  {{ promo({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }}
+  ```
 
-    ##### Changing the heading level
+  #### New Nunjucks macro (Card)
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading level
 
-    {{ card({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "headingLevel": "3",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ##### Changing the heading size
+  {{ card({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "headingLevel": "3",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }
+  ```
 
-    ```
-    {% from 'components/card/macro.njk' import card %}
+  ##### Changing the heading size
 
-    {{ card({
-      "href": "https://www.nhs.uk",
-      "heading": "Save a life: give blood",
-      "headingClasses": "nhsuk-heading-m",
-      "description": "Please register today. Donating blood is easy, and saves lives."
-    }) }
-    ```
+  ```
+  {% from 'components/card/macro.njk' import card %}
 
-    ### For HTML
+  {{ card({
+    "href": "https://www.nhs.uk",
+    "heading": "Save a life: give blood",
+    "headingClasses": "nhsuk-heading-m",
+    "description": "Please register today. Donating blood is easy, and saves lives."
+  }) }
+  ```
 
-    You need to:
-    - replace all `nhsuk-promo` classes to `nhsuk-card`
-    - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
-    - add `nhsuk-card--clickable` class to make entire card clickable
+  ### For HTML
 
-    For example:
+  You need to:
 
-    #### Old HTML (Promo)
+  - replace all `nhsuk-promo` classes to `nhsuk-card`
+  - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
+  - add `nhsuk-card--clickable` class to make entire card clickable
 
-    ```
-    <div class="nhsuk-promo">
-      <a class="nhsuk-promo__link-wrapper" href="#">
-        <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
-        <div class="nhsuk-promo__content">
-          <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
-          <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
-        </div>
-      </a>
-    </div>
-    ```
+  For example:
 
-    #### New HTML (Card)
+  #### Old HTML (Promo)
 
-    ```
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
-      <div class="nhsuk-card__content">
-        <h3 class="nhsuk-card__heading">
-          <a class="nhsuk-card__link" href="#">Kickstart your health</a>
-        </h3>
-        <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
+  ```
+  <div class="nhsuk-promo">
+    <a class="nhsuk-promo__link-wrapper" href="#">
+      <img class="nhsuk-promo__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+      <div class="nhsuk-promo__content">
+        <h3 class="nhsuk-promo__heading">Kickstart your health</h3>
+        <p class="nhsuk-promo__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
       </div>
+    </a>
+  </div>
+  ```
+
+  #### New HTML (Card)
+
+  ```
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/020720_PHE_Barrington_5426_TRL3_CL.2e16d0ba.fill-720x405.jpg" alt="">
+    <div class="nhsuk-card__content">
+      <h3 class="nhsuk-card__heading">
+        <a class="nhsuk-card__link" href="#">Kickstart your health</a>
+      </h3>
+      <p class="nhsuk-card__description">It's never too late to get your health back on track. Eat well, move more and start losing weight with Better Health. Try our NHS weight loss plan to get you started.</p>
     </div>
-    ```
+  </div>
+  ```
+
   </details>
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
@@ -730,6 +787,7 @@ NHS website specific and uses a third party supplier for the search results. ([I
 - Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS.
 
   Including adding a 1px border to:
+
   - care cards (non-urgent and urgent)
   - do and don't list
   - expander
@@ -843,34 +901,35 @@ NHS website specific and uses a third party supplier for the search results. ([I
   <details>
     <summary>View the colour variables that have been replaced</summary>
 
-  | Colour variable removed  | Suggested replacement |
-  | ------------- | ------------- |
-  | $color_tint_nhsuk-warm-yellow-30  | $color_nhsuk-warm-yellow  |
-  | $color_tint_nhsuk-warm-yellow-10  | $color_nhsuk-warm-yellow  |
-  | $nhsuk-link-focus-color | $nhsuk-focus-text-color |
-  | $nhsuk-link-hover-background-color | $nhsuk-focus-color |
-  | $nhsuk-link-focus-background-color | $nhsuk-focus-color |
-  | $nhsuk-link-active-background-color | $nhsuk-focus-color |
-  | $nhsuk-button-text-colour | $nhsuk-button-text-color |
-  | $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
-  | $nhsuk-reverse-button-text-colour | $nhsuk-reverse-button-text-color |
-  | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
-  | $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
-  | $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+  | Colour variable removed               | Suggested replacement                |
+  | ------------------------------------- | ------------------------------------ |
+  | $color_tint_nhsuk-warm-yellow-30      | $color_nhsuk-warm-yellow             |
+  | $color_tint_nhsuk-warm-yellow-10      | $color_nhsuk-warm-yellow             |
+  | $nhsuk-link-focus-color               | $nhsuk-focus-text-color              |
+  | $nhsuk-link-hover-background-color    | $nhsuk-focus-color                   |
+  | $nhsuk-link-focus-background-color    | $nhsuk-focus-color                   |
+  | $nhsuk-link-active-background-color   | $nhsuk-focus-color                   |
+  | $nhsuk-button-text-colour             | $nhsuk-button-text-color             |
+  | $nhsuk-button-hover-colour            | $nhsuk-button-hover-color            |
+  | $nhsuk-reverse-button-text-colour     | $nhsuk-reverse-button-text-color     |
+  | $nhsuk-button-shadow-colour           | $nhsuk-button-shadow-color           |
+  | $nhsuk-secondary-button-colour        | $nhsuk-secondary-button-color        |
+  | $nhsuk-secondary-button-hover-colour  | $nhsuk-secondary-button-hover-color  |
   | $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
-  | $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
-  | $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
-  | $nhsuk-button-colour | $nhsuk-button-color |
-  | $nhsuk-button-hover-colour | $nhsuk-button-hover-color |
-  | $nhsuk-secondary-button-colour | $nhsuk-secondary-button-color |
-  | $nhsuk-secondary-button-hover-colour | $nhsuk-secondary-button-hover-color |
+  | $nhsuk-reverse-button-colour          | $nhsuk-reverse-button-color          |
+  | $nhsuk-reverse-button-hover-colour    | $nhsuk-reverse-button-hover-color    |
+  | $nhsuk-button-colour                  | $nhsuk-button-color                  |
+  | $nhsuk-button-hover-colour            | $nhsuk-button-hover-color            |
+  | $nhsuk-secondary-button-colour        | $nhsuk-secondary-button-color        |
+  | $nhsuk-secondary-button-hover-colour  | $nhsuk-secondary-button-hover-color  |
   | $nhsuk-secondary-button-shadow-colour | $nhsuk-secondary-button-shadow-color |
-  | $nhsuk-reverse-button-colour | $nhsuk-reverse-button-color |
-  | $nhsuk-reverse-button-hover-colour | $nhsuk-reverse-button-hover-color |
-  | $nhsuk-reverse-button-shadow-colour | $nhsuk-reverse-button-shadow-color |
-  | $nhsuk-focus-colour | $nhsuk-focus-color |
-  | $nhsuk-focus-text-colour | $nhsuk-focus-text-color |
-  | $nhsuk-button-shadow-colour | $nhsuk-button-shadow-color |
+  | $nhsuk-reverse-button-colour          | $nhsuk-reverse-button-color          |
+  | $nhsuk-reverse-button-hover-colour    | $nhsuk-reverse-button-hover-color    |
+  | $nhsuk-reverse-button-shadow-colour   | $nhsuk-reverse-button-shadow-color   |
+  | $nhsuk-focus-colour                   | $nhsuk-focus-color                   |
+  | $nhsuk-focus-text-colour              | $nhsuk-focus-text-color              |
+  | $nhsuk-button-shadow-colour           | $nhsuk-button-shadow-color           |
+
   </details>
 
   <hr>
@@ -879,7 +938,7 @@ NHS website specific and uses a third party supplier for the search results. ([I
 
 - Deprecation of the [Feedback banner](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/151) and [Emergency alert](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/149) components.
 
-   If you are using Sass and JavaScript (ES6) imports, you will need to remove the imports for these components. You will also no longer be able to use the Nunjucks macros.
+  If you are using Sass and JavaScript (ES6) imports, you will need to remove the imports for these components. You will also no longer be able to use the Nunjucks macros.
 
   **Sass**
 
@@ -888,6 +947,7 @@ NHS website specific and uses a third party supplier for the search results. ([I
   ```scss
   @import 'node_modules/nhsuk-frontend/packages/components/emergency-alert/emergency-alert';
   ```
+
   ```scss
   @import 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
   ```
@@ -901,6 +961,7 @@ NHS website specific and uses a third party supplier for the search results. ([I
   ```js
   import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
   ```
+
   ```js
   nhsuk_feedbackBanner(3000);
   ```

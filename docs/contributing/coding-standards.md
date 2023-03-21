@@ -35,7 +35,7 @@ HTML attributes should come in this particular order for easier reading of code.
 
 Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.
 
-----
+---
 
 ## SCSS
 
@@ -79,14 +79,14 @@ For example:
 
 #### BEM further reading:
 
-* [Get BEM](http://getbem.com/introduction/)
-* [BEM Resources](https://github.com/sturobson/BEM-resources)
-* [Harry Roberts - BEMIT: Taking the BEM Naming Convention a Step Further](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
+- [Get BEM](http://getbem.com/introduction/)
+- [BEM Resources](https://github.com/sturobson/BEM-resources)
+- [Harry Roberts - BEMIT: Taking the BEM Naming Convention a Step Further](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
 
 ### Nesting
 
 Break elements and modifiers outside of blocks rather than nesting using a
-parent selector `&`. 
+parent selector `&`.
 
 Nesting pseudo elements like `:before` and `:hover` is ok.
 
@@ -130,16 +130,17 @@ Avoid including multiple elements when naming classes.
 
 Create separate selectors rather using an `&` in the middle of a selector.
 
-This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g. 
+This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g.
+
 ```scss
 div#nhsuk-ers {
 ...
-@import 'node_modules/nhsuk-frontend/packages/core/all'; 
+@import 'node_modules/nhsuk-frontend/packages/core/all';
 ...
 }
-``` 
+```
 
-Bad: 
+Bad:
 
 ```scss
 .nhsuk-checkboxes__conditional {
@@ -151,7 +152,7 @@ Bad:
 }
 ```
 
-Good: 
+Good:
 
 ```scss
 .nhsuk-checkboxes__conditional {
@@ -193,10 +194,10 @@ This makes it easier to keep track of different contexts.
 
 ### Code comments
 
-All scss files should have comments (with intent rather than implementation). Line comments should all go within 
+All scss files should have comments (with intent rather than implementation). Line comments should all go within
 the top block comment and then a reference to the number should go next to the line of code.
 
-Example: 
+Example:
 
 ```scss
 /* ==========================================================================
@@ -229,14 +230,14 @@ We're still writing our JavaScript style guide, as we're only just figuring it o
 
 We have chosen as Nunjucks as the templating language for NHS.UK frontend components. We expose those templates as reusable chunks of code: macros. Developers import macros into their application, call them as per documentation and provide data to its arguments.
 
-To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and  if so they are documented accordingly.
+To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and if so they are documented accordingly.
 
 ### Specifying content
 
-When providing *content* to a macro, say for a label or a button, we accept two argument options:
+When providing _content_ to a macro, say for a label or a button, we accept two argument options:
 
- - `text` accepts a plain string and is the default way of passing content
- - `html` accepts html markup. In the template we will not escape html so it will be rendered. In a scenario where both text and html are set, html argument will take precedence over text.
+- `text` accepts a plain string and is the default way of passing content
+- `html` accepts html markup. In the template we will not escape html so it will be rendered. In a scenario where both text and html are set, html argument will take precedence over text.
 
 Example:
 
@@ -264,7 +265,7 @@ We should use **camelCase** for naming attributes.
 
 ### Specifying multiple items
 
-When a component accepts a *single array of items* for an output, such as checkboxes or radios, we accept an ***"items"*** array of objects.  Table component is an exception is it can contain multiple array for rows, head, footer where there is need to for more specific names.
+When a component accepts a _single array of items_ for an output, such as checkboxes or radios, we accept an **_"items"_** array of objects. Table component is an exception is it can contain multiple array for rows, head, footer where there is need to for more specific names.
 
 ### Use of classes to specify variants
 
@@ -297,10 +298,11 @@ For example, `.nhsuk-card`.
 Components must follow the conventions described in our SCSS coding standards.
 
 Components must:
-* use classes for child elements, scoped to the parent component
-* be flexible, not set a width or external padding and margins
-* set internal margins in a single direction
-* not rely on any other selector outside of the component scss file to style its children
+
+- use classes for child elements, scoped to the parent component
+- be flexible, not set a width or external padding and margins
+- set internal margins in a single direction
+- not rely on any other selector outside of the component scss file to style its children
 
 #### Component folder structure and naming
 

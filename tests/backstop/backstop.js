@@ -104,6 +104,18 @@ module.exports = {
       url: `${TEST_URL}/card/care-card-emergency.html`,
     },
     {
+      label: 'Character Count - max characters',
+      url: `${TEST_URL}/character-count/index.html`,
+    },
+    {
+      label: 'Character Count - with threshold',
+      url: `${TEST_URL}/character-count/with-threshold.html`,
+    },
+    {
+      label: 'Character Count - max words',
+      url: `${TEST_URL}/character-count/with-word-count.html`,
+    },
+    {
       label: 'Checkboxes',
       url: `${TEST_URL}/checkboxes/index.html`,
     },
@@ -420,6 +432,10 @@ module.exports = {
       url: `${TEST_URL}/tables/tables-panel.html`,
     },
     {
+      label: 'Tabs',
+      url: `${TEST_URL}/tabs/index.html`,
+    },
+    {
       label: 'Tag',
       url: `${TEST_URL}/tag/index.html`,
     },
@@ -467,4 +483,4 @@ module.exports = {
       width: 1366,
     },
   ],
-};
+}

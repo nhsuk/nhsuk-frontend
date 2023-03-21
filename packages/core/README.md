@@ -166,7 +166,7 @@ nhsuk-u-[grid-size]
 
 ### Reading width
 
-Add a maximum width to large pieces of content, to improve readability. 
+Add a maximum width to large pieces of content, to improve readability.
 
 ```html
 <div class="nhsuk-u-reading-width">

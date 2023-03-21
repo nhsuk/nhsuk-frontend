@@ -1,11 +1,11 @@
 class Button {
-  KEY_SPACE = 32;
+  KEY_SPACE = 32
 
-  DEBOUNCE_TIMEOUT_IN_SECONDS = 1;
+  DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
   constructor($module) {
-    this.$module = $module;
-    this.debounceFormSubmitTimer = null;
+    this.$module = $module
+    this.debounceFormSubmitTimer = null
   }
 
   /**
@@ -20,15 +20,12 @@ class Button {
   handleKeyDown(event) {
     // get the target element
 
-    const { target } = event;
+    const { target } = event
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (
-      target.getAttribute('role') === 'button'
-      && event.keyCode === this.KEY_SPACE
-    ) {
-      event.preventDefault();
+    if (target.getAttribute('role') === 'button' && event.keyCode === this.KEY_SPACE) {
+      event.preventDefault()
       // trigger the target's click event
-      target.click();
+      target.click()
     }
   }
 
@@ -38,24 +35,21 @@ class Button {
    * double clicking buttons.
    */
   debounce(event) {
-    const { target } = event;
+    const { target } = event
     // Check the button that is clicked on has the preventDoubleClick feature enabled
     if (target.getAttribute('data-prevent-double-click') !== 'true') {
-      return;
+      return
     }
 
     // If the timer is still running then we want to prevent the click from submitting the form
     if (this.debounceFormSubmitTimer) {
-      event.preventDefault();
-      return false; // eslint-disable-line consistent-return
+      event.preventDefault()
+      return false // eslint-disable-line consistent-return
     }
 
-    this.debounceFormSubmitTimer = setTimeout(
-      () => {
-        this.debounceFormSubmitTimer = null;
-      },
-      this.DEBOUNCE_TIMEOUT_IN_SECONDS * 1000
-    );
+    this.debounceFormSubmitTimer = setTimeout(() => {
+      this.debounceFormSubmitTimer = null
+    }, this.DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
   }
 
   /**
@@ -63,14 +57,14 @@ class Button {
    * this will help listening for later inserted elements with a role="button"
    */
   init() {
-    this.$module.addEventListener('keydown', this.handleKeyDown.bind(this));
-    this.$module.addEventListener('click', this.debounce.bind(this));
+    this.$module.addEventListener('keydown', this.handleKeyDown.bind(this))
+    this.$module.addEventListener('click', this.debounce.bind(this))
   }
 }
 
 export default () => {
-  const buttons = document.querySelectorAll('[data-module="nhsuk-button"]');
+  const buttons = document.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
-    new Button(el).init();
-  });
-};
+    new Button(el).init()
+  })
+}

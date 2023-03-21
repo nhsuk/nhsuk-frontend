@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    COMPONENTS/ #HINT
    ========================================================================== */
@@ -35,7 +34,8 @@
 // This adjustment will not work in browsers that do not support :not().
 // Users with these browsers will see the default size margin (5px larger).
 
-.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl) + .nhsuk-hint {
+.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl)
+  + .nhsuk-hint {
   margin-bottom: nhsuk-spacing(2);
 }
 

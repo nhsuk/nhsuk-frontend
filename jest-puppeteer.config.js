@@ -1,5 +1,5 @@
 module.exports = {
-  browserContext: "incognito",
+  browserContext: 'incognito',
   browserPerWorker: true,
 
   /**
@@ -17,21 +17,22 @@ module.exports = {
        * Workaround for 'No usable sandbox! Update your kernel' error
        * see more https://github.com/Googlechrome/puppeteer/issues/290
        */
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
 
       /**
        * Prevent empty Chromium startup window
        * Tests use their own `browser.newPage()` instead
        */
-      "--no-startup-window",
+      '--no-startup-window'
     ],
-    waitForInitialPage: false,
+    waitForInitialPage: false
   },
 
   server: {
-    command: "npm start",
+    command: 'npm start',
     port: 3000,
     launchTimeout: 30000,
-  },
-};
+    host: '127.0.0.1'
+  }
+}

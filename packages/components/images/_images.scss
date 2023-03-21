@@ -16,8 +16,8 @@
   margin-left: 0; /* [1] */
   margin-right: 0; /* [1] */
 
-  @include nhsuk-responsive-margin(6, 'bottom');
-  @include nhsuk-responsive-margin(6, 'top');
+  @include nhsuk-responsive-margin(6, "bottom");
+  @include nhsuk-responsive-margin(6, "top");
 
   @include mq($from: desktop) {
     width: 66.66667%; /* [2] */
@@ -28,9 +28,8 @@
   }
 
   & + .nhsuk-image {
-    @include nhsuk-responsive-margin(0, 'top'); /* [4] */
+    @include nhsuk-responsive-margin(0, "top"); /* [4] */
   }
-
 }
 
 .nhsuk-image__img {

@@ -88,7 +88,6 @@
   @media (max-width: 450px) {
     max-width: 50%;
   }
-
 }
 
 .nhsuk-header__link {
@@ -105,13 +104,14 @@
     box-shadow: none;
 
     .nhsuk-logo {
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+        0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
   }
 
   @include mq($media-type: print) {
     &:after {
-      content: ''; /* [8] */
+      content: ""; /* [8] */
     }
   }
 
@@ -138,9 +138,7 @@
     &.js-show {
       border-bottom: 0;
     }
-
   }
-
 }
 
 .nhsuk-header__search {
@@ -153,7 +151,6 @@
     float: left;
     margin-left: nhsuk-spacing(2);
   }
-
 }
 
 .nhsuk-header__search-toggle {
@@ -364,7 +361,7 @@
     @include close-button();
 
     margin-left: nhsuk-spacing(2);
-    margin-right: - nhsuk-spacing(2); /* [11] */
+    margin-right: -(nhsuk-spacing(2)); /* [11] */
     margin-top: nhsuk-spacing(2);
 
     &:focus {
@@ -430,7 +427,6 @@
 
     box-shadow: 0 0 0 2px $nhsuk-focus-color, 0 $nhsuk-focus-width 0 2px $nhsuk-focus-text-color;
   }
-
 }
 
 /* 'only' modifier for when there is only the menu in the header, no search
@@ -577,7 +573,6 @@
     .nhsuk-icon__chevron-right {
       fill: $color_nhsuk-blue;
     }
-
   }
 
   &:active,
@@ -618,7 +613,6 @@
   }
 }
 
-
 /**
  * Transactional Header with service name
 **/
@@ -646,7 +640,6 @@
 }
 
 .nhsuk-header--transactional {
-
   .nhsuk-header__link {
     @include nhsuk-logo-size-small;
     display: block;
@@ -659,7 +652,6 @@
   .nhsuk-header__transactional-service-name {
     float: left;
   }
-
 }
 
 .nhsuk-header__link--service {
@@ -682,12 +674,12 @@
     .nhsuk-header__service-name {
       text-decoration: underline;
     }
-
   }
 
   &:focus {
     background: $nhsuk-focus-color;
-    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+      0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
 
     .nhsuk-header__service-name {
       color: $nhsuk-focus-text-color;
@@ -697,9 +689,7 @@
     .nhsuk-logo {
       box-shadow: none;
     }
-
   }
-
 }
 
 .nhsuk-header__service-name {
@@ -717,14 +707,12 @@
   @include mq($until: large-desktop) {
     max-width: 220px;
   }
-
 }
 
 .nhsuk-header__logo--only {
   max-width: 100%;
 
   @include mq($from: tablet) {
-
     .nhsuk-header__link--service {
       align-items: center;
       display: flex;
@@ -744,7 +732,6 @@
 **/
 
 .nhsuk-header--organisation {
-
   .nhsuk-header__link {
     height: auto;
     text-decoration: none;
@@ -761,7 +748,8 @@
 
     &:focus {
       background: $nhsuk-focus-color;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color, 0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+        0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
 
       .nhsuk-organisation-name,
       .nhsuk-organisation-descriptor {
@@ -796,7 +784,6 @@
   .nhsuk-header__navigation {
     max-width: 100%;
   }
-
 }
 
 .nhsuk-organisation-name {
@@ -804,7 +791,7 @@
   display: block;
   font-size: 22px;
   font-weight: bold;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
   line-height: 23px;
   margin-top: -2px;
 
@@ -814,7 +801,7 @@
 
   @media (max-width: 450px) {
     font-size: 17px;
-    letter-spacing: .1px;
+    letter-spacing: 0.1px;
     line-height: 17px;
   }
 
@@ -826,7 +813,6 @@
   .nhsuk-organisation-name-split {
     display: block;
   }
-
 }
 
 .nhsuk-organisation-descriptor {
@@ -861,7 +847,7 @@
   }
 }
 
-.nhsuk-org-logo[src $= '.svg'] {
+.nhsuk-org-logo[src$=".svg"] {
   height: auto;
   max-width: 220px;
   width: 100%;
@@ -883,7 +869,6 @@
   }
 
   .nhsuk-header__link {
-
     &:hover {
       color: $nhsuk-text-color;
       text-decoration: underline;
@@ -892,7 +877,6 @@
         color: $nhsuk-text-color;
       }
     }
-
   }
 
   .nhsuk-search__submit {
@@ -963,7 +947,7 @@
   }
 
   .nhsuk-organisation-name {
-    color: #000; /* [9] */  /* stylelint-disable-line color-no-hex */
+    color: #000; /* [9] */ /* stylelint-disable-line color-no-hex */
   }
 
   .nhsuk-organisation-descriptor {
@@ -981,7 +965,6 @@
   .nhsuk-header__service-name {
     color: $nhsuk-text-color;
   }
-
 }
 
 // Navigation (white)

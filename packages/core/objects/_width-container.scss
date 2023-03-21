@@ -26,7 +26,7 @@
   }
 
   /* [4] */
-  @include govuk-media-query($and: '(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})') {
+  @include govuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
     margin: 0 auto;
   }
 }
@@ -40,7 +40,7 @@
   }
 }
 
-@include govuk-exports('govuk/objects/width-container') {
+@include govuk-exports("govuk/objects/width-container") {
   .nhsuk-width-container {
     @include govuk-width-container;
   }

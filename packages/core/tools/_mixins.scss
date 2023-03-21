@@ -12,7 +12,7 @@
 @mixin clearfix() {
   &:after {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 }
@@ -97,10 +97,9 @@
 //
 
 @mixin panel($panel-background-color, $panel-text-color) {
-
   @include top-and-bottom();
-  @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
+  @include nhsuk-responsive-margin(7, "bottom");
+  @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(5);
 
   background-color: $panel-background-color;
@@ -110,7 +109,6 @@
     border: 1px solid $nhsuk-print-text-color;
     page-break-inside: avoid;
   }
-
 }
 
 //
@@ -127,7 +125,7 @@
   @include panel($panel-background-color, $panel-text-color);
 
   border: 1px solid $panel-border-color;
-  padding-top: 0 !important;  /* stylelint-disable-line declaration-no-important */
+  padding-top: 0 !important; /* stylelint-disable-line declaration-no-important */
 }
 
 //
@@ -181,7 +179,6 @@
 //
 
 @mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
-
   .nhsuk-card--care__heading-container {
     background-color: $heading-background-color;
     color: $heading-text-color;
@@ -203,7 +200,6 @@
 //
 
 @mixin print-color($print-color) {
-
   @include mq($media-type: print) {
     color: $print-color;
     fill: $print-color;
@@ -213,9 +209,7 @@
     &:visited {
       color: $nhsuk-print-text-color;
     }
-
   }
-
 }
 
 //
@@ -226,11 +220,9 @@
 //
 
 @mixin print-hide() {
-
   @include mq($media-type: print) {
     display: none;
   }
-
 }
 
 //
@@ -254,7 +246,6 @@
   @include mq($until: desktop) {
     flex: 0 0 100%;
   }
-
 }
 
 //
@@ -276,7 +267,6 @@
   color: $color_nhsuk-white;
   cursor: pointer;
 
-
   &::-moz-focus-inner {
     border: 0; // [1] //
   }
@@ -297,7 +287,6 @@
     border-color: $color_nhsuk-grey-5;
     color: $color_nhsuk-grey-5;
   }
-
 }
 
 //
@@ -340,7 +329,6 @@
   &:focus {
     @include nhsuk-focused-text;
   }
-
 }
 
 //

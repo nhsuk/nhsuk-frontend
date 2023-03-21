@@ -10,10 +10,9 @@
  */
 
 .nhsuk-pagination {
-  @include nhsuk-responsive-margin(7, 'top');
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, "top");
+  @include nhsuk-responsive-margin(7, "bottom");
 }
-
 
 .nhsuk-pagination__list {
   @include clearfix();
@@ -31,7 +30,6 @@
   .nhsuk-pagination__title {
     padding-left: nhsuk-spacing(5); /* [1] */
   }
-
 }
 
 .nhsuk-pagination-item--next {
@@ -46,7 +44,6 @@
   .nhsuk-pagination__title {
     padding-right: nhsuk-spacing(5); /* [1] */
   }
-
 }
 
 .nhsuk-pagination__link {
@@ -67,7 +64,6 @@
       color: $color_nhsuk-black;
       margin-top: 0;
     }
-
   }
 
   &:hover {
@@ -80,7 +76,6 @@
     .nhsuk-pagination__page {
       text-decoration: none;
     }
-
   }
 
   &:focus {
@@ -93,7 +88,6 @@
     &:visited,
     &:hover,
     &:active {
-
       .nhsuk-icon {
         fill: $nhsuk-focus-text-color;
       }
@@ -101,7 +95,6 @@
   }
 
   &:visited {
-
     .nhsuk-icon {
       fill: $nhsuk-link-visited-color;
     }
@@ -117,9 +110,7 @@
         fill: $nhsuk-focus-text-color;
       }
     }
-
   }
-
 }
 
 .nhsuk-pagination__title {
@@ -129,10 +120,9 @@
 
   @include mq($media-type: print) {
     &:after {
-      content: ' page'; /* [2] */
+      content: " page"; /* [2] */
     }
   }
-
 }
 
 .nhsuk-pagination__page {

@@ -18,11 +18,10 @@ a {
   @include mq($media-type: print) {
     &:after {
       color: $color_nhsuk-black;
-      content: ' (Link: ' attr(href) ')'; /* [1] */
+      content: " (Link: " attr(href) ")"; /* [1] */
       font-size: 14pt; /* [2] */
     }
   }
-
 }
 
 .nhsuk-link--no-visited-state {

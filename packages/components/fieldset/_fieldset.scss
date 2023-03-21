@@ -29,7 +29,7 @@
   margin-top: 0;
   max-width: 100%; /* 1 */
   padding: 0;
-  white-space: normal;    /* 3 */
+  white-space: normal; /* 3 */
 }
 
 /* Heading modifiers */
@@ -54,7 +54,8 @@
   margin-bottom: nhsuk-spacing(3);
 }
 
-.nhsuk-fieldset__heading { /* 4 */
+.nhsuk-fieldset__heading {
+  /* 4 */
   font-size: inherit;
   font-weight: inherit;
   margin: 0;

@@ -28,8 +28,8 @@
 }
 
 %nhsuk-section-break--xl {
-  @include nhsuk-responsive-margin(8, 'top');
-  @include nhsuk-responsive-margin(8, 'bottom');
+  @include nhsuk-responsive-margin(8, "top");
+  @include nhsuk-responsive-margin(8, "bottom");
 }
 
 .nhsuk-section-break--xl {
@@ -37,8 +37,8 @@
 }
 
 %nhsuk-section-break--l {
-  @include nhsuk-responsive-margin(6, 'top');
-  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
 }
 
 .nhsuk-section-break--l {
@@ -46,8 +46,8 @@
 }
 
 %nhsuk-section-break--m {
-  @include nhsuk-responsive-margin(4, 'top');
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "top");
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-section-break--m {
@@ -62,7 +62,8 @@
   @extend %nhsuk-section-break--visible;
 }
 
-hr { /* [1] */
+hr {
+  /* [1] */
   @extend %nhsuk-section-break;
   @extend %nhsuk-section-break--l;
   @extend %nhsuk-section-break--visible;

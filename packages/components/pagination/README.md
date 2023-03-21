@@ -128,13 +128,13 @@ Find out more about the pagination component and when to use it in the [NHS digi
 
 The pagination Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| **previousUrl**     | string   | Yes       | The value of the previous link href attribute. |
-| **previousPage**    | string   | Yes       | The text of the previous link. |
-| **nextUrl**         | string   | Yes       | The value of the next link href attribute. |
-| **nextPage**        | string   | Yes       | The text of the next link. |
-| **classes**         | string   | No        | Optional additional classes to add to the pagination. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the pagination. |
+| Name             | Type   | Required | Description                                                                             |
+| ---------------- | ------ | -------- | --------------------------------------------------------------------------------------- |
+| **previousUrl**  | string | Yes      | The value of the previous link href attribute.                                          |
+| **previousPage** | string | Yes      | The text of the previous link.                                                          |
+| **nextUrl**      | string | Yes      | The value of the next link href attribute.                                              |
+| **nextPage**     | string | Yes      | The text of the next link.                                                              |
+| **classes**      | string | No       | Optional additional classes to add to the pagination. Separate each class with a space. |
+| **attributes**   | object | No       | Any extra HTML attributes (for example data attributes) to add to the pagination.       |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

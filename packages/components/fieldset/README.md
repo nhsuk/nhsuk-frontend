@@ -70,7 +70,6 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 [Preview the fieldset component with input fields](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html)
 
-
 #### HTML markup
 
 ```html
@@ -165,18 +164,18 @@ To add input fields inside the fieldset, use the `call` block.
 
 The fieldset Nunjucks macro takes the following arguments:
 
-| Name                    | Type     | Required  | Description             |
-| ------------------------|----------|-----------|-------------------------|
-| **describedBy**         | string   | No        | Text or element id to add to the `aria-describedby` attribute to provide description of the group of fields for screenreader users. |
-| **legend**              | object   | No        | Arguments for the legend. |
-| **legend.{}.text (or) legend.{}.html**  | string   | No        | Legend text or HTML. If `html` is provided, the `text` argument will be ignored. |
-| **legend.{}.classes**   | string   | No        | Optional additional classes to add to the legend container. |
-| **legend.{}.isPageHeading**  | boolean   | No  | Whether the legend also acts as the heading for the page. |
-| **classes**             | string   | No        | Optional additional classes to add to the fieldset container. Separate each class with a space. |
-| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the fieldset container. |
+| Name                                   | Type    | Required | Description                                                                                                                         |
+| -------------------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **describedBy**                        | string  | No       | Text or element id to add to the `aria-describedby` attribute to provide description of the group of fields for screenreader users. |
+| **legend**                             | object  | No       | Arguments for the legend.                                                                                                           |
+| **legend.{}.text (or) legend.{}.html** | string  | No       | Legend text or HTML. If `html` is provided, the `text` argument will be ignored.                                                    |
+| **legend.{}.classes**                  | string  | No       | Optional additional classes to add to the legend container.                                                                         |
+| **legend.{}.isPageHeading**            | boolean | No       | Whether the legend also acts as the heading for the page.                                                                           |
+| **classes**                            | string  | No       | Optional additional classes to add to the fieldset container. Separate each class with a space.                                     |
+| **attributes**                         | object  | No       | Any extra HTML attributes (for example data attributes) to add to the fieldset container.                                           |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Fieldset component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/fieldset) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Fieldset component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/fieldset) with a few minor adaptations.

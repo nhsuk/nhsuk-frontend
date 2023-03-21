@@ -20,7 +20,7 @@
 
 .nhsuk-details {
   @include nhsuk-text-color;
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
   @include nhsuk-typography-responsive(19);
   display: block;
 }
@@ -38,14 +38,13 @@
 
   &:before {
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     margin: auto;
     position: absolute;
     top: 0;
 
     @include govuk-shape-arrow($direction: right, $base: 14px);
-
   }
 
   &:focus {
@@ -137,7 +136,9 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
         @include nhsuk-focused-text();
 
         &:before {
-          background: $nhsuk-focus-color url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+          background: $nhsuk-focus-color
+            url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+            left -2px center no-repeat;
         }
       }
     }
@@ -151,8 +152,9 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     position: relative;
 
     &:before {
-      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
-      content: '';
+      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+        left -2px center no-repeat;
+      content: "";
       display: inline-block;
       height: 32px;
       left: 0;
@@ -163,10 +165,10 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
   }
 
   .nhsuk-details__text {
-    @include nhsuk-responsive-padding(4, 'bottom');
-    @include nhsuk-responsive-padding(4, 'left');
-    @include nhsuk-responsive-padding(4, 'right');
-    @include nhsuk-responsive-padding(0, 'top');
+    @include nhsuk-responsive-padding(4, "bottom");
+    @include nhsuk-responsive-padding(4, "left");
+    @include nhsuk-responsive-padding(4, "right");
+    @include nhsuk-responsive-padding(0, "top");
 
     border-left: 0;
     margin-left: 0;
@@ -178,7 +180,6 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
   border-bottom-width: $expander-border-width;
 
   .nhsuk-details__summary {
-
     &:focus {
       &:hover {
         .nhsuk-details__summary-text {
@@ -187,25 +188,29 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       }
 
       .nhsuk-details__summary-text::before {
-        background: $nhsuk-focus-color url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat; /* [3] */
+        background: $nhsuk-focus-color
+          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+          left -2px center no-repeat; /* [3] */
       }
     }
   }
 
   .nhsuk-details__summary-text::before {
-    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat; /* [3] */
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+      left -2px center no-repeat; /* [3] */
   }
 }
 
-.nhsuk-expander-group { /* [4] */
+.nhsuk-expander-group {
+  /* [4] */
 
   > .nhsuk-details {
-    @include nhsuk-responsive-margin(2, 'bottom');
+    @include nhsuk-responsive-margin(2, "bottom");
   }
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
-.nhsuk-details  + %nhsuk-heading-l {
-  @include nhsuk-responsive-padding(4, 'top');
+.nhsuk-details + %nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
 }

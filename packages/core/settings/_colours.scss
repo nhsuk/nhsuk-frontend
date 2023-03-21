@@ -21,7 +21,7 @@ $color_nhsuk-white: #ffffff;
 $color_nhsuk-black: #212b32;
 $color_nhsuk-green: #007f3b;
 $color_nhsuk-purple: #330072;
-$color_nhsuk-dark-pink: #7C2855;
+$color_nhsuk-dark-pink: #7c2855;
 $color_nhsuk-red: #d5281b;
 $color_nhsuk-yellow: #ffeb3b;
 
@@ -30,10 +30,10 @@ $color_nhsuk-yellow: #ffeb3b;
 //
 
 $color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81C;
-$color_nhsuk-orange: #ED8B00;
-$color_nhsuk-aqua-green: #00A499;
-$color_nhsuk-pink: #AE2573;
+$color_nhsuk-warm-yellow: #ffb81c;
+$color_nhsuk-orange: #ed8b00;
+$color_nhsuk-aqua-green: #00a499;
+$color_nhsuk-pink: #ae2573;
 
 //
 // Greyscale
@@ -53,7 +53,7 @@ $color_nhsuk-grey-5: #f0f4f5;
 //
 
 $color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
-$alpha-transparency-50: .5;
+$alpha-transparency-50: 0.5;
 
 //
 // Functions for tint and shade
@@ -92,8 +92,8 @@ $color_shade_nhsuk-blue-50: shade($color_nhsuk-blue, 50%); // [4] //
 $color_shade_nhsuk-green-35: shade($color_nhsuk-green, 35%); // [5] //
 $color_shade_nhsuk-green-50: shade($color_nhsuk-green, 50%); // [6] //
 
-$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, .2);
-$color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, .1);
+$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, 0.2);
+$color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, 0.1);
 
 //
 // Colour aliases
@@ -119,7 +119,7 @@ $nhsuk-border-color: $color_nhsuk-grey-4;
 $nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
 
 // Box shadow
-$nhsuk-box-shadow: rgba(33, 43, 50, .16);
+$nhsuk-box-shadow: rgba(33, 43, 50, 0.16);
 $nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
 
 //

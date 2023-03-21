@@ -18,7 +18,12 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Level two</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Level three</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Level three</a></p>
+    <p class="nhsuk-breadcrumb__back">
+      <a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">
+        <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+        Level three
+      </a>
+    </p>
   </div>
 </nav>
 ```
@@ -48,15 +53,15 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 
 The breadcrumb Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description  |
-| --------------------|----------|-----------|--------------|
-| items               | array    | Yes       | Array of breadcrumbs item objects. |
-| items[].text       | string   | Yes       | Text to use within the breadcrumbs item. |
-| items[].href	      | string   | Yes       | Link for the breadcrumbs item. |
-| items[].attributes	| object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item. |
-| href                | string   | Yes       | Link of the current page  |
-| text                | string   | Yes       | Text for the current page |
-| classes             | string   | No        | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
-| attributes          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the breadcrumbs container. |
+| Name               | Type   | Required | Description                                                                                        |
+| ------------------ | ------ | -------- | -------------------------------------------------------------------------------------------------- |
+| items              | array  | Yes      | Array of breadcrumbs item objects.                                                                 |
+| items[].text       | string | Yes      | Text to use within the breadcrumbs item.                                                           |
+| items[].href       | string | Yes      | Link for the breadcrumbs item.                                                                     |
+| items[].attributes | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item.      |
+| href               | string | Yes      | Link of the current page                                                                           |
+| text               | string | Yes      | Text for the current page                                                                          |
+| classes            | string | No       | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
+| attributes         | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumbs container.       |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

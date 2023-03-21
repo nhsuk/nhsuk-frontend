@@ -18,7 +18,7 @@
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, "bottom");
 }
 
 .nhsuk-label--l {
@@ -28,7 +28,7 @@
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-label--m {
@@ -38,7 +38,7 @@
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-label--s {
@@ -48,7 +48,7 @@
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 // When the label is nested inside a heading, override the heading so that it

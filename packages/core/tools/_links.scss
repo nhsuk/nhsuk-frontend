@@ -9,7 +9,6 @@
 //
 
 @mixin nhsuk-link-style-default {
-
   color: $nhsuk-link-color;
 
   &:visited {
@@ -40,7 +39,6 @@
   &:active {
     color: $nhsuk-link-active-color;
   }
-
 }
 
 //
@@ -50,7 +48,6 @@
 //
 
 @mixin nhsuk-link-style-white {
-
   color: $color_nhsuk-white;
 
   &:visited {
@@ -72,7 +69,6 @@
   &:active {
     color: $nhsuk-link-active-color;
   }
-
 }
 
 //
@@ -125,5 +121,38 @@
 
   &:focus {
     color: $nhsuk-focus-text-color;
+  }
+}
+
+/// Text link styles
+///
+/// Makes links use the primary text colour, in all states. Use this mixin for
+/// navigation components, such as breadcrumbs or the back link.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-text;
+///   }
+///
+
+@mixin nhsuk-link-style-text {
+  &:link,
+  &:visited {
+    color: $nhsuk-text-color;
+  }
+
+  // Force a colour change on hover to work around a bug in Safari
+  // https://bugs.webkit.org/show_bug.cgi?id=224483
+  &:hover {
+    color: rgba($nhsuk-text-color, 0.99);
+  }
+
+  &:active,
+  &:focus {
+    color: $nhsuk-text-color;
   }
 }

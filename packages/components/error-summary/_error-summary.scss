@@ -9,7 +9,7 @@
 
 .nhsuk-error-summary {
   @include nhsuk-responsive-padding(4);
-  @include nhsuk-responsive-margin(8, 'bottom');
+  @include nhsuk-responsive-margin(8, "bottom");
 
   border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
@@ -28,7 +28,7 @@
   @include nhsuk-font(24, $weight: bold);
 
   margin-top: 0;
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-error-summary__body {
@@ -36,11 +36,12 @@
 
   p {
     margin-top: 0;
-    @include nhsuk-responsive-margin(4, 'bottom');
+    @include nhsuk-responsive-margin(4, "bottom");
   }
 }
 
-.nhsuk-error-summary__list { /* 1 */
+.nhsuk-error-summary__list {
+  /* 1 */
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -59,5 +60,4 @@
   &:focus {
     @include nhsuk-focused-text();
   }
-
 }
