@@ -15,7 +15,7 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import '../vendor/sass-mq'; // [1] //
+@import "../vendor/sass-mq"; // [1] //
 
 $sass-mq-already-included: true;
 
@@ -29,5 +29,5 @@ $sass-mq-already-included: true;
 @mixin govuk-media-query($args...) {
   @include mq($args...) {
     @content;
-  };
+  }
 }

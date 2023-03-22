@@ -45,12 +45,12 @@ Find out more about the images component and when to use it in the [NHS digital 
 
 The images Nunjucks macro takes the following arguments:
 
-| Name                    | Type     | Required  | Description             |
-| ------------------------|----------|-----------|-------------------------|
-| **src**                 | string   | Yes       | The source location of the image. |
-| **alt**                 | string   | Yes       | The alt text of the image. |
-| **caption**             | string   | No        | Optional caption text for the image. |
-| **sizes**               | string   | No        | A list of screen sizes for the browser to load the correct image from the srcset images. |
-| **srcset**              | string   | No        | A list of image source URLs and their respective sizes. Separate each image with a comma. |
-| **classes**             | string   | No        | Optional additional classes to add to the image container. Separate each class with a space. |
-| **attributes**          | object   | No        | Any extra HTML attributes (for example data attributes) to add to the image container. |
+| Name           | Type   | Required | Description                                                                                  |
+| -------------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| **src**        | string | Yes      | The source location of the image.                                                            |
+| **alt**        | string | Yes      | The alt text of the image.                                                                   |
+| **caption**    | string | No       | Optional caption text for the image.                                                         |
+| **sizes**      | string | No       | A list of screen sizes for the browser to load the correct image from the srcset images.     |
+| **srcset**     | string | No       | A list of image source URLs and their respective sizes. Separate each image with a comma.    |
+| **classes**    | string | No       | Optional additional classes to add to the image container. Separate each class with a space. |
+| **attributes** | object | No       | Any extra HTML attributes (for example data attributes) to add to the image container.       |

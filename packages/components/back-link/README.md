@@ -64,16 +64,16 @@ Find out more about the back link component and when to use it in the [NHS digit
 
 The back link Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description             |
-| --------------------|----------|-----------|-------------------------|
-| **text (or) html**  | string   | Yes       | Text or HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. |
-| **href**            | string   | No        | The value of the link href attribute. |
-| **classes**         | string   | No        | Optional additional classes to add to the back link element. Separate each class with a space. |
-| **element**         | string   | No        | Which html element to use to render the back link - `button` or `a`. If not provided, defaults to `a` |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the tag. |
+| Name               | Type   | Required | Description                                                                                                     |
+| ------------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| **text (or) html** | string | Yes      | Text or HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. |
+| **href**           | string | No       | The value of the link href attribute.                                                                           |
+| **classes**        | string | No       | Optional additional classes to add to the back link element. Separate each class with a space.                  |
+| **element**        | string | No       | Which html element to use to render the back link - `button` or `a`. If not provided, defaults to `a`           |
+| **attributes**     | object | No       | Any extra HTML attributes (for example data attributes) to add to the tag.                                      |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Back link component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/back-link) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Back link component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/back-link) with a few minor adaptations.

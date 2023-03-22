@@ -35,7 +35,6 @@ See https://github.com/nhsuk/nhsuk-frontend/issues/94
 
 If including a link to a ticket make sure it is publicly viewable.
 
-
 ## Branching and merging
 
 You may often choose to work on a particular feature on a "feature branch"
@@ -49,11 +48,11 @@ will make sense to your fellow developers. In particular, you may find
 `git rebase --interactive` very useful. You are also encouraged to avoid merge
 commits and use `git rebase master` instead. However, you should not rewrite commits that have been pushed unless you:
 
-  * are **very sure** that no-one else will be affected by you rewriting the
-    branch history
-  * have an Extremely Good Reason. For example: someone has committed
-    sensitive information (personally identifiable data, passwords and suchlike)
-    and it needs purging from history
+- are **very sure** that no-one else will be affected by you rewriting the
+  branch history
+- have an Extremely Good Reason. For example: someone has committed
+  sensitive information (personally identifiable data, passwords and suchlike)
+  and it needs purging from history
 
 When in doubt you should err towards smaller commits, which can be rebased
 together later. It's harder to break large commits out into smaller chunks.
@@ -94,7 +93,7 @@ $ git push -f
 If anyone has committed anything to master[^1] since you last pulled -- and if
 you've been working on the branch for any length of time this is pretty likely
 -- you will blow their changes away, because without arguments git will force
-push *all* remote-tracking branches.
+push _all_ remote-tracking branches.
 
 So, if you ever need to force push the 'foobar' branch, please instead do
 

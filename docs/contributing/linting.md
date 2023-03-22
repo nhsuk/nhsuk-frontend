@@ -11,11 +11,13 @@ We use the following rules when linting files:
 ### Write each property on its own line
 
 Bad:
+
 ```
 .selector {border: 0; padding: 0;}
 ```
 
 Good:
+
 ```
 .selector {
   border: 0;
@@ -26,6 +28,7 @@ Good:
 ### Use variables for colours not HEX values in selectors rules, unless in variables.
 
 Bad:
+
 ```
 .selector {
   color: #005eb8;
@@ -33,6 +36,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .selector {
   color: $colour_nhsuk-blue;
@@ -42,11 +46,13 @@ Good:
 ### Colours defined as variables should be in lowercase and in full length
 
 Bad:
+
 ```
 $white: #FFF;
 ```
 
 Good:
+
 ```
 $white: #ffffff;
 ```
@@ -54,6 +60,7 @@ $white: #ffffff;
 ### Use `border: 0` not `none` to denote no border
 
 Bad:
+
 ```
 .selector {
   border: none;
@@ -61,6 +68,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .selector {
   border: 0;
@@ -70,6 +78,7 @@ Good:
 ### Avoid using ID selectors
 
 Bad:
+
 ```
 #content {
   ...
@@ -77,6 +86,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .nhsuk-wrapper {
   ...
@@ -86,6 +96,7 @@ Good:
 ### Separate rule, function, and mixin declarations with empty lines
 
 Bad:
+
 ```
 p {
   margin: 0;
@@ -99,6 +110,7 @@ a {
 ```
 
 Good:
+
 ```
 p {
   margin: 0;
@@ -116,6 +128,7 @@ a {
 ### Use no more than 3 levels of nesting
 
 Bad:
+
 ```
 .nhsuk-breadcrumb {
   ...
@@ -126,6 +139,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .nhsuk-breadcrumb {
   ...
@@ -139,11 +153,13 @@ Good:
 ### Don't use extends, use mixins
 
 Bad:
+
 ```
 @extend %contain-floats;
 ```
 
 Good:
+
 ```
 @include clearfix;
 ```
@@ -151,14 +167,17 @@ Good:
 ### Allow max 3-rule property shorthand if possible
 
 Bad:
+
 ```
 margin: 1px 2px 3px 2px;
 ```
 
 Good:
+
 ```
 margin: 1px 2px 3px;
 ```
+
 ### Files should always have a final newline
 
 ### Commas in lists should be followed by a space
@@ -166,12 +185,14 @@ margin: 1px 2px 3px;
 ### The basenames of `@import`ed SCSS partials should not begin with an underscore and should not include the filename extension
 
 Bad:
+
 ```
 @import '_foo.scss';
 @import '_bar/foo.scss';
 ```
 
 Good:
+
 ```
 @import 'foo';
 @import 'bar/foo';
@@ -180,6 +201,7 @@ Good:
 ### Properties should be formatted with a single space separating the colon from the property's value
 
 Bad:
+
 ```
 .foo {
   content:'bar';
@@ -187,6 +209,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .foo {
   content: 'bar';
@@ -196,6 +219,7 @@ Good:
 ### Operators should be formatted with a single space on both sides of an infix operator. These include `+, -, *, /, %, ==, !=, >, >=, <,` and `<=`
 
 Bad:
+
 ```
 .selector {
   margin: 5px+15px;
@@ -221,6 +245,7 @@ $bar: 2-1;
 ```
 
 Good:
+
 ```
 .selector {
   margin: 5px + 15px;
@@ -266,6 +291,7 @@ Good:
 ### Functions, mixins, variables, and placeholders should be declared with all lowercase letters and hyphens instead of underscores
 
 Bad:
+
 ```
 @mixin FONT_STACK() {
   font-family: $nhsuk-font-stack;
@@ -273,6 +299,7 @@ Bad:
 ```
 
 Good:
+
 ```
 @mixin font-stack() {
   font-family: $nhsuk-font-stack;
@@ -282,6 +309,7 @@ Good:
 ### Omit length units on zero values
 
 Bad:
+
 ```
 .selector {
   margin: 0px;
@@ -289,6 +317,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .selector {
   margin: 0;
@@ -298,6 +327,7 @@ Good:
 ### Property values and variable declarations should always end with a semicolon
 
 Bad:
+
 ```
 .selector {
   margin: 0
@@ -307,6 +337,7 @@ $my-example-var: value
 ```
 
 Good:
+
 ```
 .selector {
   margin: 0;
@@ -318,6 +349,7 @@ $my-example-var: value;
 ### Don't write trailing zeros for numeric values with a decimal point
 
 Bad:
+
 ```
 .selector {
   font-size: 0.50em;
@@ -325,6 +357,7 @@ Bad:
 ```
 
 Good:
+
 ```
 .selector {
   font-size: 0.5em;

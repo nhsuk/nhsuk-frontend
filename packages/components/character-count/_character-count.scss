@@ -1,0 +1,17 @@
+.nhsuk-character-count {
+  @include nhsuk-responsive-margin(6, "bottom");
+
+  .nhsuk-form-group,
+  .nhsuk-textarea {
+    margin-bottom: nhsuk-spacing(1);
+  }
+}
+
+.nhsuk-character-count__message {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.nhsuk-character-count__message--disabled {
+  visibility: hidden;
+}

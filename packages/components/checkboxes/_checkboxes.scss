@@ -57,7 +57,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   background: $nhsuk-form-element-background-color;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
-  content: '';
+  content: "";
   height: $nhsuk-checkboxes-size;
   left: 0;
   position: absolute;
@@ -70,7 +70,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   border: solid;
   border-top-color: transparent;
   border-width: 0 0 $nhsuk-border-width $nhsuk-border-width;
-  content: '';
+  content: "";
   height: 10px;
   left: 10px;
   opacity: 0; /* 2 */
@@ -108,7 +108,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 }
 
 .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 /* Divider variant */
@@ -123,7 +123,6 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   width: $nhsuk-divider-size;
 }
 
-
 /*
  * Conditional
  *
@@ -134,12 +133,12 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
  */
 
 $conditional-border-width: $nhsuk-border-width-mobile;
-$conditional-border-padding: ($nhsuk-checkboxes-size / 2) - ($conditional-border-width / 2); /* 1 */
+$conditional-border-padding: ($nhsuk-checkboxes-size * 0.5) - ($conditional-border-width * 0.5); /* 1 */
 $conditional-margin-left: $conditional-border-padding; /* 2 */
 $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; /* 3 */
 
 .nhsuk-checkboxes__conditional {
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
   border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;

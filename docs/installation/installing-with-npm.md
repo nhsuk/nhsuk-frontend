@@ -10,11 +10,11 @@ To use NHS.UK frontend in your projects with npm you must:
 
 3. Have a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS.
 
-4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.  
+4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-    ```
-    npm install nunjucks --save
-    ````
+   ```
+   npm install nunjucks --save
+   ```
 
 ## Installation
 
@@ -66,7 +66,7 @@ document.body.className = ((document.body.className) ? document.body.className +
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute. 
+Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
 
 > The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 

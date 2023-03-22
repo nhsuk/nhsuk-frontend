@@ -16,12 +16,12 @@ BackstopJS tests configuration and files can be found within the `backstop` fold
 
 **`id`** – Used for screenshot naming. Set this property when sharing reference files with teammates -- otherwise omit and BackstopJS will auto-generate one for you to avoid naming collisions with BackstopJS resources.
 
-**`viewports`** – An array of screen size objects your DOM will be tested against.  Add as many as you like -- but add at least one.
+**`viewports`** – An array of screen size objects your DOM will be tested against. Add as many as you like -- but add at least one.
 
 **`scenarios`** – This is where you set up your actual tests. The important sub properties are...
 
 - **`scenarios[n].label`** – Required. Also used for screenshot naming.
-- **`scenarios[n].url`** – Required. Tells BackstopJS what endpoint/document you want to test.  This can be an absolute URL or local to your current working directory.
+- **`scenarios[n].url`** – Required. Tells BackstopJS what endpoint/document you want to test. This can be an absolute URL or local to your current working directory.
 
 _TIP: no other SCENARIO properties are required. Other properties can just be added as necessary_
 

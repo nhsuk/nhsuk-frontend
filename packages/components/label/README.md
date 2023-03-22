@@ -83,16 +83,16 @@
 
 The label Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description             |
-| --------------------|----------|-----------|-------------------------|
-| **text (or) html**  | string   | Yes       | Text or HTML to use within the label. If `html` is provided, the `text` argument will be ignored. |
-| **for**             | string   | Yes       | The value of the for attribute, the id of the input the label is associated with. |
-| **isPageHeading**   | boolean  | No        | Whether the label also acts as the heading for the page.|
-| **classes**         | string   | No        | Optional additional classes to add to the label tag. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the label tag. |
+| Name               | Type    | Required | Description                                                                                       |
+| ------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **text (or) html** | string  | Yes      | Text or HTML to use within the label. If `html` is provided, the `text` argument will be ignored. |
+| **for**            | string  | Yes      | The value of the for attribute, the id of the input the label is associated with.                 |
+| **isPageHeading**  | boolean | No       | Whether the label also acts as the heading for the page.                                          |
+| **classes**        | string  | No       | Optional additional classes to add to the label tag. Separate each class with a space.            |
+| **attributes**     | object  | No       | Any extra HTML attributes (for example data attributes) to add to the label tag.                  |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Label component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/label) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Label component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/label) with a few minor adaptations.

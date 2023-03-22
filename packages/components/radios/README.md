@@ -518,7 +518,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
         <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
           Phone
         </label>
-      </div>  
+      </div>
       <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="phone">
@@ -526,7 +526,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
           </label>
           <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
         </div>
-      </div>  
+      </div>
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
         <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
@@ -630,29 +630,29 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 The radios Nunjucks macro takes the following arguments:
 
-| Name                | Type     | Required  | Description                 |
-| --------------------|----------|-----------|-----------------------------|
-| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
-| **idPrefix**        | string   | No        | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.|
-| **name**            | string	 | Yes       | Name attribute for each radio item. |
-| **items**           | array    | Yes       | Array of radio item objects. |
-| **items[].text (or) items[].html**       | string   | Yes        | Text or HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored. |
-| **items[].id**     | string  | No        | Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.|
-| **items[].name**   | string  | Yes        | Specific name for the radio item. If omitted, then component global `name` string will be applied. |
-| **items[].value**  | string   | Yes        | Value for the radio input. |
-| **items[].hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **items[].divider** | string   | No        | Optional divider text to separate radio items, for example the text "or". |
-| **items[].checked** | boolean   | No        | If true, radio will be checked. |
-| **items[].disabled** | boolean   | No        | If true, radio will be disabled. |
-| **items[].attributes** | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radio input tag. |
-| **items[].conditional.html** | string   | No        | HTML to be displayed when the radio is checked |
-| **classes**         | string   | No        | Optional additional classes to add to the radios container. Separate each class with a space. |
-| **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the radios container. |
+| Name                               | Type    | Required | Description                                                                                                                                                                 |
+| ---------------------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **fieldset**                       | object  | No       | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component.         |
+| **hint**                           | object  | No       | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component.                           |
+| **errorMessage**                   | object  | No       | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **idPrefix**                       | string  | No       | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.                       |
+| **name**                           | string  | Yes      | Name attribute for each radio item.                                                                                                                                         |
+| **items**                          | array   | Yes      | Array of radio item objects.                                                                                                                                                |
+| **items[].text (or) items[].html** | string  | Yes      | Text or HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored.                                                               |
+| **items[].id**                     | string  | No       | Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.                                                                               |
+| **items[].name**                   | string  | Yes      | Specific name for the radio item. If omitted, then component global `name` string will be applied.                                                                          |
+| **items[].value**                  | string  | Yes      | Value for the radio input.                                                                                                                                                  |
+| **items[].hint**                   | object  | No       | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component.                               |
+| **items[].divider**                | string  | No       | Optional divider text to separate radio items, for example the text "or".                                                                                                   |
+| **items[].checked**                | boolean | No       | If true, radio will be checked.                                                                                                                                             |
+| **items[].disabled**               | boolean | No       | If true, radio will be disabled.                                                                                                                                            |
+| **items[].attributes**             | object  | No       | Any extra HTML attributes (for example data attributes) to add to the radio input tag.                                                                                      |
+| **items[].conditional.html**       | string  | No       | HTML to be displayed when the radio is checked                                                                                                                              |
+| **classes**                        | string  | No       | Optional additional classes to add to the radios container. Separate each class with a space.                                                                               |
+| **attributes**                     | object  | No       | Any extra HTML attributes (for example data attributes) to add to the radios container.                                                                                     |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Radios component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/radios) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Radios component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/radios) with a few minor adaptations.

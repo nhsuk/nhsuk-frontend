@@ -1,7 +1,7 @@
-import MenuToggle from './menuToggle';
-import SearchToggle from './searchToggle';
+import MenuToggle from './menuToggle'
+import SearchToggle from './searchToggle'
 
 export default () => {
-  MenuToggle();
-  SearchToggle();
-};
+  MenuToggle()
+  SearchToggle()
+}

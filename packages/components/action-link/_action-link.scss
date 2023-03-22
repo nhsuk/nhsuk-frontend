@@ -14,7 +14,7 @@
  */
 
 .nhsuk-action-link {
-  @include nhsuk-responsive-margin(6, 'bottom');
+  @include nhsuk-responsive-margin(6, "bottom");
 }
 
 .nhsuk-action-link__link {
@@ -41,7 +41,6 @@
         text-decoration: none;
       }
     }
-
   }
 
   @include mq($until: tablet) {
@@ -73,7 +72,5 @@
       top: 2px;
       width: 24px;
     }
-
   }
-
 }

@@ -16,7 +16,6 @@ html {
 }
 
 * {
-
   &,
   &:before,
   &:after {
@@ -24,5 +23,4 @@ html {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
   }
-
 }

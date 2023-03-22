@@ -16,7 +16,7 @@ $button-shadow-size: 4px;
 
 .nhsuk-button {
   @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); // s1
+  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
@@ -70,7 +70,6 @@ $button-shadow-size: 4px;
       &:active {
         color: $color_nhsuk-white;
       }
-
     }
   }
 
@@ -85,7 +84,7 @@ $button-shadow-size: 4px;
   &::before {
     background: transparent;
     bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
-    content: '';
+    content: "";
     display: block;
     left: -$nhsuk-border-width-form-element;
     position: absolute;
@@ -107,7 +106,6 @@ $button-shadow-size: 4px;
   &:active::before {
     top: -($nhsuk-border-width-form-element + $button-shadow-size);
   }
-
 }
 
 /**
@@ -139,7 +137,6 @@ $button-shadow-size: 4px;
   &.nhsuk-button--disabled {
     background-color: $nhsuk-secondary-button-color;
   }
-
 }
 
 .nhsuk-button--reverse {
@@ -181,7 +178,6 @@ $button-shadow-size: 4px;
       background-color: $nhsuk-reverse-button-color;
     }
   }
-
 }
 
 /**
@@ -192,7 +188,7 @@ $button-shadow-size: 4px;
 .nhsuk-button[disabled="disabled"],
 .nhsuk-button[disabled] {
   background-color: $nhsuk-button-color;
-  opacity: (.5);
+  opacity: (0.5);
   pointer-events: none;
 
   &:hover {
@@ -209,13 +205,12 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
     top: 0;
   }
-
 }
 
 .nhsuk-button--secondary[disabled="disabled"],
 .nhsuk-button--secondary[disabled] {
   background-color: $nhsuk-secondary-button-color;
-  opacity: (.5);
+  opacity: (0.5);
 
   &:hover {
     background-color: $nhsuk-secondary-button-color;
@@ -230,13 +225,12 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
     top: 0;
   }
-
 }
 
 .nhsuk-button--reverse[disabled="disabled"],
 .nhsuk-button--reverse[disabled] {
   background-color: $nhsuk-reverse-button-color;
-  opacity: (.5);
+  opacity: (0.5);
 
   &:hover {
     background-color: $nhsuk-reverse-button-color;
@@ -251,5 +245,4 @@ $button-shadow-size: 4px;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
     top: 0;
   }
-
 }

@@ -9,7 +9,7 @@
  */
 
 .nhsuk-table-container {
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include nhsuk-responsive-margin(7, "bottom");
 
   display: block;
   -webkit-overflow-scrolling: touch;
@@ -43,11 +43,7 @@
  */
 
 .nhsuk-table__panel-with-heading-tab {
-  @include panel-with-label(
-    $color_nhsuk-white,
-    $nhsuk-text-color,
-    $color_nhsuk-grey-4
-  );
+  @include panel-with-label($color_nhsuk-white, $nhsuk-text-color, $color_nhsuk-grey-4);
 
   .nhsuk-table-container,
   .nhsuk-table {
@@ -122,7 +118,8 @@
         display: flex;
         justify-content: space-between; /* [5] */
         min-width: 1px; /* [6] */
-        @media all and (-ms-high-contrast: none) { /* [10] */
+        @media all and (-ms-high-contrast: none) {
+          /* [10] */
           display: block;
         }
 

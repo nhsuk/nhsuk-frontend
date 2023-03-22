@@ -10,24 +10,26 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ checkboxes({
-            "name": "colours",
-            "items": [
-              {
-                "value": "red",
-                "text": "Red"
-              },
-              {
-                "value": "green",
-                "text": "Green"
-              },
-              {
-                "value": "blue",
-                "text": "Blue",
-                "disabled": true
-              }
-            ]
-          }) }}
+          <form>
+            {{ checkboxes({
+              "name": "colours",
+              "items": [
+                {
+                  "value": "red",
+                  "text": "Red"
+                },
+                {
+                  "value": "green",
+                  "text": "Green"
+                },
+                {
+                  "value": "blue",
+                  "text": "Blue",
+                  "disabled": true
+                }
+              ]
+            }) }}
+          </form>
         </div>
       </div>
 

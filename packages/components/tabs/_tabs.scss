@@ -1,0 +1,119 @@
+.nhsuk-tabs {
+  @include nhsuk-responsive-margin(1, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+.nhsuk-tabs__title {
+  @include nhsuk-font($size: 19);
+  color: $nhsuk-text-color;
+  margin-bottom: nhsuk-spacing(2);
+}
+
+.nhsuk-tabs__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+.nhsuk-tabs__list-item {
+  @include nhsuk-font($size: 19);
+  margin-left: nhsuk-spacing(5);
+
+  &:before {
+    color: $nhsuk-text-color;
+    content: "\2014 "; // "— "
+    margin-left: -(nhsuk-spacing(5));
+    padding-right: nhsuk-spacing(1);
+  }
+}
+
+.nhsuk-tabs__tab {
+  @include nhsuk-link-style-default;
+
+  display: inline-block;
+  margin-bottom: nhsuk-spacing(2);
+}
+
+.nhsuk-tabs__panel {
+  @include nhsuk-responsive-margin(8, "bottom");
+}
+
+// JavaScript enabled
+.js-enabled {
+  @include govuk-media-query($from: tablet) {
+    .nhsuk-tabs__list {
+      @include clearfix;
+      border-bottom: 1px solid $nhsuk-border-color;
+      margin-bottom: 0;
+    }
+
+    .nhsuk-tabs__title {
+      display: none;
+    }
+
+    .nhsuk-tabs__list-item {
+      background-color: $color_nhsuk-grey-4;
+      float: left;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: nhsuk-spacing(1);
+      padding: nhsuk-spacing(2) nhsuk-spacing(4);
+      position: relative;
+      text-align: center;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .nhsuk-tabs__list-item--selected {
+      $border-width: 1px;
+      background-color: $color_nhsuk-white;
+      border: $border-width solid $nhsuk-border-color;
+      border-bottom: 0;
+      margin-bottom: -$border-width; // Compensation for border (otherwise we get a shift)
+      margin-top: -(nhsuk-spacing(1));
+      padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
+      padding-left: nhsuk-spacing(4) - $border-width;
+      padding-right: nhsuk-spacing(4) - $border-width;
+      padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
+      position: relative;
+
+      .nhsuk-tabs__tab {
+        text-decoration: none;
+      }
+    }
+
+    .nhsuk-tabs__tab {
+      @include nhsuk-link-style-text;
+
+      margin-bottom: 0;
+
+      &:after {
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    .nhsuk-tabs__panel {
+      @include nhsuk-responsive-margin(0, "bottom");
+      background-color: $color_nhsuk-white;
+      border: 1px solid $nhsuk-border-color;
+      border-top: 0;
+      padding: nhsuk-spacing(6) nhsuk-spacing(4);
+
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .nhsuk-tabs__panel--hidden {
+      display: none;
+    }
+  }
+}

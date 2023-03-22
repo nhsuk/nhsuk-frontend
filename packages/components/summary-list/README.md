@@ -340,26 +340,26 @@
 
 The summary list Nunjucks macro takes the following arguments:
 
-| Name             | Type     | Required  | Description |
-| -----------------|----------|-----------|-------------|
-| classes          | string   | No        | Classes to add to the container. |
-| attributes       | object   | No        | HTML attributes (for example data attributes) to add to the container. |
-| rows             | array    | Yes       | Array of row item objects. |
-| rows.key.text    | string   | Yes       | If html is set, this is not required. Text to use within the each key. If html is provided, the text argument will be ignored. |
-| rows.key.html    | string   | Yes       | |
-| rows.key.classes | string   | No        | Classes to add to the key wrapper. |
-| rows.value.text	 | string   | Yes        | If html is set, this is not required. Text to use within the each value. If html is provided, the text argument will be ignored. |
-| rows.value.html  | string   | Yes        | If text is set, this is not required. HTML to use within the each value. If html is provided, the text argument will be ignored. |
-| rows.key.classes | string   | No         | Classes to add to the value wrapper. |
-| rows.actions.items | array   | No        | Array of action item objects. |
-| action.items.classes | string   | No     | Classes to add to the actions wrapper. |
-| action.items.href | string   | Yes     | The value of the link href attribute for an action item. |
-| action.items.text | string   | Yes     | If html is set, this is not required. Text to use within each action item. If html is provided, the text argument will be ignored. |
-| action.items.html | string   | Yes     | If text is set, this is not required. HTML to use within the each action item. If html is provided, the text argument will be ignored. |
-| action.items.visuallyHiddenText	 | string   | Yes     | Actions rely on context from the surrounding content so may require additional accessible text, text supplied to this option is appended to the end, use html for more complicated scenarios. |
+| Name                            | Type   | Required | Description                                                                                                                                                                                   |
+| ------------------------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes                         | string | No       | Classes to add to the container.                                                                                                                                                              |
+| attributes                      | object | No       | HTML attributes (for example data attributes) to add to the container.                                                                                                                        |
+| rows                            | array  | Yes      | Array of row item objects.                                                                                                                                                                    |
+| rows.key.text                   | string | Yes      | If html is set, this is not required. Text to use within the each key. If html is provided, the text argument will be ignored.                                                                |
+| rows.key.html                   | string | Yes      |                                                                                                                                                                                               |
+| rows.key.classes                | string | No       | Classes to add to the key wrapper.                                                                                                                                                            |
+| rows.value.text                 | string | Yes      | If html is set, this is not required. Text to use within the each value. If html is provided, the text argument will be ignored.                                                              |
+| rows.value.html                 | string | Yes      | If text is set, this is not required. HTML to use within the each value. If html is provided, the text argument will be ignored.                                                              |
+| rows.key.classes                | string | No       | Classes to add to the value wrapper.                                                                                                                                                          |
+| rows.actions.items              | array  | No       | Array of action item objects.                                                                                                                                                                 |
+| action.items.classes            | string | No       | Classes to add to the actions wrapper.                                                                                                                                                        |
+| action.items.href               | string | Yes      | The value of the link href attribute for an action item.                                                                                                                                      |
+| action.items.text               | string | Yes      | If html is set, this is not required. Text to use within each action item. If html is provided, the text argument will be ignored.                                                            |
+| action.items.html               | string | Yes      | If text is set, this is not required. HTML to use within the each action item. If html is provided, the text argument will be ignored.                                                        |
+| action.items.visuallyHiddenText | string | Yes      | Actions rely on context from the surrounding content so may require additional accessible text, text supplied to this option is appended to the end, use html for more complicated scenarios. |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Summary list component](https://github.com/alphagov/govuk-frontend/tree/master/package/components/summary-list) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Summary list component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/summary-list) with a few minor adaptations.

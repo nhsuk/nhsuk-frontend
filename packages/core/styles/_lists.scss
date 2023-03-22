@@ -18,7 +18,7 @@
 
 %nhsuk-list {
   @include nhsuk-typography-responsive(19);
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include nhsuk-responsive-margin(4, "bottom");
 
   list-style-type: none;
   margin-top: 0;
@@ -26,7 +26,7 @@
 }
 
 %nhsuk-list > li {
-  @include nhsuk-responsive-margin(2, 'bottom');
+  @include nhsuk-responsive-margin(2, "bottom");
 
   &:last-child {
     margin-bottom: 0;
