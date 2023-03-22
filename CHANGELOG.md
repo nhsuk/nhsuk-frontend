@@ -42,7 +42,7 @@ You will only now need this:
 
 - Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
 - Upgrade all dependencies to their latest versions where possible
-- Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Have an opinion? [Share it!](https://github.com/nhsuk/nhsuk-frontend/discussions/827#discussioncomment-3188144) Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
+- Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
 
 :wrench: **Fixes**
 
