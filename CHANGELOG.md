@@ -46,7 +46,7 @@ You will only now need this:
 
 :wrench: **Fixes**
 
-- Adds missing `open` and `id` parameters to `details` nunjucks component #856  
+- Adds missing `open` and `id` parameters to `details` nunjucks component ([Issue 856](https://github.com/nhsuk/nhsuk-frontend/issues/856), [PR 857](https://github.com/nhsuk/nhsuk-frontend/pull/857))
   These were already documented in the service manual but not actually implemented.
 
 ## 6.2.0 - 17 January 2023
