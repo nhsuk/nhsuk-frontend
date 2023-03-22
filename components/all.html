@@ -183,7 +183,12 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/conditions">Health A-Z</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://www.nhs.uk/conditions/abscess/">Abscess</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/conditions/abscess/">Back to Abscess</a></p>
+    <p class="nhsuk-breadcrumb__back">
+      <a class="nhsuk-breadcrumb__backlink" href="https://www.nhs.uk/conditions/abscess/">
+        <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+        Abscess
+      </a>
+    </p>
   </div>
 </nav>
 
@@ -1088,7 +1093,8 @@
 </div>
 
 
-  
+  <form>
+    
 
 
 
@@ -1161,6 +1167,7 @@
 
 </div>
 
+  </form>
 
   
 
@@ -1254,13 +1261,36 @@
   
 
 <div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="more-detail">
+  <label class="nhsuk-label" for="more-detail-textarea">
     Can you provide more detail?
   </label>
-  <div class="nhsuk-hint" id="more-detail-hint">
+  <div class="nhsuk-hint" id="more-detail-textarea-hint">
     Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
   </div>
-  <textarea class="nhsuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="nhsuk-textarea" id="more-detail-textarea" name="more-detail-textarea" rows="5" aria-describedby="more-detail-textarea-hint"></textarea>
+</div>
+
+
+  
+
+
+<div class="nhsuk-character-count" data-module="nhsuk-character-count" data-maxlength="200">
+  
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="more-detail-character-count">
+    Can you provide more detail?
+  </label>
+  <div class="nhsuk-hint" id="more-detail-character-count-hint">
+    Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
+  </div>
+  <textarea class="nhsuk-textarea nhsuk-js-character-count" id="more-detail-character-count" name="more-detail-character-count" rows="5" aria-describedby="more-detail-character-count-hint"></textarea>
+</div>
+
+  <div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-character-count-info">
+  You can enter up to 200 characters
+</div>
+
 </div>
 
 
@@ -1334,6 +1364,74 @@
 </div>
 
 
+  <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+  <h2 class="nhsuk-tabs__title">
+    Contents
+  </h2>
+  
+  <ul class="nhsuk-tabs__list">
+    
+      
+        
+        <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+          <a class="nhsuk-tabs__tab" href="#tab-one">
+            Tab one
+          </a>
+        </li>
+      
+    
+      
+        
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#tab-two">
+            Tab two
+          </a>
+        </li>
+      
+    
+      
+        
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#tab-three">
+            Tab three
+          </a>
+        </li>
+      
+    
+  </ul>
+  
+  
+    
+      
+      <div class="nhsuk-tabs__panel" id="tab-one">
+        
+    <h2>Tab one content</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+      </div>
+    
+  
+    
+      
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-two">
+        
+    <h2>Tab two content</h2>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+  
+      </div>
+    
+  
+    
+      
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-three">
+        
+    <h2>Tab three content</h2>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+  
+      </div>
+    
+  
+</div>
 
         </div>
       </div>

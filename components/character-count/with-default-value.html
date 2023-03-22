@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Checkboxes with legend as page heading - NHS.UK frontend</title>
+    <title>Character Count - with default value exceeding limit - NHS.UK frontend</title>
 
     <link href="https://www.nhs.uk/" rel="preconnect">
     <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
@@ -56,83 +56,28 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          <form>
-            
+          
 
 
-
-
-
+<div class="nhsuk-character-count" data-module="nhsuk-character-count" data-maxlength="70">
   
 
-  
-
-  
 <div class="nhsuk-form-group">
-
-  <fieldset class="nhsuk-fieldset" aria-describedby="waste-hint">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-    <h1 class="nhsuk-fieldset__heading">
-      Which types of waste do you transport regularly?
-    </h1>
-  </legend>
-
-  <div class="nhsuk-hint" id="waste-hint">
-    Select all that apply.
+  <label class="nhsuk-label" for="more-detail">
+    Can you provide more detail?
+  </label>
+  <div class="nhsuk-hint" id="more-detail-hint">
+    Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
   </div>
+  <textarea class="nhsuk-textarea nhsuk-js-character-count" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">123</textarea>
+</div>
 
-
-  <div class="nhsuk-checkboxes">
-    
-    
-    
-    
-    
-    
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-1">
-        Waste from animal carcasses
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-2">
-        Waste from mines or quarries
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-      <label class="nhsuk-label nhsuk-checkboxes__label" for="waste-3">
-        Farm or agricultural waste
-      </label>
-    </div>
-    
-    
-    
-  </div>
-  </fieldset>
-
+  <div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-info">
+  You can enter up to 70 characters
+</div>
 
 </div>
 
-          </form>
         </div>
       </div>
 
