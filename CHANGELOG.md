@@ -42,16 +42,23 @@ You will only now need this:
 
 - Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
 - Upgrade all dependencies to their latest versions where possible
-- Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Have an opinion? [Share it!](https://github.com/nhsuk/nhsuk-frontend/discussions/827#discussioncomment-3188144) Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
+- Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
+
+:wrench: **Fixes**
+
+- Adds missing `open` and `id` parameters to `details` nunjucks component ([Issue 856](https://github.com/nhsuk/nhsuk-frontend/issues/856), [PR 857](https://github.com/nhsuk/nhsuk-frontend/pull/857))
+  These were already documented in the service manual but not actually implemented.
 
 ## 6.2.0 - 17 January 2023
 
 :new: **New features**
 
 - Button improvements
+
   - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
   - Add optional `data-prevent-double-click="true"` attribute to buttons to trigger simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
   - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
+
 - Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
 
 :wrench: **Fixes**
