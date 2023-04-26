@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 7.0.1 - TBA
+
+:wrench: **Fixes**
+
+- Redo fix of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842)).
+
 ## 7.0.0 - 22 March 2023
 
 :new: **New features**
