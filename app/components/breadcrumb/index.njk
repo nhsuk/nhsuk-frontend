@@ -9,15 +9,20 @@
     items: [
       {
         href: "/level-one",
-        text: "Level one"
+        text: "Level one",
+        attributes: {lang: "en"}
       },
       {
         href: "/level-one/level-two",
         text: "Level two"
+      },
+      {
+        href: "/level-one/level-two/level-three",
+        text: "Level three"
       }
     ],
-    href: "/level-one/level-two/level-three",
-    text: "Level three"
+    classes: "example-class-one example-class-two",
+    attributes: {lang: "en"}
   }) }}
 
 {% endblock %}

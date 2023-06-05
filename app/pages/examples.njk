@@ -9,8 +9,12 @@
 
 {% block breadcrumb %}
   {{ breadcrumb({
-    href: "../",
-    text: "NHS.UK frontend"
+    items: [
+      {
+        href: "../",
+        text: "NHS.UK frontend"
+      }
+    ]
   }) }}
 {% endblock %}
 

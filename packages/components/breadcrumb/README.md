@@ -37,15 +37,20 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
   items: [
     {
       href: "/level-one",
-      text: "Level one"
+      text: "Level one",
+      attributes: {lang: "en"}
     },
     {
       href: "/level-one/level-two",
       text: "Level two"
+    },
+    {
+      href: "/level-one/level-two/level-three",
+      text: "Level three"
     }
   ],
-  href: "/level-one/level-two/level-three",
-  text: "Level three"
+  classes: "example-class-one example-class-two",
+  attributes: {lang: "en"}
 }) }}
 ```
 
@@ -59,8 +64,6 @@ The breadcrumb Nunjucks macro takes the following arguments:
 | items[].text       | string | Yes      | Text to use within the breadcrumbs item.                                                           |
 | items[].href       | string | Yes      | Link for the breadcrumbs item.                                                                     |
 | items[].attributes | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item.      |
-| href               | string | Yes      | Link of the current page                                                                           |
-| text               | string | Yes      | Text for the current page                                                                          |
 | classes            | string | No       | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
 | attributes         | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumbs container.       |
 
