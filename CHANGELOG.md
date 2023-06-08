@@ -1,6 +1,52 @@
 # NHS.UK frontend Changelog
 
-## 7.0.1 - TBA
+## 8.0.0 - TBA
+
+:boom: **Breaking changes**
+
+- Breadcrumb update
+
+We removed the need to add the last breadcrumb outside of the 'Items' list, now simply include it in the list of items. This also fixes the issue with not being able to add attributes to the last breadcrumb. Instead of having this:
+
+```
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/level-one",
+        text: "Level one"
+      },
+      {
+        href: "/level-one/level-two",
+        text: "Level two"
+      }
+    ],
+    href: "/level-one/level-two/level-three",
+    text: "Level three"
+  }) }}
+```
+
+You will now only need this:
+
+```
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/level-one",
+        text: "Level one",
+      },
+      {
+        href: "/level-one/level-two",
+        text: "Level two"
+      },
+      {
+        href: "/level-one/level-two/level-three",
+        text: "Level three"
+      }
+    ]
+  }) }}
+```
+
+You can now add attributes to the last breadcrumb.
 
 :wrench: **Fixes**
 
