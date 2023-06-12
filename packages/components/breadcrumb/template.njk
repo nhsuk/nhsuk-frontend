@@ -10,7 +10,7 @@
     </ol>
     {% set lastItem = params.items | last%}
     <p class="nhsuk-breadcrumb__back">
-      <a class="nhsuk-breadcrumb__backlink" href="{{ lastItem.href }}">
+      <a class="nhsuk-breadcrumb__backlink" href="{{ lastItem.href }}" {% for attribute, value in lastItem.attributes %}{{attribute}}="{{value}}"{% endfor %}>
         <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
         {{ lastItem.text }}
       </a>
