@@ -4,9 +4,9 @@
 
 :boom: **Breaking changes**
 
-- Breadcrumb update
+- Breadcrumb update ([PR 872](https://github.com/nhsuk/nhsuk-frontend/pull/872))
 
-We removed the need to add the last breadcrumb outside of the 'Items' list, now simply include it in the list of items. This also fixes the issue with not being able to add attributes to the last breadcrumb. Instead of having this:
+We removed the need to add the last breadcrumb outside of the 'Items' list, now simply include it in the list of items. This also fixes the issue ([Issue 471](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/471) in the nhsuk Service Manual) with not being able to add attributes to the last breadcrumb. Instead of having this:
 
 ```
   {{ breadcrumb({
