@@ -4,6 +4,52 @@
 
 :wrench: **Fixes**
 
+- Breadcrumb update ([PR 872](https://github.com/nhsuk/nhsuk-frontend/pull/872))
+
+We removed the need to add the last breadcrumb outside of the 'Items' list, now simply include it in the list of items. This also fixes the issue ([Issue 471](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/471) in the nhsuk Service Manual) with not being able to add attributes to the last breadcrumb. Instead of having this:
+
+```
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/level-one",
+        text: "Level one"
+      },
+      {
+        href: "/level-one/level-two",
+        text: "Level two"
+      }
+    ],
+    href: "/level-one/level-two/level-three",
+    text: "Level three"
+  }) }}
+```
+
+You will now only need this:
+
+```
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/level-one",
+        text: "Level one",
+      },
+      {
+        href: "/level-one/level-two",
+        text: "Level two"
+      },
+      {
+        href: "/level-one/level-two/level-three",
+        text: "Level three"
+      }
+    ]
+  }) }}
+```
+
+You can now add attributes to the last breadcrumb.
+
+Note: For backwards compatibility, 'href' and 'text' parameters outside of the items list will still work and display as the last breadcrumb. These will be removed in a future release.
+
 - Redo fix of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842)).
 
 ## 7.0.0 - 22 March 2023
