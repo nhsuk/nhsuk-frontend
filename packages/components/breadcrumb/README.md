@@ -64,6 +64,8 @@ The breadcrumb Nunjucks macro takes the following arguments:
 | items[].text       | string | Yes      | Text to use within the breadcrumbs item.                                                           |
 | items[].href       | string | Yes      | Link for the breadcrumbs item.                                                                     |
 | items[].attributes | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumb anchor item.      |
+| href               | string | No       | Link of the last page to appear in breadcrumb list. Avoid adding last breadcrumb this way, instead you should include your last breadcrumb in the items list.|
+| text               | string | No       | Text of the last page to appear in breadcrumb list. Avoid adding last breadcrumb this way, instead you should include your last breadcrumb in the items list.|
 | classes            | string | No       | Optional additional classes to add to the breadcrumbs container. Separate each class with a space. |
 | attributes         | object | No       | Any extra HTML attributes (for example data attributes) to add to the breadcrumbs container.       |
 
