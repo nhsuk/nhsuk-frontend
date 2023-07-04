@@ -48,7 +48,7 @@ You will now only need this:
 
 You can now add attributes to the last breadcrumb.
 
-Note: For backwards comatibility, 'href' and 'text' parameters outside of the items list will still work and display as the last breadcrumb. These will be removed in a future release.
+Note: For backwards compatibility, 'href' and 'text' parameters outside of the items list will still work and display as the last breadcrumb. These will be removed in a future release.
 
 - Redo fix of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842)).
 
