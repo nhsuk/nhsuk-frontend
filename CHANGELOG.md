@@ -1,8 +1,8 @@
 # NHS.UK frontend Changelog
 
-## 8.0.0 - TBA
+## 7.0.1 - TBA
 
-:boom: **Breaking changes**
+:wrench: **Fixes**
 
 - Breadcrumb update ([PR 872](https://github.com/nhsuk/nhsuk-frontend/pull/872))
 
@@ -48,9 +48,7 @@ You will now only need this:
 
 You can now add attributes to the last breadcrumb.
 
-Note: For backwards comatibility, 'href' and 'text' parameters outside of the items list will still work and display as the last breadcrumb. This will be removed in a future release meaning breadcrumbs can only be added via the items list.
-
-:wrench: **Fixes**
+Note: For backwards comatibility, 'href' and 'text' parameters outside of the items list will still work and display as the last breadcrumb. These will be removed in a future release.
 
 - Redo fix of checkbox label being unintentionally full width of the screen due to ordering of css files ([Issue 842](https://github.com/nhsuk/nhsuk-frontend/issues/842)).
 
