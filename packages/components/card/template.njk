@@ -2,6 +2,7 @@
 
 <div class="nhsuk-card
 {%- if params.clickable %} nhsuk-card--clickable{% endif %}
+{%- if params.transparent %} nhsuk-card--transparent{% endif %}
 {%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}
 {%- if params.feature %} nhsuk-card--feature{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}"
