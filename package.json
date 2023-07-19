@@ -3,7 +3,7 @@
   "version": "7.0.0",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "gulp bundle",
     "build": "gulp build",
     "start": "gulp",
     "test": "npm run lint && npm run jest:ci",
