@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -e
+
+if ! command -v gitleaks # &> /dev/null 
+then
+    printf "\nGitleaks could not be found, please follow instructions in .husky/gitleaks/config/README-gitleaks.md\n\n"
+    exit 1
+else
+    gitleaks protect --source . --verbose --config .husky/gitleaks/config/gitleaks.toml --staged
+fi
