@@ -26,3 +26,9 @@ If everything is setup correctly, every time you run "**git commit ...**" Gitlea
 If none are detected your commit will go ahead as usual.
 
 If Gitleaks does find any possible secrets, your commit will fail and Gitleaks will show you where it suspects secrets.
+
+# How to skip Gitleaks
+
+If you want to skip Gitleaks add "--no-verify" to the end of your command.
+
+(git commit -m "message" --no-verify)

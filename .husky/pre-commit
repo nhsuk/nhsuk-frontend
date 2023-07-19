@@ -3,7 +3,8 @@ set -e
 
 if ! command -v gitleaks # &> /dev/null 
 then
-    printf "\nGitleaks could not be found, please follow instructions in .husky/gitleaks/config/README-gitleaks.md\n\n"
+    printf "\nGitleaks could not be found, please follow instructions in .husky/gitleaks/config/README-gitleaks.md\n
+Alternatively to skip gitleaks add '--no-verify' to the end of your commit command\n\n"
     exit 1
 else
     gitleaks protect --source . --verbose --config .husky/gitleaks/config/gitleaks.toml --staged
