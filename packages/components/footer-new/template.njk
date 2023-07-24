@@ -1,0 +1,17 @@
+<footer role="contentinfo">
+  <div class="new-nhsuk-footer
+    {%- if params.classes %} {{ params.classes }}{% endif %}" id="new-nhsuk-footer"
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+    <div class="nhsuk-width-container">
+      {%- if params.links %}
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
+        {%- for item in params.links %}
+        <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item"><a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      {% endif %}
+      <p class="beta-nhsuk-footer__copyright">{% if params.copyright %}{{ params.copyright | safe }}{% else %}&copy; Crown copyright{% endif %}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,64 @@
+/* ==========================================================================
+   COMPONENTS / #FOOTER-NEW
+   ========================================================================== */
+
+.new-nhsuk-footer {
+  @include clearfix();
+  @include print-hide();
+  @include nhsuk-responsive-padding(5, bottom);
+  @include nhsuk-responsive-padding(5, top);
+
+  background-color: $color_nhsuk-grey-4;
+  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
+  border-bottom: 10px solid $color_nhsuk-grey-1;
+}
+
+.beta-nhsuk-footer {
+  margin-bottom: 15px;
+  border-bottom: 10px solid $color_nhsuk-grey-1;
+
+  @include mq($from: desktop) {
+    display: flex;
+  }
+}
+
+.beta-nhsuk-footer__list {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
+
+  @include mq($from: desktop) {
+    padding-right: 40px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.beta-nhsuk-footer__list-item {
+  @include mq($from: desktop) {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+$beta-link-aaa: rgb(0, 48, 135);
+$beta-copyright-aaa: rgb(35, 31, 32);
+
+.beta-nhsuk-footer__list .beta-nhsuk-footer__list-item-link {
+  color: $beta-link-aaa;
+
+  &:hover {
+    color: $nhsuk-link-hover-color;
+    text-decoration: none;
+  }
+}
+
+.beta-nhsuk-footer__copyright {
+  @include nhsuk-font(16);
+  color: $beta-copyright-aaa;
+  margin-bottom: 0;
+}

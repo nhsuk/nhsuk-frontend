@@ -1,0 +1,255 @@
+/* ==========================================================================
+   COMPONENTS / #HEADER-NEW
+   ========================================================================== */
+
+.beta-header {
+  @include mq($until: tablet) {
+    padding-bottom: 0;
+  }
+}
+
+.beta-nhsuk-navigation-container {
+  position: relative;
+}
+
+.beta-nhsuk-navigation {
+  display: flex;
+
+  @include mq($until: tablet) {
+    position: relative;
+    z-index: 10;
+  }
+
+  @include mq($from: tablet) {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.beta-nhsuk-header__navigation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  @include mq($from: desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .js-enabled & {
+    display: flex;
+  }
+}
+
+.beta-nhsuk-header__navigation-item {
+  margin-bottom: 0;
+}
+
+.beta-nhsuk-header__navigation-item--home {
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
+.beta-nhsuk-header__navigation-item--services-mobile {
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
+.beta-nhsuk-header__navigation-item--services {
+  display: none;
+
+  @include mq($from: desktop) {
+    display: list-item;
+  }
+}
+
+// a tag
+.beta-nhsuk-header__navigation-link {
+  color: $color_nhsuk-white;
+  font-size: $nhsuk-base-font-size;
+  line-height: 1.5;
+  padding: 16px 12px;
+  text-decoration: underline;
+  white-space: nowrap;
+
+  @include mq($from: tablet) {
+    padding: 12px 16px;
+  }
+
+  &:hover {
+    color: $color_nhsuk-white;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-icon__chevron-right {
+    display: none;
+  }
+}
+
+.beta-nhsuk-header__drop-down {
+  @include print-hide();
+  background-color: $color_nhsuk-white;
+  border-bottom: 4px solid $color_nhsuk-grey-5;
+  clear: both;
+  left: -16px;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding-left: 0;
+  position: absolute;
+  right: -16px;
+  top: 100%;
+
+  @include mq($from: tablet) {
+    left: 0;
+    right: 0;
+  }
+
+  &.js-hidden {
+    display: none;
+  }
+
+  .beta-nhsuk-header__navigation-link {
+    color: $color_nhsuk-blue;
+    padding: 12px nhsuk-spacing(3);
+  }
+
+  .beta-nhsuk-header__navigation-item {
+    border-top: 1px solid $color_nhsuk-grey-5;
+    margin-bottom: 0;
+
+    @include mq($from: large-desktop) {
+      border-top: 0;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+.beta-nhsuk-header__menu-toggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+  border-top: 4px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  position: relative;
+  text-align: center;
+  text-decoration: underline;
+  vertical-align: top;
+  visibility: hidden;
+  width: auto;
+  z-index: 1;
+
+  &.beta-nhsuk-header__navigation-link {
+    padding-right: 30px;
+  }
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+
+  &.js-show {
+    display: block;
+    visibility: visible;
+  }
+
+  &:focus {
+    text-decoration: none;
+
+    .beta-nhsuk-icon__chevron-down {
+      fill: $color_nhsuk-black;
+    }
+  }
+}
+
+.beta-mobile-menu-container {
+  align-self: center;
+  display: none;
+  // margin-left: auto;
+
+  &.js-show {
+    display: block;
+  }
+}
+
+.beta-nhsuk-icon__chevron-down {
+  fill: $color_nhsuk-white;
+  height: 24px;
+  position: absolute;
+  right: 4px;
+  transform: rotate(90deg);
+  width: 24px;
+
+  .beta-nhsuk-header__menu-toggle[aria-expanded="true"] & {
+    transform: rotate(270deg);
+  }
+}
+
+/**
+* Iterative work on the header
+* Phase 1 exposing search on mobile
+*/
+
+@include mq($until: tablet) {
+  .beta-header__search-form {
+    background-color: $color_nhsuk-blue;
+    padding: 0 16px;
+    position: relative;
+
+    .js-enabled & {
+      background-color: $color_nhsuk-white;
+    }
+  }
+
+  .js-enabled {
+    .beta-header__search-wrap {
+      &::after {
+        background: $color_nhsuk-blue;
+        content: " ";
+        height: 52px;
+        left: -16px;
+        position: absolute;
+        width: calc(100% + 32px);
+        z-index: 0;
+      }
+    }
+  }
+
+  .beta-search__submit {
+    background-color: $color_nhsuk-grey-5;
+    border: 0;
+    height: 52px;
+    z-index: 1;
+
+    .js-enabled & {
+      height: 40px;
+    }
+
+    .beta-icon__search {
+      fill: $color_nhsuk-blue;
+      height: 27px;
+      width: 27px;
+    }
+
+    &:hover {
+      background-color: $color_shade_nhsuk-blue-35;
+      border: 1px solid $color_nhsuk-white;
+
+      .nhsuk-icon {
+        fill: $color_nhsuk-white;
+      }
+    }
+  }
+}
