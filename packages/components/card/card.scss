@@ -279,6 +279,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card__content--arrow {
   padding-right: 75px;
 
+  @include mq($from: desktop) {
+    height: 100%;
+  }
+
   .nhsuk-icon {
     display: block;
     fill: $color_nhsuk-blue;
@@ -302,6 +306,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   border-top: 0;
 }
 
-.nhsuk-card--transparent__content {
-  
+.nhsuk-card__content--transparent {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
 }
