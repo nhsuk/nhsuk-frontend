@@ -462,7 +462,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </a>
     </div>
     <div class="nhsuk-header__transactional-service-name beta-header__transactional-service-name">
-      <a class="nhsuk-header__transactional-service-name--link" href="/">Register with a GP</a>
+      <a class="nhsuk-header__transactional-service-name--link" href="/">Find your NHS number</a>
     </div>
   </div>
 </header>
@@ -475,8 +475,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 {{ headerNew({
   "transactionalService": {
-      "name": "Register with a GP",
-      "href": "https://beta.nhs.uk/book-a-gp-appointment/"
+      "name": "Find your NHS number",
+      "href": "https://www.nhs.uk/nhs-services/online-services/find-nhs-number/"
     },
     "showNav": "false",
     "showSearch": "false"
