@@ -14,8 +14,11 @@
 {%- if params.organisation and params.organisation.name %} nhsuk-header--organisation{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+
   <div class="nhsuk-width-container nhsuk-header__container beta-header">
-    <div class="nhsuk-header__logo {%- if showNav == "false" and showSearch == "false"%} nhsuk-header__logo--only{%- endif %}">
+    <div class="nhsuk-header__logo 
+    {%- if showNav == "false" and showSearch == "false" and params.transactionalService %} beta-transactional-nhsuk-header__logo--only{% endif %}
+    {%- if showNav == "false" and showSearch == "false" and not params.transactionalService %} nhsuk-header__logo--only{% endif %}">
       {%- if params.organisation %}
       <a class="nhsuk-header__link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
         {%- if params.organisation.logoURL %}
@@ -38,19 +41,27 @@
       {%- endif %}
     </div>
 
-    {% if not params.primaryLinks and not showSearch %}
-      {% if params.service.name and params.transactionalService %}
-        <div class="nhsuk-header__transactional-service-name{% if service_long_name %} nhsuk-header__transactional-service-name--long {% endif %}">
+    {%- if showNav == "false" and showSearch == "false"%}
+
+      {%- if params.transactionalService%}
+        <div class="nhsuk-header__transactional-service-name beta-header__transactional-service-name">
           <a class="nhsuk-header__transactional-service-name--link" href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}">{{ params.transactionalService.name }}</a>
         </div>
-      {% endif %}
-    {% else %}
+        
+      {%- endif %}
+
+    </div>{# close nhsuk-header__container beta-header #}
+
+    {% endif -%}
+
+    {% if showNav == "true" and params.primaryLinks and showSearch == "true" %}
+
       <div class="nhsuk-header__content" id="content-header">
         <div class="nhsuk-header__search">
             <div class="nhsuk-header__search-wrap beta-header__search-wrap js-show" id="wrap-search">
-              <form class="nhsuk-header__search-form beta-header__search-form" id="search" action="{{ params.searchAction if params.searchAction else "/search/" }}" method="get" role="search">
+              <form class="nhsuk-header__search-form beta-header__search-form" id="search" action="{{ params.searchAction if params.searchAction else 'https://www.nhs.uk/search/' }}" method="get" role="search">
                 <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-                <input class="nhsuk-search__input" id="search-field" name="{{ params.searchInputName if params.searchInputName else "search-field" }}" type="search" placeholder="Search" autocomplete="off" >
+                <input class="nhsuk-search__input beta-header__search-input" id="search-field" name="{{ params.searchInputName if params.searchInputName else "search-field" }}" type="search" placeholder="Search" autocomplete="off" >
                 <button class="nhsuk-search__submit beta-search__submit" type="submit">
                   <svg class="nhsuk-icon nhsuk-icon__search beta-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
@@ -61,75 +72,26 @@
             </div>
           </div>
       </div>
-    {% endif %}
 
-  </div>
+    </div>{# close nhsuk-header__container beta-header #}
 
-  {% if params.primaryLinks %}
-    
     <div class="beta-nhsuk-navigation-container">
       <div class="nhsuk-width-container">
         <nav class="beta-nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
           <ul class="beta-nhsuk-header__navigation-list">
+            {%- for item in params.primaryLinks %}
             <li class="beta-nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/conditions/">
-                Health A-Z
+              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="{{item.url}}">
+                {{item.label}}
                 <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
                   <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
                 </svg>
               </a>
             </li>
-            <li class="beta-nhsuk-header__navigation-item beta-nhsuk-header__navigation-item--services-mobile">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/nhs-services/">
-                NHS services
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="beta-nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/live-well/">
-                Live Well
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="beta-nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/mental-health/">
-                Mental health
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="beta-nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/conditions/social-care-and-support-guide/">
-                Care and support
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="beta-nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/pregnancy/">
-                Pregnancy
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
+            {%- endfor %}
             <li class="beta-nhsuk-header__navigation-item beta-nhsuk-header__navigation-item--home">
               <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/">
                 Home
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="beta-nhsuk-header__navigation-item beta-nhsuk-header__navigation-item--services">
-              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/nhs-services/">
-                NHS services
                 <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
                   <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
                 </svg>
@@ -142,7 +104,6 @@
                 <svg class="nhsuk-icon beta-nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
                 </svg>
-
               </button>
             </li>
           </ul>
@@ -150,5 +111,71 @@
       </div>
     </div>
 
-  {% endif %}
+    {% endif -%}
+
+    {% if showSearch == "true" and showNav == "false" %}
+
+      <div class="nhsuk-header__content" id="content-header">
+        <div class="nhsuk-header__search">
+            <div class="nhsuk-header__search-wrap beta-header__search-wrap js-show" id="wrap-search">
+              <form class="nhsuk-header__search-form beta-header__search-form" id="search" action="{{ params.searchAction if params.searchAction else 'https://www.nhs.uk/search/' }}" method="get" role="search">
+                <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+                <input class="nhsuk-search__input beta-header__search-input" id="search-field" name="{{ params.searchInputName if params.searchInputName else "search-field" }}" type="search" placeholder="Search" autocomplete="off" >
+                <button class="nhsuk-search__submit beta-search__submit" type="submit">
+                  <svg class="nhsuk-icon nhsuk-icon__search beta-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                  </svg>
+                  <span class="nhsuk-u-visually-hidden">Search</span>
+                </button>
+              </form>
+            </div>
+          </div>
+      </div>
+
+    </div>{# close nhsuk-header__container beta-header #}
+
+    {% endif -%}
+
+    {% if showNav == "true" and params.primaryLinks and showSearch == "false" %}
+
+    </div>{# close nhsuk-header__container beta-header #}
+
+    <div class="beta-nhsuk-navigation-container">
+      <div class="nhsuk-width-container">
+        <nav class="beta-nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+          <ul class="beta-nhsuk-header__navigation-list">
+            {%- for item in params.primaryLinks %}
+            <li class="beta-nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="{{item.url}}">
+                {{item.label}}
+                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </a>
+            </li>
+            {%- endfor %}
+            <li class="beta-nhsuk-header__navigation-item beta-nhsuk-header__navigation-item--home">
+              <a class="nhsuk-header__navigation-link beta-nhsuk-header__navigation-link"  href="/">
+                Home
+                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="34" width="34">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </a>
+            </li>
+            <li class="beta-mobile-menu-container">
+              <button class="beta-nhsuk-header__menu-toggle nhsuk-header__navigation-link beta-nhsuk-header__navigation-link" aria-expanded="false">
+                <span class="nhsuk-u-visually-hidden">Browse</span>
+                More
+                <svg class="nhsuk-icon beta-nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    {% endif -%}
+
 </header>

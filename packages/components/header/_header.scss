@@ -712,6 +712,27 @@
 .nhsuk-header__logo--only {
   max-width: 100%;
 
+  @include mq($until: tablet) {
+    padding-bottom: 16px;
+  }
+  @include mq($from: tablet) {
+    .nhsuk-header__link--service {
+      align-items: center;
+      display: flex;
+      -ms-flex-align: center;
+      margin-bottom: 0;
+      width: auto;
+    }
+
+    .nhsuk-header__service-name {
+      padding-left: nhsuk-spacing(3);
+    }
+  }
+}
+
+.beta-transactional-nhsuk-header__logo--only {
+  max-width: 100%;
+
   @include mq($from: tablet) {
     .nhsuk-header__link--service {
       align-items: center;
