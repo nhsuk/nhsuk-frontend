@@ -8,7 +8,7 @@ Find out more about the new footer component and when to use it in the [NHS digi
 
 ### Footer (new)
 
-[Preview the new footer component](https://nhsuk.github.io/nhsuk-frontend/components/footer-new/index.html)
+[Preview the new footer component](https://nhsuk.github.io/nhsuk-frontend/components/footer/index.html)
 
 #### HTML markup
 
