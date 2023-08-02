@@ -14,7 +14,7 @@ Find out more about the new footer component and when to use it in the [NHS digi
 
 ```html
 <footer role="contentinfo">
-  <div class="new-nhsuk-footer" id="new-nhsuk-footer">
+  <div class="beta-nhsuk-footer" id="beta-nhsuk-footer">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <ul class="nhsuk-footer__list beta-nhsuk-footer__list">

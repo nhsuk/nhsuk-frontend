@@ -2,25 +2,17 @@
    COMPONENTS / #FOOTER-NEW
    ========================================================================== */
 
-.new-nhsuk-footer {
-  @include clearfix();
-  @include print-hide();
-  @include nhsuk-responsive-padding(5, bottom);
-  @include nhsuk-responsive-padding(5, top);
+.beta-nhsuk-footer {
 
   background-color: $color_nhsuk-grey-4;
-  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
-  border-bottom: 10px solid $color_nhsuk-grey-1;
-}
-
-.beta-nhsuk-footer {
+  // border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
   margin-bottom: 15px;
-  border-bottom: 10px solid $color_nhsuk-grey-1;
 
   @include mq($from: desktop) {
     display: flex;
   }
 }
+
 
 .beta-nhsuk-footer__list {
   margin-bottom: 25px;
@@ -36,6 +28,13 @@
       padding-right: 0;
     }
   }
+}
+
+.beta-nhsuk-footer__list-policies {
+  @include mq($until: desktop) {
+    border-top:1px solid #f0f4f5;
+    padding-top: 35px
+    }
 }
 
 .beta-nhsuk-footer__list-item {
