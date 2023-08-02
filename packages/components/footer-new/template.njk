@@ -5,7 +5,7 @@
       <div class="beta-nhsuk-footer
         {%- if params.classes %} {{ params.classes }}{% endif %}" id="beta-nhsuk-footer"
         {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-          {% if params.links.length < 6 %}
+          {% if params.links.length < 9 and not params.policyLinks.length %}
               <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
                 {%- for item in params.links %}
                   <li class="nhsuk-footer__list-item">
@@ -19,32 +19,34 @@
       </div> {# close beta-nhsuk-footer #}
           {% else %}
             <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-              {% for i in range(0, params.links.length - 12) -%}
+              {% for i in range(0, params.links.length - 8) -%}
+              {# first nine link items #}
                   <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
                     <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
                   </li>
               {%- endfor %}
             </ul>
             <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-              {% for i in range(9, params.links.length - 7) -%}
+              {% for i in range(9, params.links.length - 3) -%}
+              {# next five link items #}
                   <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
                     <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
                   </li>
               {%- endfor %}
             </ul>
-
             <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-              {% for i in range(14, params.links.length - 4) -%}
+              {% for i in range(14, params.links.length) -%}
+              {# last three link items #}
                   <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
                     <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
                   </li>
               {%- endfor %}
             </ul>
-            
             <ul class="nhsuk-footer__list beta-nhsuk-footer__list beta-nhsuk-footer__list-policies">
-              {% for i in range(17, params.links.length) -%}
+              {% for item in params.policyLinks -%}
+              {# all policy link items #}
                   <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-                    <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
+                    <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
                   </li>
               {%- endfor %}
             </ul>
