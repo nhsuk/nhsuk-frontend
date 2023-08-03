@@ -293,10 +293,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-/* Card transparent
+/* Card secondary
   ========================================================================== */
 
-.nhsuk-card--transparent {
+.nhsuk-card--secondary {
   background: transparent;
   border-bottom: $card-border-bottom-width solid $card-border-color;
   border-left: 0;
@@ -304,7 +304,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   border-top: 0;
 }
 
-.nhsuk-card__content--transparent {
+.nhsuk-card__content--secondary {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;

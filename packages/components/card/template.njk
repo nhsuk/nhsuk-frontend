@@ -2,7 +2,7 @@
 
 <div class="nhsuk-card
 {%- if params.clickable %} nhsuk-card--clickable{% endif %}
-{%- if params.transparent %} nhsuk-card--transparent{% endif %}
+{%- if params.secondary %} nhsuk-card--secondary{% endif %}
 {%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}
 {%- if params.feature %} nhsuk-card--feature{% endif %}
 {%- if params.topTask %} nhsuk-card--top-task{% endif %}
@@ -14,7 +14,7 @@
   <div class="{%- if not params.type %}nhsuk-card__content
               {%- if params.feature %} nhsuk-card__content--feature{% endif %}
               {%- if params.arrow %} nhsuk-card__content--arrow{% endif %}
-              {%- if params.transparent %} nhsuk-card__content--transparent{% endif %}
+              {%- if params.secondary %} nhsuk-card__content--secondary{% endif %}
               {%- else %}nhsuk-card--care__heading-container{% endif %}">
     {%- if params.headingHtml %}
       {{ params.headingHtml | safe }}
