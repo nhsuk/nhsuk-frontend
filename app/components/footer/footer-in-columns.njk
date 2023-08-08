@@ -1,11 +1,11 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Footer long list (new)' %}
-{% from 'components/footer-new/macro.njk' import footerNew %}
+{% set title = 'Footer (columns)' %}
+{% from 'components/footer/macro.njk' import footer %}
 {% extends 'layout.njk' %}
 
 {% block body %}
 
-  {{ footerNew({
+  {{ footer({
     "links": [
       {
         "URL": "#",
