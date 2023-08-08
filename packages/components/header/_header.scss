@@ -38,7 +38,7 @@
  * 12. Add nhsuk-spacing(9) to align right and left main nav with header
  */
 
- .nhsuk-header {
+.nhsuk-header {
   @include clearfix();
   background-color: $color_nhsuk-blue;
 }
@@ -1020,7 +1020,6 @@
     }
   }
 }
-
 
 @include mq($until: tablet) {
   .beta-header__search-form {

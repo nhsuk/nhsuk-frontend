@@ -62,7 +62,6 @@
 }
 
 .beta-nhsuk-footer {
-
   background-color: $color_nhsuk-grey-4;
   // border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
   margin-bottom: 15px;
@@ -90,9 +89,9 @@
 
 .beta-nhsuk-footer__list-policies {
   @include mq($until: desktop) {
-    border-top:1px solid #f0f4f5;
-    padding-top: 35px
-    }
+    border-top: 1px solid #f0f4f5;
+    padding-top: 35px;
+  }
 }
 
 .beta-nhsuk-footer__list-item {
