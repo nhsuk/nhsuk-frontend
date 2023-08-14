@@ -535,7 +535,7 @@ The card Nunjucks macro takes the following arguments:
 | **clickable**       | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied.                                             |
 | **arrow**           | boolean | No       | If set to true, then the class `nhsuk-card__content--arrow` will be applied.                                        |
 | **feature**         | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied.   |
-| **secondary**      | boolean | No       | If set to true, then the class `nhsuk-card--secondary` and `nhsuk-card__content--secondary` will be applied.    |
+| **secondary**       | boolean | No       | If set to true, then the class `nhsuk-card--secondary` and `nhsuk-card__content--secondary` will be applied.        |
 | **type**            | string  | No       | Care card component variant type - non-urgent, urgent or emergency                                                  |
 | **imgURL**          | string  | No       | The URL of the image in the card                                                                                    |
 | **imgALT**          | string  | No       | The alternative text of the image in the card                                                                       |
