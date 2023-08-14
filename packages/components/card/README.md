@@ -33,17 +33,17 @@ Find out more about the card component and when to use it in the [NHS digital se
 }) }}
 ```
 
-### Card with an arrow card
+### Primary card (with chevron)
 
-[Preview the clickable card component](https://nhsuk.github.io/nhsuk-frontend/components/card/clickable-card.html)
+[Preview the clickable card component](https://nhsuk.github.io/nhsuk-frontend/components/card/primary.html)
 
 #### HTML markup
 
 ```
 <div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content nhsuk-card__content--arrow">
+  <div class="nhsuk-card__content nhsuk-card__content--primary">
     <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
+      <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
     </h2>
     <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
     <svg class="nhsuk-icon nhsuk-icon nhsuk-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""></circle><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"></path><path data-name="Path" d="M11.667 9.229L15.438 13"></path></g></svg>
