@@ -35,7 +35,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Primary card (with chevron)
 
-[Preview the clickable card component](https://nhsuk.github.io/nhsuk-frontend/components/card/primary.html)
+[Preview the primary card component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-primary.html)
 
 #### HTML markup
 
@@ -63,6 +63,38 @@ Find out more about the card component and when to use it in the [NHS digital se
   "headingClasses": "nhsuk-heading-m",
   "description": "A quick guide for people who have care and support needs and their carers"
 }) }}
+```
+
+### Secondary card
+
+[Preview the secondary card component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-secondary.html)
+
+#### HTML markup
+
+```
+<div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+  <div class="nhsuk-card__content nhsuk-card__content--secondary">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+        <a class="nhsuk-card__link" href="#">Urgent and emergency care services</a>
+    </h2>
+  <p class="nhsuk-card__description">Services the NHS provides if you need urgent or emergency medical help</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "secondary": "true",
+      "heading": "Urgent and emergency care services",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Services the NHS provides if you need urgent or emergency medical help"
+    }) }}
 ```
 
 ### Card with an image
