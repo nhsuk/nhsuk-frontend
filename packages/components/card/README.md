@@ -58,6 +58,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 {{ card({
   "href": "#",
+  "primary": "true",
   "clickable": "true",
   "heading": "Introduction to care and support",
   "headingClasses": "nhsuk-heading-m",
