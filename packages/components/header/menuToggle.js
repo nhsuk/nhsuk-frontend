@@ -1,11 +1,11 @@
 export default () => {
   let menuIsOpen = false
-  const navigation = document.querySelector('.beta-nhsuk-navigation')
-  const navigationList = document.querySelector('.beta-nhsuk-header__navigation-list')
+  const navigation = document.querySelector('.nhsuk-navigation')
+  const navigationList = document.querySelector('.nhsuk-header__navigation-list')
   const mobileMenu = document.createElement('ul')
-  const mobileMenuToggleButton = document.querySelector('.beta-nhsuk-header__menu-toggle')
+  const mobileMenuToggleButton = document.querySelector('.nhsuk-header__menu-toggle')
   const mobileMenuCloseButton = document.createElement('button')
-  const mobileMenuContainer = document.querySelector('.beta-mobile-menu-container')
+  const mobileMenuContainer = document.querySelector('.nhsuk-mobile-menu-container')
   const breakpoints = []
   const width = document.body.offsetWidth
 
@@ -33,7 +33,7 @@ export default () => {
   function setupMobileMenu() {
     // add dropdown
     mobileMenuContainer.appendChild(mobileMenu)
-    mobileMenu.classList.add('beta-nhsuk-header__drop-down', 'js-hidden')
+    mobileMenu.classList.add('nhsuk-header__drop-down', 'js-hidden')
   }
 
   // close menu

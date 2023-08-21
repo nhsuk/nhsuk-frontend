@@ -14,29 +14,29 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer" id="nhsuk-footer">
+  <div class="nhsuk-footer-container" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <div class="beta-nhsuk-footer" id="beta-nhsuk-footer">
-        <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-          <li class="nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
           </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="#">Contact us</a>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
           </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="#">Cookies</a>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
           </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="#">Privacy policy</a>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
           </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
           </li>
         </ul>
         <div>
-          <p class="beta-nhsuk-footer__copyright">&copy; Crown copyright</p>
+          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
         </div>
       </div>
     </div>
@@ -83,76 +83,76 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer" id="nhsuk-footer">
+  <div class="nhsuk-footer-container" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <div class="beta-nhsuk-footer" id="beta-nhsuk-footer">
-        <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/">Home</a>
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/">Home</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/conditions/">Health A to Z</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/">Health A to Z</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/live-well/">Live Well</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/live-well/">Live Well</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/mental-health/">Mental health</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/mental-health/">Mental health</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/conditions/social-care-and-support-guide/">Care and support</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/social-care-and-support-guide/">Care and support</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/pregnancy/">Pregnancy</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/pregnancy/">Pregnancy</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/nhs-services/">NHS services</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-services/">NHS services</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/conditions/coronavirus-covid-19/">Coronavirus (COVID-19)</a>
-          </li>
-        </ul>
-        <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/nhs-app/">NHS App</a>
-          </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/nhs-services/online-services/find-nhs-number/">Find my NHS number</a>
-          </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/your-health-records/">Your health records</a>
-          </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/">About the NHS</a>
-          </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/">Healthcare abroad</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/coronavirus-covid-19/">Coronavirus (COVID-19)</a>
           </li>
         </ul>
-        <ul class="nhsuk-footer__list beta-nhsuk-footer__list">
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/contact-us/">Contact us</a>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-app/">NHS App</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/nhs-sites/">Other NHS websites</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-services/online-services/find-nhs-number/">Find my NHS number</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/our-policies/profile-editor-login/">Profile editor login</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/your-health-records/">Your health records</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/">About the NHS</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/">Healthcare abroad</a>
           </li>
         </ul>
-        <ul class="nhsuk-footer__list beta-nhsuk-footer__list beta-nhsuk-footer__list-policies">
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/about-us/">About us</a>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Contact us</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/accessibility-statement/">Accessibility statement</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-sites/">Other NHS websites</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/our-policies/">Our policies</a>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/profile-editor-login/">Profile editor login</a>
           </li>
-          <li class="beta-nhsuk-footer__list-item nhsuk-footer__list-item">
-            <a class="beta-nhsuk-footer__list-item-link nhsuk-footer__list-item-link" href="/our-policies/cookies-policy/">Cookies</a>
+        </ul>
+        <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/accessibility-statement/">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/">Our policies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/cookies-policy/">Cookies</a>
           </li>
         </ul>
       </div>
