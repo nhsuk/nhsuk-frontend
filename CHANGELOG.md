@@ -1,6 +1,11 @@
 # NHS.UK frontend Changelog
 
-## 7.0.1 - TBA
+## 7.1.0 - 21 August 2023
+
+:new: **New features**
+🆕 New features
+
+- Added three new card variants, primary card(with chevron), secondary card and top task ([PR 878](https://github.com/nhsuk/nhsuk-frontend/pull/878))
 
 :wrench: **Fixes**
 
