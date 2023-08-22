@@ -1,0 +1,28 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Input with prefix and suffix' %}
+{% from 'components/input/macro.njk' import input %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ input({
+            "label": {
+              "text": "How old are you?"
+            },
+            "id": "input-with-prefix-and-suffix",
+            "name": "test-name-6",
+            "prefix": "I'm",
+            "suffix": "years old"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
