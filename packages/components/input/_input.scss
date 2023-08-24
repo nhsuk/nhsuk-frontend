@@ -79,6 +79,10 @@
 
 .nhsuk-input__wrapper {
   display: flex;
+
+  @include mq($until: mobile) {
+    display: block;
+  }
 }
 
 .nhsuk-input__prefix,
@@ -97,6 +101,12 @@
   text-align: center;
   white-space: nowrap;
 
+  @include mq($until: mobile) {
+    display: block;
+    height: 100%;
+    white-space: normal;
+  }
+
   @include mq($until: tablet) {
     line-height: 1.6;
     font-size: 1.1875rem;
@@ -104,9 +114,19 @@
 }
 
 .nhsuk-input__prefix {
-  border-right: 0;
+  @include mq($until: mobile) {
+    border-bottom: 0;
+  }
+  @include mq($from: mobile) {
+    border-right: 0;
+  }  
 }
 
 .nhsuk-input__suffix {
-  border-left: 0;
+  @include mq($until: mobile) {
+    border-top: 0;
+  }
+  @include mq($from: mobile) {
+    border-left: 0;
+  }
 }
