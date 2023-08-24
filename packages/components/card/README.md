@@ -33,21 +33,20 @@ Find out more about the card component and when to use it in the [NHS digital se
 }) }}
 ```
 
-### Clickable card
+### Primary card (with chevron)
 
-[Preview the clickable card component](https://nhsuk.github.io/nhsuk-frontend/components/card/clickable-card.html)
+[Preview the primary card component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-primary.html)
 
 #### HTML markup
 
 ```
-<div class="nhsuk-card nhsuk-card--clickable ">
-  <div class="nhsuk-card__content">
+<div class="nhsuk-card nhsuk-card--clickable">
+  <div class="nhsuk-card__content nhsuk-card__content--primary">
     <h2 class="nhsuk-card__heading nhsuk-heading-m">
-      <a class="nhsuk-card__link" href="#">
-        Introduction to care and support
-      </a>
+      <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
     </h2>
     <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+    <svg class="nhsuk-icon nhsuk-icon nhsuk-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""></circle><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"></path><path data-name="Path" d="M11.667 9.229L15.438 13"></path></g></svg>
   </div>
 </div>
 ```
@@ -59,11 +58,44 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 {{ card({
   "href": "#",
+  "primary": "true",
   "clickable": "true",
   "heading": "Introduction to care and support",
   "headingClasses": "nhsuk-heading-m",
   "description": "A quick guide for people who have care and support needs and their carers"
 }) }}
+```
+
+### Secondary card
+
+[Preview the secondary card component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-secondary.html)
+
+#### HTML markup
+
+```
+<div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+  <div class="nhsuk-card__content nhsuk-card__content--secondary">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+        <a class="nhsuk-card__link" href="#">Urgent and emergency care services</a>
+    </h2>
+  <p class="nhsuk-card__description">Services the NHS provides if you need urgent or emergency medical help</p>
+  </div>
+</div>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/card/macro.njk' import card %}
+
+    {{ card({
+      "href": "#",
+      "clickable": "true",
+      "secondary": "true",
+      "heading": "Urgent and emergency care services",
+      "headingClasses": "nhsuk-heading-m",
+      "description": "Services the NHS provides if you need urgent or emergency medical help"
+    }) }}
 ```
 
 ### Card with an image
@@ -535,6 +567,8 @@ The card Nunjucks macro takes the following arguments:
 | **href**            | string  | No       | The value of the card href attribute                                                                                |
 | **clickable**       | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied.                                             |
 | **feature**         | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied.   |
+| **primary**         | boolean | No       | If set to true, then the class `nhsuk-card__content--primary` will be applied.                                      |
+| **secondary**       | boolean | No       | If set to true, then the class `nhsuk-card--secondary` and `nhsuk-card__content--secondary` will be applied.        |
 | **type**            | string  | No       | Care card component variant type - non-urgent, urgent or emergency                                                  |
 | **imgURL**          | string  | No       | The URL of the image in the card                                                                                    |
 | **imgALT**          | string  | No       | The alternative text of the image in the card                                                                       |
