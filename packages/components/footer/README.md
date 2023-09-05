@@ -50,7 +50,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
-  "links": [
+  "linksColumn1": [
     {
       "URL": "#",
       "label": "Accessibility statement"
@@ -75,9 +75,9 @@ Find out more about the footer component and when to use it in the [NHS digital 
 })}}
 ```
 
-### Footer long list
+### Footer (columns)
 
-[Preview the footer long list component](https://nhsuk.github.io/nhsuk-frontend/components/footer/footer-long-list.html.html)
+[Preview the Footer (columns) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/footer-in-columns.html)
 
 #### HTML markup
 
@@ -167,7 +167,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
-  "links": [
+  "linksColumn1": [
     {
       "URL": "#",
       "label": "Home"
@@ -203,7 +203,9 @@ Find out more about the footer component and when to use it in the [NHS digital 
     {
       "URL": "#",
       "label": "Coronavirus (COVID-19)"
-    },
+    }
+  ],
+  "linksColumn2": [
     {
       "URL": "#",
       "label": "NHS App"
@@ -223,7 +225,9 @@ Find out more about the footer component and when to use it in the [NHS digital 
     {
       "URL": "#",
       "label": "Healthcare abroad"
-    },
+    }
+  ],
+  "linksColumn3": [
     {
       "URL": "#",
       "label": "Contact us"
@@ -254,7 +258,265 @@ Find out more about the footer component and when to use it in the [NHS digital 
       "URL": "#",
       "label": "Cookies"
     }
-]
+  ]
+})}}
+```
+
+### Footer without bottom border (default)
+
+[Preview the footer without bottom border (default) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/default-no-bottom-border.html)
+
+#### HTML markup
+
+```html
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container no-bottom-border" id="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
+          </li>
+        </ul>
+        <div>
+          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/footer/macro.njk' import footer %}
+
+{{ footer({
+  "bottomBorder": "false",
+  "linksColumn1": [
+    {
+      "URL": "#",
+      "label": "Accessibility statement"
+    },
+    {
+      "URL": "#",
+      "label": "Contact us"
+    },
+    {
+      "URL": "#",
+      "label": "Cookies"
+    },
+    {
+      "URL": "#",
+      "label": "Privacy policy"
+    },
+    {
+      "URL": "#",
+      "label": "Terms and conditions"
+    }
+  ]
+})}}
+```
+
+### Footer without bottom border (columns)
+
+[Preview the Footer without bottom border (columns) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/footer-in-columns-no-bottom-border.html)
+
+#### HTML markup
+
+```html
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container no-bottom-border" id="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/">Home</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/">Health A to Z</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/live-well/">Live Well</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/mental-health/">Mental health</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/social-care-and-support-guide/">Care and support</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/pregnancy/">Pregnancy</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-services/">NHS services</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/conditions/coronavirus-covid-19/">Coronavirus (COVID-19)</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-app/">NHS App</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-services/online-services/find-nhs-number/">Find my NHS number</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/your-health-records/">Your health records</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/about-the-nhs/">About the NHS</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/">Healthcare abroad</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/nhs-sites/">Other NHS websites</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/profile-editor-login/">Profile editor login</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/accessibility-statement/">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/">Our policies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/our-policies/cookies-policy/">Cookies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/footer/macro.njk' import footer %}
+
+{{ footer({
+  "bottomBorder": "false",
+  "linksColumn1": [
+    {
+      "URL": "#",
+      "label": "Home"
+    },
+    {
+      "URL": "#",
+      "label": "Health A to Z"
+    },
+    {
+      "URL": "#",
+      "label": "Live Well"
+    },
+    {
+      "URL": "#",
+      "label": "Mental health"
+    },
+    {
+      "URL": "#",
+      "label": "Care and support"
+    },
+    {
+      "URL": "#",
+      "label": "Accessibility statement"
+    },
+    {
+      "URL": "#",
+      "label": "Pregnancy"
+    },
+    {
+      "URL": "#",
+      "label": "NHS services"
+    },
+    {
+      "URL": "#",
+      "label": "Coronavirus (COVID-19)"
+    }
+  ],
+  "linksColumn2": [
+    {
+      "URL": "#",
+      "label": "NHS App"
+    },
+    {
+      "URL": "#",
+      "label": "Find my NHS number"
+    },
+    {
+      "URL": "#",
+      "label": "Your health records"
+    },
+    {
+      "URL": "#",
+      "label": "About the NHS"
+    },
+    {
+      "URL": "#",
+      "label": "Healthcare abroad"
+    }
+  ],
+  "linksColumn3": [
+    {
+      "URL": "#",
+      "label": "Contact us"
+    },
+    {
+      "URL": "#",
+      "label": "Other NHS websites"
+    },
+    {
+      "URL": "#",
+      "label": "Profile editor login"
+    }
+  ],
+  "policyLinks": [
+    {
+      "URL": "#",
+      "label": "About us"
+    },
+    {
+      "URL": "#",
+      "label": "Accessibility statement"
+    },
+    {
+      "URL": "#",
+      "label": "Our policies"
+    },
+    {
+      "URL": "#",
+      "label": "Cookies"
+    }
+  ]
 })}}
 ```
 
@@ -264,9 +526,16 @@ The footer Nunjucks macro takes the following arguments:
 
 | Name                     | Type   | Required | Description                                                                                   |
 | ------------------------ | ------ | -------- | --------------------------------------------------------------------------------------------- |
-| **links**                | array  | No       | Array of primary navigation items for use in the footer.                                      |
-| **links.[].url**         | string | No       | The href of a primary navigation item in the footer.                                          |
-| **links.[].label**       | string | No       | The label of a primary navigation item in the footer.                                         |
+| **bottomBorder**                | boolean  | No       | Set to "false" to remove the grey bottom border in the footer.                                      |
+| **linksColumn1**                | array  | No       | Array of first column of navigation items for use in the footer.                                      |
+| **linksColumn1.[].url**         | string | No       | The href of a navigation item in the first column of the footer.                                          |
+| **linksColumn1.[].label**       | string | No       | The label of a navigation item in the first column of the footer.
+| **linksColumn2**                | array  | No       | Array of second column of navigation items for use in the footer.                                      |
+| **linksColumn2.[].url**         | string | No       | The href of a navigation item in the second column of the footer.                                          |
+| **linksColumn2.[].label**       | string | No       | The label of a navigation item in the second column of the footer.
+| **linksColumn3**                | array  | No       | Array of third column of navigation items for use in the footer.                                      |
+| **linksColumn3.[].url**         | string | No       | The href of a navigation item in the third column of the footer.                                          |
+| **linksColumn3.[].label**       | string | No       | The label of a navigation item in the third column of the footer.
 | **classes**              | string | No       | Optional additional classes to add to the footer container. Separate each class with a space. |
 | **attributes**           | object | No       | Any extra HTML attributes (for example data attributes) to add to the footer container.       |
 | **copyright**            | string | No       | The label for the copyright notice in the footer.                                             |

@@ -1,13 +1,28 @@
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container {%- if params.bottomBorder == "false" %} no-bottom-border{% endif %}" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer
         {%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-footer"
         {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-          {% if params.links.length < 9 and not params.policyLinks.length %}
+          {% if  params.linksColumn1|length + params.linksColumn2|length + params.linksColumn3|length + params.policyLinks|length < 9 %}
               <ul class="nhsuk-footer__list">
-                {%- for item in params.links %}
+                {%- for item in params.linksColumn1 %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.linksColumn2 %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.linksColumn3 %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.policyLinks %}
                   <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
                   </li>
@@ -19,37 +34,39 @@
       </div> {# close nhsuk-footer #}
           {% else %}
             <ul class="nhsuk-footer__list">
-              {% for i in range(0, params.links.length - 8) -%}
-              {# first nine link items #}
-                  <li class="nhsuk-footer__list-item">
-                    <a class="nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
-                  </li>
-              {%- endfor %}
-            </ul>
-            <ul class="nhsuk-footer__list">
-              {% for i in range(9, params.links.length - 3) -%}
-              {# next five link items #}
-                  <li class="nhsuk-footer__list-item">
-                    <a class="nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
-                  </li>
-              {%- endfor %}
-            </ul>
-            <ul class="nhsuk-footer__list">
-              {% for i in range(14, params.links.length) -%}
-              {# last three link items #}
-                  <li class="nhsuk-footer__list-item">
-                    <a class="nhsuk-footer__list-item-link" href="{{ params.links[i].URL }}">{{ params.links[i].label }}</a>
-                  </li>
-              {%- endfor %}
-            </ul>
-            <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
-              {% for item in params.policyLinks -%}
-              {# all policy link items #}
+              {% for item in params.linksColumn1 -%}
+              {# first column's link items #}
                   <li class="nhsuk-footer__list-item">
                     <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
                   </li>
               {%- endfor %}
             </ul>
+            <ul class="nhsuk-footer__list">
+              {% for item in params.linksColumn2 -%}
+              {# second column's link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            <ul class="nhsuk-footer__list">
+              {% for item in params.linksColumn3 -%}
+              {# third column's link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            {% if params.policyLinks -%}
+            <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
+              {% for item in params.policyLinks -%}
+              {# policy link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
       </div> {# close nhsuk-footer #}
       <div>
         <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>

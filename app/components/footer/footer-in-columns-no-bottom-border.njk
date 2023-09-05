@@ -1,11 +1,12 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Footer (columns)' %}
+{% set title = 'Footer without bottom border (columns)' %}
 {% from 'components/footer/macro.njk' import footer %}
 {% extends 'layout.njk' %}
 
 {% block body %}
 
   {{ footer({
+    "bottomBorder": "false",
     "linksColumn1": [
       {
         "URL": "#",
