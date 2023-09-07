@@ -10,6 +10,10 @@ class Header {
     this.breakpoints = []
     this.width = document.body.offsetWidth
 
+    if (!this.navigation || !this.navigationList || !this.mobileMenuToggleButton || !this.mobileMenuContainer) {
+      return
+    }
+
     this.setupMobileMenu()
     this.calculateBreakpoints()
     this.updateNavigation()
@@ -134,5 +138,5 @@ class Header {
 }
 
 export default () => {
-  new Header()
+  Header()
 }
