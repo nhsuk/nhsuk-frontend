@@ -1,5 +1,9 @@
 # NHS.UK frontend Changelog
 
+:wrench: **Fixes**
+
+- Fix vertical alignment of primary card icon
+
 ## 7.1.0 - 21 August 2023
 
 :new: **New features**
