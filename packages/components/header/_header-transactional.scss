@@ -3,15 +3,14 @@
 */
 
 .nhsuk-header__transactional-service-name {
-  float: left;
   padding-left: nhsuk-spacing(3);
   padding-top: 3px;
 
   @include mq($until: tablet) {
-    margin-bottom: nhsuk-spacing(3);
+    padding-bottom: nhsuk-spacing(3);
   }
 
-  @include mq($until: large-desktop) {
+  @include mq($until: tablet) {
     padding-left: 0;
     padding-top: nhsuk-spacing(2);
     width: 100%;
@@ -29,6 +28,11 @@
 }
 
 .nhsuk-header--transactional {
+
+  .nhsuk-header__container {
+    justify-content: normal;
+  }
+
   .nhsuk-header__link {
     @include nhsuk-logo-size-small;
     display: block;
@@ -38,9 +42,6 @@
     @include nhsuk-logo-size-small;
   }
 
-  .nhsuk-header__transactional-service-name {
-    float: left;
-  }
 }
 
 .nhsuk-header--transactional__logo--only {
