@@ -2,13 +2,8 @@
    COMPONENTS / #HEADER
    ========================================================================== */
 
-/*
-    A combination of the file in the CMS repo,  https://dev.azure.com/nhsuk/_git/nhsuk.nhsuk-cms?path=/frontend/css/_beta.scss
-    and other nhsuk-footer styles.
- */
-
 /**
- * The behaviour with regards to responsiveness is as follow:
+* The behaviour with regards to responsiveness is as follow:
  *
  * - Mobile to tablet view
  *   Menu toggle button visible and navigation links hidden, search toggle
@@ -28,8 +23,8 @@
 }
 
 .nhsuk-header__container {
-  margin: 0 16px;
-  max-width: 960px;
+  margin: 0 nhsuk-spacing(3);
+  max-width: $nhsuk-page-width;
   padding: 20px 0; 
 
   @include mq($until: tablet) {
@@ -37,10 +32,10 @@
   }
 
   @include mq($from: tablet) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid $color_transparent_nhsuk-white-20;
     display: flex;
     justify-content:space-between;
-    margin: 0 32px;
+    margin: 0 nhsuk-spacing(5);
   }  
   
   @include mq($from: large-desktop) {
@@ -122,6 +117,27 @@
   }
 }
 
+.nhsuk-header__logo--only {
+  max-width: 100%;
+
+  @include mq($until: tablet) {
+    padding-bottom: nhsuk-spacing(3);
+  }
+  @include mq($from: tablet) {
+    .nhsuk-header__link--service {
+      align-items: center;
+      display: flex;
+      -ms-flex-align: center;
+      margin-bottom: 0;
+      width: auto;
+    }
+
+    .nhsuk-header__service-name {
+      padding-left: nhsuk-spacing(3);
+    }
+  }
+}
+
 .nhsuk-header__content {
   @include print-hide();
   position: relative;
@@ -148,7 +164,7 @@
 }
 
 .nhsuk-header__search-no-nav {
-  padding-bottom: 16px;
+  padding-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-header__search-form {
@@ -177,7 +193,7 @@
   border-top-right-radius: 0;
   padding: 0 nhsuk-spacing(3);
   &:focus {
-    border: 4px solid $nhsuk-focus-text-color;
+    border: nhsuk-spacing(1) solid $nhsuk-focus-text-color;
     box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
     outline: $nhsuk-focus-width solid transparent;
     outline-offset: $nhsuk-focus-width;
@@ -296,7 +312,7 @@
     width: 44px;
 
     .nhsuk-icon__search {
-      height: 27px; 
+      height: 27px;
       width: 27px;
     }
 
@@ -332,12 +348,19 @@
   color: $color_nhsuk-white;
   display: block;
   font-size: inherit;
-  padding: 16px 12px;
+  padding: nhsuk-spacing(3) 12px;
   text-decoration: underline;
   white-space: nowrap;
 
   @include mq($from: tablet) {
-    padding: 12px 16px;
+    padding: 12px nhsuk-spacing(3);
+  }
+
+  .nhsuk-icon__chevron-right {
+    fill: $color_nhsuk-grey-3;
+    position: absolute;
+    right: nhsuk-spacing(1);
+    top: 11px;
   }
 
   &:visited {
@@ -386,9 +409,9 @@
 .nhsuk-header__menu-toggle {
   background: transparent;
   border: 0;
-  border-bottom: 4px solid transparent;
+  border-bottom: nhsuk-spacing(1) solid transparent;
   border-radius: 0;
-  border-top: 4px solid transparent;
+  border-top: nhsuk-spacing(1) solid transparent;
   box-sizing: border-box;
   cursor: pointer;
   margin: 0;  
@@ -477,7 +500,7 @@
   @extend %nhsuk-navigation-list;
   @include print-hide();
   background-color: $color_nhsuk-white;
-  border-bottom: 4px solid $color_nhsuk-grey-5;
+  border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
   overflow: hidden;
   position: absolute;
   right: 0;

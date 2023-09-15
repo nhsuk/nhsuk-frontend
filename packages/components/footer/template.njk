@@ -5,9 +5,9 @@
       <div class="nhsuk-footer
         {%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-footer"
         {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-          {% if  params.linksColumn1|length + params.linksColumn2|length + params.linksColumn3|length + params.policyLinks|length < 9 %}
+          {% if  params.links|length + params.linksColumn2|length + params.linksColumn3|length + params.policyLinks|length < 9 %}
               <ul class="nhsuk-footer__list">
-                {%- for item in params.linksColumn1 %}
+                {%- for item in params.links %}
                   <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
                   </li>
@@ -34,7 +34,7 @@
       </div> {# close nhsuk-footer #}
           {% else %}
             <ul class="nhsuk-footer__list">
-              {% for item in params.linksColumn1 -%}
+              {% for item in params.links -%}
               {# first column's link items #}
                   <li class="nhsuk-footer__list-item">
                     <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>

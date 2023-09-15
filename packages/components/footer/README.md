@@ -50,7 +50,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
-  "linksColumn1": [
+  "links": [
     {
       "URL": "#",
       "label": "Accessibility statement"
@@ -167,7 +167,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
-  "linksColumn1": [
+  "links": [
     {
       "URL": "#",
       "label": "Home"
@@ -307,7 +307,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 {{ footer({
   "bottomBorder": "false",
-  "linksColumn1": [
+  "links": [
     {
       "URL": "#",
       "label": "Accessibility statement"
@@ -425,7 +425,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 {{ footer({
   "bottomBorder": "false",
-  "linksColumn1": [
+  "links": [
     {
       "URL": "#",
       "label": "Home"
@@ -527,9 +527,9 @@ The footer Nunjucks macro takes the following arguments:
 | Name                     | Type   | Required | Description                                                                                   |
 | ------------------------ | ------ | -------- | --------------------------------------------------------------------------------------------- |
 | **bottomBorder**                | boolean  | No       | Set to "false" to remove the grey bottom border in the footer.                                      |
-| **linksColumn1**                | array  | No       | Array of first column of navigation items for use in the footer.                                      |
-| **linksColumn1.[].url**         | string | No       | The href of a navigation item in the first column of the footer.                                          |
-| **linksColumn1.[].label**       | string | No       | The label of a navigation item in the first column of the footer.
+| **links**                | array  | No       | Array of first column of navigation items for use in the footer.                                      |
+| **links.[].url**         | string | No       | The href of a navigation item in the first column of the footer.                                          |
+| **links.[].label**       | string | No       | The label of a navigation item in the first column of the footer.
 | **linksColumn2**                | array  | No       | Array of second column of navigation items for use in the footer.                                      |
 | **linksColumn2.[].url**         | string | No       | The href of a navigation item in the second column of the footer.                                          |
 | **linksColumn2.[].label**       | string | No       | The label of a navigation item in the second column of the footer.
