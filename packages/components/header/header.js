@@ -1,3 +1,8 @@
+/**
+ * Header component
+ *
+ */
+
 class Header {
   constructor() {
     this.menuIsOpen = false
@@ -9,7 +14,9 @@ class Header {
     this.mobileMenuContainer = document.querySelector('.nhsuk-mobile-menu-container')
     this.breakpoints = []
     this.width = document.body.offsetWidth
+  }
 
+  init() {
     if (!this.navigation || !this.navigationList || !this.mobileMenuToggleButton || !this.mobileMenuContainer) {
       return
     }
@@ -39,6 +46,13 @@ class Header {
     }
   }
 
+  /**
+   * Calculate breakpoints.
+   *
+   * Calculate the breakpoints by summing the widths of
+   * each navigation item.
+   *
+   */
   calculateBreakpoints() {
     let childrenWidth = 0
     for (let i = 0; i < this.navigationList.children.length; i++) {
@@ -47,12 +61,19 @@ class Header {
     }
   }
 
+  // Add the mobile menu to the DOM
   setupMobileMenu() {
-    // add dropdown
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add('nhsuk-header__drop-down', 'js-hidden')
   }
 
+  /**
+   * Close the mobile menu
+   *
+   * Closes the mobile menu and updates accessibility state.
+   *
+   * Remvoes the margin-bottom from the navigation
+   */
   closeMobileMenu() {
     this.menuIsOpen = false
     this.mobileMenu.classList.add('js-hidden')
@@ -63,24 +84,49 @@ class Header {
     document.removeEventListener('keydown', this.handleEscapeKey.bind(this))
   }
 
+  /**
+   * Escape key handler
+   *
+   * This function is called when the user
+   * presses the escape key to close the mobile menu.
+   *
+   */
   handleEscapeKey(e) {
     if (e.key === 'Escape') {
       this.closeMobileMenu()
     }
   }
 
+  /**
+   * Open the mobile menu
+   *
+   * Opens the mobile menu and updates accessibility state.
+   *
+   * The mobile menu is absolutely positioned, so it adds a margin
+   * to the bottom of the navigation to prevent it from overlapping
+   *
+   * Adds event listeners for the close button,
+   */
+
   openMobileMenu() {
+    const marginBody = this.mobileMenu.offsetHeight
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('js-hidden')
-    const marginBody = this.mobileMenu.offsetHeight
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
+
     // add event listerer for esc key to close menu
     document.addEventListener('keydown', this.handleEscapeKey.bind(this))
+
     // add event listener for close icon to close menu
     this.mobileMenuCloseButton.addEventListener('click', this.closeMobileMenu.bind(this))
   }
 
+  /**
+   * Handle menu button click
+   *
+   * Toggles the mobile menu between open and closed
+   */
   toggleMobileMenu() {
     if (this.menuIsOpen) {
       this.closeMobileMenu()
@@ -88,6 +134,20 @@ class Header {
       this.openMobileMenu()
     }
   }
+
+  /**
+   * Update nav for the available space
+   *
+   * If the available space is less than the current breakpoint,
+   * add the mobile menu toggle button and move the last
+   * item in the list to the drop-down list.
+   *
+   * If the available space is greater than the current breakpoint,
+   * remove the mobile menu toggle button and move the first item in the
+   *
+   * Additionaly will close the mobile menu if the window gets resized
+   * and the menu is open.
+   */
 
   updateNavigation() {
     const availableSpace = this.navigation.offsetWidth
@@ -123,6 +183,12 @@ class Header {
     }
   }
 
+  /**
+   * Orientation change
+   *
+   * Check the orientation of the device, if changed it will trigger a
+   * update to the breakpoints and navigation.
+   */
   doOnOrientationChange() {
     switch (window.orientation) {
       case 90:
@@ -138,5 +204,5 @@ class Header {
 }
 
 export default () => {
-  new Header()
+  new Header().init()
 }
