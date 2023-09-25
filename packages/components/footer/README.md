@@ -141,7 +141,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
             <a class="nhsuk-footer__list-item-link" href="/our-policies/profile-editor-login/">Profile editor login</a>
           </li>
         </ul>
-        <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
+        <ul class="nhsuk-footer__list nhsuk-footer__meta">
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
           </li>
@@ -398,7 +398,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
             <a class="nhsuk-footer__list-item-link" href="/our-policies/profile-editor-login/">Profile editor login</a>
           </li>
         </ul>
-        <ul class="nhsuk-footer__list nhsuk-footer__list-policies">
+        <ul class="nhsuk-footer__list nhsuk-footer__meta">
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
           </li>
