@@ -27,7 +27,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap js-show" id="wrap-search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
@@ -269,7 +269,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap js-show" id="wrap-search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
@@ -410,7 +410,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap js-show" id="wrap-search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
@@ -534,7 +534,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-          <div class="nhsuk-header__search-wrap js-show" id="wrap-search">
+          <div class="nhsuk-header__search-wrap" id="wrap-search">
             <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
               <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
               <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
@@ -659,7 +659,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     </div>
     <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap js-show" id="wrap-search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >

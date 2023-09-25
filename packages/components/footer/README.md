@@ -241,7 +241,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
       "label": "Profile editor login"
     }
   ],
-  "policyLinks": [
+  "metaLinks": [
     {
       "URL": "#",
       "label": "About us"
@@ -499,7 +499,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
       "label": "Profile editor login"
     }
   ],
-  "policyLinks": [
+  "metaLinks": [
     {
       "URL": "#",
       "label": "About us"
@@ -539,8 +539,8 @@ The footer Nunjucks macro takes the following arguments:
 | **classes**              | string | No       | Optional additional classes to add to the footer container. Separate each class with a space. |
 | **attributes**           | object | No       | Any extra HTML attributes (for example data attributes) to add to the footer container.       |
 | **copyright**            | string | No       | The label for the copyright notice in the footer.                                             |
-| **policyLinks**          | array  | No       | Array of policy navigation items for use in the footer.                                       |
-| **policyLinks.[].url**   | string | No       | The href of a policy navigation item in the footer.                                           |
-| **policyLinks.[].label** | string | No       | The label of a policy navigation item in the                                                  |
+| **metaLinks**          | array  | No       | Array of policy navigation items for use in the footer.                                       |
+| **metaLinks.[].url**   | string | No       | The href of a policy navigation item in the footer.                                           |
+| **metaLinks.[].label** | string | No       | The label of a policy navigation item in the                                                  |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
