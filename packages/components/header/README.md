@@ -51,12 +51,12 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             </a>
           </li>
           <li class="nhsuk-mobile-menu-container js-show">
-            <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link js-show" aria-expanded="false">
+            <button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
               <span class="nhsuk-u-visually-hidden">Browse</span>
               More
               <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
             </button>
-            <ul class="nhsuk-header__drop-down js-hidden">
+            <ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden">
               <li class="nhsuk-header__navigation-item">
                 <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
                   NHS services

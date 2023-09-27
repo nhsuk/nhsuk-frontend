@@ -433,11 +433,6 @@
     display: none;
   }
 
-  &.js-show {
-    visibility: visible;
-    display: block;
-  }
-
   &:focus {
     text-decoration: none;
 
@@ -445,6 +440,11 @@
       fill: $color_nhsuk-black;
     }
   }
+}
+
+.nhsuk-header__menu-toggle--visible {
+    visibility: visible;
+    display: block;
 }
 
 .nhsuk-icon__chevron-down {
@@ -507,10 +507,6 @@
   top: 100%;
   left: 0;
 
-  &.js-hidden {
-    display: none;
-  }
-
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
     padding: 12px nhsuk-spacing(3);
@@ -528,13 +524,17 @@
   }
 }
 
+.nhsuk-header__drop-down--hidden {
+  display: none;
+}
+
 .nhsuk-mobile-menu-container {
   align-self: center;
   display: none;
+}
 
-  &.js-show {
-    display: block;
-  }
+.nhsuk-mobile-menu-container--visible {
+  display: block;
 }
 
 .nhsuk-header__navigation-item--home {

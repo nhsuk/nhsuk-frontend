@@ -64,7 +64,7 @@ class Header {
   // Add the mobile menu to the DOM
   setupMobileMenu() {
     this.mobileMenuContainer.appendChild(this.mobileMenu)
-    this.mobileMenu.classList.add('nhsuk-header__drop-down', 'js-hidden')
+    this.mobileMenu.classList.add('nhsuk-header__drop-down', 'nhsuk-header__drop-down--hidden')
   }
 
   /**
@@ -76,7 +76,7 @@ class Header {
    */
   closeMobileMenu() {
     this.menuIsOpen = false
-    this.mobileMenu.classList.add('js-hidden')
+    this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
     this.mobileMenuToggleButton.focus()
@@ -111,7 +111,7 @@ class Header {
   openMobileMenu() {
     const marginBody = this.mobileMenu.offsetHeight
     this.menuIsOpen = true
-    this.mobileMenu.classList.remove('js-hidden')
+    this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 
@@ -154,8 +154,8 @@ class Header {
     let itemsVisible = this.navigationList.children.length
 
     if (availableSpace < this.breakpoints[itemsVisible - 1]) {
-      this.mobileMenuToggleButton.classList.add('js-show')
-      this.mobileMenuContainer.classList.add('js-show')
+      this.mobileMenuToggleButton.classList.add('nhsuk-header__menu-toggle--visible')
+      this.mobileMenuContainer.classList.add('nhsuk-mobile-menu-container--visible')
       if (itemsVisible === 2) {
         return
       }
@@ -174,8 +174,8 @@ class Header {
     }
 
     if (!this.mobileMenu.children.length) {
-      this.mobileMenuToggleButton.classList.remove('js-show')
-      this.mobileMenuContainer.classList.remove('js-show')
+      this.mobileMenuToggleButton.classList.remove('nhsuk-header__menu-toggle--visible')
+      this.mobileMenuContainer.classList.remove('nhsuk-mobile-menu-container--visible')
     }
 
     if (document.body.offsetWidth !== this.width && this.menuIsOpen) {
