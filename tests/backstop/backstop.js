@@ -197,8 +197,20 @@ module.exports = {
       url: `${TEST_URL}/details/expander-group.html`,
     },
     {
-      label: 'Footer',
+      label: 'Footer (default)',
       url: `${TEST_URL}/footer/index.html`,
+    },
+    {
+      label: 'Footer (columns)',
+      url: `${TEST_URL}/footer/footer-in-columns.html`,
+    },
+    {
+      label: 'Footer without bottom border (default)',
+      url: `${TEST_URL}/footer/default-no-bottom-border.html`,
+    },
+    {
+      label: 'Footer without bottom border (columns)',
+      url: `${TEST_URL}/footer/footer-in-columns-no-bottom-border.html`,
     },
     {
       label: 'Fieldset',
@@ -213,8 +225,16 @@ module.exports = {
       url: `${TEST_URL}/fieldset/with-inputs.html`,
     },
     {
-      label: 'Header',
+      label: 'Header (default)',
       url: `${TEST_URL}/header/index.html`,
+    },
+    {
+      label: 'Header with navigation',
+      url: `${TEST_URL}/header/header-navigation.html`,
+    },
+    {
+      label: 'Header with search',
+      url: `${TEST_URL}/header/header-search.html`,
     },
     {
       label: 'Header with logo only',
@@ -229,16 +249,20 @@ module.exports = {
       url: `${TEST_URL}/header/header-service-name-with-nav.html`,
     },
     {
-      label: 'Header transactional',
-      url: `${TEST_URL}/header/header-transactional.html`,
-    },
-    {
       label: 'Header transactional with service name',
       url: `${TEST_URL}/header/header-transactional-service-name.html`,
     },
     {
-      label: 'Header with navigation',
-      url: `${TEST_URL}/header/header-navigation.html`,
+      label: 'Header organisational',
+      url: `${TEST_URL}/header/header-org.html`,
+    },
+    {
+      label: 'Header organisational with white header',
+      url: `${TEST_URL}/header/header-org-white.html`,
+    },
+    {
+      label: 'Header organisational with white header and navigation',
+      url: `${TEST_URL}/header/header-org-white-nav.html`,
     },
     {
       clickSelector: '#toggle-menu',
@@ -261,39 +285,6 @@ module.exports = {
           width: 768,
         },
       ],
-    },
-    {
-      label: 'Header with search',
-      url: `${TEST_URL}/header/header-search.html`,
-    },
-    {
-      clickSelector: '#toggle-search',
-      label: 'Header with search open',
-      url: `${TEST_URL}/header/header-search.html`,
-      viewports: [
-        {
-          height: 568,
-          label: 'iPhone 5/SE',
-          width: 320,
-        },
-        {
-          height: 667,
-          label: 'iPhone 6-8',
-          width: 375,
-        },
-      ],
-    },
-    {
-      label: 'Header organisational',
-      url: `${TEST_URL}/header/header-org.html`,
-    },
-    {
-      label: 'Header organisational with white header',
-      url: `${TEST_URL}/header/header-org-white.html`,
-    },
-    {
-      label: 'Header organisational with white header and navigation',
-      url: `${TEST_URL}/header/header-org-white-nav.html`,
     },
     {
       label: 'Hero',
