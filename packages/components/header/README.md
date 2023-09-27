@@ -370,7 +370,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </a>
     </div>
     <div class="nhsuk-header__transactional-service-name">
-      <a class="nhsuk-header__transactional-service-name--link" href="/">Find your NHS number</a>
+      <a class="nhsuk-header__transactional-service-name--link" href="https://www.nhs.uk/nhs-services/online-services/find-nhs-number/">Find your NHS number</a>
     </div>
   </div>
 </header>
