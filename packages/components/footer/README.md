@@ -270,7 +270,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container no-bottom-border" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container nhsuk-footer-container--no-bottom-border" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer" id="nhsuk-footer">
@@ -340,7 +340,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container no-bottom-border" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container nhsuk-footer-container--no-bottom-border" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer" id="nhsuk-footer">

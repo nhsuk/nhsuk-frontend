@@ -10,14 +10,14 @@
 {% endset %}
 
 <header class="nhsuk-header
-{%- if params.transactional or params.transactionalService %} nhsuk-header--transactional{% endif %}
+{%- if params.transactional or params.transactionalService %} nhsuk-header__transactional{% endif %}
 {%- if params.organisation and params.organisation.name %} nhsuk-header--organisation{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   
   <div class="nhsuk-header__container">
     <div class="nhsuk-header__logo 
-    {%- if showNav == "false" and showSearch == "false" and params.transactionalService %} nhsuk-header--transactional__logo--only{% endif %}
+    {%- if showNav == "false" and showSearch == "false" and params.transactionalService %} nhsuk-header__transactional--logo{% endif %}
     {%- if showNav == "false" and showSearch == "false" and not params.transactionalService %} nhsuk-header__logo--only{% endif %}">
       {%- if params.organisation %}
       <a class="nhsuk-header__link" href="{% if params.homeHref %}{{ params.homeHref }}{% else %}/{% endif %}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">

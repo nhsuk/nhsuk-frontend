@@ -27,7 +27,7 @@
   }
 }
 
-.nhsuk-header--transactional {
+.nhsuk-header__transactional {
   .nhsuk-header__container {
     justify-content: normal;
   }
@@ -42,7 +42,7 @@
   }
 }
 
-.nhsuk-header--transactional__logo--only {
+.nhsuk-header__transactional--logo {
   max-width: 100%;
 
   @include mq($from: tablet) {

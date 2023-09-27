@@ -1,11 +1,11 @@
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container {%- if params.bottomBorder == "false" %} no-bottom-border{% endif %}" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container {%- if params.bottomBorder == "false" %} nhsuk-footer-container--no-bottom-border{% endif %}" id="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer
         {%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-footer"
         {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-          {% if  params.links|length + params.linksColumn2|length + params.linksColumn3|length + params.metaLinks|length < 9 %}
+          {% if  not params.linksColumn2 %}
               <ul class="nhsuk-footer__list">
                 {%- for item in params.links %}
                   <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
