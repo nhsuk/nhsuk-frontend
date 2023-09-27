@@ -5,3 +5,4 @@ tests/backstop/*
 coverage/*
 package-lock.json
 package.json
+.cache/*
