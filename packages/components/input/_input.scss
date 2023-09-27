@@ -12,7 +12,6 @@
 
 .nhsuk-input {
   @include nhsuk-font(19);
-
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 1 */
   appearance: none; /* 1 */
@@ -74,4 +73,60 @@
 
 .nhsuk-input--width-2 {
   max-width: 5.4ex;
+}
+
+// Suffix and prefix
+
+.nhsuk-input__wrapper {
+  display: flex;
+
+  @include mq($until: mobile) {
+    display: block;
+  }
+}
+
+.nhsuk-input__prefix,
+.nhsuk-input__suffix {
+  @include nhsuk-font($size: 19);
+
+  background-color: $color_nhsuk-grey-4;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  box-sizing: border-box;
+  cursor: default; // emphasises non-editable status of prefixes and suffixes
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 40px;
+  min-width: nhsuk-px-to-rem(40px);
+  padding: nhsuk-spacing(1);
+  text-align: center;
+  white-space: nowrap;
+
+  @include mq($until: mobile) {
+    display: block;
+    height: 100%;
+    white-space: normal;
+  }
+
+  @include mq($until: tablet) {
+    line-height: 1.6;
+    font-size: 1.1875rem;
+  }
+}
+
+.nhsuk-input__prefix {
+  @include mq($until: mobile) {
+    border-bottom: 0;
+  }
+  @include mq($from: mobile) {
+    border-right: 0;
+  }
+}
+
+.nhsuk-input__suffix {
+  @include mq($until: mobile) {
+    border-top: 0;
+  }
+  @include mq($from: mobile) {
+    border-left: 0;
+  }
 }
