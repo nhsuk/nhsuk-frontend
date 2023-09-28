@@ -1,8 +1,8 @@
 node_modules/*
 dist/*
+.cache/*
 tests/backstop/*
 .github/*
 coverage/*
 package-lock.json
 package.json
-.cache/*
