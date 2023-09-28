@@ -1,8 +1,70 @@
 # NHS.UK frontend Changelog
 
+## 7.2.0 - 28 September 2023
+
+:boom: **Breaking changes**
+
+- Updated header and footer to use the new styles and functionality to match the live nhs.uk site ([PR 881](https://github.com/nhsuk/nhsuk-frontend/pull/881))
+
+As well as changes to the styles, this added an example of a footer with it's links in columns, and removed the redundant example of "Header transactional". This also fixes the issue ([Issue 805](https://github.com/nhsuk/nhsuk-frontend/issues/805)).
+
+In the header variants, the menu toggle button has been replaced with a dropdown menu, that becomes visible when the screen width is below 768px (tablet width). The search toggle has been removed, and instead the search input automatically adjusts according to the screen width. 
+
+Instead of having this:
+
+```
+// menu toggle
+
+<button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button
+
+// close menu button
+
+<button class="nhsuk-header__navigation-close" id="close-menu">
+  <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+  </svg>
+  <span class="nhsuk-u-visually-hidden">Close menu</span>
+</button>
+```
+
+You will now only need this:
+
+```
+<button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
+  <span class="nhsuk-u-visually-hidden">Browse</span>
+  More
+  <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
+</button>
+
+<ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden">
+
+  // navigation items in the drop down menu
+  
+</ul>
+```
+
 :wrench: **Fixes**
 
 - Fix vertical alignment of primary card icon
+- Change NHS Digital wording to NHS England
+- Remove dead link in "Action link" example
+
+:new: **New features**
+- Added suffix and prefix examples to text input component ([PR 884](https://github.com/nhsuk/nhsuk-frontend/pull/884))
+
+We added 4 new text input examples that allow users to add suffixes and prefixed to the input form. This was done by adding "suffix" and "prefix" as macro options.
+
+```
+  input({
+    "label": {
+      "text": "What is the cost per item, in pounds?"
+    },
+    "prefix": "£",
+    "suffix": "per item",
+    "errorMessage": {
+      "text": "Enter a cost per item, in pounds"
+    }
+  })
+```
 
 ## 7.1.0 - 21 August 2023
 
