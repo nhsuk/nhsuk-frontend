@@ -1,0 +1,124 @@
+/**
+    * These are the styles for the organisation header variants.
+*/
+
+.nhsuk-header--organisation {
+  .nhsuk-header__link {
+    height: auto;
+    text-decoration: none;
+    width: auto;
+
+    &:hover {
+      color: $color_nhsuk-white;
+      text-decoration: underline;
+
+      .nhsuk-logo {
+        box-shadow: none;
+      }
+    }
+
+    &:focus {
+      background: $nhsuk-focus-color;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+        0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+
+      .nhsuk-organisation-name,
+      .nhsuk-organisation-descriptor {
+        color: $nhsuk-focus-text-color;
+      }
+
+      .nhsuk-logo {
+        box-shadow: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nhsuk-header__logo .nhsuk-logo {
+    @include nhsuk-logo-size-small;
+
+    @media (max-width: 450px) {
+      height: nhsuk-spacing(4);
+      width: 60px;
+    }
+
+    @media (max-width: 375px) {
+      height: 20px;
+      width: 50px;
+    }
+  }
+
+  .nhsuk-header__navigation {
+    max-width: 100%;
+  }
+}
+
+.nhsuk-organisation-name {
+  color: $color_nhsuk-white;
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 23px;
+  margin-top: -2px;
+
+  @include mq($media-type: print) {
+    color: $nhsuk-print-text-color;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 17px;
+    letter-spacing: 0.1px;
+    line-height: 17px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 13px;
+    line-height: 13px;
+  }
+
+  .nhsuk-organisation-name-split {
+    display: block;
+  }
+}
+
+.nhsuk-organisation-descriptor {
+  color: $color_nhsuk-white;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 21px;
+
+  @include mq($media-type: print) {
+    color: $color_nhsuk-blue;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 10px;
+    line-height: 13px;
+  }
+}
+
+.nhsuk-organisation-logo {
+  border: 0;
+  max-height: 100px;
+  max-width: 280px;
+
+  @media (max-width: 450px) {
+    max-width: 150px;
+  }
+}
+
+.nhsuk-organisation-logo[src$=".svg"] {
+  height: auto;
+  max-width: 220px;
+  width: 100%;
+}
