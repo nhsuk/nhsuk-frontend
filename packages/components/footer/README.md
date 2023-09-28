@@ -14,7 +14,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer" id="nhsuk-footer">
@@ -83,7 +83,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer-container" id="nhsuk-footer-container">
+  <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer" id="nhsuk-footer">
@@ -282,6 +282,6 @@ The footer Nunjucks macro takes the following arguments:
 | **copyright**             | string | No       | The label for the copyright notice in the footer.                                             |
 | **metaLinks**             | array  | No       | Array of policy navigation items for use in the footer.                                       |
 | **metaLinks.[].url**      | string | No       | The href of a policy navigation item in the footer.                                           |
-| **metaLinks.[].label**    | string | No       | The label of a policy navigation item in the                                                  |
+| **metaLinks.[].label**    | string | No       | The label of a policy navigation item in the footer.                                                  |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
