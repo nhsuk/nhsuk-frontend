@@ -8,7 +8,7 @@
 
 As well as changes to the styles, this added an example of a footer with it's links in columns, and removed the redundant example of "Header transactional". This also fixes the issue ([Issue 805](https://github.com/nhsuk/nhsuk-frontend/issues/805)).
 
-In the header variants, the menu toggle button has been replaced with a dropdown menu, that becomes visible when the screen width is below 768px (tablet width). The search toggle has been removed, and instead the search input automatically adjusts according to the screen width. 
+In the header variants, the menu toggle button has been replaced with a dropdown menu, that becomes visible when the screen width is below 768px (tablet width). The search toggle has been removed, and instead the search input automatically adjusts according to the screen width.
 
 Instead of having this:
 
@@ -38,7 +38,7 @@ You will now only need this:
 <ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden">
 
   // navigation items in the drop down menu
-  
+
 </ul>
 ```
 
@@ -49,6 +49,7 @@ You will now only need this:
 - Remove dead link in "Action link" example
 
 :new: **New features**
+
 - Added suffix and prefix examples to text input component ([PR 884](https://github.com/nhsuk/nhsuk-frontend/pull/884))
 
 We added 4 new text input examples that allow users to add suffixes and prefixed to the input form. This was done by adding "suffix" and "prefix" as macro options.
