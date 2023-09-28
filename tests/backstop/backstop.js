@@ -205,14 +205,6 @@ module.exports = {
       url: `${TEST_URL}/footer/footer-in-columns.html`,
     },
     {
-      label: 'Footer without bottom border (default)',
-      url: `${TEST_URL}/footer/default-no-bottom-border.html`,
-    },
-    {
-      label: 'Footer without bottom border (columns)',
-      url: `${TEST_URL}/footer/footer-in-columns-no-bottom-border.html`,
-    },
-    {
       label: 'Fieldset',
       url: `${TEST_URL}/fieldset/index.html`,
     },
