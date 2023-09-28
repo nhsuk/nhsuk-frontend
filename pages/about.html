@@ -59,7 +59,8 @@
 
 
 <header class="nhsuk-header" role="banner">
-  <div class="nhsuk-width-container nhsuk-header__container">
+  
+  <div class="nhsuk-header__container">
     <div class="nhsuk-header__logo nhsuk-header__logo--only"><a class="nhsuk-header__link" href="/nhsuk-frontend/" aria-label="NHS homepage">
         
   <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
@@ -71,9 +72,9 @@
     </div>
 
     </div>
+    
 
     </header>
-
 
 
 
@@ -128,8 +129,8 @@
     <p>Please see our <a href="https://github.com/nhsuk/nhsuk-frontend/blob/master/CONTRIBUTING.md">contributing guidelines</a> on how to set up the project locally and contribute changes to NHS.UK frontend.</p>
 
     <h2>Get in touch</h2>
-    <p>NHS.UK frontend is actively maintained by a team at NHS Digital, you can <a href="mailto:service-manual@nhs.net">email us</a> or get in touch on the <a href="https://join.slack.com/t/nhs-service-manual/shared_invite/enQtNTIyOTEyNjU3NDkyLTk4NDQ3YzkwYzk1Njk5YjAxYTI5YTVkZmUxMGQ0ZjA3NjMyM2ZkNjBlMWMxODVjZjYzNzg1ZmU4MWY1NmE2YzE">NHS digital service manual Slack workspace</a>.
-
+    <p>NHS.UK frontend is actively maintained by a team at NHS England, you can <a href="mailto:service-manual@nhs.net">email us</a> or get in touch on the <a href="https://join.slack.com/t/nhs-service-manual/shared_invite/enQtNTIyOTEyNjU3NDkyLTk4NDQ3YzkwYzk1Njk5YjAxYTI5YTVkZmUxMGQ0ZjA3NjMyM2ZkNjBlMWMxODVjZjYzNzg1ZmU4MWY1NmE2YzE">NHS digital service manual Slack workspace</a>.</p>
+  
   </div>
 
 
@@ -144,20 +145,35 @@
       
 
   <footer role="contentinfo">
-  <div class="nhsuk-footer" id="nhsuk-footer">
+  <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list">
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/">NHS.UK frontend</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/install.html">Install</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/examples.html">Examples</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/about.html">About</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://github.com/nhsuk/nhsuk-frontend">GitHub</a></li>
-      </ul>
-      
-      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
-    </div>
-  </div>
+      <div class="nhsuk-footer">
+          
+              <ul class="nhsuk-footer__list">
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/">NHS.UK frontend</a>
+                  </li>
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/install.html">Install</a>
+                  </li>
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/examples.html">Examples</a>
+                  </li>
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="/nhsuk-frontend/pages/about.html">About</a>
+                  </li>
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="https://github.com/nhsuk/nhsuk-frontend">GitHub</a>
+                  </li>
+              </ul>
+              <div>
+                <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+              </div>
+      </div> 
+          
+    </div> 
+  </div> 
 </footer>
 
 
