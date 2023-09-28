@@ -17,7 +17,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
   <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <div class="nhsuk-footer" id="nhsuk-footer">
+      <div class="nhsuk-footer">
         <ul class="nhsuk-footer__list">
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
             <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
@@ -86,7 +86,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
   <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <div class="nhsuk-footer" id="nhsuk-footer">
+      <div class="nhsuk-footer">
         <ul class="nhsuk-footer__list">
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/">Home</a>
