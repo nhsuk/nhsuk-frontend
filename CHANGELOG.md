@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 7.2.0 - 28 September 2023
+## 8.0.0 - 28 September 2023
 
 :boom: **Breaking changes**
 
