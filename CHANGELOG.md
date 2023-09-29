@@ -4,7 +4,7 @@
 
 :wrench: **Fixes**
 
-- Updated design examples for suffix and prefix, and added backstop tests ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
+- Updated design examples for suffix and prefix, and added backstop regression images ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
 
 ## 8.0.0 - 28 September 2023
 
