@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 8.0.1 - 02 October 2023
+
+:wrench: **Fixes**
+
+- Updated design examples for suffix and prefix, and added backstop tests ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
+
 ## 8.0.0 - 28 September 2023
 
 :boom: **Breaking changes**
