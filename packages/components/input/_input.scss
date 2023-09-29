@@ -102,6 +102,7 @@
   white-space: nowrap;
 
   @include mq($until: mobile) {
+    max-width: 9.1ex;
     display: block;
     height: 100%;
     white-space: normal;

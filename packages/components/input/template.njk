@@ -17,7 +17,7 @@
     for: params.id
   }) | indent(2) | trim -}}
 {%- if params.hint %}
-  {%- set hintId = params.id + '-hint' %}
+  {%- set hintId = params.id + '-hint' if params.id %}
   {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
