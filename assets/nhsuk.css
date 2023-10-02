@@ -4616,7 +4616,7 @@ b {
   box-shadow: 0 0 0 4px #ffeb3b;
   outline: 4px solid transparent;
   outline-offset: 4px;
-  padding: 0 9px;
+  padding: 0 13px;
 }
 .nhsuk-search__input::placeholder {
   color: #4c6272;
@@ -5789,6 +5789,7 @@ b {
 @media (max-width: 19.99em) {
   .nhsuk-input__prefix,
   .nhsuk-input__suffix {
+    max-width: 9.1ex;
     display: block;
     height: 100%;
     white-space: normal;
