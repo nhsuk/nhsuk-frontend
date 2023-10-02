@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 8.0.1 - 02 October 2023
+
+:wrench: **Fixes**
+
+- Updated design examples for suffix and prefix, and added backstop regression images ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
+- Fix focus padding for the search input ([PR 896](https://github.com/nhsuk/nhsuk-frontend/pull/896)).
+- Remove card component Javascript from documentation ([PR 891](https://github.com/nhsuk/nhsuk-frontend/pull/891)).
+
 ## 8.0.0 - 28 September 2023
 
 :boom: **Breaking changes**

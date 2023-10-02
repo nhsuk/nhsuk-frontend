@@ -303,6 +303,10 @@ module.exports = {
       url: `${TEST_URL}/input/index.html`,
     },
     {
+      label: 'Input with autocomplete attribute',
+      url: `${TEST_URL}/input/autocomplete.html`,
+    },
+    {
       label: 'Input with hint text',
       url: `${TEST_URL}/input/hint.html`,
     },
@@ -318,6 +322,27 @@ module.exports = {
     {
       label: 'Input with width modifier',
       url: `${TEST_URL}/input/custom-width.html`,
+    },
+    {
+      label: 'Input with prefix',
+      url: `${TEST_URL}/input/prefix.html`,
+    },
+    {
+      label: 'Input with suffix',
+      url: `${TEST_URL}/input/suffix.html`,
+    },
+    {
+      label: 'Input with prefix and suffix',
+      url: `${TEST_URL}/input/prefix-and-suffix.html`,
+    },
+    {
+      label: 'Input with error message, prefix and suffix',
+      url: `${TEST_URL}/input/error-and-prefix-and-suffix.html`,
+    },
+    {
+      clickSelector: '#input-with-error-message-and-prefix-and-suffix',
+      label: 'Input with error message, prefix and suffix - focused',
+      url: `${TEST_URL}/input/error.html`,
     },
     {
       label: 'Inset text',
