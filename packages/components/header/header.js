@@ -109,9 +109,9 @@ class Header {
    */
 
   openMobileMenu() {
-    const marginBody = this.mobileMenu.offsetHeight
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
+    const marginBody = this.mobileMenu.offsetHeight
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 

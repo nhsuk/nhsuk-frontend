@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 8.0.2 - 019 October 2023
+
+:wrench: **Fixes**
+
+- Resolves the bug of the drop down menu covering the main content of the page ([PR 898](https://github.com/nhsuk/nhsuk-frontend/pull/898)).
+
 ## 8.0.1 - 02 October 2023
 
 :wrench: **Fixes**
