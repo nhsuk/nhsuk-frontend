@@ -452,6 +452,7 @@
   display: flex;
 
   @include mq($until: tablet) {
+    position: relative;
     z-index: 10;
   }
 }
