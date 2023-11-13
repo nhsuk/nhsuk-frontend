@@ -16,7 +16,7 @@
  * 5. Full width container, spanning the entire width of the viewport
  */
 
- @mixin govuk-width-container {
+@mixin govuk-width-container {
   margin: 0 $nhsuk-gutter-half; /* [1] */
 
   max-width: $nhsuk-page-width; /* [2] */
