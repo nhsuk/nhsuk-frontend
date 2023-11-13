@@ -21,12 +21,8 @@
 
   max-width: $nhsuk-page-width; /* [2] */
 
-  @include govuk-media-query($from: tablet) {
+  @include govuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; /* [3] */
-  }
-
-  @include govuk-media-query($from: large-desktop) {
-    margin: 0 auto;
   }
 
   /* [4] */
