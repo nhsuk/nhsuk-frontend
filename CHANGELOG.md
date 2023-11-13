@@ -1,6 +1,12 @@
 # NHS.UK frontend Changelog
 
-## 8.0.2 - 019 October 2023
+## 8.0.3 - 13 November 2023
+
+:wrench: **Fixes**
+
+- Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
+
+## 8.0.2 - 19 October 2023
 
 :wrench: **Fixes**
 
