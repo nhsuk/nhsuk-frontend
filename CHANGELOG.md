@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased 
+## Unreleased
 
 :wrench: **Fixes**
 
