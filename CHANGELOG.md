@@ -4,9 +4,10 @@
 
 :wrench: **Fixes**
 
+- Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
 
-## 8.0.2 - 019 October 2023
+## 8.0.2 - 19 October 2023
 
 :wrench: **Fixes**
 
