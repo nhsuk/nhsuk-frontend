@@ -287,6 +287,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     display: block;
     fill: $color_nhsuk-blue;
     margin-top: -(nhsuk-spacing(2));
+    pointer-events: none;
     position: absolute;
     right: nhsuk-spacing(4);
     top: 50%;
