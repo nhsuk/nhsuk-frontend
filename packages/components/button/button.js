@@ -26,7 +26,6 @@ class Button {
       event.preventDefault()
       // trigger the target's click event
       target.click()
-      console.log('Space click')
     }
   }
 
