@@ -26,6 +26,7 @@ class Button {
       event.preventDefault()
       // trigger the target's click event
       target.click()
+      console.log('Space click')
     }
   }
 
@@ -63,8 +64,5 @@ class Button {
 }
 
 export default () => {
-  const buttons = document.querySelectorAll('[data-module="nhsuk-button"]')
-  buttons.forEach((el) => {
-    new Button(el).init()
-  })
+  new Button(document).init()
 }
