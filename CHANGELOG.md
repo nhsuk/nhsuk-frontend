@@ -6,6 +6,7 @@
 
 - Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
+- Fixed bug where button elements added _after_ the page has loaded would not benefit from the button component's JS behaviours (double click prevention and space bar activation for links). This fixes [issue 906](https://github.com/nhsuk/nhsuk-frontend/issues/906). ([PR 907](https://github.com/nhsuk/nhsuk-frontend/pull/907)).
 
 ## 8.0.2 - 19 October 2023
 
