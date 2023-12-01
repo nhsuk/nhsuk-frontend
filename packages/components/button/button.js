@@ -62,6 +62,9 @@ class Button {
   }
 }
 
-export default () => {
-  new Button(document).init()
+export default ({ scope = document } = {}) => {
+  const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
+  buttons.forEach((el) => {
+    new Button(el).init()
+  })
 }
