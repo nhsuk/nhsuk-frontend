@@ -29,8 +29,6 @@ export function initAll(scope) {
   initTabs({ scope })
 }
 
-window.temp = initAll
-
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
   initHeader()
