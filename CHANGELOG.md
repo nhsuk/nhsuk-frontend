@@ -6,7 +6,7 @@
 
 - Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
-- Updating secondary and reverse buttosn to use their hover variable rather than darken
+- Updating secondary and reverse buttons to use their hover variable rather than darkening the base colour
 
 ## 8.0.2 - 19 October 2023
 
