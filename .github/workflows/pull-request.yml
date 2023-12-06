@@ -13,34 +13,15 @@ jobs:
     - name: Install dependencies
       run: npm install
   
-    - task: SonarCloudPrepare@1
-      displayName: 'Prepare analysis on SonarCloud'
-      inputs:
-        SonarCloud: 'SonarCloud'
-        organization: 'nhsdigital'
-        scannerMode: 'CLI'
-        extraProperties: |
-          sonar.projectKey=nhsuk-frontend
-          sonar.exclusions=$(System.DefaultWorkingDirectory)/dependency-scan-results/**
-          sonar.javascript.lcov.reportPaths=coverage/lcov.info
-          sonar.coverage.exclusions=**/*.config.js,**/coverage/**
-          sonar.dependencyCheck.htmlReportPath=$(System.DefaultWorkingDirectory)/dependency-scan-results/dependency-check-report.html
-          sonar.language=js
-
-    - task: SonarCloudAnalyze@1
-      displayName: 'Run SonarCloud Code Analysis'
-
-    - task: SonarCloudPublish@1
-      displayName: 'Publish Quality Gate Result'
-      inputs:
-        pollingTimeoutSec: '300'
-
-    - task: sonarcloud-buildbreaker@2
-      displayName: "Break the build if the quality gate fails"
-      inputs:
-        SonarCloud: 'SonarCloud'
-        organization: 'nhsdigital'
-
+    - name: Sonar analysis
+      uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: .
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
+  
     - name: Run linting
       run: npm run lint
     
