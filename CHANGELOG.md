@@ -7,6 +7,11 @@
 - Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
 
+:new: **New features**
+
+- Add and export new `initAll` method in `nhsuk.js`, and pass document by default, but allowing smaller DOM scopes to be passed. This allows new nhsuk-frontend JS components to be initialised after page load, such as in new pieces of DOM added by JavaScript.
+  - This fixes [issue 906](https://github.com/nhsuk/nhsuk-frontend/issues/906) where button elements added _after_ the page has loaded would not benefit from the button component's JS behaviours (double click prevention and space bar activation for links). ([PR 907](https://github.com/nhsuk/nhsuk-frontend/pull/907)).
+
 ## 8.0.2 - 19 October 2023
 
 :wrench: **Fixes**

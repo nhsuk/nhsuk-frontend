@@ -248,8 +248,8 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
-export default () => {
-  const characterCounts = document.querySelectorAll('[data-module="nhsuk-character-count"]')
+export default ({ scope = document } = {}) => {
+  const characterCounts = scope.querySelectorAll('[data-module="nhsuk-character-count"]')
   characterCounts.forEach((el) => {
     new CharacterCount(el).init()
   })
