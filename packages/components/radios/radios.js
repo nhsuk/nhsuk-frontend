@@ -5,9 +5,9 @@ import { toggleConditionalInput } from '../../common'
  * Test at http://0.0.0.0:3000/components/radios/conditional.html
  */
 
-export default () => {
+export default ({ scope = document } = {}) => {
   // Radio input HTMLElements inside a conditional form group
-  const radioInputs = document.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__input')
+  const radioInputs = scope.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__input')
 
   /**
    * Update all conditional reveals to match checked state
