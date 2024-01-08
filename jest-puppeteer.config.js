@@ -1,4 +1,5 @@
 module.exports = {
+  headless: true,
   browserContext: 'incognito',
   browserPerWorker: true,
 
