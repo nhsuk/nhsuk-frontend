@@ -54,9 +54,9 @@ const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
   syncAllConditionalReveals(input)
 }
 
-export default () => {
+export default ({ scope = document } = {}) => {
   // Checkbox input DOMElements inside a conditional form group
-  const checkboxInputs = document.querySelectorAll('.nhsuk-checkboxes .nhsuk-checkboxes__input')
+  const checkboxInputs = scope.querySelectorAll('.nhsuk-checkboxes .nhsuk-checkboxes__input')
 
   /**
    * Toggle classes and attributes

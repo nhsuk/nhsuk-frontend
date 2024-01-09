@@ -315,8 +315,8 @@ class Tabs {
  * Tabs({responsive: false});
  * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
  */
-export default ({ namespace = 'nhsuk-tabs', responsive = true, historyEnabled = true } = {}) => {
-  const tabs = document.querySelectorAll(`[data-module="${namespace}"]`)
+export default ({ namespace = 'nhsuk-tabs', responsive = true, historyEnabled = true, scope = document } = {}) => {
+  const tabs = scope.querySelectorAll(`[data-module="${namespace}"]`)
   tabs.forEach((el) => {
     new Tabs(el, namespace, responsive, historyEnabled).init()
   })
