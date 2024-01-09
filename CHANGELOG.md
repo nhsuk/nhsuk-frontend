@@ -6,6 +6,8 @@
 
 - Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
+- Clicking the chevron image on a 'Primary Card (With Chevron)' card element now focuses the link ([PR 905](https://github.com/nhsuk/nhsuk-frontend/pull/905)).
+- Added font licensing guidance to the relevant package READMEs and updated the copyright guidance to include NHS England ([PR 915](https://github.com/nhsuk/nhsuk-frontend/pull/915)).
 
 :new: **New features**
 
