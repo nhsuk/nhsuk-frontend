@@ -4,6 +4,8 @@
 
 Find out more about the footer component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
 
+Your copyright statement must reflect the ownership of your website or service. The NHS website is (c) Crown copyright but the NHS generally does not have Crown status.
+
 ## Quick start examples
 
 ### Footer (default)
@@ -36,7 +38,7 @@ Find out more about the footer component and when to use it in the [NHS digital 
           </li>
         </ul>
         <div>
-          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+          <p class="nhsuk-footer__copyright">&copy; NHS England</p>
         </div>
       </div>
     </div>
@@ -155,6 +157,9 @@ Find out more about the footer component and when to use it in the [NHS digital 
             <a class="nhsuk-footer__list-item-link" href="/our-policies/cookies-policy/">Cookies</a>
           </li>
         </ul>
+      </div>
+      <div>
+        <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
       </div>
     </div>
   </div>
