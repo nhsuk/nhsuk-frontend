@@ -3554,6 +3554,7 @@ b {
   display: block;
   fill: #005eb8;
   margin-top: -8px;
+  pointer-events: none;
   position: absolute;
   right: 24px;
   top: 50%;
@@ -4443,9 +4444,20 @@ b {
 }
 
 .nhsuk-header__container {
-  margin: 0 16px;
-  max-width: 960px;
+  margin: 0 16px; /* [1] */
+  max-width: 960px; /* [2] */
+  /* [4] */
   padding: 20px 0;
+}
+@media (min-width: 48.0625em) {
+  .nhsuk-header__container {
+    margin: 0 32px; /* [3] */
+  }
+}
+@media (min-width: 1024px) {
+  .nhsuk-header__container {
+    margin: 0 auto;
+  }
 }
 @media (max-width: 40.0525em) {
   .nhsuk-header__container {
@@ -4457,12 +4469,6 @@ b {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
-    margin: 0 32px;
-  }
-}
-@media (min-width: 61.875em) {
-  .nhsuk-header__container {
-    margin: 0 auto;
   }
 }
 
