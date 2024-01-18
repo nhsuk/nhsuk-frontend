@@ -4,6 +4,7 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false
   },
+  ignorePatterns: ['reports/*'],
   env: {
     browser: true,
     node: true,

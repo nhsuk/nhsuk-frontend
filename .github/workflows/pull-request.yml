@@ -13,6 +13,26 @@ jobs:
     - name: Install dependencies
       run: npm install
   
+    - name: Depcheck
+      uses: dependency-check/Dependency-Check_Action@main
+      id: Depcheck
+      with:
+        project: 'nhsuk-frontend'
+        path: '.'
+        format: 'HTML'
+        out: 'reports'
+        args: >
+          --failOnCVSS 7 
+          --nodePackageSkipDevDependencies
+          --nodeAuditSkipDevDependencies
+          --suppression owasp-dependency-check-suppressions.xml
+
+    - name: Upload OWAPS results
+      uses: actions/upload-artifact@master
+      with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
+
     - name: Sonar analysis
       uses: sonarsource/sonarcloud-github-action@master
       with:

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <!-- Ignored Vulnerabilities -->
+    <suppress>
+        <notes><![CDATA[file name: angular.min.js]]></notes>
+        <packageUrl regex="true">^pkg:javascript/angularjs@.*$</packageUrl>
+        <cve>CVE-2019-10768</cve>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[file name: faye-websocket:0.10.0]]></notes>
+        <packageUrl regex="true">^pkg:npm/faye\-websocket@.*$</packageUrl>
+        <cve>CVE-2020-15133</cve>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[file name: glob-parent:3.1.0]]></notes>
+        <packageUrl regex="true">^pkg:npm/glob\-parent@.*$</packageUrl>
+        <vulnerabilityName>GHSA-ww39-953v-wcq6</vulnerabilityName>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[file name: glob-parent:3.1.0]]></notes>
+        <packageUrl regex="true">^pkg:npm/glob\-parent@.*$</packageUrl>
+        <vulnerabilityName>CVE-2020-28469</vulnerabilityName>
+    </suppress>
+</suppressions>
