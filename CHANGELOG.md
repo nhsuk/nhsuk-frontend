@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Fix alignment of copyright footer
+
 ## 8.1.0 - 11 January 2024
 
 :wrench: **Fixes**
