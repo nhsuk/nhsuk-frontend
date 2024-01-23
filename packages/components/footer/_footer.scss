@@ -16,8 +16,9 @@
   background-color: $color_nhsuk-grey-4;
   margin-bottom: 15px;
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -54,7 +55,7 @@
 }
 
 .nhsuk-footer-default__list-item {
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     float: left;
     margin-right: nhsuk-spacing(5);
   }
