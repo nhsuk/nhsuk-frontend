@@ -33,6 +33,16 @@
   }
 }
 
+%nhsuk-list %nhsuk-list {
+  margin-bottom: 0;
+
+  &::before {
+    content: "";
+    display: block;
+    @include nhsuk-responsive-margin(2, "bottom");
+  }
+}
+
 %nhsuk-list--bullet {
   list-style-type: disc;
   padding-left: 20px; /* [1] */
