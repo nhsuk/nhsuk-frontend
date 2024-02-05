@@ -6,6 +6,8 @@
 
 - Fix alignment of copyright footer
 
+- Fix spacing of nested lists
+
 ## 8.1.0 - 11 January 2024
 
 :wrench: **Fixes**
