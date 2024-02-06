@@ -14,6 +14,7 @@
  * 1. 'Random number' used to align ul and ol left with content.
  * 2. 'Random number' used to give sufficient spacing between text and icon.
  * 3. 'Random number' used to align icon and text.
+ * 4. Manually calculated regression to vertically align icon & text
  */
 
 %nhsuk-list {
@@ -74,7 +75,7 @@ ol {
 
   svg {
     left: -4px; /* [3] */
-    margin-top: -5px; /* [3] */
+    margin-top: calc((1em / 10px) * 8px - 16px); /* [4] */
     position: absolute;
   }
 }
