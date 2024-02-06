@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Fix alignment of copyright footer
+- Don't limit input heights to `40px`, to prevent vertical overflow/cutoff
 
 ## 8.1.0 - 11 January 2024
 
