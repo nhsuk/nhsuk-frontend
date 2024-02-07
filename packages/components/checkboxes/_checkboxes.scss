@@ -61,9 +61,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   height: $nhsuk-checkboxes-size;
   left: 0;
   position: absolute;
-  margin: auto;
-  top: 0;
-  bottom: 0;
+  top: calc(0.75rem - 12px);
   width: $nhsuk-checkboxes-size;
 }
 
@@ -77,9 +75,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   left: 10px;
   opacity: 0; /* 2 */
   position: absolute;
-  margin: auto;
-  top: -4px;
-  bottom: 0;
+  top: calc(0.75rem + 1px);
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
