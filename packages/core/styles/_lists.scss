@@ -75,7 +75,7 @@ ol {
 
   svg {
     left: -4px; /* [3] */
-    margin-top: calc((1em / 10px) * 8px - 16px); /* [4] */
+    margin-top: calc(1rem - 21px); /* [4] */
     position: absolute;
   }
 }
