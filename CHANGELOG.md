@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Fix alignment of copyright footer
+- Fix vertical alignment of many icons
 
 ## 8.1.0 - 11 January 2024
 

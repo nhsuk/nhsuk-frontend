@@ -28,7 +28,9 @@
     height: 24px;
     left: -8px; /* 2 */
     position: absolute;
-    top: -1px; /* 3 */
+    margin: auto; /* 3 */
+    top: 0; /* 3 */
+    bottom: 0; /* 3 */
     width: 24px;
   }
 

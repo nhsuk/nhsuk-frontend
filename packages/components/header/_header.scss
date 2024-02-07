@@ -437,6 +437,11 @@
 }
 
 .nhsuk-icon__chevron-down {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
   .nhsuk-header__menu-toggle[aria-expanded="true"] & {
     transform: rotate(270deg);
   }

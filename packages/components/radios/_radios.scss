@@ -65,7 +65,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   height: $nhsuk-radios-size;
   left: 0;
   position: absolute;
-  top: 0;
+  top: calc(0.75rem - 12px);
   width: $nhsuk-radios-size;
 }
 
@@ -78,7 +78,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   left: 10px;
   opacity: 0;
   position: absolute;
-  top: 10px;
+  top: calc(0.75rem - 2px);
   width: 0;
 }
 
