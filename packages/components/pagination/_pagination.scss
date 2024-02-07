@@ -59,7 +59,7 @@
 
   .nhsuk-icon {
     position: absolute;
-    top: calc((1.25em / 10px) * 8px - 20px); /* [3] */
+    top: calc(1rem - 18px); /* [3] */
 
     @include mq($media-type: print) {
       color: $color_nhsuk-black;
