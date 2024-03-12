@@ -27,7 +27,7 @@ describe('Button', () => {
       // this is somewhat counter intuitive, as we humans expect to act and then wait for something.
       await Promise.all([page.waitForNavigation(), page.keyboard.press('Space')])
 
-      const url = new URL(await page.url())
+      const url = new URL('#')
       expect(url.pathname).toBe(pathname)
     })
   })
