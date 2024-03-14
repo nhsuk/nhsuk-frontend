@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 8.1.1 - 14 March 2024
 
 :wrench: **Fixes**
 
