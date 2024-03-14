@@ -4320,6 +4320,7 @@ b {
 @media (min-width: 48.0625em) {
   .nhsuk-footer {
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -5682,7 +5683,7 @@ b {
   border: 2px solid #4c6272; /* 2 */
   border-radius: 0;
   box-sizing: border-box;
-  height: 40px;
+  min-height: 40px;
   margin-top: 0;
   padding: 4px;
   width: 100%;
@@ -5771,7 +5772,7 @@ b {
   cursor: default;
   display: inline-block;
   flex: 0 0 auto;
-  height: 40px;
+  min-height: 40px;
   min-width: 2.5rem;
   padding: 4px;
   text-align: center;
@@ -6545,7 +6546,7 @@ b {
   line-height: 1.5;
   border: 2px solid #4c6272;
   box-sizing: border-box;
-  height: 40px;
+  min-height: 40px;
   max-width: 100%;
   padding: 4px;
 }
