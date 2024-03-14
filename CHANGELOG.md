@@ -1,10 +1,12 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 8.1.1 - 14 March 2024
 
 :wrench: **Fixes**
 
 - Fix alignment of copyright footer
+- Add missing/outdated backstop images
+- Don't limit input heights to `40px`, to prevent vertical overflow
 
 ## 8.1.0 - 11 January 2024
 

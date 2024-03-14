@@ -18,7 +18,7 @@
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; /* 2 */
   border-radius: 0;
   box-sizing: border-box;
-  height: 40px;
+  min-height: 40px;
   margin-top: 0;
   padding: nhsuk-spacing(1);
   width: 100%;
@@ -95,7 +95,7 @@
   cursor: default; // emphasises non-editable status of prefixes and suffixes
   display: inline-block;
   flex: 0 0 auto;
-  height: 40px;
+  min-height: 40px;
   min-width: nhsuk-px-to-rem(40px);
   padding: nhsuk-spacing(1);
   text-align: center;
