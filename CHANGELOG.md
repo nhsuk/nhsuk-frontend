@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Fix alignment of copyright footer
+- Add missing/outdated backstop images
 
 ## 8.1.0 - 11 January 2024
 
