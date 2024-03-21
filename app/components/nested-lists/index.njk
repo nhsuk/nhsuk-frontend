@@ -1,0 +1,24 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Sitemap' %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+      <h1>Sitemap</h1>
+      <ul>
+        <li><a href="https://www.nhs.uk/accessibility-statement/">Accessibility</a></li>
+        <li><a href="/">Home</a></li>
+        <li>
+            <a href="https://www.nhs.uk/our-policies">Our policies</a>
+            <ul>
+            <li><a href="https://www.nhs.uk/our-policies/cookies-policy">Cookies</a></li>
+            <li><a href="https://www.nhs.uk/our-policies/terms-and-conditions">Terms and conditions</a></li>
+            <li><a href="https://www.nhs.uk/our-policies/privacy-policy">Privacy policy</a></li>
+            </ul>
+        </li>
+        <li><a href="/components/nested-lists/index.html">Sitemap</a></li>
+      </ul>
+    </main>
+  </div>
+{% endblock %} 

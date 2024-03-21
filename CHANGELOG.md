@@ -8,6 +8,8 @@
 - Add missing/outdated backstop images
 - Don't limit input heights to `40px`, to prevent vertical overflow
 
+- Fix spacing of nested lists
+
 ## 8.1.0 - 11 January 2024
 
 :wrench: **Fixes**
