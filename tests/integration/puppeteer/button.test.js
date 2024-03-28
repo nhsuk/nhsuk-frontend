@@ -17,7 +17,8 @@ describe('Button', () => {
 
   describe('Button as link', () => {
     it('triggers the click event when the space key is pressed', async () => {
-      const pathname = await page.evaluate(() => document.body.getElementsByTagName('a')[0].getAttribute('href'))
+      await page.waitForSelector('a')
+      const pathname = await page.evaluate(() => document.body.getElementsByTagName('a')[0]?.getAttribute('href'))
 
       await page.focus('a[role="button"]')
 

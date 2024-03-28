@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-const iPhone = puppeteer.devices['iPhone 6']
+const iPhone = puppeteer.KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
   let page
