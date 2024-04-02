@@ -1,4 +1,4 @@
-import { toggleAttribute } from '../../common'
+import { toggleAttribute } from '../../common.js'
 
 /**
  * Ensure details component is cross browser and accessible

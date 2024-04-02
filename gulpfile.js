@@ -1,29 +1,27 @@
-const gulp = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
-const clean = require('gulp-clean')
-const rename = require('gulp-rename')
-const cleanCSS = require('gulp-clean-css')
-const uglify = require('gulp-uglify')
-const zip = require('gulp-zip')
-const webpack = require('webpack-stream')
-const { version } = require('./package.json')
+import gulp from 'gulp'
+import clean from 'gulp-clean'
+import rename from 'gulp-rename'
+import cleanCSS from 'gulp-clean-css'
+import uglify from 'gulp-uglify'
+import zip from 'gulp-zip'
+import webpack from 'webpack-stream'
+import version from './package.json' with { type: 'json' }
+
+import * as dartSass from 'sass'
+import gulpSass from 'gulp-sass'
+const sass = gulpSass(dartSass)
 
 /**
  * Import gulp tasks used for creating
  * our website pages.
  */
-require('./tasks/docs.js')
+// require('./tasks/docs.js')
+import './tasks/docs.js'
 
 /* Remove all compiled files */
 function cleanDist() {
   return gulp.src('dist', { allowEmpty: true }).pipe(clean())
 }
-
-/**
- * CSS tasks
- */
-
-sass.compiler = require('sass')
 
 /* Build the CSS from source */
 function compileCSS() {

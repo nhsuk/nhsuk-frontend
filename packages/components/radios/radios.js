@@ -1,4 +1,4 @@
-import { toggleConditionalInput } from '../../common'
+import { toggleConditionalInput } from '../../common.js'
 
 /**
  * Conditionally show content when a radio button is checked

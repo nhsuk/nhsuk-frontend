@@ -91,7 +91,8 @@
     box-shadow: none;
 
     .nhsuk-logo {
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+      box-shadow:
+        0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
         0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
   }
@@ -277,7 +278,9 @@
 
     &:focus {
       background-color: $nhsuk-focus-color;
-      box-shadow: 0 -4px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow:
+        0 -4px $nhsuk-focus-color,
+        0 $nhsuk-focus-width $nhsuk-focus-text-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
 
@@ -318,7 +321,9 @@
 
     &:focus {
       @include nhsuk-focused-button();
-      box-shadow: 0 -2px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow:
+        0 -2px $nhsuk-focus-color,
+        0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
 
     &:active {

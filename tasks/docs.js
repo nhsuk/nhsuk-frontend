@@ -1,8 +1,8 @@
-const gulp = require('gulp')
-const rename = require('gulp-rename')
-const gulpNunjucks = require('gulp-nunjucks')
-const nunjucks = require('nunjucks')
-const connect = require('gulp-connect')
+import gulp from 'gulp'
+import { nunjucksCompile } from 'gulp-nunjucks'
+import rename from 'gulp-rename'
+import nunjucks from 'nunjucks'
+import connect from 'gulp-connect'
 
 const config = {
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
@@ -17,7 +17,7 @@ function buildHtml() {
   return gulp
     .src(['app/**/*.njk'])
     .pipe(
-      gulpNunjucks.compile(
+      nunjucksCompile(
         {
           // site-wide data goes here
           baseUrl: config.baseUrl

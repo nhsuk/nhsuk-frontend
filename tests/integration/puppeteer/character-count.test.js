@@ -58,6 +58,7 @@ describe('Character count', () => {
       })
 
       it('hides the fallback hint', async () => {
+        await page.waitForSelector('.nhsuk-character-count__message')
         const messageClasses = await page.$eval('.nhsuk-character-count__message', (el) => el.className)
         expect(messageClasses).toContain('nhsuk-u-visually-hidden')
       })
@@ -259,6 +260,7 @@ describe('Character count', () => {
       })
 
       it('shows the dynamic message', async () => {
+        await page.waitForSelector('.nhsuk-character-count__status')
         const message = await page.$eval('.nhsuk-character-count__status', (el) => el.innerHTML.trim())
         expect(message).toEqual('You have 10 words remaining')
 
