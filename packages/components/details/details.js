@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import { toggleAttribute } from '../../common.js'
 
 /**
