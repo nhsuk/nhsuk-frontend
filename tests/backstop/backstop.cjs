@@ -12,8 +12,8 @@ module.exports = {
     args: ['--no-sandbox'],
   },
   id: 'nhsuk-frontend',
-  onBeforeScript: 'puppet/onBefore.js',
-  onReadyScript: 'puppet/onReady.js',
+  onBeforeScript: 'puppet/onBefore.cjs',
+  onReadyScript: 'puppet/onReady.cjs',
   paths: {
     bitmaps_reference: 'tests/backstop/bitmaps_reference',
     bitmaps_test: 'tests/backstop/bitmaps_test',
