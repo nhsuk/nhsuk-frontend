@@ -10,45 +10,31 @@
 }
 
 /* Modifiers that make labels look more like their equivalent headings */
+.nhsuk-label--xl,
+.nhsuk-label--l,
+.nhsuk-label--m {
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+}
 
 .nhsuk-label--xl {
   @include nhsuk-typography-responsive(48);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(7, "bottom");
 }
 
 .nhsuk-label--l {
   @include nhsuk-typography-responsive(32);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-label--m {
   @include nhsuk-typography-responsive(24);
-
-  display: block;
-  font-weight: $nhsuk-font-bold;
-  margin-top: 0;
-
-  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-label--s {
   @include nhsuk-typography-responsive(19);
-
-  display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
-
-  @include nhsuk-responsive-margin(4, "bottom");
+  margin-bottom: nhsuk-spacing(2);
 }
 
 // When the label is nested inside a heading, override the heading so that it

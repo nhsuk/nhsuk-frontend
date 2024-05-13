@@ -51,7 +51,6 @@
 
 .nhsuk-fieldset__legend--s {
   @include nhsuk-font($size: 19, $weight: bold);
-  margin-bottom: nhsuk-spacing(3);
 }
 
 .nhsuk-fieldset__heading {
