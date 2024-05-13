@@ -34,7 +34,6 @@
   @include nhsuk-typography-responsive(19);
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
-  margin-bottom: nhsuk-spacing(2);
 }
 
 // When the label is nested inside a heading, override the heading so that it
