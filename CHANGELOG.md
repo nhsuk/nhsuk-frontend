@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Removing classes from icon card that are not doing anything
+- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946)).
 
 ## 8.1.1 - 14 March 2024
 
