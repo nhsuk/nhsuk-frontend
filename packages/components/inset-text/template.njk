@@ -3,5 +3,5 @@
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <span class="nhsuk-u-visually-hidden">Information: </span>
   {# params.HTML supported for backwards compatibility - remove in future? #}
-  {{ params.html or params.HTML | safe }}
+  {{ (params.html or params.HTML) | safe }}
 </div>
