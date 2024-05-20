@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Adds aria-hidden to labels in responsive tables that show only on small screens, to avoid screenreaders calling out them out twice ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942))
+
 ## 8.1.1 - 14 March 2024
 
 :wrench: **Fixes**
