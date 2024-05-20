@@ -73,7 +73,6 @@
   "attr-no-duplication": true,
   "tag-pair": true,
   "spec-char-escape": true,
-  "doctype-first": true,
   "tag-self-close": false,
   "title-require": true,
   "attr-value-not-empty": false,
@@ -84,6 +83,5 @@
   "id-class-value": false,
   "inline-script-disabled": true,
   "inline-style-disabled": false,
-  "space-tab-mixed-disabled": "space2",
   "style-disabled": true
 }
