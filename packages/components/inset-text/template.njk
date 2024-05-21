@@ -2,6 +2,6 @@
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
   <span class="nhsuk-u-visually-hidden">Information: </span>
-  {# params.HTML supported for backwards compatibility - remove in future? #}
+  {# params.HTML supported for backwards compatibility - see issue #950 #}
   {{ (params.html or params.HTML) | safe }}
 </div>
