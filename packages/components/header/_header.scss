@@ -468,6 +468,9 @@
   @include mq($from: desktop) {
     display: flex;
     justify-content: space-between;
+    &.nhsuk-header__navigation-list-fewer-links {
+      justify-content: initial;
+    }
   }
 
   .js-enabled & {
