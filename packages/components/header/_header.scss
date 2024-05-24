@@ -468,7 +468,7 @@
   @include mq($from: desktop) {
     display: flex;
     justify-content: space-between;
-    &.nhsuk-header__navigation-list-fewer-links {
+    &.nhsuk-header__navigation-list--left-aligned {
       justify-content: initial;
     }
   }
