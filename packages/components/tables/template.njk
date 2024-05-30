@@ -31,7 +31,7 @@
         {%- if params.responsive %}
           {%- for cell in row %}
             <td role="cell" class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
-              <span class="nhsuk-table-responsive__heading">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
             </td>
           {%- endfor %}
         {%- else %}
