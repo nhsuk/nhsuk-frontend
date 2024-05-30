@@ -4,9 +4,12 @@
 
 :wrench: **Fixes**
 
-- Removing classes from icon card that are not doing anything
 - Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946)).
-- Fixed bug with inset-text component requiring uppercase `html` argument. Fixes [Issue 950](https://github.com/nhsuk/nhsuk-frontend/issues/950).
+- Adds `opacity: 1` to header search placeholder, to increase colour contrast on firefox.
+- Adds aria-hidden to labels in responsive tables that show only on small screens, to avoid screenreaders calling out them out twice ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942)).
+- Removing classes from icon card that are not doing anything.
+- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946)).
+- Fixed bug with inset-text component requiring uppercase `html` argument. Fixes ([Issue 950](https://github.com/nhsuk/nhsuk-frontend/issues/950)).
 
 ## 8.1.1 - 14 March 2024
 
