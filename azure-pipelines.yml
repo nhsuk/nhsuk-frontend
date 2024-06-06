@@ -8,6 +8,7 @@ trigger:
       - README.md
       - CODE_OF_CONDUCT.md
       - CONTRIBUTING.md
+pr: none
 
 pool:
   vmImage: 'ubuntu-latest'
