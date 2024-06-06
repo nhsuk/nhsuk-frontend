@@ -1,19 +1,18 @@
 trigger:
   branches:
     include:
-    - review-*
+      - review-*
   paths:
     exclude:
-    - CHANGELOG.md
-    - README.md
-    - CODE_OF_CONDUCT.md
-    - CONTRIBUTING.md
+      - CHANGELOG.md
+      - README.md
+      - CODE_OF_CONDUCT.md
+      - CONTRIBUTING.md
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
   - script: npm ci
     displayName: 'Install'
 
