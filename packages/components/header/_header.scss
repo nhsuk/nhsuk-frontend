@@ -468,9 +468,6 @@
   @include mq($from: desktop) {
     display: flex;
     justify-content: space-between;
-    &.nhsuk-header__navigation-list--left-aligned {
-      justify-content: initial;
-    }
   }
 
   .js-enabled & {
@@ -531,5 +528,11 @@
 .nhsuk-header__navigation-item--home {
   @include mq($from: desktop) {
     display: none;
+  }
+}
+
+.nhsuk-header__navigation-list--left-aligned {
+  @include mq($from: desktop) {
+    justify-content: initial;
   }
 }

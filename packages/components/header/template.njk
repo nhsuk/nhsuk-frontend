@@ -78,7 +78,7 @@
     </div>{# close nhsuk-header__container #}
     <div class="nhsuk-navigation-container">
       <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-        <ul class="{{ "nhsuk-header__navigation-list nhsuk-header__navigation-list--left-aligned" if params.primaryLinks.length < 4 else "nhsuk-header__navigation-list" }}">
+        <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
           {%- for item in params.primaryLinks %}
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
@@ -136,7 +136,7 @@
     
     <div class="nhsuk-navigation-container">
       <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-        <ul class="nhsuk-header__navigation-list{{ ' nhsuk-header__navigation-list--left-aligned' if params.primaryLinks.length < 4 }}">
+        <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
           {%- for item in params.primaryLinks %}
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
