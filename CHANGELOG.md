@@ -131,15 +131,15 @@ We removed the need to add the last breadcrumb outside of the 'Items' list, now 
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one"
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       }
     ],
-    href: "/level-one/level-two/level-three",
+    href: "#",
     text: "Level three"
   }) }}
 ```
@@ -150,15 +150,15 @@ You will now only need this:
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one",
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       },
       {
-        href: "/level-one/level-two/level-three",
+        href: "#",
         text: "Level three"
       }
     ]
