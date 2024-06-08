@@ -1,0 +1,83 @@
+{% set title = 'Typography' %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "../../",
+        text: "NHS.UK frontend"
+      },
+      {
+        href: "../pages/examples.html",
+        text: "Examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-xl">Typography</h1>
+
+
+  <h2 class="nhsuk-heading-l">Visually-hidden text</h2>
+
+  <h3 class="nhsuk-heading-m">Heading with visually hidden text at the beginning</h3>
+
+  <h4 class="nhsuk-heading-s"><span class="nhsuk-u-visually-hidden">Countries starting with </span>A</h4>
+
+  <h3 class="nhsuk-heading-m">Heading with visually hidden text at the end</h3>
+
+  <h4 class="nhsuk-heading-s">Search <span class="nhsuk-u-visually-hidden">all content</span></h4>
+
+  <h3 class="nhsuk-heading-m">Heading that is visually hidden</h3>
+
+  <h4 class="nhsuk-u-visually-hidden">Navigation menu</h4>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--xl">
+
+  <h3 class="nhsuk-heading-m">Paragraph that contains visually hidden text</h3>
+
+  <p class="nhsuk-body">This is a paragraph <span class="nhsuk-u-visually-hidden">with some visually hidden text</span>.</p>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--xl">
+
+  <h3 class="nhsuk-heading-m">Table with visually hidden text</h3>
+
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption nhsuk-!-margin-bottom-4">2019</caption>
+    <thead role="rowgroup" class="nhsuk-table__head">
+      <tr role="row">
+        <th role="columnheader" class="nhsuk-u-visually-hidden" scope="col">
+          Date
+        </th>
+        <th role="columnheader" class="nhsuk-u-visually-hidden" scope="col">
+          Day
+        </th>
+        <th role="columnheader" class="nhsuk-u-visually-hidden" scope="col">
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">19 April</td>
+        <td class="nhsuk-table__cell ">Friday</td>
+        <td class="nhsuk-table__cell ">Good Friday</td>
+      </tr>
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">22 April</td>
+        <td class="nhsuk-table__cell ">Monday</td>
+        <td class="nhsuk-table__cell ">Easter Monday</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+{% endblock %}

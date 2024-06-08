@@ -38,6 +38,20 @@
 //
 
 @mixin visually-hidden() {
+  position: absolute;
+
+  // Absolute positioning has the unintended consequence of removing any
+  // whitespace surrounding visually hidden text from the accessibility tree.
+  // Insert a space character before and after visually hidden text to separate
+  // it from any visible text surrounding it.
+  &::before {
+    content: "\00a0";
+  }
+
+  &::after {
+    content: "\00a0";
+  }
+
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -46,7 +60,6 @@
   margin: 0;
   overflow: hidden;
   padding: 0;
-  position: absolute;
   white-space: nowrap;
   width: 1px;
 }
