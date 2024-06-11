@@ -148,6 +148,7 @@
 .nhsuk-header__search {
   position: relative;
   text-align: right;
+  float: left;
 
   @include mq($from: tablet) {
     margin-left: nhsuk-spacing(2);
@@ -536,3 +537,54 @@
     justify-content: initial;
   }
 }
+
+.nhsuk-header__navigation-item--right-aligned {
+  margin-left: auto;
+}
+
+
+.nhsuk-account__login {
+    float: right;
+    margin-left: 1em;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+
+    .nhsuk-account__login--link {
+        color: #fff;
+        padding: 0 9px;
+        display: inline-block;
+        margin-top: 10px;
+        &:focus,
+        &:visited,
+        &:hover {
+            background-color: none;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    .nhsuk-account__login--icon {
+        fill: #fff;
+        height: 1.6em;
+        margin-left: .4em;
+        position: relative;
+        top: 8px;
+        margin-top: -10px;
+        width: 33px;
+    }
+}
+
+.nhsuk-account__login__sign-out {
+  margin-left: 15px;
+  color: #fff;
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: #fff;
+  }
+}
+
+

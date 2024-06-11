@@ -1,0 +1,42 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Header transactional with service name' %}
+{% from 'components/header/macro.njk' import header %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ header({
+      "service": {
+        "name": "Invite patients to a consultation"
+      },
+      "showNav": "true",
+      "showSearch": "false",
+      "account": {
+        "profile": {
+          text: "frankie.roberto@nhs.net",
+          href: "#",
+          icon: true
+        },
+        "signOut": {
+          text: "Sign out",
+          href: "#"
+        }
+      },
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Find a patient"
+        },
+        {
+          'url' : '#',
+          'label' : 'Consultation schedule'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Settings'
+        }
+      ]
+    })
+  }}
+
+{% endblock %}

@@ -14,9 +14,9 @@
 {%- if params.organisation and params.organisation.name %} nhsuk-header--organisation{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-  
+
   <div class="nhsuk-header__container">
-    <div class="nhsuk-header__logo 
+    <div class="nhsuk-header__logo
     {%- if showNav == "false" and showSearch == "false" and params.transactionalService %} nhsuk-header__transactional--logo{% endif %}
     {%- if showNav == "false" and showSearch == "false" and not params.transactionalService %} nhsuk-header__logo--only{% endif %}">
       {%- if params.organisation %}
@@ -40,26 +40,28 @@
       </a>
       {%- endif %}
     </div>
-    
 
-    {%- if showNav == "false" and showSearch == "false"%}
+
+    {%- if not params.account and (showNav == "false" and showSearch == "false") %}
 
       {%- if params.transactionalService%}
         <div class="nhsuk-header__transactional-service-name">
           <a class="nhsuk-header__transactional-service-name--link" href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}">{{ params.transactionalService.name }}</a>
         </div>
-        
+
       {%- endif %}
 
     </div>{# close nhsuk-header__container #}
-    
+
 
     {% endif -%}
 
-    {% if showNav == "true" and params.primaryLinks and showSearch == "true" %}
+    {% if 1==1 %}
 
       <div class="nhsuk-header__content" id="content-header">
-        <div class="nhsuk-header__search">
+
+        {% if showSearch == "true" %}
+          <div class="nhsuk-header__search">
             <div class="nhsuk-header__search-wrap" id="wrap-search">
               <form class="nhsuk-header__search-form" id="search" action="{{ params.searchAction if params.searchAction else 'https://www.nhs.uk/search/' }}" method="get" role="search">
                 <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
@@ -73,6 +75,22 @@
               </form>
             </div>
           </div>
+        {% endif %}
+        <div class="nhsuk-account__login">
+          <a class="nhsuk-account__login--link" href="https://www.nhs.uk/nhs-app/account/">
+            {{ params.account.profile.text }}
+            {%- if params.account.profile.icon -%}
+              <svg class="nhsuk-account__login--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" height="26" width="27">
+                <path d="M16,18.2c-3.1,0-5.7-2.5-5.7-5.7s2.5-5.7,5.7-5.7c3.1,0,5.7,2.5,5.7,5.7 C21.7,15.7,19.1,18.2,16,18.2"></path>
+                <path d="M16,0C7.2,0,0,7.2,0,16s7.2,16,16,16s16-7.2,16-16C32,7.2,24.8,0,16,0 M24.1,27.5V26 c0-3.5-2.5-6.3-5.7-6.3h-4.8C10.5,19.6,8,22.5,8,26v1.6C1.6,23.1,0,14.3,4.5,8S17.7,0,24,4.5S32,17.7,27.5,24 C26.6,25.4,25.4,26.6,24.1,27.5"></path>
+              </svg>
+            {%- endif -%}
+          </a>
+
+          {% if params.account.signOut %}
+            <a href="#" class="nhsuk-account__login__sign-out">{{ params.account.signOut.text }}</a>
+          {% endif %}
+        </div>
       </div>
 
     </div>{# close nhsuk-header__container #}
@@ -80,7 +98,7 @@
       <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
         <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
           {%- for item in params.primaryLinks %}
-          <li class="nhsuk-header__navigation-item">
+          <li class="nhsuk-header__navigation-item  {{item.classes }}">
             <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
               {{item.label}}
             </a>
@@ -133,34 +151,36 @@
     {% if showNav == "true" and params.primaryLinks and showSearch == "false" %}
 
     </div>{# close nhsuk-header__container #}
-    
-    <div class="nhsuk-navigation-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-        <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
-          {%- for item in params.primaryLinks %}
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
-              {{item.label}}
-            </a>
-          </li>
-          {%- endfor %}
-          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-            <a class="nhsuk-header__navigation-link"  href="/">
-              Home
-            </a>
-          </li>
-          <li class="nhsuk-mobile-menu-container">
-            <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-              <span class="nhsuk-u-visually-hidden">Browse</span>
-              More
-              <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+    {% if 1==2 %}
+      <div class="nhsuk-navigation-container">
+        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+          <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
+            {%- for item in params.primaryLinks %}
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
+                {{item.label}}
+              </a>
+            </li>
+            {%- endfor %}
+            <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
+              <a class="nhsuk-header__navigation-link"  href="/">
+                Home
+              </a>
+            </li>
+            <li class="nhsuk-mobile-menu-container">
+              <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+                <span class="nhsuk-u-visually-hidden">Browse</span>
+                More
+                <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    {% endif %}
 
     {% endif -%}
 
