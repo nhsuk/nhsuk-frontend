@@ -3,6 +3,7 @@
 ## 8.2.0 - 12 June 2024
 
 :recycle: **Changes**
+
 - Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946))
 
 :wrench: **Fixes**
