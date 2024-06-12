@@ -2,7 +2,7 @@
    COMPONENTS / #FOOTER
    ========================================================================== */
 
-.nhsuk-footer {
+.nhsuk-footer-container {
   @include clearfix();
   @include print-hide();
   @include nhsuk-responsive-padding(5, bottom);
@@ -12,17 +12,36 @@
   border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
 }
 
+.nhsuk-footer {
+  background-color: $color_nhsuk-grey-4;
+  margin-bottom: 15px;
+
+  @include mq($from: desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .nhsuk-footer__list {
   @include nhsuk-responsive-padding(4, bottom);
 
   list-style-type: none;
-  margin: 0;
+  margin-bottom: 25px;
   padding-left: nhsuk-spacing(0);
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
 
   @include mq($from: desktop) {
     float: left;
     padding-bottom: 0;
+    padding-right: 40px;
     width: 75%;
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
@@ -30,32 +49,40 @@
   @include nhsuk-font(16);
 
   @include mq($from: desktop) {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+.nhsuk-footer-default__list-item {
+  @include mq($from: desktop) {
     float: left;
     margin-right: nhsuk-spacing(5);
   }
 }
 
 .nhsuk-footer__list-item-link {
-  color: $nhsuk-secondary-text-color;
+  color: $nhsuk-footer-link-text-color;
 
   &:visited {
-    color: $nhsuk-secondary-text-color;
+    color: $nhsuk-footer-link-text-color;
   }
 
   &:hover {
-    color: $nhsuk-text-color;
+    color: $nhsuk-link-hover-color;
   }
 }
 
 .nhsuk-footer__copyright {
   @include nhsuk-font(16);
 
-  color: $nhsuk-secondary-text-color;
+  color: $nhsuk-footer-copyright-text-color;
   margin-bottom: 0;
+}
 
-  @include mq($from: desktop) {
-    float: right;
-    text-align: right;
-    width: 25%;
+.nhsuk-footer__meta {
+  @include mq($until: desktop) {
+    border-top: 1px solid #f0f4f5;
+    padding-top: 35px;
   }
 }

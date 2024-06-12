@@ -1,6 +1,131 @@
 # NHS.UK frontend Changelog
 
-## 7.0.1 - TBA
+## 8.2.0 - 12 June 2024
+
+:recycle: **Changes**
+
+- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946))
+
+:wrench: **Fixes**
+
+- Change example link to hash ([PR 962](https://github.com/nhsuk/nhsuk-frontend/pull/962))
+- Adjust nested list spacing ([PR 961](https://github.com/nhsuk/nhsuk-frontend/pull/961))
+- Fix header navigation item alignment ([PR 054](https://github.com/nhsuk/nhsuk-frontend/pull/954))
+- Fix bug with inset text component requiring uppercase `html` argument ([Issue 950](https://github.com/nhsuk/nhsuk-frontend/issues/950))
+- Remove unused CSS from icon card component ([PR 943](https://github.com/nhsuk/nhsuk-frontend/pull/943))
+- Remove unused CSS from breadcrumbs component ([PR 943](https://github.com/nhsuk/nhsuk-frontend/pull/943))
+- Add `aria-hidden` to responsive labels in responsive tables, to avoid screen readers repeating them ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942))
+- Add `opacity: 1` to header search placeholder, to increase colour contrast on Firefox ([PR 939](https://github.com/nhsuk/nhsuk-frontend/pull/939))
+
+## 8.1.1 - 14 March 2024
+
+:wrench: **Fixes**
+
+- Fix alignment of copyright footer
+- Add missing/outdated backstop images
+- Don't limit input heights to `40px`, to prevent vertical overflow
+
+## 8.1.0 - 11 January 2024
+
+:wrench: **Fixes**
+
+- Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
+- Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
+- Clicking the chevron image on a 'Primary Card (With Chevron)' card element now focuses the link ([PR 905](https://github.com/nhsuk/nhsuk-frontend/pull/905)).
+- Added font licensing guidance to the relevant package READMEs and updated the copyright guidance to include NHS England ([PR 915](https://github.com/nhsuk/nhsuk-frontend/pull/915)).
+
+:new: **New features**
+
+- Add and export new `initAll` method in `nhsuk.js`, and pass document by default, but allowing smaller DOM scopes to be passed. This allows new nhsuk-frontend JS components to be initialised after page load, such as in new pieces of DOM added by JavaScript.
+  - This fixes [issue 906](https://github.com/nhsuk/nhsuk-frontend/issues/906) where button elements added _after_ the page has loaded would not benefit from the button component's JS behaviours (double click prevention and space bar activation for links). ([PR 907](https://github.com/nhsuk/nhsuk-frontend/pull/907)).
+
+## 8.0.2 - 19 October 2023
+
+:wrench: **Fixes**
+
+- Resolves the bug of the drop down menu covering the main content of the page ([PR 898](https://github.com/nhsuk/nhsuk-frontend/pull/898)).
+
+## 8.0.1 - 02 October 2023
+
+:wrench: **Fixes**
+
+- Updated design examples for suffix and prefix, and added backstop regression images ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
+- Fix focus padding for the search input ([PR 896](https://github.com/nhsuk/nhsuk-frontend/pull/896)).
+- Remove card component Javascript from documentation ([PR 891](https://github.com/nhsuk/nhsuk-frontend/pull/891)).
+
+## 8.0.0 - 28 September 2023
+
+:boom: **Breaking changes**
+
+- Updated header and footer to use the new styles and functionality to match the live nhs.uk site ([PR 881](https://github.com/nhsuk/nhsuk-frontend/pull/881))
+
+As well as changes to the styles, this added an example of a footer with it's links in columns, and removed the redundant example of "Header transactional". This also fixes the issue ([Issue 805](https://github.com/nhsuk/nhsuk-frontend/issues/805)).
+
+In the header variants, the menu toggle button has been replaced with a dropdown menu, that becomes visible when the screen width is below 768px (tablet width). The search toggle has been removed, and instead the search input automatically adjusts according to the screen width.
+
+Instead of having this:
+
+```
+// menu toggle
+
+<button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button
+
+// close menu button
+
+<button class="nhsuk-header__navigation-close" id="close-menu">
+  <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+  </svg>
+  <span class="nhsuk-u-visually-hidden">Close menu</span>
+</button>
+```
+
+You will now only need this:
+
+```
+<button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
+  <span class="nhsuk-u-visually-hidden">Browse</span>
+  More
+  <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
+</button>
+
+<ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden">
+
+  // navigation items in the drop down menu
+
+</ul>
+```
+
+:wrench: **Fixes**
+
+- Fix vertical alignment of primary card icon
+- Change NHS Digital wording to NHS England
+- Remove dead link in "Action link" example
+
+:new: **New features**
+
+- Added suffix and prefix examples to text input component ([PR 884](https://github.com/nhsuk/nhsuk-frontend/pull/884))
+
+We added 4 new text input examples that allow users to add suffixes and prefixed to the input form. This was done by adding "suffix" and "prefix" as macro options.
+
+```
+  input({
+    "label": {
+      "text": "What is the cost per item, in pounds?"
+    },
+    "prefix": "£",
+    "suffix": "per item",
+    "errorMessage": {
+      "text": "Enter a cost per item, in pounds"
+    }
+  })
+```
+
+## 7.1.0 - 21 August 2023
+
+:new: **New features**
+🆕 New features
+
+- Added three new card variants, primary card(with chevron), secondary card and top task ([PR 878](https://github.com/nhsuk/nhsuk-frontend/pull/878))
 
 :wrench: **Fixes**
 
@@ -12,15 +137,15 @@ We removed the need to add the last breadcrumb outside of the 'Items' list, now 
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one"
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       }
     ],
-    href: "/level-one/level-two/level-three",
+    href: "#",
     text: "Level three"
   }) }}
 ```
@@ -31,15 +156,15 @@ You will now only need this:
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one",
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       },
       {
-        href: "/level-one/level-two/level-three",
+        href: "#",
         text: "Level three"
       }
     ]

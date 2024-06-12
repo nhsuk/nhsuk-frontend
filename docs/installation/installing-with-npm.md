@@ -88,7 +88,6 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import Card from './components/card/card';
 import Checkboxes from './components/checkboxes/checkboxes';
 import Details from './components/details/details';
 import ErrorSummary from './components/error-summary/error-summary';
@@ -101,7 +100,6 @@ import '../node_modules/nhsuk-frontend/packages/polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
-  Card();
   Checkboxes();
   Details();
   ErrorSummary();

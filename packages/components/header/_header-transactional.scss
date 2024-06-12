@@ -1,0 +1,61 @@
+/**
+    * These are the styles for the transactional header variants.
+*/
+
+.nhsuk-header__transactional-service-name {
+  padding-left: nhsuk-spacing(3);
+  padding-top: 3px;
+
+  @include mq($until: tablet) {
+    padding-bottom: nhsuk-spacing(3);
+  }
+
+  @include mq($until: tablet) {
+    padding-left: 0;
+    padding-top: nhsuk-spacing(2);
+    width: 100%;
+  }
+}
+
+.nhsuk-header__transactional-service-name--link {
+  @include nhsuk-link-style-white;
+  @include nhsuk-font(19);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.nhsuk-header__transactional {
+  .nhsuk-header__container {
+    justify-content: normal;
+  }
+
+  .nhsuk-header__link {
+    @include nhsuk-logo-size-small;
+    display: block;
+  }
+
+  .nhsuk-logo {
+    @include nhsuk-logo-size-small;
+  }
+}
+
+.nhsuk-header__transactional--logo {
+  max-width: 100%;
+
+  @include mq($from: tablet) {
+    .nhsuk-header__link--service {
+      align-items: center;
+      display: flex;
+      -ms-flex-align: center;
+      margin-bottom: 0;
+      width: auto;
+    }
+
+    .nhsuk-header__service-name {
+      padding-left: nhsuk-spacing(3);
+    }
+  }
+}

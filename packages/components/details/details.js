@@ -5,7 +5,7 @@ import { toggleAttribute } from '../../common'
  * Test at http://0.0.0.0:3000/components/details/index.html
  */
 
-export default () => {
+export default ({ scope = document } = {}) => {
   // Does the browser support details component
   const nativeSupport = typeof document.createElement('details').open === 'boolean'
   if (nativeSupport) {
@@ -13,7 +13,7 @@ export default () => {
   }
 
   // Nodelist of all details elements
-  const allDetails = document.querySelectorAll('details')
+  const allDetails = scope.querySelectorAll('details')
 
   /**
    * Adds all necessary functionality to a details element
@@ -28,11 +28,11 @@ export default () => {
     if (!element.id) element.setAttribute('id', `nhsuk-details${index}`)
 
     // Set content element and give it an ID if it doesn't already have one
-    const content = document.querySelector(`#${element.id} .nhsuk-details__text`)
+    const content = scope.querySelector(`#${element.id} .nhsuk-details__text`)
     if (!content.id) content.setAttribute('id', `nhsuk-details__text${index}`)
 
     // Set summary element
-    const summary = document.querySelector(`#${element.id} .nhsuk-details__summary`)
+    const summary = scope.querySelector(`#${element.id} .nhsuk-details__summary`)
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')

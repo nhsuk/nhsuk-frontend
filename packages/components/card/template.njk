@@ -2,8 +2,10 @@
 
 <div class="nhsuk-card
 {%- if params.clickable %} nhsuk-card--clickable{% endif %}
+{%- if params.secondary %} nhsuk-card--secondary{% endif %}
 {%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}
 {%- if params.feature %} nhsuk-card--feature{% endif %}
+{%- if params.topTask %} nhsuk-card--top-task{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
 {%- if params.imgURL %}
@@ -11,6 +13,8 @@
 {%- endif %}
   <div class="{%- if not params.type %}nhsuk-card__content
               {%- if params.feature %} nhsuk-card__content--feature{% endif %}
+              {%- if params.primary %} nhsuk-card__content--primary{% endif %}
+              {%- if params.secondary %} nhsuk-card__content--secondary{% endif %}
               {%- else %}nhsuk-card--care__heading-container{% endif %}">
     {%- if params.headingHtml %}
       {{ params.headingHtml | safe }}
@@ -46,5 +50,8 @@
   <p class="nhsuk-card__description">{{ params.description | safe }}</p>
 {%- else %}
 {%- endif %}
+  {% if params.primary %} 
+    <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+  {% endif %}
   </div>
 </div>
