@@ -8,16 +8,24 @@
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
-        text: "Level one"
+        href: "#",
+        text: "Level one",
+        attributes: {lang: "en"}
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
+      },
+      {
+        href: "#",
+        text: "Level three",
+        attributes: {lang: "en"}
       }
     ],
-    href: "/level-one/level-two/level-three",
-    text: "Level three"
+    href: "#",
+    text: "Level four",
+    classes: "example-class-one example-class-two",
+    attributes: {lang: "en"}
   }) }}
 
 {% endblock %}

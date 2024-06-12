@@ -7,7 +7,6 @@
 @import "components/breadcrumb/breadcrumb";
 @import "components/button/button";
 @import "components/card/card";
-@import "components/checkboxes/checkboxes";
 @import "components/contents-list/contents-list";
 @import "components/date-input/date-input";
 @import "components/details/details";
@@ -17,6 +16,10 @@
 @import "components/fieldset/fieldset";
 @import "components/footer/footer";
 @import "components/header/header";
+@import "components/header/header-organisation";
+@import "components/header/header-service";
+@import "components/header/header-transactional";
+@import "components/header/header-white";
 @import "components/hero/hero";
 @import "components/hint/hint";
 @import "components/images/images";
@@ -24,6 +27,7 @@
 @import "components/inset-text/inset-text";
 @import "components/label/label";
 @import "components/pagination/pagination";
+@import "components/checkboxes/checkboxes";
 @import "components/radios/radios";
 @import "components/select/select";
 @import "components/skip-link/skip-link";

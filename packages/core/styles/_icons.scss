@@ -48,15 +48,12 @@
 }
 
 .nhsuk-icon__chevron-down {
-  fill: $color_nhsuk-blue;
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-  path {
-    fill: $color_nhsuk-white;
-  }
+  fill: $color_nhsuk-white;
+  height: 24px;
+  position: absolute;
+  right: 4px;
+  transform: rotate(90deg);
+  width: 24px;
 }
 
 .nhsuk-icon__chevron-up {

@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "7.0.0",
+  "version": "8.1.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "scripts": {
     "prepare": "gulp bundle",
@@ -36,8 +36,10 @@
     "concurrently": "^7.2.2",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-postcss": "^4.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "follow-redirects": "^1.15.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
@@ -55,6 +57,7 @@
     "minimist": "^1.2.6",
     "nunjucks": "^3.2.3",
     "prettier": "^2.7.1",
+    "puppeteer": "^18.1.0",
     "sass": "^1.53.0",
     "start-server-and-test": "^1.14.0",
     "stylelint": "^15.6.0",

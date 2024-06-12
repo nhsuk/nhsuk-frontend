@@ -4,15 +4,23 @@
     <ol class="nhsuk-breadcrumb__list">
   {%- for item in params.items %}
     {%- if item.href %}
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.text }}</a>{% if not loop.last %}{% endif %}</li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.text }}</a>{% if not loop.last %}{% endif %}</li>
     {%- endif -%}
   {% endfor %}
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ params.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ params.text}}</a></li>
+    {% if params.href %}
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ params.href }}">{{ params.text}}</a></li>
+      {% set lastHref = params.href %}
+      {% set lastText = params.text %}
+    {% else %}
+      {% set lastItem = params.items | last%}
+      {% set lastHref = lastItem.href %}
+      {% set lastText = lastItem.text %}
+    {% endif %}
     </ol>
     <p class="nhsuk-breadcrumb__back">
-      <a class="nhsuk-breadcrumb__backlink" href="{{ params.href }}">
+      <a class="nhsuk-breadcrumb__backlink" href="{{ lastHref }}" {% for attribute, value in lastItem.attributes %}{{attribute}}="{{value}}"{% endfor %}>
         <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
-        {{ params.text }}
+        {{ lastText }}
       </a>
     </p>
   </div>
