@@ -197,8 +197,12 @@ module.exports = {
       url: `${TEST_URL}/details/expander-group.html`,
     },
     {
-      label: 'Footer',
+      label: 'Footer (default)',
       url: `${TEST_URL}/footer/index.html`,
+    },
+    {
+      label: 'Footer (columns)',
+      url: `${TEST_URL}/footer/footer-in-columns.html`,
     },
     {
       label: 'Fieldset',
@@ -213,8 +217,16 @@ module.exports = {
       url: `${TEST_URL}/fieldset/with-inputs.html`,
     },
     {
-      label: 'Header',
+      label: 'Header (default)',
       url: `${TEST_URL}/header/index.html`,
+    },
+    {
+      label: 'Header with navigation',
+      url: `${TEST_URL}/header/header-navigation.html`,
+    },
+    {
+      label: 'Header with search',
+      url: `${TEST_URL}/header/header-search.html`,
     },
     {
       label: 'Header with logo only',
@@ -229,16 +241,20 @@ module.exports = {
       url: `${TEST_URL}/header/header-service-name-with-nav.html`,
     },
     {
-      label: 'Header transactional',
-      url: `${TEST_URL}/header/header-transactional.html`,
-    },
-    {
       label: 'Header transactional with service name',
       url: `${TEST_URL}/header/header-transactional-service-name.html`,
     },
     {
-      label: 'Header with navigation',
-      url: `${TEST_URL}/header/header-navigation.html`,
+      label: 'Header organisational',
+      url: `${TEST_URL}/header/header-org.html`,
+    },
+    {
+      label: 'Header organisational with white header',
+      url: `${TEST_URL}/header/header-org-white.html`,
+    },
+    {
+      label: 'Header organisational with white header and navigation',
+      url: `${TEST_URL}/header/header-org-white-nav.html`,
     },
     {
       clickSelector: '#toggle-menu',
@@ -261,39 +277,6 @@ module.exports = {
           width: 768,
         },
       ],
-    },
-    {
-      label: 'Header with search',
-      url: `${TEST_URL}/header/header-search.html`,
-    },
-    {
-      clickSelector: '#toggle-search',
-      label: 'Header with search open',
-      url: `${TEST_URL}/header/header-search.html`,
-      viewports: [
-        {
-          height: 568,
-          label: 'iPhone 5/SE',
-          width: 320,
-        },
-        {
-          height: 667,
-          label: 'iPhone 6-8',
-          width: 375,
-        },
-      ],
-    },
-    {
-      label: 'Header organisational',
-      url: `${TEST_URL}/header/header-org.html`,
-    },
-    {
-      label: 'Header organisational with white header',
-      url: `${TEST_URL}/header/header-org-white.html`,
-    },
-    {
-      label: 'Header organisational with white header and navigation',
-      url: `${TEST_URL}/header/header-org-white-nav.html`,
     },
     {
       label: 'Hero',
@@ -320,6 +303,10 @@ module.exports = {
       url: `${TEST_URL}/input/index.html`,
     },
     {
+      label: 'Input with autocomplete attribute',
+      url: `${TEST_URL}/input/autocomplete.html`,
+    },
+    {
       label: 'Input with hint text',
       url: `${TEST_URL}/input/hint.html`,
     },
@@ -335,6 +322,27 @@ module.exports = {
     {
       label: 'Input with width modifier',
       url: `${TEST_URL}/input/custom-width.html`,
+    },
+    {
+      label: 'Input with prefix',
+      url: `${TEST_URL}/input/prefix.html`,
+    },
+    {
+      label: 'Input with suffix',
+      url: `${TEST_URL}/input/suffix.html`,
+    },
+    {
+      label: 'Input with prefix and suffix',
+      url: `${TEST_URL}/input/prefix-and-suffix.html`,
+    },
+    {
+      label: 'Input with error message, prefix and suffix',
+      url: `${TEST_URL}/input/error-and-prefix-and-suffix.html`,
+    },
+    {
+      clickSelector: '#input-with-error-message-and-prefix-and-suffix',
+      label: 'Input with error message, prefix and suffix - focused',
+      url: `${TEST_URL}/input/error.html`,
     },
     {
       label: 'Inset text',

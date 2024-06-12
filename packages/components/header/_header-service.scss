@@ -1,0 +1,58 @@
+/**
+    * These are the styles for the service header variants.
+*/
+
+.nhsuk-header__link--service {
+  height: auto;
+  margin-bottom: -(nhsuk-spacing(1));
+  text-decoration: none;
+  width: auto;
+
+  @include mq($from: large-desktop) {
+    align-items: center;
+    display: flex;
+    -ms-flex-align: center;
+    margin-bottom: 0;
+    width: auto;
+  }
+
+  &:hover {
+    background: none;
+
+    .nhsuk-header__service-name {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+      0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+
+    .nhsuk-header__service-name {
+      color: $nhsuk-focus-text-color;
+      text-decoration: none;
+    }
+
+    .nhsuk-logo {
+      box-shadow: none;
+    }
+  }
+}
+
+.nhsuk-header__service-name {
+  @include nhsuk-font(19);
+
+  color: $color_nhsuk-white;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include mq($from: large-desktop) {
+    padding-left: nhsuk-spacing(3);
+  }
+
+  @include mq($until: large-desktop) {
+    max-width: 220px;
+  }
+}

@@ -1,17 +1,77 @@
 <footer role="contentinfo">
-  <div class="nhsuk-footer
-    {%- if params.classes %} {{ params.classes }}{% endif %}" id="nhsuk-footer"
-    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
-      {%- if params.links %}
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list">
-        {%- for item in params.links %}
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a></li>
-        {%- endfor %}
-      </ul>
+      <div class="nhsuk-footer
+        {%- if params.classes %} {{ params.classes }}{% endif %}"
+        {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+          {% if  not params.linksColumn2 %}
+              <ul class="nhsuk-footer__list">
+                {%- for item in params.links %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.linksColumn2 %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.linksColumn3 %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+                {%- for item in params.metaLinks %}
+                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+                {%- endfor %}
+              </ul>
+              <div>
+                <p class="nhsuk-footer__copyright">&copy; NHS England</p>
+              </div>
+      </div> {# close nhsuk-footer #}
+          {% else %}
+            <ul class="nhsuk-footer__list">
+              {% for item in params.links -%}
+              {# first column's link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            <ul class="nhsuk-footer__list">
+              {% for item in params.linksColumn2 -%}
+              {# second column's link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            <ul class="nhsuk-footer__list">
+              {% for item in params.linksColumn3 -%}
+              {# third column's link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            {% if params.metaLinks -%}
+            <ul class="nhsuk-footer__list nhsuk-footer__meta">
+              {% for item in params.metaLinks -%}
+              {# policy link items #}
+                  <li class="nhsuk-footer__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="{{ item.URL }}">{{ item.label }}</a>
+                  </li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
+      </div> {# close nhsuk-footer #}
+      <div>
+        <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      </div>
       {% endif %}
-      <p class="nhsuk-footer__copyright">{% if params.copyright %}{{ params.copyright | safe }}{% else %}&copy; Crown copyright{% endif %}</p>
-    </div>
-  </div>
+    </div> {# close nhsuk-width-container #}
+  </div> {# close nhsuk-footer-container #}
 </footer>

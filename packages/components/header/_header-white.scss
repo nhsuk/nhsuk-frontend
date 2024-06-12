@@ -1,0 +1,130 @@
+/**
+    * These are the styles for the white header variants.
+*/
+
+.nhsuk-header--white {
+  background-color: $color_nhsuk-white;
+
+  .nhsuk-header__search-wrap {
+    margin-bottom: nhsuk-spacing(3);
+
+    @include mq($until: tablet) {
+      &::after {
+        background: $color_nhsuk-white;
+      }
+    }
+  }
+
+  .nhsuk-navigation-container {
+    background-color: $color_nhsuk-blue;
+  }
+
+  .nhsuk-logo {
+    .nhsuk-logo__background {
+      fill: $color_nhsuk-blue;
+    }
+
+    .nhsuk-logo__text {
+      fill: $color_nhsuk-white;
+    }
+  }
+
+  .nhsuk-header__link {
+    &:hover {
+      color: $nhsuk-text-color;
+      text-decoration: underline;
+
+      .nhsuk-organisation-descriptor {
+        color: $nhsuk-text-color;
+      }
+    }
+  }
+
+  .nhsuk-search__submit {
+    background-color: $color_nhsuk-blue;
+
+    .nhsuk-icon__search {
+      fill: $color_nhsuk-white;
+    }
+
+    &:hover {
+      background-color: $color_shade_nhsuk-blue-20;
+      border-color: $color_shade_nhsuk-blue-20;
+    }
+
+    &:focus {
+      background-color: $nhsuk-focus-color;
+
+      .nhsuk-icon__search {
+        fill: $nhsuk-focus-text-color;
+      }
+    }
+  }
+
+  .nhsuk-search__input {
+    border: 1px solid $color_nhsuk-grey-3;
+
+    &:focus {
+      border: 2px solid $nhsuk-focus-text-color;
+
+      @include mq($until: tablet) {
+        border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+      }
+    }
+  }
+
+  .nhsuk-header__search-form {
+    @include mq($until: tablet) {
+      padding-top: 0;
+    }
+  }
+
+  .nhsuk-organisation-name {
+    color: shade($color_nhsuk-black, 100%);
+  }
+
+  .nhsuk-organisation-descriptor {
+    color: $color_nhsuk-blue;
+  }
+
+  .nhsuk-header__transactional-service-name--link {
+    color: $color_nhsuk-black;
+  }
+
+  .nhsuk-header__service-name {
+    color: $nhsuk-text-color;
+  }
+}
+
+.nhsuk-header--white-nav {
+  .nhsuk-navigation-container {
+    background-color: $color_nhsuk-white;
+  }
+  .nhsuk-navigation {
+    background-color: $color_nhsuk-white;
+
+    .nhsuk-header__navigation-list {
+      border-top: 1px solid $color_nhsuk-grey-5;
+    }
+
+    .nhsuk-header__navigation-link {
+      color: $color_nhsuk-blue;
+
+      &:visited {
+        color: $color_nhsuk-blue;
+      }
+
+      &:focus {
+        color: $nhsuk-focus-text-color;
+
+        &:hover {
+          background: $nhsuk-focus-color;
+        }
+      }
+    }
+
+    .nhsuk-icon__chevron-down {
+      fill: $color_nhsuk-blue;
+    }
+  }
+}
