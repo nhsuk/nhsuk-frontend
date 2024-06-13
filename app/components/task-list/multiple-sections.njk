@@ -1,6 +1,7 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Task list' %}
 {% from 'components/task-list/macro.njk' import taskList %}
+{% from 'components/button/macro.njk' import button %}
 {% extends 'layout.njk' %}
 
 {% block body %}
@@ -10,6 +11,39 @@
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
+          <h1 class="nhsuk-heading-l">Service name</h1>
+
+          <h2 class="nhsuk-heading-m">Check before you start</h2>
+          {{ taskList({
+            idPrefix: "before-you-start",
+            items: [
+              {
+                title: {
+                  text: "Check eligibility"
+                },
+                href: "#",
+                status: {
+                  text: "Completed",
+                  classes: "nhsuk-task-list__status--completed"
+                }
+              },
+              {
+                title: {
+                  text: "Read declaration"
+                },
+                href: "#",
+                status: {
+                  tag: {
+                    text: "Incomplete",
+                    classes: "nhsuk-tag--blue"
+                  }
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-top-3">Prepare application</h2>
+
           {{ taskList({
             idPrefix: "your-health",
             items: [
@@ -72,6 +106,9 @@
             ]
           }) }}
 
+          {{ button({
+            "text": "Continue"
+          }) }}
         </div>
       </div>
 
