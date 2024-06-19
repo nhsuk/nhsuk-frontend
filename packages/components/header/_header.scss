@@ -530,3 +530,9 @@
     display: none;
   }
 }
+
+.nhsuk-header__navigation-list--left-aligned {
+  @include mq($from: desktop) {
+    justify-content: initial;
+  }
+}

@@ -41,26 +41,26 @@ Find out more about the contents list component and when to use it in the [NHS d
 {{ contentsList({
   items: [
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/",
+      href: "#",
       text: "What is AMD?",
       current: "true"
     },
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/",
+      href: "#",
       text: "Symptoms"
     },
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/",
+      href: "#",
       text: "Getting diagnosed"
     }
     ,
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/",
+      href: "#",
       text: "Treatments"
     }
     ,
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/",
+      href: "#",
       text: "Living with AMD"
     }
   ]
