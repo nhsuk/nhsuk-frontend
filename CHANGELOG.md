@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:recycle: **Changes**
+
+- Change "Contact us" footer link to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+
 ## 8.2.0 - 12 June 2024
 
 :recycle: **Changes**
