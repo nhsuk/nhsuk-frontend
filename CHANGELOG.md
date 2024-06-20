@@ -1,5 +1,9 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+- Adjust errorSummary bottom margin ([PR 947](https://github.com/nhsuk/nhsuk-frontend/pull/973))
+
 ## 8.2.0 - 12 June 2024
 
 :recycle: **Changes**
