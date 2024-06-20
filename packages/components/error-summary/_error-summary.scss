@@ -9,7 +9,7 @@
 
 .nhsuk-error-summary {
   @include nhsuk-responsive-padding(4);
-  @include nhsuk-responsive-margin(8, "bottom");
+  @include nhsuk-responsive-margin(7, "bottom");
 
   border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
