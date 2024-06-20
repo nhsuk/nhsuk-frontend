@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:new: **New features**
+
+- Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
+
 ## 8.2.0 - 12 June 2024
 
 :recycle: **Changes**
