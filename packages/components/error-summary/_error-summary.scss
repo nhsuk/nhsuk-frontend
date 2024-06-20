@@ -9,7 +9,13 @@
 
 .nhsuk-error-summary {
   @include nhsuk-responsive-padding(4);
-  @include nhsuk-responsive-margin(7, "bottom");
+
+  // Not using responsive spacing as we want smaller margin on mobile
+  margin-bottom: nhsuk-spacing(5);
+
+  @include govuk-media-query($from: tablet) {
+   margin-bottom: nhsuk-spacing(7);
+  }
 
   border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
