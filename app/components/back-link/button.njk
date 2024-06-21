@@ -6,14 +6,15 @@
 {% block body %}
 
   <div class="nhsuk-width-container">
+    {{ backLink({
+      "text": "Go back",
+      "element": "button"
+    }) }}
     <main class="nhsuk-main-wrapper" id="maincontent">
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ backLink({
-            "text": "Go back",
-            "element": "button"
-          }) }}
+          <h1 class="govuk-heading-l">Page title</h1>
         </div>
       </div>
 

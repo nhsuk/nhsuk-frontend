@@ -6,14 +6,15 @@
 {% block body %}
 
   <div class="nhsuk-width-container">
+    {{ backLink({
+      "href": "#",
+      "text": "Go back"
+    }) }}
     <main class="nhsuk-main-wrapper" id="maincontent">
 
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
-          {{ backLink({
-            "href": "#",
-            "text": "Go back"
-          }) }}
+          <h1 class="govuk-heading-l">Page title</h1>
         </div>
       </div>
 

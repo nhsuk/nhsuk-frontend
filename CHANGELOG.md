@@ -22,6 +22,7 @@
 - Remove unused CSS from breadcrumbs component ([PR 943](https://github.com/nhsuk/nhsuk-frontend/pull/943))
 - Add `aria-hidden` to responsive labels in responsive tables, to avoid screen readers repeating them ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942))
 - Add `opacity: 1` to header search placeholder, to increase colour contrast on Firefox ([PR 939](https://github.com/nhsuk/nhsuk-frontend/pull/939))
+- Adjusted default spacing of back link component. ([PR 964](https://github.com/nhsuk/nhsuk-frontend/pull/964))
 
 ## 8.1.1 - 14 March 2024
 
