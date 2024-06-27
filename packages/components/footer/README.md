@@ -285,7 +285,7 @@ Your copyright statement must reflect the ownership of your website or service. 
             <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+            <a class="nhsuk-footer__list-item-link" href="#">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
             <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
@@ -320,7 +320,7 @@ Your copyright statement must reflect the ownership of your website or service. 
     },
     {
       "URL": "#",
-      "label": "Contact us"
+      "label": "Give us feedback"
     },
     {
       "URL": "#",
