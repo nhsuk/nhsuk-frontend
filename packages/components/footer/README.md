@@ -25,7 +25,7 @@ Your copyright statement must reflect the ownership of your website or service. 
             <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+            <a class="nhsuk-footer__list-item-link" href="#">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
             <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
@@ -59,7 +59,7 @@ Your copyright statement must reflect the ownership of your website or service. 
     },
     {
       "URL": "#",
-      "label": "Contact us"
+      "label": "Give us feedback"
     },
     {
       "URL": "#",
@@ -134,9 +134,6 @@ Your copyright statement must reflect the ownership of your website or service. 
         </ul>
         <ul class="nhsuk-footer__list">
           <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Contact us</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/nhs-sites/">Other NHS websites</a>
           </li>
           <li class="nhsuk-footer__list-item">
@@ -146,6 +143,9 @@ Your copyright statement must reflect the ownership of your website or service. 
         <ul class="nhsuk-footer__list nhsuk-footer__meta">
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/accessibility-statement/">Accessibility statement</a>
@@ -236,10 +236,6 @@ Your copyright statement must reflect the ownership of your website or service. 
   "linksColumn3": [
     {
       "URL": "#",
-      "label": "Contact us"
-    },
-    {
-      "URL": "#",
       "label": "Other NHS websites"
     },
     {
@@ -251,6 +247,10 @@ Your copyright statement must reflect the ownership of your website or service. 
     {
       "URL": "#",
       "label": "About us"
+    },
+    {
+      "URL": "#",
+      "label": "Give us feedback"
     },
     {
       "URL": "#",
@@ -285,7 +285,7 @@ Your copyright statement must reflect the ownership of your website or service. 
             <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+            <a class="nhsuk-footer__list-item-link" href="#">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
             <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
@@ -320,7 +320,7 @@ Your copyright statement must reflect the ownership of your website or service. 
     },
     {
       "URL": "#",
-      "label": "Contact us"
+      "label": "Give us feedback"
     },
     {
       "URL": "#",

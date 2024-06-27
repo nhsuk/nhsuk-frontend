@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+:wrench: **Fixes**
+
+- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+
 :new: **New features**
 
 - Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
