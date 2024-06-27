@@ -172,6 +172,7 @@ Your copyright statement must reflect the ownership of your website or service. 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
+  "copyright": "© Crown copyright",
   "links": [
     {
       "URL": "#",
@@ -262,6 +263,75 @@ Your copyright statement must reflect the ownership of your website or service. 
     {
       "URL": "#",
       "label": "Cookies"
+    }
+  ]
+})}}
+```
+### Footer (custom copyright statement)
+
+[Preview the footer (custom copyright statement) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/custom-copyright.html)
+
+#### HTML markup
+
+```html
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
+          </li>
+        </ul>
+        <div>
+          <p class="nhsuk-footer__copyright">&copy; East London NHS Foundation Trust</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/footer/macro.njk' import footer %}
+
+{{ footer({
+  "copyright": "© East London NHS Foundation Trust",
+  "links": [
+    {
+      "URL": "#",
+      "label": "Accessibility statement"
+    },
+    {
+      "URL": "#",
+      "label": "Contact us"
+    },
+    {
+      "URL": "#",
+      "label": "Cookies"
+    },
+    {
+      "URL": "#",
+      "label": "Privacy policy"
+    },
+    {
+      "URL": "#",
+      "label": "Terms and conditions"
     }
   ]
 })}}
