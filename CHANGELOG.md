@@ -5,6 +5,7 @@
 :new: **New features**
 
 - Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
+- Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
 
 ## 8.2.0 - 12 June 2024
 
