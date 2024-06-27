@@ -4,7 +4,7 @@
 
 :wrench: **Fixes**
 
-- Change "Contact us" footer link to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 
 :new: **New features**
 
