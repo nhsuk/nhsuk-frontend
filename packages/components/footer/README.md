@@ -267,6 +267,7 @@ Your copyright statement must reflect the ownership of your website or service. 
   ]
 })}}
 ```
+
 ### Footer (custom copyright statement)
 
 [Preview the footer (custom copyright statement) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/custom-copyright.html)
