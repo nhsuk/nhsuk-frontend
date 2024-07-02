@@ -180,6 +180,33 @@ $button-shadow-size: 4px;
   }
 }
 
+.nhsuk-button--warning {
+  background-color: $nhsuk-warning-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
+
+  &:hover {
+    background-color: darken($nhsuk-warning-button-color, 10%);
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-warning-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-warning-button-color;
+  }
+}
+
 /**
  * Button disabled states
  */
