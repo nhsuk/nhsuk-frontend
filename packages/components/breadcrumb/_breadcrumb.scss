@@ -18,26 +18,6 @@
   padding-bottom: nhsuk-spacing(3);
   padding-top: 20px; /* [2] */
 
-  .nhsuk-icon__chevron-right {
-    fill: $color_nhsuk-grey-3;
-    height: 18px;
-    position: relative;
-    top: 5px;
-    width: 18px;
-
-    @include mq($from: large-desktop) {
-      margin: 0 3px 0 5px;
-    }
-  }
-
-  .nhsuk-icon__chevron-left {
-    float: left;
-    height: 24px;
-    left: -8px;
-    position: relative;
-    width: 24px;
-  }
-
   + .nhsuk-width-container .nhsuk-main-wrapper {
     padding-top: 0;
   }

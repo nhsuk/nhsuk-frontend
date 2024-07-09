@@ -174,12 +174,6 @@ Add a maximum width to large pieces of content, to improve readability.
 </div
 ```
 
-### Remove top and bottom margins
-
-```html
-<h1 class="nhsuk-u-top-and-bottom"></h1>
-```
-
 ### Spacing overrides
 
 ```html

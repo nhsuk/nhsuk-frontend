@@ -36,16 +36,16 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 {{ breadcrumb({
   items: [
     {
-      href: "/level-one",
+      href: "#",
       text: "Level one",
       attributes: {lang: "en"}
     },
     {
-      href: "/level-one/level-two",
+      href: "#",
       text: "Level two"
     },
     {
-      href: "/level-one/level-two/level-three",
+      href: "#",
       text: "Level three"
     }
   ],
