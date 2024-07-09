@@ -7,7 +7,6 @@
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 - Adjusted default spacing of back link component. ([PR 964](https://github.com/nhsuk/nhsuk-frontend/pull/964))
 
-
 :new: **New features**
 
 - Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
