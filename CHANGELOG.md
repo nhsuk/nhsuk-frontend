@@ -4,12 +4,30 @@
 
 :wrench: **Fixes**
 
-- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946)).
-- Adds `opacity: 1` to header search placeholder, to increase colour contrast on firefox.
-- Adds aria-hidden to labels in responsive tables that show only on small screens, to avoid screenreaders calling out them out twice ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942)).
-- Removing classes from icon card that are not doing anything.
-- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946)).
-- Fixed bug with inset-text component requiring uppercase `html` argument. Fixes ([Issue 950](https://github.com/nhsuk/nhsuk-frontend/issues/950)).
+- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+
+:new: **New features**
+
+- Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
+- Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
+- Remove unused nhsuk-u-top-and-bottom utility class ([PR 979](https://github.com/nhsuk/nhsuk-frontend/pull/979))
+
+## 8.2.0 - 12 June 2024
+
+:recycle: **Changes**
+
+- Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946))
+
+:wrench: **Fixes**
+
+- Change example link to hash ([PR 962](https://github.com/nhsuk/nhsuk-frontend/pull/962))
+- Adjust nested list spacing ([PR 961](https://github.com/nhsuk/nhsuk-frontend/pull/961))
+- Fix header navigation item alignment ([PR 054](https://github.com/nhsuk/nhsuk-frontend/pull/954))
+- Fix bug with inset text component requiring uppercase `html` argument ([Issue 950](https://github.com/nhsuk/nhsuk-frontend/issues/950))
+- Remove unused CSS from icon card component ([PR 943](https://github.com/nhsuk/nhsuk-frontend/pull/943))
+- Remove unused CSS from breadcrumbs component ([PR 943](https://github.com/nhsuk/nhsuk-frontend/pull/943))
+- Add `aria-hidden` to responsive labels in responsive tables, to avoid screen readers repeating them ([PR 942](https://github.com/nhsuk/nhsuk-frontend/pull/942))
+- Add `opacity: 1` to header search placeholder, to increase colour contrast on Firefox ([PR 939](https://github.com/nhsuk/nhsuk-frontend/pull/939))
 
 ## 8.1.1 - 14 March 2024
 
@@ -131,15 +149,15 @@ We removed the need to add the last breadcrumb outside of the 'Items' list, now 
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one"
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       }
     ],
-    href: "/level-one/level-two/level-three",
+    href: "#",
     text: "Level three"
   }) }}
 ```
@@ -150,15 +168,15 @@ You will now only need this:
   {{ breadcrumb({
     items: [
       {
-        href: "/level-one",
+        href: "#",
         text: "Level one",
       },
       {
-        href: "/level-one/level-two",
+        href: "#",
         text: "Level two"
       },
       {
-        href: "/level-one/level-two/level-three",
+        href: "#",
         text: "Level three"
       }
     ]
