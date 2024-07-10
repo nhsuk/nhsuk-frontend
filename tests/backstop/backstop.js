@@ -7,7 +7,7 @@ module.exports = {
   debug: false,
   debugWindow: false,
   dockerCommandTemplate: 'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
-  engine: 'puppeteer',
+  engine: 'playwright',
   engineOptions: {
     args: ['--no-sandbox'],
   },
