@@ -1,0 +1,43 @@
+trigger:
+  branches:
+    include:
+      - review-*
+  paths:
+    exclude:
+      - CHANGELOG.md
+      - README.md
+      - CODE_OF_CONDUCT.md
+      - CONTRIBUTING.md
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UseNode@1
+    inputs:
+      version: '20.x'
+
+  - script: npm ci
+    displayName: 'Install'
+
+  - script: npm run build
+    displayName: 'Build'
+
+  - script: npm run lint
+    displayName: 'Lint'
+
+  - script: npm run test
+    displayName: 'Test'
+
+  - script: npm run backstop:ci
+    displayName: 'Backstop'
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      includeRootFolder: false
+    displayName: 'Create file archive to publish'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish files to Azure Pipelines'

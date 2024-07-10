@@ -1,0 +1,101 @@
+{% set title = 'Lists' %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "../../",
+        text: "NHS.UK frontend"
+      },
+      {
+        href: "../pages/examples.html",
+        text: "Examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-xl">Lists</h1>
+
+  <h2 class="nhsuk-heading-m">Plain list</h2>
+
+  <ul class="nhsuk-list">
+    <li><a href="#">Money, work and benefits</a></li>
+    <li><a href="#">Care after a hospital stay</a></li>
+    <li><a href="#">Support and benefits for carers</a></li>
+  </ul>
+
+  <h2 class="nhsuk-heading-m">Bulleted list</h2>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li>tiredness and lack of energy</li>
+    <li>shortness of breath</li>
+    <li>noticeable heartbeats (heart palpitations)</li>
+    <li>pale skin</li>
+  </ul>
+
+  <h2 class="nhsuk-heading-m">Numbered list</h2>
+
+  <ol class="nhsuk-list nhsuk-list--number">
+    <li>Dissolve half a teaspoon of salt in a glass of warm water.</li>
+    <li>Gargle with the solution then spit it out – don't swallow it.</li>
+    <li>Repeat as often as you like.</li>
+  </ol>
+
+  <h2 class="nhsuk-heading-m">Bulleted list with nested bulleted list</h2>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li>Accessibility</li>
+    <li>Policies
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Cookies</li>
+        <li>Terms and conditions</li>
+        <li>Privacy policy</li>
+      </ul>
+    </li>
+    <li>Sitemap</li>
+  </ul>
+
+  <h2 class="nhsuk-heading-m">Numbered list with nested numbered list</h2>
+
+  <ul class="nhsuk-list nhsuk-list--number">
+    <li>Accessibility</li>
+    <li>Policies
+      <ul class="nhsuk-list nhsuk-list--number">
+        <li>Cookies</li>
+        <li>Terms and conditions</li>
+        <li>Privacy policy</li>
+      </ul>
+    </li>
+    <li>Sitemap</li>
+  </ul>
+
+  <h2 class="nhsuk-heading-m">Bulleted list with 2 nested lists</h2>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li>Service standard</li>
+    <li>Design system
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Styles</li>
+        <li>Components
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Buttons</li>
+            <li>Checkboxes</li>
+          </ul>
+        </li>
+        <li>Patterns</li>
+      </ul>
+    </li>
+    <li>Content guide</li>
+  </ul>
+
+
+{% endblock %}

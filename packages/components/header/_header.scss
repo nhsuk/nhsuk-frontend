@@ -91,7 +91,8 @@
     box-shadow: none;
 
     .nhsuk-logo {
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
+      box-shadow:
+        0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
         0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
   }
@@ -193,6 +194,7 @@
   &::placeholder {
     color: $color_nhsuk-grey-1;
     font-size: $nhsuk-base-font-size;
+    opacity: 1; // fixes low contrast of placeholder text in firefox
   }
   &:-ms-input-placeholder {
     color: $color_nhsuk-grey-1;
@@ -277,7 +279,9 @@
 
     &:focus {
       background-color: $nhsuk-focus-color;
-      box-shadow: 0 -4px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow:
+        0 -4px $nhsuk-focus-color,
+        0 $nhsuk-focus-width $nhsuk-focus-text-color;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
 
@@ -318,7 +322,9 @@
 
     &:focus {
       @include nhsuk-focused-button();
-      box-shadow: 0 -2px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      box-shadow:
+        0 -2px $nhsuk-focus-color,
+        0 $nhsuk-focus-width $nhsuk-focus-text-color;
     }
 
     &:active {
@@ -527,5 +533,11 @@
 .nhsuk-header__navigation-item--home {
   @include mq($from: desktop) {
     display: none;
+  }
+}
+
+.nhsuk-header__navigation-list--left-aligned {
+  @include mq($from: desktop) {
+    justify-content: initial;
   }
 }
