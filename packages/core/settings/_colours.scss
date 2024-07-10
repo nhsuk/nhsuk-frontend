@@ -65,11 +65,11 @@ $alpha-transparency-50: 0.5;
 //
 
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return mix(white, $color, $percentage * 1%);
 }
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return mix(black, $color, $percentage * 1%);
 }
 
 //
