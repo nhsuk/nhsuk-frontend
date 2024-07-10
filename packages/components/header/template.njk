@@ -56,6 +56,18 @@
 
     {% endif -%}
 
+    {% if params.account %}
+      <div class="nhsuk-header__account {%- if params.account.classes %} {{ params.account.classes }}{% endif %}">
+        {% if params.account.links %}
+          <div class="nhsuk-header__account-links">
+            {% for link in params.account.links %}
+              <a href="{{ link.href }}" class="nhsuk-header__account-link {%- if link.classes %} {{ link.classes }}{% endif %}">{{ link.label.html | safe if link.label.html else link.label.text }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
     {% if showNav == "true" and params.primaryLinks and showSearch == "true" %}
 
       <div class="nhsuk-header__content" id="content-header">

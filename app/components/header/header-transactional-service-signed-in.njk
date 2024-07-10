@@ -1,0 +1,47 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Header transactional service that is signed in' %}
+{% from 'components/header/macro.njk' import header %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ header({
+      "service": {
+        "name": "Invite patients to a consultation"
+      },
+      "showNav": "true",
+      "showSearch": "false",
+      "account": {
+        "links": [
+          {
+            label: {
+              text: "My account"
+            },
+            href: "#"
+          },
+          {
+            label: {
+              text: "Sign out"
+            },
+            href: "#"
+          }
+        ]
+      },
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Find a patient"
+        },
+        {
+          'url' : '#',
+          'label' : 'Consultation schedule'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Settings'
+        }
+      ]
+    })
+  }}
+
+{% endblock %}
