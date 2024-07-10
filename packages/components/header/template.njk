@@ -58,10 +58,14 @@
 
     {% if params.account %}
       <div class="nhsuk-header__account {%- if params.account.classes %} {{ params.account.classes }}{% endif %}">
-        {% if params.account.links %}
-          <div class="nhsuk-header__account-links">
-            {% for link in params.account.links %}
-              <a href="{{ link.href }}" class="nhsuk-header__account-link {%- if link.classes %} {{ link.classes }}{% endif %}">{{ link.label.html | safe if link.label.html else link.label.text }}</a>
+        {% if params.account.items %}
+          <div class="nhsuk-header__account-items">
+            {% for item in params.account.items %}
+              {% if item.href %}
+                <a href="{{ item.href }}" class="nhsuk-header__account-item {%- if item.classes %} {{ item.classes }}{% endif %}">{{ item.label.html | safe if item.label.html else item.label.text }}</a>
+              {% else %}
+                <span class="nhsuk-header__account-item {%- if item.classes %} {{ item.classes }}{% endif %}">{{ item.label.html | safe if item.label.html else item.label.text }}</span>
+              {% endif %}
             {% endfor %}
           </div>
         {% endif %}

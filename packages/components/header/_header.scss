@@ -551,29 +551,32 @@
   justify-content: center;
 }
 
-.nhsuk-header__account-link {
+.nhsuk-header__account-item {
   @include nhsuk-font(16);
   border-bottom: nhsuk-spacing(1) solid transparent;
   border-top: nhsuk-spacing(1) solid transparent;
   color: $color_nhsuk-white;
   font-size: inherit;
   padding: nhsuk-spacing(3) 0;
-  text-decoration: underline;
   white-space: nowrap;
   margin-left: nhsuk-spacing(4);
 }
 
-.nhsuk-header__account-link:hover {
+a.nhsuk-header__account-item {
+  text-decoration: underline;
+}
+
+.nhsuk-header__account-item:hover {
   box-shadow: none;
   color: $color_nhsuk-white;
   text-decoration: none;
 }
 
-.nhsuk-header__account-link:focus {
+.nhsuk-header__account-item:focus {
   background-color: $nhsuk-focus-color;
   color: $nhsuk-focus-text-color;
 }
 
-.nhsuk-header__account-link:visited {
+.nhsuk-header__account-item:visited {
   color: $color_nhsuk-white;
 }
