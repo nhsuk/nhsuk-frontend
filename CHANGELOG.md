@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+- Remove the pattern from the date input component
 
 :new: **New features**
 
