@@ -25,7 +25,7 @@ Your copyright statement must reflect the ownership of your website or service. 
             <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+            <a class="nhsuk-footer__list-item-link" href="#">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
             <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
@@ -59,7 +59,7 @@ Your copyright statement must reflect the ownership of your website or service. 
     },
     {
       "URL": "#",
-      "label": "Contact us"
+      "label": "Give us feedback"
     },
     {
       "URL": "#",
@@ -134,9 +134,6 @@ Your copyright statement must reflect the ownership of your website or service. 
         </ul>
         <ul class="nhsuk-footer__list">
           <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Contact us</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/nhs-sites/">Other NHS websites</a>
           </li>
           <li class="nhsuk-footer__list-item">
@@ -146,6 +143,9 @@ Your copyright statement must reflect the ownership of your website or service. 
         <ul class="nhsuk-footer__list nhsuk-footer__meta">
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/about-us/">About us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="/contact-us/">Give us feedback</a>
           </li>
           <li class="nhsuk-footer__list-item">
             <a class="nhsuk-footer__list-item-link" href="/accessibility-statement/">Accessibility statement</a>
@@ -172,6 +172,7 @@ Your copyright statement must reflect the ownership of your website or service. 
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
+  "copyright": "© Crown copyright",
   "links": [
     {
       "URL": "#",
@@ -235,10 +236,6 @@ Your copyright statement must reflect the ownership of your website or service. 
   "linksColumn3": [
     {
       "URL": "#",
-      "label": "Contact us"
-    },
-    {
-      "URL": "#",
       "label": "Other NHS websites"
     },
     {
@@ -253,6 +250,10 @@ Your copyright statement must reflect the ownership of your website or service. 
     },
     {
       "URL": "#",
+      "label": "Give us feedback"
+    },
+    {
+      "URL": "#",
       "label": "Accessibility statement"
     },
     {
@@ -262,6 +263,76 @@ Your copyright statement must reflect the ownership of your website or service. 
     {
       "URL": "#",
       "label": "Cookies"
+    }
+  ]
+})}}
+```
+
+### Footer (custom copyright statement)
+
+[Preview the footer (custom copyright statement) component](https://nhsuk.github.io/nhsuk-frontend/components/footer/custom-copyright.html)
+
+#### HTML markup
+
+```html
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Give us feedback</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
+          </li>
+          <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
+          </li>
+        </ul>
+        <div>
+          <p class="nhsuk-footer__copyright">&copy; East London NHS Foundation Trust</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/footer/macro.njk' import footer %}
+
+{{ footer({
+  "copyright": "© East London NHS Foundation Trust",
+  "links": [
+    {
+      "URL": "#",
+      "label": "Accessibility statement"
+    },
+    {
+      "URL": "#",
+      "label": "Give us feedback"
+    },
+    {
+      "URL": "#",
+      "label": "Cookies"
+    },
+    {
+      "URL": "#",
+      "label": "Privacy policy"
+    },
+    {
+      "URL": "#",
+      "label": "Terms and conditions"
     }
   ]
 })}}
@@ -282,6 +353,7 @@ The footer Nunjucks macro takes the following arguments:
 | **linksColumn3**          | array  | No       | Array of third column of navigation items for use in the footer.                              |
 | **linksColumn3.[].url**   | string | No       | The href of a navigation item in the third column of the footer.                              |
 | **linksColumn3.[].label** | string | No       | The label of a navigation item in the third column of the footer.                             |
+| **copyright**             | string | No       | Optional text for the copyright notice in the footer. Defaults to '© NHS England'            |
 | **classes**               | string | No       | Optional additional classes to add to the footer container. Separate each class with a space. |
 | **attributes**            | object | No       | Any extra HTML attributes (for example data attributes) to add to the footer container.       |
 | **copyright**             | string | No       | The label for the copyright notice in the footer.                                             |
