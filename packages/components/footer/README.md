@@ -353,7 +353,7 @@ The footer Nunjucks macro takes the following arguments:
 | **linksColumn3**          | array  | No       | Array of third column of navigation items for use in the footer.                              |
 | **linksColumn3.[].url**   | string | No       | The href of a navigation item in the third column of the footer.                              |
 | **linksColumn3.[].label** | string | No       | The label of a navigation item in the third column of the footer.                             |
-| **copyright**             | string | No       | Optional text for the copyright notice in the footer. Defaults to '© NHS England'             |
+| **copyright**             | string | No       | Optional text for the copyright notice in the footer. Defaults to '© NHS England'            |
 | **classes**               | string | No       | Optional additional classes to add to the footer container. Separate each class with a space. |
 | **attributes**            | object | No       | Any extra HTML attributes (for example data attributes) to add to the footer container.       |
 | **copyright**             | string | No       | The label for the copyright notice in the footer.                                             |

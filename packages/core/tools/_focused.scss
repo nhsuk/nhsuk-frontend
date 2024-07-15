@@ -11,7 +11,9 @@
 
 @mixin nhsuk-focused-text {
   background-color: $nhsuk-focus-color;
-  box-shadow: 0 -2px $nhsuk-focus-color, 0 $nhsuk-focus-width $nhsuk-focus-text-color;
+  box-shadow:
+    0 -2px $nhsuk-focus-color,
+    0 $nhsuk-focus-width $nhsuk-focus-text-color;
   color: $nhsuk-focus-text-color;
   // When colours are overridden, for example when users have a dark mode,
   // backgrounds and box-shadows disappear, so we need to ensure there's a
