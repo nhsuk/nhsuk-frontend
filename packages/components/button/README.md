@@ -148,7 +148,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
-  "text": "Delete account",
+  "text": "Yes, delete this vaccine",
   "classes": "nhsuk-button--warning"
 }) }}
 ```
