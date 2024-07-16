@@ -5,11 +5,13 @@
 :wrench: **Fixes**
 
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+- Remove the pattern from the date input component
 
 :new: **New features**
 
 - Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
 - Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
+- Remove unused nhsuk-u-top-and-bottom utility class ([PR 979](https://github.com/nhsuk/nhsuk-frontend/pull/979))
 
 ## 8.2.0 - 12 June 2024
 
