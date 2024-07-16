@@ -130,6 +130,31 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ---
 
+### Button warning
+
+[Preview the button warning component](https://nhsuk.github.io/nhsuk-frontend/components/button/warning.html)
+
+#### HTML markup
+
+```html
+<button class="nhsuk-button nhsuk-button--warning" type="submit" data-module="nhsuk-button">
+  Delete account
+</button>
+```
+
+#### Nunjucks macro
+
+```
+{% from 'components/button/macro.njk' import button %}
+
+{{ button({
+  "text": "Yes, delete this vaccine",
+  "classes": "nhsuk-button--warning"
+}) }}
+```
+
+---
+
 ### Button with double click prevention
 
 #### HTML markup
