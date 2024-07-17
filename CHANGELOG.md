@@ -13,6 +13,7 @@
 - Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
 - Remove unused nhsuk-u-top-and-bottom utility class ([PR 979](https://github.com/nhsuk/nhsuk-frontend/pull/979))
 - Add warning button ([PR 976](https://github.com/nhsuk/nhsuk-frontend/pull/976))
+- Add support for custom classes and attributes in Header primary links ([PR 978](https://github.com/nhsuk/nhsuk-frontend/pull/978))
 
 ## 8.2.0 - 12 June 2024
 
