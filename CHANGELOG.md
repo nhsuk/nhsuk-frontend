@@ -6,6 +6,8 @@
 
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 - Remove the pattern from the date input component
+- Fix height of select component in Safari ([PR 987](https://github.com/nhsuk/nhsuk-frontend/pull/987))
+- Set minimum width of select component ([PR 987](https://github.com/nhsuk/nhsuk-frontend/pull/987))
 
 :new: **New features**
 
