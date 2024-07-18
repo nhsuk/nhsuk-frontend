@@ -8,6 +8,11 @@
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   height: 40px;
+  // This min-width was chosen because:
+  // - it makes the Select wider than it is tall (which is what users expect)
+  // - 20ex + 3ex matches the 'width-10' variant of the input component
+  // - it fits comfortably on screens as narrow as 240px wide
+  min-width: 20ex + 3ex;
   max-width: 100%;
   padding: nhsuk-spacing(1);
 
