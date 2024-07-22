@@ -65,11 +65,11 @@ $alpha-transparency-50: 0.5;
 //
 
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return mix(white, $color, $percentage * 1%);
 }
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return mix(black, $color, $percentage * 1%);
 }
 
 //
@@ -150,6 +150,11 @@ $nhsuk-reverse-button-color: $color_nhsuk-white;
 $nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
 $nhsuk-reverse-button-active-color: $color-nhsuk-black;
 $nhsuk-reverse-button-shadow-color: $color-nhsuk-black;
+
+$nhsuk-warning-button-color: $color_nhsuk-red;
+$nhsuk-warning-button-hover-color: shade($nhsuk-warning-button-color, 20%);
+$nhsuk-warning-button-active-color: shade($nhsuk-warning-button-color, 50%);
+$nhsuk-warning-button-shadow-color: shade($nhsuk-warning-button-color, 50%);
 
 $nhsuk-button-text-color: $color_nhsuk-white;
 $nhsuk-reverse-button-text-color: $color_nhsuk-black;

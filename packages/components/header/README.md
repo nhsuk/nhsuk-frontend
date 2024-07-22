@@ -770,26 +770,28 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 The header Nunjucks macro takes the following arguments:
 
-| Name                        | Type    | Required | Description                                                                                                                                       |
-| --------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **showNav**                 | boolean | Yes      | Set to "true" to show the navigation links in the header.                                                                                         |
-| **showSearch**              | boolean | Yes      | Set to "true" to show the site search input form.                                                                                                 |
-| **homeHref**                | string  | No       | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/".                                                  |
-| **ariaLabel**               | string  | No       | Aria label for the logo href. Defaults to "NHS homepage".                                                                                         |
-| **organisation**            | object  | No       | Settings for header with organisational logo.                                                                                                     |
-| **organisation.name**       | string  | No       | Organisation name value.                                                                                                                          |
-| **organisation.split**      | string  | No       | Longer organisation names can be split onto multiple lines.                                                                                       |
-| **organisation.descriptor** | string  | No       | Organisation descriptor.                                                                                                                          |
-| **organisation.logoURL**    | string  | No       | Organisation logo if using a static asset, such as PNG, is preferred.                                                                             |
-| **primaryLinks**            | array   | No       | Array of navigation links for use in the header.                                                                                                  |
-| **primaryLinks[].url**      | string  | No       | The href of a navigation item in the header.                                                                                                      |
-| **primaryLinks[].label**    | string  | No       | The label of a navigation item in the header.                                                                                                     |
-| **transactional**           | string  | No       | Set to "true" if this is a transactional header (with smaller logo).                                                                              |
-| **transactionalService**    | object  | No       | Object containing the _name_ and _href_ of the transactional service.                                                                             |
-| **service**                 | object  | No       | Object containing the _name_ and optional boolean _longName_ of the service. Set this to "true" if the service name is longer than 22 characters. |
-| **classes**                 | string  | No       | Optional additional classes to add to the header container. Separate each class with a space.                                                     |
-| **attributes**              | object  | No       | Any extra HTML attributes (for example data attributes) to add to the header container.                                                           |
-| **searchAction**            | string  | No       | The search action endpoint. Defaults to "https://www.nhs.uk/search/"                                                                              |
-| **searchInputName**         | string  | No       | The name for the search field. Defaults to "q"                                                                                                    |
+| Name                          | Type    | Required | Description                                                                                                                                       |
+| ----------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **showNav**                   | boolean | Yes      | Set to "true" to show the navigation links in the header.                                                                                         |
+| **showSearch**                | boolean | Yes      | Set to "true" to show the site search input form.                                                                                                 |
+| **homeHref**                  | string  | No       | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/".                                                  |
+| **ariaLabel**                 | string  | No       | Aria label for the logo href. Defaults to "NHS homepage".                                                                                         |
+| **organisation**              | object  | No       | Settings for header with organisational logo.                                                                                                     |
+| **organisation.name**         | string  | No       | Organisation name value.                                                                                                                          |
+| **organisation.split**        | string  | No       | Longer organisation names can be split onto multiple lines.                                                                                       |
+| **organisation.descriptor**   | string  | No       | Organisation descriptor.                                                                                                                          |
+| **organisation.logoURL**      | string  | No       | Organisation logo if using a static asset, such as PNG, is preferred.                                                                             |
+| **primaryLinks**              | array   | No       | Array of navigation links for use in the header.                                                                                                  |
+| **primaryLinks[].url**        | string  | No       | The href of a navigation item in the header.                                                                                                      |
+| **primaryLinks[].label**      | string  | No       | The label of a navigation item in the header.                                                                                                     |
+| **primaryLinks[].classes**    | string  | No       | Optional additional classes to add to the list item.                                                                                              |
+| **primaryLinks[].attributes** | string  | No       | Any extra HTML attributes (for example data attributes) to add to the list item.                                                                  |
+| **transactional**             | string  | No       | Set to "true" if this is a transactional header (with smaller logo).                                                                              |
+| **transactionalService**      | object  | No       | Object containing the _name_ and _href_ of the transactional service.                                                                             |
+| **service**                   | object  | No       | Object containing the _name_ and optional boolean _longName_ of the service. Set this to "true" if the service name is longer than 22 characters. |
+| **classes**                   | string  | No       | Optional additional classes to add to the header container. Separate each class with a space.                                                     |
+| **attributes**                | object  | No       | Any extra HTML attributes (for example data attributes) to add to the header container.                                                           |
+| **searchAction**              | string  | No       | The search action endpoint. Defaults to "https://www.nhs.uk/search/"                                                                              |
+| **searchInputName**           | string  | No       | The name for the search field. Defaults to "q"                                                                                                    |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
