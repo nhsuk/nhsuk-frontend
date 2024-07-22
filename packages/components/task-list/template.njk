@@ -1,6 +1,8 @@
+{% from "../macros/attributes.njk" import nhsukAttributes %}
+{# {% from "../../macros/attributes.njk" import nhsukAttributes %} #}
 
 {% from "../tag/macro.njk" import tag %}
-{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
@@ -34,7 +36,7 @@
   </li>
 {%- endmacro %}
 
-<ul class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}">
+<ul class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}"
   {{- nhsukAttributes(params.attributes) }}>
   {% for item in params.items %}
     {{- _taskListItem(params, item, loop.index) }}
