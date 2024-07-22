@@ -6,6 +6,7 @@
 
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 - Remove the pattern from the date input component
+- Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
 
 :new: **New features**
 
