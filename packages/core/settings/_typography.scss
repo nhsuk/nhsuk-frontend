@@ -57,6 +57,21 @@ $nhsuk-typography-scale: (
       line-height: 1.15
     )
   ),
+  36: (
+    null: (
+      font-size: 27px,
+      line-height: 32px
+    ),
+    tablet: (
+      font-size: 36px,
+      line-height: 40px
+    ),
+    print: (
+      font-size: 27pt,
+      line-height: 1.05
+    )
+  ),
+  // 32 is deprecated and will be removed in next major version
   32: (
     null: (
       font-size: 24px,
