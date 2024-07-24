@@ -3128,6 +3128,29 @@ b {
   background-color: #ffffff;
 }
 
+.nhsuk-button--warning {
+  background-color: #d5281b;
+  box-shadow: 0 4px 0 #6b140e;
+}
+.nhsuk-button--warning:hover {
+  background-color: #a82015;
+}
+.nhsuk-button--warning:focus {
+  background: #ffeb3b;
+  box-shadow: 0 4px 0 #212b32;
+  color: #212b32;
+  outline: 4px solid transparent;
+}
+.nhsuk-button--warning:active {
+  background: #6b140e;
+  box-shadow: none;
+  color: #ffffff;
+  top: 4px;
+}
+.nhsuk-button--warning.nhsuk-button--disabled {
+  background-color: #d5281b;
+}
+
 /**
  * Button disabled states
  */
@@ -4030,7 +4053,7 @@ b {
  */
 .nhsuk-error-summary {
   padding: 16px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   border: 4px solid #d5281b;
 }
 @media (min-width: 40.0625em) {
@@ -4040,7 +4063,7 @@ b {
 }
 @media (min-width: 40.0625em) {
   .nhsuk-error-summary {
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 }
 @media (min-width: 40.0625em) {
@@ -6510,6 +6533,14 @@ b {
 /* ==========================================================================
    COMPONENTS/ #SELECT
    ========================================================================== */
+/**
+ * Select input sizing
+ * 1. Uses rems so that safari input scales with font size
+ * 2. This min-width was chosen because:
+ *    - it makes the Select wider than it is tall (which is what users expect)
+ *    - 20ex + 3ex matches the 'width-10' variant of the input component
+ *    - it fits comfortably on screens as narrow as 240px wide
+ */
 .nhsuk-select {
   font-weight: 400;
   font-size: 16px;
@@ -6517,7 +6548,8 @@ b {
   line-height: 1.5;
   border: 2px solid #4c6272;
   box-sizing: border-box;
-  min-height: 40px;
+  height: 2.5rem; /* [1] */
+  min-width: 23ex; /* [2] */
   max-width: 100%;
   padding: 4px;
 }
@@ -7406,8 +7438,6 @@ b {
   .js-enabled .nhsuk-tabs__panel > :last-child {
     margin-bottom: 0;
   }
-}
-@media (min-width: 40.0625em) {
   .js-enabled .nhsuk-tabs__panel--hidden {
     display: none;
   }
