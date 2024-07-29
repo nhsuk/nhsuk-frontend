@@ -1,0 +1,52 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Header transactional service that is signed in' %}
+{% from 'components/header/macro.njk' import header %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  {{ header({
+      "service": {
+        "name": "This is a service with a very long name"
+      },
+      "showNav": "true",
+      "showSearch": "false",
+      "account": {
+        "items": [
+          {
+            label: {
+              text: "Organisation name (B483)"
+            }
+          },
+          {
+            label: {
+              text: "Account settings"
+            },
+            href: "#"
+          },
+          {
+            label: {
+              text: "Sign out"
+            },
+            href: "#"
+          }
+        ]
+      },
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Find a patient"
+        },
+        {
+          'url' : '#',
+          'label' : 'Consultation schedule'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Settings'
+        }
+      ]
+    })
+  }}
+
+{% endblock %}
