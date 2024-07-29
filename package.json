@@ -63,10 +63,10 @@
     "puppeteer": "^22.12.1",
     "sass": "^1.77.6",
     "start-server-and-test": "^2.0.4",
-    "stylelint": "^13.13.1",
+    "stylelint": "^16.7.0",
     "stylelint-config-prettier": "^9.0.5",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.21.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.4.1",
     "wait-on": "^7.2.0",
     "webpack-stream": "^7.0.0"
   },
