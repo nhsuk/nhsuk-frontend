@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:recycle: **Changes**
+
+- Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
+
 ## 8.3.0 - 24 July 2024
 
 :new: **New features**

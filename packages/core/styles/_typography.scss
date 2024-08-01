@@ -28,7 +28,7 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include nhsuk-typography-responsive(32);
+  @include nhsuk-typography-responsive(36);
 
   display: block;
   font-weight: $nhsuk-font-bold;
@@ -105,7 +105,7 @@ h6,
 /* Captions to be used inside headings */
 
 .nhsuk-caption-xl {
-  @include nhsuk-font(32);
+  @include nhsuk-font(36);
 
   color: $nhsuk-secondary-text-color;
   display: block;

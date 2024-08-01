@@ -40,7 +40,7 @@
 }
 
 .nhsuk-fieldset__legend--l {
-  @include nhsuk-font($size: 32, $weight: bold);
+  @include nhsuk-font($size: 36, $weight: bold);
   margin-bottom: nhsuk-spacing(3);
 }
 
