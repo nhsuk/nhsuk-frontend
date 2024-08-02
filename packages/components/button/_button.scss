@@ -190,6 +190,74 @@ $button-shadow-size: 4px;
   }
 }
 
+.nhsuk-button--login {
+  background-color: $nhsuk-login-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
+
+  &:hover {
+    background-color: darken($nhsuk-login-button-color, 10%);
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-login-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-login-button-color;
+  }
+}
+
+.nhsuk-button--login-reverse {
+  background-color: $nhsuk-login-reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-reverse-button-shadow-color;
+  color: $nhsuk-login-reverse-button-text-color;
+
+  &:hover {
+    background-color: darken($nhsuk-login-reverse-button-color, 5%);
+    color: $nhsuk-login-reverse-button-text-color;
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-login-reverse-button-active-color;
+    box-shadow: none;
+    color: $color_nhsuk-white;
+    top: $button-shadow-size;
+  }
+
+  &:link {
+    color: $nhsuk-login-reverse-button-text-color;
+
+    &:active {
+      color: $nhsuk-login-reverse-button-color;
+    }
+  }
+
+  &.nhsuk-button--disabled {
+    background-color: $nhsuk-login-reverse-button-color;
+
+    &:focus {
+      background-color: $nhsuk-login-reverse-button-color;
+    }
+  }
+}
+
 /// Button disabled states
 
 .nhsuk-button--disabled,
