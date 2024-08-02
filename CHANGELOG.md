@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:new: **New features**
+
+- Add styles for NHS login buttons ([PR 992](https://github.com/nhsuk/nhsuk-frontend/pull/992))
+
 ## 8.3.0 - 24 July 2024
 
 :new: **New features**
