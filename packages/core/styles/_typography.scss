@@ -43,7 +43,7 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-typography-responsive(26);
 
   display: block;
   font-weight: $nhsuk-font-bold;
@@ -113,7 +113,7 @@ h6,
 }
 
 .nhsuk-caption-l {
-  @include nhsuk-font(24);
+  @include nhsuk-font(26);
 
   color: $nhsuk-secondary-text-color;
   display: block;

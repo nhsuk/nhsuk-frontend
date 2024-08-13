@@ -1,0 +1,251 @@
+{% set title = 'Typo test' %}
+
+{% extends 'page.njk' %}
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "../../",
+        text: "NHS.UK frontend"
+      },
+      {
+        href: "../pages/examples.html",
+        text: "Examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+        <span class="nhsuk-caption-xl">Content (xl to xs)</span>
+        <h1 class="nhsuk-heading-xl">Heading size XL: a longer heading to test line height. Ideally a heading wouldn't ever be this long but this
+            is just for testing purposes</h1>
+
+        <p class="nhsuk-body-l">nhsuk-body-l: Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+        <p>Some people call this awareness "mindfulness". Mindfulness can help you enjoy life more
+            and understand yourself better. It can positively change the way you feel about life and how you approach
+            challenges.</p>
+        <p>Read more about <a href="/mental-health/self-help/tips-and-support/mindfulness/">mindfulness</a>, including
+            steps you can take to
+            be more mindful in your everyday life.</p>
+
+        <h2 class="nhsuk-heading-l">Heading size L: a longer heading to test line height. Ideally a heading wouldn't ever be this long but this
+            is just for testing purposes</h2>
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+        <p>Some people call this awareness "mindfulness". Mindfulness can help you enjoy life more
+            and understand yourself better. It can positively change the way you feel about life and how you approach
+            challenges.</p>
+
+        <h3 class="nhsuk-heading-m">Heading size M: a longer heading to test line height. Ideally a heading wouldn't ever be this long but this
+            is just for testing purposes</h3>
+
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+
+        <h4 class="nhsuk-heading-s">Heading size S: a longer heading to test line height. Ideally a heading wouldn't ever be this long but this
+            is just for testing purposes</h4>
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+
+        <h5 class="nhsuk-heading-xs">Heading size XS: a longer heading to test line height. Ideally a heading wouldn't ever be this long but this
+            is just for testing purposes</h5>
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+
+
+        <hr>
+        <hr>
+
+        <span class="nhsuk-caption-l">Transactional (l to xs)</span>
+        <h1 class="nhsuk-heading-l">Heading size L: a longer heading to test line height. Ideally a heading wouldn't
+            ever be this long but this is just for testing purposes</h1>
+
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+        <p>Some people call this awareness "mindfulness". Mindfulness can help you enjoy life more
+            and understand yourself better. It can positively change the way you feel about life and how you approach
+            challenges.</p>
+        <p>Read more about <a href="/mental-health/self-help/tips-and-support/mindfulness/">mindfulness</a>, including
+            steps you can take to
+            be more mindful in your everyday life.</p>
+
+        <h2 class="nhsuk-heading-m">Heading size M: a longer heading to test line height. Ideally a heading wouldn't
+            ever be this long but this is just for testing purposes</h2>
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+        <p>Some people call this awareness "mindfulness". Mindfulness can help you enjoy life more
+            and understand yourself better. It can positively change the way you feel about life and how you approach
+            challenges.</p>
+
+        <h3 class="nhsuk-heading-s">Heading size S: a longer heading to test line height. Ideally a heading wouldn't
+            ever be this long but this is just for testing purposes</h3>
+
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+
+        <h4 class="nhsuk-heading-xs">Heading size XS: a longer heading to test line height. Ideally a heading wouldn't
+            ever be this long but this is just for testing purposes</h4>
+        <p>Paying more attention to the present moment can improve your mental wellbeing. This
+            includes your thoughts and feelings, your body and the world around you.</p>
+
+        <hr>
+        <hr>
+
+        <span class="nhsuk-caption-l">Fieldset</span>
+
+        {{ dateInput({
+                "id": "example",
+                "namePrefix": "example",
+                "fieldset": {
+                    "legend": {
+                        "text": "nhsuk-fieldset__legend--l",
+                        "classes": "nhsuk-fieldset__legend--l"
+                }
+            },
+                "hint": {
+                "text": "For example, 15 3 1984"
+            },
+                "items": [
+                {
+                    "name": "day",
+                    "classes": "nhsuk-input--width-2"
+                },
+                {
+                    "name": "month",
+                    "classes": "nhsuk-input--width-2"
+                },
+                {
+                    "name": "year",
+                    "classes": "nhsuk-input--width-4"
+                }
+            ]
+        }) }}
+
+        {{ dateInput({
+            "id": "example",
+            "namePrefix": "example",
+            "fieldset": {
+            "legend": {
+            "text": "nhsuk-fieldset__legend--m",
+            "classes": "nhsuk-fieldset__legend--m"
+        }
+        },
+            "hint": {
+            "text": "For example, 15 3 1984"
+        },
+            "items": [
+        {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+        },
+        {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+        },
+        {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+        }
+        ]
+    }) }}
+
+    {{ dateInput({
+        "id": "example",
+        "namePrefix": "example",
+        "fieldset": {
+        "legend": {
+        "text": "nhsuk-fieldset__legend--s",
+        "classes": "nhsuk-fieldset__legend--s"
+    }
+    },
+        "hint": {
+        "text": "For example, 15 3 1984"
+    },
+        "items": [
+    {
+        "name": "day",
+        "classes": "nhsuk-input--width-2"
+    },
+    {
+        "name": "month",
+        "classes": "nhsuk-input--width-2"
+    },
+    {
+        "name": "year",
+        "classes": "nhsuk-input--width-4"
+    }
+    ]
+    }) }}
+    {{ dateInput({
+        "id": "example",
+        "namePrefix": "example",
+        "fieldset": {
+        "legend": {
+        "text": "nhsuk-fieldset__legend--xs",
+        "classes": "nhsuk-fieldset__legend--xs"
+    }
+    },
+        "hint": {
+        "text": "For example, 15 3 1984"
+    },
+        "items": [
+    {
+        "name": "day",
+        "classes": "nhsuk-input--width-2"
+    },
+    {
+        "name": "month",
+        "classes": "nhsuk-input--width-2"
+    },
+    {
+        "name": "year",
+        "classes": "nhsuk-input--width-4"
+    }
+    ]
+    }) }}
+
+    <hr>
+    <hr>
+
+    <span class="nhsuk-caption-l">label</span>
+
+    {{ input({
+    "label": {
+        "text": "nhsuk-label--l",
+        classes: "nhsuk-label--l"
+    }
+    }) }}
+
+    {{ input({
+        "label": {
+            "text": "nhsuk-label--m",
+            classes: "nhsuk-label--m"
+        }
+        }) }}
+
+
+    {{ input({
+        "label": {
+            "text": "nhsuk-label--s",
+            classes: "nhsuk-label--s"
+        }
+        }) }}
+
+
+    {{ input({
+        "label": {
+            "text": "nhsuk-label--xs",
+            classes: "nhsuk-label--xs"
+        }
+        }) }}
+
+
+{% endblock %}
