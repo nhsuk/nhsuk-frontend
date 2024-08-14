@@ -105,7 +105,7 @@ h6,
 /* Captions to be used inside headings */
 
 .nhsuk-caption-xl {
-  @include nhsuk-font(36);
+  @include nhsuk-font(26);
 
   color: $nhsuk-secondary-text-color;
   display: block;
@@ -113,7 +113,7 @@ h6,
 }
 
 .nhsuk-caption-l {
-  @include nhsuk-font(26);
+  @include nhsuk-font(22);
 
   color: $nhsuk-secondary-text-color;
   display: block;
