@@ -26,17 +26,20 @@
 .nhsuk-table__caption--xl {
   @include nhsuk-typography-responsive(48);
 }
+
 .nhsuk-table__caption--l {
   @include nhsuk-typography-responsive(36);
 }
+
 .nhsuk-table__caption--m {
   @include nhsuk-typography-responsive(26);
 }
+
 .nhsuk-table__caption--s {
   @include nhsuk-typography-responsive(22);
-}
-/* [2] */
+} 
 
+/* [2] */
 
 /* Table row hover
 ========================================================================== */
