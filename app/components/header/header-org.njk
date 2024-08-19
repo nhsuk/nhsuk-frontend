@@ -6,8 +6,6 @@
 {% block body %}
 
 {{ header({
-    "showNav": "true",
-    "showSearch": "true",
     "organisation": {
       "name": "Anytown Anyplace",
       "split": "Anywhere",
@@ -34,7 +32,10 @@
         'url' : '#',
         'label' : 'Our research'
       }
-    ]
+    ],
+    "search": {
+      "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+    }
   })
 }}
 

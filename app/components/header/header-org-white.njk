@@ -6,8 +6,6 @@
 {% block body %}
 
 {{ header({
-    "showNav": "true",
-    "showSearch": "true",
     "classes": "nhsuk-header--white",
     "organisation": {
       "name": "Anytown Anyplace",
@@ -35,7 +33,10 @@
         'url' : '#',
         'label' : 'Our research'
       }
-    ]
+    ],
+    "search": {
+      "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+    }
   })
 }}
 
