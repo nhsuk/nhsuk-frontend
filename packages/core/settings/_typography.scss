@@ -39,7 +39,7 @@ $nhsuk-typography-scale: (
       line-height: 70px
     ),
     print: (
-      font-size: 53pt,
+      font-size: 34pt,
       line-height: 1.1
     )
   ),
@@ -53,7 +53,7 @@ $nhsuk-typography-scale: (
       line-height: 54px
     ),
     print: (
-      font-size: 32pt,
+      font-size: 26pt,
       line-height: 1.15
     )
   ),
@@ -67,8 +67,8 @@ $nhsuk-typography-scale: (
       line-height: 42px
     ),
     print: (
-      font-size: 27pt,
-      line-height: 1.05
+      font-size: 20pt,
+      line-height: 1.2
     )
   ),
   26: (
@@ -81,8 +81,8 @@ $nhsuk-typography-scale: (
       line-height: 32px
     ),
     print: (
-      font-size: 18pt,
-      line-height: 1.15
+      font-size: 17pt,
+      line-height: 1.25
     )
   ),
   24: ( // remove this one? used by nhsuk-body-l. probably leave.
@@ -95,8 +95,8 @@ $nhsuk-typography-scale: (
       line-height: 31px
     ),
     print: (
-      font-size: 18pt,
-      line-height: 1.15
+      font-size: 16pt,
+      line-height: 1.25
     )
   ),
   22: (
@@ -109,8 +109,8 @@ $nhsuk-typography-scale: (
       line-height: 30px
     ),
     print: (
-      font-size: 18pt,
-      line-height: 1.15
+      font-size: 15pt,
+      line-height: 1.25
     )
   ),
   19: (
@@ -123,8 +123,8 @@ $nhsuk-typography-scale: (
       line-height: 28px
     ),
     print: (
-      font-size: 14pt,
-      line-height: 1.15
+      font-size: 13pt,
+      line-height: 1.3
     )
   ),
   16: (
@@ -137,8 +137,8 @@ $nhsuk-typography-scale: (
       line-height: 24px
     ),
     print: (
-      font-size: 14pt,
-      line-height: 1.2
+      font-size: 12pt,
+      line-height: 1.3
     )
   ),
   14: (
@@ -152,7 +152,7 @@ $nhsuk-typography-scale: (
     ),
     print: (
       font-size: 12pt,
-      line-height: 1.2
+      line-height: 1.3
     )
   )
 ) !default;
