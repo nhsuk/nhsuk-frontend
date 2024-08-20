@@ -486,6 +486,7 @@
 
 .nhsuk-navigation-container {
   @include govuk-width-container;
+  position: relative;
 }
 
 // ul of hidden nav
