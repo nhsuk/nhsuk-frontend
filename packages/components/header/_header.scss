@@ -449,6 +449,8 @@
 }
 
 .nhsuk-navigation {
+  margin-left: -$nhsuk-gutter-half;
+  margin-right: -$nhsuk-gutter-half;
   display: flex;
 
   @include mq($until: tablet) {
@@ -466,8 +468,6 @@
 // ul of visible nav
 .nhsuk-header__navigation-list {
   @extend %nhsuk-navigation-list;
-  @include govuk-width-container;
-
   width: 100%;
 
   @include mq($from: desktop) {
@@ -485,7 +485,7 @@
 }
 
 .nhsuk-navigation-container {
-  position: relative;
+  @include govuk-width-container;
 }
 
 // ul of hidden nav
