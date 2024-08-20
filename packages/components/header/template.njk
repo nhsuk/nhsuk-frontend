@@ -41,7 +41,7 @@
     {%- endif %}
     </div>
 
-{%- if params.transactionalService and not params.primaryLinks and not params.search %}
+{%- if params.transactionalService %}
     <div class="nhsuk-header__transactional-service-name">
       <a class="nhsuk-header__transactional-service-name--link" href="{{ params.transactionalService.href | default('/') }}">{{ params.transactionalService.name }}</a>
     </div>
