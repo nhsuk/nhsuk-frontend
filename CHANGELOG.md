@@ -1,5 +1,9 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+- Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
+
 ## 8.3.0 - 24 July 2024
 
 :new: **New features**
