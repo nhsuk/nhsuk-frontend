@@ -1,9 +1,11 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 {% if params.html or params.text %}
 {%- set labelHtml %}
 <label class="nhsuk-label
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- if params.for %} for="{{ params.for }}"{% endif %}
-{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+{{- nhsukAttributes(params.attributes) }}>
   {{ params.html | safe if params.html else params.text }}
 </label>
 {%- endset -%}
