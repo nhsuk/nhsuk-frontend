@@ -4,6 +4,7 @@
 
 :wrench: **Fixes**
 
+- Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
 - Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1062](https://github.com/nhsuk/nhsuk-frontend/pull/1062))
 - Update header styles so that `.nhsuk-header__search-no-nav` class is no longer needed when header contains a search field but no navigation ([PR 1046](https://github.com/nhsuk/nhsuk-frontend/pull/1046))
 - Update navigation list item padding to vertically align navigation items with width container ([PR 1033](https://github.com/nhsuk/nhsuk-frontend/pull/1033))
