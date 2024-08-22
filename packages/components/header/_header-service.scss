@@ -8,11 +8,10 @@
   text-decoration: none;
   width: auto;
 
-  align-items: center;
+  align-items: stretch;
   display: flex;
-  -ms-flex-align: center;
+  -ms-flex-align: stretch;
   margin-bottom: 0;
-  width: auto;
 
   &:hover {
     background: none;
@@ -41,10 +40,13 @@
 
 .nhsuk-header__service-name {
   @include nhsuk-font(19);
+  align-content: center;
   color: $color_nhsuk-white;
   display: block;
   padding-left: 0;
   padding-right: 0;
   padding-left: nhsuk-spacing(3);
-
+  line-height: 1.375;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }

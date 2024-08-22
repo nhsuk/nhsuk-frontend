@@ -27,95 +27,166 @@
 {% from 'components/textarea/macro.njk' import textarea %}
 {% from 'components/tabs/macro.njk' import tabs %}
 
-{% extends 'page.njk' %}
+{% extends 'layout.njk' %}
 
-{% block header %}
-  {{ skipLink({
-    "URL": "#maincontent",
-    "heading": "Skip to main content"
-  }) }}
+{% block body %}
 
-  {{ header({
+{% block content %}
+
+<hr class="nhsuk-u-margin-top-0">
+
+{{ header({
+  service: {
+    name: "Digital service manual"
+  },
+  showNav: "true",
+  showSearch: "true",
+  searchAction: " ",
+  primaryLinks: [
+      {
+        url  : "#",
+        label : "NHS service standard"
+      }
+    ]
+  })
+}}
+
+<hr>
+
+{{ header({
+  service: {
+    name: "Much longer service name for testing wrapping"
+  },
+  showNav: "true",
+  showSearch: "true",
+  searchAction: " ",
+  primaryLinks: [
+      {
+        url  : "#",
+        label : "NHS service standard"
+      }
+    ]
+  })
+}}
+
+<hr>
+
+{{ header({
+      "service": {
+        "name": "This is a service with a very long name"
+      },
       "showNav": "true",
-      "showSearch": "true",
+      "showSearch": "false",
+      "account": {
+        "items": [
+          {
+            label: {
+              text: "Organisation name (B483)"
+            }
+          },
+          {
+            label: {
+              text: "Account settings"
+            },
+            href: "#"
+          },
+          {
+            label: {
+              text: "Sign out"
+            },
+            href: "#"
+          }
+        ]
+      },
       "primaryLinks": [
         {
-          "url"  : "https://www.nhs.uk/conditions",
-          "label" : "Health A-Z"
-        },
-        {
-          'url' : 'https://www.nhs.uk/live-well/',
-          'label' : 'Live Well'
-        },
-        {
-          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-          'label' : 'Care and support'
-        },
-        {
-          'url'  : 'https://www.nhs.uk/news/',
-          'label' : 'Health news'
-        },
-        {
-          'url' : 'https://www.nhs.uk/service-search',
-          'label' : 'Services near you'
+          "url"  : "#",
+          "label" : "Find a patient"
         }
       ]
     })
   }}
-{% endblock %}
 
-{% block breadcrumb %}
-  {{ breadcrumb({
-    items: [
-      {
-        text: "Home",
-        href: "#"
+<hr>
+
+
+{{ header({
+      "service": {
+        "name": "Short service name"
       },
-      {
-        text: "Health A-Z",
-        href: "#"
+      "showNav": "true",
+      "showSearch": "false",
+      "account": {
+        "items": [
+          {
+            label: {
+              text: "Account settings"
+            },
+            href: "#"
+          },
+          {
+            label: {
+              text: "Sign out"
+            },
+            href: "#"
+          }
+        ]
       },
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Find a patient"
+        }
+      ]
+    })
+  }}
+
+<hr>
+
+{{ header({
+  transactionalService: {
+      name: "Find your NHS number",
+      href: "https://www.nhs.uk/nhs-services/online-services/find-nhs-number/"
+    },
+    showNav: "false",
+    showSearch: "false"
+  })
+}}
+
+<hr>
+
+{{ header({
+  transactionalService: {
+      name: "Find your NHS number and test a longer service name that wraps to multiple lines",
+      href: "https://www.nhs.uk/nhs-services/online-services/find-nhs-number/"
+    },
+    showNav: "false",
+    showSearch: "false"
+  })
+}}
+<hr>
+
+{{ header({
+    showNav: "true",
+    showSearch: "true",
+    searchAction: " ",
+    organisation: {
+      name: "Anytown Anyplace",
+      split: "Anywhere",
+      descriptor: "NHS Foundation Trust"
+    },
+    primaryLinks: [
       {
-        text: "Abscess",
-        href: "#"
+        url  : "#",
+        label : "Link"
       }
     ]
-  }) }}
-{% endblock %}
+  })
+}}
 
-{% block heading %}
-  <h1>Components</h1>
+<hr>
 
-  {{ contentsList({
-    items: [
-      {
-        href: "#",
-        text: "What is AMD?",
-        current: "true"
-      },
-      {
-        href: "#",
-        text: "Symptoms"
-      },
-      {
-        href: "#",
-        text: "Getting diagnosed"
-      }
-      ,
-      {
-        href: "#",
-        text: "Treatments"
-      }
-      ,
-      {
-        href: "#",
-        text: "Living with AMD"
-      }
-    ]
-  }) }}
-{% endblock %}
 
-{% block content %}
 
   {{ card({
     "heading": "If you need help now, but it’s not an emergency",
@@ -1031,5 +1102,7 @@
       }) }}
     </li>
   </ul>
+
+{% endblock %}
 
 {% endblock %}

@@ -28,7 +28,14 @@
 
   border-bottom: 1px solid $color_transparent_nhsuk-white-20;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  column-gap: 16px;
+  row-gap: 16px;
+
+  @include mq($from: tablet) {
+    // flex-wrap: nowrap;
+  }
 }
 
 .nhsuk-header__logo {
@@ -60,15 +67,16 @@
   .nhsuk-logo {
     @include nhsuk-logo-size;
     border: 0;
+    flex-shrink: 0;
   }
 
-  @include mq($until: desktop) {
-    max-width: 60%;
-  }
+  // @include mq($until: desktop) {
+  //   max-width: 60%;
+  // }
 
-  @media (max-width: 450px) {
-    max-width: 50%;
-  }
+  // @media (max-width: 450px) {
+  //   max-width: 50%;
+  // }
 }
 
 .nhsuk-header__link {
@@ -128,7 +136,8 @@
 .nhsuk-header__content {
   @include print-hide();
   position: relative;
-
+  flex-grow: 1;
+  flex-basis: 100%;
   &.js-show {
     border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
   }
@@ -137,16 +146,15 @@
     &.js-show {
       border-bottom: 0;
     }
+    flex-grow: 0;
+    flex-basis: 0;
   }
 }
 
 .nhsuk-header__search {
   position: relative;
   text-align: right;
-
-  @include mq($from: tablet) {
-    margin-left: nhsuk-spacing(2);
-  }
+  // margin-left: nhsuk-spacing(2);
 }
 
 .nhsuk-header__search-no-nav {
@@ -538,12 +546,28 @@
 
   /* TODO: This is to move the section closer to the top
      on mobile but is only rough. */
-  margin-top: -5px;
+  // margin-top: -5px;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  // align-items: flex-end;
+  // text-align: right;
+  justify-content: center;
+  flex-grow: 1;
+
+  @include mq($from: tablet) {
+    align-items: flex-end;
+  }
+}
+
+.nhsuk-header__account-items {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 4px;
+  justify-content: flex-end;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 .nhsuk-header__account-item {
@@ -553,7 +577,7 @@
   font-size: inherit;
   padding: nhsuk-spacing(1) 0;
   white-space: nowrap;
-  margin-left: nhsuk-spacing(4);
+  // margin-left: nhsuk-spacing(4);
 }
 
 a.nhsuk-header__account-item {
@@ -569,6 +593,7 @@ a.nhsuk-header__account-item {
 .nhsuk-header__account-item:focus {
   background-color: $nhsuk-focus-color;
   color: $nhsuk-focus-text-color;
+  text-decoration: none;
 }
 
 .nhsuk-header__account-item:visited {

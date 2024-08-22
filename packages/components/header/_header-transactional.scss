@@ -2,35 +2,12 @@
     * These are the styles for the transactional header variants.
 */
 
-.nhsuk-header__transactional-service-name {
-  padding-left: nhsuk-spacing(3);
-  padding-top: 3px;
-
-  @include mq($until: tablet) {
-    padding-bottom: nhsuk-spacing(3);
-  }
-
-  @include mq($until: tablet) {
-    padding-left: 0;
-    padding-top: nhsuk-spacing(2);
-    width: 100%;
-  }
-}
-
-.nhsuk-header__transactional-service-name--link {
-  @include nhsuk-link-style-white;
-  @include nhsuk-font(19);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.nhsuk-header__transactional {
-  .nhsuk-header__container {
-    justify-content: normal;
-  }
+.nhsuk-header__transactional .nhsuk-header__container {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  justify-content: start;
+  padding: 20px 0;
 
   .nhsuk-header__link {
     @include nhsuk-logo-size-small;
@@ -39,6 +16,39 @@
 
   .nhsuk-logo {
     @include nhsuk-logo-size-small;
+  }
+
+}
+
+.nhsuk-header__transactional-service-name {
+  display: flex;
+  align-items: center;
+  // padding-left: 12px;
+  padding-top: 0;
+  width: 100%;
+
+  @include mq($from: tablet) {
+    display: block;
+    padding-top: 4px;
+    // padding-left: nhsuk-spacing(3);
+  }
+}
+
+.nhsuk-header__transactional-service-name--link {
+  @include nhsuk-link-style-white;
+  @include nhsuk-font(19);
+  line-height: 1.375;
+  text-decoration: none;
+  margin-top: -5px;
+  margin-bottom: -5px;
+
+  @include mq($from: tablet) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
