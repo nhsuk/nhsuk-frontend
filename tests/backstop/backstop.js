@@ -241,12 +241,12 @@ module.exports = {
       url: `${TEST_URL}/header/header-service-name.html`,
     },
     {
-      label: 'Header with a service name, search and navigation',
-      url: `${TEST_URL}/header/header-service-name-with-nav.html`,
+      label: 'Header with a long service name',
+      url: `${TEST_URL}/header/header-service-name-long.html`,
     },
     {
-      label: 'Header transactional with service name',
-      url: `${TEST_URL}/header/header-transactional-service-name.html`,
+      label: 'Header with a service name, search and navigation',
+      url: `${TEST_URL}/header/header-service-name-with-nav.html`,
     },
     {
       label: 'Header organisational',

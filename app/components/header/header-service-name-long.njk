@@ -1,13 +1,13 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header transactional with service name' %}
+{% set title = 'Header transactional with a long service name' %}
 {% from 'components/header/macro.njk' import header %}
 {% extends 'layout.njk' %}
 
 {% block body %}
 
   {{ header({
-      "transactionalService": {
-        "name": "Find your NHS number"
+      "service": {
+        "name": "Find your really long service name in England"
       },
       "showNav": "false",
       "showSearch": "false"
