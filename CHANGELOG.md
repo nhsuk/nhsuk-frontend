@@ -4,6 +4,7 @@
 
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
+- Hide header's navigation links on print ([PR 1001](https://github.com/nhsuk/nhsuk-frontend/pull/1001))
 
 ## 8.3.0 - 24 July 2024
 

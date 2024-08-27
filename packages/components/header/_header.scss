@@ -485,8 +485,8 @@
 }
 
 .nhsuk-navigation-container {
-  position: relative;
   @include print-hide();
+  position: relative;
 }
 
 // ul of hidden nav
