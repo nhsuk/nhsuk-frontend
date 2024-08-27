@@ -282,11 +282,11 @@ b {
   ol,
   ul,
   .nhsuk-list {
-    margin-bottom: 8pt;
+    margin-bottom: 7.5pt;
   }
 
   h1 {
-    margin-bottom: 18pt !important;
+    margin-bottom: 15pt !important;
   }
 
   %nhsuk-body-l + %nhsuk-heading-l,
@@ -299,7 +299,7 @@ b {
   %nhsuk-body-m + %nhsuk-heading-s,
   %nhsuk-body-s + %nhsuk-heading-s,
   %nhsuk-list + %nhsuk-heading-s {
-    padding-top: 0.525em;
+    padding-top: 0.45em;
   }
 
 }
