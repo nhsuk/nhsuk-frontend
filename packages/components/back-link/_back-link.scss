@@ -30,6 +30,10 @@
     position: absolute;
     top: -1px; /* 3 */
     width: 24px;
+
+    @include mq($from: tablet){
+      top: 0; /* 3 */
+    }
   }
 
   &:visited {

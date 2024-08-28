@@ -5,6 +5,12 @@
 
 {% block body %}
 
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+
   <div class="nhsuk-width-container">
     {{ backLink({
       "text": "Go back",
