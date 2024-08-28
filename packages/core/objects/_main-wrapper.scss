@@ -24,8 +24,8 @@
  @mixin govuk-main-wrapper {
   @include top-and-bottom();
   display: block; /* [1] */
-  margin-top: nhsuk-spacing(5);
-  margin-bottom: nhsuk-spacing(5);
+  margin-top: nhsuk-spacing(4);
+  margin-bottom: nhsuk-spacing(4);
 
   @include mq($from: tablet) {
     margin-top: nhsuk-spacing(7);
