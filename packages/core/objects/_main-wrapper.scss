@@ -21,20 +21,34 @@
  *    so it uses CSS initial value, which is inline.
  */
 
-@mixin govuk-main-wrapper {
-  @include nhsuk-responsive-padding(7, "top");
-  @include nhsuk-responsive-padding(7, "bottom");
+ @mixin govuk-main-wrapper {
   @include top-and-bottom();
   display: block; /* [1] */
+  margin-top: nhsuk-spacing(5);
+  margin-bottom: nhsuk-spacing(5);
+
+  @include mq($from: tablet) {
+    margin-top: nhsuk-spacing(7);
+    margin-bottom: nhsuk-spacing(7);
+  }
 }
 
 @mixin govuk-main-wrapper--l {
-  @include nhsuk-responsive-padding(8, "top");
+  margin-top: nhsuk-spacing(6);
+
+  @include mq($from: tablet) {
+    margin-top: nhsuk-spacing(8);
+  }
 }
 
 @mixin govuk-main-wrapper--s {
-  @include nhsuk-responsive-padding(5, "bottom");
-  @include nhsuk-responsive-padding(5, "top");
+  margin-top: nhsuk-spacing(3);
+  margin-bottom: nhsuk-spacing(3);
+
+  @include mq($from: tablet) {
+    margin-top: nhsuk-spacing(4);
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 @include govuk-exports("govuk/objects/main-wrapper") {
