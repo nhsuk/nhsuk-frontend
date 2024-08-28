@@ -11,7 +11,7 @@
 
 .nhsuk-back-link {
   margin-top: nhsuk-spacing(3);
-  line-height: 1; /* 1 */
+  line-height: 1; /* 4 */
 
   @include mq($from: tablet) {
     margin-top: nhsuk-spacing(4);
@@ -37,7 +37,7 @@
     top: -1px; /* 3 */
     width: 24px;
 
-    @include mq($from: tablet){
+    @include mq($from: tablet) {
       top: 0; /* 3 */
     }
   }
