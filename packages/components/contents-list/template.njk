@@ -1,6 +1,8 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 <nav class="nhsuk-contents-list
 {%- if params.classes %} {{ params.classes }}{% endif %}"
-{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} role="navigation" aria-label="Pages in this guide">
+{{- nhsukAttributes(params.attributes) }} role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
     {%- for item in params.items %}

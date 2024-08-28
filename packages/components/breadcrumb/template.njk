@@ -1,9 +1,11 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 <nav class="nhsuk-breadcrumb{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="Breadcrumb"
-{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+{{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {%- for item in params.items %}
   {%- if item.href %}
-        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.text }}</a>{% if not loop.last %}{% endif %}</li>
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</a>{% if not loop.last %}{% endif %}</li>
   {%- endif -%}
 {% endfor %}
   {% if params.href %}
@@ -17,7 +19,7 @@
   {% endif %}
   </ol>
   <p class="nhsuk-breadcrumb__back">
-    <a class="nhsuk-breadcrumb__backlink" href="{{ lastHref }}" {% for attribute, value in lastItem.attributes %}{{attribute}}="{{value}}"{% endfor %}>
+    <a class="nhsuk-breadcrumb__backlink" href="{{ lastHref }}" {{- nhsukAttributes(lastItem.attributes) }}>
       <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
       {{ lastText }}
     </a>

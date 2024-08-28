@@ -1,3 +1,5 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 {% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 
 <div class="nhsuk-card
@@ -7,7 +9,7 @@
 {%- if params.feature %} nhsuk-card--feature{% endif %}
 {%- if params.topTask %} nhsuk-card--top-task{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}"
-{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+{{- nhsukAttributes(params.attributes) }}>
 {%- if params.imgURL %}
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
 {%- endif %}

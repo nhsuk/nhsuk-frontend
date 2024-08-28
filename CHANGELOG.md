@@ -2,16 +2,30 @@
 
 ## Unreleased
 
-:wrench: **Fixes**
+- Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
+- Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
 
-- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
-- Remove the pattern from the date input component
+## 8.3.0 - 24 July 2024
 
 :new: **New features**
 
-- Make nhsuk-page-width a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
+- Make `nhsuk-page-width` a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
 - Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
-- Remove unused nhsuk-u-top-and-bottom utility class ([PR 979](https://github.com/nhsuk/nhsuk-frontend/pull/979))
+- Add warning button ([PR 976](https://github.com/nhsuk/nhsuk-frontend/pull/976))
+- Add support for custom classes and attributes in Header primary links ([PR 978](https://github.com/nhsuk/nhsuk-frontend/pull/978))
+
+:wrench: **Maintenance**
+
+- Update Node to version 20 ([PR 957](https://github.com/nhsuk/nhsuk-frontend/pull/957))
+
+:wrench: **Fixes**
+
+- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+- Remove the pattern from the date input component ([PR 984](https://github.com/nhsuk/nhsuk-frontend/pull/984))
+- Adjust `errorSummary` bottom margin ([PR 973](https://github.com/nhsuk/nhsuk-frontend/pull/973))
+- Fix height of select component in Safari ([PR 987](https://github.com/nhsuk/nhsuk-frontend/pull/987))
+- Set minimum width of select component ([PR 987](https://github.com/nhsuk/nhsuk-frontend/pull/987))
+- Remove unused `nhsuk-u-top-and-bottom` utility class ([PR 979](https://github.com/nhsuk/nhsuk-frontend/pull/979))
 
 ## 8.2.0 - 12 June 2024
 
