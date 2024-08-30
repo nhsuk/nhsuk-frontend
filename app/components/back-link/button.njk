@@ -1,30 +1,15 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Back link as a button' %}
 {% from 'components/back-link/macro.njk' import backLink %}
-{% extends 'layout.njk' %}
+{% extends 'page.njk' %}
 
-{% block body %}
+{% block beforeContent %}
+  {{ backLink({
+    text: "Go back",
+    element: "button"
+  }) }}
+{% endblock %}
 
-  {{ header({
-      "showNav": "false",
-      "showSearch": "false"
-    })
-  }}
-
-  <div class="nhsuk-width-container">
-    {{ backLink({
-      "text": "Go back",
-      "element": "button"
-    }) }}
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <h1 class="govuk-heading-l">Page title</h1>
-        </div>
-      </div>
-
-    </main>
-  </div>
-
+{% block heading %}
+  <h1 class="govuk-heading-l">Page title</h1>
 {% endblock %}
