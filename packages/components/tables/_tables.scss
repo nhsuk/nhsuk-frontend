@@ -11,7 +11,7 @@
 .nhsuk-table-container {
   @include nhsuk-responsive-margin(7, "bottom");
 
-  // display: block;
+  display: block;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow-x: auto;
