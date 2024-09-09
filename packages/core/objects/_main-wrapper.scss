@@ -24,30 +24,30 @@
 @mixin govuk-main-wrapper {
   @include top-and-bottom();
   display: block; /* [1] */
-  margin-top: nhsuk-spacing(4);
-  margin-bottom: nhsuk-spacing(4);
+  padding-top: nhsuk-spacing(4);
+  padding-bottom: nhsuk-spacing(4);
 
   @include mq($from: tablet) {
-    margin-top: nhsuk-spacing(7);
-    margin-bottom: nhsuk-spacing(7);
+    padding-top: nhsuk-spacing(7);
+    padding-bottom: nhsuk-spacing(7);
   }
 }
 
 @mixin govuk-main-wrapper--l {
-  margin-top: nhsuk-spacing(6);
+  padding-top: nhsuk-spacing(6);
 
   @include mq($from: tablet) {
-    margin-top: nhsuk-spacing(8);
+    padding-top: nhsuk-spacing(8);
   }
 }
 
 @mixin govuk-main-wrapper--s {
-  margin-top: nhsuk-spacing(3);
-  margin-bottom: nhsuk-spacing(3);
+  padding-top: nhsuk-spacing(3);
+  padding-bottom: nhsuk-spacing(3);
 
   @include mq($from: tablet) {
-    margin-top: nhsuk-spacing(4);
-    margin-bottom: nhsuk-spacing(4);
+    padding-top: nhsuk-spacing(4);
+    padding-bottom: nhsuk-spacing(4);
   }
 }
 
