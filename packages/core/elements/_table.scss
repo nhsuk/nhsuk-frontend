@@ -30,6 +30,7 @@ td {
   @include nhsuk-responsive-padding(3, "bottom");
   @include nhsuk-responsive-padding(4, "right");
   @include nhsuk-responsive-padding(3, "top");
+  padding-left: 0;
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
   text-align: left;
