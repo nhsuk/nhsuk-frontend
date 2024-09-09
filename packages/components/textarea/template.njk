@@ -1,6 +1,7 @@
 {% from "../error-message/macro.njk" import errorMessage -%}
 {% from "../hint/macro.njk" import hint %}
 {% from "../label/macro.njk" import label %}
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
@@ -41,5 +42,5 @@
   {%- if params.rows %} {{ params.rows }} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
-  {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ params.value }}</textarea>
+  {{- nhsukAttributes(params.attributes) }}>{{ params.value }}</textarea>
 </div>
