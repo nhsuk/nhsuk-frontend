@@ -22,6 +22,16 @@
   }
 }
 
+.nhsuk-table {
+  @include nhsuk-font($size: 19);
+  
+  width: 100%;
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
 /* Table row hover
 ========================================================================== */
 
@@ -72,8 +82,6 @@
  */
 
 .nhsuk-table-responsive {
-  margin-bottom: 0;
-  width: 100%;
 
   thead {
     @include visually-hidden; /* [1] */
@@ -85,7 +93,7 @@
 
   .nhsuk-table__body {
     .nhsuk-table-responsive__heading {
-      font-weight: $nhsuk-font-bold;
+      @include nhsuk-typography-weight-bold;
       padding-right: nhsuk-spacing(3);
       text-align: left; /* [8] */
 

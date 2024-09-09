@@ -4,6 +4,7 @@
 
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
+- Update table styles so tables always have bottom margin ([PR 1005](https://github.com/nhsuk/nhsuk-frontend/pull/1005))
 
 ## 8.3.0 - 24 July 2024
 
