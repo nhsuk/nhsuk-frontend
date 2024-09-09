@@ -1,6 +1,7 @@
 {% from "../error-message/macro.njk" import errorMessage -%}
 {% from "../hint/macro.njk" import hint %}
 {% from "../label/macro.njk" import label %}
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
@@ -52,7 +53,7 @@
     {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
     {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
     {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
-    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {{- nhsukAttributes(params.attributes) }}>
     {%- if params.suffix %}
     <div class="nhsuk-input__suffix" aria-hidden="true">{{ params.suffix }}</div>
     {% endif %}
