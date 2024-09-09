@@ -21,7 +21,7 @@
  *    so it uses CSS initial value, which is inline.
  */
 
- @mixin govuk-main-wrapper {
+@mixin govuk-main-wrapper {
   @include top-and-bottom();
   display: block; /* [1] */
   margin-top: nhsuk-spacing(4);
@@ -55,9 +55,11 @@
   .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
   }
+
   .nhsuk-main-wrapper--l {
     @include govuk-main-wrapper--l;
   }
+
   .nhsuk-main-wrapper--s {
     @include govuk-main-wrapper--s;
   }
