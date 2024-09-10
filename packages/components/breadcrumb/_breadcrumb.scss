@@ -4,8 +4,6 @@
 
 /**
  * 1. Hide the breadcrumb on print stylesheets.
- * 2. Bespoke spacing numbers used as there is no 20px
- *    spacing mapped in settings/spacing.
  * 3. Don't show the full breadcrumb below tablet size.
  * 4. Typography sizing mixin, see core/tools/_typography
  * 5. and core/settings/_typography for size maps.
@@ -14,12 +12,10 @@
 
 .nhsuk-breadcrumb {
   @include print-hide(); /* [1] */
+  margin-top: nhsuk-spacing(3);
 
-  padding-bottom: nhsuk-spacing(3);
-  padding-top: 20px; /* [2] */
-
-  + .nhsuk-width-container .nhsuk-main-wrapper {
-    padding-top: 0;
+  @include mq($from: tablet) {
+    margin-top: nhsuk-spacing(4);
   }
 }
 
@@ -28,6 +24,7 @@
     display: none; /* [3] */
   }
 
+  @include nhsuk-font(16); /* [4] */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -84,12 +81,14 @@
     height: 18px;
     left: 0;
     position: absolute;
-    top: 0;
+    top: -1px;
     width: 10px;
   }
 }
 
 .nhsuk-breadcrumb__backlink {
+  text-decoration: none;
+
   &:visited {
     color: $nhsuk-link-color;
 
