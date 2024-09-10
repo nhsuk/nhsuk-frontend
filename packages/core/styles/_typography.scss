@@ -261,6 +261,11 @@ b {
 
 @include mq($media-type: print) {
 
+  .nhsuk-main-wrapper{
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
   h1,
   .nhsuk-heading-xl,
   h2,
