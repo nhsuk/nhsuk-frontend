@@ -10,6 +10,7 @@
 {% endmacro -%}
 <dl class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
   {% for row in params.rows %}
+    {% if row %}
     <div class="nhsuk-summary-list__row {%- if row.classes %} {{ row.classes }}{% endif %}">
       <dt class="nhsuk-summary-list__key {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
         {{ row.key.html | safe if row.key.html else row.key.text }}
@@ -33,5 +34,6 @@
         </dd>
       {% endif %}
     </div>
+    {% endif %}
   {% endfor %}
 </dl>
