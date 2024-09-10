@@ -1,0 +1,23 @@
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% set title = 'Panel' %}
+{% from 'components/panel/macro.njk' import panel %}
+{% extends 'layout.njk' %}
+
+{% block body %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ panel({
+            titleText: "Application complete",
+            html: "Your reference number<br><strong>HDJ2123F</strong>"
+          }) }}
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
