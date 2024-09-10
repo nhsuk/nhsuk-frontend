@@ -46,7 +46,7 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
 .nhsuk-panel__title {
   @include nhsuk-typography-responsive(48);
   @include nhsuk-responsive-margin(5, "bottom");
-  
+
   margin-top: 0;
 }
 
