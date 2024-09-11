@@ -15,6 +15,7 @@
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 - Adjusted default spacing of back link component ([PR 964](https://github.com/nhsuk/nhsuk-frontend/pull/964))
 - Reduce main wrapper padding on mobile ([PR 1003](https://github.com/nhsuk/nhsuk-frontend/pull/1003))
+- Fix image encoding issue introduced in Gulp v5.0 ([PR 1013](https://github.com/nhsuk/nhsuk-frontend/pull/1013))
 
 ## 8.3.0 - 24 July 2024
 
