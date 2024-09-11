@@ -1,3 +1,5 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 -%}
 {%  if params.panel %}
 <div class="nhsuk-table__panel-with-heading-tab
@@ -8,7 +10,7 @@
   {%- endif %}
   <table {%- if params.responsive %} role="table"{% endif %} class="nhsuk-table{%- if params.responsive %}-responsive{% endif %}
   {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
-  {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {{- nhsukAttributes(params.attributes) }}>
   {%- if params.caption %}
     <caption class="nhsuk-table__caption
   {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</caption>

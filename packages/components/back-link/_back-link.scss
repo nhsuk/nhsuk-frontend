@@ -6,10 +6,16 @@
  * 1. Allow space for the arrow.
  * 2. Align the icon with the start of the back link.
  * 3. Align the icon with the middle of the text.
+ * 4. Make back link same height as breadcrumb.
  */
 
 .nhsuk-back-link {
-  margin-bottom: nhsuk-spacing(3);
+  margin-top: nhsuk-spacing(3);
+  line-height: 1; /* 4 */
+
+  @include mq($from: tablet) {
+    margin-top: nhsuk-spacing(4);
+  }
 }
 
 .nhsuk-back-link__link {
@@ -30,6 +36,10 @@
     position: absolute;
     top: -1px; /* 3 */
     width: 24px;
+
+    @include mq($from: tablet) {
+      top: 0; /* 3 */
+    }
   }
 
   &:visited {
