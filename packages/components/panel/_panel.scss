@@ -21,7 +21,7 @@
 $nhsuk-border-width-panel: nhsuk-spacing(1);
 
 .nhsuk-panel {
-  @include nhsuk-typography-responsive(32);
+  @include nhsuk-typography-responsive(24);
   @include nhsuk-responsive-margin(4, "bottom");
 
   background: $color_nhsuk-green;
