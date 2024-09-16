@@ -6,7 +6,7 @@
 
 - Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
 
-The breadcrumbs component no longer contains its own `<div class="nhsuk-width-container">` container. 
+The breadcrumbs component no longer contains its own `<div class="nhsuk-width-container">` container.
 
 Instead, you should move it inside the existing `<div class="nhsuk-width-container">` container for your overall page, but before the `<main>` tag.
 
