@@ -5,6 +5,10 @@
 :recycle: **Changes**
 
 - Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
+- Medium headings, legends and labels updated to use 26px rather than 24px. ([Issue 445](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/445))
+- Add sizing classes for table caption
+- Reduce heading caption sizes
+- Adjust print styles, making headings and body type smaller
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
 - Fix missing classes option for summary list rows ([PR 1007](https://github.com/nhsuk/nhsuk-frontend/pull/1007))
