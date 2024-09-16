@@ -44,7 +44,7 @@ You should have this:
 
 The back link should also be placed within the `<div class="nhsuk-width-container">` container but before the `<main>` tag, as before.
 
-The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`, these can now be removed. However you can still include override classes if you want more or less spacing than the default.
+The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`. However you can still include override classes if you want more or less spacing than the default.
 
 :wrench: **Fixes**
 
