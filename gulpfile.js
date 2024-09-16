@@ -125,7 +125,7 @@ function versionJS() {
  * Copy assets such as icons and images into the distribution
  */
 function assets() {
-  return gulp.src('packages/assets/**').pipe(gulp.dest('dist/assets/'))
+  return gulp.src('packages/assets/**', { encoding: false }).pipe(gulp.dest('dist/assets/'))
 }
 
 /**
@@ -145,7 +145,10 @@ function cssFolder() {
 
 function createZip() {
   return gulp
-    .src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], { base: 'dist' })
+    .src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], {
+      base: 'dist',
+      encoding: false
+    })
     .pipe(zip(`nhsuk-frontend-${version}.zip`))
     .pipe(gulp.dest('dist'))
 }
