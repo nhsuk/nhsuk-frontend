@@ -2,12 +2,57 @@
 
 ## Unreleased
 
+:boom: **Breaking changes**
+
+- Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
+
+The breadcrumbs component no longer contains its own `<div class="nhsuk-width-container">` container. 
+
+Instead, you should move it inside the existing `<div class="nhsuk-width-container">` container for your overall page, but before the `<main>` tag.
+
+This means that instead this:
+
+```html
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+    </ol>
+  </div>
+</nav>
+<div class="nhsuk-width-container">
+  <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+    ...
+  </main>
+</div>
+```
+
+You should have this:
+
+```html
+<div class="nhsuk-width-container">
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+    </ol>
+  </nav>
+  <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+    ...
+  </main>
+</div>
+```
+
+The back link should also be placed within the `<div class="nhsuk-width-container">` container but before the `<main>` tag, as before.
+
+The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`, these can now be removed. However you can still include override classes if you want more or less spacing than the default.
+
+:wrench: **Fixes**
+
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
 - Fix missing classes option for summary list rows ([PR 1007](https://github.com/nhsuk/nhsuk-frontend/pull/1007))
 - Add support for inline conditions on summary list rows ([PR 1008](https://github.com/nhsuk/nhsuk-frontend/pull/1008))
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
-- Adjusted default spacing of back link component ([PR 964](https://github.com/nhsuk/nhsuk-frontend/pull/964))
 - Reduce main wrapper padding on mobile ([PR 1003](https://github.com/nhsuk/nhsuk-frontend/pull/1003))
 - Fix image encoding issue introduced in Gulp v5.0 ([PR 1013](https://github.com/nhsuk/nhsuk-frontend/pull/1013))
 
