@@ -10,7 +10,7 @@ The breadcrumbs component no longer contains its own `<div class="nhsuk-width-co
 
 Instead, you should move it inside the existing `<div class="nhsuk-width-container">` container for your overall page, but before the `<main>` tag.
 
-This means that instead this:
+This means that instead of this:
 
 ```html
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
