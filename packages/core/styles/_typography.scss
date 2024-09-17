@@ -260,8 +260,7 @@ b {
 }
 
 @include mq($media-type: print) {
-
-  .nhsuk-main-wrapper{
+  .nhsuk-main-wrapper {
     padding-top: 1em;
     padding-bottom: 1em;
   }
@@ -306,5 +305,4 @@ b {
   %nhsuk-list + %nhsuk-heading-s {
     padding-top: 0.45em;
   }
-
 }
