@@ -106,7 +106,7 @@
 //   }
 //
 //  .foo {
-//    @include nhsuk-typography-responsive(32, $important: true);
+//    @include nhsuk-typography-responsive(36, $important: true);
 //   }
 //
 // @param {Map} $font-map - Font map
@@ -170,7 +170,7 @@
 //   }
 //
 //  .foo {
-//    @include nhsuk-font(32, $weight: bold);
+//    @include nhsuk-font(36, $weight: bold);
 //   }
 //
 // @param {Number} $size - Size of the font as it would appear on desktop -

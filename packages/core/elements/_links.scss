@@ -19,7 +19,7 @@ a {
     &:after {
       color: $color_nhsuk-black;
       content: " (Link: " attr(href) ")"; /* [1] */
-      font-size: 14pt; /* [2] */
+      font-size: inherit; /* [2] */
     }
   }
 }

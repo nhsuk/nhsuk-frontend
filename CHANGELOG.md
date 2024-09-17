@@ -42,14 +42,20 @@ You should have this:
 </div>
 ```
 
-The back link should also be placed within the `<div class="nhsuk-width-container">` container but before the `<main>` tag, as before.
+The back link should also be placed within the `<div class="nhsuk-width-container">` container but before the `<main>` tag. Previous guidance suggested placing at the bottom of the page, but this has been updated to recommend placing it at the top.
 
 The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`. However you can still include override classes if you want more or less spacing than the default.
 
-:wrench: **Fixes**
+:recycle: **Changes**
 
+- Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
+- Medium headings, legends and labels updated to use 26px rather than 24px. ([Issue 445](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/445))
+- Add sizing classes for table caption
+- Reduce heading caption sizes
+- Adjust print styles, making headings and body type smaller
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
+- Hide header's navigation links on print ([PR 1001](https://github.com/nhsuk/nhsuk-frontend/pull/1001))
 - Fix missing classes option for summary list rows ([PR 1007](https://github.com/nhsuk/nhsuk-frontend/pull/1007))
 - Add support for inline conditions on summary list rows ([PR 1008](https://github.com/nhsuk/nhsuk-frontend/pull/1008))
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
