@@ -22,28 +22,44 @@
  */
 
 @mixin govuk-main-wrapper {
-  @include nhsuk-responsive-padding(7, "top");
-  @include nhsuk-responsive-padding(7, "bottom");
   @include top-and-bottom();
   display: block; /* [1] */
+  padding-top: nhsuk-spacing(4);
+  padding-bottom: nhsuk-spacing(4);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(7);
+    padding-bottom: nhsuk-spacing(7);
+  }
 }
 
 @mixin govuk-main-wrapper--l {
-  @include nhsuk-responsive-padding(8, "top");
+  padding-top: nhsuk-spacing(6);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(8);
+  }
 }
 
 @mixin govuk-main-wrapper--s {
-  @include nhsuk-responsive-padding(5, "bottom");
-  @include nhsuk-responsive-padding(5, "top");
+  padding-top: nhsuk-spacing(3);
+  padding-bottom: nhsuk-spacing(3);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(4);
+    padding-bottom: nhsuk-spacing(4);
+  }
 }
 
 @include govuk-exports("govuk/objects/main-wrapper") {
   .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
   }
+
   .nhsuk-main-wrapper--l {
     @include govuk-main-wrapper--l;
   }
+
   .nhsuk-main-wrapper--s {
     @include govuk-main-wrapper--s;
   }

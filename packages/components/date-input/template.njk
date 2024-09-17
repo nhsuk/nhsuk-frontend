@@ -14,15 +14,18 @@
   {% set dateInputItems = [
     {
       name: "day",
-      classes: "nhsuk-input--width-2"
+      classes: "nhsuk-input--width-2",
+      value: params.values.day
     },
     {
       name: "month",
-      classes: "nhsuk-input--width-2"
+      classes: "nhsuk-input--width-2",
+      value: params.values.month
     },
     {
       name: "year",
-      classes: "nhsuk-input--width-4"
+      classes: "nhsuk-input--width-4",
+      value: params.values.year
     }
   ] %}
 {% endif %}
@@ -64,8 +67,8 @@
         },
         id: item.id if item.id else (params.id + "-" + item.name),
         classes: "nhsuk-date-input__input " + (item.classes if item.classes),
-        name: (params.namePrefix + "-" + item.name) if params.namePrefix else item.name,
-        value: item.value,
+        name: (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
+        value: item.value or params.values[item.name],
         inputmode: item.inputmode if item.inputmode else "numeric",
         autocomplete: item.autocomplete,
         pattern: item.pattern,
