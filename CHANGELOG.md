@@ -11,6 +11,7 @@
 - Adjust print styles, making headings and body type smaller
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
+- Hide header's navigation links on print ([PR 1001](https://github.com/nhsuk/nhsuk-frontend/pull/1001))
 - Fix missing classes option for summary list rows ([PR 1007](https://github.com/nhsuk/nhsuk-frontend/pull/1007))
 - Add support for inline conditions on summary list rows ([PR 1008](https://github.com/nhsuk/nhsuk-frontend/pull/1008))
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
