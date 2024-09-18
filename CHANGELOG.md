@@ -62,7 +62,7 @@ You should have this:
 <p class="nhsuk-u-font-size-36">
 ```
 
-- Updated default `name` attributes for Date input component
+- Updated default `name` attributes for Date input component ([PR 994](https://github.com/nhsuk/nhsuk-frontend/pull/994))
 
 The default name attributes for the date input elements now use square brackets around the date part. For example: `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`, `dob-month`, `dob-year`). 
 
@@ -120,8 +120,6 @@ You can override this new default by setting the `name` attribute on the individ
   ]
 }) }}
 ```
-
-This change was made in [PR 994](https://github.com/nhsuk/nhsuk-frontend/pull/994).
 
 :recycle: **Changes**
 
