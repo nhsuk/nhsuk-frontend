@@ -66,7 +66,7 @@ You should have this:
 
 The default name attributes for the date input elements now use square brackets around the date part. For example: `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`, `dob-month`, `dob-year`). 
 
-The square brackets mean that the date parts will be saved as an object when using the NHS Prototype Kit, like this:
+The square brackets mean that the date parts will be saved as an object when using the NHS prototype kit, like this:
 
 ```json
 {
