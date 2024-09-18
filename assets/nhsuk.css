@@ -86,7 +86,7 @@ a:active {
   a:after {
     color: #212b32;
     content: " (Link: " attr(href) ")"; /* [1] */
-    font-size: 14pt; /* [2] */
+    font-size: inherit; /* [2] */
   }
 }
 
@@ -188,6 +188,7 @@ td {
   padding-bottom: 8px;
   padding-right: 16px;
   padding-top: 8px;
+  padding-left: 0;
   border-bottom: 1px solid #d8dde0;
   text-align: left;
   vertical-align: top;
@@ -203,8 +204,8 @@ td {
 @media print {
   th,
   td {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -236,22 +237,22 @@ th {
 
 caption {
   font-weight: 600;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.55556;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.42105;
   text-align: left;
 }
 @media (min-width: 40.0625em) {
   caption {
     font-size: 22px;
     font-size: 1.375rem;
-    line-height: 1.45455;
+    line-height: 1.36364;
   }
 }
 @media print {
   caption {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 15pt;
+    line-height: 1.25;
   }
 }
 
@@ -386,19 +387,9 @@ caption {
  *    so it uses CSS initial value, which is inline.
  */
 .nhsuk-main-wrapper {
-  padding-top: 40px;
-  padding-bottom: 40px;
   display: block; /* [1] */
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-main-wrapper {
-    padding-top: 48px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-main-wrapper {
-    padding-bottom: 48px;
-  }
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .nhsuk-main-wrapper > *:first-child {
   margin-top: 0;
@@ -406,9 +397,15 @@ caption {
 .nhsuk-main-wrapper > *:last-child {
   margin-bottom: 0;
 }
+@media (min-width: 40.0625em) {
+  .nhsuk-main-wrapper {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
 
 .nhsuk-main-wrapper--l {
-  padding-top: 48px;
+  padding-top: 40px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-main-wrapper--l {
@@ -417,17 +414,13 @@ caption {
 }
 
 .nhsuk-main-wrapper--s {
-  padding-bottom: 24px;
-  padding-top: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-main-wrapper--s {
-    padding-bottom: 32px;
-  }
-}
-@media (min-width: 40.0625em) {
-  .nhsuk-main-wrapper--s {
-    padding-top: 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
 
@@ -591,8 +584,8 @@ ol, ul, .nhsuk-list {
 }
 @media print {
   ol, ul, .nhsuk-list {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -722,7 +715,7 @@ h1,
 .nhsuk-heading-xl {
   font-size: 32px;
   font-size: 2rem;
-  line-height: 1.25;
+  line-height: 1.1875;
   display: block;
   font-weight: 600;
   margin-top: 0;
@@ -733,13 +726,13 @@ h1,
   .nhsuk-heading-xl {
     font-size: 48px;
     font-size: 3rem;
-    line-height: 1.16667;
+    line-height: 1.125;
   }
 }
 @media print {
   h1,
   .nhsuk-heading-xl {
-    font-size: 32pt;
+    font-size: 26pt;
     line-height: 1.15;
   }
 }
@@ -752,9 +745,9 @@ h1,
 
 h2,
 .nhsuk-heading-l {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1.33333;
+  font-size: 27px;
+  font-size: 1.6875rem;
+  line-height: 1.22222;
   display: block;
   font-weight: 600;
   margin-top: 0;
@@ -763,16 +756,16 @@ h2,
 @media (min-width: 40.0625em) {
   h2,
   .nhsuk-heading-l {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.16667;
   }
 }
 @media print {
   h2,
   .nhsuk-heading-l {
-    font-size: 24pt;
-    line-height: 1.05;
+    font-size: 20pt;
+    line-height: 1.2;
   }
 }
 @media (min-width: 40.0625em) {
@@ -784,9 +777,9 @@ h2,
 
 h3,
 .nhsuk-heading-m {
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
   display: block;
   font-weight: 600;
   margin-top: 0;
@@ -795,16 +788,16 @@ h3,
 @media (min-width: 40.0625em) {
   h3,
   .nhsuk-heading-m {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   h3,
   .nhsuk-heading-m {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -816,9 +809,9 @@ h3,
 
 h4,
 .nhsuk-heading-s {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.55556;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.42105;
   display: block;
   font-weight: 600;
   margin-top: 0;
@@ -829,14 +822,14 @@ h4,
   .nhsuk-heading-s {
     font-size: 22px;
     font-size: 1.375rem;
-    line-height: 1.45455;
+    line-height: 1.36364;
   }
 }
 @media print {
   h4,
   .nhsuk-heading-s {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 15pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -867,8 +860,8 @@ h5,
 @media print {
   h5,
   .nhsuk-heading-xs {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -899,8 +892,8 @@ h6,
 @media print {
   h6,
   .nhsuk-heading-xxs {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -913,47 +906,47 @@ h6,
 /* Captions to be used inside headings */
 .nhsuk-caption-xl {
   font-weight: 400;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1.33333;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
   color: #4c6272;
   display: block;
   margin-bottom: 4px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-caption-xl {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   .nhsuk-caption-xl {
-    font-size: 24pt;
-    line-height: 1.05;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 
 .nhsuk-caption-l {
   font-weight: 400;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.42105;
   color: #4c6272;
   display: block;
   margin-bottom: 4px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-caption-l {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 1.36364;
   }
 }
 @media print {
   .nhsuk-caption-l {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 15pt;
+    line-height: 1.25;
   }
 }
 
@@ -974,8 +967,8 @@ h6,
 }
 @media print {
   .nhsuk-caption-m {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -997,13 +990,13 @@ h6,
   .nhsuk-body-l {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-body-l {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -1032,8 +1025,8 @@ address, p,
 @media print {
   address, p,
   .nhsuk-body-m {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -1065,8 +1058,8 @@ p,
 }
 @media print {
   .nhsuk-body-s {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 @media (min-width: 40.0625em) {
@@ -1097,13 +1090,13 @@ address {
   .nhsuk-lede-text {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-lede-text {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -1123,14 +1116,14 @@ address {
   .nhsuk-lede-text ul {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-lede-text p,
   .nhsuk-lede-text ul {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 
@@ -1150,8 +1143,8 @@ address {
 }
 @media print {
   .nhsuk-lede-text--small {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -1293,6 +1286,84 @@ b {
   font-weight: 600;
 }
 
+@media print {
+  .nhsuk-main-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  h1,
+  .nhsuk-heading-xl,
+  h2,
+  .nhsuk-heading-l,
+  h3,
+  .nhsuk-heading-m,
+  h4,
+  .nhsuk-heading-s,
+  h5,
+  .nhsuk-heading-xs,
+  h6,
+  .nhsuk-heading-xxs,
+  .nhsuk-lede-text,
+  .nhsuk-body-l,
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  address,
+  ol,
+  ul,
+  .nhsuk-list {
+    margin-bottom: 7.5pt;
+  }
+  h1 {
+    margin-bottom: 15pt !important;
+  }
+  .nhsuk-body-l + h2,
+  .nhsuk-body-l + .nhsuk-heading-l,
+  p + h2,
+  .nhsuk-body-m + h2,
+  address + h2,
+  p + .nhsuk-heading-l,
+  .nhsuk-body-m + .nhsuk-heading-l,
+  address + .nhsuk-heading-l,
+  .nhsuk-body-s + h2,
+  .nhsuk-body-s + .nhsuk-heading-l,
+  .nhsuk-list + h2,
+  ul + h2,
+  ol + h2,
+  .nhsuk-list + .nhsuk-heading-l,
+  ul + .nhsuk-heading-l,
+  ol + .nhsuk-heading-l,
+  p + h3,
+  .nhsuk-body-m + h3,
+  address + h3,
+  p + .nhsuk-heading-m,
+  .nhsuk-body-m + .nhsuk-heading-m,
+  address + .nhsuk-heading-m,
+  .nhsuk-body-s + h3,
+  .nhsuk-body-s + .nhsuk-heading-m,
+  .nhsuk-list + h3,
+  ul + h3,
+  ol + h3,
+  .nhsuk-list + .nhsuk-heading-m,
+  ul + .nhsuk-heading-m,
+  ol + .nhsuk-heading-m,
+  p + h4,
+  .nhsuk-body-m + h4,
+  address + h4,
+  p + .nhsuk-heading-s,
+  .nhsuk-body-m + .nhsuk-heading-s,
+  address + .nhsuk-heading-s,
+  .nhsuk-body-s + h4,
+  .nhsuk-body-s + .nhsuk-heading-s,
+  .nhsuk-list + h4,
+  ul + h4,
+  ol + h4,
+  .nhsuk-list + .nhsuk-heading-s,
+  ul + .nhsuk-heading-s,
+  ol + .nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
+}
 /* ==========================================================================
    UTILITIES / #CLEARFIX
    ========================================================================== */
@@ -2401,18 +2472,18 @@ b {
 .nhsuk-u-font-size-64 {
   font-size: 48px !important;
   font-size: 3rem !important;
-  line-height: 1.16667 !important;
+  line-height: 1.125 !important;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-u-font-size-64 {
     font-size: 64px !important;
     font-size: 4rem !important;
-    line-height: 1.125 !important;
+    line-height: 1.09375 !important;
   }
 }
 @media print {
   .nhsuk-u-font-size-64 {
-    font-size: 53pt !important;
+    font-size: 34pt !important;
     line-height: 1.1 !important;
   }
 }
@@ -2420,38 +2491,57 @@ b {
 .nhsuk-u-font-size-48 {
   font-size: 32px !important;
   font-size: 2rem !important;
-  line-height: 1.25 !important;
+  line-height: 1.1875 !important;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-u-font-size-48 {
     font-size: 48px !important;
     font-size: 3rem !important;
-    line-height: 1.16667 !important;
+    line-height: 1.125 !important;
   }
 }
 @media print {
   .nhsuk-u-font-size-48 {
-    font-size: 32pt !important;
+    font-size: 26pt !important;
     line-height: 1.15 !important;
   }
 }
 
-.nhsuk-u-font-size-32 {
-  font-size: 24px !important;
-  font-size: 1.5rem !important;
-  line-height: 1.33333 !important;
+.nhsuk-u-font-size-36 {
+  font-size: 27px !important;
+  font-size: 1.6875rem !important;
+  line-height: 1.22222 !important;
 }
 @media (min-width: 40.0625em) {
-  .nhsuk-u-font-size-32 {
-    font-size: 32px !important;
-    font-size: 2rem !important;
-    line-height: 1.25 !important;
+  .nhsuk-u-font-size-36 {
+    font-size: 36px !important;
+    font-size: 2.25rem !important;
+    line-height: 1.16667 !important;
   }
 }
 @media print {
-  .nhsuk-u-font-size-32 {
-    font-size: 24pt !important;
-    line-height: 1.05 !important;
+  .nhsuk-u-font-size-36 {
+    font-size: 20pt !important;
+    line-height: 1.2 !important;
+  }
+}
+
+.nhsuk-u-font-size-26 {
+  font-size: 22px !important;
+  font-size: 1.375rem !important;
+  line-height: 1.31818 !important;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-u-font-size-26 {
+    font-size: 26px !important;
+    font-size: 1.625rem !important;
+    line-height: 1.23077 !important;
+  }
+}
+@media print {
+  .nhsuk-u-font-size-26 {
+    font-size: 17pt !important;
+    line-height: 1.25 !important;
   }
 }
 
@@ -2464,32 +2554,32 @@ b {
   .nhsuk-u-font-size-24 {
     font-size: 24px !important;
     font-size: 1.5rem !important;
-    line-height: 1.33333 !important;
+    line-height: 1.29167 !important;
   }
 }
 @media print {
   .nhsuk-u-font-size-24 {
-    font-size: 18pt !important;
-    line-height: 1.15 !important;
+    font-size: 16pt !important;
+    line-height: 1.25 !important;
   }
 }
 
 .nhsuk-u-font-size-22 {
-  font-size: 18px !important;
-  font-size: 1.125rem !important;
-  line-height: 1.55556 !important;
+  font-size: 19px !important;
+  font-size: 1.1875rem !important;
+  line-height: 1.42105 !important;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-u-font-size-22 {
     font-size: 22px !important;
     font-size: 1.375rem !important;
-    line-height: 1.45455 !important;
+    line-height: 1.36364 !important;
   }
 }
 @media print {
   .nhsuk-u-font-size-22 {
-    font-size: 18pt !important;
-    line-height: 1.15 !important;
+    font-size: 15pt !important;
+    line-height: 1.25 !important;
   }
 }
 
@@ -2507,8 +2597,8 @@ b {
 }
 @media print {
   .nhsuk-u-font-size-19 {
-    font-size: 14pt !important;
-    line-height: 1.15 !important;
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
   }
 }
 
@@ -2526,8 +2616,8 @@ b {
 }
 @media print {
   .nhsuk-u-font-size-16 {
-    font-size: 14pt !important;
-    line-height: 1.2 !important;
+    font-size: 12pt !important;
+    line-height: 1.3 !important;
   }
 }
 
@@ -2546,7 +2636,7 @@ b {
 @media print {
   .nhsuk-u-font-size-14 {
     font-size: 12pt !important;
-    line-height: 1.2 !important;
+    line-height: 1.3 !important;
   }
 }
 
@@ -2681,9 +2771,9 @@ b {
 
 .nhsuk-action-link__link {
   font-weight: 400;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.55556;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.42105;
   display: inline-block; /* [1] */
   font-weight: 600;
   padding-left: 38px; /* [2] */
@@ -2694,13 +2784,13 @@ b {
   .nhsuk-action-link__link {
     font-size: 22px;
     font-size: 1.375rem;
-    line-height: 1.45455;
+    line-height: 1.36364;
   }
 }
 @media print {
   .nhsuk-action-link__link {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 15pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-action-link__link:hover .nhsuk-action-link__text {
@@ -2735,7 +2825,7 @@ b {
   height: 36px;
   left: -3px;
   position: absolute;
-  top: -2px;
+  top: -3px;
   width: 36px;
 }
 @media print {
@@ -2752,7 +2842,7 @@ b {
     height: 24px;
     left: -2px;
     margin-bottom: 0;
-    top: 2px;
+    top: 1px;
     width: 24px;
   }
 }
@@ -2764,9 +2854,16 @@ b {
  * 1. Allow space for the arrow.
  * 2. Align the icon with the start of the back link.
  * 3. Align the icon with the middle of the text.
+ * 4. Make back link same height as breadcrumb.
  */
 .nhsuk-back-link {
-  margin-bottom: 16px;
+  margin-top: 16px;
+  line-height: 1; /* 4 */
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-back-link {
+    margin-top: 24px;
+  }
 }
 
 .nhsuk-back-link__link {
@@ -2791,8 +2888,8 @@ b {
 }
 @media print {
   .nhsuk-back-link__link {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 .nhsuk-back-link__link:visited {
@@ -2828,6 +2925,11 @@ b {
   top: -1px; /* 3 */
   width: 24px;
 }
+@media (min-width: 40.0625em) {
+  .nhsuk-back-link__link .nhsuk-icon__chevron-left {
+    top: 0; /* 3 */
+  }
+}
 .nhsuk-back-link__link:visited {
   color: #005eb8;
 }
@@ -2847,8 +2949,6 @@ b {
    ========================================================================== */
 /**
  * 1. Hide the breadcrumb on print stylesheets.
- * 2. Bespoke spacing numbers used as there is no 20px
- *    spacing mapped in settings/spacing.
  * 3. Don't show the full breadcrumb below tablet size.
  * 4. Typography sizing mixin, see core/tools/_typography
  * 5. and core/settings/_typography for size maps.
@@ -2856,19 +2956,25 @@ b {
  */
 .nhsuk-breadcrumb {
   /* [1] */
-  padding-bottom: 16px;
-  padding-top: 20px; /* [2] */
+  margin-top: 16px;
 }
 @media print {
   .nhsuk-breadcrumb {
     display: none;
   }
 }
-.nhsuk-breadcrumb + .nhsuk-width-container .nhsuk-main-wrapper {
-  padding-top: 0;
+@media (min-width: 40.0625em) {
+  .nhsuk-breadcrumb {
+    margin-top: 24px;
+  }
 }
 
 .nhsuk-breadcrumb__list {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  /* [4] */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2876,6 +2982,19 @@ b {
 @media (max-width: 40.0525em) {
   .nhsuk-breadcrumb__list {
     display: none; /* [3] */
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-breadcrumb__list {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+@media print {
+  .nhsuk-breadcrumb__list {
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 
@@ -2897,8 +3016,8 @@ b {
 }
 @media print {
   .nhsuk-breadcrumb__item {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 .nhsuk-breadcrumb__item:not(:last-child):after {
@@ -2940,8 +3059,8 @@ b {
 }
 @media print {
   .nhsuk-breadcrumb__back {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 @media (min-width: 40.0625em) {
@@ -2956,10 +3075,13 @@ b {
   height: 18px;
   left: 0;
   position: absolute;
-  top: 0;
+  top: -1px;
   width: 10px;
 }
 
+.nhsuk-breadcrumb__backlink {
+  text-decoration: none;
+}
 .nhsuk-breadcrumb__backlink:visited {
   color: #005eb8;
 }
@@ -3011,8 +3133,8 @@ b {
 }
 @media print {
   .nhsuk-button {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -3438,23 +3560,23 @@ b {
 
 .nhsuk-card--care__heading {
   font-weight: 600;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
   margin: 0;
   padding-top: 0; /* [13] */
 }
 @media (min-width: 40.0625em) {
   .nhsuk-card--care__heading {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   .nhsuk-card--care__heading {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 @media print {
@@ -3703,8 +3825,8 @@ b {
 }
 @media print {
   .nhsuk-details {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -3983,13 +4105,13 @@ b {
   .nhsuk-do-dont-list__label {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-do-dont-list__label {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media (max-width: 40.0525em) {
@@ -4039,8 +4161,8 @@ b {
 }
 @media print {
   .nhsuk-error-message {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -4079,23 +4201,23 @@ b {
 
 .nhsuk-error-summary__title {
   font-weight: 600;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
   margin-top: 0;
   margin-bottom: 16px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-error-summary__title {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   .nhsuk-error-summary__title {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -4119,8 +4241,8 @@ b {
 }
 @media print {
   .nhsuk-error-summary__body {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-error-summary__body p {
@@ -4199,8 +4321,8 @@ b {
 }
 @media print {
   .nhsuk-fieldset__legend {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -4209,62 +4331,62 @@ b {
   font-weight: 600;
   font-size: 32px;
   font-size: 2rem;
-  line-height: 1.25;
+  line-height: 1.1875;
   margin-bottom: 16px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-fieldset__legend--xl {
     font-size: 48px;
     font-size: 3rem;
-    line-height: 1.16667;
+    line-height: 1.125;
   }
 }
 @media print {
   .nhsuk-fieldset__legend--xl {
-    font-size: 32pt;
+    font-size: 26pt;
     line-height: 1.15;
   }
 }
 
 .nhsuk-fieldset__legend--l {
   font-weight: 600;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1.33333;
+  font-size: 27px;
+  font-size: 1.6875rem;
+  line-height: 1.22222;
   margin-bottom: 16px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-fieldset__legend--l {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.16667;
   }
 }
 @media print {
   .nhsuk-fieldset__legend--l {
-    font-size: 24pt;
-    line-height: 1.05;
+    font-size: 20pt;
+    line-height: 1.2;
   }
 }
 
 .nhsuk-fieldset__legend--m {
   font-weight: 600;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
   margin-bottom: 16px;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-fieldset__legend--m {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   .nhsuk-fieldset__legend--m {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 
@@ -4284,8 +4406,8 @@ b {
 }
 @media print {
   .nhsuk-fieldset__legend--s {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -4378,8 +4500,8 @@ b {
 }
 @media print {
   .nhsuk-footer__list-item {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 @media (min-width: 48.0625em) {
@@ -4423,8 +4545,8 @@ b {
 }
 @media print {
   .nhsuk-footer__copyright {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 
@@ -4801,8 +4923,8 @@ b {
 }
 @media print {
   .nhsuk-header__navigation-link {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 @media (min-width: 40.0625em) {
@@ -4943,6 +5065,11 @@ b {
 
 .nhsuk-navigation-container {
   position: relative;
+}
+@media print {
+  .nhsuk-navigation-container {
+    display: none;
+  }
 }
 
 .nhsuk-header__drop-down {
@@ -5177,8 +5304,8 @@ b {
 }
 @media print {
   .nhsuk-header__service-name {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 61.875em) {
@@ -5245,8 +5372,8 @@ b {
 }
 @media print {
   .nhsuk-header__transactional-service-name--link {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-header__transactional-service-name--link:hover {
@@ -5593,8 +5720,8 @@ b {
 }
 @media print {
   .nhsuk-hint {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -5677,8 +5804,8 @@ b {
 }
 @media print {
   .nhsuk-image__caption {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 
@@ -5717,8 +5844,8 @@ b {
 }
 @media print {
   .nhsuk-input {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-input:focus {
@@ -5809,8 +5936,8 @@ b {
 @media print {
   .nhsuk-input__prefix,
   .nhsuk-input__suffix {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (max-width: 19.99em) {
@@ -5917,8 +6044,8 @@ b {
 }
 @media print {
   .nhsuk-label {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -5934,57 +6061,57 @@ b {
 .nhsuk-label--xl {
   font-size: 32px;
   font-size: 2rem;
-  line-height: 1.25;
+  line-height: 1.1875;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-label--xl {
     font-size: 48px;
     font-size: 3rem;
-    line-height: 1.16667;
+    line-height: 1.125;
   }
 }
 @media print {
   .nhsuk-label--xl {
-    font-size: 32pt;
+    font-size: 26pt;
     line-height: 1.15;
   }
 }
 
 .nhsuk-label--l {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1.33333;
+  font-size: 27px;
+  font-size: 1.6875rem;
+  line-height: 1.22222;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-label--l {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.16667;
   }
 }
 @media print {
   .nhsuk-label--l {
-    font-size: 24pt;
-    line-height: 1.05;
+    font-size: 20pt;
+    line-height: 1.2;
   }
 }
 
 .nhsuk-label--m {
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
 }
 @media (min-width: 40.0625em) {
   .nhsuk-label--m {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.33333;
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
   }
 }
 @media print {
   .nhsuk-label--m {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 17pt;
+    line-height: 1.25;
   }
 }
 
@@ -6004,8 +6131,8 @@ b {
 }
 @media print {
   .nhsuk-label--s {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -6130,13 +6257,13 @@ b {
   .nhsuk-pagination__title {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-pagination__title {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media print {
@@ -6161,8 +6288,8 @@ b {
 }
 @media print {
   .nhsuk-pagination__page {
-    font-size: 14pt;
-    line-height: 1.2;
+    font-size: 12pt;
+    line-height: 1.3;
   }
 }
 
@@ -6194,8 +6321,8 @@ b {
 }
 @media print {
   .nhsuk-checkboxes__item {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -6307,8 +6434,8 @@ b {
 }
 @media print {
   .nhsuk-checkboxes__divider {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -6370,8 +6497,8 @@ b {
 }
 @media print {
   .nhsuk-radios__item {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -6505,8 +6632,8 @@ b {
 }
 @media print {
   .nhsuk-radios__divider {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -6562,8 +6689,8 @@ b {
 }
 @media print {
   .nhsuk-select {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-select:focus {
@@ -6634,8 +6761,8 @@ b {
 }
 @media print {
   .nhsuk-summary-list {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 @media (min-width: 40.0625em) {
@@ -6764,6 +6891,7 @@ b {
  * Table container is used to ensure the table does not break the container.
  *
  * 1. Margin is removed so there isn't double spacing.
+ * 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
  */
 .nhsuk-table-container {
   margin-bottom: 40px;
@@ -6782,6 +6910,83 @@ b {
   margin: 0; /* [1] */
 }
 
+.nhsuk-table__caption--xl {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.1875;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-table__caption--xl {
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1.125;
+  }
+}
+@media print {
+  .nhsuk-table__caption--xl {
+    font-size: 26pt;
+    line-height: 1.15;
+  }
+}
+
+.nhsuk-table__caption--l {
+  font-size: 27px;
+  font-size: 1.6875rem;
+  line-height: 1.22222;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-table__caption--l {
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.16667;
+  }
+}
+@media print {
+  .nhsuk-table__caption--l {
+    font-size: 20pt;
+    line-height: 1.2;
+  }
+}
+
+.nhsuk-table__caption--m {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.31818;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-table__caption--m {
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.23077;
+  }
+}
+@media print {
+  .nhsuk-table__caption--m {
+    font-size: 17pt;
+    line-height: 1.25;
+  }
+}
+
+.nhsuk-table__caption--s {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.42105;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-table__caption--s {
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 1.36364;
+  }
+}
+@media print {
+  .nhsuk-table__caption--s {
+    font-size: 15pt;
+    line-height: 1.25;
+  }
+}
+
+/* [2] */
 /* Table row hover
 ========================================================================== */
 /**
@@ -6853,13 +7058,13 @@ b {
   .nhsuk-table__heading-tab {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-table__heading-tab {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media (max-width: 40.0525em) {
@@ -7019,7 +7224,7 @@ b {
 }
 @media print {
   .nhsuk-tag {
-    font-size: 14pt;
+    font-size: 12pt;
     line-height: 1;
   }
 }
@@ -7119,8 +7324,8 @@ b {
 }
 @media print {
   .nhsuk-textarea {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-textarea:focus {
@@ -7196,13 +7401,13 @@ b {
   .nhsuk-warning-callout__label {
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 1.33333;
+    line-height: 1.29167;
   }
 }
 @media print {
   .nhsuk-warning-callout__label {
-    font-size: 18pt;
-    line-height: 1.15;
+    font-size: 16pt;
+    line-height: 1.25;
   }
 }
 @media (max-width: 40.0525em) {
@@ -7275,8 +7480,8 @@ b {
 }
 @media print {
   .nhsuk-tabs__title {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 
@@ -7308,8 +7513,8 @@ b {
 }
 @media print {
   .nhsuk-tabs__list-item {
-    font-size: 14pt;
-    line-height: 1.15;
+    font-size: 13pt;
+    line-height: 1.25;
   }
 }
 .nhsuk-tabs__list-item:before {
