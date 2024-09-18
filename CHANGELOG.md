@@ -78,7 +78,13 @@ The square brackets mean that the date parts will be saved as an object when usi
 }
 ```
 
-This allows the values to be more easily pre-filled, which you can now do by passing an object to the `values` key:
+This means you can access the data in Nunjucks like this:
+
+```njk
+Your year of birth is {{ data.dob.year }}.
+```
+
+You can also now pass the object to the `values` key of the date input to set the values for the 3 inputs:
 
 ```njk
 {{ dateInput({
