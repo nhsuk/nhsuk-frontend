@@ -64,7 +64,7 @@ You should have this:
 
 #### Updated default `name` attributes for Date input component ([PR 994](https://github.com/nhsuk/nhsuk-frontend/pull/994))
 
-The default name attributes for the date input elements now use square brackets around the date part. For example: `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`, `dob-month`, `dob-year`). 
+The default name attributes for the date input elements now use square brackets around the date part. For example: `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`, `dob-month`, `dob-year`).
 
 The square brackets mean that the date parts will be saved as an object when using the NHS prototype kit, like this:
 
@@ -74,7 +74,7 @@ The square brackets mean that the date parts will be saved as an object when usi
     "day": "13",
     "month": "12",
     "year": "1984"
-  }  
+  }
 }
 ```
 
@@ -95,7 +95,7 @@ You can also now pass the object to the `values` key of the date input to set th
     }
   },
   values: data.dob
-}) }}  
+}) }}
 ```
 
 You can override this new default by setting the `name` attribute on the individual date parts within `items`:
