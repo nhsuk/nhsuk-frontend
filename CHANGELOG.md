@@ -4,7 +4,7 @@
 
 :boom: **Breaking changes**
 
-- Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
+#### Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
 
 The breadcrumbs component no longer contains its own `<div class="nhsuk-width-container">` container.
 
@@ -46,7 +46,7 @@ The back link should also be placed within the `<div class="nhsuk-width-containe
 
 The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`. However you can still include override classes if you want more or less spacing than the default.
 
-- Replaced font size class `nhsuk-u-font-size-32` with `nhsuk-u-font-size-36`, based on the new type scale
+#### Replaced font size class `nhsuk-u-font-size-32` with `nhsuk-u-font-size-36`, based on the new type scale ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
 
 If you use this font size modifier class, you'll need to update it.
 
@@ -62,10 +62,75 @@ You should have this:
 <p class="nhsuk-u-font-size-36">
 ```
 
+#### Updated default `name` attributes for Date input component ([PR 994](https://github.com/nhsuk/nhsuk-frontend/pull/994))
+
+The default name attributes for the date input elements now use square brackets around the date part. For example: `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`, `dob-month`, `dob-year`).
+
+The square brackets mean that the date parts will be saved as an object when using the NHS prototype kit, like this:
+
+```json
+{
+  "dob": {
+    "day": "13",
+    "month": "12",
+    "year": "1984"
+  }
+}
+```
+
+This means you can access the data in Nunjucks like this:
+
+```njk
+Your year of birth is {{ data.dob.year }}.
+```
+
+You can also now pass the object to the `values` key of the date input to set the values for the 3 inputs:
+
+```njk
+{{ dateInput({
+  namePrefix: "dob",
+  fieldset: {
+    legend: {
+      text: "What is your date of birth?"
+    }
+  },
+  values: data.dob
+}) }}
+```
+
+You can override this new default by setting the `name` attribute on the individual date parts within `items`:
+
+```njk
+{{ dateInput({
+  fieldset: {
+    legend: {
+      text: "What is your date of birth?"
+    }
+  },
+  items: [
+    {
+      name: "dob-day",
+      label: "Day",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "dob-month",
+      label: "Month",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "dob-year",
+      label: "Year",
+      classes: "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+```
+
 :recycle: **Changes**
 
-- Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
-- Medium headings, legends and labels updated to use 26px rather than 24px. ([Issue 445](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/445))
+- Large headings, legends and labels updated to use 36px rather than 32px ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
+- Medium headings, legends and labels updated to use 26px rather than 24px ([Issue 445](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/445))
 - Add sizing classes for table caption
 - Reduce heading caption sizes
 - Adjust print styles, making headings and body type smaller
