@@ -46,6 +46,22 @@ The back link should also be placed within the `<div class="nhsuk-width-containe
 
 The back link now contains some default margin above it, so you can remove any override classes you added previously, such as `nhsuk-u-margin-top-4`. However you can still include override classes if you want more or less spacing than the default.
 
+- Replaced font size class `nhsuk-u-font-size-32` with `nhsuk-u-font-size-36`, based on the new type scale
+
+If you use this font size modifier class, you'll need to update it.
+
+This means that instead of this:
+
+```html
+<p class="nhsuk-u-font-size-32">
+```
+
+You should have this:
+
+```html
+<p class="nhsuk-u-font-size-36">
+```
+
 :recycle: **Changes**
 
 - Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
