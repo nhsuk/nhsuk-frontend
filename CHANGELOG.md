@@ -62,6 +62,67 @@ You should have this:
 <p class="nhsuk-u-font-size-36">
 ```
 
+- Updated default `name` attributes for Date input component
+
+The default name attributes for the date input elements now use square brackets around the date part, for instance `dob[day]`, `dob[month]`, `dob[year]`. Previously they used hyphens (`dob-day`). 
+
+The square brackets mean that the date parts will get combined into an object when using the NHS Prototype Kit, like this:
+
+```json
+{
+  "dob": {
+    "day": "13",
+    "month": "12",
+    "year": "1984"
+  }  
+}
+```
+
+This allows the values to be more easily pre-filled, which you can now do by passing an object to the `values` key:
+
+```njk
+{{ dateInput({
+  namePrefix: "dob",
+  fieldset: {
+    legend: {
+      text: "What is your date of birth?"
+    }
+  },
+  values: data.dob
+}) }}  
+```
+
+You can override this new default by setting the `name` attribute on the individual date parts within `items`:
+
+```njk
+{{ dateInput({
+  fieldset: {
+    legend: {
+      text: "What is your date of birth?"
+    }
+  },
+  items: [
+    {
+      name: "dob-day",
+      label: "Day",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "dob-month",
+      label: "Month",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "dob-year",
+      label: "Year",
+      classes: "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+```
+
+This change was made in [PR 994](https://github.com/nhsuk/nhsuk-frontend/pull/994).
+
 :recycle: **Changes**
 
 - Large headings, legends and labels updated to use 36px rather than 32px. ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
