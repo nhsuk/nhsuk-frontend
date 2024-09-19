@@ -151,7 +151,7 @@ The task list Nunjucks macro takes the following arguments:
 | **attributes** | object | No       | HTML attributes (for example data attributes) to add to the `ul` container for the task list.    |
 | **idPrefix**   | string | No       | Optional prefix. This is used to prefix the `id` attribute for the task list item tag and hint, separated by `-`. Defaults to `"task-list"`. |
 
-### Options for `items` array objects
+### Options for `items` array
 
 | Name           | Type   | Required | Description                                                                                     |
 | -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------- |
