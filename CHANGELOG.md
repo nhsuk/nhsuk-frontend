@@ -2,9 +2,20 @@
 
 ## Unreleased
 
+:new: **New features**
+
+- Add task list component ([PR 969](https://github.com/nhsuk/nhsuk-frontend/pull/969))
+
+:wrench: **Fixes**
+
 - Fix Sass deprecation on `mix` function (passing a number without unit) ([PR 995](https://github.com/nhsuk/nhsuk-frontend/pull/995))
 - Add nhsukAttributes macro, copied from GOV.UK ([PR 998](https://github.com/nhsuk/nhsuk-frontend/pull/998))
-- Add task list component ([PR 969](https://github.com/nhsuk/nhsuk-frontend/pull/969))
+- Fix missing classes option for summary list rows ([PR 1007](https://github.com/nhsuk/nhsuk-frontend/pull/1007))
+- Add support for inline conditions on summary list rows ([PR 1008](https://github.com/nhsuk/nhsuk-frontend/pull/1008))
+- Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
+- Adjusted default spacing of back link component ([PR 964](https://github.com/nhsuk/nhsuk-frontend/pull/964))
+- Reduce main wrapper padding on mobile ([PR 1003](https://github.com/nhsuk/nhsuk-frontend/pull/1003))
+- Fix image encoding issue introduced in Gulp v5.0 ([PR 1013](https://github.com/nhsuk/nhsuk-frontend/pull/1013))
 
 ## 8.3.0 - 24 July 2024
 
