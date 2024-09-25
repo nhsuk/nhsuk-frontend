@@ -8,6 +8,7 @@
  * 4. Typography sizing mixin, see core/tools/_typography
  * 5. and core/settings/_typography for size maps.
  * 5. .. but show a back to index page link.
+ * 6. Spacing to align the chevron with breadcrumb items
  */
 
 .nhsuk-breadcrumb {
@@ -40,11 +41,11 @@
       right 0 top 0 no-repeat;
     content: "";
     display: inline-block;
-    height: 19px;
-    margin-left: 10px;
-    margin-right: 2px;
-    vertical-align: middle;
-    width: 18px;
+    height: 19px; /* [6] */
+    margin-left: 9px; /* [6] */
+    margin-right: 2px; /* [6] */
+    vertical-align: middle; /* [6] */
+    width: 18px; /* [6] */
   }
 }
 
