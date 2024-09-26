@@ -321,7 +321,7 @@ The table Nunjucks macro takes the following arguments:
 | **tableClasses**                   | string  | No       | Optional additional classes to add to the table. Separate each class with a space.                                                            |
 | **attributes**                     | object  | No       | Any extra HTML attributes (for example data attributes) to add to the table.                                                                  |
 | **caption**                        | string  | No       | Optional caption for the table.                                                                                                               |
-| **captionClasses**                 | string  | No       | Optional additional classes to add to the table caption. Separate each class with a space.                                                    |
+| **captionClasses**                 | string  | No       | Optional additional classes to add to the table caption, for example `nhsuk-table__caption--l`. Separate each class with a space.             |
 | **head**                           | array   | No       | Optional array of table head cells.                                                                                                           |
 | **head.[].text or head.[].html**   | array   | No       | Optional array of table head cells. If `html` is specified, the `text` argument will be ignored.                                              |
 | **head.[].colspan**                | number  | No       | Specify how many columns a cell extends.                                                                                                      |

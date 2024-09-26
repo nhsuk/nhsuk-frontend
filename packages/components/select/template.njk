@@ -1,6 +1,7 @@
 {% from "../error-message/macro.njk" import errorMessage -%}
 {% from "../hint/macro.njk" import hint %}
 {% from "../label/macro.njk" import label %}
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
@@ -40,12 +41,12 @@
     {%- if params.classes %} {{ params.classes }}{% endif %}
     {%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}"
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {{- nhsukAttributes(params.attributes) }}>
   {%- for item in params.items %}
     <option value="{{ item.value }}"
       {{-" selected" if item.selected }}
       {{-" disabled" if item.disabled }}
-      {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>{{ item.text }}</option>
+      {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</option>
   {%- endfor %}
   </select>
 </div>

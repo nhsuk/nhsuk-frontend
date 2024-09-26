@@ -485,6 +485,7 @@
 }
 
 .nhsuk-navigation-container {
+  @include print-hide();
   position: relative;
 }
 
