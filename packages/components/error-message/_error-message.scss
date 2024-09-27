@@ -8,5 +8,6 @@
   clear: both;
   color: $nhsuk-error-color;
   display: block;
+  margin-top: 0; // Reset any default browser margins for paragraphs
   margin-bottom: nhsuk-spacing(3);
 }
