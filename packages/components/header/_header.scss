@@ -350,6 +350,11 @@
   text-decoration: underline;
   white-space: nowrap;
 
+  /* Last item in the nav doesn't need margin on the right */
+  &:last-of-type {
+    margin-right: 0;
+  }
+
   @include mq($from: tablet) {
     padding: 12px 0;
   }
