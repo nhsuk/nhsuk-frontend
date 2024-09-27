@@ -449,9 +449,17 @@
 }
 
 .nhsuk-navigation {
-  margin-left: -$nhsuk-gutter-half;
-  margin-right: -$nhsuk-gutter-half;
+  /* These negative margins are the same as the padding on the navigation items,
+     and used to align the text of the first and last item with the rest of the header. */
+  margin-left: -12px;
+  margin-right: -12px;
   display: flex;
+
+  @include mq($from: tablet) {
+  /* These padding is slightly more from tablet width upwards. */
+    margin-left: -16px;
+    margin-right: -16px;
+  }
 
   @include mq($until: tablet) {
     position: relative;
