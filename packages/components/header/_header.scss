@@ -486,6 +486,7 @@
 
 .nhsuk-navigation-container {
   @include govuk-width-container;
+  @include print-hide();
   position: relative;
 }
 
