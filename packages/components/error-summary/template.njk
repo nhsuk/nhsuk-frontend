@@ -1,27 +1,32 @@
 {% from "../../macros/attributes.njk" import nhsukAttributes %}
 
 <div class="nhsuk-error-summary
-  {%- if params.classes %} {{ params.classes }}{% endif %}" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+  {%- if params.classes %} {{ params.classes }}{% endif %}" tabindex="-1"
   {{- nhsukAttributes(params.attributes) }}>
-  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+  {# Keep the role="alert" in a seperate child container to prevent a race condition between
+  the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
+  <div role="alert">
+    <h2 class="nhsuk-error-summary__title">
     {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
-  </h2>
-  <div class="nhsuk-error-summary__body">
-    {%- if params.descriptionHtml or params.descriptionText %}
-    <p>
-      {{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}
-    </p>
-    {% endif -%}
-    <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
-    {%- for item in params.errorList %}
-      <li>
-      {%- if item.href %}
-        <a href="{{ item.href }}"{{- nhsukAttributes(item.attributes) }}>{{ item.html | safe if item.html else item.text }}</a>
-      {% else %}
-        {{ item.html | safe if item.html else item.text }}
-      {%- endif -%}
-      </li>
-    {%- endfor %}
-    </ul>
+    </h2>
+    <div class="nhsuk-error-summary__body">
+      {%- if params.descriptionHtml or params.descriptionText %}
+      <p>
+        {{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}
+      </p>
+      {% endif -%}
+      <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+      {%- for item in params.errorList %}
+        <li>
+        {%- if item.href %}
+          <a href="{{ item.href }}"{{- nhsukAttributes(item.attributes) }}>{{ item.html | safe if item.html else item.text }}</a>
+        {% else %}
+          {{ item.html | safe if item.html else item.text }}
+        {%- endif -%}
+        </li>
+      {%- endfor %}
+      </ul>
+    </div>
   </div>
+
 </div>

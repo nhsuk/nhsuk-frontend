@@ -1,5 +1,23 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+* Updates the error summary markup ([fixes #1035](https://github.com/nhsuk/nhsuk-frontend/issues/1035), [PR 1036](https://github.com/nhsuk/nhsuk-frontend/pull/1036))
+
+### Recommended changes - error summary markup
+
+#### Remove `aria-labelledby`, remove `id="error-summary-title"` from title and move `role="alert"` to child container on the error summary component
+
+If you’re not using the Nunjucks macros, you can improve the experience for screen reader users by making these changes to the error summary markup:
+
+- Remove `aria-labelledby="error-summary-title"` and `role="alert"` from the parent element (`nhsuk-error-summary`)
+- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+
+This will enable screen reader users to have a better, more coherent experience with the error summary. Most notably it will ensure that users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they’re on. It also prevents VoiceOver from announcing 'There is a problem' twice.
+
+This was originally added in this [GOV.UK Frontend PR #2677](https://github.com/alphagov/govuk-frontend/pull/2677).
+
 ## 9.0.0 - 18 September 2024
 
 :boom: **Breaking changes**
