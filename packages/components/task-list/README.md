@@ -12,34 +12,25 @@ Find out more about the task-list component and when to use it in the [NHS digit
 
 ```html
 <ul class="nhsuk-task-list">
+  
   <li class="nhsuk-task-list__item nhsuk-task-list__item--with-link">
-    <div class="nhsuk-task-list__name-and-hint" aria-describedby="your-health-1-status">
-      <a class="nhsuk-link nhsuk-task-list__link" href="#">
-        Exercise
-      </a>
+    <div class="nhsuk-task-list__name-and-hint">
+      <a class="nhsuk-link nhsuk-task-list__link" href="#" aria-describedby="your-health-1-status">Exercise</a>
     </div>
-    <div class="nhsuk-task-list__status nhsuk-task-list__status--completed" id="your-health-1-status">
-      Completed
-    </div>
+    <div class="nhsuk-task-list__status nhsuk-task-list__status--completed" id="your-health-1-status">Completed</div>
   </li>
+  
   <li class="nhsuk-task-list__item nhsuk-task-list__item--with-link">
-    <div class="nhsuk-task-list__name-and-hint" aria-describedby="your-health-2-status">
-      <a class="nhsuk-link nhsuk-task-list__link" href="#">
-        Personal health
-      </a>
+    <div class="nhsuk-task-list__name-and-hint">
+      <a class="nhsuk-link nhsuk-task-list__link" href="#" aria-describedby="your-health-2-status">Personal health</a>
     </div>
-    <div class="nhsuk-task-list__status nhsuk-task-list__status--completed" id="your-health-2-status">
-      Completed
-    </div>
+    <div class="nhsuk-task-list__status nhsuk-task-list__status--completed" id="your-health-2-status">Completed</div>
   </li>
+  
   <li class="nhsuk-task-list__item nhsuk-task-list__item--with-link">
-    <div class="nhsuk-task-list__name-and-hint" aria-describedby="your-health-3-hint your-health-3-status">
-      <a class="nhsuk-link nhsuk-task-list__link" href="#">
-        Family health history
-      </a>
-      <div id="your-health-3-hint" class="nhsuk-task-list__hint">
-        Details of your parents and siblings
-      </div>
+    <div class="nhsuk-task-list__name-and-hint">
+      <a class="nhsuk-link nhsuk-task-list__link" href="#" aria-describedby="your-health-3-hint your-health-3-status">Family health history</a>
+      <div id="your-health-3-hint" class="nhsuk-task-list__hint">Details of your parents and siblings</div>
     </div>
     <div class="nhsuk-task-list__status" id="your-health-3-status">
       <strong class="nhsuk-tag nhsuk-tag--blue">
@@ -47,11 +38,10 @@ Find out more about the task-list component and when to use it in the [NHS digit
       </strong>
     </div>
   </li>
+  
   <li class="nhsuk-task-list__item nhsuk-task-list__item--with-link">
-    <div class="nhsuk-task-list__name-and-hint" aria-describedby="your-health-4-status">
-      <a class="nhsuk-link nhsuk-task-list__link" href="#">
-        Smoking history
-      </a>
+    <div class="nhsuk-task-list__name-and-hint">
+      <a class="nhsuk-link nhsuk-task-list__link" href="#" aria-describedby="your-health-4-status">Smoking history</a>
     </div>
     <div class="nhsuk-task-list__status" id="your-health-4-status">
       <strong class="nhsuk-tag nhsuk-tag--blue">
@@ -59,16 +49,14 @@ Find out more about the task-list component and when to use it in the [NHS digit
       </strong>
     </div>
   </li>
+  
   <li class="nhsuk-task-list__item">
-    <div class="nhsuk-task-list__name-and-hint" aria-describedby="your-health-5-status">
-      <div>
-        Blood test
-      </div>
+    <div class="nhsuk-task-list__name-and-hint">
+      <div>Blood test</div>
     </div>
-    <div class="nhsuk-task-list__status nhsuk-task-list__status--cannot-start-yet" id="your-health-5-status">
-      Cannot start yet
-    </div>
+    <div class="nhsuk-task-list__status nhsuk-task-list__status--cannot-start-yet" id="your-health-5-status">Cannot start yet</div>
   </li>
+  
 </ul>
 ```
 
