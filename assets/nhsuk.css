@@ -2953,6 +2953,7 @@ b {
  * 4. Typography sizing mixin, see core/tools/_typography
  * 5. and core/settings/_typography for size maps.
  * 5. .. but show a back to index page link.
+ * 6. Spacing to align the chevron with breadcrumb items
  */
 .nhsuk-breadcrumb {
   /* [1] */
@@ -3021,13 +3022,14 @@ b {
   }
 }
 .nhsuk-breadcrumb__item:not(:last-child):after {
-  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-right' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' height='18' width='18' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'%3E%3C/path%3E%3C/svg%3E") right 0 top 4px no-repeat;
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-right' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' height='18' width='18' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'%3E%3C/path%3E%3C/svg%3E") right 0 top 0 no-repeat;
   content: "";
   display: inline-block;
-  height: 18px;
-  margin-left: 10px;
-  margin-right: 2px;
-  width: 18px;
+  height: 19px; /* [6] */
+  margin-left: 9px; /* [6] */
+  margin-right: 2px; /* [6] */
+  vertical-align: middle; /* [6] */
+  width: 18px; /* [6] */
 }
 
 .nhsuk-breadcrumb__link:visited {
@@ -3660,6 +3662,12 @@ b {
 }
 .nhsuk-card--care--emergency .nhsuk-card__content a:focus {
   color: #212b32; /* [16] */
+}
+@media print {
+  .nhsuk-card--care--emergency .nhsuk-card__content {
+    background-color: white;
+    color: #212b32;
+  }
 }
 .nhsuk-card--care--emergency .nhsuk-details,
 .nhsuk-card--care--emergency .nhsuk-details__summary {
