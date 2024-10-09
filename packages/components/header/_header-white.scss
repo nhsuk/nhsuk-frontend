@@ -20,13 +20,7 @@
   }
 
   .nhsuk-logo {
-    .nhsuk-logo__background {
-      fill: $color_nhsuk-blue;
-    }
-
-    .nhsuk-logo__text {
-      fill: $color_nhsuk-white;
-    }
+    color: $color_nhsuk-blue;
   }
 
   .nhsuk-header__link {
@@ -35,6 +29,12 @@
       text-decoration: underline;
 
       .nhsuk-organisation-descriptor {
+        color: $nhsuk-text-color;
+      }
+    }
+
+    &:focus {
+      .nhsuk-logo {
         color: $nhsuk-text-color;
       }
     }
