@@ -19,6 +19,12 @@
     background-color: $color_nhsuk-blue;
   }
 
+  .nhsuk-navigation {
+    .nhsuk-header__navigation-list {
+      border-top: none;
+    }
+  }
+
   .nhsuk-logo {
     .nhsuk-logo__background {
       fill: $color_nhsuk-blue;
@@ -100,6 +106,7 @@
   .nhsuk-navigation-container {
     background-color: $color_nhsuk-white;
   }
+
   .nhsuk-navigation {
     background-color: $color_nhsuk-white;
 
