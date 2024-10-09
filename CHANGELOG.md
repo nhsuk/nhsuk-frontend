@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 9.0.0 - 18 September 2024
+## 9.0.1 - 9 October 2024
 
 :wrench: **Fixes**
 
