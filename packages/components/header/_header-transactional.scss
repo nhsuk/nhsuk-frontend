@@ -3,12 +3,9 @@
 */
 
 .nhsuk-header__transactional-service-name {
+  margin-bottom: -(nhsuk-spacing(1));
   padding-left: nhsuk-spacing(3);
-  padding-top: 3px;
-
-  @include mq($until: tablet) {
-    padding-bottom: nhsuk-spacing(3);
-  }
+  padding-top: 2px;
 
   @include mq($until: tablet) {
     padding-left: 0;
