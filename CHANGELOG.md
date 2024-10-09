@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - Fix layout bug where breadcrumb component was changing height when more than one link shown
+- Fix print styling bug with emergecy care card ([Issue 533]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/533]))
 
 ## 9.0.0 - 18 September 2024
 
