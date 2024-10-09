@@ -250,6 +250,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
         color: $color_nhsuk-black; /* [16] */
       }
     }
+    @include mq($media-type: print) {
+      background-color: white;
+      color: $nhsuk-print-text-color;
+    }
   }
 
   .nhsuk-details,
