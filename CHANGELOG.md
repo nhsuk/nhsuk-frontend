@@ -2,6 +2,12 @@
 
 ## 9.0.0 - 18 September 2024
 
+:wrench: **Fixes**
+
+- Fix layout bug where breadcrumb component was changing height when more than one link shown
+
+## 9.0.0 - 18 September 2024
+
 :boom: **Breaking changes**
 
 #### Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
