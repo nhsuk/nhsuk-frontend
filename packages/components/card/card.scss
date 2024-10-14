@@ -178,6 +178,11 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding-bottom: nhsuk-spacing(3);
   padding-top: nhsuk-spacing(3);
   position: relative;
+
+  // Fix for https://github.com/nhsuk/nhsuk-frontend/issues/1048
+  &:has(.nhsuk-card--care__arrow){
+    transform: translateZ(0);
+  }
 }
 
 .nhsuk-card--care__heading {
