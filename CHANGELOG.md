@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Fix visual glitch with care card arrows in Safari ([Issue 1048](https://github.com/nhsuk/nhsuk-frontend/issues/1048))
+
 ## 9.0.1 - 9 October 2024
 
 :wrench: **Fixes**
