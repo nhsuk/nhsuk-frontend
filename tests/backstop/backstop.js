@@ -369,6 +369,10 @@ module.exports = {
       url: `${TEST_URL}/pagination/index.html`,
     },
     {
+      label: 'Panel',
+      url: `${TEST_URL}/panel/index.html`,
+    },
+    {
       label: 'Radios',
       url: `${TEST_URL}/radios/index.html`,
     },
