@@ -532,7 +532,7 @@
 
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
-    padding: 16px;
+    padding: 12px 16px;
 
     @include mq($from: desktop) {
       padding-left: 32px;
