@@ -521,18 +521,23 @@
   margin-right: 0;
 
   @include mq($from: tablet) {
-    margin-left: -8px;
+    margin-left: -16px;
     margin-right: -16px;
   }
 
   @include mq($from: desktop) {
-    margin-left: -16px;
+    margin-left: -32px;
     margin-right: -32px;
   }
 
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
     padding: 16px;
+
+    @include mq($from: desktop) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   .nhsuk-header__navigation-item {
