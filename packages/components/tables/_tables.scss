@@ -99,6 +99,11 @@
 
     @include mq($from: desktop) {
       @include visually-shown(table-header-group); /* [2] */
+
+      &:before,
+      &:after {
+        content: "";
+      }
     }
   }
 
