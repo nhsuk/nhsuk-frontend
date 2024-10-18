@@ -455,12 +455,6 @@
   margin-right: -16px;
   display: flex;
 
-  @include mq($from: tablet) {
-    /* These padding is slightly more from tablet width upwards. */
-    margin-left: -16px;
-    margin-right: -16px;
-  }
-
   @include mq($until: tablet) {
     position: relative;
     z-index: 10;
