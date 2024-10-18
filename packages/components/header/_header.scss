@@ -449,6 +449,10 @@
 }
 
 .nhsuk-navigation {
+  /* These negative margins are the same as the padding on the navigation items,
+     and used to align the text of the first and last item with the rest of the header. */
+  margin-left: -16px;
+  margin-right: -16px;
   display: flex;
 
   @include mq($until: tablet) {
@@ -465,10 +469,16 @@
 
 // ul of visible nav
 .nhsuk-header__navigation-list {
-  @extend %nhsuk-navigation-list;
-  @include govuk-width-container;
+  margin-left: nhsuk-spacing(1);
+  margin-right: nhsuk-spacing(1);
 
+  @extend %nhsuk-navigation-list;
   width: 100%;
+
+  @include mq($from: tablet) {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   @include mq($from: desktop) {
     display: flex;
@@ -485,6 +495,7 @@
 }
 
 .nhsuk-navigation-container {
+  @include govuk-width-container;
   @include print-hide();
   position: relative;
 }
@@ -500,10 +511,27 @@
   right: 0;
   top: 100%;
   left: 0;
+  margin-left: 0;
+  margin-right: 0;
+
+  @include mq($from: tablet) {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  @include mq($from: desktop) {
+    margin-left: -32px;
+    margin-right: -32px;
+  }
 
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
-    padding: 12px nhsuk-spacing(3);
+    padding: 12px 16px;
+
+    @include mq($from: desktop) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   .nhsuk-header__navigation-item {
