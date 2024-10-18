@@ -475,8 +475,8 @@
 
 // ul of visible nav
 .nhsuk-header__navigation-list {
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: nhsuk-spacing(1);
+  margin-right: nhsuk-spacing(1);
 
   @extend %nhsuk-navigation-list;
   width: 100%;
