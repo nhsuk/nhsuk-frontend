@@ -54,9 +54,14 @@ class Header {
    *
    */
   calculateBreakpoints() {
+    // Get the width of the gap between each navigation item
+    const navigationListStyles = window.getComputedStyle(this.navigationList)
+    const gapPixels = navigationListStyles.getPropertyValue('gap')
+    const gap = Number(gapPixels.replace('px', ''))
+
     let childrenWidth = 0
     for (let i = 0; i < this.navigationList.children.length; i++) {
-      childrenWidth += this.navigationList.children[i].offsetWidth
+      childrenWidth += this.navigationList.children[i].offsetWidth + gap
       this.breakpoints[i] = childrenWidth
     }
   }
