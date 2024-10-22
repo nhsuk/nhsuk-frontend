@@ -451,7 +451,6 @@
 .nhsuk-navigation {
   display: flex;
 
-
   @include mq($until: tablet) {
     position: relative;
     z-index: 10;
@@ -467,6 +466,7 @@
 // ul of visible nav
 .nhsuk-header__navigation-list {
   @extend %nhsuk-navigation-list;
+  @include govuk-width-container;
   display: flex;
   gap: nhsuk-spacing(4);
   width: 100%;
@@ -486,7 +486,6 @@
 }
 
 .nhsuk-navigation-container {
-  @include govuk-width-container;
   @include print-hide();
   position: relative;
 }
