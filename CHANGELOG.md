@@ -16,6 +16,7 @@
 
 :wrench: **Fixes**
 
+- Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix layout bug where breadcrumb component was changing height when more than one link shown
 - Fix print styling bug with emergency care card ([Issue 533]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/533]))
 
