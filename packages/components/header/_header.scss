@@ -345,18 +345,12 @@
   color: $color_nhsuk-white;
   display: block;
   font-size: inherit;
-  padding: nhsuk-spacing(3) 0;
-  margin-right: nhsuk-spacing(6);
+  padding: nhsuk-spacing(3) 2px;
   text-decoration: underline;
   white-space: nowrap;
 
-  /* Last item in the nav doesn't need margin on the right */
-  &:last-of-type {
-    margin-right: 0;
-  }
-
   @include mq($from: tablet) {
-    padding: 12px 0;
+    padding: 12px 2px;
   }
 
   .nhsuk-icon__chevron-right {
@@ -473,11 +467,13 @@
 // ul of visible nav
 .nhsuk-header__navigation-list {
   @extend %nhsuk-navigation-list;
+  display: flex;
+  gap: nhsuk-spacing(4);
   width: 100%;
 
   @include mq($from: desktop) {
-    display: flex;
     justify-content: space-between;
+    gap: nhsuk-spacing(5);
   }
 
   .js-enabled & {
