@@ -473,7 +473,6 @@
 
   @include mq($from: desktop) {
     justify-content: space-between;
-    gap: nhsuk-spacing(5);
   }
 
   .js-enabled & {
