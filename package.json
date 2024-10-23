@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "8.3.0",
+  "version": "9.0.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "engines": {
     "node": ">=20.0.0"
@@ -59,7 +59,7 @@
     "jest-environment-puppeteer": "^10.0.1",
     "minimist": "^1.2.8",
     "nunjucks": "^3.2.4",
-    "prettier": "^3.3.2",
+    "prettier": "3.3.3",
     "puppeteer": "^22.12.1",
     "sass": "^1.77.6",
     "start-server-and-test": "^2.0.4",

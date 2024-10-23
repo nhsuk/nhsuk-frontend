@@ -28,7 +28,7 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include nhsuk-typography-responsive(32);
+  @include nhsuk-typography-responsive(36);
 
   display: block;
   font-weight: $nhsuk-font-bold;
@@ -43,7 +43,7 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-typography-responsive(26);
 
   display: block;
   font-weight: $nhsuk-font-bold;
@@ -105,7 +105,7 @@ h6,
 /* Captions to be used inside headings */
 
 .nhsuk-caption-xl {
-  @include nhsuk-font(32);
+  @include nhsuk-font(26);
 
   color: $nhsuk-secondary-text-color;
   display: block;
@@ -113,7 +113,7 @@ h6,
 }
 
 .nhsuk-caption-l {
-  @include nhsuk-font(24);
+  @include nhsuk-font(22);
 
   color: $nhsuk-secondary-text-color;
   display: block;
@@ -257,4 +257,52 @@ h1 + .nhsuk-lede-text--small {
 strong,
 b {
   font-weight: $nhsuk-font-bold;
+}
+
+@include mq($media-type: print) {
+  .nhsuk-main-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  h1,
+  .nhsuk-heading-xl,
+  h2,
+  .nhsuk-heading-l,
+  h3,
+  .nhsuk-heading-m,
+  h4,
+  .nhsuk-heading-s,
+  h5,
+  .nhsuk-heading-xs,
+  h6,
+  .nhsuk-heading-xxs,
+  .nhsuk-lede-text,
+  .nhsuk-body-l,
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  address,
+  ol,
+  ul,
+  .nhsuk-list {
+    margin-bottom: 7.5pt;
+  }
+
+  h1 {
+    margin-bottom: 15pt !important;
+  }
+
+  %nhsuk-body-l + %nhsuk-heading-l,
+  %nhsuk-body-m + %nhsuk-heading-l,
+  %nhsuk-body-s + %nhsuk-heading-l,
+  %nhsuk-list + %nhsuk-heading-l,
+  %nhsuk-body-m + %nhsuk-heading-m,
+  %nhsuk-body-s + %nhsuk-heading-m,
+  %nhsuk-list + %nhsuk-heading-m,
+  %nhsuk-body-m + %nhsuk-heading-s,
+  %nhsuk-body-s + %nhsuk-heading-s,
+  %nhsuk-list + %nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
 }
