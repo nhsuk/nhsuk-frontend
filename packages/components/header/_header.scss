@@ -333,12 +333,12 @@
   color: $color_nhsuk-white;
   display: block;
   font-size: inherit;
-  padding: nhsuk-spacing(3) 12px;
+  padding: nhsuk-spacing(3) 2px;
   text-decoration: underline;
   white-space: nowrap;
 
   @include mq($from: tablet) {
-    padding: 12px nhsuk-spacing(3);
+    padding: 12px 2px;
   }
 
   .nhsuk-icon__chevron-right {
@@ -409,11 +409,15 @@
   z-index: 1;
 
   &.nhsuk-header__navigation-link {
-    padding-right: 30px;
+    padding-right: 23px;
   }
 
   @include mq($from: desktop) {
     display: none;
+  }
+
+  .nhsuk-icon__chevron-down {
+    right: -3px;
   }
 
   &:focus {
@@ -455,11 +459,11 @@
 .nhsuk-header__navigation-list {
   @extend %nhsuk-navigation-list;
   @include govuk-width-container;
-
+  display: flex;
+  gap: nhsuk-spacing(4);
   width: 100%;
 
   @include mq($from: desktop) {
-    display: flex;
     justify-content: space-between;
   }
 
