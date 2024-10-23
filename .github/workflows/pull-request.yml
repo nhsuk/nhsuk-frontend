@@ -16,8 +16,8 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm install
-  
+      run: npm ci
+
     - name: Sonar analysis
       uses: sonarsource/sonarcloud-github-action@master
       with:
