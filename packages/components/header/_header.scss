@@ -421,11 +421,15 @@
   z-index: 1;
 
   &.nhsuk-header__navigation-link {
-    padding-right: 30px;
+    padding-right: 23px;
   }
 
   @include mq($from: desktop) {
     display: none;
+  }
+
+  .nhsuk-icon__chevron-down {
+    right: -3px;
   }
 
   &:focus {
