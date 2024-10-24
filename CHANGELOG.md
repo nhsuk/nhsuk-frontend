@@ -4,6 +4,7 @@
 
 :wrench: **Fixes**
 
+- Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1060](https://github.com/nhsuk/nhsuk-frontend/pull/1060))
 - Update header styles so that `.nhsuk-header__search-no-nav` class is no longer needed when header contains a search field but no navigation ([PR 1046](https://github.com/nhsuk/nhsuk-frontend/pull/1046))
 - Update navigation list item padding to vertically align navigation items with width container ([PR 1033](https://github.com/nhsuk/nhsuk-frontend/pull/1033))
 
