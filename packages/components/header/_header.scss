@@ -412,10 +412,6 @@
     padding-right: 23px;
   }
 
-  @include mq($from: desktop) {
-    display: none;
-  }
-
   .nhsuk-icon__chevron-down {
     right: -3px;
   }
