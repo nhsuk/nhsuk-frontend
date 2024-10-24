@@ -155,7 +155,7 @@ class Header {
    */
 
   updateNavigation() {
-    const availableSpace = this.navigation.offsetWidth
+    const availableSpace = this.navigationList.offsetWidth
     let itemsVisible = this.navigationList.children.length
 
     if (availableSpace < this.breakpoints[itemsVisible - 1]) {
