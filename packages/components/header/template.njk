@@ -18,9 +18,7 @@
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-header__container">
-    <div class="nhsuk-header__logo
-    {%- if not params.primaryLinks and not params.search and params.transactionalService %} nhsuk-header__transactional--logo{% endif %}
-    {%- if not params.primaryLinks and not params.search and not params.transactionalService %} nhsuk-header__logo--only{% endif %}">
+    <div class="nhsuk-header__logo">
     {%- if params.organisation %}
       <a class="nhsuk-header__link" href="{{ params.homeHref | default('/') }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
       {%- if params.organisation.logoURL %}
