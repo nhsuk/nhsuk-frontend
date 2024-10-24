@@ -12,7 +12,9 @@
 // Default icon colours
 
 .nhsuk-icon__search {
-  fill: $color_nhsuk-blue;
+  fill: currentColor;
+  height: 28px;
+  width: 28px;
 }
 
 .nhsuk-icon__chevron-left {
@@ -48,19 +50,11 @@
 }
 
 .nhsuk-icon__chevron-down {
-  fill: $color_nhsuk-white;
-  height: 24px;
-  position: absolute;
-  right: 4px;
+  fill: currentColor;
+  height: nhsuk-spacing(4);
+  margin-right: -(nhsuk-spacing(1));
   transform: rotate(90deg);
-  width: 24px;
-}
-
-.nhsuk-icon__chevron-up {
-  fill: $color_nhsuk-blue;
-  path {
-    fill: $color_nhsuk-white;
-  }
+  width: nhsuk-spacing(4);
 }
 
 .nhsuk-icon__emdash {
