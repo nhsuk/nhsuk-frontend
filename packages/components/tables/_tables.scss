@@ -170,3 +170,8 @@
 .nhsuk-table__cell--numeric {
   text-align: right;
 }
+
+.nhsuk-table__header--break-word,
+.nhsuk-table__cell--break-word {
+  word-break: break-all;
+}
