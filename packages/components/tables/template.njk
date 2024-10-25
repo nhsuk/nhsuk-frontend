@@ -30,28 +30,21 @@
     <tbody class="nhsuk-table__body">
     {%- for row in params.rows %}
       <tr role="row" class="nhsuk-table__row" >
-        {%- if params.responsive %}
-          {%- for cell in row %}
-            <td role="cell" class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
+        {%- for cell in row %}
+          {%- if loop.first and params.firstCellIsHeader %}
+            <th class="nhsuk-table__header {%- if cell.classes %}{{ cell.classes }}{% endif %}" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
+          {% else %}
+            <td class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %} {%- if cell.classes %}{{ cell.classes }}{% endif %}"
+            {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+            {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>
+            {%- if params.responsive %}
               <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
+            {% else %}
+              {{ cell.html | safe if cell.html else cell.text }}
+            {% endif %}
             </td>
-          {%- endfor %}
-        {%- else %}
-          {%- for cell in row %}
-            {%- if loop.first and params.firstCellIsHeader %}
-              <th class="nhsuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
-            {%- elseif loop.first %}
-              <td class="nhsuk-table__cell
-            {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}"
-                {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-                {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
-            {%- else %}
-              <td class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %}"
-                {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-                {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
-            {%- endif %}
-          {%- endfor %}
-        {%- endif %}
+          {%- endif %}
+        {%- endfor %}
       </tr>
     {%- endfor %}
     </tbody>
