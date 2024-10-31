@@ -16,14 +16,6 @@
     width: auto;
   }
 
-  &:hover {
-    background: none;
-
-    .nhsuk-header__service-name {
-      text-decoration: underline;
-    }
-  }
-
   &:focus {
     background: $nhsuk-focus-color;
     box-shadow:
