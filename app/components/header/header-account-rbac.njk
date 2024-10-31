@@ -1,0 +1,50 @@
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header with account (logged in, RBAC)" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
+
+{% block body %}
+  {{ header({
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          text: "RA Manager, Hull and East Yorkshire Hospitals NHS Trust (RWA)"
+        },
+        {
+          href: "#",
+          text: "Change role"
+        },
+        {
+          href: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    search: {
+      placeholder: "User name, UUID or NI number",
+      visuallyHiddenLabel: "Search for a user"
+    },
+    service: {
+      name: "CIS2 - Care Identity Management"
+    },
+    primaryLinks: [
+      {
+        url: "#",
+        label: "Home"
+      },
+      {
+        url: "#",
+        label: "Create user"
+      },
+      {
+        url: "#",
+        label: "Find user"
+      }
+    ]
+  }) }}
+{% endblock %}
