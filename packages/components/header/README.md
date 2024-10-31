@@ -81,11 +81,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
                   Pregnancy
                 </a>
               </li>
-              <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-                <a class="nhsuk-header__navigation-link" href="/">
-                  Home
-                </a>
-              </li>
             </ul>
           </li>
         </ul>
@@ -179,11 +174,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/pregnancy/">
               Pregnancy
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-            <a class="nhsuk-header__navigation-link"  href="/">
-              Home
             </a>
           </li>
           <li class="nhsuk-mobile-menu-container">
@@ -400,11 +390,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
               Our research
             </a>
           </li>
-          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-            <a class="nhsuk-header__navigation-link"  href="/">
-              Home
-            </a>
-          </li>
           <li class="nhsuk-mobile-menu-container">
             <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
               <span class="nhsuk-u-visually-hidden">Browse</span>
@@ -515,11 +500,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="#">
               Our research
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-            <a class="nhsuk-header__navigation-link"  href="/">
-              Home
             </a>
           </li>
           <li class="nhsuk-mobile-menu-container">
@@ -633,11 +613,6 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="#">
               Our research
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-            <a class="nhsuk-header__navigation-link"  href="/">
-              Home
             </a>
           </li>
           <li class="nhsuk-mobile-menu-container">
