@@ -220,12 +220,6 @@
   margin-bottom: 0;
 }
 
-.nhsuk-header__navigation-item--home {
-  @include mq($from: desktop) {
-    display: none;
-  }
-}
-
 .nhsuk-header__navigation-link {
   @include nhsuk-font(16);
   @include nhsuk-link-style-header;
