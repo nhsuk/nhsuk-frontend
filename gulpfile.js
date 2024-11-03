@@ -5,7 +5,7 @@ const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
 const uglify = require('gulp-uglify')
 const zip = require('gulp-zip')
-const dartSass = require('sass')
+const dartSass = require('sass-embedded')
 const webpack = require('webpack-stream')
 
 const { version } = require('./package.json')

@@ -63,7 +63,7 @@
     "postcss-scss": "^4.0.9",
     "prettier": "3.3.3",
     "puppeteer": "^22.12.1",
-    "sass": "^1.77.6",
+    "sass-embedded": "^1.83.4",
     "start-server-and-test": "^2.0.4",
     "stylelint": "^16.14.1",
     "stylelint-config-gds": "^2.0.0",
