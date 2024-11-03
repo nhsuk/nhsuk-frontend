@@ -2,6 +2,8 @@
 // TOOLS / #EXPORTS
 // ==========================================================================
 
+@use "sass:list";
+
 //
 // Exports are used to ensure that the modules of CSS we define throughout Frontend
 // are only included in the generated CSS once, no matter how many times they
@@ -22,9 +24,9 @@
 $imported-modules: () !default; // [1] //
 
 @mixin govuk-exports($name, $warn: true) {
-  @if (index($imported-modules, $name) == null) {
+  @if (list.index($imported-modules, $name) == null) {
     // [2] //
-    $imported-modules: append($imported-modules, $name) !global; // [3] //
+    $imported-modules: list.append($imported-modules, $name) !global; // [3] //
     @content; // [4] //
   } // [5] //
 }

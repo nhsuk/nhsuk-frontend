@@ -2,6 +2,8 @@
 // SETTINGS / #COLOURS
 // ==========================================================================
 
+@use 'sass:color';
+
 //
 // NHS colour palette
 //
@@ -65,11 +67,11 @@ $alpha-transparency-50: 0.5;
 //
 
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return color.mix(white, $color, $percentage);
 }
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return color.mix(black, $color, $percentage);
 }
 
 //

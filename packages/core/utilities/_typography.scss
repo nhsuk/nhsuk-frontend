@@ -5,6 +5,8 @@
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule
 
+@use "sass:map";
+
 /**
  * Font size and line height
  *
@@ -15,7 +17,7 @@
  * https://github.com/alphagov/govuk-frontend
  */
 
-@each $size in map-keys($nhsuk-typography-scale) {
+@each $size in map.keys($nhsuk-typography-scale) {
   .nhsuk-u-font-size-#{$size} {
     @include nhsuk-typography-responsive($size, $important: true);
   }

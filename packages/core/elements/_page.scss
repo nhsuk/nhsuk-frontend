@@ -20,7 +20,9 @@ html {
 
   @if $nhsuk-include-font-face {
     @include _nhsuk-font-face-frutiger;
+    & {
     font-family: $nhsuk-font, $nhsuk-font-fallback;
+    }
   }
 }
 
