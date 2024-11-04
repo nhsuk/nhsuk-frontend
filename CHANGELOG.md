@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 9.1.0 - 4 November 2024
 
 :new: **New features**
 
