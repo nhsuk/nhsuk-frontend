@@ -412,10 +412,6 @@
     padding-right: 23px;
   }
 
-  @include mq($from: desktop) {
-    display: none;
-  }
-
   .nhsuk-icon__chevron-down {
     right: -3px;
   }
@@ -498,19 +494,13 @@
   left: 0;
 
   .nhsuk-header__navigation-link {
-    color: $color_nhsuk-blue;
-    padding: 12px nhsuk-spacing(3);
+    @include govuk-width-container;
+    @include nhsuk-link-style-no-visited-state;
+    padding: 12px 0;
   }
 
   .nhsuk-header__navigation-item {
     border-top: 1px solid $color_nhsuk-grey-5;
-    margin-bottom: 0;
-
-    @include mq($from: large-desktop) {
-      border-top: 0;
-      margin: 0;
-      text-align: center;
-    }
   }
 }
 
