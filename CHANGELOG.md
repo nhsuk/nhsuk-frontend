@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+:new: **New features**
+
+- Add task list component ([PR 969](https://github.com/nhsuk/nhsuk-frontend/pull/969))
+
 :wrench: **Fixes**
 
 - Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1062](https://github.com/nhsuk/nhsuk-frontend/pull/1062))
