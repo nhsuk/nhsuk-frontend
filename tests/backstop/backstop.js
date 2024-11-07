@@ -452,6 +452,14 @@ module.exports = {
       url: `${TEST_URL}/tag/index.html`,
     },
     {
+      label: 'Task list',
+      url: `${TEST_URL}/task-list/index.html`,
+    },
+    {
+      label: 'Task list with multiple sections',
+      url: `${TEST_URL}/task-list/multiple-sections.html`,
+    },
+    {
       label: 'Textarea',
       url: `${TEST_URL}/textarea/index.html`,
     },

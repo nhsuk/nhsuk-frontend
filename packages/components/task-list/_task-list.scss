@@ -1,0 +1,90 @@
+/**
+ * Original SASS taken from GOV.UK Design System
+ * https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/components/task-list/_index.scss
+ */
+
+// NHS pages have a grey background, so we need a slightly daker colour for the hover
+// This produces 1.1:1 contrast, the same as GOV.UK’s
+$nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
+
+.nhsuk-task-list {
+  @include nhsuk-font($size: 19);
+  margin-top: 0;
+  @include nhsuk-responsive-margin(5, "bottom");
+  padding: 0;
+  list-style-type: none;
+}
+
+// This uses table layout so that the task name and status always appear side-by-side, with the width of
+// each 'column' being flexible depending upon the length of the task names and statuses.
+//
+// The position is set to 'relative' so than an absolutely-positioned transparent element box
+// can be added within the link so that the whole row can be clickable.
+.nhsuk-task-list__item {
+  display: table;
+  position: relative;
+  width: 100%;
+  margin-bottom: 0;
+  padding-top: calc(nhsuk-spacing(2) + 4px);
+  padding-bottom: calc(nhsuk-spacing(2) + 4px);
+  border-bottom: 1px solid $nhsuk-border-color;
+}
+
+.nhsuk-task-list__item:first-child {
+  border-top: 1px solid $nhsuk-border-color;
+}
+
+// This class is added to the <li> elements where the task name is a link.
+// The background hover colour is added to help indicate that the whole row is clickable, rather
+// than just the visible link text.
+.nhsuk-task-list__item--with-link:hover {
+  background: $nhsuk-task-list-hover-color;
+}
+
+.nhsuk-task-list__name-and-hint {
+  display: table-cell;
+  vertical-align: top;
+  color: $nhsuk-text-color;
+}
+
+.nhsuk-task-list__status {
+  display: table-cell;
+  padding-left: nhsuk-spacing(2);
+  text-align: right;
+  vertical-align: top;
+  color: $nhsuk-text-color;
+}
+
+// This replicates some of the styling and spacing of tags so that these non-tag
+// statuses don’t look out of place with them. Longer term we may want to look to
+// adjusting the tag styles to be closer to body text.
+.nhsuk-task-list__status--completed,
+.nhsuk-task-list__status--cannot-start-yet {
+  @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
+  padding-bottom: nhsuk-spacing(1);
+  padding-left: nhsuk-spacing(2);
+  padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
+  text-decoration: none;
+}
+
+.nhsuk-task-list__status--cannot-start-yet {
+  color: $nhsuk-secondary-text-color;
+}
+
+// This adds an empty transparent box covering the whole row, including the task status and
+// any hint text. Because this is generated within the link element, this allows the whole area
+// to be clickable.
+.nhsuk-task-list__link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.nhsuk-task-list__hint {
+  margin-top: nhsuk-spacing(1);
+  color: $nhsuk-secondary-text-color;
+}
