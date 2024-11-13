@@ -301,9 +301,10 @@
       box-shadow: none;
     }
 
-    &:active,
+    // But when focused the black line at the bottom should return,
+    // again using box-shadow.
     &:focus {
-      border-bottom-color: $nhsuk-focus-text-color;
+      box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
     }
   }
 
