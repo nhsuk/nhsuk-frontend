@@ -3,9 +3,11 @@
  * https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/components/task-list/_index.scss
  */
 
+@use 'sass:color';
+
 // NHS pages have a grey background, so we need a slightly daker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s
-$nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
+$nhsuk-task-list-hover-color: color.adjust($color_nhsuk-grey-5,  $lightness: -6%);
 
 .nhsuk-task-list {
   @include nhsuk-font($size: 19);
