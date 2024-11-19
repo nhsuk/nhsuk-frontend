@@ -42,7 +42,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   </div>
   <div class="nhsuk-navigation-container">
     <div class="nhsuk-width-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
@@ -144,7 +144,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   </div>
   <div class="nhsuk-navigation-container">
     <div class="nhsuk-width-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions">
@@ -363,7 +363,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   </div>
   <div class="nhsuk-navigation-container">
     <div class="nhsuk-width-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="#">
@@ -475,7 +475,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   </div>
   <div class="nhsuk-navigation-container">
     <div class="nhsuk-width-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="#">
@@ -588,7 +588,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
   </div>
   <div class="nhsuk-navigation-container">
     <div class="nhsuk-width-container">
-      <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
           <li class="nhsuk-header__navigation-item">
             <a class="nhsuk-header__navigation-link"  href="#">
