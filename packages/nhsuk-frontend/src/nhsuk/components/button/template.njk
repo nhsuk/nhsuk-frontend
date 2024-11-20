@@ -14,8 +14,7 @@
 
 {# Define common attributes that we can use across all element types #}
 {% set commonAttributes %} class="nhsuk-button
-  {%- if params.classes %} {{ params.classes }}{% endif %}
-  {%- if params.disabled %} nhsuk-button--disabled{% endif %}"
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
   data-module="nhsuk-button"
   {% if params.preventDoubleClick %} data-prevent-double-click="true"{% endif %}
   {{- nhsukAttributes(params.attributes) }}
