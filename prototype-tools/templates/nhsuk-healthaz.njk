@@ -1,0 +1,4189 @@
+{% extends "nhsuk-frontend/layouts/prototype-page.njk" %}
+
+{% block pageTitle %}
+  Health A to Z - NHS
+{% endblock %}
+
+<!-- NHS.UK header -->
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
+          <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text" fill="#fff" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="nhsuk-header__content" id="content-header">
+      <div class="nhsuk-header__search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <button class="nhsuk-search__submit" type="submit">
+              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+              </svg>
+              <span class="nhsuk-u-visually-hidden">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsuk-navigation-container">
+    <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
+            Health A-Z
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
+            Live Well
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/mental-health/">
+            Mental health
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
+            Care and support
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/pregnancy/">
+            Pregnancy
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
+            NHS services
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
+          <a class="nhsuk-header__navigation-link" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nhsuk-mobile-menu-container">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+            </svg>
+          </button>
+          <ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"></ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Breadcrumbs -->
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a href="" class="nhsuk-breadcrumb__link">Home</a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back">
+      <a href="" class="nhsuk-breadcrumb__backlink">Back to Home</a>
+    </p>
+  </div>
+</nav>
+{% endblock %}
+
+
+<!-- Health A to Z content -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+      <h1>Health A to Z</h1>
+    </div>
+
+    <article>
+
+      <!-- A to Z navigation -->
+      <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+        <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">A</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#B">B</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">C</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">D</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#E">E</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#F">F</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#G">G</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#H">H</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#I">I</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#J">J</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#K">K</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#L">L</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#M">M</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#N">N</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#O">O</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#P">P</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Q">Q</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#R">R</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#S">S</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#T">T</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#U">U</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#V">V</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#W">W</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#X">X</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Y">Y</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#Z">Z</a>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="A">A</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href="">AAA, see Abdominal aortic aneurysm</a>
+              </li>
+              <li>
+                  <a href="">AAA screening, see Abdominal aortic aneurysm screening</a>
+              </li>
+              <li>
+                  <a href="">Abdominal aortic aneurysm</a>
+              </li>
+              <li>
+                  <a href="">Abdominal aortic aneurysm screening</a>
+              </li>
+              <li>
+                  <a href="">Abortion</a>
+              </li>
+              <li>
+                  <a href="">Abscess</a>
+              </li>
+              <li>
+                  <a href="">Acanthosis nigricans</a>
+              </li>
+              <li>
+                  <a href="">Achalasia</a>
+              </li>
+              <li>
+                  <a href="">Acid and chemical burns</a>
+              </li>
+              <li>
+                  <a href="">Acid reflux in babies, see Reflux in babies</a>
+              </li>
+              <li>
+                  <a href="">Acne</a>
+              </li>
+              <li>
+                  <a href="">Acoustic neuroma (vestibular schwannoma)</a>
+              </li>
+              <li>
+                  <a href="">Acromegaly</a>
+              </li>
+              <li>
+                  <a href="">Actinic keratoses (solar keratoses)</a>
+              </li>
+              <li>
+                  <a href="">Actinomycosis</a>
+              </li>
+              <li>
+                  <a href="">Acupuncture</a>
+              </li>
+              <li>
+                  <a href="">Acute cholecystitis</a>
+              </li>
+              <li>
+                  <a href="">Acute kidney injury</a>
+              </li>
+              <li>
+                  <a href="">Acute lymphoblastic leukaemia</a>
+              </li>
+              <li>
+                  <a href="">Acute myeloid leukaemia</a>
+              </li>
+              <li>
+                  <a href="">Acute pancreatitis</a>
+              </li>
+              <li>
+                  <a href="">Acute respiratory distress syndrome</a>
+              </li>
+              <li>
+                <a href=""> Addison's disease </a>
+              </li>
+              <li>
+                <a href=""> Adenoidectomy </a>
+              </li>
+              <li>
+                <a href=""> Age-related cataracts </a>
+              </li>
+              <li>
+                <a href=""> Age-related macular degeneration (AMD) </a>
+              </li>
+              <li>
+                <a href=""> Agoraphobia </a>
+              </li>
+              <li>
+                <a href=""> Air or gas embolism </a>
+              </li>
+              <li>
+                <a href=""> Albinism </a>
+              </li>
+              <li>
+                <a href=""> Alcohol misuse </a>
+              </li>
+              <li>
+                <a href=""> Alcohol poisoning </a>
+              </li>
+              <li>
+                <a href=""> Alcohol-related liver disease </a>
+              </li>
+              <li>
+                <a href=""> Alexander technique </a>
+              </li>
+              <li>
+                <a href=""> Alkaptonuria </a>
+              </li>
+              <li>
+                <a href=""> Allergic rhinitis </a>
+              </li>
+              <li>
+                <a href=""> Allergies </a>
+              </li>
+              <li>
+                <a href=""> Altitude sickness </a>
+              </li>
+              <li>
+                <a href=""> Alzheimer's disease </a>
+              </li>
+              <li>
+                <a href=""> Amblyopia, see Lazy eye </a>
+              </li>
+              <li>
+                <a href=""> Amnesia, see Memory loss (amnesia) </a>
+              </li>
+              <li>
+                <a href=""> Amniocentesis </a>
+              </li>
+              <li>
+                <a href=""> Amputation </a>
+              </li>
+              <li>
+                <a href=""> Amyloidosis </a>
+              </li>
+              <li>
+                <a href=""> Anabolic steroid misuse </a>
+              </li>
+              <li>
+                <a href=""> Anaemia (iron deficiency), see Iron deficiency anaemia </a>
+              </li>
+              <li>
+                <a href=""> Anaemia (vitamin B12 or folate deficiency), see Vitamin B12 or folate deficiency anaemia </a>
+              </li>
+              <li>
+                <a href=""> Anaesthesia </a>
+              </li>
+              <li>
+                <a href=""> Anal cancer </a>
+              </li>
+              <li>
+                <a href=""> Anal fissure </a>
+              </li>
+              <li>
+                <a href=""> Anal fistula </a>
+              </li>
+              <li>
+                <a href=""> Anal pain </a>
+              </li>
+              <li>
+                <a href=""> Anaphylaxis </a>
+              </li>
+              <li>
+                <a href=""> Androgen insensitivity syndrome </a>
+              </li>
+              <li>
+                <a href=""> Aneurysm (abdominal aortic), see Abdominal aortic aneurysm </a>
+              </li>
+              <li>
+                <a href=""> Aneurysm (brain), see Brain aneurysm </a>
+              </li>
+              <li>
+                <a href=""> Angelman syndrome </a>
+              </li>
+              <li>
+                <a href=""> Angina </a>
+              </li>
+              <li>
+                <a href=""> Angioedema </a>
+              </li>
+              <li>
+                <a href=""> Angiography </a>
+              </li>
+              <li>
+                <a href=""> Angioplasty, see Coronary angioplasty and stent insertion </a>
+              </li>
+              <li>
+                <a href=""> Ankle pain, see Foot pain </a>
+              </li>
+              <li>
+                <a href=""> Ankylosing spondylitis </a>
+              </li>
+              <li>
+                <a href=""> Anorexia nervosa </a>
+              </li>
+              <li>
+                <a href=""> Anosmia </a>
+              </li>
+              <li>
+                <a href=""> Anosmia, see Lost or changed sense of smell </a>
+              </li>
+              <li>
+                <a href=""> Antacids </a>
+              </li>
+              <li>
+                <a href=""> Antibiotics </a>
+              </li>
+              <li>
+                <a href=""> Anticoagulant medicines </a>
+              </li>
+              <li>
+                <a href=""> Antidepressants </a>
+              </li>
+              <li>
+                <a href=""> Antifungal medicines </a>
+              </li>
+              <li>
+                <a href=""> Antihistamines </a>
+              </li>
+              <li>
+                <a href=""> Antiphospholipid syndrome (APS) </a>
+              </li>
+              <li>
+                <a href=""> Antisocial personality disorder </a>
+              </li>
+              <li>
+                <a href=""> Anus (itchy), see Itchy bottom </a>
+              </li>
+              <li>
+                <a href=""> Anxiety disorder in adults, see Generalised anxiety disorder in adults </a>
+              </li>
+              <li>
+                <a href=""> Anxiety disorders in children </a>
+              </li>
+              <li>
+                <a href=""> Aortic valve replacement </a>
+              </li>
+              <li>
+                <a href=""> Aphasia </a>
+              </li>
+              <li>
+                <a href=""> Appendicitis </a>
+              </li>
+              <li>
+                <a href=""> Arrhythmia </a>
+              </li>
+              <li>
+                <a href=""> Arterial thrombosis </a>
+              </li>
+              <li>
+                <a href=""> Arthritis </a>
+              </li>
+              <li>
+                <a href=""> Arthroscopy </a>
+              </li>
+              <li>
+                <a href=""> Asbestosis </a>
+              </li>
+              <li>
+                <a href=""> Asperger's, see Autism </a>
+              </li>
+              <li>
+                <a href=""> Aspergillosis </a>
+              </li>
+              <li>
+                <a href=""> Aspirin </a>
+              </li>
+              <li>
+                <a href=""> Asthma </a>
+              </li>
+              <li>
+                <a href=""> Astigmatism </a>
+              </li>
+              <li>
+                <a href=""> Ataxia </a>
+              </li>
+              <li>
+                <a href=""> Atherosclerosis (arteriosclerosis) </a>
+              </li>
+              <li>
+                <a href=""> Athlete's foot </a>
+              </li>
+              <li>
+                <a href=""> Atopic eczema </a>
+              </li>
+              <li>
+                <a href=""> Atrial fibrillation </a>
+              </li>
+              <li>
+                <a href=""> Attention deficit hyperactivity disorder (ADHD) </a>
+              </li>
+              <li>
+                <a href=""> Auditory processing disorder (APD) </a>
+              </li>
+              <li>
+                <a href=""> Autism </a>
+              </li>
+              <li>
+                <a href=""> Autosomal dominant polycystic kidney disease </a>
+              </li>
+              <li>
+                <a href=""> Autosomal recessive polycystic kidney disease </a>
+              </li>
+              <li>
+                <a href=""> Avian flu, see Bird flu </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="B">B</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href=""> Baby </a>
+              </li>
+              <li>
+                <a href=""> Back pain </a>
+              </li>
+              <li>
+                <a href=""> Bacterial vaginosis </a>
+              </li>
+              <li>
+                <a href=""> Bad breath </a>
+              </li>
+              <li>
+                <a href=""> Baker's cyst </a>
+              </li>
+              <li>
+                <a href=""> Balanitis </a>
+              </li>
+              <li>
+                <a href=""> Barium enema </a>
+              </li>
+              <li>
+                <a href=""> Bartholin's cyst </a>
+              </li>
+              <li>
+                <a href=""> Basal cell carcinoma, see Skin cancer (non-melanoma) </a>
+              </li>
+              <li>
+                <a href=""> Bedbugs </a>
+              </li>
+              <li>
+                <a href=""> Bedwetting in children </a>
+              </li>
+              <li>
+                <a href=""> Behçet's disease </a>
+              </li>
+              <li>
+                <a href=""> Being sick, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                <a href=""> Bell's palsy </a>
+              </li>
+              <li>
+                <a href=""> Benign brain tumour (non-cancerous) </a>
+              </li>
+              <li>
+                <a href=""> Benign prostate enlargement </a>
+              </li>
+              <li>
+                <a href=""> Beta blockers </a>
+              </li>
+              <li>
+                <a href=""> Bile duct cancer (cholangiocarcinoma) </a>
+              </li>
+              <li>
+                <a href=""> Bilharzia, see Schistosomiasis (bilharzia) </a>
+              </li>
+              <li>
+                <a href=""> Binge eating disorder </a>
+              </li>
+              <li>
+                <a href=""> Biological and biosimilar medicines (biosimilars) </a>
+              </li>
+              <li>
+                <a href=""> Biopsy </a>
+              </li>
+              <li>
+                <a href=""> Bipolar disorder </a>
+              </li>
+              <li>
+                <a href=""> Bird flu </a>
+              </li>
+              <li>
+                <a href=""> Birthmarks </a>
+              </li>
+              <li>
+                <a href=""> Bite (animal or human), see Animal and human bites </a>
+              </li>
+              <li>
+                <a href=""> Black eye </a>
+              </li>
+              <li>
+                <a href=""> Bladder cancer </a>
+              </li>
+              <li>
+                <a href=""> Bladder stones </a>
+              </li>
+              <li>
+                <a href=""> Bleeding after the menopause, see Postmenopausal bleeding </a>
+              </li>
+              <li>
+                <a href=""> Bleeding from the bottom (rectal bleeding) </a>
+              </li>
+              <li>
+                <a href=""> Blepharitis </a>
+              </li>
+              <li>
+                <a href=""> Blindness and vision loss </a>
+              </li>
+              <li>
+                <a href=""> Blisters </a>
+              </li>
+              <li>
+                <a href=""> Blood clots </a>
+              </li>
+              <li>
+                <a href=""> Blood groups </a>
+              </li>
+              <li>
+                <a href=""> Blood in semen (haematospermia) </a>
+              </li>
+              <li>
+                <a href=""> Blood in urine </a>
+              </li>
+              <li>
+                <a href=""> Blood pressure (high), see High blood pressure (hypertension) </a>
+              </li>
+              <li>
+                <a href=""> Blood pressure (low), see Low blood pressure (hypotension) </a>
+              </li>
+              <li>
+                <a href=""> Blood pressure test </a>
+              </li>
+              <li>
+                <a href=""> Blood tests </a>
+              </li>
+              <li>
+                <a href=""> Blood transfusion </a>
+              </li>
+              <li>
+                <a href=""> Blue skin or lips (cyanosis) </a>
+              </li>
+              <li>
+                <a href=""> Blushing </a>
+              </li>
+              <li>
+                <a href=""> Body dysmorphic disorder (BDD) </a>
+              </li>
+              <li>
+                <a href=""> Body odour (BO) </a>
+              </li>
+              <li>
+                <a href=""> Boils </a>
+              </li>
+              <li>
+                <a href=""> Bone cancer </a>
+              </li>
+              <li>
+                <a href=""> Bone cyst </a>
+              </li>
+              <li>
+                <a href=""> Bone density scan (DEXA scan) </a>
+              </li>
+              <li>
+                <a href=""> Borderline personality disorder </a>
+              </li>
+              <li>
+                <a href=""> Botulism </a>
+              </li>
+              <li>
+                <a href=""> Bowel cancer </a>
+              </li>
+              <li>
+                <a href=""> Bowel cancer screening </a>
+              </li>
+              <li>
+                <a href=""> Bowel incontinence </a>
+              </li>
+              <li>
+                <a href=""> Bowel polyps </a>
+              </li>
+              <li>
+                <a href=""> Bowel transplant, see Small bowel transplant </a>
+              </li>
+              <li>
+                <a href=""> Bowen's disease </a>
+              </li>
+              <li>
+                <a href=""> Brachycephaly and plagiocephaly, see Plagiocephaly and brachycephaly (flat head syndrome) </a>
+              </li>
+              <li>
+                <a href=""> Brain abscess </a>
+              </li>
+              <li>
+                <a href=""> Brain aneurysm </a>
+              </li>
+              <li>
+                <a href=""> Brain death </a>
+              </li>
+              <li>
+                <a href=""> Brain haemorrhage, see Subarachnoid haemorrhage </a>
+              </li>
+              <li>
+                <a href=""> Brain tumour (benign), see Benign brain tumour (non-cancerous) </a>
+              </li>
+              <li>
+                <a href=""> Brain tumour (malignant), see Malignant brain tumour (brain cancer) </a>
+              </li>
+              <li>
+                <a href=""> Brain tumours </a>
+              </li>
+              <li>
+                <a href=""> Breast abscess </a>
+              </li>
+              <li>
+                <a href=""> Breast cancer in men </a>
+              </li>
+              <li>
+                <a href=""> Breast cancer in women </a>
+              </li>
+              <li>
+                <a href=""> Breast cancer screening </a>
+              </li>
+              <li>
+                <a href=""> Breast lumps </a>
+              </li>
+              <li>
+                <a href=""> Breast pain </a>
+              </li>
+              <li>
+                <a href=""> Breast reduction on the NHS </a>
+              </li>
+              <li>
+                <a href=""> Breath-holding in babies and children </a>
+              </li>
+              <li>
+                <a href=""> Broken ankle </a>
+              </li>
+              <li>
+                <a href=""> Broken arm or wrist </a>
+              </li>
+              <li>
+                <a href=""> Broken collarbone </a>
+              </li>
+              <li>
+                <a href=""> Broken finger or thumb </a>
+              </li>
+              <li>
+                <a href=""> Broken leg </a>
+              </li>
+              <li>
+                <a href=""> Broken nose </a>
+              </li>
+              <li>
+                <a href=""> Broken or bruised ribs </a>
+              </li>
+              <li>
+                <a href=""> Broken toe </a>
+              </li>
+              <li>
+                <a href=""> Bronchiectasis </a>
+              </li>
+              <li>
+                <a href=""> Bronchiolitis </a>
+              </li>
+              <li>
+                <a href=""> Bronchitis </a>
+              </li>
+              <li>
+                <a href=""> Bronchodilators </a>
+              </li>
+              <li>
+                <a href=""> Brucellosis </a>
+              </li>
+              <li>
+                <a href=""> Brugada syndrome </a>
+              </li>
+              <li>
+                <a href=""> Bruxism, see Teeth grinding (bruxism) </a>
+              </li>
+              <li>
+                <a href=""> Bulimia </a>
+              </li>
+              <li>
+                <a href=""> Bullous pemphigoid </a>
+              </li>
+              <li>
+                <a href=""> Bunions </a>
+              </li>
+              <li>
+                <a href=""> Burns and scalds </a>
+              </li>
+              <li>
+                <a href=""> Bursitis </a>
+              </li>
+              <li>
+                <a href=""> Buttock pain, see Sciatica </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="C">C</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href=""> CABG, see Coronary artery bypass graft </a>
+              </li>
+              <li>
+                <a href=""> Caesarean section </a>
+              </li>
+              <li>
+                <a href=""> Cancer </a>
+              </li>
+              <li>
+                <a href=""> Cannabis oil (medical cannabis), see Medical cannabis (and cannabis oils) </a>
+              </li>
+              <li>
+                <a href=""> Carbon monoxide poisoning </a>
+              </li>
+              <li>
+                <a href=""> Carcinoembryonic antigen (CEA) test </a>
+              </li>
+              <li>
+                <a href=""> Cardiac catheterisation and coronary angiography </a>
+              </li>
+              <li>
+                <a href=""> Cardiomyopathy </a>
+              </li>
+              <li>
+                <a href=""> Cardiovascular disease </a>
+              </li>
+              <li>
+                <a href=""> Carotid endarterectomy </a>
+              </li>
+              <li>
+                <a href=""> Carpal tunnel syndrome </a>
+              </li>
+              <li>
+                <a href=""> Cartilage damage </a>
+              </li>
+              <li>
+                <a href=""> Cataract surgery </a>
+              </li>
+              <li>
+                <a href=""> Cataracts (age-related), see Age-related cataracts </a>
+              </li>
+              <li>
+                <a href=""> Cataracts (children), see Childhood cataracts </a>
+              </li>
+              <li>
+                <a href=""> Catarrh </a>
+              </li>
+              <li>
+                <a href=""> Cavernoma </a>
+              </li>
+              <li>
+                <a href=""> Cavernous sinus thrombosis </a>
+              </li>
+              <li>
+                <a href=""> Cellulitis </a>
+              </li>
+              <li>
+                <a href=""> Cerebral palsy </a>
+              </li>
+              <li>
+                <a href=""> Cervical cancer </a>
+              </li>
+              <li>
+                <a href=""> Cervical rib </a>
+              </li>
+              <li>
+                <a href=""> Cervical screening </a>
+              </li>
+              <li>
+                <a href=""> Cervical spondylosis </a>
+              </li>
+              <li>
+                <a href=""> Charcot-Marie-Tooth disease </a>
+              </li>
+              <li>
+                <a href=""> Charles Bonnet syndrome </a>
+              </li>
+              <li>
+                <a href=""> Chemotherapy </a>
+              </li>
+              <li>
+                <a href=""> Chest infection </a>
+              </li>
+              <li>
+                <a href=""> Chest pain </a>
+              </li>
+              <li>
+                <a href=""> Chiari malformation </a>
+              </li>
+              <li>
+                <a href=""> Chickenpox </a>
+              </li>
+              <li>
+                <a href=""> Chilblains </a>
+              </li>
+              <li>
+                <a href=""> Chipped, broken or cracked tooth </a>
+              </li>
+              <li>
+                <a href=""> Chiropractic </a>
+              </li>
+              <li>
+                <a href=""> Chlamydia </a>
+              </li>
+              <li>
+                <a href=""> Cholangiocarcinoma, see Bile duct cancer (cholangiocarcinoma) </a>
+              </li>
+              <li>
+                <a href=""> Cholecystitis (acute), see Acute cholecystitis </a>
+              </li>
+              <li>
+                <a href=""> Cholera </a>
+              </li>
+              <li>
+                <a href=""> Cholesteatoma </a>
+              </li>
+              <li>
+                <a href=""> Cholesterol (high), see High cholesterol </a>
+              </li>
+              <li>
+                <a href=""> Chorionic villus sampling </a>
+              </li>
+              <li>
+                <a href=""> Chronic fatigue syndrome (CFS/ME) </a>
+              </li>
+              <li>
+                <a href=""> Chronic kidney disease </a>
+              </li>
+              <li>
+                <a href=""> Chronic lymphocytic leukaemia </a>
+              </li>
+              <li>
+                <a href=""> Chronic myeloid leukaemia </a>
+              </li>
+              <li>
+                <a href=""> Chronic obstructive pulmonary disease (COPD) </a>
+              </li>
+              <li>
+                <a href=""> Chronic pancreatitis </a>
+              </li>
+              <li>
+                <a href=""> Chronic traumatic encephalopathy </a>
+              </li>
+              <li>
+                <a href=""> Circumcision in boys </a>
+              </li>
+              <li>
+                <a href=""> Circumcision in men </a>
+              </li>
+              <li>
+                <a href=""> Cirrhosis </a>
+              </li>
+              <li>
+                <a href=""> CJD, see Creutzfeldt-Jakob disease </a>
+              </li>
+              <li>
+                <a href=""> Claustrophobia </a>
+              </li>
+              <li>
+                <a href=""> Cleft lip and palate </a>
+              </li>
+              <li>
+                <a href=""> Clinical depression </a>
+              </li>
+              <li>
+                <a href=""> Clinical trials </a>
+              </li>
+              <li>
+                <a href=""> Clostridium difficile </a>
+              </li>
+              <li>
+                <a href=""> Club foot </a>
+              </li>
+              <li>
+                <a href=""> Cluster headaches </a>
+              </li>
+              <li>
+                <a href=""> Coated or white tongue </a>
+              </li>
+              <li>
+                <a href=""> Coccydynia (tailbone pain) </a>
+              </li>
+              <li>
+                <a href=""> Coeliac disease </a>
+              </li>
+              <li>
+                <a href=""> Cognitive behavioural therapy (CBT) </a>
+              </li>
+              <li>
+                <a href=""> Cold sores </a>
+              </li>
+              <li>
+                <a href=""> Colic </a>
+              </li>
+              <li>
+                <a href=""> Colon cancer, see Bowel cancer </a>
+              </li>
+              <li>
+                <a href=""> Colonoscopy </a>
+              </li>
+              <li>
+                <a href=""> Colostomy </a>
+              </li>
+              <li>
+                <a href=""> Colour vision deficiency (colour blindness) </a>
+              </li>
+              <li>
+                <a href=""> Colposcopy </a>
+              </li>
+              <li>
+                <a href=""> Coma </a>
+              </li>
+              <li>
+                <a href=""> Common cold </a>
+              </li>
+              <li>
+                <a href=""> Compartment syndrome </a>
+              </li>
+              <li>
+                <a href=""> Complementary and alternative medicine </a>
+              </li>
+              <li>
+                <a href=""> Complex regional pain syndrome </a>
+              </li>
+              <li>
+                <a href=""> Concussion </a>
+              </li>
+              <li>
+                <a href=""> Confusion (sudden), see Sudden confusion (delirium) </a>
+              </li>
+              <li>
+                <a href=""> Congenital heart disease </a>
+              </li>
+              <li>
+                <a href=""> Congenital hip dislocation, see Developmental dysplasia of the hip </a>
+              </li>
+              <li>
+                <a href=""> Conjunctivitis </a>
+              </li>
+              <li>
+                <a href=""> Consent to treatment </a>
+              </li>
+              <li>
+                <a href=""> Constipation </a>
+              </li>
+              <li>
+                <a href=""> Contact dermatitis </a>
+              </li>
+              <li>
+                <a href=""> Cornea transplant </a>
+              </li>
+              <li>
+                <a href=""> Corns and calluses </a>
+              </li>
+              <li>
+                <a href=""> Coronary angioplasty and stent insertion </a>
+              </li>
+              <li>
+                <a href=""> Coronary artery bypass graft </a>
+              </li>
+              <li>
+                <a href=""> Coronary heart disease </a>
+              </li>
+              <li>
+                <a href=""> Coronavirus (COVID-19) </a>
+              </li>
+              <li>
+                <a href=""> Corticobasal degeneration </a>
+              </li>
+              <li>
+                <a href=""> Corticosteroid cream, see Topical corticosteroids </a>
+              </li>
+              <li>
+                <a href=""> Corticosteroids, see Steroids </a>
+              </li>
+              <li>
+                <a href=""> Cosmetic procedures </a>
+              </li>
+              <li>
+                <a href=""> Costochondritis </a>
+              </li>
+              <li>
+                <a href=""> Cough </a>
+              </li>
+              <li>
+                <a href=""> Coughing up blood (blood in phlegm) </a>
+              </li>
+              <li>
+                <a href=""> Counselling </a>
+              </li>
+              <li>
+                <a href=""> COVID-19, see Coronavirus (COVID-19) </a>
+              </li>
+              <li>
+                <a href=""> Cradle cap </a>
+              </li>
+              <li>
+                <a href=""> Craniosynostosis </a>
+              </li>
+              <li>
+                <a href=""> Creutzfeldt-Jakob disease </a>
+              </li>
+              <li>
+                <a href=""> Crohn's disease </a>
+              </li>
+              <li>
+                <a href=""> Croup </a>
+              </li>
+              <li>
+                <a href=""> CT scan </a>
+              </li>
+              <li>
+                <a href=""> Cushing's syndrome </a>
+              </li>
+              <li>
+                <a href=""> Cuts and grazes </a>
+              </li>
+              <li>
+                <a href=""> Cyanosis, see Blue skin or lips (cyanosis) </a>
+              </li>
+              <li>
+                <a href=""> Cyclical vomiting syndrome </a>
+              </li>
+              <li>
+                <a href=""> Cyclospora </a>
+              </li>
+              <li>
+                <a href=""> Cyclothymia </a>
+              </li>
+              <li>
+                <a href=""> Cystic fibrosis </a>
+              </li>
+              <li>
+                <a href=""> Cystitis </a>
+              </li>
+              <li>
+                <a href=""> Cystoscopy </a>
+              </li>
+              <li>
+                <a href=""> Cytomegalovirus (CMV) </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="D">D</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Dandruff </a>
+              </li>
+              <li>
+                  <a href=""> Deafblindness </a>
+              </li>
+              <li>
+                  <a href=""> Deafness, see Hearing loss </a>
+              </li>
+              <li>
+                  <a href=""> Decompression sickness, see Air or gas embolism </a>
+              </li>
+              <li>
+                  <a href=""> Decongestants </a>
+              </li>
+              <li>
+                  <a href=""> Dehydration </a>
+              </li>
+              <li>
+                  <a href=""> Delirium, see Sudden confusion (delirium) </a>
+              </li>
+              <li>
+                  <a href=""> Dementia (frontotemporal), see Frontotemporal dementia </a>
+              </li>
+              <li>
+                  <a href=""> Dementia (vascular), see Vascular dementia </a>
+              </li>
+              <li>
+                  <a href=""> Dementia with Lewy bodies </a>
+              </li>
+              <li>
+                  <a href=""> Dengue </a>
+              </li>
+              <li>
+                  <a href=""> Dental abscess </a>
+              </li>
+              <li>
+                  <a href=""> Dental pain, see Toothache </a>
+              </li>
+              <li>
+                  <a href=""> Dentures (false teeth) </a>
+              </li>
+              <li>
+                  <a href=""> Depression, see Clinical depression </a>
+              </li>
+              <li>
+                  <a href=""> Detached retina (retinal detachment) </a>
+              </li>
+              <li>
+                  <a href=""> Developmental co-ordination disorder (dyspraxia) in children </a>
+              </li>
+              <li>
+                  <a href=""> Developmental dysplasia of the hip </a>
+              </li>
+              <li>
+                  <a href=""> DEXA scan, see Bone density scan (DEXA scan) </a>
+              </li>
+              <li>
+                  <a href=""> Diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Diabetes (type 1), see Type 1 diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Diabetes (type 2), see Type 2 diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Diabetes in pregnancy, see Gestational diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Diabetes insipidus </a>
+              </li>
+              <li>
+                  <a href=""> Diabetic eye screening </a>
+              </li>
+              <li>
+                  <a href=""> Diabetic ketoacidosis </a>
+              </li>
+              <li>
+                  <a href=""> Diabetic retinopathy </a>
+              </li>
+              <li>
+                  <a href=""> Dialysis </a>
+              </li>
+              <li>
+                  <a href=""> Diarrhoea, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Differences in sex development </a>
+              </li>
+              <li>
+                  <a href=""> DiGeorge syndrome (22q11 deletion) </a>
+              </li>
+              <li>
+                  <a href=""> Diphtheria </a>
+              </li>
+              <li>
+                  <a href=""> Discoid eczema </a>
+              </li>
+              <li>
+                  <a href=""> Dislocated kneecap </a>
+              </li>
+              <li>
+                  <a href=""> Dislocated shoulder </a>
+              </li>
+              <li>
+                  <a href=""> Disorders of consciousness </a>
+              </li>
+              <li>
+                  <a href=""> Dissociative disorders </a>
+              </li>
+              <li>
+                  <a href=""> Diverticular disease and diverticulitis </a>
+              </li>
+              <li>
+                  <a href=""> Dizziness </a>
+              </li>
+              <li>
+                  <a href=""> Do not attempt cardiopulmonary resuscitation (DNACPR) decisions </a>
+              </li>
+              <li>
+                  <a href=""> Double vision </a>
+              </li>
+              <li>
+                  <a href=""> Down's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Dry eyes </a>
+              </li>
+              <li>
+                  <a href=""> Dry lips, see Sore or dry lips </a>
+              </li>
+              <li>
+                  <a href=""> Dry mouth </a>
+              </li>
+              <li>
+                  <a href=""> Dupuytren's contracture </a>
+              </li>
+              <li>
+                  <a href=""> DVT, see DVT (deep vein thrombosis) </a>
+              </li>
+              <li>
+                  <a href=""> DVT (deep vein thrombosis) </a>
+              </li>
+              <li>
+                  <a href=""> Dwarfism, see Restricted growth (dwarfism) </a>
+              </li>
+              <li>
+                  <a href=""> Dysarthria (difficulty speaking) </a>
+              </li>
+              <li>
+                  <a href=""> Dysentery </a>
+              </li>
+              <li>
+                  <a href=""> Dyslexia </a>
+              </li>
+              <li>
+                  <a href=""> Dysphagia (swallowing problems) </a>
+              </li>
+              <li>
+                  <a href=""> Dyspraxia (developmental co-ordination disorder) in adults </a>
+              </li>
+              <li>
+                  <a href=""> Dyspraxia in children, see Developmental co-ordination disorder (dyspraxia) in children </a>
+              </li>
+              <li>
+                  <a href=""> Dystonia </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="E">E</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Ear infections </a>
+              </li>
+              <li>
+                  <a href=""> Earache </a>
+              </li>
+              <li>
+                  <a href=""> Eardrum (burst), see Perforated eardrum </a>
+              </li>
+              <li>
+                  <a href=""> Early menopause </a>
+              </li>
+              <li>
+                  <a href=""> Early or delayed puberty </a>
+              </li>
+              <li>
+                  <a href=""> Earwax build-up </a>
+              </li>
+              <li>
+                  <a href=""> Eating disorders </a>
+              </li>
+              <li>
+                  <a href=""> Ebola virus disease </a>
+              </li>
+              <li>
+                  <a href=""> Echocardiogram </a>
+              </li>
+              <li>
+                  <a href=""> Ectopic beats, see Heart palpitations and ectopic beats </a>
+              </li>
+              <li>
+                  <a href=""> Ectopic pregnancy </a>
+              </li>
+              <li>
+                  <a href=""> Ectropion </a>
+              </li>
+              <li>
+                  <a href=""> Eczema (atopic), see Atopic eczema </a>
+              </li>
+              <li>
+                  <a href=""> Eczema (contact dermatitis), see Contact dermatitis </a>
+              </li>
+              <li>
+                  <a href=""> Eczema (discoid), see Discoid eczema </a>
+              </li>
+              <li>
+                  <a href=""> Eczema (varicose), see Varicose eczema </a>
+              </li>
+              <li>
+                  <a href=""> Edwards' syndrome (trisomy 18) </a>
+              </li>
+              <li>
+                  <a href=""> Ehlers-Danlos syndromes </a>
+              </li>
+              <li>
+                  <a href=""> Ejaculation problems </a>
+              </li>
+              <li>
+                  <a href=""> Elbow and arm pain </a>
+              </li>
+              <li>
+                  <a href=""> Electrocardiogram (ECG) </a>
+              </li>
+              <li>
+                  <a href=""> Electroencephalogram (EEG) </a>
+              </li>
+              <li>
+                  <a href=""> Electrolyte test </a>
+              </li>
+              <li>
+                  <a href=""> Embolism </a>
+              </li>
+              <li>
+                  <a href=""> Emollients </a>
+              </li>
+              <li>
+                  <a href=""> Empyema </a>
+              </li>
+              <li>
+                  <a href=""> Encephalitis </a>
+              </li>
+              <li>
+                  <a href=""> Endocarditis </a>
+              </li>
+              <li>
+                  <a href=""> Endometrial cancer, see Womb (uterus) cancer </a>
+              </li>
+              <li>
+                  <a href=""> Endometriosis </a>
+              </li>
+              <li>
+                  <a href=""> Endoscopy </a>
+              </li>
+              <li>
+                  <a href=""> Enhanced recovery </a>
+              </li>
+              <li>
+                  <a href=""> Epidermolysis bullosa </a>
+              </li>
+              <li>
+                  <a href=""> Epididymitis </a>
+              </li>
+              <li>
+                  <a href=""> Epidural </a>
+              </li>
+              <li>
+                  <a href=""> Epiglottitis </a>
+              </li>
+              <li>
+                  <a href=""> Epilepsy </a>
+              </li>
+              <li>
+                  <a href=""> Erectile dysfunction (impotence) </a>
+              </li>
+              <li>
+                  <a href=""> Erythema multiforme </a>
+              </li>
+              <li>
+                  <a href=""> Erythema nodosum </a>
+              </li>
+              <li>
+                  <a href=""> Erythromelalgia </a>
+              </li>
+              <li>
+                  <a href=""> Essential tremor, see Tremor or shaking hands </a>
+              </li>
+              <li>
+                  <a href=""> Euthanasia and assisted suicide </a>
+              </li>
+              <li>
+                  <a href=""> Ewing sarcoma </a>
+              </li>
+              <li>
+                  <a href=""> Excessive hair growth (hirsutism) </a>
+              </li>
+              <li>
+                  <a href=""> Excessive thirst </a>
+              </li>
+              <li>
+                  <a href=""> Exophthalmos (bulging eyes) </a>
+              </li>
+              <li>
+                  <a href=""> Eye cancer </a>
+              </li>
+              <li>
+                  <a href=""> Eye floaters, see Floaters and flashes in the eyes </a>
+              </li>
+              <li>
+                  <a href=""> Eye infection (herpes), see Herpes simplex eye infections </a>
+              </li>
+              <li>
+                  <a href=""> Eye injuries </a>
+              </li>
+              <li>
+                  <a href=""> Eye tests for children </a>
+              </li>
+              <li>
+                  <a href=""> Eyelid problems </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="F">F</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Fabricated or induced illness </a>
+              </li>
+              <li>
+                  <a href=""> Face blindness, see Prosopagnosia (face blindness) </a>
+              </li>
+              <li>
+                  <a href=""> Fainting </a>
+              </li>
+              <li>
+                  <a href=""> Falls </a>
+              </li>
+              <li>
+                  <a href=""> Farting (flatulence) </a>
+              </li>
+              <li>
+                  <a href=""> Febrile seizures </a>
+              </li>
+              <li>
+                  <a href=""> Feeling sick (nausea) </a>
+              </li>
+              <li>
+                  <a href=""> Female genital mutilation (FGM) </a>
+              </li>
+              <li>
+                  <a href=""> Femoral hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Fever in adults, see High temperature (fever) in adults </a>
+              </li>
+              <li>
+                  <a href=""> Fever in children, see High temperature (fever) in children </a>
+              </li>
+              <li>
+                  <a href=""> Fibroids </a>
+              </li>
+              <li>
+                  <a href=""> Fibromyalgia </a>
+              </li>
+              <li>
+                  <a href=""> First aid </a>
+              </li>
+              <li>
+                  <a href=""> Fits (children with fever), see Febrile seizures </a>
+              </li>
+              <li>
+                  <a href=""> Fits (seizures), see What to do if someone has a seizure (fit) </a>
+              </li>
+              <li>
+                  <a href=""> Flat feet </a>
+              </li>
+              <li>
+                  <a href=""> Flat head syndrome, see Plagiocephaly and brachycephaly (flat head syndrome) </a>
+              </li>
+              <li>
+                  <a href=""> Flatulence, see Farting (flatulence) </a>
+              </li>
+              <li>
+                  <a href=""> Floaters and flashes in the eyes </a>
+              </li>
+              <li>
+                  <a href=""> Flu </a>
+              </li>
+              <li>
+                  <a href=""> Fluoride </a>
+              </li>
+              <li>
+                  <a href=""> Foetal alcohol syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Food allergy </a>
+              </li>
+              <li>
+                  <a href=""> Food colours and hyperactivity </a>
+              </li>
+              <li>
+                  <a href=""> Food intolerance </a>
+              </li>
+              <li>
+                  <a href=""> Food poisoning </a>
+              </li>
+              <li>
+                  <a href=""> Foot drop </a>
+              </li>
+              <li>
+                  <a href=""> Foot pain </a>
+              </li>
+              <li>
+                  <a href=""> Foreskin problems, see Tight foreskin (phimosis and paraphimosis) </a>
+              </li>
+              <li>
+                  <a href=""> Frontotemporal dementia </a>
+              </li>
+              <li>
+                  <a href=""> Frostbite </a>
+              </li>
+              <li>
+                  <a href=""> Frozen shoulder </a>
+              </li>
+              <li>
+                  <a href=""> Functional neurological disorder, see Medically unexplained symptoms </a>
+              </li>
+              <li>
+                  <a href=""> Fungal nail infection </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="G">G</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Gallbladder cancer </a>
+              </li>
+              <li>
+                  <a href=""> Gallbladder pain, see Acute cholecystitis </a>
+              </li>
+              <li>
+                  <a href=""> Gallbladder removal </a>
+              </li>
+              <li>
+                  <a href=""> Gallstones </a>
+              </li>
+              <li>
+                  <a href=""> Ganglion cyst </a>
+              </li>
+              <li>
+                  <a href=""> Gangrene </a>
+              </li>
+              <li>
+                  <a href=""> Gastrectomy </a>
+              </li>
+              <li>
+                  <a href=""> Gastritis </a>
+              </li>
+              <li>
+                  <a href=""> Gastro-oesophageal reflux disease (GORD), see Heartburn and acid reflux </a>
+              </li>
+              <li>
+                  <a href=""> Gastroenteritis, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Gastroparesis </a>
+              </li>
+              <li>
+                  <a href=""> Gastroscopy </a>
+              </li>
+              <li>
+                  <a href=""> Gender dysphoria </a>
+              </li>
+              <li>
+                  <a href=""> General anaesthesia </a>
+              </li>
+              <li>
+                  <a href=""> Generalised anxiety disorder in adults </a>
+              </li>
+              <li>
+                  <a href=""> Genetic and genomic testing </a>
+              </li>
+              <li>
+                  <a href=""> Genetic test for cancer gene, see Predictive genetic tests for cancer risk genes </a>
+              </li>
+              <li>
+                  <a href=""> Genital herpes </a>
+              </li>
+              <li>
+                  <a href=""> Genital warts </a>
+              </li>
+              <li>
+                  <a href=""> Gestational diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Giant cell arteritis, see Temporal arteritis </a>
+              </li>
+              <li>
+                  <a href=""> Giardiasis </a>
+              </li>
+              <li>
+                  <a href=""> Gigantism, see Acromegaly </a>
+              </li>
+              <li>
+                  <a href=""> Gilbert's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Glandular fever </a>
+              </li>
+              <li>
+                  <a href=""> Glaucoma </a>
+              </li>
+              <li>
+                  <a href=""> Glomerulonephritis </a>
+              </li>
+              <li>
+                  <a href=""> Glue ear </a>
+              </li>
+              <li>
+                  <a href=""> Glutaric aciduria type 1 </a>
+              </li>
+              <li>
+                  <a href=""> Goitre </a>
+              </li>
+              <li>
+                  <a href=""> Gonorrhoea </a>
+              </li>
+              <li>
+                  <a href=""> Gout </a>
+              </li>
+              <li>
+                  <a href=""> Granuloma annulare </a>
+              </li>
+              <li>
+                  <a href=""> Granulomatosis with polyangiitis </a>
+              </li>
+              <li>
+                  <a href=""> Group B strep </a>
+              </li>
+              <li>
+                  <a href=""> Growing pains </a>
+              </li>
+              <li>
+                  <a href=""> Guillain-Barré syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Gum disease </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="H">H</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Haemochromatosis </a>
+              </li>
+              <li>
+                  <a href=""> Haemophilia </a>
+              </li>
+              <li>
+                  <a href=""> Haemophilus influenzae type b (Hib) </a>
+              </li>
+              <li>
+                  <a href=""> Hair dye reactions </a>
+              </li>
+              <li>
+                  <a href=""> Hair loss </a>
+              </li>
+              <li>
+                  <a href=""> Hairy cell leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Halitosis, see Bad breath </a>
+              </li>
+              <li>
+                  <a href=""> Hallucinations and hearing voices </a>
+              </li>
+              <li>
+                  <a href=""> Hamstring injury </a>
+              </li>
+              <li>
+                  <a href=""> Hand pain </a>
+              </li>
+              <li>
+                  <a href=""> Hand tendon repair </a>
+              </li>
+              <li>
+                  <a href=""> Hand, foot and mouth disease </a>
+              </li>
+              <li>
+                  <a href=""> Hay fever </a>
+              </li>
+              <li>
+                  <a href=""> Head and neck cancer </a>
+              </li>
+              <li>
+                  <a href=""> Head injury and concussion </a>
+              </li>
+              <li>
+                  <a href=""> Head lice and nits </a>
+              </li>
+              <li>
+                  <a href=""> Headaches </a>
+              </li>
+              <li>
+                  <a href=""> Headaches (hormone), see Hormone headaches </a>
+              </li>
+              <li>
+                  <a href=""> Headaches (tension-type), see Tension-type headaches </a>
+              </li>
+              <li>
+                  <a href=""> Health anxiety </a>
+              </li>
+              <li>
+                  <a href=""> Hearing loss </a>
+              </li>
+              <li>
+                  <a href=""> Hearing tests </a>
+              </li>
+              <li>
+                  <a href=""> Hearing tests for children </a>
+              </li>
+              <li>
+                  <a href=""> Hearing voices, see Hallucinations and hearing voices </a>
+              </li>
+              <li>
+                  <a href=""> Heart attack </a>
+              </li>
+              <li>
+                  <a href=""> Heart block </a>
+              </li>
+              <li>
+                  <a href=""> Heart bypass, see Coronary artery bypass graft </a>
+              </li>
+              <li>
+                  <a href=""> Heart disease (coronary), see Coronary heart disease </a>
+              </li>
+              <li>
+                  <a href=""> Heart failure </a>
+              </li>
+              <li>
+                  <a href=""> Heart pain, see Chest pain </a>
+              </li>
+              <li>
+                  <a href=""> Heart palpitations and ectopic beats </a>
+              </li>
+              <li>
+                  <a href=""> Heart rhythm problems, see Arrhythmia </a>
+              </li>
+              <li>
+                  <a href=""> Heart transplant </a>
+              </li>
+              <li>
+                  <a href=""> Heart valve problems, see Mitral valve problems </a>
+              </li>
+              <li>
+                  <a href=""> Heart valve replacement, see Aortic valve replacement </a>
+              </li>
+              <li>
+                  <a href=""> Heart-lung transplant </a>
+              </li>
+              <li>
+                  <a href=""> Heartburn and acid reflux </a>
+              </li>
+              <li>
+                  <a href=""> Heat exhaustion and heatstroke </a>
+              </li>
+              <li>
+                  <a href=""> Heat rash (prickly heat) </a>
+              </li>
+              <li>
+                  <a href=""> Heavy periods </a>
+              </li>
+              <li>
+                  <a href=""> Heel pain, see Foot pain </a>
+              </li>
+              <li>
+                  <a href=""> Henoch-Schönlein purpura (HSP) </a>
+              </li>
+              <li>
+                  <a href=""> Hepatitis </a>
+              </li>
+              <li>
+                  <a href=""> Hepatitis A </a>
+              </li>
+              <li>
+                  <a href=""> Hepatitis B </a>
+              </li>
+              <li>
+                  <a href=""> Hepatitis C </a>
+              </li>
+              <li>
+                  <a href=""> Herbal medicines </a>
+              </li>
+              <li>
+                  <a href=""> Herceptin (trastuzumab) </a>
+              </li>
+              <li>
+                  <a href=""> Hereditary haemorrhagic telangiectasia (HHT) </a>
+              </li>
+              <li>
+                  <a href=""> Hereditary neuropathy with pressure palsies (HNPP) </a>
+              </li>
+              <li>
+                  <a href=""> Hereditary spastic paraplegia </a>
+              </li>
+              <li>
+                  <a href=""> Hernia </a>
+              </li>
+              <li>
+                  <a href=""> Hernia (femoral), see Femoral hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Hernia (hiatus), see Hiatus hernia </a>
+              </li>
+              <li>
+                  <a href=""> Hernia (inguinal), see Inguinal hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Hernia (umbilical), see Umbilical hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Herpes (genital), see Genital herpes </a>
+              </li>
+              <li>
+                  <a href=""> Herpes in babies, see Neonatal herpes (herpes in a baby) </a>
+              </li>
+              <li>
+                  <a href=""> Herpes simplex eye infections </a>
+              </li>
+              <li>
+                  <a href=""> Herpetic whitlow (whitlow finger) </a>
+              </li>
+              <li>
+                  <a href=""> Hiatus hernia </a>
+              </li>
+              <li>
+                  <a href=""> Hiccups </a>
+              </li>
+              <li>
+                  <a href=""> Hidradenitis suppurativa (HS) </a>
+              </li>
+              <li>
+                  <a href=""> High blood pressure (hypertension) </a>
+              </li>
+              <li>
+                  <a href=""> High cholesterol </a>
+              </li>
+              <li>
+                  <a href=""> High temperature (fever) in adults </a>
+              </li>
+              <li>
+                  <a href=""> High temperature (fever) in children </a>
+              </li>
+              <li>
+                  <a href=""> Hip dysplasia, see Developmental dysplasia of the hip </a>
+              </li>
+              <li>
+                  <a href=""> Hip fracture </a>
+              </li>
+              <li>
+                  <a href=""> Hip pain in adults </a>
+              </li>
+              <li>
+                  <a href=""> Hip pain in children (irritable hip) </a>
+              </li>
+              <li>
+                  <a href=""> Hip replacement </a>
+              </li>
+              <li>
+                  <a href=""> Hirschsprung's disease </a>
+              </li>
+              <li>
+                  <a href=""> Hirsutism, see Excessive hair growth (hirsutism) </a>
+              </li>
+              <li>
+                  <a href=""> HIV and AIDS </a>
+              </li>
+              <li>
+                  <a href=""> Hives </a>
+              </li>
+              <li>
+                  <a href=""> Hoarding disorder </a>
+              </li>
+              <li>
+                  <a href=""> Hodgkin lymphoma </a>
+              </li>
+              <li>
+                  <a href=""> Home oxygen therapy </a>
+              </li>
+              <li>
+                  <a href=""> Homeopathy </a>
+              </li>
+              <li>
+                  <a href=""> Homocystinuria </a>
+              </li>
+              <li>
+                  <a href=""> Hookworm, see Worms in humans </a>
+              </li>
+              <li>
+                  <a href=""> Hormone headaches </a>
+              </li>
+              <li>
+                  <a href=""> Hormone replacement therapy (HRT) </a>
+              </li>
+              <li>
+                  <a href=""> HRT, see Hormone replacement therapy (HRT) </a>
+              </li>
+              <li>
+                  <a href=""> Hughes syndrome, see Antiphospholipid syndrome (APS) </a>
+              </li>
+              <li>
+                  <a href=""> Human papillomavirus (HPV) </a>
+              </li>
+              <li>
+                  <a href=""> Huntington's disease </a>
+              </li>
+              <li>
+                  <a href=""> Hydrocephalus </a>
+              </li>
+              <li>
+                  <a href=""> Hydronephrosis </a>
+              </li>
+              <li>
+                  <a href=""> Hyperglycaemia (high blood sugar) </a>
+              </li>
+              <li>
+                  <a href=""> Hyperhidrosis, see Excessive sweating (hyperhidrosis) </a>
+              </li>
+              <li>
+                  <a href=""> Hyperparathyroidism </a>
+              </li>
+              <li>
+                  <a href=""> Hypersomnia, see Excessive daytime sleepiness (hypersomnia) </a>
+              </li>
+              <li>
+                  <a href=""> Hypertension, see High blood pressure (hypertension) </a>
+              </li>
+              <li>
+                  <a href=""> Hyperthyroidism, see Overactive thyroid (hyperthyroidism) </a>
+              </li>
+              <li>
+                  <a href=""> Hypnotherapy </a>
+              </li>
+              <li>
+                  <a href=""> Hypochondria, see Health anxiety </a>
+              </li>
+              <li>
+                  <a href=""> Hypoglycaemia (low blood sugar), see Low blood sugar (hypoglycaemia) </a>
+              </li>
+              <li>
+                  <a href=""> Hypoparathyroidism </a>
+              </li>
+              <li>
+                  <a href=""> Hypotension, see Low blood pressure (hypotension) </a>
+              </li>
+              <li>
+                  <a href=""> Hypothermia </a>
+              </li>
+              <li>
+                  <a href=""> Hypothyroidism, see Underactive thyroid (hypothyroidism) </a>
+              </li>
+              <li>
+                  <a href=""> Hypotonia </a>
+              </li>
+              <li>
+                  <a href=""> Hysterectomy </a>
+              </li>
+              <li>
+                  <a href=""> Hysteroscopy </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="I">I</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> IBS, see Irritable bowel syndrome (IBS) </a>
+              </li>
+              <li>
+                  <a href=""> Ichthyosis </a>
+              </li>
+              <li>
+                  <a href=""> Idiopathic pulmonary fibrosis </a>
+              </li>
+              <li>
+                  <a href=""> Ileostomy </a>
+              </li>
+              <li>
+                  <a href=""> Impetigo </a>
+              </li>
+              <li>
+                  <a href=""> Impotence, see Erectile dysfunction (impotence) </a>
+              </li>
+              <li>
+                  <a href=""> Incontinence (urinary), see Urinary incontinence </a>
+              </li>
+              <li>
+                  <a href=""> Indigestion </a>
+              </li>
+              <li>
+                  <a href=""> Infected piercings </a>
+              </li>
+              <li>
+                  <a href=""> Infertility </a>
+              </li>
+              <li>
+                  <a href=""> Inflammatory bowel disease </a>
+              </li>
+              <li>
+                  <a href=""> Influenza, see Flu </a>
+              </li>
+              <li>
+                  <a href=""> Ingrown hairs </a>
+              </li>
+              <li>
+                  <a href=""> Ingrown toenail </a>
+              </li>
+              <li>
+                  <a href=""> Inguinal hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Insect bites and stings </a>
+              </li>
+              <li>
+                  <a href=""> Insomnia </a>
+              </li>
+              <li>
+                  <a href=""> Intensive care </a>
+              </li>
+              <li>
+                  <a href=""> Intersex, see Differences in sex development </a>
+              </li>
+              <li>
+                  <a href=""> Interstitial cystitis </a>
+              </li>
+              <li>
+                  <a href=""> Intracranial hypertension </a>
+              </li>
+              <li>
+                  <a href=""> Intrauterine insemination (IUI) </a>
+              </li>
+              <li>
+                  <a href=""> Iron deficiency anaemia </a>
+              </li>
+              <li>
+                  <a href=""> Irregular periods </a>
+              </li>
+              <li>
+                  <a href=""> Irritable bowel syndrome (IBS) </a>
+              </li>
+              <li>
+                  <a href=""> Irritable hip, see Hip pain in children (irritable hip) </a>
+              </li>
+              <li>
+                  <a href=""> Isovaleric acidaemia </a>
+              </li>
+              <li>
+                  <a href=""> Itchy bottom </a>
+              </li>
+              <li>
+                  <a href=""> Itchy skin </a>
+              </li>
+              <li>
+                  <a href=""> IVF </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="J">J</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Japanese encephalitis </a>
+              </li>
+              <li>
+                  <a href=""> Jaundice </a>
+              </li>
+              <li>
+                  <a href=""> Jaundice in newborns, see Newborn jaundice </a>
+              </li>
+              <li>
+                  <a href=""> Jaw pain, see Temporomandibular disorder (TMD) </a>
+              </li>
+              <li>
+                  <a href=""> Jellyfish and other sea creature stings </a>
+              </li>
+              <li>
+                  <a href=""> Jet lag </a>
+              </li>
+              <li>
+                  <a href=""> Joint hypermobility syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Joint pain </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="K">K</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Kaposi's sarcoma </a>
+              </li>
+              <li>
+                  <a href=""> Kawasaki disease </a>
+              </li>
+              <li>
+                  <a href=""> Keratosis pilaris </a>
+              </li>
+              <li>
+                  <a href=""> Kidney cancer </a>
+              </li>
+              <li>
+                  <a href=""> Kidney failure, see Chronic kidney disease </a>
+              </li>
+              <li>
+                  <a href=""> Kidney infection </a>
+              </li>
+              <li>
+                  <a href=""> Kidney stones </a>
+              </li>
+              <li>
+                  <a href=""> Kidney transplant </a>
+              </li>
+              <li>
+                  <a href=""> Klinefelter syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Knee ligament surgery </a>
+              </li>
+              <li>
+                  <a href=""> Knee pain </a>
+              </li>
+              <li>
+                  <a href=""> Knee replacement </a>
+              </li>
+              <li>
+                  <a href=""> Knock knees </a>
+              </li>
+              <li>
+                  <a href=""> Knocked-out tooth </a>
+              </li>
+              <li>
+                  <a href=""> Kwashiorkor </a>
+              </li>
+              <li>
+                  <a href=""> Kyphosis </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="L">L</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> "Leaky gut syndrome" </a>
+              </li>
+              <li>
+                  <a href=""> Labial fusion </a>
+              </li>
+              <li>
+                  <a href=""> Labyrinthitis and vestibular neuritis </a>
+              </li>
+              <li>
+                  <a href=""> Lactate dehydrogenase (LDH) test </a>
+              </li>
+              <li>
+                  <a href=""> Lactose intolerance </a>
+              </li>
+              <li>
+                  <a href=""> Lambert-Eaton myasthenic syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Laparoscopy (keyhole surgery) </a>
+              </li>
+              <li>
+                  <a href=""> Laryngeal (larynx) cancer </a>
+              </li>
+              <li>
+                  <a href=""> Laryngitis </a>
+              </li>
+              <li>
+                  <a href=""> Laxatives </a>
+              </li>
+              <li>
+                  <a href=""> Lazy eye </a>
+              </li>
+              <li>
+                  <a href=""> Learning disabilities </a>
+              </li>
+              <li>
+                  <a href=""> Leg cramps </a>
+              </li>
+              <li>
+                  <a href=""> Leg ulcer, see Venous leg ulcer </a>
+              </li>
+              <li>
+                  <a href=""> Legionnaires' disease </a>
+              </li>
+              <li>
+                  <a href=""> Leptospirosis (Weil's disease) </a>
+              </li>
+              <li>
+                  <a href=""> Leukaemia (acute lymphoblastic), see Acute lymphoblastic leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Leukaemia (acute myeloid), see Acute myeloid leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Leukaemia (chronic lymphocytic), see Chronic lymphocytic leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Leukaemia (chronic myeloid), see Chronic myeloid leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Leukaemia (hairy cell), see Hairy cell leukaemia </a>
+              </li>
+              <li>
+                  <a href=""> Leukoplakia </a>
+              </li>
+              <li>
+                  <a href=""> Lichen planus </a>
+              </li>
+              <li>
+                  <a href=""> Lichen sclerosus </a>
+              </li>
+              <li>
+                  <a href=""> Limping in children </a>
+              </li>
+              <li>
+                  <a href=""> Lipoedema </a>
+              </li>
+              <li>
+                  <a href=""> Lipoma </a>
+              </li>
+              <li>
+                  <a href=""> Lips (sore or dry), see Sore or dry lips </a>
+              </li>
+              <li>
+                  <a href=""> Listeriosis </a>
+              </li>
+              <li>
+                  <a href=""> Liver cancer </a>
+              </li>
+              <li>
+                  <a href=""> Liver disease </a>
+              </li>
+              <li>
+                  <a href=""> Liver disease (alcohol-related), see Alcohol-related liver disease </a>
+              </li>
+              <li>
+                  <a href=""> Liver transplant </a>
+              </li>
+              <li>
+                  <a href=""> Local anaesthesia </a>
+              </li>
+              <li>
+                  <a href=""> Long QT syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Long-sightedness </a>
+              </li>
+              <li>
+                  <a href=""> Loss of libido (reduced sex drive) </a>
+              </li>
+              <li>
+                  <a href=""> Lost or changed sense of smell </a>
+              </li>
+              <li>
+                  <a href=""> Low blood pressure (hypotension) </a>
+              </li>
+              <li>
+                  <a href=""> Low blood sugar (hypoglycaemia) </a>
+              </li>
+              <li>
+                  <a href=""> Low sperm count </a>
+              </li>
+              <li>
+                  <a href=""> Low white blood cell count </a>
+              </li>
+              <li>
+                  <a href=""> Lumbar decompression surgery </a>
+              </li>
+              <li>
+                  <a href=""> Lumbar puncture </a>
+              </li>
+              <li>
+                  <a href=""> Lumps </a>
+              </li>
+              <li>
+                  <a href=""> Lung cancer </a>
+              </li>
+              <li>
+                  <a href=""> Lung transplant </a>
+              </li>
+              <li>
+                  <a href=""> Lupus </a>
+              </li>
+              <li>
+                  <a href=""> Lyme disease </a>
+              </li>
+              <li>
+                  <a href=""> Lymphoedema </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="M">M</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Macular degeneration (age-related), see Age-related macular degeneration (AMD) </a>
+              </li>
+              <li>
+                  <a href=""> Macular hole </a>
+              </li>
+              <li>
+                  <a href=""> Magnesium test </a>
+              </li>
+              <li>
+                  <a href=""> Malaria </a>
+              </li>
+              <li>
+                  <a href=""> Male menopause, see The 'male menopause' </a>
+              </li>
+              <li>
+                  <a href=""> Malignant brain tumour (brain cancer) </a>
+              </li>
+              <li>
+                  <a href=""> Mallet finger </a>
+              </li>
+              <li>
+                  <a href=""> Malnutrition </a>
+              </li>
+              <li>
+                  <a href=""> Maple syrup urine disease </a>
+              </li>
+              <li>
+                  <a href=""> Marfan syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Mastectomy </a>
+              </li>
+              <li>
+                  <a href=""> Mastitis </a>
+              </li>
+              <li>
+                  <a href=""> Mastocytosis </a>
+              </li>
+              <li>
+                  <a href=""> Mastoiditis </a>
+              </li>
+              <li>
+                  <a href=""> MCADD </a>
+              </li>
+              <li>
+                  <a href=""> Measles </a>
+              </li>
+              <li>
+                  <a href=""> Medically unexplained symptoms </a>
+              </li>
+              <li>
+                  <a href=""> Medicines information </a>
+              </li>
+              <li>
+                  <a href=""> Memory loss (amnesia) </a>
+              </li>
+              <li>
+                  <a href=""> Meningitis </a>
+              </li>
+              <li>
+                  <a href=""> Menopause </a>
+              </li>
+              <li>
+                  <a href=""> Menopause (early), see Early menopause </a>
+              </li>
+              <li>
+                  <a href=""> Menstrual pain, see Period pain </a>
+              </li>
+              <li>
+                  <a href=""> Mental health and wellbeing </a>
+              </li>
+              <li>
+                  <a href=""> Mesothelioma </a>
+              </li>
+              <li>
+                  <a href=""> Metabolic syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Metallic taste </a>
+              </li>
+              <li>
+                  <a href=""> Middle East respiratory syndrome (MERS) </a>
+              </li>
+              <li>
+                  <a href=""> Migraine </a>
+              </li>
+              <li>
+                  <a href=""> Miscarriage </a>
+              </li>
+              <li>
+                  <a href=""> Mitral valve problems </a>
+              </li>
+              <li>
+                  <a href=""> Molar pregnancy </a>
+              </li>
+              <li>
+                  <a href=""> Moles </a>
+              </li>
+              <li>
+                  <a href=""> Molluscum contagiosum </a>
+              </li>
+              <li>
+                  <a href=""> Monkeypox </a>
+              </li>
+              <li>
+                  <a href=""> Morton's neuroma </a>
+              </li>
+              <li>
+                  <a href=""> Motion sickness </a>
+              </li>
+              <li>
+                  <a href=""> Motor neurone disease </a>
+              </li>
+              <li>
+                  <a href=""> Mouth cancer </a>
+              </li>
+              <li>
+                  <a href=""> Mouth thrush, see Oral thrush (mouth thrush) </a>
+              </li>
+              <li>
+                  <a href=""> Mouth ulcers </a>
+              </li>
+              <li>
+                  <a href=""> MRI scan </a>
+              </li>
+              <li>
+                  <a href=""> MRSA </a>
+              </li>
+              <li>
+                  <a href=""> Mucositis </a>
+              </li>
+              <li>
+                  <a href=""> Multiple myeloma </a>
+              </li>
+              <li>
+                  <a href=""> Multiple sclerosis </a>
+              </li>
+              <li>
+                  <a href=""> Multiple system atrophy </a>
+              </li>
+              <li>
+                  <a href=""> Mumps </a>
+              </li>
+              <li>
+                  <a href=""> Munchausen's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Muscular dystrophy </a>
+              </li>
+              <li>
+                  <a href=""> Myalgic encephalomyelitis (ME), see Chronic fatigue syndrome (CFS/ME) </a>
+              </li>
+              <li>
+                  <a href=""> Myasthenia gravis </a>
+              </li>
+              <li>
+                  <a href=""> Mycobacterium chimaera infection </a>
+              </li>
+              <li>
+                  <a href=""> Myelodysplastic syndrome (myelodysplasia) </a>
+              </li>
+              <li>
+                  <a href=""> Myeloma, see Multiple myeloma </a>
+              </li>
+              <li>
+                  <a href=""> Myopia, see Short-sightedness (myopia) </a>
+              </li>
+              <li>
+                  <a href=""> Myositis (polymyositis and dermatomyositis) </a>
+              </li>
+              <li>
+                  <a href=""> Ménière's disease </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="N">N</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Nail fungal infection, see Fungal nail infection </a>
+              </li>
+              <li>
+                  <a href=""> Nail patella syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Nail problems </a>
+              </li>
+              <li>
+                  <a href=""> Narcolepsy </a>
+              </li>
+              <li>
+                  <a href=""> Nasal and sinus cancer </a>
+              </li>
+              <li>
+                  <a href=""> Nasal polyps </a>
+              </li>
+              <li>
+                  <a href=""> Nasopharyngeal cancer </a>
+              </li>
+              <li>
+                  <a href=""> Nausea, see Feeling sick (nausea) </a>
+              </li>
+              <li>
+                  <a href=""> Neck pain </a>
+              </li>
+              <li>
+                  <a href=""> Necrotising fasciitis </a>
+              </li>
+              <li>
+                  <a href=""> Neonatal herpes (herpes in a baby) </a>
+              </li>
+              <li>
+                  <a href=""> Nephrotic syndrome in children </a>
+              </li>
+              <li>
+                  <a href=""> Neuroblastoma </a>
+              </li>
+              <li>
+                  <a href=""> Neuroendocrine tumours </a>
+              </li>
+              <li>
+                  <a href=""> Neuroendocrine tumours and carcinoid syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Neurofibromatosis type 1 </a>
+              </li>
+              <li>
+                  <a href=""> Neurofibromatosis type 2 </a>
+              </li>
+              <li>
+                  <a href=""> Neuromyelitis optica </a>
+              </li>
+              <li>
+                  <a href=""> Newborn jaundice </a>
+              </li>
+              <li>
+                  <a href=""> Newborn respiratory distress syndrome </a>
+              </li>
+              <li>
+                  <a href=""> NHS screening </a>
+              </li>
+              <li>
+                  <a href=""> Night sweats </a>
+              </li>
+              <li>
+                  <a href=""> Night terrors and nightmares </a>
+              </li>
+              <li>
+                  <a href=""> Nipple discharge </a>
+              </li>
+              <li>
+                  <a href=""> Noise sensitivity (hyperacusis) </a>
+              </li>
+              <li>
+                  <a href=""> Non-alcoholic fatty liver disease (NAFLD) </a>
+              </li>
+              <li>
+                  <a href=""> Non-allergic rhinitis </a>
+              </li>
+              <li>
+                  <a href=""> Non-gonococcal urethritis </a>
+              </li>
+              <li>
+                  <a href=""> Non-Hodgkin lymphoma </a>
+              </li>
+              <li>
+                  <a href=""> Noonan syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Norovirus (vomiting bug) </a>
+              </li>
+              <li>
+                  <a href=""> Nose cancer, see Nasal and sinus cancer </a>
+              </li>
+              <li>
+                  <a href=""> Nosebleed </a>
+              </li>
+              <li>
+                  <a href=""> NSAIDs </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="O">O</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Obesity </a>
+              </li>
+              <li>
+                  <a href=""> Obsessive compulsive disorder (OCD) </a>
+              </li>
+              <li>
+                  <a href=""> Occupational therapy </a>
+              </li>
+              <li>
+                  <a href=""> Oesophageal atresia and tracheo-oesophageal fistula </a>
+              </li>
+              <li>
+                  <a href=""> Oesophageal cancer </a>
+              </li>
+              <li>
+                  <a href=""> Oral thrush (mouth thrush) </a>
+              </li>
+              <li>
+                  <a href=""> Orf </a>
+              </li>
+              <li>
+                  <a href=""> Orthodontics </a>
+              </li>
+              <li>
+                  <a href=""> Osteoarthritis </a>
+              </li>
+              <li>
+                  <a href=""> Osteomalacia, see Rickets and osteomalacia </a>
+              </li>
+              <li>
+                  <a href=""> Osteomyelitis </a>
+              </li>
+              <li>
+                  <a href=""> Osteopathy </a>
+              </li>
+              <li>
+                  <a href=""> Osteophyte (bone spur) </a>
+              </li>
+              <li>
+                  <a href=""> Osteoporosis </a>
+              </li>
+              <li>
+                  <a href=""> Otosclerosis </a>
+              </li>
+              <li>
+                  <a href=""> Ovarian cancer </a>
+              </li>
+              <li>
+                  <a href=""> Ovarian cyst </a>
+              </li>
+              <li>
+                  <a href=""> Overactive thyroid (hyperthyroidism) </a>
+              </li>
+              <li>
+                  <a href=""> Ovulation pain </a>
+              </li>
+              <li>
+                  <a href=""> Oxygen therapy, see Home oxygen therapy </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="P">P</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Pacemaker implantation </a>
+              </li>
+              <li>
+                  <a href=""> Paget's disease of bone </a>
+              </li>
+              <li>
+                  <a href=""> Paget's disease of the nipple </a>
+              </li>
+              <li>
+                  <a href=""> Palpitations, see Heart palpitations and ectopic beats </a>
+              </li>
+              <li>
+                  <a href=""> Pancreas transplant </a>
+              </li>
+              <li>
+                  <a href=""> Pancreatic cancer </a>
+              </li>
+              <li>
+                  <a href=""> Pancreatitis (acute), see Acute pancreatitis </a>
+              </li>
+              <li>
+                  <a href=""> Pancreatitis (chronic), see Chronic pancreatitis </a>
+              </li>
+              <li>
+                  <a href=""> Panic disorder </a>
+              </li>
+              <li>
+                  <a href=""> Paralysis </a>
+              </li>
+              <li>
+                  <a href=""> Parkinson's disease </a>
+              </li>
+              <li>
+                  <a href=""> Patau's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Peak flow test </a>
+              </li>
+              <li>
+                  <a href=""> Pelvic inflammatory disease </a>
+              </li>
+              <li>
+                  <a href=""> Pelvic organ prolapse </a>
+              </li>
+              <li>
+                  <a href=""> Pelvic pain </a>
+              </li>
+              <li>
+                  <a href=""> Pemphigus vulgaris </a>
+              </li>
+              <li>
+                  <a href=""> Penile cancer </a>
+              </li>
+              <li>
+                  <a href=""> Perforated eardrum </a>
+              </li>
+              <li>
+                  <a href=""> Pericarditis </a>
+              </li>
+              <li>
+                  <a href=""> Period pain </a>
+              </li>
+              <li>
+                  <a href=""> Periods </a>
+              </li>
+              <li>
+                  <a href=""> Periods (heavy), see Heavy periods </a>
+              </li>
+              <li>
+                  <a href=""> Periods (irregular), see Irregular periods </a>
+              </li>
+              <li>
+                  <a href=""> Periods (stopped or missed), see Stopped or missed periods </a>
+              </li>
+              <li>
+                  <a href=""> Peripheral arterial disease (PAD) </a>
+              </li>
+              <li>
+                  <a href=""> Peripheral neuropathy </a>
+              </li>
+              <li>
+                  <a href=""> Peritonitis </a>
+              </li>
+              <li>
+                  <a href=""> Persistent trophoblastic disease and choriocarcinoma </a>
+              </li>
+              <li>
+                  <a href=""> Personality disorder </a>
+              </li>
+              <li>
+                  <a href=""> PET scan </a>
+              </li>
+              <li>
+                  <a href=""> Phaeochromocytoma </a>
+              </li>
+              <li>
+                  <a href=""> Phenylketonuria </a>
+              </li>
+              <li>
+                  <a href=""> Phimosis, see Tight foreskin (phimosis and paraphimosis) </a>
+              </li>
+              <li>
+                  <a href=""> Phlebitis (superficial thrombophlebitis) </a>
+              </li>
+              <li>
+                  <a href=""> Phobias </a>
+              </li>
+              <li>
+                  <a href=""> Phosphate test </a>
+              </li>
+              <li>
+                  <a href=""> Photodynamic therapy (PDT) </a>
+              </li>
+              <li>
+                  <a href=""> Physiotherapy </a>
+              </li>
+              <li>
+                  <a href=""> Piles, see Piles (haemorrhoids) </a>
+              </li>
+              <li>
+                  <a href=""> Piles (haemorrhoids) </a>
+              </li>
+              <li>
+                  <a href=""> Pilonidal sinus </a>
+              </li>
+              <li>
+                  <a href=""> Pins and needles </a>
+              </li>
+              <li>
+                  <a href=""> PIP breast implants </a>
+              </li>
+              <li>
+                  <a href=""> Pityriasis rosea </a>
+              </li>
+              <li>
+                  <a href=""> Pityriasis versicolor </a>
+              </li>
+              <li>
+                  <a href=""> Plagiocephaly and brachycephaly (flat head syndrome) </a>
+              </li>
+              <li>
+                  <a href=""> Plantar fasciitis </a>
+              </li>
+              <li>
+                  <a href=""> Plastic surgery </a>
+              </li>
+              <li>
+                  <a href=""> Pleurisy </a>
+              </li>
+              <li>
+                  <a href=""> PMS (premenstrual syndrome) </a>
+              </li>
+              <li>
+                  <a href=""> Pneumonia </a>
+              </li>
+              <li>
+                  <a href=""> Poisoning </a>
+              </li>
+              <li>
+                  <a href=""> Polio </a>
+              </li>
+              <li>
+                  <a href=""> Polycystic kidney disease (autosomal dominant), see Autosomal dominant polycystic kidney disease </a>
+              </li>
+              <li>
+                  <a href=""> Polycystic kidney disease (autosomal recessive), see Autosomal recessive polycystic kidney disease </a>
+              </li>
+              <li>
+                  <a href=""> Polycystic ovary syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Polycythaemia </a>
+              </li>
+              <li>
+                  <a href=""> Polyhydramnios (too much amniotic fluid) </a>
+              </li>
+              <li>
+                  <a href=""> Polymorphic light eruption </a>
+              </li>
+              <li>
+                  <a href=""> Polymyalgia rheumatica </a>
+              </li>
+              <li>
+                  <a href=""> Pompholyx (dyshidrotic eczema) </a>
+              </li>
+              <li>
+                  <a href=""> Popliteal cyst, see Baker's cyst </a>
+              </li>
+              <li>
+                  <a href=""> Post-herpetic neuralgia </a>
+              </li>
+              <li>
+                  <a href=""> Post-mortem </a>
+              </li>
+              <li>
+                  <a href=""> Post-polio syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Post-traumatic stress disorder (PTSD) </a>
+              </li>
+              <li>
+                  <a href=""> Postmenopausal bleeding </a>
+              </li>
+              <li>
+                  <a href=""> Postnatal depression </a>
+              </li>
+              <li>
+                  <a href=""> Postpartum psychosis </a>
+              </li>
+              <li>
+                  <a href=""> Postural tachycardia syndrome (PoTS) </a>
+              </li>
+              <li>
+                  <a href=""> Potassium test </a>
+              </li>
+              <li>
+                  <a href=""> Prader-Willi syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Pre-eclampsia </a>
+              </li>
+              <li>
+                  <a href=""> Predictive genetic tests for cancer risk genes </a>
+              </li>
+              <li>
+                  <a href=""> Premature ejaculation, see Ejaculation problems </a>
+              </li>
+              <li>
+                  <a href=""> Pressure ulcers (pressure sores) </a>
+              </li>
+              <li>
+                  <a href=""> Priapism (painful erections) </a>
+              </li>
+              <li>
+                  <a href=""> Prickly heat, see Heat rash (prickly heat) </a>
+              </li>
+              <li>
+                  <a href=""> Primary biliary cholangitis (primary biliary cirrhosis) </a>
+              </li>
+              <li>
+                  <a href=""> Probiotics </a>
+              </li>
+              <li>
+                  <a href=""> Proctalgia, see Anal pain </a>
+              </li>
+              <li>
+                  <a href=""> Progressive supranuclear palsy </a>
+              </li>
+              <li>
+                  <a href=""> Prolapse (pelvic organ), see Pelvic organ prolapse </a>
+              </li>
+              <li>
+                  <a href=""> Prosopagnosia (face blindness) </a>
+              </li>
+              <li>
+                  <a href=""> Prostate cancer </a>
+              </li>
+              <li>
+                  <a href=""> Prostate enlargement, see Benign prostate enlargement </a>
+              </li>
+              <li>
+                  <a href=""> Prostate problems </a>
+              </li>
+              <li>
+                  <a href=""> Prostatitis </a>
+              </li>
+              <li>
+                  <a href=""> Psoriasis </a>
+              </li>
+              <li>
+                  <a href=""> Psoriatic arthritis </a>
+              </li>
+              <li>
+                  <a href=""> Psychiatry </a>
+              </li>
+              <li>
+                  <a href=""> Psychosis </a>
+              </li>
+              <li>
+                  <a href=""> Puberty (early or delayed), see Early or delayed puberty </a>
+              </li>
+              <li>
+                  <a href=""> Pubic lice </a>
+              </li>
+              <li>
+                  <a href=""> Pudendal neuralgia </a>
+              </li>
+              <li>
+                  <a href=""> Pulmonary embolism </a>
+              </li>
+              <li>
+                  <a href=""> Pulmonary fibrosis, see Idiopathic pulmonary fibrosis </a>
+              </li>
+              <li>
+                  <a href=""> Pulmonary hypertension </a>
+              </li>
+              <li>
+                  <a href=""> Pyoderma gangrenosum </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="Q">Q</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Q fever </a>
+              </li>
+              <li>
+                  <a href=""> Quinsy, see Tonsillitis </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="R">R</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Rabies </a>
+              </li>
+              <li>
+                  <a href=""> Radiotherapy </a>
+              </li>
+              <li>
+                  <a href=""> Rashes in babies and children </a>
+              </li>
+              <li>
+                  <a href=""> Raynaud's </a>
+              </li>
+              <li>
+                  <a href=""> Reactive arthritis </a>
+              </li>
+              <li>
+                  <a href=""> Rectal bleeding, see Bleeding from the bottom (rectal bleeding) </a>
+              </li>
+              <li>
+                  <a href=""> Rectal cancer, see Bowel cancer </a>
+              </li>
+              <li>
+                  <a href=""> Rectal examination </a>
+              </li>
+              <li>
+                  <a href=""> Red blood cell count </a>
+              </li>
+              <li>
+                  <a href=""> Red eye </a>
+              </li>
+              <li>
+                  <a href=""> Reflux in babies </a>
+              </li>
+              <li>
+                  <a href=""> Repetitive strain injury (RSI) </a>
+              </li>
+              <li>
+                  <a href=""> Respiratory tract infections (RTIs) </a>
+              </li>
+              <li>
+                  <a href=""> Restless legs syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Restricted growth (dwarfism) </a>
+              </li>
+              <li>
+                  <a href=""> Retinal detachment, see Detached retina (retinal detachment) </a>
+              </li>
+              <li>
+                  <a href=""> Retinal migraine </a>
+              </li>
+              <li>
+                  <a href=""> Retinoblastoma (eye cancer in children) </a>
+              </li>
+              <li>
+                  <a href=""> Rett syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Reye's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Rhesus disease </a>
+              </li>
+              <li>
+                  <a href=""> Rheumatic fever </a>
+              </li>
+              <li>
+                  <a href=""> Rheumatoid arthritis </a>
+              </li>
+              <li>
+                  <a href=""> Rhinitis (allergic), see Allergic rhinitis </a>
+              </li>
+              <li>
+                  <a href=""> Rickets and osteomalacia </a>
+              </li>
+              <li>
+                  <a href=""> Ringworm </a>
+              </li>
+              <li>
+                  <a href=""> Root canal treatment </a>
+              </li>
+              <li>
+                  <a href=""> Rosacea </a>
+              </li>
+              <li>
+                  <a href=""> Roseola </a>
+              </li>
+              <li>
+                  <a href=""> Roundworm, see Worms in humans </a>
+              </li>
+              <li>
+                  <a href=""> Rubella (german measles) </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="S">S</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Salivary gland stones </a>
+              </li>
+              <li>
+                  <a href=""> Sarcoidosis </a>
+              </li>
+              <li>
+                  <a href=""> SARS (severe acute respiratory syndrome) </a>
+              </li>
+              <li>
+                  <a href=""> Scabies </a>
+              </li>
+              <li>
+                  <a href=""> Scarlet fever </a>
+              </li>
+              <li>
+                  <a href=""> Scars </a>
+              </li>
+              <li>
+                  <a href=""> Schistosomiasis (bilharzia) </a>
+              </li>
+              <li>
+                  <a href=""> Schizophrenia </a>
+              </li>
+              <li>
+                  <a href=""> Sciatica </a>
+              </li>
+              <li>
+                  <a href=""> Scleroderma </a>
+              </li>
+              <li>
+                  <a href=""> Scoliosis </a>
+              </li>
+              <li>
+                  <a href=""> Scurvy </a>
+              </li>
+              <li>
+                  <a href=""> Seasonal affective disorder (SAD) </a>
+              </li>
+              <li>
+                  <a href=""> Seizures (children with fever), see Febrile seizures </a>
+              </li>
+              <li>
+                  <a href=""> Seizures (fits), see What to do if someone has a seizure (fit) </a>
+              </li>
+              <li>
+                  <a href=""> Selective mutism </a>
+              </li>
+              <li>
+                  <a href=""> Selective serotonin reuptake inhibitors (SSRIs) </a>
+              </li>
+              <li>
+                  <a href=""> Self-harm </a>
+              </li>
+              <li>
+                  <a href=""> Sense of smell (lost/changed), see Lost or changed sense of smell </a>
+              </li>
+              <li>
+                  <a href=""> Sepsis </a>
+              </li>
+              <li>
+                  <a href=""> Septic arthritis </a>
+              </li>
+              <li>
+                  <a href=""> Severe head injury </a>
+              </li>
+              <li>
+                  <a href=""> Sexually transmitted infections (STIs) </a>
+              </li>
+              <li>
+                  <a href=""> Shaking, see Tremor or shaking hands </a>
+              </li>
+              <li>
+                  <a href=""> Shin pain (shin splints), see Shin splints </a>
+              </li>
+              <li>
+                  <a href=""> Shin splints </a>
+              </li>
+              <li>
+                  <a href=""> Shingles </a>
+              </li>
+              <li>
+                  <a href=""> Short-sightedness (myopia) </a>
+              </li>
+              <li>
+                  <a href=""> Shortness of breath </a>
+              </li>
+              <li>
+                  <a href=""> Shoulder impingement </a>
+              </li>
+              <li>
+                  <a href=""> Shoulder pain </a>
+              </li>
+              <li>
+                  <a href=""> Sick building syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Sickle cell disease </a>
+              </li>
+              <li>
+                  <a href=""> Silicosis </a>
+              </li>
+              <li>
+                  <a href=""> Sinus cancer, see Nasal and sinus cancer </a>
+              </li>
+              <li>
+                  <a href=""> Sinusitis, see Sinusitis (sinus infection) </a>
+              </li>
+              <li>
+                  <a href=""> Sinusitis (sinus infection) </a>
+              </li>
+              <li>
+                  <a href=""> Sjögren's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Skin cancer (melanoma) </a>
+              </li>
+              <li>
+                  <a href=""> Skin cancer (non-melanoma) </a>
+              </li>
+              <li>
+                  <a href=""> Skin cyst </a>
+              </li>
+              <li>
+                  <a href=""> Skin picking disorder </a>
+              </li>
+              <li>
+                  <a href=""> Skin tags </a>
+              </li>
+              <li>
+                  <a href=""> Slapped cheek syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Sleep apnoea </a>
+              </li>
+              <li>
+                  <a href=""> Sleep paralysis </a>
+              </li>
+              <li>
+                  <a href=""> Sleepwalking </a>
+              </li>
+              <li>
+                  <a href=""> Slipped disc </a>
+              </li>
+              <li>
+                  <a href=""> Small bowel transplant </a>
+              </li>
+              <li>
+                  <a href=""> Smear test, see Cervical screening </a>
+              </li>
+              <li>
+                  <a href=""> Smelly urine </a>
+              </li>
+              <li>
+                  <a href=""> Smoking (treatments to stop), see Stop smoking treatments </a>
+              </li>
+              <li>
+                  <a href=""> Snake bites </a>
+              </li>
+              <li>
+                  <a href=""> Snoring </a>
+              </li>
+              <li>
+                  <a href=""> Social anxiety (social phobia) </a>
+              </li>
+              <li>
+                  <a href=""> Social care and support guide </a>
+              </li>
+              <li>
+                  <a href=""> Soft tissue sarcomas </a>
+              </li>
+              <li>
+                  <a href=""> Soiling (child pooing their pants) </a>
+              </li>
+              <li>
+                  <a href=""> Solar keratoses, see Actinic keratoses (solar keratoses) </a>
+              </li>
+              <li>
+                  <a href=""> Sore lips, see Sore or dry lips </a>
+              </li>
+              <li>
+                  <a href=""> Sore or white tongue </a>
+              </li>
+              <li>
+                  <a href=""> Sore throat </a>
+              </li>
+              <li>
+                  <a href=""> Sperm count (low), see Low sperm count </a>
+              </li>
+              <li>
+                  <a href=""> Spina bifida </a>
+              </li>
+              <li>
+                  <a href=""> Spinal muscular atrophy </a>
+              </li>
+              <li>
+                  <a href=""> Spirometry </a>
+              </li>
+              <li>
+                  <a href=""> Spleen problems and spleen removal </a>
+              </li>
+              <li>
+                  <a href=""> Spondylolisthesis </a>
+              </li>
+              <li>
+                  <a href=""> Sports injuries </a>
+              </li>
+              <li>
+                  <a href=""> Sprains and strains </a>
+              </li>
+              <li>
+                  <a href=""> Squamous cell carcinoma, see Skin cancer (non-melanoma) </a>
+              </li>
+              <li>
+                  <a href=""> Squint </a>
+              </li>
+              <li>
+                  <a href=""> Stammering </a>
+              </li>
+              <li>
+                  <a href=""> Staph infection </a>
+              </li>
+              <li>
+                  <a href=""> Statins </a>
+              </li>
+              <li>
+                  <a href=""> Stem cell and bone marrow transplants </a>
+              </li>
+              <li>
+                  <a href=""> Stent insertion, see Coronary angioplasty and stent insertion </a>
+              </li>
+              <li>
+                  <a href=""> Steroid cream, see Topical corticosteroids </a>
+              </li>
+              <li>
+                  <a href=""> Steroid inhalers </a>
+              </li>
+              <li>
+                  <a href=""> Steroid injections </a>
+              </li>
+              <li>
+                  <a href=""> Steroid misuse, see Anabolic steroid misuse </a>
+              </li>
+              <li>
+                  <a href=""> Steroid nasal sprays </a>
+              </li>
+              <li>
+                  <a href=""> Steroid tablets </a>
+              </li>
+              <li>
+                  <a href=""> Steroids </a>
+              </li>
+              <li>
+                  <a href=""> Stevens-Johnson syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Stillbirth </a>
+              </li>
+              <li>
+                  <a href=""> Sting or bite (insect), see Insect bites and stings </a>
+              </li>
+              <li>
+                  <a href=""> Stomach ache </a>
+              </li>
+              <li>
+                  <a href=""> Stomach bug, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Stomach cancer </a>
+              </li>
+              <li>
+                  <a href=""> Stomach ulcer </a>
+              </li>
+              <li>
+                  <a href=""> Stop smoking treatments </a>
+              </li>
+              <li>
+                  <a href=""> Stopped or missed periods </a>
+              </li>
+              <li>
+                  <a href=""> Stretch marks </a>
+              </li>
+              <li>
+                  <a href=""> Stroke </a>
+              </li>
+              <li>
+                  <a href=""> Stuttering, see Stammering </a>
+              </li>
+              <li>
+                  <a href=""> Stye </a>
+              </li>
+              <li>
+                  <a href=""> Subarachnoid haemorrhage </a>
+              </li>
+              <li>
+                  <a href=""> Subdural haematoma </a>
+              </li>
+              <li>
+                  <a href=""> Sudden confusion (delirium) </a>
+              </li>
+              <li>
+                  <a href=""> Sudden infant death syndrome (SIDS) </a>
+              </li>
+              <li>
+                  <a href=""> Suicidal thoughts, see Help for suicidal thoughts </a>
+              </li>
+              <li>
+                  <a href=""> Sunburn </a>
+              </li>
+              <li>
+                  <a href=""> Superficial thrombophlebitis, see Phlebitis (superficial thrombophlebitis) </a>
+              </li>
+              <li>
+                  <a href=""> Supraventricular tachycardia (SVT) </a>
+              </li>
+              <li>
+                  <a href=""> Surgery (having an operation), see Having an operation (surgery) </a>
+              </li>
+              <li>
+                  <a href=""> Swallowing pills, see Problems swallowing pills </a>
+              </li>
+              <li>
+                  <a href=""> Swallowing problems, see Dysphagia (swallowing problems) </a>
+              </li>
+              <li>
+                  <a href=""> Sweat rash, see Heat rash (prickly heat) </a>
+              </li>
+              <li>
+                  <a href=""> Sweating (excessive), see Heat rash (prickly heat) </a>
+              </li>
+              <li>
+                  <a href=""> Sweating (excessive), see Excessive sweating (hyperhidrosis) </a>
+              </li>
+              <li>
+                  <a href=""> Sweating at night, see Night sweats </a>
+              </li>
+              <li>
+                  <a href=""> Swine flu (H1N1) </a>
+              </li>
+              <li>
+                  <a href=""> Swollen ankles, feet and legs (oedema) </a>
+              </li>
+              <li>
+                  <a href=""> Swollen arms and hands (oedema) </a>
+              </li>
+              <li>
+                  <a href=""> Swollen glands </a>
+              </li>
+              <li>
+                  <a href=""> Syphilis </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="T">T</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Tapeworm, see Worms in humans </a>
+              </li>
+              <li>
+                  <a href=""> Tay-Sachs disease </a>
+              </li>
+              <li>
+                  <a href=""> Teeth grinding (bruxism) </a>
+              </li>
+              <li>
+                  <a href=""> Temporal arteritis </a>
+              </li>
+              <li>
+                  <a href=""> Temporomandibular disorder (TMD) </a>
+              </li>
+              <li>
+                  <a href=""> Tendonitis </a>
+              </li>
+              <li>
+                  <a href=""> Tennis elbow </a>
+              </li>
+              <li>
+                  <a href=""> TENS (transcutaneous electrical nerve stimulation) </a>
+              </li>
+              <li>
+                  <a href=""> Tension-type headaches </a>
+              </li>
+              <li>
+                  <a href=""> Testicle lumps and swellings </a>
+              </li>
+              <li>
+                  <a href=""> Testicular cancer </a>
+              </li>
+              <li>
+                  <a href=""> Tetanus </a>
+              </li>
+              <li>
+                  <a href=""> Thalassaemia </a>
+              </li>
+              <li>
+                  <a href=""> Thirst (excessive), see Excessive thirst </a>
+              </li>
+              <li>
+                  <a href=""> Thoracic outlet syndrome, see Cervical rib </a>
+              </li>
+              <li>
+                  <a href=""> Threadworms </a>
+              </li>
+              <li>
+                  <a href=""> Throat (sore), see Sore throat </a>
+              </li>
+              <li>
+                  <a href=""> Thrombophilia </a>
+              </li>
+              <li>
+                  <a href=""> Thrush in men and women </a>
+              </li>
+              <li>
+                  <a href=""> Thyroid cancer </a>
+              </li>
+              <li>
+                  <a href=""> Thyroiditis </a>
+              </li>
+              <li>
+                  <a href=""> TIA, see Transient ischaemic attack (TIA) </a>
+              </li>
+              <li>
+                  <a href=""> Tick-borne encephalitis (TBE) </a>
+              </li>
+              <li>
+                  <a href=""> Tics </a>
+              </li>
+              <li>
+                  <a href=""> Tight foreskin (phimosis and paraphimosis) </a>
+              </li>
+              <li>
+                  <a href=""> Tinnitus </a>
+              </li>
+              <li>
+                  <a href=""> Toe pain, see Foot pain </a>
+              </li>
+              <li>
+                  <a href=""> Tongue (sore or white), see Sore or white tongue </a>
+              </li>
+              <li>
+                  <a href=""> Tongue cancer, see Mouth cancer </a>
+              </li>
+              <li>
+                  <a href=""> Tongue-tie </a>
+              </li>
+              <li>
+                  <a href=""> Tonsillitis </a>
+              </li>
+              <li>
+                  <a href=""> Tooth (chipped or broken), see Chipped, broken or cracked tooth </a>
+              </li>
+              <li>
+                  <a href=""> Tooth decay </a>
+              </li>
+              <li>
+                  <a href=""> Tooth knocked out, see Knocked-out tooth </a>
+              </li>
+              <li>
+                  <a href=""> Toothache </a>
+              </li>
+              <li>
+                  <a href=""> Total iron-binding capacity (TIBC) and transferrin test </a>
+              </li>
+              <li>
+                  <a href=""> Total protein test </a>
+              </li>
+              <li>
+                  <a href=""> Tourette's syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Toxic shock syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Toxocariasis </a>
+              </li>
+              <li>
+                  <a href=""> Toxoplasmosis </a>
+              </li>
+              <li>
+                  <a href=""> Tracheostomy </a>
+              </li>
+              <li>
+                  <a href=""> Transient ischaemic attack (TIA) </a>
+              </li>
+              <li>
+                  <a href=""> Transurethral resection of the prostate (TURP) </a>
+              </li>
+              <li>
+                  <a href=""> Travel vaccinations </a>
+              </li>
+              <li>
+                  <a href=""> Tremor, see Tremor or shaking hands </a>
+              </li>
+              <li>
+                  <a href=""> Tremor or shaking hands </a>
+              </li>
+              <li>
+                  <a href=""> Trichomoniasis </a>
+              </li>
+              <li>
+                  <a href=""> Trichotillomania (hair pulling disorder) </a>
+              </li>
+              <li>
+                  <a href=""> Trigeminal neuralgia </a>
+              </li>
+              <li>
+                  <a href=""> Trigger finger </a>
+              </li>
+              <li>
+                  <a href=""> Trimethylaminuria ('fish odour syndrome') </a>
+              </li>
+              <li>
+                  <a href=""> Tuberculosis (TB) </a>
+              </li>
+              <li>
+                  <a href=""> Tuberous sclerosis </a>
+              </li>
+              <li>
+                  <a href=""> Tummy ache, see Stomach ache </a>
+              </li>
+              <li>
+                  <a href=""> Tummy bug, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Turner syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Twitching eyes and muscles </a>
+              </li>
+              <li>
+                  <a href=""> Type 1 diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Type 2 diabetes </a>
+              </li>
+              <li>
+                  <a href=""> Typhoid fever </a>
+              </li>
+              <li>
+                  <a href=""> Typhus </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="U">U</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Ulcerative colitis </a>
+              </li>
+              <li>
+                  <a href=""> Ultrasound scan </a>
+              </li>
+              <li>
+                  <a href=""> Umbilical hernia repair </a>
+              </li>
+              <li>
+                  <a href=""> Underactive thyroid (hypothyroidism) </a>
+              </li>
+              <li>
+                  <a href=""> Undescended testicles </a>
+              </li>
+              <li>
+                  <a href=""> Unintentional weight loss </a>
+              </li>
+              <li>
+                  <a href=""> Urethritis (NGU), see Non-gonococcal urethritis </a>
+              </li>
+              <li>
+                  <a href=""> Urinary catheter </a>
+              </li>
+              <li>
+                  <a href=""> Urinary incontinence </a>
+              </li>
+              <li>
+                  <a href=""> Urinary tract infections (UTIs) </a>
+              </li>
+              <li>
+                  <a href=""> Urine (smelly), see Smelly urine </a>
+              </li>
+              <li>
+                  <a href=""> Urine albumin to creatinine ratio (ACR) </a>
+              </li>
+              <li>
+                  <a href=""> Uterine (womb) cancer, see Womb (uterus) cancer </a>
+              </li>
+              <li>
+                  <a href=""> Uveitis </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="V">V</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Vaccinations </a>
+              </li>
+              <li>
+                  <a href=""> Vaginal cancer </a>
+              </li>
+              <li>
+                  <a href=""> Vaginal discharge </a>
+              </li>
+              <li>
+                  <a href=""> Vaginal dryness </a>
+              </li>
+              <li>
+                  <a href=""> Vaginal pain, see Vulvodynia (vulval pain) </a>
+              </li>
+              <li>
+                  <a href=""> Vaginismus </a>
+              </li>
+              <li>
+                  <a href=""> Vaginitis </a>
+              </li>
+              <li>
+                  <a href=""> Varicose eczema </a>
+              </li>
+              <li>
+                  <a href=""> Varicose veins </a>
+              </li>
+              <li>
+                  <a href=""> Vascular dementia </a>
+              </li>
+              <li>
+                  <a href=""> Vasculitis </a>
+              </li>
+              <li>
+                  <a href=""> Vegetative state, see Disorders of consciousness </a>
+              </li>
+              <li>
+                  <a href=""> Venous leg ulcer </a>
+              </li>
+              <li>
+                  <a href=""> Vertigo </a>
+              </li>
+              <li>
+                  <a href=""> Vestibular neuritis, see Labyrinthitis and vestibular neuritis </a>
+              </li>
+              <li>
+                  <a href=""> Vestibular schwannoma, see Acoustic neuroma (vestibular schwannoma) </a>
+              </li>
+              <li>
+                  <a href=""> Vitamin B12 or folate deficiency anaemia </a>
+              </li>
+              <li>
+                  <a href=""> Vitamins and minerals </a>
+              </li>
+              <li>
+                  <a href=""> Vitiligo </a>
+              </li>
+              <li>
+                  <a href=""> Vomiting, see Diarrhoea and vomiting </a>
+              </li>
+              <li>
+                  <a href=""> Vomiting blood (haematemesis) </a>
+              </li>
+              <li>
+                  <a href=""> Vomiting bug, see Norovirus (vomiting bug) </a>
+              </li>
+              <li>
+                  <a href=""> Von Willebrand disease </a>
+              </li>
+              <li>
+                  <a href=""> Vulval cancer </a>
+              </li>
+              <li>
+                  <a href=""> Vulvodynia (vulval pain) </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="W">W</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                  <a href=""> Warts and verrucas </a>
+              </li>
+              <li>
+                  <a href=""> Watering eyes </a>
+              </li>
+              <li>
+                  <a href=""> Weight loss (unexpected), see Unintentional weight loss </a>
+              </li>
+              <li>
+                  <a href=""> Weight loss surgery </a>
+              </li>
+              <li>
+                  <a href=""> Weil's disease, see Leptospirosis (Weil's disease) </a>
+              </li>
+              <li>
+                  <a href=""> West Nile virus </a>
+              </li>
+              <li>
+                  <a href=""> Whiplash </a>
+              </li>
+              <li>
+                  <a href=""> White blood cell count (low), see Low white blood cell count </a>
+              </li>
+              <li>
+                  <a href=""> Whitlow finger, see Herpetic whitlow (whitlow finger) </a>
+              </li>
+              <li>
+                  <a href=""> Whooping cough </a>
+              </li>
+              <li>
+                  <a href=""> Wind, see Farting (flatulence) </a>
+              </li>
+              <li>
+                  <a href=""> Winter vomiting bug, see Norovirus (vomiting bug) </a>
+              </li>
+              <li>
+                  <a href=""> Wisdom tooth removal </a>
+              </li>
+              <li>
+                  <a href=""> Wolff-Parkinson-White syndrome </a>
+              </li>
+              <li>
+                  <a href=""> Womb (uterus) cancer </a>
+              </li>
+              <li>
+                  <a href=""> Worms in humans </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="X">X</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href=""> X-ray </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="Y">Y</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href=""> Yellow fever </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+      <div class="nhsuk-card nhsuk-card--feature">
+        <div class="nhsuk-card__content nhsuk-card__content--feature">
+          <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24" id="Z">Z</h2>
+            <ul class="nhsuk-list nhsuk-list--border">
+              <li>
+                <a href=""> Zika virus </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          Back to top
+        </a>
+      </div>
+
+    </article>
+
+  </div>
+</div>
+{% endblock %}
+
+
+<!-- NHS.UK footer -->
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS sites</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS App</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">About us</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Profile editor login</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Site map</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list nhsuk-footer__meta">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Our policies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Cookies</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="nhsuk-footer__copyright">© NHS England</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  $( document ).ready(function() {
+    $('a[href=""], button.nhsuk-search__submit').click(function(e) {
+      e.preventDefault();
+    });
+  });
+</script>
+{% endblock %}

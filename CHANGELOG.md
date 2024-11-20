@@ -1,5 +1,9 @@
 # NHS.UK frontend Changelog
 
+:new: **New features**
+
+- Compatibility with Now Prototype It
+
 ## 9.1.0 - 4 November 2024
 
 :new: **New features**

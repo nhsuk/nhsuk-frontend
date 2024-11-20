@@ -83,7 +83,10 @@
   },
   "files": [
     "dist",
-    "packages"
+    "packages",
+    "prototype-tools",
+    "now-prototype-it.config.json",
+    "now-prototype-it.variant.json"
   ],
   "repository": {
     "type": "git",

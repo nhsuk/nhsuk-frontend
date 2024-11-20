@@ -1,0 +1,13 @@
+{
+  "version-2024-03": {
+    "inheritFrom": ["nowprototypeit"],
+    "installedPackages": [
+      "__INHERIT__",
+      "jquery"
+    ],
+    "starterFileDirectories": [
+      "__INHERIT__",
+      "prototype-tools/starter-files"
+    ]
+  }
+}

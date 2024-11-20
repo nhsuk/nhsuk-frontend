@@ -1,0 +1,44 @@
+{% extends "nhsuk-frontend/layouts/prototype-page.njk" %}
+
+{% block pageTitle %}
+  Start page template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ nhsukFrontend.serviceName }}
+      </h1>
+
+      <p>Use this service to:</p>
+
+      <ul>
+        <li>do something</li>
+        <li>update your name, address or other details</li>
+        <li>do something else</li>
+      </ul>
+
+      <p>Registering takes around 5 minutes.</p>
+
+
+      <h2 class="nhsuk-heading-m">Before you start</h2>
+
+      <p>You can only use this service if you live in the UK.</p>
+
+      <a href="/templates/question-page" class="nhsuk-button">
+        Start now
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}

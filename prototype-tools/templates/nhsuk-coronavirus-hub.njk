@@ -1,0 +1,564 @@
+{% extends "nhsuk-frontend/layouts/prototype-page.njk" %}
+
+<!-- some custom css padding for the coronavirus hub page -->
+{% set mainClasses = 'nhsuk-u-padding-top-0' %}
+
+{% block pageTitle %}
+  Coronavirus (COVID-19) - NHS
+{% endblock %}
+
+<!-- NHS.UK header -->
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
+          <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text" fill="#fff" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="nhsuk-header__content" id="content-header">
+      <div class="nhsuk-header__search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <button class="nhsuk-search__submit" type="submit">
+              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+              </svg>
+              <span class="nhsuk-u-visually-hidden">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsuk-navigation-container">
+    <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
+            Health A-Z
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
+            Live Well
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/mental-health/">
+            Mental health
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
+            Care and support
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/pregnancy/">
+            Pregnancy
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
+            NHS services
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
+          <a class="nhsuk-header__navigation-link" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nhsuk-mobile-menu-container">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+            </svg>
+          </button>
+          <ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"></ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Breadcrumbs -->
+<nav class="nhsuk-breadcrumb beta-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a href="" class="nhsuk-breadcrumb__link">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a href="" class="nhsuk-breadcrumb__link">Health A to Z</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back">
+      <a href="" class="nhsuk-breadcrumb__backlink">
+        <span class="nhsuk-u-visually-hidden">Back to </span>Health A to Z
+      </a>
+    </p>
+  </div>
+</nav>
+{% endblock %}
+
+
+<!-- Coronavirus content -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <!-- Heading and lede text -->
+    <div class="nhsuk-u-reading-width">
+      <h1>Coronavirus (COVID-19)</h1>
+      <p class="nhsuk-lede-text">
+        Get NHS advice about COVID-19, including symptoms, testing, vaccination and self-isolation.
+      </p>
+    </div>
+
+    <article>
+      <h2 class="nhsuk-u-visually-hidden">Top tasks in Coronavirus (COVID-19)</h2>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group nhsuk-u-padding-top-0">
+
+        <!-- Book a vaccination card -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content">
+              <a class="nhsuk-card__link nhsuk-heading-xs" href="">
+                Book a vaccination
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Get tested for COVID-19 card -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content">
+              <a class="nhsuk-card__link nhsuk-heading-xs" href="">
+                Get tested for COVID-19
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+
+        <!-- Symptoms card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Symptoms
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Find out about the main symptoms of COVID-19 and what to do if you or your child has them</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Testing card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Testing
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Get a test to check if you have COVID-19, find out what testing involves and understand your test result</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Vaccination card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Vaccination
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Get your COVID-19 vaccination, read about the vaccines and find out what happens when you have your vaccine</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- NHS COVID Pass card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  NHS COVID Pass
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Find out how to get your COVID Pass to attend trial events in England or to travel abroad</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Self-isolation and treating symptons card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Self-isolation and treating symptoms
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Advice about staying at home (self-isolation) and treatment for you and anyone you live with</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- People at higher risk -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  People at higher risk
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Advice for people at higher risk from COVID-19, including older people, people with health conditions and pregnant women</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- How to avoid catching and spreading coronavirus (COVID-19) -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  How to avoid catching and spreading coronavirus (COVID-19)
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Advice about what you can do to reduce your risk of catching and spreading COVID-19</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Long-term effects (long COVID) card -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Long-term effects (long COVID)
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Find out about the long-term effects COVID-19 can sometimes have and what help is available</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Using the NHS and other health services -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Using the NHS and other health services
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Find out about changes to using health services, such as GPs and hospitals, because of COVID-19</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Take part in research -->
+        <li class="beta-hub-main-topic nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable ">
+            <div class="nhsuk-card__content beta-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Take part in research
+                </a>
+              </h2>
+              <div class="nhsuk-card__description"><p>Find out about health research studies and how you may be able to take part</p></div>
+              <div class="beta-hub-arrow">
+                <svg class="nhsuk-icon beta-icon__chevron-right-circle" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+
+      <!-- NHS COVID-19 test and trace app -->
+      <div class="nhsuk-u-margin-top-6">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">NHS COVID-19 test and trace app</h2>
+        </div>
+        <nav role="navigation" aria-label="NHS COVID-19 test and trace app">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                Download the NHS COVID-19 test and trace app
+              </a>
+              <div>covid19.nhs.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- National restrictions and government advice -->
+      <div class="nhsuk-u-margin-top-6">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">National restrictions and government advice</h2>
+        </div>
+        <nav role="navigation" aria-label="National restrictions and government advice">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                GOV.UK: COVID-19 restrictions – what you can and cannot do
+              </a>
+              <div>www.gov.uk</div>
+            </li>
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                GOV.UK: COVID-19 guidance and support
+              </a>
+              <div>www.gov.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- Work and financial support -->
+      <div class="nhsuk-u-margin-top-6 ">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">Work and financial support</h2>
+        </div>
+        <nav role="navigation" aria-label="Work and financial support">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                GOV.UK: work and financial support
+              </a>
+              <div>www.gov.uk</div>
+            </li>
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                Citizens Advice: coronavirus (COVID-19) – if you&#x27;re worried about working
+              </a>
+              <div>www.citizensadvice.org.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- Advice for travellers -->
+      <div class="nhsuk-u-margin-top-6">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">Advice for travellers</h2>
+        </div>
+        <nav role="navigation" aria-label="Advice for travellers">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                GOV.UK: how to quarantine when you arrive in England
+              </a>
+              <div>www.gov.uk</div>
+            </li>
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                GOV.UK: advice for people travelling abroad
+              </a>
+              <div>www.gov.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- Information for health professionals -->
+      <div class="nhsuk-u-margin-top-6">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">Information for health professionals</h2>
+        </div>
+        <nav role="navigation" aria-label="Information for health professionals">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                NHS England: coronavirus (COVID-19) for health professionals
+              </a>
+              <div>www.england.nhs.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!--  Advice in other parts of the UK -->
+      <div class="nhsuk-u-margin-top-6">
+        <div class="beta-hub-related-links-title">
+          <h2 class="nhsuk-heading-s">Advice in other parts of the UK</h2>
+        </div>
+        <nav role="navigation" aria-label="Advice in other parts of the UK">
+          <ul class="beta-hub-related-links">
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                Scotland – NHS Inform: COVID-19
+              </a>
+              <div>www.nhsinform.scot</div>
+            </li>
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                Wales – Welsh Government: COVID-19
+              </a>
+              <div>gov.wales</div>
+            </li>
+            <li class="beta-hub-related-links__list-item">
+              <a href="">
+                Northern Ireland – nidirect: COVID-19
+              </a>
+              <div>www.nidirect.gov.uk</div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    </article>
+
+  </div>
+</div>
+
+<!-- Did this information help you? -->
+<div id="nhsuk-user-feedback-form">
+  <div class="nhsuk-user-feedback-form">
+    <div class="nhsuk-card nhsuk-u-reading-width">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-s">
+          Did this information help you?
+        </h2>
+        <ul class="nhsuk-list nhsuk-user-feedback-form">
+          <li class="nhsuk-user-feedback-form__list-item nhsuk-u-margin-bottom-0">
+            <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-right-4 nhsuk-u-margin-bottom-0 nhsuk-user-feedback-form--yes">
+              Yes <span class="nhsuk-u-visually-hidden">this information helped me</span>
+            </button>
+          </li>
+          <li class="nhsuk-user-feedback-form__list-item nhsuk-u-margin-bottom-0">
+            <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0 nhsuk-user-feedback-form--no">
+              No <span class="nhsuk-u-visually-hidden">this information did not help me</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+<!-- NHS.UK footer -->
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS sites</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS App</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">About us</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Profile editor login</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Site map</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list nhsuk-footer__meta">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Our policies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Cookies</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="nhsuk-footer__copyright">© NHS England</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  $( document ).ready(function() {
+    $('a[href=""], button.nhsuk-search__submit').click(function(e) {
+      e.preventDefault();
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'nhsuk-frontend/layouts/prototype-page.njk' %}
+
+{% block header %}
+  {{ header({
+    "service": {
+      "name": "Prototype kit",
+      "href": "/"
+    },
+    "showNav": "false",
+    "showSearch": "false"
+  })
+  }}
+{% endblock %}
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block content %}
+  {% include "prototype-core/includes/homepage-top.njk" %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        NHS.UK prototype kit
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version {{version}}</span>
+      </h1>
+
+      <p class="nhsuk-lede-text">
+        This kit lets you rapidly create HTML prototypes of NHS services.
+      </p>
+
+      <hr>
+
+      <h2>Using your prototype</h2>
+
+      {% if nhsukFrontend.settingsPageUrl and "/manage-prototype" in nhsukFrontend.settingsPageUrl %}
+        <p class="govuk-body-l">
+          You can change your service name in the <a href="{{ nhsukFrontend.settingsPageUrl }}">Plugin-specific configuration</a>.
+        </p>
+      {% endif %}
+
+      {% include "prototype-core/includes/homepage-bottom.njk" %}
+
+      <hr>
+
+      <h2>
+        Get started
+      </h2>
+
+      <p>Get started by using the:</p>
+
+      <ul>
+        <li>
+          <a href="https://prototype-kit.service-manual.nhs.uk/how-tos">how to guides</a>
+        </li>
+        <li>
+          code snippets for styles and components from the <a href="https://service-manual.nhs.uk/design-system">NHS digital service manual</a>
+        </li>
+      </ul>
+
+      <!-- End of content -->
+
+    </div>
+  </div>
+
+{% endblock %}

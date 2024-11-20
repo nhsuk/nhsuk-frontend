@@ -1,0 +1,313 @@
+{
+  "version-2024-03": {
+    "meta": {
+      "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+      "urls": {
+        "documentation": "https://service-manual.nhs.uk/design-system",
+        "releaseNotes": "https://github.com/nhsuk/nhsuk-frontend/releases/tag/v{{version}}",
+        "versionHistory": "https://github.com/alphagov/govuk-prototype-kit-common-templates/releases"
+      }
+    },
+    "relatedPlugins": {
+      "fromNpm": [
+        "@x-govuk/govuk-prototype-filters",
+        "@x-govuk/govuk-prototype-components"
+      ]
+    },
+    "importNunjucksMacrosInto": [
+      "/prototype-tools/nunjucks/nhsuk-frontend/layouts/prototype-page.njk"
+    ],
+    "settings": [
+      {
+        "value": "{{ALL_PLUGINS_ASSETS_URL_CONTEXT}}/nhsuk-frontend/packages/",
+        "variableNames": {
+          "nunjucks": "baseUrl"
+        }
+      },
+      {
+        "value": "Service name goes here",
+        "isDefault": true,
+        "variableNames": {
+          "nunjucks": "nhsukFrontend.serviceName"
+        },
+        "userInterface": {
+          "key": "serviceName",
+          "name": "Service name",
+          "hintText": "This is used in the header of each page by default. You can override this in individual templates.",
+          "type": "string"
+        }
+      },
+      {
+        "value": "{{PLUGIN_SPECIFIC_SETTINGS_PAGE_URL}}",
+        "variableNames": {
+          "nunjucks": "nhsukFrontend.settingsPageUrl"
+        }
+      },
+      {
+        "value": "{{ALL_PLUGINS_ASSETS_URL_CONTEXT}}/nhsuk-frontend/prototype-tools/assets/images",
+        "variableNames": {
+          "nunjucks": "nhsukFrontend.exampleImagesUrl"
+        }
+      }
+    ],
+    "assets": [
+      "/packages/assets",
+      "/prototype-tools/assets"
+    ],
+    "scripts": [
+      "/dist/nhsuk.js"
+    ],
+    "sass": [
+      "/packages/core/all.scss",
+      "/packages/components/date-input/_date-input.scss",
+      "/packages/components/input/_input.scss",
+      "/packages/components/pagination/_pagination.scss",
+      "/packages/components/skip-link/_skip-link.scss",
+      "/packages/components/inset-text/_inset-text.scss",
+      "/packages/components/radios/_radios.scss",
+      "/packages/components/action-link/_action-link.scss",
+      "/packages/components/contents-list/_contents-list.scss",
+      "/packages/components/checkboxes/_checkboxes.scss",
+      "/packages/components/fieldset/_fieldset.scss",
+      "/packages/components/warning-callout/_warning-callout.scss",
+      "/packages/components/select/_select.scss",
+      "/packages/components/header/_header-transactional.scss",
+      "/packages/components/header/_header-organisation.scss",
+      "/packages/components/header/_header-white.scss",
+      "/packages/components/header/_header.scss",
+      "/packages/components/header/_header-service.scss",
+      "/packages/components/button/_button.scss",
+      "/packages/components/tag/_tag.scss",
+      "/packages/components/do-dont-list/_do-dont-list.scss",
+      "/packages/components/hero/_hero.scss",
+      "/packages/components/footer/_footer.scss",
+      "/packages/components/hint/_hint.scss",
+      "/packages/components/tables/_tables.scss",
+      "/packages/components/card/card.scss",
+      "/packages/components/images/_images.scss",
+      "/packages/components/error-message/_error-message.scss",
+      "/packages/components/back-link/_back-link.scss",
+      "/packages/components/textarea/_textarea.scss",
+      "/packages/components/tabs/_tabs.scss",
+      "/packages/components/breadcrumb/_breadcrumb.scss",
+      "/packages/components/task-list/_task-list.scss",
+      "/packages/components/error-summary/_error-summary.scss",
+      "/packages/components/details/_details.scss",
+      "/packages/components/summary-list/_summary-list.scss",
+      "/packages/components/character-count/_character-count.scss",
+      "/packages/components/label/_label.scss",
+      "/prototype-tools/assets/prototype-specific-scss/feedback-form.scss"
+    ],
+    "nunjucksPaths": [
+      "/prototype-tools/nunjucks",
+      "/packages/components",
+      "/packages"
+    ],
+    "nunjucksMacros": [
+      {
+        "importFrom": "components/button/macro.njk",
+        "macroName": "button"
+      },
+      {
+        "importFrom": "components/breadcrumb/macro.njk",
+        "macroName": "breadcrumb"
+      },
+      {
+        "importFrom": "components/back-link/macro.njk",
+        "macroName": "backLink"
+      },
+      {
+        "importFrom": "components/action-link/macro.njk",
+        "macroName": "actionLink"
+      },
+      {
+        "importFrom": "components/error-summary/macro.njk",
+        "macroName": "errorSummary"
+      },
+      {
+        "importFrom": "components/error-message/macro.njk",
+        "macroName": "errorMessage"
+      },
+      {
+        "importFrom": "components/do-dont-list/macro.njk",
+        "macroName": "list"
+      },
+      {
+        "importFrom": "components/details/macro.njk",
+        "macroName": "details"
+      },
+      {
+        "importFrom": "components/date-input/macro.njk",
+        "macroName": "dateInput"
+      },
+      {
+        "importFrom": "components/contents-list/macro.njk",
+        "macroName": "contentsList"
+      },
+      {
+        "importFrom": "components/checkboxes/macro.njk",
+        "macroName": "checkboxes"
+      },
+      {
+        "importFrom": "components/character-count/macro.njk",
+        "macroName": "characterCount"
+      },
+      {
+        "importFrom": "components/card/macro.njk",
+        "macroName": "card"
+      },
+      {
+        "importFrom": "components/footer/macro.njk",
+        "macroName": "footer"
+      },
+      {
+        "importFrom": "components/fieldset/macro.njk",
+        "macroName": "fieldset"
+      },
+      {
+        "importFrom": "components/inset-text/macro.njk",
+        "macroName": "insetText"
+      },
+      {
+        "importFrom": "components/input/macro.njk",
+        "macroName": "input"
+      },
+      {
+        "importFrom": "components/images/macro.njk",
+        "macroName": "image"
+      },
+      {
+        "importFrom": "components/hint/macro.njk",
+        "macroName": "hint"
+      },
+      {
+        "importFrom": "components/hero/macro.njk",
+        "macroName": "hero"
+      },
+      {
+        "importFrom": "components/header/macro.njk",
+        "macroName": "header"
+      },
+      {
+        "importFrom": "components/tabs/macro.njk",
+        "macroName": "tabs"
+      },
+      {
+        "importFrom": "components/tables/macro.njk",
+        "macroName": "table"
+      },
+      {
+        "importFrom": "components/summary-list/macro.njk",
+        "macroName": "summaryList"
+      },
+      {
+        "importFrom": "components/skip-link/macro.njk",
+        "macroName": "skipLink"
+      },
+      {
+        "importFrom": "components/select/macro.njk",
+        "macroName": "select"
+      },
+      {
+        "importFrom": "components/radios/macro.njk",
+        "macroName": "radios"
+      },
+      {
+        "importFrom": "components/pagination/macro.njk",
+        "macroName": "pagination"
+      },
+      {
+        "importFrom": "components/label/macro.njk",
+        "macroName": "label"
+      },
+      {
+        "importFrom": "components/warning-callout/macro.njk",
+        "macroName": "warningCallout"
+      },
+      {
+        "importFrom": "components/textarea/macro.njk",
+        "macroName": "textarea"
+      },
+      {
+        "importFrom": "components/task-list/macro.njk",
+        "macroName": "taskList"
+      },
+      {
+        "importFrom": "components/tag/macro.njk",
+        "macroName": "tag"
+      }
+    ],
+    "templates": [
+      {
+        "name": "Content Page",
+        "path": "/prototype-tools/templates/content-page.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Blank transactional",
+        "path": "/prototype-tools/templates/blank-transactional.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Blank NHS.UK",
+        "path": "/prototype-tools/templates/blank-nhsuk.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Start Page",
+        "path": "/prototype-tools/templates/start-page.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Question Page",
+        "path": "/prototype-tools/templates/question-page.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Check your answers",
+        "path": "/prototype-tools/templates/check-your-answers.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK Social Care",
+        "path": "/prototype-tools/templates/nhsuk-socialcare.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK Pregnancy",
+        "path": "/prototype-tools/templates/nhsuk-pregnancy.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK NHS Services",
+        "path": "/prototype-tools/templates/nhsuk-nhs-services.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK Mental Health",
+        "path": "/prototype-tools/templates/nhsuk-mentalhealth.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK Health A-Z",
+        "path": "/prototype-tools/templates/nhsuk-healthaz.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "NHS.UK Coronavirus Hub",
+        "path": "/prototype-tools/templates/nhsuk-coronavirus-hub.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Confirmation Page",
+        "path": "/prototype-tools/templates/confirmation-page.njk",
+        "type": "nunjucks"
+      },
+      {
+        "name": "Mini Hub",
+        "path": "/prototype-tools/templates/mini-hub.njk",
+        "type": "nunjucks"
+      }
+    ]
+  }
+}

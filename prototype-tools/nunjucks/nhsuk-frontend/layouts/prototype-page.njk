@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" style="{{ html_style }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <title>
+    {% block pageTitle %}
+      {{ title }} - NHS.UK frontend
+    {% endblock %}
+  </title>
+
+  {% include "prototype-core/includes/stylesheets.njk" %}
+  {% block headCSS %}{% endblock %}
+
+  {% include "prototype-core/includes/scripts.njk" %}
+
+  <link rel="shortcut icon" href="{{ baseUrl }}assets/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ baseUrl }}assets/favicons/apple-touch-icon-180x180.png">
+  <link rel="mask-icon" href="{{ baseUrl }}assets/favicon.svg" color="#005eb8">
+  <link rel="icon" sizes="192x192" href="{{ baseUrl }}assets/favicon-192x192.png">
+  <meta name="msapplication-TileImage" content="{{ baseUrl }}assets/mediumtile-144x144.png">
+  <meta name="msapplication-TileColor" content="#005eb8">
+  <meta name="msapplication-square70x70logo" content="{{ baseUrl }}assets/smalltile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="{{ baseUrl }}assets/mediumtile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="{{ baseUrl }}assets/favicons/widetile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="{{ baseUrl }}assets/favicons/largetile-310x310.png">
+</head>
+
+<body class="{{ body_class }}">
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+{% block header %}
+  {{ header({
+    service: {
+      name: nhsukFrontend.serviceName,
+      URL: '/'
+    },
+    showNav: "true",
+    showSearch: "true",
+    primaryLinks: [
+      {
+        url  : "https://www.nhs.uk/conditions",
+        label : "Health A-Z"
+      },
+      {
+        url : 'https://www.nhs.uk/live-well/',
+        label : 'Live Well'
+      },
+      {
+        url : 'https://www.nhs.uk/mental-health/',
+        label : 'Mental health'
+      },
+      {
+        url  : 'https://www.nhs.uk/conditions/social-care-and-support/',
+        label : 'Care and support'
+      },
+      {
+        url  : 'https://www.nhs.uk/pregnancy/',
+        label : 'Pregnancy'
+      },
+      {
+        url : 'https://www.nhs.uk/nhs-services/',
+        label : 'NHS services'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block body %}
+  <div class="nhsuk-width-container {{ containerClasses }}">
+    {% block beforeContent %}{% endblock %}
+    <main class="nhsuk-main-wrapper {{ mainClasses }}" id="maincontent" role="main">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "/",
+        "label": "Home"
+      },
+      {
+        "URL": managePrototypeTemplatesUrl | default("/manage-prototype/templates"),
+        "label": "Page templates"
+      },
+      {
+        "URL": managePrototypeUrl | default("/manage-prototype"),
+        "label": "Manage your prototype"
+      },
+      {
+        "URL": clearSessionDataUrl | default("/manage-prototype/clear-data"),
+        "label": "Clear session data"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    <!-- Custom JavaScript files can be added to this file -->
+    {% include "prototype-core/includes/scripts.html" %}
+    <!-- For adding page specific JavsScript -->
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,403 @@
+{% extends "nhsuk-frontend/layouts/prototype-page.njk" %}
+
+{% block pageTitle %}
+  Live Well - NHS
+{% endblock %}
+
+<!-- NHS.UK header -->
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-header__container">
+    <div class="nhsuk-header__logo">
+      <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
+          <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text" fill="#fff" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="nhsuk-header__content" id="content-header">
+      <div class="nhsuk-header__search">
+        <div class="nhsuk-header__search-wrap" id="wrap-search">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+            <button class="nhsuk-search__submit" type="submit">
+              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+              </svg>
+              <span class="nhsuk-u-visually-hidden">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsuk-navigation-container">
+    <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
+            Health A-Z
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
+            Live Well
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/mental-health/">
+            Mental health
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
+            Care and support
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/pregnancy/">
+            Pregnancy
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
+            NHS services
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
+          <a class="nhsuk-header__navigation-link" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nhsuk-mobile-menu-container">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+            </svg>
+          </button>
+          <ul class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"></ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Breadcrumbs -->
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">
+        <a href="" class="nhsuk-breadcrumb__link">Home</a>
+      </li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back">
+      <a href="" class="nhsuk-breadcrumb__backlink">Back to Home</a>
+    </p>
+  </div>
+</nav>
+{% endblock %}
+
+
+<!-- Live Well content -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+      <h1>Live Well</h1>
+      <p class="nhsuk-lede-text">
+        Advice, tips and tools to help you make the best choices about your
+        health and wellbeing.
+      </p>
+    </div>
+
+    <article>
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+
+
+        <!-- 5 steps to mental wellbeing -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/T_0917_moodzone_527900916.width-690.jpg"
+              alt="Practical advice to help you feel mentally and emotionally better"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  5 steps to mental wellbeing
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Practical advice to help you feel mentally and emotionally
+                better
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Healthy weight -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_healthy-weight-main_M24ENF.width-690.jpg"
+              alt="feet on scales"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Healthy weight
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Check your BMI using our healthy weight calculator and find out
+                if you&#x27;re a healthy weight
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Exercise -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_exercise-main_FKW1X7.width-690.jpg"
+              alt="A woman wearing exercise clothing with headphones in"
+            />
+           <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Exercise
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Programmes, workouts and tips to get you moving and improve your
+                fitness and wellbeing
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+
+
+        <!-- Sleep and tiredness -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_sleep-main_FWWNPR.width-690.width-690.png"
+              alt="White alarm clock with black hands and numbers to right foreground, blurred woman sleeping behind on blow-up bed"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Sleep and tiredness
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Find out how to sleep well and the common lifestyle factors that
+                are making you tired
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Eat well -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_healthy-eating-main_BATM01_copy.width-690.jpg"
+              alt="A bowl of fruit"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Eat well
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                All you need to know about the major food groups and a healthy,
+                balanced diet
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Alcohol support -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_alcohol-support-main__D88JWB.width-690.jpg"
+              alt="empty wine bottles"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Alcohol support
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Find out the health benefits of reducing your alcohol intake and
+                get tips on cutting down
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+
+
+        <!-- Quit smoking -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_quit-smoking_FR0Y98.width-690.jpg"
+              alt="Picture of an empty ashtray"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Quit smoking
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Learn about the benefits of quitting smoking, including better
+                health and increased fertility
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Healthy body -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0719_Health_KGEXK.width-690.jpg"
+              alt="None"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Healthy body
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Get some practical information and advice for keeping your body
+                in tip-top health
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Sexual health -->
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <img
+              class="nhsuk-card__img"
+              src="{{ nhsukFrontend.exampleImagesUrl }}/livewell/A_0218_sexual-health-main_HG8H7H.width-690.jpg"
+              alt="Some colourful condoms"
+            />
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="">
+                  Sexual health
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                Everything you need to know about sexual health, including
+                contraception, STIs and good sex
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+<!-- NHS.UK footer -->
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer-container">
+    <div class="nhsuk-width-container">
+      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+      <div class="nhsuk-footer">
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS sites</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">NHS App</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">About us</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Profile editor login</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Site map</a>
+          </li>
+        </ul>
+        <ul class="nhsuk-footer__list nhsuk-footer__meta">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Our policies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="">Cookies</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="nhsuk-footer__copyright">© NHS England</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  $( document ).ready(function() {
+    $('a[href=""], button.nhsuk-search__submit').click(function(e) {
+      e.preventDefault();
+    });
+  });
+</script>
+{% endblock %}

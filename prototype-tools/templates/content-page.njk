@@ -1,0 +1,32 @@
+{% extends "nhsuk-frontend/layouts/prototype-page.njk" %}
+
+{% block pageTitle %}
+  Content page template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        Page heading goes here
+      </h1>
+
+      <p>
+        Visit the
+          <a href="https://service-manual.nhs.uk">NHS digital service manual</a>
+        for guidance and code examples.
+      </p>
+
+    </div>
+
+  </div>
+{% endblock %}
