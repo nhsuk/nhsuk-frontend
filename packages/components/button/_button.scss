@@ -132,6 +132,11 @@ $button-padding-left-right: nhsuk-spacing(3);
     padding-top: $button-padding-top-bottom-mobile + calc($button-border-width / 2); /* 4 */
   }
 
+  /* 3 */
+  &::before {
+    bottom: -$button-shadow-size;
+  }
+
   &:hover {
     background-color: $nhsuk-secondary-button-hover-color;
     color: $nhsuk-secondary-button-text-color;
