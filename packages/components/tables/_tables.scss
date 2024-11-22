@@ -6,6 +6,7 @@
  * Table container is used to ensure the table does not break the container.
  *
  * 1. Margin is removed so there isn't double spacing.
+ * 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
  */
 
 .nhsuk-table-container {
@@ -21,6 +22,24 @@
     margin: 0; /* [1] */
   }
 }
+
+.nhsuk-table__caption--xl {
+  @include nhsuk-typography-responsive(48);
+}
+
+.nhsuk-table__caption--l {
+  @include nhsuk-typography-responsive(36);
+}
+
+.nhsuk-table__caption--m {
+  @include nhsuk-typography-responsive(26);
+}
+
+.nhsuk-table__caption--s {
+  @include nhsuk-typography-responsive(22);
+}
+
+/* [2] */
 
 /* Table row hover
 ========================================================================== */
@@ -80,6 +99,11 @@
 
     @include mq($from: desktop) {
       @include visually-shown(table-header-group); /* [2] */
+
+      &:before,
+      &:after {
+        content: "";
+      }
     }
   }
 

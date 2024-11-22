@@ -181,7 +181,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card--care__heading {
-  @include nhsuk-font(24, $weight: bold);
+  @include nhsuk-font(26, $weight: bold);
   @include print-color($nhsuk-print-text-color);
 
   margin: 0;
@@ -249,6 +249,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
       &:focus {
         color: $color_nhsuk-black; /* [16] */
       }
+    }
+    @include mq($media-type: print) {
+      background-color: white;
+      color: $nhsuk-print-text-color;
     }
   }
 

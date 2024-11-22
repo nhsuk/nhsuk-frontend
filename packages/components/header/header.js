@@ -54,9 +54,14 @@ class Header {
    *
    */
   calculateBreakpoints() {
+    // Get the width of the gap between each navigation item
+    const navigationListStyles = window.getComputedStyle(this.navigationList)
+    const gapPixels = navigationListStyles.getPropertyValue('gap')
+    const gap = Number(gapPixels.replace('px', ''))
+
     let childrenWidth = 0
     for (let i = 0; i < this.navigationList.children.length; i++) {
-      childrenWidth += this.navigationList.children[i].offsetWidth
+      childrenWidth += this.navigationList.children[i].offsetWidth + gap
       this.breakpoints[i] = childrenWidth
     }
   }
@@ -72,7 +77,7 @@ class Header {
    *
    * Closes the mobile menu and updates accessibility state.
    *
-   * Remvoes the margin-bottom from the navigation
+   * Removes the margin-bottom from the navigation
    */
   closeMobileMenu() {
     this.menuIsOpen = false
@@ -115,7 +120,7 @@ class Header {
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 
-    // add event listerer for esc key to close menu
+    // add event listener for esc key to close menu
     document.addEventListener('keydown', this.handleEscapeKey.bind(this))
 
     // add event listener for close icon to close menu
@@ -145,12 +150,12 @@ class Header {
    * If the available space is greater than the current breakpoint,
    * remove the mobile menu toggle button and move the first item in the
    *
-   * Additionaly will close the mobile menu if the window gets resized
+   * Additionally will close the mobile menu if the window gets resized
    * and the menu is open.
    */
 
   updateNavigation() {
-    const availableSpace = this.navigation.offsetWidth
+    const availableSpace = this.navigationList.offsetWidth
     let itemsVisible = this.navigationList.children.length
 
     if (availableSpace < this.breakpoints[itemsVisible - 1]) {
