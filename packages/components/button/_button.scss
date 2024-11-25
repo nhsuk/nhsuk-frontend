@@ -153,6 +153,14 @@ $button-padding-left-right: nhsuk-spacing(3);
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
+
+    &:visited {
+      color: $nhsuk-focus-text-color;
+
+      &:active {
+        color: $nhsuk-secondary-button-text-color;
+      }
+    }
   }
 
   &:active {
