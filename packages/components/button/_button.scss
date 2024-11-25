@@ -159,6 +159,10 @@ $button-shadow-size: 4px;
     top: $button-shadow-size;
   }
 
+  &:visited {
+    color: $nhsuk-reverse-button-text-color;
+  }
+
   &:link {
     color: $nhsuk-reverse-button-text-color;
 
