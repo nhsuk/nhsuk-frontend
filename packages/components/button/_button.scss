@@ -141,6 +141,11 @@ $button-padding-left-right: nhsuk-spacing(3);
     color: $nhsuk-secondary-button-text-color;
   }
 
+  &:link,
+  &:visited {
+    color: $nhsuk-secondary-button-text-color;
+  }
+
   &:focus {
     background: $nhsuk-focus-color;
     border-color: $nhsuk-focus-color;
