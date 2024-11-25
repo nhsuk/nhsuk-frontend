@@ -32,6 +32,10 @@ jobs:
       - name: Build release artifact
         run: npm run build-gh-release
 
+              
+      - name: List contents of dist folder
+        run: ls ./dist
+
       - name: Get package version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
@@ -47,8 +51,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: List contents of dist folder
-        run: ls ./dist
+
 
       - name: Upload release asset
         id: upload-release-asset
