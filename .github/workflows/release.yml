@@ -54,8 +54,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_path: ./dist/nhsuk-frontend-tel-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_name: nhsuk-frontend-tel-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
 
       - name: Build GitHub pages
