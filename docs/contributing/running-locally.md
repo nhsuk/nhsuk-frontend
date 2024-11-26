@@ -2,7 +2,7 @@
 
 ## Requirements
 
-To run NHS.UK frontend locally you'll need to:
+To run NHS.UK frontend TEL locally you'll need to:
 
 - [set up git](https://help.github.com/articles/set-up-git/)
 - [install Node.js](https://nodejs.org/en/)
@@ -18,16 +18,16 @@ To run NHS.UK frontend locally you'll need to:
 
 ## 2. Clone the repository
 
-You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/)
+You can clone the repository directly if you're a member of the [NHS.UK TEL GitHub organisation](https://github.com/TechnologyEnhancedLearning/)
 
 ```
-git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
+git clone git@github.com:TechnologyEnhancedLearning/nhsuk-frontend-tel.git nhsuk-frontend-tel
 ```
 
 Otherwise you'll have to clone your own fork
 
 ```
-git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
+git clone https://github.com/[Username]/nhsuk-frontend-tel.git nhsuk-frontend-tel
 ```
 
 > Replace '[Username]' in the git clone command above with your own GitHub username.
@@ -39,7 +39,7 @@ We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-
 Whilst in the project directory you will need to install the dependencies listed in `package.json`
 
 ```
-cd nhsuk-frontend
+cd nhsuk-frontend-tel
 ```
 
 ```

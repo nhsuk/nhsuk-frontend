@@ -1,10 +1,9 @@
 # Browser support
 
-NHS.UK frontend browser support is shown in the table below.
+NHS.UK frontend TEL browser support is shown in the table below.
 
 | Operating system | Browser                            | Support   |
 | ---------------- | ---------------------------------- | --------- |
-| Windows          | Internet Explorer 11               | compliant |
 | Windows          | Edge (latest versions)             | compliant |
 | Windows          | Google Chrome (latest versions)    | compliant |
 | Windows          | Mozilla Firefox (latest versions)  | compliant |
@@ -24,7 +23,7 @@ We no longer support older versions of Internet Explorer. This is due to the ver
 
 # Assistive technology support
 
-We test the NHS.UK frontend with the following assistive technology:
+We test the NHS.UK frontend TEL with the following assistive technology:
 
 | Software                                                                                              | Type                                   | Browser                                       |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------- |

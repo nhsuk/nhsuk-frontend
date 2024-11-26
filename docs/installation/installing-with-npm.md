@@ -2,7 +2,7 @@
 
 ## Requirements
 
-To use NHS.UK frontend in your projects with npm you must:
+To use NHS.UK frontend TEL in your projects with npm you must:
 
 1. Have [Node.js](https://nodejs.org/en/) installed. We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, which also includes [npm](https://www.npmjs.com/).
 
@@ -18,15 +18,15 @@ To use NHS.UK frontend in your projects with npm you must:
 
 ## Installation
 
-Install the NHS.UK frontend package into your project:
+Install the NHS.UK frontend TEL package into your project:
 
 ```
-npm install nhsuk-frontend --save
+npm install nhsuk-frontend-tel --save
 ```
 
 ## Configuration
 
-You will need to import a couple of things into your project before you can start using NHS.UK frontend:
+You will need to import a couple of things into your project before you can start using NHS.UK frontend TEL:
 
 - [Importing styles](#importing-styles)
 - [Importing JavaScript](#importing-javascript)
@@ -36,27 +36,27 @@ You will need to import a couple of things into your project before you can star
 
 To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
 
-You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
+You need to import the NHS.UK frontend TEL styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
 ```SCSS
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+@import 'node_modules/nhsuk-frontend-tel/packages/nhsuk';
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.
 
 ```SCSS
 // Core (required)
-@import 'node_modules/nhsuk-frontend/packages/core/all';
+@import 'node_modules/nhsuk-frontend-tel/packages/core/all';
 
 // Individual component (optional)
-@import 'node_modules/nhsuk-frontend/packages/components/action-link/action-link';
+@import 'node_modules/nhsuk-frontend-tel/packages/components/action-link/action-link';
 ```
 
 ## Importing JavaScript
 
 Some of our components require JavaScript to function properly, others need JavaScript to improve the usability and accessibility.
 
-You should include NHS.UK frontend JavaScript in your project to ensure that all users can use it successfully.
+You should include NHS.UK frontend TEL JavaScript in your project to ensure that all users can use it successfully.
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
@@ -66,7 +66,7 @@ document.body.className = ((document.body.className) ? document.body.className +
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
+Include the `node_modules/nhsuk-frontend-tel/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
 
 > The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 
@@ -78,7 +78,7 @@ You might wish to copy the file into your project or reference it straight from 
 ```
 
 ```html
-    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" defer></script>
+    <script src="node_modules/nhsuk-frontend-tel/dist/nhsuk.min.js" defer></script>
   </head>
 ```
 
@@ -96,7 +96,7 @@ import Radios from './components/radios/radios';
 import SkipLink from './components/skip-link/skip-link';
 
 // Polyfills
-import '../node_modules/nhsuk-frontend/packages/polyfills';
+import '../node_modules/nhsuk-frontend-tel/packages/polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Importing assets (optional)
 
-If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend/assets/` directory or you can reference them straight from the `node_modules` folder.
+If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend-tel/assets/` directory or you can reference them straight from the `node_modules` folder.
 
 ```html
 <link rel="shortcut icon" href="path-to-assets/favicon.ico" type="image/x-icon">

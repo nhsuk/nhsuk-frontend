@@ -10,7 +10,7 @@ GitHub specific files, such templates for pull requests and issues.
 
 `app/`
 
-Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000 when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
+Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000 when running the application locally.
 
 `dist/` (Automatically generated)
 
@@ -26,7 +26,7 @@ Node package manager modules for third party dependencies. This folder is automa
 
 `packages/`
 
-NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+NHS.UK frontend TEL individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 `tasks/`
 
