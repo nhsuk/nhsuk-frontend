@@ -76,7 +76,7 @@ jobs:
           FOLDER: ./dist/app
           CLEAN: true
 
-      - name: Publish NPM package
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+      #- name: Publish NPM package
+      #  run: npm publish
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

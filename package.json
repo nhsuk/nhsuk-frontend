@@ -16,6 +16,7 @@
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:js:fix": "eslint --fix -c ./tests/linters/.eslintrc.js packages/components/**/*.js",
     "lint:css": "stylelint -f verbose --config ./tests/linters/.stylelintrc.js packages/**/*.scss",
+    "lint:css:tel": "stylelint -f verbose --config ./tests/linters/.stylelintrc.tel.js packages/components/tel/**/*.scss",
     "lint:css:fix": "stylelint --fix -f verbose --config ./tests/linters/.stylelintrc.js packages/**/*.scss",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./dist/app/components/**/*.html",
     "backstop:interactive": "backstop remote --config ./tests/backstop/backstop.js",
