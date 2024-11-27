@@ -81,5 +81,24 @@
 
   .nhsuk-header__navigation-link {
     @include nhsuk-link-style-no-visited-state;
+
+    // Visual indicator for current navigation item has blue line on
+    // bottom edge instead of grey in the regular Header nav
+    &[aria-current="page"],
+    &[aria-current="true"] {
+      box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-blue;
+    }
+  }
+
+  // Drop down navigation
+  .nhsuk-header__drop-down {
+    .nhsuk-header__navigation-link {
+      // When in expanded menu, a current item link should revert to having a
+      // no box-shadow, with a box-shadow added to containing list item instead.
+      &[aria-current="page"],
+      &[aria-current="true"] {
+        box-shadow: none;
+      }
+    }
   }
 }
