@@ -682,8 +682,8 @@ The header Nunjucks macro takes the following arguments:
 | **organisation.descriptor**    | string | No       | Organisation descriptor.                                                                                                                          |
 | **organisation.logoURL**       | string | No       | Organisation logo if using a static asset, such as PNG, is preferred.                                                                             |
 | **primaryLinks**               | array  | No       | Array of navigation links for use in the header.                                                                                                  |
-| **primaryLinks[].href**         | string | No       | The href of a navigation item in the header.                                                                                                      |
-| **primaryLinks[].text**       | string | No       | The link text of a navigation item in the header.                                                                                                     |
+| **primaryLinks[].href**        | string | No       | The href of a navigation item in the header.                                                                                                      |
+| **primaryLinks[].text**        | string | No       | The link text of a navigation item in the header.                                                                                                 |
 | **primaryLinks[].classes**     | string | No       | Optional additional classes to add to the list item.                                                                                              |
 | **primaryLinks[].attributes**  | string | No       | Any extra HTML attributes (for example data attributes) to add to the list item.                                                                  |
 | **transactionalService**       | object | No       | Object containing the _name_ and _href_ of the transactional service.                                                                             |
