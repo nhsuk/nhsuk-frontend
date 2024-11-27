@@ -99,28 +99,28 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     "search": true,
     "primaryLinks": [
       {
-        "url"  : "https://www.nhs.uk/conditions",
-        "label" : "Health A-Z"
+        href: "https://www.nhs.uk/conditions",
+        text: "Health A-Z"
       },
       {
-        'url' : 'https://www.nhs.uk/live-well/',
-        'label' : 'Live Well'
+        href: 'https://www.nhs.uk/live-well/',
+        text: 'Live Well'
       },
       {
-        'url' : 'https://www.nhs.uk/mental-health/',
-        'label' : 'Mental health'
+        href: 'https://www.nhs.uk/mental-health/',
+        text: 'Mental health'
       },
       {
-        'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-        'label' : 'Care and support'
+        href: 'https://www.nhs.uk/conditions/social-care-and-support/',
+        text: 'Care and support'
       },
       {
-        'url'  : 'https://www.nhs.uk/pregnancy/',
-        'label' : 'Pregnancy'
+        href: 'https://www.nhs.uk/pregnancy/',
+        text: 'Pregnancy'
       },
       {
-        'url' : 'https://www.nhs.uk/nhs-services/',
-        'label' : 'NHS services'
+        href: 'https://www.nhs.uk/nhs-services/',
+        text: 'NHS services'
       }
     ]
   })
@@ -198,28 +198,28 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 {{ header({
       "primaryLinks": [
         {
-          "url"  : "https://www.nhs.uk/conditions",
-          "label" : "Health A-Z"
+          href: "https://www.nhs.uk/conditions",
+          text: "Health A-Z"
         },
         {
-          'url' : 'https://www.nhs.uk/live-well/',
-          'label' : 'Live Well'
+          href: 'https://www.nhs.uk/live-well/',
+          text: 'Live Well'
         },
         {
-          'url' : 'https://www.nhs.uk/mental-health/',
-          'label' : 'Mental health'
+          href: 'https://www.nhs.uk/mental-health/',
+          text: 'Mental health'
         },
         {
-          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-          'label' : 'Care and support'
+          href: 'https://www.nhs.uk/conditions/social-care-and-support/',
+          text: 'Care and support'
         },
         {
-          'url'  : 'https://www.nhs.uk/pregnancy/',
-          'label' : 'Pregnancy'
+          href: 'https://www.nhs.uk/pregnancy/',
+          text: 'Pregnancy'
         },
         {
-          'url' : 'https://www.nhs.uk/nhs-services/',
-          'label' : 'NHS services'
+          href: 'https://www.nhs.uk/nhs-services/',
+          text: 'NHS services'
         }
       ]
     })
@@ -418,24 +418,24 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     },
     "primaryLinks": [
       {
-        "url"  : "#",
-        "label" : "Your hospital visit"
+        href: "#",
+        text: "Your hospital visit"
       },
       {
-        'url' : '#',
-        'label' : 'Wards and departments'
+        href: '#',
+        text: 'Wards and departments'
       },
       {
-        'url'  : '#',
-        'label' : 'Conditions and treatments'
+        href: '#',
+        text: 'Conditions and treatments'
       },
       {
-        'url'  : '#',
-        'label' : 'Our people'
+        href: '#',
+        text: 'Our people'
       },
       {
-        'url' : '#',
-        'label' : 'Our research'
+        href: '#',
+        text: 'Our research'
       }
     ]
   })
@@ -531,24 +531,24 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     },
     "primaryLinks": [
       {
-        "url"  : "#",
-        "label" : "Your hospital visit"
+        href: "#",
+        text: "Your hospital visit"
       },
       {
-        'url' : '#',
-        'label' : 'Wards and departments'
+        href: '#',
+        text: 'Wards and departments'
       },
       {
-        'url'  : '#',
-        'label' : 'Conditions and treatments'
+        href: '#',
+        text: 'Conditions and treatments'
       },
       {
-        'url'  : '#',
-        'label' : 'Our people'
+        href: '#',
+        text: 'Our people'
       },
       {
-        'url' : '#',
-        'label' : 'Our research'
+        href: '#',
+        text: 'Our research'
       }
     ]
   })
@@ -644,24 +644,24 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
     },
     "primaryLinks": [
       {
-        "url"  : "#",
-        "label" : "Your hospital visit"
+        href: "#",
+        text: "Your hospital visit"
       },
       {
-        'url' : '#',
-        'label' : 'Wards and departments'
+        href: '#',
+        text: 'Wards and departments'
       },
       {
-        'url'  : '#',
-        'label' : 'Conditions and treatments'
+        href: '#',
+        text: 'Conditions and treatments'
       },
       {
-        'url'  : '#',
-        'label' : 'Our people'
+        href: '#',
+        text: 'Our people'
       },
       {
-        'url' : '#',
-        'label' : 'Our research'
+        href: '#',
+        text: 'Our research'
       }
     ]
   })
@@ -682,8 +682,8 @@ The header Nunjucks macro takes the following arguments:
 | **organisation.descriptor**    | string | No       | Organisation descriptor.                                                                                                                          |
 | **organisation.logoURL**       | string | No       | Organisation logo if using a static asset, such as PNG, is preferred.                                                                             |
 | **primaryLinks**               | array  | No       | Array of navigation links for use in the header.                                                                                                  |
-| **primaryLinks[].url**         | string | No       | The href of a navigation item in the header.                                                                                                      |
-| **primaryLinks[].label**       | string | No       | The label of a navigation item in the header.                                                                                                     |
+| **primaryLinks[].href**         | string | No       | The href of a navigation item in the header.                                                                                                      |
+| **primaryLinks[].text**       | string | No       | The link text of a navigation item in the header.                                                                                                     |
 | **primaryLinks[].classes**     | string | No       | Optional additional classes to add to the list item.                                                                                              |
 | **primaryLinks[].attributes**  | string | No       | Any extra HTML attributes (for example data attributes) to add to the list item.                                                                  |
 | **transactionalService**       | object | No       | Object containing the _name_ and _href_ of the transactional service.                                                                             |
