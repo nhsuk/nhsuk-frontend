@@ -318,7 +318,7 @@
   // already a grey border on the top, and using 2 different colour borders
   // creates an awkward diagonal line where they meet.
   .nhsuk-header__navigation-item--current {
-    box-shadow: inset nhsuk-spacing(1) 0 $color_nhsuk-blue;
+    box-shadow: inset nhsuk-spacing(2) 0 $color_nhsuk-blue;
   }
 }
 
