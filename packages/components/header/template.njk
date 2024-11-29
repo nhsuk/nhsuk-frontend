@@ -71,7 +71,7 @@
       <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
       {%- for item in params.primaryLinks %}
         <li class="nhsuk-header__navigation-item {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-          <a class="nhsuk-header__navigation-link" href="{{ item.url }}">{{ item.label }}</a>
+          <a class="nhsuk-header__navigation-link" href="{{ item.href if item.href else item.url }}">{{ item.text if item.text else item.label }}</a>
         </li>
         {%- endfor %}
         <li class="nhsuk-mobile-menu-container">
