@@ -1,0 +1,28 @@
+// ==========================================================================
+// UTILITIES / #WORD-BREAK
+// ==========================================================================
+
+/**
+ * This class allows words to be broken between any 2
+ * to avoid overflowing their container.
+ *
+ * This can be useful on table cells which could contain
+ * long strings such as email addresses.
+ *
+ * Usage: class="nhsuk-u-word-break-all"
+ */
+.nhsuk-u-word-break-all {
+  word-break: break-all;
+}
+
+/**
+ * This class also allows words to be broken between any 2
+ * to avoid overflowing their container, but will try
+ * and avoid it by placing the entire word on its own
+ * line first. However this does not work in tables.
+ *
+ * Usage: class="nhsuk-u-word-break-word"
+ */
+.nhsuk-u-word-break-word {
+  overflow-wrap: break-word;
+}
