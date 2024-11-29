@@ -7,14 +7,9 @@
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
 
-:wrench: **Fixes**
+:boom: **Breaking changes**
 
 - Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
-- Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1062](https://github.com/nhsuk/nhsuk-frontend/pull/1062))
-- Update header styles so that `.nhsuk-header__search-no-nav` class is no longer needed when header contains a search field but no navigation ([PR 1046](https://github.com/nhsuk/nhsuk-frontend/pull/1046))
-- Update navigation list item padding to vertically align navigation items with width container ([PR 1033](https://github.com/nhsuk/nhsuk-frontend/pull/1033))
-
-:boom: **Breaking changes**
 
 - The NHS logo in the header has been updated so that it can have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
 
@@ -40,6 +35,13 @@
   :new: **New features**
   
   - Add task list component ([PR 969](https://github.com/nhsuk/nhsuk-frontend/pull/969))
+
+  :wrench: **Fixes**
+
+- Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1062](https://github.com/nhsuk/nhsuk-frontend/pull/1062))
+  - Update header styles so that `.nhsuk-header__search-no-nav` class is no longer needed when header contains a search field but no navigation ([PR 1046](https://github.com/nhsuk/nhsuk-frontend/pull/1046))
+  - Update navigation list item padding to vertically align navigation items with width container ([PR 1033](https://github.com/nhsuk/nhsuk-frontend/pull/1033))
+
 
 ## 9.0.1 - 9 October 2024
 
