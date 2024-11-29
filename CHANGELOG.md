@@ -11,6 +11,8 @@
 
 - Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
 
+- Updates the `primaryLinks` in the Header to now use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
+
 - The NHS logo in the header has been updated so that it can have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
 
   Previously the logo used the following SVG:
