@@ -25,9 +25,9 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100"><path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/></svg>
       </a>
     </div>
-    <div class="nhsuk-header__content" id="content-header">
+    <div class="nhsuk-header__content">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap" id="wrap-search">
+        <div class="nhsuk-header__search-wrap">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
@@ -240,9 +240,9 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100"><path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/></svg>
       </a>
     </div>
-    <div class="nhsuk-header__content" id="content-header">
+    <div class="nhsuk-header__content">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap" id="wrap-search">
+        <div class="nhsuk-header__search-wrap">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
@@ -346,9 +346,9 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <span class="nhsuk-organisation-descriptor">NHS Foundation Trust</span>
       </a>
     </div>
-    <div class="nhsuk-header__content" id="content-header">
+    <div class="nhsuk-header__content">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap" id="wrap-search">
+        <div class="nhsuk-header__search-wrap">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
@@ -458,19 +458,19 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <span class="nhsuk-organisation-descriptor">NHS Foundation Trust</span>
       </a>
     </div>
-    <div class="nhsuk-header__content" id="content-header">
+    <div class="nhsuk-header__content">
       <div class="nhsuk-header__search">
-          <div class="nhsuk-header__search-wrap" id="wrap-search">
-            <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
-              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-              <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
-              <button class="nhsuk-search__submit" type="submit">
-                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path></svg>
-                <span class="nhsuk-u-visually-hidden">Search</span>
-              </button>
-            </form>
-          </div>
+        <div class="nhsuk-header__search-wrap">
+          <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
+            <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+            <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >
+            <button class="nhsuk-search__submit" type="submit">
+              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path></svg>
+              <span class="nhsuk-u-visually-hidden">Search</span>
+            </button>
+          </form>
         </div>
+      </div>
     </div>
   </div>
   <div class="nhsuk-navigation-container">
@@ -571,9 +571,9 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
         <span class="nhsuk-organisation-descriptor">NHS Foundation Trust</span>
       </a>
     </div>
-    <div class="nhsuk-header__content" id="content-header">
+    <div class="nhsuk-header__content">
       <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap" id="wrap-search">
+        <div class="nhsuk-header__search-wrap">
           <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
             <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
             <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off" >

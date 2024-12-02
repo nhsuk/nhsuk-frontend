@@ -12,6 +12,15 @@
 </svg>
 {% endset %}
 
+{% macro _accountItem(item) %}
+{% if item.icon %}
+<svg class="nhsuk-icon nhsuk-icon__user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+  <path d="M8 0c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8Zm0 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-1.5 9h3a2.5 2.5 0 0 1 2.5 2.5V14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1.5A2.5 2.5 0 0 1 6.5 10ZM8 9C6.368 9 5 7.684 5 6s1.316-3 3-3c1.632 0 3 1.316 3 3S9.632 9 8 9"/>
+</svg>
+{% endif -%}
+{{- item.html | safe if item.html else item.text -}}
+{% endmacro %}
+
 <header class="nhsuk-header
 {%- if params.transactionalService %} nhsuk-header__transactional{% endif %}
 {%- if params.organisation %} nhsuk-header--organisation{% endif %}
@@ -46,22 +55,40 @@
 {%- endif %}
 
 {%- if params.search %}
-    <div class="nhsuk-header__content" id="content-header">
-      <div class="nhsuk-header__search">
-        <div class="nhsuk-header__search-wrap" id="wrap-search">
-          <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" role="search">
-            <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
-            <input class="nhsuk-search__input" id="search-field" name="{{ searchName }}" type="search" placeholder="Search" autocomplete="off">
-            <button class="nhsuk-search__submit" type="submit">
-              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-              </svg>
-              <span class="nhsuk-u-visually-hidden">{{ searchVisuallyHiddenButton }}</span>
-            </button>
-          </form>
-        </div>
+    <div class="nhsuk-header__search">
+      <div class="nhsuk-header__search-wrap">
+        <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" role="search">
+          <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
+          <input class="nhsuk-search__input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
+          <button class="nhsuk-search__submit" type="submit">
+            <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+            </svg>
+            <span class="nhsuk-u-visually-hidden">{{ searchVisuallyHiddenButton }}</span>
+          </button>
+        </form>
       </div>
     </div>
+{%- endif %}
+
+{% if params.account %}
+    <nav class="nhsuk-header__account" aria-label="Account">
+      <ul class="nhsuk-header__account-list">
+      {% for item in params.account.items %}
+        {% if item %}
+        <li class="nhsuk-header__account-item {%- if item.classes %} {{ item.classes }}{% endif %}">
+        {% if item.href %}
+          <a class="nhsuk-header__account-link" href="{{ item.href }}">
+            {{ _accountItem(item) }}
+          </a>
+        {% else %}
+          {{ _accountItem(item) }}
+        {% endif %}
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </nav>
 {%- endif %}
   </div>
 
