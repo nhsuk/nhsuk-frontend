@@ -1,6 +1,10 @@
 # NHS.UK frontend Changelog
-  
+
 ## Unreleased
+
+:new: **New features**
+
+- The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
 
 :wrench: **Fixes**
 
