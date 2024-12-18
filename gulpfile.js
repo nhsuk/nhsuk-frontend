@@ -29,7 +29,7 @@ sass.compiler = require('sass')
 function compileCSS() {
   return gulp
     .src(['packages/nhsuk.scss'])
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/'))
     .on('error', (err) => {
       console.log(err)

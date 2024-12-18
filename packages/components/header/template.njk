@@ -74,9 +74,9 @@
           {# Wrap active links in strong element so users who override colours
              or styles still have some indicator of the current nav item. #}
           {% if item.active or item.current %}
-            <strong class="nhsuk-header__navigation-item-active-fallback">{{- item.label -}}</strong>
+            <strong class="nhsuk-header__navigation-item-active-fallback">{{- item.text -}}</strong>
           {% else %}
-            {{- item.label -}}
+            {{- item.text -}}
           {% endif %}
         {% endset %}
 
