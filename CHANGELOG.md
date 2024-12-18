@@ -2,6 +2,10 @@
   
 ## Unreleased
 
+:new: **New features**
+
+- The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
+
 :wrench: **Fixes**
 
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
