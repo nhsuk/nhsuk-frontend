@@ -5,6 +5,8 @@
 :wrench: **Fixes**
 
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
+- Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
+- Fix details component requiring html param in uppercase ([PR 1090](https://github.com/nhsuk/nhsuk-frontend/pull/1090), [Issue 1089](https://github.com/nhsuk/nhsuk-frontend/issues/1089))
 
 ## 9.1.0 - 4 November 2024
 

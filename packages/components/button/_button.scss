@@ -159,7 +159,8 @@ $button-shadow-size: 4px;
     top: $button-shadow-size;
   }
 
-  &:link {
+  &:link,
+  &:visited {
     color: $nhsuk-reverse-button-text-color;
 
     &:active {
