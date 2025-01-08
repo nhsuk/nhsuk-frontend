@@ -88,6 +88,10 @@
     &[aria-current="true"] {
       box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-blue;
     }
+
+    &:focus {
+      box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-black;
+    }
   }
 
   // Drop down navigation
