@@ -133,10 +133,6 @@ $button-shadow-size: 4px;
     color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
-
-  &.nhsuk-button--disabled {
-    background-color: $nhsuk-secondary-button-color;
-  }
 }
 
 .nhsuk-button--reverse {
@@ -163,19 +159,12 @@ $button-shadow-size: 4px;
     top: $button-shadow-size;
   }
 
-  &:link {
+  &:link,
+  &:visited {
     color: $nhsuk-reverse-button-text-color;
 
     &:active {
       color: $color_nhsuk-white;
-    }
-  }
-
-  &.nhsuk-button--disabled {
-    background-color: $nhsuk-reverse-button-color;
-
-    &:focus {
-      background-color: $nhsuk-reverse-button-color;
     }
   }
 }
@@ -201,75 +190,13 @@ $button-shadow-size: 4px;
     color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
-
-  &.nhsuk-button--disabled {
-    background-color: $nhsuk-warning-button-color;
-  }
 }
 
 /**
  * Button disabled states
  */
-/* stylelint-disable string-quotes */
 .nhsuk-button--disabled,
-.nhsuk-button[disabled="disabled"],
-.nhsuk-button[disabled] {
-  background-color: $nhsuk-button-color;
+.nhsuk-button:disabled {
   opacity: (0.5);
   pointer-events: none;
-
-  &:hover {
-    background-color: $nhsuk-button-color;
-    cursor: default;
-  }
-
-  &:focus {
-    background-color: $nhsuk-button-color;
-    outline: none;
-  }
-
-  &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
-    top: 0;
-  }
-}
-
-.nhsuk-button--secondary[disabled="disabled"],
-.nhsuk-button--secondary[disabled] {
-  background-color: $nhsuk-secondary-button-color;
-  opacity: (0.5);
-
-  &:hover {
-    background-color: $nhsuk-secondary-button-color;
-    cursor: default;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
-    top: 0;
-  }
-}
-
-.nhsuk-button--reverse[disabled="disabled"],
-.nhsuk-button--reverse[disabled] {
-  background-color: $nhsuk-reverse-button-color;
-  opacity: (0.5);
-
-  &:hover {
-    background-color: $nhsuk-reverse-button-color;
-    cursor: default;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
-    top: 0;
-  }
 }

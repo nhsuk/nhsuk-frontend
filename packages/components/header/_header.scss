@@ -220,6 +220,13 @@
   margin-bottom: 0;
 }
 
+// This is a <strong> element used as a fallback mechanism for visually
+// indicating current page in scenarios where CSS isn’t available.
+// We don’t actually want it to be bold normally, so inherit parent font-weight.
+.nhsuk-header__navigation-item-active-fallback {
+  font-weight: inherit;
+}
+
 .nhsuk-header__navigation-link {
   @include nhsuk-font(16);
   @include nhsuk-link-style-header;
@@ -227,6 +234,14 @@
   font-size: inherit;
   padding: nhsuk-spacing(3) 2px;
   white-space: nowrap;
+
+  // Visual indicator for current navigation item has grey line on bottom edge,
+  // and no underline on the link.
+  &[aria-current="page"],
+  &[aria-current="true"] {
+    text-decoration: none;
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-border-color;
+  }
 
   &:focus {
     box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
@@ -277,10 +292,33 @@
   .nhsuk-header__navigation-link {
     @include govuk-width-container;
     @include nhsuk-link-style-no-visited-state;
+    padding: 12px 0;
+
+    // When in expanded menu, a current item link should revert to having a
+    // no box-shadow, with a box-shadow added to containing list item instead.
+    &[aria-current="page"],
+    &[aria-current="true"] {
+      box-shadow: none;
+    }
+
+    // But when focused the black line at the bottom should return,
+    // again using box-shadow.
+    &:focus {
+      box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
+    }
   }
 
   .nhsuk-header__navigation-item {
     border-top: 1px solid $color_nhsuk-grey-5;
+  }
+
+  // Current item within expended mobile menu gets blue line on left edge.
+  //
+  // The blue line uses an inset box-shadow instead of a border, as there’s
+  // already a grey border on the top, and using 2 different colour borders
+  // creates an awkward diagonal line where they meet.
+  .nhsuk-header__navigation-item--current {
+    box-shadow: inset 6px 0 $color_nhsuk-blue;
   }
 }
 
