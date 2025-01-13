@@ -1,0 +1,55 @@
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header organisational with white header and account" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
+
+{% block body %}
+
+{{ header({
+    classes: "nhsuk-header--white nhsuk-header--white-nav",
+    account: {
+      items: [
+        {
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          href: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    organisation: {
+      name: "Anytown Anyplace",
+      split: "Anywhere",
+      descriptor: "NHS Foundation Trust"
+    },
+    primaryLinks: [
+      {
+        url: "#",
+        label: "Your hospital visit"
+      },
+      {
+        url: "#",
+        label: "Wards and departments"
+      },
+      {
+        url: "#",
+        label: "Conditions and treatments"
+      },
+      {
+        url: "#",
+        label: "Our people"
+      },
+      {
+        url: "#",
+        label: "Our research"
+      }
+    ],
+    search: {
+      visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
+    }
+  })
+}}
+
+{% endblock %}

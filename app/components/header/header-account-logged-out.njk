@@ -1,0 +1,17 @@
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header with account (logged out)" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
+
+{% block body %}
+  {{ header({
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Log in"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
