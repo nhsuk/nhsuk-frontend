@@ -11,6 +11,17 @@
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
 - Fix details component requiring html param in uppercase ([PR 1090](https://github.com/nhsuk/nhsuk-frontend/pull/1090), [Issue 1089](https://github.com/nhsuk/nhsuk-frontend/issues/1089))
+- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes. To update your HTML, replace:
+
+  ```html
+  <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+  ```
+
+  with
+
+  ```html
+  <nav class="nhsuk-navigation" aria-label="Menu">
+  ```
 
 :boom: **Breaking changes**
 
