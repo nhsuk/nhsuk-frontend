@@ -7,6 +7,14 @@
 
 {{ header({
     classes: "nhsuk-header--white nhsuk-header--white-nav",
+    organisation: {
+      name: "Anytown Anyplace",
+      split: "Anywhere",
+      descriptor: "NHS Foundation Trust"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
+    },
     account: {
       items: [
         {
@@ -19,36 +27,28 @@
         }
       ]
     },
-    organisation: {
-      name: "Anytown Anyplace",
-      split: "Anywhere",
-      descriptor: "NHS Foundation Trust"
-    },
     primaryLinks: [
       {
-        url: "#",
-        label: "Your hospital visit"
+        href: "#",
+        text: "Your hospital visit"
       },
       {
-        url: "#",
-        label: "Wards and departments"
+        href: "#",
+        text: "Wards and departments"
       },
       {
-        url: "#",
-        label: "Conditions and treatments"
+        href: "#",
+        text: "Conditions and treatments"
       },
       {
-        url: "#",
-        label: "Our people"
+        href: "#",
+        text: "Our people"
       },
       {
-        url: "#",
-        label: "Our research"
+        href: "#",
+        text: "Our research"
       }
-    ],
-    search: {
-      visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
-    }
+    ]
   })
 }}
 

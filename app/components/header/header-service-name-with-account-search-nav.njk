@@ -5,6 +5,12 @@
 
 {% block body %}
   {{ header({
+    service: {
+      name: "Search patient directory"
+    },
+    search: {
+      visuallyHiddenLabel: "Search patient directory"
+    },
     account: {
       items: [
         {
@@ -17,34 +23,22 @@
         }
       ]
     },
-    service: {
-      name: "Digital service manual"
-    },
-    search: true,
     primaryLinks: [
       {
-        url: "#",
-        label: "NHS service standard"
+        href: "#",
+        text: "Home"
       },
       {
-        url: "#",
-        label: "Design system"
+        href: "#",
+        text: "Patient list"
       },
       {
-        url: "#",
-        label: "Design principles"
+        href: "#",
+        text: "Advanced search"
       },
       {
-        url: "#",
-        label: "Content guide"
-      },
-      {
-        url: "#",
-        label: "Accessibility"
-      },
-      {
-        url: "#",
-        label: "Community and contribution"
+        href: "#",
+        text: "Help guides"
       }
     ]
   }) }}

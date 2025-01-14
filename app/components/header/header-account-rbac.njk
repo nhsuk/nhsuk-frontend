@@ -5,6 +5,13 @@
 
 {% block body %}
   {{ header({
+    service: {
+      name: "Manage patients"
+    },
+    search: {
+      placeholder: "User name, UUID or NI number",
+      visuallyHiddenLabel: "Search for a user"
+    },
     account: {
       items: [
         {
@@ -25,25 +32,18 @@
         }
       ]
     },
-    search: {
-      placeholder: "User name, UUID or NI number",
-      visuallyHiddenLabel: "Search for a user"
-    },
-    service: {
-      name: "CIS2 - Care Identity Management"
-    },
     primaryLinks: [
       {
-        url: "#",
-        label: "Home"
+        href: "#",
+        text: "Home"
       },
       {
-        url: "#",
-        label: "Create user"
+        href: "#",
+        text: "Create user"
       },
       {
-        url: "#",
-        label: "Find user"
+        href: "#",
+        text: "Find user"
       }
     ]
   }) }}

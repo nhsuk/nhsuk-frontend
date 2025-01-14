@@ -5,6 +5,9 @@
 
 {% block body %}
   {{ header({
+    service: {
+      name: "Manage patients"
+    },
     account: {
       items: [
         {
@@ -20,23 +23,23 @@
     },
     primaryLinks: [
       {
-        url: "#",
-        label: "Home"
+        href: "#",
+        text: "Home"
       },
       {
-        url: "#",
-        label: "Services"
+        href: "#",
+        text: "Services"
       },
       {
-        url: "#",
-        label: "Your health"
+        href: "#",
+        text: "Your health"
       },
       {
-        url: "#",
-        label: "Messages"
+        href: "#",
+        text: "Messages"
       }, {
-        url: "#",
-        label: "Help and support"
+        href: "#",
+        text: "Help and support"
       }
     ]
   }) }}
