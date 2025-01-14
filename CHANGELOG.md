@@ -1,4 +1,4 @@
-# NHS.UK frontend Changelog
+# NHS.UK frontend changelog
 
 ## Unreleased
 
