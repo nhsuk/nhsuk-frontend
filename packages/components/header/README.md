@@ -673,7 +673,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 The header Nunjucks macro takes the following arguments:
 
 | Name                           | Type    | Required | Description                                                                                                                                       |
-| ------------------------------ | ------  | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **homeHref**                   | string  | No       | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/".                                                  |
 | **ariaLabel**                  | string  | No       | Aria label for the logo href. Defaults to "NHS homepage".                                                                                         |
 | **organisation**               | object  | No       | Settings for header with organisational logo.                                                                                                     |
