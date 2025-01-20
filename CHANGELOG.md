@@ -11,7 +11,7 @@
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
 - Fix details component requiring html param in uppercase ([PR 1090](https://github.com/nhsuk/nhsuk-frontend/pull/1090), [Issue 1089](https://github.com/nhsuk/nhsuk-frontend/issues/1089))
-- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes. To update your HTML, replace:
+- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes. ([PR 1073](https://github.com/nhsuk/nhsuk-frontend/pull/1073)) To update your HTML, replace:
 
   ```html
   <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
@@ -27,9 +27,9 @@
 
 - Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
 
-- Updates the `primaryLinks` in the Header to now use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
+- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
 
-- The NHS logo in the header has been updated so that it can have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
+- Update NHS logo in the header so that it has higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
 
   Previously the logo used the following SVG:
 
@@ -47,6 +47,7 @@
     <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/>
   </svg>
   ```
+- Remove hardcoded home link from navigation ([PR 986](https://github.com/nhsuk/nhsuk-frontend/pull/986))
 
 ## 9.1.0 - 4 November 2024
 
