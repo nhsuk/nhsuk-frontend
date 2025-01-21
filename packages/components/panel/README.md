@@ -51,4 +51,4 @@ If you are using Nunjucks macros in production be aware that using `html` argume
 
 ## Thanks to the Government Digital Service (GDS)
 
-This component and documentation has been taken from [GOV.UK Frontend - Panel component](https://github.com/alphagov/govuk-frontend/tree/main/package/govuk/components/panel) with a few minor adaptations.
+This component and documentation has been taken from [GOV.UK Frontend - Panel component](https://github.com/alphagov/govuk-frontend/tree/main/packages/govuk-frontend/src/govuk/components/panel) with a few minor adaptations.
