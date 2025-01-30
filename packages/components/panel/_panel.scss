@@ -6,7 +6,10 @@
  * Original code taken from GDS (Government Digital Service)
  * https://github.com/alphagov/govuk-frontend
  *
- * 1. This is an if-all-else-fails attempt to stop long words from overflowing the container
+ * 1. Adds a transparent border for high contrast modes 
+ * 2. This subtracts the transparent border width from the padding (because the border 
+ *    visually adds to the total padding)
+ * 3. This is an if-all-else-fails attempt to stop long words from overflowing the container
       on very narrow viewports by forcing them to break and wrap instead. This
       overflowing is more likely to happen when user increases text size on a mobile eg. using
       iOS Safari text resize controls.
@@ -15,7 +18,7 @@
       text: when the text overflows the container, it is invisible on the white (page)
       background. When the text in our other components overflow, the user might have to scroll
       horizontally to view it but the the text remains legible.
- * 2. Support IE (autoprefixer doesn't add this as it's not a prefix)
+ * 4. Support IE (autoprefixer doesn't add this as it's not a prefix)
  */
 
 $nhsuk-border-width-panel: nhsuk-spacing(1);
@@ -25,15 +28,15 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   @include nhsuk-responsive-margin(4, "bottom");
 
   background: $color_nhsuk-green;
-  border: $nhsuk-border-width-panel solid transparent;
+  border: $nhsuk-border-width-panel solid transparent; /* [1] */
   box-sizing: border-box;
   color: $color_nhsuk-white;
-  padding: nhsuk-spacing(5) - $nhsuk-border-width-panel;
+  padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
 
   @include mq($until: tablet) {
-    padding: nhsuk-spacing(4) - $nhsuk-border-width-panel;
-    overflow-wrap: break-word; /* [1] */
-    word-wrap: break-word; /* [2] */
+    padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
+    overflow-wrap: break-word; /* [3] */
+    word-wrap: break-word; /* [4] */
   }
 
   @include mq($media-type: print) {
