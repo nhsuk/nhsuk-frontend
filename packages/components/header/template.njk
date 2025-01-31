@@ -22,16 +22,16 @@
 {% endmacro %}
 
 <header class="nhsuk-header
-{%- if params.transactionalService %} nhsuk-header__transactional{% endif %}
+{%- if params.service.text %} nhsuk-header__transactional{% endif %}
 {%- if params.organisation %} nhsuk-header--organisation{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-header__container">
     <div class="nhsuk-header__logo">
     {%- if params.organisation %}
-      <a class="nhsuk-header__link" href="{{ params.homeHref | default('/') }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
-      {%- if params.organisation.logoURL %}
-        <img class="nhsuk-organisation-logo" src="{{ baseUrl }}{{ params.organisation.logoURL }}" alt=""/>
+      <a class="nhsuk-header__link" href="{{ params.logo.href | default('/') }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
+      {%- if params.organisation.src %}
+        <img class="nhsuk-organisation-logo" src="{{ baseUrl }}{{ params.organisation.src }}" alt=""/>
       {%- else -%}
         {{ nhsLogo | safe }}
         <span class="nhsuk-organisation-name">{{ params.organisation.name }}{% if params.organisation.split %} <span class="nhsuk-organisation-name-split">{{ params.organisation.split }}</span>{% endif %}</span>
@@ -39,18 +39,18 @@
       {%- endif %}
       </a>
     {%- else -%}
-      <a class="nhsuk-header__link{% if params.service %} nhsuk-header__link--service {% endif %}" href="{{ params.homeHref | default('/') }}" aria-label="{{ params.ariaLabel | default('NHS homepage') }}">
+      <a class="nhsuk-header__link{% if params.service %} nhsuk-header__link--service {% endif %}" href="{{ params.logo.href | default('/') }}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
         {{ nhsLogo | safe }}
-        {%- if params.service %}
-        <span class="nhsuk-header__service-name">{{ params.service.name }}</span>
+        {%- if params.logo.includeWithServiceLink %}
+        <span class="nhsuk-header__service-name">{{ params.service.text }}</span>
         {%- endif %}
       </a>
     {%- endif %}
     </div>
 
-{%- if params.transactionalService %}
+{%- if params.service.text and not params.logo.includeWithServiceLink %}
     <div class="nhsuk-header__transactional-service-name">
-      <a class="nhsuk-header__transactional-service-name--link" href="{{ params.transactionalService.href | default('/') }}">{{ params.transactionalService.name }}</a>
+      <a class="nhsuk-header__transactional-service-name--link" href="{{ params.service.href | default('/') }}">{{ params.service.text }}</a>
     </div>
 {%- endif %}
 
