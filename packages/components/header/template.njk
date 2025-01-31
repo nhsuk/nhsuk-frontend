@@ -29,8 +29,8 @@
     <div class="nhsuk-header__logo">
     {%- if params.organisation %}
       <a class="nhsuk-header__link" href="{{ params.logo.href | default('/') }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
-      {%- if params.organisation.src %}
-        <img class="nhsuk-organisation-logo" src="{{ baseUrl }}{{ params.organisation.src }}" alt=""/>
+      {%- if params.logo.src %}
+        <img class="nhsuk-organisation-logo" src="{{ baseUrl }}{{ params.logo.src }}" alt=""/>
       {%- else -%}
         {{ nhsLogo | safe }}
         <span class="nhsuk-organisation-name">{{ params.organisation.name }}{% if params.organisation.split %} <span class="nhsuk-organisation-name-split">{{ params.organisation.split }}</span>{% endif %}</span>

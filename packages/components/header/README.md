@@ -678,6 +678,7 @@ The header Nunjucks macro takes the following arguments:
 | **logo.ariaLabel**              | string  | No       | ARIA label for the logo. Defaults to "NHS homepage".                                                                                  |
 | **logo.href**                   | string  | No       | The href of the link for the logo. Defaults to "/".                                                                                   |
 | **logo.includeWithServiceLink** | boolean | No       | If set to true, then the logo will be included within the same link as the service name, and the `href` for the service will be used. |
+| **logo.src **                   | string  | No       | Logo path, for custom organisation logos.                                                                                             |
 | **service**                     | object  | No       | Object containing the name and href of the service.                                                                                   |
 | **service.text**                | string  | No       | Name of the service                                                                                                                   |
 | **service.href**                | string  | No       | URL path that the service name links to. Defaults to '/'.                                                                             |
@@ -685,7 +686,6 @@ The header Nunjucks macro takes the following arguments:
 | **organisation.name**           | string  | No       | Organisation name value.                                                                                                              |
 | **organisation.split**          | string  | No       | Longer organisation names can be split onto multiple lines.                                                                           |
 | **organisation.descriptor**     | string  | No       | Organisation descriptor.                                                                                                              |
-| **organisation.logo.src **      | string  | No       | Organisation logo path if using a static asset, such as PNG, is preferred.                                                            |
 | **primaryLinks**                | array   | No       | Array of navigation links for use in the header.                                                                                      |
 | **primaryLinks[].href**         | string  | No       | The href of a navigation item in the header.                                                                                          |
 | **primaryLinks[].text**         | string  | No       | The link text of a navigation item in the header.                                                                                     |
