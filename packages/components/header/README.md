@@ -680,7 +680,7 @@ The header Nunjucks macro takes the following arguments:
 | **organisation.name**          | string  | No       | Organisation name value.                                                                                                                          |
 | **organisation.split**         | string  | No       | Longer organisation names can be split onto multiple lines.                                                                                       |
 | **organisation.descriptor**    | string  | No       | Organisation descriptor.                                                                                                                          |
-| **organisation.logo.src **       | string  | No       | Organisation logo path if using a static asset, such as PNG, is preferred.                                                                             |
+| **organisation.logo.src **     | string  | No       | Organisation logo path if using a static asset, such as PNG, is preferred.                                                                        |
 | **primaryLinks**               | array   | No       | Array of navigation links for use in the header.                                                                                                  |
 | **primaryLinks[].href**        | string  | No       | The href of a navigation item in the header.                                                                                                      |
 | **primaryLinks[].text**        | string  | No       | The link text of a navigation item in the header.                                                                                                 |
