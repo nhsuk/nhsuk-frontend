@@ -1,5 +1,5 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header transactional with service name' %}
+{% set title = 'Header with service name' %}
 {% from 'components/header/macro.njk' import header %}
 {% extends 'layout.njk' %}
 
@@ -7,11 +7,10 @@
 
   {{ header({
     logo: {
-      href: "#",
-      ariaLabel: "NHS homepage"
+      includeWithServiceLink: true
     },
     service: {
-      text: "Find your NHS number",
+      text: "Prototype kit",
       href: "#"
     }
   }) }}
