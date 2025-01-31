@@ -38,7 +38,7 @@
       {%- endif %}
       </a>
     {%- else -%}
-      <a class="nhsuk-header__link{% if params.service %} nhsuk-header__link--service {% endif %}" href="{{ params.logo.href | default('/') }}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
+      <a class="nhsuk-header__link{% if params.service %} nhsuk-header__link--service {% endif %}" href="{%- if params.logo.includeWithServiceLink %}{{ params.service.href | default('/') }}{% else %}{{ params.logo.href | default('/') }}{% endif %}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
         {{ nhsLogo | safe }}
         {%- if params.logo.includeWithServiceLink %}
         <span class="nhsuk-header__service-name">{{ params.service.text }}</span>
