@@ -40,11 +40,11 @@
  */
 .nhsuk-header__logo {
   display: flex;
-  flex-grow: 999;
+  flex-grow: 0;
+}
 
-  .nhsuk-header__transactional & {
-    flex-grow: 0;
-  }
+.nhsuk-header__link--service .nhsuk-header__logo {
+  flex-grow: 999;
 }
 
 .nhsuk-header__link {
@@ -63,7 +63,7 @@
 }
 
 .nhsuk-header__link,
-.nhsuk-header__transactional-service-name--link {
+.nhsuk-header__service-name--link {
   @include nhsuk-font(19, $line-height: 1.1);
   @include nhsuk-link-style-header;
   text-decoration: none;
@@ -74,7 +74,7 @@
   }
 }
 
-.nhsuk-header__transactional-service-name {
+.nhsuk-header__service-name {
   align-items: center;
   display: flex;
   flex-grow: 1;

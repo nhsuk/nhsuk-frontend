@@ -22,7 +22,6 @@
 {% endmacro %}
 
 <header class="nhsuk-header
-{%- if params.service.text %} nhsuk-header__transactional{% endif %}
 {%- if params.organisation %} nhsuk-header--organisation{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {{- nhsukAttributes(params.attributes) }}>
@@ -49,8 +48,8 @@
     </div>
 
 {%- if params.service.text and not params.logo.includeWithServiceLink %}
-    <div class="nhsuk-header__transactional-service-name">
-      <a class="nhsuk-header__transactional-service-name--link" href="{{ params.service.href | default('/') }}">{{ params.service.text }}</a>
+    <div class="nhsuk-header__service-name">
+      <a class="nhsuk-header__service-name--link" href="{{ params.service.href | default('/') }}">{{ params.service.text }}</a>
     </div>
 {%- endif %}
 
