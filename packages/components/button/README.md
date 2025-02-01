@@ -62,7 +62,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true" data-module="nhsuk-button">
+<button class="nhsuk-button" type="submit" disabled aria-disabled="true" data-module="nhsuk-button">
   Disabled button
 </button>
 ```
