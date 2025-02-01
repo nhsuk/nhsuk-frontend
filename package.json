@@ -59,7 +59,7 @@
     "jest-environment-puppeteer": "^10.0.1",
     "minimist": "^1.2.8",
     "nunjucks": "^3.2.4",
-    "prettier": "3.3.3",
+    "prettier": "3.4.2",
     "puppeteer": "^22.12.1",
     "sass": "^1.77.6",
     "start-server-and-test": "^2.0.4",
