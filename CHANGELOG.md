@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+:new: **New features**
+
+- Adds `text` param for Inset text ([PR 1113](https://github.com/nhsuk/nhsuk-frontend/pull/1113))
+
 :wrench: **Fixes**
 
 - Fix appearance of the select element for more consistency between browsers and OS ([Issue 527](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/527))
