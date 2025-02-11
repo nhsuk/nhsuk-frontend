@@ -104,34 +104,29 @@
       transform: rotate(45deg);
       width: 20px; // [8]
       @include print-hide;
-
-      @include mq($from: tablet) {
-        left: 46px; // [9]
-      }
-
-      &::before,
-      &::after {
-        border: solid 32px $color_nhsuk-blue; // [8]
-        content: "";
-        display: block;
-        height: 0;
-        position: absolute;
-        top: 0;
-        transform: rotate(45deg); // [10]
-        width: 0;
-      }
-
-      @media screen and (-ms-high-contrast: active) {
-        display: none; // [13]
-      }
     }
 
-    @include mq(375px) {
-      // [15]
-      width: 85%;
+    .nhsuk-hero__arrow::before,
+    .nhsuk-hero__arrow::after {
+      border: solid 32px $color_nhsuk-blue; // [8]
+      content: "";
+      display: block;
+      height: 0;
+      position: absolute;
+      top: 0;
+      transform: rotate(45deg); // [10]
+      width: 0;
     }
+  }
 
-    @include mq($from: tablet) {
+  @include mq(375px) {
+    .nhsuk-hero-content {
+      width: 85%; // [15]
+    }
+  }
+
+  @include mq($from: tablet) {
+    .nhsuk-hero-content {
       @include top-and-bottom;
       bottom: -48px; // [8]
       margin-bottom: 0;
@@ -141,13 +136,21 @@
       top: auto;
     }
 
-    @include mq($media-type: print) {
+    .nhsuk-hero__arrow {
+      left: 46px; // [9]
+    }
+  }
+
+  @include mq($media-type: print) {
+    .nhsuk-hero-content {
       color: $color_nhsuk-black;
       max-width: 100%;
       padding: 0;
     }
+  }
 
-    @media screen and (-ms-high-contrast: active) {
+  @media screen and (-ms-high-contrast: active) {
+    .nhsuk-hero-content {
       // [14]
       bottom: 0;
       margin-bottom: 0;
@@ -155,6 +158,10 @@
       padding: nhsuk-spacing(5) 0 0;
       position: relative;
       top: 0;
+    }
+
+    .nhsuk-hero__arrow {
+      display: none; // [13]
     }
   }
 }
