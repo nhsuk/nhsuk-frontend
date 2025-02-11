@@ -64,7 +64,6 @@
     "stylelint": "^16.14.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.11.0",
     "wait-on": "^7.2.0",
     "webpack-stream": "^7.0.0"
   },

@@ -31,6 +31,6 @@ module.exports = {
       files: ['**/*.scss']
     }
   ],
-  plugins: ['stylelint-order', 'stylelint-scss'],
+  plugins: ['stylelint-order'],
   rules: require('./tests/linters/stylelint-rules')
 }
