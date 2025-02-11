@@ -1,13 +1,13 @@
-/* ==========================================================================
-   COMPONENTS / #IMAGES
-   ========================================================================== */
-
-/**
- * 1. Overrides default browser margin values.
- * 2. Makes the image width two thirds of its container for desktop.
- * 3. Avoid image printing full width of a page.
- * 4. Removes top margin from subsequent nhsuk-image.
- */
+////
+/// Image component
+///
+/// 1. Overrides default browser margin values.
+/// 2. Makes the image width two thirds of its container for desktop.
+/// 3. Avoid image printing full width of a page.
+/// 4. Removes top margin from subsequent nhsuk-image.
+///
+/// @group components
+////
 
 @use "sass:math";
 

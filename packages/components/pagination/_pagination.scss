@@ -1,13 +1,13 @@
-/* ==========================================================================
-   COMPONENTS / #PAGINATION
-   ========================================================================== */
-
-/**
- * 1. Padding to give the icon spacing.
- * 2. Append the word 'page' after next and
- *    previous on print stylesheets to make it easier
- *    to understand in print context.
- */
+////
+/// Pagination component
+///
+/// 1. Padding to give the icon spacing.
+/// 2. Append the word 'page' after next and
+///    previous on print stylesheets to make it easier
+///    to understand in print context.
+///
+/// @group components
+////
 
 .nhsuk-pagination {
   @include nhsuk-responsive-margin(7, "top");

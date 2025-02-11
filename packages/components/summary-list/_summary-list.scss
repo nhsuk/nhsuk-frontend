@@ -1,16 +1,14 @@
-/* ==========================================================================
-   COMPONENTS/ #SUMMARY-LIST
-   ========================================================================== */
-
-/**
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. Required to allow us to wrap words that overflow.
- * 2. Reset default user agent styles
- * 3. Automatic wrapping for unbreakable text (e.g. URLs)
- * 4. Fallback for older browsers only
- */
+////
+/// Summary list component
+///
+/// 1. Required to allow us to wrap words that overflow.
+/// 2. Reset default user agent styles
+/// 3. Automatic wrapping for unbreakable text (e.g. URLs)
+/// 4. Fallback for older browsers only
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 .nhsuk-summary-list {
   @include nhsuk-font($size: 19);

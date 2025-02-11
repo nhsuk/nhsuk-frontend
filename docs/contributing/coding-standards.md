@@ -200,21 +200,19 @@ the top block comment and then a reference to the number should go next to the l
 Example:
 
 ```scss
-/* ==========================================================================
-   #TITLE
-   ========================================================================== */
+////
+/// Title
+////
 
-/**
- * Long-form comment.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line-comments like this.
- */
+/// Long-form comment
+///
+/// This spans multiple lines and is also constrained to no longer than 80
+/// characters in width.
+///
+/// 1. Provide line-comments like this.
 
 .nhsuk-example {
-  color: $color_nhsuk-red; /* [1] */
+  color: $color_nhsuk-red; // [1]
 }
 ```
 

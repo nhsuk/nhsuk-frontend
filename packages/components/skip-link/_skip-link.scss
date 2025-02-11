@@ -1,11 +1,11 @@
-/* ==========================================================================
-   COMPONENTS / #SKIP-LINK
-   ========================================================================== */
-
-/**
- * 1. Hides the skip link off the page,
- * 2. until the link gains focus from keyboard tabbing.
- */
+////
+/// Skip link component
+///
+/// 1. Hides the skip link off the page,
+/// 2. until the link gains focus from keyboard tabbing.
+///
+/// @group components
+////
 
 .nhsuk-skip-link {
   left: -9999px; // [1]

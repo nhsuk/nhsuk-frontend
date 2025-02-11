@@ -1,11 +1,11 @@
-/* ==========================================================================
-   COMPONENTS / #WARNING-CALLOUT
-   ========================================================================== */
-
-/**
- * 1. Uses @mixin panel-with-label from tools/_mixins.
- * 2. Uses @mixin heading-label from tools/_mixins.
- */
+////
+/// Warning callout component
+///
+/// 1. Uses @mixin panel-with-label from tools/_mixins.
+/// 2. Uses @mixin heading-label from tools/_mixins.
+///
+/// @group components
+////
 
 .nhsuk-warning-callout {
   @include panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color, $color_nhsuk-yellow); // [1]

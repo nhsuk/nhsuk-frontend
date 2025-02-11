@@ -1,22 +1,20 @@
-/* ==========================================================================
-   STYLES / #SECTION-BREAK
-   ========================================================================== */
-
-// The % (silent class) allows code to be extended (@extend) to other elements
-// without bloating the code.
-//
-// @example scss
-//  .foo {
-//   @extend %nhsuk-section-break--xl;
-//  }
-
-/**
- * 1. Extended the section-break--l code for usage of a semantic <hr> with
- * no class name.
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- */
+////
+/// Section break
+///
+/// The % (silent class) allows code to be extended (@extend) to other elements
+/// without bloating the code.
+///
+/// 1. Extended the section-break--l code for usage of a semantic <hr> with
+/// no class name.
+///
+/// @group styles
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example scss
+///   .foo {
+///     @extend %nhsuk-section-break--xl;
+///   }
+////
 
 %nhsuk-section-break {
   border: 0;

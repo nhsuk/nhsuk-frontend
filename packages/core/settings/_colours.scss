@@ -1,18 +1,16 @@
-// ==========================================================================
-// SETTINGS / #COLOURS
-// ==========================================================================
-
-//
-// NHS colour palette
-//
-// Colours are prefixed with color_ to make them easier to
-// search for within the code base.
-//
-// We also prefix them with nhsuk- to prevent clashing with
-// other colours in existing code bases.
-//
-// We use the word color, not colour, for variables.
-//
+////
+/// NHS colour palette
+///
+/// Colours are prefixed with color_ to make them easier to
+/// search for within the code base.
+///
+/// We also prefix them with nhsuk- to prevent clashing with
+/// other colours in existing code bases.
+///
+/// We use the word color, not colour, for variables.
+///
+/// @group settings
+////
 
 // stylelint-disable color-no-hex
 
@@ -25,9 +23,7 @@ $color_nhsuk-dark-pink: #7c2855;
 $color_nhsuk-red: #d5281b;
 $color_nhsuk-yellow: #ffeb3b;
 
-//
-// Secondary colours
-//
+/// Secondary colours
 
 $color_nhsuk-pale-yellow: #fff9c4;
 $color_nhsuk-warm-yellow: #ffb81c;
@@ -35,9 +31,7 @@ $color_nhsuk-orange: #ed8b00;
 $color_nhsuk-aqua-green: #00a499;
 $color_nhsuk-pink: #ae2573;
 
-//
-// Greyscale
-//
+/// Greyscale
 
 $color_nhsuk-grey-1: #4c6272;
 $color_nhsuk-grey-2: #768692;
@@ -47,23 +41,21 @@ $color_nhsuk-grey-5: #f0f4f5;
 
 // stylelint-enable color-no-hex
 
-//
-// RGB and alpha values
-//
-// Used to create drop/box shadows e.g. for search suggestions dropdown
-//
+/// RGB and alpha values
+///
+/// Used to create drop/box shadows e.g. for search suggestions dropdown
+///
 
 $color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
 $alpha-transparency-50: 0.5;
 
-//
-// Functions for tint and shade
-//
-// Usage: tint(color, percentage)
-//        tint($color_nhsuk-black, 10%)
-//        shade(color, percentage)
-//        shade($color_nhsuk-blue, 50%)
-//
+/// Functions for tint and shade
+///
+/// @example scss
+///   tint(color, percentage);
+///   tint($color_nhsuk-black, 10%);
+///   shade(color, percentage);
+///   shade($color_nhsuk-blue, 50%);
 
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
@@ -73,16 +65,14 @@ $alpha-transparency-50: 0.5;
   @return mix(black, $color, $percentage);
 }
 
-//
-// Primary colour variations
-//
-// 1. used for link :active states
-// 2. used for .is-active state on main navigation
-// 3. used for :hover states on main navigation
-// 4. used for :active states on main navigation
-// 5. used for primary button and action link icon :hover states
-// 6. used for primary button and action link icon :active states
-//
+/// Primary colour variations
+///
+/// 1. used for link :active states
+/// 2. used for .is-active state on main navigation
+/// 3. used for :hover states on main navigation
+/// 4. used for :active states on main navigation
+/// 5. used for primary button and action link icon :hover states
+/// 6. used for primary button and action link icon :active states
 
 $color_tint_nhsuk-black-10: tint($color_nhsuk-black, 10%); // [1]
 
@@ -96,11 +86,10 @@ $color_shade_nhsuk-green-50: shade($color_nhsuk-green, 50%); // [6]
 $color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, 0.2);
 $color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, 0.1);
 
-//
-// Colour aliases
-//
+/// Colour aliases
 
-// Text
+/// Text
+
 $nhsuk-text-color: $color_nhsuk-black;
 $nhsuk-secondary-text-color: $color_nhsuk-grey-1;
 $nhsuk-print-text-color: $color_nhsuk-black;
@@ -109,35 +98,35 @@ $nhsuk-footer-link-text-color: #003087;
 // stylelint-disable-next-line color-no-hex
 $nhsuk-footer-copyright-text-color: #231f20;
 
-// Links
+/// Links
+
 $nhsuk-link-color: $color_nhsuk-blue;
 $nhsuk-link-hover-color: $color_nhsuk-dark-pink;
 $nhsuk-link-active-color: shade($nhsuk-link-color, 50%);
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
-// Focus
+/// Focus
+
 $nhsuk-focus-color: $color_nhsuk-yellow;
 $nhsuk-focus-text-color: $color_nhsuk-black;
 
-// Border
+/// Border
+
 $nhsuk-border-color: $color_nhsuk-grey-4;
 $nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
 
-// Box shadow
+/// Box shadow
+
 $nhsuk-box-shadow: rgba(33, 43, 50, 0.16);
 $nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
 
-//
-// Forms
-//
+/// Forms
 
 $nhsuk-error-color: $color_nhsuk-red;
 $nhsuk-form-border-color: $color_nhsuk-grey-1;
 $nhsuk-form-element-background-color: $color_nhsuk-white;
 
-//
-// Buttons
-//
+/// Buttons
 
 $nhsuk-button-color: $color_nhsuk-green;
 $nhsuk-button-hover-color: shade($nhsuk-button-color, 20%);

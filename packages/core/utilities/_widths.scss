@@ -1,21 +1,20 @@
-/* ==========================================================================
-   UTILITIES / #WIDTH
-   ========================================================================== */
-
-// stylelint-disable declaration-no-important
+////
+/// Widths
+///
+/// Force element widths on all screen sizes
+///
+/// @group utilities
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example html
+///   <input class="nhsuk-input nhsuk-u-width-full" id="example" name="example" type="text">
+////
 
 @use "sass:math";
 
-/**
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- * Force element widths on all screen sizes
- *
- * Usage: class="nhsuk-u-width-full"
- */
-
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule
+// stylelint-disable declaration-no-important
 
 .nhsuk-u-width-full {
   width: 100% !important;

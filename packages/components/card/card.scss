@@ -1,30 +1,30 @@
-/* ==========================================================================
-   COMPONENTS / #CARD
-   ========================================================================== */
-
-/**
- * 1. Is needed for the :active top positioning, and invisible clickable overlay.
- * 2. Border is used to create a divider between the white content
- *    box and an image.
- * 3. Creates the 'pressed down' effect when clicked.
- * 4. Removes padding-top from headings directly after the card group.
- * 5. Includes the border width to achieve the correct left alignment.
- * 6. Stops the heading from spanning the full width of the card.
- * 7. Removes padding top for the feature heading positioning.
- * 8. Default care card colour set to blue (non-urgent care card) -
- *    using the @mixin care-card tools/_mixins.scss.
- *    The same mixin is used for each care card, setting the background
- *    colour,text colour and print border width with the variables.
- * 9. 'Random number' for the heading triangle.
- * 10. 'Random number' for the heading triangle positioning.
- * 11. 'Random number' used for spacing to compensate for the triangle.
- * 12. Needed to enable the triangle to show correctly in high contrast mode.
- * 13. Prevent additional padding on headings
- * 14. Give the action link icon sufficient contrast when used in the emergency variant
- * 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
- * 16. Emergency care card <a> needs to be white because the background colour is black.
- * 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
- */
+////
+/// Card component
+///
+/// 1. Is needed for the :active top positioning, and invisible clickable overlay.
+/// 2. Border is used to create a divider between the white content
+///    box and an image.
+/// 3. Creates the 'pressed down' effect when clicked.
+/// 4. Removes padding-top from headings directly after the card group.
+/// 5. Includes the border width to achieve the correct left alignment.
+/// 6. Stops the heading from spanning the full width of the card.
+/// 7. Removes padding top for the feature heading positioning.
+/// 8. Default care card colour set to blue (non-urgent care card) -
+///    using the @mixin care-card tools/_mixins.scss.
+///    The same mixin is used for each care card, setting the background
+///    colour,text colour and print border width with the variables.
+/// 9. 'Random number' for the heading triangle.
+/// 10. 'Random number' for the heading triangle positioning.
+/// 11. 'Random number' used for spacing to compensate for the triangle.
+/// 12. Needed to enable the triangle to show correctly in high contrast mode.
+/// 13. Prevent additional padding on headings
+/// 14. Give the action link icon sufficient contrast when used in the emergency variant
+/// 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
+/// 16. Emergency care card <a> needs to be white because the background colour is black.
+/// 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
+///
+/// @group components
+////
 
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
@@ -59,8 +59,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   margin-bottom: nhsuk-spacing(3);
 }
 
-/* Clickable card
-  ========================================================================== */
+/// Clickable card
 
 .nhsuk-card--clickable {
   border-bottom-width: $card-border-bottom-width;
@@ -85,14 +84,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-/* Card group
-  ========================================================================== */
-
-/**
-* Card group allows you to have a row of cards.
-*
-* Flexbox is used to make each card in a row the same height.
-*/
+/// Card group
+///
+/// Allows you to have a row of cards.
+/// Flexbox is used to make each card in a row the same height.
 
 .nhsuk-card-group {
   @include flex;
@@ -133,8 +128,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-/* Card feature
-  ========================================================================== */
+/// Card feature
 
 .nhsuk-card--feature {
   @include nhsuk-responsive-margin(7, "top");
@@ -164,8 +158,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding-top: 0 !important; // [7]
 }
 
-/* Care card
-  ========================================================================== */
+/// Care card
 
 .nhsuk-card--care {
   @include nhsuk-responsive-margin(7, "top");
@@ -279,8 +272,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-/* Card primary
-  ========================================================================== */
+/// Card primary
 
 .nhsuk-card__content--primary {
   padding-right: 75px;
@@ -300,8 +292,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-/* Card secondary
-  ========================================================================== */
+/// Card secondary
 
 .nhsuk-card--secondary {
   background: transparent;

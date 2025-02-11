@@ -1,16 +1,16 @@
-/* ==========================================================================
-   ELEMENTS / #LINKS
-   ========================================================================== */
-
-/**
- * Our basic `<a>` elements only need very minimal styling.
- * It uses the @mixin nhsuk-link-style-default within tools/links.
- * Anything more opinionated (e.g. buttons, calls-to-action, etc.) will need a
- * class defining in the Components layer.
- *
- * 1. Outputs full link URL for print.
- * 2. Point unit used for print.
- */
+////
+/// Links
+///
+/// Our basic `<a>` elements only need very minimal styling.
+/// It uses the @mixin nhsuk-link-style-default within tools/links.
+/// Anything more opinionated (e.g. buttons, calls-to-action, etc.) will need a
+/// class defining in the Components layer.
+///
+/// 1. Outputs full link URL for print.
+/// 2. Point unit used for print.
+///
+/// @group elements
+////
 
 a {
   @include nhsuk-link-style-default;

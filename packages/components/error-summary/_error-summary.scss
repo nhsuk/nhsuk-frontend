@@ -1,11 +1,11 @@
-/* ==========================================================================
-   COMPONENTS/ #ERROR-SUMMARY
-   ========================================================================== */
-
-/**
- * 1. Cross-component class - adjusts styling of list component.
- * 2. Override default link styling to use error colour
- */
+////
+/// Error summary component
+///
+/// 1. Cross-component class - adjusts styling of list component.
+/// 2. Override default link styling to use error colour
+///
+/// @group components
+////
 
 .nhsuk-error-summary {
   @include nhsuk-responsive-padding(4);
@@ -47,7 +47,7 @@
 }
 
 .nhsuk-error-summary__list {
-  /* 1 */
+  // [1]
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -55,7 +55,7 @@
 .nhsuk-error-summary__list a {
   @include nhsuk-typography-weight-bold;
 
-  /* 2 */
+  // [2]
   &:link,
   &:visited,
   &:hover,

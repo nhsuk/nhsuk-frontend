@@ -1,22 +1,18 @@
-/* ==========================================================================
-   COMPONENTS / #DETAILS
-   ========================================================================== */
-
-/**
- * Details component.
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. Style the summary to look like a link...
- * 2. Make the focus outline shrink-wrap the text content of the summary
- * 3. Absolutely position the marker against this element
- * 3. Allow for absolutely positioned marker and align with disclosed text
- * 4. Only underline the text, not the arrow
- * 5. Remove the default details marker so we can style our own consistently and
- *    ensure it displays in Firefox
- * 6. Custom padding to left align the details text with the summary
- */
+////
+/// Details component
+///
+/// 1. Style the summary to look like a link...
+/// 2. Make the focus outline shrink-wrap the text content of the summary
+/// 3. Absolutely position the marker against this element
+/// 3. Allow for absolutely positioned marker and align with disclosed text
+/// 4. Only underline the text, not the arrow
+/// 5. Remove the default details marker so we can style our own consistently and
+///    ensure it displays in Firefox
+/// 6. Custom padding to left align the details text with the summary
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 .nhsuk-details {
   @include nhsuk-text-color;
@@ -83,17 +79,15 @@
   @include top-and-bottom;
 }
 
-/**
- * Expander variation.
- *
- * 1. !important used because the icon is populated
- *    by the JavaScript polyfill
- * 2. Remove the default hover, focus and active
- *    styles for this component.
- * 3. -2px left margin to align the icon to the content.
- * 4. When a group of details is used reduce the
- *    margin between them so they sit together.
- */
+/// Expander variation.
+///
+/// 1. !important used because the icon is populated
+///    by the JavaScript polyfill
+/// 2. Remove the default hover, focus and active
+///    styles for this component.
+/// 3. -2px left margin to align the icon to the content.
+/// 4. When a group of details is used reduce the
+///    margin between them so they sit together.
 
 $expander-border-width: 1px;
 $expander-border-bottom-width: nhsuk-spacing(1);

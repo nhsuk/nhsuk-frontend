@@ -1,20 +1,16 @@
-/* ==========================================================================
-   OBJECTS / #WIDTH-CONTAINER
-   ========================================================================== */
-
-/**
- * Page width for the grid system
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. On mobile, add half width gutters
- * 2. Limit the width of the container to the page width
- * 3. From desktop, add full width gutters
- * 4. As soon as the viewport is greater than the width of the page plus the
- *    gutters, just centre the content instead of adding gutters.
- * 5. Full width container, spanning the entire width of the viewport
- */
+////
+/// Page width for the grid system
+///
+/// 1. On mobile, add half width gutters
+/// 2. Limit the width of the container to the page width
+/// 3. From desktop, add full width gutters
+/// 4. As soon as the viewport is greater than the width of the page plus the
+///    gutters, just centre the content instead of adding gutters.
+/// 5. Full width container, spanning the entire width of the viewport
+///
+/// @group objects
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 @mixin govuk-width-container {
   margin: 0 $nhsuk-gutter-half; // [1]

@@ -1,13 +1,15 @@
-// ==========================================================================
-// TOOLS / #MIXINS
-// ==========================================================================
+////
+/// Mixins
+///
+/// @group tools
+////
 
-//
-// Clearfix mixin
-//
-// Usage: @include clearfix();
-// See utilities/clearfix
-//
+/// Clearfix mixin
+///
+/// @see utilities/clearfix
+///
+/// @example scss
+///   @include clearfix();
 
 @mixin clearfix() {
   &::after {
@@ -17,25 +19,25 @@
   }
 }
 
-//
-// Reading width mixin, add a maximum width
-// to large pieces of content
-//
-// Usage: @include reading-width();
-// See utilities/reading-width
-//
+/// Reading width mixin, add a maximum width
+/// to large pieces of content
+///
+/// @see utilities/reading-width
+///
+/// @example scss
+///   @include reading-width();
 
 @mixin reading-width() {
   max-width: 44em;
 }
 
-//
-// Visually hidden mixin, used for hiding
-// content visually but keeping it in the DOM
-//
-// Usage: @include visually-hidden();
-// See utilities/visually-hidden
-//
+/// Visually hidden mixin, used for hiding
+/// content visually but keeping it in the DOM
+///
+/// @see utilities/visually-hidden
+///
+/// @example scss
+///   @include visually-hidden();
 
 @mixin visually-hidden() {
   // Absolute positioning has the unintended consequence of removing any
@@ -63,15 +65,15 @@
   width: 1px;
 }
 
-//
-// Visually shown mixin, used for displaying
-// content visually that has previously been hidden
-// by visually-hidden
-// Differences between mobile and desktop views
-// Use $display-property to assign display
-//
-// Usage: @include visually-shown(table-header-group);
-//
+/// Visually shown mixin, used for displaying
+/// content visually that has previously been hidden
+/// by visually-hidden
+///
+/// Differences between mobile and desktop views
+/// Use $display-property to assign display
+///
+/// @example scss
+///   @include visually-shown(table-header-group);
 
 @mixin visually-shown($display-property) {
   clip: auto;
@@ -84,13 +86,13 @@
   width: auto;
 }
 
-//
-// Top and bottom margin mixin, remove
-// the top and bottom margin spacing
-//
-// Usage: @include top-and-bottom();
-// See utilities/top-and-bottom
-//
+/// Top and bottom margin mixin, remove
+/// the top and bottom margin spacing
+///
+/// @see utilities/top-and-bottom
+///
+/// @example scss
+///   @include top-and-bottom();
 
 @mixin top-and-bottom() {
   & > *:first-child {
@@ -102,12 +104,12 @@
   }
 }
 
-//
-// Panel mixin
-//
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
-// See components/_panel
-//
+/// Panel mixin
+///
+/// See components/_panel
+///
+/// @example scss
+///   @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin panel($panel-background-color, $panel-text-color) {
   @include top-and-bottom;
@@ -124,15 +126,15 @@
   }
 }
 
-//
-// Panel with label mixin, inherits panel styling
-// and removes padding top for the label positioning.
-//
-// Used in-conjunction with @mixin heading-label
-//
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
-// See components/_warning-component
-//
+/// Panel with label mixin, inherits panel styling
+/// and removes padding top for the label positioning.
+///
+/// Used in-conjunction with @mixin heading-label
+///
+/// @see components/_warning-component
+///
+/// @example scss
+///   @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
   @include panel($panel-background-color, $panel-text-color);
@@ -142,22 +144,22 @@
   padding-top: 0 !important;
 }
 
-//
-// Heading label mixin, adds a tab heading to
-// warning callout, do and don't lists and panel.
-//
-// Used in-conjunction with @mixin panel-with-label
-//
-// Usage: @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
-// See components/_warning-component
-//
-// 1. Background colour to be set on the @include.
-// 2. Text colour to be set on the @include.
-// 3. Display inline-block so it does not take up the full width.
-// 4. Margin -24px left and right aligns the heading to the box.
-// 5. Top positioning set to minus to make the heading
-//    sit just outside the box.
-//
+/// Heading label mixin, adds a tab heading to
+/// warning callout, do and don't lists and panel.
+///
+/// Used in-conjunction with @mixin panel-with-label
+///
+/// @see components/_warning-component
+///
+/// 1. Background colour to be set on the @include.
+/// 2. Text colour to be set on the @include.
+/// 3. Display inline-block so it does not take up the full width.
+/// 4. Margin -24px left and right aligns the heading to the box.
+/// 5. Top positioning set to minus to make the heading
+///    sit just outside the box.
+///
+/// @example scss
+///   @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin heading-label($heading-background-color, $heading-text-color) {
   @include nhsuk-typography-responsive(24);
@@ -184,13 +186,13 @@
   }
 }
 
-//
-// Care card mixin, used for creating
-// different coloured care cards.
-//
-// Usage: @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
-// See components/card/card
-//
+/// Care card mixin, used for creating
+/// different coloured care cards.
+///
+/// @see components/card/card
+///
+/// @example scss
+///   @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
 
 @mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
   .nhsuk-card--care__heading-container {
@@ -205,13 +207,13 @@
   }
 }
 
-//
-// Print colour mixin, sets the text print colour
-// warning callout, do and don't lists and panels.
-//
-// Usage: @include print-color($nhsuk-print-text-color);
-// See components/_care-card
-//
+/// Print colour mixin, sets the text print colour
+/// warning callout, do and don't lists and panels.
+///
+/// @see components/_care-card
+///
+/// @example scss
+///   @include print-color($nhsuk-print-text-color);
 
 @mixin print-color($print-color) {
   @include mq($media-type: print) {
@@ -226,12 +228,12 @@
   }
 }
 
-//
-// Print hide mixin, hides the element from print.
-//
-// Usage: @include print-hide();
-// See components/_care-card
-//
+/// Print hide mixin, hides the element from print.
+///
+/// @see components/_care-card
+///
+/// @example scss
+///   @include print-hide();
 
 @mixin print-hide() {
   @include mq($media-type: print) {
@@ -239,20 +241,20 @@
   }
 }
 
-//
-// Flex mixin
-// Usage: @include flex();
-//
+/// Flex mixin
+///
+/// @example scss
+///   @include flex();
 
 @mixin flex() {
   display: flex;
   flex-wrap: wrap;
 }
 
-//
-// Flex item mixin
-// Usage: @include flex-item();
-//
+/// Flex item mixin
+///
+/// @example scss
+///   @include flex-item();
 
 @mixin flex-item() {
   display: flex;
@@ -262,10 +264,9 @@
   }
 }
 
-//
-// Remove margin mobile mixin, removes left and right
-// margin at tablet breakpoint.
-//
+/// Remove margin mobile mixin
+///
+/// Removes left and right margin at tablet breakpoint
 
 @mixin remove-margin-mobile() {
   @include mq($until: tablet) {

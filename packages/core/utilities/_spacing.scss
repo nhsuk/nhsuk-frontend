@@ -1,32 +1,34 @@
-// ========================================================================== //
-// UTILITIES / #SPACING
-// ========================================================================== //
+////
+/// Spacing
+///
+/// @group utilities
+////
 
-// Directions for spacing
-// Original code taken from GDS (Government Digital Service)
-// https://github.com/alphagov/govuk-frontend
+/// Directions for spacing
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 $_spacing-directions: ("top", "right", "bottom", "left") !default;
 
-// Spacing override classes
-//
-// Generate spacing override classes for the given property (e.g. margin)
-// for each point in the spacing scale.
-//
-// @param {String} $property - Property to add spacing to (e.g. 'margin')
-//
-// @example scss
-//   .nhsuk-u-margin-0 {
-//      margin: 0;
-//   }
-//
-//  .nhsuk-u-margin-top-1 {
-//     margin-top: [whatever spacing point 1 is...]
-//   }
-//
-// 1. For each point in the spacing scale (defined in settings), create an
-//    override that affects all directions...
-// 2. ... and then an override for each individual direction
+/// Spacing override classes
+///
+/// Generate spacing override classes for the given property (e.g. margin)
+/// for each point in the spacing scale.
+///
+/// @param {String} $property - Property to add spacing to (e.g. 'margin')
+///
+/// @example scss
+///   .nhsuk-u-margin-0 {
+///      margin: 0;
+///   }
+///
+///  .nhsuk-u-margin-top-1 {
+///     margin-top: [whatever spacing point 1 is...]
+///   }
+///
+/// 1. For each point in the spacing scale (defined in settings), create an
+///    override that affects all directions...
+/// 2. ... and then an override for each individual direction
 
 @mixin _nhsuk-generate-spacing-overrides($property) {
   // [1]

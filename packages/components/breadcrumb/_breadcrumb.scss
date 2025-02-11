@@ -1,15 +1,15 @@
-/* ==========================================================================
-    COMPONENTS / #BREADCRUMB
-   ========================================================================== */
-
-/**
- * 1. Hide the breadcrumb on print stylesheets.
- * 3. Don't show the full breadcrumb below tablet size.
- * 4. Typography sizing mixin, see core/tools/_typography
- * 5. and core/settings/_typography for size maps.
- * 5. .. but show a back to index page link.
- * 6. Spacing to align the chevron with breadcrumb items
- */
+////
+/// Breadcrumb component
+///
+/// 1. Hide the breadcrumb on print stylesheets.
+/// 3. Don't show the full breadcrumb below tablet size.
+/// 4. Typography sizing mixin, see core/tools/_typography
+/// 5. and core/settings/_typography for size maps.
+///    .. but show a back to index page link.
+/// 6. Spacing to align the chevron with breadcrumb items
+///
+/// @group components
+////
 
 .nhsuk-breadcrumb {
   @include print-hide; // [1]

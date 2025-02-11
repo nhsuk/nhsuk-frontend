@@ -1,20 +1,20 @@
-/* ==========================================================================
-   STYLES / #LISTS
-   ========================================================================== */
-
-// The % (silent class) allows code to be extended (@extend) to other elements
-// without bloating the code.
-//
-// @example scss
-//  .foo {
-//   @extend %nhsuk-section-break--xl;
-//  }
-
-/**
- * 1. 'Random number' used to align ul and ol left with content.
- * 2. 'Random number' used to give sufficient spacing between text and icon.
- * 3. 'Random number' used to align icon and text.
- */
+////
+/// Lists
+///
+/// The % (silent class) allows code to be extended (@extend) to other elements
+/// without bloating the code.
+///
+/// 1. 'Random number' used to align ul and ol left with content.
+/// 2. 'Random number' used to give sufficient spacing between text and icon.
+/// 3. 'Random number' used to align icon and text.
+///
+/// @group styles
+///
+/// @example scss
+///   .foo {
+///     @extend %nhsuk-section-break--xl;
+///   }
+////
 
 %nhsuk-list {
   @include nhsuk-typography-responsive(19);

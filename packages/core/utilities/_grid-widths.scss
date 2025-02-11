@@ -1,22 +1,23 @@
-/* ==========================================================================
-   UTILITIES / #GRID
-   ========================================================================== */
-
-// stylelint-disable declaration-no-important
+////
+/// Grid widths
+///
+/// Force grid widths on all screen sizes
+///
+/// By default all grid elements will go to 100% width
+/// on screen sizes below tablet, these utilities can force
+/// custom widths on all screen sizes
+///
+/// @group utilities
+///
+/// @example html
+///   <div class="nhsuk-u-one-half"></div>
+////
 
 @use "sass:math";
 
-/**
- * Force grid widths on all screen sizes
- * By default all grid elements will go to 100% width
- * on screen sizes below tablet, these utilities can force
- * custom widths on all screen sizes
- *
- * Usage: class="nhsuk-u-one-half"
- */
-
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule
+// stylelint-disable declaration-no-important
 
 .nhsuk-u-one-half {
   float: left;
@@ -43,17 +44,16 @@
   width: math.percentage(math.div(3, 4)) !important;
 }
 
-/**
- * Force grid widths on screen sizes on tablet
- * and above
- *
- * By default all grid elements will go to 100% width
- * on every screen size, these utilities can force
- * custom widths on screen sizes on tablet
- * and above
- *
- * Usage: class="nhsuk-u-one-half-tablet"
- */
+/// Force grid widths on screen sizes on tablet
+/// and above
+///
+/// By default all grid elements will go to 100% width
+/// on every screen size, these utilities can force
+/// custom widths on screen sizes on tablet
+/// and above
+///
+/// @example html
+///   <div class="nhsuk-u-one-half-tablet"></div>
 
 .nhsuk-u-one-half-tablet {
   width: 100% !important;

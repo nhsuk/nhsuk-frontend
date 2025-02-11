@@ -1,13 +1,12 @@
-// ==========================================================================
-// TOOLS / #SASS-MQ
-// ==========================================================================
-
-//
-// We use sass-mq module for media queries
-//
-// 1. Import sass-mq from our vendor dependencies folder opposed to node_modules
-// in case node_modules is not installed in the folder relative to the root folder
-//
+////
+/// Sass MQ
+///
+/// We use sass-mq module for media queries
+///
+/// 1. Import sass-mq from our vendor dependencies folder opposed to node_modules
+/// in case node_modules is not installed in the folder relative to the root folder
+///
+/// @group tools
 
 $sass-mq-already-included: false !default;
 
@@ -19,12 +18,9 @@ $sass-mq-already-included: false !default;
 
 $sass-mq-already-included: true;
 
-//
-// sass-mq helpers
-//
-// Original code taken from GDS (Government Digital Service)
-// https://github.com/alphagov/govuk-frontend
-//
+/// Helpers
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @mixin govuk-media-query($args...) {
   @include mq($args...) {

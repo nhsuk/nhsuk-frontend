@@ -1,13 +1,13 @@
-/* ==========================================================================
-   UTILITIES / #VISUALLY-HIDDEN
-   ========================================================================== */
-
-/**
- * Hide elements visually but keep it in the DOM
- *
- * Usage: class="nhsuk-u-visually-hidden"
- * See tools/mixins
- */
+////
+/// Visually hidden
+///
+/// Hide elements visually but keep it in the DOM
+///
+/// @group utilities
+///
+/// @example html
+///   <span class="nhsuk-u-visually-hidden">Error:</span>
+////
 
 .nhsuk-u-visually-hidden {
   @include visually-hidden;
