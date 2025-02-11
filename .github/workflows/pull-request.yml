@@ -15,7 +15,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Sonar analysis
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: SonarSource/sonarqube-scan-action@v4
       with:
         projectBaseDir: .
       env:
