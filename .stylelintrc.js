@@ -1,4 +1,5 @@
 module.exports = {
+  extends: 'stylelint-config-gds/scss',
   ignoreFiles: [
     '**/dist/**',
     '**/vendor/**',
