@@ -63,6 +63,15 @@ module.exports = {
           }
         ],
 
+        // Allow underscores in $variable naming pattern
+        // https://github.com/stylelint-scss/stylelint-scss/tree/master/src/rules/dollar-variable-pattern
+        'scss/dollar-variable-pattern': [
+          /^([a-z0-9-_])*$/,
+          {
+            message: 'Variable names may only contain [a-z0-9-_] characters'
+          }
+        ],
+
         // Allow underscores (but not numbers) in %placeholder naming pattern
         // https://github.com/stylelint-scss/stylelint-scss/tree/master/src/rules/percent-placeholder-pattern
         'scss/percent-placeholder-pattern': [
