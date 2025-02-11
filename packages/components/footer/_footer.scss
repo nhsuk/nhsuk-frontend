@@ -2,6 +2,8 @@
    COMPONENTS / #FOOTER
    ========================================================================== */
 
+@use "sass:math";
+
 .nhsuk-footer-container {
   @include clearfix();
   @include print-hide();
@@ -37,7 +39,7 @@
     float: left;
     padding-bottom: 0;
     padding-right: 40px;
-    width: 75%;
+    width: math.percentage(math.div(3, 4));
 
     &:last-child {
       padding-right: 0;
