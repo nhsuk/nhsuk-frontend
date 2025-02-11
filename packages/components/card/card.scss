@@ -160,7 +160,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__content--feature {
-  padding-top: 0 !important; /* stylelint-disable-line declaration-no-important */ /* [7] */
+  // stylelint-disable-next-line declaration-no-important
+  padding-top: 0 !important; /* [7] */
 }
 
 /* Care card
