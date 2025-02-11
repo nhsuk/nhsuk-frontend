@@ -17,15 +17,15 @@
  */
 
 @mixin govuk-width-container {
-  margin: 0 $nhsuk-gutter-half; /* [1] */
+  margin: 0 $nhsuk-gutter-half; // [1]
 
-  max-width: $nhsuk-page-width; /* [2] */
+  max-width: $nhsuk-page-width; // [2]
 
   @include govuk-media-query($from: desktop) {
-    margin: 0 $nhsuk-gutter; /* [3] */
+    margin: 0 $nhsuk-gutter; // [3]
   }
 
-  /* [4] */
+  // [4]
   @include govuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
     margin: 0 auto;
   }
@@ -33,10 +33,10 @@
 
 @mixin nhsuk-width-container-fluid {
   margin: 0 $nhsuk-gutter-half;
-  max-width: 100%; /* [5] */
+  max-width: 100%; // [5]
 
   @include govuk-media-query($from: desktop) {
-    margin: 0 $nhsuk-gutter; /* [3] */
+    margin: 0 $nhsuk-gutter; // [3]
   }
 }
 
@@ -44,6 +44,7 @@
   .nhsuk-width-container {
     @include govuk-width-container;
   }
+
   .nhsuk-width-container-fluid {
     @include nhsuk-width-container-fluid;
   }

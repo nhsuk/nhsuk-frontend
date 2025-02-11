@@ -22,8 +22,8 @@
  */
 
 @mixin govuk-main-wrapper {
-  @include top-and-bottom();
-  display: block; /* [1] */
+  @include top-and-bottom;
+  display: block; // [1]
   padding-top: nhsuk-spacing(4);
   padding-bottom: nhsuk-spacing(4);
 

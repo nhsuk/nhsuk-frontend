@@ -100,7 +100,7 @@ Bad:
   // ...
   &__item {
     // ...
-    &:before {
+    &::before {
       // ...
     }
   }
@@ -116,7 +116,7 @@ Good:
 
 .nhsuk-contents-list__item {
   // ...
-  &:before {
+  &::before {
     // ...
   }
 }

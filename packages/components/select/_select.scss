@@ -18,8 +18,8 @@
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   color: $color-nhsuk-black;
-  height: 2.5rem; /* [1] */
-  min-width: 20ex + 3ex; /* [2] */
+  height: 2.5rem; // [1]
+  min-width: 20ex + 3ex; // [2]
   max-width: 100%;
   padding: nhsuk-spacing(1);
 

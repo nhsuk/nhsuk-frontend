@@ -86,7 +86,7 @@
       + "responsive spacing scale in `_settings/spacing.scss`.";
   }
 
-  $scale-map: map-get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); // [1] //
+  $scale-map: map-get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); // [1]
   $actual-map-type: type-of($scale-map);
   @if $actual-map-type != "map" {
     @error "Expected a number (integer), but got a "
@@ -94,14 +94,14 @@
   }
 
   @each $breakpoint, $breakpoint-value in $scale-map {
-    // [2] //
+    // [2]
 
-    @if ($adjustment) {
+    @if $adjustment {
       $breakpoint-value: $breakpoint-value + $adjustment;
     }
 
-    @if $breakpoint == null {
-      // [3] //
+    @if not $breakpoint {
+      // [3]
 
       @if $direction == all {
         #{$property}: $breakpoint-value iff($important, !important);

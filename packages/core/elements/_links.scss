@@ -16,10 +16,10 @@ a {
   @include nhsuk-link-style-default;
 
   @include mq($media-type: print) {
-    &:after {
+    &::after {
       color: $color_nhsuk-black;
-      content: " (Link: " attr(href) ")"; /* [1] */
-      font-size: inherit; /* [2] */
+      content: " (Link: " attr(href) ")"; // [1]
+      font-size: inherit; // [2]
     }
   }
 }

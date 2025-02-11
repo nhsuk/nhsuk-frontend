@@ -11,7 +11,7 @@ table {
 
   border-spacing: 0;
   vertical-align: top;
-  width: 100%; /* [1] */
+  width: 100%; // [1]
 
   @include mq($media-type: print) {
     page-break-inside: avoid;

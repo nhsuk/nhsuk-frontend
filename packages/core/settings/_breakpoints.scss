@@ -20,7 +20,7 @@
 //    (i.e. when $mq-responsive is set to 'false').
 ///
 
-$mq-responsive: true; // [1] //
+$mq-responsive: true; // [1]
 
 $mq-breakpoints: (
   mobile: 320px,
@@ -29,4 +29,4 @@ $mq-breakpoints: (
   large-desktop: 990px
 );
 
-$mq-static-breakpoint: desktop; // [2] //
+$mq-static-breakpoint: desktop; // [2]

@@ -2,6 +2,8 @@
    UTILITIES / #GRID
    ========================================================================== */
 
+// stylelint-disable declaration-no-important
+
 @use "sass:math";
 
 /**
@@ -15,7 +17,6 @@
 
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule
-/* stylelint-disable declaration-no-important */
 
 .nhsuk-u-one-half {
   float: left;

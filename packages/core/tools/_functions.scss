@@ -16,10 +16,10 @@
 @use "sass:math";
 
 @function nhsuk-em($value, $context-font-size) {
-  @if (unitless($value)) {
+  @if unitless($value) {
     $value: $value * 1px;
   }
-  @if (unitless($context-font-size)) {
+  @if unitless($context-font-size) {
     $context-font-size: $context-font-size * 1px;
   }
   @return math.div($value, $context-font-size) * 1em;
@@ -37,7 +37,7 @@
 //
 
 @function nhsuk-px-to-rem($value) {
-  @if (unitless($value)) {
+  @if unitless($value) {
     $value: $value * 1px;
   }
 

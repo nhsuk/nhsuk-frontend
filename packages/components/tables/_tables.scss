@@ -19,7 +19,7 @@
   width: 100%;
 
   .nhsuk-table {
-    margin: 0; /* [1] */
+    margin: 0; // [1]
   }
 }
 
@@ -39,7 +39,7 @@
   @include nhsuk-typography-responsive(22);
 }
 
-/* [2] */
+// [2]
 
 /* Table row hover
 ========================================================================== */
@@ -66,7 +66,7 @@
 
   .nhsuk-table-container,
   .nhsuk-table {
-    margin: 0; /* [1] */
+    margin: 0; // [1]
   }
 }
 
@@ -95,13 +95,13 @@
   width: 100%;
 
   thead {
-    @include visually-hidden; /* [1] */
+    @include visually-hidden; // [1]
 
     @include mq($from: desktop) {
-      @include visually-shown(table-header-group); /* [2] */
+      @include visually-shown(table-header-group); // [2]
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         content: "";
       }
     }
@@ -111,15 +111,15 @@
     .nhsuk-table-responsive__heading {
       font-weight: $nhsuk-font-bold;
       padding-right: nhsuk-spacing(3);
-      text-align: left; /* [8] */
+      text-align: left; // [8]
 
       @include mq($from: desktop) {
-        display: none; /* [9] */
+        display: none; // [9]
       }
     }
 
     .nhsuk-table__row {
-      display: block; /* [3] */
+      display: block; // [3]
       margin-bottom: nhsuk-spacing(4);
 
       &:last-child {
@@ -127,7 +127,7 @@
       }
 
       @include mq($from: desktop) {
-        display: table-row; /* [4] */
+        display: table-row; // [4]
       }
 
       th {
@@ -140,10 +140,10 @@
       td {
         display: block; // For browsers that don't support flexbox
         display: flex;
-        justify-content: space-between; /* [5] */
-        min-width: 1px; /* [6] */
+        justify-content: space-between; // [5]
+        min-width: 1px; // [6]
         @media all and (-ms-high-contrast: none) {
-          /* [10] */
+          // [10]
           display: block;
         }
 
@@ -153,7 +153,7 @@
 
         @include mq($until: desktop) {
           padding-right: 0;
-          text-align: right; /* [7] */
+          text-align: right; // [7]
           &:last-child {
             border-bottom: 3px solid $color_nhsuk-grey-4;
           }

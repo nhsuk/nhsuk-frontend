@@ -17,11 +17,11 @@
 
   @include mq($from: tablet) {
     display: table;
-    table-layout: fixed; /* [1] */
+    table-layout: fixed; // [1]
     width: 100%;
   }
 
-  margin: 0; /* [2] */
+  margin: 0; // [2]
   @include nhsuk-responsive-margin(6, "bottom");
 }
 
@@ -38,7 +38,7 @@
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value,
 .nhsuk-summary-list__actions {
-  margin: 0; /* [2] */
+  margin: 0; // [2]
   vertical-align: top;
 
   @include mq($from: tablet) {
@@ -62,9 +62,9 @@
 
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value {
-  /* [3] */
+  // [3]
   overflow-wrap: break-word;
-  word-wrap: break-word; /* [4] */
+  word-wrap: break-word; // [4]
 }
 
 .nhsuk-summary-list__key {
@@ -95,8 +95,8 @@
 }
 
 .nhsuk-summary-list__actions-list {
-  margin: 0; /* [2] */
-  padding: 0; /* [2] */
+  margin: 0; // [2]
+  padding: 0; // [2]
   width: 100%;
 }
 

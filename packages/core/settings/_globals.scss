@@ -8,8 +8,8 @@
 // 1. Fallback fonts if Frutiger fails to load
 //
 
-$nhsuk-font: Frutiger W01 !default;
-$nhsuk-font-fallback: Arial, Sans-serif !default; // [1] //
+$nhsuk-font: "Frutiger W01" !default;
+$nhsuk-font-fallback: arial, sans-serif !default; // [1]
 $nhsuk-font-family-print: sans-serif !default;
 $nhsuk-font-bold: 600 !default;
 $nhsuk-font-normal: 400 !default;

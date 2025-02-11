@@ -21,7 +21,7 @@
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include nhsuk-focused-text;
 
     &:hover {
       text-decoration: none;

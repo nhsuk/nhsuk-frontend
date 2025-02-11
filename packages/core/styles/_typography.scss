@@ -191,7 +191,8 @@ address {
 .nhsuk-lede-text {
   @include nhsuk-font(24);
   @include nhsuk-responsive-margin(7, "bottom");
-  /* [1] */
+
+  // [1]
   p,
   ul {
     @include nhsuk-font(24);
@@ -203,7 +204,7 @@ address {
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
-/* [2] */
+// [2]
 h1 + .nhsuk-lede-text,
 h1 + .nhsuk-lede-text--small {
   margin-top: -(nhsuk-spacing(2));
@@ -247,7 +248,7 @@ h1 + .nhsuk-lede-text--small {
   }
 }
 
-/* [1] */
+// [1]
 .nhsuk-lede-text + %nhsuk-heading-l {
   padding-top: 0;
 }

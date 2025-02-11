@@ -10,7 +10,7 @@
 //
 
 @mixin clearfix() {
-  &:after {
+  &::after {
     clear: both;
     content: "";
     display: block;
@@ -96,6 +96,7 @@
   & > *:first-child {
     margin-top: 0;
   }
+
   & > *:last-child {
     margin-bottom: 0;
   }
@@ -109,7 +110,7 @@
 //
 
 @mixin panel($panel-background-color, $panel-text-color) {
-  @include top-and-bottom();
+  @include top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(5);
@@ -161,19 +162,19 @@
 @mixin heading-label($heading-background-color, $heading-text-color) {
   @include nhsuk-typography-responsive(24);
 
-  background-color: $heading-background-color; // [1] //
-  color: $heading-text-color; // [2] //
-  display: inline-block; // [3] //
+  background-color: $heading-background-color; // [1]
+  color: $heading-text-color; // [2]
+  display: inline-block; // [3]
   margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -33px;
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
-  top: -16px; // [5] //
+  top: -16px; // [5]
 
   @include mq($until: tablet) {
     margin-left: -25px;
     margin-right: 0;
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
-    top: -8px; // [5] //
+    top: -8px; // [5]
   }
 
   @include mq($media-type: print) {

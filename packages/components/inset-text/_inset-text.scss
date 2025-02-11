@@ -10,8 +10,8 @@
  */
 
 .nhsuk-inset-text {
-  @include top-and-bottom(); /* [1] */
-  @include reading-width(); /* [2] */
+  @include top-and-bottom; // [1]
+  @include reading-width; // [2]
 
   @include nhsuk-responsive-margin(7, "bottom");
   @include nhsuk-responsive-margin(7, "top");

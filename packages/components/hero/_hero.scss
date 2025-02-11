@@ -15,10 +15,10 @@
 
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
-  position: relative; /* [1] */
+  position: relative; // [1]
 
   .nhsuk-hero--border {
-    /* [2] */
+    // [2]
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
   }
 }
@@ -40,41 +40,41 @@
  */
 
 .nhsuk-hero--image {
-  background-position: center right; /* [3] */
+  background-position: center right; // [3]
   background-repeat: no-repeat;
   background-size: cover;
 
   @media only screen {
-    /* [4] */
+    // [4]
     min-height: 200px;
   }
 
   @include mq($from: tablet) {
     @media only screen {
-      /* [4] */
-      min-height: 320px; /* [5] */
+      // [4]
+      min-height: 320px; // [5]
 
       .nhsuk-hero__overlay {
-        height: 320px; /* [6] */
+        height: 320px; // [6]
       }
     }
   }
 
   @media screen and (-ms-high-contrast: active) {
-    min-height: 0; /* [12] */
+    min-height: 0; // [12]
   }
 
   .nhsuk-hero__overlay {
-    background-color: $color_transparent_nhsuk-blue-50; /* [7] */
+    background-color: $color_transparent_nhsuk-blue-50; // [7]
 
     @media only screen {
-      /* [4] */
-      min-height: 200px; /* [6] */
+      // [4]
+      min-height: 200px; // [6]
     }
 
     @media screen and (-ms-high-contrast: active) {
-      height: auto; /* [12] */
-      min-height: 0; /* [12] */
+      height: auto; // [12]
+      min-height: 0; // [12]
     }
   }
 }
@@ -101,47 +101,47 @@
     top: 70px;
 
     .nhsuk-hero__arrow {
-      bottom: -10px; /* [8] */
+      bottom: -10px; // [8]
       display: block;
-      height: 20px; /* [8] */
-      left: 32px; /* [9] */
+      height: 20px; // [8]
+      left: 32px; // [9]
       overflow: hidden;
       position: absolute;
       transform: rotate(45deg);
-      width: 20px; /* [8] */
-      @include print-hide();
+      width: 20px; // [8]
+      @include print-hide;
 
       @include mq($from: tablet) {
-        left: 46px; /* [9] */
+        left: 46px; // [9]
       }
 
-      &:before,
-      &:after {
-        border: solid 32px $color_nhsuk-blue; /* [8] */
+      &::before,
+      &::after {
+        border: solid 32px $color_nhsuk-blue; // [8]
         content: "";
         display: block;
         height: 0;
         position: absolute;
         top: 0;
-        transform: rotate(45deg); /* [10] */
+        transform: rotate(45deg); // [10]
         width: 0;
       }
 
       @media screen and (-ms-high-contrast: active) {
-        display: none; /* [13] */
+        display: none; // [13]
       }
     }
 
     @include mq(375px) {
-      /* [15] */
+      // [15]
       width: 85%;
     }
 
     @include mq($from: tablet) {
-      @include top-and-bottom();
-      bottom: -48px; /* [8] */
+      @include top-and-bottom;
+      bottom: -48px; // [8]
       margin-bottom: 0;
-      max-width: 35em; /* [11] */
+      max-width: 35em; // [11]
       padding: nhsuk-spacing(5) nhsuk-spacing(6);
       position: absolute;
       top: auto;
@@ -154,7 +154,7 @@
     }
 
     @media screen and (-ms-high-contrast: active) {
-      /* [14] */
+      // [14]
       bottom: 0;
       margin-bottom: 0;
       min-height: 0;

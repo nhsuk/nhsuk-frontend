@@ -15,7 +15,7 @@
 }
 
 .nhsuk-pagination__list {
-  @include clearfix();
+  @include clearfix;
 }
 
 .nhsuk-pagination-item--previous {
@@ -28,7 +28,7 @@
   }
 
   .nhsuk-pagination__title {
-    padding-left: nhsuk-spacing(5); /* [1] */
+    padding-left: nhsuk-spacing(5); // [1]
   }
 }
 
@@ -42,7 +42,7 @@
   }
 
   .nhsuk-pagination__title {
-    padding-right: nhsuk-spacing(5); /* [1] */
+    padding-right: nhsuk-spacing(5); // [1]
   }
 }
 
@@ -119,8 +119,8 @@
   display: block;
 
   @include mq($media-type: print) {
-    &:after {
-      content: " page"; /* [2] */
+    &::after {
+      content: " page"; // [2]
     }
   }
 }

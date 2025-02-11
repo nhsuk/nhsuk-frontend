@@ -136,12 +136,12 @@
       $font-size: $font-size
     );
 
-    // [1] //
+    // [1]
     $font-size: $font-size iff($important, !important);
     $font-size-rem: $font-size-rem iff($important, !important);
     $line-height: $line-height iff($important, !important);
 
-    @if $breakpoint == null {
+    @if not $breakpoint {
       font-size: $font-size;
       font-size: $font-size-rem;
       line-height: $line-height;

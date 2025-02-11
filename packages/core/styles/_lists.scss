@@ -41,7 +41,7 @@
 
 %nhsuk-list--bullet {
   list-style-type: disc;
-  padding-left: 20px; /* [1] */
+  padding-left: 20px; // [1]
 }
 
 .nhsuk-list--bullet {
@@ -50,7 +50,7 @@
 
 %nhsuk-list--number {
   list-style-type: decimal;
-  padding-left: 20px; /* [1] */
+  padding-left: 20px; // [1]
 }
 
 .nhsuk-list--number {
@@ -75,12 +75,12 @@ ol {
 .nhsuk-list--cross {
   list-style: none;
   margin-top: 0;
-  padding-left: 40px; /* [2] */
+  padding-left: 40px; // [2]
   position: relative;
 
   svg {
-    left: -4px; /* [3] */
-    margin-top: -5px; /* [3] */
+    left: -4px; // [3]
+    margin-top: -5px; // [3]
     position: absolute;
   }
 }

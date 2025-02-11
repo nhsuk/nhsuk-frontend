@@ -5,8 +5,8 @@
 @use "sass:math";
 
 .nhsuk-footer-container {
-  @include clearfix();
-  @include print-hide();
+  @include clearfix;
+  @include print-hide;
   @include nhsuk-responsive-padding(5, bottom);
   @include nhsuk-responsive-padding(5, top);
 

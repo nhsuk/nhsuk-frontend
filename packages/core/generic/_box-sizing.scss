@@ -17,8 +17,8 @@ html {
 
 * {
   &,
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     -moz-box-sizing: inherit;
     -webkit-box-sizing: inherit;
     box-sizing: inherit;

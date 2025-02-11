@@ -20,20 +20,20 @@
 .nhsuk-action-link__link {
   @include nhsuk-font(22);
 
-  display: inline-block; /* [1] */
+  display: inline-block; // [1]
   font-weight: $nhsuk-font-bold;
-  padding-left: 38px; /* [2] */
-  position: relative; /* [3] */
-  text-decoration: none; /* [4] */
+  padding-left: 38px; // [2]
+  position: relative; // [3]
+  text-decoration: none; // [4]
 
   &:hover {
     .nhsuk-action-link__text {
-      text-decoration: underline; /* [6] */
+      text-decoration: underline; // [6]
     }
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include nhsuk-focused-text;
 
     &:hover {
       .nhsuk-action-link__text {
@@ -44,7 +44,7 @@
   }
 
   @include mq($until: tablet) {
-    padding-left: 26px; /* [2] */
+    padding-left: 26px; // [2]
   }
 
   @include mq($media-type: print) {

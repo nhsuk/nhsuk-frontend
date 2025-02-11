@@ -36,20 +36,20 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   background: $color_nhsuk-white;
   border: $card-border-width solid $card-border-color;
-  position: relative; /* [1] */
+  position: relative; // [1]
   width: 100%;
 }
 
 .nhsuk-card__img {
-  @include print-hide();
+  @include print-hide;
 
-  border-bottom: $card-border-width solid $color_nhsuk-grey-5; /* [2] */
+  border-bottom: $card-border-width solid $color_nhsuk-grey-5; // [2]
   display: block;
   width: 100%;
 }
 
 .nhsuk-card__content {
-  @include top-and-bottom();
+  @include top-and-bottom;
   @include nhsuk-responsive-padding(5);
 }
 
@@ -68,7 +68,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   .nhsuk-card__heading a,
   .nhsuk-card__link {
     &::before {
-      background-color: rgba(255, 255, 255, 0); /* [17] */
+      background-color: rgba(255, 255, 255, 0); // [17]
       bottom: 0;
       content: "";
       display: block;
@@ -81,7 +81,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   &:active {
     border-color: $card-border-hover-color;
-    bottom: -$card-border-width; /* [3] */
+    bottom: -$card-border-width; // [3]
   }
 }
 
@@ -95,7 +95,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 */
 
 .nhsuk-card-group {
-  @include flex();
+  @include flex;
 
   margin-bottom: nhsuk-spacing(3);
   padding: 0;
@@ -108,12 +108,12 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   + .nhsuk-heading-l,
   + h3,
   + .nhsuk-heading-m {
-    padding-top: 0; /* [4] */
+    padding-top: 0; // [4]
   }
 }
 
 .nhsuk-card-group__item {
-  @include flex-item();
+  @include flex-item;
 
   list-style-type: none;
   margin-bottom: 0;
@@ -144,16 +144,16 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   background: $color_nhsuk-blue;
   color: $color_nhsuk-white;
   display: inline-block;
-  left: -(nhsuk-spacing(4) + $card-border-width); /* [5] */
+  left: -(nhsuk-spacing(4) + $card-border-width); // [5]
   margin-bottom: nhsuk-spacing(2);
-  margin-right: -(nhsuk-spacing(4)); /* [6] */
+  margin-right: -(nhsuk-spacing(4)); // [6]
   padding: nhsuk-spacing(2) nhsuk-spacing(4);
   position: relative;
   top: -(nhsuk-spacing(2));
 
   @include mq($from: tablet) {
-    left: -(nhsuk-spacing(5) + $card-border-width); /* [5] */
-    margin-right: -(nhsuk-spacing(5)); /* [6] */
+    left: -(nhsuk-spacing(5) + $card-border-width); // [5]
+    margin-right: -(nhsuk-spacing(5)); // [6]
     padding: nhsuk-spacing(2) nhsuk-spacing(5);
     top: -(nhsuk-spacing(3));
   }
@@ -161,7 +161,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card__content--feature {
   // stylelint-disable-next-line declaration-no-important
-  padding-top: 0 !important; /* [7] */
+  padding-top: 0 !important; // [7]
 }
 
 /* Care card
@@ -169,7 +169,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card--care {
   @include nhsuk-responsive-margin(7, "top");
-  @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); /* [8] */
+  @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); // [8]
 }
 
 .nhsuk-card--care__heading-container {
@@ -186,33 +186,33 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   @include print-color($nhsuk-print-text-color);
 
   margin: 0;
-  padding-top: 0; /* [13] */
+  padding-top: 0; // [13]
 }
 
 .nhsuk-card--care__arrow {
-  bottom: -10px; /* [9] */
+  bottom: -10px; // [9]
   display: block;
-  height: 20px; /* [9] */
-  left: 30px; /* [10] */
+  height: 20px; // [9]
+  left: 30px; // [10]
   overflow: hidden;
   position: absolute;
   transform: rotate(45deg);
-  width: 20px; /* [9] */
-  @include print-hide();
+  width: 20px; // [9]
+  @include print-hide;
 
   @include mq($from: tablet) {
-    left: 38px; /* [10] */
+    left: 38px; // [10]
   }
 
-  &:before,
-  &:after {
-    border: solid 32px $color_nhsuk-blue; /* [9] */
+  &::before,
+  &::after {
+    border: solid 32px $color_nhsuk-blue; // [9]
     content: "";
     display: block;
     height: 0;
     position: absolute;
     top: 0;
-    transform: rotate(45deg); /* [12] */
+    transform: rotate(45deg); // [12]
     width: 0;
   }
 }
@@ -221,8 +221,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 
   .nhsuk-card--care__arrow {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-color: $color_nhsuk-red;
     }
   }
@@ -232,8 +232,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-card--care__arrow {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-color: $color_nhsuk-red;
     }
   }
@@ -242,13 +242,13 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     background-color: $color_nhsuk-black;
     border: 0;
     color: $color_nhsuk-white;
-    position: static; /* [15] */
+    position: static; // [15]
 
     a {
-      color: $color_nhsuk-white; /* [16] */
+      color: $color_nhsuk-white; // [16]
 
       &:focus {
-        color: $color_nhsuk-black; /* [16] */
+        color: $color_nhsuk-black; // [16]
       }
     }
     @include mq($media-type: print) {
@@ -266,6 +266,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     &:hover {
       color: $color_nhsuk-white;
     }
+
     &:focus {
       color: $color_nhsuk-black;
     }
@@ -273,7 +274,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   .nhsuk-action-link__link {
     .nhsuk-icon__arrow-right-circle {
-      fill: $color_nhsuk-white; /* [14] */
+      fill: $color_nhsuk-white; // [14]
     }
   }
 }

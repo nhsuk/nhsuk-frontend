@@ -8,13 +8,13 @@
  */
 
 .nhsuk-skip-link {
-  left: -9999px; /* [1] */
+  left: -9999px; // [1]
   padding: nhsuk-spacing(2);
   position: absolute;
 
   &:active,
   &:focus {
-    left: nhsuk-spacing(3); /* [2] */
+    left: nhsuk-spacing(3); // [2]
     top: nhsuk-spacing(3);
     z-index: 2;
   }

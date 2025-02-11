@@ -19,12 +19,13 @@
 // https://github.com/alphagov/govuk-frontend
 //
 
-$imported-modules: () !default; // [1] //
+$imported-modules: () !default; // [1]
 
 @mixin govuk-exports($name, $warn: true) {
-  @if (index($imported-modules, $name) == null) {
-    // [2] //
-    $imported-modules: append($imported-modules, $name) !global; // [3] //
-    @content; // [4] //
-  } // [5] //
+  @if not index($imported-modules, $name) {
+    // [2]
+    $imported-modules: append($imported-modules, $name) !global; // [3]
+    @content; // [4]
+  }
+  // [5]
 }
