@@ -459,12 +459,22 @@
   gap: nhsuk-spacing(4);
   width: 100%;
 
+  @include mq($from: tablet) {
+    border-top: 1px solid $color_transparent_nhsuk-white-20;
+  }
+
   @include mq($from: desktop) {
     justify-content: space-between;
   }
 
   .js-enabled & {
     display: flex;
+  }
+}
+
+.nhsuk-header__navigation-list--left-aligned {
+  @include mq($from: desktop) {
+    justify-content: initial;
   }
 }
 
@@ -520,17 +530,5 @@
 .nhsuk-header__navigation-item--home {
   @include mq($from: desktop) {
     display: none;
-  }
-}
-
-.nhsuk-header__navigation-list {
-  @include mq($from: tablet) {
-    border-top: 1px solid $color_transparent_nhsuk-white-20;
-  }
-}
-
-.nhsuk-header__navigation-list--left-aligned {
-  @include mq($from: desktop) {
-    justify-content: initial;
   }
 }

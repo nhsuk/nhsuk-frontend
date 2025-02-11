@@ -82,7 +82,7 @@
 
 .nhsuk-footer__meta {
   @include mq($until: desktop) {
-    border-top: 1px solid #f0f4f5;
+    border-top: 1px solid $color_nhsuk-grey-5;
     padding-top: 35px;
   }
 }
