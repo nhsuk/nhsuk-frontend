@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html && npm run prettier",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "lint:js": "eslint --color \"packages/components/**/*.js\"",
+    "lint:js": "eslint --color \"**/*.js\"",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:css": "stylelint --color --formatter verbose \"**/*.{md,scss}\"",
     "lint:css:fix": "npm run lint:css -- --fix",
