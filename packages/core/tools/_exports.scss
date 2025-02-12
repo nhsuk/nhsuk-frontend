@@ -17,12 +17,14 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
+@use "sass:list";
+
 $imported-modules: () !default; // [1]
 
 @mixin govuk-exports($name, $warn: true) {
-  @if not index($imported-modules, $name) {
+  @if not list.index($imported-modules, $name) {
     // [2]
-    $imported-modules: append($imported-modules, $name) !global; // [3]
+    $imported-modules: list.append($imported-modules, $name) !global; // [3]
     @content; // [4]
   }
   // [5]
