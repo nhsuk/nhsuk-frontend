@@ -4,7 +4,11 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
 // See https://github.com/sass-mq/sass-mq/pull/10
 
+@use "sass:list";
+@use "sass:map";
 @use "sass:math";
+@use "sass:meta";
+@use "sass:string";
 
 /// Base font size on the `<body>` element
 /// @type Number (unit)
@@ -91,10 +95,10 @@ $mq-media-type: all !default;
 /// @requires $mq-base-font-size
 /// @returns {Number}
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
-  @if unitless($px) {
+  @if math.is-unitless($px) {
     @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
     @return mq-px2em($px * 1px, $base-font-size);
-  } @else if unit($px) == em {
+  } @else if math.unit($px) == em {
     @return $px;
   }
   @return math.div($px, $base-font-size) * 1em;
@@ -112,8 +116,8 @@ $mq-media-type: all !default;
 ///
 /// @returns {Number} Value in pixels
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
-  @if map-has-key($breakpoints, $name) {
-    @return map-get($breakpoints, $name);
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
   } @else {
     @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
   }
@@ -181,7 +185,7 @@ $mq-media-type: all !default;
 
   // From: this breakpoint (inclusive)
   @if $from {
-    @if type-of($from) == number {
+    @if meta.type-of($from) == number {
       $min-width: mq-px2em($from);
     } @else {
       $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
@@ -190,7 +194,7 @@ $mq-media-type: all !default;
 
   // Until: that breakpoint (exclusive)
   @if $until {
-    @if type-of($until) == number {
+    @if meta.type-of($until) == number {
       $max-width: mq-px2em($until);
     } @else {
       $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - 0.01em;
@@ -232,7 +236,7 @@ $mq-media-type: all !default;
     // Remove unnecessary media query prefix 'all and '
     @if ($media-type == "all" and $media-query != "") {
       $media-type: "";
-      $media-query: str-slice(unquote($media-query), 6);
+      $media-query: string.slice(string.unquote($media-query), 6);
     }
 
     @media #{$media-type + $media-query} {
@@ -361,6 +365,6 @@ $mq-media-type: all !default;
   }
 }
 
-@if length($mq-show-breakpoints) > 0 {
+@if list.length($mq-show-breakpoints) > 0 {
   @include mq-show-breakpoints;
 }
