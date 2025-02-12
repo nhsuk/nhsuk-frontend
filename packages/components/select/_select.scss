@@ -1,15 +1,16 @@
-/* ==========================================================================
-   COMPONENTS/ #SELECT
-   ========================================================================== */
-
-/**
- * Select input sizing
- * 1. Uses rems so that safari input scales with font size
- * 2. This min-width was chosen because:
- *    - it makes the Select wider than it is tall (which is what users expect)
- *    - 20ex + 3ex matches the 'width-10' variant of the input component
- *    - it fits comfortably on screens as narrow as 240px wide
- */
+////
+/// Select component
+///
+/// Input sizing:
+///
+/// 1. Uses rems so that safari input scales with font size
+/// 2. This min-width was chosen because:
+///    - it makes the Select wider than it is tall (which is what users expect)
+///    - 20ex + 3ex matches the 'width-10' variant of the input component
+///    - it fits comfortably on screens as narrow as 240px wide
+///
+/// @group components
+////
 
 .nhsuk-select {
   @include nhsuk-font(19);
@@ -18,8 +19,8 @@
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   color: $color-nhsuk-black;
-  height: 2.5rem; /* [1] */
-  min-width: 20ex + 3ex; /* [2] */
+  height: 2.5rem; // [1]
+  min-width: 20ex + 3ex; // [2]
   max-width: 100%;
   padding: nhsuk-spacing(1);
 

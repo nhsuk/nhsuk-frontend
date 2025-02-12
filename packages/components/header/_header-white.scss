@@ -1,6 +1,4 @@
-/**
-    * These are the styles for the white header variants.
-*/
+/// These are the styles for the white header variants.
 
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
@@ -21,7 +19,7 @@
 
   .nhsuk-navigation {
     .nhsuk-header__navigation-list {
-      border-top: none;
+      border-top-width: 0;
     }
   }
 

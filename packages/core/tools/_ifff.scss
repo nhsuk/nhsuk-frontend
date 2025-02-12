@@ -1,18 +1,16 @@
-// ==========================================================================
-// TOOLS / #ifff
-// ==========================================================================
-
-//
-// Syntactic sugar around Sass' built-in `if` function that does not require
-// you to pass a value for `$if-false`.
-//
-// @param {Boolean} $condition - Whether to return the value of `$if-true`
-// @param {Mixed} $if-true - Value to return if `$condition` is truthy
-// @return {Mixed} Value of `$if-true` if `$condition` is truthy, else null
-//
-// Original code taken from GDS (Government Digital Service)
-// https://github.com/alphagov/govuk-frontend
-//
+////
+/// Ifff
+///
+/// Syntactic sugar around Sass' built-in `if` function that does not require
+/// you to pass a value for `$if-false`.
+///
+/// @group tools
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @param {Boolean} $condition - Whether to return the value of `$if-true`
+/// @param {Mixed} $if-true - Value to return if `$condition` is truthy
+/// @return {Mixed} Value of `$if-true` if `$condition` is truthy, else null
+////
 
 @function iff($condition, $if-true) {
   @return if($condition, $if-true, null);

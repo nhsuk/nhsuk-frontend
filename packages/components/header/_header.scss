@@ -1,22 +1,22 @@
-/* ==========================================================================
-   COMPONENTS / #HEADER
-   ========================================================================== */
-
-/**
-* The behaviour with regards to responsiveness is as follow:
- *
- * - Mobile to tablet view
- *   Menu toggle button visible and navigation links hidden, search toggle
-     button visible and search form hidden
- *
- * - Tablet to desktop view
- *   Menu toggle button visible and navigation links hidden, search toggle
- *   button hidden and search form visible
- *
- * - Desktop+ view
- *   Menu toggle button hidden and navigation links visible, search toggle
- *   button hidden and search form visible
- */
+////
+/// Header component
+///
+/// The behaviour with regards to responsiveness is as follow:
+///
+/// - Mobile to tablet view
+///   Menu toggle button visible and navigation links hidden, search toggle
+///   button visible and search form hidden
+///
+/// - Tablet to desktop view
+///   Menu toggle button visible and navigation links hidden, search toggle
+///   button hidden and search form visible
+///
+/// - Desktop+ view
+///   Menu toggle button hidden and navigation links visible, search toggle
+///   button hidden and search form visible
+///
+/// @group components
+////
 
 .nhsuk-header {
   background-color: $color_nhsuk-blue;
@@ -93,7 +93,7 @@
   }
 
   @include mq($media-type: print) {
-    &:after {
+    &::after {
       content: "";
     }
   }
@@ -124,7 +124,7 @@
 }
 
 .nhsuk-header__content {
-  @include print-hide();
+  @include print-hide;
   position: relative;
 
   &.js-show {
@@ -172,6 +172,7 @@
   border-top-left-radius: $nhsuk-border-radius;
   border-top-right-radius: 0;
   padding: 0 nhsuk-spacing(3);
+
   &:focus {
     border: nhsuk-spacing(1) solid $nhsuk-focus-text-color;
     box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
@@ -179,15 +180,18 @@
     outline-offset: $nhsuk-focus-width;
     padding: 0 13px;
   }
+
   &::placeholder {
     color: $color_nhsuk-grey-1;
     font-size: $nhsuk-base-font-size;
     opacity: 1; // fixes low contrast of placeholder text in firefox
   }
+
   &:-ms-input-placeholder {
     color: $color_nhsuk-grey-1;
     font-size: $nhsuk-base-font-size;
   }
+
   &::-webkit-input-placeholder {
     color: $color_nhsuk-grey-1;
     font-size: $nhsuk-base-font-size;
@@ -309,7 +313,7 @@
     }
 
     &:focus {
-      @include nhsuk-focused-button();
+      @include nhsuk-focused-button;
       box-shadow:
         0 -2px $nhsuk-focus-color,
         0 $nhsuk-focus-width $nhsuk-focus-text-color;
@@ -459,6 +463,10 @@
   gap: nhsuk-spacing(4);
   width: 100%;
 
+  @include mq($from: tablet) {
+    border-top: 1px solid $color_transparent_nhsuk-white-20;
+  }
+
   @include mq($from: desktop) {
     justify-content: space-between;
   }
@@ -468,12 +476,18 @@
   }
 }
 
+.nhsuk-header__navigation-list--left-aligned {
+  @include mq($from: desktop) {
+    justify-content: initial;
+  }
+}
+
 .nhsuk-header__navigation-item {
   margin-bottom: 0;
 }
 
 .nhsuk-navigation-container {
-  @include print-hide();
+  @include print-hide;
   position: relative;
 
   @include mq($until: tablet) {
@@ -484,7 +498,7 @@
 // ul of hidden nav
 .nhsuk-header__drop-down {
   @extend %nhsuk-navigation-list;
-  @include print-hide();
+  @include print-hide;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
   overflow: hidden;
@@ -520,17 +534,5 @@
 .nhsuk-header__navigation-item--home {
   @include mq($from: desktop) {
     display: none;
-  }
-}
-
-.nhsuk-header__navigation-list {
-  @include mq($from: tablet) {
-    border-top: 1px solid $color_transparent_nhsuk-white-20;
-  }
-}
-
-.nhsuk-header__navigation-list--left-aligned {
-  @include mq($from: desktop) {
-    justify-content: initial;
   }
 }
