@@ -120,7 +120,8 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     }
 
     &:before {
-      display: none !important; /* stylelint-disable-line declaration-no-important */ /* [1] */
+      // stylelint-disable-next-line declaration-no-important
+      display: none !important; /* [1] */
     }
 
     &:hover {

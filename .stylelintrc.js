@@ -1,5 +1,5 @@
 module.exports = {
   extends: ['stylelint-config-prettier'],
   plugins: ['stylelint-order', 'stylelint-scss'],
-  rules: require('./stylelint-rules')
+  rules: require('./tests/linters/stylelint-rules')
 }

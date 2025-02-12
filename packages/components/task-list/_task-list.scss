@@ -25,7 +25,9 @@ $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
   position: relative;
   width: 100%;
   margin-bottom: 0;
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-top: calc(nhsuk-spacing(2) + 4px);
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-bottom: calc(nhsuk-spacing(2) + 4px);
   border-bottom: 1px solid $nhsuk-border-color;
 }
@@ -63,6 +65,7 @@ $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
   @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
   padding-bottom: nhsuk-spacing(1);
   padding-left: nhsuk-spacing(2);
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
   text-decoration: none;
 }

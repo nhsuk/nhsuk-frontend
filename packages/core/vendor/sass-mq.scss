@@ -1,7 +1,6 @@
 // mq() v4.0.2
 // sass-mq/sass-mq
 
-/* stylelint-disable indentation */
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
 // See https://github.com/sass-mq/sass-mq/pull/10
 
@@ -92,10 +91,8 @@ $mq-media-type: all !default;
 /// @requires $mq-base-font-size
 /// @returns {Number}
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
-  /* stylelint-disable-line scss/at-function-pattern */
-
   @if unitless($px) {
-    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels."; /* stylelint-disable-line at-rule-disallowed-list, string-quotes */
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
     @return mq-px2em($px * 1px, $base-font-size);
   } @else if unit($px) == em {
     @return $px;
@@ -118,7 +115,7 @@ $mq-media-type: all !default;
   @if map-has-key($breakpoints, $name) {
     @return map-get($breakpoints, $name);
   } @else {
-    @warn "Breakpoint #{$name} wasn't found in $breakpoints."; /* stylelint-disable-line at-rule-disallowed-list */
+    @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
   }
 }
 
@@ -356,7 +353,7 @@ $mq-media-type: all !default;
     @each $show-breakpoint in $show-breakpoints {
       $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
       @include mq($show-breakpoint, $breakpoints: $breakpoints) {
-        content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})"; /* stylelint-disable-line string-quotes */
+        content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})";
       }
     }
   }

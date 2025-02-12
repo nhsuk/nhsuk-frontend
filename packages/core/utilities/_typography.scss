@@ -46,5 +46,6 @@
  */
 
 .nhsuk-u-secondary-text-color {
-  color: $nhsuk-secondary-text-color !important; /* stylelint-disable-line declaration-no-important */
+  // stylelint-disable-next-line declaration-no-important
+  color: $nhsuk-secondary-text-color !important;
 }
