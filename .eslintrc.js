@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['prettier'],
   parser: '@babel/eslint-parser',
   ignorePatterns: [
     '**/coverage/**',
@@ -10,18 +10,6 @@ module.exports = {
     'node_modules',
     'node_modules/.*'
   ],
-  rules: {
-    'no-console': 0,
-    'no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: 'resolve|reject|err'
-      }
-    ],
-    'no-plusplus': 0,
-    'no-underscore-dangle': 0,
-    'no-param-reassign': 0
-  },
   overrides: [
     {
       files: ['packages/**/*.{cjs,js,mjs}', '**/*.test.{cjs,js,mjs}'],
