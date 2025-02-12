@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:prettier/recommended'],
+  extends: ['airbnb-base', 'prettier'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     requireConfigFile: false
@@ -13,12 +13,6 @@ module.exports = {
   },
   rules: {
     'no-console': 0,
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto'
-      }
-    ],
     'no-unused-vars': [
       'error',
       {
