@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     name: Create release
-    runs-on: ubuntu-latest
+    # Ubuntu version is currently pinned to 22 as later versions break tests relying on Chromium
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
