@@ -1,22 +1,18 @@
-/* ==========================================================================
-   COMPONENTS / #DETAILS
-   ========================================================================== */
-
-/**
- * Details component.
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. Style the summary to look like a link...
- * 2. Make the focus outline shrink-wrap the text content of the summary
- * 3. Absolutely position the marker against this element
- * 3. Allow for absolutely positioned marker and align with disclosed text
- * 4. Only underline the text, not the arrow
- * 5. Remove the default details marker so we can style our own consistently and
- *    ensure it displays in Firefox
- * 6. Custom padding to left align the details text with the summary
- */
+////
+/// Details component
+///
+/// 1. Style the summary to look like a link...
+/// 2. Make the focus outline shrink-wrap the text content of the summary
+/// 3. Absolutely position the marker against this element
+/// 3. Allow for absolutely positioned marker and align with disclosed text
+/// 4. Only underline the text, not the arrow
+/// 5. Remove the default details marker so we can style our own consistently and
+///    ensure it displays in Firefox
+/// 6. Custom padding to left align the details text with the summary
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 .nhsuk-details {
   @include nhsuk-text-color;
@@ -26,17 +22,17 @@
 }
 
 .nhsuk-details__summary {
-  color: $color_nhsuk-blue; /* [1] */
+  color: $color_nhsuk-blue; // [1]
   cursor: pointer;
-  display: inline-block; /* [2] */
+  display: inline-block; // [2]
   padding-left: nhsuk-spacing(4);
-  position: relative; /* [3] */
+  position: relative; // [3]
 
   &:hover {
     color: $nhsuk-link-hover-color;
   }
 
-  &:before {
+  &::before {
     bottom: 0;
     content: "";
     left: 0;
@@ -48,7 +44,7 @@
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include nhsuk-focused-text;
 
     .nhsuk-icon {
       fill: $nhsuk-focus-text-color;
@@ -63,37 +59,35 @@
   }
 }
 
-.nhsuk-details[open] > .nhsuk-details__summary:before {
+.nhsuk-details[open] > .nhsuk-details__summary::before {
   @include govuk-shape-arrow($direction: down, $base: 14px);
 }
 
 .nhsuk-details__summary-text {
-  text-decoration: underline; /* [4] */
+  text-decoration: underline; // [4]
 }
 
 .nhsuk-details__summary::-webkit-details-marker {
-  display: none; /* [5] */
+  display: none; // [5]
 }
 
 .nhsuk-details__text {
   border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   margin-top: nhsuk-spacing(2);
   padding: nhsuk-spacing(3);
-  padding-left: 20px; /* [6] */
-  @include top-and-bottom();
+  padding-left: 20px; // [6]
+  @include top-and-bottom;
 }
 
-/**
- * Expander variation.
- *
- * 1. !important used because the icon is populated
- *    by the JavaScript polyfill
- * 2. Remove the default hover, focus and active
- *    styles for this component.
- * 3. -2px left margin to align the icon to the content.
- * 4. When a group of details is used reduce the
- *    margin between them so they sit together.
- */
+/// Expander variation.
+///
+/// 1. !important used because the icon is populated
+///    by the JavaScript polyfill
+/// 2. Remove the default hover, focus and active
+///    styles for this component.
+/// 3. -2px left margin to align the icon to the content.
+/// 4. When a group of details is used reduce the
+///    margin between them so they sit together.
 
 $expander-border-width: 1px;
 $expander-border-bottom-width: nhsuk-spacing(1);
@@ -119,8 +113,9 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       padding: nhsuk-spacing(3) - $nhsuk-focus-width nhsuk-spacing(3) nhsuk-spacing(3);
     }
 
-    &:before {
-      display: none !important; /* stylelint-disable-line declaration-no-important */ /* [1] */
+    &::before {
+      // stylelint-disable-next-line declaration-no-important
+      display: none !important; // [1]
     }
 
     &:hover {
@@ -133,13 +128,13 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       box-shadow: none;
 
       .nhsuk-details__summary-text {
-        @include nhsuk-focused-text();
+        @include nhsuk-focused-text;
+      }
 
-        &:before {
-          background: $nhsuk-focus-color
-            url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-            left -2px center no-repeat;
-        }
+      .nhsuk-details__summary-text::before {
+        background: $nhsuk-focus-color
+          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+          left -2px center no-repeat;
       }
     }
   }
@@ -150,18 +145,18 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     display: inline-block;
     padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
     position: relative;
+  }
 
-    &:before {
-      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-        left -2px center no-repeat;
-      content: "";
-      display: inline-block;
-      height: 32px;
-      left: 0;
-      position: absolute;
-      top: calc(50% - 16px);
-      width: 32px;
-    }
+  .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+      left -2px center no-repeat;
+    content: "";
+    display: inline-block;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: calc(50% - 16px);
+    width: 32px;
   }
 
   .nhsuk-details__text {
@@ -190,19 +185,19 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       .nhsuk-details__summary-text::before {
         background: $nhsuk-focus-color
           url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-          left -2px center no-repeat; /* [3] */
+          left -2px center no-repeat; // [3]
       }
     }
   }
 
   .nhsuk-details__summary-text::before {
     background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-      left -2px center no-repeat; /* [3] */
+      left -2px center no-repeat; // [3]
   }
 }
 
 .nhsuk-expander-group {
-  /* [4] */
+  // [4]
 
   > .nhsuk-details {
     @include nhsuk-responsive-margin(2, "bottom");

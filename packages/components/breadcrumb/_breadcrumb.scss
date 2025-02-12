@@ -1,18 +1,18 @@
-/* ==========================================================================
-    COMPONENTS / #BREADCRUMB
-   ========================================================================== */
-
-/**
- * 1. Hide the breadcrumb on print stylesheets.
- * 3. Don't show the full breadcrumb below tablet size.
- * 4. Typography sizing mixin, see core/tools/_typography
- * 5. and core/settings/_typography for size maps.
- * 5. .. but show a back to index page link.
- * 6. Spacing to align the chevron with breadcrumb items
- */
+////
+/// Breadcrumb component
+///
+/// 1. Hide the breadcrumb on print stylesheets.
+/// 3. Don't show the full breadcrumb below tablet size.
+/// 4. Typography sizing mixin, see core/tools/_typography
+/// 5. and core/settings/_typography for size maps.
+///    .. but show a back to index page link.
+/// 6. Spacing to align the chevron with breadcrumb items
+///
+/// @group components
+////
 
 .nhsuk-breadcrumb {
-  @include print-hide(); /* [1] */
+  @include print-hide; // [1]
   margin-top: nhsuk-spacing(3);
 
   @include mq($from: tablet) {
@@ -22,30 +22,30 @@
 
 .nhsuk-breadcrumb__list {
   @include mq($until: tablet) {
-    display: none; /* [3] */
+    display: none; // [3]
   }
 
-  @include nhsuk-font(16); /* [4] */
+  @include nhsuk-font(16); // [4]
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nhsuk-breadcrumb__item {
-  @include nhsuk-font(16); /* [4] */
+  @include nhsuk-font(16); // [4]
   display: inline-block;
   margin-bottom: 0;
 
-  &:not(:last-child):after {
+  &:not(:last-child)::after {
     background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-right' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' height='18' width='18' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'%3E%3C/path%3E%3C/svg%3E")
       right 0 top 0 no-repeat;
     content: "";
     display: inline-block;
-    height: 19px; /* [6] */
-    margin-left: 9px; /* [6] */
-    margin-right: 2px; /* [6] */
-    vertical-align: middle; /* [6] */
-    width: 18px; /* [6] */
+    height: 19px; // [6]
+    margin-left: 9px; // [6]
+    margin-right: 2px; // [6]
+    vertical-align: middle; // [6]
+    width: 18px; // [6]
   }
 }
 
@@ -66,16 +66,16 @@
 }
 
 .nhsuk-breadcrumb__back {
-  @include nhsuk-font(16); /* [4] */
+  @include nhsuk-font(16); // [4]
   margin: 0;
   padding-left: nhsuk-spacing(3);
   position: relative;
 
   @include mq($from: tablet) {
-    display: none; /* [5] */
+    display: none; // [5]
   }
 
-  &:before {
+  &::before {
     background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-left' xmlns='http://www.w3.org/2000/svg' fill='%23005eb8' height='24' width='24' viewBox='8 0 24 24' aria-hidden='true'%3E%3Cpath d='M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z'%3E%3C/path%3E%3C/svg%3E")
       no-repeat;
     content: "";

@@ -1,17 +1,17 @@
-/* ==========================================================================
-   ELEMENTS / #TABLES
-   ========================================================================== */
-
-/**
- * 1. Force `<table>`s to be full-width by default.
- */
+////
+/// Tables
+///
+/// 1. Force `<table>`s to be full-width by default.
+///
+/// @group elements
+////
 
 table {
   @include nhsuk-responsive-margin(7, "bottom");
 
   border-spacing: 0;
   vertical-align: top;
-  width: 100%; /* [1] */
+  width: 100%; // [1]
 
   @include mq($media-type: print) {
     page-break-inside: avoid;
