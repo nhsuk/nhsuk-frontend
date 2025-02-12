@@ -1,9 +1,8 @@
 class Button {
-  KEY_SPACE = 32
-
-  DEBOUNCE_TIMEOUT_IN_SECONDS = 1
-
   constructor($module) {
+    this.KEY_SPACE = 32
+    this.DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+
     this.$module = $module
     this.debounceFormSubmitTimer = null
   }
