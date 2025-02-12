@@ -11,7 +11,12 @@ module.exports = {
         // Note: Allow ES2015 for import/export syntax
         ecmaVersion: '2015'
       },
-      plugins: ['es-x']
+      plugins: ['es-x'],
+      rules: {
+        // ES modules include ES2016 '[].includes()' coverage
+        // https://browsersl.ist/#q=supports+es6-module+and+not+supports+array-includes
+        'es-x/no-array-prototype-includes': 'off'
+      }
     }
   ]
 }
