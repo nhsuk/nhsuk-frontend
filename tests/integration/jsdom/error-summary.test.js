@@ -1,4 +1,4 @@
-import ErrorSummary from '../../../packages/components/error-summary/error-summary'
+import ErrorSummary from '../../../packages/components/error-summary/error-summary.js'
 
 describe('Error summary module', () => {
   describe('if no error summary elements exists', () => {

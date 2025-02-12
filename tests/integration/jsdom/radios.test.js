@@ -1,4 +1,4 @@
-import Radios from '../../../packages/components/radios/radios'
+import Radios from '../../../packages/components/radios/radios.js'
 
 describe('Radios module', () => {
   describe('does not throw an error', () => {

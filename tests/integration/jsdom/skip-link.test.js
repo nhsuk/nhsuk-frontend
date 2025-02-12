@@ -1,4 +1,4 @@
-import SkipLink from '../../../packages/components/skip-link/skip-link'
+import SkipLink from '../../../packages/components/skip-link/skip-link.js'
 
 // Mock HTML
 const skipLinkHtml =

@@ -1,7 +1,7 @@
 import {
   toggleAttribute,
   toggleConditionalInput
-} from '../../../packages/common'
+} from '../../../packages/common.js'
 
 describe('toggleAttribute util', () => {
   const attr = 'test-attribute'

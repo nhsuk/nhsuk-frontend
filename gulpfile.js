@@ -12,7 +12,7 @@ const { version } = require('./package.json')
  * Import gulp tasks used for creating
  * our website pages.
  */
-require('./tasks/docs.js')
+require('./tasks/docs')
 
 /* Remove all compiled files */
 function cleanDist() {
