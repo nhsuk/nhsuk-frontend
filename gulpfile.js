@@ -33,7 +33,7 @@ function compileCSS(done) {
     .src(['packages/nhsuk.scss'])
     .pipe(
       sass({
-        silenceDeprecations: ['import']
+        silenceDeprecations: ['import', 'mixed-decls']
       }).on('error', done)
     )
     .pipe(gulp.dest('dist/'))
