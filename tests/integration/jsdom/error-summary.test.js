@@ -3,7 +3,7 @@ import ErrorSummary from '../../../packages/components/error-summary/error-summa
 describe('Error summary module', () => {
   describe('if no error summary elements exists', () => {
     it('should not throw an error', () => {
-      ErrorSummary()
+      expect(() => ErrorSummary()).not.toThrow()
     })
   })
 

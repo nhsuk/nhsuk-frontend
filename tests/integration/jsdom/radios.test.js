@@ -3,11 +3,11 @@ import Radios from '../../../packages/components/radios/radios.js'
 describe('Radios module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional radios container', () => {
-      Radios()
+      expect(() => Radios()).not.toThrow()
     })
     it('if there are no conditional radios inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-radios--conditional"></div>'
-      Radios()
+      expect(() => Radios()).not.toThrow()
     })
   })
 

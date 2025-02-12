@@ -3,11 +3,11 @@ import Checkboxes from '../../../packages/components/checkboxes/checkboxes.js'
 describe('Checkboxes module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional checkboxes container', () => {
-      Checkboxes()
+      expect(() => Checkboxes()).not.toThrow()
     })
     it('if there are no conditional checkboxes inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-checkboxes"></div>'
-      Checkboxes()
+      expect(() => Checkboxes()).not.toThrow()
     })
   })
 
