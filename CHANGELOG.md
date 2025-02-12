@@ -1,12 +1,10 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 9.2.0 - 12 February 2025
 
 :new: **New features**
 
 - Make it easier to set checkbox and radio checked items ([PR 1105](https://github.com/nhsuk/nhsuk-frontend/pull/1105))
-
-## 9.2.0 - 12 February 2025
 
 :wrench: **Fixes**
 
