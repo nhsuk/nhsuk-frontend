@@ -1,7 +1,9 @@
-/**
- * Original SASS taken from GOV.UK Design System
- * https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/components/task-list/_index.scss
- */
+////
+/// Task list component
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 // NHS pages have a grey background, so we need a slightly daker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s

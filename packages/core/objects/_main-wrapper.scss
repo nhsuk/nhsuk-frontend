@@ -1,29 +1,25 @@
-/* ==========================================================================
-   OBJECTS / #MAIN-WRAPPER
-   ========================================================================== */
-
-/**
- * Page wrapper for the grid system
- *
- * Usage:
- * <div class="nhsuk-width-container">
- *   <div class="nhsuk-main-wrapper">
- *    <!-- Wrapper for the main content of your page which applies padding
- *         to the top / bottom -->
- *   </div>
- * </div>
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. In IE11 the `main` element can be used, but is not recognized  –
- *    meaning it's not defined in IE's default style sheet,
- *    so it uses CSS initial value, which is inline.
- */
+////
+/// Page wrapper for the grid system
+///
+/// 1. In IE11 the `main` element can be used, but is not recognized  –
+///    meaning it's not defined in IE's default style sheet,
+///    so it uses CSS initial value, which is inline
+///
+/// @group objects
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example html
+///   <div class="nhsuk-width-container">
+///     <div class="nhsuk-main-wrapper">
+///      <!-- Wrapper for the main content of your page which applies padding
+///           to the top / bottom -->
+///     </div>
+///   </div>
+////
 
 @mixin govuk-main-wrapper {
-  @include top-and-bottom();
-  display: block; /* [1] */
+  @include top-and-bottom;
+  display: block; // [1]
   padding-top: nhsuk-spacing(4);
   padding-bottom: nhsuk-spacing(4);
 

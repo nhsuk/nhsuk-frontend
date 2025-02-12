@@ -1,10 +1,14 @@
-/* ==========================================================================
-   COMPONENTS / #FOOTER
-   ========================================================================== */
+////
+/// Footer component
+///
+/// @group components
+////
+
+@use "sass:math";
 
 .nhsuk-footer-container {
-  @include clearfix();
-  @include print-hide();
+  @include clearfix;
+  @include print-hide;
   @include nhsuk-responsive-padding(5, bottom);
   @include nhsuk-responsive-padding(5, top);
 
@@ -37,7 +41,7 @@
     float: left;
     padding-bottom: 0;
     padding-right: 40px;
-    width: 75%;
+    width: math.percentage(math.div(3, 4));
 
     &:last-child {
       padding-right: 0;

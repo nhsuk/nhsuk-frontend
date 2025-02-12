@@ -1,16 +1,20 @@
-/* ==========================================================================
-   STYLES / #TYPOGRAPHY
-   ========================================================================== */
+////
+/// Typography
+///
+/// @group styles
+////
 
-/* Headings */
-
-// The % (silent class) allows code to be extended (@extend) to other elements
-// without bloating the code.
-//
-// @example scss
-//  .foo {
-//   @extend %nhsuk-heading-xl;
-//  }
+///
+/// Headings
+///
+/// The % (silent class) allows code to be extended (@extend) to other elements
+/// without bloating the code.
+///
+/// @example scss
+///   .foo {
+///     @extend %nhsuk-heading-xl;
+///   }
+////
 
 %nhsuk-heading-xl {
   @include nhsuk-typography-responsive(48);
@@ -102,7 +106,7 @@ h6,
   @extend %nhsuk-heading-xxs;
 }
 
-/* Captions to be used inside headings */
+/// Captions to be used inside headings
 
 .nhsuk-caption-xl {
   @include nhsuk-font(26);
@@ -132,7 +136,7 @@ h6,
   margin-top: nhsuk-spacing(1);
 }
 
-/* Body (paragraphs) */
+/// Body (paragraphs)
 
 %nhsuk-body-l {
   @include nhsuk-typography-responsive(24);
@@ -181,17 +185,16 @@ address {
   font-style: normal;
 }
 
-/**
- * Lede text
- *
- * 1. Apply lede text styling to p and ul within the lede element
- * 2. Reduces the spacing between the page heading and the lede text
- */
+/// Lede text
+///
+/// 1. Apply lede text styling to p and ul within the lede element
+/// 2. Reduces the spacing between the page heading and the lede text
 
 .nhsuk-lede-text {
   @include nhsuk-font(24);
   @include nhsuk-responsive-margin(7, "bottom");
-  /* [1] */
+
+  // [1]
   p,
   ul {
     @include nhsuk-font(24);
@@ -203,22 +206,19 @@ address {
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
-/* [2] */
+// [2]
 h1 + .nhsuk-lede-text,
 h1 + .nhsuk-lede-text--small {
   margin-top: -(nhsuk-spacing(2));
 }
 
-/**
- * Contextual adjustments
- *
- * Add top padding to headings that appear directly after paragraphs.
- *
- * 1. Removes the padding-top because of the lede-text's increased margin-bottom
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/nhsuk-frontend
- */
+/// Contextual adjustments
+///
+/// Add top padding to headings that appear directly after paragraphs.
+///
+/// 1. Removes the padding-top because of the lede-text's increased margin-bottom
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 %nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
@@ -247,12 +247,12 @@ h1 + .nhsuk-lede-text--small {
   }
 }
 
-/* [1] */
+// [1]
 .nhsuk-lede-text + %nhsuk-heading-l {
   padding-top: 0;
 }
 
-/* Font weight for <strong> and <b> */
+/// Font weight for <strong> and <b>
 
 strong,
 b {

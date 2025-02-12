@@ -1,27 +1,25 @@
-/* ==========================================================================
-   COMPONENTS/ #SUMMARY-LIST
-   ========================================================================== */
-
-/**
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. Required to allow us to wrap words that overflow.
- * 2. Reset default user agent styles
- * 3. Automatic wrapping for unbreakable text (e.g. URLs)
- * 4. Fallback for older browsers only
- */
+////
+/// Summary list component
+///
+/// 1. Required to allow us to wrap words that overflow.
+/// 2. Reset default user agent styles
+/// 3. Automatic wrapping for unbreakable text (e.g. URLs)
+/// 4. Fallback for older browsers only
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
 .nhsuk-summary-list {
   @include nhsuk-font($size: 19);
 
   @include mq($from: tablet) {
     display: table;
-    table-layout: fixed; /* [1] */
+    table-layout: fixed; // [1]
     width: 100%;
   }
 
-  margin: 0; /* [2] */
+  margin: 0; // [2]
   @include nhsuk-responsive-margin(6, "bottom");
 }
 
@@ -38,7 +36,7 @@
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value,
 .nhsuk-summary-list__actions {
-  margin: 0; /* [2] */
+  margin: 0; // [2]
   vertical-align: top;
 
   @include mq($from: tablet) {
@@ -62,9 +60,9 @@
 
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value {
-  /* [3] */
+  // [3]
   overflow-wrap: break-word;
-  word-wrap: break-word; /* [4] */
+  word-wrap: break-word; // [4]
 }
 
 .nhsuk-summary-list__key {
@@ -95,8 +93,8 @@
 }
 
 .nhsuk-summary-list__actions-list {
-  margin: 0; /* [2] */
-  padding: 0; /* [2] */
+  margin: 0; // [2]
+  padding: 0; // [2]
   width: 100%;
 }
 

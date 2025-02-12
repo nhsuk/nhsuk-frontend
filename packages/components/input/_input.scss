@@ -1,21 +1,21 @@
-/* ==========================================================================
-   COMPONENTS/ #INPUT
-   ========================================================================== */
-
-/**
- * 1. Disable inner shadow and remove rounded corners
- * 2. setting any background-color makes text invisible when changing colours to dark
- *    backgrounds in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=1335476)
- *    as background-color and color need to always be set together, color should
- *    not be set either.
- */
+////
+/// Input component
+///
+/// 1. Disable inner shadow and remove rounded corners
+/// 2. setting any background-color makes text invisible when changing colours to dark
+///    backgrounds in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=1335476)
+///    as background-color and color need to always be set together, color should
+///    not be set either.
+///
+/// @group components
+////
 
 .nhsuk-input {
   @include nhsuk-font(19);
-  -moz-appearance: none; /* 1 */
-  -webkit-appearance: none; /* 1 */
-  appearance: none; /* 1 */
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; /* 2 */
+  -moz-appearance: none; // [1]
+  -webkit-appearance: none; // [1]
+  appearance: none; // [1]
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; // [2]
   border-radius: 0;
   box-sizing: border-box;
   min-height: 40px;
@@ -74,7 +74,7 @@
   max-width: 5.4ex;
 }
 
-// Suffix and prefix
+/// Suffix and prefix
 
 .nhsuk-input__wrapper {
   display: flex;

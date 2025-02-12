@@ -334,7 +334,8 @@ $mq-media-type: all !default;
 ///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
-/* stylelint-disable color-no-hex */
+
+// stylelint-disable color-no-hex
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
   body:before {
     background-color: #fcf8e3;
@@ -348,7 +349,8 @@ $mq-media-type: all !default;
     right: 0;
     top: 0;
     z-index: 100;
-    /* stylelint-enable color-no-hex */
+    // stylelint-enable color-no-hex
+
     // Loop through the breakpoints that should be shown
     @each $show-breakpoint in $show-breakpoints {
       $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
