@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "engines": {
     "node": ">=20.0.0"
