@@ -4,12 +4,9 @@
 
 :new: **New features**
 
+- Add panel component ([PR 1012](https://github.com/nhsuk/nhsuk-frontend/pull/1012))
 - Adds `text` param for Inset text ([PR 1113](https://github.com/nhsuk/nhsuk-frontend/pull/1113))
 - Make it easier to set checkbox and radio checked items ([PR 1105](https://github.com/nhsuk/nhsuk-frontend/pull/1105))
-
-:new: **New features**
-
-- Add panel component ([PR 1012](https://github.com/nhsuk/nhsuk-frontend/pull/1012))
 
 :wrench: **Fixes**
 
