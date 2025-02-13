@@ -22,7 +22,7 @@
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include nhsuk-focused-text;
 
     &:hover {
       text-decoration: none;
@@ -42,11 +42,10 @@
   }
 }
 
-//
-// White link styling, used in the footer.
-//
-// Usage: @include nhsuk-link-style-white;
-//
+/// White link styling, used in the footer.
+///
+/// @example scss
+///   @include nhsuk-link-style-white;
 
 @mixin nhsuk-link-style-white {
   color: $color_nhsuk-white;
@@ -72,11 +71,10 @@
   }
 }
 
-//
-// Header link styling (accounts for different header colour variants)
-//
-// Usage: @include nhsuk-link-style-header;
-//
+/// Header link styling (accounts for different header colour variants)
+///
+/// @example scss
+///   @include nhsuk-link-style-header;
 
 @mixin nhsuk-link-style-header {
   color: inherit;
@@ -100,11 +98,10 @@
   }
 }
 
-//
-// Default link hover only styling
-//
-// Usage: @include nhsuk-link-style-hover;
-//
+/// Default link hover only styling
+///
+/// @example scss
+///   @include nhsuk-link-style-hover;
 
 @mixin nhsuk-link-style-hover {
   &:hover {
@@ -129,7 +126,6 @@
 ///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-no-visited-state;
 ///   }
-///
 
 @mixin nhsuk-link-style-no-visited-state {
   &:link {
@@ -166,7 +162,6 @@
 ///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-text;
 ///   }
-///
 
 @mixin nhsuk-link-style-text {
   &:link,

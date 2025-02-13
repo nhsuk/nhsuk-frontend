@@ -35,9 +35,8 @@
   }
 }
 
-/**
- * Logo and transaction/service name
- */
+/// Logo and transaction/service name
+
 .nhsuk-header__logo {
   display: flex;
   flex-grow: 999;
@@ -56,7 +55,7 @@
   @include mq($media-type: print) {
     color: $color_nhsuk-black;
 
-    &:after {
+    &::after {
       content: "";
     }
   }
@@ -81,9 +80,8 @@
   margin-right: auto;
 }
 
-/**
- * Account
- */
+/// Account
+
 .nhsuk-header__account {
   background: shade($color_nhsuk-blue, 20%);
   border-radius: $nhsuk-border-radius;
@@ -131,11 +129,10 @@
   gap: nhsuk-spacing(2);
 }
 
-/**
- * Search
- */
+/// Search
+
 .nhsuk-header__search {
-  @include print-hide();
+  @include print-hide;
   flex-grow: 1;
   position: relative;
   z-index: 13;
@@ -207,17 +204,16 @@
   }
 
   &:focus {
-    @include nhsuk-focused-button();
+    @include nhsuk-focused-button;
     background-color: $nhsuk-focus-color;
     box-shadow: inset 0 -4px 0 0 $nhsuk-focus-text-color;
   }
 }
 
-/**
- * Navigation
- */
+/// Navigation
+
 .nhsuk-navigation-container {
-  @include print-hide();
+  @include print-hide;
   position: relative;
 
   @include mq($until: tablet) {
@@ -322,7 +318,7 @@
 
 // Drop down navigation
 .nhsuk-header__drop-down {
-  @include print-hide();
+  @include print-hide;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   list-style: none;
