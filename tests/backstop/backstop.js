@@ -265,10 +265,6 @@ module.exports = {
       url: `${TEST_URL}/header/header-service-name-with-account-search-nav.html`,
     },
     {
-      label: 'Header transactional with service name',
-      url: `${TEST_URL}/header/header-transactional-service-name.html`,
-    },
-    {
       label: 'Header organisational',
       url: `${TEST_URL}/header/header-org.html`,
     },
