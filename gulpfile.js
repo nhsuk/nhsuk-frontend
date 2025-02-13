@@ -68,7 +68,7 @@ function webpackJS() {
               use: {
                 loader: 'babel-loader',
                 options: {
-                  presets: ['@babel/preset-env']
+                  rootMode: 'upward'
                 }
               }
             }
