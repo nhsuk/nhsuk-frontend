@@ -5683,6 +5683,80 @@ b {
   }
 }
 
+.nhsuk-panel {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  background: #007f3b;
+  border: 4px solid transparent; /* [1] */
+  box-sizing: border-box;
+  color: #ffffff;
+  padding: 28px; /* [2] */
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.29167;
+  }
+}
+@media print {
+  .nhsuk-panel {
+    font-size: 16pt;
+    line-height: 1.25;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel {
+    margin-bottom: 24px;
+  }
+}
+@media (max-width: 40.0525em) {
+  .nhsuk-panel {
+    padding: 20px; /* [2] */
+    overflow-wrap: break-word; /* [3] */
+    word-wrap: break-word; /* [4] */
+  }
+}
+@media print {
+  .nhsuk-panel {
+    border-color: currentcolor;
+    color: #212b32;
+    background: none;
+  }
+}
+
+.nhsuk-panel__title {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.1875;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel__title {
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1.125;
+  }
+}
+@media print {
+  .nhsuk-panel__title {
+    font-size: 26pt;
+    line-height: 1.15;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-panel__title {
+    margin-bottom: 32px;
+  }
+}
+
+.nhsuk-panel__title:last-child {
+  margin-bottom: 0;
+}
+
 .nhsuk-checkboxes__item {
   font-weight: 400;
   font-size: 16px;
