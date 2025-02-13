@@ -1,6 +1,11 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 9.2.0 - 12 February 2025
+
+:new: **New features**
+
+- Adds `text` param for Inset text ([PR 1113](https://github.com/nhsuk/nhsuk-frontend/pull/1113))
+- Make it easier to set checkbox and radio checked items ([PR 1105](https://github.com/nhsuk/nhsuk-frontend/pull/1105))
 
 :new: **New features**
 
@@ -12,6 +17,7 @@
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
 - Fix details component requiring html param in uppercase ([PR 1090](https://github.com/nhsuk/nhsuk-frontend/pull/1090), [Issue 1089](https://github.com/nhsuk/nhsuk-frontend/issues/1089))
+- Replace image component example images to match assets used on service manual ([Issue 1091](https://github.com/nhsuk/nhsuk-frontend/issues/1091))
 
 ## 9.1.0 - 4 November 2024
 

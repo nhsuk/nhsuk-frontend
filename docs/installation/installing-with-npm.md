@@ -38,18 +38,18 @@ To build the stylesheet you will need a pipeline set up to compile [Sass](https:
 
 You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
-```SCSS
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+```scss
+@import "node_modules/nhsuk-frontend/packages/nhsuk";
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.
 
-```SCSS
+```scss
 // Core (required)
-@import 'node_modules/nhsuk-frontend/packages/core/all';
+@import "node_modules/nhsuk-frontend/packages/core/all";
 
 // Individual component (optional)
-@import 'node_modules/nhsuk-frontend/packages/components/action-link/action-link';
+@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
 ```
 
 ## Importing JavaScript
