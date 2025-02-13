@@ -5,8 +5,8 @@
 // Original code taken from GDS (Government Digital Service)
 // https://github.com/alphagov/govuk-frontend
 
-// 1. Adds a transparent border for high contrast modes 
-// 2. This subtracts the transparent border width from the padding (because the border 
+// 1. Adds a transparent border for high contrast modes
+// 2. This subtracts the transparent border width from the padding (because the border
 //     visually adds to the total padding)
 // 3. This is an if-all-else-fails attempt to stop long words from overflowing the container
 //     on very narrow viewports by forcing them to break and wrap instead. This
@@ -18,7 +18,6 @@
 //     background. When the text in our other components overflow, the user might have to scroll
 //     horizontally to view it but the the text remains legible.
 // 4. Support IE (autoprefixer doesn't add this as it's not a prefix)
-
 
 $nhsuk-border-width-panel: nhsuk-spacing(1);
 
