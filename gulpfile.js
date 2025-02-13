@@ -80,7 +80,7 @@ function webpackJS() {
         output: {
           filename: 'nhsuk.js'
         },
-        target: 'web'
+        target: 'browserslist'
       })
     )
     .pipe(gulp.dest('./dist'))
