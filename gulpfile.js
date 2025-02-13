@@ -74,6 +74,9 @@ function webpackJS() {
             }
           ]
         },
+        optimization: {
+          minimize: false // minification is handled by uglify
+        },
         output: {
           filename: 'nhsuk.js'
         },
@@ -102,14 +105,11 @@ function minifyJS() {
 /* Version the JS file for release */
 function versionJS() {
   return gulp
-    .src([
-      'dist/*.js',
-      '!dist/*.min.js' // don't re-minify minified javascript
-    ])
-    .pipe(uglify())
+    .src('dist/nhsuk.min.js')
     .pipe(
       rename({
-        suffix: `-${version}.min`
+        basename: `nhsuk-${version}`,
+        extname: '.min.js'
       })
     )
     .pipe(gulp.dest('dist/'))
