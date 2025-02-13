@@ -1,22 +1,22 @@
-/* ==========================================================================
-   COMPONENTS / #HEADER
-   ========================================================================== */
-
-/**
- * The behaviour with regards to responsiveness is as follow:
- *
- * - Mobile to tablet view
- *   Menu toggle button visible and navigation links hidden, search toggle
-     button visible and search form hidden
- *
- * - Tablet to desktop view
- *   Menu toggle button visible and navigation links hidden, search toggle
- *   button hidden and search form visible
- *
- * - Desktop+ view
- *   Menu toggle button hidden and navigation links visible, search toggle
- *   button hidden and search form visible
- */
+////
+/// Header component
+///
+/// The behaviour with regards to responsiveness is as follow:
+///
+/// - Mobile to tablet view
+///   Menu toggle button visible and navigation links hidden, search toggle
+///   button visible and search form hidden
+///
+/// - Tablet to desktop view
+///   Menu toggle button visible and navigation links hidden, search toggle
+///   button hidden and search form visible
+///
+/// - Desktop+ view
+///   Menu toggle button hidden and navigation links visible, search toggle
+///   button hidden and search form visible
+///
+/// @group components
+////
 
 .nhsuk-header {
   background-color: $color_nhsuk-blue;

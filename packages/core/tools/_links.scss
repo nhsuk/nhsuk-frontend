@@ -1,12 +1,13 @@
-// ==========================================================================
-// TOOLS / #LINKS
-// ==========================================================================
+////
+/// Links
+///
+/// @group tools
+////
 
-//
-// Default link styling
-//
-// Usage: @include nhsuk-link-style-default;
-//
+/// Default link styling
+///
+/// @example scss
+///   @include nhsuk-link-style-default;
 
 @mixin nhsuk-link-style-default {
   color: $nhsuk-link-color;
