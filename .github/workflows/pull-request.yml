@@ -51,7 +51,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Run tests
-      run: npm test
+      run: npm run jest:ci
 
   ui_tests:
     name: Visual regression tests
@@ -66,7 +66,5 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
-    - name: Run tests
-      run: npm test
     - name: Run backstop
       run: npm run backstop:ci
