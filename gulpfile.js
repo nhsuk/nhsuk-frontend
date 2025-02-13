@@ -5,7 +5,7 @@ const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
-const uglify = require('gulp-uglify')
+const terser = require('gulp-terser')
 const zip = require('gulp-zip')
 const dartSass = require('sass')
 const webpack = require('webpack-stream')
@@ -78,7 +78,7 @@ function webpackJS() {
           ]
         },
         optimization: {
-          minimize: false // minification is handled by uglify
+          minimize: false // minification is handled by terser
         },
         output: {
           filename: 'nhsuk.js'
@@ -96,7 +96,15 @@ function minifyJS() {
       'dist/*.js',
       '!dist/*.min.js' // don't re-minify minified javascript
     ])
-    .pipe(uglify())
+    .pipe(
+      terser({
+        format: { comments: false },
+
+        // Compatibility workarounds
+        ecma: 5,
+        safari10: true
+      })
+    )
     .pipe(
       rename({
         suffix: '.min'
