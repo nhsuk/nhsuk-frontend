@@ -1,6 +1,7 @@
+const cssnano = require('cssnano')
 const gulp = require('gulp')
 const clean = require('gulp-clean')
-const cleanCSS = require('gulp-clean-css')
+const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
 const uglify = require('gulp-uglify')
@@ -42,7 +43,7 @@ function minifyCSS() {
       'dist/*.css',
       '!dist/*.min.css' // don't re-minify minified css
     ])
-    .pipe(cleanCSS())
+    .pipe(postcss([cssnano()]))
     .pipe(
       rename({
         suffix: `-${version}.min`
