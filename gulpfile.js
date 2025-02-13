@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const gulp = require('gulp')
 const clean = require('gulp-clean')
@@ -33,6 +34,7 @@ function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'])
     .pipe(sass().on('error', done))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest('dist/'))
 }
 
