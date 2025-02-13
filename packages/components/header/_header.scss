@@ -63,7 +63,6 @@
 
 .nhsuk-header__link,
 .nhsuk-header__service-name--link {
-  @include nhsuk-font(19, $line-height: 1.1);
   @include nhsuk-link-style-header;
   text-decoration: none;
   text-wrap: balance;
@@ -74,6 +73,7 @@
 }
 
 .nhsuk-header__service-name {
+  @include nhsuk-font(19, $line-height: 1.1);
   align-items: center;
   display: flex;
   flex-grow: 1;
