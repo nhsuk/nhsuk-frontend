@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     name: Create release
-    runs-on: ubuntu-latest
+    # Ubuntu version is currently pinned to 22 as later versions break tests relying on Chromium
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies

@@ -1,6 +1,8 @@
-/* ==========================================================================
-   COMPONENTS/ #ERROR-MESSAGE
-   ========================================================================== */
+////
+/// Error message component
+///
+/// @group components
+////
 
 .nhsuk-error-message {
   @include nhsuk-font(19, $weight: bold);

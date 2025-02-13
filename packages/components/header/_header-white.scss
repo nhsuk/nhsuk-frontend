@@ -1,6 +1,4 @@
-/**
- * White header variant
- */
+/// White header variant
 
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
@@ -106,13 +104,11 @@
 
   // Drop down navigation
   .nhsuk-header__drop-down {
-    .nhsuk-header__navigation-link {
-      // When in expanded menu, a current item link should revert to having a
-      // no box-shadow, with a box-shadow added to containing list item instead.
-      &[aria-current="page"],
-      &[aria-current="true"] {
-        box-shadow: none;
-      }
+    // When in expanded menu, a current item link should revert to having a
+    // no box-shadow, with a box-shadow added to containing list item instead.
+    .nhsuk-header__navigation-link[aria-current="page"],
+    .nhsuk-header__navigation-link[aria-current="true"] {
+      box-shadow: none;
     }
   }
 }
