@@ -30,23 +30,31 @@ describe('Header class', () => {
 
   it('Should toggle mobile menu visibility', async () => {
     const toggleButton = document.querySelector('.nhsuk-header__menu-toggle')
-    let mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
+    let mobileMenuList = document.querySelector(
+      '.nhsuk-mobile-menu-container ul'
+    )
     // Call the Header initialization function
     await Header()
 
     mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
     // Initially, the menu should be closed
-    expect(mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')).toBe(true)
+    expect(
+      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
+    ).toBe(true)
 
     // Open the mobile menu
     toggleButton.click()
 
-    expect(mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')).toBe(false)
+    expect(
+      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
+    ).toBe(false)
 
     // Close the mobile menu
     toggleButton.click()
 
-    expect(mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')).toBe(true)
+    expect(
+      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
+    ).toBe(true)
   })
 
   it('Should close menu when escape key is pressed', async () => {
@@ -64,24 +72,32 @@ describe('Header class', () => {
 
     // Expect the menu to be hidden initially
     expect(
-      document.querySelector('.nhsuk-header__drop-down').classList.contains('nhsuk-header__drop-down--hidden')
+      document
+        .querySelector('.nhsuk-header__drop-down')
+        .classList.contains('nhsuk-header__drop-down--hidden')
     ).toBe(true)
 
     // Toggle the menu - open it
     toggleButton.click()
     expect(
-      document.querySelector('.nhsuk-header__drop-down').classList.contains('nhsuk-header__drop-down--hidden')
+      document
+        .querySelector('.nhsuk-header__drop-down')
+        .classList.contains('nhsuk-header__drop-down--hidden')
     ).toBe(false)
 
     // Press the escape key to close it
     document.dispatchEvent(escapeKeyEvent)
     expect(
-      document.querySelector('.nhsuk-header__drop-down').classList.contains('nhsuk-header__drop-down--hidden')
+      document
+        .querySelector('.nhsuk-header__drop-down')
+        .classList.contains('nhsuk-header__drop-down--hidden')
     ).toBe(true)
   })
 
   it('Should setup the Mobile Menu Container during initialization', async () => {
-    const mobileMenuContainer = document.querySelector('.nhsuk-mobile-menu-container')
+    const mobileMenuContainer = document.querySelector(
+      '.nhsuk-mobile-menu-container'
+    )
     expect(mobileMenuContainer.childElementCount).toBe(0)
     await Header()
     expect(mobileMenuContainer.childElementCount).toBeGreaterThan(0)
@@ -89,7 +105,9 @@ describe('Header class', () => {
 
   it('Should setup the Mobile Menu List during initialization', async () => {
     // Initially there won't be any ul elements inside the container- it gets added in the setupMobileMenu method
-    let mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
+    let mobileMenuList = document.querySelector(
+      '.nhsuk-mobile-menu-container ul'
+    )
 
     // So we expect that to be null until it gets created
     expect(mobileMenuList).toBe(null)
@@ -102,17 +120,31 @@ describe('Header class', () => {
 
     expect(mobileMenuList).not.toBeNull()
     expect(mobileMenuList.classList).toContain('nhsuk-header__drop-down')
-    expect(mobileMenuList.classList).toContain('nhsuk-header__drop-down--hidden')
+    expect(mobileMenuList.classList).toContain(
+      'nhsuk-header__drop-down--hidden'
+    )
   })
 
   it('Should not update navigation when the available space is enough for all elements', async () => {
-    const mobileMenuToggleButton = document.querySelector('.nhsuk-header__menu-toggle')
-    const mobileMenuContainer = document.querySelector('.nhsuk-mobile-menu-container')
-    const navigationList = document.querySelector('.nhsuk-header__navigation-list')
-    let mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
+    const mobileMenuToggleButton = document.querySelector(
+      '.nhsuk-header__menu-toggle'
+    )
+    const mobileMenuContainer = document.querySelector(
+      '.nhsuk-mobile-menu-container'
+    )
+    const navigationList = document.querySelector(
+      '.nhsuk-header__navigation-list'
+    )
+    let mobileMenuList = document.querySelector(
+      '.nhsuk-mobile-menu-container ul'
+    )
 
     // Spy on offsetWidth property for navigation element
-    const navigationOffsetWidthSpy = jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
+    const navigationOffsetWidthSpy = jest.spyOn(
+      HTMLElement.prototype,
+      'offsetWidth',
+      'get'
+    )
     // Mock offsetWidth for navigation element
     navigationOffsetWidthSpy.mockImplementation(function () {
       if (this === navigationList) {
@@ -126,8 +158,16 @@ describe('Header class', () => {
     // breakpoints will be [50,100,150,200,250,300,350,400]
     // the available space - navigation offsetWidth - will be greater than the last element from the breakpoints array
     // meaning we don't need the mobile menu to get any items from the navigation
-    expect(mobileMenuToggleButton.classList.contains('nhsuk-header__menu-toggle--visible')).toBe(false)
-    expect(mobileMenuContainer.classList.contains('nhsuk-mobile-menu-container--visible')).toBe(false)
+    expect(
+      mobileMenuToggleButton.classList.contains(
+        'nhsuk-header__menu-toggle--visible'
+      )
+    ).toBe(false)
+    expect(
+      mobileMenuContainer.classList.contains(
+        'nhsuk-mobile-menu-container--visible'
+      )
+    ).toBe(false)
 
     mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
     expect(mobileMenuList.children).toHaveLength(0)
@@ -137,13 +177,25 @@ describe('Header class', () => {
   })
 
   it('Should update navigation when the available space is not enough for all elements', async () => {
-    const mobileMenuToggleButton = document.querySelector('.nhsuk-header__menu-toggle')
-    const mobileMenuContainer = document.querySelector('.nhsuk-mobile-menu-container')
-    const navigationList = document.querySelector('.nhsuk-header__navigation-list')
-    let mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
+    const mobileMenuToggleButton = document.querySelector(
+      '.nhsuk-header__menu-toggle'
+    )
+    const mobileMenuContainer = document.querySelector(
+      '.nhsuk-mobile-menu-container'
+    )
+    const navigationList = document.querySelector(
+      '.nhsuk-header__navigation-list'
+    )
+    let mobileMenuList = document.querySelector(
+      '.nhsuk-mobile-menu-container ul'
+    )
 
     // Spy on offsetWidth property for navigation element
-    const navigationOffsetWidthSpy = jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
+    const navigationOffsetWidthSpy = jest.spyOn(
+      HTMLElement.prototype,
+      'offsetWidth',
+      'get'
+    )
     // Mock offsetWidth for navigation element
     navigationOffsetWidthSpy.mockImplementation(function () {
       if (this === navigationList) {
@@ -157,8 +209,16 @@ describe('Header class', () => {
     // breakpoints will be [100,200,300,400,500,600,700,800]
     // the available space - navigation offsetWidth - will be smaller than the last element from the breakpoints array
     // meaning we need the mobile menu to get 1 item from the navigation
-    expect(mobileMenuToggleButton.classList.contains('nhsuk-header__menu-toggle--visible')).toBe(true)
-    expect(mobileMenuContainer.classList.contains('nhsuk-mobile-menu-container--visible')).toBe(true)
+    expect(
+      mobileMenuToggleButton.classList.contains(
+        'nhsuk-header__menu-toggle--visible'
+      )
+    ).toBe(true)
+    expect(
+      mobileMenuContainer.classList.contains(
+        'nhsuk-mobile-menu-container--visible'
+      )
+    ).toBe(true)
 
     mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
     expect(mobileMenuList.children).toHaveLength(1)

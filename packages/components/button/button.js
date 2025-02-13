@@ -22,7 +22,10 @@ class Button {
 
     const { target } = event
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (target.getAttribute('role') === 'button' && event.keyCode === this.KEY_SPACE) {
+    if (
+      target.getAttribute('role') === 'button' &&
+      event.keyCode === this.KEY_SPACE
+    ) {
       event.preventDefault()
       // trigger the target's click event
       target.click()

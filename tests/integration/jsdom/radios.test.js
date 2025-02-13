@@ -21,7 +21,9 @@ describe('Radios module', () => {
       const conditional = document.querySelector('#conditional-1')
       Radios()
       input.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(false)
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toEqual(false)
       expect(input.getAttribute('aria-expanded')).toEqual('true')
     })
   })
@@ -38,10 +40,14 @@ describe('Radios module', () => {
       const otherInput = document.querySelector('#input-2')
       Radios()
       input.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(false)
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toEqual(false)
       expect(input.getAttribute('aria-expanded')).toEqual('true')
       otherInput.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(true)
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toEqual(true)
       expect(input.getAttribute('aria-expanded')).toEqual('false')
     })
   })

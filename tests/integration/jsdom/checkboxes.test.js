@@ -21,7 +21,9 @@ describe('Checkboxes module', () => {
       const conditional = document.querySelector('#conditional-1')
       Checkboxes()
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(false)
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toEqual(false)
       expect(input.getAttribute('aria-expanded')).toEqual('true')
     })
   })
@@ -36,10 +38,14 @@ describe('Checkboxes module', () => {
       const conditional = document.querySelector('#conditional-1')
       Checkboxes()
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(false)
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toEqual(false)
       expect(input.getAttribute('aria-expanded')).toEqual('true')
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(true)
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toEqual(true)
       expect(input.getAttribute('aria-expanded')).toEqual('false')
     })
   })

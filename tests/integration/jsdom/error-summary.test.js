@@ -9,7 +9,8 @@ describe('Error summary module', () => {
 
   describe('if an error summary exists', () => {
     beforeEach(() => {
-      document.body.innerHTML = '<div role="alert" tabindex="-1" class="nhsuk-error-summary"></div>'
+      document.body.innerHTML =
+        '<div role="alert" tabindex="-1" class="nhsuk-error-summary"></div>'
       ErrorSummary()
     })
 
@@ -21,7 +22,8 @@ describe('Error summary module', () => {
 
     it('should focus only on the first instance of the error summary', () => {
       const div = document.createElement('div')
-      div.innerHTML = '<div role="alert" tabindex="-1" class="nhsuk-error-summary"></div>'
+      div.innerHTML =
+        '<div role="alert" tabindex="-1" class="nhsuk-error-summary"></div>'
 
       document.body.appendChild(div.firstChild)
 
