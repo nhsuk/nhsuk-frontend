@@ -110,7 +110,7 @@ describe('Header class', () => {
     )
 
     // So we expect that to be null until it gets created
-    expect(mobileMenuList).toBe(null)
+    expect(mobileMenuList).toBeNull()
 
     // Call the Header initialization function
     await Header()

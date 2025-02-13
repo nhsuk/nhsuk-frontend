@@ -20,7 +20,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toEqual('true')
+      expect(element.getAttribute(attr)).toBe('true')
     })
 
     it('if the attributes current value is "false"', () => {
@@ -28,7 +28,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toEqual('true')
+      expect(element.getAttribute(attr)).toBe('true')
     })
   })
 
@@ -38,7 +38,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toEqual('false')
+      expect(element.getAttribute(attr)).toBe('false')
     })
   })
 })
@@ -84,12 +84,12 @@ describe('toggleConditionalInput util', () => {
       expect(content).not.toBeNull()
       input.checked = true
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(content.classList.contains('hidden')).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
       input.checked = false
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toEqual(true)
-      expect(input.getAttribute('aria-expanded')).toEqual('false')
+      expect(content.classList.contains('hidden')).toBe(true)
+      expect(input.getAttribute('aria-expanded')).toBe('false')
     })
 
     it('if the aria-controls element is valid and content is not hidden', () => {
@@ -101,12 +101,12 @@ describe('toggleConditionalInput util', () => {
       expect(content).not.toBeNull()
       input.checked = false
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toEqual(true)
-      expect(input.getAttribute('aria-expanded')).toEqual('false')
+      expect(content.classList.contains('hidden')).toBe(true)
+      expect(input.getAttribute('aria-expanded')).toBe('false')
       input.checked = true
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(content.classList.contains('hidden')).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
     })
   })
 })

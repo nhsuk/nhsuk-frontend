@@ -9,7 +9,7 @@ module.exports = function (casper, timeout) {
         selector,
         function () {},
         function () {
-          console.error('NOT FOUND > ' + selector)
+          console.error(`NOT FOUND > ${selector}`)
         },
         TIMEOUT
       )

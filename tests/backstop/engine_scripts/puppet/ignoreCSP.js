@@ -21,6 +21,7 @@
  */
 
 const https = require('https')
+
 const agent = new https.Agent({
   rejectUnauthorized: false
 })
@@ -37,7 +38,7 @@ module.exports = async function (page, scenario) {
         .join('; ')
       const headers = Object.assign(request.headers(), { cookie: cookies })
       const options = {
-        headers: headers,
+        headers,
         body: request.postData(),
         method: request.method(),
         follow: 20,
@@ -47,7 +48,7 @@ module.exports = async function (page, scenario) {
       const result = await fetch(requestUrl, options)
 
       const buffer = await result.buffer()
-      let cleanedHeaders = result.headers._headers || {}
+      const cleanedHeaders = result.headers._headers || {}
       cleanedHeaders['content-security-policy'] = ''
       await request.respond({
         body: buffer,

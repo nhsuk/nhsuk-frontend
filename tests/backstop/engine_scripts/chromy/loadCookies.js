@@ -11,7 +11,7 @@ module.exports = function (chromy, scenario) {
 
   // MUNGE COOKIE DOMAIN FOR CHROMY USAGE
   cookies = cookies.map((cookie) => {
-    cookie.url = 'https://' + cookie.domain
+    cookie.url = `https://${cookie.domain}`
     delete cookie.domain
     return cookie
   })

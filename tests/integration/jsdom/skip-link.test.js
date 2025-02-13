@@ -46,7 +46,7 @@ describe('NHS.UK skiplink', () => {
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toEqual('-1')
+      expect(heading.getAttribute('tabIndex')).toBe('-1')
       expect(document.activeElement).toEqual(heading)
     })
   })
@@ -59,7 +59,7 @@ describe('NHS.UK skiplink', () => {
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toEqual('-1')
+      expect(heading.getAttribute('tabIndex')).toBe('-1')
       expect(document.activeElement).toEqual(heading)
 
       heading.blur()

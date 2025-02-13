@@ -1,8 +1,8 @@
 const gulp = require('gulp')
-const rename = require('gulp-rename')
-const gulpNunjucks = require('gulp-nunjucks')
-const nunjucks = require('nunjucks')
 const connect = require('gulp-connect')
+const gulpNunjucks = require('gulp-nunjucks')
+const rename = require('gulp-rename')
+const nunjucks = require('nunjucks')
 
 const config = {
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',

@@ -53,7 +53,7 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__list-item:first-child .nhsuk-tabs__tab')
           .getAttribute('aria-selected')
       )
-      expect(firstTabAriaSelected).toEqual('true')
+      expect(firstTabAriaSelected).toBe('true')
 
       const firstTabClasses = await page.evaluate(
         () =>
@@ -101,7 +101,7 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
           .getAttribute('aria-selected')
       )
-      expect(secondTabAriaSelected).toEqual('true')
+      expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
         () =>
@@ -181,7 +181,7 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
           .getAttribute('aria-selected')
       )
-      expect(secondTabAriaSelected).toEqual('true')
+      expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
         () =>
@@ -220,7 +220,7 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__tab[href="#tab-two"]')
           .getAttribute('aria-selected')
       )
-      expect(currentTabAriaSelected).toEqual('true')
+      expect(currentTabAriaSelected).toBe('true')
 
       const currentTabClasses = await page.evaluate(
         () =>
@@ -250,7 +250,7 @@ describe('Tabs', () => {
       const activeElementId = await page.evaluate(
         () => document.activeElement.id
       )
-      expect(activeElementId).toEqual('anchor')
+      expect(activeElementId).toBe('anchor')
     })
   })
 

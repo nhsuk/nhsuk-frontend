@@ -24,8 +24,8 @@ module.exports = async (page, scenario) => {
 
   if (scrollToSelector) {
     await page.waitForSelector(scrollToSelector)
-    await page.evaluate((scrollToSelector) => {
-      document.querySelector(scrollToSelector).scrollIntoView()
+    await page.evaluate((selector) => {
+      document.querySelector(selector).scrollIntoView()
     }, scrollToSelector)
   }
 }

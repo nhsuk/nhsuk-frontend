@@ -23,8 +23,8 @@ describe('Radios module', () => {
       input.click()
       expect(
         conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
     })
   })
 
@@ -42,13 +42,13 @@ describe('Radios module', () => {
       input.click()
       expect(
         conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
       otherInput.click()
       expect(
         conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toEqual(true)
-      expect(input.getAttribute('aria-expanded')).toEqual('false')
+      ).toBe(true)
+      expect(input.getAttribute('aria-expanded')).toBe('false')
     })
   })
 })

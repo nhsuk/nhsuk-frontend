@@ -1,11 +1,13 @@
 const gulp = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
 const clean = require('gulp-clean')
-const rename = require('gulp-rename')
 const cleanCSS = require('gulp-clean-css')
+const rename = require('gulp-rename')
+const gulpSass = require('gulp-sass')
 const uglify = require('gulp-uglify')
 const zip = require('gulp-zip')
+const dartSass = require('sass')
 const webpack = require('webpack-stream')
+
 const { version } = require('./package.json')
 
 /**
@@ -23,18 +25,14 @@ function cleanDist() {
  * CSS tasks
  */
 
-sass.compiler = require('sass')
+const sass = gulpSass(dartSass)
 
 /* Build the CSS from source */
-function compileCSS() {
+function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'])
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', done))
     .pipe(gulp.dest('dist/'))
-    .on('error', (err) => {
-      console.log(err)
-      process.exit(1)
-    })
 }
 
 /* Minify CSS and add a min.css suffix */
