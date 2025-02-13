@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## 9.3.0 - 13 February 2025
+
+:new: **New features**
+
+- Add panel component ([PR 1012](https://github.com/nhsuk/nhsuk-frontend/pull/1012))
+
 ## 9.2.0 - 12 February 2025
 
 :new: **New features**
