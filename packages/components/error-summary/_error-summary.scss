@@ -13,13 +13,13 @@
   // Not using responsive spacing as we want smaller margin on mobile
   margin-bottom: nhsuk-spacing(5);
 
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     margin-bottom: nhsuk-spacing(7);
   }
 
   border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     border: $nhsuk-border-width solid $nhsuk-error-color;
   }
 

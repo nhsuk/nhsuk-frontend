@@ -41,7 +41,7 @@
 
 // JavaScript enabled
 .js-enabled {
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     .nhsuk-tabs__list {
       @include clearfix;
       border-bottom: 1px solid $nhsuk-border-color;
