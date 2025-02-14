@@ -65,12 +65,7 @@
 .nhsuk-header__transactional-service-name--link {
   @include nhsuk-font(19, $line-height: 1.1);
   @include nhsuk-link-style-header;
-  text-decoration: none;
   text-wrap: balance;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .nhsuk-header__transactional-service-name {
@@ -280,7 +275,6 @@
   // and no underline on the link.
   &[aria-current="page"],
   &[aria-current="true"] {
-    text-decoration: none;
     box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-border-color;
   }
 

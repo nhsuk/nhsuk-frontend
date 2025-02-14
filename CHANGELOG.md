@@ -24,6 +24,8 @@
   <nav class="nhsuk-navigation" aria-label="Menu">
   ```
 
+- Links in the header component are now only underlined upon hover ([PR 1136]([https://github.com/nhsuk/nhsuk-frontend/pull/1136]))
+
 :boom: **Breaking changes**
 
 - Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
