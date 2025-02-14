@@ -36,6 +36,19 @@ We've made fixes to NHS.UK frontend in the following pull requests:
   <nav class="nhsuk-navigation" aria-label="Menu">
   ```
 
+- Update header navigation to align items to the left. ([PR 1138](https://github.com/nhsuk/nhsuk-frontend/pull/1138)). To restore the previous behaviour, where navigation items appeared evenly spaced out, use the `.nhsuk-header__navigation-list--justified` modifier class:
+
+  ```html
+  <ul class="nhsuk-header__navigation-list nhsuk-header__navigation-list--justified">
+    <li class="nhsuk-header__navigation-item">
+      <a class="nhsuk-header__navigation-link" href="#">Health A-Z</a>
+    </li>
+    ...
+  </ul>
+  ```
+
+  If you are using the `.nhsuk-header__navigation-list--left-aligned` modifier class, this can now be removed.
+
 :boom: **Breaking changes**
 
 - Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component. Respective parts of the header are now shown if values for `primaryLinks`, `search` or `transactionalService` options are provided. Additionally, the `searchAction` option is renamed `search.action` and the `searchInputName` option is renamed `search.name`. Finally, the label, button and placeholder text for the search input can be updated using the new `search.visuallyHiddenLabel`, `search.visuallyHiddenButton` and `search.placeholder` options. ([PR 996](https://github.com/nhsuk/nhsuk-frontend/pull/996))
