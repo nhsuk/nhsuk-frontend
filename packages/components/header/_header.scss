@@ -233,6 +233,9 @@
 // Visible navigation list
 .nhsuk-header__navigation-list {
   @include govuk-width-container;
+  column-gap: nhsuk-spacing(4);
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   width: 100%;
@@ -242,8 +245,7 @@
   }
 
   .js-enabled & {
-    display: flex;
-    gap: nhsuk-spacing(4);
+    flex-wrap: nowrap;
   }
 }
 
