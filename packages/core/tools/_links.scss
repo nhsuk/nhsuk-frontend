@@ -71,19 +71,25 @@
   }
 }
 
-/// Header link styling (accounts for different header colour variants)
+/// Header link styling
+/// Removes underline and accounts for different header colour variants
 ///
 /// @example scss
 ///   @include nhsuk-link-style-header;
 
 @mixin nhsuk-link-style-header {
   color: inherit;
+  text-decoration: none;
 
   &:link,
   &:visited,
   &:hover,
   &:active {
     color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 
   &:focus {
