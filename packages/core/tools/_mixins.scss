@@ -162,7 +162,7 @@
 ///   @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin heading-label($heading-background-color, $heading-text-color) {
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-typography-responsive(26);
 
   background-color: $heading-background-color; // [1]
   color: $heading-text-color; // [2]
