@@ -31,11 +31,7 @@ const sass = gulpSass(dartSass)
 function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'])
-    .pipe(
-      sass({
-        silenceDeprecations: ['import', 'mixed-decls']
-      }).on('error', done)
-    )
+    .pipe(sass().on('error', done))
     .pipe(gulp.dest('dist/'))
 }
 
