@@ -48,9 +48,19 @@ jobs:
       with:
         node-version-file: .nvmrc
         cache: 'npm'
+    - name: Get changed files
+      id: changed-tests
+      uses: tj-actions/changed-files@v45
+      with:
+        files: |
+          packages/**/*.js
+          packages/**/*.scss
+          dist/app/components/**/*.html
     - name: Install dependencies
+      if: steps.changed-tests.outputs.any_changed == 'true'
       run: npm ci
     - name: Run tests
+      if: steps.changed-tests.outputs.any_changed == 'true'
       run: npm test
 
   ui_tests:
@@ -64,9 +74,17 @@ jobs:
       with:
         node-version-file: .nvmrc
         cache: 'npm'
+    - name: Get changed files
+      id: changed-ui_tests
+      uses: tj-actions/changed-files@v45
+      with:
+        files: |
+          packages/**
+          tests/**
+          app/**
     - name: Install dependencies
+      if: steps.changed-ui_tests.outputs.any_changed == 'true'
       run: npm ci
-    - name: Run tests
-      run: npm test
     - name: Run backstop
+      if: steps.changed-ui_tests.outputs.any_changed == 'true'
       run: npm run backstop:ci
