@@ -1,6 +1,5 @@
 const gulp = require('gulp')
 const connect = require('gulp-connect')
-const gulpNunjucks = require('gulp-nunjucks')
 const rename = require('gulp-rename')
 const nunjucks = require('nunjucks')
 
@@ -13,11 +12,13 @@ const config = {
 /**
  * Turn markdown into html with a nunjucks layout
  */
-function buildHtml() {
+async function buildHtml() {
+  const { nunjucksCompile } = await import('gulp-nunjucks')
+
   return gulp
     .src(['app/**/*.njk'])
     .pipe(
-      gulpNunjucks.compile(
+      nunjucksCompile(
         {
           // site-wide data goes here
           baseUrl: config.baseUrl
