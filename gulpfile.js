@@ -1,18 +1,20 @@
 const gulp = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
 const clean = require('gulp-clean')
-const rename = require('gulp-rename')
 const cleanCSS = require('gulp-clean-css')
+const rename = require('gulp-rename')
+const gulpSass = require('gulp-sass')
 const uglify = require('gulp-uglify')
 const zip = require('gulp-zip')
+const dartSass = require('sass')
 const webpack = require('webpack-stream')
+
 const { version } = require('./package.json')
 
 /**
  * Import gulp tasks used for creating
  * our website pages.
  */
-require('./tasks/docs.js')
+require('./tasks/docs')
 
 /* Remove all compiled files */
 function cleanDist() {
@@ -23,18 +25,14 @@ function cleanDist() {
  * CSS tasks
  */
 
-sass.compiler = require('sass')
+const sass = gulpSass(dartSass)
 
 /* Build the CSS from source */
-function compileCSS() {
+function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'])
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', done))
     .pipe(gulp.dest('dist/'))
-    .on('error', (err) => {
-      console.log(err)
-      process.exit(1)
-    })
 }
 
 /* Minify CSS and add a min.css suffix */
@@ -125,7 +123,9 @@ function versionJS() {
  * Copy assets such as icons and images into the distribution
  */
 function assets() {
-  return gulp.src('packages/assets/**', { encoding: false }).pipe(gulp.dest('dist/assets/'))
+  return gulp
+    .src('packages/assets/**', { encoding: false })
+    .pipe(gulp.dest('dist/assets/'))
 }
 
 /**
@@ -134,7 +134,10 @@ function assets() {
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
-  return gulp.src('dist/*.min.js', '!dist/js/nhsuk.min.js').pipe(clean()).pipe(gulp.dest('dist/js/'))
+  return gulp
+    .src('dist/*.min.js', '!dist/js/nhsuk.min.js')
+    .pipe(clean())
+    .pipe(gulp.dest('dist/js/'))
 }
 
 /* Copy CSS files into their relevant folders */
@@ -145,10 +148,18 @@ function cssFolder() {
 
 function createZip() {
   return gulp
-    .src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], {
-      base: 'dist',
-      encoding: false
-    })
+    .src(
+      [
+        'dist/css/*.min.css',
+        'dist/js/*.min.js',
+        'dist/assets/**',
+        '!dist/js/nhsuk.min.js'
+      ],
+      {
+        base: 'dist',
+        encoding: false
+      }
+    )
     .pipe(zip(`nhsuk-frontend-${version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -159,7 +170,10 @@ function createZip() {
 
 /* Recompile CSS, JS and docs when there are any changes */
 function watch() {
-  gulp.watch(['packages/**/*', 'app/**/*'], gulp.series(['build', 'docs:build']))
+  gulp.watch(
+    ['packages/**/*', 'app/**/*'],
+    gulp.series(['build', 'docs:build'])
+  )
 }
 
 gulp.task('clean', cleanDist)
@@ -168,13 +182,22 @@ gulp.task('style', compileCSS)
 
 gulp.task('build', gulp.series([compileCSS, webpackJS]))
 
-gulp.task('bundle', gulp.series([cleanDist, 'build', minifyCSS, minifyJS, versionJS]))
+gulp.task(
+  'bundle',
+  gulp.series([cleanDist, 'build', minifyCSS, minifyJS, versionJS])
+)
 
-gulp.task('zip', gulp.series(['bundle', assets, jsFolder, cssFolder, createZip]))
+gulp.task(
+  'zip',
+  gulp.series(['bundle', assets, jsFolder, cssFolder, createZip])
+)
 
 gulp.task('watch', watch)
 
 /**
  * The default task is to build everything, serve the docs and watch for changes
  */
-gulp.task('default', gulp.series([cleanDist, 'build', gulp.parallel(['docs:serve', watch])]))
+gulp.task(
+  'default',
+  gulp.series([cleanDist, 'build', gulp.parallel(['docs:serve', watch])])
+)

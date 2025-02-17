@@ -49,7 +49,10 @@ function getAssociatedLegendOrLabel(input) {
     }
   }
 
-  return document.querySelector(`label[for='${input.getAttribute('id')}']`) || input.closest('label')
+  return (
+    document.querySelector(`label[for='${input.getAttribute('id')}']`) ||
+    input.closest('label')
+  )
 }
 
 /**

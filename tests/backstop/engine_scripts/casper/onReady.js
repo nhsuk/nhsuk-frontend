@@ -1,5 +1,8 @@
-module.exports = function (casper, scenario, vp) {
-  console.log('SCENARIO> ' + scenario.label);
-  require('./clickAndHoverHelper')(casper, scenario);
+const clickAndHoverHelper = require('./clickAndHoverHelper')
+
+module.exports = function (casper, scenario) {
+  console.log(`SCENARIO > ${scenario.label}`)
+  clickAndHoverHelper(casper, scenario)
+
   // add more helpers here...
-};
+}
