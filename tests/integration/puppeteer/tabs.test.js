@@ -1,19 +1,7 @@
-import puppeteer, { KnownDevices } from 'puppeteer'
+import { KnownDevices } from 'puppeteer'
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  let page
-  let browser
-
-  beforeAll(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-  })
-
-  afterAll(async () => {
-    await browser.close()
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
       await page.setJavaScriptEnabled(false)

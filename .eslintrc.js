@@ -78,6 +78,11 @@ module.exports = {
         browser: true,
         'jest/globals': true
       },
+      globals: {
+        page: 'readonly',
+        browser: 'readonly',
+        jestPuppeteer: 'readonly'
+      },
       plugins: ['jest'],
       rules: {
         'promise/always-return': 'off',

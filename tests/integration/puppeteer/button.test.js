@@ -1,18 +1,6 @@
-import puppeteer from 'puppeteer'
-
 describe('Button', () => {
-  let page
-  let browser
-
   beforeAll(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-
     await page.goto('http://localhost:3000/components/button/link.html')
-  })
-
-  afterAll(async () => {
-    await browser.close()
   })
 
   describe('Button as link', () => {
@@ -46,12 +34,9 @@ describe('Button', () => {
      * Wraps the button rendered on the page in a form
      *
      * Examples don't do this and we need it to have something to submit
-     *
-     * @param {import('puppeteer').Page} page - Puppeteer page object
-     * @returns {undefined}
      */
-    function trackClicks(puppeteerPage) {
-      return puppeteerPage.evaluate(() => {
+    function trackClicks() {
+      return page.evaluate(() => {
         const $button = document.querySelector('button')
         const $form = document.createElement('form')
         $button.parentNode.appendChild($form)
@@ -71,21 +56,21 @@ describe('Button', () => {
      *
      * @returns {number} Number of times the form was submitted
      */
-    function getClicksCount(puppeteerPage) {
-      return puppeteerPage.evaluate(() => window.TEST_SUBMIT_EVENTS)
+    function getClicksCount() {
+      return page.evaluate(() => window.TEST_SUBMIT_EVENTS)
     }
 
     describe('not enabled', () => {
       beforeEach(async () => {
         await page.goto('http://localhost:3000/components/button/index.html')
-        await trackClicks(page)
+        await trackClicks()
       })
 
       it('does not prevent multiple submissions', async () => {
         await page.click('button')
         await page.click('button')
 
-        const clicksCount = await getClicksCount(page)
+        const clicksCount = await getClicksCount()
 
         expect(clicksCount).toBe(2)
       })
@@ -96,14 +81,14 @@ describe('Button', () => {
         await page.goto(
           'http://localhost:3000/components/button/prevent-double-click.html'
         )
-        await trackClicks(page)
+        await trackClicks()
       })
 
       it('prevents unintentional submissions when in a form', async () => {
         await page.click('button')
         await page.click('button')
 
-        const clicksCount = await getClicksCount(page)
+        const clicksCount = await getClicksCount()
 
         expect(clicksCount).toBe(1)
       })
@@ -112,7 +97,7 @@ describe('Button', () => {
         await page.click('button')
         await page.click('button', { delay: 1000 })
 
-        const clicksCount = await getClicksCount(page)
+        const clicksCount = await getClicksCount()
 
         expect(clicksCount).toBe(2)
       })
@@ -129,7 +114,7 @@ describe('Button', () => {
         await page.click('button:nth-child(1)')
         await page.click('button:nth-child(2)')
 
-        const clicksCount = await getClicksCount(page)
+        const clicksCount = await getClicksCount()
 
         expect(clicksCount).toBe(2)
       })
