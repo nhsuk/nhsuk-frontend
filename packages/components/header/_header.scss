@@ -35,17 +35,14 @@
   }
 }
 
-/// Logo and transaction/service name
+// Logo should not grow by default
 .nhsuk-header__logo {
   display: flex;
   flex-grow: 0;
 }
 
+// ...unless there is no service name
 .nhsuk-header__logo--no-service-name {
-  flex-grow: 999;
-}
-
-.nhsuk-header__service-name {
   flex-grow: 999;
 }
 
@@ -79,7 +76,7 @@
   @include nhsuk-font(19, $line-height: 1.1);
   align-items: center;
   display: flex;
-  flex-grow: 1;
+  flex-grow: 999;
   margin-right: auto;
 }
 
