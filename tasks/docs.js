@@ -3,8 +3,10 @@ const gulp = require('gulp')
 const rename = require('gulp-rename')
 const nunjucks = require('nunjucks')
 
+const { BASE_URL = '/' } = process.env
+
 const config = {
-  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
+  baseUrl: BASE_URL,
   dest: 'dist/app',
   templates: ['app/_templates', 'packages']
 }

@@ -8,8 +8,10 @@
   "scripts": {
     "prepare": "gulp bundle --color",
     "build": "gulp build --color",
+    "bundle": "gulp bundle docs:build --color --series",
     "start": "gulp --color",
-    "test": "npm run lint && npm run jest:ci",
+    "pretest": "npm run bundle",
+    "test": "jest --color --coverage",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html && npm run prettier",
     "prettier": "prettier --cache --cache-location .cache/prettier --cache-strategy content --check .",
     "prettier:fix": "prettier --write .",
@@ -23,10 +25,8 @@
     "backstop:test": "concurrently npm:start \"wait-on http://0.0.0.0:3000 && backstop --config backstop.config.js test --docker\" --kill-others --success last",
     "backstop:approve": "backstop --config backstop.config.js -- approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "build-gh-pages": "gulp bundle && BASE_URL=\"/nhsuk-frontend/\" gulp docs:build",
-    "build-gh-release": "gulp zip",
-    "jest:dev": "jest --color --watch",
-    "jest:ci": "jest --color"
+    "build-gh-pages": "BASE_URL=\"/nhsuk-frontend/\" npm run bundle",
+    "build-gh-release": "gulp zip"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
