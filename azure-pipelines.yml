@@ -30,7 +30,7 @@ steps:
   - script: npm run test
     displayName: 'Test'
 
-  - script: npm run backstop:ci
+  - script: npm run backstop:test
     displayName: 'Backstop'
 
   - task: ArchiveFiles@2
