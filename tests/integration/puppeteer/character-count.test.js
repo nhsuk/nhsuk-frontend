@@ -1,22 +1,8 @@
-import puppeteer from 'puppeteer'
-
 // The longest possible time from a keyboard user ending input and the screen
 // reader counter being updated: handleFocus interval time + last input wait time
 const debouncedWaitTime = 1500
 
 describe('Character count', () => {
-  let page
-  let browser
-
-  beforeAll(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-  })
-
-  afterAll(async () => {
-    await browser.close()
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     afterAll(async () => {
       await page.setJavaScriptEnabled(true)

@@ -76,6 +76,7 @@ module.exports = {
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
         browser: true,
+        page: true,
         'jest/globals': true
       },
       plugins: ['jest'],
