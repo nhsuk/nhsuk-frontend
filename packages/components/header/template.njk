@@ -26,10 +26,10 @@
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-header__container">
-    <div class="nhsuk-header__logo">
+    <div class="nhsuk-header__logo {% if not params.service %}nhsuk-header__logo--no-service-name{% endif %}">
     {%- if params.organisation %}
       {%- if params.logo.href -%}
-      <a class="nhsuk-header__link" href="{{ params.logo.href }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
+      <a class="nhsuk-header__logo__link" href="{{ params.logo.href }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
       {%- endif -%}
       {%- if params.logo.src %}
         <img class="nhsuk-organisation-logo" src="{{ baseUrl }}{{ params.logo.src }}" alt=""/>
@@ -43,7 +43,7 @@
       {%- endif -%}
     {%- else -%}
       {% if params.logo.href or params.logo.includeWithServiceLink %}
-      <a class="nhsuk-header__link{% if params.service %} nhsuk-header__link--service {% endif %}" href="{%- if params.logo.includeWithServiceLink %}{{ params.service.href }}{% else %}{{ params.logo.href }}{% endif %}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
+      <a class="nhsuk-header__logo__link" href="{%- if params.logo.includeWithServiceLink %}{{ params.service.href }}{% else %}{{ params.logo.href }}{% endif %}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
       {% endif %}
         {{ nhsLogo | safe }}
         {%- if params.logo.includeWithServiceLink %}
