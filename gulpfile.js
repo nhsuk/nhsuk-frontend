@@ -6,7 +6,6 @@ const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
 const terser = require('gulp-terser')
-const zip = require('gulp-zip')
 const dartSass = require('sass')
 const webpack = require('webpack-stream')
 
@@ -157,7 +156,9 @@ function cssFolder() {
   return gulp.src('dist/*.min.css').pipe(clean()).pipe(gulp.dest('dist/css/'))
 }
 
-function createZip() {
+async function createZip() {
+  const zip = await import('gulp-zip')
+
   return gulp
     .src(
       [
