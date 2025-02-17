@@ -77,14 +77,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "./tests/linters/.eslintrc.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
-  },
   "files": [
     "dist",
     "packages"
