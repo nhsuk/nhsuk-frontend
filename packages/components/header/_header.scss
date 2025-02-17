@@ -62,7 +62,7 @@
 }
 
 .nhsuk-header__link,
-.nhsuk-header__service-name--link {
+.nhsuk-header__service-name__link {
   @include nhsuk-link-style-header;
   text-decoration: none;
   text-wrap: balance;

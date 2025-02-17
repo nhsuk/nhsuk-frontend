@@ -58,7 +58,7 @@
 {%- if params.service.text and not params.logo.includeWithServiceLink %}
     <div class="nhsuk-header__service-name">
       {%- if params.service.href -%}
-        <a class="nhsuk-header__service-name--link" href="{{ params.service.href }}">
+        <a class="nhsuk-header__service-name__link" href="{{ params.service.href }}">
       {% endif %}
         {{ params.service.text }}
       {%- if params.service.href -%}
