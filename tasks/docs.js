@@ -1,5 +1,5 @@
+const browserSync = require('browser-sync')
 const gulp = require('gulp')
-const connect = require('gulp-connect')
 const rename = require('gulp-rename')
 const nunjucks = require('nunjucks')
 
@@ -65,29 +65,27 @@ function copyBinaryAssets() {
  * Serve the static docs directory over localhost
  */
 function serve() {
-  connect.server({
+  return browserSync({
+    ghostMode: false,
     host: '0.0.0.0',
-    livereload: true,
+    open: false,
+    notify: false,
     port: 3000,
-    root: config.dest
+    server: {
+      baseDir: 'dist/app'
+    }
   })
-}
-
-/**
- * Reload the connect server
- */
-function reload() {
-  return gulp.src(config.dest).pipe(connect.reload())
 }
 
 gulp.task(
   'docs:build',
-  gulp.series([copyCSS, copyJS, buildHTML, copyBinaryAssets, reload])
+  gulp.series([copyCSS, copyJS, buildHTML, copyBinaryAssets])
 )
 
 gulp.task('docs:watch', () =>
   Promise.all([
     gulp.watch(['app/**/*.njk'], buildHTML),
+    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
     gulp.watch(['dist/*.css'], copyCSS),
     gulp.watch(['dist/*.js'], copyJS),
     gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
