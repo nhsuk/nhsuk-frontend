@@ -180,14 +180,6 @@ async function createZip() {
  * Development tasks
  */
 
-/* Recompile CSS, JS and docs when there are any changes */
-function watch() {
-  gulp.watch(
-    ['packages/**/*', 'app/**/*'],
-    gulp.series(['build', 'docs:build'])
-  )
-}
-
 gulp.task('clean', cleanDist)
 
 gulp.task('style', compileCSS)
@@ -204,12 +196,22 @@ gulp.task(
   gulp.series(['bundle', assets, jsFolder, cssFolder, createZip])
 )
 
-gulp.task('watch', watch)
+gulp.task('watch', () =>
+  Promise.all([
+    gulp.watch(['packages/**/*.scss'], compileCSS),
+    gulp.watch(['packages/**/*.js'], webpackJS)
+  ])
+)
 
 /**
  * The default task is to build everything, serve the docs and watch for changes
  */
 gulp.task(
   'default',
-  gulp.series([cleanDist, 'build', gulp.parallel(['docs:serve', watch])])
+  gulp.series([
+    cleanDist,
+    'build',
+    'docs:build',
+    gulp.parallel(['docs:serve', 'docs:watch', 'watch'])
+  ])
 )

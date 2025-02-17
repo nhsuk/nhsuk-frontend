@@ -12,7 +12,7 @@ const config = {
 /**
  * Turn markdown into html with a nunjucks layout
  */
-async function buildHtml() {
+async function buildHTML() {
   const { nunjucksCompile } = await import('gulp-nunjucks')
 
   return gulp
@@ -39,10 +39,17 @@ async function buildHtml() {
 }
 
 /**
- * Copy built assets from dist into the documentation directory
+ * Copy CSS from dist into the documentation directory
  */
-function copyBuiltAssets() {
-  return gulp.src('dist/*.{css,js}').pipe(gulp.dest(`${config.dest}/assets/`))
+function copyCSS() {
+  return gulp.src('dist/*.css').pipe(gulp.dest(`${config.dest}/assets/`))
+}
+
+/**
+ * Copy JS from dist into the documentation directory
+ */
+function copyJS() {
+  return gulp.src('dist/*.js').pipe(gulp.dest(`${config.dest}/assets/`))
 }
 
 /**
@@ -75,7 +82,16 @@ function reload() {
 
 gulp.task(
   'docs:build',
-  gulp.series([copyBuiltAssets, buildHtml, copyBinaryAssets, reload])
+  gulp.series([copyCSS, copyJS, buildHTML, copyBinaryAssets, reload])
 )
 
-gulp.task('docs:serve', gulp.series(['docs:build', gulp.parallel(serve)]))
+gulp.task('docs:watch', () =>
+  Promise.all([
+    gulp.watch(['app/**/*.njk'], buildHTML),
+    gulp.watch(['dist/*.css'], copyCSS),
+    gulp.watch(['dist/*.js'], copyJS),
+    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
+  ])
+)
+
+gulp.task('docs:serve', gulp.series([serve]))
