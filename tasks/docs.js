@@ -1,64 +1,64 @@
+const { mkdir, writeFile } = require('fs/promises')
+const { join, parse } = require('path')
+
+const { glob } = require('glob')
 const gulp = require('gulp')
 const connect = require('gulp-connect')
-const rename = require('gulp-rename')
 const nunjucks = require('nunjucks')
 
-const config = {
-  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
-  dest: 'dist/app',
-  templates: ['app/_templates', 'packages']
-}
+// Base URL is overridden for `npm run build-gh-pages`
+const { BASE_URL = '/' } = process.env
 
 /**
- * Turn markdown into html with a nunjucks layout
+ * Compile Nunjucks into HTML
  */
 async function buildHTML() {
-  const { nunjucksCompile } = await import('gulp-nunjucks')
+  const paths = await glob('**/*.njk', {
+    cwd: 'app',
+    nodir: true
+  })
 
-  return gulp
-    .src(['app/**/*.njk'])
-    .pipe(
-      nunjucksCompile(
-        {
-          // site-wide data goes here
-          baseUrl: config.baseUrl
-        },
-        {
-          env: new nunjucks.Environment(
-            new nunjucks.FileSystemLoader(config.templates)
-          )
-        }
-      )
-    )
-    .pipe(
-      rename({
-        extname: '.html'
-      })
-    )
-    .pipe(gulp.dest(config.dest))
+  // Configure Nunjucks
+  const env = nunjucks.configure(['app', 'app/_templates', 'packages'], {
+    trimBlocks: true,
+    lstripBlocks: true
+  })
+
+  for (const path of paths) {
+    const { name, dir } = parse(path)
+
+    const html = env.render(path, {
+      baseUrl: BASE_URL
+    })
+
+    const destPath = join('dist/app', dir)
+    const filePath = join(destPath, `${name}.html`)
+
+    // Write to disk
+    await mkdir(destPath, { recursive: true })
+    await writeFile(filePath, html)
+  }
 }
 
 /**
  * Copy CSS from dist into the documentation directory
  */
 function copyCSS() {
-  return gulp.src('dist/*.css').pipe(gulp.dest(`${config.dest}/assets/`))
+  return gulp.src('dist/*.css').pipe(gulp.dest('dist/app/assets'))
 }
 
 /**
  * Copy JS from dist into the documentation directory
  */
 function copyJS() {
-  return gulp.src('dist/*.js').pipe(gulp.dest(`${config.dest}/assets/`))
+  return gulp.src('dist/*.js').pipe(gulp.dest('dist/app/assets'))
 }
 
 /**
  * Copy logos, icons and other binary assets
  */
 function copyBinaryAssets() {
-  return gulp
-    .src('packages/assets/**/*')
-    .pipe(gulp.dest(`${config.dest}/assets/`))
+  return gulp.src('packages/assets/**/*').pipe(gulp.dest('dist/app/assets'))
 }
 
 /**
@@ -69,7 +69,7 @@ function serve() {
     host: '0.0.0.0',
     livereload: true,
     port: 3000,
-    root: config.dest
+    root: 'dist/app'
   })
 }
 
@@ -77,12 +77,12 @@ function serve() {
  * Reload the connect server
  */
 function reload() {
-  return gulp.src(config.dest).pipe(connect.reload())
+  return gulp.src('dist/app').pipe(connect.reload())
 }
 
 gulp.task(
   'docs:build',
-  gulp.series([copyCSS, copyJS, buildHTML, copyBinaryAssets, reload])
+  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, reload])
 )
 
 gulp.task('docs:watch', () =>
@@ -95,3 +95,7 @@ gulp.task('docs:watch', () =>
 )
 
 gulp.task('docs:serve', gulp.series([serve]))
+
+/**
+ * @import { Result } from 'html-validate'
+ */
