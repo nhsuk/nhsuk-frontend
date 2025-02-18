@@ -69,4 +69,4 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Run backstop
-        run: npm run backstop:ci
+        run: npm run backstop:test
