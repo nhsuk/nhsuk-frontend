@@ -14,7 +14,8 @@ module.exports = {
     'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
   engine: 'playwright',
   engineOptions: {
-    browser: 'chromium'
+    browser: 'chromium',
+    gotoParameters: { waitUntil: 'load' }
   },
   id: 'nhsuk-frontend',
   onBeforeScript: 'playwright/onBefore.js',
@@ -26,6 +27,7 @@ module.exports = {
     engine_scripts: 'tests/backstop/engine_scripts',
     html_report: 'tests/backstop/html_report'
   },
+  readySelector: 'body.js-enabled',
   report: ['browser'],
   scenarios: [
     {
