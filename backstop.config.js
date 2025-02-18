@@ -4,6 +4,9 @@ const {
   TEST_URL = `http://${TEST_HOST}:3000/components`
 } = process.env
 
+/**
+ * @type {PlaywrightEngineConfig}
+ */
 module.exports = {
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
@@ -512,3 +515,7 @@ module.exports = {
     }
   ]
 }
+
+/**
+ * @import { PlaywrightEngineConfig } from 'backstopjs'
+ */

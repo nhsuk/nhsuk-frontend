@@ -1,3 +1,6 @@
+/**
+ * @type {ESLint.ConfigData}
+ */
 module.exports = {
   extends: ['prettier'],
   parser: '@babel/eslint-parser',
@@ -92,3 +95,7 @@ module.exports = {
   ],
   root: true
 }
+
+/**
+ * @import { ESLint } from 'eslint'
+ */

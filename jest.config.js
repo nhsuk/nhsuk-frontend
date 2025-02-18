@@ -3,6 +3,9 @@ const jestPuppeteerConfig = require('./jest-puppeteer.config.js')
 // Detect when browser has been launched headless
 const { headless = true } = jestPuppeteerConfig.launch
 
+/**
+ * @type {Config}
+ */
 module.exports = {
   collectCoverageFrom: ['packages/**/*.js'],
 
@@ -32,3 +35,7 @@ module.exports = {
   // Browser test increased timeout (5s to 15s)
   testTimeout: 15000
 }
+
+/**
+ * @import { Config } from 'jest'
+ */

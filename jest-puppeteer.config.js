@@ -1,5 +1,8 @@
 const { HEADLESS } = process.env
 
+/**
+ * @type {JestPuppeteerConfig}
+ */
 module.exports = {
   browserContext: 'incognito',
 
@@ -37,3 +40,7 @@ module.exports = {
     usedPortAction: 'ignore'
   }
 }
+
+/**
+ * @import { JestPuppeteerConfig } from 'jest-environment-puppeteer'
+ */
