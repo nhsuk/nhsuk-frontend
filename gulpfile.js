@@ -204,14 +204,6 @@ gulp.task('watch', () =>
 )
 
 /**
- * The default task is to build everything, serve the docs and watch for changes
+ * The default task is to serve the docs and watch for changes
  */
-gulp.task(
-  'default',
-  gulp.series([
-    cleanDist,
-    'build',
-    'docs:build',
-    gulp.parallel(['docs:serve', 'docs:watch', 'watch'])
-  ])
-)
+gulp.task('default', gulp.parallel(['docs:serve', 'docs:watch', 'watch']))

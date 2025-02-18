@@ -27,7 +27,7 @@ steps:
   - script: npm run lint
     displayName: 'Lint'
 
-  - script: npm run test
+  - script: npm test --ignore-scripts
     displayName: 'Test'
 
   - script: npm run backstop:test
