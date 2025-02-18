@@ -93,7 +93,7 @@ module.exports = {
       url: `${TEST_URL}/card/card-group.html`
     },
     {
-      label: 'Card - Card group',
+      label: 'Card - Feature card',
       url: `${TEST_URL}/card/feature-card.html`
     },
     {
