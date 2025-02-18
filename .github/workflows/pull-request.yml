@@ -87,3 +87,10 @@ jobs:
 
       - name: Run backstop
         run: npm run backstop:test
+
+      - name: Save backstop report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Backstop report
+          path: tests/backstop/
+          if-no-files-found: ignore
