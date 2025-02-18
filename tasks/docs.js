@@ -4,7 +4,11 @@ const { join, parse } = require('path')
 const { glob } = require('glob')
 const gulp = require('gulp')
 const connect = require('gulp-connect')
+const { HtmlValidate, formatterFactory } = require('html-validate')
 const nunjucks = require('nunjucks')
+const PluginError = require('plugin-error')
+
+const validatorConfig = require('../.htmlvalidate')
 
 // Base URL is overridden for `npm run build-gh-pages`
 const { BASE_URL = '/' } = process.env
@@ -37,6 +41,31 @@ async function buildHTML() {
     // Write to disk
     await mkdir(destPath, { recursive: true })
     await writeFile(filePath, html)
+  }
+}
+
+/**
+ * Validate Nunjucks HTML output
+ */
+async function validateHTML() {
+  const paths = await glob('dist/app/**/*.html', {
+    nodir: true
+  })
+
+  // Configure validator
+  const validator = new HtmlValidate(validatorConfig)
+  const validatorErrors = /** @type {Result[]} */ ([])
+
+  // HTML validation
+  for (const path of paths) {
+    const report = await validator.validateFile(path)
+    if (!report.valid) validatorErrors.push(...report.results)
+  }
+
+  // Throw on HTML validation errors
+  if (validatorErrors.length) {
+    const formatter = formatterFactory('codeframe')
+    throw new PluginError('validateHTML', formatter(validatorErrors))
   }
 }
 
@@ -82,7 +111,14 @@ function reload() {
 
 gulp.task(
   'docs:build',
-  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, reload])
+  gulp.series([
+    copyCSS,
+    copyJS,
+    copyBinaryAssets,
+    buildHTML,
+    validateHTML,
+    reload
+  ])
 )
 
 gulp.task('docs:watch', () =>
