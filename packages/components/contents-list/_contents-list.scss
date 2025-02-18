@@ -1,3 +1,8 @@
+@use "../../core/settings/typography" as *;
+@use "../../core/tools/functions" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+
 ////
 /// Contents list component
 ///
