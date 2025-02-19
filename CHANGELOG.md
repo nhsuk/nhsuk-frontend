@@ -12,6 +12,10 @@ We've configured our build tasks to use [Browserslist](https://browsersl.ist) fo
 - Fixed JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
 - Fixed JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
 
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
+
 ## 9.3.0 - 13 February 2025
 
 :new: **New features**
@@ -428,7 +432,7 @@ You will only now need this:
 
 :recycle: **Changes**
 
-- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).  
+- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).
   This change removes the `Card` component's associated JavaScript. If you are bundling this yourself in your pipeline you will need to edit your JS entrypoint to remove the lines which read: `import Card from '[wherever]';` and `Card();`
   You do not need to update your html as part of this change - this remains the same.
 
