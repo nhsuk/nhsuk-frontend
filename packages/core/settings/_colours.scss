@@ -136,17 +136,17 @@ $nhsuk-button-active-color: shade($nhsuk-button-color, 50%);
 $nhsuk-button-shadow-color: shade($nhsuk-button-color, 50%);
 
 $nhsuk-secondary-button-color: $color_nhsuk-grey-1;
-$nhsuk-secondary-button-hover-color: color.scale($nhsuk-secondary-button-color, $lightness: -10%);
+$nhsuk-secondary-button-hover-color: shade($nhsuk-secondary-button-color, 20%);
 $nhsuk-secondary-button-active-color: shade($nhsuk-secondary-button-color, 50%);
 $nhsuk-secondary-button-shadow-color: shade($nhsuk-secondary-button-color, 50%);
 
 $nhsuk-reverse-button-color: $color_nhsuk-white;
-$nhsuk-reverse-button-hover-color: color.scale($nhsuk-reverse-button-color, $lightness: -5%);
+$nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
 $nhsuk-reverse-button-active-color: $color-nhsuk-black;
 $nhsuk-reverse-button-shadow-color: $color-nhsuk-black;
 
 $nhsuk-warning-button-color: $color_nhsuk-red;
-$nhsuk-warning-button-hover-color: color.scale($nhsuk-warning-button-color, $lightness: -10%);
+$nhsuk-warning-button-hover-color: shade($nhsuk-warning-button-color, 20%);
 $nhsuk-warning-button-active-color: shade($nhsuk-warning-button-color, 50%);
 $nhsuk-warning-button-shadow-color: shade($nhsuk-warning-button-color, 50%);
 
