@@ -34,7 +34,18 @@ class Tabs {
     // large - desktop: 990px
     // );
     this.mql = window.matchMedia('(min-width: 641px)')
-    this.mql.addEventListener('change', this.checkMode.bind(this))
+
+    // MediaQueryList.addEventListener isn't supported by Safari < 14 so we need
+    // to be able to fall back to the deprecated MediaQueryList.addListener
+    if ('addEventListener' in this.mql) {
+      this.mql.addEventListener('change', this.checkMode.bind(this))
+    } else {
+      // addListener is a deprecated function, however addEventListener
+      // isn't supported by Safari < 14. We therefore add this in as
+      // a fallback for those browsers
+      this.mql.addListener(this.checkMode.bind(this))
+    }
+
     this.checkMode()
   }
 
