@@ -1,9 +1,13 @@
+/**
+ * @type {ESLint.ConfigData}
+ */
 module.exports = {
   extends: ['prettier'],
   parser: '@babel/eslint-parser',
   ignorePatterns: [
     '**/coverage/**',
     '**/dist/**',
+    '**/engine_scripts/**/*',
 
     // Enable dotfile linting
     '!.*',
@@ -72,11 +76,16 @@ module.exports = {
       }
     },
     {
-      files: ['**/engine_scripts/**/*.{cjs,js,mjs}', '**/*.test.{cjs,js,mjs}'],
+      files: ['**/*.test.{cjs,js,mjs}'],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
         browser: true,
         'jest/globals': true
+      },
+      globals: {
+        page: 'readonly',
+        browser: 'readonly',
+        jestPuppeteer: 'readonly'
       },
       plugins: ['jest'],
       rules: {
@@ -87,3 +96,7 @@ module.exports = {
   ],
   root: true
 }
+
+/**
+ * @import { ESLint } from 'eslint'
+ */

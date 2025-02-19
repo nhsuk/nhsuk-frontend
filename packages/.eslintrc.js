@@ -1,3 +1,6 @@
+/**
+ * @type {ESLint.ConfigData}
+ */
 module.exports = {
   overrides: [
     {
@@ -20,3 +23,7 @@ module.exports = {
     }
   ]
 }
+
+/**
+ * @import { ESLint } from 'eslint'
+ */

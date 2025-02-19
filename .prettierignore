@@ -10,5 +10,8 @@ coverage/
 # Build output
 dist/
 
+# 3rd party vendor code
+engine_scripts/
+
 # Files to ignore
 package-lock.json
