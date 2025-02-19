@@ -20,12 +20,12 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "backstop:interactive": "backstop --config backstop.config.js remote",
     "prebackstop:cli": "npm run build",
-    "backstop:cli": "concurrently \"npm start --ignore-scripts\" \"wait-on http://0.0.0.0:3000 && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first",
+    "backstop:cli": "concurrently \"npm start --ignore-scripts\" \"wait-on tcp:3000 && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first",
     "backstop:ref": "npm run backstop:cli -- -- reference --docker",
     "backstop:test": "npm run backstop:cli -- -- test --docker",
     "backstop:approve": "backstop --config backstop.config.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "build-gh-pages": "BASE_URL=\"/nhsuk-frontend/\" npm run build",
+    "build-gh-pages": "npm run build",
     "build-gh-release": "gulp zip"
   },
   "devDependencies": {

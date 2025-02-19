@@ -1,6 +1,11 @@
+const {
+  BASE_HOST = 'localhost', // Default via `npm start`
+  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+} = process.env
+
 describe('Button', () => {
   beforeAll(async () => {
-    await page.goto('http://localhost:3000/components/button/link.html')
+    await page.goto(`${BASE_URL}/components/button/link.html`)
   })
 
   describe('Button as link', () => {
@@ -62,7 +67,7 @@ describe('Button', () => {
 
     describe('not enabled', () => {
       beforeEach(async () => {
-        await page.goto('http://localhost:3000/components/button/index.html')
+        await page.goto(`${BASE_URL}/components/button/index.html`)
         await trackClicks()
       })
 
@@ -79,7 +84,7 @@ describe('Button', () => {
     describe('using data-attributes', () => {
       beforeEach(async () => {
         await page.goto(
-          'http://localhost:3000/components/button/prevent-double-click.html'
+          `${BASE_URL}/components/button/prevent-double-click.html`
         )
         await trackClicks()
       })

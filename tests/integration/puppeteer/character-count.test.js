@@ -1,3 +1,8 @@
+const {
+  BASE_HOST = 'localhost', // Default via `npm start`
+  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+} = process.env
+
 // The longest possible time from a keyboard user ending input and the screen
 // reader counter being updated: handleFocus interval time + last input wait time
 const debouncedWaitTime = 1500
@@ -12,9 +17,7 @@ describe('Character count', () => {
       await page.setJavaScriptEnabled(false)
 
       await Promise.all([
-        page.goto(
-          'http://localhost:3000/components/character-count/index.html'
-        ),
+        page.goto(`${BASE_URL}/components/character-count/index.html`),
         page.waitForNavigation()
       ])
     })
@@ -33,9 +36,7 @@ describe('Character count', () => {
     describe('on page load', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto(
-            'http://localhost:3000/components/character-count/index.html'
-          ),
+          page.goto(`${BASE_URL}/components/character-count/index.html`),
           page.waitForNavigation()
         ])
       })
@@ -64,9 +65,7 @@ describe('Character count', () => {
     describe('when counting characters', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto(
-            'http://localhost:3000/components/character-count/index.html'
-          ),
+          page.goto(`${BASE_URL}/components/character-count/index.html`),
           page.waitForNavigation()
         ])
       })
@@ -88,7 +87,7 @@ describe('Character count', () => {
       it('shows the characters remaining if the field is pre-filled', async () => {
         await Promise.all([
           page.goto(
-            'http://localhost:3000/components/character-count/with-default-value.html'
+            `${BASE_URL}/components/character-count/with-default-value.html`
           ),
           page.waitForNavigation()
         ])
@@ -147,9 +146,7 @@ describe('Character count', () => {
       describe('when the character limit is exceeded', () => {
         beforeEach(async () => {
           await Promise.all([
-            page.goto(
-              'http://localhost:3000/components/character-count/index.html'
-            ),
+            page.goto(`${BASE_URL}/components/character-count/index.html`),
             page.waitForNavigation()
           ])
 
@@ -213,7 +210,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              'http://localhost:3000/components/character-count/with-default-value-exceeding-limit.html'
+              `${BASE_URL}/components/character-count/with-default-value-exceeding-limit.html`
             ),
             page.waitForNavigation()
           ])
@@ -254,7 +251,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              'http://localhost:3000/components/character-count/with-threshold.html'
+              `${BASE_URL}/components/character-count/with-threshold.html`
             ),
             page.waitForNavigation()
           ])
@@ -303,7 +300,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              'http://localhost:3000/components/character-count/with-textarea-maxlength-attribute.html'
+              `${BASE_URL}/components/character-count/with-textarea-maxlength-attribute.html`
             ),
             page.waitForNavigation()
           ])
@@ -322,7 +319,7 @@ describe('Character count', () => {
       beforeEach(async () => {
         await Promise.all([
           page.goto(
-            'http://localhost:3000/components/character-count/with-word-count.html'
+            `${BASE_URL}/components/character-count/with-word-count.html`
           ),
           page.waitForNavigation()
         ])
@@ -384,7 +381,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              'http://localhost:3000/components/character-count/with-word-count.html'
+              `${BASE_URL}/components/character-count/with-word-count.html`
             ),
             page.waitForNavigation()
           ])

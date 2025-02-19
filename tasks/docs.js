@@ -10,9 +10,6 @@ const PluginError = require('plugin-error')
 
 const validatorConfig = require('../.htmlvalidate')
 
-// Base URL is overridden for `npm run build-gh-pages`
-const { BASE_URL = '/' } = process.env
-
 /**
  * Compile Nunjucks into HTML
  */
@@ -32,7 +29,7 @@ async function buildHTML() {
     const { name, dir } = parse(path)
 
     const html = env.render(path, {
-      baseUrl: BASE_URL
+      baseUrl: '/nhsuk-frontend/'
     })
 
     const destPath = join('dist/app', dir)
@@ -110,9 +107,24 @@ function serve() {
     open: false,
     notify: false,
     port: 3000,
+
+    // Development server
     server: {
-      baseDir: 'dist/app'
-    }
+      baseDir: 'dist/app',
+      directory: true
+    },
+
+    // Match local paths to deployed preview
+    // https://nhsuk.github.io/nhsuk-frontend
+    serveStatic: [
+      {
+        route: '/nhsuk-frontend',
+        dir: 'dist/app'
+      }
+    ],
+
+    // Show start path in console
+    startPath: '/nhsuk-frontend/'
   })
 }
 
