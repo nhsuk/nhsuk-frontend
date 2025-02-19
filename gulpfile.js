@@ -1,9 +1,11 @@
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
 const gulp = require('gulp')
 const clean = require('gulp-clean')
-const cleanCSS = require('gulp-clean-css')
+const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
-const uglify = require('gulp-uglify')
+const terser = require('gulp-terser')
 const zip = require('gulp-zip')
 const dartSass = require('sass-embedded')
 const webpack = require('webpack-stream')
@@ -32,6 +34,7 @@ function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'])
     .pipe(sass().on('error', done))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest('dist/'))
 }
 
@@ -42,7 +45,7 @@ function minifyCSS() {
       'dist/*.css',
       '!dist/*.min.css' // don't re-minify minified css
     ])
-    .pipe(cleanCSS())
+    .pipe(postcss([cssnano()]))
     .pipe(
       rename({
         suffix: `-${version}.min`
@@ -68,16 +71,19 @@ function webpackJS() {
               use: {
                 loader: 'babel-loader',
                 options: {
-                  presets: ['@babel/preset-env']
+                  rootMode: 'upward'
                 }
               }
             }
           ]
         },
+        optimization: {
+          minimize: false // minification is handled by terser
+        },
         output: {
           filename: 'nhsuk.js'
         },
-        target: 'web'
+        target: 'browserslist'
       })
     )
     .pipe(gulp.dest('./dist'))
@@ -90,7 +96,15 @@ function minifyJS() {
       'dist/*.js',
       '!dist/*.min.js' // don't re-minify minified javascript
     ])
-    .pipe(uglify())
+    .pipe(
+      terser({
+        format: { comments: false },
+
+        // Compatibility workarounds
+        ecma: 5,
+        safari10: true
+      })
+    )
     .pipe(
       rename({
         suffix: '.min'
@@ -102,14 +116,11 @@ function minifyJS() {
 /* Version the JS file for release */
 function versionJS() {
   return gulp
-    .src([
-      'dist/*.js',
-      '!dist/*.min.js' // don't re-minify minified javascript
-    ])
-    .pipe(uglify())
+    .src('dist/nhsuk.min.js')
     .pipe(
       rename({
-        suffix: `-${version}.min`
+        basename: `nhsuk-${version}`,
+        extname: '.min.js'
       })
     )
     .pipe(gulp.dest('dist/'))
