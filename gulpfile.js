@@ -157,7 +157,7 @@ function cssFolder() {
 }
 
 async function createZip() {
-  const zip = await import('gulp-zip')
+  const { default: zip } = await import('gulp-zip')
 
   return gulp
     .src(
