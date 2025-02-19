@@ -351,7 +351,7 @@ module.exports = {
     {
       clickSelector: '#input-with-error-message-and-prefix-and-suffix',
       label: 'Input with error message, prefix and suffix - focused',
-      url: `${TEST_URL}/input/error.html`
+      url: `${TEST_URL}/input/error-and-prefix-and-suffix.html`
     },
     {
       label: 'Inset text',
