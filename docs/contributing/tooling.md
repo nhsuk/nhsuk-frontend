@@ -2,18 +2,18 @@
 
 ## npm scripts
 
-| command                | action                                                                              |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | Runs the _default_ gulp task                                                        |
-| `npm test`             | Runs CSS linting                                                                    |
-| `npm build-gh-pages`   | Build documentation with a base url that is suitable for publishing on github pages |
-| `npm build-gh-release` | Runs `gulp zip` for publishing to github releases                                   |
+| command                    | action                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| `npm start`                | Runs the _default_ gulp task                                                        |
+| `npm test`                 | Runs CSS linting                                                                    |
+| `npm run build-gh-pages`   | Build documentation with a base url that is suitable for publishing on github pages |
+| `npm run build-gh-release` | Runs `gulp zip` for publishing to github releases                                   |
 
 ## Gulp tasks
 
 We use [gulp](https://gulpjs.com/) for automating common tasks.
 
-To run a gulp task, run `./node_modules/.bin/gulp <task_name>` on the command line.
+To run a gulp task, run `npx gulp <task_name>` on the command line.
 
 | task         | action                                                                 |
 | ------------ | ---------------------------------------------------------------------- |

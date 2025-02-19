@@ -1,6 +1,8 @@
-const TEST_HOST =
-  process.env.HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : '0.0.0.0'
-const TEST_URL = `http://${TEST_HOST}:3000/components`
+const {
+  HOSTNAME = '0.0.0.0', // Default without Docker via `npm start`
+  TEST_HOST = HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : HOSTNAME,
+  TEST_URL = `http://${TEST_HOST}:3000/components`
+} = process.env
 
 module.exports = {
   asyncCaptureLimit: 5,
