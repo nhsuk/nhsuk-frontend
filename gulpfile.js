@@ -1,7 +1,6 @@
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const gulp = require('gulp')
-const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
@@ -17,9 +16,14 @@ const { version } = require('./package.json')
  */
 require('./tasks/docs')
 
-/* Remove all compiled files */
-function cleanDist() {
-  return gulp.src('dist', { allowEmpty: true }).pipe(clean())
+/**
+ * Remove all compiled files
+ * @param {string[]} pattern - glob patterns or paths to clean
+ * @param {string[]} [ignore] - glob patterns or paths to ignore
+ */
+async function clean(pattern, ignore) {
+  const { deleteAsync } = await import('del')
+  await deleteAsync(pattern, { ignore })
 }
 
 /**
@@ -145,33 +149,24 @@ function assets() {
 /* Copy JS files into their relevant folders */
 function jsFolder() {
   return gulp
-    .src('dist/*.min.js', '!dist/js/nhsuk.min.js')
-    .pipe(clean())
+    .src('dist/*.min.js', { ignore: 'dist/nhsuk.min.js' })
     .pipe(gulp.dest('dist/js/'))
 }
 
 /* Copy CSS files into their relevant folders */
 
 function cssFolder() {
-  return gulp.src('dist/*.min.css').pipe(clean()).pipe(gulp.dest('dist/css/'))
+  return gulp.src('dist/*.min.css').pipe(gulp.dest('dist/css/'))
 }
 
 async function createZip() {
   const { default: zip } = await import('gulp-zip')
 
   return gulp
-    .src(
-      [
-        'dist/css/*.min.css',
-        'dist/js/*.min.js',
-        'dist/assets/**',
-        '!dist/js/nhsuk.min.js'
-      ],
-      {
-        base: 'dist',
-        encoding: false
-      }
-    )
+    .src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**'], {
+      base: 'dist',
+      encoding: false
+    })
     .pipe(zip(`nhsuk-frontend-${version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -180,20 +175,33 @@ async function createZip() {
  * Development tasks
  */
 
-gulp.task('clean', cleanDist)
+gulp.task('clean', async () => {
+  return clean(['dist/**/*'])
+})
+
+gulp.task('clean:zip', async () => {
+  return clean(['dist/{assets,css,js}', 'dist/*.zip'])
+})
 
 gulp.task('style', compileCSS)
 
-gulp.task('build', gulp.series([compileCSS, webpackJS]))
+gulp.task(
+  'build',
+  gulp.series(['clean', gulp.parallel([compileCSS, webpackJS])])
+)
 
 gulp.task(
   'bundle',
-  gulp.series([cleanDist, 'build', minifyCSS, minifyJS, versionJS])
+  gulp.series(['build', gulp.parallel([minifyCSS, minifyJS]), versionJS])
 )
 
 gulp.task(
   'zip',
-  gulp.series(['bundle', assets, jsFolder, cssFolder, createZip])
+  gulp.series([
+    'clean:zip',
+    gulp.parallel([assets, jsFolder, cssFolder]),
+    createZip
+  ])
 )
 
 gulp.task('watch', () =>
