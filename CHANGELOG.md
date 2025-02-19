@@ -1,5 +1,17 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
+
+- Updated stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
+- Changed stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
+- Changed JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
+- Fixed JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
+- Fixed JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
+
 ## 9.3.0 - 13 February 2025
 
 :new: **New features**
