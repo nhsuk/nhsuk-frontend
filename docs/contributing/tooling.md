@@ -23,8 +23,9 @@ To run a gulp task, run `./node_modules/.bin/gulp <task_name>` on the command li
 | `build`      | Compiles CSS and JS                                                    |
 | `bundle`     | Creates distributable CSS and JS files in `dist/`                      |
 | `zip`        | Creates a distributable zip file in `dist/`                            |
-| `watch`      | Recompile documentation and distributables when there are changes      |
+| `watch`      | Recompile distributables when there are changes                        |
 | `docs:build` | Recompile documentation                                                |
+| `docs:watch` | Recompile documentation when there are changes                         |
 | `docs:serve` | Serve documentation on port 3000                                       |
 
 ---
