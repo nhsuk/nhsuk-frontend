@@ -2,12 +2,22 @@
 
 ## npm scripts
 
-| command                    | action                                                                              |
-| -------------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`                | Runs the _default_ gulp task                                                        |
-| `npm test`                 | Runs CSS linting                                                                    |
-| `npm run build-gh-pages`   | Build documentation with a base url that is suitable for publishing on github pages |
-| `npm run build-gh-release` | Runs `gulp zip` for publishing to github releases                                   |
+To run an npm script, run `npm run <script_name>` on the command line.
+
+| command | action                                                     |
+| ------- | ---------------------------------------------------------- |
+| `start` | Runs the _default_ gulp task (runs pre script `build`)     |
+| `test`  | Runs tests using ESLint (runs pre scripts `lint`, `build`) |
+| `lint`  | Runs linting and formatting checks only                    |
+| `build` | Compiles CSS, JS and builds documentation                  |
+
+You can optionally add `--ignore-scripts` to skip pre and post scripts.
+
+For example, skip straight to the local server without building again:
+
+```console
+npm start --ignore-scripts
+```
 
 ## Gulp tasks
 
@@ -18,7 +28,6 @@ To run a gulp task, run `npx gulp <task_name>` on the command line.
 | task         | action                                                                 |
 | ------------ | ---------------------------------------------------------------------- |
 | `default`    | Serve the documentation on port 3000. Recompile when there are changes |
-| `clean`      | Remove all compiled files                                              |
 | `style`      | Compiles CSS                                                           |
 | `build`      | Compiles CSS and JS                                                    |
 | `bundle`     | Creates distributable CSS and JS files in `dist/`                      |

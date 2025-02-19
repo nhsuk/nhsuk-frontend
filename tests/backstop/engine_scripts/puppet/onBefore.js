@@ -1,5 +1,3 @@
-const loadCookies = require('./loadCookies')
-
-module.exports = async (page, scenario) => {
-  await loadCookies(page, scenario)
-}
+module.exports = async (page, scenario, vp) => {
+  await require('./loadCookies')(page, scenario);
+};

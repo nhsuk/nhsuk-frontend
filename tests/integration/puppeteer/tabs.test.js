@@ -1,19 +1,12 @@
-import puppeteer, { KnownDevices } from 'puppeteer'
+const {
+  BASE_HOST = 'localhost', // Default via `npm start`
+  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+} = process.env
+
+import { KnownDevices } from 'puppeteer'
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  let page
-  let browser
-
-  beforeAll(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-  })
-
-  afterAll(async () => {
-    await browser.close()
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
       await page.setJavaScriptEnabled(false)
@@ -21,7 +14,7 @@ describe('Tabs', () => {
 
     beforeEach(async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html'),
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
         page.waitForNavigation()
       ])
     })
@@ -42,7 +35,7 @@ describe('Tabs', () => {
   describe('when JavaScript is available', () => {
     beforeEach(async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html'),
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
         page.waitForNavigation()
       ])
     })
@@ -87,7 +80,7 @@ describe('Tabs', () => {
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html'),
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
         page.waitForNavigation()
       ])
     })
@@ -129,7 +122,7 @@ describe('Tabs', () => {
     describe('when the tab contains a DOM element', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto('http://localhost:3000/components/tabs/index.html'),
+          page.goto(`${BASE_URL}/components/tabs/index.html`),
           page.waitForNavigation()
         ])
       })
@@ -166,7 +159,7 @@ describe('Tabs', () => {
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html'),
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
         page.waitForNavigation()
       ])
     })
@@ -211,7 +204,7 @@ describe('Tabs', () => {
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html#tab-two'),
+        page.goto(`${BASE_URL}/components/tabs/index.html#tab-two`),
         page.waitForNavigation()
       ])
 
@@ -239,9 +232,7 @@ describe('Tabs', () => {
 
     it('should only update based on hashes that are tabs', async () => {
       await Promise.all([
-        page.goto(
-          'http://localhost:3000/components/tabs/tabs-with-anchor-in-panel.html'
-        ),
+        page.goto(`${BASE_URL}/components/tabs/tabs-with-anchor-in-panel.html`),
         page.waitForNavigation()
       ])
 
@@ -257,7 +248,7 @@ describe('Tabs', () => {
   describe('when rendered on a small device', () => {
     beforeEach(async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html'),
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
         page.waitForNavigation()
       ])
     })
