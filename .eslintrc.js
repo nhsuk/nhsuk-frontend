@@ -7,6 +7,7 @@ module.exports = {
   ignorePatterns: [
     '**/coverage/**',
     '**/dist/**',
+    '**/engine_scripts/**/*',
 
     // Enable dotfile linting
     '!.*',
@@ -75,7 +76,7 @@ module.exports = {
       }
     },
     {
-      files: ['**/engine_scripts/**/*.{cjs,js,mjs}', '**/*.test.{cjs,js,mjs}'],
+      files: ['**/*.test.{cjs,js,mjs}'],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
         browser: true,

@@ -10,17 +10,15 @@ const {
 module.exports = {
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
-  debug: false,
-  debugWindow: false,
   dockerCommandTemplate:
     'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
   engine: 'playwright',
   engineOptions: {
-    args: ['--no-sandbox']
+    browser: 'chromium'
   },
   id: 'nhsuk-frontend',
-  onBeforeScript: 'puppet/onBefore.js',
-  onReadyScript: 'puppet/onReady.js',
+  onBeforeScript: 'playwright/onBefore.js',
+  onReadyScript: 'playwright/onReady.js',
   paths: {
     bitmaps_reference: 'tests/backstop/bitmaps_reference',
     bitmaps_test: 'tests/backstop/bitmaps_test',
