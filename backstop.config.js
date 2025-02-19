@@ -1,25 +1,29 @@
+const { executablePath } = require('puppeteer')
+
 const {
-  HOSTNAME = '0.0.0.0', // Default via `npm start`
-  BASE_HOST = HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : HOSTNAME,
+  BASE_HOST = 'localhost', // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
 } = process.env
 
 /**
- * @type {PlaywrightEngineConfig}
+ * @type {PuppeteerEngineConfig}
  */
 module.exports = {
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
-  dockerCommandTemplate:
-    'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
-  engine: 'playwright',
+  engine: 'puppeteer',
   engineOptions: {
-    browser: 'chromium',
+    args: [
+      '--deterministic-mode',
+      '--font-render-hinting=none',
+      '--force-device-scale-factor=2'
+    ],
+    chromePath: executablePath(),
     gotoParameters: { waitUntil: 'load' }
   },
   id: 'nhsuk-frontend',
-  onBeforeScript: 'playwright/onBefore.js',
-  onReadyScript: 'playwright/onReady.js',
+  onBeforeScript: 'puppet/onBefore.js',
+  onReadyScript: 'puppet/onReady.js',
   paths: {
     bitmaps_reference: 'tests/backstop/bitmaps_reference',
     bitmaps_test: 'tests/backstop/bitmaps_test',
@@ -517,5 +521,5 @@ module.exports = {
 }
 
 /**
- * @import { PlaywrightEngineConfig } from 'backstopjs'
+ * @import { PuppeteerEngineConfig } from 'backstopjs'
  */
