@@ -86,7 +86,7 @@ jobs:
         run: npm ci
 
       - name: Run backstop
-        run: npm run backstop:test
+        run: npm run test:visual
 
       - name: Save backstop report
         uses: actions/upload-artifact@v4

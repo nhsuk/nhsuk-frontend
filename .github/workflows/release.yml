@@ -27,18 +27,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build
+        run: npm run build
+
       - name: Run linting
         run: npm run lint
 
       - name: Run tests
-        run: npm test
-
-      - name: Build release artifact
-        run: npm run build-gh-release
+        run: npm test --ignore-scripts
 
       - name: Get package version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+
+      - name: Create release artifact
+        run: npx gulp zip
 
       - name: Create release
         id: create_release
@@ -61,9 +64,6 @@ jobs:
           asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
           asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
-
-      - name: Build GitHub pages
-        run: npm run build-gh-pages
 
       - name: Deploy GitHub pages
         uses: JamesIves/github-pages-deploy-action@3.7.1

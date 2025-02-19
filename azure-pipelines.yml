@@ -30,7 +30,7 @@ steps:
   - script: npm test --ignore-scripts
     displayName: 'Test'
 
-  - script: npm run backstop:test
+  - script: npm run test:visual
     displayName: 'Backstop'
 
   - task: ArchiveFiles@2
