@@ -1,56 +1,93 @@
+const { mkdir, writeFile } = require('fs/promises')
+const { join, parse } = require('path')
+
+const { glob } = require('glob')
 const gulp = require('gulp')
 const connect = require('gulp-connect')
-const gulpNunjucks = require('gulp-nunjucks')
-const rename = require('gulp-rename')
+const { HtmlValidate, formatterFactory } = require('html-validate')
 const nunjucks = require('nunjucks')
+const PluginError = require('plugin-error')
 
-const config = {
-  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
-  dest: 'dist/app',
-  templates: ['app/_templates', 'packages']
+const validatorConfig = require('../.htmlvalidate')
+
+// Base URL is overridden for `npm run build-gh-pages`
+const { BASE_URL = '/' } = process.env
+
+/**
+ * Compile Nunjucks into HTML
+ */
+async function buildHTML() {
+  const paths = await glob('**/*.njk', {
+    cwd: 'app',
+    nodir: true
+  })
+
+  // Configure Nunjucks
+  const env = nunjucks.configure(['app', 'app/_templates', 'packages'], {
+    trimBlocks: true,
+    lstripBlocks: true
+  })
+
+  for (const path of paths) {
+    const { name, dir } = parse(path)
+
+    const html = env.render(path, {
+      baseUrl: BASE_URL
+    })
+
+    const destPath = join('dist/app', dir)
+    const filePath = join(destPath, `${name}.html`)
+
+    // Write to disk
+    await mkdir(destPath, { recursive: true })
+    await writeFile(filePath, html)
+  }
 }
 
 /**
- * Turn markdown into html with a nunjucks layout
+ * Validate Nunjucks HTML output
  */
-function buildHtml() {
-  return gulp
-    .src(['app/**/*.njk'])
-    .pipe(
-      gulpNunjucks.compile(
-        {
-          // site-wide data goes here
-          baseUrl: config.baseUrl
-        },
-        {
-          env: new nunjucks.Environment(
-            new nunjucks.FileSystemLoader(config.templates)
-          )
-        }
-      )
-    )
-    .pipe(
-      rename({
-        extname: '.html'
-      })
-    )
-    .pipe(gulp.dest(config.dest))
+async function validateHTML() {
+  const paths = await glob('dist/app/**/*.html', {
+    nodir: true
+  })
+
+  // Configure validator
+  const validator = new HtmlValidate(validatorConfig)
+  const validatorErrors = /** @type {Result[]} */ ([])
+
+  // HTML validation
+  for (const path of paths) {
+    const report = await validator.validateFile(path)
+    if (!report.valid) validatorErrors.push(...report.results)
+  }
+
+  // Throw on HTML validation errors
+  if (validatorErrors.length) {
+    const formatter = formatterFactory('codeframe')
+    throw new PluginError('validateHTML', formatter(validatorErrors))
+  }
 }
 
 /**
- * Copy built assets from dist into the documentation directory
+ * Copy CSS from dist into the documentation directory
  */
-function copyBuiltAssets() {
-  return gulp.src('dist/*.{css,js}').pipe(gulp.dest(`${config.dest}/assets/`))
+function copyCSS() {
+  return gulp.src('dist/*.css').pipe(gulp.dest('dist/app/assets'))
+}
+
+/**
+ * Copy JS from dist into the documentation directory
+ */
+function copyJS() {
+  return gulp.src('dist/*.js').pipe(gulp.dest('dist/app/assets'))
 }
 
 /**
  * Copy logos, icons and other binary assets
  */
 function copyBinaryAssets() {
-  return gulp
-    .src('packages/assets/**/*')
-    .pipe(gulp.dest(`${config.dest}/assets/`))
+  return gulp.src('packages/assets/**/*').pipe(gulp.dest('dist/app/assets'))
 }
 
 /**
@@ -61,7 +98,7 @@ function serve() {
     host: '0.0.0.0',
     livereload: true,
     port: 3000,
-    root: config.dest
+    root: 'dist/app'
   })
 }
 
@@ -69,12 +106,32 @@ function serve() {
  * Reload the connect server
  */
 function reload() {
-  return gulp.src(config.dest).pipe(connect.reload())
+  return gulp.src('dist/app').pipe(connect.reload())
 }
 
 gulp.task(
   'docs:build',
-  gulp.series([copyBuiltAssets, buildHtml, copyBinaryAssets, reload])
+  gulp.series([
+    copyCSS,
+    copyJS,
+    copyBinaryAssets,
+    buildHTML,
+    validateHTML,
+    reload
+  ])
 )
 
-gulp.task('docs:serve', gulp.series(['docs:build', gulp.parallel(serve)]))
+gulp.task('docs:watch', () =>
+  Promise.all([
+    gulp.watch(['app/**/*.njk'], buildHTML),
+    gulp.watch(['dist/*.css'], copyCSS),
+    gulp.watch(['dist/*.js'], copyJS),
+    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
+  ])
+)
+
+gulp.task('docs:serve', gulp.series([serve]))
+
+/**
+ * @import { Result } from 'html-validate'
+ */
