@@ -126,7 +126,12 @@ function webpackJS() {
           minimize: false // minification is handled by terser
         },
         output: {
-          filename: 'nhsuk.js'
+          filename: 'nhsuk.js',
+
+          // Make source webpack:// paths relative
+          devtoolModuleFilenameTemplate(info) {
+            return relative(join(cwd(), 'dist'), info.absoluteResourcePath)
+          }
         },
         target: 'browserslist'
       })
