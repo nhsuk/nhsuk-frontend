@@ -1,9 +1,11 @@
 // mq() v6.0.0
 // sass-mq/sass-mq
 
+@use "sass:list";
 @use "sass:math";
 @use "sass:map";
-@use "sass:list";
+@use "sass:meta";
+@use "sass:string";
 
 /// Breakpoint list
 ///
@@ -139,7 +141,7 @@ $mq-media-type: all !default;
 
   // From: this breakpoint (inclusive)
   @if $from {
-    @if type-of($from) == number {
+    @if meta.type-of($from) == number {
       $min-width: px2em($from);
     } @else {
       $min-width: px2em(get-breakpoint-width($from, $breakpoints));
@@ -148,7 +150,7 @@ $mq-media-type: all !default;
 
   // Until: that breakpoint (exclusive)
   @if $until {
-    @if type-of($until) == number {
+    @if meta.type-of($until) == number {
       $max-width: px2em($until);
     } @else {
       $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - 0.01em;
@@ -168,7 +170,7 @@ $mq-media-type: all !default;
   // Remove unnecessary media query prefix 'all and '
   @if ($media-type == "all" and $media-query != "") {
     $media-type: "";
-    $media-query: str-slice(unquote($media-query), 6);
+    $media-query: string.slice(string.unquote($media-query), 6);
   }
 
   @media #{$media-type + $media-query} {
