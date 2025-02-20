@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "build": "gulp bundle docs:build --color --series",
+    "build": "gulp build docs:build --color --series",
     "prestart": "npm run build",
     "start": "gulp --color",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:prettier",

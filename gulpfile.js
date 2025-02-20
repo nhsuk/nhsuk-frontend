@@ -210,17 +210,10 @@ gulp.task('clean:zip', async () => {
   return clean(['dist/{assets,css,js}', 'dist/*.zip'])
 })
 
-gulp.task('style', compileCSS)
+gulp.task('style', gulp.series([compileCSS, minifyCSS]))
+gulp.task('script', gulp.series([webpackJS, minifyJS]))
 
-gulp.task(
-  'build',
-  gulp.series(['clean', gulp.parallel([compileCSS, webpackJS])])
-)
-
-gulp.task(
-  'bundle',
-  gulp.series(['build', gulp.parallel([minifyCSS, minifyJS])])
-)
+gulp.task('build', gulp.series(['clean', gulp.parallel(['style', 'script'])]))
 
 gulp.task(
   'zip',
@@ -233,8 +226,8 @@ gulp.task(
 
 gulp.task('watch', () =>
   Promise.all([
-    gulp.watch(['packages/**/*.scss'], compileCSS),
-    gulp.watch(['packages/**/*.js'], webpackJS)
+    gulp.watch(['packages/**/*.scss'], gulp.series(['style'])),
+    gulp.watch(['packages/**/*.js'], gulp.series(['script']))
   ])
 )
 
