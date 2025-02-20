@@ -137,8 +137,8 @@ gulp.task('docs:watch', () =>
   Promise.all([
     gulp.watch(['app/**/*.njk'], buildHTML),
     gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.css'], copyCSS),
-    gulp.watch(['dist/*.js'], copyJS),
+    gulp.watch(['dist/*.{css,css.map}'], copyCSS),
+    gulp.watch(['dist/*.{js,js.map}'], copyJS),
     gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
   ])
 )

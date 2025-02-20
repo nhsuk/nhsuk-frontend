@@ -35,26 +35,44 @@ const sass = gulpSass(dartSass)
 /* Build the CSS from source */
 function compileCSS(done) {
   return gulp
-    .src(['packages/nhsuk.scss'])
-    .pipe(sass().on('error', done))
+    .src(['packages/nhsuk.scss'], {
+      sourcemaps: true
+    })
+    .pipe(
+      sass({
+        sourceMap: true,
+        sourceMapIncludeSources: true
+      }).on('error', done)
+    )
     .pipe(postcss([autoprefixer()]))
-    .pipe(gulp.dest('dist/'))
+    .pipe(
+      gulp.dest('dist/', {
+        sourcemaps: '.'
+      })
+    )
 }
 
 /* Minify CSS and add a min.css suffix */
 function minifyCSS() {
   return gulp
-    .src([
-      'dist/*.css',
-      '!dist/*.min.css' // don't re-minify minified css
-    ])
+    .src(
+      [
+        'dist/*.css',
+        '!dist/*.min.css' // don't re-minify minified css
+      ],
+      { sourcemaps: true }
+    )
     .pipe(postcss([cssnano()]))
     .pipe(
       rename({
         suffix: `-${version}.min`
       })
     )
-    .pipe(gulp.dest('dist/'))
+    .pipe(
+      gulp.dest('dist/', {
+        sourcemaps: '.'
+      })
+    )
 }
 
 /**
@@ -64,9 +82,12 @@ function minifyCSS() {
 /* Use Webpack to build and minify the NHS.UK components JS. */
 function webpackJS() {
   return gulp
-    .src('./packages/nhsuk.js')
+    .src('./packages/nhsuk.js', {
+      sourcemaps: true
+    })
     .pipe(
       webpack({
+        devtool: 'source-map',
         mode: 'production',
         module: {
           rules: [
@@ -89,19 +110,29 @@ function webpackJS() {
         target: 'browserslist'
       })
     )
-    .pipe(gulp.dest('./dist'))
+    .pipe(
+      gulp.dest('./dist', {
+        sourcemaps: '.'
+      })
+    )
 }
 
 /* Minify the JS file for release */
 function minifyJS() {
   return gulp
-    .src([
-      'dist/*.js',
-      '!dist/*.min.js' // don't re-minify minified javascript
-    ])
+    .src(
+      [
+        'dist/*.js',
+        '!dist/*.min.js' // don't re-minify minified javascript
+      ],
+      { sourcemaps: true }
+    )
     .pipe(
       terser({
         format: { comments: false },
+        sourceMap: {
+          includeSources: true
+        },
 
         // Compatibility workarounds
         ecma: 5,
@@ -110,23 +141,14 @@ function minifyJS() {
     )
     .pipe(
       rename({
-        suffix: '.min'
+        suffix: `-${version}.min`
       })
     )
-    .pipe(gulp.dest('dist/'))
-}
-
-/* Version the JS file for release */
-function versionJS() {
-  return gulp
-    .src('dist/nhsuk.min.js')
     .pipe(
-      rename({
-        basename: `nhsuk-${version}`,
-        extname: '.min.js'
+      gulp.dest('dist/', {
+        sourcemaps: '.'
       })
     )
-    .pipe(gulp.dest('dist/'))
 }
 
 /**
@@ -148,25 +170,30 @@ function assets() {
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
-  return gulp
-    .src('dist/*.min.js', { ignore: 'dist/nhsuk.min.js' })
-    .pipe(gulp.dest('dist/js/'))
+  return gulp.src('dist/*.min.{js,js.map}').pipe(gulp.dest('dist/js/'))
 }
 
 /* Copy CSS files into their relevant folders */
 
 function cssFolder() {
-  return gulp.src('dist/*.min.css').pipe(gulp.dest('dist/css/'))
+  return gulp.src('dist/*.min.{css,css.map}').pipe(gulp.dest('dist/css/'))
 }
 
 async function createZip() {
   const { default: zip } = await import('gulp-zip')
 
   return gulp
-    .src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**'], {
-      base: 'dist',
-      encoding: false
-    })
+    .src(
+      [
+        'dist/css/*.min.{css,css.map}',
+        'dist/js/*.min.{js,js.map}',
+        'dist/assets/**'
+      ],
+      {
+        base: 'dist',
+        encoding: false
+      }
+    )
     .pipe(zip(`nhsuk-frontend-${version}.zip`))
     .pipe(gulp.dest('dist'))
 }
@@ -192,7 +219,7 @@ gulp.task(
 
 gulp.task(
   'bundle',
-  gulp.series(['build', gulp.parallel([minifyCSS, minifyJS]), versionJS])
+  gulp.series(['build', gulp.parallel([minifyCSS, minifyJS])])
 )
 
 gulp.task(
