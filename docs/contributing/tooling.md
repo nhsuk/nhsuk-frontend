@@ -28,11 +28,11 @@ To run a gulp task, run `npx gulp <task_name>` on the command line.
 | task         | action                                                                 |
 | ------------ | ---------------------------------------------------------------------- |
 | `default`    | Serve the documentation on port 3000. Recompile when there are changes |
-| `style`      | Compiles CSS                                                           |
-| `build`      | Compiles CSS and JS                                                    |
-| `bundle`     | Creates distributable CSS and JS files in `dist/`                      |
+| `style`      | Compiles CSS only, including minified files in `dist/`                 |
+| `script`     | Compiles JS only, including minified files in `dist/`                  |
+| `build`      | Deletes `dist/` contents then runs `style` and `script`                |
 | `zip`        | Creates a distributable zip file in `dist/`                            |
-| `watch`      | Recompile distributables when there are changes                        |
+| `watch`      | Runs `style` and `script` when there are changes                       |
 | `docs:build` | Recompile documentation                                                |
 | `docs:watch` | Recompile documentation when there are changes                         |
 | `docs:serve` | Serve documentation on port 3000                                       |

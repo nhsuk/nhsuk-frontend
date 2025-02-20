@@ -9,6 +9,7 @@ const nunjucks = require('nunjucks')
 const PluginError = require('plugin-error')
 
 const validatorConfig = require('../.htmlvalidate')
+const { version } = require('../package.json')
 
 /**
  * Compile Nunjucks into HTML
@@ -29,7 +30,8 @@ async function buildHTML() {
     const { name, dir } = parse(path)
 
     const html = env.render(path, {
-      baseUrl: '/nhsuk-frontend/'
+      baseUrl: '/nhsuk-frontend/',
+      version
     })
 
     const destPath = join('dist/app', dir)
@@ -71,8 +73,8 @@ async function validateHTML() {
  */
 function copyCSS() {
   return gulp
-    .src('dist/*.css')
-    .pipe(gulp.dest('dist/app/assets'))
+    .src('dist/*.min.{css,css.map}')
+    .pipe(gulp.dest('dist/app/stylesheets'))
     .pipe(browserSync.stream())
 }
 
@@ -81,8 +83,8 @@ function copyCSS() {
  */
 function copyJS() {
   return gulp
-    .src('dist/*.js')
-    .pipe(gulp.dest('dist/app/assets'))
+    .src('dist/*.min.{js,js.map}')
+    .pipe(gulp.dest('dist/app/javascripts'))
     .pipe(browserSync.stream())
 }
 
@@ -137,8 +139,8 @@ gulp.task('docs:watch', () =>
   Promise.all([
     gulp.watch(['app/**/*.njk'], buildHTML),
     gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.css'], copyCSS),
-    gulp.watch(['dist/*.js'], copyJS),
+    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
+    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
     gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
   ])
 )
