@@ -103,11 +103,12 @@
 
     @if not $breakpoint {
       // [3]
-
-      @if $direction == all {
-        #{$property}: $breakpoint-value iff($important, !important);
-      } @else {
-        #{$property}-#{$direction}: $breakpoint-value iff($important, !important);
+      & {
+        @if $direction == all {
+          #{$property}: $breakpoint-value iff($important, !important);
+        } @else {
+          #{$property}-#{$direction}: $breakpoint-value iff($important, !important);
+        }
       }
     } @else {
       @include mq($from: $breakpoint) {
