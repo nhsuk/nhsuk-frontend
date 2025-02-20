@@ -101,7 +101,7 @@ function minifyCSS() {
  */
 
 /* Use Webpack to build and minify the NHS.UK components JS. */
-function webpackJS() {
+function webpackJS(done) {
   return gulp
     .src('./packages/nhsuk.js', {
       sourcemaps: true
@@ -134,7 +134,7 @@ function webpackJS() {
           }
         },
         target: 'browserslist'
-      })
+      }).on('error', done)
     )
     .pipe(
       gulp.dest('./dist', {
