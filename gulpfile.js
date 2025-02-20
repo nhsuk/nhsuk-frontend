@@ -10,6 +10,7 @@ const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
 const gulpSass = require('gulp-sass')
 const terser = require('gulp-terser')
+const PluginError = require('plugin-error')
 const dartSass = require('sass')
 const webpack = require('webpack-stream')
 
@@ -47,7 +48,13 @@ function compileCSS(done) {
       sass({
         sourceMap: true,
         sourceMapIncludeSources: true
-      }).on('error', done)
+      }).on('error', (error) => {
+        done(
+          new PluginError('compileCSS', error.messageFormatted, {
+            showProperties: false
+          })
+        )
+      })
     )
     .pipe(
       new Transform({
@@ -133,8 +140,18 @@ function webpackJS(done) {
             return relative(join(cwd(), 'dist'), info.absoluteResourcePath)
           }
         },
+        stats: {
+          colors: true,
+          errors: false
+        },
         target: 'browserslist'
-      }).on('error', done)
+      }).on('error', (error) => {
+        done(
+          new PluginError('webpackJS', error, {
+            showProperties: false
+          })
+        )
+      })
     )
     .pipe(
       gulp.dest('./dist', {
