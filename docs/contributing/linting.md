@@ -39,7 +39,7 @@ Good:
 
 ```scss
 .selector {
-  color: $colour_nhsuk-blue;
+  color: $color_nhsuk-blue;
 }
 ```
 
