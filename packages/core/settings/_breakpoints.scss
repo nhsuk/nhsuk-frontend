@@ -20,13 +20,9 @@
 /// @group settings
 ////
 
-$mq-responsive: true; // [1]
-
 $mq-breakpoints: (
   mobile: 320px,
   tablet: 641px,
   desktop: 769px,
   large-desktop: 990px
 );
-
-$mq-static-breakpoint: desktop; // [2]
