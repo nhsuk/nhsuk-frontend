@@ -15,11 +15,11 @@
 ///
 
 .nhsuk-hero {
-  @include print-color($nhsuk-print-text-color);
-
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
   position: relative; // [1]
+
+  @include print-color($nhsuk-print-text-color);
 
   .nhsuk-hero--border {
     // [2]

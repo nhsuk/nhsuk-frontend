@@ -19,16 +19,16 @@
 /// @group elements
 ////
 
+@if $nhsuk-include-font-face {
+  @include nhsuk-font-face-frutiger;
+}
+
 html {
   background-color: $color_nhsuk-grey-4;
   overflow-y: scroll; // [1]
 
   @if $nhsuk-include-font-face {
-    @include nhsuk-font-face-frutiger;
-
-    & {
-      font-family: $nhsuk-font, $nhsuk-font-fallback;
-    }
+    font-family: $nhsuk-font, $nhsuk-font-fallback;
   }
 }
 
