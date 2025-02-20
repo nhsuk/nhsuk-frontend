@@ -1,3 +1,8 @@
+const { join, relative } = require('path')
+const { cwd } = require('process')
+const { Transform } = require('stream')
+const { fileURLToPath } = require('url')
+
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const gulp = require('gulp')
@@ -43,6 +48,22 @@ function compileCSS(done) {
         sourceMap: true,
         sourceMapIncludeSources: true
       }).on('error', done)
+    )
+    .pipe(
+      new Transform({
+        objectMode: true,
+
+        // Make source file:// paths relative
+        transform(file, enc, cb) {
+          if (file.sourceMap?.sources) {
+            file.sourceMap.sources = file.sourceMap.sources.map((path) =>
+              relative(join(cwd(), 'dist'), fileURLToPath(path))
+            )
+          }
+
+          cb(null, file)
+        }
+      })
     )
     .pipe(postcss([autoprefixer()]))
     .pipe(
