@@ -15,6 +15,15 @@
     margin-left: -($nhsuk-gutter-half);
   }
 
+  // These *must* be defined in a separate loop as they have the same
+  // specificity as the non-breakpoint specific classes, so need to appear before
+  // them in the outputted CSS
+  @each $width in map.keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width}-from-tablet {
+      @include nhsuk-grid-column($width, $at: tablet, $class: false);
+    }
+  }
+
   @each $width in map.keys($nhsuk-grid-widths) {
     .nhsuk-grid-column-#{$width} {
       @include nhsuk-grid-column($width, $class: false);
