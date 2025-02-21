@@ -16,6 +16,15 @@ module.exports = {
 
   projects: [
     {
+      displayName: 'JavaScript unit tests',
+      testMatch: [
+        '**/*.unit.test.{js,mjs}',
+
+        // Exclude integration tests
+        '!<rootDir>/tests/integration/**'
+      ]
+    },
+    {
       displayName: 'JavaScript behaviour tests',
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.js']
