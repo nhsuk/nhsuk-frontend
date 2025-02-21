@@ -16,12 +16,12 @@ module.exports = {
 
   projects: [
     {
-      displayName: 'JSDom',
+      displayName: 'JavaScript behaviour tests',
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.js']
     },
     {
-      displayName: 'Pupppeteer',
+      displayName: 'JavaScript component tests',
       globalSetup: 'jest-environment-puppeteer/setup',
       globalTeardown:
         '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs',
