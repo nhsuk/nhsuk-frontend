@@ -41,6 +41,8 @@
 ///
 /// @example scss - Customising the class name
 ///   @include govuk-grid-row("app-grid");
+///
+/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
 
 @mixin govuk-grid-row($class: "nhsuk-grid-row") {
   .#{$class} {
