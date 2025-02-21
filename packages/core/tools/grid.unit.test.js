@@ -123,7 +123,7 @@ describe('grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 46.25em) {
+        @media (min-width: 61.25em) {
           .nhsuk-grid-column-full {
             width: 100%;
             float: left;
@@ -151,7 +151,7 @@ describe('grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 46.25em) {
+        @media (min-width: 61.25em) {
           .nhsuk-grid-column-two-thirds {
             width: 66.6666666667%;
             float: left;
@@ -164,8 +164,8 @@ describe('grid system', () => {
       const sass = `
         ${sassImports}
 
-        .nhsuk-grid-column-one-quarter-at-desktop {
-          @include govuk-grid-column(one-quarter, $at: desktop, $class: false);
+        .nhsuk-grid-column-one-quarter-at-tablet {
+          @include govuk-grid-column(one-quarter, $at: tablet, $class: false);
         }
       `
 
@@ -174,12 +174,12 @@ describe('grid system', () => {
       })
 
       expect(results.css).toBe(outdent`
-        .nhsuk-grid-column-one-quarter-at-desktop {
+        .nhsuk-grid-column-one-quarter-at-tablet {
           box-sizing: border-box;
           padding: 0 16px;
         }
-        @media (min-width: 61.25em) {
-          .nhsuk-grid-column-one-quarter-at-desktop {
+        @media (min-width: 46.25em) {
+          .nhsuk-grid-column-one-quarter-at-tablet {
             width: 25%;
             float: left;
           }
@@ -234,7 +234,7 @@ describe('grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 46.25em) {
+        @media (min-width: 61.25em) {
           .nhsuk-grid-column-one-half-right {
             width: 50%;
             float: right;
@@ -260,7 +260,7 @@ describe('grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 46.25em) {
+        @media (min-width: 61.25em) {
           .nhsuk-grid-column-full {
             width: 100%;
             float: left;
@@ -286,7 +286,7 @@ describe('grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 46.25em) {
+        @media (min-width: 61.25em) {
           .large-column-three-quarters {
             width: 75%;
             float: left;
