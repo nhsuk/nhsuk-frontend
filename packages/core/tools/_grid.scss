@@ -13,12 +13,21 @@
 /// @return {Number} Percentage width
 /// @throw if `$key` is not a valid grid width
 
-@function grid-width($key) {
+@function nhsuk-grid-width($key) {
   @if map.has-key($nhsuk-grid-widths, $key) {
     @return map.get($nhsuk-grid-widths, $key);
   }
 
   @error "Unknown grid width `#{$key}`";
+}
+
+/// Grid width percentage (alias)
+///
+/// @alias nhsuk-grid-width
+/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-width
+
+@function grid-width($key) {
+  @return nhsuk-grid-width($key);
 }
 
 /// Generate grid row styles
@@ -35,9 +44,9 @@
 
 @mixin govuk-grid-row($class: "nhsuk-grid-row") {
   .#{$class} {
+    @include clearfix;
     margin-left: -($nhsuk-gutter-half);
     margin-right: -($nhsuk-gutter-half);
-    @include clearfix;
   }
 }
 
@@ -77,8 +86,8 @@
       width: 100%;
     }
     @include nhsuk-media-query($from: $at) {
+      width: nhsuk-grid-width($width);
       float: $float;
-      width: grid-width($width);
     }
   }
 }
