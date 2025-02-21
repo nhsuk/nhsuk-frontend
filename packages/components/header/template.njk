@@ -81,6 +81,10 @@
           <a class="nhsuk-header__account-link" href="{{ item.href }}">
             {{ _accountItem(item) }}
           </a>
+        {% elif item.action %}
+          <button class="nhsuk-header__account-button" formaction="{{ item.action }}" formmethod="{{ item.method or "post" }}">
+            {{ _accountItem(item) }}
+          </button>
         {% else %}
           {{ _accountItem(item) }}
         {% endif %}
