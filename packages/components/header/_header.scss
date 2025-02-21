@@ -222,26 +222,30 @@
 }
 
 .nhsuk-navigation {
-  display: flex;
+  @include govuk-width-container;
 
   @include mq($until: tablet) {
     position: relative;
     z-index: 10;
   }
+
+  @include mq($from: tablet) {
+    border-top: 1px solid $color_transparent_nhsuk-white-20;
+  }
 }
 
 // Visible navigation list
 .nhsuk-header__navigation-list {
-  @include govuk-width-container;
-  column-gap: nhsuk-spacing(4);
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  margin: 0 (nhsuk-spacing(2) * -1);
   padding: 0;
-  width: 100%;
+  width: calc(100% + nhsuk-spacing(2) + nhsuk-spacing(2));
 
   @include mq($from: tablet) {
-    border-top: 1px solid $color_transparent_nhsuk-white-20;
+    margin: 0 (nhsuk-spacing(3) * -1);
+    width: calc(100% + nhsuk-spacing(3) + nhsuk-spacing(3));
   }
 
   .js-enabled & {
@@ -257,6 +261,11 @@
 
 .nhsuk-header__navigation-item {
   margin-bottom: 0;
+  padding: 0 nhsuk-spacing(2);
+
+  @include mq($from: tablet) {
+    padding: 0 nhsuk-spacing(3);
+  }
 }
 
 // This is a <strong> element used as a fallback mechanism for visually
@@ -328,10 +337,13 @@
   top: 100%;
   left: 0;
 
+  @include mq($until: tablet) {
+    margin: 0 (nhsuk-spacing(3) * -1);
+  }
+
   .nhsuk-header__navigation-link {
     @include govuk-width-container;
     @include nhsuk-link-style-no-visited-state;
-    padding: 12px 0;
 
     // When in expanded menu, a current item link should revert to having a
     // no box-shadow, with a box-shadow added to containing list item instead.
@@ -349,6 +361,7 @@
 
   .nhsuk-header__navigation-item {
     border-top: 1px solid $color_nhsuk-grey-5;
+    padding: 0;
   }
 
   // Current item within expended mobile menu gets blue line on left edge.
@@ -369,6 +382,11 @@
 .nhsuk-mobile-menu-container {
   align-self: center;
   display: none;
+  padding: 0 nhsuk-spacing(2);
+
+  @include mq($from: tablet) {
+    padding: 0 nhsuk-spacing(3);
+  }
 }
 
 .nhsuk-mobile-menu-container--visible {
