@@ -7,6 +7,7 @@
 /// @group tools
 ////
 
+@use "sass:map";
 @use "sass:math";
 
 /// Text colour
@@ -53,7 +54,7 @@
 /// @return {Number} The line height as either a relative value or unmodified
 
 @function _nhsuk-line-height($line-height, $font-size) {
-  @if not unitless($line-height) and unit($line-height) == unit($font-size) {
+  @if not math.is-unitless($line-height) and math.unit($line-height) == math.unit($font-size) {
     // Explicitly rounding to 5 decimal places to match the node-sass/libsass default precision.
     // This is expanded to 10 in dart-sass and results in significant line height differences
     // Therefore by rounding it here we achieve consistent rendering across node-sass and dart-sass
@@ -107,18 +108,18 @@
 ///
 
 @mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
-  @if not map-has-key($nhsuk-typography-scale, $size) {
+  @if not map.has-key($nhsuk-typography-scale, $size) {
     @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
   }
 
-  $font-map: map-get($nhsuk-typography-scale, $size);
+  $font-map: map.get($nhsuk-typography-scale, $size);
 
   @each $breakpoint, $breakpoint-map in $font-map {
-    $font-size: map-get($breakpoint-map, "font-size");
+    $font-size: map.get($breakpoint-map, "font-size");
     $font-size-rem: nhsuk-px-to-rem($font-size);
 
     $line-height: _nhsuk-line-height(
-      $line-height: if($override-line-height, $override-line-height, map-get($breakpoint-map, "line-height")),
+      $line-height: if($override-line-height, $override-line-height, map.get($breakpoint-map, "line-height")),
       $font-size: $font-size
     );
 

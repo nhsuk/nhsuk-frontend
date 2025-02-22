@@ -1,26 +1,22 @@
-import puppeteer, { KnownDevices } from 'puppeteer'
+const {
+  BASE_HOST = 'localhost', // Default via `npm start`
+  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+} = process.env
+
+import { KnownDevices } from 'puppeteer'
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  let page
-  let browser
-
-  beforeAll(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-  })
-
-  afterAll(async () => {
-    await browser.close()
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
       await page.setJavaScriptEnabled(false)
     })
 
     beforeEach(async () => {
-      await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+      await Promise.all([
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
+        page.waitForNavigation()
+      ])
     })
 
     afterAll(async () => {
@@ -28,31 +24,43 @@ describe('Tabs', () => {
     })
 
     it('falls back to making all tab containers visible', async () => {
-      const isContentVisible = await page.waitForSelector('.nhsuk-tabs__panel', { visible: true, timeout: 1000 })
+      const isContentVisible = await page.waitForSelector(
+        '.nhsuk-tabs__panel',
+        { visible: true, timeout: 1000 }
+      )
       expect(isContentVisible).toBeTruthy()
     })
   })
 
   describe('when JavaScript is available', () => {
     beforeEach(async () => {
-      await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+      await Promise.all([
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
+        page.waitForNavigation()
+      ])
     })
 
     it('should indicate the open state of the first tab', async () => {
       const firstTabAriaSelected = await page.evaluate(() =>
-        document.body.querySelector('.nhsuk-tabs__list-item:first-child .nhsuk-tabs__tab').getAttribute('aria-selected')
+        document.body
+          .querySelector('.nhsuk-tabs__list-item:first-child .nhsuk-tabs__tab')
+          .getAttribute('aria-selected')
       )
-      expect(firstTabAriaSelected).toEqual('true')
+      expect(firstTabAriaSelected).toBe('true')
 
       const firstTabClasses = await page.evaluate(
-        () => document.body.querySelector('.nhsuk-tabs__list-item:first-child').className
+        () =>
+          document.body.querySelector('.nhsuk-tabs__list-item:first-child')
+            .className
       )
       expect(firstTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
 
     it('should display the first tab panel', async () => {
       const tabPanelIsHidden = await page.evaluate(() =>
-        document.body.querySelector('.nhsuk-tabs > .nhsuk-tabs__panel').classList.contains('nhsuk-tabs__panel--hidden')
+        document.body
+          .querySelector('.nhsuk-tabs > .nhsuk-tabs__panel')
+          .classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(tabPanelIsHidden).toBeFalsy()
     })
@@ -60,7 +68,9 @@ describe('Tabs', () => {
     it('should hide all the tab panels except for the first one', async () => {
       const tabPanelIsHidden = await page.evaluate(() =>
         document.body
-          .querySelector('.nhsuk-tabs > .nhsuk-tabs__panel ~ .nhsuk-tabs__panel')
+          .querySelector(
+            '.nhsuk-tabs > .nhsuk-tabs__panel ~ .nhsuk-tabs__panel'
+          )
           .classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(tabPanelIsHidden).toBeTruthy()
@@ -69,7 +79,10 @@ describe('Tabs', () => {
 
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
-      await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+      await Promise.all([
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
+        page.waitForNavigation()
+      ])
     })
 
     it('should indicate the open state of the pressed tab', async () => {
@@ -81,10 +94,12 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
           .getAttribute('aria-selected')
       )
-      expect(secondTabAriaSelected).toEqual('true')
+      expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
-        () => document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)').className
+        () =>
+          document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)')
+            .className
       )
       expect(secondTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
@@ -106,22 +121,31 @@ describe('Tabs', () => {
 
     describe('when the tab contains a DOM element', () => {
       beforeEach(async () => {
-        await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+        await Promise.all([
+          page.goto(`${BASE_URL}/components/tabs/index.html`),
+          page.waitForNavigation()
+        ])
       })
 
       it('should display the tab panel associated with the selected tab', async () => {
         await page.evaluate(() => {
           // Replace contents of second tab with a DOM element
-          const secondTab = document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
+          const secondTab = document.body.querySelector(
+            '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
+          )
           secondTab.innerHTML = '<span>Tab 2</span>'
         })
 
         // Click the DOM element inside the second tab
-        await page.click('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab span')
+        await page.click(
+          '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab span'
+        )
 
         const secondTabPanelIsHidden = await page.evaluate(() => {
           const secondTabAriaControls = document.body
-            .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
+            .querySelector(
+              '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
+            )
             .getAttribute('aria-controls')
           return document.body
             .querySelector(`[id="${secondTabAriaControls}"]`)
@@ -134,7 +158,10 @@ describe('Tabs', () => {
 
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
-      await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+      await Promise.all([
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
+        page.waitForNavigation()
+      ])
     })
 
     it('should indicate the open state of the next tab', async () => {
@@ -147,10 +174,12 @@ describe('Tabs', () => {
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
           .getAttribute('aria-selected')
       )
-      expect(secondTabAriaSelected).toEqual('true')
+      expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
-        () => document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)').className
+        () =>
+          document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)')
+            .className
       )
       expect(secondTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
@@ -175,47 +204,61 @@ describe('Tabs', () => {
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/index.html#tab-two'),
+        page.goto(`${BASE_URL}/components/tabs/index.html#tab-two`),
         page.waitForNavigation()
       ])
 
       const currentTabAriaSelected = await page.evaluate(() =>
-        document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]').getAttribute('aria-selected')
+        document.body
+          .querySelector('.nhsuk-tabs__tab[href="#tab-two"]')
+          .getAttribute('aria-selected')
       )
-      expect(currentTabAriaSelected).toEqual('true')
+      expect(currentTabAriaSelected).toBe('true')
 
       const currentTabClasses = await page.evaluate(
-        () => document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]').parentElement.className
+        () =>
+          document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]')
+            .parentElement.className
       )
       expect(currentTabClasses).toContain('nhsuk-tabs__list-item--selected')
 
       const currentTabPanelIsHidden = await page.evaluate(() =>
-        document.getElementById('tab-two').classList.contains('nhsuk-tabs__panel--hidden')
+        document
+          .getElementById('tab-two')
+          .classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(currentTabPanelIsHidden).toBeFalsy()
     })
 
     it('should only update based on hashes that are tabs', async () => {
       await Promise.all([
-        page.goto('http://localhost:3000/components/tabs/tabs-with-anchor-in-panel.html'),
+        page.goto(`${BASE_URL}/components/tabs/tabs-with-anchor-in-panel.html`),
         page.waitForNavigation()
       ])
 
       await page.click('[href="#anchor"]')
 
-      const activeElementId = await page.evaluate(() => document.activeElement.id)
-      expect(activeElementId).toEqual('anchor')
+      const activeElementId = await page.evaluate(
+        () => document.activeElement.id
+      )
+      expect(activeElementId).toBe('anchor')
     })
   })
 
   describe('when rendered on a small device', () => {
     beforeEach(async () => {
-      await Promise.all([page.goto('http://localhost:3000/components/tabs/index.html'), page.waitForNavigation()])
+      await Promise.all([
+        page.goto(`${BASE_URL}/components/tabs/index.html`),
+        page.waitForNavigation()
+      ])
     })
 
     it('falls back to making the all tab containers visible', async () => {
       await page.emulate(iPhone)
-      const isContentVisible = await page.waitForSelector('.nhsuk-tabs__panel', { visible: true, timeout: 1000 })
+      const isContentVisible = await page.waitForSelector(
+        '.nhsuk-tabs__panel',
+        { visible: true, timeout: 1000 }
+      )
       expect(isContentVisible).toBeTruthy()
     })
   })

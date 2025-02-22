@@ -1,4 +1,4 @@
-import { toggleAttribute } from '../../common'
+import { toggleAttribute } from '../../common.js'
 
 /**
  * Ensure details component is cross browser and accessible
@@ -7,7 +7,8 @@ import { toggleAttribute } from '../../common'
 
 export default ({ scope = document } = {}) => {
   // Does the browser support details component
-  const nativeSupport = typeof document.createElement('details').open === 'boolean'
+  const nativeSupport =
+    typeof document.createElement('details').open === 'boolean'
   if (nativeSupport) {
     return
   }
@@ -32,7 +33,9 @@ export default ({ scope = document } = {}) => {
     if (!content.id) content.setAttribute('id', `nhsuk-details__text${index}`)
 
     // Set summary element
-    const summary = scope.querySelector(`#${element.id} .nhsuk-details__summary`)
+    const summary = scope.querySelector(
+      `#${element.id} .nhsuk-details__summary`
+    )
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')
@@ -52,7 +55,8 @@ export default ({ scope = document } = {}) => {
       toggleAttribute(summary, 'aria-expanded')
       toggleAttribute(content, 'aria-hidden')
 
-      content.style.display = content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
+      content.style.display =
+        content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
       if (element.hasAttribute('open')) {
         element.removeAttribute('open')
       } else {

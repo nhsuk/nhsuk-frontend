@@ -3,7 +3,7 @@
 {% from "components/header/macro.njk" import header %}
 {% extends "layout.njk" %}
 
-{% block body %}
+{% block head %}
   <style>
     .app-count {
       align-self: center;
@@ -20,7 +20,9 @@
       justify-content: center;
     }
   </style>
+{% endblock %}
 
+{% block body %}
   {{ header({
     account: {
       items: [

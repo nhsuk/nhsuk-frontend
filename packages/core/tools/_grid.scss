@@ -5,6 +5,7 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
+@use "sass:map";
 @use "sass:math";
 
 /// Map of grid column widths
@@ -25,8 +26,8 @@ $_nhsuk-grid-widths: (
 /// @throw if `$key` is not a valid grid width
 
 @function grid-width($key) {
-  @if map-has-key($_nhsuk-grid-widths, $key) {
-    @return map-get($_nhsuk-grid-widths, $key);
+  @if map.has-key($_nhsuk-grid-widths, $key) {
+    @return map.get($_nhsuk-grid-widths, $key);
   }
 
   @error "Unknown grid width `#{$key}`";
