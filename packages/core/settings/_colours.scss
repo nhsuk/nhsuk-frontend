@@ -12,6 +12,8 @@
 /// @group settings
 ////
 
+@use "sass:color";
+
 // stylelint-disable color-no-hex
 
 $color_nhsuk-blue: #005eb8;
@@ -58,11 +60,11 @@ $alpha-transparency-50: 0.5;
 ///   shade($color_nhsuk-blue, 50%);
 
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return color.mix(white, $color, $percentage);
 }
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return color.mix(black, $color, $percentage);
 }
 
 /// Primary colour variations

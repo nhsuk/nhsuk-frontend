@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+:new: **New features**
+
+- Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
+
 :wrench: **Fixes**
 
 We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)

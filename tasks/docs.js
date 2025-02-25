@@ -1,17 +1,15 @@
 const { mkdir, writeFile } = require('fs/promises')
 const { join, parse } = require('path')
 
+const browserSync = require('browser-sync')
 const { glob } = require('glob')
 const gulp = require('gulp')
-const connect = require('gulp-connect')
 const { HtmlValidate, formatterFactory } = require('html-validate')
 const nunjucks = require('nunjucks')
 const PluginError = require('plugin-error')
 
 const validatorConfig = require('../.htmlvalidate')
-
-// Base URL is overridden for `npm run build-gh-pages`
-const { BASE_URL = '/' } = process.env
+const { version } = require('../package.json')
 
 /**
  * Compile Nunjucks into HTML
@@ -32,7 +30,8 @@ async function buildHTML() {
     const { name, dir } = parse(path)
 
     const html = env.render(path, {
-      baseUrl: BASE_URL
+      baseUrl: '/nhsuk-frontend/',
+      version
     })
 
     const destPath = join('dist/app', dir)
@@ -73,59 +72,75 @@ async function validateHTML() {
  * Copy CSS from dist into the documentation directory
  */
 function copyCSS() {
-  return gulp.src('dist/*.css').pipe(gulp.dest('dist/app/assets'))
+  return gulp
+    .src('dist/*.min.{css,css.map}')
+    .pipe(gulp.dest('dist/app/stylesheets'))
+    .pipe(browserSync.stream())
 }
 
 /**
  * Copy JS from dist into the documentation directory
  */
 function copyJS() {
-  return gulp.src('dist/*.js').pipe(gulp.dest('dist/app/assets'))
+  return gulp
+    .src('dist/*.min.{js,js.map}')
+    .pipe(gulp.dest('dist/app/javascripts'))
+    .pipe(browserSync.stream())
 }
 
 /**
  * Copy logos, icons and other binary assets
  */
 function copyBinaryAssets() {
-  return gulp.src('packages/assets/**/*').pipe(gulp.dest('dist/app/assets'))
+  return gulp
+    .src('packages/assets/**/*')
+    .pipe(gulp.dest('dist/app/assets'))
+    .pipe(browserSync.stream())
 }
 
 /**
  * Serve the static docs directory over localhost
  */
 function serve() {
-  connect.server({
+  return browserSync({
+    ghostMode: false,
     host: '0.0.0.0',
-    livereload: true,
+    online: false,
+    open: false,
+    notify: false,
     port: 3000,
-    root: 'dist/app'
-  })
-}
 
-/**
- * Reload the connect server
- */
-function reload() {
-  return gulp.src('dist/app').pipe(connect.reload())
+    // Development server
+    server: {
+      baseDir: 'dist/app',
+      directory: true
+    },
+
+    // Match local paths to deployed preview
+    // https://nhsuk.github.io/nhsuk-frontend
+    serveStatic: [
+      {
+        route: '/nhsuk-frontend',
+        dir: 'dist/app'
+      }
+    ],
+
+    // Show start path in console
+    startPath: '/nhsuk-frontend/'
+  })
 }
 
 gulp.task(
   'docs:build',
-  gulp.series([
-    copyCSS,
-    copyJS,
-    copyBinaryAssets,
-    buildHTML,
-    validateHTML,
-    reload
-  ])
+  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, validateHTML])
 )
 
 gulp.task('docs:watch', () =>
   Promise.all([
     gulp.watch(['app/**/*.njk'], buildHTML),
-    gulp.watch(['dist/*.css'], copyCSS),
-    gulp.watch(['dist/*.js'], copyJS),
+    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
+    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
+    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
     gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
   ])
 )
