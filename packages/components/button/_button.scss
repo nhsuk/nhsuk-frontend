@@ -1,3 +1,9 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Button component
 ///
@@ -15,9 +21,6 @@
 $button-shadow-size: 4px;
 
 .nhsuk-button {
-  @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
-
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
@@ -34,6 +37,9 @@ $button-shadow-size: 4px;
   text-align: center;
   vertical-align: top;
   width: auto;
+
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
   @include mq($until: tablet) {
     padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
@@ -115,7 +121,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-secondary-button-color, 10%);
+    background-color: $nhsuk-secondary-button-hover-color;
   }
 
   &:focus {
@@ -139,7 +145,7 @@ $button-shadow-size: 4px;
   color: $nhsuk-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-reverse-button-color, 5%);
+    background-color: $nhsuk-reverse-button-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -172,7 +178,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-warning-button-color, 10%);
+    background-color: $nhsuk-warning-button-hover-color;
   }
 
   &:focus {

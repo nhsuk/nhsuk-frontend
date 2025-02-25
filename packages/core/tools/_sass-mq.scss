@@ -1,22 +1,20 @@
+@use "../settings/breakpoints" as *;
+
 ////
 /// Sass MQ
 ///
 /// We use sass-mq module for media queries
 ///
-/// 1. Import sass-mq from our vendor dependencies folder opposed to node_modules
+/// 1. Forward sass-mq from our vendor dependencies folder opposed to node_modules
 /// in case node_modules is not installed in the folder relative to the root folder
 ///
 /// @group tools
 
-$sass-mq-already-included: false !default;
+@use "../vendor/sass-mq" as * with (
+  $breakpoints: $mq-breakpoints
+); // [1]
 
-@if $sass-mq-already-included {
-  $mq-show-breakpoints: ();
-}
-
-@import "../vendor/sass-mq"; // [1]
-
-$sass-mq-already-included: true;
+@forward "../vendor/sass-mq";
 
 /// Helpers
 ///

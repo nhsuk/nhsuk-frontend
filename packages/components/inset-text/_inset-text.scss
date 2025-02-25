@@ -1,3 +1,9 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/mixins" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+
 ////
 /// Inset text component
 ///
@@ -10,14 +16,14 @@
 ////
 
 .nhsuk-inset-text {
+  border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
+
   @include top-and-bottom; // [1]
   @include reading-width; // [2]
 
   @include nhsuk-responsive-margin(7, "bottom");
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(4);
-
-  border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
 
   @include mq($media-type: print) {
     border-color: $nhsuk-print-text-color;

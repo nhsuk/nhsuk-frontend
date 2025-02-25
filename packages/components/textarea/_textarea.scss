@@ -1,3 +1,9 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/focused" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Textarea component
 ///
@@ -5,8 +11,6 @@
 ////
 
 .nhsuk-textarea {
-  @include nhsuk-font(19);
-
   -webkit-appearance: none;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   border-radius: 0;
@@ -16,6 +20,8 @@
   padding: nhsuk-spacing(1);
   resize: vertical;
   width: 100%;
+
+  @include nhsuk-font(19);
 
   &:focus {
     @include nhsuk-focused-input;

@@ -1,3 +1,10 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/focused" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Error summary component
 ///
@@ -8,18 +15,18 @@
 ////
 
 .nhsuk-error-summary {
-  @include nhsuk-responsive-padding(4);
-
   // Not using responsive spacing as we want smaller margin on mobile
   margin-bottom: nhsuk-spacing(5);
 
-  @include govuk-media-query($from: tablet) {
+  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
+
+  @include nhsuk-responsive-padding(4);
+
+  @include mq($from: tablet) {
     margin-bottom: nhsuk-spacing(7);
   }
 
-  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
-
-  @include govuk-media-query($from: tablet) {
+  @include mq($from: tablet) {
     border: $nhsuk-border-width solid $nhsuk-error-color;
   }
 
@@ -31,9 +38,9 @@
 }
 
 .nhsuk-error-summary__title {
-  @include nhsuk-font(26, $weight: bold);
-
   margin-top: 0;
+
+  @include nhsuk-font(26, $weight: bold);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 

@@ -1,3 +1,9 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/mixins" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+
 ////
 /// Hero component shared styles
 ///
@@ -9,11 +15,11 @@
 ///
 
 .nhsuk-hero {
-  @include print-color($nhsuk-print-text-color);
-
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
   position: relative; // [1]
+
+  @include print-color($nhsuk-print-text-color);
 
   .nhsuk-hero--border {
     // [2]

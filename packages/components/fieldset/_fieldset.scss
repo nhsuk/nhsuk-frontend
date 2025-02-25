@@ -1,3 +1,8 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/tools/mixins" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Fieldset component
 ///
@@ -20,8 +25,6 @@
 }
 
 .nhsuk-fieldset__legend {
-  @include nhsuk-font(19);
-
   box-sizing: border-box; // [1]
   color: $color_nhsuk-black;
   display: table; // [2]
@@ -30,28 +33,30 @@
   max-width: 100%; // [1]
   padding: 0;
   white-space: normal; // [3]
+
+  @include nhsuk-font(19);
 }
 
 /// Heading modifiers
 
 .nhsuk-fieldset__legend--xl {
-  @include nhsuk-font($size: 48, $weight: bold);
   margin-bottom: nhsuk-spacing(3);
+  @include nhsuk-font($size: 48, $weight: bold);
 }
 
 .nhsuk-fieldset__legend--l {
-  @include nhsuk-font($size: 36, $weight: bold);
   margin-bottom: nhsuk-spacing(3);
+  @include nhsuk-font($size: 36, $weight: bold);
 }
 
 .nhsuk-fieldset__legend--m {
-  @include nhsuk-font($size: 26, $weight: bold);
   margin-bottom: nhsuk-spacing(3);
+  @include nhsuk-font($size: 26, $weight: bold);
 }
 
 .nhsuk-fieldset__legend--s {
-  @include nhsuk-font($size: 19, $weight: bold);
   margin-bottom: nhsuk-spacing(3);
+  @include nhsuk-font($size: 19, $weight: bold);
 }
 
 .nhsuk-fieldset__heading {

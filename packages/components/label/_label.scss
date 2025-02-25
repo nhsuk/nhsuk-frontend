@@ -1,3 +1,7 @@
+@use "../../core/settings/typography" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Label component
 ///
@@ -5,10 +9,10 @@
 ////
 
 .nhsuk-label {
-  @include nhsuk-font(19);
-
   display: block;
   margin-bottom: nhsuk-spacing(1);
+
+  @include nhsuk-font(19);
 }
 
 // Modifiers that make labels look more like their equivalent headings
@@ -33,9 +37,10 @@
 }
 
 .nhsuk-label--s {
-  @include nhsuk-typography-responsive(19);
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
+
+  @include nhsuk-typography-responsive(19);
 }
 
 // When the label is nested inside a heading, override the heading so that it

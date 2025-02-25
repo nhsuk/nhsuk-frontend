@@ -1,3 +1,10 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/typography" as *;
+@use "../../core/tools/mixins" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Table component
 ///
@@ -10,13 +17,13 @@
 /// 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
 
 .nhsuk-table-container {
-  @include nhsuk-responsive-margin(7, "bottom");
-
   display: block;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow-x: auto;
   width: 100%;
+
+  @include nhsuk-responsive-margin(7, "bottom");
 
   .nhsuk-table {
     margin: 0; // [1]
