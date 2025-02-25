@@ -6,35 +6,36 @@
 {% block body %}
 
 {{ header({
-    "showNav": "true",
-    "showSearch": "true",
-    "organisation": {
-      "name": "Anytown Anyplace",
-      "split": "Anywhere",
-      "descriptor": "NHS Foundation Trust"
+    organisation: {
+      name: "Anytown Anyplace",
+      split: "Anywhere",
+      descriptor: "NHS Foundation Trust"
     },
-    "primaryLinks": [
+    primaryLinks: [
       {
-        "url"  : "#",
-        "label" : "Your hospital visit"
+        href: "#",
+        text: "Your hospital visit"
       },
       {
-        'url' : '#',
-        'label' : 'Wards and departments'
+        href: "#",
+        text: "Wards and departments"
       },
       {
-        'url'  : '#',
-        'label' : 'Conditions and treatments'
+        href: "#",
+        text: "Conditions and treatments"
       },
       {
-        'url'  : '#',
-        'label' : 'Our people'
+        href: "#",
+        text: "Our people"
       },
       {
-        'url' : '#',
-        'label' : 'Our research'
+        href: "#",
+        text: "Our research"
       }
-    ]
+    ],
+    search: {
+      visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
+    }
   })
 }}
 

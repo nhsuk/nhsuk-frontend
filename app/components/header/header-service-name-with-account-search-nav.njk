@@ -1,0 +1,45 @@
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header with account, navigation and search" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
+
+{% block body %}
+  {{ header({
+    service: {
+      name: "Search patient directory"
+    },
+    search: {
+      visuallyHiddenLabel: "Search patient directory"
+    },
+    account: {
+      items: [
+        {
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          href: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    primaryLinks: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Patient list"
+      },
+      {
+        href: "#",
+        text: "Advanced search"
+      },
+      {
+        href: "#",
+        text: "Help guides"
+      }
+    ]
+  }) }}
+{% endblock %}

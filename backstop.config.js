@@ -240,6 +240,23 @@ module.exports = {
       url: `${BASE_URL}/components/header/header-search.html`
     },
     {
+      label: 'Header with account (logged in)',
+      url: `${BASE_URL}/components/header/header-account-logged-in.html`
+    },
+    {
+      label: 'Header with account (logged out)',
+      url: `${BASE_URL}/components/header/header-account-logged-out.html`
+    },
+
+    {
+      label: 'Header with account (logged in, RBAC)',
+      url: `${BASE_URL}/components/header/header-account-rbac.html`
+    },
+    {
+      label: 'Header with account (logged in, custom html)',
+      url: `${BASE_URL}/components/header/header-account-rbac.html`
+    },
+    {
       label: 'Header with logo only',
       url: `${BASE_URL}/components/header/header-logo.html`
     },
@@ -250,6 +267,10 @@ module.exports = {
     {
       label: 'Header with a service name, search and navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`
+    },
+    {
+      label: 'Header with account, navigation and search',
+      url: `${BASE_URL}/components/header/header-service-name-with-account-search-nav.html`
     },
     {
       label: 'Header transactional with service name',
@@ -266,6 +287,10 @@ module.exports = {
     {
       label: 'Header organisational with white header and navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`
+    },
+    {
+      label: 'Header organisational with white header and account',
+      url: `${BASE_URL}/components/header/header-org-white-account.html`
     },
     {
       clickSelector: '#toggle-menu',
