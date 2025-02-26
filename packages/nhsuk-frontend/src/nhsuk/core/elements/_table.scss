@@ -35,7 +35,8 @@ thead {
 }
 
 th,
-td {
+td,
+.nhsuk-table__cell {
   padding-left: 0;
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;
