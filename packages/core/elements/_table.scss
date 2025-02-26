@@ -25,7 +25,8 @@ thead {
 }
 
 th,
-td {
+td,
+.nhsuk-table__cell {
   @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-padding(3, "bottom");
   @include nhsuk-responsive-padding(4, "right");
