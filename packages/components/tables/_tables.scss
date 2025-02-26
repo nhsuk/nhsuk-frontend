@@ -191,17 +191,19 @@
 }
 
 @include mq($until: desktop) {
-  .nhsuk-table__list-view-container, .nhsuk-table__list-view-container .nhsuk-table__row {
+  .nhsuk-table__list-view-container,
+  .nhsuk-table__list-view-container .nhsuk-table__row {
     display: block;
   }
 
-  .nhsuk-table-responsive{
+  .nhsuk-table-responsive {
     display: none;
   }
 }
 
 @include mq($from: desktop) {
-  .nhsuk-table__list-view-container, .nhsuk-table__list-view-container .nhsuk-table__row {
+  .nhsuk-table__list-view-container,
+  .nhsuk-table__list-view-container .nhsuk-table__row {
     display: none;
   }
 
