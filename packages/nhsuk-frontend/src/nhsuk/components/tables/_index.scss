@@ -29,34 +29,34 @@
     }
   }
 
-  figure.nhsuk-table__list-view-container {
+  .nhsuk-table__list-view-container {
     margin-inline-start: 0;
     margin-inline-end: 0;
+
     figcaption {
       @include nhsuk-font($size: 22, $weight: bold);
       text-align: left;
     }
 
-    .nhsuk-table__list-view dl.nhsuk-table__row {
-      .nhsuk-table__cell {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .nhsuk-table__cell {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-        padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(2) 0;
+      padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(2) 0;
 
-        &:last-child {
-          border-bottom: 3px solid $color_nhsuk-grey-4;
-        }
+      &:last-child {
+        border-bottom: 3px solid $color_nhsuk-grey-4;
+      }
 
-        dd {
-          margin-inline-start: 0;
-          box-sizing: border-box;
-        }
-        dt {
-          text-align: right;
-          box-sizing: border-box;
-        }
+      dd {
+        margin-inline-start: 0;
+        box-sizing: border-box;
+      }
+
+      dt {
+        text-align: right;
+        box-sizing: border-box;
       }
     }
   }
@@ -207,20 +207,22 @@
 
   @include mq($until: desktop) {
     .nhsuk-table__list-view-container,
-    .nhsuk-table__list-view-container dl.nhsuk-table__row {
+    .nhsuk-table__list-view-container .nhsuk-table__row {
       display: block;
     }
-    table.nhsuk-table-responsive {
+
+    .nhsuk-table-responsive {
       display: none;
     }
   }
 
   @include mq($from: desktop) {
     .nhsuk-table__list-view-container,
-    .nhsuk-table__list-view-container dl.nhsuk-table__row {
+    .nhsuk-table__list-view-container .nhsuk-table__row {
       display: none;
     }
-    table.nhsuk-table-responsive {
+
+    .nhsuk-table-responsive {
       display: block;
     }
   }
