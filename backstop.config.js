@@ -1,5 +1,5 @@
 function amInContainer() {
-  const fs = require('fs');
+  const fs = require('fs')
   return fs.existsSync('/.dockerenv') || fs.existsSync('/run/.containerenv')
 }
 
