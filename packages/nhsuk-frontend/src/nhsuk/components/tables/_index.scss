@@ -139,7 +139,6 @@
 
     .nhsuk-table__body {
       .nhsuk-table-responsive__heading {
-        @include nhsuk-typography-weight-bold;
         padding-right: nhsuk-spacing(3);
         text-align: left; // [7]
       }
