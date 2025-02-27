@@ -1,6 +1,11 @@
+function amInContainer() {
+  const fs = require('fs');
+  return fs.existsSync('/.dockerenv') || fs.existsSync('/run/.containerenv')
+}
+
 const {
   HOSTNAME = '0.0.0.0', // Default via `npm start`
-  BASE_HOST = HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : HOSTNAME,
+  BASE_HOST = amInContainer() ? 'host.docker.internal' : HOSTNAME,
   BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
 } = process.env
 
