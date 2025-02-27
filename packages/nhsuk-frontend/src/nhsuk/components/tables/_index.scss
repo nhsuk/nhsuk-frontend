@@ -32,10 +32,16 @@
   .nhsuk-table__list-view-container {
     margin-inline-start: 0;
     margin-inline-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 
     figcaption {
       @include nhsuk-font($size: 22, $weight: bold);
       text-align: left;
+    }
+
+    .nhsuk-table__row {
+      margin-block-start: 0;
     }
 
     .nhsuk-table__cell {
