@@ -9,24 +9,26 @@
   {%- endif %}
   {%- endif %}
 
-  <figure class="nhsuk-table__list-view-container">
-    {%- if params.caption %}
-      <figcaption class="nhsuk-table__caption--m
-    {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</figcaption>
-    {%- endif %}
-    <div class="nhsuk-table__body nhsuk-table__list-view">
-    {%- for row in params.rows %}
-      <dl class="nhsuk-table__row">
-        {%- for cell in row %}
-          <div class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
-            <dd class="nhsuk-table-responsive__heading">{{cell.header}} </dd>
-            <dt>{{ cell.html | safe if cell.html else cell.text }}</dt>
-          </div>
-        {%- endfor %}
-      </dl>
-    {%- endfor %}
-    </div>
-  </figure>
+  {%- if params.responsive %}
+    <figure class="nhsuk-table__list-view-container">
+      {%- if params.caption %}
+        <figcaption class="nhsuk-table__caption--m
+      {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</figcaption>
+      {%- endif %}
+      <div class="nhsuk-table__body nhsuk-table__list-view">
+      {%- for row in params.rows %}
+        <dl class="nhsuk-table__row">
+          {%- for cell in row %}
+            <div class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
+              <dd class="nhsuk-table-responsive__heading">{{cell.header}} </dd>
+              <dt>{{ cell.html | safe if cell.html else cell.text }}</dt>
+            </div>
+          {%- endfor %}
+        </dl>
+      {%- endfor %}
+      </div>
+    </figure>
+  {% endif %}
 
   <table {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-table
     {%- if params.responsive %}-responsive{% endif %}
