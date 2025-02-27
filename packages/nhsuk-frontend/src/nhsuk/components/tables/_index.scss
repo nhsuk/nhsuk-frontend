@@ -58,10 +58,14 @@
       dd {
         margin-inline-start: 0;
         box-sizing: border-box;
+
+        margin: 0 1em 0 0; // so that the label and the data can't touch
       }
 
       dt {
         text-align: right;
+        flex-grow: 1; // So that the text-align right always works
+
         box-sizing: border-box;
       }
     }
