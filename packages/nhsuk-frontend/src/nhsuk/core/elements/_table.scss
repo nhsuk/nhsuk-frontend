@@ -53,8 +53,9 @@ td,
   }
 }
 
-th {
-  font-weight: $nhsuk-font-bold;
+th,
+.nhsuk-table-responsive__heading {
+  @include nhsuk-typography-weight-bold;
 }
 
 caption {
