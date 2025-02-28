@@ -57,8 +57,7 @@
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
-
-      padding: nhsuk-spacing(2) 0;
+      padding-right: 0;
 
       &:last-child {
         border-bottom: 3px solid $color_nhsuk-grey-4;
