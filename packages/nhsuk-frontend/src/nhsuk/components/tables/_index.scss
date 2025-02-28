@@ -35,6 +35,10 @@
     margin-block-start: 0;
     margin-block-end: 0;
 
+    .nhsuk-table__list-view {
+      margin-bottom: 0;
+    }
+
     figcaption {
       @include nhsuk-font($size: 22, $weight: bold);
       text-align: left;
@@ -42,14 +46,19 @@
 
     .nhsuk-table__row {
       margin-block-start: 0;
+      margin-bottom: nhsuk-spacing(4);
+
+      &:last-child {
+        margin-block-end: 0;
+      }
     }
 
     .nhsuk-table__cell {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-between;
 
-      padding: nhsuk-spacing(2) nhsuk-spacing(3) nhsuk-spacing(2) 0;
+      padding: nhsuk-spacing(2) 0;
 
       &:last-child {
         border-bottom: 3px solid $color_nhsuk-grey-4;
@@ -60,6 +69,7 @@
         box-sizing: border-box;
 
         margin: 0 1em 0 0; // so that the label and the data can't touch
+        display: table-cell;
       }
 
       dt {
@@ -67,6 +77,8 @@
         flex-grow: 1; // So that the text-align right always works
 
         box-sizing: border-box;
+
+        display: table-cell;
       }
     }
   }
