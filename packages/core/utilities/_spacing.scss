@@ -16,34 +16,34 @@
 
 $_spacing-directions: ("top", "right", "bottom", "left") !default;
 
-/// Spacing override classes
+/// Generate responsive spacing override classes
 ///
 /// Generate spacing override classes for the given property (e.g. margin)
-/// for each point in the spacing scale.
+/// for each point in the responsive spacing scale.
 ///
 /// @param {String} $property - Property to add spacing to (e.g. 'margin')
 ///
-/// @example scss
-///   .nhsuk-u-margin-0 {
-///      margin: 0;
+/// @example css
+///   .nhsuk-u-margin-4 {
+///     margin: 16px !important;
 ///   }
 ///
-///  .nhsuk-u-margin-top-1 {
-///     margin-top: [whatever spacing point 1 is...]
+///   @media (min-width: 40.0625em) {
+///     .nhsuk-u-margin-4 {
+///       margin: 24px !important;
+///     }
 ///   }
 ///
-/// 1. For each point in the spacing scale (defined in settings), create an
-///    override that affects all directions...
-/// 2. ... and then an override for each individual direction
 
-@mixin _nhsuk-generate-spacing-overrides($property) {
-  // [1]
+@mixin _nhsuk-generate-responsive-spacing-overrides($property) {
+  // For each point in the spacing scale (defined in settings), create an
+  // override that affects all directions...
   @each $scale-point, $scale-map in $nhsuk-spacing-responsive-scale {
     .nhsuk-u-#{$property}-#{$scale-point} {
       @include nhsuk-responsive-spacing($scale-point, $property, "all", true);
     }
 
-    // [2]
+    // ... and then an override for each individual direction
     @each $direction in $_spacing-directions {
       .nhsuk-u-#{$property}-#{$direction}-#{$scale-point} {
         @include nhsuk-responsive-spacing($scale-point, $property, $direction, true);
@@ -64,6 +64,7 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
 ///      margin: 24px !important;
 ///   }
 ///
+
 @mixin _nhsuk-generate-static-spacing-overrides($property) {
   @each $spacing-point in map.keys($nhsuk-spacing-points) {
     .nhsuk-u-static-#{$property}-#{$spacing-point} {
@@ -79,8 +80,8 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
 }
 
 @include nhsuk-exports("nhsuk/core/utilities/spacing") {
-  @include _nhsuk-generate-spacing-overrides("margin");
-  @include _nhsuk-generate-spacing-overrides("padding");
+  @include _nhsuk-generate-responsive-spacing-overrides("margin");
+  @include _nhsuk-generate-responsive-spacing-overrides("padding");
 
   @include _nhsuk-generate-static-spacing-overrides("margin");
   @include _nhsuk-generate-static-spacing-overrides("padding");
