@@ -5,6 +5,7 @@
 :new: **New features**
 
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
+- Added static spacing utility classes ([PR 1163](https://github.com/nhsuk/nhsuk-frontend/pull/1163))
 
 :wrench: **Fixes**
 
