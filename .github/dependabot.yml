@@ -8,6 +8,12 @@ updates:
     schedule:
       interval: monthly
 
+    versioning-strategy: increase
+
+    allow:
+      # Include direct package.json updates
+      - dependency-type: direct
+
   # Update GitHub Actions
   - package-ecosystem: github-actions
     directory: /
