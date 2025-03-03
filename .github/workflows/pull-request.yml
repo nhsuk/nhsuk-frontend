@@ -12,8 +12,6 @@ jobs:
 
       - name: Sonar analysis
         uses: SonarSource/sonarqube-scan-action@v4
-        with:
-          projectBaseDir: .
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
