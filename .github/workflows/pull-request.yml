@@ -3,21 +3,23 @@ name: Pull request
 on: pull_request
 
 jobs:
-  sonar_analysis:
+  sonar:
     name: Sonar analysis
     runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
     steps:
       - name: Checkout
+        if: ${{ env.SONAR_TOKEN }}
         uses: actions/checkout@v4
 
       - name: Sonar analysis
+        if: ${{ env.SONAR_TOKEN }}
         uses: SonarSource/sonarqube-scan-action@v4
-        with:
-          projectBaseDir: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
   linting:
     name: Code style checks
