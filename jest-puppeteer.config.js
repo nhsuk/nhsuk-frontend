@@ -1,3 +1,5 @@
+const waitOnScheme = require('./wait-on.config')
+
 const { HEADLESS } = process.env
 
 /**
@@ -40,11 +42,11 @@ module.exports = {
     host: '0.0.0.0',
     port: 3000,
 
-    // Allow 30 seconds to start server
-    launchTimeout: 30000,
-
     // Skip when already running
-    usedPortAction: 'ignore'
+    usedPortAction: 'ignore',
+
+    // Shared wait-on options
+    waitOnScheme
   }
 }
 
