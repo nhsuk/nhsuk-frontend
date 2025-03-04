@@ -2,7 +2,7 @@ import { toggleConditionalInput } from '../../common.js'
 
 /**
  * Conditionally show content when a checkbox button is checked
- * Test at http://0.0.0.0:3000/components/checkboxes/conditional.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
   const allInputsInForm = input.form.querySelectorAll('input[type="checkbox"]')

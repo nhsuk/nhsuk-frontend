@@ -2,7 +2,7 @@ import { toggleAttribute } from '../../common.js'
 
 /**
  * Ensure details component is cross browser and accessible
- * Test at http://0.0.0.0:3000/components/details/index.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
 
 export default ({ scope = document } = {}) => {
