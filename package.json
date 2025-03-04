@@ -19,13 +19,13 @@
     "pretest": "npm run lint && npm run build",
     "test": "npm run test:js",
     "test:js": "jest --color --coverage",
+    "pretest:visual": "npm run build",
     "test:visual": "npm run test:visual:cli -- -- test --docker",
     "test:visual:ref": "npm run test:visual:cli -- -- reference --docker",
     "test:visual:interactive": "backstop --config backstop.config.js remote",
     "test:visual:approve": "backstop --config backstop.config.js approve",
     "test:visual:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "pretest:visual:cli": "npm run build",
-    "test:visual:cli": "concurrently \"npm start --ignore-scripts\" \"wait-on tcp:3000 && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
+    "test:visual:cli": "concurrently \"gulp docs:serve\" \"wait-on tcp:3000 && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
