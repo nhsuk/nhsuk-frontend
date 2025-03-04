@@ -1,7 +1,8 @@
 const {
-  HOSTNAME = '0.0.0.0', // Default via `npm start`
-  BASE_HOST = HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : HOSTNAME,
-  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+  PORT = 3000,
+  HOSTNAME = 'localhost',
+  BASE_HOST = `${HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : 'localhost'}:${PORT}`,
+  BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
 
 /**
