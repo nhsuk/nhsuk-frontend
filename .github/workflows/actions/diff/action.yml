@@ -1,0 +1,52 @@
+name: Build and diff
+
+outputs:
+  changes:
+    description: 'Returns true if build output has changes'
+    value: ${{ steps.diff.outputs.changes || 'true' }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Set up diff drivers
+      shell: bash
+      run: |
+        npm install -g js-beautify
+        git config diff.minjs.textconv "js-beautify --editorconfig --type js"
+        git config diff.mincss.textconv "js-beautify --editorconfig --type css"
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Clear diff cache
+      shell: bash
+      run: |
+        rm -Rf .cache/diff/dist
+        mkdir -p .cache/diff/dist
+
+    - name: Install and build base
+      shell: bash
+      run: |
+        git checkout ${{ github.base_ref }}
+        npm install --ignore-scripts --no-save --silent
+        npm run build
+        git checkout ${{ github.head_ref }}
+        git add --force dist/
+        git commit --allow-empty -m "Build output for '${{ github.base_ref }}'" --no-verify
+
+    - name: Install and build head
+      shell: bash
+      run: |
+        npm install
+        npm run build
+        git add --force dist/
+        git commit --allow-empty -m "Build output for '${{ github.head_ref }}'" --no-verify
+
+    - name: Check for changes
+      id: diff
+      shell: bash
+      run: |
+        set +e
+        git diff HEAD^ --exit-code --quiet -- 'dist/**/*'
+        [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
+        exit 0

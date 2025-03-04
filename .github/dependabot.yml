@@ -20,7 +20,9 @@ updates:
 
   # Update GitHub Actions
   - package-ecosystem: github-actions
-    directory: /
+    directories:
+      - .github/workflows/
+      - .github/workflows/actions/diff/
 
     schedule:
       interval: 'monthly'
