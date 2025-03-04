@@ -24,21 +24,64 @@ runs:
         rm -Rf .cache/diff/dist
         mkdir -p .cache/diff/dist
 
+    - name: Restore base build (from cache)
+      uses: actions/cache/restore@v3
+      id: cache-base
+      with:
+        path: dist/
+        key: build-${{ github.event.pull_request.base.sha }}
+
     - name: Install and build base
+      if: ${{ steps.cache-base.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         git checkout ${{ github.base_ref }}
         npm install --ignore-scripts --no-save --silent
         npm run build
+
+    - name: Save base build (to cache)
+      if: ${{ steps.cache-base.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v3
+      with:
+        path: dist/
+        key: build-${{ github.event.pull_request.base.sha }}
+
+    - name: Commit base build for comparison
+      shell: bash
+      run: |
         git checkout ${{ github.head_ref }}
         git add --force dist/
         git commit --allow-empty -m "Build output for '${{ github.base_ref }}'" --no-verify
 
+    - name: Restore head build (from cache)
+      uses: actions/cache/restore@v3
+      id: cache-head
+      with:
+        path: dist/
+        key: build-${{ github.event.pull_request.head.sha }}
+
+    - name: Install dependencies
+      if: ${{ steps.cache-head.outputs.cache-hit == 'true' }}
+      shell: bash
+      run: npm install
+
     - name: Install and build head
+      if: ${{ steps.cache-head.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         npm install
         npm run build
+
+    - name: Save head build (to cache)
+      if: ${{ steps.cache-head.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v3
+      with:
+        path: dist/
+        key: build-${{ github.event.pull_request.head.sha }}
+
+    - name: Commit head build for comparison
+      shell: bash
+      run: |
         git add --force dist/
         git commit --allow-empty -m "Build output for '${{ github.head_ref }}'" --no-verify
 
