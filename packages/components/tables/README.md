@@ -316,6 +316,7 @@ The table Nunjucks macro takes the following arguments:
 | **rows.[].classes**                | string  | No       | Classes to add to the table row cell.                                                                                                         |
 | **rows.[].colspan**                | number  | No       | Specify how many columns a cell extends.                                                                                                      |
 | **rows.[].rowspan**                | number  | No       | Specify how many rows a cell extends.                                                                                                         |
+| **rows.[].attributes**             | object  | No       | HTML attributes (for example data attributes) to add to the table cell.                                                                       |
 | **panel**                          | boolean | No       | If set to true, the table is rendered inside a [panel with a label](https://nhsuk.github.io/nhsuk-frontend/components/panel-with-label.html). |
 | **panelClasses**                   | string  | No       | Optional additional classes to add to the panel containing the table. Separate each class with a space.                                       |
 | **heading**                        | string  | No       | Heading/label of the panel if the panel argument is set to true.                                                                              |
@@ -326,10 +327,11 @@ The table Nunjucks macro takes the following arguments:
 | **captionClasses**                 | string  | No       | Optional additional classes to add to the table caption, for example `nhsuk-table__caption--l`. Separate each class with a space.             |
 | **head**                           | array   | No       | Optional array of table head cells.                                                                                                           |
 | **head.[].text or head.[].html**   | array   | No       | Optional array of table head cells. If `html` is specified, the `text` argument will be ignored.                                              |
+| **head.[].format**                 | string  | No       | Specify format of a cell. Currently we only use "numeric".                                                                                    |
 | **head.[].classes**                | string  | No       | Classes to add to the table head cell.                                                                                                        |
 | **head.[].colspan**                | number  | No       | Specify how many columns a cell extends.                                                                                                      |
 | **head.[].rowspan**                | number  | No       | Specify how many rows a cell extends.                                                                                                         |
-| **head.[].format**                 | string  | No       | Specify format of a cell. Currently we only use "numeric".                                                                                    |
+| **head.[].attributes**             | object  | No       | HTML attributes (for example data attributes) to add to the table cell.                                                                       |
 | **firstCellIsHeader**              | boolean | No       | If set to true, first cell in table row will be a TH instead of a TD.                                                                         |
 | **responsive**                     | boolean | No       | If set to true, responsive table classes will be applied.                                                                                     |
 
