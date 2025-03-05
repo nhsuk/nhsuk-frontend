@@ -3,71 +3,82 @@ import SkipLink from '../../../packages/components/skip-link/skip-link.js'
 // Mock HTML
 const skipLinkHtml =
   '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>'
-const headingHtml = '<h1>Test Heading</h1>'
+const mainHtml = '<main class="nhsuk-main-wrapper" id="maincontent"></main>'
 
-// DOM Elements to be set
-let skipLink
-let heading
+/** @type {HTMLElement | null} */
+let main = null
+
+/** @type {HTMLAnchorElement | null} */
+let skipLink = null
 
 // Helper to set DOM Elements
 const initTest = (html = '') => {
   document.body.innerHTML = html
-  heading = document.querySelector('h1')
   skipLink = document.querySelector('.nhsuk-skip-link')
+  main = document.querySelector('main')
   SkipLink()
 }
 
 describe('NHS.UK skiplink', () => {
   describe('Does not throw an error', () => {
     it('if no skiplink exists', () => {
-      initTest(headingHtml)
-      expect(heading).toBeDefined()
+      initTest(mainHtml)
       expect(skipLink).toBeNull()
+      expect(main).toBeDefined()
     })
 
-    it('if no heading exists', () => {
+    it('if no main content exists', () => {
       initTest(skipLinkHtml)
       expect(skipLink).toBeDefined()
-      expect(heading).toBeNull()
+      expect(main).toBeNull()
     })
 
-    it('if no skiplink or heading exists', () => {
+    it('if no skiplink or main content exists', () => {
       initTest()
-      expect(heading).toBeNull()
       expect(skipLink).toBeNull()
+      expect(main).toBeNull()
     })
   })
 
-  describe('Focuses the heading on skiplink click', () => {
-    it('if skiplink and heading elements exist', () => {
-      initTest(skipLinkHtml + headingHtml)
-      expect(skipLink).toBeDefined()
-      expect(heading).toBeDefined()
+  describe('Focuses main content on skiplink click', () => {
+    it('if skiplink and main element exist', () => {
+      initTest(skipLinkHtml + mainHtml)
+
+      // Main content not focused
+      expect(main).not.toEqual(document.activeElement)
+      expect(main.getAttribute('tabIndex')).toBeNull()
+      expect(main.classList.value).not.toContain(
+        'nhsuk-skip-link-focused-element'
+      )
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toBe('-1')
-      expect(document.activeElement).toEqual(heading)
+      // Main content focused
+      expect(main).toEqual(document.activeElement)
+      expect(main.getAttribute('tabIndex')).toBe('-1')
+      expect(main.classList.value).toContain('nhsuk-skip-link-focused-element')
     })
   })
 
-  describe('Unfocuses the heading on blur', () => {
-    it('if skiplink and heading elements exist', () => {
-      initTest(skipLinkHtml + headingHtml)
-      expect(skipLink).toBeDefined()
-      expect(heading).toBeDefined()
+  describe('Unfocuses main content on blur', () => {
+    it('if skiplink and main element exist', () => {
+      initTest(skipLinkHtml + mainHtml)
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toBe('-1')
-      expect(document.activeElement).toEqual(heading)
+      // Main content focused
+      expect(main).toEqual(document.activeElement)
+      expect(main.getAttribute('tabIndex')).toBe('-1')
+      expect(main.classList.value).toContain('nhsuk-skip-link-focused-element')
 
-      heading.blur()
+      main.blur()
 
-      expect(heading.getAttribute('tabIndex')).toBeNull()
-      expect(document.activeElement).not.toEqual(heading)
+      // Main content not focused
+      expect(main).not.toEqual(document.activeElement)
+      expect(main.getAttribute('tabIndex')).toBeNull()
+      expect(main.classList.value).not.toContain(
+        'nhsuk-skip-link-focused-element'
+      )
     })
   })
-
-  describe('Is initialised by nhsuk.js', () => {})
 })
