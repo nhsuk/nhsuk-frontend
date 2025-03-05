@@ -105,6 +105,8 @@
 ///
 /// @example scss
 ///   @include visually-shown($display: table-header-group);
+///
+/// @deprecated To be removed in v10.0, use @media queries to apply `visually-hidden` instead
 
 @mixin visually-shown($display: null, $important: true) {
   position: static if($important, !important, null);
