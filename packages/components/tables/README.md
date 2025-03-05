@@ -18,8 +18,8 @@ Find out more about the table component and when to use it in the [NHS digital s
     <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
     <thead class="nhsuk-table__head">
       <tr class="nhsuk-table__row">
-        <th class="nhsuk-table__header" scope="col">Skin symptoms</th>
-        <th class="nhsuk-table__header" scope="col">Possible cause</th>
+        <th scope="col" class="nhsuk-table__header">Skin symptoms</th>
+        <th scope="col" class="nhsuk-table__header">Possible cause</th>
       </tr>
     </thead>
     <tbody class="nhsuk-table__body">
@@ -185,13 +185,13 @@ Find out more about the table component and when to use it in the [NHS digital s
   <caption class="nhsuk-table__caption">Ibuprofen syrup dosages for children</caption>
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
-      <th role="columnheader" class="" scope="col">
+      <th scope="col" role="columnheader" class="nhsuk-table__header">
         Age
       </th>
-      <th role="columnheader" class="" scope="col">
+      <th scope="col" role="columnheader" class="nhsuk-table__header">
         How much?
       </th>
-      <th role="columnheader" class="" scope="col">
+      <th scope="col" role="columnheader" class="nhsuk-table__header">
         How often?
       </th>
     </tr>
