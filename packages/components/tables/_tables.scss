@@ -78,7 +78,6 @@
 /// 6. Assigning a minimum width in case of black cell
 /// 7. Aligning content to the right on mobile
 /// 8. Aligning mobile header to left to split it from the data
-/// 9. Hiding mobile specific header from desktop view
 /// 10. Adding a display block value due to IE 11 not having full flex support
 
 .nhsuk-table__list-view-container {
@@ -114,7 +113,6 @@
       border-bottom: 3px solid $color_nhsuk-grey-4;
     }
 
-
     dd {
       margin-inline-start: 0;
       box-sizing: border-box;
@@ -139,15 +137,11 @@
   width: 100%;
 
   thead {
-    @include visually-hidden; // [1]
+    white-space: nowrap;
 
-    @include mq($from: desktop) {
-      @include visually-shown(table-header-group); // [2]
-
-      &::before,
-      &::after {
-        content: "";
-      }
+    &::before,
+    &::after {
+      content: "";
     }
   }
 
@@ -183,33 +177,16 @@
       }
     }
 
-    @include mq($until: desktop) {
-      .nhsuk-table__row td {
-        padding-right: 0;
-        text-align: right; // [7]
-
-        &:last-child {
-          border-bottom: 3px solid $color_nhsuk-grey-4;
-        }
-      }
+    .nhsuk-table__row {
+      display: table-row; // [4]
     }
 
-    @include mq($from: desktop) {
-      .nhsuk-table-responsive__heading {
-        display: none; // [9]
-      }
+    .nhsuk-table__row th {
+      text-align: left;
+    }
 
-      .nhsuk-table__row {
-        display: table-row; // [4]
-      }
-
-      .nhsuk-table__row th {
-        text-align: left;
-      }
-
-      .nhsuk-table__row td {
-        display: table-cell;
-      }
+    .nhsuk-table__row td {
+      display: table-cell;
     }
   }
 }
