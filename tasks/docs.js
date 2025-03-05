@@ -137,7 +137,7 @@ gulp.task(
 
 gulp.task('docs:watch', () =>
   Promise.all([
-    gulp.watch(['app/**/*.njk'], buildHTML),
+    gulp.watch(['**/*.njk'], buildHTML),
     gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
     gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
     gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
