@@ -62,14 +62,19 @@ export function setFocus($element, options = {}) {
    * Handle element focus
    */
   function onFocus() {
-    $element.addEventListener('blur', onBlur, { once: true })
+    $element.removeEventListener('focus', onFocus)
+    $element.addEventListener('blur', onBlur)
   }
 
   /**
    * Handle element blur
    */
   function onBlur() {
-    options.onBlur?.call($element)
+    $element.removeEventListener('blur', onBlur)
+
+    if (options.onBlur) {
+      options.onBlur.call($element)
+    }
 
     if (!isFocusable) {
       $element.removeAttribute('tabindex')
@@ -77,9 +82,12 @@ export function setFocus($element, options = {}) {
   }
 
   // Add listener to reset element on blur, after focus
-  $element.addEventListener('focus', onFocus, { once: true })
+  $element.addEventListener('focus', onFocus)
 
   // Focus element
-  options.onBeforeFocus?.call($element)
+  if (options.onBeforeFocus) {
+    options.onBeforeFocus.call($element)
+  }
+
   $element.focus()
 }
