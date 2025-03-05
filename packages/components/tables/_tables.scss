@@ -80,7 +80,8 @@
 /// 8. Aligning mobile header to left to split it from the data
 /// 10. Adding a display block value due to IE 11 not having full flex support
 
-.nhsuk-table__list-view-container { // [1]
+.nhsuk-table__list-view-container {
+  // [1]
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin-block-start: 0;
@@ -90,7 +91,8 @@
     margin-bottom: 0;
   }
 
-  figcaption { // [5]
+  figcaption {
+    // [5]
     @include nhsuk-font($size: 22, $weight: bold);
     text-align: left;
   }
@@ -98,12 +100,14 @@
   .nhsuk-table__row {
     margin-block-start: 0;
     margin-bottom: nhsuk-spacing(4);
+
     &:last-child {
       margin-block-end: 0;
     }
   }
 
-  .nhsuk-table__cell { // [7]
+  .nhsuk-table__cell {
+    // [7]
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -129,7 +133,8 @@
   }
 }
 
-.nhsuk-table-responsive { // [2]
+.nhsuk-table-responsive {
+  // [2]
   margin-bottom: 0;
   width: 100%;
 
@@ -155,10 +160,6 @@
       }
     }
 
-    .nhsuk-table__row th {
-      text-align: right;
-    }
-
     .nhsuk-table__row td {
       min-width: 1px; // [6]
     }
@@ -175,7 +176,8 @@
   }
 }
 
-@include mq($until: desktop) { // [3]
+@include mq($until: desktop) {
+  // [3]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: block;
@@ -186,7 +188,8 @@
   }
 }
 
-@include mq($from: desktop) { // [4]
+@include mq($from: desktop) {
+  // [4]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: none;
