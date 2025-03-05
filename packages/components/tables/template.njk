@@ -19,9 +19,10 @@
     <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
       {%- for item in params.head %}
-        <th role="columnheader" class="
-      {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}" scope="col">
-          {{ item.html |safe if item.html else item.text }}
+        <th scope="col" role="columnheader" class="nhsuk-table__header
+          {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
+          {%- if item.classes %} {{ item.classes }}{% endif %}">
+          {{- item.html | safe if item.html else item.text -}}
         </th>
       {%- endfor %}
     </tr>
@@ -32,23 +33,28 @@
       <tr role="row" class="nhsuk-table__row" >
         {%- if params.responsive %}
           {%- for cell in row %}
-            <td role="cell" class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
-              <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{cell.header}} </span>{{ cell.html | safe if cell.html else cell.text }}
+            <td role="cell" class="nhsuk-table__cell
+              {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+              {%- if cell.classes %} {{ cell.classes }}{% endif %}">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
+              {{- cell.html | safe if cell.html else cell.text -}}
             </td>
           {%- endfor %}
         {%- else %}
           {%- for cell in row %}
             {%- if loop.first and params.firstCellIsHeader %}
-              <th class="nhsuk-table__header" scope="row">{{ cell.html | safe if cell.html else cell.text }}</th>
-            {%- elseif loop.first %}
-              <td class="nhsuk-table__cell
-            {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}"
-                {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-                {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+              <th scope="row" class="nhsuk-table__header
+                {%- if cell.classes %} {{ cell.classes }}{% endif %}">
+                {{- cell.html | safe if cell.html else cell.text -}}
+              </th>
             {%- else %}
-              <td class="nhsuk-table__cell {% if cell.format %}nhsuk-table__cell--{{ cell.format }}{% endif %}"
+              <td class="nhsuk-table__cell
+                {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+                {%- if cell.classes %} {{ cell.classes }}{% endif %}"
                 {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-                {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>{{ cell.html | safe if cell.html else cell.text }}</td>
+                {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}>
+                {{- cell.html | safe if cell.html else cell.text -}}
+              </td>
             {%- endif %}
           {%- endfor %}
         {%- endif %}
