@@ -30,7 +30,7 @@
     </figure>
   {% endif %}
 
-  <table {%- if params.responsive %} role="table"{% endif %} class="nhsuk-table{%- if params.responsive %}-responsive{% endif %}
+  <table {%- if params.responsive %} {% endif %} class="nhsuk-table{%- if params.responsive %}-responsive{% endif %}
   {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
   {{- nhsukAttributes(params.attributes) }}>
   {%- if params.caption %}
@@ -38,8 +38,8 @@
   {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">{{ params.caption }}</caption>
   {%- endif %}
   {%- if params.head %}
-    <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
+    <thead class="nhsuk-table__head">
+    <tr>
       {%- for item in params.head %}
         <th role="columnheader" class="
       {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}" scope="col">
@@ -51,10 +51,10 @@
   {%- endif %}
     <tbody class="nhsuk-table__body">
     {%- for row in params.rows %}
-      <tr role="row" class="nhsuk-table__row" >
+      <tr class="nhsuk-table__row" >
         {%- if params.responsive %}
           {%- for cell in row %}
-            <td role="cell" class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
+            <td class="nhsuk-table__cell{% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}">
               {{ cell.html | safe if cell.html else cell.text }}
             </td>
           {%- endfor %}
