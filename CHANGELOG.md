@@ -156,6 +156,7 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 :wrench: **Fixes**
 
+- [#1156: dl responsive table view](https://github.com/nhsuk/nhsuk-frontend/pull/1156)
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 
 ## 9.6.2 - 9 June 2025
