@@ -89,7 +89,7 @@
     @include visually-hidden; // [1]
 
     @include mq($from: desktop) {
-      @include visually-shown(table-header-group); // [2]
+      @include visually-shown($display: table-header-group); // [2]
 
       &::before,
       &::after {

@@ -65,25 +65,27 @@
   width: 1px;
 }
 
-/// Visually shown mixin, used for displaying
-/// content visually that has previously been hidden
-/// by visually-hidden
+/// Show an element visually that has previously been hidden by visually-hidden
 ///
-/// Differences between mobile and desktop views
-/// Use $display-property to assign display
+/// For differences between mobile and desktop views, use $display to set the CSS display property
+///
+/// @param {String} $display [null] - CSS display property (optional)
 ///
 /// @example scss
-///   @include visually-shown(table-header-group);
+///   @include visually-shown($display: table-header-group);
 
-@mixin visually-shown($display-property) {
+@mixin visually-shown($display: null) {
   clip: auto;
   -webkit-clip-path: initial;
   clip-path: initial;
-  display: $display-property;
   height: auto;
   overflow: auto;
   position: relative;
   width: auto;
+
+  @if $display {
+    display: $display;
+  }
 }
 
 /// Top and bottom margin mixin, remove
