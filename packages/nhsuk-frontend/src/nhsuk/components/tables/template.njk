@@ -33,7 +33,6 @@
   <table {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-table
     {%- if params.responsive %}-responsive{% endif %}
     {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
-    {%- if params.responsive %} role="table"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
 
   {%- if params.caption %}
@@ -44,15 +43,14 @@
   {%- endif %}
 
   {%- if params.head %}
-    <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
-      <tr {%- if params.responsive %} role="row"{% endif %}>
+    <thead class="nhsuk-table__head">
+      <tr>
         {%- for item in params.head %}
           <th scope="col" class="nhsuk-table__header
             {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
             {%- if item.classes %} {{ item.classes }}{% endif %}"
             {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
             {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
-            {%- if params.responsive %} role="columnheader"{% endif %}
             {{- nhsukAttributes(item.attributes) }}>
             {{- item.html | safe if item.html else item.text -}}
           </th>
@@ -62,7 +60,7 @@
   {%- endif %}
     <tbody class="nhsuk-table__body">
     {%- for row in params.rows %}
-      <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+      <tr class="nhsuk-table__row">
         {%- for cell in row %}
           {% set commonAttributes %}
             {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
@@ -73,7 +71,6 @@
           {%- if loop.first and params.firstCellIsHeader %}
             <th scope="row" class="nhsuk-table__header
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-              {%- if params.responsive %} role="rowheader"{% endif %}
               {{- commonAttributes | safe }}>
               {{- cell.html | safe if cell.html else cell.text -}}
             </th>
@@ -81,7 +78,6 @@
             <td class="nhsuk-table__cell
               {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-              {%- if params.responsive %} role="cell"{% endif %}
               {{- commonAttributes | safe }}>
               {{- cell.html | safe if cell.html else cell.text -}}
             </td>
