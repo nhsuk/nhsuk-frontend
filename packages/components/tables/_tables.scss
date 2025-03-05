@@ -70,11 +70,15 @@
 
 /// Responsive table
 ///
-/// 1. Hiding the table view on mobile
-/// 2. Displaying the table view on desktop
-/// 3. Assigning a minimum width in case of blank cell
+/// 1. Defining the mobile view of the table
+/// 2. Defining the desktop view of the table
+/// 3. Hiding the table view on mobile
+/// 4. Displaying the table view on desktop
+/// 5. Set up the figcaption to match the table caption
+/// 6. Assigning a minimum width in case of blank cell
+/// 7. Make the (dt,dd) pair together act like a table cell
 
-.nhsuk-table__list-view-container {
+.nhsuk-table__list-view-container { // [1]
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin-block-start: 0;
@@ -84,7 +88,7 @@
     margin-bottom: 0;
   }
 
-  figcaption {
+  figcaption { // [5]
     @include nhsuk-font($size: 22, $weight: bold);
     text-align: left;
   }
@@ -97,7 +101,7 @@
     }
   }
 
-  .nhsuk-table__cell {
+  .nhsuk-table__cell { // [7]
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -110,23 +114,18 @@
     dd {
       margin-inline-start: 0;
       box-sizing: border-box;
-
       margin: 0 1em 0 0; // so that the label and the data can't touch
-      display: table-cell;
     }
 
     dt {
       text-align: right;
       flex-grow: 1; // So that the text-align right always works
-
       box-sizing: border-box;
-
-      display: table-cell;
     }
   }
 }
 
-.nhsuk-table-responsive {
+.nhsuk-table-responsive { // [2]
   margin-bottom: 0;
   width: 100%;
 
@@ -160,7 +159,7 @@
   }
 }
 
-@include mq($until: desktop) { // [1]
+@include mq($until: desktop) { // [3]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: block;
@@ -171,7 +170,7 @@
   }
 }
 
-@include mq($from: desktop) { // [2]
+@include mq($from: desktop) { // [4]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: none;
