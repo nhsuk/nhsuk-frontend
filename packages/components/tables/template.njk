@@ -33,35 +33,34 @@
   {%- endif %}
     <tbody class="nhsuk-table__body">
     {%- for row in params.rows %}
-      <tr role="row" class="nhsuk-table__row" >
+      <tr role="row" class="nhsuk-table__row">
         {%- for cell in row %}
           {% set commonAttributes %}
             {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
             {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
             {{- nhsukAttributes(cell.attributes) -}}
-          {% endset %}
-          {%- if params.responsive %}
-            <td role="cell" class="nhsuk-table__cell
-              {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
-              {%- if cell.classes %} {{ cell.classes }}{% endif %}">
+          {% endset -%}
+
+          {% set commonContents %}
+            {%- if params.responsive -%}
               <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
-              {{- cell.html | safe if cell.html else cell.text -}}
-            </td>
+            {%- endif -%}
+            {{- cell.html | safe if cell.html else cell.text -}}
+          {% endset -%}
+
+          {%- if loop.first and params.firstCellIsHeader and not params.responsive %}
+            <th scope="row" class="nhsuk-table__header
+              {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+              {{- commonAttributes | safe }}>
+              {{- commonContents | safe -}}
+            </th>
           {%- else %}
-            {%- if loop.first and params.firstCellIsHeader %}
-              <th scope="row" class="nhsuk-table__header
-                {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-                {{- commonAttributes | safe }}>
-                {{- cell.html | safe if cell.html else cell.text -}}
-              </th>
-            {%- else %}
-              <td class="nhsuk-table__cell
-                {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
-                {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-                {{- commonAttributes | safe }}>
-                {{- cell.html | safe if cell.html else cell.text -}}
-              </td>
-            {%- endif %}
+            <td class="nhsuk-table__cell
+              {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+              {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+              {{- commonAttributes | safe }}>
+              {{- commonContents | safe -}}
+            </td>
           {%- endif %}
         {%- endfor %}
       </tr>
