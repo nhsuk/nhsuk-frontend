@@ -33,7 +33,7 @@
   {%- endif %}
     <tbody class="nhsuk-table__body">
     {%- for row in params.rows %}
-      <tr role="row" class="nhsuk-table__row" >
+      <tr role="row" class="nhsuk-table__row">
         {%- for cell in row %}
           {% set commonAttributes %}
             {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
@@ -48,7 +48,7 @@
             {{- cell.html | safe if cell.html else cell.text -}}
           {% endset -%}
 
-          {%- if loop.first and params.firstCellIsHeader %}
+          {%- if loop.first and params.firstCellIsHeader and not params.responsive %}
             <th scope="row" class="nhsuk-table__header
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
               {{- commonAttributes | safe }}>
