@@ -253,22 +253,22 @@ large-desktop: 990px
 - `$and`: additional custom directives
 
 ```scss
-.responsive {
+.nhsuk-example {
   // Apply styling to mobile and upwards
   @include mq($from: mobile) {
-    color: red;
+    color: $color_nhsuk-red;
   }
   // Apply styling up to devices smaller than tablets (exclude tablets)
   @include mq($until: tablet) {
-    color: blue;
+    color: $color_nhsuk-blue;
   }
   // Same thing, in landscape orientation
   @include mq($until: tablet, $and: '(orientation: landscape)') {
-    color: green;
+    color: $color_nhsuk-green;
   }
   // Apply styling to print media
   @include mq($media-type: print) {
-    color: orange;
+    color: $color_nhsuk-orange;
   }
 }
 ```

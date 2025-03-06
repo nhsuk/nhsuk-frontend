@@ -45,7 +45,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 {{ details({
   "text": "Where can I find my NHS number?",
-  "HTML": "
+  "html": "
   <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
   <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
   <ul>
@@ -259,7 +259,7 @@ The details Nunjucks macro takes the following arguments:
 | Name       | Type    | Required | Description                                                                             |
 | ---------- | ------- | -------- | --------------------------------------------------------------------------------------- |
 | text       | string  | Yes      | Text to be displayed on the expander component.                                         |
-| HTML       | string  | Yes      | HTML content to be displayed within the expander component                              |
+| html       | string  | Yes      | HTML content to be displayed within the expander component                              |
 | id         | string  | false    | Id to add to the details element.                                                       |
 | open       | boolean | false    | If true, details element will be expanded.                                              |
 | classes    | string  | No       | Optional additional classes to add to the anchor tag. Separate each class with a space. |

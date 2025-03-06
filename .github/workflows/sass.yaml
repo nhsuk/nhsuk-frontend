@@ -1,0 +1,60 @@
+name: Sass
+
+on: pull_request
+
+jobs:
+  sass:
+    name: Dart Sass ${{ matrix.package-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        package-version:
+          # Release without major deprecations
+          - 1.77.6
+
+          # Release with `mixed-decls` deprecated
+          - 1.77.7
+
+          # Release with `import` deprecated
+          - 1.80.0
+
+          # Dart Sass latest major version
+          - latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+
+      - name: Install package
+        run: |
+          npm install -g sass@${{ matrix.package-version }}
+          sass --version
+
+      - name: Check compilation
+        run: |
+          mkdir -p .tmp
+          time sass packages/nhsuk.scss > .tmp/check.css
+
+      - name: Check load paths
+        run: |
+          mkdir -p .tmp
+          time sh -c 'echo "@import "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check1.css'
+          time sh -c 'echo "@forward "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check2.css'
+          time sh -c 'echo "@use "\""nhsuk"\"" as *;" | sass --stdin --load-path packages > .tmp/check3.css'
+
+      # Check output for uncompiled Sass
+      - name: Check output
+        run: |
+          ! grep "\$nhsuk-" .tmp/check.css
+          ! grep "\$nhsuk-" .tmp/check1.css
+          ! grep "\$nhsuk-" .tmp/check2.css
+          ! grep "\$nhsuk-" .tmp/check3.css

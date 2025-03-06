@@ -260,43 +260,43 @@
   {{ details({
     "classes": "nhsuk-expander",
     "text": "Opening times",
-    "HTML": "
+    "HTML": '
     <table>
       <tbody>
         <tr>
-          <th><strong>Day of the week</strong></th>
-          <th><strong>Opening hours</strong></th>
+          <th scope="col"><strong>Day of the week</strong></th>
+          <th scope="col"><strong>Opening hours</strong></th>
         </tr>
         <tr>
-          <th>Monday</th>
+          <th scope="row">Monday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Tuesday</th>
+          <th scope="row">Tuesday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Wednesday</th>
+          <th scope="row">Wednesday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Thursday</th>
+          <th scope="row">Thursday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Friday</th>
+          <th scope="row">Friday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Saturday</th>
+          <th scope="row">Saturday</th>
           <td>9am to 1pm</td>
         </tr>
         <tr>
-          <th>Sunday</th>
+          <th scope="row">Sunday</th>
           <td>Closed</td>
         </tr>
       </tbody>
-    </table>"
+    </table>'
   }) }}
 
   <div class="nhsuk-expander-group">
@@ -553,8 +553,8 @@
   <table class="nhsuk-table">
     <thead class="nhsuk-table__head">
       <tr class="nhsuk-table__row">
-        <th class="nhsuk-table__header" scope="col">Class name</th>
-        <th class="nhsuk-table__header" scope="col" style="width: 120px">Tag</th>
+        <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
+        <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
       </tr>
     </thead>
     <tbody class="nhsuk-table__body">

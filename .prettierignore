@@ -1,8 +1,17 @@
-node_modules/*
-dist/*
-.cache/*
-tests/backstop/*
-.github/*
-coverage/*
+# Temporary only
+.cache/
+
+# Node.js modules
+node_modules/
+
+# Test coverage
+coverage/
+
+# Build output
+dist/
+
+# 3rd party vendor code
+engine_scripts/
+
+# Files to ignore
 package-lock.json
-package.json
