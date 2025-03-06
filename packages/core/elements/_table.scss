@@ -2,6 +2,7 @@
 /// Tables
 ///
 /// 1. Force `<table>`s to be full-width by default.
+/// 2. Allow word breaks anywhere to prevent table fit-to-content.
 ///
 /// @group elements
 ////
@@ -12,6 +13,10 @@ table {
   border-spacing: 0;
   vertical-align: top;
   width: 100%; // [1]
+
+  .nhsuk-u-text-break-word {
+    word-break: break-all; // [2]
+  }
 
   @include mq($media-type: print) {
     page-break-inside: avoid;
