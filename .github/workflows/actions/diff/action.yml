@@ -9,21 +9,6 @@ runs:
   using: composite
 
   steps:
-    - name: Set up diff drivers
-      shell: bash
-      run: |
-        npm install -g js-beautify
-        git config diff.minjs.textconv "js-beautify --editorconfig --type js"
-        git config diff.mincss.textconv "js-beautify --editorconfig --type css"
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-
-    - name: Clear diff cache
-      shell: bash
-      run: |
-        rm -Rf .cache/diff/dist
-        mkdir -p .cache/diff/dist
-
     - name: Restore base build (from cache)
       uses: actions/cache/restore@v3
       id: cache-base
@@ -45,6 +30,12 @@ runs:
       with:
         path: dist/
         key: build-${{ github.event.pull_request.base.sha }}
+
+    - name: Set up git for temporary commits
+      shell: bash
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
 
     - name: Commit base build for comparison
       shell: bash
