@@ -23,7 +23,7 @@
 /// line first. However this does not work in tables.
 ///
 /// @example html
-///   <td class="nhsuk-u-word-break-word"></td>
+///   <p class="nhsuk-u-word-break-word"></p>
 
 .nhsuk-u-word-break-word {
   overflow-wrap: break-word;
