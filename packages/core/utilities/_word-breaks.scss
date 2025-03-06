@@ -1,28 +1,30 @@
-// ==========================================================================
-// UTILITIES / #WORD-BREAK
-// ==========================================================================
+////
+/// Word break
+///
+/// @group utilities
+////
 
-/**
- * This class allows words to be broken between any 2
- * to avoid overflowing their container.
- *
- * This can be useful on table cells which could contain
- * long strings such as email addresses.
- *
- * Usage: class="nhsuk-u-word-break-all"
- */
+/// This class allows words to be broken between any 2
+/// to avoid overflowing their container.
+///
+/// This can be useful on table cells which could contain
+/// long strings such as email addresses.
+///
+/// @example html
+///   <td class="nhsuk-u-word-break-all"></td>
+
 .nhsuk-u-word-break-all {
   word-break: break-all;
 }
 
-/**
- * This class also allows words to be broken between any 2
- * to avoid overflowing their container, but will try
- * and avoid it by placing the entire word on its own
- * line first. However this does not work in tables.
- *
- * Usage: class="nhsuk-u-word-break-word"
- */
+/// This class also allows words to be broken between any 2
+/// to avoid overflowing their container, but will try
+/// and avoid it by placing the entire word on its own
+/// line first. However this does not work in tables.
+///
+/// @example html
+///   <td class="nhsuk-u-word-break-word"></td>
+
 .nhsuk-u-word-break-word {
   overflow-wrap: break-word;
 }
