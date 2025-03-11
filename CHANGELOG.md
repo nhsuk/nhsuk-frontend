@@ -5,6 +5,7 @@
 :new: **New features**
 
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
+- Add table cell `classes` and `attributes` param support [PR 1172](https://github.com/nhsuk/nhsuk-frontend/pull/1172)
 
 :wrench: **Fixes**
 
