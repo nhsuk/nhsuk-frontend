@@ -1,7 +1,8 @@
+const { executablePath } = require('puppeteer')
+
 const {
   PORT = 3000,
-  HOSTNAME = 'localhost',
-  BASE_HOST = `${HOSTNAME === 'docker-desktop' ? 'host.docker.internal' : 'localhost'}:${PORT}`,
+  BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
 
@@ -9,16 +10,21 @@ const {
  * @type {PlaywrightEngineConfig}
  */
 module.exports = {
-  asyncCaptureLimit: 5,
-  asyncCompareLimit: 50,
-  dockerCommandTemplate:
-    'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
+  asyncCaptureLimit: 4,
   engine: 'playwright',
   engineOptions: {
+    args: [
+      '--deterministic-mode',
+      '--disable-skia-runtime-opts',
+      '--force-device-scale-factor=1',
+      '--hide-scrollbars'
+    ],
     browser: 'chromium',
+    chromePath: executablePath(),
     gotoParameters: { waitUntil: 'load' }
   },
   id: 'nhsuk-frontend',
+  misMatchThreshold: 0.2,
   onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
   paths: {
