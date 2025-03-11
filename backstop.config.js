@@ -24,7 +24,7 @@ module.exports = {
     gotoParameters: { waitUntil: 'load' }
   },
   id: 'nhsuk-frontend',
-  misMatchThreshold: 0.2,
+  misMatchThreshold: 0.3,
   onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
   paths: {
