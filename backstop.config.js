@@ -16,6 +16,7 @@ module.exports = {
     args: [
       '--deterministic-mode',
       '--disable-skia-runtime-opts',
+      '--font-render-hinting=medium',
       '--force-device-scale-factor=1',
       '--hide-scrollbars'
     ],
