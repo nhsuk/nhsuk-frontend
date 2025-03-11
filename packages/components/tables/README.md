@@ -199,7 +199,7 @@ Find out more about the table component and when to use it in the [NHS digital s
   <tbody class="nhsuk-table__body">
     <tr role="row" class="nhsuk-table__row" >
       <td role="cell" class="nhsuk-table__cell">
-        <span class="nhsuk-table-responsive__heading aria-hidden="true"">Age </span>3 to 5 months (weighing more than 5kg)
+        <span class="nhsuk-table-responsive__heading aria-hidden="true">Age </span>3 to 5 months (weighing more than 5kg)
       </td>
       <td role="cell" class="nhsuk-table__cell">
         <span class="nhsuk-table-responsive__heading" aria-hidden="true">How much? </span>2.5ml
