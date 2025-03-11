@@ -1,6 +1,7 @@
 const { executablePath } = require('puppeteer')
 
 const {
+  HEADLESS,
   PORT = 3000,
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
@@ -10,7 +11,7 @@ const {
  * @type {PlaywrightEngineConfig}
  */
 module.exports = {
-  asyncCaptureLimit: 4,
+  asyncCaptureLimit: HEADLESS ? 1 : 4,
   engine: 'playwright',
   engineOptions: {
     args: [
@@ -22,7 +23,10 @@ module.exports = {
     ],
     browser: 'chromium',
     chromePath: executablePath(),
-    gotoParameters: { waitUntil: 'load' }
+    gotoParameters: { waitUntil: 'load' },
+
+    // Allow headless mode switching using `HEADLESS=false`
+    headless: HEADLESS !== 'false'
   },
   id: 'nhsuk-frontend',
   misMatchThreshold: 0.3,
