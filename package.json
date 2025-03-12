@@ -46,7 +46,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-promise": "^7.2.1",
     "glob": "^11.0.1",
     "gulp": "^5.0.0",
     "gulp-postcss": "^10.0.0",
