@@ -10,7 +10,7 @@ runs:
 
   steps:
     - name: Restore base build (from cache)
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       id: cache-base
       with:
         path: dist/
@@ -26,7 +26,7 @@ runs:
 
     - name: Save base build (to cache)
       if: ${{ steps.cache-base.outputs.cache-hit != 'true' }}
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: dist/
         key: build-${{ github.event.pull_request.base.sha }}
@@ -45,7 +45,7 @@ runs:
         git commit --allow-empty -m "Build output for '${{ github.base_ref }}'" --no-verify
 
     - name: Restore head build (from cache)
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       id: cache-head
       with:
         path: dist/
@@ -65,7 +65,7 @@ runs:
 
     - name: Save head build (to cache)
       if: ${{ steps.cache-head.outputs.cache-hit != 'true' }}
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: dist/
         key: build-${{ github.event.pull_request.head.sha }}
