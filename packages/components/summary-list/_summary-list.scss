@@ -4,7 +4,6 @@
 /// 1. Required to allow us to wrap words that overflow.
 /// 2. Reset default user agent styles
 /// 3. Automatic wrapping for unbreakable text (e.g. URLs)
-/// 4. Fallback for older browsers only
 ///
 /// @group components
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
@@ -60,9 +59,7 @@
 
 .nhsuk-summary-list__key,
 .nhsuk-summary-list__value {
-  // [3]
-  overflow-wrap: break-word;
-  word-wrap: break-word; // [4]
+  @include nhsuk-text-break-word; // [3]
 }
 
 .nhsuk-summary-list__key {

@@ -13,7 +13,6 @@
 ///    text: when the text overflows the container, it is invisible on the white (page)
 ///    background. When the text in our other components overflow, the user might have to scroll
 ///    horizontally to view it but the text remains legible.
-/// 4. Support IE (autoprefixer doesn't add this as it's not a prefix)
 ///
 /// @group components
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
@@ -33,8 +32,7 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
 
   @include mq($until: tablet) {
     padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
-    overflow-wrap: break-word; /* [3] */
-    word-wrap: break-word; /* [4] */
+    @include nhsuk-text-break-word; /* [3] */
   }
 
   @include mq($media-type: print) {
