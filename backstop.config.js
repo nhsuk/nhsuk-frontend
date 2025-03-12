@@ -87,6 +87,10 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary.html`
     },
     {
+      label: 'Button secondary - white background',
+      url: `${BASE_URL}/components/button/secondary-white.html`
+    },
+    {
       label: 'Button reverse',
       url: `${BASE_URL}/components/button/reverse.html`
     },
