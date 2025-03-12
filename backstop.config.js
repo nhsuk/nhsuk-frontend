@@ -105,8 +105,7 @@ module.exports = {
     {
       clickSelector: '.nhsuk-button',
       label: 'Button click',
-      url: `${BASE_URL}/components/button/index.html`,
-      viewports: [viewports.get('large-desktop')]
+      url: `${BASE_URL}/components/button/index.html`
     },
     {
       label: 'Button as a link',
@@ -126,35 +125,76 @@ module.exports = {
     },
     {
       label: 'Card - Basic card',
-      url: `${BASE_URL}/components/card/basic-card.html`
+      url: `${BASE_URL}/components/card/basic-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Card - Clickable card',
-      url: `${BASE_URL}/components/card/clickable-card.html`
+      url: `${BASE_URL}/components/card/clickable-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Card - Card with image',
-      url: `${BASE_URL}/components/card/card-with-image.html`
+      url: `${BASE_URL}/components/card/card-with-image.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Card - Card group',
-      url: `${BASE_URL}/components/card/card-group.html`
+      url: `${BASE_URL}/components/card/card-group.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Card - Feature card',
-      url: `${BASE_URL}/components/card/feature-card.html`
+      url: `${BASE_URL}/components/card/feature-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Care card - Non urgent',
-      url: `${BASE_URL}/components/card/care-card-non-urgent.html`
+      url: `${BASE_URL}/components/card/care-card-non-urgent.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Care card - Urgent',
-      url: `${BASE_URL}/components/card/care-card-urgent.html`
+      url: `${BASE_URL}/components/card/care-card-urgent.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Care card - Emergency',
-      url: `${BASE_URL}/components/card/care-card-emergency.html`
+      url: `${BASE_URL}/components/card/care-card-emergency.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Character Count - max characters',
@@ -162,45 +202,83 @@ module.exports = {
     },
     {
       label: 'Character Count - with threshold',
-      url: `${BASE_URL}/components/character-count/with-threshold.html`
+      url: `${BASE_URL}/components/character-count/with-threshold.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Character Count - max words',
-      url: `${BASE_URL}/components/character-count/with-word-count.html`
+      url: `${BASE_URL}/components/character-count/with-word-count.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Checkboxes',
-      url: `${BASE_URL}/components/checkboxes/index.html`
+      url: `${BASE_URL}/components/checkboxes/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Checkboxes with hint text',
-      url: `${BASE_URL}/components/checkboxes/hint.html`
+      url: `${BASE_URL}/components/checkboxes/hint.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Checkboxes with disabled item',
-      url: `${BASE_URL}/components/checkboxes/disabled.html`
+      url: `${BASE_URL}/components/checkboxes/disabled.html`,
+      viewports: [viewports.get('mobile')]
     },
     {
       label: 'Checkboxes with legend as page heading',
-      url: `${BASE_URL}/components/checkboxes/page-heading.html`
+      url: `${BASE_URL}/components/checkboxes/page-heading.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Checkboxes with error message',
-      url: `${BASE_URL}/components/checkboxes/error.html`
+      url: `${BASE_URL}/components/checkboxes/error.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       clickSelector: '#waste-1',
       label: 'Checkboxes with error message - focused',
-      url: `${BASE_URL}/components/checkboxes/error.html`
+      url: `${BASE_URL}/components/checkboxes/error.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       clickSelector: '#contact-1',
       label: 'Checkboxes with conditional content',
-      url: `${BASE_URL}/components/checkboxes/conditional.html`
+      url: `${BASE_URL}/components/checkboxes/conditional.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Checkboxes with "none of the above" option',
-      url: `${BASE_URL}/components/checkboxes/none-of-the-above.html`
+      url: `${BASE_URL}/components/checkboxes/none-of-the-above.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Contents list',
@@ -221,11 +299,17 @@ module.exports = {
     },
     {
       label: "Do & Don't list",
-      url: `${BASE_URL}/components/do-dont-list/index.html`
+      url: `${BASE_URL}/components/do-dont-list/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Error message',
-      url: `${BASE_URL}/components/error-message/index.html`
+      url: `${BASE_URL}/components/error-message/index.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Error summary',
@@ -233,85 +317,182 @@ module.exports = {
     },
     {
       label: 'Error summary with link to an input field',
-      url: `${BASE_URL}/components/error-summary/linking-to-input.html`
+      url: `${BASE_URL}/components/error-summary/linking-to-input.html`,
+      viewports: [viewports.get('desktop')]
     },
     {
       label: 'Error summary with link to a radio field',
-      url: `${BASE_URL}/components/error-summary/linking-to-radios.html`
+      url: `${BASE_URL}/components/error-summary/linking-to-radios.html`,
+      viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-details__summary',
       label: 'Expander',
-      url: `${BASE_URL}/components/details/expander.html`
+      url: `${BASE_URL}/components/details/expander.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       clickSelector: '.nhsuk-details__summary',
       label: 'Expander group',
-      url: `${BASE_URL}/components/details/expander-group.html`
+      url: `${BASE_URL}/components/details/expander-group.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Footer (default)',
-      url: `${BASE_URL}/components/footer/index.html`
+      url: `${BASE_URL}/components/footer/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Footer (columns)',
-      url: `${BASE_URL}/components/footer/footer-in-columns.html`
+      url: `${BASE_URL}/components/footer/footer-in-columns.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Footer (custom copyright statement)',
-      url: `${BASE_URL}/components/footer/custom-copyright.html`
+      url: `${BASE_URL}/components/footer/custom-copyright.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Fieldset',
-      url: `${BASE_URL}/components/fieldset/index.html`
+      url: `${BASE_URL}/components/fieldset/index.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Fieldset as page heading',
-      url: `${BASE_URL}/components/fieldset/page-heading.html`
+      url: `${BASE_URL}/components/fieldset/page-heading.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Fieldset with inputs',
-      url: `${BASE_URL}/components/fieldset/with-inputs.html`
+      url: `${BASE_URL}/components/fieldset/with-inputs.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Header (default)',
-      url: `${BASE_URL}/components/header/index.html`
+      url: `${BASE_URL}/components/header/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with navigation',
-      url: `${BASE_URL}/components/header/header-navigation.html`
+      url: `${BASE_URL}/components/header/header-navigation.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with search',
-      url: `${BASE_URL}/components/header/header-search.html`
+      url: `${BASE_URL}/components/header/header-search.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with logo only',
-      url: `${BASE_URL}/components/header/header-logo.html`
+      url: `${BASE_URL}/components/header/header-logo.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with a service name',
-      url: `${BASE_URL}/components/header/header-service-name.html`
+      url: `${BASE_URL}/components/header/header-service-name.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with a service name, search and navigation',
-      url: `${BASE_URL}/components/header/header-service-name-with-nav.html`
+      url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header transactional with service name',
-      url: `${BASE_URL}/components/header/header-transactional-service-name.html`
+      url: `${BASE_URL}/components/header/header-transactional-service-name.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header organisational',
-      url: `${BASE_URL}/components/header/header-org.html`
+      url: `${BASE_URL}/components/header/header-org.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header organisational with white header',
-      url: `${BASE_URL}/components/header/header-org-white.html`
+      url: `${BASE_URL}/components/header/header-org-white.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header organisational with white header and navigation',
-      url: `${BASE_URL}/components/header/header-org-white-nav.html`
+      url: `${BASE_URL}/components/header/header-org-white-nav.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       clickSelector: '#toggle-menu',
@@ -321,23 +502,47 @@ module.exports = {
     },
     {
       label: 'Hero',
-      url: `${BASE_URL}/components/hero/index.html`
+      url: `${BASE_URL}/components/hero/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Hero with image',
-      url: `${BASE_URL}/components/hero/hero-image.html`
+      url: `${BASE_URL}/components/hero/hero-image.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Hero with image and content',
-      url: `${BASE_URL}/components/hero/hero-image-content.html`
+      url: `${BASE_URL}/components/hero/hero-image-content.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Hint',
-      url: `${BASE_URL}/components/hint/index.html`
+      url: `${BASE_URL}/components/hint/index.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Images',
-      url: `${BASE_URL}/components/images/index.html`
+      url: `${BASE_URL}/components/images/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Input',
@@ -391,61 +596,120 @@ module.exports = {
     },
     {
       label: 'Label',
-      url: `${BASE_URL}/components/label/index.html`
+      url: `${BASE_URL}/components/label/index.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Label with bold text',
-      url: `${BASE_URL}/components/label/bold.html`
+      url: `${BASE_URL}/components/label/bold.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Label as page heading',
-      url: `${BASE_URL}/components/label/page-heading.html`
+      url: `${BASE_URL}/components/label/page-heading.html`,
+      viewports: [viewports.get('tablet')]
     },
     {
       label: 'Pagination',
-      url: `${BASE_URL}/components/pagination/index.html`
+      url: `${BASE_URL}/components/pagination/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Panel',
-      url: `${BASE_URL}/components/panel/index.html`
+      url: `${BASE_URL}/components/panel/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios',
-      url: `${BASE_URL}/components/radios/index.html`
+      url: `${BASE_URL}/components/radios/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios inline',
-      url: `${BASE_URL}/components/radios/inline.html`
+      url: `${BASE_URL}/components/radios/inline.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios disabled',
-      url: `${BASE_URL}/components/radios/disabled.html`
+      url: `${BASE_URL}/components/radios/disabled.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios with a divider',
-      url: `${BASE_URL}/components/radios/divider.html`
+      url: `${BASE_URL}/components/radios/divider.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios with hint text',
-      url: `${BASE_URL}/components/radios/hint.html`
+      url: `${BASE_URL}/components/radios/hint.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios without fieldset',
-      url: `${BASE_URL}/components/radios/without-fieldset.html`
+      url: `${BASE_URL}/components/radios/without-fieldset.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Radios with hint text and error message',
-      url: `${BASE_URL}/components/radios/hint-error.html`
+      url: `${BASE_URL}/components/radios/hint-error.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       clickSelector: '#example-2',
       label: 'Radios with hint text and error message - focused',
-      url: `${BASE_URL}/components/radios/hint-error.html`
+      url: `${BASE_URL}/components/radios/hint-error.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       clickSelector: '#contact-1',
       label: 'Radios with conditional content',
-      url: `${BASE_URL}/components/radios/conditional.html`
+      url: `${BASE_URL}/components/radios/conditional.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Select',
@@ -462,31 +726,66 @@ module.exports = {
     },
     {
       label: 'Summary list',
-      url: `${BASE_URL}/components/summary-list/index.html`
+      url: `${BASE_URL}/components/summary-list/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Summary list without actions',
-      url: `${BASE_URL}/components/summary-list/without-actions.html`
+      url: `${BASE_URL}/components/summary-list/without-actions.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Summary list without border',
-      url: `${BASE_URL}/components/summary-list/without-border.html`
+      url: `${BASE_URL}/components/summary-list/without-border.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Table',
-      url: `${BASE_URL}/components/tables/index.html`
+      url: `${BASE_URL}/components/tables/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Responsive table',
-      url: `${BASE_URL}/components/tables/responsive-table.html`
+      url: `${BASE_URL}/components/tables/responsive-table.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Table as panel',
-      url: `${BASE_URL}/components/tables/tables-panel.html`
+      url: `${BASE_URL}/components/tables/tables-panel.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Tabs',
-      url: `${BASE_URL}/components/tabs/index.html`
+      url: `${BASE_URL}/components/tabs/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Tag',
@@ -494,11 +793,21 @@ module.exports = {
     },
     {
       label: 'Task list',
-      url: `${BASE_URL}/components/task-list/index.html`
+      url: `${BASE_URL}/components/task-list/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Task list with multiple sections',
-      url: `${BASE_URL}/components/task-list/multiple-sections.html`
+      url: `${BASE_URL}/components/task-list/multiple-sections.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Textarea',
@@ -515,19 +824,24 @@ module.exports = {
     },
     {
       label: 'Warning callout',
-      url: `${BASE_URL}/components/warning-callout/index.html`
+      url: `${BASE_URL}/components/warning-callout/index.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     },
     {
       label: 'Warning callout with custom heading',
-      url: `${BASE_URL}/components/warning-callout/custom-heading.html`
+      url: `${BASE_URL}/components/warning-callout/custom-heading.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
     }
   ],
-  viewports: [
-    viewports.get('mobile'),
-    viewports.get('tablet'),
-    viewports.get('desktop'),
-    viewports.get('large-desktop')
-  ]
+  viewports: [viewports.get('mobile'), viewports.get('desktop')]
 }
 
 /**
