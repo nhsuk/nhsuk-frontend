@@ -64,11 +64,11 @@
     <div class="nhsuk-header__service-name">
       {%- if params.service.href -%}
         <a class="nhsuk-header__service-name__link" href="{{ params.service.href }}">
-      {% endif %}
-        {{ params.service.text }}
-      {%- if params.service.href -%}
+          {{ params.service.text }}
         </a>
-      {% endif %}
+      {%- else -%}
+        {{ params.service.text }}
+      {%- endif -%}
     </div>
 {%- endif %}
 
