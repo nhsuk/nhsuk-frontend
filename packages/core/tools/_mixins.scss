@@ -96,6 +96,21 @@
   }
 }
 
+/// Hide an element visually, but have it available for screen readers whilst
+/// allowing the element to be focused when navigated to via the keyboard (e.g.
+/// for the skip link)
+///
+/// @param {Boolean} $important [true] - Whether to mark as `!important`
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin visually-hidden-focusable($important: true) {
+  // IE 11 doesn't support the combined `:not(:active, :focus)` syntax.
+  &:not(:active):not(:focus) {
+    @include _nhsuk-visually-hide-content($important: $important);
+  }
+}
+
 /// Show an element visually that has previously been hidden by visually-hidden
 ///
 /// For differences between mobile and desktop views, use $display to set the CSS display property
