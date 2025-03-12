@@ -46,7 +46,7 @@
   flex-grow: 999;
 }
 
-.nhsuk-header__logo__link {
+.nhsuk-header__logo-link {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -61,8 +61,8 @@
   }
 }
 
-.nhsuk-header__logo__link,
-.nhsuk-header__service-name__link {
+.nhsuk-header__logo-link,
+.nhsuk-header__service-link {
   @include nhsuk-link-style-header;
   text-decoration: none;
   text-wrap: balance;
