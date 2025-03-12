@@ -68,7 +68,7 @@ module.exports = {
     // Allow headless mode switching using `HEADLESS=false`
     headless: HEADLESS !== 'false'
   },
-  id: 'nhsuk-frontend',
+  fileNameTemplate: '{scenarioLabel}_{viewportLabel}',
   misMatchThreshold: 0.3,
   onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
@@ -108,7 +108,7 @@ module.exports = {
       url: `${BASE_URL}/components/button/index.html`
     },
     {
-      label: 'Button as a link',
+      label: 'Button as link',
       url: `${BASE_URL}/components/button/link.html`
     },
     {
@@ -124,7 +124,7 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse.html`
     },
     {
-      label: 'Card - Basic card',
+      label: 'Card, Basic',
       url: `${BASE_URL}/components/card/basic-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -133,7 +133,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card - Clickable card',
+      label: 'Card, Clickable',
       url: `${BASE_URL}/components/card/clickable-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -142,7 +142,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card - Card with image',
+      label: 'Card with image',
       url: `${BASE_URL}/components/card/card-with-image.html`,
       viewports: [
         viewports.get('mobile'),
@@ -151,7 +151,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card - Card group',
+      label: 'Card group',
       url: `${BASE_URL}/components/card/card-group.html`,
       viewports: [
         viewports.get('mobile'),
@@ -161,7 +161,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card - Feature card',
+      label: 'Feature card',
       url: `${BASE_URL}/components/card/feature-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -170,7 +170,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Care card - Non urgent',
+      label: 'Care card (Non urgent)',
       url: `${BASE_URL}/components/card/care-card-non-urgent.html`,
       viewports: [
         viewports.get('mobile'),
@@ -179,7 +179,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Care card - Urgent',
+      label: 'Care card (Urgent)',
       url: `${BASE_URL}/components/card/care-card-urgent.html`,
       viewports: [
         viewports.get('mobile'),
@@ -188,7 +188,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Care card - Emergency',
+      label: 'Care card (Emergency)',
       url: `${BASE_URL}/components/card/care-card-emergency.html`,
       viewports: [
         viewports.get('mobile'),
@@ -197,16 +197,16 @@ module.exports = {
       ]
     },
     {
-      label: 'Character Count - max characters',
+      label: 'Character Count with max characters',
       url: `${BASE_URL}/components/character-count/index.html`
     },
     {
-      label: 'Character Count - with threshold',
+      label: 'Character Count with threshold',
       url: `${BASE_URL}/components/character-count/with-threshold.html`,
       viewports: [viewports.get('tablet')]
     },
     {
-      label: 'Character Count - max words',
+      label: 'Character Count with max words',
       url: `${BASE_URL}/components/character-count/with-word-count.html`,
       viewports: [viewports.get('tablet')]
     },
@@ -253,7 +253,7 @@ module.exports = {
     },
     {
       clickSelector: '#waste-1',
-      label: 'Checkboxes with error message - focused',
+      label: 'Checkboxes with error message (focused)',
       url: `${BASE_URL}/components/checkboxes/error.html`,
       viewports: [
         viewports.get('mobile'),
@@ -435,7 +435,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with a service name',
+      label: 'Header with service name',
       url: `${BASE_URL}/components/header/header-service-name.html`,
       viewports: [
         viewports.get('mobile'),
@@ -445,7 +445,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with a service name, search and navigation',
+      label: 'Header with service name, search, navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
       viewports: [
         viewports.get('mobile'),
@@ -485,7 +485,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Header organisational with white header and navigation',
+      label: 'Header organisational with white header, navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
       viewports: [
         viewports.get('mobile'),
@@ -521,7 +521,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Hero with image and content',
+      label: 'Hero with image, content',
       url: `${BASE_URL}/components/hero/hero-image-content.html`,
       viewports: [
         viewports.get('mobile'),
@@ -562,7 +562,7 @@ module.exports = {
     },
     {
       clickSelector: '#input-with-error-message',
-      label: 'Input with error message - focused',
+      label: 'Input with error message (focused)',
       url: `${BASE_URL}/components/input/error.html`
     },
     {
@@ -578,16 +578,16 @@ module.exports = {
       url: `${BASE_URL}/components/input/suffix.html`
     },
     {
-      label: 'Input with prefix and suffix',
+      label: 'Input with prefix, suffix',
       url: `${BASE_URL}/components/input/prefix-and-suffix.html`
     },
     {
-      label: 'Input with error message, prefix and suffix',
+      label: 'Input with error message, prefix, suffix',
       url: `${BASE_URL}/components/input/error-and-prefix-and-suffix.html`
     },
     {
       clickSelector: '#input-with-error-message-and-prefix-and-suffix',
-      label: 'Input with error message, prefix and suffix - focused',
+      label: 'Input with error message, prefix, suffix (focused)',
       url: `${BASE_URL}/components/input/error-and-prefix-and-suffix.html`
     },
     {
@@ -656,7 +656,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Radios with a divider',
+      label: 'Radios with divider',
       url: `${BASE_URL}/components/radios/divider.html`,
       viewports: [
         viewports.get('mobile'),
@@ -683,7 +683,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Radios with hint text and error message',
+      label: 'Radios with hint text, error message',
       url: `${BASE_URL}/components/radios/hint-error.html`,
       viewports: [
         viewports.get('mobile'),
@@ -693,7 +693,7 @@ module.exports = {
     },
     {
       clickSelector: '#example-2',
-      label: 'Radios with hint text and error message - focused',
+      label: 'Radios with hint text, error message (focused)',
       url: `${BASE_URL}/components/radios/hint-error.html`,
       viewports: [
         viewports.get('mobile'),
@@ -716,12 +716,12 @@ module.exports = {
       url: `${BASE_URL}/components/select/index.html`
     },
     {
-      label: 'Select with hint text and error message',
+      label: 'Select with hint text, error message',
       url: `${BASE_URL}/components/select/hint-error.html`
     },
     {
       clickSelector: '[for=select-2]',
-      label: 'Select with hint text and error message - focused',
+      label: 'Select with hint text, error message (focused)',
       url: `${BASE_URL}/components/select/hint-error.html`
     },
     {
@@ -819,7 +819,7 @@ module.exports = {
     },
     {
       clickSelector: '#no-ni-reason',
-      label: 'Textarea with error message - focused',
+      label: 'Textarea with error message (focused)',
       url: `${BASE_URL}/components/textarea/error.html`
     },
     {
