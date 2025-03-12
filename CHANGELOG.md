@@ -4,6 +4,20 @@
 
 :new: **New features**
 
+#### Stop long words breaking out of components with `nhsuk-u-text-break-word`
+
+We've added a new override class to help display long or unpredictable words on narrow screens, such as an email address entered by a user.
+
+Wrapping content with the `nhsuk-u-text-break-word` class or applying it to table cells will force words that are too long to break onto a new line.
+
+```html
+A confirmation email will be sent to <span class="nhsuk-u-text-break-word">aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com</span>.
+```
+
+Sass users can also use the `nhsuk-text-break-word` mixin.
+
+This change was introduced in [pull request #1061: Add break-word typography helper](https://github.com/nhsuk/nhsuk-frontend/pull/1061).
+
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
 - Add table cell `classes` and `attributes` param support [PR 1172](https://github.com/nhsuk/nhsuk-frontend/pull/1172)
 
