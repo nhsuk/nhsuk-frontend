@@ -54,13 +54,13 @@ runs:
     - name: Install dependencies
       if: ${{ steps.cache-head.outputs.cache-hit == 'true' }}
       shell: bash
-      run: npm install
+      run: npm install --ignore-scripts
 
     - name: Install and build head
       if: ${{ steps.cache-head.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
-        npm install
+        npm install --ignore-scripts
         npm run build
 
     - name: Save head build (to cache)

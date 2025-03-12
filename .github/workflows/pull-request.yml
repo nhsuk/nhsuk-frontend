@@ -28,7 +28,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.npm-install-cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm install --ignore-scripts
 
   linting:
     name: Code style checks
@@ -73,6 +73,9 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Setup Puppeteer
+        run: npx puppeteer browsers install
+
       - name: Build
         run: npm run build
 
@@ -110,6 +113,10 @@ jobs:
       - name: Check for changes
         uses: ./.github/workflows/actions/diff
         id: changes
+
+      - name: Setup Playwright
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run postinstall
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' }}
