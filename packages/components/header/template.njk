@@ -33,7 +33,7 @@
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
 {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-header__container">
-    <div class="nhsuk-header__logo {% if not params.service %}nhsuk-header__logo--no-service-name{% endif %}">
+    <div class="nhsuk-header__logo{% if not params.service %} nhsuk-header__logo--no-service-name{% endif %}">
     {%- if params.organisation %}
       {%- if params.logo.href -%}
       <a class="nhsuk-header__logo__link" href="{{ params.logo.href }}" aria-label="{{ params.organisation.name }} {{ params.organisation.split }} {{ params.organisation.descriptor }} homepage">
