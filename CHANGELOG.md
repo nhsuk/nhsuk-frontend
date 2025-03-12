@@ -69,6 +69,7 @@ We've configured our build tasks to use [Browserslist](https://browsersl.ist) fo
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
+- [#908: Updating secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
 
 ## 9.3.0 - 13 February 2025
 
