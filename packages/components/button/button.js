@@ -1,9 +1,8 @@
 class Button {
-  KEY_SPACE = 32
-
-  DEBOUNCE_TIMEOUT_IN_SECONDS = 1
-
   constructor($module) {
+    this.KEY_SPACE = 32
+    this.DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+
     this.$module = $module
     this.debounceFormSubmitTimer = null
   }
@@ -22,7 +21,10 @@ class Button {
 
     const { target } = event
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (target.getAttribute('role') === 'button' && event.keyCode === this.KEY_SPACE) {
+    if (
+      target.getAttribute('role') === 'button' &&
+      event.keyCode === this.KEY_SPACE
+    ) {
       event.preventDefault()
       // trigger the target's click event
       target.click()

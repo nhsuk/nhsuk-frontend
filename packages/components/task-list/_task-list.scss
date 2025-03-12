@@ -1,9 +1,11 @@
-/**
- * Original SASS taken from GOV.UK Design System
- * https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/components/task-list/_index.scss
- */
+////
+/// Task list component
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
 
-// NHS pages have a grey background, so we need a slightly daker colour for the hover
+// NHS pages have a grey background, so we need a slightly darker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s
 $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
 
@@ -25,7 +27,9 @@ $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
   position: relative;
   width: 100%;
   margin-bottom: 0;
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-top: calc(nhsuk-spacing(2) + 4px);
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-bottom: calc(nhsuk-spacing(2) + 4px);
   border-bottom: 1px solid $nhsuk-border-color;
 }
@@ -63,6 +67,7 @@ $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
   @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
   padding-bottom: nhsuk-spacing(1);
   padding-left: nhsuk-spacing(2);
+  // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
   text-decoration: none;
 }

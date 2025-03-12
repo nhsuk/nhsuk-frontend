@@ -260,43 +260,43 @@
   {{ details({
     "classes": "nhsuk-expander",
     "text": "Opening times",
-    "HTML": "
+    "HTML": '
     <table>
       <tbody>
         <tr>
-          <th><strong>Day of the week</strong></th>
-          <th><strong>Opening hours</strong></th>
+          <th scope="col"><strong>Day of the week</strong></th>
+          <th scope="col"><strong>Opening hours</strong></th>
         </tr>
         <tr>
-          <th>Monday</th>
+          <th scope="row">Monday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Tuesday</th>
+          <th scope="row">Tuesday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Wednesday</th>
+          <th scope="row">Wednesday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Thursday</th>
+          <th scope="row">Thursday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Friday</th>
+          <th scope="row">Friday</th>
           <td>9am to 6pm</td>
         </tr>
         <tr>
-          <th>Saturday</th>
+          <th scope="row">Saturday</th>
           <td>9am to 1pm</td>
         </tr>
         <tr>
-          <th>Sunday</th>
+          <th scope="row">Sunday</th>
           <td>Closed</td>
         </tr>
       </tbody>
-    </table>"
+    </table>'
   }) }}
 
   <div class="nhsuk-expander-group">
@@ -553,14 +553,14 @@
   <table class="nhsuk-table">
     <thead class="nhsuk-table__head">
       <tr class="nhsuk-table__row">
-        <th class="nhsuk-table__header" scope="col">Class name</th>
-        <th class="nhsuk-table__header" scope="col" style="width: 120px">Tag</th>
+        <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
+        <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
       </tr>
     </thead>
     <tbody class="nhsuk-table__body">
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag</code>
+          nhsuk-tag
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -570,7 +570,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--white </code>
+          nhsuk-tag--white
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -581,7 +581,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--grey </code>
+          nhsuk-tag--grey
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -592,7 +592,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--green </code>
+          nhsuk-tag--green
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -603,7 +603,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--aqua-green </code>
+          nhsuk-tag--aqua-green
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -614,7 +614,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--blue </code>
+          nhsuk-tag--blue
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -625,7 +625,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--purple </code>
+          nhsuk-tag--purple
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -636,7 +636,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--pink </code>
+          nhsuk-tag--pink
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -647,7 +647,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--red </code>
+          nhsuk-tag--red
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -658,7 +658,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--orange </code>
+          nhsuk-tag--orange
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({
@@ -669,7 +669,7 @@
       </tr>
       <tr class="nhsuk-table__row">
         <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--yellow </code>
+          nhsuk-tag--yellow
         </td>
         <td class="nhsuk-table__cell">
           {{ tag({

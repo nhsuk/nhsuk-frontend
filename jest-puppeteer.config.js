@@ -1,15 +1,15 @@
+const waitOnScheme = require('./wait-on.config')
+
+const { HEADLESS, PORT = 3000 } = process.env
+
+/**
+ * @type {JestPuppeteerConfig}
+ */
 module.exports = {
   browserContext: 'incognito',
-  browserPerWorker: true,
 
   /**
-   * Workaround for jest-environment-puppeteer 'uncaughtException'
-   * see error handling in ./config/jest/environment/puppeteer.mjs
-   */
-  exitOnPageError: false,
-
-  /**
-   * @type {import('puppeteer').PuppeteerLaunchOptions}
+   * Puppeteer launch options
    */
   launch: {
     args: [
@@ -21,18 +21,34 @@ module.exports = {
       '--disable-setuid-sandbox',
 
       /**
-       * Prevent empty Chromium startup window
+       * Prevent empty Chrome startup window
        * Tests use their own `browser.newPage()` instead
        */
       '--no-startup-window'
     ],
+
+    // Allow headless mode switching using `HEADLESS=false`
+    headless: HEADLESS !== 'false',
+
+    // See launch arg '--no-startup-window'
     waitForInitialPage: false
   },
 
+  /**
+   * Development server options
+   */
   server: {
-    command: 'npm start',
-    port: 3000,
-    launchTimeout: 30000,
-    host: '127.0.0.1'
+    command: 'npx gulp docs:serve',
+    port: PORT,
+
+    // Skip when already running
+    usedPortAction: 'ignore',
+
+    // Shared wait-on options
+    waitOnScheme
   }
 }
+
+/**
+ * @import { JestPuppeteerConfig } from 'jest-environment-puppeteer'
+ */

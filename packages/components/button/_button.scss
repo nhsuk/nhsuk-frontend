@@ -1,15 +1,15 @@
-// ==========================================================================
-// COMPONENTS/ #BUTTON
-// ==========================================================================
-
-//
-// 1. Ensure that any global link styles are overridden.
-// 2. Fix unwanted button padding in Firefox.
-// 3. Use a pseudo element to expand the click target area to include the
-//    button's shadow as well, in case users try to click it.
-// 4. Makes the secondary button that has a border the same height as the other 
+////
+/// Button component
+///
+/// 1. Ensure that any global link styles are overridden.
+/// 2. Fix unwanted button padding in Firefox.
+/// 3. Use a pseudo element to expand the click target area to include the
+///    button's shadow as well, in case users try to click it.
+/// 4. Makes the secondary button that has a border the same height as the other 
 //    buttons that don't have a border.
-//
+///
+/// @group components
+////
 
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
@@ -114,9 +114,7 @@ $button-padding-left-right: nhsuk-spacing(3);
   }
 }
 
-//
-// Button variations
-//
+/// Button variations
 
 .nhsuk-button--secondary {
   background-color: $nhsuk-secondary-button-color;
@@ -214,7 +212,8 @@ $button-padding-left-right: nhsuk-spacing(3);
     top: $button-shadow-size;
   }
 
-  &:link {
+  &:link,
+  &:visited {
     color: $nhsuk-reverse-button-text-color;
 
     &:active {
@@ -246,9 +245,8 @@ $button-padding-left-right: nhsuk-spacing(3);
   }
 }
 
-//
-// Button disabled states
-//
+/// Button disabled states
+
 .nhsuk-button--disabled,
 .nhsuk-button:disabled {
   opacity: (0.5);
