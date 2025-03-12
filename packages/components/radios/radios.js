@@ -2,7 +2,7 @@ import { toggleConditionalInput } from '../../common.js'
 
 /**
  * Conditionally show content when a radio button is checked
- * Test at http://0.0.0.0:3000/components/radios/conditional.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
 
 export default ({ scope = document } = {}) => {

@@ -1,3 +1,5 @@
+const { PORT = 3000 } = process.env
+
 const { mkdir, writeFile } = require('fs/promises')
 const { join, parse } = require('path')
 
@@ -108,7 +110,7 @@ function serve() {
     online: false,
     open: false,
     notify: false,
-    port: 3000,
+    port: PORT,
 
     // Development server
     server: {

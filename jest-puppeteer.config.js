@@ -1,4 +1,6 @@
-const { HEADLESS } = process.env
+const waitOnScheme = require('./wait-on.config')
+
+const { HEADLESS, PORT = 3000 } = process.env
 
 /**
  * @type {JestPuppeteerConfig}
@@ -37,14 +39,13 @@ module.exports = {
    */
   server: {
     command: 'npx gulp docs:serve',
-    host: '0.0.0.0',
-    port: 3000,
-
-    // Allow 30 seconds to start server
-    launchTimeout: 30000,
+    port: PORT,
 
     // Skip when already running
-    usedPortAction: 'ignore'
+    usedPortAction: 'ignore',
+
+    // Shared wait-on options
+    waitOnScheme
   }
 }
 

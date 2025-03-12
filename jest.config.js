@@ -12,7 +12,7 @@ module.exports = {
   // Reduce CPU usage during project test runs
   maxWorkers: headless
     ? '50%' // Matches Jest default (50%) via `--watch`
-    : 1, // Use only 1x browser window when headless
+    : 1, // Use only 1x browser window using `HEADLESS=false`
 
   projects: [
     {
