@@ -8,6 +8,46 @@ const {
 } = process.env
 
 /**
+ * Default viewport sizes
+ * @type {Map<string, Viewport>}
+ */
+const viewports = new Map([
+  [
+    'mobile',
+    {
+      width: 320,
+      height: 100
+    }
+  ],
+  [
+    'tablet',
+    {
+      width: 641,
+      height: 100
+    }
+  ],
+  [
+    'desktop',
+    {
+      width: 769,
+      height: 100
+    }
+  ],
+  [
+    'large-desktop',
+    {
+      width: 990,
+      height: 100
+    }
+  ]
+])
+
+// Set viewport labels
+for (const [label, viewport] of viewports.entries()) {
+  viewport.label = label
+}
+
+/**
  * @type {PlaywrightEngineConfig}
  */
 module.exports = {
@@ -66,13 +106,7 @@ module.exports = {
       clickSelector: '.nhsuk-button',
       label: 'Button click',
       url: `${BASE_URL}/components/button/index.html`,
-      viewports: [
-        {
-          height: 768,
-          label: 'Surface, iPad Pro',
-          width: 1366
-        }
-      ]
+      viewports: [viewports.get('large-desktop')]
     },
     {
       label: 'Button as a link',
@@ -283,23 +317,7 @@ module.exports = {
       clickSelector: '#toggle-menu',
       label: 'Header with navigation open',
       url: `${BASE_URL}/components/header/header-navigation.html`,
-      viewports: [
-        {
-          height: 568,
-          label: 'iPhone 5/SE',
-          width: 320
-        },
-        {
-          height: 667,
-          label: 'iPhone 6-8',
-          width: 375
-        },
-        {
-          height: 1024,
-          label: 'iPad',
-          width: 768
-        }
-      ]
+      viewports: [viewports.get('mobile'), viewports.get('tablet')]
     },
     {
       label: 'Hero',
@@ -505,29 +523,13 @@ module.exports = {
     }
   ],
   viewports: [
-    {
-      height: 568,
-      label: 'iPhone 5/SE',
-      width: 320
-    },
-    {
-      height: 667,
-      label: 'iPhone 6-8',
-      width: 375
-    },
-    {
-      height: 1024,
-      label: 'iPad',
-      width: 768
-    },
-    {
-      height: 768,
-      label: 'Surface, iPad Pro',
-      width: 1366
-    }
+    viewports.get('mobile'),
+    viewports.get('tablet'),
+    viewports.get('desktop'),
+    viewports.get('large-desktop')
   ]
 }
 
 /**
- * @import { PlaywrightEngineConfig } from 'backstopjs'
+ * @import { PlaywrightEngineConfig, Viewport } from 'backstopjs'
  */
