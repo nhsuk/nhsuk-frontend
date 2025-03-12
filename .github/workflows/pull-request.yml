@@ -52,13 +52,15 @@ jobs:
           name: Javascript unit tests coverage
           path: coverage
 
-  ui_tests:
+  regression:
     name: Visual regression tests
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -66,14 +68,16 @@ jobs:
           node-version-file: .nvmrc
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Check for changes
+        uses: ./.github/workflows/actions/diff
+        id: changes
 
       - name: Run backstop
-        run: npm run test:visual
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run test:visual --ignore-scripts
 
       - name: Save backstop report
-        if: ${{ always() }}
+        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: Backstop report
