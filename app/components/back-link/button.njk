@@ -3,21 +3,13 @@
 {% from 'components/back-link/macro.njk' import backLink %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ backLink({
-            "text": "Go back",
-            "element": "button"
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ backLink({
+        "text": "Go back",
+        "element": "button"
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

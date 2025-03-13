@@ -3,21 +3,15 @@
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ actionLink({
-            "text": "Find a minor injuries unit",
-            "href": "#"
-          }) }}
-        </div>
-      </div>
-
-    </main>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ actionLink({
+        "text": "Find a minor injuries unit",
+        "href": "#"
+      }) }}
+    </div>
   </div>
 
 {% endblock %}

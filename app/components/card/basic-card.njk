@@ -3,24 +3,16 @@
 {% from 'components/card/macro.njk' import card %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
+      {{ card({
+        "heading": "If you need help now, but it’s not an emergency",
+        "headingLevel": "3",
+        "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
+      }) }}
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-
-        {{ card({
-          "heading": "If you need help now, but it’s not an emergency",
-          "headingLevel": "3",
-          "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
-        }) }}
-
-      </div>
     </div>
-
-  </main>
-</div>
-
+  </div>
 {% endblock %}

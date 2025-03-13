@@ -3,25 +3,17 @@
 {% from 'components/card/macro.njk' import card %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
+      {{ card({
+        "feature": "true",
+        "heading": "Feature card heading",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Feature card description"
+      }) }}
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-
-        {{ card({
-          "feature": "true",
-          "heading": "Feature card heading",
-          "headingClasses": "nhsuk-heading-m",
-          "description": "Feature card description"
-        }) }}
-
-      </div>
     </div>
-
-  </main>
-</div>
-
+  </div>
 {% endblock %}

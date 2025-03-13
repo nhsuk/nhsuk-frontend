@@ -3,26 +3,18 @@
 {% from 'components/card/macro.njk' import card %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third">
 
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "headingLevel": 5,
+        "heading": "Order a repeat prescription",
+        "headingClasses": "nhsuk-heading-xs"
+      }) }}
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-one-third">
-
-        {{ card({
-          "href": "#",
-          "clickable": "true",
-          "headingLevel": 5,
-          "heading": "Order a repeat prescription",
-          "headingClasses": "nhsuk-heading-xs"
-        }) }}
-
-      </div>
     </div>
-
-  </main>
-</div>
-
+  </div>
 {% endblock %}
