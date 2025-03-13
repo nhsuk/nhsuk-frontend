@@ -4,6 +4,17 @@
 
 :new: **New features**
 
+#### Include a page template
+
+A Nunjucks page template is now included within the npm package. See [Page template](https://service-manual.nhs.uk/design-system/styles/page-template) for documentation on the supported options.
+
+New options added to the template are:
+
+* `htmlLang` - for setting the language of the page, defaults to `en` (English)
+* `htmlAttributes` - allows you to set any extra attributes on the `<html>` element
+
+This was added in [pull request #1186: Add page template](https://github.com/nhsuk/nhsuk-frontend/pull/1186).
+
 #### Stop long words breaking out of components with `nhsuk-u-text-break-word`
 
 We've added a new override class to help display long or unpredictable words on narrow screens, such as an email address entered by a user.
