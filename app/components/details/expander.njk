@@ -3,58 +3,50 @@
 {% from 'components/details/macro.njk' import details %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper">
-
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        {{ details({
-          "classes": "nhsuk-expander",
-          "text": "Opening times",
-          "HTML": '
-          <table>
-            <tbody>
-              <tr>
-                <th scope="col"><strong>Day of the week</strong></th>
-                <th scope="col"><strong>Opening hours</strong></th>
-              </tr>
-              <tr>
-                <th scope="row">Monday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Tuesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Wednesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Thursday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Friday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Saturday</th>
-                <td>9am to 1pm</td>
-              </tr>
-              <tr>
-                <th scope="row">Sunday</th>
-                <td>Closed</td>
-              </tr>
-            </tbody>
-          </table>'
-        }) }}
-      </div>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ details({
+        "classes": "nhsuk-expander",
+        "text": "Opening times",
+        "HTML": '
+        <table>
+          <tbody>
+            <tr>
+              <th scope="col"><strong>Day of the week</strong></th>
+              <th scope="col"><strong>Opening hours</strong></th>
+            </tr>
+            <tr>
+              <th scope="row">Monday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Wednesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Thursday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Friday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Saturday</th>
+              <td>9am to 1pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Sunday</th>
+              <td>Closed</td>
+            </tr>
+          </tbody>
+        </table>'
+      }) }}
     </div>
-
-  </main>
-</div>
-
+  </div>
 {% endblock %}

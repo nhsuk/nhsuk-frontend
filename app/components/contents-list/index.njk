@@ -3,44 +3,36 @@
 {% from 'components/contents-list/macro.njk' import contentsList %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
-
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        {{ contentsList({
-          items: [
-            {
-              href: "#",
-              text: "What is AMD?",
-              current: "true"
-            },
-            {
-              href: "#",
-              text: "Symptoms"
-            },
-            {
-              href: "#",
-              text: "Getting diagnosed"
-            }
-            ,
-            {
-              href: "#",
-              text: "Treatments"
-            }
-            ,
-            {
-              href: "#",
-              text: "Living with AMD"
-            }
-          ]
-        }) }}
-      </div>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ contentsList({
+        items: [
+          {
+            href: "#",
+            text: "What is AMD?",
+            current: "true"
+          },
+          {
+            href: "#",
+            text: "Symptoms"
+          },
+          {
+            href: "#",
+            text: "Getting diagnosed"
+          }
+          ,
+          {
+            href: "#",
+            text: "Treatments"
+          }
+          ,
+          {
+            href: "#",
+            text: "Living with AMD"
+          }
+        ]
+      }) }}
     </div>
-
-  </main>
-</div>
-
+  </div>
 {% endblock %}

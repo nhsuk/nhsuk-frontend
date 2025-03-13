@@ -3,29 +3,21 @@
 {% from 'components/character-count/macro.njk' import characterCount %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ characterCount({
-            "name": "more-detail",
-            "id": "more-detail",
-            "maxlength": 10,
-            "threshold": 8,
-            "label": {
-              "text": "Can you provide more detail?"
-            },
-            "hint": {
-              "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
-            }
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ characterCount({
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 10,
+        "threshold": 8,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+        }
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

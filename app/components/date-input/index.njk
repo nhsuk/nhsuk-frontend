@@ -3,29 +3,21 @@
 {% from 'components/date-input/macro.njk' import dateInput %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ dateInput({
-            "id": "dob",
-            "namePrefix": "dob",
-            "fieldset": {
-              "legend": {
-                "text": "What is your date of birth?"
-              }
-            },
-            "hint": {
-              "text": "For example, 31 3 1980"
-            }
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ dateInput({
+        "id": "dob",
+        "namePrefix": "dob",
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        }
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

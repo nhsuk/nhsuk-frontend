@@ -3,37 +3,29 @@
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <form>
-            {{ checkboxes({
-              "name": "colours",
-              "items": [
-                {
-                  "value": "red",
-                  "text": "Red"
-                },
-                {
-                  "value": "green",
-                  "text": "Green"
-                },
-                {
-                  "value": "blue",
-                  "text": "Blue",
-                  "disabled": true
-                }
-              ]
-            }) }}
-          </form>
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form>
+        {{ checkboxes({
+          "name": "colours",
+          "items": [
+            {
+              "value": "red",
+              "text": "Red"
+            },
+            {
+              "value": "green",
+              "text": "Green"
+            },
+            {
+              "value": "blue",
+              "text": "Blue",
+              "disabled": true
+            }
+          ]
+        }) }}
+      </form>
+    </div>
   </div>
-
 {% endblock %}
