@@ -5,54 +5,47 @@
 
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  {% set tabOneContent %}
+    <h2>Tab one content</h2>
+    <p>Testing that when you click the anchor it moves to the anchor point successfully</p>
+    <p><a href="#anchor">Anchor</a></p>
+    <p><a id="anchor" tabindex="0">Anchor Point</a></p>
+  {% endset -%}
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-      {% set tabOneContent %}
-        <h2>Tab one content</h2>
-        <p>Testing that when you click the anchor it moves to the anchor point successfully</p>
-        <p><a href="#anchor">Anchor</a></p>
-        <p><a id="anchor" tabindex="0">Anchor Point</a></p>
-      {% endset -%}
+  {% set tabTwoContent %}
+    <h2>Tab two content</h2>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+  {% endset -%}
 
-      {% set tabTwoContent %}
-        <h2>Tab two content</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-      {% endset -%}
+  {% set tabThreeContent %}
+    <h2>Tab three content</h2>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+  {% endset -%}
 
-      {% set tabThreeContent %}
-        <h2>Tab three content</h2>
-        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-      {% endset -%}
-
-      {{ tabs({
-        items: [
-          {
-            label: "Tab one",
-            id: "tab-one",
-            panel: {
-              html: tabOneContent
-            }
-          },
-          {
-            label: "Tab two",
-            id: "tab-two",
-            panel: {
-              html: tabTwoContent
-            }
-          },
-          {
-            label: "Tab three",
-            id: "tab-three",
-            panel: {
-              html: tabThreeContent
-            }
-          }
-        ]
-      }) }}
-
-    </main>
-  </div>
-
+  {{ tabs({
+    items: [
+      {
+        label: "Tab one",
+        id: "tab-one",
+        panel: {
+          html: tabOneContent
+        }
+      },
+      {
+        label: "Tab two",
+        id: "tab-two",
+        panel: {
+          html: tabTwoContent
+        }
+      },
+      {
+        label: "Tab three",
+        id: "tab-three",
+        panel: {
+          html: tabThreeContent
+        }
+      }
+    ]
+  }) }}
 {% endblock %}

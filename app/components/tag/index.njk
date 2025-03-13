@@ -3,149 +3,141 @@
 {% from 'components/tag/macro.njk' import tag %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Active"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--white
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Started",
+                classes: "nhsuk-tag--white"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--grey
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Not started",
+                classes: "nhsuk-tag--grey"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--green
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "New",
+                classes: "nhsuk-tag--green"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--aqua-green
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Active",
+                classes: "nhsuk-tag--aqua-green"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--blue
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Pending",
+                classes: "nhsuk-tag--blue"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--purple
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Received",
+                classes: "nhsuk-tag--purple"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--pink
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Sent",
+                classes: "nhsuk-tag--pink"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--red
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Rejected",
+                classes: "nhsuk-tag--red"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--orange
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Declined",
+                classes: "nhsuk-tag--orange"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--yellow
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Delayed",
+                classes: "nhsuk-tag--yellow"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-
-          <table class="nhsuk-table">
-            <thead class="nhsuk-table__head">
-              <tr class="nhsuk-table__row">
-                <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
-                <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Active"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--white
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Started",
-                    classes: "nhsuk-tag--white"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--grey
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Not started",
-                    classes: "nhsuk-tag--grey"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--green
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "New",
-                    classes: "nhsuk-tag--green"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--aqua-green
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Active",
-                    classes: "nhsuk-tag--aqua-green"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--blue
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Pending",
-                    classes: "nhsuk-tag--blue"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--purple
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Received",
-                    classes: "nhsuk-tag--purple"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--pink
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Sent",
-                    classes: "nhsuk-tag--pink"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--red
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Rejected",
-                    classes: "nhsuk-tag--red"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--orange
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Declined",
-                    classes: "nhsuk-tag--orange"
-                  })}}
-                </td>
-              </tr>
-              <tr class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">
-                  nhsuk-tag--yellow
-                </td>
-                <td class="nhsuk-table__cell">
-                  {{ tag({
-                    text: "Delayed",
-                    classes: "nhsuk-tag--yellow"
-                  })}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-      </div>
-
-    </main>
+    </div>
   </div>
-
 {% endblock %}

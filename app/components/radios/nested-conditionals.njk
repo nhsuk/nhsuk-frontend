@@ -77,51 +77,44 @@
     }) }}
 {% endset -%}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-
-          {{ warningCallout({
-            "heading": "Important",
-            "HTML": "<p>Please do everything in your power to avoid nested conditionals like this. The example is here to demonstrate that it works - not as a recommendation!</p>"
-          }) }}
-          <form>
-            {{ radios({
-              "idPrefix": "outer",
-              "name": "outer",
-              "fieldset": {
-                "legend": {
-                  "text": "How would you prefer to be contacted?",
-                  "classes": "nhsuk-fieldset__legend--l",
-                  "isPageHeading": "true"
-                }
-              },
-              "hint": {
-                "text": "Select one option."
-              },
-              "items": [
-                {
-                  "value": "no-conditional",
-                  "text": "No conditional"
-                },
-                {
-                  "value": "nested",
-                  "text": "Nested conditional",
-                  "conditional": {
-                    "html": nestedConditional
-                  }
-                }
-              ]
-            }) }}
-          </form>
-        </div>
-      </div>
-
-    </main>
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "<p>Please do everything in your power to avoid nested conditionals like this. The example is here to demonstrate that it works - not as a recommendation!</p>"
+      }) }}
+      <form>
+        {{ radios({
+          "idPrefix": "outer",
+          "name": "outer",
+          "fieldset": {
+            "legend": {
+              "text": "How would you prefer to be contacted?",
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": "true"
+            }
+          },
+          "hint": {
+            "text": "Select one option."
+          },
+          "items": [
+            {
+              "value": "no-conditional",
+              "text": "No conditional"
+            },
+            {
+              "value": "nested",
+              "text": "Nested conditional",
+              "conditional": {
+                "html": nestedConditional
+              }
+            }
+          ]
+        }) }}
+      </form>
+    </div>
   </div>
 
 {% endblock %}
