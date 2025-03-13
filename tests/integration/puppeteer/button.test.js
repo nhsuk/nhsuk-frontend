@@ -11,7 +11,7 @@ describe('Button', () => {
 
   describe('Button as link', () => {
     it('triggers the click event when the space key is pressed', async () => {
-      const pathname = await page.evaluate(() =>
+      await page.evaluate(() =>
         document.body.querySelector('.nhsuk-button')
       )
 
