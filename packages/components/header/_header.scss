@@ -123,10 +123,24 @@
   flex-grow: 0;
 }
 
+.nhsuk-header__account-button,
 .nhsuk-header__account-link {
   @include nhsuk-link-style-header;
   display: flex;
   gap: nhsuk-spacing(2);
+}
+
+.nhsuk-header__account-button {
+  @include nhsuk-font(16);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 /// Search
