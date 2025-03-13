@@ -10,8 +10,8 @@ A Nunjucks page template is now included within the npm package. See [Page templ
 
 New options added to the template are:
 
-* `htmlLang` - for setting the language of the page, defaults to `en` (English)
-* `htmlAttributes` - allows you to set any extra attributes on the `<html>` element
+- `htmlLang` - for setting the language of the page, defaults to `en` (English)
+- `htmlAttributes` - allows you to set any extra attributes on the `<html>` element
 
 This was added in [pull request #1186: Add page template](https://github.com/nhsuk/nhsuk-frontend/pull/1186).
 
