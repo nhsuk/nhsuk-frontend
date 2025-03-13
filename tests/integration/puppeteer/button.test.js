@@ -11,9 +11,7 @@ describe('Button', () => {
 
   describe('Button as link', () => {
     it('triggers the click event when the space key is pressed', async () => {
-      await page.evaluate(() =>
-        document.body.querySelector('.nhsuk-button')
-      )
+      await page.evaluate(() => document.body.querySelector('.nhsuk-button'))
 
       await page.focus('a[role="button"]')
 
@@ -27,7 +25,7 @@ describe('Button', () => {
       ])
 
       const url = new URL(await page.url())
-      expect(url.pathname).toBe("/nhsuk-frontend/")
+      expect(url.pathname).toBe('/nhsuk-frontend/')
     })
   })
 
