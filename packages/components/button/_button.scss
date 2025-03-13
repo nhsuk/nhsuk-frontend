@@ -119,14 +119,14 @@ $button-padding-left-right: nhsuk-spacing(3);
 .nhsuk-button--secondary {
   background-color: $nhsuk-secondary-button-color;
   border: $button-border-width solid $nhsuk-secondary-button-border-color;
-  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4]
+  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4] //
   color: $nhsuk-secondary-button-text-color;
-  padding-bottom: $button-padding-top-bottom-desktop + calc($button-border-width / 2); /* 4 */
-  padding-top: $button-padding-top-bottom-desktop + calc($button-border-width / 2); /* 4 */
+  padding-bottom: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4] //
+  padding-top: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4] //
 
   @include mq($until: tablet) {
-    padding-bottom: $button-padding-top-bottom-mobile + calc($button-border-width / 2); /* 4 */
-    padding-top: $button-padding-top-bottom-mobile + calc($button-border-width / 2); /* 4 */
+    padding-bottom: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4] //
+    padding-top: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4] //
   }
 
   // [3] //
@@ -186,6 +186,70 @@ $button-padding-left-right: nhsuk-spacing(3);
 
 .nhsuk-button--secondary-white {
   background-color: $color_nhsuk-white;
+  border: $button-border-width solid $nhsuk-secondary-button-border-color;
+  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4] //
+  color: $nhsuk-secondary-button-text-color;
+  padding-bottom: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4] //
+  padding-top: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4] //
+
+  @include mq($until: tablet) {
+    padding-bottom: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4] //
+    padding-top: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4] //
+  }
+
+  // [3] //
+  &::before {
+    bottom: -$button-shadow-size;
+  }
+
+  &:hover {
+    background-color: $nhsuk-secondary-button-hover-color;
+    color: $nhsuk-secondary-button-text-color;
+  }
+
+  &:link,
+  &:visited {
+    color: $nhsuk-secondary-button-text-color;
+  }
+
+  &:focus {
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size * 1.5); // s1
+    background: $nhsuk-focus-color;
+    border-color: $nhsuk-focus-color;
+    border-bottom: 0;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+
+    &:visited {
+      color: $nhsuk-focus-text-color;
+
+      &:active {
+        color: $nhsuk-secondary-button-text-color;
+      }
+    }
+  }
+
+  &:active {
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size * 1.5); // s1
+    background: $nhsuk-secondary-button-active-color;
+    border-color: $nhsuk-secondary-button-border-color;
+    border-bottom: $button-border-width solid;
+    box-shadow: none;
+    color: $nhsuk-secondary-button-text-color;
+    padding-bottom: $button-padding-top-bottom-desktop; // [4] //
+    padding-top: $button-padding-top-bottom-desktop; // [4] //
+    top: $button-shadow-size;
+
+    @include mq($until: tablet) {
+      padding-bottom: $button-padding-top-bottom-mobile; // [4] //
+      padding-top: $button-padding-top-bottom-mobile; // [4] //
+    }
+  }
+
+  &:active::before {
+    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
+  }
 }
 
 .nhsuk-button--reverse {
