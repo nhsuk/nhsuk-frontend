@@ -3,7 +3,7 @@
 {% from "components/header/macro.njk" import header -%}
 {% from "components/footer/macro.njk" import footer -%}
 <!DOCTYPE html>
-  <html lang="{{ htmlLang | default("en", true) }}">
+  <html lang="{{ htmlLang | default("en", true) }}" {{- nhsukAttributes(htmlAttributes) }}>
   <head>
     <meta charset="utf-8">
     <title>{% block pageTitle %}NHS{% endblock %}</title>
