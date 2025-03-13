@@ -70,7 +70,7 @@
     "stylelint": "^16.14.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^6.0.4",
-    "wait-on": "^8.0.2",
+    "wait-on": "^8.0.3",
     "webpack-stream": "^7.0.0"
   },
   "publishConfig": {
