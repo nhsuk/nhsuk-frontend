@@ -119,7 +119,7 @@ $button-padding-left-right: nhsuk-spacing(3);
 .nhsuk-button--secondary {
   background-color: $nhsuk-secondary-button-color;
   border: $button-border-width solid $nhsuk-secondary-button-border-color;
-  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; /* 4 */
+  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4]
   color: $nhsuk-secondary-button-text-color;
   padding-bottom: $button-padding-top-bottom-desktop + calc($button-border-width / 2); /* 4 */
   padding-top: $button-padding-top-bottom-desktop + calc($button-border-width / 2); /* 4 */
