@@ -3,21 +3,13 @@
 {% from 'components/panel/macro.njk' import panel %}
 {% extends 'layout.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ panel({
-            titleText: "Booking complete",
-            text: "We have sent you a confirmation email"
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ panel({
+        titleText: "Booking complete",
+        text: "We have sent you a confirmation email"
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

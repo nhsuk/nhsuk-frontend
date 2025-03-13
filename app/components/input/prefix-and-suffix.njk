@@ -3,29 +3,21 @@
 {% from 'components/input/macro.njk' import input %}
 {% extends 'layout.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ input({
+        "label": {
+          "text": "What is the cost per item, in pounds?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-prefix-and-suffix",
+        "name": "test-name-6",
+        "prefix": "£",
+        "suffix": "per item",
+        "classes": "nhsuk-input--width-5"
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ input({
-            "label": {
-              "text": "What is the cost per item, in pounds?",
-              "classes": "nhsuk-label--l"
-            },
-            "id": "input-with-prefix-and-suffix",
-            "name": "test-name-6",
-            "prefix": "£",
-            "suffix": "per item", 
-            "classes": "nhsuk-input--width-5"
-
-          }) }}
-        </div>
-      </div>
-
-    </main>
+      }) }}
+    </div>
   </div>
-
 {% endblock %}
