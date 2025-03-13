@@ -51,7 +51,7 @@
     "gulp": "^5.0.0",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^6.0.0",
+    "gulp-sass": "^6.0.1",
     "gulp-terser": "^2.1.0",
     "gulp-zip": "^6.1.0",
     "html-validate": "^9.4.1",
@@ -70,7 +70,7 @@
     "stylelint": "^16.14.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^6.0.4",
-    "wait-on": "^8.0.2",
+    "wait-on": "^8.0.3",
     "webpack-stream": "^7.0.0"
   },
   "publishConfig": {

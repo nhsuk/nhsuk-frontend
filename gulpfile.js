@@ -1,7 +1,6 @@
 const { join, relative } = require('path')
 const { cwd } = require('process')
 const { Transform } = require('stream')
-const { fileURLToPath } = require('url')
 
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
@@ -64,7 +63,7 @@ function compileCSS(done) {
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(cwd(), 'dist'), fileURLToPath(path))
+              relative(join(cwd(), 'dist'), join(file.base, path))
             )
           }
 
