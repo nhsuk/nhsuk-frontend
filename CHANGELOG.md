@@ -4,6 +4,8 @@
 
 :new: **New features**
 
+- Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
+- Support form submission from header account items ([PR 1155](https://github.com/nhsuk/nhsuk-frontend/pull/1155))
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
 - The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
 
