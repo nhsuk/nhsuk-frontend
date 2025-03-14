@@ -1,0 +1,36 @@
+name: Screenshots
+
+on: workflow_call
+
+jobs:
+  screenshots:
+    name: Compare screenshots
+    runs-on: macos-latest
+
+    if: ${{ github.base_ref == 'main' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes
+        uses: ./.github/workflows/actions/diff
+        id: changes
+
+      - name: Setup Playwright
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run postinstall
+
+      - name: Run backstop
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run test:visual --ignore-scripts
+
+      - name: Save backstop report
+        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Backstop report
+          path: tests/backstop/
+          if-no-files-found: ignore
