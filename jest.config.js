@@ -23,7 +23,8 @@ module.exports = {
     {
       displayName: 'Pupppeteer',
       globalSetup: 'jest-environment-puppeteer/setup',
-      globalTeardown: 'jest-environment-puppeteer/teardown',
+      globalTeardown:
+        '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs',
       testEnvironment: 'jest-environment-puppeteer',
       testMatch: ['<rootDir>/tests/integration/puppeteer/**/*.test.js']
     }

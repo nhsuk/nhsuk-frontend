@@ -95,7 +95,7 @@ function copyJS() {
  */
 function copyBinaryAssets() {
   return gulp
-    .src('packages/assets/**/*')
+    .src('packages/assets/**', { encoding: false })
     .pipe(gulp.dest('dist/app/assets'))
     .pipe(browserSync.stream())
 }

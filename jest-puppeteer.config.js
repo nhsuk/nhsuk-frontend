@@ -40,7 +40,7 @@ module.exports = {
   server: BASE_URL
     ? undefined
     : {
-        command: 'npx gulp docs:serve',
+        command: 'gulp docs:serve',
         port: PORT,
 
         // Skip when already running
