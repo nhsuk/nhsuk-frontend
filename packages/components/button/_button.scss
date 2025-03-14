@@ -115,7 +115,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-secondary-button-color, 10%);
+    background-color: $nhsuk-secondary-button-hover-color;
   }
 
   &:focus {
@@ -139,7 +139,7 @@ $button-shadow-size: 4px;
   color: $nhsuk-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-reverse-button-color, 5%);
+    background-color: $nhsuk-reverse-button-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -172,7 +172,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-warning-button-color, 10%);
+    background-color: $nhsuk-warning-button-hover-color;
   }
 
   &:focus {
