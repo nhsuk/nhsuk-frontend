@@ -4,6 +4,8 @@
 
 :new: **New features**
 
+- Add styles for NHS login buttons ([PR 992](https://github.com/nhsuk/nhsuk-frontend/pull/992))
+
 #### Stop long words breaking out of components with `nhsuk-u-text-break-word`
 
 We've added a new override class to help display long or unpredictable words on narrow screens, such as an email address entered by a user.
