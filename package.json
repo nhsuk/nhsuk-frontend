@@ -11,6 +11,7 @@
     "prestart": "npm run build",
     "start": "gulp --color",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:prettier",
+    "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
     "lint:prettier": "prettier --cache --cache-location .cache/prettier --cache-strategy content --check .",
     "lint:prettier:fix": "prettier --write .",
     "lint:js": "eslint --cache --cache-location .cache/eslint --cache-strategy content --color --ignore-path .gitignore \"**/*.js\"",
