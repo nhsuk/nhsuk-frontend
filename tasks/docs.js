@@ -74,7 +74,11 @@ async function validateHTML() {
 /**
  * Copy CSS from dist into the documentation directory
  */
-function copyCSS() {
+async function copyCSS() {
+  await mkdir('dist/app/stylesheets', {
+    recursive: true
+  })
+
   return gulp
     .src('dist/*.min.{css,css.map}')
     .pipe(gulp.dest('dist/app/stylesheets'))
@@ -84,7 +88,11 @@ function copyCSS() {
 /**
  * Copy JS from dist into the documentation directory
  */
-function copyJS() {
+async function copyJS() {
+  await mkdir('dist/app/javascripts', {
+    recursive: true
+  })
+
   return gulp
     .src('dist/*.min.{js,js.map}')
     .pipe(gulp.dest('dist/app/javascripts'))
@@ -94,7 +102,11 @@ function copyJS() {
 /**
  * Copy logos, icons and other binary assets
  */
-function copyBinaryAssets() {
+async function copyBinaryAssets() {
+  await mkdir('dist/app/assets', {
+    recursive: true
+  })
+
   return gulp
     .src('packages/assets/**', { encoding: false })
     .pipe(gulp.dest('dist/app/assets'))
