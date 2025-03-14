@@ -1,9 +1,8 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Hero with image and content' %}
 {% from 'components/hero/macro.njk' import hero %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
+{% block main %}
 
   {{ hero({
     "heading": "We’re here for you",
