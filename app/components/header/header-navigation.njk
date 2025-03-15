@@ -1,39 +1,36 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header with navigation' %}
-{% from 'components/header/macro.njk' import header %}
-{% extends 'layout.njk' %}
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header with navigation" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
 
 {% block body %}
-
   {{ header({
-      primaryLinks: [
-        {
-          href: "#",
-          text: "Health A-Z"
-        },
-        {
-          href: "#",
-          text: "Live Well"
-        },
-        {
-          href: "#",
-          text: "Mental health"
-        },
-        {
-          href: "#",
-          text: "Care and support",
-          active: true
-        },
-        {
-          href: "#",
-          text: "Pregnancy"
-        },
-        {
-          href: "#",
-          text: "NHS services"
-        }
-      ]
-    })
-  }}
-
+    primaryLinks: [
+      {
+        href: "#",
+        text: "Health A-Z"
+      },
+      {
+        href: "#",
+        text: "Live Well"
+      },
+      {
+        href: "#",
+        text: "Mental health"
+      },
+      {
+        href: "#",
+        text: "Care and support",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Pregnancy"
+      },
+      {
+        href: "#",
+        text: "NHS services"
+      }
+    ]
+  }) }}
 {% endblock %}

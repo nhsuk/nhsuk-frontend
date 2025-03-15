@@ -1,11 +1,10 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header organisational with white header and navigation' %}
-{% from 'components/header/macro.njk' import header %}
-{% extends 'layout.njk' %}
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header organisational with white header and navigation" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
 
 {% block body %}
-
-{{ header({
+  {{ header({
     classes: "nhsuk-header--white nhsuk-header--white-nav",
     logo: {
       href: "#"
@@ -41,7 +40,5 @@
     search: {
       visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
     }
-  })
-}}
-
+  }) }}
 {% endblock %}
