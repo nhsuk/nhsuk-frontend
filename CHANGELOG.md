@@ -4,10 +4,64 @@
 
 :new: **New features**
 
+#### Updated header
+
 - Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
 - Support form submission from header account items ([PR 1155](https://github.com/nhsuk/nhsuk-frontend/pull/1155))
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
 - The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
+
+#### Stop long words breaking out of components with `nhsuk-u-text-break-word`
+
+We've added a new override class to help display long or unpredictable words on narrow screens, such as an email address entered by a user.
+
+Wrapping content with the `nhsuk-u-text-break-word` class or applying it to table cells will force words that are too long to break onto a new line.
+
+```html
+A confirmation email will be sent to <span class="nhsuk-u-text-break-word">aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com</span>.
+```
+
+Sass users can also use the `nhsuk-text-break-word` mixin.
+
+This change was introduced in [pull request #1061: Add break-word typography helper](https://github.com/nhsuk/nhsuk-frontend/pull/1061).
+
+#### Add classes and attributes to table cells
+
+You can now add `classes` and `attributes` to table cells, for example using the break-word typography helper:
+
+```njk
+{{ table({
+  caption: "Users",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Email address"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Aleksandrina Featherstonehaugh-Whitehead",
+        classes: "nhsuk-u-text-break-word"
+      },
+      {
+        text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
+        classes: "nhsuk-u-text-break-word"
+      },
+    ]
+  ]
+}) }}
+```
+
+This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
+
+#### Source maps for precompiled files
+
+You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) to help identify errors and console messages from NHS.UK Frontend precompiled files.
+
+This was added in [pull request #1152: Add source maps to compiled JavaScript and CSS](https://github.com/nhsuk/nhsuk-frontend/pull/1152).
 
 :wrench: **Fixes**
 
