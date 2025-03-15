@@ -61,7 +61,7 @@
   text-wrap: balance;
 }
 
-.nhsuk-header__service-logo[href],
+.nhsuk-header__service-logo,
 .nhsuk-header__service-name[href] {
   @include nhsuk-link-style-header;
   text-decoration: none;

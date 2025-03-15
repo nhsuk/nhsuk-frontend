@@ -3,12 +3,12 @@
 .nhsuk-header--organisation {
   .nhsuk-header__service-logo {
     display: block;
-  }
 
-  .nhsuk-header__service-logo[href]:focus {
-    .nhsuk-organisation-name,
-    .nhsuk-organisation-descriptor {
-      color: $nhsuk-focus-text-color;
+    &:focus {
+      .nhsuk-organisation-name,
+      .nhsuk-organisation-descriptor {
+        color: $nhsuk-focus-text-color;
+      }
     }
   }
 
