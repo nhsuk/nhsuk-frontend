@@ -1,15 +1,14 @@
 /// Organisation header variant
 
 .nhsuk-header--organisation {
-  .nhsuk-header__logo-link {
-    @include nhsuk-link-style-header;
+  .nhsuk-header__service-logo {
     display: block;
+  }
 
-    &:focus {
-      .nhsuk-organisation-name,
-      .nhsuk-organisation-descriptor {
-        color: $nhsuk-focus-text-color;
-      }
+  .nhsuk-header__service-logo[href]:focus {
+    .nhsuk-organisation-name,
+    .nhsuk-organisation-descriptor {
+      color: $nhsuk-focus-text-color;
     }
   }
 

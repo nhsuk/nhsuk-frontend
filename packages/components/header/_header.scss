@@ -21,6 +21,10 @@
 .nhsuk-header {
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
+
+  @include mq($media-type: print) {
+    color: $color_nhsuk-black;
+  }
 }
 
 .nhsuk-header__container {
@@ -35,49 +39,42 @@
   }
 }
 
-// Logo should not grow by default
-.nhsuk-header__logo {
-  display: flex;
-  flex-grow: 0;
-}
+/// Service logo (and optional name)
 
-// ...unless there is no service name
-.nhsuk-header__logo--no-service-name {
-  flex-grow: 999;
-}
-
-.nhsuk-header__logo-link {
+.nhsuk-header__service,
+.nhsuk-header__service-logo {
   align-items: center;
   display: flex;
+  flex-grow: 999;
   flex-wrap: wrap;
   gap: nhsuk-spacing(2) nhsuk-spacing(3);
-
-  @include mq($media-type: print) {
-    color: $color_nhsuk-black;
-
-    &::after {
-      content: "";
-    }
-  }
+  margin-right: auto;
 }
 
-.nhsuk-header__logo-link,
-.nhsuk-header__service-link {
-  @include nhsuk-link-style-header;
-  text-decoration: none;
-  text-wrap: balance;
-
-  &:hover {
-    text-decoration: underline;
-  }
+.nhsuk-header__service-logo {
+  flex-grow: 0;
 }
 
 .nhsuk-header__service-name {
   @include nhsuk-font(19, $line-height: 1.1);
-  align-items: center;
-  display: flex;
   flex-grow: 999;
-  margin-right: auto;
+  text-wrap: balance;
+}
+
+.nhsuk-header__service-logo[href],
+.nhsuk-header__service-name[href] {
+  @include nhsuk-link-style-header;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include mq($media-type: print) {
+    &::after {
+      content: "";
+    }
+  }
 }
 
 /// Account
