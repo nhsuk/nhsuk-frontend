@@ -1,22 +1,22 @@
 /**
- * Header component
+ * Service navigation component
  *
  */
 
-class Header {
+class ServiceNavigation {
   constructor() {
     this.menuIsOpen = false
-    this.navigation = document.querySelector('.nhsuk-navigation')
+    this.navigation = document.querySelector('.nhsuk-service-navigation')
     this.navigationList = document.querySelector(
-      '.nhsuk-header__navigation-list'
+      '.nhsuk-service-navigation__list'
     )
     this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
-      '.nhsuk-header__menu-toggle'
+      '.nhsuk-service-navigation__toggle'
     )
     this.mobileMenuCloseButton = document.createElement('button')
     this.mobileMenuContainer = document.querySelector(
-      '.nhsuk-mobile-menu-container'
+      '.nhsuk-service-navigation__item--overflow'
     )
     this.breakpoints = []
     this.width = document.body.offsetWidth
@@ -77,10 +77,8 @@ class Header {
   // Add the mobile menu to the DOM
   setupMobileMenu() {
     this.mobileMenuContainer.appendChild(this.mobileMenu)
-    this.mobileMenu.classList.add(
-      'nhsuk-header__drop-down',
-      'nhsuk-header__drop-down--hidden'
-    )
+    this.mobileMenu.classList.add('nhsuk-service-navigation__overflow')
+    this.mobileMenu.hidden = true
   }
 
   /**
@@ -92,7 +90,7 @@ class Header {
    */
   closeMobileMenu() {
     this.menuIsOpen = false
-    this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
+    this.mobileMenu.hidden = true
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
     this.mobileMenuToggleButton.focus()
@@ -129,7 +127,7 @@ class Header {
 
   openMobileMenu() {
     this.menuIsOpen = true
-    this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
+    this.mobileMenu.hidden = false
     const marginBody = this.mobileMenu.offsetHeight
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
@@ -177,11 +175,9 @@ class Header {
 
     if (availableSpace < this.breakpoints[itemsVisible - 1]) {
       this.mobileMenuToggleButton.classList.add(
-        'nhsuk-header__menu-toggle--visible'
+        'nhsuk-service-navigation__toggle--visible'
       )
-      this.mobileMenuContainer.classList.add(
-        'nhsuk-mobile-menu-container--visible'
-      )
+      this.mobileMenuContainer.hidden = false
       while (availableSpace < this.breakpoints[itemsVisible - 1]) {
         this.mobileMenu.insertBefore(
           this.navigationList.children[itemsVisible - 2],
@@ -201,11 +197,9 @@ class Header {
 
     if (!this.mobileMenu.children.length) {
       this.mobileMenuToggleButton.classList.remove(
-        'nhsuk-header__menu-toggle--visible'
+        'nhsuk-service-navigation__toggle--visible'
       )
-      this.mobileMenuContainer.classList.remove(
-        'nhsuk-mobile-menu-container--visible'
-      )
+      this.mobileMenuContainer.hidden = true
     }
 
     if (document.body.offsetWidth !== this.width && this.menuIsOpen) {
@@ -234,5 +228,5 @@ class Header {
 }
 
 export default () => {
-  new Header().init()
+  new ServiceNavigation().init()
 }

@@ -1,0 +1,33 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+{%- macro _navigationLink(item) -%}
+{# Wrap active links in strong element so users who override colours or styles
+  still have some indicator of the current nav item. #}
+{%- if item.active or item.current -%}
+  <strong class="nhsuk-service-navigation__item--active-fallback">{{- item.text -}}</strong>
+{%- else -%}
+  {{- item.text -}}
+{%- endif -%}
+{%- endmacro %}
+
+<div class="nhsuk-service-navigation" {{- nhsukAttributes(params.attributes) }}>
+  <nav class="nhsuk-service-navigation__wrapper" aria-label="Menu">
+    <ul class="nhsuk-service-navigation__list">
+{%- for item in params.items %}
+      <li class="nhsuk-service-navigation__item {%- if item.active or item.current %} nhsuk-service-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
+        <a class="nhsuk-service-navigation__link"  href="{{ item.url }}" {%- if item.active or item.current %} aria-current="{{ 'page' if item.current else 'true' }}"{% endif %}>
+          {{- _navigationLink(item) -}}
+        </a>
+      </li>
+{%- endfor %}
+      <li class="nhsuk-service-navigation__item nhsuk-service-navigation__item--overflow" hidden>
+        <button class="nhsuk-service-navigation__toggle" aria-expanded="false">
+          <span class="nhsuk-u-visually-hidden">Browse </span>More
+          <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -301,7 +301,7 @@ module.exports = {
       url: `${BASE_URL}/components/header/header-org-white-account.html`
     },
     {
-      clickSelector: '#toggle-menu',
+      clickSelector: '.nhsuk-service-navigation__toggle',
       label: 'Header with navigation open',
       url: `${BASE_URL}/components/header/header-navigation.html`,
       viewports: [

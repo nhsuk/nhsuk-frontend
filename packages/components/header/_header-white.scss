@@ -102,7 +102,7 @@
   }
 
   // Drop down navigation
-  .nhsuk-header__drop-down {
+  .nhsuk-service-navigation__overflow {
     // When in expanded menu, a current item link should revert to having a
     // no box-shadow, with a box-shadow added to containing list item instead.
     .nhsuk-header__navigation-link[aria-current="page"],

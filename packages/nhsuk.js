@@ -6,8 +6,8 @@ import initCharacterCount from './components/character-count/character-count.js'
 import initCheckboxes from './components/checkboxes/checkboxes.js'
 import initDetails from './components/details/details.js'
 import initErrorSummary from './components/error-summary/error-summary.js'
-import initHeader from './components/header/header.js'
 import initRadios from './components/radios/radios.js'
+import initServiceNavigation from './components/service-navigation/service-navigation.js'
 import initSkipLink from './components/skip-link/skip-link.js'
 import initTabs from './components/tabs/tabs.js'
 
@@ -33,7 +33,7 @@ export function initAll(scope) {
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
-  initHeader()
+  initServiceNavigation()
   initSkipLink()
 
   initAll(document)
