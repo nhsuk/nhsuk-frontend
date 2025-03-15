@@ -1,39 +1,43 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header with a service name, search and navigation' %}
-{% from 'components/header/macro.njk' import header %}
-{% extends 'layout.njk' %}
+{% set html_style = "background-color: #f0f4f5;" %}
+{% set title = "Header with a service name, search and navigation" %}
+{% from "components/header/macro.njk" import header %}
+{% extends "layout.njk" %}
 
 {% block body %}
-
   {{ header({
-    "service": {
-      "name": "Digital service manual"
+    logo: {
+      href: "#"
     },
-    "showNav": "true",
-    "showSearch": "true",
-    "primaryLinks": [
+    service: {
+      text: "Digital service manual",
+      href: "#"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the NHS digital service manual"
+    },
+    primaryLinks: [
         {
-          "url"  : "#",
-          "label" : "Standards and technology"
+          href: "#",
+          text: "Standards and technology"
         },
         {
-          'url' : '#',
-          'label' : 'Design system'
+          href: "#",
+          text: "Design system",
+          current: true
         },
         {
-          'url'  : '#',
-          'label' : 'Content style guide'
+          href: "#",
+          text: "Content style guide"
         },
         {
-          'url'  : '#',
-          'label' : 'Accessibility'
+          href: "#",
+          text: "Accessibility"
         },
         {
-          'url' : '#',
-          'label' : 'Community and contribution'
+          href: "#",
+          text: "Community and contribution"
         }
       ]
     })
   }}
-
 {% endblock %}
