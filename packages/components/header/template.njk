@@ -114,7 +114,7 @@
 {%- if params.primaryLinks and params.primaryLinks.length > 0 %}
   <div class="nhsuk-navigation-container">
     <nav class="nhsuk-navigation" aria-label="Menu">
-      <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks.length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
+      <ul class="nhsuk-header__navigation-list">
       {%- for item in params.primaryLinks %}
         {% set linkInnerContent %}
           {# Wrap active links in strong element so users who override colours
