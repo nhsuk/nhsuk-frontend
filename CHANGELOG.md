@@ -4,6 +4,8 @@
 
 :new: **New features**
 
+- Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
+- Support form submission from header account items ([PR 1155](https://github.com/nhsuk/nhsuk-frontend/pull/1155))
 - Output source maps and use minified code in examples ([PR 1152](https://github.com/nhsuk/nhsuk-frontend/pull/1152))
 - The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
 
@@ -35,6 +37,19 @@ We've made fixes to NHS.UK frontend in the following pull requests:
   ```html
   <nav class="nhsuk-navigation" aria-label="Menu">
   ```
+
+- Update header navigation to align items to the left. ([PR 1138](https://github.com/nhsuk/nhsuk-frontend/pull/1138)). To restore the previous behaviour, where navigation items appeared evenly spaced out, use the `.nhsuk-header__navigation-list--justified` modifier class:
+
+  ```html
+  <ul class="nhsuk-header__navigation-list nhsuk-header__navigation-list--justified">
+    <li class="nhsuk-header__navigation-item">
+      <a class="nhsuk-header__navigation-link" href="#">Health A-Z</a>
+    </li>
+    ...
+  </ul>
+  ```
+
+  If you are using the `.nhsuk-header__navigation-list--left-aligned` modifier class, this can now be removed.
 
 :boom: **Breaking changes**
 
