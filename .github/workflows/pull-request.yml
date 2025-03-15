@@ -3,61 +3,78 @@ name: Pull request
 on: pull_request
 
 jobs:
-  sonar_analysis:
-    name: Sonar analysis
+  install:
+    name: Install dependencies
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Sonar analysis
-        uses: SonarSource/sonarqube-scan-action@v4
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        id: npm-install-cache
         with:
-          projectBaseDir: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          lookup-only: true
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+      - name: Setup Node
+        if: steps.npm-install-cache.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        if: steps.npm-install-cache.outputs.cache-hit != 'true'
+        run: npm install --ignore-scripts
 
   linting:
     name: Code style checks
     runs-on: ubuntu-latest
+    needs: [install]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Restore dependencies
+        uses: actions/cache/restore@v4
+        with:
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Run linting
         run: npm run lint
 
   tests:
     name: Javascript unit tests
-
-    # Ubuntu version is currently pinned to 22
-    # as later versions break tests relying on Chromium
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    needs: [install]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Restore dependencies
+        uses: actions/cache/restore@v4
+        with:
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Setup Puppeteer
+        run: npx puppeteer browsers install
 
       - name: Build
         run: npm run build
@@ -65,33 +82,78 @@ jobs:
       - name: Run tests
         run: npm test --ignore-scripts
 
-  ui_tests:
-    name: Visual regression tests
+      - name: Save test coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: Javascript unit tests coverage
+          path: coverage
 
-    # Ubuntu version is currently pinned to 22
-    # as later versions break tests relying on Chromium
-    runs-on: ubuntu-22.04
+  regression:
+    name: Visual regression tests
+    runs-on: macos-latest
+    needs: [install]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore dependencies
+        uses: actions/cache/restore@v4
+        with:
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Check for changes
+        uses: ./.github/workflows/actions/diff
+        id: changes
+
+      - name: Setup Playwright
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run postinstall
 
       - name: Run backstop
-        run: npm run test:visual
+        if: ${{ steps.changes.outputs.changes == 'true' }}
+        run: npm run test:visual --ignore-scripts
 
       - name: Save backstop report
-        if: ${{ always() }}
+        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: Backstop report
           path: tests/backstop/
           if-no-files-found: ignore
+
+  sonar:
+    name: Sonar analysis
+    runs-on: ubuntu-latest
+    needs: [install, tests]
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+    steps:
+      - name: Checkout
+        if: ${{ env.SONAR_TOKEN }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore test coverage
+        if: ${{ env.SONAR_TOKEN }}
+        uses: actions/download-artifact@v4
+        with:
+          name: Javascript unit tests coverage
+          path: coverage
+
+      - name: Sonar analysis
+        if: ${{ env.SONAR_TOKEN }}
+        uses: SonarSource/sonarqube-scan-action@v5

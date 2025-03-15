@@ -1,4 +1,6 @@
-const { HEADLESS } = process.env
+const waitOnScheme = require('./wait-on.config')
+
+const { BASE_URL, HEADLESS, PORT = 3000 } = process.env
 
 /**
  * @type {JestPuppeteerConfig}
@@ -11,6 +13,13 @@ module.exports = {
    */
   launch: {
     args: [
+      /**
+       * Workaround for 'No usable sandbox! Update your kernel' error
+       * see more https://github.com/Googlechrome/puppeteer/issues/290
+       */
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+
       /**
        * Prevent empty Chrome startup window
        * Tests use their own `browser.newPage()` instead
@@ -28,17 +37,18 @@ module.exports = {
   /**
    * Development server options
    */
-  server: {
-    command: 'npx gulp docs:serve',
-    host: '0.0.0.0',
-    port: 3000,
+  server: BASE_URL
+    ? undefined
+    : {
+        command: 'gulp docs:serve',
+        port: PORT,
 
-    // Allow 30 seconds to start server
-    launchTimeout: 30000,
+        // Skip when already running
+        usedPortAction: 'ignore',
 
-    // Skip when already running
-    usedPortAction: 'ignore'
-  }
+        // Shared wait-on options
+        waitOnScheme
+      }
 }
 
 /**

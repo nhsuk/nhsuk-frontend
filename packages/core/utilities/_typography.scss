@@ -38,6 +38,17 @@
   @include nhsuk-typography-weight-bold($important: true);
 }
 
+/// Typography helpers
+
+/// Word break
+///
+/// @example html
+///   <p class="text-u-word-break-word"></p>
+
+.nhsuk-u-text-break-word {
+  @include nhsuk-text-break-word($important: true);
+}
+
 /// Colours
 
 /// Secondary text colour

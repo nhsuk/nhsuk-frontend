@@ -13,10 +13,10 @@ Find out more about the panel component and when to use it in the [NHS digital s
 ```html
 <div class="nhsuk-panel">
   <h1 class="nhsuk-panel__title">
-    Application complete
+    Booking complete
   </h1>
   <div class="nhsuk-panel__body">
-    Your reference number<br><strong>HDJ2123F</strong>
+    We have sent you a confirmation email
   </div>
 </div>
 ```
@@ -27,8 +27,8 @@ Find out more about the panel component and when to use it in the [NHS digital s
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({
-  titleText: "Application complete",
-  html: "Your reference number<br><strong>HDJ2123F</strong>"
+  titleText: "Booking complete",
+  text: "We have sent you a confirmation email"
 }) }}
 ```
 

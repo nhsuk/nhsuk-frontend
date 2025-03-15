@@ -42,6 +42,23 @@
   font-weight: $nhsuk-font-bold iff($important, !important);
 }
 
+/// Word break helper
+///
+/// Forcibly breaks long words that lack spaces, such as email addresses,
+/// across multiple lines when they wouldn't otherwise fit.
+///
+/// @param {Boolean} $important [false] - Whether to mark declarations as
+///   `!important`. Generally used to create override classes.
+/// @access public
+
+@mixin nhsuk-text-break-word($important: false) {
+  // IE 11 and Edge 16–17 only support the non-standard `word-wrap` property
+  word-wrap: break-word if($important, !important, null);
+
+  // All other browsers support `overflow-wrap`
+  overflow-wrap: break-word if($important, !important, null);
+}
+
 /// Line height
 ///
 ///

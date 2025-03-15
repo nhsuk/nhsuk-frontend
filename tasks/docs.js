@@ -1,3 +1,5 @@
+const { PORT = 3000 } = process.env
+
 const { mkdir, writeFile } = require('fs/promises')
 const { join, parse } = require('path')
 
@@ -93,7 +95,7 @@ function copyJS() {
  */
 function copyBinaryAssets() {
   return gulp
-    .src('packages/assets/**/*')
+    .src('packages/assets/**', { encoding: false })
     .pipe(gulp.dest('dist/app/assets'))
     .pipe(browserSync.stream())
 }
@@ -105,10 +107,20 @@ function serve() {
   return browserSync({
     ghostMode: false,
     host: '0.0.0.0',
+
+    // Redirect to start path
+    middleware: {
+      route: '/',
+      handle(req, res) {
+        res.writeHead(302, { location: '/nhsuk-frontend/' })
+        res.end()
+      }
+    },
+
     online: false,
     open: false,
     notify: false,
-    port: 3000,
+    port: PORT,
 
     // Development server
     server: {
@@ -137,7 +149,7 @@ gulp.task(
 
 gulp.task('docs:watch', () =>
   Promise.all([
-    gulp.watch(['app/**/*.njk'], buildHTML),
+    gulp.watch(['**/*.njk'], buildHTML),
     gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
     gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
     gulp.watch(['dist/*.min.{js,js.map}'], copyJS),

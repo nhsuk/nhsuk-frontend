@@ -1,6 +1,7 @@
 const {
-  BASE_HOST = 'localhost', // Default via `npm start`
-  BASE_URL = `http://${BASE_HOST}:3000/nhsuk-frontend`
+  PORT = 3000,
+  BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
+  BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
 
 describe('Button', () => {
