@@ -285,10 +285,6 @@ module.exports = {
       url: `${BASE_URL}/components/header/header-service-name-with-account-search-nav.html`
     },
     {
-      label: 'Header transactional with service name',
-      url: `${BASE_URL}/components/header/header-transactional-service-name.html`
-    },
-    {
       label: 'Header organisational',
       url: `${BASE_URL}/components/header/header-org.html`
     },

@@ -7,7 +7,7 @@
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__link:hover {
+  .nhsuk-header__logo-link:hover {
     color: $nhsuk-text-color;
 
     .nhsuk-organisation-descriptor {
@@ -50,8 +50,7 @@
   }
 
   .nhsuk-organisation-name,
-  .nhsuk-header__service-name,
-  .nhsuk-header__transactional-service-name--link {
+  .nhsuk-header__service-name {
     color: $color_nhsuk-black;
   }
 

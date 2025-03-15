@@ -1,17 +1,13 @@
 {% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Header with service name' %}
+{% set title = 'Header with service name as a combined link' %}
 {% from 'components/header/macro.njk' import header %}
 {% extends 'layout.njk' %}
 
 {% block body %}
 
   {{ header({
-    logo: {
-      href: "#nhs",
-      ariaLabel: "NHS homepage"
-    },
     service: {
-      text: "Find your NHS number",
+      text: "Prototype kit",
       href: "#"
     }
   }) }}

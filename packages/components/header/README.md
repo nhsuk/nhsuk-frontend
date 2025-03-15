@@ -296,22 +296,22 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 ---
 
-### Header transactional with service name
+### Header with service name
 
-[Preview the header transactional with service name component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-transactional-service-name.html)
+[Preview the header with service name component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-service-name.html)
 
 #### HTML markup
 
 ```HTML
-<header class="nhsuk-header nhsuk-header__transactional" role="banner">
+<header class="nhsuk-header" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
         <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100"><path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/></svg>
       </a>
     </div>
-    <div class="nhsuk-header__transactional-service-name">
-      <a class="nhsuk-header__transactional-service-name--link" href="https://www.nhs.uk/nhs-services/online-services/find-nhs-number/">Find your NHS number</a>
+    <div class="nhsuk-header__service-name">
+      <a class="nhsuk-header__service-link" href="https://www.nhs.uk/nhs-services/online-services/find-nhs-number/">Find your NHS number</a>
     </div>
   </div>
 </header>
@@ -323,8 +323,8 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
-  "transactionalService": {
-    "name": "Find your NHS number",
+  "service": {
+    "text": "Find your NHS number",
     "href": "https://www.nhs.uk/nhs-services/online-services/find-nhs-number/"
   }
 }) }}
@@ -672,29 +672,31 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 The header Nunjucks macro takes the following arguments:
 
-| Name                           | Type    | Required | Description                                                                                                                                       |
-| ------------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **homeHref**                   | string  | No       | The href of the link for the logo and mobile home link in the navigation links. Defaults to "/".                                                  |
-| **ariaLabel**                  | string  | No       | Aria label for the logo href. Defaults to "NHS homepage".                                                                                         |
-| **organisation**               | object  | No       | Settings for header with organisational logo.                                                                                                     |
-| **organisation.name**          | string  | No       | Organisation name value.                                                                                                                          |
-| **organisation.split**         | string  | No       | Longer organisation names can be split onto multiple lines.                                                                                       |
-| **organisation.descriptor**    | string  | No       | Organisation descriptor.                                                                                                                          |
-| **organisation.logoURL**       | string  | No       | Organisation logo if using a static asset, such as PNG, is preferred.                                                                             |
-| **primaryLinks**               | array   | No       | Array of navigation links for use in the header.                                                                                                  |
-| **primaryLinks[].href**        | string  | No       | The href of a navigation item in the header.                                                                                                      |
-| **primaryLinks[].text**        | string  | No       | The link text of a navigation item in the header.                                                                                                 |
-| **primaryLinks[].current**     | boolean | No       | Set to true if this links to the current page being shown.                                                                                        |
-| **primaryLinks[].active**      | boolean | No       | Set to true if the current page is within this section, but the link doesn’t necessarily link to the current page                                 |
-| **primaryLinks[].classes**     | string  | No       | Optional additional classes to add to the list item.                                                                                              |
-| **primaryLinks[].attributes**  | string  | No       | Any extra HTML attributes (for example data attributes) to add to the list item.                                                                  |
-| **transactionalService**       | object  | No       | Object containing the _name_ and _href_ of the transactional service.                                                                             |
-| **service**                    | object  | No       | Object containing the _name_ and optional boolean _longName_ of the service. Set this to "true" if the service name is longer than 22 characters. |
-| **search**                     | object  | No       | Settings for the search input.                                                                                                                    |
-| **search.action**              | string  | No       | The search action endpoint. Defaults to <https://www.nhs.uk/search>                                                                               |
-| **search.name**                | string  | No       | The name for the search field. Defaults to "q"                                                                                                    |
-| **search.visuallyHiddenLabel** | string  | No       | The label for the search field. Defaults to "Search the NHS website"                                                                              |
-| **classes**                    | string  | No       | Optional additional classes to add to the header container. Separate each class with a space.                                                     |
-| **attributes**                 | object  | No       | Any extra HTML attributes (for example data attributes) to add to the header container.                                                           |
+| Name                           | Type    | Required | Description                                                                                                       |
+| ------------------------------ | ------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| **logo**                       | object  | No       | Object containing details of the logo                                                                             |
+| **logo.ariaLabel**             | string  | No       | ARIA label for the logo. Defaults to "NHS homepage".                                                              |
+| **logo.href**                  | string  | No       | The href of the link for the logo.                                                                                |
+| **logo.src **                  | string  | No       | Logo path, for custom organisation logos.                                                                         |
+| **service**                    | object  | No       | Object containing the name and href of the service.                                                               |
+| **service.text**               | string  | No       | Name of the service                                                                                               |
+| **service.href**               | string  | No       | URL path that the service name links to.                                                                          |
+| **organisation**               | object  | No       | Settings for header with organisational logo.                                                                     |
+| **organisation.name**          | string  | No       | Organisation name value.                                                                                          |
+| **organisation.split**         | string  | No       | Longer organisation names can be split onto multiple lines.                                                       |
+| **organisation.descriptor**    | string  | No       | Organisation descriptor.                                                                                          |
+| **primaryLinks**               | array   | No       | Array of navigation links for use in the header.                                                                  |
+| **primaryLinks[].href**        | string  | No       | The href of a navigation item in the header.                                                                      |
+| **primaryLinks[].text**        | string  | No       | The link text of a navigation item in the header.                                                                 |
+| **primaryLinks[].current**     | boolean | No       | Set to true if this links to the current page being shown.                                                        |
+| **primaryLinks[].active**      | boolean | No       | Set to true if the current page is within this section, but the link doesn’t necessarily link to the current page |
+| **primaryLinks[].classes**     | string  | No       | Optional additional classes to add to the list item.                                                              |
+| **primaryLinks[].attributes**  | string  | No       | Any extra HTML attributes (for example data attributes) to add to the list item.                                  |
+| **search**                     | object  | No       | Settings for the search input.                                                                                    |
+| **search.action**              | string  | No       | The search action endpoint. Defaults to <https://www.nhs.uk/search>                                               |
+| **search.name**                | string  | No       | The name for the search field. Defaults to "q"                                                                    |
+| **search.visuallyHiddenLabel** | string  | No       | The label for the search field. Defaults to "Search the NHS website"                                              |
+| **classes**                    | string  | No       | Optional additional classes to add to the header container. Separate each class with a space.                     |
+| **attributes**                 | object  | No       | Any extra HTML attributes (for example data attributes) to add to the header container.                           |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

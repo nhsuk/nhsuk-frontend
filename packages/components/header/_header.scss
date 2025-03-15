@@ -35,18 +35,18 @@
   }
 }
 
-/// Logo and transaction/service name
-
+// Logo should not grow by default
 .nhsuk-header__logo {
   display: flex;
-  flex-grow: 999;
-
-  .nhsuk-header__transactional & {
-    flex-grow: 0;
-  }
+  flex-grow: 0;
 }
 
-.nhsuk-header__link {
+// ...unless there is no service name
+.nhsuk-header__logo--no-service-name {
+  flex-grow: 999;
+}
+
+.nhsuk-header__logo-link {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -61,9 +61,8 @@
   }
 }
 
-.nhsuk-header__link,
-.nhsuk-header__transactional-service-name--link {
-  @include nhsuk-font(19, $line-height: 1.1);
+.nhsuk-header__logo-link,
+.nhsuk-header__service-link {
   @include nhsuk-link-style-header;
   text-decoration: none;
   text-wrap: balance;
@@ -73,10 +72,11 @@
   }
 }
 
-.nhsuk-header__transactional-service-name {
+.nhsuk-header__service-name {
+  @include nhsuk-font(19, $line-height: 1.1);
   align-items: center;
   display: flex;
-  flex-grow: 1;
+  flex-grow: 999;
   margin-right: auto;
 }
 
