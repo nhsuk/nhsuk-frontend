@@ -1,81 +1,72 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Task list' %}
 {% from 'components/task-list/macro.njk' import taskList %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ taskList({
-            idPrefix: "your-health",
-            items: [
-              {
-                title: {
-                  text: "Exercise"
-                },
-                href: "#",
-                status: {
-                  text: "Completed",
-                  classes: "nhsuk-task-list__status--completed"
-                }
-              },
-              {
-                title: {
-                  text: "Personal health"
-                },
-                href: "#",
-                status: {
-                  text: "Completed",
-                  classes: "nhsuk-task-list__status--completed"
-                }
-              },
-              {
-                title: {
-                  text: "Family health history"
-                },
-                hint: {
-                  text: "Details of your parents and siblings"
-                },
-                href: "#",
-                status: {
-                  tag: {
-                    text: "Incomplete",
-                    classes: "nhsuk-tag--blue"
-                  }
-                }
-              },
-              {
-                title: {
-                  text: "Smoking history"
-                },
-                href: "#",
-                status: {
-                  tag: {
-                    text: "Incomplete",
-                    classes: "nhsuk-tag--blue"
-                  }
-                }
-              },
-              {
-                title: {
-                  text: "Blood test"
-                },
-                status: {
-                  text: "Cannot start yet",
-                  classes: "nhsuk-task-list__status--cannot-start-yet"
-                }
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ taskList({
+        idPrefix: "your-health",
+        items: [
+          {
+            title: {
+              text: "Exercise"
+            },
+            href: "#",
+            status: {
+              text: "Completed",
+              classes: "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            title: {
+              text: "Personal health"
+            },
+            href: "#",
+            status: {
+              text: "Completed",
+              classes: "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            title: {
+              text: "Family health history"
+            },
+            hint: {
+              text: "Details of your parents and siblings"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "nhsuk-tag--blue"
               }
-            ]
-          }) }}
+            }
+          },
+          {
+            title: {
+              text: "Smoking history"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "nhsuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Blood test"
+            },
+            status: {
+              text: "Cannot start yet",
+              classes: "nhsuk-task-list__status--cannot-start-yet"
+            }
+          }
+        ]
+      }) }}
 
-        </div>
-      </div>
-
-    </main>
+    </div>
   </div>
-
 {% endblock %}
