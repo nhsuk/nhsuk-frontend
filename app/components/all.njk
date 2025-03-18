@@ -1,5 +1,4 @@
 {% set title = 'Components' %}
-{% set parent = 'Library' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
 {% from 'components/card/macro.njk' import card %}
@@ -83,859 +82,40 @@
   }) }}
 {% endblock %}
 
-{% block heading %}
-  <h1>Components</h1>
-
-  {{ contentsList({
-    items: [
-      {
-        href: "#",
-        text: "What is AMD?",
-        current: "true"
-      },
-      {
-        href: "#",
-        text: "Symptoms"
-      },
-      {
-        href: "#",
-        text: "Getting diagnosed"
-      }
-      ,
-      {
-        href: "#",
-        text: "Treatments"
-      }
-      ,
-      {
-        href: "#",
-        text: "Living with AMD"
-      }
-    ]
-  }) }}
-{% endblock %}
-
 {% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Components</h1>
 
-  {{ card({
-    "heading": "If you need help now, but it’s not an emergency",
-    "headingLevel": "3",
-    "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
-  }) }}
-
-  {{ card({
-    "href": "#",
-    "clickable": "true",
-    "heading": "Introduction to care and support",
-    "headingClasses": "nhsuk-heading-m",
-    "description": "A quick guide for people who have care and support needs and their carers."
-  }) }}
-
-  {{ card({
-    "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
-    "href": "#",
-    "clickable": "true",
-    "heading": "Exercise",
-    "headingClasses": "nhsuk-heading-m",
-    "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
-  }) }}
-
-  {{ card({
-    "feature": "true",
-    "heading": "Feature card heading",
-    "headingClasses": "nhsuk-heading-m",
-    "description": "Feature card description"
-  }) }}
-
-  <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
-
-  <h2>Heading level two</h2>
-
-  <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
-
-  <h3>Heading level three</h3>
-
-  <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
-
-  <h4>Heading level four</h4>
-
-  <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
-  <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
-
-  <h2>Heading level two</h2>
-
-  <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
-
-  {{ insetText({
-    "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
-  }) }}
-
-  {{ warningCallout({
-    "heading": "Important",
-    "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
-  }) }}
-
-  {{ warningCallout({
-    "heading": "School, nursery or work",
-    "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-  }) }}
-
-  {{ card({
-    "type": "non-urgent",
-    "heading": "Speak to a GP if:",
-    "headingLevel": 3,
-    "descriptionHtml": "
-    <ul>
-      <li>you're not sure it's chickenpox</li>
-      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
-      <li>you're concerned about your child or they get worse</li>
-    </ul>
-    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-    "
-  }) }}
-
-  {{ card({
-    "type": "urgent",
-    "heading": "Ask for an urgent GP appointment if:",
-    "headingLevel": 3,
-    "descriptionHtml": "
-    <ul>
-      <li>you're an adult and have chickenpox</li>
-      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
-      <li>you think your newborn baby has chickenpox</li>
-    </ul>
-    <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-    "
-  }) }}
-
-  {{ card({
-    "type": "emergency",
-    "heading": "Call 999 if you have sudden chest pain that:",
-    "headingLevel": 3,
-    "descriptionHtml": "
-    <ul>
-      <li>spreads to your arms, back, neck or jaw</li>
-      <li>makes your chest feel tight or heavy</li>
-      <li>also started with shortness of breath, sweating and feeling or being sick</li>
-    </ul>
-    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
-    "
-  }) }}
-
-  {{ image({
-    "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
-    "caption": "Itchy, red, watering eyes"
-  }) }}
-
-  {{ image({
-    "alt": "Picture of allergic conjunctivitis",
-    "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
-    "caption": "Itchy, red, watering eyes"
-  }) }}
-
-  {{ actionLink({
-    "text": "Find a minor injuries unit",
-    "href": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551"
-  }) }}
-
-  {{ details({
-    "text": "Where can I find my NHS number?",
-    "HTML": "
-    <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-    <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-    <ul>
-      <li>prescriptions</li>
-      <li>test results</li>
-      <li>hospital referral letters</li>
-      <li>appointment letters</li>
-      <li>your NHS medical card</li>
-    </ul>
-    <p>Ask your GP practice for help if you can't find your NHS number.</p>
-    "
-  }) }}
-
-  {{ details({
-    "classes": "nhsuk-expander",
-    "text": "Opening times",
-    "HTML": '
-    <table>
-      <tbody>
-        <tr>
-          <th scope="col"><strong>Day of the week</strong></th>
-          <th scope="col"><strong>Opening hours</strong></th>
-        </tr>
-        <tr>
-          <th scope="row">Monday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Tuesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Wednesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Thursday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Friday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Saturday</th>
-          <td>9am to 1pm</td>
-        </tr>
-        <tr>
-          <th scope="row">Sunday</th>
-          <td>Closed</td>
-        </tr>
-      </tbody>
-    </table>'
-  }) }}
-
-  <div class="nhsuk-expander-group">
-    {{ details({
-      "classes": "nhsuk-expander",
-      "text": "How to measure your blood glucose levels",
-      "HTML": "
-      <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
-      <p>You would have been given:</p>
-      <ul>
-        <li>a blood glucose metre</li>
-        <li>small needles called lancets</li>
-        <li>a plastic pen to hold the lancest</li>
-        <li>small test strips</li>
-      </ul>
-      "
-    }) }}
-    {{ details({
-      "classes": "nhsuk-expander",
-      "text": "When to check your blood glucose level",
-      "HTML": "
-      <p>Try to check your blood:</p>
-      <ul>
-        <li>before meals</li>
-        <li>2 to 3 hours after meals</li>
-        <li>before, during (take a break) and after exercise</li>
-      </ul>
-      <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-      "
-    }) }}
+      {{ contentsList({
+        items: [
+          {
+            href: "#",
+            text: "What is AMD?",
+            current: "true"
+          },
+          {
+            href: "#",
+            text: "Symptoms"
+          },
+          {
+            href: "#",
+            text: "Getting diagnosed"
+          }
+          ,
+          {
+            href: "#",
+            text: "Treatments"
+          }
+          ,
+          {
+            href: "#",
+            text: "Living with AMD"
+          }
+        ]
+      }) }}
+    </div>
   </div>
-
-  {{ pagination({
-    "previousUrl": "/section/treatments",
-    "previousPage": "Treatments",
-    "nextUrl": "/section/symptoms",
-    "nextPage": "Symptoms"
-  }) }}
-
-  {{ list({
-    "title": "Do",
-    "type": "tick",
-    "items": [
-      {
-        "item": "cover blisters that are likely to burst with a soft plaster or dressing"
-      },
-      {
-        "item": "wash your hands before touching a burst blister"
-      },
-      {
-        "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
-      }
-    ]
-  }) }}
-
-  {{ list({
-    "title": "Don't",
-    "type": "cross",
-    "items": [
-      {
-        "item": "burst a blister yourself"
-      },
-      {
-        "item": "peel the skin off a burst blister"
-      },
-      {
-        "item": "pick at the edges of the remaining skin"
-      },
-      {
-        "item": "wear the shoes or use the equipment that caused your blister until it heals"
-      }
-    ]
-  }) }}
-
-  <table>
-  <caption>Skin symptoms and possible causes</caption>
-  <thead>
-    <tr>
-      <th scope="col">Skin symptoms</th>
-      <th scope="col">Possible cause</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Blisters on lips or around the mouth</td>
-      <td>cold sores</td>
-    </tr>
-    <tr>
-      <td>Itchy, dry, cracked, sore</td>
-      <td>eczema</td>
-    </tr>
-    <tr>
-      <td>Itchy blisters</td>
-      <td>shingles, chickenpox</td>
-    </tr>
-  </tbody>
-</table>
-
-  {{ table({
-    panel: false,
-    heading: "Skin symptoms and possible causes",
-    caption: "Skin symptoms and possible causes",
-    firstCellIsHeader: false,
-    head: [
-      {
-        text: "Skin symptoms"
-      },
-      {
-        text: "Possible cause"
-      }
-    ],
-    rows: [
-      [
-        {
-          text: "Blisters on lips or around the mouth"
-        },
-        {
-          text: "cold sores"
-        }
-      ],
-      [
-        {
-          text: "Itchy, dry, cracked, sore"
-        },
-        {
-          text: "eczema"
-        }
-      ],
-      [
-        {
-          text: "Itchy blisters"
-        },
-        {
-          text: "shingles, chickenpox"
-        }
-      ]
-    ]
-  }) }}
-
-  {{ table({
-    panel: true,
-    heading: "Skin symptoms and possible causes",
-    caption: "Skin symptoms and possible causes",
-    firstCellIsHeader: false,
-    head: [
-      {
-        text: "Skin symptoms"
-      },
-      {
-        text: "Possible cause"
-      }
-    ],
-    rows: [
-      [
-        {
-          text: "Blisters on lips or around the mouth"
-        },
-        {
-          text: "cold sores"
-        }
-      ],
-      [
-        {
-          text: "Itchy, dry, cracked, sore"
-        },
-        {
-          text: "eczema"
-        }
-      ],
-      [
-        {
-          text: "Itchy blisters"
-        },
-        {
-          text: "shingles, chickenpox"
-        }
-      ]
-    ]
-  }) }}
-
-  {{ summaryList({
-    rows: [
-      {
-        key: {
-          text: "Name"
-        },
-        value: {
-          text: "Sarah Philips"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "name"
-            }
-          ]
-        }
-      },
-      {
-        key: {
-          text: "Date of birth"
-        },
-        value: {
-          text: "5 January 1978"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "date of birth"
-            }
-          ]
-        }
-      },
-      {
-        key: {
-          text: "Contact information"
-        },
-        value: {
-          html: "72 Guild Street<br>London<br>SE23 6FH"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "contact information"
-            }
-          ]
-        }
-      },
-      {
-        key: {
-          text: "Contact details"
-        },
-        value: {
-          html: '<p>07700 900457</p><p>sarah.philips@example.com</p>'
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "contact details"
-            }
-          ]
-        }
-      }
-    ]
-  }) }}
-
-  <table class="nhsuk-table">
-    <thead class="nhsuk-table__head">
-      <tr class="nhsuk-table__row">
-        <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
-        <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
-      </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Active"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--white
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Started",
-            classes: "nhsuk-tag--white"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--grey
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Not started",
-            classes: "nhsuk-tag--grey"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--green
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "New",
-            classes: "nhsuk-tag--green"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--aqua-green
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Active",
-            classes: "nhsuk-tag--aqua-green"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--blue
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Pending",
-            classes: "nhsuk-tag--blue"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--purple
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Received",
-            classes: "nhsuk-tag--purple"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--pink
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Sent",
-            classes: "nhsuk-tag--pink"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--red
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Rejected",
-            classes: "nhsuk-tag--red"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--orange
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Declined",
-            classes: "nhsuk-tag--orange"
-          })}}
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          nhsuk-tag--yellow
-        </td>
-        <td class="nhsuk-table__cell">
-          {{ tag({
-            text: "Delayed",
-            classes: "nhsuk-tag--yellow"
-          })}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  {{ input({
-    "label": {
-      "text": "National Insurance number"
-    },
-    "id": "input-example",
-    "classes": "nhsuk-input--width-20",
-    "name": "test-name"
-  }) }}
-
-  {{ input({
-    "label": {
-      "text": "National Insurance number"
-    },
-    "hint": {
-      "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
-    },
-    "id": "input-with-error-message",
-    "classes": "nhsuk-input--width-20",
-    "name": "test-name-3",
-    "errorMessage": {
-      "text": "Error message goes here"
-    }
-  }) }}
-
-  <form>
-    {{ checkboxes({
-      "idPrefix": "nationality",
-      "name": "nationality",
-      "fieldset": {
-        "legend": {
-          "text": "What is your nationality?"
-        }
-      },
-      "hint": {
-        "text": "If you have more than 1 nationality, select all options that are relevant to you."
-      },
-      "items": [
-        {
-          "value": "british",
-          "text": "British"
-        },
-        {
-          "value": "irish",
-          "text": "Irish"
-        },
-        {
-          "value": "other",
-          "text": "citizen of another country"
-        }
-      ]
-    }) }}
-  </form>
-
-  {{ radios({
-    "idPrefix": "example",
-    "name": "example",
-    "fieldset": {
-      "legend": {
-        "text": "Have you changed your name?"
-      }
-    },
-    "hint": {
-      "text": "This includes changing your last name or spelling your name differently."
-    },
-    "items": [
-      {
-        "value": "yes",
-        "text": "Yes"
-      },
-      {
-        "value": "no",
-        "text": "No",
-        "checked": true
-      }
-    ]
-  }) }}
-
-  {{ dateInput({
-    "id": "dob",
-    "namePrefix": "dob",
-    "fieldset": {
-      "legend": {
-        "text": "What is your date of birth?"
-      }
-    },
-    "hint": {
-      "text": "For example, 31 3 1980"
-    },
-    "items": [
-      {
-        "name": "day",
-        "classes": "nhsuk-input--width-2"
-      },
-      {
-        "name": "month",
-        "classes": "nhsuk-input--width-2"
-      },
-      {
-        "name": "year",
-        "classes": "nhsuk-input--width-4"
-      }
-    ]
-  }) }}
-
-  {{ textarea({
-    "name": "more-detail-textarea",
-    "id": "more-detail-textarea",
-    "label": {
-      "text": "Can you provide more detail?"
-    },
-    "hint": {
-      "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
-    }
-  }) }}
-
-  {{ characterCount({
-    "name": "more-detail-character-count",
-    "id": "more-detail-character-count",
-    "maxlength": 200,
-    "label": {
-      "text": "Can you provide more detail?"
-    },
-    "hint": {
-      "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
-    }
-  }) }}
-
-  {{ select({
-    "id": "select-1",
-    "name": "select-1",
-    "label": {
-      "text": "Label text goes here"
-    },
-    "items": [
-      {
-        "value": 1,
-        "text": "NHS.UK frontend option 1"
-      },
-      {
-        "value": 2,
-        "text": "NHS.UK frontend option 2",
-        "selected": true
-      },
-      {
-        "value": 3,
-        "text": "NHS.UK frontend option 3",
-        "disabled": true
-      }
-    ]
-  }) }}
-
-  <div class="nhsuk-form-group">
-
-    {{ button({
-      "text": "Save and continue",
-      "classes": "nhsuk-u-margin-bottom-0"
-    }) }}
-
-  </div>
-
-  <div class="nhsuk-form-group">
-
-    {{ button({
-      "text": "Find my location",
-      "classes": "nhsuk-button--secondary nhsuk-u-margin-bottom-0"
-    }) }}
-
-  </div>
-
-  {{ backLink({
-    "href": "#",
-    "text": "Go back"
-  }) }}
-
-  {% set tabOneContent %}
-    <h2>Tab one content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  {% endset -%}
-
-  {% set tabTwoContent %}
-    <h2>Tab two content</h2>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-  {% endset -%}
-
-  {% set tabThreeContent %}
-    <h2>Tab three content</h2>
-    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-  {% endset -%}
-
-  {{ tabs({
-    items: [
-      {
-        label: "Tab one",
-        id: "tab-one",
-        panel: {
-          html: tabOneContent
-        }
-      },
-      {
-        label: "Tab two",
-        id: "tab-two",
-        panel: {
-          html: tabTwoContent
-        }
-      },
-      {
-        label: "Tab three",
-        id: "tab-three",
-        panel: {
-          html: tabThreeContent
-        }
-      }
-    ]
-  }) }}
-{% endblock %}
-
-{% block footer %}
-  {{ footer({
-    "links": [
-      {
-        "URL": "https://www.nhs.uk/nhs-sites",
-        "label": "NHS sites"
-      },
-      {
-        "URL": "https://www.nhs.uk/about-us",
-        "label": "About us"
-      },
-      {
-        "URL": "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-        "label": "Give us feedback"
-      },
-      {
-        "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
-        "label": "Profile editor login"
-      }
-    ],
-    "metaLinks": [
-      {
-        "URL": "https://www.nhs.uk/about-us/sitemap/",
-        "label": "Sitemap"
-      },
-      {
-        'URL': 'https://www.nhs.uk/accessibility/',
-        'label': 'Accessibility'
-      },
-      {
-        "URL": "https://www.nhs.uk/our-policies/",
-        "label": "Our policies"
-      }
-    ]
-  })}}
-{% endblock %}
-
-{% block fullWidthContent %}
-
   <ul class="nhsuk-grid-row nhsuk-card-group">
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       {{ card({
@@ -1031,5 +211,827 @@
       }) }}
     </li>
   </ul>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
+      {{ card({
+        "heading": "If you need help now, but it’s not an emergency",
+        "headingLevel": "3",
+        "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
+      }) }}
+
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers."
+      }) }}
+
+      {{ card({
+        "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "href": "#",
+        "clickable": "true",
+        "heading": "Exercise",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      }) }}
+
+      {{ card({
+        "feature": "true",
+        "heading": "Feature card heading",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Feature card description"
+      }) }}
+
+      <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
+
+      <h2>Heading level two</h2>
+
+      <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
+
+      <h3>Heading level three</h3>
+
+      <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
+
+      <h4>Heading level four</h4>
+
+      <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
+      <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
+
+      <h2>Heading level two</h2>
+
+      <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
+
+      {{ insetText({
+        "HTML": "<p>If you drive you must tell the <a href=\"https://www.gov.uk/contact-the-dvla\" title=\"External website\">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+      }) }}
+
+      {{ warningCallout({
+        "heading": "School, nursery or work",
+        "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+      }) }}
+
+      {{ card({
+        "type": "non-urgent",
+        "heading": "Speak to a GP if:",
+        "headingLevel": 3,
+        "descriptionHtml": "
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+        "
+      }) }}
+
+      {{ card({
+        "type": "urgent",
+        "heading": "Ask for an urgent GP appointment if:",
+        "headingLevel": 3,
+        "descriptionHtml": "
+        <ul>
+          <li>you're an adult and have chickenpox</li>
+          <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+          <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+          <li>you think your newborn baby has chickenpox</li>
+        </ul>
+        <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+        "
+      }) }}
+
+      {{ card({
+        "type": "emergency",
+        "heading": "Call 999 if you have sudden chest pain that:",
+        "headingLevel": 3,
+        "descriptionHtml": "
+        <ul>
+          <li>spreads to your arms, back, neck or jaw</li>
+          <li>makes your chest feel tight or heavy</li>
+          <li>also started with shortness of breath, sweating and feeling or being sick</li>
+        </ul>
+        <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+        "
+      }) }}
+
+      {{ image({
+        "alt": "Picture of allergic conjunctivitis",
+        "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
+        "caption": "Itchy, red, watering eyes"
+      }) }}
+
+      {{ image({
+        "alt": "Picture of allergic conjunctivitis",
+        "src": "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
+        "caption": "Itchy, red, watering eyes"
+      }) }}
+
+      {{ actionLink({
+        "text": "Find a minor injuries unit",
+        "href": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551"
+      }) }}
+
+      {{ details({
+        "text": "Where can I find my NHS number?",
+        "HTML": "
+        <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+        <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+          <li>your NHS medical card</li>
+        </ul>
+        <p>Ask your GP practice for help if you can't find your NHS number.</p>
+        "
+      }) }}
+
+      {{ details({
+        "classes": "nhsuk-expander",
+        "text": "Opening times",
+        "HTML": '
+        <table>
+          <tbody>
+            <tr>
+              <th scope="col"><strong>Day of the week</strong></th>
+              <th scope="col"><strong>Opening hours</strong></th>
+            </tr>
+            <tr>
+              <th scope="row">Monday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Wednesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Thursday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Friday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Saturday</th>
+              <td>9am to 1pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Sunday</th>
+              <td>Closed</td>
+            </tr>
+          </tbody>
+        </table>'
+      }) }}
+
+      <div class="nhsuk-expander-group">
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "How to measure your blood glucose levels",
+          "HTML": "
+          <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+          <p>You would have been given:</p>
+          <ul>
+            <li>a blood glucose metre</li>
+            <li>small needles called lancets</li>
+            <li>a plastic pen to hold the lancest</li>
+            <li>small test strips</li>
+          </ul>
+          "
+        }) }}
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "When to check your blood glucose level",
+          "HTML": "
+          <p>Try to check your blood:</p>
+          <ul>
+            <li>before meals</li>
+            <li>2 to 3 hours after meals</li>
+            <li>before, during (take a break) and after exercise</li>
+          </ul>
+          <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+          "
+        }) }}
+      </div>
+
+      {{ pagination({
+        "previousUrl": "/section/treatments",
+        "previousPage": "Treatments",
+        "nextUrl": "/section/symptoms",
+        "nextPage": "Symptoms"
+      }) }}
+
+      {{ list({
+        "title": "Do",
+        "type": "tick",
+        "items": [
+          {
+            "item": "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            "item": "wash your hands before touching a burst blister"
+          },
+          {
+            "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+      }) }}
+
+      {{ list({
+        "title": "Don't",
+        "type": "cross",
+        "items": [
+          {
+            "item": "burst a blister yourself"
+          },
+          {
+            "item": "peel the skin off a burst blister"
+          },
+          {
+            "item": "pick at the edges of the remaining skin"
+          },
+          {
+            "item": "wear the shoes or use the equipment that caused your blister until it heals"
+          }
+        ]
+      }) }}
+
+      <table>
+      <caption>Skin symptoms and possible causes</caption>
+      <thead>
+        <tr>
+          <th scope="col">Skin symptoms</th>
+          <th scope="col">Possible cause</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Blisters on lips or around the mouth</td>
+          <td>cold sores</td>
+        </tr>
+        <tr>
+          <td>Itchy, dry, cracked, sore</td>
+          <td>eczema</td>
+        </tr>
+        <tr>
+          <td>Itchy blisters</td>
+          <td>shingles, chickenpox</td>
+        </tr>
+      </tbody>
+    </table>
+
+      {{ table({
+        panel: false,
+        heading: "Skin symptoms and possible causes",
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Skin symptoms"
+          },
+          {
+            text: "Possible cause"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Blisters on lips or around the mouth"
+            },
+            {
+              text: "cold sores"
+            }
+          ],
+          [
+            {
+              text: "Itchy, dry, cracked, sore"
+            },
+            {
+              text: "eczema"
+            }
+          ],
+          [
+            {
+              text: "Itchy blisters"
+            },
+            {
+              text: "shingles, chickenpox"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ table({
+        panel: true,
+        heading: "Skin symptoms and possible causes",
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Skin symptoms"
+          },
+          {
+            text: "Possible cause"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Blisters on lips or around the mouth"
+            },
+            {
+              text: "cold sores"
+            }
+          ],
+          [
+            {
+              text: "Itchy, dry, cracked, sore"
+            },
+            {
+              text: "eczema"
+            }
+          ],
+          [
+            {
+              text: "Itchy blisters"
+            },
+            {
+              text: "shingles, chickenpox"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact information"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact information"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: '<p>07700 900457</p><p>sarah.philips@example.com</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Active"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--white
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Started",
+                classes: "nhsuk-tag--white"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--grey
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Not started",
+                classes: "nhsuk-tag--grey"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--green
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "New",
+                classes: "nhsuk-tag--green"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--aqua-green
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Active",
+                classes: "nhsuk-tag--aqua-green"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--blue
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Pending",
+                classes: "nhsuk-tag--blue"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--purple
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Received",
+                classes: "nhsuk-tag--purple"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--pink
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Sent",
+                classes: "nhsuk-tag--pink"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--red
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Rejected",
+                classes: "nhsuk-tag--red"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--orange
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Declined",
+                classes: "nhsuk-tag--orange"
+              })}}
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--yellow
+            </td>
+            <td class="nhsuk-table__cell">
+              {{ tag({
+                text: "Delayed",
+                classes: "nhsuk-tag--yellow"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      {{ input({
+        "label": {
+          "text": "National Insurance number"
+        },
+        "id": "input-example",
+        "classes": "nhsuk-input--width-20",
+        "name": "test-name"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "National Insurance number"
+        },
+        "hint": {
+          "text": "It’s on your National Insurance card, benefit letter, payslip or P60\. For example, ‘QQ 12 34 56 C’."
+        },
+        "id": "input-with-error-message",
+        "classes": "nhsuk-input--width-20",
+        "name": "test-name-3",
+        "errorMessage": {
+          "text": "Error message goes here"
+        }
+      }) }}
+
+      <form>
+        {{ checkboxes({
+          "idPrefix": "nationality",
+          "name": "nationality",
+          "fieldset": {
+            "legend": {
+              "text": "What is your nationality?"
+            }
+          },
+          "hint": {
+            "text": "If you have more than 1 nationality, select all options that are relevant to you."
+          },
+          "items": [
+            {
+              "value": "british",
+              "text": "British"
+            },
+            {
+              "value": "irish",
+              "text": "Irish"
+            },
+            {
+              "value": "other",
+              "text": "citizen of another country"
+            }
+          ]
+        }) }}
+      </form>
+
+      {{ radios({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?"
+          }
+        },
+        "hint": {
+          "text": "This includes changing your last name or spelling your name differently."
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No",
+            "checked": true
+          }
+        ]
+      }) }}
+
+      {{ dateInput({
+        "id": "dob",
+        "namePrefix": "dob",
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      }) }}
+
+      {{ textarea({
+        "name": "more-detail-textarea",
+        "id": "more-detail-textarea",
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+        }
+      }) }}
+
+      {{ characterCount({
+        "name": "more-detail-character-count",
+        "id": "more-detail-character-count",
+        "maxlength": 200,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+        }
+      }) }}
+
+      {{ select({
+        "id": "select-1",
+        "name": "select-1",
+        "label": {
+          "text": "Label text goes here"
+        },
+        "items": [
+          {
+            "value": 1,
+            "text": "NHS.UK frontend option 1"
+          },
+          {
+            "value": 2,
+            "text": "NHS.UK frontend option 2",
+            "selected": true
+          },
+          {
+            "value": 3,
+            "text": "NHS.UK frontend option 3",
+            "disabled": true
+          }
+        ]
+      }) }}
+
+      <div class="nhsuk-form-group">
+
+        {{ button({
+          "text": "Save and continue",
+          "classes": "nhsuk-u-margin-bottom-0"
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-form-group">
+
+        {{ button({
+          "text": "Find my location",
+          "classes": "nhsuk-button--secondary nhsuk-u-margin-bottom-0"
+        }) }}
+
+      </div>
+
+      {{ backLink({
+        "href": "#",
+        "text": "Go back"
+      }) }}
+
+      {% set tabOneContent %}
+        <h2>Tab one content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {% endset -%}
+
+      {% set tabTwoContent %}
+        <h2>Tab two content</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+      {% endset -%}
+
+      {% set tabThreeContent %}
+        <h2>Tab three content</h2>
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+      {% endset -%}
+
+      {{ tabs({
+        items: [
+          {
+            label: "Tab one",
+            id: "tab-one",
+            panel: {
+              html: tabOneContent
+            }
+          },
+          {
+            label: "Tab two",
+            id: "tab-two",
+            panel: {
+              html: tabTwoContent
+            }
+          },
+          {
+            label: "Tab three",
+            id: "tab-three",
+            panel: {
+              html: tabThreeContent
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "https://www.nhs.uk/nhs-sites",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "https://www.nhs.uk/about-us",
+        "label": "About us"
+      },
+      {
+        "URL": "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
+        "label": "Give us feedback"
+      },
+      {
+        "URL": "https://www.nhs.uk/Personalisation/Login.aspx",
+        "label": "Profile editor login"
+      }
+    ],
+    "metaLinks": [
+      {
+        "URL": "https://www.nhs.uk/about-us/sitemap/",
+        "label": "Sitemap"
+      },
+      {
+        'URL': 'https://www.nhs.uk/accessibility/',
+        'label': 'Accessibility'
+      },
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
+
+{% block fullWidthContent %}
 {% endblock %}
