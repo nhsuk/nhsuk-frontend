@@ -141,11 +141,6 @@ $button-padding-left-right: nhsuk-spacing(3);
     color: $nhsuk-secondary-button-text-color;
   }
 
-  &:link,
-  &:visited {
-    color: $nhsuk-secondary-button-text-color;
-  }
-
   &:focus {
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // [4] //
 
@@ -202,7 +197,7 @@ $button-padding-left-right: nhsuk-spacing(3);
   color: $nhsuk-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-reverse-button-color, 5%);
+    background-color: $nhsuk-reverse-button-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -235,7 +230,7 @@ $button-padding-left-right: nhsuk-spacing(3);
   box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-warning-button-color, 10%);
+    background-color: $nhsuk-warning-button-hover-color;
   }
 
   &:focus {
