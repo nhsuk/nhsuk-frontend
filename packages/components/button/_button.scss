@@ -117,6 +117,8 @@ $button-padding-left-right: nhsuk-spacing(3);
 /// Button variations
 
 .nhsuk-button--secondary {
+  @include nhsuk-responsive-margin(5, "bottom"); // [4] //
+
   background-color: $nhsuk-secondary-button-color;
   border: $button-border-width solid $nhsuk-secondary-button-border-color;
   box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4] //
@@ -185,6 +187,8 @@ $button-padding-left-right: nhsuk-spacing(3);
 }
 
 .nhsuk-button--secondary-white-background {
+  @include nhsuk-responsive-margin(5, "bottom"); // [4] //
+
   background-color: $color_nhsuk-white;
   border: $button-border-width solid $nhsuk-secondary-button-border-color;
   box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4] //
