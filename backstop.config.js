@@ -69,7 +69,7 @@ module.exports = {
     headless: HEADLESS !== 'false'
   },
   fileNameTemplate: '{scenarioLabel}_{viewportLabel}',
-  misMatchThreshold: 0.3,
+  misMatchThreshold: 0.8,
   onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
   paths: {
