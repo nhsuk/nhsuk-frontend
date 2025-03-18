@@ -82,6 +82,8 @@ jobs:
     runs-on: macos-latest
     needs: [build]
 
+    if: ${{ github.base_ref == 'main' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
