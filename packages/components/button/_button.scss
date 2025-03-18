@@ -184,7 +184,7 @@ $button-padding-left-right: nhsuk-spacing(3);
   }
 }
 
-.nhsuk-button--secondary-white {
+.nhsuk-button--secondary-white-background {
   background-color: $color_nhsuk-white;
   border: $button-border-width solid $nhsuk-secondary-button-border-color;
   box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4] //
