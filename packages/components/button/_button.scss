@@ -146,7 +146,6 @@ $button-padding-left-right: nhsuk-spacing(3);
     color: $nhsuk-secondary-button-text-color;
   }
 
-
   &:focus {
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // [4] //
 
