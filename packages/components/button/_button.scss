@@ -148,7 +148,7 @@ $button-padding-left-right: nhsuk-spacing(3);
 
   &:focus {
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // [4] //
-    
+
     background: $nhsuk-focus-color;
     border-color: $nhsuk-focus-color;
     border-bottom: 0;
