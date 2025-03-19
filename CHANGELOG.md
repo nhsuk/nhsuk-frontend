@@ -67,6 +67,10 @@ You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-u
 
 This was added in [pull request #1152: Add source maps to compiled JavaScript and CSS](https://github.com/nhsuk/nhsuk-frontend/pull/1152).
 
+:recycle: Changes
+
+- [#1077: Secondary button has been restyled to improve it's visual hierarchy and prevent users from interpreting it as a disbabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+
 :wrench: **Fixes**
 
 We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
