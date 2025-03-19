@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build dist
+        run: npx gulp build
 
       - name: Run linting
         run: npm run lint
@@ -61,14 +61,7 @@ jobs:
           asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
 
-      - name: Deploy GitHub pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./dist/app
-          clean: true
-
-      - name: Publish NPM package
+      - name: Publish npm package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
