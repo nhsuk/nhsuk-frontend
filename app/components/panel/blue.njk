@@ -1,0 +1,26 @@
+{% set title = 'Panel - blue' %}
+{% from 'components/panel/macro.njk' import panel %}
+{% from 'components/button/macro.njk' import button %}
+
+{% extends 'example.njk' %}
+
+{% set panelHtml %}
+  <p class="nhsuk-body nhsuk-u-margin-bottom-6">Some text to explain what you are doing, and to check you’ve understood the consequences.</p>
+  {{ button({
+    text: "I understand, continue anyway",
+    href: "#",
+    classes: "nhsuk-button--reverse"
+  }) }}
+{% endset %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ panel({
+        titleText: "You are doing something unusual",
+        html: panelHtml,
+        classes: "nhsuk-panel--blue"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

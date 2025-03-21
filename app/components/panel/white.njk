@@ -1,0 +1,23 @@
+{% set title = 'Panel - white' %}
+{% from 'components/panel/macro.njk' import panel %}
+{% from 'components/button/macro.njk' import button %}
+
+{% extends 'example.njk' %}
+
+{% set panelHtml %}
+  <p class="nhsuk-body nhsuk-u-margin-bottom-0">This is another short line of content.</p>
+{% endset %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ panel({
+        titleText: "This is a title",
+        headingLevel: 2,
+        headingClasses: "nhsuk-panel__title--s",
+        html: panelHtml,
+        classes: "nhsuk-panel--white"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

@@ -42,11 +42,26 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   }
 }
 
+.nhsuk-panel--blue {
+  background-color: $color_nhsuk-blue;
+}
+
+.nhsuk-panel--white {
+  background-color: $color_nhsuk-white;
+  color: $color_nhsuk-black;
+  border-color: $color_nhsuk-blue;
+}
+
 .nhsuk-panel__title {
   @include nhsuk-typography-responsive(48);
   @include nhsuk-responsive-margin(5, "bottom");
 
   margin-top: 0;
+}
+
+.nhsuk-panel__title--s {
+  @include nhsuk-typography-responsive(22);
+  @include nhsuk-responsive-margin(4, "bottom");
 }
 
 .nhsuk-panel__title:last-child {
