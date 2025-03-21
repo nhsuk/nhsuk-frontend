@@ -5,7 +5,7 @@
 <div class="nhsuk-panel
   {%- if params.classes %} {{ params.classes }}{% endif %}"
   {{- nhsukAttributes(params.attributes) }}>
-  <h{{ headingLevel }} class="nhsuk-panel__title">
+  <h{{ headingLevel }} class="nhsuk-panel__title{% if params.headingClasses %} {{ params.headingClasses }}{% endif %}">
     {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
   </h{{ headingLevel }}>
   {% if caller or params.html or params.text %}
