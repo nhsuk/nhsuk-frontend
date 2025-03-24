@@ -1,8 +1,8 @@
-{% from "../error-message/macro.njk" import errorMessage -%}
-{% from "../fieldset/macro.njk" import fieldset %}
-{% from "../hint/macro.njk" import hint %}
-{% from "../label/macro.njk" import label %}
-{% from "../../macros/attributes.njk" import nhsukAttributes %}
+{% from "components/error-message/macro.njk" import errorMessage -%}
+{% from "components/fieldset/macro.njk" import fieldset %}
+{% from "components/hint/macro.njk" import hint %}
+{% from "components/label/macro.njk" import label %}
+{% from "macros/attributes.njk" import nhsukAttributes %}
 
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
    instead. We need this for error messages and hints as well -#}
