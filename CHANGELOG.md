@@ -69,7 +69,7 @@ This was added in [pull request #1152: Add source maps to compiled JavaScript an
 
 :recycle: Changes
 
-- [#1077: Secondary button has been restyled to improve it's visual hierarchy and prevent users from interpreting it as a disbabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+- [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
 
 :wrench: **Fixes**
 
