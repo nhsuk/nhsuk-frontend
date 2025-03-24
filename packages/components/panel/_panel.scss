@@ -46,12 +46,6 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   background-color: $color_nhsuk-blue;
 }
 
-.nhsuk-panel--white {
-  background-color: $color_nhsuk-white;
-  color: $color_nhsuk-black;
-  border-color: $color_nhsuk-blue;
-}
-
 .nhsuk-panel__title {
   @include nhsuk-typography-responsive(48);
   @include nhsuk-responsive-margin(5, "bottom");
