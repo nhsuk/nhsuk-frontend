@@ -23,11 +23,13 @@
     "test:js": "jest --color --coverage",
     "pretest:visual": "npm run build",
     "test:visual": "npm run test:visual:cli -- -- test",
+    "test:visual:jinja": "npm run test:visual:cli_with_jinja -- -- test",
     "test:visual:ref": "npm run test:visual:cli -- -- reference",
     "test:visual:interactive": "backstop --config backstop.config.js remote",
     "test:visual:approve": "backstop --config backstop.config.js approve",
     "test:visual:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "test:visual:cli": "concurrently \"gulp docs:serve\" \"wait-on --config wait-on.config.js && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
+    "test:visual:cli": "concurrently \"gulp docs:serve\" \"wait-on --config wait-on.config.js && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first",
+    "test:visual:cli_with_jinja": "concurrently \"poetry -C jinja_app run flask --app main run -p 3000\" \"wait-on --config wait-on.config.js && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
