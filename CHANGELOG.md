@@ -61,6 +61,10 @@ You can now add `classes` and `attributes` to table cells, for example using the
 
 This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
 
+#### Blue panel variant
+
+There is a new variant of the Panel component with a solid blue background and white text. This can be used as an interruption card. [Pull request #1196](https://github.com/nhsuk/nhsuk-frontend/pull/1196)
+
 #### Source maps for precompiled files
 
 You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) to help identify errors and console messages from NHS.UK Frontend precompiled files.
