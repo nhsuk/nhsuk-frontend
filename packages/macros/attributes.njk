@@ -66,13 +66,14 @@
 {% macro nhsukAttributes(attributes) -%}
   {#- Default attributes output -#}
   {% set attributesHtml = attributes if attributes is string else "" %}
-
-  {#- Append attribute name/value pairs -#}
-  {%- if attributes is mapping %}
-    {% for name, value in attributes %}
+  {% if attributes is string %}
+    {{- attributes | safe -}}
+  {% elif attributes is mapping %}
+    {#- Append attribute name/value pairs -#}
+    {% for name, value in attributes|dictsort %}
       {#- Detect if this is a `safe` filtered value. Just pass the value through if so. -#}
       {#- https://github.com/alphagov/govuk-frontend/issues/4937 -#}
-      {% if value is mapping and not [undefined, null].includes(value.val) and value.length %}
+      {% if value is mapping and not value.val in [undefined, null] and value.length %}
         {% set value = value.val %}
       {% endif %}
 
@@ -83,14 +84,12 @@
       } %}
 
       {#- Output ` name` only (no value) for boolean attributes -#}
-      {% if options.optional === true and options.value === true %}
-        {% set attributesHtml = attributesHtml + " " + name | escape %}
+      {% if options.optional == true and options.value == true %}
+        {{- " " + name | escape | safe -}}
       {#- Skip optional empty attributes or output ` name="value"` pair by default -#}
-      {% elif (options.optional === true and not [undefined, null, false].includes(options.value)) or options.optional !== true %}
-        {% set attributesHtml = attributesHtml + " " + name | escape + '="' + options.value | escape + '"' %}
+      {% elif (options.optional == true and not options.value in [undefined, null, false]) or options.optional != true %}
+        {{(" " ~ name | escape ~ '="' ~ options.value | escape ~ '"') | safe}}
       {% endif %}
     {% endfor %}
-  {% endif -%}
-
-  {{- attributesHtml | safe -}}
+  {% endif %}
 {%- endmacro %}
