@@ -53,11 +53,6 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   margin-top: 0;
 }
 
-.nhsuk-panel__title--s {
-  @include nhsuk-typography-responsive(22);
-  @include nhsuk-responsive-margin(4, "bottom");
-}
-
 .nhsuk-panel__title:last-child {
   margin-bottom: 0;
 }
