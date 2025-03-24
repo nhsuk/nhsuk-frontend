@@ -1,3 +1,6 @@
 {% macro fieldset(params) %}
+  {% if caller %}
+  {# noop for Jinja support #}
+  {% endif %}
   {%- include 'components/fieldset/template.njk' -%}
 {% endmacro %}

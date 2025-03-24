@@ -79,14 +79,14 @@
 
       {#- Set default attribute options -#}
       {% set options = value if value is mapping else {
-        value: value,
-        optional: false
+        "value": value,
+        "optional": false
       } %}
 
       {#- Output ` name` only (no value) for boolean attributes -#}
       {% if options.optional == true and options.value == true %}
         {{- " " + name | escape | safe -}}
-      {#- Skip optional empty attributes or output ` name="value"` pair by default -#}
+      {#- Skip boolean attributes that have a falsey value. Otherwise output a ` name="value"` pair. -#}
       {% elif (options.optional == true and not options.value in [undefined, null, false]) or options.optional != true %}
         {{(" " ~ name | escape ~ '="' ~ options.value | escape ~ '"') | safe}}
       {% endif %}
