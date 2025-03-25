@@ -140,6 +140,7 @@ $button-shadow-size: 4px;
 
   &:hover {
     background-color: $nhsuk-reverse-button-hover-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -153,7 +154,7 @@ $button-shadow-size: 4px;
   &:active {
     background: $nhsuk-reverse-button-active-color;
     box-shadow: none;
-    color: $color_nhsuk-white;
+    color: $nhsuk-reverse-button-text-color;
     top: $button-shadow-size;
   }
 
