@@ -147,8 +147,7 @@ $nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color;
 $nhsuk-reverse-button-color: $color_nhsuk-white;
 $nhsuk-reverse-button-text-color: $color_nhsuk-black;
 $nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 15%);
-$nhsuk-reverse-button-active-color: shade($nhsuk-reverse-button-color, 80%);
-$nhsuk-reverse-button-active-text-color: $color_nhsuk-white;
+$nhsuk-reverse-button-active-color: shade($nhsuk-reverse-button-color, 25%);
 $nhsuk-reverse-button-shadow-color: shade($nhsuk-reverse-button-color, 20%);
 $nhsuk-reverse-button-shadow-hover-color: shade($nhsuk-reverse-button-shadow-color, 15%);
 
