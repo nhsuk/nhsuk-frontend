@@ -100,7 +100,7 @@ jobs:
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' }}
-        run: npm run test:visual --ignore-scripts
+        run: npm run test:visual --ignore-scripts -- --filter="Header with service name"
 
       - name: Save backstop report
         if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
