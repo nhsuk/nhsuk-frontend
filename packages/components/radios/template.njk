@@ -26,8 +26,8 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = idPrefix + '-hint' %}
-  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {% set hintId = idPrefix ~ '-hint' %}
+  {% set describedBy = describedBy ~ ' ' ~ hintId if describedBy else hintId %}
   {{ hint({
     "id": hintId,
     "classes": params.hint.classes,
@@ -37,8 +37,8 @@
   }) | indent(2) | trim }}
 {% endif %}
 {%- if params.errorMessage %}
-  {%- set errorId = idPrefix + '-error' %}
-  {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {%- set errorId = idPrefix ~ '-error' %}
+  {%- set describedBy = describedBy ~ ' ' ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     "id": errorId,
     "classes": params.errorMessage.classes,
@@ -50,13 +50,13 @@
   {%- if params.classes %} {{ params.classes }}{% endif %} {%- if isConditional %} nhsuk-radios--conditional{% endif -%}"
   {{- nhsukAttributes(params.attributes) }}>
     {%- for item in items %}
-    {%- set id = item.id if item.id else idPrefix + "-" + loop.index %}
-    {% set conditionalId = "conditional-" + id %}
+    {%- set id = item.id if item.id else idPrefix ~ "-" ~ loop.index %}
+    {% set conditionalId = "conditional-" ~ id %}
     {%- if item.divider %}
     <div class="nhsuk-radios__divider">{{ item.divider }}</div>
     {%- else %}
     {%- set hasHint = true if item.hint.text or item.hint.html %}
-    {%- set itemHintId = id + '-item-hint' %}
+    {%- set itemHintId = id ~ '-item-hint' %}
     {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="{{ id }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
@@ -68,7 +68,7 @@
       {{ label({
         "html": item.html,
         "text": item.text,
-        "classes": 'nhsuk-radios__label' + (' ' + item.label.classes if item.label.classes),
+        "classes": 'nhsuk-radios__label' ~ (' ' ~ item.label.classes if item.label.classes),
         "attributes": item.label.attributes,
         "for": id
       }) | indent(6) | trim }}

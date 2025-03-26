@@ -8,12 +8,12 @@
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
 {%- macro _taskListItem(params, item, index) %}
-  {%- set hintId = idPrefix + "-" + index + "-hint" %}
-  {%- set statusId = idPrefix + "-" + index + "-status" %}
+  {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
+  {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
     {%- if item.href -%}
-      <a class="nhsuk-link nhsuk-task-list__link {%- if item.title.classes %} {{ item.title.classes }}{% endif %}" href="{{ item.href }}"  aria-describedby="{{ hintId + ' ' if item.hint }}{{ statusId }}">
+      <a class="nhsuk-link nhsuk-task-list__link {%- if item.title.classes %} {{ item.title.classes }}{% endif %}" href="{{ item.href }}"  aria-describedby="{{ hintId ~ ' ' if item.hint }}{{ statusId }}">
         {{- item.title.html | safe | trim | indent(8) if item.title.html else item.title.text -}}
       </a>
     {%- else -%}

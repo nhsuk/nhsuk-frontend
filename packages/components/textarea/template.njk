@@ -16,8 +16,8 @@
     "for": params.id
   }) | indent(2) | trim }}
 {%- if params.hint %}
-  {%- set hintId = params.id + '-hint' %}
-  {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {%- set hintId = params.id ~ '-hint' %}
+  {%- set describedBy = describedBy ~ ' ' ~ hintId if describedBy else hintId %}
   {{ hint({
     "id": hintId,
     "classes": params.hint.classes,
@@ -27,8 +27,8 @@
   }) | indent(2) | trim }}
 {%- endif %}
 {%- if params.errorMessage %}
-  {%- set errorId = params.id + '-error' %}
-  {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {%- set errorId = params.id ~ '-error' %}
+  {%- set describedBy = describedBy ~ ' ' ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     "id": errorId,
     "classes": params.errorMessage.classes,
