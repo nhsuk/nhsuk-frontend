@@ -31,12 +31,12 @@
   {{ params.html | safe if params.html else params.text }}
 </a>
 
-{% elseif element == 'button' %}
+{% elif element == 'button' %}
 <button{{ commonAttributes | safe }}{% if params.value %} value="{{ params.value }}"{% endif %}{{ buttonAttributes | safe }}>
   {{ params.html | safe if params.html else params.text }}
 </button>
 
-{% elseif element == 'input' %}
+{% elif element == 'input' %}
 <input{{ commonAttributes | safe }} value="{{ params.text }}"{{ buttonAttributes | safe }}>
 
 {% endif %}
