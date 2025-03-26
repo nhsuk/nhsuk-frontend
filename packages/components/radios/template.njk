@@ -16,12 +16,7 @@
    aria-describedby – for example hints or error messages -#}
 {% set describedBy = "" %}
 
-{% set isConditional = false %}
-{% for item in items %}
-  {% if item.conditional.html %}
-    {% set isConditional = true %}
-  {% endif %}
-{% endfor %}
+{% set isConditional = items | map(attribute="conditional", default={}) | selectattr("html") | list | length %}
 
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}

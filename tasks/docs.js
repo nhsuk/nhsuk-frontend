@@ -28,6 +28,10 @@ async function buildHTML() {
     lstripBlocks: true
   })
 
+  import('../packages/nunjucks_extensions.mjs').then((module) => {
+    module.setupNunjucksExtensions(env)
+  })
+
   for (const path of paths) {
     const { name, dir } = parse(path)
 
