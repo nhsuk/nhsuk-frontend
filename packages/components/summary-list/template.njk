@@ -20,7 +20,7 @@
       </dd>
       {% if row.actions["items"] %}
         <dd class="nhsuk-summary-list__actions {%- if row.actions.classes %} {{ row.actions.classes }}{% endif %}">
-          {% if row.actions["items"].length == 1 %}
+          {% if row.actions["items"] | length == 1 %}
             {{ _link(row.actions["items"][0]) | indent(12) | trim }}
           {% else %}
             <ul class="nhsuk-summary-list__actions-list">
