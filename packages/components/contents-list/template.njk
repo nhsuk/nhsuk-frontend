@@ -1,11 +1,15 @@
 {% from "macros/attributes.njk" import nhsukAttributes %}
 
+{#- Jinja compatability - avoid referencing params.items directly
+  as it clashes with dict.items() -#}
+{% set items = params["items"] if "items" in params else [] %}
+
 <nav class="nhsuk-contents-list
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {{- nhsukAttributes(params.attributes) }} role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
-    {%- for item in params.items %}
+    {%- for item in items %}
       {%- if item.current %}
         <li class="nhsuk-contents-list__item" aria-current="page">
           <span class="nhsuk-contents-list__current">{{ item.text }}</span>

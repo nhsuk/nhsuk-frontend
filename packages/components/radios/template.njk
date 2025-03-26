@@ -4,6 +4,10 @@
 {% from "components/label/macro.njk" import label %}
 {% from "macros/attributes.njk" import nhsukAttributes %}
 
+{#- Jinja compatability - avoid referencing params.items directly
+  as it clashes with dict.items() -#}
+{% set items = params["items"] if "items" in params else [] %}
+
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
    instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
@@ -13,7 +17,7 @@
 {% set describedBy = "" %}
 
 {% set isConditional = false %}
-{% for item in params.items %}
+{% for item in items %}
   {% if item.conditional.html %}
     {% set isConditional = true %}
   {% endif %}
@@ -45,7 +49,7 @@
   <div class="nhsuk-radios
   {%- if params.classes %} {{ params.classes }}{% endif %} {%- if isConditional %} nhsuk-radios--conditional{% endif -%}"
   {{- nhsukAttributes(params.attributes) }}>
-    {%- for item in params.items %}
+    {%- for item in items %}
     {%- set id = item.id if item.id else idPrefix + "-" + loop.index %}
     {% set conditionalId = "conditional-" + id %}
     {%- if item.divider %}

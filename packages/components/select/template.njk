@@ -3,6 +3,10 @@
 {% from "components/label/macro.njk" import label %}
 {% from "macros/attributes.njk" import nhsukAttributes %}
 
+{#- Jinja compatability - avoid referencing params.items directly
+  as it clashes with dict.items() -#}
+{% set items = params["items"] if "items" in params else [] %}
+
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
 {%- set describedBy = "" -%}
@@ -42,7 +46,7 @@
     {%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}"
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
-  {%- for item in params.items %}
+  {%- for item in items %}
     <option value="{{ item.value }}"
       {{-" selected" if item.selected }}
       {{-" disabled" if item.disabled }}

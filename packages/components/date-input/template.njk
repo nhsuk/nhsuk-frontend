@@ -4,28 +4,32 @@
 {% from "components/input/macro.njk" import input %}
 {% from "macros/attributes.njk" import nhsukAttributes %}
 
+{#- Jinja compatability - avoid referencing params.values directly
+  as it clashes with dict.values() -#}
+{% set values = params["values"] %}
+
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
 {% set describedBy = "" %}
 
-{% if params.items %}
-  {% set dateInputItems = params.items %}
+{% if "items" in params %}
+  {% set dateInputItems = params["items"] %}
 {% else %}
   {% set dateInputItems = [
     {
       "name": "day",
       "classes": "nhsuk-input--width-2",
-      "value": params.values.day
+      "value": values.day
     },
     {
       "name": "month",
       "classes": "nhsuk-input--width-2",
-      "value": params.values.month
+      "value": values.month
     },
     {
       "name": "year",
       "classes": "nhsuk-input--width-4",
-      "value": params.values.year
+      "value": values.year
     }
   ] %}
 {% endif %}
@@ -68,7 +72,7 @@
         "id": item.id if item.id else (params.id + "-" + item.name),
         "classes": "nhsuk-date-input__input " + (item.classes if item.classes),
         "name": (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
-        "value": item.value or params.values[item.name],
+        "value": item.value or values[item.name],
         "inputmode": item.inputmode if item.inputmode else "numeric",
         "autocomplete": item.autocomplete,
         "pattern": item.pattern,
