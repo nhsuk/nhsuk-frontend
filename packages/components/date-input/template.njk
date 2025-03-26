@@ -13,19 +13,19 @@
 {% else %}
   {% set dateInputItems = [
     {
-      name: "day",
-      classes: "nhsuk-input--width-2",
-      value: params.values.day
+      "name": "day",
+      "classes": "nhsuk-input--width-2",
+      "value": params.values.day
     },
     {
-      name: "month",
-      classes: "nhsuk-input--width-2",
-      value: params.values.month
+      "name": "month",
+      "classes": "nhsuk-input--width-2",
+      "value": params.values.month
     },
     {
-      name: "year",
-      classes: "nhsuk-input--width-4",
-      value: params.values.year
+      "name": "year",
+      "classes": "nhsuk-input--width-4",
+      "value": params.values.year
     }
   ] %}
 {% endif %}
@@ -37,21 +37,21 @@
   {% set describedBy = describedBy + " " + hintId if describedBy else hintId %}
 
   {{ hint({
-    id: hintId,
-    classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    "id": hintId,
+    "classes": params.hint.classes,
+    "attributes": params.hint.attributes,
+    "html": params.hint.html,
+    "text": params.hint.text
   }) | indent(2) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id + "-error" %}
   {% set describedBy = describedBy + " " + errorId if describedBy else errorId %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    html: params.errorMessage.html,
-    text: params.errorMessage.text
+    "id": errorId,
+    "classes": params.errorMessage.classes,
+    "html": params.errorMessage.html,
+    "text": params.errorMessage.text
   }) | indent(2) | trim }}
 {% endif %}
   <div class="nhsuk-date-input
@@ -61,18 +61,18 @@
     {%- for item in dateInputItems %}
     <div class="nhsuk-date-input__item">
       {{ input({
-        label: {
-          text: item.label if item.label else item.name | capitalize,
-          classes: "nhsuk-date-input__label"
+        "label": {
+          "text": item.label if item.label else item.name | capitalize,
+          "classes": "nhsuk-date-input__label"
         },
-        id: item.id if item.id else (params.id + "-" + item.name),
-        classes: "nhsuk-date-input__input " + (item.classes if item.classes),
-        name: (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
-        value: item.value or params.values[item.name],
-        inputmode: item.inputmode if item.inputmode else "numeric",
-        autocomplete: item.autocomplete,
-        pattern: item.pattern,
-        attributes: item.attributes
+        "id": item.id if item.id else (params.id + "-" + item.name),
+        "classes": "nhsuk-date-input__input " + (item.classes if item.classes),
+        "name": (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
+        "value": item.value or params.values[item.name],
+        "inputmode": item.inputmode if item.inputmode else "numeric",
+        "autocomplete": item.autocomplete,
+        "pattern": item.pattern,
+        "attributes": item.attributes
       }) | indent(6) | trim }}
     </div>
   {%- endfor -%}
@@ -86,12 +86,12 @@
     adding the role to the fieldset always makes the output overly verbose for
     radio buttons or checkboxes. -#}
   {% call fieldset({
-    describedBy: describedBy,
-    classes: params.fieldset.classes,
-    attributes: {
-      role: "group"
+    "describedBy": describedBy,
+    "classes": params.fieldset.classes,
+    "attributes": {
+      "role": "group"
     },
-    legend: params.fieldset.legend
+    "legend": params.fieldset.legend
   }) %}
   {{- innerHtml | trim | safe -}}
   {% endcall %}
