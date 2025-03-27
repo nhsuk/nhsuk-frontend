@@ -57,11 +57,11 @@
 
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="{{ id }}" name="{{ name }}" type="checkbox" value="{{ item.value }}"
-      {{-" checked" if isChecked }}
-      {{-" disabled" if item.disabled }}
+      {{- " checked" if isChecked }}
+      {{- " disabled" if item.disabled }}
       {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
       {%- if item.exclusiveGroup %} data-checkbox-exclusive-group="{{ item.exclusiveGroup }}"{% endif -%}
-      {%- if item.conditional %} aria-controls="{{ conditionalId }}" aria-expanded="{{"true" if item.checked else "false"}}"{% endif -%}
+      {%- if item.conditional %} aria-controls="{{ conditionalId }}" aria-expanded="{{ "true" if item.checked else "false" }}"{% endif -%}
       {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
       {{- nhsukAttributes(item.attributes) }}>
       {{ label({
@@ -99,7 +99,7 @@
     "attributes": params.fieldset.attributes,
     "legend": params.fieldset.legend
   }) %}
-  {{innerHtml | trim | safe}}
+  {{ innerHtml | trim | safe }}
   {% endcall %}
 {% else %}
   {{ innerHtml | trim | safe }}

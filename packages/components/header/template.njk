@@ -43,8 +43,8 @@
       {%- endif %}
     </div>
 
-{%- if showNav == "false" and showSearch == "false"%}
-  {%- if params.transactionalService%}
+{%- if showNav == "false" and showSearch == "false" %}
+  {%- if params.transactionalService %}
     <div class="nhsuk-header__transactional-service-name">
       <a class="nhsuk-header__transactional-service-name--link" href="{% if params.transactionalService.href %}{{ params.transactionalService.href }}{% else %}/{% endif %}">{{ params.transactionalService.name }}</a>
     </div>
@@ -77,8 +77,8 @@
       <ul class="nhsuk-header__navigation-list {%- if params.primaryLinks | length < 4 %} nhsuk-header__navigation-list--left-aligned{% endif %}">
         {%- for item in params.primaryLinks %}
         <li class="nhsuk-header__navigation-item {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-          <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
-            {{item.label}}
+          <a class="nhsuk-header__navigation-link"  href="{{ item.url }}">
+            {{ item.label }}
           </a>
         </li>
         {%- endfor %}

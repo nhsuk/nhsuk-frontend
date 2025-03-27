@@ -48,9 +48,9 @@
     {%- if params.classes %} {{ params.classes }}{% endif %}
     {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
     {%- if params.spellcheck not in [null, undefined] %} spellcheck="{{ params.spellcheck }}"{% endif %}
-    {%- if params.value %} value="{{ params.value}}"{% endif %}
+    {%- if params.value %} value="{{ params.value }}"{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
+    {%- if params.autocomplete %} autocomplete="{{ params.autocomplete }}"{% endif %}
     {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
     {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>

@@ -9,7 +9,7 @@
       <div class="nhsuk-footer
         {%- if params.classes %} {{ params.classes }}{% endif %}"
         {{- nhsukAttributes(params.attributes) }}>
-          {% if  not params.linksColumn2 %}
+          {% if not params.linksColumn2 %}
               <ul class="nhsuk-footer__list">
                 {%- for item in params.links %}
                   <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
@@ -77,5 +77,5 @@
       </div>
       {% endif %}
     </div> {# close nhsuk-width-container #}
-  </div> {# close nhsuk-footer-container #}
+  {# djlint:off #}</div>{# djlint:on #} {# close nhsuk-footer-container #}
 </footer>

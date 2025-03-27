@@ -48,8 +48,8 @@
     {{- nhsukAttributes(params.attributes) }}>
   {%- for item in items %}
     <option value="{{ item.value }}"
-      {{-" selected" if item.selected }}
-      {{-" disabled" if item.disabled }}
+      {{- " selected" if item.selected }}
+      {{- " disabled" if item.disabled }}
       {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</option>
   {%- endfor %}
   </select>
