@@ -426,20 +426,33 @@ module.exports = {
     },
     {
       label: 'Header with account (logged in)',
-      url: `${BASE_URL}/components/header/header-account-logged-in.html`
+      url: `${BASE_URL}/components/header/header-account-logged-in.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with account (logged out)',
-      url: `${BASE_URL}/components/header/header-account-logged-out.html`
+      url: `${BASE_URL}/components/header/header-account-logged-out.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
-
     {
       label: 'Header with account (logged in, RBAC)',
-      url: `${BASE_URL}/components/header/header-account-rbac.html`
-    },
-    {
-      label: 'Header with account (logged in, custom html)',
-      url: `${BASE_URL}/components/header/header-account-rbac.html`
+      url: `${BASE_URL}/components/header/header-account-rbac.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       label: 'Header with logo only',
@@ -513,7 +526,13 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header and account',
-      url: `${BASE_URL}/components/header/header-org-white-account.html`
+      url: `${BASE_URL}/components/header/header-org-white-account.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
     },
     {
       clickSelector: '#toggle-menu',

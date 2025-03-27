@@ -1,9 +1,8 @@
-{% set html_style = "background-color: #f0f4f5;" %}
 {% set title = "Header with account (logged in, RBAC)" %}
 {% from "components/header/macro.njk" import header %}
-{% extends "layout.njk" %}
+{% extends 'example.njk' %}
 
-{% block body %}
+{% block main %}
   {{ header({
     service: {
       text: "Manage patients"
