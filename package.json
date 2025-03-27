@@ -10,7 +10,7 @@
     "build": "gulp build docs:build --color --series",
     "prestart": "npm run build",
     "start": "gulp --color",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:prettier",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:prettier && npm run lint:nunjucks",
     "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
     "lint:prettier": "prettier --cache --cache-location .cache/prettier --cache-strategy content --check .",
     "lint:prettier:fix": "prettier --write .",
@@ -18,6 +18,7 @@
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:css": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --formatter verbose --ignore-path .gitignore \"**/*.{md,scss}\"",
     "lint:css:fix": "npm run lint:css -- --fix",
+    "lint:nunjucks": "djlint -e njk --lint --profile jinja packages/components",
     "pretest": "npm run lint && npm run build",
     "test": "npm run test:js",
     "test:js": "jest --color --coverage",
@@ -92,5 +93,8 @@
   "bugs": {
     "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "djlint": "^1.36.4"
+  }
 }
