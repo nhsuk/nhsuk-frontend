@@ -42,36 +42,6 @@
   }) }}
 {% endblock %}
 
-
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    {% block beforeContent %}{% endblock %}
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {% block heading %}{% endblock %}
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-full">
-          {% block fullWidthContent %}{% endblock %}
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {% block content %}{% endblock %}
-        </div>
-      </div>
-
-    </main>
-  </div>
-
-{% endblock %}
-
 {% block footer %}
 
   {{ footer({
