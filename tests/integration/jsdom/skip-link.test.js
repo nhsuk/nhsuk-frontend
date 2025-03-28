@@ -1,7 +1,8 @@
-import SkipLink from '../../../packages/components/skip-link/skip-link'
+import SkipLink from '../../../packages/components/skip-link/skip-link.js'
 
 // Mock HTML
-const skipLinkHtml = '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>'
+const skipLinkHtml =
+  '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>'
 const headingHtml = '<h1>Test Heading</h1>'
 
 // DOM Elements to be set
@@ -45,7 +46,7 @@ describe('NHS.UK skiplink', () => {
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toEqual('-1')
+      expect(heading.getAttribute('tabIndex')).toBe('-1')
       expect(document.activeElement).toEqual(heading)
     })
   })
@@ -58,7 +59,7 @@ describe('NHS.UK skiplink', () => {
 
       skipLink.click()
 
-      expect(heading.getAttribute('tabIndex')).toEqual('-1')
+      expect(heading.getAttribute('tabIndex')).toBe('-1')
       expect(document.activeElement).toEqual(heading)
 
       heading.blur()

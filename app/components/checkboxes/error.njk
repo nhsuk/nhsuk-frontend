@@ -1,47 +1,38 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Checkboxes with error messages' %}
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <form>
-            {{ checkboxes({
-              "name": "waste",
-              "errorMessage": {
-                "text": "Please select an option"
-              },
-              "fieldset": {
-                "legend": {
-                  "text": "Which types of waste do you transport regularly?",
-                  "classes": "nhsuk-fieldset__legend--m"
-                }
-              },
-              "items": [
-                {
-                  "value": "animal",
-                  "text": "Waste from animal carcasses"
-                },
-                {
-                  "value": "mines",
-                  "text": "Waste from mines or quarries"
-                },
-                {
-                  "value": "farm",
-                  "text": "Farm or agricultural waste"
-                }
-              ]
-            }) }}
-          </form>
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form>
+        {{ checkboxes({
+          "name": "waste",
+          "errorMessage": {
+            "text": "Please select an option"
+          },
+          "fieldset": {
+            "legend": {
+              "text": "Which types of waste do you transport regularly?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "animal",
+              "text": "Waste from animal carcasses"
+            },
+            {
+              "value": "mines",
+              "text": "Waste from mines or quarries"
+            },
+            {
+              "value": "farm",
+              "text": "Farm or agricultural waste"
+            }
+          ]
+        }) }}
+      </form>
+    </div>
   </div>
-
 {% endblock %}

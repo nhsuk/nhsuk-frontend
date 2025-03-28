@@ -5,5 +5,9 @@
 {{- nhsukAttributes(params.attributes) }}>
   <span class="nhsuk-u-visually-hidden">Information: </span>
   {# params.HTML supported for backwards compatibility - see issue #950 #}
-  {{ (params.html or params.HTML) | safe }}
+  {% if params.html or params.HTML -%}
+    {{ (params.html or params.HTML) | safe | trim | indent(2) }}
+  {%- else %}
+    <p>{{ params.text }}</p>
+  {% endif %}
 </div>

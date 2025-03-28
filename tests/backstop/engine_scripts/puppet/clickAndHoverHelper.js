@@ -1,8 +1,16 @@
 module.exports = async (page, scenario) => {
-  var hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
-  var clickSelector = scenario.clickSelectors || scenario.clickSelector;
-  var scrollToSelector = scenario.scrollToSelector;
-  var postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+  const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
+  const clickSelector = scenario.clickSelectors || scenario.clickSelector;
+  const keyPressSelector = scenario.keyPressSelectors || scenario.keyPressSelector;
+  const scrollToSelector = scenario.scrollToSelector;
+  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+
+  if (keyPressSelector) {
+    for (const keyPressSelectorItem of [].concat(keyPressSelector)) {
+      await page.waitForSelector(keyPressSelectorItem.selector);
+      await page.type(keyPressSelectorItem.selector, keyPressSelectorItem.keyPress);
+    }
+  }
 
   if (hoverSelector) {
     for (const hoverSelectorIndex of [].concat(hoverSelector)) {
@@ -19,7 +27,9 @@ module.exports = async (page, scenario) => {
   }
 
   if (postInteractionWait) {
-    await page.waitForSelector(postInteractionWait);
+    await new Promise(resolve => {
+      setTimeout(resolve, postInteractionWait);
+    });
   }
 
   if (scrollToSelector) {

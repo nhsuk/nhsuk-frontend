@@ -3,10 +3,17 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        targets: {
-          node: 'current'
-        }
+        // Apply bug fixes to avoid transforms
+        bugfixes: true,
+
+        // Apply smaller "loose" transforms for browsers
+        loose: true
       }
     ]
-  ]
+  ],
+  env: {
+    test: {
+      browserslistEnv: 'node'
+    }
+  }
 }

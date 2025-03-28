@@ -54,7 +54,7 @@ This will build files, serve web pages and watch for changes when you save a fil
 npm start
 ```
 
-> The application will be available at [http://localhost:3000](http://localhost:3000).
+> The application will be available at [http://localhost:3000/nhsuk-frontend](http://localhost:3000/nhsuk-frontend).
 
 ---
 

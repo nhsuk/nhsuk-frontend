@@ -1,15 +1,17 @@
-/* ==========================================================================
-   STYLES / #ICONS
-   ========================================================================== */
+////
+/// Icons
+///
+/// @group styles
+////
 
-// Default icon size
+/// Default icon size
 
 .nhsuk-icon {
   height: $nhsuk-icon-size;
   width: $nhsuk-icon-size;
 }
 
-// Default icon colours
+/// Default icon colours
 
 .nhsuk-icon__search {
   fill: $color_nhsuk-blue;
@@ -58,6 +60,7 @@
 
 .nhsuk-icon__chevron-up {
   fill: $color_nhsuk-blue;
+
   path {
     fill: $color_nhsuk-white;
   }
@@ -77,7 +80,7 @@
   fill: $color_nhsuk-blue;
 }
 
-// Icon size adjustments
+/// Icon size adjustments
 
 .nhsuk-icon--size-25 {
   height: $nhsuk-icon-size * 1.25;

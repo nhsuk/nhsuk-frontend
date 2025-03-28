@@ -1,13 +1,13 @@
-import Radios from '../../../packages/components/radios/radios'
+import Radios from '../../../packages/components/radios/radios.js'
 
 describe('Radios module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional radios container', () => {
-      Radios()
+      expect(() => Radios()).not.toThrow()
     })
     it('if there are no conditional radios inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-radios--conditional"></div>'
-      Radios()
+      expect(() => Radios()).not.toThrow()
     })
   })
 
@@ -21,8 +21,10 @@ describe('Radios module', () => {
       const conditional = document.querySelector('#conditional-1')
       Radios()
       input.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
     })
   })
 
@@ -38,11 +40,15 @@ describe('Radios module', () => {
       const otherInput = document.querySelector('#input-2')
       Radios()
       input.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
       otherInput.click()
-      expect(conditional.classList.contains('nhsuk-radios__conditional--hidden')).toEqual(true)
-      expect(input.getAttribute('aria-expanded')).toEqual('false')
+      expect(
+        conditional.classList.contains('nhsuk-radios__conditional--hidden')
+      ).toBe(true)
+      expect(input.getAttribute('aria-expanded')).toBe('false')
     })
   })
 })

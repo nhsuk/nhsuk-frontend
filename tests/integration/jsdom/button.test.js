@@ -1,4 +1,4 @@
-import Button from '../../../packages/components/button/button'
+import Button from '../../../packages/components/button/button.js'
 
 describe('mis-instantiation', () => {
   it('does not prevent further JavaScript from running', async () => {

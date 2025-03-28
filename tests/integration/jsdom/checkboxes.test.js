@@ -1,13 +1,13 @@
-import Checkboxes from '../../../packages/components/checkboxes/checkboxes'
+import Checkboxes from '../../../packages/components/checkboxes/checkboxes.js'
 
 describe('Checkboxes module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional checkboxes container', () => {
-      Checkboxes()
+      expect(() => Checkboxes()).not.toThrow()
     })
     it('if there are no conditional checkboxes inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-checkboxes"></div>'
-      Checkboxes()
+      expect(() => Checkboxes()).not.toThrow()
     })
   })
 
@@ -21,8 +21,10 @@ describe('Checkboxes module', () => {
       const conditional = document.querySelector('#conditional-1')
       Checkboxes()
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
     })
   })
 
@@ -36,11 +38,15 @@ describe('Checkboxes module', () => {
       const conditional = document.querySelector('#conditional-1')
       Checkboxes()
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(false)
-      expect(input.getAttribute('aria-expanded')).toEqual('true')
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toBe(false)
+      expect(input.getAttribute('aria-expanded')).toBe('true')
       input.click()
-      expect(conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')).toEqual(true)
-      expect(input.getAttribute('aria-expanded')).toEqual('false')
+      expect(
+        conditional.classList.contains('nhsuk-checkboxes__conditional--hidden')
+      ).toBe(true)
+      expect(input.getAttribute('aria-expanded')).toBe('false')
     })
   })
 })

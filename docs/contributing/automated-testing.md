@@ -36,7 +36,7 @@ Docker is installed on the continuous integration service automatically but if y
 #### Run tests
 
 ```
-npm run backstop:test
+npm run test:visual
 ```
 
 This will start the application and run the tests concurrently.
@@ -45,14 +45,14 @@ Each time that a test is run locally a new set of bitmaps will be created in `te
 
 Once the test bitmaps are generated, a report comparing the most recent test bitmaps against the current reference bitmaps will display.
 
-If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run backstop:clean`.
+If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run test:visual:clean`.
 
 #### Run an individual test
 
 To run a test on an individual scenario, pass a `--filter<scenarioLabelRegex>` argument to just run scenarios matching your scenario label.
 
 ```
-npm run backstop:test -- --filter="Action link"
+npm run test:visual -- --filter="Action link"
 ```
 
 #### Update test references
@@ -61,10 +61,10 @@ BackstopJS creates a set of test bitmaps each time tests are run and compares th
 
 If you have made intentional visual changes, the reference bitmaps need to be updated for the tests (and future tests) to pass.
 
-After running the tests (`npm run backstop:test`) you can update the reference screenshots with:
+After running the tests (`npm run test:visual`) you can update the reference screenshots with:
 
 ```
-npm run backstop:approve
+npm run test:visual:approve
 ```
 
 #### Add new tests scenarios
@@ -72,7 +72,7 @@ npm run backstop:approve
 If you want to add new tests you will need to add the test scenarios to the `backstop.js` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference bitmaps to include a reference for the new tests.
 
 ```
-npm run backstop:ref
+npm run test:visual:ref
 ```
 
 ---

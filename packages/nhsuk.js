@@ -1,15 +1,17 @@
-// Components
-import initButton from './components/button/button'
-import initCharacterCount from './components/character-count/character-count'
-import initCheckboxes from './components/checkboxes/checkboxes'
-import initDetails from './components/details/details'
-import initErrorSummary from './components/error-summary/error-summary'
-import initHeader from './components/header/header'
-import initRadios from './components/radios/radios'
-import initSkipLink from './components/skip-link/skip-link'
-import initTabs from './components/tabs/tabs'
+/* eslint-disable import/prefer-default-export */
 
-import './polyfills'
+// Components
+import initButton from './components/button/button.js'
+import initCharacterCount from './components/character-count/character-count.js'
+import initCheckboxes from './components/checkboxes/checkboxes.js'
+import initDetails from './components/details/details.js'
+import initErrorSummary from './components/error-summary/error-summary.js'
+import initHeader from './components/header/header.js'
+import initRadios from './components/radios/radios.js'
+import initSkipLink from './components/skip-link/skip-link.js'
+import initTabs from './components/tabs/tabs.js'
+
+import './polyfills.js'
 
 /**
  * Use this function to initialise nhsuk-frontend components within a

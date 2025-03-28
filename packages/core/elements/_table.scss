@@ -1,17 +1,24 @@
-/* ==========================================================================
-   ELEMENTS / #TABLES
-   ========================================================================== */
-
-/**
- * 1. Force `<table>`s to be full-width by default.
- */
+////
+/// Tables
+///
+/// 1. Force `<table>`s to be full-width by default.
+/// 2. Allow word breaks anywhere to prevent table fit-to-content.
+/// 3. Allow word breaks when necessary (deprecated but works, unlike overflow-wrap).
+///
+/// @group elements
+////
 
 table {
   @include nhsuk-responsive-margin(7, "bottom");
 
   border-spacing: 0;
   vertical-align: top;
-  width: 100%; /* [1] */
+  width: 100%; // [1]
+
+  .nhsuk-u-text-break-word {
+    word-break: break-all; // [2]
+    word-break: break-word; // [3]
+  }
 
   @include mq($media-type: print) {
     page-break-inside: avoid;

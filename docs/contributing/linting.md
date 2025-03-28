@@ -187,15 +187,15 @@ margin: 1px 2px 3px;
 Bad:
 
 ```
-@import '_foo.scss';
-@import '_bar/foo.scss';
+@import "_foo.scss";
+@import "_bar/foo.scss";
 ```
 
 Good:
 
 ```
-@import 'foo';
-@import 'bar/foo';
+@import "foo";
+@import "bar/foo";
 ```
 
 ### Properties should be formatted with a single space separating the colon from the property's value
@@ -204,7 +204,7 @@ Bad:
 
 ```
 .foo {
-  content:'bar';
+  content:"bar";
 }
 ```
 
@@ -212,7 +212,7 @@ Good:
 
 ```
 .foo {
-  content: 'bar';
+  content: "bar";
 }
 ```
 

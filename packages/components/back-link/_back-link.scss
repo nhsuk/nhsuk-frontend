@@ -1,17 +1,17 @@
-/* ==========================================================================
-   COMPONENTS/ #BACK-LINK
-   ========================================================================== */
-
-/**
- * 1. Allow space for the arrow.
- * 2. Align the icon with the start of the back link.
- * 3. Align the icon with the middle of the text.
- * 4. Make back link same height as breadcrumb.
- */
+////
+/// Back link component
+///
+/// 1. Allow space for the arrow.
+/// 2. Align the icon with the start of the back link.
+/// 3. Align the icon with the middle of the text.
+/// 4. Make back link same height as breadcrumb.
+///
+/// @group components
+////
 
 .nhsuk-back-link {
   margin-top: nhsuk-spacing(3);
-  line-height: 1; /* 4 */
+  line-height: 1; // [5]
 
   @include mq($from: tablet) {
     margin-top: nhsuk-spacing(4);
@@ -26,19 +26,19 @@
   border: 0;
   cursor: pointer;
   display: inline-block;
-  padding: 0 0 0 16px; /* 1 */
+  padding: 0 0 0 16px; // [1]
   position: relative;
   text-decoration: none;
 
   .nhsuk-icon__chevron-left {
     height: 24px;
-    left: -8px; /* 2 */
+    left: -8px; // [2]
     position: absolute;
-    top: -1px; /* 3 */
+    top: -1px; // [3]
     width: 24px;
 
     @include mq($from: tablet) {
-      top: 0; /* 3 */
+      top: 0; // [3]
     }
   }
 

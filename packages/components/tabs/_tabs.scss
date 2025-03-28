@@ -20,7 +20,7 @@
   @include nhsuk-font($size: 19);
   margin-left: nhsuk-spacing(5);
 
-  &:before {
+  &::before {
     color: $nhsuk-text-color;
     content: "\2014 "; // "— "
     margin-left: -(nhsuk-spacing(5));
@@ -62,7 +62,7 @@
       position: relative;
       text-align: center;
 
-      &:before {
+      &::before {
         content: none;
       }
     }
@@ -90,7 +90,7 @@
 
       margin-bottom: 0;
 
-      &:after {
+      &::after {
         bottom: 0;
         content: "";
         left: 0;

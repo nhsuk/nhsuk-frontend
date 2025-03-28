@@ -1,13 +1,13 @@
-// ==========================================================================
-// SETTINGS / #FONT-FACE
-// ==========================================================================
-
-// NHS uses the Frutiger font, it was originally made
-// for print, but we've had to adapt for web.
-// NHS England has a licence for the Frutiger webfont that the NHS website team can use.
-// All other NHS England teams and other NHS organisations must have their own licence with Monotype.
-
-/* stylelint-disable indentation */
+////
+/// Font face
+///
+/// NHS uses the Frutiger font, it was originally made
+/// for print, but we've had to adapt for web.
+/// NHS England has a licence for the Frutiger webfont that the NHS website team can use.
+/// All other NHS England teams and other NHS organisations must have their own licence with Monotype.
+///
+/// @group settings
+////
 
 @function nhsuk-font-url($filename) {
   @return url($nhsuk-fonts-path + $filename);
