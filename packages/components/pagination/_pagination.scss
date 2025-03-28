@@ -135,7 +135,7 @@
 
 // Numbered pages variant
 .nhsuk-pagination--numbered {
-  @include clearfix();
+  @include clearfix;
 }
 
 // In a numbered list, the previous link, numbered page links,
@@ -148,7 +148,7 @@
   position: relative;
   min-width: 45px;
   min-height: 45px;
-  padding: nhsuk-spacing(2) nhsuk-spacing(2);
+  padding: nhsuk-spacing(2);
   text-align: center;
   margin: 0;
   float: left;
