@@ -91,6 +91,16 @@ function copyJS() {
 }
 
 /**
+ * Copy test images from app/assets into the documentation directory
+ */
+function copyImages() {
+  return gulp
+    .src('app/assets/images/*')
+    .pipe(gulp.dest('dist/app/assets/images/'))
+    .pipe(browserSync.stream())
+}
+
+/**
  * Copy logos, icons and other binary assets
  */
 function copyBinaryAssets() {
@@ -144,7 +154,14 @@ function serve() {
 
 gulp.task(
   'docs:build',
-  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, validateHTML])
+  gulp.series([
+    copyCSS,
+    copyJS,
+    copyImages,
+    copyBinaryAssets,
+    buildHTML,
+    validateHTML
+  ])
 )
 
 gulp.task('docs:watch', () =>

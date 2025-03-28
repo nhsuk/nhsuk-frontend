@@ -1,0 +1,30 @@
+{% set title = 'Hero' %}
+{% from 'components/hero/macro.njk' import hero %}
+{% from 'components/button/macro.njk' import button %}
+
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {% set heroHtml %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-half">
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-5">This is a the header for the product or service</h1>
+        <p class="nhsuk-body-l">This is some more content which explains a bit more about the product or service.</p>
+
+        {{ button({
+          text: "Sign up",
+          classes: "nhsuk-button--reverse"
+        }) }}
+      </div>
+      <div class="nhsuk-grid-column-one-half">
+        <img src="/nhsuk-frontend/assets/images/illustration.svg" class="nhsuk-image__img" role="presentation">
+      </div>
+    </div>
+  {% endset %}
+
+  {{ hero({
+    html: heroHtml
+  }) }}
+
+{% endblock %}
