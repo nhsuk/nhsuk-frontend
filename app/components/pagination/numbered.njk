@@ -1,395 +1,387 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
-{% set title = 'Pagination' %}
+{% set title = 'Pagination - numbered pages' %}
 {% from 'components/pagination/macro.njk' import pagination %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper">
+      <h2 class="nhsuk-heading-m">3 pages</h2>
 
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
+      {{ pagination({
+        nextUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#",
+            current: true
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          <h2 class="nhsuk-heading-m">3 pages</h2>
-
-          {{ pagination({
-            nextUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#",
-                current: true
-              },
-              {
-                number: 2,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#"
-              }
-            ]
-          }) }}
-
-          {{ pagination({
-            previousUrl: "#",
-            nextUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                number: 2,
-                current: true,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        previousUrl: "#",
+        nextUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            number: 2,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
 
 
-          {{ pagination({
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                number: 2,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#",
-                current: true
-              }
-            ]
-          }) }}
+      {{ pagination({
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#",
+            current: true
+          }
+        ]
+      }) }}
 
-          <h2 class="nhsuk-heading-m">10 pages</h2>
+      <h2 class="nhsuk-heading-m">10 pages</h2>
 
-          {{ pagination({
-            nextUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#",
-                current: true
-              },
-              {
-                number: 2,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#"
-              },
-              {
-                number: 4,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#",
+            current: true
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          },
+          {
+            number: 4,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                number: 2,
-                href: "#",
-                current: true
-              },
-              {
-                number: 3,
-                href: "#"
-              },
-              {
-                number: 4,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#",
+            current: true
+          },
+          {
+            number: 3,
+            href: "#"
+          },
+          {
+            number: 4,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-           {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                number: 2,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#",
-                current: true
-              },
-              {
-                number: 4,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+       {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#",
+            current: true
+          },
+          {
+            number: 4,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                number: 2,
-                href: "#"
-              },
-              {
-                number: 3,
-                href: "#"
-              },
-              {
-                number: 4,
-                href: "#",
-                current: true
-              },
-              {
-                number: 5,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          },
+          {
+            number: 4,
+            href: "#",
+            current: true
+          },
+          {
+            number: 5,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 4,
-                href: "#"
-              },
-              {
-                number: 5,
-                href: "#",
-                current: true
-              },
-              {
-                number: 6,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 4,
+            href: "#"
+          },
+          {
+            number: 5,
+            href: "#",
+            current: true
+          },
+          {
+            number: 6,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 5,
-                href: "#"
-              },
-              {
-                number: 6,
-                href: "#",
-                current: true
-              },
-              {
-                number: 7,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 5,
+            href: "#"
+          },
+          {
+            number: 6,
+            href: "#",
+            current: true
+          },
+          {
+            number: 7,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 6,
-                href: "#"
-              },
-              {
-                number: 7,
-                href: "#",
-                current: true
-              },
-              {
-                number: 8,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 6,
+            href: "#"
+          },
+          {
+            number: 7,
+            href: "#",
+            current: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 7,
-                href: "#"
-              },
-              {
-                number: 8,
-                href: "#",
-                current: true
-              },
-              {
-                number: 9,
-                href: "#"
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 7,
+            href: "#"
+          },
+          {
+            number: 8,
+            href: "#",
+            current: true
+          },
+          {
+            number: 9,
+            href: "#"
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            nextUrl: "#",
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 8,
-                href: "#"
-              },
-              {
-                number: 9,
-                href: "#",
-                current: true
-              },
-              {
-                number: 10,
-                href: "#"
-              }
-            ]
-          }) }}
+      {{ pagination({
+        nextUrl: "#",
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            number: 9,
+            href: "#",
+            current: true
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
 
-          {{ pagination({
-            previousUrl: "#",
-            items: [
-              {
-                number: 1,
-                href: "#"
-              },
-              {
-                ellipsis: true
-              },
-              {
-                number: 8,
-                href: "#"
-              },
-              {
-                number: 9,
-                href: "#"
-              },
-              {
-                number: 10,
-                href: "#",
-                current: true
-              }
-            ]
-          }) }}
-        </div>
-      </div>
-
-    </main>
+      {{ pagination({
+        previousUrl: "#",
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            number: 9,
+            href: "#"
+          },
+          {
+            number: 10,
+            href: "#",
+            current: true
+          }
+        ]
+      }) }}
+    </div>
   </div>
 
 {% endblock %}
