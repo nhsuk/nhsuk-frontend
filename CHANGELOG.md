@@ -134,6 +134,7 @@ We've configured our build tasks to use [Browserslist](https://browsersl.ist) fo
 - Changed JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
 - Fixed JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
 - Fixed JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
+- Fixed bottom padding on the `nhsuk-main-wrapper--l` modifier class
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 

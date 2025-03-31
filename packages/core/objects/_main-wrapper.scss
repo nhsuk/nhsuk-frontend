@@ -30,9 +30,11 @@
 }
 
 @mixin govuk-main-wrapper--l {
+  padding-bottom: nhsuk-spacing(6);
   padding-top: nhsuk-spacing(6);
 
   @include mq($from: tablet) {
+    padding-bottom: nhsuk-spacing(8);
     padding-top: nhsuk-spacing(8);
   }
 }
