@@ -125,6 +125,7 @@
   @include nhsuk-link-style-header;
   display: flex;
   gap: nhsuk-spacing(2);
+  overflow-wrap: anywhere;
 }
 
 .nhsuk-header__account-button {
