@@ -42,7 +42,7 @@
 
 - Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
 
-- Update NHS logo in the header so that it has higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
+- We've changed the NHS logo in the header to have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
 
   Previously the logo used the following SVG:
 
