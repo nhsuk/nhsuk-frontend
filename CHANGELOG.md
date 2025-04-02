@@ -44,7 +44,7 @@
 
 - We've changed the NHS logo in the header to have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
 
-  Previously the logo used the following SVG:
+  If you're not using the Nunjucks macro, locate the SVG code for the existing logo:
 
   ```svg
   <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
