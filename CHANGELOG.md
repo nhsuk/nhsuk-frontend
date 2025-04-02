@@ -62,7 +62,7 @@
   ```
 
 - Remove hardcoded home link from navigation ([PR 986](https://github.com/nhsuk/nhsuk-frontend/pull/986))
-- [#908: Updating secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
+- We've updated the secondary, reverse and warning buttons to use the correct background colour on hover ([PR 908](https://github.com/nhsuk/nhsuk-frontend/pull/908))
 
 #### Include a page template
 
