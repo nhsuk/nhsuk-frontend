@@ -53,7 +53,7 @@
   </svg>
   ```
 
-  This has been updated to use the following SVG:
+  Then update it with the following SVG:
 
   ```svg
   <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100">
