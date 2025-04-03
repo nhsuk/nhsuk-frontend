@@ -427,6 +427,36 @@ module.exports = {
       ]
     },
     {
+      label: 'Header with account (logged in)',
+      url: `${BASE_URL}/components/header/header-account-logged-in.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with account (logged out)',
+      url: `${BASE_URL}/components/header/header-account-logged-out.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with account (logged in, RBAC)',
+      url: `${BASE_URL}/components/header/header-account-rbac.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
       label: 'Header with logo only',
       url: `${BASE_URL}/components/header/header-logo.html`,
       viewports: [
@@ -458,8 +488,8 @@ module.exports = {
       ]
     },
     {
-      label: 'Header transactional with service name',
-      url: `${BASE_URL}/components/header/header-transactional-service-name.html`,
+      label: 'Header with account, navigation and search',
+      url: `${BASE_URL}/components/header/header-service-name-with-account-search-nav.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -493,6 +523,16 @@ module.exports = {
       label: 'Header organisational with white header, navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
       delay: 150,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header organisational with white header and account',
+      url: `${BASE_URL}/components/header/header-org-white-account.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
