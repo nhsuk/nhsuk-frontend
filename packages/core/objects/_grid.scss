@@ -5,11 +5,24 @@
 ////
 
 @include govuk-exports("govuk/objects/grid") {
-  @include govuk-grid-row;
-  @include govuk-grid-column(one-quarter);
-  @include govuk-grid-column(one-third);
-  @include govuk-grid-column(one-half);
-  @include govuk-grid-column(two-thirds);
-  @include govuk-grid-column(three-quarters);
-  @include govuk-grid-column(full);
+  .nhsuk-grid-row {
+    @include clearfix;
+    margin-right: -($nhsuk-gutter-half);
+    margin-left: -($nhsuk-gutter-half);
+  }
+
+  // These *must* be defined in a separate loop as they have the same
+  // specificity as the non-breakpoint specific classes, so need to appear before
+  // them in the outputted CSS
+  @each $width in map-keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width}-from-tablet {
+      @include govuk-grid-column($width, $at: tablet, $class: false);
+    }
+  }
+
+  @each $width in map-keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width} {
+      @include govuk-grid-column($width, $class: false);
+    }
+  }
 }
