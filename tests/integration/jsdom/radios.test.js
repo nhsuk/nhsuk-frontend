@@ -1,4 +1,4 @@
-import Radios from '../../../packages/nhsuk-frontend/src/components/radios/radios.js'
+import Radios from '../../../packages/nhsuk-frontend/src/nhsuk/components/radios/radios.js'
 
 describe('Radios module', () => {
   describe('does not throw an error', () => {

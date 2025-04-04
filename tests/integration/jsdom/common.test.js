@@ -1,7 +1,7 @@
 import {
   toggleAttribute,
   toggleConditionalInput
-} from '../../../packages/nhsuk-frontend/src/common.js'
+} from '../../../packages/nhsuk-frontend/src/nhsuk/common.js'
 
 describe('toggleAttribute util', () => {
   const attr = 'test-attribute'

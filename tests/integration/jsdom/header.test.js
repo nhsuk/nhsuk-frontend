@@ -1,4 +1,4 @@
-import Header from '../../../packages/nhsuk-frontend/src/components/header/header.js'
+import Header from '../../../packages/nhsuk-frontend/src/nhsuk/components/header/header.js'
 
 describe('Header class', () => {
   beforeEach(() => {
