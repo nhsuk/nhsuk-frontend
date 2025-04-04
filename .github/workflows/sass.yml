@@ -41,14 +41,14 @@ jobs:
       - name: Check compilation
         run: |
           mkdir -p .tmp
-          time sass packages/nhsuk.scss > .tmp/check.css
+          time sass packages/nhsuk-frontend/src/nhsuk.scss > .tmp/check.css
 
       - name: Check load paths
         run: |
           mkdir -p .tmp
-          time sh -c 'echo "@import "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check1.css'
-          time sh -c 'echo "@forward "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check2.css'
-          time sh -c 'echo "@use "\""nhsuk"\"" as *;" | sass --stdin --load-path packages > .tmp/check3.css'
+          time sh -c 'echo "@import "\""nhsuk"\"";" | sass --stdin --load-path packages/nhsuk-frontend/src > .tmp/check1.css'
+          time sh -c 'echo "@forward "\""nhsuk"\"";" | sass --stdin --load-path packages/nhsuk-frontend/src > .tmp/check2.css'
+          time sh -c 'echo "@use "\""nhsuk"\"" as *;" | sass --stdin --load-path packages/nhsuk-frontend/src > .tmp/check3.css'
 
       # Check output for uncompiled Sass
       - name: Check output
