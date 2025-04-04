@@ -12,7 +12,7 @@ import gulpSass from 'gulp-sass'
 import PluginError from 'plugin-error'
 import * as dartSass from 'sass-embedded'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 const sass = gulpSass(dartSass)
 
@@ -107,7 +107,7 @@ export function minifyCSS() {
       // Output minified + versioned
       .pipe(
         rename({
-          basename: `nhsuk-${pkg.version}`,
+          basename: `nhsuk-${config.version}`,
           suffix: '.min'
         })
       )
