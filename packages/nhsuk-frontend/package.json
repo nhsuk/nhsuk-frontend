@@ -11,6 +11,26 @@
     "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
   },
   "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "sass": "./dist/nhsuk/all.scss",
+      "import": "./dist/nhsuk/all.mjs",
+      "require": "./dist/nhsuk/all.js"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./dist/nhsuk/*.scss",
+      "import": "./dist/nhsuk/*.mjs",
+      "require": "./dist/nhsuk/*.js"
+    },
+    "./packages/*.js": "./dist/nhsuk/*.mjs",
+    "./packages/*.scss": "./dist/nhsuk/*.scss",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/nhsuk/all.js",
+  "module": "dist/nhsuk/all.mjs",
+  "sass": "dist/nhsuk/all.scss",
   "files": [
     "dist",
     "package.json",
