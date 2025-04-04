@@ -18,15 +18,14 @@ module.exports = {
     {
       displayName: 'JSDom',
       testEnvironment: 'jsdom',
-      testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.js']
+      testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       displayName: 'Pupppeteer',
       globalSetup: 'jest-environment-puppeteer/setup',
-      globalTeardown:
-        '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs',
+      globalTeardown: '<rootDir>/shared/helpers/jest/browser/close.mjs',
       testEnvironment: 'jest-environment-puppeteer',
-      testMatch: ['<rootDir>/tests/integration/puppeteer/**/*.test.js']
+      testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}']
     }
   ],
 
