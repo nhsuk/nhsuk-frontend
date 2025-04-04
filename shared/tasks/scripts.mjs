@@ -7,7 +7,7 @@ import terser from 'gulp-terser'
 import PluginError from 'plugin-error'
 import webpack from 'webpack-stream'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 /**
  * Compile JavaScript task
@@ -90,7 +90,7 @@ export function minifyJS() {
     )
     .pipe(
       rename({
-        suffix: `-${pkg.version}.min`
+        suffix: `-${config.version}.min`
       })
     )
     .pipe(

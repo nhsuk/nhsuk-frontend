@@ -11,7 +11,7 @@ import gulpSass from 'gulp-sass'
 import PluginError from 'plugin-error'
 import dartSass from 'sass-embedded'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 const sass = gulpSass(dartSass)
 
@@ -74,7 +74,7 @@ export function minifyCSS() {
     .pipe(postcss([cssnano()]))
     .pipe(
       rename({
-        suffix: `-${pkg.version}.min`
+        suffix: `-${config.version}.min`
       })
     )
     .pipe(

@@ -9,7 +9,7 @@ import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../../.htmlvalidate.js'
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 const { PORT = 3000 } = process.env
 
@@ -33,7 +33,7 @@ export async function buildHTML() {
 
     const html = env.render(path, {
       baseUrl: '/nhsuk-frontend/',
-      version: pkg.version
+      version: config.version
     })
 
     const destPath = join('dist/app', dir)
