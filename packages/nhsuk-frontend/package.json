@@ -33,6 +33,9 @@
     "package.json",
     "README.md"
   ],
+  "devDependencies": {
+    "puppeteer": "^24.6.0"
+  },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   }
