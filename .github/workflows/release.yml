@@ -65,10 +65,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./dist/app
+          folder: ./packages/nhsuk-frontend-review/dist
           clean: true
 
       - name: Publish NPM package
-        run: npm publish
+        run: npm publish --workspace nhsuk-frontend
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

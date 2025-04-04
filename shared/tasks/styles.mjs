@@ -1,5 +1,4 @@
 import { join, relative } from 'path'
-import { cwd } from 'process'
 import { Transform } from 'stream'
 
 import autoprefixer from 'autoprefixer'
@@ -11,7 +10,7 @@ import gulpSass from 'gulp-sass'
 import PluginError from 'plugin-error'
 import dartSass from 'sass-embedded'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 const sass = gulpSass(dartSass)
 
@@ -20,7 +19,7 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src(['packages/nhsuk.scss'], {
+    .src(join(config.paths.pkg, 'src/nhsuk/all.scss'), {
       sourcemaps: true
     })
     .pipe(
@@ -43,7 +42,7 @@ export function compileCSS(done) {
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(cwd(), 'dist'), join(file.base, path))
+              relative(join(config.paths.root, 'dist'), join(file.base, path))
             )
           }
 
@@ -53,7 +52,12 @@ export function compileCSS(done) {
     )
     .pipe(postcss([autoprefixer()]))
     .pipe(
-      gulp.dest('dist/', {
+      rename({
+        basename: 'nhsuk'
+      })
+    )
+    .pipe(
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
@@ -64,21 +68,18 @@ export function compileCSS(done) {
  */
 export function minifyCSS() {
   return gulp
-    .src(
-      [
-        'dist/*.css',
-        '!dist/*.min.css' // don't re-minify minified css
-      ],
-      { sourcemaps: true }
-    )
+    .src(join(config.paths.root, 'dist/*.css'), {
+      ignore: '*.min.css', // don't re-minify minified css
+      sourcemaps: true
+    })
     .pipe(postcss([cssnano()]))
     .pipe(
       rename({
-        suffix: `-${pkg.version}.min`
+        suffix: `-${config.version}.min`
       })
     )
     .pipe(
-      gulp.dest('dist/', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
