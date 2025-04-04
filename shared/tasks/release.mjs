@@ -1,6 +1,6 @@
 import gulp from 'gulp'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 /**
  * Assets tasks
@@ -44,6 +44,6 @@ export async function createZip() {
         encoding: false
       }
     )
-    .pipe(zip(`nhsuk-frontend-${pkg.version}.zip`))
+    .pipe(zip(`nhsuk-frontend-${config.version}.zip`))
     .pipe(gulp.dest('dist'))
 }
