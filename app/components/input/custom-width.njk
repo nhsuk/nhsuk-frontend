@@ -1,6 +1,6 @@
 {% set title = 'Input with width modifier' %}
 {% from 'components/input/macro.njk' import input %}
-{% extends 'example.njk' %}
+{% extends '_templates/example.njk' %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -11,7 +11,7 @@
           "classes": "nhsuk-label--l"
         },
         "hint": {
-          "text": "It's on your National Insurance card, benefit letter, payslip or P60\. For example, 'QQ 12 34 56 C'."
+          "text": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'."
         },
         "id": "input-width-10",
         "name": "test-width-10",

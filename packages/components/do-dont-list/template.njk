@@ -1,4 +1,8 @@
-{% from "../../macros/attributes.njk" import nhsukAttributes %}
+{% from "macros/attributes.njk" import nhsukAttributes %}
+
+{#- Jinja compatability - avoid referencing params.items directly
+  as it clashes with dict.items() -#}
+{% set items = params["items"] if "items" in params else [] %}
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 <div class="nhsuk-do-dont-list
@@ -6,7 +10,7 @@
 {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-do-dont-list__label">{{ params.title }}</h{{ headingLevel }}>
   <ul class="nhsuk-list {% if params.type == 'tick' %}nhsuk-list--tick{% else %}nhsuk-list--cross{% endif %}" role="list">
-    {%- for data in params.items %}
+    {%- for data in items %}
     <li>
     {%- if params.type == 'cross' %}
       <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
@@ -18,7 +22,7 @@
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
       </svg>
     {%- endif %}
-      {% if params.type == 'cross' %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe}}
+      {% if params.type == 'cross' %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe }}
     </li>
     {%- endfor %}
   </ul>

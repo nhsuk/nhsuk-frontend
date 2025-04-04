@@ -1,0 +1,59 @@
+- rule:
+    name: X001
+    message: Use ~ for string concatenation (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - '\+ ?"[^"]+"'
+      - '\+ ?''[^'']+'''
+      - '"[^"]+" ?\+'
+      - '''[^'']+'' ?\+'
+
+- rule:
+    name: X002
+    message: Use params['items'] rather than params.items (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - params.items
+
+- rule:
+    name: X003
+    message: Use params['values'] rather than params.values (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - params.values
+
+- rule:
+    name: X004
+    message: Use camelCase for variable names
+    flags: re.DOTALL|re.I
+    patterns:
+      - '{%-? set \w+_\w+'
+
+- rule:
+    name: X005
+    message: Quote keys in mappings (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - '^\s*[^"'']+: '
+
+- rule:
+    name: X006
+    message: Avoid strict equality operators (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - '==='
+      - '!=='
+
+- rule:
+    name: X007
+    message: Use "| length" instead of ".length" (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - '\.length'
+
+- rule:
+    name: X008
+    message: Use "in array" instead of "array.includes()" (Jinja compatability)
+    flags: re.DOTALL|re.I
+    patterns:
+      - '\.includes'

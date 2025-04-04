@@ -1,31 +1,31 @@
 {% set title = 'Breadcrumb' %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
-{% extends 'example.njk' %}
+{% extends '_templates/example.njk' %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {{ breadcrumb({
-          items: [
+          "items": [
             {
-              href: "#",
-              text: "Level one",
-              attributes: {lang: "en"}
+              "href": "#",
+              "text": "Level one",
+              "attributes": {"lang": "en"}
             },
             {
-              href: "#",
-              text: "Level two"
+              "href": "#",
+              "text": "Level two"
             },
             {
-              href: "#",
-              text: "Level three",
-              attributes: {lang: "en"}
+              "href": "#",
+              "text": "Level three",
+              "attributes": {"lang": "en"}
             }
           ],
-          href: "#",
-          text: "Level four",
-          classes: "example-class-one example-class-two",
-          attributes: {lang: "en"}
+          "href": "#",
+          "text": "Level four",
+          "classes": "example-class-one example-class-two",
+          "attributes": {"lang": "en"}
         }) }}
     </div>
   </div>

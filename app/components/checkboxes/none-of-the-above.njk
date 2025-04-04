@@ -1,37 +1,37 @@
 {% set title = 'Checkboxes with "none of the above" option' %}
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% from 'components/input/macro.njk' import input %}
-{% extends 'example.njk' %}
+{% extends '_templates/example.njk' %}
 
 {% set emailHtml %}
   {{ input({
-    id: "email",
-    name: "email",
-    classes: "nhsuk-u-width-two-thirds",
-    label: {
-      text: "Email address"
+    "id": "email",
+    "name": "email",
+    "classes": "nhsuk-u-width-two-thirds",
+    "label": {
+      "text": "Email address"
     }
   }) }}
 {% endset -%}
 
 {% set phoneHtml %}
   {{ input({
-    id: "phone",
-    name: "phone",
-    classes: "nhsuk-u-width-two-thirds",
-    label: {
-      text: "Phone number"
+    "id": "phone",
+    "name": "phone",
+    "classes": "nhsuk-u-width-two-thirds",
+    "label": {
+      "text": "Phone number"
     }
   }) }}
 {% endset -%}
 
 {% set mobileHtml %}
   {{ input({
-    id: "mobile",
-    name: "mobile",
-    classes: "nhsuk-u-width-two-thirds",
-    label: {
-      text: "Mobile phone number"
+    "id": "mobile",
+    "name": "mobile",
+    "classes": "nhsuk-u-width-two-thirds",
+    "label": {
+      "text": "Mobile phone number"
     }
   }) }}
 {% endset -%}
