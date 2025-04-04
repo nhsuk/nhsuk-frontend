@@ -7,17 +7,21 @@
 {%- if params.imageURL %} style="background-image: url('{{ params.imageURL }}');"{% endif %}
 {{- nhsukAttributes(params.attributes) }}>
 {% if params.imageURL %}<div class="nhsuk-hero__overlay">{% endif %}
-{%- if params.heading %}
+{%- if params.heading or params.html %}
   <div class="nhsuk-width-container{% if not params.imageURL %} nhsuk-hero--border{% endif %}">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <div class="{% if params.imageURL %}nhsuk-hero-content{% else %}nhsuk-hero__wrapper{% endif %}">
-          <h1 {% if params.text %}class="nhsuk-u-margin-bottom-3"{% endif %}>{{ params.heading }}</h1>
-          {% if params.text %}<p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>{% endif %}
-          {% if params.imageURL %}<span class="nhsuk-hero__arrow" aria-hidden="true"></span>{% endif %}
+    {% if params.html %}
+      {{ params.html | safe }}
+    {% else %}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="{% if params.imageURL %}nhsuk-hero-content{% else %}nhsuk-hero__wrapper{% endif %}">
+            <h1 {% if params.text %}class="nhsuk-u-margin-bottom-3"{% endif %}>{{ params.heading }}</h1>
+            {% if params.text %}<p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>{% endif %}
+            {% if params.imageURL %}<span class="nhsuk-hero__arrow" aria-hidden="true"></span>{% endif %}
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 {% endif -%}
 {%- if params.imageURL %}</div>{% endif %}
