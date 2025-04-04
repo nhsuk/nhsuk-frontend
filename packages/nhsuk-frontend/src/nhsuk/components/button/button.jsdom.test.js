@@ -1,4 +1,4 @@
-import Button from '../../../packages/nhsuk-frontend/src/nhsuk/components/button/button.js'
+import Button from './button.js'
 
 describe('mis-instantiation', () => {
   it('does not prevent further JavaScript from running', async () => {
