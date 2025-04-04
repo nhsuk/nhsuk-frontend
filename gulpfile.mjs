@@ -75,6 +75,9 @@ gulp.task(
 
 gulp.task('docs:watch', () =>
   Promise.all([
+    /**
+     * Watch and render Nunjucks
+     */
     gulp.watch(
       [
         join(config.paths.app, 'src/**/*.njk'),
@@ -82,11 +85,23 @@ gulp.task('docs:watch', () =>
       ],
       buildHTML
     ),
+
+    /**
+     * Watch and reload HTML pages
+     */
     gulp
       .watch([join(config.paths.root, 'dist/**/*.html')])
       .on('change', browserSync.reload),
+
+    /**
+     * Watch and copy minified CSS and JS
+     */
     gulp.watch([join(config.paths.root, 'dist/*.min.{css,css.map}')], copyCSS),
     gulp.watch([join(config.paths.root, 'dist/*.min.{js,js.map}')], copyJS),
+
+    /**
+     * Watch and copy assets
+     */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
       copyBinaryAssets
