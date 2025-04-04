@@ -19,7 +19,7 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src(join(config.paths.pkg, 'src/nhsuk.scss'), {
+    .src(join(config.paths.pkg, 'src/nhsuk/all.scss'), {
       sourcemaps: true
     })
     .pipe(
@@ -51,6 +51,11 @@ export function compileCSS(done) {
       })
     )
     .pipe(postcss([autoprefixer()]))
+    .pipe(
+      rename({
+        basename: 'nhsuk'
+      })
+    )
     .pipe(
       gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'

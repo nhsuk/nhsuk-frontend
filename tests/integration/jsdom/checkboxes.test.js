@@ -1,4 +1,4 @@
-import Checkboxes from '../../../packages/nhsuk-frontend/src/components/checkboxes/checkboxes.js'
+import Checkboxes from '../../../packages/nhsuk-frontend/src/nhsuk/components/checkboxes/checkboxes.js'
 
 describe('Checkboxes module', () => {
   describe('does not throw an error', () => {
