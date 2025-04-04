@@ -1,6 +1,6 @@
 # Application architecture
 
-The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `app/`. To make changes to components, you will have to edit the individual components files within `packages/nhsuk-frontend/`. These are usually the only 2 folders that you will need.
+The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `packages/nhsuk-frontend-review/`. To make changes to components, you will have to edit the individual components files within `packages/nhsuk-frontend/`. These are usually the only 2 folders that you will need.
 
 ---
 
