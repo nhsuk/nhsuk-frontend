@@ -1,0 +1,22 @@
+{
+  "name": "nhsuk-frontend",
+  "version": "9.3.0",
+  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
+}
