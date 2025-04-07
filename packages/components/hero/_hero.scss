@@ -19,6 +19,10 @@
     // [2]
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
   }
+
+  a {
+    @include nhsuk-link-style-white;
+  }
 }
 
 .nhsuk-hero__wrapper {
