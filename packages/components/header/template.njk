@@ -127,7 +127,7 @@
         {% endset %}
 
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-          <a class="nhsuk-header__navigation-link"  href="{{item.url}}" {%- if item.active or item.current %} aria-current="{{ 'page' if item.current else 'true' }}"{% endif %}>
+          <a class="nhsuk-header__navigation-link"  href="{{item.href}}" {%- if item.active or item.current %} aria-current="{{ 'page' if item.current else 'true' }}"{% endif %}>
             {{ linkInnerContent | safe }}
           </a>
         </li>
