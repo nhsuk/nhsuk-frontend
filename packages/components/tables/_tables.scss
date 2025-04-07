@@ -78,7 +78,8 @@
 /// 6. Assigning a minimum width in case of blank cell
 /// 7. Make the (dt,dd) pair together act like a table cell
 
-.nhsuk-table__list-view-container { // [1]
+.nhsuk-table__list-view-container {
+  // [1]
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin-block-start: 0;
@@ -88,7 +89,8 @@
     margin-bottom: 0;
   }
 
-  figcaption { // [5]
+  figcaption {
+    // [5]
     @include nhsuk-font($size: 22, $weight: bold);
     text-align: left;
   }
@@ -96,12 +98,14 @@
   .nhsuk-table__row {
     margin-block-start: 0;
     margin-bottom: nhsuk-spacing(4);
+
     &:last-child {
       margin-block-end: 0;
     }
   }
 
-  .nhsuk-table__cell { // [7]
+  .nhsuk-table__cell {
+    // [7]
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -125,7 +129,8 @@
   }
 }
 
-.nhsuk-table-responsive { // [2]
+.nhsuk-table-responsive {
+  // [2]
   margin-bottom: 0;
   width: 100%;
 
@@ -159,7 +164,8 @@
   }
 }
 
-@include mq($until: desktop) { // [3]
+@include mq($until: desktop) {
+  // [3]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: block;
@@ -170,7 +176,8 @@
   }
 }
 
-@include mq($from: desktop) { // [4]
+@include mq($from: desktop) {
+  // [4]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
     display: none;
