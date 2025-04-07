@@ -106,10 +106,7 @@
       }
     }
 
-    .nhsuk-table__row th {
-      text-align: right;
-    }
-
+    .nhsuk-table__row th,
     .nhsuk-table__row td {
       display: block; // For browsers that don't support flexbox
       display: flex;
@@ -118,12 +115,18 @@
     }
 
     @media all and (-ms-high-contrast: none) {
+      .nhsuk-table__row th,
       .nhsuk-table__row td {
         display: block; // [10]
       }
     }
 
     @include mq($until: desktop) {
+      .nhsuk-table__row th {
+        font-weight: $nhsuk-font-normal;
+      }
+
+      .nhsuk-table__row th,
       .nhsuk-table__row td {
         padding-right: 0;
         text-align: right; // [7]
@@ -147,6 +150,7 @@
         text-align: left;
       }
 
+      .nhsuk-table__row th,
       .nhsuk-table__row td {
         display: table-cell;
       }
