@@ -69,7 +69,7 @@
     "prettier": "^3.5.3",
     "puppeteer": "^24.6.0",
     "sass-embedded": "^1.77.5",
-    "stylelint": "^16.17.0",
+    "stylelint": "^16.18.0",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^6.0.4",
     "wait-on": "^8.0.3",
