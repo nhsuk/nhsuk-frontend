@@ -70,19 +70,12 @@
             {{- nhsukAttributes(cell.attributes) -}}
           {% endset -%}
 
-          {% set commonContents %}
-            {%- if params.responsive and cell.header -%}
-              <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
-            {%- endif -%}
-            {{- cell.html | safe if cell.html else cell.text -}}
-          {% endset -%}
-
           {%- if loop.first and params.firstCellIsHeader %}
             <th scope="row" class="nhsuk-table__header
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
               {%- if params.responsive %} role="rowheader"{% endif %}
               {{- commonAttributes | safe }}>
-              {{- commonContents | safe -}}
+              {{- cell.html | safe if cell.html else cell.text -}}
             </th>
           {%- else %}
             <td class="nhsuk-table__cell
@@ -90,7 +83,7 @@
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
               {%- if params.responsive %} role="cell"{% endif %}
               {{- commonAttributes | safe }}>
-              {{- commonContents | safe -}}
+              {{- cell.html | safe if cell.html else cell.text -}}
             </td>
           {%- endif %}
         {%- endfor %}

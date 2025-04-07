@@ -146,10 +146,8 @@
   // 3. Assigning role of table-row on desktop to give default screen reader behaviour
   // 4. Using justify content to space out elements in the row on mobile
   // 5. Assigning a minimum width in case of black cell
-  // 6. Aligning content to the right on mobile
-  // 7. Aligning mobile header to left to split it from the data
-  // 8. Hiding mobile specific header from desktop view
-  // 9. Adding a display block value due to IE 11 not having full flex support
+  // 6. Aligning mobile header to left to split it from the data
+  // 7. Adding a display block value due to IE 11 not having full flex support
 
   .nhsuk-table-responsive {
     thead {
@@ -161,11 +159,11 @@
     .nhsuk-table__body {
       .nhsuk-table-responsive__heading {
         padding-right: nhsuk-spacing(3);
-        text-align: left; // [7]
+        text-align: left; // [6]
       }
 
       .nhsuk-table__row {
-        display: block; // [2]
+        display: table-row; // [3]
         margin-bottom: nhsuk-spacing(4);
 
         &:last-child {
@@ -184,7 +182,7 @@
       @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         .nhsuk-table__row th,
         .nhsuk-table__row td {
-          display: block; // [9]
+          display: block; // [7]
         }
       }
 
@@ -192,35 +190,15 @@
         .nhsuk-table__row th {
           font-weight: $nhsuk-font-normal;
         }
-
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          padding-right: 0;
-          text-align: right; // [6]
-
-          &:last-child {
-            border-bottom: 3px solid $nhsuk-border-colour;
-          }
-        }
       }
 
-      @include nhsuk-media-query($from: desktop) {
-        .nhsuk-table-responsive__heading {
-          display: none; // [8]
-        }
+      .nhsuk-table__row th {
+        text-align: left;
+      }
 
-        .nhsuk-table__row {
-          display: table-row; // [3]
-        }
-
-        .nhsuk-table__row th {
-          text-align: left;
-        }
-
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          display: table-cell;
-        }
+      .nhsuk-table__row th,
+      .nhsuk-table__row td {
+        display: table-cell;
       }
     }
   }
