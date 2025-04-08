@@ -1053,7 +1053,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   You need to:
 
-  - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{% from 'nhsuk/components/panel/macro.njk' import panel %}` with `{% from 'nhsuk/components/card/macro.njk' import card %}`
   - replace `{{ panel({` with `{{ card({`
   - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
   - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
@@ -1063,7 +1063,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   #### Old Nunjucks macro (Panel)
 
   ```
-  {% from 'components/panel/macro.njk' import panel %}
+  {% from 'nhsuk/components/panel/macro.njk' import panel %}
 
   {{ panel({
     "html": "<h3>If you need help now, but it’s not an emergency</h3> <p>Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>"
@@ -1075,7 +1075,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ##### Changing the heading level
 
   ```
-  {% from 'components/card/macro.njk' import card %}
+  {% from 'nhsuk/components/card/macro.njk' import card %}
 
   {{ card({
     "heading": "If you need help now, but it’s not an emergency",
@@ -1087,7 +1087,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ##### Changing the heading size
 
   ```
-  {% from 'components/card/macro.njk' import card %}
+  {% from 'nhsuk/components/card/macro.njk' import card %}
 
   {{ card({
     "heading": "If you need help now, but it’s not an emergency",
@@ -1135,7 +1135,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   You need to:
 
-  - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
+  - replace `{% from 'nhsuk/components/promo/macro.njk' import promo %}` with `{% from 'nhsuk/components/card/macro.njk' import card %}`
   - replace `{{ promo({` with `{{ card({`
   - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
 
@@ -1144,7 +1144,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   #### Old Nunjucks macro (Promo)
 
   ```
-  {% from 'components/promo/macro.njk' import promo %}
+  {% from 'nhsuk/components/promo/macro.njk' import promo %}
 
   {{ promo({
     "href": "https://www.nhs.uk",
@@ -1158,7 +1158,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ##### Changing the heading level
 
   ```
-  {% from 'components/card/macro.njk' import card %}
+  {% from 'nhsuk/components/card/macro.njk' import card %}
 
   {{ card({
     "href": "https://www.nhs.uk",
@@ -1171,7 +1171,7 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ##### Changing the heading size
 
   ```
-  {% from 'components/card/macro.njk' import card %}
+  {% from 'nhsuk/components/card/macro.njk' import card %}
 
   {{ card({
     "href": "https://www.nhs.uk",

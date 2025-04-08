@@ -1,5 +1,4 @@
 import { join, relative } from 'path'
-import { cwd } from 'process'
 
 import gulp from 'gulp'
 import rename from 'gulp-rename'
@@ -7,14 +6,14 @@ import terser from 'gulp-terser'
 import PluginError from 'plugin-error'
 import webpack from 'webpack-stream'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 /**
  * Compile JavaScript task
  */
 export function webpackJS(done) {
   return gulp
-    .src('./packages/nhsuk.js', {
+    .src(join(config.paths.pkg, 'src/nhsuk/all.js'), {
       sourcemaps: true
     })
     .pipe(
@@ -41,7 +40,10 @@ export function webpackJS(done) {
 
           // Make source webpack:// paths relative
           devtoolModuleFilenameTemplate(info) {
-            return relative(join(cwd(), 'dist'), info.absoluteResourcePath)
+            return relative(
+              join(config.paths.root, 'dist'),
+              info.absoluteResourcePath
+            )
           }
         },
         stats: {
@@ -58,7 +60,7 @@ export function webpackJS(done) {
       })
     )
     .pipe(
-      gulp.dest('./dist', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
@@ -69,13 +71,10 @@ export function webpackJS(done) {
  */
 export function minifyJS() {
   return gulp
-    .src(
-      [
-        'dist/*.js',
-        '!dist/*.min.js' // don't re-minify minified javascript
-      ],
-      { sourcemaps: true }
-    )
+    .src(join(config.paths.root, 'dist/*.js'), {
+      ignore: '*.min.js', // don't re-minify minified javascript
+      sourcemaps: true
+    })
     .pipe(
       terser({
         format: { comments: false },
@@ -90,11 +89,11 @@ export function minifyJS() {
     )
     .pipe(
       rename({
-        suffix: `-${pkg.version}.min`
+        suffix: `-${config.version}.min`
       })
     )
     .pipe(
-      gulp.dest('dist/', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )

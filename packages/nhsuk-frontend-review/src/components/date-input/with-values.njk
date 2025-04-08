@@ -1,0 +1,27 @@
+{% set title = 'Date input' %}
+{% from 'nhsuk/components/date-input/macro.njk' import dateInput %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ dateInput({
+        "id": "dob",
+        "namePrefix": "dob",
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        values: {
+          day: "5",
+          month: "8",
+          year: "2024"
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% set title = 'Card - secondary' %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ card({
+        "href": "#",
+        "clickable": "true",
+        "secondary": "true",
+        "heading": "Urgent and emergency care services",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Services the NHS provides if you need urgent or emergency medical help"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
