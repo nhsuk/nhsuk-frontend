@@ -92,8 +92,15 @@
 /// 13. Remove the arrow in Windows high contrast mode.
 /// 14. Reduce spacing and change positioning for Windows high contrast mode.
 /// 15. Prevent text breaking out of box on smaller sizes
+/// 16. Prevent overlap using safe area: box offset + arrow height + spacing
 
 .nhsuk-hero--image-description {
+  margin-bottom: calc(70px + 20px + nhsuk-spacing(3)); // [16]
+
+  @include mq($from: tablet) {
+    margin-bottom: calc(48px + 20px + nhsuk-spacing(4)); // [16]
+  }
+
   .nhsuk-hero-content {
     background-color: $color_nhsuk-blue;
     color: $color_nhsuk-white;
