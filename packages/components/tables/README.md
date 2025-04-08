@@ -277,7 +277,7 @@ Find out more about the table component and when to use it in the [NHS digital s
       },
       {
         header: "How much?",
-        text: "2.5l"
+        text: "2.5ml"
       },
       {
         header: "How often?",

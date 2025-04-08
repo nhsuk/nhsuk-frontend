@@ -85,6 +85,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 - [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
 - [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
 - [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
+- [#1156: dl responsive table view](https://github.com/nhsuk/nhsuk-frontend/pull/1156)
 
 ## 9.3.0 - 13 February 2025
 
