@@ -61,6 +61,12 @@ You can now add `classes` and `attributes` to table cells, for example using the
 
 This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
 
+#### Add html content and heading attributes to hero
+
+You can now use `caller`, `html`, `headingClasses` and `headingLevel` in the hero component.
+
+This was added in [pull request #1201: Add missing params to hero component](https://github.com/nhsuk/nhsuk-frontend/pull/1201).
+
 #### Default bottom margin on tables
 
 This was added in [pull request #1005: Update table styles so nhsuk-table has bottom margin](https://github.com/nhsuk/nhsuk-frontend/pull/1005).

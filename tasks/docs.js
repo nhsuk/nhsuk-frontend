@@ -32,6 +32,7 @@ async function buildHTML() {
     const { name, dir } = parse(path)
 
     const html = env.render(path, {
+      assetPath: `/nhsuk-frontend/assets`,
       baseUrl: '/nhsuk-frontend/',
       version
     })
