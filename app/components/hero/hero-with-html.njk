@@ -5,17 +5,15 @@
 {% extends 'example.njk' %}
 
 {% block main %}
-  {% set heroHtml %}
-    <h1 class="nhsuk-heading-l nhsuk-u-margin-top-5">This is a header for the product or service</h1>
+  {% call hero({
+    heading: "This is a header for the product or service",
+    headingClasses: "nhsuk-heading-l nhsuk-u-margin-top-5"
+  }) %}
     <p class="nhsuk-body-l">This is some more content which explains a bit more about the product or service.</p>
 
     {{ button({
       text: "Sign up",
       classes: "nhsuk-button--reverse"
     }) }}
-  {% endset %}
-
-  {{ hero({
-    html: heroHtml
-  }) }}
+  {% endcall %}
 {% endblock %}

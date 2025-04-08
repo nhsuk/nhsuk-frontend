@@ -63,7 +63,7 @@ This was added in [pull request #1172: Add table cell `classes` and `attributes`
 
 #### Add html content and heading attributes to hero
 
-You can now use `html`, `headingHtml`, `headingClasses` and `headingLevel` in the hero component.
+You can now use `caller`, `html`, `headingClasses` and `headingLevel` in the hero component.
 
 This was added in [pull request #1201: Add missing params to hero component](https://github.com/nhsuk/nhsuk-frontend/pull/1201).
 
