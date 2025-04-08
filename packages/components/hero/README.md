@@ -103,12 +103,16 @@
 
 The hero macro takes the following arguments:
 
-| Name           | Type   | Required | Description                                                                                 |
-| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------- |
-| **heading**    | string | No       | Text heading of the hero component.                                                         |
-| **text**       | string | No       | Text content of the hero component.                                                         |
-| **imageURL**   | string | No       | URL of the image of the hero component.                                                     |
-| **classes**    | string | No       | Optional additional classes to add to the hero container. Separate each class with a space. |
-| **attributes** | object | No       | Any extra HTML attributes (for example data attributes) to add to the hero container.       |
+| Name               | Type    | Required | Description                                                                                               |
+| ------------------ | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| **heading**        | string  | No       | Text heading of the hero component. If `headingHtml` is provided, the `heading` argument will be ignored. |
+| **headingHtml**    | string  | No       | HTML heading of the hero component. If `headingHtml` is provided, the `heading` argument will be ignored. |
+| **headingClasses** | string  | No       | Optional additional classes to add to heading. Separate each class with a space.                          |
+| **headingLevel**   | integer | No       | Optional heading level for the heading. Default: `1`                                                      |
+| **text**           | string  | No       | Text content of the hero component. If `html` is provided, the `text` argument will be ignored.           |
+| **html**           | string  | No       | HTML content of the hero component. If `html` is provided, the `text` argument will be ignored.           |
+| **imageURL**       | string  | No       | URL of the image of the hero component.                                                                   |
+| **classes**        | string  | No       | Optional additional classes to add to the hero container. Separate each class with a space.               |
+| **attributes**     | object  | No       | Any extra HTML attributes (for example data attributes) to add to the hero container.                     |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
