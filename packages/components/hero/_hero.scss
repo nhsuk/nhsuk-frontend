@@ -26,6 +26,10 @@
   @include nhsuk-responsive-padding(8, bottom);
 }
 
+.nhsuk-hero__heading {
+  @include nhsuk-responsive-margin(3, bottom);
+}
+
 ///  Hero component image styles
 ///
 /// 3. Center the background image.
