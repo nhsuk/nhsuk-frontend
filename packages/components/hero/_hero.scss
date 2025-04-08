@@ -15,6 +15,10 @@
   color: $color_nhsuk-white;
   position: relative; // [1]
 
+  a {
+    @include nhsuk-link-style-white;
+  }
+
   .nhsuk-hero--border {
     // [2]
     border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
