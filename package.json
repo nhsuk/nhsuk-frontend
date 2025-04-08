@@ -3,7 +3,7 @@
   "version": "9.3.0",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "^20.9.0 || ^22.11.0"
   },
   "scripts": {
     "postinstall": "playwright install chromium --with-deps --only-shell",
