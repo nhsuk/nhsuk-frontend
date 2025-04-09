@@ -188,10 +188,10 @@ class Header {
       this.mobileMenuContainer.classList.add(
         'nhsuk-mobile-menu-container--visible'
       )
-      if (itemsVisible === 2) {
-        return
-      }
       while (availableSpace < this.breakpoints[itemsVisible - 1]) {
+        if (itemsVisible === 1) {
+          break
+        }
         this.mobileMenu.insertBefore(
           this.navigationList.children[itemsVisible - 2],
           this.mobileMenu.firstChild
