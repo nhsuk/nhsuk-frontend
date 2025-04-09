@@ -122,13 +122,15 @@ function serve() {
     host: '0.0.0.0',
 
     // Redirect to start path
-    middleware: {
-      route: '/',
-      handle(req, res) {
-        res.writeHead(302, { location: '/nhsuk-frontend/' })
-        res.end()
+    middleware: [
+      {
+        route: '/',
+        handle(req, res) {
+          res.writeHead(302, { location: '/nhsuk-frontend/' })
+          res.end()
+        }
       }
-    },
+    ],
 
     online: false,
     open: false,
