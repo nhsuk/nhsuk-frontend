@@ -1,5 +1,3 @@
-const { PORT = 3000 } = process.env
-
 const { mkdir, writeFile } = require('fs/promises')
 const { join, parse } = require('path')
 
@@ -12,6 +10,8 @@ const PluginError = require('plugin-error')
 
 const validatorConfig = require('../../.htmlvalidate')
 const { version } = require('../../package.json')
+
+const { PORT = 3000 } = process.env
 
 /**
  * Compile Nunjucks into HTML
