@@ -88,15 +88,15 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```javascript
 // Components
-import Checkboxes from './components/checkboxes/checkboxes';
-import Details from './components/details/details';
-import ErrorSummary from './components/error-summary/error-summary';
-import Header from './components/header/header';
-import Radios from './components/radios/radios';
-import SkipLink from './components/skip-link/skip-link';
+import Checkboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js';
+import Details from 'nhsuk-frontend/packages/components/details/details.js';
+import ErrorSummary from 'nhsuk-frontend/packages/components/error-summary/error-summary.js';
+import Header from 'nhsuk-frontend/packages/components/header/header.js';
+import Radios from 'nhsuk-frontend/packages/components/radios/radios.js';
+import SkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
 
 // Polyfills
-import '../node_modules/nhsuk-frontend/packages/polyfills';
+import 'nhsuk-frontend/packages/polyfills.js';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {

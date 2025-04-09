@@ -267,7 +267,7 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   const characterCounts = scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
   )

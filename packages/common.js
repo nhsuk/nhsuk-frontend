@@ -3,7 +3,7 @@
  * @param {HTMLElement} element
  * @param {string} attr
  */
-export const toggleAttribute = (element, attr) => {
+const toggleAttribute = (element, attr) => {
   // Return without error if element or attr are missing
   if (!element || !attr) return
   // Toggle attribute value. Treat no existing attr same as when set to false
@@ -16,7 +16,7 @@ export const toggleAttribute = (element, attr) => {
  * @param {HTMLElement} input input element
  * @param {string} className class to toggle
  */
-export const toggleConditionalInput = (input, className) => {
+const toggleConditionalInput = (input, className) => {
   // Return without error if input or class are missing
   if (!input || !className) return
   // If the input has conditional content it had a data-aria-controls attribute
@@ -51,7 +51,7 @@ export const toggleConditionalInput = (input, className) => {
  * @param {function(this: FocusElement): void} [options.onBeforeFocus] - Callback before focus
  * @param {function(this: FocusElement): void} [options.onBlur] - Callback on blur
  */
-export function setFocus($element, options = {}) {
+function setFocus($element, options = {}) {
   const isFocusable = $element.getAttribute('tabindex')
 
   if (!isFocusable) {
@@ -90,4 +90,10 @@ export function setFocus($element, options = {}) {
   }
 
   $element.focus()
+}
+
+module.exports = {
+  toggleAttribute,
+  toggleConditionalInput,
+  setFocus
 }

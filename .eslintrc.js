@@ -59,7 +59,11 @@ module.exports = {
       },
       parserOptions: {
         sourceType: 'module'
-      },
+      }
+    },
+    {
+      // ES modules mandatory file extensions
+      files: ['**/*.mjs'],
       rules: {
         'import/extensions': [
           'error',
