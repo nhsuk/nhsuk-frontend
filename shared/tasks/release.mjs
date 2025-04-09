@@ -1,6 +1,6 @@
-const gulp = require('gulp')
+import gulp from 'gulp'
 
-const { version } = require('../../package.json')
+import pkg from '../../package.json' with { type: 'json' }
 
 /**
  * Assets tasks
@@ -9,7 +9,7 @@ const { version } = require('../../package.json')
 /**
  * Copy assets such as icons and images into the distribution
  */
-function assets() {
+export function assets() {
   return gulp
     .src('packages/assets/**', { encoding: false })
     .pipe(gulp.dest('dist/assets/'))
@@ -20,16 +20,16 @@ function assets() {
  */
 
 /* Copy JS files into their relevant folders */
-function jsFolder() {
+export function jsFolder() {
   return gulp.src('dist/*.min.{js,js.map}').pipe(gulp.dest('dist/js/'))
 }
 
 /* Copy CSS files into their relevant folders */
-function cssFolder() {
+export function cssFolder() {
   return gulp.src('dist/*.min.{css,css.map}').pipe(gulp.dest('dist/css/'))
 }
 
-async function createZip() {
+export async function createZip() {
   const { default: zip } = await import('gulp-zip')
 
   return gulp
@@ -44,13 +44,6 @@ async function createZip() {
         encoding: false
       }
     )
-    .pipe(zip(`nhsuk-frontend-${version}.zip`))
+    .pipe(zip(`nhsuk-frontend-${pkg.version}.zip`))
     .pipe(gulp.dest('dist'))
-}
-
-module.exports = {
-  assets,
-  jsFolder,
-  cssFolder,
-  createZip
 }

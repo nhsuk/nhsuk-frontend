@@ -1,23 +1,23 @@
-const browserSync = require('browser-sync')
-const gulp = require('gulp')
+import browserSync from 'browser-sync'
+import gulp from 'gulp'
 
-const {
+import {
   buildHTML,
   validateHTML,
   copyCSS,
   copyJS,
   copyBinaryAssets,
   serve
-} = require('./shared/tasks/app')
-const { clean } = require('./shared/tasks/clean')
-const {
+} from './shared/tasks/app.mjs'
+import { clean } from './shared/tasks/clean.mjs'
+import {
   assets,
   cssFolder,
   jsFolder,
   createZip
-} = require('./shared/tasks/release')
-const { webpackJS, minifyJS } = require('./shared/tasks/scripts')
-const { compileCSS, minifyCSS } = require('./shared/tasks/styles')
+} from './shared/tasks/release.mjs'
+import { webpackJS, minifyJS } from './shared/tasks/scripts.mjs'
+import { compileCSS, minifyCSS } from './shared/tasks/styles.mjs'
 
 /**
  * Development tasks

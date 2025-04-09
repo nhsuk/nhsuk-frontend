@@ -1,24 +1,24 @@
-const { join, relative } = require('path')
-const { cwd } = require('process')
-const { Transform } = require('stream')
+import { join, relative } from 'path'
+import { cwd } from 'process'
+import { Transform } from 'stream'
 
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
-const gulp = require('gulp')
-const postcss = require('gulp-postcss')
-const rename = require('gulp-rename')
-const gulpSass = require('gulp-sass')
-const PluginError = require('plugin-error')
-const dartSass = require('sass-embedded')
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+import gulp from 'gulp'
+import postcss from 'gulp-postcss'
+import rename from 'gulp-rename'
+import gulpSass from 'gulp-sass'
+import PluginError from 'plugin-error'
+import dartSass from 'sass-embedded'
 
-const { version } = require('../../package.json')
+import pkg from '../../package.json' with { type: 'json' }
 
 const sass = gulpSass(dartSass)
 
 /**
  * Compile Sass task
  */
-function compileCSS(done) {
+export function compileCSS(done) {
   return gulp
     .src(['packages/nhsuk.scss'], {
       sourcemaps: true
@@ -62,7 +62,7 @@ function compileCSS(done) {
 /**
  * Minify CSS task
  */
-function minifyCSS() {
+export function minifyCSS() {
   return gulp
     .src(
       [
@@ -74,7 +74,7 @@ function minifyCSS() {
     .pipe(postcss([cssnano()]))
     .pipe(
       rename({
-        suffix: `-${version}.min`
+        suffix: `-${pkg.version}.min`
       })
     )
     .pipe(
@@ -82,9 +82,4 @@ function minifyCSS() {
         sourcemaps: '.'
       })
     )
-}
-
-module.exports = {
-  compileCSS,
-  minifyCSS
 }
