@@ -10,8 +10,8 @@ const { HtmlValidate, formatterFactory } = require('html-validate')
 const nunjucks = require('nunjucks')
 const PluginError = require('plugin-error')
 
-const validatorConfig = require('../.htmlvalidate')
-const { version } = require('../package.json')
+const validatorConfig = require('../../.htmlvalidate')
+const { version } = require('../../package.json')
 
 /**
  * Compile Nunjucks into HTML
@@ -157,22 +157,14 @@ function serve() {
   })
 }
 
-gulp.task(
-  'docs:build',
-  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, validateHTML])
-)
-
-gulp.task('docs:watch', () =>
-  Promise.all([
-    gulp.watch(['**/*.njk'], buildHTML),
-    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
-    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
-    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
-  ])
-)
-
-gulp.task('docs:serve', gulp.series([serve]))
+module.exports = {
+  buildHTML,
+  validateHTML,
+  copyCSS,
+  copyJS,
+  copyBinaryAssets,
+  serve
+}
 
 /**
  * @import { Result } from 'html-validate'

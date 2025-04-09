@@ -28,9 +28,9 @@ Node package manager modules for third party dependencies. This folder is automa
 
 NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
-`tasks/`
+`shared/tasks/`
 
-Gulp.js tasks to build the `dist/` folder from the files in `app`.
+Read about [npm and Gulp tasks](tooling.md) for more information.
 
 `tests/`
 
