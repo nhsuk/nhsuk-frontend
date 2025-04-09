@@ -56,10 +56,11 @@ module.exports = {
       files: ['packages/**/*.{cjs,js,mjs}', '**/*.test.{cjs,js,mjs}'],
       env: {
         browser: true
-      },
-      parserOptions: {
-        sourceType: 'module'
-      },
+      }
+    },
+    {
+      // ES modules mandatory file extensions
+      files: ['**/*.mjs'],
       rules: {
         'import/extensions': [
           'error',
@@ -79,7 +80,6 @@ module.exports = {
       files: ['**/*.test.{cjs,js,mjs}'],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
-        browser: true,
         'jest/globals': true
       },
       globals: {
