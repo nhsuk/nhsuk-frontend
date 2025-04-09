@@ -1,18 +1,18 @@
-const { join, relative } = require('path')
-const { cwd } = require('process')
+import { join, relative } from 'path'
+import { cwd } from 'process'
 
-const gulp = require('gulp')
-const rename = require('gulp-rename')
-const terser = require('gulp-terser')
-const PluginError = require('plugin-error')
-const webpack = require('webpack-stream')
+import gulp from 'gulp'
+import rename from 'gulp-rename'
+import terser from 'gulp-terser'
+import PluginError from 'plugin-error'
+import webpack from 'webpack-stream'
 
-const { version } = require('../../package.json')
+import pkg from '../../package.json' with { type: 'json' }
 
 /**
  * Compile JavaScript task
  */
-function webpackJS(done) {
+export function webpackJS(done) {
   return gulp
     .src('./packages/nhsuk.js', {
       sourcemaps: true
@@ -67,7 +67,7 @@ function webpackJS(done) {
 /**
  * Minify JavaScript task
  */
-function minifyJS() {
+export function minifyJS() {
   return gulp
     .src(
       [
@@ -90,7 +90,7 @@ function minifyJS() {
     )
     .pipe(
       rename({
-        suffix: `-${version}.min`
+        suffix: `-${pkg.version}.min`
       })
     )
     .pipe(
@@ -98,9 +98,4 @@ function minifyJS() {
         sourcemaps: '.'
       })
     )
-}
-
-module.exports = {
-  webpackJS,
-  minifyJS
 }
