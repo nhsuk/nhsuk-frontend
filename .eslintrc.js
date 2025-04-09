@@ -53,15 +53,6 @@ module.exports = {
       }
     },
     {
-      files: ['packages/**/*.{cjs,js,mjs}', '**/*.test.{cjs,js,mjs}'],
-      env: {
-        browser: true
-      },
-      parserOptions: {
-        sourceType: 'module'
-      }
-    },
-    {
       // ES modules mandatory file extensions
       files: ['**/*.mjs'],
       rules: {
