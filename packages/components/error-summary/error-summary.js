@@ -104,7 +104,7 @@ function handleClick(event) {
   }
 }
 
-export default ({ focusOnPageLoad = true, scope = document } = {}) => {
+module.exports = ({ focusOnPageLoad = true, scope = document } = {}) => {
   // Error summary component
   const errorSummary = scope.querySelector('.nhsuk-error-summary')
 
