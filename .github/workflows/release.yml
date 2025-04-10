@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build dist
-        run: npx gulp build
+      - name: Build
+        run: npm run build
 
       - name: Run linting
         run: npm run lint
