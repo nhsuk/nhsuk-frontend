@@ -53,8 +53,8 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Build app
-        run: npx gulp docs:build
+      - name: Build dist
+        run: npx gulp build
 
       - name: Deploy GitHub pages
         uses: JamesIves/github-pages-deploy-action@v4
