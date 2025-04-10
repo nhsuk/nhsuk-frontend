@@ -8,6 +8,7 @@
 
 .nhsuk-skip-link {
   position: absolute;
+  z-index: 2;
   left: nhsuk-spacing(3);
   top: nhsuk-spacing(3);
   padding: nhsuk-spacing(2);
