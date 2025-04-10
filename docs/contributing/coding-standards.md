@@ -230,6 +230,9 @@ We have chosen as Nunjucks as the templating language for NHS.UK frontend compon
 
 To provide a level of consistency for developers we have standardised argument names, their expected input, use and placement. There are expectations, and if so they are documented accordingly.
 
+Nunjucks is based on [Jinja](https://jinja.palletsprojects.com/en/stable/) and where possible we would like to keep
+that compatibility in our templates.
+
 ### Specifying content
 
 When providing _content_ to a macro, say for a label or a button, we accept two argument options:
@@ -265,6 +268,22 @@ We should use **camelCase** for naming attributes.
 
 When a component accepts a _single array of items_ for an output, such as checkboxes or radios, we accept an **_"items"_** array of objects. Table component is an exception is it can contain multiple array for rows, head, footer where there is need to for more specific names.
 
+However, when accessing an items param, use square bracket syntax instead of dotted syntax:
+
+Bad (clashes with `dict.items()` in Jinja):
+
+```
+{% for item in params.items %}
+```
+
+Good:
+
+```
+{% set items = params['items'] if 'items' in params else [] %}
+
+{% for item in items %}
+```
+
 ### Use of classes to specify variants
 
 When a component has multiple visual presentations, such as the care cards, we make use of classes argument to differentiate between them.
@@ -279,6 +298,85 @@ Care card emergency (red and black) example:
 
 ```html
 <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+```
+
+### Use `~` for string concatenation
+
+Prefer the `~` operator over the `+` operator. This will coerce all operands to strings without relying on Nunjucks-specific behaviour.
+
+### Quote all keys in mappings
+
+Always quote keys in mapping literals.
+If you forget to do this, the keys will be interpreted as variables when rendering in Jinja and will evaluate to `undefined`.
+
+Bad:
+
+```
+{{ hint({
+  id: itemHintId,
+  classes: 'nhsuk-checkboxes__hint',
+  attributes: item.hint.attributes,
+  html: item.hint.html,
+  text: item.hint.text
+}) }}
+```
+
+Good:
+
+```
+{{ hint({
+  "id": itemHintId,
+  "classes": 'nhsuk-checkboxes__hint',
+  "attributes": item.hint.attributes,
+  "html": item.hint.html,
+  "text": item.hint.text
+}) }}
+```
+
+### Avoid modifying variables inside a loop
+
+When looping over arrays, avoid modifying variables that need to be used outside of the loop.
+This does not work in Jinja due to its [scoping behaviour](<https://jinja.palletsprojects.com/en/stable/templates/#builtin-filters:~:text=call_something()%20%25%7D-,Scoping%20Behavior,-Please%20keep%20in>).
+
+Bad:
+
+```
+{% set isConditional = false %}
+{% for item in items %}
+  {% if item.conditional %}
+    {% set isConditional = true %}
+  {% endif %}
+{% endfor %}
+```
+
+Good:
+
+```
+{% set isConditional = items | selectattr("conditional") | list | length > 0 %}
+```
+
+### Avoid strict equality operators
+
+Avoid using the strict equality operators (`===` and `!===`), as they are not compatible with Jinja.
+
+If the type of a value is unknown, `== true` can be safely used in place of `=== true`. This expression is true for a boolean true value or the number `1`, and false for any other values, including strings.
+
+`== false` is weaker than `=== false` and should be avoided. It is true for `false`, `null`, and `undefined` values, but values of `0`, `""`, `[]` or `{}` will yield different results depending on whether you are using Nunjucks or Jinja.
+
+### Avoid Javascript functions
+
+Avoid using Javascript functions directly, as it breaks compatibility with Jinja. Use filters instead.
+
+Bad:
+
+```
+{{ items.length }}
+```
+
+Good:
+
+```
+{{ items | length }}
 ```
 
 ---

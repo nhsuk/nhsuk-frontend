@@ -1,18 +1,22 @@
-{% from "../../macros/attributes.njk" import nhsukAttributes %}
+{% from "macros/attributes.njk" import nhsukAttributes %}
+
+{#- Jinja compatability - avoid referencing params.items directly
+  as it clashes with dict.items() -#}
+{% set items = params["items"] if "items" in params else [] %}
 
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
    instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix -%}
 
-<div {%- if params.id %} id="{{params.id}}"{% endif %} class="nhsuk-tabs {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-tabs">
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-tabs {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-tabs">
   <h2 class="nhsuk-tabs__title">
     {{ params.title | default ("Contents") }}
   </h2>
-  {% if(params.items | length) %}
+  {% if(items | length) %}
   <ul class="nhsuk-tabs__list">
-    {% for item in params.items %}
+    {% for item in items %}
       {% if item %}
-        {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+        {% set id = item.id if item.id else idPrefix ~ "-" ~ loop.index %}
         <li class="nhsuk-tabs__list-item{% if loop.index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
           <a class="nhsuk-tabs__tab" href="#{{ id }}"
             {{- nhsukAttributes(item.attributes) }}>
@@ -23,9 +27,9 @@
     {% endfor %}
   </ul>
   {% endif %}
-  {% for item in params.items %}
+  {% for item in items %}
     {% if item %}
-      {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+      {% set id = item.id if item.id else idPrefix ~ "-" ~ loop.index %}
       <div class="nhsuk-tabs__panel{% if loop.index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ id }}" {{- nhsukAttributes(item.panel.attributes) }}>
         {{ item.panel.html | safe if item.panel.html else item.panel.text }}
       </div>

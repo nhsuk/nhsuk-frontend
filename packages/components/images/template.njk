@@ -1,9 +1,9 @@
-{% from "../../macros/attributes.njk" import nhsukAttributes %}
+{% from "macros/attributes.njk" import nhsukAttributes %}
 
 <figure class="nhsuk-image
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {{- nhsukAttributes(params.attributes) }}>
-  <img class="nhsuk-image__img" src="{{ params.src }}" alt="{{ params.alt }}" 
+  <img class="nhsuk-image__img" src="{{ params.src }}" alt="{{ params.alt }}"
   {%- if params.sizes and params.srcset %}
     sizes="{{ params.sizes }}" srcset="{{ params.srcset }}"
   {%- endif -%}
