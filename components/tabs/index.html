@@ -1,133 +1,83 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en" style="">
+  <html lang="en" style="background-color: #f0f4f5;">
   <head>
     <meta charset="utf-8">
+    <title>Tabs - NHS.UK Frontend</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Tabs - NHS.UK frontend</title>
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8">
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png">
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png">
+      <meta name="msapplication-TileColor" content="#005eb8">
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png">
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png">
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+  <link href="https://www.nhs.uk/" rel="preconnect">
+  <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
-
-    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="/nhsuk-frontend/stylesheets/nhsuk-9.3.0.min.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/javascripts/nhsuk-9.3.0.min.js" defer></script>
   </head>
 
-  <body class="">
+  <body >
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-      
+        
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
-      
 
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-      <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+
+        <div class="nhsuk-width-container">
+          <main class="nhsuk-main-wrapper" id="maincontent">
+<div class="nhsuk-tabs" data-module="nhsuk-tabs">
   <h2 class="nhsuk-tabs__title">
     Contents
   </h2>
-  
   <ul class="nhsuk-tabs__list">
-    
-      
-        
         <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
           <a class="nhsuk-tabs__tab" href="#tab-one">
             Tab one
           </a>
         </li>
-      
-    
-      
-        
         <li class="nhsuk-tabs__list-item">
           <a class="nhsuk-tabs__tab" href="#tab-two">
             Tab two
           </a>
         </li>
-      
-    
-      
-        
         <li class="nhsuk-tabs__list-item">
           <a class="nhsuk-tabs__tab" href="#tab-three">
             Tab three
           </a>
         </li>
-      
-    
   </ul>
-  
-  
-    
-      
       <div class="nhsuk-tabs__panel" id="tab-one">
-        
-        <h2>Tab one content</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      
+            <h2>Tab one content</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
       </div>
-    
-  
-    
-      
       <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-two">
-        
-        <h2>Tab two content</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-      
+            <h2>Tab two content</h2>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
       </div>
-    
-  
-    
-      
       <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-three">
-        
-        <h2>Tab three content</h2>
-        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-      
+            <h2>Tab three content</h2>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
       </div>
-    
-  
 </div>
 
-
-    </main>
-  </div>
-
+          </main>
+        </div>
 
 
-      
   </body>
 </html>

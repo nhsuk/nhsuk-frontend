@@ -1,55 +1,40 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en" style="">
+  <html lang="en">
   <head>
     <meta charset="utf-8">
+    <title>Components - NHS.UK Frontend</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Components - NHS.UK frontend</title>
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8">
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png">
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png">
+      <meta name="msapplication-TileColor" content="#005eb8">
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png">
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png">
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+  <link href="https://www.nhs.uk/" rel="preconnect">
+  <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
-
-    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="/nhsuk-frontend/stylesheets/nhsuk-9.3.0.min.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/javascripts/nhsuk-9.3.0.min.js" defer></script>
   </head>
 
-  <body class="">
+  <body >
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-      
-  
+        
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
+
+  
 <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
@@ -57,23 +42,15 @@
 
 
 
-
-
-
-
 <header class="nhsuk-header" role="banner">
 
   <div class="nhsuk-header__container">
     <div class="nhsuk-header__logo"><a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-        
-  <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
+          <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
     <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
     <path class="nhsuk-logo__text" fill="#fff" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
   </svg>
-
-      </a>
-    </div>
-    <div class="nhsuk-header__content" id="content-header">
+      </a>    </div>    <div class="nhsuk-header__content" id="content-header">
       <div class="nhsuk-header__search">
           <div class="nhsuk-header__search-wrap" id="wrap-search">
             <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
@@ -91,36 +68,29 @@
     </div>
 </div>
 
-
   <div class="nhsuk-navigation-container">
     <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-      <ul class="nhsuk-header__navigation-list">
-        <li class="nhsuk-header__navigation-item">
+      <ul class="nhsuk-header__navigation-list">        <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions">
             Health A-Z
           </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
+        </li>        <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/live-well/">
             Live Well
           </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
+        </li>        <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions/social-care-and-support/">
             Care and support
           </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
+        </li>        <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/news/">
             Health news
           </a>
-        </li>
-        <li class="nhsuk-header__navigation-item">
+        </li>        <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/service-search">
             Services near you
           </a>
-        </li>
-        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
+        </li>        <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
           <a class="nhsuk-header__navigation-link"  href="/">
             Home
           </a>
@@ -140,24 +110,10 @@
 </header>
 
 
-
-      
-
-  <div class="nhsuk-width-container">
-    
+        <div class="nhsuk-width-container">
   
-
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
-        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Health A-Z</a></li>
-        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Abscess</a></li>
-  
-    
-    
-    
-  
-  </ol>
+  <ol class="nhsuk-breadcrumb__list">        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Health A-Z</a></li>        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Abscess</a></li>  </ol>
   <p class="nhsuk-breadcrumb__back">
     <a class="nhsuk-breadcrumb__backlink" href="#">
       <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
@@ -166,107 +122,55 @@
   </p>
 </nav>
 
+          <main class="nhsuk-main-wrapper" id="maincontent">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Components</h1>
 
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          
-  <h1>Components</h1>
-
-  
-
+      
 <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
-  <ol class="nhsuk-contents-list__list">
-        <li class="nhsuk-contents-list__item" aria-current="page">
+  <ol class="nhsuk-contents-list__list">        <li class="nhsuk-contents-list__item" aria-current="page">
           <span class="nhsuk-contents-list__current">What is AMD?</span>
-        </li>
-        <li class="nhsuk-contents-list__item">
+        </li>        <li class="nhsuk-contents-list__item">
           <a class="nhsuk-contents-list__link" href="#">Symptoms</a>
-        </li>
-        <li class="nhsuk-contents-list__item">
+        </li>        <li class="nhsuk-contents-list__item">
           <a class="nhsuk-contents-list__link" href="#">Getting diagnosed</a>
-        </li>
-        <li class="nhsuk-contents-list__item">
+        </li>        <li class="nhsuk-contents-list__item">
           <a class="nhsuk-contents-list__link" href="#">Treatments</a>
-        </li>
-        <li class="nhsuk-contents-list__item">
+        </li>        <li class="nhsuk-contents-list__item">
           <a class="nhsuk-contents-list__link" href="#">Living with AMD</a>
-        </li>
-  </ol>
+        </li>  </ol>
 </nav>
 
-
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-full">
-          
-
+    </div>
+  </div>
   <ul class="nhsuk-grid-row nhsuk-card-group">
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
-    </h2>
-  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>    </h2>  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Help from social services and charities</a>
-    </h2>
-  <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Help from social services and charities</a>    </h2>  <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Money, work and benefits</a>
-    </h2>
-  <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Money, work and benefits</a>    </h2>  <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs.</p>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Care after a hospital stay</a>
-    </h2>
-  <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Care after a hospital stay</a>    </h2>  <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards.</p>  </div>
 </div>
 
     </li>
@@ -276,48 +180,21 @@
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">5 steps to mental wellbeing</a>
-    </h2>
-  <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">5 steps to mental wellbeing</a>    </h2>  <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better.</p>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Healthy weight</a>
-    </h2>
-  <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Healthy weight</a>    </h2>  <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight.</p>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Exercise</a>
-    </h2>
-  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Exercise</a>    </h2>  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>  </div>
 </div>
 
     </li>
@@ -327,283 +204,166 @@
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>  </div>
 </div>
 
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>  </div>
 </div>
 
     </li>
   </ul>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          
-
-  
-
-
-
-<div class="nhsuk-card">
-  <div class="nhsuk-card__content">
-    <h3 class="nhsuk-card__heading">
-      If you need help now, but it’s not an emergency
       
-    </h3>
-  <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
-  
-  </div>
+
+<div class="nhsuk-card">  <div class="nhsuk-card__content">    <h3 class="nhsuk-card__heading">      If you need help now, but it’s not an emergency
+    </h3>  <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>  </div>
 </div>
 
 
-  
-
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
-    </h2>
-  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>
-  
-  </div>
-</div>
-
-
-  
-
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Exercise</a>
-    </h2>
-  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>
-  
-  </div>
-</div>
-
-
-  
-
-
-
-<div class="nhsuk-card nhsuk-card--feature">
-  <div class="nhsuk-card__content nhsuk-card__content--feature">
-    <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">
-      Feature card heading
       
-    </h2>
-  <p class="nhsuk-card__description">Feature card description</p>
-  
-  </div>
+
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>    </h2>  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers.</p>  </div>
 </div>
 
 
-  <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
+      
 
-  <h2>Heading level two</h2>
+<div class="nhsuk-card nhsuk-card--clickable">  <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Exercise</a>    </h2>  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing.</p>  </div>
+</div>
 
-  <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
 
-  <h3>Heading level three</h3>
+      
 
-  <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
+<div class="nhsuk-card nhsuk-card--feature">  <div class="nhsuk-card__content nhsuk-card__content--feature">    <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">      Feature card heading
+    </h2>  <p class="nhsuk-card__description">Feature card description</p>  </div>
+</div>
 
-  <h4>Heading level four</h4>
 
-  <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
-  <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
+      <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
 
-  <h2>Heading level two</h2>
+      <h2>Heading level two</h2>
 
-  <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
+      <p>Body paragraph. Ooh, that's a snazzy bouquet. Oh, this smells of, I don't know, basil. Sometimes you just want to say, sod all this wine, just give me a pint of, mineral water.</p>
 
-  
+      <h3>Heading level three</h3>
 
+      <p>Body paragraph. All this wine nonsense! You get all these wine people, don't you? Wine this, wine that. Let's have a bit of red, let's have a bit of white.</p>
+
+      <h4>Heading level four</h4>
+
+      <p>Body paragraph. And, can I have the same, please? But with different shaped pasta. What do you call those pasta in bows? Like a bow-tie, but miniature? Like an action man bow-tie..</p>
+      <p>A second paragraph of text with a <a href="#">text link</a> inside, to show you what one looks like.</p>
+
+      <h2>Heading level two</h2>
+
+      <p>Body paragraph. The proof is in the pudding, and the pudding, in this case, is a football... Boof! Eat my goal!! The goalie has got football pie all over his shirt!</p>
+
+      
 <div class="nhsuk-inset-text">
   <span class="nhsuk-u-visually-hidden">Information: </span>
   
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
-</div>
+<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p></div>
 
 
-  
-
-
+      
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Important<span class="nhsuk-u-visually-hidden">:</span>
-  </h3>
+  <h3 class="nhsuk-warning-callout__label">    Important<span class="nhsuk-u-visually-hidden">:</span>  </h3>
   <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 </div>
 
 
-  
-
-
+      
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    <span role="text">
+  <h3 class="nhsuk-warning-callout__label">    <span role="text">
       <span class="nhsuk-u-visually-hidden">Important: </span>
       School, nursery or work
-    </span>
-  </h3>
+    </span>  </h3>
   <p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
 </div>
 
 
-  
+      
 
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-    <ul>
-      <li>you're not sure it's chickenpox</li>
-      <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-      <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
-      <li>you're concerned about your child or they get worse</li>
-    </ul>
-    <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-    
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+          </div>
 </div>
 
 
-  
+      
 
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-    <ul>
-      <li>you're an adult and have chickenpox</li>
-      <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-      <li>you have a weakened immune system and you've been near someone with chickenpox</li>
-      <li>you think your newborn baby has chickenpox</li>
-    </ul>
-    <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-    
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're an adult and have chickenpox</li>
+          <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+          <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+          <li>you think your newborn baby has chickenpox</li>
+        </ul>
+        <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+          </div>
 </div>
 
 
-  
+      
 
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-    <ul>
-      <li>spreads to your arms, back, neck or jaw</li>
-      <li>makes your chest feel tight or heavy</li>
-      <li>also started with shortness of breath, sweating and feeling or being sick</li>
-    </ul>
-    <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
-    
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>spreads to your arms, back, neck or jaw</li>
+          <li>makes your chest feel tight or heavy</li>
+          <li>also started with shortness of breath, sweating and feeling or being sick</li>
+        </ul>
+        <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+          </div>
 </div>
 
 
-  
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-  
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-  
-
+      
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551">
     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
@@ -615,8 +375,7 @@
 </div>
 
 
-  
-
+      
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -625,23 +384,22 @@
   </summary>
   <div class="nhsuk-details__text">
     
-    <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-    <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-    <ul>
-      <li>prescriptions</li>
-      <li>test results</li>
-      <li>hospital referral letters</li>
-      <li>appointment letters</li>
-      <li>your NHS medical card</li>
-    </ul>
-    <p>Ask your GP practice for help if you can't find your NHS number.</p>
-    
+        <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+        <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+          <li>your NHS medical card</li>
+        </ul>
+        <p>Ask your GP practice for help if you can't find your NHS number.</p>
+        
   </div>
 </details>
 
 
-  
-
+      
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -650,49 +408,48 @@
   </summary>
   <div class="nhsuk-details__text">
     
-    <table>
-      <tbody>
-        <tr>
-          <th><strong>Day of the week</strong></th>
-          <th><strong>Opening hours</strong></th>
-        </tr>
-        <tr>
-          <th>Monday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Tuesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Wednesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Thursday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Friday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Saturday</th>
-          <td>9am to 1pm</td>
-        </tr>
-        <tr>
-          <th>Sunday</th>
-          <td>Closed</td>
-        </tr>
-      </tbody>
-    </table>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="col"><strong>Day of the week</strong></th>
+              <th scope="col"><strong>Opening hours</strong></th>
+            </tr>
+            <tr>
+              <th scope="row">Monday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Wednesday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Thursday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Friday</th>
+              <td>9am to 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Saturday</th>
+              <td>9am to 1pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Sunday</th>
+              <td>Closed</td>
+            </tr>
+          </tbody>
+        </table>
   </div>
 </details>
 
 
-  <div class="nhsuk-expander-group">
-    
-
+      <div class="nhsuk-expander-group">
+        
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -701,20 +458,19 @@
   </summary>
   <div class="nhsuk-details__text">
     
-      <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
-      <p>You would have been given:</p>
-      <ul>
-        <li>a blood glucose metre</li>
-        <li>small needles called lancets</li>
-        <li>a plastic pen to hold the lancest</li>
-        <li>small test strips</li>
-      </ul>
-      
+          <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+          <p>You would have been given:</p>
+          <ul>
+            <li>a blood glucose metre</li>
+            <li>small needles called lancets</li>
+            <li>a plastic pen to hold the lancest</li>
+            <li>small test strips</li>
+          </ul>
+          
   </div>
 </details>
 
-    
-
+        
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -723,24 +479,22 @@
   </summary>
   <div class="nhsuk-details__text">
     
-      <p>Try to check your blood:</p>
-      <ul>
-        <li>before meals</li>
-        <li>2 to 3 hours after meals</li>
-        <li>before, during (take a break) and after exercise</li>
-      </ul>
-      <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-      
+          <p>Try to check your blood:</p>
+          <ul>
+            <li>before meals</li>
+            <li>2 to 3 hours after meals</li>
+            <li>before, during (take a break) and after exercise</li>
+          </ul>
+          <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+          
   </div>
 </details>
 
-  </div>
+      </div>
 
-  
-
+      
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
-  <ul class="nhsuk-list nhsuk-pagination__list">
-    <li class="nhsuk-pagination-item--previous">
+  <ul class="nhsuk-list nhsuk-pagination__list">    <li class="nhsuk-pagination-item--previous">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="/section/treatments">
         <span class="nhsuk-pagination__title">Previous</span>
         <span class="nhsuk-u-visually-hidden">:</span>
@@ -749,8 +503,7 @@
           <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
         </svg>
       </a>
-    </li>
-    <li class="nhsuk-pagination-item--next">
+    </li>    <li class="nhsuk-pagination-item--next">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="/section/symptoms">
         <span class="nhsuk-pagination__title">Next</span>
         <span class="nhsuk-u-visually-hidden">:</span>
@@ -759,167 +512,84 @@
           <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
         </svg>
       </a>
-    </li>
-  </ul>
+    </li>  </ul>
 </nav>
 
 
-  
-
-
+      
 <div class="nhsuk-do-dont-list">
   <h3 class="nhsuk-do-dont-list__label">Do</h3>
-  <ul class="nhsuk-list nhsuk-list--tick" role="list">
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+  <ul class="nhsuk-list nhsuk-list--tick" role="list">    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      cover blisters that are likely to burst with a soft plaster or dressing
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+      </svg>cover blisters that are likely to burst with a soft plaster or dressing
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      wash your hands before touching a burst blister
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+      </svg>wash your hands before touching a burst blister
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      allow the fluid in a burst blister to drain before covering it with a plaster or dressing
-    </li>
-  </ul>
+      </svg>allow the fluid in a burst blister to drain before covering it with a plaster or dressing
+    </li>  </ul>
 </div>
 
 
-  
-
-
+      
 <div class="nhsuk-do-dont-list">
   <h3 class="nhsuk-do-dont-list__label">Don&#39;t</h3>
-  <ul class="nhsuk-list nhsuk-list--cross" role="list">
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+  <ul class="nhsuk-list nhsuk-list--cross" role="list">    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not burst a blister yourself
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not burst a blister yourself
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not peel the skin off a burst blister
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not peel the skin off a burst blister
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not pick at the edges of the remaining skin
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not pick at the edges of the remaining skin
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not wear the shoes or use the equipment that caused your blister until it heals
-    </li>
-  </ul>
+      </svg>do not wear the shoes or use the equipment that caused your blister until it heals
+    </li>  </ul>
 </div>
 
 
-  <table>
-  <caption>Skin symptoms and possible causes</caption>
-  <thead>
-    <tr>
-      <th scope="col">Skin symptoms</th>
-      <th scope="col">Possible cause</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Blisters on lips or around the mouth</td>
-      <td>cold sores</td>
-    </tr>
-    <tr>
-      <td>Itchy, dry, cracked, sore</td>
-      <td>eczema</td>
-    </tr>
-    <tr>
-      <td>Itchy blisters</td>
-      <td>shingles, chickenpox</td>
-    </tr>
-  </tbody>
-</table>
+      <table>
+      <caption>Skin symptoms and possible causes</caption>
+      <thead>
+        <tr>
+          <th scope="col">Skin symptoms</th>
+          <th scope="col">Possible cause</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Blisters on lips or around the mouth</td>
+          <td>cold sores</td>
+        </tr>
+        <tr>
+          <td>Itchy, dry, cracked, sore</td>
+          <td>eczema</td>
+        </tr>
+        <tr>
+          <td>Itchy blisters</td>
+          <td>shingles, chickenpox</td>
+        </tr>
+      </tbody>
+    </table>
 
-  
-  <table class="nhsuk-table">
-    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-    <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-        <th role="columnheader" class="" scope="col">
-          Skin symptoms
-        </th>
-        <th role="columnheader" class="" scope="col">
-          Possible cause
-        </th>
-    </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
-              <td class="nhsuk-table__cell ">cold sores</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
-              <td class="nhsuk-table__cell ">eczema</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy blisters</td>
-              <td class="nhsuk-table__cell ">shingles, chickenpox</td>
-      </tr>
-    </tbody>
+        <table class="nhsuk-table">    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>    <thead class="nhsuk-table__head">
+      <tr>          <th scope="col" class="nhsuk-table__header">Skin symptoms</th>          <th scope="col" class="nhsuk-table__header">Possible cause</th>      </tr>
+    </thead>    <tbody class="nhsuk-table__body">      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>            <td class="nhsuk-table__cell">cold sores</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>            <td class="nhsuk-table__cell">eczema</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy blisters</td>            <td class="nhsuk-table__cell">shingles, chickenpox</td>      </tr>    </tbody>
   </table>
 
+      <div class="nhsuk-table__panel-with-heading-tab">    <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>  <table class="nhsuk-table">    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>    <thead class="nhsuk-table__head">
+      <tr>          <th scope="col" class="nhsuk-table__header">Skin symptoms</th>          <th scope="col" class="nhsuk-table__header">Possible cause</th>      </tr>
+    </thead>    <tbody class="nhsuk-table__body">      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>            <td class="nhsuk-table__cell">cold sores</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>            <td class="nhsuk-table__cell">eczema</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy blisters</td>            <td class="nhsuk-table__cell">shingles, chickenpox</td>      </tr>    </tbody>
+  </table></div>
 
-  
-<div class="nhsuk-table__panel-with-heading-tab">
-    <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
-  <table class="nhsuk-table">
-    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-    <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-        <th role="columnheader" class="" scope="col">
-          Skin symptoms
-        </th>
-        <th role="columnheader" class="" scope="col">
-          Possible cause
-        </th>
-    </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
-              <td class="nhsuk-table__cell ">cold sores</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
-              <td class="nhsuk-table__cell ">eczema</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy blisters</td>
-              <td class="nhsuk-table__cell ">shingles, chickenpox</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-  <dl class="nhsuk-summary-list">
-  
-    
+      <dl class="nhsuk-summary-list">
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">
         Name
@@ -927,19 +597,12 @@
       <dd class="nhsuk-summary-list__value">
         Sarah Philips
       </dd>
-      
         <dd class="nhsuk-summary-list__actions">
-          
             <a href="#">
                 Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
+            </a>
         </dd>
-      
     </div>
-    
-  
-    
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">
         Date of birth
@@ -947,19 +610,12 @@
       <dd class="nhsuk-summary-list__value">
         5 January 1978
       </dd>
-      
         <dd class="nhsuk-summary-list__actions">
-          
             <a href="#">
                 Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
-                </a>
-          
+            </a>
         </dd>
-      
     </div>
-    
-  
-    
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">
         Contact information
@@ -967,19 +623,12 @@
       <dd class="nhsuk-summary-list__value">
         72 Guild Street<br>London<br>SE23 6FH
       </dd>
-      
         <dd class="nhsuk-summary-list__actions">
-          
             <a href="#">
                 Change<span class="nhsuk-u-visually-hidden"> contact information</span>
-                </a>
-          
+            </a>
         </dd>
-      
     </div>
-    
-  
-    
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">
         Contact details
@@ -987,423 +636,275 @@
       <dd class="nhsuk-summary-list__value">
         <p>07700 900457</p><p>sarah.philips@example.com</p>
       </dd>
-      
         <dd class="nhsuk-summary-list__actions">
-          
             <a href="#">
                 Change<span class="nhsuk-u-visually-hidden"> contact details</span>
-                </a>
-          
+            </a>
         </dd>
-      
     </div>
-    
-  
 </dl>
 
 
-  <table class="nhsuk-table">
-    <thead class="nhsuk-table__head">
-      <tr class="nhsuk-table__row">
-        <th class="nhsuk-table__header" scope="col">Class name</th>
-        <th class="nhsuk-table__header" scope="col" style="width: 120px">Tag</th>
-      </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag</code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag">
   Active
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--white </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--white
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--white">
   Started
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--grey </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--grey
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--grey">
   Not started
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--green </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--green
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--green">
   New
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--aqua-green </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--aqua-green
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--aqua-green">
   Active
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--blue </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--blue
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--blue">
   Pending
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--purple </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--purple
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--purple">
   Received
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--pink </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--pink
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--pink">
   Sent
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--red </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--red
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--red">
   Rejected
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--orange </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--orange
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--orange">
   Declined
 </strong>
 
-        </td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">
-          <code> nhsuk-tag--yellow </code>
-        </td>
-        <td class="nhsuk-table__cell">
-          
-
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              nhsuk-tag--yellow
+            </td>
+            <td class="nhsuk-table__cell">
+              
 <strong class="nhsuk-tag nhsuk-tag--yellow">
   Delayed
 </strong>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-  
-
-
-<div class="nhsuk-form-group">
+      <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="input-example">
     National Insurance number
-  </label>
-    <input class="nhsuk-input nhsuk-input--width-20" id="input-example" name="test-name" type="text">
-</div> 
+  </label>    <input class="nhsuk-input nhsuk-input--width-20" id="input-example" name="test-name" type="text"></div> 
 
 
-  
-
-
-<div class="nhsuk-form-group nhsuk-form-group--error">
+      <div class="nhsuk-form-group nhsuk-form-group--error">
   <label class="nhsuk-label" for="input-with-error-message">
     National Insurance number
-  </label>
-  <div class="nhsuk-hint" id="input-with-error-message-hint">
+  </label>  <div class="nhsuk-hint" id="input-with-error-message-hint">
     It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
-  </div>
-  <span class="nhsuk-error-message" id="input-with-error-message-error">
-    <span class="nhsuk-u-visually-hidden">Error:</span> Error message goes here
-  </span>
-    <input class="nhsuk-input nhsuk-input--width-20 nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
-</div> 
+  </div>  <span class="nhsuk-error-message" id="input-with-error-message-error">
+  <span class="nhsuk-u-visually-hidden">Error:</span> Error message goes here
+  </span>    <input class="nhsuk-input nhsuk-input--width-20 nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error"></div> 
 
 
-  <form>
-    
-
-
-
-
-
-
-  
-
-  
-
-  
+      <form>
+        
 <div class="nhsuk-form-group">
 
-  
-
-<fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
-  <legend class="nhsuk-fieldset__legend">
-    What is your nationality?
-  </legend>
-
-  <div class="nhsuk-hint" id="nationality-hint">
+<fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">  <legend class="nhsuk-fieldset__legend">    What is your nationality?
+</legend>  <div class="nhsuk-hint" id="nationality-hint">
     If you have more than 1 nationality, select all options that are relevant to you.
   </div>
-
-
   <div class="nhsuk-checkboxes">
-    
-    
-    
-    
-    
-    
-    
 
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
       <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
         British
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      </label>    </div>
 
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
       <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
         Irish
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      </label>    </div>
 
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
       <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
         citizen of another country
-      </label>
-    </div>
-    
-    
-    
+      </label>    </div>
   </div>
-  </fieldset>
-
-
+</fieldset>
 </div>
 
-  </form>
+      </form>
 
-  
-
-
-
-
-
-
-  
-
-  
+      
 <div class="nhsuk-form-group">
 
-  
-
-<fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-  <legend class="nhsuk-fieldset__legend">
-    Have you changed your name?
-  </legend>
-
-  <div class="nhsuk-hint" id="example-hint">
+<fieldset class="nhsuk-fieldset" aria-describedby="example-hint">  <legend class="nhsuk-fieldset__legend">    Have you changed your name?
+</legend>  <div class="nhsuk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
   </div>
-
-  <div class="nhsuk-radios">
-    
-    
-    <div class="nhsuk-radios__item">
+  <div class="nhsuk-radios">    <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
       <label class="nhsuk-label nhsuk-radios__label" for="example-1">
         Yes
-      </label>
-    </div>
-    
-    
-    
+      </label>    </div>
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
       <label class="nhsuk-label nhsuk-radios__label" for="example-2">
         No
-      </label>
-    </div>
-    
+      </label>    </div>
   </div>
-  </fieldset>
-
+</fieldset>
 </div>
 
 
-  
-
-
-
-
-
-  
+      
 <div class="nhsuk-form-group">
 
-
-<fieldset class="nhsuk-fieldset" aria-describedby="dob-hint"
-    
-        
-      
-    
-   role="group">
-  <legend class="nhsuk-fieldset__legend">
-    What is your date of birth?
-  </legend>
-<div class="nhsuk-hint" id="dob-hint">
+<fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">  <legend class="nhsuk-fieldset__legend">    What is your date of birth?
+</legend><div class="nhsuk-hint" id="dob-hint">
     For example, 31 3 1980
   </div>
-
-
-  <div class="nhsuk-date-input" id="dob">
-    <div class="nhsuk-date-input__item">
+  <div class="nhsuk-date-input" id="dob">    <div class="nhsuk-date-input__item">
       <div class="nhsuk-form-group">
         <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
           Day
-        </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob[day]" type="text" inputmode="numeric">
-      </div>
-    </div>
-    <div class="nhsuk-date-input__item">
+        </label>    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" name="dob[day]" type="text" inputmode="numeric"></div>
+    </div>    <div class="nhsuk-date-input__item">
       <div class="nhsuk-form-group">
         <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
           Month
-        </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob[month]" type="text" inputmode="numeric">
-      </div>
-    </div>
-    <div class="nhsuk-date-input__item">
+        </label>    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" name="dob[month]" type="text" inputmode="numeric"></div>
+    </div>    <div class="nhsuk-date-input__item">
       <div class="nhsuk-form-group">
         <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
           Year
-        </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob[year]" type="text" inputmode="numeric">
-      </div>
+        </label>    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" name="dob[year]" type="text" inputmode="numeric"></div>
     </div></div></fieldset>
-
-
 </div>
 
 
-  
-
-
-<div class="nhsuk-form-group">
+      <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="more-detail-textarea">
     Can you provide more detail?
-  </label>
-  <div class="nhsuk-hint" id="more-detail-textarea-hint">
+  </label>  <div class="nhsuk-hint" id="more-detail-textarea-hint">
     Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
-  </div>
-  <textarea class="nhsuk-textarea" id="more-detail-textarea" name="more-detail-textarea" rows="5" aria-describedby="more-detail-textarea-hint"></textarea>
+  </div>  <textarea class="nhsuk-textarea" id="more-detail-textarea" name="more-detail-textarea" rows="5" aria-describedby="more-detail-textarea-hint"></textarea>
 </div>
 
 
-  
-
-
+      
 <div class="nhsuk-character-count" data-module="nhsuk-character-count" data-maxlength="200">
-  
-
-
-<div class="nhsuk-form-group">
+  <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="more-detail-character-count">
     Can you provide more detail?
-  </label>
-  <div class="nhsuk-hint" id="more-detail-character-count-hint">
+  </label>  <div class="nhsuk-hint" id="more-detail-character-count-hint">
     Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
-  </div>
-  <textarea class="nhsuk-textarea nhsuk-js-character-count" id="more-detail-character-count" name="more-detail-character-count" rows="5" aria-describedby="more-detail-character-count-hint"></textarea>
+  </div>  <textarea class="nhsuk-textarea nhsuk-js-character-count" id="more-detail-character-count" name="more-detail-character-count" rows="5" aria-describedby="more-detail-character-count-hint"></textarea>
 </div>
 
   
-
 <div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-character-count-info">
   You can enter up to 200 characters
 </div>
@@ -1411,76 +912,49 @@
 </div>
 
 
-  
-
-<div class="nhsuk-form-group">
+      <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="select-1">
     Label text goes here
-  </label>
-  <select class="nhsuk-select" id="select-1" name="select-1">
-    <option value="1">NHS.UK frontend option 1</option>
-    <option value="2" selected>NHS.UK frontend option 2</option>
-    <option value="3" disabled>NHS.UK frontend option 3</option>
-  </select>
+  </label>  <select class="nhsuk-select" id="select-1" name="select-1">    <option value="1">NHS.UK frontend option 1</option>    <option value="2" selected>NHS.UK frontend option 2</option>    <option value="3" disabled>NHS.UK frontend option 3</option>  </select>
 </div>
 
 
-  <div class="nhsuk-form-group">
+      <div class="nhsuk-form-group">
 
-    
-
-
-
-
-  
-    
-  
+        
 
 
 
 
 <button class="nhsuk-button nhsuk-u-margin-bottom-0"
   data-module="nhsuk-button"
-   type="submit">
+ type="submit">
   Save and continue
 </button>
 
 
 
+      </div>
 
-  </div>
+      <div class="nhsuk-form-group">
 
-  <div class="nhsuk-form-group">
-
-    
-
-
-
-
-  
-    
-  
+        
 
 
 
 
 <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0"
   data-module="nhsuk-button"
-   type="submit">
+ type="submit">
   Find my location
 </button>
 
 
 
+      </div>
 
-  </div>
-
-  
-
-<div class="nhsuk-back-link">
-    
-  
-  <a class="nhsuk-back-link__link" href="#">
+      
+<div class="nhsuk-back-link">  <a class="nhsuk-back-link__link" href="#">
   <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
     <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
   </svg>
@@ -1488,119 +962,73 @@
 </div>
 
 
-  <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+<div class="nhsuk-tabs" data-module="nhsuk-tabs">
   <h2 class="nhsuk-tabs__title">
     Contents
   </h2>
-  
   <ul class="nhsuk-tabs__list">
-    
-      
-        
         <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
           <a class="nhsuk-tabs__tab" href="#tab-one">
             Tab one
           </a>
         </li>
-      
-    
-      
-        
         <li class="nhsuk-tabs__list-item">
           <a class="nhsuk-tabs__tab" href="#tab-two">
             Tab two
           </a>
         </li>
-      
-    
-      
-        
         <li class="nhsuk-tabs__list-item">
           <a class="nhsuk-tabs__tab" href="#tab-three">
             Tab three
           </a>
         </li>
-      
-    
   </ul>
-  
-  
-    
-      
       <div class="nhsuk-tabs__panel" id="tab-one">
-        
-    <h2>Tab one content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
+                <h2>Tab one content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
       </div>
-    
-  
-    
-      
       <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-two">
-        
-    <h2>Tab two content</h2>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-  
+                <h2>Tab two content</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
       </div>
-    
-  
-    
-      
       <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-three">
-        
-    <h2>Tab three content</h2>
-    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-  
+                <h2>Tab three content</h2>
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
       </div>
-    
-  
 </div>
 
-
-        </div>
-      </div>
-
-    </main>
+    </div>
   </div>
+          </main>
+        </div>
 
-
-
-      
   <footer role="contentinfo">
   <div class="nhsuk-footer-container">
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer">
-          
-              <ul class="nhsuk-footer__list">
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+              <ul class="nhsuk-footer__list">                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/nhs-sites">NHS sites</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us">About us</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/give-feedback-about-the-nhs-website/">Give us feedback</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Personalisation/Login.aspx">Profile editor login</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/about-us/sitemap/">Sitemap</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/accessibility/">Accessibility</a>
-                  </li>
-                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                  </li>                  <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                     <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/our-policies/">Our policies</a>
-                  </li>
-              </ul>
+                  </li>              </ul>
               <div>
                 <p class="nhsuk-footer__copyright">© NHS England</p>
               </div>
       </div> 
-          
     </div> 
   </div> 
 </footer>

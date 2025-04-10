@@ -1,247 +1,135 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en" style="background-color: #f0f4f5;">
+  <html lang="en" style="background-color: #f0f4f5;">
   <head>
     <meta charset="utf-8">
+    <title>Radios with nested conditonal content - NHS.UK Frontend</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Radios with nested conditonal content - NHS.UK frontend</title>
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8">
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png">
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png">
+      <meta name="msapplication-TileColor" content="#005eb8">
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png">
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png">
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+  <link href="https://www.nhs.uk/" rel="preconnect">
+  <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
-
-    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="/nhsuk-frontend/stylesheets/nhsuk-9.3.0.min.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/javascripts/nhsuk-9.3.0.min.js" defer></script>
   </head>
 
-  <body class="">
+  <body >
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-      
+        
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+
+
+        <div class="nhsuk-width-container">
+          <main class="nhsuk-main-wrapper" id="maincontent">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
       
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-
-          
-
-
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Important<span class="nhsuk-u-visually-hidden">:</span>
-  </h3>
+  <h3 class="nhsuk-warning-callout__label">    Important<span class="nhsuk-u-visually-hidden">:</span>  </h3>
   <p>Please do everything in your power to avoid nested conditionals like this. The example is here to demonstrate that it works - not as a recommendation!</p>
 </div>
 
-          <form>
-            
-
-
-
-
-
-
-  
-
-  
-    
-  
+      <form>
+        
 <div class="nhsuk-form-group">
 
-  
-
-<fieldset class="nhsuk-fieldset" aria-describedby="outer-hint">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-fieldset__heading">
+<fieldset class="nhsuk-fieldset" aria-describedby="outer-hint">  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">    <h1 class="nhsuk-fieldset__heading">
       How would you prefer to be contacted?
     </h1>
-  </legend>
-
-  <div class="nhsuk-hint" id="outer-hint">
+</legend>  <div class="nhsuk-hint" id="outer-hint">
     Select one option.
   </div>
-
-  <div class="nhsuk-radios nhsuk-radios--conditional">
-    
-    
-    <div class="nhsuk-radios__item">
+  <div class="nhsuk-radios nhsuk-radios--conditional">    <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="outer-1" name="outer" type="radio" value="no-conditional">
       <label class="nhsuk-label nhsuk-radios__label" for="outer-1">
         No conditional
-      </label>
-    </div>
-    
-    
-    
+      </label>    </div>
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="outer-2" name="outer" type="radio" value="nested" aria-controls="conditional-outer-2" aria-expanded="false">
       <label class="nhsuk-label nhsuk-radios__label" for="outer-2">
         Nested conditional
-      </label>
-    </div>
-    
+      </label>    </div>
     <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-outer-2">
-      
-    
-
-
-
-
-
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
+          
 <div class="nhsuk-form-group">
 
-  
-
-<fieldset class="nhsuk-fieldset" aria-describedby="inner-hint">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    How would you prefer to be contacted?
-  </legend>
-
-  <div class="nhsuk-hint" id="inner-hint">
+<fieldset class="nhsuk-fieldset" aria-describedby="inner-hint">  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">    How would you prefer to be contacted?
+</legend>  <div class="nhsuk-hint" id="inner-hint">
     Select one option.
   </div>
-
-  <div class="nhsuk-radios nhsuk-radios--conditional">
-    
-    
-    <div class="nhsuk-radios__item">
+  <div class="nhsuk-radios nhsuk-radios--conditional">    <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="inner-1" name="inner" type="radio" value="email" aria-controls="conditional-inner-1" aria-expanded="false">
       <label class="nhsuk-label nhsuk-radios__label" for="inner-1">
         Email
-      </label>
-    </div>
-    
+      </label>    </div>
     <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-inner-1">
-      
-  
-
-
-<div class="nhsuk-form-group">
+        <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="email">
     Email address
-  </label>
-    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
-</div> 
+  </label>    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text"></div> 
 
 
     </div>
-    
-    
-    
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="inner-2" name="inner" type="radio" value="phone" aria-controls="conditional-inner-2" aria-expanded="false">
       <label class="nhsuk-label nhsuk-radios__label" for="inner-2">
         Phone
-      </label>
-    </div>
-    
+      </label>    </div>
     <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-inner-2">
-      
-  
-
-
-<div class="nhsuk-form-group">
+        <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="phone">
     Phone number
-  </label>
-    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
-</div> 
+  </label>    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text"></div> 
 
 
     </div>
-    
-    
-    
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="inner-3" name="inner" type="radio" value="text" aria-controls="conditional-inner-3" aria-expanded="false">
       <label class="nhsuk-label nhsuk-radios__label" for="inner-3">
         Text message
-      </label>
-    </div>
-    
+      </label>    </div>
     <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-inner-3">
-      
-  
-
-
-<div class="nhsuk-form-group">
+        <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="mobile">
     Mobile phone number
-  </label>
-    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
-</div> 
+  </label>    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text"></div> 
 
 
     </div>
-    
   </div>
-  </fieldset>
-
+</fieldset>
 </div>
 
 
     </div>
-    
   </div>
-  </fieldset>
-
+</fieldset>
 </div>
 
-          </form>
+      </form>
+    </div>
+  </div>
+
+          </main>
         </div>
-      </div>
-
-    </main>
-  </div>
 
 
-
-      
   </body>
 </html>

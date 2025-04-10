@@ -1,257 +1,150 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en" style="background-color: #f0f4f5;">
+  <html lang="en" style="background-color: #f0f4f5;">
   <head>
     <meta charset="utf-8">
+    <title>Card - Card group - NHS.UK Frontend</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Card - Card group - NHS.UK frontend</title>
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8">
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png">
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png">
+      <meta name="msapplication-TileColor" content="#005eb8">
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png">
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png">
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+  <link href="https://www.nhs.uk/" rel="preconnect">
+  <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
-
-    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="/nhsuk-frontend/stylesheets/nhsuk-9.3.0.min.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/javascripts/nhsuk-9.3.0.min.js" defer></script>
   </head>
 
-  <body class="">
+  <body >
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-      
-
-      
-
-<div class="nhsuk-width-container">
-  <main class="nhsuk-main-wrapper" id="maincontent">
-
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full">
-
-        <h2>Halves</h2>
-
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-            
+        
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
 
 
 
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content nhsuk-card__content--primary">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>
-    </h2>
-  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
-   
+        <div class="nhsuk-width-container">
+          <main class="nhsuk-main-wrapper" id="maincontent">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h2>Halves</h2>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          
+
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content nhsuk-card__content--primary">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Introduction to care and support</a>    </h2>  <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p> 
     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
-  
   </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content nhsuk-card__content--primary">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Help from social services and charities</a>
-    </h2>
-  <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p>
-   
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content nhsuk-card__content--primary">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Help from social services and charities</a>    </h2>  <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse.</p> 
     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
-  
   </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content nhsuk-card__content--primary">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Care services, equipment and care homes</a>
-    </h2>
-  <p class="nhsuk-card__description">Includes home adaptations, help at home from a carer, social care you can get for free and housing.</p>
-   
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content nhsuk-card__content--primary">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Care services, equipment and care homes</a>    </h2>  <p class="nhsuk-card__description">Includes home adaptations, help at home from a carer, social care you can get for free and housing.</p> 
     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
-  
   </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content nhsuk-card__content--primary">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Money, work and benefits</a>
-    </h2>
-  <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs</p>
-   
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content nhsuk-card__content--primary">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Money, work and benefits</a>    </h2>  <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs</p> 
     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false"><circle cx="13.333" cy="13.333" r="13.333" fill=""/><g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667"><path d="M15.438 13l-3.771 3.771"/><path data-name="Path" d="M11.667 9.229L15.438 13"/></g></svg>
-  
   </div>
 </div>
 
-          </li>
-        </ul>
+        </li>
+      </ul>
 
-        <h2>Thirds</h2>
+      <h2>Thirds</h2>
 
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-            
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">5 steps to mental wellbeing</a>
-    </h2>
-  <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">5 steps to mental wellbeing</a>    </h2>  <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better</p>  </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Healthy weight</a>
-    </h2>
-  <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Healthy weight</a>    </h2>  <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>  </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <a class="nhsuk-card__link" href="#">Exercise</a>
-    </h2>
-  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">    <h2 class="nhsuk-card__heading nhsuk-heading-m">        <a class="nhsuk-card__link" href="#">Exercise</a>    </h2>  <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>  </div>
 </div>
 
-          </li>
-        </ul>
+        </li>
+      </ul>
 
-        <h2>Quarters</h2>
+      <h2>Quarters</h2>
 
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-            
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>  </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>  </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>  </div>
 </div>
 
-          </li>
-          <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-            
+        </li>
+        <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+          
 
-
-
-<div class="nhsuk-card nhsuk-card--clickable">
-  <div class="nhsuk-card__content">
-      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>
-  
-  </div>
+<div class="nhsuk-card nhsuk-card--clickable">  <div class="nhsuk-card__content">      <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>  </div>
 </div>
 
-          </li>
-        </ul>
+        </li>
+      </ul>
 
-      </div>
     </div>
+  </div>
+          </main>
+        </div>
 
-  </main>
-</div>
 
-
-
-      
   </body>
 </html>

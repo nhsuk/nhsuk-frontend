@@ -1,498 +1,379 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en" style="">
+  <html lang="en" style="background-color: #f0f4f5;">
   <head>
     <meta charset="utf-8">
+    <title>Components - New typography and spacing - NHS.UK Frontend</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>Components - New typography and spacing - NHS.UK frontend</title>
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8">
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png">
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png">
+      <meta name="msapplication-TileColor" content="#005eb8">
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png">
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png">
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+  <link href="https://www.nhs.uk/" rel="preconnect">
+  <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <link href="/nhsuk-frontend/assets/nhsuk.css" rel="stylesheet">
-
-    <script src="/nhsuk-frontend/assets/nhsuk.js" defer></script>
-
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" rel="preload" as="font" crossorigin>
+  <link href="/nhsuk-frontend/stylesheets/nhsuk-9.3.0.min.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/javascripts/nhsuk-9.3.0.min.js" defer></script>
   </head>
 
-  <body class="">
+  <body >
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-      
+        
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+
+
+        <div class="nhsuk-width-container">
+          <main class="nhsuk-main-wrapper" id="maincontent">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
+      <p>Top padding is added to headings after paragraphs.</p>
+
+      <h2>H2 using no class</h2>
+      <h3>H3 using no class</h3>
+      <h4>H4 using no class</h4>
+      <h5>H5 using no class</h5>
+      <h6>H6 using no class</h6>
+
+      <h2 class="nhsuk-u-margin-top-9">H2 using override nhsuk-u-margin-top-9</h2>
+
+      <p>This is a paragraph using no class. Nam quis posuere nisl, <a href="#">this is what a link looks like</a> eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      <ul>
+        <li>Unordered list item using no class</li>
+        <li>Unordered list item using no class</li>
+      </ul>
+      <ol>
+        <li>Ordered list item using no class</li>
+        <li>Ordered list item using no class</li>
+      </ol>
+
+      <h2>H2 using no class</h2>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <h3>H3 using no class</h3>
+      <p class="nhsuk-u-margin-bottom-7">This is a paragraph <strong>using override nhsuk-u-margin-bottom-7</strong>. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <h2>H2 using no class</h2>
+      <h3>H3 using no class</h3>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      <hr>
+
+      <address>
+      Address styling <br>
+      7 Test Road <br>
+      Village <br>
+      LS16 2JE
+      </address>
+
+      <hr>
+
+      <h1 class="nhsuk-heading-l">H1 using nhsuk-heading-l</h1>
+      <h2 class="nhsuk-heading-xl">H2 using nhsuk-heading-xl</h2>
+      <h3 class="nhsuk-heading-l">H3 using nhsuk-heading-l</h3>
+      <h4 class="nhsuk-heading-m">H4 using nhsuk-heading-m</h4>
+      <h5 class="nhsuk-heading-s">H5 using nhsuk-heading-s</h5>
+      <h6 class="nhsuk-heading-xs">H6 using nhsuk-heading-xs</h6>
+
+      <hr>
+
+      <p class="nhsuk-body-l">P using nhsuk-body-l</p>
+      <p class="nhsuk-body-m">P using nhsuk-body</p>
+      <p class="nhsuk-body-s">P using nhsuk-body-s</p>
+
+      <hr>
+
+      <span class="nhsuk-caption-xl">Heading caption</span>
+      <h1>Page heading</h1>
+
+      <span class="nhsuk-caption-l">Heading caption</span>
+      <h1>Page heading</h1>
+
+      <span class="nhsuk-caption-m">Heading caption</span>
+      <h1>Page heading</h1>
+
+      <h1><span class="nhsuk-caption-xl">Heading caption</span> Page heading</h1>
+
+      <h1><span class="nhsuk-caption-l">Heading caption</span> Page heading</h1>
+
+      <h1><span class="nhsuk-caption-m">Heading caption</span> Page heading</h1>
+
+      <h1>Page heading <span class="nhsuk-caption-xl nhsuk-caption--bottom">Heading caption</span></h1>
+
+      <h1>Page heading <span class="nhsuk-caption-l nhsuk-caption--bottom">Heading caption</span></h1>
+
+      <h1>Page heading <span class="nhsuk-caption-m nhsuk-caption--bottom">Heading caption</span></h1>
+
+      <hr>
+
+      <span class="nhsuk-heading-l">Span using nhsuk-heading-l</span>
+      <span class="nhsuk-heading-m">Span using nhsuk-heading-m</span>
+      <span class="nhsuk-heading-s">Span using nhsuk-heading-s</span>
+      <span class="nhsuk-heading-xs">Span using nhsuk-heading-xs</span>
+      <span class="nhsuk-heading-xxs">Span using nhsuk-heading-xxs</span>
+
+      <span class="nhsuk-body-l">Span using nhsuk-body-l</span>
+      <span class="nhsuk-body-m">Span using nhsuk-body</span>
+      <span class="nhsuk-body-s">Span using nhsuk-body-s</span>
+
+      <h2>Typography with components</h2>
+
+      <p class="nhsuk-u-font-weight-bold">This is a paragraph using nhsuk-u-font-weight-bold. Nam quis posuere nisl, eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      <h3>List (Unordered list)</h3>
+
+      <ul class="nhsuk-list">
+        <li><a href="#">Unordered list item using nhsuk-list</a></li>
+        <li><a href="#">Unordered list item using nhsuk-list</a></li>
+      </ul>
+
+      <h3>List (Ordered list)</h3>
+
+      <ol class="nhsuk-list">
+        <li><a href="#">Ordered list item using nhsuk-list</a></li>
+        <li><a href="#">Ordered list item using nhsuk-list</a></li>
+      </ol>
+
+      <h3>Bulleted list</h3>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Unordered list item using no class</li>
+        <li>Unordered list item using no class</li>
+      </ul>
+
+      <h3>Numbered list</h3>
+
+      <ol class="nhsuk-list nhsuk-list--number">
+        <li>Ordered list item using no class</li>
+        <li>Ordered list item using no class</li>
+      </ol>
+
+      <hr>
+
+      <h2>Typography with images</h2>
 
       
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-
-          <p>The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
-          <p>Top padding is added to headings after paragraphs.</p>
-
-          <h2>H2 using no class</h2>
-          <h3>H3 using no class</h3>
-          <h4>H4 using no class</h4>
-          <h5>H5 using no class</h5>
-          <h6>H6 using no class</h6>
-
-          <h2 class="nhsuk-u-margin-top-9">H2 using override nhsuk-u-margin-top-9</h2>
-
-          <p>This is a paragraph using no class. Nam quis posuere nisl, <a href="#">this is what a link looks like</a> eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          <ul>
-            <li>Unordered list item using no class</li>
-            <li>Unordered list item using no class</li>
-          </ul>
-          <ol>
-            <li>Ordered list item using no class</li>
-            <li>Ordered list item using no class</li>
-          </ol>
-
-          <h2>H2 using no class</h2>
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-          <h3>H3 using no class</h3>
-          <p class="nhsuk-u-margin-bottom-7">This is a paragraph <strong>using override nhsuk-u-margin-bottom-7</strong>. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-          <h2>H2 using no class</h2>
-          <h3>H3 using no class</h3>
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          <hr>
-
-          <address>
-          Address styling <br>
-          7 Test Road <br>
-          Village <br>
-          LS16 2JE
-          </address>
-
-          <hr>
-
-          <h1 class="nhsuk-heading-l">H1 using nhsuk-heading-l</h1>
-          <h2 class="nhsuk-heading-xl">H2 using nhsuk-heading-xl</h2>
-          <h3 class="nhsuk-heading-l">H3 using nhsuk-heading-l</h3>
-          <h4 class="nhsuk-heading-m">H4 using nhsuk-heading-m</h4>
-          <h5 class="nhsuk-heading-s">H5 using nhsuk-heading-s</h5>
-          <h6 class="nhsuk-heading-xs">H6 using nhsuk-heading-xs</h6>
-
-          <hr>
-
-          <p class="nhsuk-body-l">P using nhsuk-body-l</p>
-          <p class="nhsuk-body-m">P using nhsuk-body</p>
-          <p class="nhsuk-body-s">P using nhsuk-body-s</p>
-
-          <hr>
-
-          <span class="nhsuk-caption-xl">Heading caption</span>
-          <h1>Page heading</h1>
-
-          <span class="nhsuk-caption-l">Heading caption</span>
-          <h1>Page heading</h1>
-
-          <span class="nhsuk-caption-m">Heading caption</span>
-          <h1>Page heading</h1>
-
-          <h1><span class="nhsuk-caption-xl">Heading caption</span> Page heading</h1>
-
-          <h1><span class="nhsuk-caption-l">Heading caption</span> Page heading</h1>
-
-          <h1><span class="nhsuk-caption-m">Heading caption</span> Page heading</h1>
-
-          <h1>Page heading <span class="nhsuk-caption-xl nhsuk-caption--bottom">Heading caption</span></h1>
-
-          <h1>Page heading <span class="nhsuk-caption-l nhsuk-caption--bottom">Heading caption</span></h1>
-
-          <h1>Page heading <span class="nhsuk-caption-m nhsuk-caption--bottom">Heading caption</span></h1>
-
-          <hr>
-
-          <span class="nhsuk-heading-l">Span using nhsuk-heading-l</span>
-          <span class="nhsuk-heading-m">Span using nhsuk-heading-m</span>
-          <span class="nhsuk-heading-s">Span using nhsuk-heading-s</span>
-          <span class="nhsuk-heading-xs">Span using nhsuk-heading-xs</span>
-          <span class="nhsuk-heading-xxs">Span using nhsuk-heading-xxs</span>
-
-          <span class="nhsuk-body-l">Span using nhsuk-body-l</span>
-          <span class="nhsuk-body-m">Span using nhsuk-body</span>
-          <span class="nhsuk-body-s">Span using nhsuk-body-s</span>
-
-          <h2>Typography with components</h2>
-
-          <p class="nhsuk-u-font-weight-bold">This is a paragraph using nhsuk-u-font-weight-bold. Nam quis posuere nisl, eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          <h3>List (Unordered list)</h3>
-
-          <ul class="nhsuk-list">
-            <li><a href="#">Unordered list item using nhsuk-list</a></li>
-            <li><a href="#">Unordered list item using nhsuk-list</a></li>
-          </ul>
-
-          <h3>List (Ordered list)</h3>
-
-          <ol class="nhsuk-list">
-            <li><a href="#">Ordered list item using nhsuk-list</a></li>
-            <li><a href="#">Ordered list item using nhsuk-list</a></li>
-          </ol>
-
-          <h3>Bulleted list</h3>
-
-          <ul class="nhsuk-list nhsuk-list--bullet">
-            <li>Unordered list item using no class</li>
-            <li>Unordered list item using no class</li>
-          </ul>
-
-          <h3>Numbered list</h3>
-
-          <ol class="nhsuk-list nhsuk-list--number">
-            <li>Ordered list item using no class</li>
-            <li>Ordered list item using no class</li>
-          </ol>
-
-          <hr>
-
-          <h2>Typography with images</h2>
-
-          
-
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          <h3>H3 heading</h3>
+      <h3>H3 heading</h3>
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          <hr>
+      <hr>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
+      
 <div class="nhsuk-inset-text">
   <span class="nhsuk-u-visually-hidden">Information: </span>
   
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p></div>
+
+
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      
+
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+          </div>
 </div>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          
-
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
-  </div>
-  
-  <div class="nhsuk-card__content">
-  
-            <ul>
-              <li>you're not sure it's chickenpox</li>
-              <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-              <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
-              <li>you're concerned about your child or they get worse</li>
-            </ul>
-            <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-            
-  
-  </div>
-</div>
-
-
-          
-
+      
 <div class="nhsuk-inset-text">
   <span class="nhsuk-u-visually-hidden">Information: </span>
   
-  <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p></div>
+
+
+      <hr>
+
+      <h2>H2 heading</h2>
+
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      
+
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+          </div>
 </div>
 
 
-          <hr>
+      <ul class="nhsuk-list">
+        <li><a href="#">Unordered list item using nhsuk-list</a></li>
+        <li><a href="#">Unordered list item using nhsuk-list</a></li>
+      </ul>
 
-          <h2>H2 heading</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
+        <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
+      </ul>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      
 
-          
-
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-            <ul>
-              <li>you're not sure it's chickenpox</li>
-              <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-              <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
-              <li>you're concerned about your child or they get worse</li>
-            </ul>
-            <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-            
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're an adult and have chickenpox</li>
+          <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
+          <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+          <li>you think your newborn baby has chickenpox</li>
+        </ul>
+        <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+          </div>
 </div>
 
 
-          <ul class="nhsuk-list">
-            <li><a href="#">Unordered list item using nhsuk-list</a></li>
-            <li><a href="#">Unordered list item using nhsuk-list</a></li>
-          </ul>
+      
 
-          <ul class="nhsuk-list nhsuk-list--bullet">
-            <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
-            <li><a href="#">Unordered list item using nhsuk-list--bullet</a></li>
-          </ul>
-
-          
-
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-            <ul>
-              <li>you're an adult and have chickenpox</li>
-              <li>you're pregnant and haven't had chickenpox before and you've been near someone with it </li>
-              <li>you have a weakened immune system and you've been near someone with chickenpox</li>
-              <li>you think your newborn baby has chickenpox</li>
-            </ul>
-            <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-            
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>spreads to your arms, back, neck or jaw</li>
+          <li>makes your chest feel tight or heavy</li>
+          <li>also started with shortness of breath, sweating and feeling or being sick</li>
+        </ul>
+        <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+          </div>
 </div>
 
 
-          
+      <h2>H2 heading</h2>
 
+      
 
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">  <div class="nhsuk-card--care__heading-container">    <h3 class="nhsuk-card--care__heading">      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>    </h3>    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  
-  <div class="nhsuk-card__content">
-  
-            <ul>
-              <li>spreads to your arms, back, neck or jaw</li>
-              <li>makes your chest feel tight or heavy</li>
-              <li>also started with shortness of breath, sweating and feeling or being sick</li>
-            </ul>
-            <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
-            
-  
-  </div>
+  <div class="nhsuk-card__content">  
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+          </div>
 </div>
 
 
-          <h2>H2 heading</h2>
+      <h3>H3 heading</h3>
 
-          
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-
-
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
-    </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
-  </div>
-  
-  <div class="nhsuk-card__content">
-  
-            <ul>
-              <li>you're not sure it's chickenpox</li>
-              <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-              <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
-              <li>you're concerned about your child or they get worse</li>
-            </ul>
-            <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-            
-  
-  </div>
-</div>
-
-
-          <h3>H3 heading</h3>
-
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          
-
-
+      
 <div class="nhsuk-do-dont-list">
   <h3 class="nhsuk-do-dont-list__label">Do</h3>
-  <ul class="nhsuk-list nhsuk-list--tick" role="list">
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+  <ul class="nhsuk-list nhsuk-list--tick" role="list">    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      cover blisters that are likely to burst with a soft plaster or dressing
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+      </svg>cover blisters that are likely to burst with a soft plaster or dressing
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      wash your hands before touching a burst blister
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+      </svg>wash your hands before touching a burst blister
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-      </svg>
-      allow the fluid in a burst blister to drain before covering it with a plaster or dressing
-    </li>
-  </ul>
+      </svg>allow the fluid in a burst blister to drain before covering it with a plaster or dressing
+    </li>  </ul>
 </div>
 
 
-          
-
-
+      
 <div class="nhsuk-do-dont-list">
   <h3 class="nhsuk-do-dont-list__label">Don&#39;t</h3>
-  <ul class="nhsuk-list nhsuk-list--cross" role="list">
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+  <ul class="nhsuk-list nhsuk-list--cross" role="list">    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not burst a blister yourself
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not burst a blister yourself
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not peel the skin off a burst blister
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not peel the skin off a burst blister
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not pick at the edges of the remaining skin
-    </li>
-    <li>
-      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+      </svg>do not pick at the edges of the remaining skin
+    </li>    <li>      <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-      </svg>
-      do not wear the shoes or use the equipment that caused your blister until it heals
-    </li>
-  </ul>
+      </svg>do not wear the shoes or use the equipment that caused your blister until it heals
+    </li>  </ul>
 </div>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          <h2>H2 heading</h2>
+      <h2>H2 heading</h2>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
+      
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -501,96 +382,59 @@
   </summary>
   <div class="nhsuk-details__text">
     
-            <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-            <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-            <ul>
-              <li>prescriptions</li>
-              <li>test results</li>
-              <li>hospital referral letters</li>
-              <li>appointment letters</li>
-              <li>your NHS medical card</li>
-            </ul>
-            <p>Ask your GP practice for help if you can't find your NHS number.</p>
-            
+        <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+        <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+          <li>your NHS medical card</li>
+        </ul>
+        <p>Ask your GP practice for help if you can't find your NHS number.</p>
+        
   </div>
 </details>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          <h2>H2 heading</h2>
+      <h2>H2 heading</h2>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
-
+      
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Important<span class="nhsuk-u-visually-hidden">:</span>
-  </h3>
+  <h3 class="nhsuk-warning-callout__label">    Important<span class="nhsuk-u-visually-hidden">:</span>  </h3>
   <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 </div>
 
 
-          <h2>H2 heading</h2>
+      <h2>H2 heading</h2>
 
-          
-
-
+      
 <div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Important<span class="nhsuk-u-visually-hidden">:</span>
-  </h3>
+  <h3 class="nhsuk-warning-callout__label">    Important<span class="nhsuk-u-visually-hidden">:</span>  </h3>
   <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 </div>
 
 
-          <h2>H2 heading</h2>
+      <h2>H2 heading</h2>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-<div class="nhsuk-table__panel-with-heading-tab">
-    <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>
-  <table class="nhsuk-table">
-    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-    <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-        <th role="columnheader" class="" scope="col">
-          Skin symptoms
-        </th>
-        <th role="columnheader" class="" scope="col">
-          Possible cause
-        </th>
-    </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>
-              <td class="nhsuk-table__cell ">cold sores</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>
-              <td class="nhsuk-table__cell ">eczema</td>
-      </tr>
-      <tr role="row" class="nhsuk-table__row" >
-              <td class="nhsuk-table__cell">Itchy blisters</td>
-              <td class="nhsuk-table__cell ">shingles, chickenpox</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <div class="nhsuk-table__panel-with-heading-tab">    <h3 class="nhsuk-table__heading-tab">Skin symptoms and possible causes</h3>  <table class="nhsuk-table">    <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>    <thead class="nhsuk-table__head">
+      <tr>          <th scope="col" class="nhsuk-table__header">Skin symptoms</th>          <th scope="col" class="nhsuk-table__header">Possible cause</th>      </tr>
+    </thead>    <tbody class="nhsuk-table__body">      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Blisters on lips or around the mouth</td>            <td class="nhsuk-table__cell">cold sores</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy, dry, cracked, sore</td>            <td class="nhsuk-table__cell">eczema</td>      </tr>      <tr class="nhsuk-table__row">            <td class="nhsuk-table__cell">Itchy blisters</td>            <td class="nhsuk-table__cell">shingles, chickenpox</td>      </tr>    </tbody>
+  </table></div>
 
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <h2>H2 heading</h2>
 
-          <h2>H2 heading</h2>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
-
-          
-
+      
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551">
     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
@@ -602,61 +446,48 @@
 </div>
 
 
-          <ul>
-            <li>Unordered list item using no class</li>
-            <li>Unordered list item using no class</li>
-          </ul>
+      <ul>
+        <li>Unordered list item using no class</li>
+        <li>Unordered list item using no class</li>
+      </ul>
 
-          <h2>Content with images</h2>
+      <h2>Content with images</h2>
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          <h3>H3 heading</h3>
+      <h3>H3 heading</h3>
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          
-
+      
 <figure class="nhsuk-image">
-  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">
-  <figcaption class="nhsuk-image__caption">
+  <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg" alt="Picture of allergic conjunctivitis">  <figcaption class="nhsuk-image__caption">
     Itchy, red, watering eyes
-  </figcaption>
-</figure>
+  </figcaption></figure>
 
 
-          <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
-          
-
+      
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="#">
     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
@@ -668,26 +499,23 @@
 </div>
 
 
-          <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
-          <h2>Section spacing</h2>
-          <p>nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible</p>
-          <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
-          <p>nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible</p>
-          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
-          <p>nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible</p>
-          <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
-          <p>nhsuk-section-break nhsuk-section-break--visible</p>
-          <hr class="nhsuk-section-break nhsuk-section-break--visible">
+      <h2>Section spacing</h2>
+      <p>nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible</p>
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+      <p>nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible</p>
+      <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+      <p>nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible</p>
+      <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+      <p>nhsuk-section-break nhsuk-section-break--visible</p>
+      <hr class="nhsuk-section-break nhsuk-section-break--visible">
 
-        </div>
-      </div>
-
-    </main>
+    </div>
   </div>
+          </main>
+        </div>
 
 
-
-      
   </body>
 </html>
