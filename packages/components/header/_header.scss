@@ -142,6 +142,12 @@
   }
 }
 
+.nhsuk-icon__user {
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+}
+
 /// Search
 
 .nhsuk-header__search {
@@ -221,6 +227,11 @@
     background-color: $nhsuk-focus-color;
     box-shadow: inset 0 -4px 0 0 $nhsuk-focus-text-color;
   }
+}
+
+.nhsuk-icon__search {
+  height: 28px;
+  width: 28px;
 }
 
 /// Navigation
