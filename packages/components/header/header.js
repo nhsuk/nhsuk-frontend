@@ -224,7 +224,12 @@ class Header {
 
     // Move items based on available width
     items.forEach((item) => {
-      if (item.right <= this.navigationList.offsetWidth) {
+      const maxRight =
+        items.length !== itemsList.length // Reserve space for menu button
+          ? item.right + this.mobileMenuContainer.offsetWidth
+          : item.right
+
+      if (maxRight <= this.navigationList.offsetWidth) {
         this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
       } else {
         this.mobileMenu.insertAdjacentElement('beforeend', item.element)
