@@ -6,11 +6,12 @@
 class Header {
   constructor() {
     this.menuIsOpen = false
+
     this.navigation = document.querySelector('.nhsuk-navigation')
     this.navigationList = document.querySelector(
       '.nhsuk-header__navigation-list'
     )
-    this.navigationItems = []
+
     this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
@@ -19,7 +20,7 @@ class Header {
     this.mobileMenuContainer = document.querySelector(
       '.nhsuk-mobile-menu-container'
     )
-    this.breakpoints = []
+
     this.width = document.body.offsetWidth
   }
 
@@ -34,6 +35,7 @@ class Header {
     }
 
     this.setupMobileMenu()
+    this.setupNavigation()
     this.calculateBreakpoints()
     this.updateNavigation()
     this.doOnOrientationChange()
@@ -70,13 +72,6 @@ class Header {
   calculateBreakpoints() {
     let right = 0
 
-    // Add navigation items on first load only
-    if (!this.navigationItems.length) {
-      this.navigationList
-        .querySelectorAll('.nhsuk-header__navigation-item')
-        .forEach((element) => this.navigationItems.push({ element, right: 0 }))
-    }
-
     // Update offset calcuation on every resize
     this.navigationItems.forEach((item) => {
       if (item.element.parentElement === this.mobileMenu) {
@@ -86,6 +81,16 @@ class Header {
       right += item.element.offsetWidth
       item.right = right
     })
+  }
+
+  /**
+   * Add the navigation items with default positions
+   */
+  setupNavigation() {
+    this.navigationItems = []
+    this.navigationList
+      .querySelectorAll('.nhsuk-header__navigation-item')
+      .forEach((element) => this.navigationItems.push({ element, right: 0 }))
   }
 
   // Add the mobile menu to the DOM
