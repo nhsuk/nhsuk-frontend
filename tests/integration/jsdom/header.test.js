@@ -3,21 +3,62 @@ import Header from '../../../packages/components/header/header.js'
 describe('Header class', () => {
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-navigation"></div>
-      <div class="nhsuk-header__navigation-list">
-          <li style="width: 50px;">Health A-Z</li>
-          <li style="width: 75px;">NHS services</li>
-          <li style="width: 100px;">Live Well</li>
-          <li style="width: 125px;">Mental health</li>
-          <li style="width: 150px;">Care and support</li>
-          <li style="width: 275px;">Pregnancy</li>
-          <li style="width: 200px;">Home</li>
-          <li style="width: 225px;">More</li>
+      <div class="nhsuk-navigation-container">
+        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+          <ul class="nhsuk-header__navigation-list">
+            <li class="nhsuk-header__navigation-item" style="width: 50px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Health A-Z
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 75px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                NHS services
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 100px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Live Well
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 125px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Mental health
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 150px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Care and support
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 275px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Pregnancy
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 200px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Home
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item" style="width: 225px;">
+              <a class="nhsuk-header__navigation-link" href="#">
+                More
+              </a>
+            </li>
+            <li class="nhsuk-mobile-menu-container">
+              <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+                <span class="nhsuk-u-visually-hidden">Browse</span>
+                More
+                <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="nhsuk-header__menu-toggle"></div>
-      <div class="nhsuk-mobile-menu-container"></div>
-      <div class="nhsuk-header__menu-toggle"></div>
-      `
+    `
   })
 
   it('Should create navigation elements in the DOM', async () => {
@@ -98,9 +139,9 @@ describe('Header class', () => {
     const mobileMenuContainer = document.querySelector(
       '.nhsuk-mobile-menu-container'
     )
-    expect(mobileMenuContainer.childElementCount).toBe(0)
+    expect(mobileMenuContainer.childElementCount).toBe(1)
     await Header()
-    expect(mobileMenuContainer.childElementCount).toBeGreaterThan(0)
+    expect(mobileMenuContainer.childElementCount).toBeGreaterThan(1)
   })
 
   it('Should setup the Mobile Menu List during initialization', async () => {
@@ -171,7 +212,7 @@ describe('Header class', () => {
 
     mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
     expect(mobileMenuList.children).toHaveLength(0)
-    expect(navigationList.children).toHaveLength(8)
+    expect(navigationList.children).toHaveLength(9)
 
     navigationOffsetWidthSpy.mockRestore()
   })
@@ -221,7 +262,7 @@ describe('Header class', () => {
     ).toBe(true)
 
     mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
-    expect(mobileMenuList.children).toHaveLength(1)
+    expect(mobileMenuList.children).toHaveLength(2)
     expect(navigationList.children).toHaveLength(7)
 
     navigationOffsetWidthSpy.mockRestore()
