@@ -67,7 +67,6 @@ class Header {
    * Calculate breakpoints.
    *
    * Calculate breakpoints by summing the width of each navigation item.
-   *
    */
   calculateBreakpoints() {
     let right = 0
@@ -93,7 +92,9 @@ class Header {
       .forEach((element) => this.navigationItems.push({ element, right: 0 }))
   }
 
-  // Add the mobile menu to the DOM
+  /**
+   * Add the mobile menu to the DOM
+   */
   setupMobileMenu() {
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add(
@@ -151,7 +152,6 @@ class Header {
    *
    * This function is called when the user
    * presses the escape key to close the mobile menu.
-   *
    */
   handleEscapeKey(e) {
     if (e.key === 'Escape') {
@@ -169,7 +169,6 @@ class Header {
    *
    * Adds event listeners for the close button,
    */
-
   openMobileMenu() {
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
@@ -213,7 +212,6 @@ class Header {
    * Additionally will close the mobile menu if the window gets resized
    * and the menu is open.
    */
-
   updateNavigation() {
     const items = this.navigationItems
     const itemsList = items.filter((item) => {
