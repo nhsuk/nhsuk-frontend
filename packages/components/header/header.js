@@ -70,7 +70,7 @@ class Header {
   calculateBreakpoints() {
     // Get the width of the gap between each navigation item
     const navigationListStyles = window.getComputedStyle(this.navigationList)
-    const gapPixels = navigationListStyles.getPropertyValue('gap')
+    const gapPixels = navigationListStyles.getPropertyValue('column-gap')
     const gap = Number(gapPixels.replace('px', ''))
 
     let childrenWidth = 0

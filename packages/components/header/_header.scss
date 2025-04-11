@@ -460,8 +460,9 @@
   @extend %nhsuk-navigation-list;
   @include govuk-width-container;
   display: flex;
-  gap: nhsuk-spacing(4);
-  width: 100%;
+  flex-wrap: wrap;
+  column-gap: nhsuk-spacing(4);
+  width: calc(100% - $nhsuk-gutter);
 
   @include mq($from: tablet) {
     border-top: 1px solid $color_transparent_nhsuk-white-20;
@@ -472,7 +473,8 @@
   }
 
   .js-enabled & {
-    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
 }
 
