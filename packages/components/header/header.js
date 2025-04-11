@@ -10,6 +10,7 @@ class Header {
     this.navigationList = document.querySelector(
       '.nhsuk-header__navigation-list'
     )
+    this.navigationItems = []
     this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
@@ -67,11 +68,24 @@ class Header {
    *
    */
   calculateBreakpoints() {
-    let childrenWidth = 0
-    for (let i = 0; i < this.navigationList.children.length; i++) {
-      childrenWidth += this.navigationList.children[i].offsetWidth
-      this.breakpoints[i] = childrenWidth
+    let right = 0
+
+    // Add navigation items on first load only
+    if (!this.navigationItems.length) {
+      this.navigationList
+        .querySelectorAll('.nhsuk-header__navigation-item')
+        .forEach((element) => this.navigationItems.push({ element, right: 0 }))
     }
+
+    // Update offset calcuation on every resize
+    this.navigationItems.forEach((item) => {
+      if (item.element.parentElement === this.mobileMenu) {
+        return
+      }
+
+      right += item.element.offsetWidth
+      item.right = right
+    })
   }
 
   // Add the mobile menu to the DOM
@@ -196,37 +210,26 @@ class Header {
    */
 
   updateNavigation() {
-    const availableSpace = this.navigationList.offsetWidth
-    let itemsVisible = this.navigationList.children.length
-
-    if (availableSpace < this.breakpoints[itemsVisible - 1]) {
-      this.enableMobileMenu()
-
-      while (availableSpace < this.breakpoints[itemsVisible - 1]) {
-        if (itemsVisible === 1) {
-          break
-        }
-        this.mobileMenu.insertBefore(
-          this.navigationList.children[itemsVisible - 2],
-          this.mobileMenu.firstChild
-        )
-        itemsVisible -= 1
-      }
-    } else if (availableSpace > this.breakpoints[itemsVisible]) {
-      while (availableSpace > this.breakpoints[itemsVisible]) {
-        this.navigationList.insertBefore(
-          this.mobileMenu.removeChild(this.mobileMenu.firstChild),
-          this.mobileMenuContainer
-        )
-        itemsVisible += 1
-      }
-    }
-
+    const items = this.navigationItems
+    const itemsList = items.filter((item) => {
+      return item.right <= this.navigationList.offsetWidth
+    })
 
     // Disable mobile menu if empty
-    if (!this.mobileMenu.children.length) {
+    if (items.length === itemsList.length) {
       this.disableMobileMenu()
+    } else {
+      this.enableMobileMenu()
     }
+
+    // Move items based on available width
+    items.forEach((item) => {
+      if (item.right <= this.navigationList.offsetWidth) {
+        this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
+      } else {
+        this.mobileMenu.insertAdjacentElement('beforeend', item.element)
+      }
+    })
 
     // Check for width changes
     if (this.width !== document.body.offsetWidth) {
