@@ -6,10 +6,12 @@
 class Header {
   constructor() {
     this.menuIsOpen = false
+
     this.navigation = document.querySelector('.nhsuk-navigation')
     this.navigationList = document.querySelector(
       '.nhsuk-header__navigation-list'
     )
+
     this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
@@ -18,7 +20,7 @@ class Header {
     this.mobileMenuContainer = document.querySelector(
       '.nhsuk-mobile-menu-container'
     )
-    this.breakpoints = []
+
     this.width = document.body.offsetWidth
   }
 
@@ -33,6 +35,7 @@ class Header {
     }
 
     this.setupMobileMenu()
+    this.setupNavigation()
     this.calculateBreakpoints()
     this.updateNavigation()
     this.doOnOrientationChange()
@@ -63,29 +66,64 @@ class Header {
   /**
    * Calculate breakpoints.
    *
-   * Calculate the breakpoints by summing the widths of
-   * each navigation item.
-   *
+   * Calculate breakpoints by summing the width of each navigation item.
    */
   calculateBreakpoints() {
-    // Get the width of the gap between each navigation item
-    const navigationListStyles = window.getComputedStyle(this.navigationList)
-    const gapPixels = navigationListStyles.getPropertyValue('gap')
-    const gap = Number(gapPixels.replace('px', ''))
+    let right = 0
 
-    let childrenWidth = 0
-    for (let i = 0; i < this.navigationList.children.length; i++) {
-      childrenWidth += this.navigationList.children[i].offsetWidth + gap
-      this.breakpoints[i] = childrenWidth
-    }
+    // Update offset calcuation on every resize
+    this.navigationItems.forEach((item) => {
+      if (item.element.parentElement === this.mobileMenu) {
+        return
+      }
+
+      right += item.element.offsetWidth
+      item.right = right
+    })
   }
 
-  // Add the mobile menu to the DOM
+  /**
+   * Add the navigation items with default positions
+   */
+  setupNavigation() {
+    this.navigationItems = []
+    this.navigationList
+      .querySelectorAll('.nhsuk-header__navigation-item')
+      .forEach((element) => this.navigationItems.push({ element, right: 0 }))
+  }
+
+  /**
+   * Add the mobile menu to the DOM
+   */
   setupMobileMenu() {
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add(
       'nhsuk-header__drop-down',
       'nhsuk-header__drop-down--hidden'
+    )
+  }
+
+  /**
+   * Enable the mobile menu
+   */
+  enableMobileMenu() {
+    this.mobileMenuToggleButton.classList.add(
+      'nhsuk-header__menu-toggle--visible'
+    )
+    this.mobileMenuContainer.classList.add(
+      'nhsuk-mobile-menu-container--visible'
+    )
+  }
+
+  /**
+   * Disable the mobile menu
+   */
+  disableMobileMenu() {
+    this.mobileMenuToggleButton.classList.remove(
+      'nhsuk-header__menu-toggle--visible'
+    )
+    this.mobileMenuContainer.classList.remove(
+      'nhsuk-mobile-menu-container--visible'
     )
   }
 
@@ -114,7 +152,6 @@ class Header {
    *
    * This function is called when the user
    * presses the escape key to close the mobile menu.
-   *
    */
   handleEscapeKey(e) {
     if (e.key === 'Escape') {
@@ -132,7 +169,6 @@ class Header {
    *
    * Adds event listeners for the close button,
    */
-
   openMobileMenu() {
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
@@ -176,49 +212,43 @@ class Header {
    * Additionally will close the mobile menu if the window gets resized
    * and the menu is open.
    */
-
   updateNavigation() {
-    const availableSpace = this.navigationList.offsetWidth
-    let itemsVisible = this.navigationList.children.length
+    const items = this.navigationItems
+    const itemsList = items.filter((item) => {
+      return item.right <= this.navigationList.offsetWidth
+    })
 
-    if (availableSpace < this.breakpoints[itemsVisible - 1]) {
-      this.mobileMenuToggleButton.classList.add(
-        'nhsuk-header__menu-toggle--visible'
-      )
-      this.mobileMenuContainer.classList.add(
-        'nhsuk-mobile-menu-container--visible'
-      )
-      if (itemsVisible === 2) {
-        return
-      }
-      while (availableSpace < this.breakpoints[itemsVisible - 1]) {
-        this.mobileMenu.insertBefore(
-          this.navigationList.children[itemsVisible - 2],
-          this.mobileMenu.firstChild
-        )
-        itemsVisible -= 1
-      }
-    } else if (availableSpace > this.breakpoints[itemsVisible]) {
-      while (availableSpace > this.breakpoints[itemsVisible]) {
-        this.navigationList.insertBefore(
-          this.mobileMenu.removeChild(this.mobileMenu.firstChild),
-          this.mobileMenuContainer
-        )
-        itemsVisible += 1
-      }
+    // Disable mobile menu if empty
+    if (items.length === itemsList.length) {
+      this.disableMobileMenu()
+    } else {
+      this.enableMobileMenu()
     }
 
-    if (!this.mobileMenu.children.length) {
-      this.mobileMenuToggleButton.classList.remove(
-        'nhsuk-header__menu-toggle--visible'
-      )
-      this.mobileMenuContainer.classList.remove(
-        'nhsuk-mobile-menu-container--visible'
-      )
-    }
+    // Move items based on available width
+    items.forEach((item) => {
+      let maxRight = this.navigationList.offsetWidth
 
-    if (document.body.offsetWidth !== this.width && this.menuIsOpen) {
-      this.closeMobileMenu()
+      // Subtract space for menu button
+      if (items.length !== itemsList.length) {
+        maxRight -= this.mobileMenuContainer.offsetWidth
+      }
+
+      if (item.right <= maxRight) {
+        this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
+      } else {
+        this.mobileMenu.insertAdjacentElement('beforeend', item.element)
+      }
+    })
+
+    // Check for width changes
+    if (this.width !== document.body.offsetWidth) {
+      this.width = document.body.offsetWidth
+
+      // Automatically close menu
+      if (this.menuIsOpen) {
+        this.closeMobileMenu()
+      }
     }
   }
 
