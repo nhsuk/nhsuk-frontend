@@ -1,58 +1,162 @@
-{% set title = 'Home' %}
-{% from 'components/contents-list/macro.njk' import contentsList %}
-{% from 'components/footer/macro.njk' import footer %}
-{% from 'components/hero/macro.njk' import hero %}
-{% from 'components/card/macro.njk' import card %}
-
 {% extends 'page.njk' %}
 
-{% block header %}
-  {{ super() }}
+{% set title = 'NHS.UK frontend' %}
 
-  {{ hero({
-    "heading": "NHS.UK frontend",
-    "text": "Code you need to start building accessible user interfaces for NHS websites and services."
-  }) }}
+{% block header %}
+  {% call hero({
+    heading: "This is an internal development app.",
+    headingClasses: "nhsuk-body-l nhsuk-u-font-weight-normal",
+    headingLevel: 2
+  }) %}
+    <p class="nhsuk-u-margin-bottom-0">To learn how to design and build digital services, visit the <a href="https://service-manual.nhs.uk/design-system">design system in the NHS digital service manual</a> for guidance and examples.</p>
+  {% endcall %}
 {% endblock %}
 
 {% block content %}
 
-  <div class="nhsuk-grid-row nhsuk-card-group">
-    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
-        "href": "./pages/install.html",
-        "clickable": "true",
-        "heading": "Install",
-        "headingClasses": "nhsuk-heading-m",
-        "description": "Download and installation instructions."
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">NHS.UK frontend</h1>
+      <p class="nhsuk-body">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/main" rel="noreferrer noopener" target="_blank"><code>main</code> branch (opens in new tab).</a></p>
+
+      <h2 class="nhsuk-heading-l">Components and variants</h2>
+      <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+
+      <ul class="nhsuk-list">
+        <li><a href="components/action-link/index.html">Action link</a></li>
+        <li><a href="components/back-link/index.html">Back link</a></li>
+        <li><a href="components/back-link/button.html">Back link - as a button</a></li>
+        <li><a href="components/breadcrumb/index.html">Breadcrumb</a></li>
+        <li><a href="components/button/index.html">Button</a></li>
+        <li><a href="components/button/prevent-double-click.html">Button - with double click prevented</a></li>
+        <li><a href="components/button/link.html">Button as a link</a></li>
+        <li><a href="components/button/disabled.html">Button disabled</a></li>
+        <li><a href="components/button/secondary.html">Button secondary</a></li>
+        <li><a href="components/button/reverse.html">Button reverse</a></li>
+        <li><a href="components/button/warning.html">Button warning</a></li>
+        <li><a href="components/card/basic-card.html">Card - Basic card</a></li>
+        <li><a href="components/card/card-with-image.html">Card - Card with an image</a></li>
+        <li><a href="components/card/card-group.html">Card - Card group</a></li>
+        <li><a href="components/card/feature-card.html">Card - Feature card</a></li>
+        <li><a href="components/card/card-primary.html">Card - Primary card (with chevron)</a></li>
+        <li><a href="components/card/card-secondary.html">Card - Secondary card</a></li>
+        <li><a href="components/card/top-task-card.html">Card - Top task card</a></li>
+        <li><a href="components/card/care-card-non-urgent.html">Card - Care card non-urgent (blue)</a></li>
+        <li><a href="components/card/care-card-urgent.html">Card - Care card urgent (red)</a></li>
+        <li><a href="components/card/care-card-emergency.html">Card - Care card emergency (red and black)</a></li>
+        <li><a href="components/character-count/index.html">Character count - max characters</a></li>
+        <li><a href="components/character-count/with-threshold.html">Character count - with threshold</a></li>
+        <li><a href="components/character-count/with-word-count.html">Character count - max words</a></li>
+        <li><a href="components/checkboxes/index.html">Checkboxes</a></li>
+        <li><a href="components/checkboxes/hint.html">Checkboxes with hint text</a></li>
+        <li><a href="components/checkboxes/disabled.html">Checkboxes with disabled item</a></li>
+        <li><a href="components/checkboxes/page-heading.html">Checkboxes with legend as page heading</a></li>
+        <li><a href="components/checkboxes/error.html">Checkboxes with error message</a></li>
+        <li><a href="components/checkboxes/conditional.html">Checkboxes with conditional content</a></li>
+        <li><a href="components/checkboxes/none-of-the-above.html">Checkboxes with "none of the above" option</a></li>
+        <li><a href="components/contents-list/index.html">Contents list</a></li>
+        <li><a href="components/date-input/index.html">Date input</a></li>
+        <li><a href="components/date-input/autocomplete.html">Date input with autocomplete attribute</a></li>
+        <li><a href="components/date-input/error.html">Date input with error</a></li>
+        <li><a href="components/date-input/multiple-errors.html">Date input with multiple errors</a></li>
+        <li><a href="components/date-input/with-values.html">Date input with values</a></li>
+        <li><a href="components/date-input/month-and-year-with-values.html">Date (month and year) input with values</a></li>
+        <li><a href="components/details/index.html">Details</a></li>
+        <li><a href="components/do-dont-list/index.html">Do and Don't list</a></li>
+        <li><a href="components/error-message/index.html">Error message</a></li>
+        <li><a href="components/error-summary/index.html">Error summary</a></li>
+        <li><a href="components/error-summary/linking-to-input.html">Error summary with link to an input field</a></li>
+        <li><a href="components/error-summary/linking-to-radios.html">Error summary with link to a radio field</a></li>
+        <li><a href="components/details/expander.html">Expander</a></li>
+        <li><a href="components/details/expander-group.html">Expander group</a></li>
+        <li><a href="components/fieldset/index.html">Fieldset</a></li>
+        <li><a href="components/fieldset/page-heading.html">Fieldset as page heading</a></li>
+        <li><a href="components/fieldset/with-inputs.html">Fieldset with inputs</a></li>
+        <li><a href="components/footer/index.html">Footer (default)</a></li>
+        <li><a href="components/footer/footer-in-columns.html">Footer (columns)</a></li>
+        <li><a href="components/footer/custom-copyright.html">Footer (custom copyright statement)</a></li>
+        <li><a href="components/header/index.html">Header (default)</a></li>
+        <li><a href="components/header/header-navigation.html">Header with navigation</a></li>
+        <li><a href="components/header/header-search.html">Header with search</a></li>
+        <li><a href="components/header/header-account-logged-in.html">Header with account (logged in)</a></li>
+        <li><a href="components/header/header-account-logged-out.html">Header with account (logged out)</a></li>
+        <li><a href="components/header/header-account-rbac.html">Header with account (logged in, RBAC)</a></li>
+        <li><a href="components/header/header-logo.html">Header with unlinked logo only</a></li>
+        <li><a href="components/header/header-service-name.html">Header with a service name</a></li>
+        <li><a href="components/header/header-service-name-unlinked.html">Header with an un-linked service name</a></li>
+        <li><a href="components/header/header-service-name-combined-with-logo.html">Header with a service name combined with NHS logo</a></li>
+        <li><a href="components/header/header-service-name-with-nav.html">Header with a service name, search and navigation</a></li>
+        <li><a href="components/header/header-service-name-with-account-search-nav.html">Header with a service name, account, search and navigation</a></li>
+        <li><a href="components/header/header-org.html">Header organisational</a></li>
+        <li><a href="components/header/header-org-white.html">Header organisational with white header</a></li>
+        <li><a href="components/header/header-org-white-account.html">Header organisational with white header and account (logged in)</a></li>
+        <li><a href="components/header/header-org-white-nav.html">Header organisational with white header and navigation</a></li>
+        <li><a href="components/hero/index.html">Hero</a></li>
+        <li><a href="components/hero/hero-image.html">Hero with image</a></li>
+        <li><a href="components/hero/hero-image-content.html">Hero with image, text content</a></li>
+        <li><a href="components/hero/hero-with-html.html">Hero with HTML content</a></li>
+        <li><a href="components/hint/index.html">Hint</a></li>
+        <li><a href="components/images/index.html">Images</a></li>
+        <li><a href="components/input/index.html">Input</a></li>
+        <li><a href="components/input/autocomplete.html">Input with autocomplete attribute</a></li>
+        <li><a href="components/input/hint.html">Input with hint text</a></li>
+        <li><a href="components/input/error.html">Input with error message</a></li>
+        <li><a href="components/input/custom-width.html">Input with width modifier</a></li>
+        <li><a href="components/input/prefix.html">Input with prefix</a></li>
+        <li><a href="components/input/suffix.html">Input with suffix</a></li>
+        <li><a href="components/input/prefix-and-suffix.html">Input with prefix and suffix</a></li>
+        <li><a href="components/input/error-and-prefix-and-suffix.html">Input with error message, prefix and suffix</a></li>
+        <li><a href="components/inset-text/index.html">Inset text</a></li>
+        <li><a href="components/label/index.html">Label</a></li>
+        <li><a href="components/label/bold.html">Label with bold text</a></li>
+        <li><a href="components/label/page-heading.html">Label as page heading</a></li>
+        <li><a href="components/pagination/index.html">Pagination</a></li>
+        <li><a href="components/panel/index.html">Panel</a></li>
+        <li><a href="components/radios/index.html">Radios</a></li>
+        <li><a href="components/radios/inline.html">Radios inline</a></li>
+        <li><a href="components/radios/disabled.html">Radios disabled</a></li>
+        <li><a href="components/radios/divider.html">Radios with a divider</a></li>
+        <li><a href="components/radios/hint.html">Radios with hint text</a></li>
+        <li><a href="components/radios/without-fieldset.html">Radios without fieldset</a></li>
+        <li><a href="components/radios/hint-error.html">Radios with hint text and error message</a></li>
+        <li><a href="components/radios/conditional.html">Radios with conditional content</a></li>
+        <li><a href="components/radios/nested-conditionals.html">Radios with nested conditional radios</a></li>
+        <li><a href="components/select/index.html">Select</a></li>
+        <li><a href="components/select/hint-error.html">Select with hint text and error message</a></li>
+        <li><a href="components/skip-link/index.html">Skip link</a></li>
+        <li><a href="components/summary-list/index.html">Summary list</a></li>
+        <li><a href="components/summary-list/without-actions.html">Summary list without actions</a></li>
+        <li><a href="components/summary-list/without-border.html">Summary list without border</a></li>
+        <li><a href="components/tables/index.html">Table</a></li>
+        <li><a href="components/tables/responsive-table.html">Table with responsive layout</a></li>
+        <li><a href="components/tables/table-with-word-breaks.html">Table with word breaks</a></li>
+        <li><a href="components/tables/tables-panel.html">Table as a panel</a></li>
+        <li><a href="components/tabs/index.html">Tabs</a> <strong class="nhsuk-tag nhsuk-tag--yellow">Experimental</strong></li>
+        <li><a href="components/tag/index.html">Tag</a></li>
+        <li><a href="components/task-list/index.html">Task list</a></li>
+        <li><a href="components/task-list/multiple-sections.html">Task list with multiple sections</a></li>
+        <li><a href="components/textarea/index.html">Textarea</a></li>
+        <li><a href="components/textarea/autocomplete.html">Textarea with autocomplete attribute</a></li>
+        <li><a href="components/textarea/error.html">Textarea with error message</a></li>
+        <li><a href="components/warning-callout/index.html">Warning callout</a></li>
+        <li><a href="components/warning-callout/custom-heading.html">Warning callout with custom heading</a></li>
+      </ul>
+
+      <h2 class="nhsuk-heading-l">Example pages</h2>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "components/all.html",
+            text: "All component examples"
+          },
+          {
+            href: "components/typography.html",
+            text: "Typography and spacing examples"
+          }
+        ]
       }) }}
     </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
-        "href": "./pages/examples.html",
-        "clickable": "true",
-        "heading": "Examples",
-        "headingClasses": "nhsuk-heading-m",
-        "description": "Page layouts, test pages and components."
-      }) }}
-    </div>
-    <div class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-      {{ card({
-        "href": "./pages/about.html",
-        "clickable": "true",
-        "heading": "About",
-        "headingClasses": "nhsuk-heading-m",
-        "description": "Getting support and contributing."
-      }) }}
-    </div>
-  </div>
-
-  <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
-
-  <div class="nhsuk-u-reading-width">
-
-    <p class="nhsuk-u-margin-bottom-0">Visit the <a href="https://service-manual.nhs.uk/">NHS digital service manual</a> for guidance and examples.</p>
-
   </div>
 
 {% endblock %}

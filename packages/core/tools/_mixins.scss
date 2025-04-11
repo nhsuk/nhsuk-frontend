@@ -31,15 +31,58 @@
   max-width: 44em;
 }
 
-/// Visually hidden mixin, used for hiding
-/// content visually but keeping it in the DOM
+/// Helper function containing the common code for the following two mixins
+///
+/// @link https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+///   - Hiding Content for Accessibility, Jonathan Snook, February 2011
+/// @link https://github.com/h5bp/html5-boilerplate/blob/9f13695d21ff92c55c78dfa9f16bb02a1b6e911f/src/css/main.css#L121-L158
+///   - h5bp/html5-boilerplate - Thanks!
+///
+/// @param {Boolean} $important [true] - Whether to mark as `!important`
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin _nhsuk-visually-hide-content($important: true) {
+  position: absolute if($important, !important, null);
+
+  width: 1px if($important, !important, null);
+  height: 1px if($important, !important, null);
+  // If margin is set to a negative value it can cause text to be announced in
+  // the wrong order in VoiceOver for OSX
+  margin: 0 if($important, !important, null);
+  padding: 0 if($important, !important, null);
+
+  overflow: hidden if($important, !important, null);
+
+  // `clip` is needed for IE11 support
+  clip: rect(0 0 0 0) if($important, !important, null);
+  clip-path: inset(50%) if($important, !important, null);
+
+  border: 0 if($important, !important, null);
+
+  // For long content, line feeds are not interpreted as spaces and small width
+  // causes content to wrap 1 word per line:
+  // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+  white-space: nowrap if($important, !important, null);
+
+  // Prevent users from selecting or copying visually-hidden text. This prevents
+  // a user unintentionally copying more text than they intended and needing to
+  // manually trim it down again.
+  user-select: none;
+}
+
+/// Hide an element visually, but have it available for screen readers
 ///
 /// @see utilities/visually-hidden
 ///
+/// @param {Boolean} $important [true] - Whether to mark as `!important`
+///
 /// @example scss
-///   @include visually-hidden();
+///   @include visually-hidden;
 
-@mixin visually-hidden() {
+@mixin visually-hidden($important: true) {
+  @include _nhsuk-visually-hide-content($important: $important);
+
   // Absolute positioning has the unintended consequence of removing any
   // whitespace surrounding visually hidden text from the accessibility tree.
   // Insert a space character before and after visually hidden text to separate
@@ -51,39 +94,51 @@
   &::after {
     content: "\00a0";
   }
-
-  border: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
-/// Visually shown mixin, used for displaying
-/// content visually that has previously been hidden
-/// by visually-hidden
+/// Hide an element visually, but have it available for screen readers whilst
+/// allowing the element to be focused when navigated to via the keyboard (e.g.
+/// for the skip link)
 ///
-/// Differences between mobile and desktop views
-/// Use $display-property to assign display
+/// @param {Boolean} $important [true] - Whether to mark as `!important`
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin visually-hidden-focusable($important: true) {
+  // IE 11 doesn't support the combined `:not(:active, :focus)` syntax.
+  &:not(:active):not(:focus) {
+    @include _nhsuk-visually-hide-content($important: $important);
+  }
+}
+
+/// Show an element visually that has previously been hidden by visually-hidden
+///
+/// For differences between mobile and desktop views, use $display to set the CSS display property
+///
+/// @param {String} $display [null] - CSS display property (optional)
+/// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
 /// @example scss
-///   @include visually-shown(table-header-group);
+///   @include visually-shown($display: table-header-group);
+///
+/// @deprecated To be removed in v10.0, use @media queries to apply `visually-hidden` instead
 
-@mixin visually-shown($display-property) {
-  clip: auto;
-  -webkit-clip-path: initial;
-  clip-path: initial;
-  display: $display-property;
-  height: auto;
-  overflow: auto;
-  position: relative;
-  width: auto;
+@mixin visually-shown($display: null, $important: true) {
+  position: static if($important, !important, null);
+  width: auto if($important, !important, null);
+  height: auto if($important, !important, null);
+  margin: 0 if($important, !important, null);
+  padding: 0 if($important, !important, null);
+  overflow: visible if($important, !important, null);
+  clip: auto if($important, !important, null);
+  clip-path: none if($important, !important, null);
+  border: none if($important, !important, null);
+  white-space: normal if($important, !important, null);
+  user-select: auto if($important, !important, null);
+
+  @if $display {
+    display: $display;
+  }
 }
 
 /// Top and bottom margin mixin, remove

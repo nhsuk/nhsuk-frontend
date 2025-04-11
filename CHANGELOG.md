@@ -113,13 +113,23 @@ You can now add `classes` and `attributes` to table cells, for example using the
       {
         text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
         classes: "nhsuk-u-text-break-word"
-      },
+      }
     ]
   ]
 }) }}
 ```
 
 This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
+
+#### Add html content and heading attributes to hero
+
+You can now use `caller`, `html`, `headingClasses` and `headingLevel` in the hero component.
+
+This was added in [pull request #1201: Add missing params to hero component](https://github.com/nhsuk/nhsuk-frontend/pull/1201).
+
+#### Default bottom margin on tables
+
+This was added in [pull request #1005: Update table styles so nhsuk-table has bottom margin](https://github.com/nhsuk/nhsuk-frontend/pull/1005).
 
 #### Source maps for precompiled files
 
@@ -141,6 +151,10 @@ We've configured our build tasks to use [Browserslist](https://browsersl.ist) fo
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
+- [#908: Updating secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
+- [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
+- [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
+- [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
 
 ## 9.3.0 - 13 February 2025
 
