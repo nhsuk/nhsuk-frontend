@@ -1,3 +1,7 @@
+/**
+ * @param {Page} page
+ * @param {Scenario} scenario
+ */
 module.exports = async function (page, scenario) {
   const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector
   const clickSelector = scenario.clickSelectors || scenario.clickSelector
@@ -45,3 +49,8 @@ module.exports = async function (page, scenario) {
     }, scrollToSelector)
   }
 }
+
+/**
+ * @import { Scenario } from 'backstopjs'
+ * @import { Page } from 'playwright-core'
+ */
