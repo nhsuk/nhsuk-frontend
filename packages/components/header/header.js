@@ -211,8 +211,14 @@ class Header {
       )
     }
 
-    if (document.body.offsetWidth !== this.width && this.menuIsOpen) {
-      this.closeMobileMenu()
+    // Check for width changes
+    if (this.width !== document.body.offsetWidth) {
+      this.width = document.body.offsetWidth
+
+      // Automatically close menu
+      if (this.menuIsOpen) {
+        this.closeMobileMenu()
+      }
     }
   }
 
