@@ -84,6 +84,30 @@ class Header {
   }
 
   /**
+   * Enable the mobile menu
+   */
+  enableMobileMenu() {
+    this.mobileMenuToggleButton.classList.add(
+      'nhsuk-header__menu-toggle--visible'
+    )
+    this.mobileMenuContainer.classList.add(
+      'nhsuk-mobile-menu-container--visible'
+    )
+  }
+
+  /**
+   * Disable the mobile menu
+   */
+  disableMobileMenu() {
+    this.mobileMenuToggleButton.classList.remove(
+      'nhsuk-header__menu-toggle--visible'
+    )
+    this.mobileMenuContainer.classList.remove(
+      'nhsuk-mobile-menu-container--visible'
+    )
+  }
+
+  /**
    * Close the mobile menu
    *
    * Closes the mobile menu and updates accessibility state.
@@ -176,12 +200,8 @@ class Header {
     let itemsVisible = this.navigationList.children.length
 
     if (availableSpace < this.breakpoints[itemsVisible - 1]) {
-      this.mobileMenuToggleButton.classList.add(
-        'nhsuk-header__menu-toggle--visible'
-      )
-      this.mobileMenuContainer.classList.add(
-        'nhsuk-mobile-menu-container--visible'
-      )
+      this.enableMobileMenu()
+
       while (availableSpace < this.breakpoints[itemsVisible - 1]) {
         if (itemsVisible === 1) {
           break
@@ -202,13 +222,10 @@ class Header {
       }
     }
 
+
+    // Disable mobile menu if empty
     if (!this.mobileMenu.children.length) {
-      this.mobileMenuToggleButton.classList.remove(
-        'nhsuk-header__menu-toggle--visible'
-      )
-      this.mobileMenuContainer.classList.remove(
-        'nhsuk-mobile-menu-container--visible'
-      )
+      this.disableMobileMenu()
     }
 
     // Check for width changes
