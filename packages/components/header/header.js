@@ -63,19 +63,13 @@ class Header {
   /**
    * Calculate breakpoints.
    *
-   * Calculate the breakpoints by summing the widths of
-   * each navigation item.
+   * Calculate breakpoints by summing the width of each navigation item.
    *
    */
   calculateBreakpoints() {
-    // Get the width of the gap between each navigation item
-    const navigationListStyles = window.getComputedStyle(this.navigationList)
-    const gapPixels = navigationListStyles.getPropertyValue('column-gap')
-    const gap = Number(gapPixels.replace('px', ''))
-
     let childrenWidth = 0
     for (let i = 0; i < this.navigationList.children.length; i++) {
-      childrenWidth += this.navigationList.children[i].offsetWidth + gap
+      childrenWidth += this.navigationList.children[i].offsetWidth
       this.breakpoints[i] = childrenWidth
     }
   }
