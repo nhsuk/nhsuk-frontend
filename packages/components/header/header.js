@@ -16,7 +16,6 @@ class Header {
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
     )
-    this.mobileMenuCloseButton = document.createElement('button')
     this.mobileMenuContainer = document.querySelector(
       '.nhsuk-mobile-menu-container'
     )
@@ -140,10 +139,6 @@ class Header {
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
     this.mobileMenuToggleButton.focus()
-    this.mobileMenuCloseButton.removeEventListener(
-      'click',
-      this.closeMobileMenu.bind(this)
-    )
     document.removeEventListener('keydown', this.handleEscapeKey.bind(this))
   }
 
@@ -178,12 +173,6 @@ class Header {
 
     // add event listener for esc key to close menu
     document.addEventListener('keydown', this.handleEscapeKey.bind(this))
-
-    // add event listener for close icon to close menu
-    this.mobileMenuCloseButton.addEventListener(
-      'click',
-      this.closeMobileMenu.bind(this)
-    )
   }
 
   /**
