@@ -117,6 +117,8 @@ class Header {
    * Disable the mobile menu
    */
   disableMobileMenu() {
+    this.closeMobileMenu()
+
     this.mobileMenuToggleButton.classList.remove(
       'nhsuk-header__menu-toggle--visible'
     )
@@ -232,11 +234,6 @@ class Header {
     // Check for width changes
     if (this.width !== document.body.offsetWidth) {
       this.width = document.body.offsetWidth
-
-      // Automatically close menu
-      if (this.menuIsOpen) {
-        this.closeMobileMenu()
-      }
     }
   }
 }
