@@ -37,7 +37,6 @@ class Header {
     this.setupNavigation()
     this.calculateBreakpoints()
     this.updateNavigation()
-    this.doOnOrientationChange()
 
     this.handleResize = this.debounce(() => {
       this.calculateBreakpoints()
@@ -48,8 +47,8 @@ class Header {
       'click',
       this.toggleMobileMenu.bind(this)
     )
+
     window.addEventListener('resize', this.handleResize)
-    window.addEventListener('orientationchange', this.doOnOrientationChange())
   }
 
   debounce(func, timeout = 100) {
@@ -238,25 +237,6 @@ class Header {
       if (this.menuIsOpen) {
         this.closeMobileMenu()
       }
-    }
-  }
-
-  /**
-   * Orientation change
-   *
-   * Check the orientation of the device, if changed it will trigger a
-   * update to the breakpoints and navigation.
-   */
-  doOnOrientationChange() {
-    switch (window.orientation) {
-      case 90:
-        setTimeout(() => {
-          this.calculateBreakpoints()
-          this.updateNavigation()
-        }, 200)
-        break
-      default:
-        break
     }
   }
 }
