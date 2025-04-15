@@ -20,8 +20,7 @@ class Header {
       '.nhsuk-mobile-menu-container'
     )
 
-    this.listWidth = 0
-    this.itemsWidth = 0
+    this.width = 0
   }
 
   init() {
@@ -38,10 +37,7 @@ class Header {
     this.setupNavigation()
     this.updateNavigation()
 
-    this.handleResize = this.debounce(() => {
-      this.resetNavigation()
-      this.updateNavigation()
-    })
+    this.handleResize = this.debounce(this.updateNavigation)
 
     this.mobileMenuToggleButton.addEventListener(
       'click',
@@ -67,17 +63,19 @@ class Header {
    * Calculate available space by summing the width of each navigation item
    */
   resetNavigation() {
-    this.listWidth = this.navigationList.offsetWidth
-    this.itemsWidth = 0
+    let right = 0
 
     // Reset and calculate widths on every resize
     this.navigationItems.forEach((item) => {
       this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
 
       // Calculate widths
-      this.itemsWidth += item.element.offsetWidth
-      item.right = this.itemsWidth
+      right += item.element.offsetWidth
+      item.right = right
     })
+
+    // Reset space for menu button
+    this.width = this.navigationList.offsetWidth
   }
 
   /**
@@ -88,9 +86,6 @@ class Header {
     this.navigationList
       .querySelectorAll('.nhsuk-header__navigation-item')
       .forEach((element) => this.navigationItems.push({ element, right: 0 }))
-
-    // Calculate widths
-    this.resetNavigation()
   }
 
   /**
@@ -111,6 +106,7 @@ class Header {
     this.mobileMenuToggleButton.classList.add(
       'nhsuk-header__menu-toggle--visible'
     )
+
     this.mobileMenuContainer.classList.add(
       'nhsuk-mobile-menu-container--visible'
     )
@@ -125,6 +121,7 @@ class Header {
     this.mobileMenuToggleButton.classList.remove(
       'nhsuk-header__menu-toggle--visible'
     )
+
     this.mobileMenuContainer.classList.remove(
       'nhsuk-mobile-menu-container--visible'
     )
@@ -193,42 +190,32 @@ class Header {
   }
 
   /**
-   * Update nav for the available space
+   * Update navigation for the available space
    *
-   * If the available space is less than the current breakpoint,
-   * add the mobile menu toggle button and move the last
-   * item in the list to the drop-down list.
-   *
-   * If the available space is greater than the current breakpoint,
-   * remove the mobile menu toggle button and move the first item in the
-   *
-   * Additionally will close the mobile menu if the window gets resized
-   * and the menu is open.
+   * Moves all items that overflow the available space into the mobile menu
    */
   updateNavigation() {
-    const items = this.navigationItems
-    const itemsList = items.filter((item) => {
-      return item.right <= this.listWidth
+    this.resetNavigation()
+
+    // Check for items that overflow
+    let menuItems = this.navigationItems.filter((item) => {
+      return item.right > this.width
     })
 
     // Disable mobile menu if empty
-    if (items.length === itemsList.length) {
+    if (!menuItems.length) {
       this.disableMobileMenu()
       return
     }
 
     this.enableMobileMenu()
 
+    // Subtract space for menu button
+    this.width -= this.mobileMenuContainer.offsetWidth
+
     // Move items based on available width
-    items.forEach((item) => {
-      let maxRight = this.listWidth
-
-      // Subtract space for menu button
-      if (items.length !== itemsList.length) {
-        maxRight -= this.mobileMenuContainer.offsetWidth
-      }
-
-      if (item.right > maxRight) {
+    this.navigationItems.forEach((item) => {
+      if (item.right > this.width) {
         this.mobileMenu.insertAdjacentElement('beforeend', item.element)
       }
     })
