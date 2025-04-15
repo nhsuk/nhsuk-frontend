@@ -36,7 +36,9 @@ The application generates static HTML pages to preview components, with each com
 
 - `tests/`
 
-  Test configuration files for our testing frameworks Cypress and BackstopJS. Linting configuration for our linters eslint, htmlhint and stylelint.
+  - `backstop/`
+
+    BackstopJS visual regression test output and reference files. See project [backstop.config.js](../../backstop.config.js) for more information.
 
 ---
 
