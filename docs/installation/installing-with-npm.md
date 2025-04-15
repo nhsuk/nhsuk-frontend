@@ -12,7 +12,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-   ```
+   ```sh
    npm install nunjucks --save
    ```
 
@@ -20,7 +20,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 Install the NHS.UK frontend package into your project:
 
-```
+```sh
 npm install nhsuk-frontend --save
 ```
 
@@ -60,7 +60,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
-```
+```js
 document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 ```
 
@@ -86,7 +86,7 @@ You might wish to copy the file into your project or reference it straight from 
 
 If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or [Webpack](https://webpack.js.org/), you can use the ES6 import syntax to import components via modules into your main Javascript file.
 
-```javascript
+```js
 // Components
 import Checkboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js';
 import Details from 'nhsuk-frontend/packages/components/details/details.js';

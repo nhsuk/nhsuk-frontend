@@ -48,7 +48,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
    Add the following JavaScript to the top of the `<body>` section of your page template:
 
-   ```
+   ```html
    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
    ```
 

@@ -104,7 +104,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -217,7 +217,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -287,7 +287,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -343,7 +343,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -378,7 +378,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -479,7 +479,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -603,7 +603,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
@@ -728,7 +728,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/header/macro.njk' import header %}
 
 {{ header({
