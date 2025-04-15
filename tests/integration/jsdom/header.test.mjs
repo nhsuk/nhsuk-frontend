@@ -93,20 +93,6 @@ describe('Header class', () => {
       })
   })
 
-  describe('Initialisation', () => {
-    it('should setup the menu', async () => {
-      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
-
-      await Header()
-
-      expect(menuButton.nextElementSibling).toBeInTheDocument()
-      expect(menuButton.nextElementSibling).toHaveRole('list')
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
-    })
-  })
-
   describe('Menu button', () => {
     it('should be hidden by default', async () => {
       expect(menuButton).toHaveRole('button')
@@ -176,6 +162,48 @@ describe('Header class', () => {
       await user.keyboard('[Escape]')
 
       // Menu closed
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
+  })
+
+  describe('Menu list', () => {
+    it('should be skipped by default', async () => {
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+    })
+
+    it('should be skipped when items do not overflow', async () => {
+      await Header()
+
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+    })
+
+    it('should be added when items overflow', async () => {
+      listWidth = 700
+
+      await Header()
+
+      expect(menuButton.nextElementSibling).toBeInTheDocument()
+      expect(menuButton.nextElementSibling).toHaveRole('list')
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
+
+    it('should be added when items overflow when resized', async () => {
+      await Header()
+
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+
+      listWidth = 700
+
+      // Trigger resize
+      await fireEvent.resize(window)
+      await setTimeout(100)
+
+      expect(menuButton.nextElementSibling).toBeInTheDocument()
+      expect(menuButton.nextElementSibling).toHaveRole('list')
       expect(menuButton.nextElementSibling).toHaveClass(
         'nhsuk-header__drop-down--hidden'
       )

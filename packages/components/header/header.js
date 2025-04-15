@@ -9,7 +9,14 @@ class Header {
     this.menuIsOpen = false
 
     this.navigation = document.querySelector('.nhsuk-navigation')
-    this.navigationList = document.querySelector(
+    this.navigationList = null
+    this.navigationItems = null
+
+    if (!this.navigation) {
+      return
+    }
+
+    this.navigationList = this.navigation.querySelector(
       '.nhsuk-header__navigation-list'
     )
     this.navigationItems = this.navigation.querySelectorAll(
@@ -31,6 +38,8 @@ class Header {
     if (
       !this.navigation ||
       !this.navigationList ||
+      !this.navigationItems ||
+      !this.navigationItems.length ||
       !this.mobileMenuToggleButton ||
       !this.mobileMenuContainer
     ) {
@@ -41,7 +50,6 @@ class Header {
     this.handleUpdateNavigation = this.debounce(this.updateNavigation)
     this.handleToggleMobileMenu = this.toggleMobileMenu.bind(this)
 
-    this.setupMobileMenu()
     this.setupNavigation()
     this.updateNavigation()
   }
@@ -98,6 +106,10 @@ class Header {
    * Add the mobile menu to the DOM
    */
   setupMobileMenu() {
+    if (this.mobileMenu.parentElement) {
+      return
+    }
+
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add(
       'nhsuk-header__drop-down',
@@ -252,6 +264,7 @@ class Header {
       return
     }
 
+    this.setupMobileMenu()
     this.enableMobileMenu()
 
     // Subtract space for menu button
