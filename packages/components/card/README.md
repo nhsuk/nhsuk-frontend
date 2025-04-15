@@ -23,7 +23,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -53,7 +53,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -85,7 +85,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
     {{ card({
@@ -120,7 +120,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -274,7 +274,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 <h2>Halves</h2>
@@ -400,7 +400,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -439,7 +439,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -488,7 +488,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -536,7 +536,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({

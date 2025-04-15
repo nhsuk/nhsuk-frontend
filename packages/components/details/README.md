@@ -40,7 +40,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/details/macro.njk' import details %}
 
 {{ details({
@@ -122,7 +122,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/details/macro.njk' import details %}
 
 {{ details({
@@ -216,7 +216,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/details/macro.njk' import details %}
 
 <div class="nhsuk-expander-group">

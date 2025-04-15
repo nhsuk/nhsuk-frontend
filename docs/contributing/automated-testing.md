@@ -35,7 +35,7 @@ Docker is installed on the continuous integration service automatically but if y
 
 #### Run tests
 
-```
+```sh
 npm run test:visual
 ```
 
@@ -51,7 +51,7 @@ If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have 
 
 To run a test on an individual scenario, pass a `--filter<scenarioLabelRegex>` argument to just run scenarios matching your scenario label.
 
-```shell
+```sh
 npm run test:visual -- --filter="Action link"
 ```
 
@@ -63,7 +63,7 @@ If you have made intentional visual changes, the reference bitmaps need to be up
 
 After running the tests (`npm run test:visual`) you can update the reference screenshots with:
 
-```shell
+```sh
 npm run test:visual:approve
 ```
 
@@ -71,7 +71,7 @@ npm run test:visual:approve
 
 If you want to add new tests you will need to add the test scenarios to the `backstop.js` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference bitmaps to include a reference for the new tests.
 
-```shell
+```sh
 npm run test:visual:ref
 ```
 

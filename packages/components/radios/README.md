@@ -41,7 +41,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -106,7 +106,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -172,7 +172,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -242,7 +242,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -315,7 +315,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -381,7 +381,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -443,7 +443,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 
 {{ radios({
@@ -548,7 +548,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/radios/macro.njk' import radios %}
 {% from 'components/input/macro.njk' import input %}
 

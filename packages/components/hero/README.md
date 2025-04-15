@@ -25,7 +25,7 @@
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
@@ -62,7 +62,7 @@
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({
@@ -89,7 +89,7 @@
 
 #### Nunjucks macro
 
-```nunjucks
+```njk
 {% from 'components/hero/macro.njk' import hero %}
 
 {{ hero({

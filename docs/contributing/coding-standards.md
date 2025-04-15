@@ -239,13 +239,13 @@ When providing _content_ to a macro, say for a label or a button, we accept two 
 
 Example:
 
-```nunjucks
+```njk
 {{ insetText({
   "text": "You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
 }) }}
 ```
 
-```nunjucks
+```njk
 {{ insetText({
   "html": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
 }) }}
