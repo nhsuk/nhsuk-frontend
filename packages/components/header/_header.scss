@@ -269,7 +269,7 @@
   padding: 0;
   width: calc(100% + $nhsuk-gutter-half);
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     width: calc(100% + $nhsuk-gutter);
     margin: 0 math.div($nhsuk-gutter, 2) * -1;
   }
@@ -290,7 +290,7 @@
   margin-bottom: 0;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
 }
@@ -411,7 +411,7 @@
   display: none;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
 }
