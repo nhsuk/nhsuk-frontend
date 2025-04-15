@@ -5,6 +5,23 @@
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   },
+  "exports": {
+    ".": {
+      "sass": "./packages/nhsuk.scss",
+      "default": "./packages/nhsuk.js"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./packages/*.scss",
+      "default": "./packages/*.js"
+    },
+    "./packages/*.js": "./packages/*.js",
+    "./packages/*.scss": "./packages/*.scss",
+    "./package.json": "./package.json"
+  },
+  "main": "packages/nhsuk.js",
+  "sass": "packages/nhsuk.scss",
+  "sideEffects": false,
   "scripts": {
     "postinstall": "playwright install chromium --with-deps --only-shell",
     "build": "gulp build docs:build --color --series",
