@@ -53,7 +53,7 @@ You can now add `classes` and `attributes` to table cells, for example using the
       {
         text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
         classes: "nhsuk-u-text-break-word"
-      },
+      }
     ]
   ]
 }) }}
