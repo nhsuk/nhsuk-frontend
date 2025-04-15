@@ -8,10 +8,6 @@ The application generates static HTML pages to preview components, with each com
 
   GitHub specific files, such templates for pull requests and issues.
 
-- `app/`
-
-  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
-
 - `dist/` (Automatically generated)
 
   Automatically generated compiled files and build assets for GitHub pages, releases and npm packages. Don't manually edit files in this folder as they will be deleted.
@@ -25,6 +21,16 @@ The application generates static HTML pages to preview components, with each com
   Node package manager modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
 
 - `packages/`
+
+  - `nhsuk-frontend-review`
+
+    - `dist/` **contains auto-generated files**
+
+      Builds of nhsuk-frontend-review served by [GitHub Pages](https://pages.github.com).
+
+    - `src/`
+
+      Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
 
   - `nhsuk-frontend`
 
