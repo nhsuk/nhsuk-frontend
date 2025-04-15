@@ -12,6 +12,9 @@ class Header {
     this.navigationList = document.querySelector(
       '.nhsuk-header__navigation-list'
     )
+    this.navigationItems = this.navigation.querySelectorAll(
+      '.nhsuk-header__navigation-item'
+    )
 
     this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
@@ -62,12 +65,15 @@ class Header {
     let right = 0
 
     // Reset and calculate widths on every resize
-    this.navigationItems.forEach((item) => {
-      this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
+    this.breakpoints.forEach((breakpoint) => {
+      this.navigationList.insertBefore(
+        breakpoint.element,
+        this.mobileMenuContainer
+      )
 
       // Calculate widths
-      right += item.element.offsetWidth
-      item.right = right
+      right += breakpoint.element.offsetWidth
+      breakpoint.right = right
     })
 
     // Reset space for menu button
@@ -75,13 +81,14 @@ class Header {
   }
 
   /**
-   * Add the navigation items with default positions
+   * Add the breakpoints with default positions
    */
   setupNavigation() {
-    this.navigationItems = []
-    this.navigationList
-      .querySelectorAll('.nhsuk-header__navigation-item')
-      .forEach((element) => this.navigationItems.push({ element, right: 0 }))
+    this.breakpoints = []
+
+    this.navigationItems.forEach((element) => {
+      this.breakpoints.push({ element, right: 0 })
+    })
 
     // Add resize listener for next update
     window.addEventListener('resize', this.handleUpdateNavigation)
@@ -235,8 +242,8 @@ class Header {
     this.resetNavigation()
 
     // Check for items that overflow
-    let menuItems = this.navigationItems.filter((item) => {
-      return item.right > this.width
+    let menuItems = this.breakpoints.filter((breakpoint) => {
+      return breakpoint.right > this.width
     })
 
     // Disable mobile menu if empty
@@ -251,9 +258,9 @@ class Header {
     this.width -= this.mobileMenuContainer.offsetWidth
 
     // Move items based on available width
-    this.navigationItems.forEach((item) => {
-      if (item.right > this.width) {
-        this.mobileMenu.insertAdjacentElement('beforeend', item.element)
+    this.breakpoints.forEach((breakpoint) => {
+      if (breakpoint.right > this.width) {
+        this.mobileMenu.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
   }
