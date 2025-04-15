@@ -242,6 +242,6 @@ class Header {
   }
 }
 
-export default () => {
+module.exports = () => {
   new Header().init()
 }
