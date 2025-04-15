@@ -20,7 +20,8 @@ class Header {
       '.nhsuk-mobile-menu-container'
     )
 
-    this.width = document.body.offsetWidth
+    this.listWidth = 0
+    this.itemsWidth = 0
   }
 
   init() {
@@ -35,11 +36,10 @@ class Header {
 
     this.setupMobileMenu()
     this.setupNavigation()
-    this.calculateBreakpoints()
     this.updateNavigation()
 
     this.handleResize = this.debounce(() => {
-      this.calculateBreakpoints()
+      this.resetNavigation()
       this.updateNavigation()
     })
 
@@ -62,21 +62,21 @@ class Header {
   }
 
   /**
-   * Calculate breakpoints.
+   * Reset navigation
    *
-   * Calculate breakpoints by summing the width of each navigation item.
+   * Calculate available space by summing the width of each navigation item
    */
-  calculateBreakpoints() {
-    let right = 0
+  resetNavigation() {
+    this.listWidth = this.navigationList.offsetWidth
+    this.itemsWidth = 0
 
-    // Update offset calcuation on every resize
+    // Reset and calculate widths on every resize
     this.navigationItems.forEach((item) => {
-      if (item.element.parentElement === this.mobileMenu) {
-        return
-      }
+      this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
 
-      right += item.element.offsetWidth
-      item.right = right
+      // Calculate widths
+      this.itemsWidth += item.element.offsetWidth
+      item.right = this.itemsWidth
     })
   }
 
@@ -88,6 +88,9 @@ class Header {
     this.navigationList
       .querySelectorAll('.nhsuk-header__navigation-item')
       .forEach((element) => this.navigationItems.push({ element, right: 0 }))
+
+    // Calculate widths
+    this.resetNavigation()
   }
 
   /**
@@ -205,36 +208,30 @@ class Header {
   updateNavigation() {
     const items = this.navigationItems
     const itemsList = items.filter((item) => {
-      return item.right <= this.navigationList.offsetWidth
+      return item.right <= this.listWidth
     })
 
     // Disable mobile menu if empty
     if (items.length === itemsList.length) {
       this.disableMobileMenu()
-    } else {
-      this.enableMobileMenu()
+      return
     }
+
+    this.enableMobileMenu()
 
     // Move items based on available width
     items.forEach((item) => {
-      let maxRight = this.navigationList.offsetWidth
+      let maxRight = this.listWidth
 
       // Subtract space for menu button
       if (items.length !== itemsList.length) {
         maxRight -= this.mobileMenuContainer.offsetWidth
       }
 
-      if (item.right <= maxRight) {
-        this.navigationList.insertBefore(item.element, this.mobileMenuContainer)
-      } else {
+      if (item.right > maxRight) {
         this.mobileMenu.insertAdjacentElement('beforeend', item.element)
       }
     })
-
-    // Check for width changes
-    if (this.width !== document.body.offsetWidth) {
-      this.width = document.body.offsetWidth
-    }
   }
 }
 
