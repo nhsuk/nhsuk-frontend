@@ -12,7 +12,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-   ```
+   ```shell
    npm install nunjucks --save
    ```
 
@@ -20,7 +20,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 Install the NHS.UK frontend package into your project:
 
-```
+```shell
 npm install nhsuk-frontend --save
 ```
 
@@ -60,7 +60,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
-```
+```javascript
 document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 ```
 

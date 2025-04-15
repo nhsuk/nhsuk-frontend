@@ -20,13 +20,13 @@ To run NHS.UK frontend locally you'll need to:
 
 You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/)
 
-```
+```shell
 git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
 ```
 
 Otherwise you'll have to clone your own fork
 
-```
+```shell
 git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
 ```
 
@@ -38,11 +38,11 @@ We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-
 
 Whilst in the project directory you will need to install the dependencies listed in `package.json`
 
-```
+```shell
 cd nhsuk-frontend
 ```
 
-```
+```shell
 npm install
 ```
 
@@ -50,7 +50,7 @@ npm install
 
 This will build files, serve web pages and watch for changes when you save a file.
 
-```
+```shell
 npm start
 ```
 

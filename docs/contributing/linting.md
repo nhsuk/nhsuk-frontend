@@ -12,13 +12,13 @@ We use the following rules when linting files:
 
 Bad:
 
-```
+```scss
 .selector {border: 0; padding: 0;}
 ```
 
 Good:
 
-```
+```scss
 .selector {
   border: 0;
   padding: 0;
@@ -29,7 +29,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   color: #005eb8;
 }
@@ -37,7 +37,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   color: $colour_nhsuk-blue;
 }
@@ -47,13 +47,13 @@ Good:
 
 Bad:
 
-```
+```scss
 $white: #FFF;
 ```
 
 Good:
 
-```
+```scss
 $white: #ffffff;
 ```
 
@@ -61,7 +61,7 @@ $white: #ffffff;
 
 Bad:
 
-```
+```scss
 .selector {
   border: none;
 }
@@ -69,7 +69,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   border: 0;
 }
@@ -79,17 +79,17 @@ Good:
 
 Bad:
 
-```
+```scss
 #content {
-  ...
+  // ...
 }
 ```
 
 Good:
 
-```
+```scss
 .nhsuk-wrapper {
-  ...
+  // ...
 }
 ```
 
@@ -97,31 +97,31 @@ Good:
 
 Bad:
 
-```
+```scss
 p {
   margin: 0;
   em {
-    ...
+    // ...
   }
 }
 a {
-  ...
+  // ...
 }
 ```
 
 Good:
 
-```
+```scss
 p {
   margin: 0;
 
   em {
-    ...
+    // ...
   }
 }
 
 a {
-  ...
+  // ...
 }
 ```
 
@@ -129,24 +129,24 @@ a {
 
 Bad:
 
-```
+```scss
 .nhsuk-breadcrumb {
-  ...
+  // ...
   &__item {
-    ...
+    // ...
   }
 }
 ```
 
 Good:
 
-```
+```scss
 .nhsuk-breadcrumb {
-  ...
+  // ...
 }
 
 .nhsuk-breadcrumb__item {
-  ...
+  // ...
 }
 ```
 
@@ -154,13 +154,13 @@ Good:
 
 Bad:
 
-```
+```scss
 @extend %contain-floats;
 ```
 
 Good:
 
-```
+```scss
 @include clearfix;
 ```
 
@@ -186,14 +186,14 @@ margin: 1px 2px 3px;
 
 Bad:
 
-```
+```scss
 @import "_foo.scss";
 @import "_bar/foo.scss";
 ```
 
 Good:
 
-```
+```scss
 @import "foo";
 @import "bar/foo";
 ```
@@ -202,7 +202,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .foo {
   content:"bar";
 }
@@ -210,7 +210,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .foo {
   content: "bar";
 }
@@ -220,7 +220,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   margin: 5px+15px;
 }
@@ -246,7 +246,7 @@ $bar: 2-1;
 
 Good:
 
-```
+```scss
 .selector {
   margin: 5px + 15px;
 }
@@ -274,7 +274,7 @@ $bar: 2 - 1;
 
 Bad:
 
-```
+```scss
 @function foo( $bar, $baz ) {
   @return $bar + $baz;
 }
@@ -282,7 +282,7 @@ Bad:
 
 Good:
 
-```
+```scss
 @function foo($bar, $baz) {
   @return $bar + $baz;
 }
@@ -292,7 +292,7 @@ Good:
 
 Bad:
 
-```
+```scss
 @mixin FONT_STACK() {
   font-family: $nhsuk-font-stack;
 }
@@ -300,7 +300,7 @@ Bad:
 
 Good:
 
-```
+```scss
 @mixin font-stack() {
   font-family: $nhsuk-font-stack;
 }
@@ -310,7 +310,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   margin: 0px;
 }
@@ -318,7 +318,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   margin: 0;
 }
@@ -328,7 +328,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   margin: 0
 }
@@ -338,7 +338,7 @@ $my-example-var: value
 
 Good:
 
-```
+```scss
 .selector {
   margin: 0;
 }
@@ -350,7 +350,7 @@ $my-example-var: value;
 
 Bad:
 
-```
+```scss
 .selector {
   font-size: 0.50em;
 }
@@ -358,7 +358,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   font-size: 0.5em;
 }
