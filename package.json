@@ -1,27 +1,8 @@
 {
-  "name": "nhsuk-frontend",
-  "version": "9.3.0",
-  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
-  "engines": {
-    "node": "^20.9.0 || ^22.11.0"
-  },
-  "exports": {
-    ".": {
-      "sass": "./packages/nhsuk.scss",
-      "default": "./packages/nhsuk.js"
-    },
-    "./*": "./*",
-    "./packages/*": {
-      "sass": "./packages/*.scss",
-      "default": "./packages/*.js"
-    },
-    "./packages/*.js": "./packages/*.js",
-    "./packages/*.scss": "./packages/*.scss",
-    "./package.json": "./package.json"
-  },
-  "main": "packages/nhsuk.js",
-  "sass": "packages/nhsuk.scss",
-  "sideEffects": false,
+  "name": "nhsuk-frontend-repository",
+  "private": true,
+  "description": "Used only for the development of NHS.UK frontend, see `packages/nhsuk-frontend/package.json` for the published `package.json`",
+  "license": "MIT",
   "scripts": {
     "postinstall": "playwright install chromium --with-deps --only-shell",
     "build": "gulp build docs:build --color --series",
@@ -96,20 +77,7 @@
     "wait-on": "^8.0.3",
     "webpack-stream": "^7.0.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist",
-    "packages"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
-  },
-  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
-  "bugs": {
-    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
-  },
-  "license": "MIT"
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
 }

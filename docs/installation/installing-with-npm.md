@@ -39,17 +39,17 @@ To build the stylesheet you will need a pipeline set up to compile [Sass](https:
 You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
 ```scss
-@import "node_modules/nhsuk-frontend/packages/nhsuk";
+@import "node_modules/nhsuk-frontend/src/nhsuk";
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.
 
 ```scss
 // Core (required)
-@import "node_modules/nhsuk-frontend/packages/core/all";
+@import "node_modules/nhsuk-frontend/src/core/all";
 
 // Individual component (optional)
-@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@import "node_modules/nhsuk-frontend/src/components/action-link/action-link";
 ```
 
 ## Importing JavaScript
@@ -88,15 +88,15 @@ If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or 
 
 ```js
 // Components
-import Checkboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js';
-import Details from 'nhsuk-frontend/packages/components/details/details.js';
-import ErrorSummary from 'nhsuk-frontend/packages/components/error-summary/error-summary.js';
-import Header from 'nhsuk-frontend/packages/components/header/header.js';
-import Radios from 'nhsuk-frontend/packages/components/radios/radios.js';
-import SkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
+import Checkboxes from 'nhsuk-frontend/src/components/checkboxes/checkboxes.js';
+import Details from 'nhsuk-frontend/src/components/details/details.js';
+import ErrorSummary from 'nhsuk-frontend/src/components/error-summary/error-summary.js';
+import Header from 'nhsuk-frontend/src/components/header/header.js';
+import Radios from 'nhsuk-frontend/src/components/radios/radios.js';
+import SkipLink from 'nhsuk-frontend/src/components/skip-link/skip-link.js';
 
 // Polyfills
-import 'nhsuk-frontend/packages/polyfills.js';
+import 'nhsuk-frontend/src/polyfills.js';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,6 +1,6 @@
 # Application architecture
 
-The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `app/`. To make changes to components, you will have to edit the individual components files within `packages/`. These are usually the only 2 folders that you will need.
+The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `app/`. To make changes to components, you will have to edit the individual components files within `packages/nhsuk-frontend/`. These are usually the only 2 folders that you will need.
 
 ---
 
@@ -26,7 +26,18 @@ The application generates static HTML pages to preview components, with each com
 
 - `packages/`
 
-  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+  - `nhsuk-frontend`
+
+    Package published on npm.
+    Consume all of nhsuk-frontend through a single package.
+
+    - `dist/` **contains auto-generated files**
+
+      Builds of nhsuk-frontend published and exported from the npm package.
+
+    - `src/`
+
+      NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 - `shared/`
 
