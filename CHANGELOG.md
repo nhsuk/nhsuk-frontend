@@ -71,18 +71,18 @@ This was added in [pull request #1152: Add source maps to compiled JavaScript an
 
 We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
 
-- Updated stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
-- Changed stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
-- Changed JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
-- Fixed JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
-- Fixed JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
-- Fixed bottom padding on the `nhsuk-main-wrapper--l` modifier class
+- Update stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
+- Change stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
+- Change JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
+- Fix JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
+- Fix JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
+- Fix bottom padding on the `nhsuk-main-wrapper--l` modifier class
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
-- [#908: Updating secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
-- [#1207: Updating wording around font licence](https://github.com/nhsuk/nhsuk-frontend/pull/1207)
+- [#908: Update secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
+- [#1207: Update wording around font licence](https://github.com/nhsuk/nhsuk-frontend/pull/1207)
 - [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
 - [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
 - [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
