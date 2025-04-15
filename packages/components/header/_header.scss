@@ -469,10 +469,13 @@
   width: calc(100% + $nhsuk-gutter-half);
   margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
 
-  @include mq($from: desktop) {
-    justify-content: space-between;
+  @include mq($from: tablet) {
     width: calc(100% + $nhsuk-gutter);
     margin: 0 math.div($nhsuk-gutter, 2) * -1;
+  }
+
+  @include mq($from: desktop) {
+    justify-content: space-between;
   }
 
   .js-enabled & {
@@ -491,7 +494,7 @@
   margin-bottom: 0;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
 }
@@ -519,9 +522,6 @@
 
   @include mq($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
-  }
-
-  @include mq($until: desktop) {
     padding: 0 math.div($nhsuk-gutter-half, 2);
   }
 
