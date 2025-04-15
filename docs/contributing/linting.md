@@ -221,14 +221,14 @@ Good:
 Bad:
 
 ```scss
-.selector {
+.selector-1 {
   margin: 5px+15px;
 }
 
 $foo: 1;
 $bar: 3;
 
-.selector {
+.selector-2 {
   margin: $foo+$bar+'px';
 }
 
@@ -247,14 +247,14 @@ $bar: 2-1;
 Good:
 
 ```scss
-.selector {
+.selector-1 {
   margin: 5px + 15px;
 }
 
 $foo: 1;
 $bar: 3;
 
-.selector {
+.selector-2 {
   margin: $foo + $bar + 'px';
 }
 
@@ -265,7 +265,7 @@ $bar: 2 - 1;
   $baz: 1;
 }
 
-@if ($foo != $bar) {
+@if $foo != $bar {
   $baz: 1;
 }
 ```
