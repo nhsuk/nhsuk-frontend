@@ -139,7 +139,6 @@ class Header {
     this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
-    this.mobileMenuToggleButton.focus()
     document.removeEventListener('keydown', this.handleEscapeKey.bind(this))
   }
 
