@@ -1,11 +1,11 @@
-import { toggleAttribute } from '../../common.js'
+const { toggleAttribute } = require('../../common')
 
 /**
  * Ensure details component is cross browser and accessible
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Does the browser support details component
   const nativeSupport =
     typeof document.createElement('details').open === 'boolean'

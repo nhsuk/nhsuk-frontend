@@ -1,4 +1,4 @@
-import { toggleConditionalInput } from '../../common.js'
+const { toggleConditionalInput } = require('../../common')
 
 /**
  * Conditionally show content when a checkbox button is checked
@@ -56,7 +56,7 @@ const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
   syncAllConditionalReveals(input)
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Checkbox input DOMElements inside a conditional form group
   const checkboxInputs = scope.querySelectorAll(
     '.nhsuk-checkboxes .nhsuk-checkboxes__input'

@@ -1,22 +1,22 @@
+import { mkdir, writeFile } from 'fs/promises'
+import { join, parse } from 'path'
+
+import browserSync from 'browser-sync'
+import { glob } from 'glob'
+import gulp from 'gulp'
+import { HtmlValidate, formatterFactory } from 'html-validate'
+import nunjucks from 'nunjucks'
+import PluginError from 'plugin-error'
+
+import validatorConfig from '../../.htmlvalidate.js'
+import pkg from '../../package.json' with { type: 'json' }
+
 const { PORT = 3000 } = process.env
-
-const { mkdir, writeFile } = require('fs/promises')
-const { join, parse } = require('path')
-
-const browserSync = require('browser-sync')
-const { glob } = require('glob')
-const gulp = require('gulp')
-const { HtmlValidate, formatterFactory } = require('html-validate')
-const nunjucks = require('nunjucks')
-const PluginError = require('plugin-error')
-
-const validatorConfig = require('../.htmlvalidate')
-const { version } = require('../package.json')
 
 /**
  * Compile Nunjucks into HTML
  */
-async function buildHTML() {
+export async function buildHTML() {
   const paths = await glob('**/*.njk', {
     cwd: 'app',
     nodir: true
@@ -32,8 +32,9 @@ async function buildHTML() {
     const { name, dir } = parse(path)
 
     const html = env.render(path, {
+      assetPath: `/nhsuk-frontend/assets`,
       baseUrl: '/nhsuk-frontend/',
-      version
+      version: pkg.version
     })
 
     const destPath = join('dist/app', dir)
@@ -48,7 +49,7 @@ async function buildHTML() {
 /**
  * Validate Nunjucks HTML output
  */
-async function validateHTML() {
+export async function validateHTML() {
   const paths = await glob('dist/app/**/*.html', {
     nodir: true
   })
@@ -73,7 +74,11 @@ async function validateHTML() {
 /**
  * Copy CSS from dist into the documentation directory
  */
-function copyCSS() {
+export async function copyCSS() {
+  await mkdir('dist/app/stylesheets', {
+    recursive: true
+  })
+
   return gulp
     .src('dist/*.min.{css,css.map}')
     .pipe(gulp.dest('dist/app/stylesheets'))
@@ -83,7 +88,11 @@ function copyCSS() {
 /**
  * Copy JS from dist into the documentation directory
  */
-function copyJS() {
+export async function copyJS() {
+  await mkdir('dist/app/javascripts', {
+    recursive: true
+  })
+
   return gulp
     .src('dist/*.min.{js,js.map}')
     .pipe(gulp.dest('dist/app/javascripts'))
@@ -93,7 +102,11 @@ function copyJS() {
 /**
  * Copy logos, icons and other binary assets
  */
-function copyBinaryAssets() {
+export async function copyBinaryAssets() {
+  await mkdir('dist/app/assets', {
+    recursive: true
+  })
+
   return gulp
     .src('packages/assets/**', { encoding: false })
     .pipe(gulp.dest('dist/app/assets'))
@@ -103,19 +116,21 @@ function copyBinaryAssets() {
 /**
  * Serve the static docs directory over localhost
  */
-function serve() {
+export function serve() {
   return browserSync({
     ghostMode: false,
     host: '0.0.0.0',
 
     // Redirect to start path
-    middleware: {
-      route: '/',
-      handle(req, res) {
-        res.writeHead(302, { location: '/nhsuk-frontend/' })
-        res.end()
+    middleware: [
+      {
+        route: '/',
+        handle(req, res) {
+          res.writeHead(302, { location: '/nhsuk-frontend/' })
+          res.end()
+        }
       }
-    },
+    ],
 
     online: false,
     open: false,
@@ -141,23 +156,6 @@ function serve() {
     startPath: '/nhsuk-frontend/'
   })
 }
-
-gulp.task(
-  'docs:build',
-  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, validateHTML])
-)
-
-gulp.task('docs:watch', () =>
-  Promise.all([
-    gulp.watch(['**/*.njk'], buildHTML),
-    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
-    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
-    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
-  ])
-)
-
-gulp.task('docs:serve', gulp.series([serve]))
 
 /**
  * @import { Result } from 'html-validate'

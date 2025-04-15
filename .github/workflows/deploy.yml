@@ -1,0 +1,64 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        id: npm-install-cache
+        with:
+          lookup-only: true
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+      - name: Setup Node
+        if: steps.npm-install-cache.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        if: steps.npm-install-cache.outputs.cache-hit != 'true'
+        run: npm install --ignore-scripts
+
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [install]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore dependencies
+        uses: actions/cache/restore@v4
+        with:
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy GitHub pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: ./dist/app
+          clean: true
