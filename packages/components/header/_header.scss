@@ -18,6 +18,8 @@
 /// @group components
 ////
 
+@use "sass:math";
+
 .nhsuk-header {
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
@@ -241,7 +243,7 @@
   position: relative;
 
   @include mq($until: tablet) {
-    margin-top: -(nhsuk-spacing(3));
+    margin-top: math.div($nhsuk-gutter, 2) * -1;
   }
 }
 
@@ -263,17 +265,18 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 (nhsuk-spacing(2) * -1);
+  margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
   padding: 0;
-  width: calc(100% + nhsuk-spacing(2) + nhsuk-spacing(2));
+  width: calc(100% + $nhsuk-gutter-half);
 
-  @include mq($from: tablet) {
-    margin: 0 (nhsuk-spacing(3) * -1);
-    width: calc(100% + nhsuk-spacing(3) + nhsuk-spacing(3));
+  @include mq($from: desktop) {
+    width: calc(100% + $nhsuk-gutter);
+    margin: 0 math.div($nhsuk-gutter, 2) * -1;
   }
 
   .js-enabled & {
     flex-wrap: nowrap;
+    overflow: hidden;
   }
 }
 
@@ -285,10 +288,10 @@
 
 .nhsuk-header__navigation-item {
   margin-bottom: 0;
-  padding: 0 nhsuk-spacing(2);
+  padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: tablet) {
-    padding: 0 nhsuk-spacing(3);
+  @include mq($from: desktop) {
+    padding: 0 $nhsuk-gutter-half;
   }
 }
 
@@ -362,7 +365,7 @@
   left: 0;
 
   @include mq($until: tablet) {
-    margin: 0 (nhsuk-spacing(3) * -1);
+    margin: 0 $nhsuk-gutter-half * -1;
   }
 
   .nhsuk-header__navigation-link {
@@ -406,10 +409,10 @@
 .nhsuk-mobile-menu-container {
   align-self: center;
   display: none;
-  padding: 0 nhsuk-spacing(2);
+  padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: tablet) {
-    padding: 0 nhsuk-spacing(3);
+  @include mq($from: desktop) {
+    padding: 0 $nhsuk-gutter-half;
   }
 }
 

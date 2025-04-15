@@ -4,10 +4,27 @@ const jestPuppeteerConfig = require('./jest-puppeteer.config.js')
 const { headless = true } = jestPuppeteerConfig.launch
 
 /**
+ * Jest project config defaults
+ *
+ * @type {ProjectConfig}
+ */
+const config = {
+  cacheDirectory: '<rootDir>/.cache/jest',
+
+  // Enable Babel transforms until Jest supports ESM and `import()`
+  // See: https://jestjs.io/docs/ecmascript-modules
+  transform: {
+    '^.+\\.(js|mjs)$': ['babel-jest', { rootMode: 'upward' }]
+  }
+}
+
+/**
+ * Jest config
+ *
  * @type {Config}
  */
 module.exports = {
-  collectCoverageFrom: ['packages/**/*.js'],
+  collectCoverageFrom: ['packages/**/*.{js,mjs}'],
 
   // Reduce CPU usage during project test runs
   maxWorkers: headless
@@ -16,17 +33,23 @@ module.exports = {
 
   projects: [
     {
+      ...config,
       displayName: 'JSDom',
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
       testEnvironment: 'jsdom',
-      testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.js']
+      testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.{js,mjs}']
     },
     {
+      ...config,
       displayName: 'Pupppeteer',
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+      testEnvironment: 'jest-environment-puppeteer',
+      testMatch: ['<rootDir>/tests/integration/puppeteer/**/*.test.{js,mjs}'],
+
+      // Web server and browser required
       globalSetup: 'jest-environment-puppeteer/setup',
       globalTeardown:
-        '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs',
-      testEnvironment: 'jest-environment-puppeteer',
-      testMatch: ['<rootDir>/tests/integration/puppeteer/**/*.test.js']
+        '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs'
     }
   ],
 
@@ -38,5 +61,5 @@ module.exports = {
 }
 
 /**
- * @import { Config } from 'jest'
+ * @import { Config, ProjectConfig } from 'jest'
  */

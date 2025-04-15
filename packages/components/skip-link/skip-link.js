@@ -1,4 +1,4 @@
-import { setFocus } from '../../common.js'
+const { setFocus } = require('../../common')
 
 /*
  * NHS.UK skip link.
@@ -7,7 +7,7 @@ import { setFocus } from '../../common.js'
  * when elected so the next focusable element is not at the jumped to area.
  */
 
-export default () => {
+module.exports = () => {
   const $skipLink = document.querySelector('.nhsuk-skip-link')
 
   // Check for skip link
