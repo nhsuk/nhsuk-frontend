@@ -5,6 +5,7 @@
 
 class Header {
   constructor() {
+    this.menuIsEnabled = false
     this.menuIsOpen = false
 
     this.navigation = document.querySelector('.nhsuk-navigation')
@@ -33,18 +34,13 @@ class Header {
       return
     }
 
+    this.handleEscapeKey = this.onEscapeKey.bind(this)
+    this.handleUpdateNavigation = this.debounce(this.updateNavigation)
+    this.handleToggleMobileMenu = this.toggleMobileMenu.bind(this)
+
     this.setupMobileMenu()
     this.setupNavigation()
     this.updateNavigation()
-
-    this.handleResize = this.debounce(this.updateNavigation)
-
-    this.mobileMenuToggleButton.addEventListener(
-      'click',
-      this.toggleMobileMenu.bind(this)
-    )
-
-    window.addEventListener('resize', this.handleResize)
   }
 
   debounce(func, timeout = 100) {
@@ -86,6 +82,9 @@ class Header {
     this.navigationList
       .querySelectorAll('.nhsuk-header__navigation-item')
       .forEach((element) => this.navigationItems.push({ element, right: 0 }))
+
+    // Add resize listener for next update
+    window.addEventListener('resize', this.handleUpdateNavigation)
   }
 
   /**
@@ -103,6 +102,12 @@ class Header {
    * Enable the mobile menu
    */
   enableMobileMenu() {
+    if (this.menuIsEnabled) {
+      return
+    }
+
+    this.menuIsEnabled = true
+
     this.mobileMenuToggleButton.classList.add(
       'nhsuk-header__menu-toggle--visible'
     )
@@ -110,13 +115,24 @@ class Header {
     this.mobileMenuContainer.classList.add(
       'nhsuk-mobile-menu-container--visible'
     )
+
+    // Add click listener to toggle menu
+    this.mobileMenuToggleButton.addEventListener(
+      'click',
+      this.handleToggleMobileMenu
+    )
   }
 
   /**
    * Disable the mobile menu
    */
   disableMobileMenu() {
+    if (!this.menuIsEnabled) {
+      return
+    }
+
     this.closeMobileMenu()
+    this.menuIsEnabled = false
 
     this.mobileMenuToggleButton.classList.remove(
       'nhsuk-header__menu-toggle--visible'
@@ -124,6 +140,12 @@ class Header {
 
     this.mobileMenuContainer.classList.remove(
       'nhsuk-mobile-menu-container--visible'
+    )
+
+    // Remove click listener to toggle menu
+    this.mobileMenuToggleButton.removeEventListener(
+      'click',
+      this.handleToggleMobileMenu
     )
   }
 
@@ -135,11 +157,17 @@ class Header {
    * Removes the margin-bottom from the navigation
    */
   closeMobileMenu() {
+    if (!this.menuIsEnabled || !this.menuIsOpen) {
+      return
+    }
+
     this.menuIsOpen = false
     this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
-    document.removeEventListener('keydown', this.handleEscapeKey.bind(this))
+
+    // Remove escape key listener to close menu
+    document.removeEventListener('keydown', this.handleEscapeKey)
   }
 
   /**
@@ -147,10 +175,12 @@ class Header {
    *
    * This function is called when the user
    * presses the escape key to close the mobile menu.
+   *
+   * @param {KeyboardEvent} event - Key press event
    */
-  handleEscapeKey(e) {
-    if (e.key === 'Escape') {
-      this.closeMobileMenu()
+  onEscapeKey(event) {
+    if (event.key === 'Escape') {
+      this.closeMobileMenu(event)
     }
   }
 
@@ -165,14 +195,18 @@ class Header {
    * Adds event listeners for the close button,
    */
   openMobileMenu() {
+    if (!this.menuIsEnabled || this.menuIsOpen) {
+      return
+    }
+
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
     const marginBody = this.mobileMenu.offsetHeight
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 
-    // add event listener for esc key to close menu
-    document.addEventListener('keydown', this.handleEscapeKey.bind(this))
+    // Add escape key listener to close menu
+    document.addEventListener('keydown', this.handleEscapeKey)
   }
 
   /**
@@ -181,6 +215,10 @@ class Header {
    * Toggles the mobile menu between open and closed
    */
   toggleMobileMenu() {
+    if (!this.menuIsEnabled) {
+      return
+    }
+
     if (this.menuIsOpen) {
       this.closeMobileMenu()
     } else {
