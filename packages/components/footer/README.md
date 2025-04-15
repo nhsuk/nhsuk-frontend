@@ -48,7 +48,7 @@ Your copyright statement must reflect the ownership of your website or service. 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
@@ -168,7 +168,7 @@ Your copyright statement must reflect the ownership of your website or service. 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({
@@ -308,7 +308,7 @@ Your copyright statement must reflect the ownership of your website or service. 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/footer/macro.njk' import footer %}
 
 {{ footer({

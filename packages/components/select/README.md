@@ -27,7 +27,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/select/macro.njk' import select %}
 
 {{ select({
@@ -84,7 +84,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/select/macro.njk' import select %}
 
 {{ select({

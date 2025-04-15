@@ -23,7 +23,7 @@ Find out more about the back link component and when to use it in the [NHS digit
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/back-link/macro.njk' import backLink %}
 
 {{ backLink({
@@ -51,7 +51,7 @@ Find out more about the back link component and when to use it in the [NHS digit
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/back-link/macro.njk' import backLink %}
 
 {{ backLink({

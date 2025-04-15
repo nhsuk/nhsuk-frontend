@@ -23,7 +23,7 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -58,7 +58,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -94,7 +94,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -137,7 +137,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -179,7 +179,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -218,7 +218,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -255,7 +255,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -293,7 +293,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({
@@ -335,7 +335,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 
 {{ input({

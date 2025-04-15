@@ -33,7 +33,7 @@ Find out more about the character component and when to use it in the [NHS digit
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({
@@ -78,7 +78,7 @@ Find out more about the character component and when to use it in the [NHS digit
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({
@@ -124,7 +124,7 @@ Find out more about the character component and when to use it in the [NHS digit
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({

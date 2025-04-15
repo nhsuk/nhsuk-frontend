@@ -16,7 +16,7 @@
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/label/macro.njk' import label %}
 
 {{ label({
@@ -40,7 +40,7 @@
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/label/macro.njk' import label %}
 
 {{ label({
@@ -67,7 +67,7 @@
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/label/macro.njk' import label %}
 
 {{ label({

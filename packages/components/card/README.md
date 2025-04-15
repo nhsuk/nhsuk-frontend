@@ -12,7 +12,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <div class="nhsuk-card">
   <div class="nhsuk-card__content">
     <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
@@ -23,7 +23,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -39,7 +39,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <div class="nhsuk-card nhsuk-card--clickable">
   <div class="nhsuk-card__content nhsuk-card__content--primary">
     <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -53,7 +53,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -72,7 +72,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
   <div class="nhsuk-card__content nhsuk-card__content--secondary">
     <h2 class="nhsuk-card__heading nhsuk-heading-m">
@@ -85,7 +85,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
     {{ card({
@@ -104,7 +104,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <div class="nhsuk-card nhsuk-card--clickable ">
   <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">
   <div class="nhsuk-card__content">
@@ -120,7 +120,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -139,7 +139,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <h2>Halves</h2>
 
 <ul class="nhsuk-grid-row nhsuk-card-group">
@@ -274,7 +274,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 <h2>Halves</h2>
@@ -386,7 +386,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### HTML markup
 
-```
+```html
 <div class="nhsuk-card nhsuk-card--feature ">
   <div class="nhsuk-card__content
    nhsuk-card__content--feature ">
@@ -400,7 +400,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -439,7 +439,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -488,7 +488,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({
@@ -536,7 +536,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/card/macro.njk' import card %}
 
 {{ card({

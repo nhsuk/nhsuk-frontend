@@ -47,7 +47,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
@@ -120,7 +120,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
@@ -188,7 +188,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
@@ -256,7 +256,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
@@ -331,7 +331,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
@@ -430,7 +430,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% from 'components/input/macro.njk' import input %}
 
@@ -578,7 +578,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% from 'components/input/macro.njk' import input %}
 

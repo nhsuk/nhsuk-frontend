@@ -24,7 +24,7 @@ Find out more about the images component and when to use it in the [NHS digital 
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/images/macro.njk' import image %}
 
 {{ image({

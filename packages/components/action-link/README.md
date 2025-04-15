@@ -24,7 +24,7 @@ Find out more about the action link component and when to use it in the [NHS dig
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/action-link/macro.njk' import actionLink %}
 
 {{ actionLink({

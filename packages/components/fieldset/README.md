@@ -22,7 +22,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/fieldset/macro.njk' import fieldset %}
 
 {{ fieldset({
@@ -52,7 +52,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/fieldset/macro.njk' import fieldset %}
 
 {{ fieldset({
@@ -111,7 +111,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 To add input fields inside the fieldset, use the `call` block.
 
-```
+```nunjucks
 {% from 'components/input/macro.njk' import input %}
 {% from 'components/fieldset/macro.njk' import fieldset %}
 

@@ -35,7 +35,7 @@ Find out more about the contents list component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/contents-list/macro.njk' import contentsList %}
 
 {{ contentsList({

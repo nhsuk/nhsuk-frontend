@@ -20,7 +20,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -44,7 +44,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -69,7 +69,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -94,7 +94,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -119,7 +119,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -144,7 +144,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({
@@ -167,7 +167,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/button/macro.njk' import button %}
 
 {{ button({

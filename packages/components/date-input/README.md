@@ -55,7 +55,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
@@ -139,7 +139,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
@@ -225,7 +225,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
@@ -310,7 +310,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({

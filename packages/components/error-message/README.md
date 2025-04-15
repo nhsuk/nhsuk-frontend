@@ -19,7 +19,7 @@ Find out more about the error message component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/error-message/macro.njk' import errorMessage %}
 
 {{ errorMessage({

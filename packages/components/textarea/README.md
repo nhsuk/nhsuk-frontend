@@ -26,7 +26,7 @@ Find out more about the textarea component and when to use it in the [NHS digita
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
@@ -64,7 +64,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
@@ -99,7 +99,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 #### Nunjucks macro
 
-```
+```nunjucks
 {% from 'components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
