@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "./*.config.js",
+    "./*.setup.js",
+    "./.eslintrc.js",
+    "./.htmlvalidate.js",
+    "./.prettierrc.js",
+    "./.stylelintrc.js",
+    "./gulpfile.mjs"
+  ]
+}

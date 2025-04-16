@@ -5,17 +5,22 @@ const skipLinkHtml =
   '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>'
 const mainHtml = '<main class="nhsuk-main-wrapper" id="maincontent"></main>'
 
-/** @type {HTMLElement | null} */
-let main = null
+/** @type {HTMLElement} */
+let main
 
-/** @type {HTMLAnchorElement | null} */
-let skipLink = null
+/** @type {HTMLAnchorElement} */
+let skipLink
 
 // Helper to set DOM Elements
 const initTest = (html = '') => {
   document.body.innerHTML = html
-  skipLink = document.querySelector('.nhsuk-skip-link')
+
+  skipLink = /** @type {HTMLAnchorElement} */ (
+    document.querySelector('.nhsuk-skip-link')
+  )
+
   main = document.querySelector('main')
+
   SkipLink()
 }
 
