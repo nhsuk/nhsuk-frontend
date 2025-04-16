@@ -94,6 +94,7 @@ class CharacterCount {
     const dataset = {}
     const { attributes } = element
     if (attributes) {
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < attributes.length; i++) {
         const attribute = attributes[i]
         const match = attribute.name.match(/^data-(.+)/)
