@@ -85,7 +85,10 @@
   },
   "files": [
     "dist",
-    "packages"
+    "packages",
+    "!dist/{app,assets,css,js}",
+    "!dist/*.zip",
+    "!**/*.test.*"
   ],
   "repository": {
     "type": "git",
