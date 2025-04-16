@@ -91,6 +91,12 @@
   @include mq($from: tablet) {
     align-self: start;
   }
+
+  .nhsuk-icon__user {
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+  }
 }
 
 .nhsuk-header__account-list {
@@ -113,14 +119,14 @@
   outline: 1px solid $color_nhsuk-blue;
   overflow-wrap: anywhere;
   padding: nhsuk-spacing(2) 12px;
-}
 
-.nhsuk-header__account-item:nth-last-child(2) {
-  margin-right: auto;
-}
+  &:nth-last-child(2) {
+    margin-right: auto;
+  }
 
-.nhsuk-header__account-item:last-child {
-  flex-grow: 0;
+  &:last-child {
+    flex-grow: 0;
+  }
 }
 
 .nhsuk-header__account-button,
@@ -144,12 +150,6 @@
   }
 }
 
-.nhsuk-icon__user {
-  height: 24px;
-  width: 24px;
-  flex-shrink: 0;
-}
-
 /// Search
 
 .nhsuk-header__search {
@@ -157,6 +157,11 @@
   flex-grow: 1;
   position: relative;
   z-index: 13;
+
+  .nhsuk-icon__search {
+    height: 28px;
+    width: 28px;
+  }
 }
 
 .nhsuk-header__search-form {
@@ -231,11 +236,6 @@
   }
 }
 
-.nhsuk-icon__search {
-  height: 28px;
-  width: 28px;
-}
-
 /// Navigation
 
 .nhsuk-header__navigation {
@@ -260,7 +260,6 @@
   }
 }
 
-// Visible navigation list
 .nhsuk-header__navigation-list {
   display: flex;
   flex-wrap: wrap;
@@ -323,7 +322,22 @@
   }
 }
 
-// Drop down navigation toggle (shown when screen can’t fit all nav items)
+/// Menu (shown when screen can’t fit all navigation items)
+
+.nhsuk-header__menu {
+  align-self: center;
+  display: none;
+  padding: 0 math.div($nhsuk-gutter-half, 2);
+
+  @include mq($from: tablet) {
+    padding: 0 $nhsuk-gutter-half;
+  }
+}
+
+.nhsuk-header__menu--visible {
+  display: block;
+}
+
 .nhsuk-header__menu-toggle {
   background: transparent;
   border: 0;
@@ -350,7 +364,6 @@
   display: flex;
 }
 
-// Drop down navigation
 .nhsuk-header__menu-list {
   @include print-hide;
   background-color: $color_nhsuk-white;
@@ -403,19 +416,4 @@
 
 .nhsuk-header__menu-list--hidden {
   display: none;
-}
-
-// Drop down navigation container
-.nhsuk-header__menu {
-  align-self: center;
-  display: none;
-  padding: 0 math.div($nhsuk-gutter-half, 2);
-
-  @include mq($from: tablet) {
-    padding: 0 $nhsuk-gutter-half;
-  }
-}
-
-.nhsuk-header__menu--visible {
-  display: block;
 }
