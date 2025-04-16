@@ -562,7 +562,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### HTML markup
 
 ```html
-<header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-nav" role="banner">
+<header class="nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-navigation" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     <div class="nhsuk-header__logo">
       <a class="nhsuk-header__link" href="/" aria-label="Anytown Anyplace Anywhere NHS Foundation Trust homepage">
@@ -636,7 +636,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 
 {{ header({
     "search": true,
-    "classes": "nhsuk-header--white nhsuk-header--white-nav",
+    "classes": "nhsuk-header--white nhsuk-header--white-navigation",
     "organisation": {
       "name": "Anytown Anyplace",
       "split": "Anywhere",
