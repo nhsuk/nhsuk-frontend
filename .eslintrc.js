@@ -20,6 +20,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:import/recommended',
         'plugin:jest/style',
+        'plugin:jest-dom/recommended',
         'plugin:jsdoc/recommended-typescript-flavor',
         'plugin:n/recommended',
         'plugin:promise/recommended',
@@ -37,7 +38,8 @@ module.exports = {
         'jsdoc',
         'n',
         'promise',
-        'jest'
+        'jest',
+        'jest-dom'
       ],
       rules: {
         // Check import or require statements are A-Z ordered
@@ -139,21 +141,26 @@ module.exports = {
       }
     },
     {
-      files: ['**/*.test.{cjs,js,mjs}'],
+      // Configure ESLint in test files
+      files: ['**/*.test.{cjs,js,mjs}', 'jest.config.*', 'jest.setup.*'],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
         browser: true,
         'jest/globals': true
       },
-      globals: {
-        page: 'readonly',
-        browser: 'readonly',
-        jestPuppeteer: 'readonly'
-      },
       plugins: ['jest'],
       rules: {
         'promise/always-return': 'off',
         'promise/catch-or-return': 'off'
+      }
+    },
+    {
+      // Configure ESLint in test files (Jest Puppeteer environment only)
+      files: ['**/*.puppeteer.test.{js,mjs}'],
+      globals: {
+        page: 'readonly',
+        browser: 'readonly',
+        jestPuppeteer: 'readonly'
       }
     }
   ],
