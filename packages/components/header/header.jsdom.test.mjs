@@ -76,7 +76,9 @@ describe('Header class', () => {
       </div>
     `
 
-    const container = document.querySelector('.nhsuk-navigation-container')
+    const container = /** @type {HTMLElement} */ (
+      document.querySelector('.nhsuk-navigation-container')
+    )
 
     navigation = getByRole(container, 'navigation')
     menuButton = getByRole(container, 'button', { name: 'Browse More' })
@@ -84,39 +86,40 @@ describe('Header class', () => {
     listWidth = 800
     itemWidth = 100
 
-    jest
-      .spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
-      .mockImplementation(function () {
+    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+      /** @this {HTMLElement} */
+      function () {
         return this instanceof HTMLUListElement
           ? listWidth // Mock list width
           : itemWidth // Mock item width
-      })
+      }
+    )
   })
 
   describe('Menu button', () => {
-    it('should be hidden by default', async () => {
+    it('should be hidden by default', () => {
       expect(menuButton).toHaveRole('button')
       expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
     })
 
-    it('should be hidden when items do not overflow', async () => {
-      await Header()
+    it('should be hidden when items do not overflow', () => {
+      Header()
 
       expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
     })
 
-    it('should be visible when items overflow', async () => {
+    it('should be visible when items overflow', () => {
       listWidth = 700
 
-      await Header()
+      Header()
 
       expect(menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
     })
 
-    it('should toggle menu via click', async () => {
+    it('should toggle menu via click', () => {
       listWidth = 700
 
-      await Header()
+      Header()
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
@@ -143,7 +146,7 @@ describe('Header class', () => {
     it('should close menu via escape key', async () => {
       listWidth = 700
 
-      await Header()
+      Header()
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
@@ -169,20 +172,20 @@ describe('Header class', () => {
   })
 
   describe('Menu list', () => {
-    it('should be skipped by default', async () => {
+    it('should be skipped by default', () => {
       expect(menuButton.nextElementSibling).not.toBeInTheDocument()
     })
 
-    it('should be skipped when items do not overflow', async () => {
-      await Header()
+    it('should be skipped when items do not overflow', () => {
+      Header()
 
       expect(menuButton.nextElementSibling).not.toBeInTheDocument()
     })
 
-    it('should be added when items overflow', async () => {
+    it('should be added when items overflow', () => {
       listWidth = 700
 
-      await Header()
+      Header()
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
@@ -192,14 +195,14 @@ describe('Header class', () => {
     })
 
     it('should be added when items overflow when resized', async () => {
-      await Header()
+      Header()
 
       expect(menuButton.nextElementSibling).not.toBeInTheDocument()
 
       listWidth = 700
 
       // Trigger resize
-      await fireEvent.resize(window)
+      fireEvent.resize(window)
       await setTimeout(100)
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
@@ -254,10 +257,10 @@ describe('Header class', () => {
       }
     ]
 
-    it.each(examples)('should be allocated', async (expected) => {
+    it.each(examples)('should be allocated', (expected) => {
       listWidth = expected.listWidth
 
-      await Header()
+      Header()
 
       const listItems = navigation.querySelectorAll('nav > ul > li')
       const menuItems = navigation.querySelectorAll('nav > ul > li li')
@@ -271,12 +274,12 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 0
 
-        await Header()
+        Header()
 
         listWidth = expected.listWidth
 
         // Trigger resize
-        await fireEvent.resize(window)
+        fireEvent.resize(window)
         await setTimeout(100)
 
         const listItems = navigation.querySelectorAll('nav > ul > li')
@@ -292,12 +295,12 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 900
 
-        await Header()
+        Header()
 
         listWidth = expected.listWidth
 
         // Trigger resize
-        await fireEvent.resize(window)
+        fireEvent.resize(window)
         await setTimeout(100)
 
         const listItems = navigation.querySelectorAll('nav > ul > li')

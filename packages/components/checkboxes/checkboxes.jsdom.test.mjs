@@ -17,13 +17,23 @@ describe('Checkboxes module', () => {
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
             </div></form>`
-      const input = document.querySelector('#input-1')
-      const conditional = document.querySelector('#conditional-1')
+
+      const input = /** @type {HTMLInputElement} */ (
+        document.querySelector('#input-1')
+      )
+
+      const conditional = /** @type {HTMLInputElement} */ (
+        document.querySelector('#conditional-1')
+      )
+
       Checkboxes()
+
       input.click()
+
       expect(conditional).not.toHaveClass(
         'nhsuk-checkboxes__conditional--hidden'
       )
+
       expect(input).toHaveAttribute('aria-expanded', 'true')
     })
   })
@@ -34,15 +44,26 @@ describe('Checkboxes module', () => {
             <input class="nhsuk-checkboxes__input" id="input-1" type="checkbox" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-1">Test</div>
             </div></form>`
-      const input = document.querySelector('#input-1')
-      const conditional = document.querySelector('#conditional-1')
+
+      const input = /** @type {HTMLInputElement} */ (
+        document.querySelector('#input-1')
+      )
+
+      const conditional = /** @type {HTMLInputElement} */ (
+        document.querySelector('#conditional-1')
+      )
+
       Checkboxes()
+
       input.click()
+
       expect(conditional).not.toHaveClass(
         'nhsuk-checkboxes__conditional--hidden'
       )
       expect(input).toHaveAttribute('aria-expanded', 'true')
+
       input.click()
+
       expect(conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'false')
     })
