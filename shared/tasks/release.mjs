@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import zip from 'gulp-zip'
 
 import pkg from '../../package.json' with { type: 'json' }
 
@@ -29,9 +30,7 @@ export function cssFolder() {
   return gulp.src('dist/*.min.{css,css.map}').pipe(gulp.dest('dist/css/'))
 }
 
-export async function createZip() {
-  const { default: zip } = await import('gulp-zip')
-
+export function createZip() {
   return gulp
     .src(
       [

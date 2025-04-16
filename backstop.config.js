@@ -2,13 +2,14 @@ const { executablePath } = require('puppeteer')
 
 const {
   HEADLESS,
-  PORT = 3000,
+  PORT = '3000',
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
 
 /**
  * Default viewport sizes
+ *
  * @type {Map<string, Viewport>}
  */
 const viewports = new Map([

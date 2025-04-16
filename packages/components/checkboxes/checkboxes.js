@@ -64,7 +64,8 @@ module.exports = ({ scope = document } = {}) => {
 
   /**
    * Toggle classes and attributes
-   * @param {Object} event click event object
+   *
+   * @param {MouseEvent} event - Click event
    */
   const handleClick = (event) => {
     // Toggle conditional content based on checked state

@@ -199,7 +199,7 @@ class Header {
    */
   onEscapeKey(event) {
     if (event.key === 'Escape') {
-      this.closeMobileMenu(event)
+      this.closeMobileMenu()
     }
   }
 
