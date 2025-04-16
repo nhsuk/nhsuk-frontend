@@ -1,5 +1,5 @@
 const {
-  PORT = 3000,
+  PORT = '3000',
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
@@ -24,7 +24,7 @@ describe('Button', () => {
         page.keyboard.press('Space')
       ])
 
-      const url = new URL(await page.url())
+      const url = new URL(page.url())
       expect(url.pathname).toBe('/nhsuk-frontend/')
     })
   })
