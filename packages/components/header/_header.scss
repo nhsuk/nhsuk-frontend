@@ -298,7 +298,7 @@
 // This is a <strong> element used as a fallback mechanism for visually
 // indicating current page in scenarios where CSS isn’t available.
 // We don’t actually want it to be bold normally, so inherit parent font-weight.
-.nhsuk-header__navigation-item-active-fallback {
+.nhsuk-header__navigation-item-current-fallback {
   font-weight: inherit;
 }
 
