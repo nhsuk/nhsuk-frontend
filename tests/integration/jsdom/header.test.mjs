@@ -1,229 +1,311 @@
+import { setTimeout } from 'timers/promises'
+
+import { fireEvent, getByRole } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
+
 import Header from '../../../packages/components/header/header.js'
 
+const user = userEvent.setup()
+
 describe('Header class', () => {
+  /** @type {HTMLElement} */
+  let navigation
+
+  /** @type {HTMLElement} */
+  let menuButton
+
+  let listWidth = 0
+  let itemWidth = 0
+
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-navigation"></div>
-      <div class="nhsuk-header__navigation-list">
-          <li style="width: 50px;">Health A-Z</li>
-          <li style="width: 75px;">NHS services</li>
-          <li style="width: 100px;">Live Well</li>
-          <li style="width: 125px;">Mental health</li>
-          <li style="width: 150px;">Care and support</li>
-          <li style="width: 275px;">Pregnancy</li>
-          <li style="width: 200px;">Home</li>
-          <li style="width: 225px;">More</li>
+      <div class="nhsuk-navigation-container">
+        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+          <ul class="nhsuk-header__navigation-list">
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Health A-Z
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                NHS services
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Live Well
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Mental health
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Care and support
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Pregnancy
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Home
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="#">
+                Another one
+              </a>
+            </li>
+            <li class="nhsuk-mobile-menu-container">
+              <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+                <span class="nhsuk-u-visually-hidden">Browse</span>
+                More
+                <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="nhsuk-header__menu-toggle"></div>
-      <div class="nhsuk-mobile-menu-container"></div>
-      <div class="nhsuk-header__menu-toggle"></div>
-      `
+    `
+
+    const container = document.querySelector('.nhsuk-navigation-container')
+
+    navigation = getByRole(container, 'navigation')
+    menuButton = getByRole(container, 'button', { name: 'Browse More' })
+
+    listWidth = 800
+    itemWidth = 100
+
+    jest
+      .spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
+      .mockImplementation(function () {
+        return this instanceof HTMLUListElement
+          ? listWidth // Mock list width
+          : itemWidth // Mock item width
+      })
   })
 
-  it('Should create navigation elements in the DOM', async () => {
-    // Call the Header initialization function
-    await Header()
-
-    // Ensure the navigation elements are created in the DOM
-    expect(document.querySelector('.nhsuk-navigation')).not.toBeNull()
-  })
-
-  it('Should toggle mobile menu visibility', async () => {
-    const toggleButton = document.querySelector('.nhsuk-header__menu-toggle')
-    let mobileMenuList = document.querySelector(
-      '.nhsuk-mobile-menu-container ul'
-    )
-    // Call the Header initialization function
-    await Header()
-
-    mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
-    // Initially, the menu should be closed
-    expect(
-      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(true)
-
-    // Open the mobile menu
-    toggleButton.click()
-
-    expect(
-      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(false)
-
-    // Close the mobile menu
-    toggleButton.click()
-
-    expect(
-      mobileMenuList.classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(true)
-  })
-
-  it('Should close menu when escape key is pressed', async () => {
-    // Define a event for the escape key
-    const escapeKeyEvent = new KeyboardEvent('keydown', {
-      key: 'Escape',
-      code: 'Escape',
-      keyCode: 27,
-      which: 27,
-      charCode: 27
+  describe('Menu button', () => {
+    it('should be hidden by default', async () => {
+      expect(menuButton).toHaveRole('button')
+      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
     })
-    const toggleButton = document.querySelector('.nhsuk-header__menu-toggle')
 
-    await Header()
+    it('should be hidden when items do not overflow', async () => {
+      await Header()
 
-    // Expect the menu to be hidden initially
-    expect(
-      document
-        .querySelector('.nhsuk-header__drop-down')
-        .classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(true)
+      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+    })
 
-    // Toggle the menu - open it
-    toggleButton.click()
-    expect(
-      document
-        .querySelector('.nhsuk-header__drop-down')
-        .classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(false)
+    it('should be visible when items overflow', async () => {
+      listWidth = 700
 
-    // Press the escape key to close it
-    document.dispatchEvent(escapeKeyEvent)
-    expect(
-      document
-        .querySelector('.nhsuk-header__drop-down')
-        .classList.contains('nhsuk-header__drop-down--hidden')
-    ).toBe(true)
+      await Header()
+
+      expect(menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
+    })
+
+    it('should toggle menu via click', async () => {
+      listWidth = 700
+
+      await Header()
+
+      // Menu closed
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+
+      // Open menu
+      menuButton.click()
+
+      // Menu open
+      expect(menuButton.nextElementSibling).not.toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+
+      // Close menu
+      menuButton.click()
+
+      // Menu closed
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
+
+    it('should close menu via escape key', async () => {
+      listWidth = 700
+
+      await Header()
+
+      // Menu closed
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+
+      // Open menu
+      menuButton.click()
+
+      // Menu open
+      expect(menuButton.nextElementSibling).not.toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+
+      // Press the escape key to close it
+      await user.keyboard('[Escape]')
+
+      // Menu closed
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
   })
 
-  it('Should setup the Mobile Menu Container during initialization', async () => {
-    const mobileMenuContainer = document.querySelector(
-      '.nhsuk-mobile-menu-container'
-    )
-    expect(mobileMenuContainer.childElementCount).toBe(0)
-    await Header()
-    expect(mobileMenuContainer.childElementCount).toBeGreaterThan(0)
+  describe('Menu list', () => {
+    it('should be skipped by default', async () => {
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+    })
+
+    it('should be skipped when items do not overflow', async () => {
+      await Header()
+
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+    })
+
+    it('should be added when items overflow', async () => {
+      listWidth = 700
+
+      await Header()
+
+      expect(menuButton.nextElementSibling).toBeInTheDocument()
+      expect(menuButton.nextElementSibling).toHaveRole('list')
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
+
+    it('should be added when items overflow when resized', async () => {
+      await Header()
+
+      expect(menuButton.nextElementSibling).not.toBeInTheDocument()
+
+      listWidth = 700
+
+      // Trigger resize
+      await fireEvent.resize(window)
+      await setTimeout(100)
+
+      expect(menuButton.nextElementSibling).toBeInTheDocument()
+      expect(menuButton.nextElementSibling).toHaveRole('list')
+      expect(menuButton.nextElementSibling).toHaveClass(
+        'nhsuk-header__drop-down--hidden'
+      )
+    })
   })
 
-  it('Should setup the Mobile Menu List during initialization', async () => {
-    // Initially there won't be any ul elements inside the container- it gets added in the setupMobileMenu method
-    let mobileMenuList = document.querySelector(
-      '.nhsuk-mobile-menu-container ul'
-    )
-
-    // So we expect that to be null until it gets created
-    expect(mobileMenuList).toBeNull()
-
-    // Call the Header initialization function
-    await Header()
-
-    // We update the variable to hold the ul element from the container that has been created
-    mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
-
-    expect(mobileMenuList).not.toBeNull()
-    expect(mobileMenuList.classList).toContain('nhsuk-header__drop-down')
-    expect(mobileMenuList.classList).toContain(
-      'nhsuk-header__drop-down--hidden'
-    )
-  })
-
-  it('Should not update navigation when the available space is enough for all elements', async () => {
-    const mobileMenuToggleButton = document.querySelector(
-      '.nhsuk-header__menu-toggle'
-    )
-    const mobileMenuContainer = document.querySelector(
-      '.nhsuk-mobile-menu-container'
-    )
-    const navigationList = document.querySelector(
-      '.nhsuk-header__navigation-list'
-    )
-    let mobileMenuList = document.querySelector(
-      '.nhsuk-mobile-menu-container ul'
-    )
-
-    // Spy on offsetWidth property for navigation element
-    const navigationOffsetWidthSpy = jest.spyOn(
-      HTMLElement.prototype,
-      'offsetWidth',
-      'get'
-    )
-    // Mock offsetWidth for navigation element
-    navigationOffsetWidthSpy.mockImplementation(function () {
-      if (this === navigationList) {
-        return 1000 // Mock navigation element offsetWidth
+  describe('Menu items', () => {
+    const examples = [
+      {
+        listWidth: 800,
+        listItems: 9,
+        menuItems: 0
+      },
+      {
+        listWidth: 700,
+        listItems: 7,
+        menuItems: 2
+      },
+      {
+        listWidth: 600,
+        listItems: 6,
+        menuItems: 3
+      },
+      {
+        listWidth: 500,
+        listItems: 5,
+        menuItems: 4
+      },
+      {
+        listWidth: 400,
+        listItems: 4,
+        menuItems: 5
+      },
+      {
+        listWidth: 300,
+        listItems: 3,
+        menuItems: 6
+      },
+      {
+        listWidth: 200,
+        listItems: 2,
+        menuItems: 7
+      },
+      {
+        listWidth: 100,
+        listItems: 1,
+        menuItems: 8
       }
-      return 50 // Mock children offsetWidth
+    ]
+
+    it.each(examples)('should be allocated', async (expected) => {
+      listWidth = expected.listWidth
+
+      await Header()
+
+      const listItems = navigation.querySelectorAll('nav > ul > li')
+      const menuItems = navigation.querySelectorAll('nav > ul > li li')
+
+      expect(listItems).toHaveLength(expected.listItems)
+      expect(menuItems).toHaveLength(expected.menuItems)
     })
 
-    await Header()
+    it.each(examples)(
+      'should be allocated when resized up',
+      async (expected) => {
+        listWidth = 0
 
-    // breakpoints will be [50,100,150,200,250,300,350,400]
-    // the available space - navigation offsetWidth - will be greater than the last element from the breakpoints array
-    // meaning we don't need the mobile menu to get any items from the navigation
-    expect(
-      mobileMenuToggleButton.classList.contains(
-        'nhsuk-header__menu-toggle--visible'
-      )
-    ).toBe(false)
-    expect(
-      mobileMenuContainer.classList.contains(
-        'nhsuk-mobile-menu-container--visible'
-      )
-    ).toBe(false)
+        await Header()
 
-    mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
-    expect(mobileMenuList.children).toHaveLength(0)
-    expect(navigationList.children).toHaveLength(8)
+        listWidth = expected.listWidth
 
-    navigationOffsetWidthSpy.mockRestore()
-  })
+        // Trigger resize
+        await fireEvent.resize(window)
+        await setTimeout(100)
 
-  it('Should update navigation when the available space is not enough for all elements', async () => {
-    const mobileMenuToggleButton = document.querySelector(
-      '.nhsuk-header__menu-toggle'
-    )
-    const mobileMenuContainer = document.querySelector(
-      '.nhsuk-mobile-menu-container'
-    )
-    const navigationList = document.querySelector(
-      '.nhsuk-header__navigation-list'
-    )
-    let mobileMenuList = document.querySelector(
-      '.nhsuk-mobile-menu-container ul'
-    )
+        const listItems = navigation.querySelectorAll('nav > ul > li')
+        const menuItems = navigation.querySelectorAll('nav > ul > li li')
 
-    // Spy on offsetWidth property for navigation element
-    const navigationOffsetWidthSpy = jest.spyOn(
-      HTMLElement.prototype,
-      'offsetWidth',
-      'get'
-    )
-    // Mock offsetWidth for navigation element
-    navigationOffsetWidthSpy.mockImplementation(function () {
-      if (this === navigationList) {
-        return 700 // Mock navigation element offsetWidth
+        expect(listItems).toHaveLength(expected.listItems)
+        expect(menuItems).toHaveLength(expected.menuItems)
       }
-      return 100 // Mock children offsetWidth
-    })
+    )
 
-    await Header()
+    it.each(examples)(
+      'should be allocated when resized down',
+      async (expected) => {
+        listWidth = 900
 
-    // breakpoints will be [100,200,300,400,500,600,700,800]
-    // the available space - navigation offsetWidth - will be smaller than the last element from the breakpoints array
-    // meaning we need the mobile menu to get 1 item from the navigation
-    expect(
-      mobileMenuToggleButton.classList.contains(
-        'nhsuk-header__menu-toggle--visible'
-      )
-    ).toBe(true)
-    expect(
-      mobileMenuContainer.classList.contains(
-        'nhsuk-mobile-menu-container--visible'
-      )
-    ).toBe(true)
+        await Header()
 
-    mobileMenuList = document.querySelector('.nhsuk-mobile-menu-container ul')
-    expect(mobileMenuList.children).toHaveLength(1)
-    expect(navigationList.children).toHaveLength(7)
+        listWidth = expected.listWidth
 
-    navigationOffsetWidthSpy.mockRestore()
+        // Trigger resize
+        await fireEvent.resize(window)
+        await setTimeout(100)
+
+        const listItems = navigation.querySelectorAll('nav > ul > li')
+        const menuItems = navigation.querySelectorAll('nav > ul > li li')
+
+        expect(listItems).toHaveLength(expected.listItems)
+        expect(menuItems).toHaveLength(expected.menuItems)
+      }
+    )
   })
 })
