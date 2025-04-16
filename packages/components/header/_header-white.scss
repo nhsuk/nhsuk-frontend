@@ -25,7 +25,7 @@
     @include nhsuk-link-style-no-visited-state;
   }
 
-  .nhsuk-search__input {
+  .nhsuk-header__search-input {
     border-color: $color_nhsuk-grey-3;
 
     &:focus {
@@ -33,7 +33,7 @@
     }
   }
 
-  .nhsuk-search__submit {
+  .nhsuk-header__search-submit {
     background-color: $color_nhsuk-blue;
     color: $color_nhsuk-white;
 

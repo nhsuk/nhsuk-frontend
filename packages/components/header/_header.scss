@@ -169,7 +169,7 @@
   }
 }
 
-.nhsuk-search__input {
+.nhsuk-header__search-input {
   border: 1px solid $color_nhsuk-white;
   border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
   font-size: $nhsuk-base-font-size;
@@ -195,7 +195,7 @@
   }
 }
 
-.nhsuk-search__submit {
+.nhsuk-header__search-submit {
   background-color: $color_nhsuk-grey-5;
   border: 0;
   border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
