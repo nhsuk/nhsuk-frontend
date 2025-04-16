@@ -326,16 +326,11 @@
 
 .nhsuk-header__menu {
   align-self: center;
-  display: none;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
   @include mq($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
-}
-
-.nhsuk-header__menu--visible {
-  display: block;
 }
 
 .nhsuk-header__menu-toggle {
@@ -344,24 +339,23 @@
   border-radius: 0;
   box-sizing: border-box;
   cursor: pointer;
+  display: flex;
   margin: 0;
   overflow: visible;
   position: relative;
   right: 0;
   text-align: center;
   vertical-align: top;
-  visibility: hidden;
   width: auto;
   z-index: 1;
+
+  &[hidden] {
+    display: none;
+  }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
     transform: rotate(270deg);
   }
-}
-
-.nhsuk-header__menu-toggle--visible {
-  visibility: visible;
-  display: flex;
 }
 
 .nhsuk-header__menu-list {
@@ -412,8 +406,4 @@
   .nhsuk-header__navigation-item--current {
     box-shadow: inset 6px 0 $color_nhsuk-blue;
   }
-}
-
-.nhsuk-header__menu-list--hidden {
-  display: none;
 }

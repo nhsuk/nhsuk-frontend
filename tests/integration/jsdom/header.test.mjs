@@ -117,25 +117,19 @@ describe('Header class', () => {
       await Header()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       menuButton.click()
 
       // Menu open
-      expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Close menu
       menuButton.click()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should close menu via escape key', async () => {
@@ -144,25 +138,19 @@ describe('Header class', () => {
       await Header()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       menuButton.click()
 
       // Menu open
-      expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Press the escape key to close it
       await user.keyboard('[Escape]')
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -184,9 +172,7 @@ describe('Header class', () => {
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should be added when items overflow when resized', async () => {
@@ -202,9 +188,7 @@ describe('Header class', () => {
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__menu-list--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 

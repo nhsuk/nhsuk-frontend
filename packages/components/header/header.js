@@ -103,10 +103,8 @@ class Header {
     }
 
     this.menu.appendChild(this.menuList)
-    this.menuList.classList.add(
-      'nhsuk-header__menu-list',
-      'nhsuk-header__menu-list--hidden'
-    )
+    this.menuList.classList.add('nhsuk-header__menu-list')
+    this.menuList.setAttribute('hidden', '')
   }
 
   /**
@@ -119,11 +117,9 @@ class Header {
 
     this.menuIsEnabled = true
 
-    this.menuToggle.classList.add('nhsuk-header__menu-toggle--visible')
+    this.menu.removeAttribute('hidden')
 
-    this.menu.classList.add('nhsuk-header__menu--visible')
-
-    // Add click listener to toggle menu
+    this.menuToggle.removeAttribute('hidden')
     this.menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
@@ -138,12 +134,10 @@ class Header {
     this.closeMenu()
     this.menuIsEnabled = false
 
-    this.menuToggle.classList.remove('nhsuk-header__menu-toggle--visible')
+    this.menu.setAttribute('hidden', '')
 
-    this.menu.classList.remove('nhsuk-header__menu--visible')
-
-    // Remove click listener to toggle menu
     this.menuToggle.removeEventListener('click', this.handleToggleMenu)
+    this.menuToggle.setAttribute('hidden', '')
   }
 
   /**
@@ -159,7 +153,7 @@ class Header {
     }
 
     this.menuIsOpen = false
-    this.menuList.classList.add('nhsuk-header__menu-list--hidden')
+    this.menuList.setAttribute('hidden', '')
     this.menuToggle.setAttribute('aria-expanded', 'false')
     this.navigation.style.marginBottom = 0
 
@@ -197,7 +191,7 @@ class Header {
     }
 
     this.menuIsOpen = true
-    this.menuList.classList.remove('nhsuk-header__menu-list--hidden')
+    this.menuList.hidden = false
     this.menuToggle.setAttribute('aria-expanded', 'true')
     this.navigation.style.marginBottom = `${this.menuList.offsetHeight}px`
 

@@ -48,7 +48,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             Health A-Z
           </a>
         </li>
-        <li class="nhsuk-header__menu">
+        <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
             <span class="nhsuk-u-visually-hidden">Browse</span>
             More
@@ -173,7 +173,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             Pregnancy
           </a>
         </li>
-        <li class="nhsuk-header__menu">
+        <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
             <span class="nhsuk-u-visually-hidden">Browse</span>
             More
@@ -385,7 +385,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
             Our research
           </a>
         </li>
-        <li class="nhsuk-header__menu">
+        <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
             <span class="nhsuk-u-visually-hidden">Browse</span>
             More
@@ -496,7 +496,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
               Our research
             </a>
           </li>
-          <li class="nhsuk-header__menu">
+          <li class="nhsuk-header__menu" hidden>
             <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
               <span class="nhsuk-u-visually-hidden">Browse</span>
               More
@@ -609,7 +609,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
               Our research
             </a>
           </li>
-          <li class="nhsuk-header__menu">
+          <li class="nhsuk-header__menu" hidden>
             <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
               <span class="nhsuk-u-visually-hidden">Browse</span>
               More
