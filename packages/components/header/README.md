@@ -40,7 +40,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-navigation-container">
+  <div class="nhsuk-header__navigation">
     <div class="nhsuk-width-container">
       <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
@@ -142,7 +142,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </a>
     </div>
   </div>
-  <div class="nhsuk-navigation-container">
+  <div class="nhsuk-header__navigation">
     <div class="nhsuk-width-container">
       <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
@@ -361,7 +361,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-navigation-container">
+  <div class="nhsuk-header__navigation">
     <div class="nhsuk-width-container">
       <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
@@ -473,7 +473,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-navigation-container">
+  <div class="nhsuk-header__navigation">
     <div class="nhsuk-width-container">
       <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">
@@ -586,7 +586,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-navigation-container">
+  <div class="nhsuk-header__navigation">
     <div class="nhsuk-width-container">
       <nav class="nhsuk-navigation" aria-label="Menu">
         <ul class="nhsuk-header__navigation-list">

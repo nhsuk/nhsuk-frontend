@@ -58,7 +58,7 @@
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-navigation-container {
+  .nhsuk-header__navigation {
     background-color: $color_nhsuk-blue;
 
     @include mq($until: tablet) {
@@ -72,7 +72,7 @@
 }
 
 .nhsuk-header--white-nav {
-  .nhsuk-navigation-container {
+  .nhsuk-header__navigation {
     background-color: $color_nhsuk-white;
     color: $color_nhsuk-blue;
 

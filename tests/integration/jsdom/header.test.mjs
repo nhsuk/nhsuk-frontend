@@ -19,7 +19,7 @@ describe('Header class', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-navigation-container">
+      <div class="nhsuk-header__navigation">
         <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
           <ul class="nhsuk-header__navigation-list">
             <li class="nhsuk-header__navigation-item">
@@ -76,7 +76,7 @@ describe('Header class', () => {
       </div>
     `
 
-    const container = document.querySelector('.nhsuk-navigation-container')
+    const container = document.querySelector('.nhsuk-header__navigation')
 
     navigation = getByRole(container, 'navigation')
     menuButton = getByRole(container, 'button', { name: 'Browse More' })
