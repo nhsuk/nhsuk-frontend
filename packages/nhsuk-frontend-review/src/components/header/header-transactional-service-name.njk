@@ -1,0 +1,16 @@
+{% set title = 'Header transactional with service name' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+      "transactionalService": {
+        "name": "Find your NHS number"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+
+{% endblock %}

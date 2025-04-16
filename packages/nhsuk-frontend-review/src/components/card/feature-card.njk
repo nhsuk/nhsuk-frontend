@@ -1,0 +1,18 @@
+{% set title = 'Card - Feature card' %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ card({
+        "feature": "true",
+        "heading": "Feature card heading",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Feature card description"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
