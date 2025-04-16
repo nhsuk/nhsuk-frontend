@@ -1,5 +1,6 @@
 /**
  * Toggle a boolean attribute on a HTML element
+ *
  * @param {HTMLElement} element
  * @param {string} attr
  */
@@ -13,8 +14,9 @@ const toggleAttribute = (element, attr) => {
 
 /**
  * Toggle a toggle a class on conditional content for an input based on checked state
- * @param {HTMLElement} input input element
- * @param {string} className class to toggle
+ *
+ * @param {HTMLElement} input - input element
+ * @param {string} className - class to toggle
  */
 const toggleConditionalInput = (input, className) => {
   // Return without error if input or class are missing

@@ -14,7 +14,7 @@ class Button {
    * will tell a user to press space on a 'button', so this functionality needs to be shimmed
    * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
    *
-   * @param {object} event event
+   * @param {object} event - event
    */
   handleKeyDown(event) {
     // get the target element

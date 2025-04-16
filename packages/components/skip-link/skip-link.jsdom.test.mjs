@@ -45,18 +45,16 @@ describe('NHS.UK skiplink', () => {
       initTest(skipLinkHtml + mainHtml)
 
       // Main content not focused
-      expect(main).not.toEqual(document.activeElement)
-      expect(main.getAttribute('tabIndex')).toBeNull()
-      expect(main.classList.value).not.toContain(
-        'nhsuk-skip-link-focused-element'
-      )
+      expect(main).not.toHaveFocus()
+      expect(main).not.toHaveAttribute('tabIndex')
+      expect(main).not.toHaveClass('nhsuk-skip-link-focused-element')
 
       skipLink.click()
 
       // Main content focused
-      expect(main).toEqual(document.activeElement)
-      expect(main.getAttribute('tabIndex')).toBe('-1')
-      expect(main.classList.value).toContain('nhsuk-skip-link-focused-element')
+      expect(main).toHaveFocus()
+      expect(main).toHaveAttribute('tabIndex', '-1')
+      expect(main).toHaveClass('nhsuk-skip-link-focused-element')
     })
   })
 
@@ -67,18 +65,16 @@ describe('NHS.UK skiplink', () => {
       skipLink.click()
 
       // Main content focused
-      expect(main).toEqual(document.activeElement)
-      expect(main.getAttribute('tabIndex')).toBe('-1')
-      expect(main.classList.value).toContain('nhsuk-skip-link-focused-element')
+      expect(main).toHaveFocus()
+      expect(main).toHaveAttribute('tabIndex', '-1')
+      expect(main).toHaveClass('nhsuk-skip-link-focused-element')
 
       main.blur()
 
       // Main content not focused
-      expect(main).not.toEqual(document.activeElement)
-      expect(main.getAttribute('tabIndex')).toBeNull()
-      expect(main.classList.value).not.toContain(
-        'nhsuk-skip-link-focused-element'
-      )
+      expect(main).not.toHaveFocus()
+      expect(main).not.toHaveAttribute('tabIndex')
+      expect(main).not.toHaveClass('nhsuk-skip-link-focused-element')
     })
   })
 })

@@ -9,6 +9,7 @@ const {
 
 /**
  * Default viewport sizes
+ *
  * @type {Map<string, Viewport>}
  */
 const viewports = new Map([
