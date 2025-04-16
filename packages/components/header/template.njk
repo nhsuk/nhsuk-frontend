@@ -113,7 +113,7 @@
 
 {%- if params.primaryLinks and params.primaryLinks.length > 0 %}
   <div class="nhsuk-header__navigation">
-    <nav class="nhsuk-navigation" aria-label="Menu">
+    <nav class="nhsuk-header__navigation-container" aria-label="Menu">
       <ul class="nhsuk-header__navigation-list">
       {%- for item in params.primaryLinks %}
         {% set linkInnerContent %}

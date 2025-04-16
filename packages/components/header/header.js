@@ -8,7 +8,9 @@ class Header {
     this.menuIsEnabled = false
     this.menuIsOpen = false
 
-    this.navigation = document.querySelector('.nhsuk-navigation')
+    this.navigation = document.querySelector(
+      '.nhsuk-header__navigation-container'
+    )
     this.navigationList = null
     this.navigationItems = null
 

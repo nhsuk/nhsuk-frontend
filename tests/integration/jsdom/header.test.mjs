@@ -20,7 +20,7 @@ describe('Header class', () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <div class="nhsuk-header__navigation">
-        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+        <nav class="nhsuk-header__navigation-container" id="header-navigation" role="navigation" aria-label="Primary navigation">
           <ul class="nhsuk-header__navigation-list">
             <li class="nhsuk-header__navigation-item">
               <a class="nhsuk-header__navigation-link" href="#">

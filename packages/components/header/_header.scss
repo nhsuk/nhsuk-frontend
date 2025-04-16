@@ -247,7 +247,7 @@
   }
 }
 
-.nhsuk-navigation {
+.nhsuk-header__navigation-container {
   @include govuk-width-container;
 
   @include mq($until: tablet) {
