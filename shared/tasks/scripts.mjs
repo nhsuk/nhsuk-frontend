@@ -12,6 +12,8 @@ import pkg from '../../package.json' with { type: 'json' }
 
 /**
  * Compile JavaScript task
+ *
+ * @param {TaskCallback} done
  */
 export function webpackJS(done) {
   return gulp
@@ -116,3 +118,7 @@ export function minifyJS() {
       )
   )
 }
+
+/**
+ * @import { TaskCallback } from 'undertaker'
+ */
