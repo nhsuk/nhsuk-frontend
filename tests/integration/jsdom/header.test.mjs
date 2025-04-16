@@ -19,8 +19,8 @@ describe('Header class', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-header__navigation">
-        <nav class="nhsuk-header__navigation-container" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-header__navigation" aria-label="Menu">
+        <div class="nhsuk-header__navigation-container">
           <ul class="nhsuk-header__navigation-list">
             <li class="nhsuk-header__navigation-item">
               <a class="nhsuk-header__navigation-link" href="#">
@@ -72,14 +72,12 @@ describe('Header class', () => {
               </button>
             </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     `
 
-    const container = document.querySelector('.nhsuk-header__navigation')
-
-    navigation = getByRole(container, 'navigation')
-    menuButton = getByRole(container, 'button', { name: 'Browse More' })
+    navigation = document.querySelector('.nhsuk-header__navigation')
+    menuButton = getByRole(navigation, 'button', { name: 'Browse More' })
 
     listWidth = 800
     itemWidth = 100
@@ -259,8 +257,8 @@ describe('Header class', () => {
 
       await Header()
 
-      const listItems = navigation.querySelectorAll('nav > ul > li')
-      const menuItems = navigation.querySelectorAll('nav > ul > li li')
+      const listItems = navigation.querySelectorAll('div > ul > li')
+      const menuItems = navigation.querySelectorAll('div > ul > li li')
 
       expect(listItems).toHaveLength(expected.listItems)
       expect(menuItems).toHaveLength(expected.menuItems)
@@ -279,8 +277,8 @@ describe('Header class', () => {
         await fireEvent.resize(window)
         await setTimeout(100)
 
-        const listItems = navigation.querySelectorAll('nav > ul > li')
-        const menuItems = navigation.querySelectorAll('nav > ul > li li')
+        const listItems = navigation.querySelectorAll('div > ul > li')
+        const menuItems = navigation.querySelectorAll('div > ul > li li')
 
         expect(listItems).toHaveLength(expected.listItems)
         expect(menuItems).toHaveLength(expected.menuItems)
@@ -300,8 +298,8 @@ describe('Header class', () => {
         await fireEvent.resize(window)
         await setTimeout(100)
 
-        const listItems = navigation.querySelectorAll('nav > ul > li')
-        const menuItems = navigation.querySelectorAll('nav > ul > li li')
+        const listItems = navigation.querySelectorAll('div > ul > li')
+        const menuItems = navigation.querySelectorAll('div > ul > li li')
 
         expect(listItems).toHaveLength(expected.listItems)
         expect(menuItems).toHaveLength(expected.menuItems)

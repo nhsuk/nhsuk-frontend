@@ -40,53 +40,51 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-header__navigation">
-    <div class="nhsuk-width-container">
-      <nav class="nhsuk-header__navigation-container" aria-label="Menu">
-        <ul class="nhsuk-header__navigation-list">
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
-              Health A-Z
-            </a>
-          </li>
-          <li class="nhsuk-header__menu">
-            <button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
-              <span class="nhsuk-u-visually-hidden">Browse</span>
-              More
-              <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
-            </button>
-            <ul class="nhsuk-header__menu-list nhsuk-header__menu-list--hidden">
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
-                  NHS services
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
-                  Live Well
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/mental-health/">
-                  Mental health
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
-                  Care and support
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/pregnancy/">
-                  Pregnancy
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+  <nav class="nhsuk-header__navigation" aria-label="Menu">
+    <div class="nhsuk-header__navigation-container">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
+            Health A-Z
+          </a>
+        </li>
+        <li class="nhsuk-header__menu">
+          <button class="nhsuk-header__navigation-link nhsuk-header__menu-toggle nhsuk-header__menu-toggle--visible" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
+          </button>
+          <ul class="nhsuk-header__menu-list nhsuk-header__menu-list--hidden">
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/nhs-services/">
+                NHS services
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
+                Live Well
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/mental-health/">
+                Mental health
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
+                Care and support
+              </a>
+            </li>
+            <li class="nhsuk-header__navigation-item">
+              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/pregnancy/">
+                Pregnancy
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </header>
 ```
 
@@ -142,51 +140,49 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </a>
     </div>
   </div>
-  <div class="nhsuk-header__navigation">
-    <div class="nhsuk-width-container">
-      <nav class="nhsuk-header__navigation-container" aria-label="Menu">
-        <ul class="nhsuk-header__navigation-list">
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions">
-              Health A-Z
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/nhs-services/">
-              NHS services
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/live-well/">
-              Live Well
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/mental-health/">
-              Mental health
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions/social-care-and-support/">
-              Care and support
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/pregnancy/">
-              Pregnancy
-            </a>
-          </li>
-          <li class="nhsuk-header__menu">
-            <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
-              <span class="nhsuk-u-visually-hidden">Browse</span>
-              More
-              <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
+  <nav class="nhsuk-header__navigation" aria-label="Menu">
+    <div class="nhsuk-header__navigation-container">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions">
+            Health A-Z
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/nhs-services/">
+            NHS services
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/live-well/">
+            Live Well
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/mental-health/">
+            Mental health
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/conditions/social-care-and-support/">
+            Care and support
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="https://www.nhs.uk/pregnancy/">
+            Pregnancy
+          </a>
+        </li>
+        <li class="nhsuk-header__menu">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
+          </button>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </header>
 ```
 
@@ -361,46 +357,44 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
       </div>
     </div>
   </div>
-  <div class="nhsuk-header__navigation">
-    <div class="nhsuk-width-container">
-      <nav class="nhsuk-header__navigation-container" aria-label="Menu">
-        <ul class="nhsuk-header__navigation-list">
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="#">
-              Your hospital visit
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="#">
-              Wards and departments
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="#">
-              Conditions and treatments
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="#">
-              Our people
-            </a>
-          </li>
-          <li class="nhsuk-header__navigation-item">
-            <a class="nhsuk-header__navigation-link"  href="#">
-              Our research
-            </a>
-          </li>
-          <li class="nhsuk-header__menu">
-            <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
-              <span class="nhsuk-u-visually-hidden">Browse</span>
-              More
-              <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
+  <nav class="nhsuk-header__navigation" aria-label="Menu">
+    <div class="nhsuk-header__navigation-container">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="#">
+            Your hospital visit
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="#">
+            Wards and departments
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="#">
+            Conditions and treatments
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="#">
+            Our people
+          </a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link"  href="#">
+            Our research
+          </a>
+        </li>
+        <li class="nhsuk-header__menu">
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse</span>
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path></svg>
+          </button>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </header>
 ```
 
