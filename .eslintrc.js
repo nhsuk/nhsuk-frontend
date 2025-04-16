@@ -11,11 +11,20 @@ module.exports = {
     // Enable dotfile linting
     '!.*',
     'node_modules',
-    'node_modules/.*'
+    'node_modules/.*',
+
+    // Prevent CHANGELOG history changes
+    'CHANGELOG.md'
   ],
   overrides: [
     {
-      files: ['**/*.{cjs,js,mjs}'],
+      files: [
+        '**/*.{cjs,js,mjs}',
+
+        // Check markdown `*.md` contains valid code blocks
+        // https://www.npmjs.com/package/eslint-plugin-markdown#user-content-advanced-configuration
+        '**/*.md/*.{cjs,js,mjs}'
+      ],
       extends: [
         'eslint:recommended',
         'plugin:import/recommended',
@@ -161,6 +170,25 @@ module.exports = {
         page: 'readonly',
         browser: 'readonly',
         jestPuppeteer: 'readonly'
+      }
+    },
+    {
+      // Configure ESLint in Markdown files
+      files: ['**/*.md'],
+      extends: ['plugin:markdown/recommended-legacy'],
+      plugins: ['markdown'],
+      processor: 'markdown/markdown'
+    },
+    {
+      // Configure ESLint in Markdown code blocks
+      files: ['**/*.md/*.{cjs,js,mjs}'],
+      env: {
+        browser: true
+      },
+      rules: {
+        'import/no-unresolved': 'off',
+        'n/no-missing-import': 'off',
+        'prefer-template': 'off'
       }
     }
   ],
