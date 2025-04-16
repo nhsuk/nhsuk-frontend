@@ -62,7 +62,7 @@ describe('Header class', () => {
                 Another one
               </a>
             </li>
-            <li class="nhsuk-mobile-menu-container">
+            <li class="nhsuk-header__menu">
               <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
                 <span class="nhsuk-u-visually-hidden">Browse</span>
                 More
@@ -120,7 +120,7 @@ describe('Header class', () => {
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
 
       // Open menu
@@ -128,7 +128,7 @@ describe('Header class', () => {
 
       // Menu open
       expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
 
       // Close menu
@@ -136,7 +136,7 @@ describe('Header class', () => {
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
     })
 
@@ -147,7 +147,7 @@ describe('Header class', () => {
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
 
       // Open menu
@@ -155,7 +155,7 @@ describe('Header class', () => {
 
       // Menu open
       expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
 
       // Press the escape key to close it
@@ -163,7 +163,7 @@ describe('Header class', () => {
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
     })
   })
@@ -187,7 +187,7 @@ describe('Header class', () => {
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
     })
 
@@ -205,7 +205,7 @@ describe('Header class', () => {
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
       expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
+        'nhsuk-header__menu-list--hidden'
       )
     })
   })

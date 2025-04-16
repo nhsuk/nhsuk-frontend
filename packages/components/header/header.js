@@ -29,9 +29,7 @@ class Header {
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
     )
-    this.mobileMenuContainer = document.querySelector(
-      '.nhsuk-mobile-menu-container'
-    )
+    this.mobileMenuContainer = document.querySelector('.nhsuk-header__menu')
 
     this.width = 0
   }
@@ -114,8 +112,8 @@ class Header {
 
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add(
-      'nhsuk-header__drop-down',
-      'nhsuk-header__drop-down--hidden'
+      'nhsuk-header__menu-list',
+      'nhsuk-header__menu-list--hidden'
     )
   }
 
@@ -133,9 +131,7 @@ class Header {
       'nhsuk-header__menu-toggle--visible'
     )
 
-    this.mobileMenuContainer.classList.add(
-      'nhsuk-mobile-menu-container--visible'
-    )
+    this.mobileMenuContainer.classList.add('nhsuk-header__menu--visible')
 
     // Add click listener to toggle menu
     this.mobileMenuToggleButton.addEventListener(
@@ -159,9 +155,7 @@ class Header {
       'nhsuk-header__menu-toggle--visible'
     )
 
-    this.mobileMenuContainer.classList.remove(
-      'nhsuk-mobile-menu-container--visible'
-    )
+    this.mobileMenuContainer.classList.remove('nhsuk-header__menu--visible')
 
     // Remove click listener to toggle menu
     this.mobileMenuToggleButton.removeEventListener(
@@ -183,7 +177,7 @@ class Header {
     }
 
     this.menuIsOpen = false
-    this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
+    this.mobileMenu.classList.add('nhsuk-header__menu-list--hidden')
     this.navigation.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
 
@@ -221,7 +215,7 @@ class Header {
     }
 
     this.menuIsOpen = true
-    this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
+    this.mobileMenu.classList.remove('nhsuk-header__menu-list--hidden')
     const marginBody = this.mobileMenu.offsetHeight
     this.navigation.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')

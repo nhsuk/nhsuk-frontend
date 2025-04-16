@@ -351,7 +351,7 @@
 }
 
 // Drop down navigation
-.nhsuk-header__drop-down {
+.nhsuk-header__menu-list {
   @include print-hide;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
@@ -401,12 +401,12 @@
   }
 }
 
-.nhsuk-header__drop-down--hidden {
+.nhsuk-header__menu-list--hidden {
   display: none;
 }
 
 // Drop down navigation container
-.nhsuk-mobile-menu-container {
+.nhsuk-header__menu {
   align-self: center;
   display: none;
   padding: 0 math.div($nhsuk-gutter-half, 2);
@@ -416,6 +416,6 @@
   }
 }
 
-.nhsuk-mobile-menu-container--visible {
+.nhsuk-header__menu--visible {
   display: block;
 }
