@@ -17,7 +17,7 @@ describe('Error summary module', () => {
     it('should focus on the error summary', () => {
       const errorSummary = document.querySelector('.nhsuk-error-summary')
 
-      expect(document.activeElement).toBe(errorSummary)
+      expect(errorSummary).toHaveFocus()
     })
 
     it('should focus only on the first instance of the error summary', () => {
@@ -31,8 +31,8 @@ describe('Error summary module', () => {
 
       ErrorSummary()
 
-      expect(document.activeElement).toBe(document.body.firstElementChild)
-      expect(document.activeElement).not.toBe(document.body.children[1])
+      expect(document.body.firstElementChild).toHaveFocus()
+      expect(document.body.children[1]).not.toHaveFocus()
     })
   })
 })

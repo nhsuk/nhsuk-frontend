@@ -18,8 +18,9 @@ module.exports = ({ scope = document } = {}) => {
 
   /**
    * Adds all necessary functionality to a details element
-   * @param {HTMLElement} element details element to initialise
-   * @param {number} index number to be appended to dynamic IDs
+   *
+   * @param {HTMLElement} element - details element to initialise
+   * @param {number} index - number to be appended to dynamic IDs
    */
   const initDetails = (element, index) => {
     // Set details element as polyfilled to prevent duplicate events being added
