@@ -10,7 +10,7 @@
   .nhsuk-header__service-logo:hover {
     color: $nhsuk-text-color;
 
-    .nhsuk-organisation-descriptor {
+    .nhsuk-header__organisation-name-descriptor {
       color: $nhsuk-text-color;
     }
   }
@@ -49,12 +49,12 @@
     }
   }
 
-  .nhsuk-organisation-name,
+  .nhsuk-header__organisation-name,
   .nhsuk-header__service-name {
     color: $color_nhsuk-black;
   }
 
-  .nhsuk-organisation-descriptor {
+  .nhsuk-header__organisation-name-descriptor {
     color: $color_nhsuk-blue;
   }
 

@@ -5,8 +5,8 @@
     display: block;
 
     &:focus {
-      .nhsuk-organisation-name,
-      .nhsuk-organisation-descriptor {
+      .nhsuk-header__organisation-name,
+      .nhsuk-header__organisation-name-descriptor {
         color: $nhsuk-focus-text-color;
       }
     }
@@ -23,7 +23,7 @@
   }
 }
 
-.nhsuk-organisation-name {
+.nhsuk-header__organisation-name {
   @include nhsuk-font(22, $line-height: 1.1);
   color: $color_nhsuk-white;
   display: block;
@@ -34,11 +34,11 @@
   }
 }
 
-.nhsuk-organisation-name-split {
+.nhsuk-header__organisation-name-split {
   display: block;
 }
 
-.nhsuk-organisation-descriptor {
+.nhsuk-header__organisation-name-descriptor {
   @include nhsuk-font(14);
   color: $color_nhsuk-white;
   display: block;
@@ -49,7 +49,7 @@
   }
 }
 
-.nhsuk-organisation-logo {
+.nhsuk-header__organisation-logo {
   border: 0;
   max-height: 100px;
   max-width: 280px;
