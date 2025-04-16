@@ -68,8 +68,8 @@
     </div>
 
 {%- if params.search %}
-    <div class="nhsuk-header__search">
-      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" role="search">
+    <search class="nhsuk-header__search">
+      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get">
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
@@ -79,7 +79,7 @@
           <span class="nhsuk-u-visually-hidden">{{ searchVisuallyHiddenButton }}</span>
         </button>
       </form>
-    </div>
+    </search>
 {%- endif %}
 
 {% if params.account %}
