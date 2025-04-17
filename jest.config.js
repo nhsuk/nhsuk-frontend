@@ -37,19 +37,18 @@ module.exports = {
       displayName: 'JSDom',
       setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
       testEnvironment: 'jsdom',
-      testMatch: ['<rootDir>/tests/integration/jsdom/**/*.test.{js,mjs}']
+      testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       ...config,
       displayName: 'Pupppeteer',
       setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
       testEnvironment: 'jest-environment-puppeteer',
-      testMatch: ['<rootDir>/tests/integration/puppeteer/**/*.test.{js,mjs}'],
+      testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],
 
       // Web server and browser required
       globalSetup: 'jest-environment-puppeteer/setup',
-      globalTeardown:
-        '<rootDir>/tests/integration/puppeteer/environment/teardown.mjs'
+      globalTeardown: '<rootDir>/shared/helpers/jest/browser/close.mjs'
     }
   ],
 
