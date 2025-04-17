@@ -328,6 +328,10 @@
   align-self: center;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
+  &[hidden] {
+    display: none;
+  }
+
   @include mq($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
@@ -377,6 +381,10 @@
   right: 0;
   top: 100%;
   left: 0;
+
+  &[hidden] {
+    display: none;
+  }
 
   @include mq($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
