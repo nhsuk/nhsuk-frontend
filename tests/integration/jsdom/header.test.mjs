@@ -62,7 +62,7 @@ describe('Header class', () => {
                 Another one
               </a>
             </li>
-            <li class="nhsuk-header__menu">
+            <li class="nhsuk-header__menu" hidden>
               <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
                 <span class="nhsuk-u-visually-hidden">Browse</span>
                 More
@@ -77,7 +77,10 @@ describe('Header class', () => {
     `
 
     navigation = document.querySelector('.nhsuk-header__navigation')
-    menuButton = getByRole(navigation, 'button', { name: 'Browse More' })
+    menuButton = getByRole(navigation, 'button', {
+      name: 'Browse More',
+      hidden: true
+    })
 
     listWidth = 800
     itemWidth = 100
@@ -94,13 +97,13 @@ describe('Header class', () => {
   describe('Menu button', () => {
     it('should be hidden by default', async () => {
       expect(menuButton).toHaveRole('button')
-      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be hidden when items do not overflow', async () => {
       await Header()
 
-      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be visible when items overflow', async () => {
@@ -108,7 +111,7 @@ describe('Header class', () => {
 
       await Header()
 
-      expect(menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).not.toHaveAttribute('hidden')
     })
 
     it('should toggle menu via click', async () => {
