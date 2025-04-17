@@ -3,43 +3,43 @@
 ////
 
 // Settings
-@import "settings/all";
+@forward "settings/all";
 
 // Tools
-@import "tools/all";
+@forward "tools/all";
 
 // Generic
-@import "generic/box-sizing";
-@import "generic/font-face";
+@forward "generic/box-sizing";
+@forward "generic/font-face";
 
 // Elements
-@import "elements/forms";
-@import "elements/links";
-@import "elements/page";
-@import "elements/table";
+@forward "elements/forms";
+@forward "elements/links";
+@forward "elements/page";
+@forward "elements/table";
 
 // Objects
-@import "objects/form-group";
-@import "objects/grid";
-@import "objects/main-wrapper";
-@import "objects/width-container";
+@forward "objects/form-group";
+@forward "objects/grid";
+@forward "objects/main-wrapper";
+@forward "objects/width-container";
 
 // Styles
-@import "styles/icons";
-@import "styles/lists";
-@import "styles/section-break";
-@import "styles/typography";
+@forward "styles/icons";
+@forward "styles/lists";
+@forward "styles/section-break";
+@forward "styles/typography";
 
 // Utilities
-@import "utilities/clearfix";
-@import "utilities/display";
-@import "utilities/float";
-@import "utilities/grid-widths";
-@import "utilities/link-nowrap";
-@import "utilities/list-border";
-@import "utilities/reading-width";
-@import "utilities/spacing";
-@import "utilities/text-align";
-@import "utilities/typography";
-@import "utilities/visually-hidden";
-@import "utilities/widths";
+@forward "utilities/clearfix";
+@forward "utilities/display";
+@forward "utilities/float";
+@forward "utilities/grid-widths";
+@forward "utilities/link-nowrap";
+@forward "utilities/list-border";
+@forward "utilities/reading-width";
+@forward "utilities/spacing";
+@forward "utilities/text-align";
+@forward "utilities/typography";
+@forward "utilities/visually-hidden";
+@forward "utilities/widths";
