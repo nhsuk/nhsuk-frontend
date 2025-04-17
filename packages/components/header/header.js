@@ -116,9 +116,9 @@ class Header {
     }
 
     this.menuIsEnabled = true
-
     this.menu.removeAttribute('hidden')
 
+    // Add click listener to toggle menu
     this.menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
@@ -132,9 +132,9 @@ class Header {
 
     this.closeMenu()
     this.menuIsEnabled = false
-
     this.menu.setAttribute('hidden', '')
 
+    // Remove click listener to toggle menu
     this.menuToggle.removeEventListener('click', this.handleToggleMenu)
   }
 
@@ -169,7 +169,7 @@ class Header {
    */
   onEscapeKey(event) {
     if (event.key === 'Escape') {
-      this.closeMenu(event)
+      this.closeMenu()
     }
   }
 
@@ -189,7 +189,7 @@ class Header {
     }
 
     this.menuIsOpen = true
-    this.menuList.hidden = false
+    this.menuList.removeAttribute('hidden')
     this.menuToggle.setAttribute('aria-expanded', 'true')
     this.navigation.style.marginBottom = `${this.menuList.offsetHeight}px`
 
