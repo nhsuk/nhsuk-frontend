@@ -102,9 +102,9 @@ class Header {
       return
     }
 
-    this.menu.appendChild(this.menuList)
     this.menuList.classList.add('nhsuk-header__menu-list')
     this.menuList.setAttribute('hidden', '')
+    this.menu.appendChild(this.menuList)
   }
 
   /**
