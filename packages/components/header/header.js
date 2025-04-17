@@ -119,7 +119,6 @@ class Header {
 
     this.menu.removeAttribute('hidden')
 
-    this.menuToggle.removeAttribute('hidden')
     this.menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
@@ -137,7 +136,6 @@ class Header {
     this.menu.setAttribute('hidden', '')
 
     this.menuToggle.removeEventListener('click', this.handleToggleMenu)
-    this.menuToggle.setAttribute('hidden', '')
   }
 
   /**
