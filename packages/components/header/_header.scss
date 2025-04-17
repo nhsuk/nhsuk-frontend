@@ -334,6 +334,7 @@
 }
 
 .nhsuk-header__menu-toggle {
+  align-items: center;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -351,6 +352,12 @@
 
   &[hidden] {
     display: none;
+  }
+
+  .nhsuk-icon__chevron-down {
+    height: nhsuk-spacing(4);
+    transform: rotate(90deg);
+    width: nhsuk-spacing(4);
   }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
