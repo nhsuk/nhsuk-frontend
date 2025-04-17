@@ -10,11 +10,12 @@
 $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
 
 .nhsuk-task-list {
-  @include nhsuk-font($size: 19);
   margin-top: 0;
-  @include nhsuk-responsive-margin(5, "bottom");
   padding: 0;
   list-style-type: none;
+
+  @include nhsuk-font($size: 19);
+  @include nhsuk-responsive-margin(5, "bottom");
 }
 
 // This uses table layout so that the task name and status always appear side-by-side, with the width of
@@ -64,12 +65,13 @@ $nhsuk-task-list-hover-color: darken($color_nhsuk-grey-5, 6%);
 // adjusting the tag styles to be closer to body text.
 .nhsuk-task-list__status--completed,
 .nhsuk-task-list__status--cannot-start-yet {
-  @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
   padding-bottom: nhsuk-spacing(1);
   padding-left: nhsuk-spacing(2);
   // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
   text-decoration: none;
+
+  @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
 }
 
 .nhsuk-task-list__status--cannot-start-yet {

@@ -167,13 +167,13 @@
 ///   @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin panel($panel-background-color, $panel-text-color) {
+  background-color: $panel-background-color;
+  color: $panel-text-color;
+
   @include top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(5);
-
-  background-color: $panel-background-color;
-  color: $panel-text-color;
 
   @include mq($media-type: print) {
     border: 1px solid $nhsuk-print-text-color;
@@ -192,11 +192,11 @@
 ///   @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
-  @include panel($panel-background-color, $panel-text-color);
-
   border: 1px solid $panel-border-color;
   // stylelint-disable-next-line declaration-no-important
   padding-top: 0 !important;
+
+  @include panel($panel-background-color, $panel-text-color);
 }
 
 /// Heading label mixin, adds a tab heading to
@@ -217,8 +217,6 @@
 ///   @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
 
 @mixin heading-label($heading-background-color, $heading-text-color) {
-  @include nhsuk-typography-responsive(24);
-
   background-color: $heading-background-color; // [1]
   color: $heading-text-color; // [2]
   display: inline-block; // [3]
@@ -226,6 +224,8 @@
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
   top: -16px; // [5]
+
+  @include nhsuk-typography-responsive(24);
 
   @include mq($until: tablet) {
     margin-left: -25px;
