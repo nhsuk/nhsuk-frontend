@@ -54,6 +54,7 @@
     "eslint-plugin-promise": "^6.6.0",
     "glob": "^11.0.1",
     "gulp": "^5.0.0",
+    "gulp-filter": "^9.0.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^6.0.1",
@@ -84,7 +85,10 @@
   },
   "files": [
     "dist",
-    "packages"
+    "packages",
+    "!dist/{app,assets,css,js}",
+    "!dist/*.zip",
+    "!**/*.test.*"
   ],
   "repository": {
     "type": "git",
