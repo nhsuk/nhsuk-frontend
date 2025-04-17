@@ -133,10 +133,12 @@ Create separate selectors rather using an `&` in the middle of a selector.
 This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g.
 
 ```scss
+@use "sass:meta";
+
 div#nhsuk-ers {
-// ...
-@import "node_modules/nhsuk-frontend/packages/core/all";
-// ...
+  // ...
+  @include meta.load-css("node_modules/nhsuk-frontend/packages/core/all");
+  // ...
 }
 ```
 

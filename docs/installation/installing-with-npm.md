@@ -36,20 +36,28 @@ You will need to import a couple of things into your project before you can star
 
 To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
 
-You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
+You need to load the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass `@use`).
 
 ```scss
-@import "node_modules/nhsuk-frontend/packages/nhsuk";
+@use "node_modules/nhsuk-frontend/packages/nhsuk" as *;
 ```
 
-Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.
+Alternatively you can use NHS.UK frontend styles with custom configuration:
+
+```scss
+@use "node_modules/nhsuk-frontend/packages/nhsuk" as * with (
+  $nhsuk-include-font-face: false
+);
+```
+
+Or to use only the minimum components necessary:
 
 ```scss
 // Core (required)
-@import "node_modules/nhsuk-frontend/packages/core/all";
+@use "node_modules/nhsuk-frontend/packages/core/all" as *;
 
 // Individual component (optional)
-@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@use "node_modules/nhsuk-frontend/packages/components/action-link/action-link" as *;
 ```
 
 ## Importing JavaScript

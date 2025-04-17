@@ -1,3 +1,9 @@
+@use "../../core/settings/colours" as *;
+@use "../../core/settings/globals" as *;
+@use "../../core/tools/focused" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Select component
 ///
@@ -16,7 +22,7 @@
   background-color: $color_nhsuk-white;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
-  color: $color-nhsuk-black;
+  color: $color_nhsuk-black;
   height: 2.5rem; // [1]
   min-width: 20ex + 3ex; // [2]
   max-width: 100%;
