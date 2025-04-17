@@ -4,6 +4,66 @@
 
 :new: **New features**
 
+#### Updated header
+
+- Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
+- Support form submission from header account items ([PR 1155](https://github.com/nhsuk/nhsuk-frontend/pull/1155))
+- The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
+- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes. ([PR 1073](https://github.com/nhsuk/nhsuk-frontend/pull/1073)) To update your HTML, replace:
+
+  ```html
+  <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+  ```
+
+  with
+
+  ```html
+  <nav class="nhsuk-navigation" aria-label="Menu">
+  ```
+
+- Update header navigation to align items to the left. ([PR 1138](https://github.com/nhsuk/nhsuk-frontend/pull/1138)). To restore the previous behaviour, where navigation items appeared evenly spaced out, use the `.nhsuk-header__navigation-list--justified` modifier class:
+
+  ```html
+  <ul class="nhsuk-header__navigation-list nhsuk-header__navigation-list--justified">
+    <li class="nhsuk-header__navigation-item">
+      <a class="nhsuk-header__navigation-link" href="#">Health A-Z</a>
+    </li>
+    ...
+  </ul>
+  ```
+
+  If you are using the `.nhsuk-header__navigation-list--left-aligned` modifier class, this can now be removed.
+
+:boom: **Breaking changes**
+
+- Remove the boolean `showNav`, `showSearch`, `transactional` and `transactionalService` options from the header component as respective parts of the header are shown automatically when `primaryLinks` or `search` options are provided.
+- Replace the `searchAction` option with the nested `search.action` option
+- Replace the `searchInputName` option with the nested `search.name` option
+
+- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
+
+- We've changed the NHS logo in the header to have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
+
+  If you're not using the Nunjucks macro, locate the SVG code for the existing logo:
+
+  ```svg
+  <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
+    <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
+    <path class="nhsuk-logo__text" fill="#fff" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+  </svg>
+  ```
+
+  Then update it with the following SVG:
+
+  ```svg
+  <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100">
+    <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/>
+  </svg>
+  ```
+
+- Remove hardcoded home link from navigation ([PR 986](https://github.com/nhsuk/nhsuk-frontend/pull/986))
+- We've updated the secondary, reverse and warning buttons to use the correct background colour on hover ([PR 908](https://github.com/nhsuk/nhsuk-frontend/pull/908))
+
 #### Include a page template
 
 A Nunjucks page template is now included within the npm package. See [Page template](https://service-manual.nhs.uk/design-system/styles/page-template) for documentation on the supported options.
