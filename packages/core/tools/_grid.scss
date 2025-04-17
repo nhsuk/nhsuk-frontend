@@ -47,9 +47,9 @@ $_nhsuk-grid-widths: (
 
 @mixin govuk-grid-row($class: "nhsuk-grid-row") {
   .#{$class} {
-    @include clearfix;
     margin-left: -($nhsuk-gutter-half);
     margin-right: -($nhsuk-gutter-half);
+    @include clearfix;
   }
 }
 

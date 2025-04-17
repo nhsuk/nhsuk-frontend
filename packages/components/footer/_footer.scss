@@ -7,13 +7,13 @@
 @use "sass:math";
 
 .nhsuk-footer-container {
+  background-color: $color_nhsuk-grey-4;
+  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
+
   @include clearfix;
   @include print-hide;
   @include nhsuk-responsive-padding(5, bottom);
   @include nhsuk-responsive-padding(5, top);
-
-  background-color: $color_nhsuk-grey-4;
-  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
 }
 
 .nhsuk-footer {
@@ -27,11 +27,11 @@
 }
 
 .nhsuk-footer__list {
-  @include nhsuk-responsive-padding(4, bottom);
-
   list-style-type: none;
   margin-bottom: 25px;
   padding-left: nhsuk-spacing(0);
+
+  @include nhsuk-responsive-padding(4, bottom);
 
   &:last-child {
     margin-bottom: 15px;
@@ -78,10 +78,10 @@
 }
 
 .nhsuk-footer__copyright {
-  @include nhsuk-font(16);
-
   color: $nhsuk-footer-copyright-text-color;
   margin-bottom: 0;
+
+  @include nhsuk-font(16);
 }
 
 .nhsuk-footer__meta {

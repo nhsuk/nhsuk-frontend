@@ -21,14 +21,14 @@
 $nhsuk-border-width-panel: nhsuk-spacing(1);
 
 .nhsuk-panel {
-  @include nhsuk-typography-responsive(24);
-  @include nhsuk-responsive-margin(4, "bottom");
-
   background: $color_nhsuk-green;
   border: $nhsuk-border-width-panel solid transparent; /* [1] */
   box-sizing: border-box;
   color: $color_nhsuk-white;
   padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
+
+  @include nhsuk-typography-responsive(24);
+  @include nhsuk-responsive-margin(4, "bottom");
 
   @include mq($until: tablet) {
     padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
@@ -43,10 +43,10 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
 }
 
 .nhsuk-panel__title {
+  margin-top: 0;
+
   @include nhsuk-typography-responsive(48);
   @include nhsuk-responsive-margin(5, "bottom");
-
-  margin-top: 0;
 }
 
 .nhsuk-panel__title:last-child {

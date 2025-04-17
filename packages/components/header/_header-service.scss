@@ -40,12 +40,12 @@
 }
 
 .nhsuk-header__service-name {
-  @include nhsuk-font(19);
-
   color: $color_nhsuk-white;
   display: block;
   padding-left: 0;
   padding-right: 0;
+
+  @include nhsuk-font(19);
 
   @include mq($from: large-desktop) {
     padding-left: nhsuk-spacing(3);
