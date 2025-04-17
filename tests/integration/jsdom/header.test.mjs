@@ -19,8 +19,8 @@ describe('Header class', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-navigation-container">
-        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
+      <nav class="nhsuk-header__navigation" aria-label="Menu">
+        <div class="nhsuk-header__navigation-container">
           <ul class="nhsuk-header__navigation-list">
             <li class="nhsuk-header__navigation-item">
               <a class="nhsuk-header__navigation-link" href="#">
@@ -62,7 +62,7 @@ describe('Header class', () => {
                 Another one
               </a>
             </li>
-            <li class="nhsuk-mobile-menu-container">
+            <li class="nhsuk-header__menu" hidden>
               <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
                 <span class="nhsuk-u-visually-hidden">Browse</span>
                 More
@@ -72,14 +72,15 @@ describe('Header class', () => {
               </button>
             </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     `
 
-    const container = document.querySelector('.nhsuk-navigation-container')
-
-    navigation = getByRole(container, 'navigation')
-    menuButton = getByRole(container, 'button', { name: 'Browse More' })
+    navigation = document.querySelector('.nhsuk-header__navigation')
+    menuButton = getByRole(navigation, 'button', {
+      name: 'Browse More',
+      hidden: true
+    })
 
     listWidth = 800
     itemWidth = 100
@@ -96,13 +97,13 @@ describe('Header class', () => {
   describe('Menu button', () => {
     it('should be hidden by default', async () => {
       expect(menuButton).toHaveRole('button')
-      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be hidden when items do not overflow', async () => {
       await Header()
 
-      expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be visible when items overflow', async () => {
@@ -110,7 +111,7 @@ describe('Header class', () => {
 
       await Header()
 
-      expect(menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect(menuButton.parentElement).not.toHaveAttribute('hidden')
     })
 
     it('should toggle menu via click', async () => {
@@ -119,25 +120,19 @@ describe('Header class', () => {
       await Header()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       menuButton.click()
 
       // Menu open
-      expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Close menu
       menuButton.click()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should close menu via escape key', async () => {
@@ -146,25 +141,19 @@ describe('Header class', () => {
       await Header()
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       menuButton.click()
 
       // Menu open
-      expect(menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Press the escape key to close it
       await user.keyboard('[Escape]')
 
       // Menu closed
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -186,9 +175,7 @@ describe('Header class', () => {
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should be added when items overflow when resized', async () => {
@@ -204,9 +191,7 @@ describe('Header class', () => {
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
-      expect(menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect(menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -259,8 +244,8 @@ describe('Header class', () => {
 
       await Header()
 
-      const listItems = navigation.querySelectorAll('nav > ul > li')
-      const menuItems = navigation.querySelectorAll('nav > ul > li li')
+      const listItems = navigation.querySelectorAll('div > ul > li')
+      const menuItems = navigation.querySelectorAll('div > ul > li li')
 
       expect(listItems).toHaveLength(expected.listItems)
       expect(menuItems).toHaveLength(expected.menuItems)
@@ -279,8 +264,8 @@ describe('Header class', () => {
         await fireEvent.resize(window)
         await setTimeout(100)
 
-        const listItems = navigation.querySelectorAll('nav > ul > li')
-        const menuItems = navigation.querySelectorAll('nav > ul > li li')
+        const listItems = navigation.querySelectorAll('div > ul > li')
+        const menuItems = navigation.querySelectorAll('div > ul > li li')
 
         expect(listItems).toHaveLength(expected.listItems)
         expect(menuItems).toHaveLength(expected.menuItems)
@@ -300,8 +285,8 @@ describe('Header class', () => {
         await fireEvent.resize(window)
         await setTimeout(100)
 
-        const listItems = navigation.querySelectorAll('nav > ul > li')
-        const menuItems = navigation.querySelectorAll('nav > ul > li li')
+        const listItems = navigation.querySelectorAll('div > ul > li')
+        const menuItems = navigation.querySelectorAll('div > ul > li li')
 
         expect(listItems).toHaveLength(expected.listItems)
         expect(menuItems).toHaveLength(expected.menuItems)

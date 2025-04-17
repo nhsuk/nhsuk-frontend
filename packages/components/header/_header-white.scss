@@ -10,7 +10,7 @@
   .nhsuk-header__service-logo:hover {
     color: $nhsuk-text-color;
 
-    .nhsuk-organisation-descriptor {
+    .nhsuk-header__organisation-name-descriptor {
       color: $nhsuk-text-color;
     }
   }
@@ -25,7 +25,7 @@
     @include nhsuk-link-style-no-visited-state;
   }
 
-  .nhsuk-search__input {
+  .nhsuk-header__search-input {
     border-color: $color_nhsuk-grey-3;
 
     &:focus {
@@ -33,7 +33,7 @@
     }
   }
 
-  .nhsuk-search__submit {
+  .nhsuk-header__search-submit {
     background-color: $color_nhsuk-blue;
     color: $color_nhsuk-white;
 
@@ -49,16 +49,16 @@
     }
   }
 
-  .nhsuk-organisation-name,
+  .nhsuk-header__organisation-name,
   .nhsuk-header__service-name {
     color: $color_nhsuk-black;
   }
 
-  .nhsuk-organisation-descriptor {
+  .nhsuk-header__organisation-name-descriptor {
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-navigation-container {
+  .nhsuk-header__navigation {
     background-color: $color_nhsuk-blue;
 
     @include mq($until: tablet) {
@@ -66,13 +66,13 @@
     }
   }
 
-  .nhsuk-navigation {
+  .nhsuk-header__navigation-container {
     border-top-width: 0;
   }
 }
 
-.nhsuk-header--white-nav {
-  .nhsuk-navigation-container {
+.nhsuk-header--white-navigation {
+  .nhsuk-header__navigation {
     background-color: $color_nhsuk-white;
     color: $color_nhsuk-blue;
 
@@ -81,7 +81,7 @@
     }
   }
 
-  .nhsuk-navigation {
+  .nhsuk-header__navigation-container {
     border-top-color: $color_nhsuk-grey-5;
     border-top-width: 1px;
   }
@@ -101,8 +101,8 @@
     }
   }
 
-  // Drop down navigation
-  .nhsuk-header__drop-down {
+  // Menu
+  .nhsuk-header__menu-list {
     // When in expanded menu, a current item link should revert to having a
     // no box-shadow, with a box-shadow added to containing list item instead.
     .nhsuk-header__navigation-link[aria-current="page"],
