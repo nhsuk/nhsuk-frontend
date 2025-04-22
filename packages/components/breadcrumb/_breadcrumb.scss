@@ -12,8 +12,8 @@
 ////
 
 .nhsuk-breadcrumb {
-  @include print-hide; // [1]
   margin-top: nhsuk-spacing(3);
+  @include print-hide; // [1]
 
   @include mq($from: tablet) {
     margin-top: nhsuk-spacing(4);
@@ -21,20 +21,21 @@
 }
 
 .nhsuk-breadcrumb__list {
-  @include mq($until: tablet) {
-    display: none; // [3]
-  }
-
-  @include nhsuk-font(16); // [4]
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @include nhsuk-font(16); // [4]
+
+  @include mq($until: tablet) {
+    display: none; // [3]
+  }
 }
 
 .nhsuk-breadcrumb__item {
-  @include nhsuk-font(16); // [4]
   display: inline-block;
   margin-bottom: 0;
+  @include nhsuk-font(16); // [4]
 
   &:not(:last-child)::after {
     background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__chevron-right' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' height='18' width='18' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z'%3E%3C/path%3E%3C/svg%3E")
@@ -66,10 +67,10 @@
 }
 
 .nhsuk-breadcrumb__back {
-  @include nhsuk-font(16); // [4]
   margin: 0;
   padding-left: nhsuk-spacing(3);
   position: relative;
+  @include nhsuk-font(16); // [4]
 
   @include mq($from: tablet) {
     display: none; // [5]

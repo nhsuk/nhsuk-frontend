@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.npm-install-cache.outputs.cache-hit != 'true'
-        run: npm install --ignore-scripts
+        run: npm install
 
   build:
     name: Deploy

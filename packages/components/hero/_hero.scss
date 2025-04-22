@@ -9,11 +9,11 @@
 ///
 
 .nhsuk-hero {
-  @include print-color($nhsuk-print-text-color);
-
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
   position: relative; // [1]
+
+  @include print-color($nhsuk-print-text-color);
 
   a {
     @include nhsuk-link-style-white;
@@ -142,13 +142,14 @@
 
   @include mq($from: tablet) {
     .nhsuk-hero-content {
-      @include top-and-bottom;
       bottom: -48px; // [8]
       margin-bottom: 0;
       max-width: 35em; // [11]
       padding: nhsuk-spacing(5) nhsuk-spacing(6);
       position: absolute;
       top: auto;
+
+      @include top-and-bottom;
     }
 
     .nhsuk-hero__arrow {
