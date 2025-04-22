@@ -6,7 +6,8 @@
     "node": "^20.9.0 || ^22.11.0"
   },
   "scripts": {
-    "prepare": "playwright install chromium --with-deps --only-shell",
+    "install:playwright": "playwright install chromium --with-deps --only-shell",
+    "install:puppeteer": "puppeteer browsers install",
     "build": "gulp build docs:build --color --series",
     "prestart": "npm run build",
     "start": "gulp --color",
@@ -21,7 +22,7 @@
     "pretest": "npm run lint && npm run build",
     "test": "npm run test:js",
     "test:js": "jest --color --coverage",
-    "pretest:visual": "npm run build",
+    "pretest:visual": "npm run install:playwright && npm run build",
     "test:visual": "npm run test:visual:cli -- -- test",
     "test:visual:ref": "npm run test:visual:cli -- -- reference",
     "test:visual:interactive": "backstop --config backstop.config.js remote",
