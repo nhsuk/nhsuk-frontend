@@ -32,6 +32,11 @@
     "src",
     "!**/*.test.*"
   ],
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "puppeteer": "^24.6.0"
+  },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   }
