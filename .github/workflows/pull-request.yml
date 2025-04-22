@@ -96,7 +96,7 @@ jobs:
 
       - name: Setup Playwright
         if: ${{ steps.changes.outputs.changes == 'true' }}
-        run: npm run postinstall
+        run: npm run prepare
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' }}

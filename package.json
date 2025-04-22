@@ -6,7 +6,7 @@
     "node": "^20.9.0 || ^22.11.0"
   },
   "scripts": {
-    "postinstall": "playwright install chromium --with-deps --only-shell",
+    "prepare": "playwright install chromium --with-deps --only-shell",
     "build": "gulp build docs:build --color --series",
     "prestart": "npm run build",
     "start": "gulp --color",
