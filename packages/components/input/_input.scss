@@ -11,7 +11,6 @@
 ////
 
 .nhsuk-input {
-  @include nhsuk-font(19);
   -moz-appearance: none; // [1]
   -webkit-appearance: none; // [1]
   appearance: none; // [1]
@@ -22,6 +21,8 @@
   margin-top: 0;
   padding: nhsuk-spacing(1);
   width: 100%;
+
+  @include nhsuk-font(19);
 
   &:focus {
     @include nhsuk-focused-input;
@@ -86,8 +87,6 @@
 
 .nhsuk-input__prefix,
 .nhsuk-input__suffix {
-  @include nhsuk-font($size: 19);
-
   background-color: $color_nhsuk-grey-4;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
@@ -99,6 +98,8 @@
   padding: nhsuk-spacing(1);
   text-align: center;
   white-space: nowrap;
+
+  @include nhsuk-font($size: 19);
 
   @include mq($until: mobile) {
     max-width: 9.1ex;

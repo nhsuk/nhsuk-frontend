@@ -13,8 +13,6 @@
 ////
 
 .nhsuk-select {
-  @include nhsuk-font(19);
-
   background-color: $color_nhsuk-white;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
@@ -23,6 +21,8 @@
   min-width: 20ex + 3ex; // [2]
   max-width: 100%;
   padding: nhsuk-spacing(1);
+
+  @include nhsuk-font(19);
 
   &:focus {
     @include nhsuk-focused-input;

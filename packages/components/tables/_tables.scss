@@ -10,13 +10,13 @@
 /// 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
 
 .nhsuk-table-container {
-  @include nhsuk-responsive-margin(7, "bottom");
-
   display: block;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow-x: auto;
   width: 100%;
+
+  @include nhsuk-responsive-margin(7, "bottom");
 
   .nhsuk-table,
   .nhsuk-table-responsive {
@@ -26,13 +26,13 @@
 
 .nhsuk-table,
 .nhsuk-table-responsive {
-  @include nhsuk-font($size: 19);
-
   width: 100%;
-  @include nhsuk-responsive-margin(7, "bottom");
 
   border-spacing: 0;
   border-collapse: collapse;
+
+  @include nhsuk-font($size: 19);
+  @include nhsuk-responsive-margin(7, "bottom");
 }
 
 .nhsuk-table__caption--xl {

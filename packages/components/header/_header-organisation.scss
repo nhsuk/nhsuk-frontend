@@ -24,10 +24,9 @@
 }
 
 .nhsuk-header__organisation-name {
-  @include nhsuk-font(22, $line-height: 1.1);
   color: $color_nhsuk-white;
   display: block;
-  font-weight: bold;
+  @include nhsuk-font(22, $weight: bold, $line-height: 1.1);
 
   @include mq($media-type: print) {
     color: $nhsuk-print-text-color;
@@ -39,10 +38,9 @@
 }
 
 .nhsuk-header__organisation-name-descriptor {
-  @include nhsuk-font(14);
   color: $color_nhsuk-white;
   display: block;
-  font-weight: bold;
+  @include nhsuk-font(14, $weight: bold);
 
   @include mq($media-type: print) {
     color: $color_nhsuk-blue;

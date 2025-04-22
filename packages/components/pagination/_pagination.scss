@@ -114,9 +114,9 @@
 }
 
 .nhsuk-pagination__title {
-  @include nhsuk-typography-responsive(24);
-
   display: block;
+
+  @include nhsuk-typography-responsive(24);
 
   @include mq($media-type: print) {
     &::after {
@@ -126,8 +126,8 @@
 }
 
 .nhsuk-pagination__page {
-  @include nhsuk-typography-responsive(16);
-
   display: block;
   text-decoration: underline;
+
+  @include nhsuk-typography-responsive(16);
 }

@@ -2,6 +2,7 @@ import { join, relative } from 'path'
 import { cwd } from 'process'
 
 import gulp from 'gulp'
+import filter from 'gulp-filter'
 import rename from 'gulp-rename'
 import terser from 'gulp-terser'
 import PluginError from 'plugin-error'
@@ -14,7 +15,7 @@ import pkg from '../../package.json' with { type: 'json' }
  */
 export function webpackJS(done) {
   return gulp
-    .src('./packages/nhsuk.js', {
+    .src('packages/nhsuk.js', {
       sourcemaps: true
     })
     .pipe(
@@ -58,7 +59,7 @@ export function webpackJS(done) {
       })
     )
     .pipe(
-      gulp.dest('./dist', {
+      gulp.dest('dist', {
         sourcemaps: '.'
       })
     )
@@ -68,34 +69,50 @@ export function webpackJS(done) {
  * Minify JavaScript task
  */
 export function minifyJS() {
-  return gulp
-    .src(
-      [
-        'dist/*.js',
-        '!dist/*.min.js' // don't re-minify minified javascript
-      ],
-      { sourcemaps: true }
-    )
-    .pipe(
-      terser({
-        format: { comments: false },
-        sourceMap: {
-          includeSources: true
-        },
+  return (
+    gulp
+      .src('dist/nhsuk.js', {
+        sourcemaps: true
+      })
+      .pipe(
+        terser({
+          format: { comments: false },
+          sourceMap: {
+            includeSources: true
+          },
 
-        // Compatibility workarounds
-        ecma: 5,
-        safari10: true
-      })
-    )
-    .pipe(
-      rename({
-        suffix: `-${pkg.version}.min`
-      })
-    )
-    .pipe(
-      gulp.dest('dist/', {
-        sourcemaps: '.'
-      })
-    )
+          // Compatibility workarounds
+          ecma: 5,
+          safari10: true
+        })
+      )
+
+      // Output minified
+      .pipe(
+        rename({
+          suffix: '.min'
+        })
+      )
+      .pipe(
+        gulp.dest('dist/', {
+          sourcemaps: '.'
+        })
+      )
+
+      // Exclude output source map
+      .pipe(filter(['**', '!dist/*.map']))
+
+      // Output minified + versioned
+      .pipe(
+        rename({
+          basename: `nhsuk-${pkg.version}`,
+          suffix: '.min'
+        })
+      )
+      .pipe(
+        gulp.dest('dist/', {
+          sourcemaps: '.'
+        })
+      )
+  )
 }
