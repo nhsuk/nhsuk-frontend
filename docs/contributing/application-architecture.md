@@ -4,37 +4,41 @@ The application generates static HTML pages to preview components, with each com
 
 ---
 
-`.github/`
+- `.github/`
 
-GitHub specific files, such templates for pull requests and issues.
+  GitHub specific files, such templates for pull requests and issues.
 
-`app/`
+- `app/`
 
-Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
+  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
 
-`dist/` (Automatically generated)
+- `dist/` (Automatically generated)
 
-Automatically generated compiled files and build assets for GitHub pages, releases and npm packages. Don't manually edit files in this folder as they will be deleted.
+  Automatically generated compiled files and build assets for GitHub pages, releases and npm packages. Don't manually edit files in this folder as they will be deleted.
 
-`docs/`
+- `docs/`
 
-Markdown files for documentation on GitHub, such as contributing to the project, coding standards and more.
+  Markdown files for documentation on GitHub, such as contributing to the project, coding standards and more.
 
-`node_modules/` (Automatically generated)
+- `node_modules/` (Automatically generated)
 
-Node package manager modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
+  Node package manager modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
 
-`packages/`
+- `packages/`
 
-NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
-`shared/tasks/`
+- `shared/`
 
-Read about [npm and Gulp tasks](tooling.md) for more information.
+  - `tasks/`
 
-`tests/`
+    Read about [npm and Gulp tasks](tooling.md) for more information.
 
-Test configuration files for our testing frameworks Cypress and BackstopJS. Linting configuration for our linters eslint, htmlhint and stylelint.
+- `tests/`
+
+  - `backstop/`
+
+    BackstopJS visual regression test output and reference files. See project [backstop.config.js](../../backstop.config.js) for more information.
 
 ---
 
