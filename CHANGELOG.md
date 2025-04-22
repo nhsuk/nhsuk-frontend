@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 9.4.1 - 22 April 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1248: Prevent Playwright setup running on npm `postinstall`](https://github.com/nhsuk/nhsuk-frontend/pull/1248)
+
 ## 9.4.0 - 22 April 2025
 
 :new: **New features**
