@@ -91,6 +91,12 @@
   @include mq($from: tablet) {
     align-self: start;
   }
+
+  .nhsuk-icon__user {
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+  }
 }
 
 .nhsuk-header__account-list {
@@ -113,14 +119,14 @@
   outline: 1px solid $color_nhsuk-blue;
   overflow-wrap: anywhere;
   padding: nhsuk-spacing(2) 12px;
-}
 
-.nhsuk-header__account-item:nth-last-child(2) {
-  margin-right: auto;
-}
+  &:nth-last-child(2) {
+    margin-right: auto;
+  }
 
-.nhsuk-header__account-item:last-child {
-  flex-grow: 0;
+  &:last-child {
+    flex-grow: 0;
+  }
 }
 
 .nhsuk-header__account-button,
@@ -144,12 +150,6 @@
   }
 }
 
-.nhsuk-icon__user {
-  height: 24px;
-  width: 24px;
-  flex-shrink: 0;
-}
-
 /// Search
 
 .nhsuk-header__search {
@@ -157,6 +157,11 @@
   flex-grow: 1;
   position: relative;
   z-index: 13;
+
+  .nhsuk-icon__search {
+    height: 28px;
+    width: 28px;
+  }
 }
 
 .nhsuk-header__search-form {
@@ -169,7 +174,7 @@
   }
 }
 
-.nhsuk-search__input {
+.nhsuk-header__search-input {
   border: 1px solid $color_nhsuk-white;
   border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
   font-size: $nhsuk-base-font-size;
@@ -195,7 +200,7 @@
   }
 }
 
-.nhsuk-search__submit {
+.nhsuk-header__search-submit {
   background-color: $color_nhsuk-grey-5;
   border: 0;
   border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
@@ -231,14 +236,9 @@
   }
 }
 
-.nhsuk-icon__search {
-  height: 28px;
-  width: 28px;
-}
-
 /// Navigation
 
-.nhsuk-navigation-container {
+.nhsuk-header__navigation {
   @include print-hide;
   position: relative;
 
@@ -247,7 +247,7 @@
   }
 }
 
-.nhsuk-navigation {
+.nhsuk-header__navigation-container {
   @include govuk-width-container;
 
   @include mq($until: tablet) {
@@ -260,7 +260,6 @@
   }
 }
 
-// Visible navigation list
 .nhsuk-header__navigation-list {
   display: flex;
   flex-wrap: wrap;
@@ -298,7 +297,7 @@
 // This is a <strong> element used as a fallback mechanism for visually
 // indicating current page in scenarios where CSS isn’t available.
 // We don’t actually want it to be bold normally, so inherit parent font-weight.
-.nhsuk-header__navigation-item-active-fallback {
+.nhsuk-header__navigation-item-current-fallback {
   font-weight: inherit;
 }
 
@@ -323,35 +322,54 @@
   }
 }
 
-// Drop down navigation toggle (shown when screen can’t fit all nav items)
+/// Menu (shown when screen can’t fit all navigation items)
+
+.nhsuk-header__menu {
+  align-self: center;
+  padding: 0 math.div($nhsuk-gutter-half, 2);
+
+  &[hidden] {
+    display: none;
+  }
+
+  @include mq($from: tablet) {
+    padding: 0 $nhsuk-gutter-half;
+  }
+}
+
 .nhsuk-header__menu-toggle {
+  align-items: center;
   background: transparent;
   border: 0;
   border-radius: 0;
   box-sizing: border-box;
   cursor: pointer;
+  display: flex;
   margin: 0;
   overflow: visible;
   position: relative;
   right: 0;
   text-align: center;
   vertical-align: top;
-  visibility: hidden;
   width: auto;
   z-index: 1;
+
+  &[hidden] {
+    display: none;
+  }
+
+  .nhsuk-icon__chevron-down {
+    height: nhsuk-spacing(4);
+    transform: rotate(90deg);
+    width: nhsuk-spacing(4);
+  }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
     transform: rotate(270deg);
   }
 }
 
-.nhsuk-header__menu-toggle--visible {
-  visibility: visible;
-  display: flex;
-}
-
-// Drop down navigation
-.nhsuk-header__drop-down {
+.nhsuk-header__menu-list {
   @include print-hide;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
@@ -363,6 +381,10 @@
   right: 0;
   top: 100%;
   left: 0;
+
+  &[hidden] {
+    display: none;
+  }
 
   @include mq($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
@@ -399,23 +421,4 @@
   .nhsuk-header__navigation-item--current {
     box-shadow: inset 6px 0 $color_nhsuk-blue;
   }
-}
-
-.nhsuk-header__drop-down--hidden {
-  display: none;
-}
-
-// Drop down navigation container
-.nhsuk-mobile-menu-container {
-  align-self: center;
-  display: none;
-  padding: 0 math.div($nhsuk-gutter-half, 2);
-
-  @include mq($from: tablet) {
-    padding: 0 $nhsuk-gutter-half;
-  }
-}
-
-.nhsuk-mobile-menu-container--visible {
-  display: block;
 }
