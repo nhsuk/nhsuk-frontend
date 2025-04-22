@@ -5,9 +5,14 @@
 
 class Header {
   constructor() {
+    this.menuIsEnabled = false
+    this.menuIsOpen = false
+
     this.navigation = document.querySelector('.nhsuk-header__navigation')
     this.navigationList = null
     this.navigationItems = null
+
+    this.width = 0
 
     if (!this.navigation) {
       return
@@ -20,13 +25,8 @@ class Header {
       '.nhsuk-header__navigation-item'
     )
 
-    this.menuIsEnabled = false
-    this.menuIsOpen = false
     this.menu = document.querySelector('.nhsuk-header__menu')
-    this.menuList = document.createElement('ul')
     this.menuToggle = document.querySelector('.nhsuk-header__menu-toggle')
-
-    this.width = 0
   }
 
   init() {
@@ -98,10 +98,11 @@ class Header {
    * Add the menu to the DOM
    */
   setupMenu() {
-    if (this.menuList.parentElement) {
+    if (this.menuList) {
       return
     }
 
+    this.menuList = document.createElement('ul')
     this.menuList.classList.add('nhsuk-header__menu-list')
     this.menuList.setAttribute('hidden', '')
     this.menu.appendChild(this.menuList)
