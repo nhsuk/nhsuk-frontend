@@ -20,6 +20,11 @@ runs:
       with:
         ref: ${{ github.event.pull_request.base.sha }}
 
+    - name: Copy base build (legacy) into workspace
+      if: ${{ hashFiles('dist/app') != '' }}
+      shell: bash
+      run: mv dist/app packages/nhsuk-frontend-review/dist
+
     - name: Commit base build for comparison
       shell: bash
       run: |
