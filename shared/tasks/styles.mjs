@@ -5,6 +5,7 @@ import { Transform } from 'stream'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import gulp from 'gulp'
+import filter from 'gulp-filter'
 import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
@@ -20,11 +21,12 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src(['packages/nhsuk.scss'], {
+    .src('packages/nhsuk.scss', {
       sourcemaps: true
     })
     .pipe(
       sass({
+        fatalDeprecations: ['color-functions', 'mixed-decls'],
         sourceMap: true,
         sourceMapIncludeSources: true
       }).on('error', (error) => {
@@ -63,23 +65,39 @@ export function compileCSS(done) {
  * Minify CSS task
  */
 export function minifyCSS() {
-  return gulp
-    .src(
-      [
-        'dist/*.css',
-        '!dist/*.min.css' // don't re-minify minified css
-      ],
-      { sourcemaps: true }
-    )
-    .pipe(postcss([cssnano()]))
-    .pipe(
-      rename({
-        suffix: `-${pkg.version}.min`
+  return (
+    gulp
+      .src('dist/nhsuk.css', {
+        sourcemaps: true
       })
-    )
-    .pipe(
-      gulp.dest('dist/', {
-        sourcemaps: '.'
-      })
-    )
+      .pipe(postcss([cssnano()]))
+
+      // Output minified
+      .pipe(
+        rename({
+          suffix: '.min'
+        })
+      )
+      .pipe(
+        gulp.dest('dist/', {
+          sourcemaps: '.'
+        })
+      )
+
+      // Exclude output source map
+      .pipe(filter(['**', '!dist/*.map']))
+
+      // Output minified + versioned
+      .pipe(
+        rename({
+          basename: `nhsuk-${pkg.version}`,
+          suffix: '.min'
+        })
+      )
+      .pipe(
+        gulp.dest('dist/', {
+          sourcemaps: '.'
+        })
+      )
+  )
 }

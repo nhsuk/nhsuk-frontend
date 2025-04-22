@@ -18,13 +18,12 @@
 }
 
 .nhsuk-action-link__link {
-  @include nhsuk-font(22);
-
   display: inline-block; // [1]
-  font-weight: $nhsuk-font-bold;
   padding-left: 38px; // [2]
   position: relative; // [3]
   text-decoration: none; // [4]
+
+  @include nhsuk-font(22, $weight: bold);
 
   &:hover {
     .nhsuk-action-link__text {
@@ -56,14 +55,14 @@
   }
 
   .nhsuk-icon__arrow-right-circle {
-    @include print-color($nhsuk-print-text-color);
-
     fill: $color_nhsuk-green;
     height: 36px;
     left: -3px;
     position: absolute;
     top: -3px;
     width: 36px;
+
+    @include print-color($nhsuk-print-text-color);
 
     @include mq($until: tablet) {
       height: 24px;
