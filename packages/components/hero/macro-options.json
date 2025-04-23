@@ -15,7 +15,7 @@
     "name": "headingLevel",
     "type": "integer",
     "required": false,
-    "description": "Optional heading level for the heading. Default: 1"
+    "description": "Optional heading level for the heading. Default: 1."
   },
   {
     "name": "text",

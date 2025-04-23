@@ -35,7 +35,7 @@
     "name": "headingLevel",
     "type": "integer",
     "required": false,
-    "description": "Optional heading level for the title heading. Default: 3"
+    "description": "Optional heading level for the title heading. Default: 3."
   },
   {
     "name": "classes",

@@ -21,7 +21,7 @@
     "name": "headingLevel",
     "type": "integer",
     "required": false,
-    "description": "Optional heading level for the card heading. Default: 2"
+    "description": "Optional heading level for the card heading. Default: 2."
   },
   {
     "name": "href",
