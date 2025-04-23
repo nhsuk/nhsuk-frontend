@@ -3,7 +3,6 @@
  */
 module.exports = {
   extends: ['prettier'],
-  parser: '@babel/eslint-parser',
   ignorePatterns: [
     '**/coverage/**',
     '**/dist/**',
@@ -23,12 +22,15 @@ module.exports = {
         'plugin:jest/style',
         'plugin:n/recommended',
         'plugin:promise/recommended',
+        'plugin:@typescript-eslint/strict',
+        'plugin:@typescript-eslint/stylistic',
         'prettier'
       ],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 'latest'
       },
-      plugins: ['import', 'n', 'promise', 'jest'],
+      plugins: ['@typescript-eslint', 'import', 'n', 'promise', 'jest'],
       rules: {
         // Check import or require statements are A-Z ordered
         'import/order': [
@@ -50,6 +52,14 @@ module.exports = {
 
         // Avoid hard to read multi assign statements
         'no-multi-assign': 'error'
+      }
+    },
+    {
+      // CommonJS modules allow require statements
+      files: ['**/*.{cjs,js}'],
+      rules: {
+        '@typescript-eslint/no-require-imports': 'off',
+        '@typescript-eslint/no-var-requires': 'off'
       }
     },
     {
