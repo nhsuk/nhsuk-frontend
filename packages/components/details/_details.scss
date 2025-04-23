@@ -215,6 +215,7 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
   }
 }
 
-.nhsuk-details + %nhsuk-heading-l {
+.nhsuk-details + h2,
+.nhsuk-details + .nhsuk-heading-l {
   @include nhsuk-responsive-padding(4, "top");
 }
