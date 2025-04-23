@@ -1,142 +1,140 @@
-{
-  "params": [
-    {
-      "name": "showNav",
-      "type": "boolean",
-      "required": true,
-      "description": "Set to `true` to show the navigation links in the header."
-    },
-    {
-      "name": "showSearch",
-      "type": "boolean",
-      "required": true,
-      "description": "Set to `true` to show the site search input form."
-    },
-    {
-      "name": "homeHref",
-      "type": "string",
-      "required": "No",
-      "description": "The `href` of the link for the logo and mobile home link in the navigation links. Defaults to \"/\""
-    },
-    {
-      "name": "ariaLabel",
-      "type": "string",
-      "required": "No",
-      "description": "Aria label for the logo href. Defaults to \"NHS homepage\"."
-    },
-    {
-      "name": "organisation",
-      "type": "object",
-      "required": false,
-      "description": "Settings for header with organisational logo.",
-      "params": [
-        {
-          "name": "name",
-          "type": "string",
-          "required": false,
-          "description": "Organisation name value."
-        },
-        {
-          "name": "descriptor",
-          "type": "string",
-          "required": false,
-          "description": "Organisation descriptor."
-        },
-        {
-          "name": "logoURL",
-          "type": "string",
-          "required": true,
-          "description": "Organisation logo if using a static asset, such as PNG, is preferred."
-        }
-      ]
-    },
-    {
-      "name": "primaryLinks",
-      "type": "array",
-      "required": false,
-      "description": "Array of navigation links for use in the header.",
-      "params": [
-        {
-          "name": "url",
-          "type": "string",
-          "required": true,
-          "description": "The href of a navigation item in the header."
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "required": false,
-          "description": "The label of a navigation item in the header."
-        },
-        {
-          "name": "classes",
-          "type": "string",
-          "required": false,
-          "description": "Classes to add to the list item containing the link."
-        },
-        {
-          "name": "attributes",
-          "type": "object",
-          "required": false,
-          "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
-        }
-      ]
-    },
-    {
-      "name": "transactional",
-      "type": "string",
-      "required": "No",
-      "description": "Set to `true` if this is a transactional header (with smaller logo)."
-    },
-    {
-      "name": "transactionalService",
-      "type": "object",
-      "required": false,
-      "description": "Settings for transactional service header.",
-      "params": [
-        {
-          "name": "name",
-          "type": "string",
-          "required": false,
-          "description": "Transactional service name value."
-        },
-        {
-          "name": "href",
-          "type": "string",
-          "required": false,
-          "description": "The href of the transactional header name."
-        },
-        {
-          "name": "longName",
-          "type": "boolean",
-          "required": false,
-          "description": "Set this to `true` if the transactional service name is longer than 22 characters."
-        }
-      ]
-    },
-    {
-      "name": "searchAction",
-      "type": "string",
-      "required": "No",
-      "description": "Custom search action endpoint."
-    },
-    {
-      "name": "searchInputName",
-      "type": "string",
-      "required": "No",
-      "description": "The name for the search field. Defaults to \"q\""
-    },
-    {
-      "name": "classes",
-      "type": "string",
-      "required": false,
-      "description": "Classes to add to the header container."
-    },
-    {
-      "name": "attributes",
-      "type": "object",
-      "required": false,
-      "description": "HTML attributes (for example data attributes) to add to the header container."
-    }
-  ]
-}
+[
+  {
+    "name": "showNav",
+    "type": "boolean",
+    "required": true,
+    "description": "Set to `true` to show the navigation links in the header."
+  },
+  {
+    "name": "showSearch",
+    "type": "boolean",
+    "required": true,
+    "description": "Set to `true` to show the site search input form."
+  },
+  {
+    "name": "homeHref",
+    "type": "string",
+    "required": "No",
+    "description": "The `href` of the link for the logo and mobile home link in the navigation links. Defaults to \"/\""
+  },
+  {
+    "name": "ariaLabel",
+    "type": "string",
+    "required": "No",
+    "description": "Aria label for the logo href. Defaults to \"NHS homepage\"."
+  },
+  {
+    "name": "organisation",
+    "type": "object",
+    "required": false,
+    "description": "Settings for header with organisational logo.",
+    "params": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Organisation name value."
+      },
+      {
+        "name": "descriptor",
+        "type": "string",
+        "required": false,
+        "description": "Organisation descriptor."
+      },
+      {
+        "name": "logoURL",
+        "type": "string",
+        "required": true,
+        "description": "Organisation logo if using a static asset, such as PNG, is preferred."
+      }
+    ]
+  },
+  {
+    "name": "primaryLinks",
+    "type": "array",
+    "required": false,
+    "description": "Array of navigation links for use in the header.",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": true,
+        "description": "The href of a navigation item in the header."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "The label of a navigation item in the header."
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the list item containing the link."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
+      }
+    ]
+  },
+  {
+    "name": "transactional",
+    "type": "string",
+    "required": "No",
+    "description": "Set to `true` if this is a transactional header (with smaller logo)."
+  },
+  {
+    "name": "transactionalService",
+    "type": "object",
+    "required": false,
+    "description": "Settings for transactional service header.",
+    "params": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Transactional service name value."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The href of the transactional header name."
+      },
+      {
+        "name": "longName",
+        "type": "boolean",
+        "required": false,
+        "description": "Set this to `true` if the transactional service name is longer than 22 characters."
+      }
+    ]
+  },
+  {
+    "name": "searchAction",
+    "type": "string",
+    "required": "No",
+    "description": "Custom search action endpoint."
+  },
+  {
+    "name": "searchInputName",
+    "type": "string",
+    "required": "No",
+    "description": "The name for the search field. Defaults to \"q\""
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the header container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the header container."
+  }
+]
