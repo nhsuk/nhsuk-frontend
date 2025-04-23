@@ -21,6 +21,20 @@
     "isComponent": true
   },
   {
+    "name": "formGroup",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the form group containing the radios component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+      }
+    ]
+  },
+  {
     "name": "idPrefix",
     "type": "string",
     "required": false,
@@ -31,6 +45,12 @@
     "type": "string",
     "required": true,
     "description": "Name attribute for each radio item."
+  },
+  {
+    "name": "value",
+    "type": "string",
+    "required": false,
+    "description": "The value for the radio which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item."
   },
   {
     "name": "items",
@@ -55,6 +75,13 @@
         "type": "string",
         "required": false,
         "description": "Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied."
+      },
+      {
+        "name": "label",
+        "type": "object",
+        "required": false,
+        "description": "Options for the label component.",
+        "isComponent": true
       },
       {
         "name": "value",
