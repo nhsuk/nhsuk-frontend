@@ -57,19 +57,19 @@
           "required": false,
           "description": "Can be used to add a hint to each task within the task list component. See items hint.",
           "params": [
-              {
-                "name": "text",
-                "type": "string",
-                "required": true,
-                "description": "Text to use within the hint. If `html` is provided, the `text` argument will be ignored."
-              },
-              {
-                "name": "html",
-                "type": "string",
-                "required": true,
-                "description": "HTML to use within the hint. If `html` is provided, the `text` argument will be ignored."
-              }
-            ]
+            {
+              "name": "text",
+              "type": "string",
+              "required": true,
+              "description": "Text to use within the hint. If `html` is provided, the `text` argument will be ignored."
+            },
+            {
+              "name": "html",
+              "type": "string",
+              "required": true,
+              "description": "HTML to use within the hint. If `html` is provided, the `text` argument will be ignored."
+            }
+          ]
         },
         {
           "name": "status",
