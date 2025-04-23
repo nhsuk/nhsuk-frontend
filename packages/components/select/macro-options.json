@@ -53,7 +53,7 @@
     "name": "label",
     "type": "object",
     "required": false,
-    "description": "Label text or HTML by specifying value for either text or html keys.",
+    "description": "Options for the label component.",
     "isComponent": true
   },
   {

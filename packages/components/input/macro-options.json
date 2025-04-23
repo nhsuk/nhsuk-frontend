@@ -72,7 +72,7 @@
     "name": "formGroup",
     "type": "object",
     "required": false,
-    "description": "Options for the form-group wrapper",
+    "description": "Additional options for the form group containing the input component.",
     "params": [
       {
         "name": "classes",
