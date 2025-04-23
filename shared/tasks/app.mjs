@@ -11,7 +11,7 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../../.htmlvalidate.js'
 import pkg from '../../package.json' with { type: 'json' }
 
-const { PORT = 3000 } = process.env
+const { PORT = '3000' } = process.env
 
 /**
  * Compile Nunjucks into HTML
@@ -115,48 +115,54 @@ export async function copyBinaryAssets() {
 
 /**
  * Serve the static docs directory over localhost
+ *
+ * @param {TaskCallback} done
  */
-export function serve() {
-  return browserSync({
-    ghostMode: false,
-    host: '0.0.0.0',
+export function serve(done) {
+  browserSync(
+    {
+      ghostMode: false,
+      host: '0.0.0.0',
 
-    // Redirect to start path
-    middleware: [
-      {
-        route: '/',
-        handle(req, res) {
-          res.writeHead(302, { location: '/nhsuk-frontend/' })
-          res.end()
+      // Redirect to start path
+      middleware: [
+        {
+          route: '/',
+          handle(req, res) {
+            res.writeHead(302, { location: '/nhsuk-frontend/' })
+            res.end()
+          }
         }
-      }
-    ],
+      ],
 
-    online: false,
-    open: false,
-    notify: false,
-    port: PORT,
+      online: false,
+      open: false,
+      notify: false,
+      port: Number(PORT),
 
-    // Development server
-    server: {
-      baseDir: 'dist/app',
-      directory: true
+      // Development server
+      server: {
+        baseDir: 'dist/app',
+        directory: true
+      },
+
+      // Match local paths to deployed preview
+      // https://nhsuk.github.io/nhsuk-frontend
+      serveStatic: [
+        {
+          route: '/nhsuk-frontend',
+          dir: 'dist/app'
+        }
+      ],
+
+      // Show start path in console
+      startPath: '/nhsuk-frontend/'
     },
-
-    // Match local paths to deployed preview
-    // https://nhsuk.github.io/nhsuk-frontend
-    serveStatic: [
-      {
-        route: '/nhsuk-frontend',
-        dir: 'dist/app'
-      }
-    ],
-
-    // Show start path in console
-    startPath: '/nhsuk-frontend/'
-  })
+    done
+  )
 }
 
 /**
  * @import { Result } from 'html-validate'
+ * @import { TaskCallback } from 'undertaker'
  */

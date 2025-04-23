@@ -1,5 +1,6 @@
 /**
  * Remove all compiled files
+ *
  * @param {string[]} pattern - glob patterns or paths to clean
  * @param {string[]} [ignore] - glob patterns or paths to ignore
  */
