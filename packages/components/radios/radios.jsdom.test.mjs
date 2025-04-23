@@ -21,10 +21,8 @@ describe('Radios module', () => {
       const conditional = document.querySelector('#conditional-1')
       Radios()
       input.click()
-      expect(
-        conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toBe(false)
-      expect(input.getAttribute('aria-expanded')).toBe('true')
+      expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'true')
     })
   })
 
@@ -40,15 +38,11 @@ describe('Radios module', () => {
       const otherInput = document.querySelector('#input-2')
       Radios()
       input.click()
-      expect(
-        conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toBe(false)
-      expect(input.getAttribute('aria-expanded')).toBe('true')
+      expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'true')
       otherInput.click()
-      expect(
-        conditional.classList.contains('nhsuk-radios__conditional--hidden')
-      ).toBe(true)
-      expect(input.getAttribute('aria-expanded')).toBe('false')
+      expect(conditional).toHaveClass('nhsuk-radios__conditional--hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'false')
     })
   })
 })
