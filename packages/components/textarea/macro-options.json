@@ -51,6 +51,20 @@
     "isComponent": true
   },
   {
+    "name": "formGroup",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the form group containing the textarea component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+      }
+    ]
+  },
+  {
     "name": "autocomplete",
     "type": "string",
     "required": false,
