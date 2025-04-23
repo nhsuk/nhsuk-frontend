@@ -649,7 +649,7 @@ The header Nunjucks macro takes the following arguments:
 | **logo**                       | object  | No       | Object containing details of the logo                                                                             |
 | **logo.ariaLabel**             | string  | No       | ARIA label for the logo. Defaults to "NHS homepage".                                                              |
 | **logo.href**                  | string  | No       | The href of the link for the logo.                                                                                |
-| **logo.src **                  | string  | No       | Logo path, for custom organisation logos.                                                                         |
+| **logo.src**                   | string  | No       | Logo path, for custom organisation logos.                                                                         |
 | **service**                    | object  | No       | Object containing the name and href of the service.                                                               |
 | **service.text**               | string  | No       | Name of the service                                                                                               |
 | **service.href**               | string  | No       | URL path that the service name links to.                                                                          |
