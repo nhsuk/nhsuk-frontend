@@ -18,6 +18,12 @@
         "description": "If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` argument will be ignored."
       },
       {
+        "name": "header",
+        "type": "string",
+        "required": false,
+        "description": "Header text for cells in responsive table rows only."
+      },
+      {
         "name": "format",
         "type": "string",
         "required": false,
