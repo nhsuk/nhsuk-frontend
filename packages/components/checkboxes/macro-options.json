@@ -3,19 +3,36 @@
     "name": "fieldset",
     "type": "object",
     "required": false,
-    "description": "Options for the fieldset component (for example legend)."
+    "description": "Options for the fieldset component (for example legend).",
+    "isComponent": true
   },
   {
     "name": "hint",
     "type": "object",
     "required": false,
-    "description": "Options for the hint component (for example text)."
+    "description": "Options for the hint component (for example text).",
+    "isComponent": true
   },
   {
     "name": "errorMessage",
     "type": "object",
     "required": false,
-    "description": "Options for the error message component."
+    "description": "Options for the error message component.",
+    "isComponent": true
+  },
+  {
+    "name": "formGroup",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the form group containing the checkboxes component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+      }
+    ]
   },
   {
     "name": "idPrefix",
@@ -58,6 +75,13 @@
         "type": "string",
         "required": false,
         "description": "Specific name for the checkbox item. If omitted, then component global `name` string will be applied."
+      },
+      {
+        "name": "label",
+        "type": "object",
+        "required": false,
+        "description": "Options for the label component.",
+        "isComponent": true
       },
       {
         "name": "value",
@@ -121,6 +145,12 @@
     "type": "string",
     "required": false,
     "description": "Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario."
+  },
+  {
+    "name": "values",
+    "type": "array",
+    "required": false,
+    "description": "Array of values for checkboxes which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item."
   },
   {
     "name": "classes",
