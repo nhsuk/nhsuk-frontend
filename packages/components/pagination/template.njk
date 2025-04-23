@@ -40,7 +40,6 @@ presence of items (pages). #}
 {# Link for the previous or next or next page, displayed at either end of
 the numbered variant only, and including an arrow pointing left or right. #}
 {%- macro _arrowLink(link, type = "next") %}
-  {% set arrowType = arrowPrevious if type == "prev" else arrowNext %}
   <div class="nhsuk-pagination--numbered__{{ type }}">
     <a class="nhsuk-pagination--numbered__link" href="{{ link }}" rel="{{ type }}">
       {%- if type == "prev" -%}
