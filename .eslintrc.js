@@ -20,6 +20,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:import/recommended',
         'plugin:jest/style',
+        'plugin:jsdoc/recommended-typescript-flavor',
         'plugin:n/recommended',
         'plugin:promise/recommended',
         'plugin:@typescript-eslint/strict',
@@ -30,7 +31,14 @@ module.exports = {
       parserOptions: {
         ecmaVersion: 'latest'
       },
-      plugins: ['@typescript-eslint', 'import', 'n', 'promise', 'jest'],
+      plugins: [
+        '@typescript-eslint',
+        'import',
+        'jsdoc',
+        'n',
+        'promise',
+        'jest'
+      ],
       rules: {
         // Check import or require statements are A-Z ordered
         'import/order': [
@@ -38,6 +46,50 @@ module.exports = {
           {
             alphabetize: { order: 'asc' },
             'newlines-between': 'always'
+          }
+        ],
+
+        // Check for valid formatting
+        'jsdoc/check-line-alignment': [
+          'warn',
+          'never',
+          {
+            wrapIndent: '  '
+          }
+        ],
+
+        // JSDoc blocks can use `@preserve` to prevent removal
+        'jsdoc/check-tag-names': [
+          'warn',
+          {
+            definedTags: ['preserve']
+          }
+        ],
+
+        // JSDoc blocks are optional by default
+        'jsdoc/require-jsdoc': 'off',
+
+        // Require hyphens before param description
+        // Aligns with TSDoc style: https://tsdoc.org/pages/tags/param/
+        'jsdoc/require-hyphen-before-param-description': 'warn',
+
+        // JSDoc @param required in (optional) blocks but
+        // @param description is not necessary by default
+        'jsdoc/require-param-description': 'off',
+        'jsdoc/require-param-type': 'error',
+        'jsdoc/require-param': 'off',
+
+        // JSDoc @returns is optional
+        'jsdoc/require-returns-description': 'off',
+        'jsdoc/require-returns-type': 'off',
+        'jsdoc/require-returns': 'off',
+
+        // Maintain new line after description
+        'jsdoc/tag-lines': [
+          'warn',
+          'never',
+          {
+            startLines: 1
           }
         ],
 
@@ -52,6 +104,12 @@ module.exports = {
 
         // Avoid hard to read multi assign statements
         'no-multi-assign': 'error'
+      },
+      settings: {
+        jsdoc: {
+          // Allows us to use type declarations that exist in our dependencies
+          mode: 'typescript'
+        }
       }
     },
     {
