@@ -33,31 +33,42 @@
     "name": "label",
     "type": "object",
     "required": true,
-    "description": "Arguments for the label component. See label component."
+    "description": "Options for the label component.",
+    "isComponent": true
   },
   {
     "name": "hint",
     "type": "object",
     "required": false,
-    "description": "Arguments for the hint component (e.g. text). See hint component."
+    "description": "Options for the hint component.",
+    "isComponent": true
   },
   {
     "name": "errorMessage",
     "type": "object",
     "required": false,
-    "description": "Arguments for the error message component (e.g. text). See error message component."
+    "description": "Options for the error message component.",
+    "isComponent": true
+  },
+  {
+    "name": "formGroup",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the form group containing the character count component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+      }
+    ]
   },
   {
     "name": "classes",
     "type": "string",
     "required": false,
     "description": "Optional additional classes to add to the textarea tag. Separate each class with a space."
-  },
-  {
-    "name": "attributes",
-    "type": "object",
-    "required": false,
-    "description": "Any extra HTML attributes (for example data attributes) to add to the textarea tag."
   },
   {
     "name": "maxlength",
@@ -78,9 +89,29 @@
     "description": "The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default."
   },
   {
-    "name": "countMessage.classes",
-    "type": "string",
+    "name": "spellcheck",
+    "type": "boolean",
     "required": false,
-    "description": "Classes to add to the count message."
+    "description": "Optional field to enable or disable the spellcheck attribute on the textarea."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "Any extra HTML attributes (for example data attributes) to add to the textarea tag."
+  },
+  {
+    "name": "countMessage",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the count message used by the character count component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the count message."
+      }
+    ]
   }
 ]
