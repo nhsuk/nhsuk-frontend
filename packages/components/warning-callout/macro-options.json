@@ -1,34 +1,32 @@
-{
-  "params": [
-    {
-      "name": "heading",
-      "type": "string",
-      "required": true,
-      "description": "Heading to be used on the warning callout."
-    },
-    {
-      "name": "headingLevel",
-      "type": "integer",
-      "required": false,
-      "description": "Optional heading level for the heading. Default: 3"
-    },
-    {
-      "name": "html",
-      "type": "string",
-      "required": true,
-      "description": "Content to be used within the warning callout."
-    },
-    {
-      "name": "classes",
-      "type": "string",
-      "required": false,
-      "description": "Classes to add to the warning callout."
-    },
-    {
-      "name": "attributes",
-      "type": "object",
-      "required": false,
-      "description": "HTML attributes (for example data attributes) to add to the warning callout."
-    }
-  ]
-}
+[
+  {
+    "name": "heading",
+    "type": "string",
+    "required": true,
+    "description": "Heading to be used on the warning callout."
+  },
+  {
+    "name": "headingLevel",
+    "type": "integer",
+    "required": false,
+    "description": "Optional heading level for the heading. Default: 3"
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "Content to be used within the warning callout."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the warning callout."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the warning callout."
+  }
+]

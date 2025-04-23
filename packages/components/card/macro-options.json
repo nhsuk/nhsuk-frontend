@@ -1,82 +1,80 @@
-{
-  "params": [
-    {
-      "name": "heading",
-      "type": "string",
-      "required": true,
-      "description": "Text to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
-    },
-    {
-      "name": "headingHtml",
-      "type": "string",
-      "required": true,
-      "description": "HTML to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
-    },
-    {
-      "name": "headingClasses",
-      "type": "string",
-      "required": false,
-      "description": "Classes to add to the card heading."
-    },
-    {
-      "name": "headingLevel",
-      "type": "integer",
-      "required": false,
-      "description": "Optional heading level for the card heading. Default: 2"
-    },
-    {
-      "name": "href",
-      "type": "string",
-      "required": false,
-      "description": "The value of the card link href attribute."
-    },
-    {
-      "name": "clickable",
-      "type": "boolean",
-      "required": false,
-      "description": "If set to true, then the whole Card will become a clickable Card variant."
-    },
-    {
-      "name": "feature",
-      "type": "boolean",
-      "required": false,
-      "description": "If set to true, then the Card will become a feature Card variant."
-    },
-    {
-      "name": "imgURL",
-      "type": "string",
-      "required": false,
-      "description": "The URL of the image in the card."
-    },
-    {
-      "name": "imgALT",
-      "type": "string",
-      "required": false,
-      "description": "The alternative text of the image in the card."
-    },
-    {
-      "name": "description",
-      "type": "string",
-      "required": false,
-      "description": "Text description within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
-    },
-    {
-      "name": "descriptionHtml",
-      "type": "string",
-      "required": false,
-      "description": "HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
-    },
-    {
-      "name": "classes",
-      "type": "string",
-      "required": false,
-      "description": "Classes to add to the card."
-    },
-    {
-      "name": "attributes",
-      "type": "object",
-      "required": false,
-      "description": "HTML attributes (for example data attributes) to add to the card."
-    }
-  ]
-}
+[
+  {
+    "name": "heading",
+    "type": "string",
+    "required": true,
+    "description": "Text to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
+  },
+  {
+    "name": "headingHtml",
+    "type": "string",
+    "required": true,
+    "description": "HTML to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
+  },
+  {
+    "name": "headingClasses",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the card heading."
+  },
+  {
+    "name": "headingLevel",
+    "type": "integer",
+    "required": false,
+    "description": "Optional heading level for the card heading. Default: 2"
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": false,
+    "description": "The value of the card link href attribute."
+  },
+  {
+    "name": "clickable",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to true, then the whole Card will become a clickable Card variant."
+  },
+  {
+    "name": "feature",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to true, then the Card will become a feature Card variant."
+  },
+  {
+    "name": "imgURL",
+    "type": "string",
+    "required": false,
+    "description": "The URL of the image in the card."
+  },
+  {
+    "name": "imgALT",
+    "type": "string",
+    "required": false,
+    "description": "The alternative text of the image in the card."
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "required": false,
+    "description": "Text description within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
+  },
+  {
+    "name": "descriptionHtml",
+    "type": "string",
+    "required": false,
+    "description": "HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the card."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the card."
+  }
+]
