@@ -46,7 +46,7 @@
     "cssnano": "^7.0.6",
     "del": "^8.0.0",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.1",
+    "eslint-config-prettier": "^10.1.2",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-es-x": "^8.6.1",
     "eslint-plugin-import": "^2.31.0",
