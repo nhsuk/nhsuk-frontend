@@ -9,18 +9,18 @@ presence of items (pages). #}
 {% set numbered = true if params.items %}
 
 {# Arrow pointing left - used by both variants #}
-{%- macro _arrowPrevious() -%}
+{%- set arrowPrevious -%}
   <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
     <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z"></path>
   </svg>
-{%- endmacro -%}
+{%- endset -%}
 
 {# Arrow pointing right - used by both variants #}
-{%- macro _arrowNext() -%}
+{%- set arrowNext -%}
   <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
     <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z"></path>
   </svg>
-{%- endmacro -%}
+{%- endset -%}
 
 {# Numbered page - included as a link within a list item. #}
 {%- macro _pageItem(item) -%}
@@ -40,14 +40,15 @@ presence of items (pages). #}
 {# Link for the previous or next or next page, displayed at either end of
 the numbered variant only, and including an arrow pointing left or right. #}
 {%- macro _arrowLink(link, type = "next") %}
+  {% set arrowType = arrowPrevious if type == "prev" else arrowNext %}
   <div class="nhsuk-pagination--numbered__{{ type }}">
     <a class="nhsuk-pagination--numbered__link" href="{{ link }}" rel="{{ type }}">
       {%- if type == "prev" -%}
-        {{ _arrowPrevious() }}
+        {{- arrowType | safe | indent(4, true) }}
       {%- endif -%}
       {{ caller() | safe }}
       {%- if type == "next" -%}
-        {{ _arrowNext() }}
+        {{- arrowType | safe | indent(4, true) }}
       {%- endif -%}
     </a>
   </div>
@@ -86,7 +87,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
             <span class="nhsuk-pagination__title">Previous</span>
             <span class="nhsuk-u-visually-hidden">:</span>
             <span class="nhsuk-pagination__page">{{ params.previousPage }}</span>
-            {{ _arrowPrevious() }}
+            {{ arrowPrevious | safe }}
           </a>
         </li>
       {%- endif %}
@@ -96,7 +97,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
             <span class="nhsuk-pagination__title">Next</span>
             <span class="nhsuk-u-visually-hidden">:</span>
             <span class="nhsuk-pagination__page">{{ params.nextPage }}</span>
-            {{ _arrowNext() }}
+            {{ arrowNext | safe }}
           </a>
         </li>
 
