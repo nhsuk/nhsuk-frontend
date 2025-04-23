@@ -33,13 +33,37 @@
     "name": "clickable",
     "type": "boolean",
     "required": false,
-    "description": "If set to true, then the whole Card will become a clickable Card variant."
+    "description": "If set to true, then the whole card will become a clickable card variant."
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "required": false,
+    "description": "Care card variant type – \"non-urgent\", \"urgent\" or \"emergency\"."
   },
   {
     "name": "feature",
     "type": "boolean",
     "required": false,
-    "description": "If set to true, then the Card will become a feature Card variant."
+    "description": "If set to true, then the card will become a feature card variant."
+  },
+  {
+    "name": "primary",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to true, the card will become a primary card variant (with chevron)."
+  },
+  {
+    "name": "secondary",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to true, the card will become a secondary card variant."
+  },
+  {
+    "name": "topTask",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to true, the card will become a top task card variant."
   },
   {
     "name": "imgURL",
