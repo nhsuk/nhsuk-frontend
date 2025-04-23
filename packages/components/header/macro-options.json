@@ -36,6 +36,12 @@
         "description": "Organisation name value."
       },
       {
+        "name": "split",
+        "type": "string",
+        "required": false,
+        "description": "Longer organisation names can be split onto multiple lines."
+      },
+      {
         "name": "descriptor",
         "type": "string",
         "required": false,
@@ -44,8 +50,22 @@
       {
         "name": "logoURL",
         "type": "string",
-        "required": true,
+        "required": false,
         "description": "Organisation logo if using a static asset, such as PNG, is preferred."
+      }
+    ]
+  },
+  {
+    "name": "service",
+    "type": "object",
+    "required": false,
+    "description": "Settings for the service name in the header.",
+    "params": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Name of the service."
       }
     ]
   },
@@ -124,6 +144,12 @@
     "type": "string",
     "required": "No",
     "description": "The name for the search field. Defaults to \"q\""
+  },
+  {
+    "name": "baseUrl",
+    "type": "string",
+    "required": false,
+    "description": "Base URL to prepend to the organisation logo URL."
   },
   {
     "name": "classes",
