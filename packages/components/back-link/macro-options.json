@@ -36,6 +36,5 @@
       "required": false,
       "description": "Which html element to use to render the back link - `button` or `a`. If not provided, defaults to `a`."
     }
-
   ]
 }

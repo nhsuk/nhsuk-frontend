@@ -1,30 +1,30 @@
 {
-	"params": [
-		{
-			"name": "items",
-			"type": "array",
-			"required": true,
-			"description": "Array of breadcrumbs item objects. This should contain all pages in the breadcrumb except for the parent page.",
-			"params": [
-				{
-					"name": "text",
-					"type": "string",
-					"required": true,
-					"description": "Text to use within the breadcrumbs item."
-				},
-				{
-					"name": "href",
-					"type": "string",
-					"required": false,
-					"description": "The value of the breadcrumb item link href attribute."
-				},
-				{
-					"name": "attributes",
-					"type": "object",
-					"required": false,
-					"description": "HTML attributes (for example data attributes) to add to the individual crumb."
-				}
-			]
+  "params": [
+    {
+      "name": "items",
+      "type": "array",
+      "required": true,
+      "description": "Array of breadcrumbs item objects. This should contain all pages in the breadcrumb except for the parent page.",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to use within the breadcrumbs item."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "description": "The value of the breadcrumb item link href attribute."
+        },
+        {
+          "name": "attributes",
+          "type": "object",
+          "required": false,
+          "description": "HTML attributes (for example data attributes) to add to the individual crumb."
+        }
+      ]
     },
     {
       "name": "text",
@@ -50,5 +50,5 @@
       "required": false,
       "description": "HTML attributes (for example data attributes) to add to the container."
     }
-	]
+  ]
 }
