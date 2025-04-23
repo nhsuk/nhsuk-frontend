@@ -1,0 +1,28 @@
+{
+  "params": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "description": "Text to be displayed on the details component."
+    },
+    {
+      "name": "html",
+      "type": "string",
+      "required": true,
+      "description": "HTML content to be displayed within the details component."
+    },
+    {
+      "name": "classes",
+      "type": "string",
+      "required": false,
+      "description": "Classes to add to the details element."
+    },
+    {
+      "name": "attributes",
+      "type": "object",
+      "required": false,
+      "description": "HTML attributes (for example data attributes) to add to the details element."
+    }
+  ]
+}
