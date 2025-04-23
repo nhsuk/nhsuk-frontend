@@ -226,17 +226,14 @@ h1 + .nhsuk-lede-text--small {
 }
 
 %nhsuk-body-m + %nhsuk-heading-l,
-%nhsuk-body-s + %nhsuk-heading-l,
-%nhsuk-list + %nhsuk-heading-l {
+%nhsuk-body-s + %nhsuk-heading-l {
   @include nhsuk-responsive-padding(4, "top");
 }
 
 %nhsuk-body-m + %nhsuk-heading-m,
 %nhsuk-body-s + %nhsuk-heading-m,
-%nhsuk-list + %nhsuk-heading-m,
 %nhsuk-body-m + %nhsuk-heading-s,
-%nhsuk-body-s + %nhsuk-heading-s,
-%nhsuk-list + %nhsuk-heading-s {
+%nhsuk-body-s + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
   @include nhsuk-media-query($from: tablet) {
@@ -294,13 +291,10 @@ b {
   %nhsuk-body-l + %nhsuk-heading-l,
   %nhsuk-body-m + %nhsuk-heading-l,
   %nhsuk-body-s + %nhsuk-heading-l,
-  %nhsuk-list + %nhsuk-heading-l,
   %nhsuk-body-m + %nhsuk-heading-m,
   %nhsuk-body-s + %nhsuk-heading-m,
-  %nhsuk-list + %nhsuk-heading-m,
   %nhsuk-body-m + %nhsuk-heading-s,
-  %nhsuk-body-s + %nhsuk-heading-s,
-  %nhsuk-list + %nhsuk-heading-s {
+  %nhsuk-body-s + %nhsuk-heading-s {
     padding-top: 0.45em;
   }
 }
