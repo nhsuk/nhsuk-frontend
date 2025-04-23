@@ -137,12 +137,12 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 /// 2. Move the border centered with the checkbox.
 /// 3. Move the contents of the conditional inline with the label.
 
-$conditional-border-width: $nhsuk-border-width-mobile;
-$conditional-border-padding: math.div($nhsuk-checkboxes-size, 2) - math.div($conditional-border-width, 2); // [1]
-$conditional-margin-left: $conditional-border-padding; // [2]
-$conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; // [3]
-
 .nhsuk-checkboxes__conditional {
+  $conditional-border-width: $nhsuk-border-width-mobile;
+  $conditional-border-padding: math.div($nhsuk-checkboxes-size, 2) - math.div($conditional-border-width, 2); // [1]
+  $conditional-margin-left: $conditional-border-padding; // [2]
+  $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; // [3]
+
   border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;

@@ -158,16 +158,18 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 }
 
 /// Conditional
-
-$conditional-border-width: $nhsuk-border-width-mobile;
-// Calculate the amount of padding needed to keep the border centered against the radios.
-$conditional-border-padding: math.div($nhsuk-radios-size, 2) - math.div($conditional-border-width, 2);
-// Move the border centered with the radios
-$conditional-margin-left: $conditional-border-padding;
-// Move the contents of the conditional inline with the label
-$conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
+///
+/// 1. Calculate the amount of padding needed to keep the border
+///    centered against the radio.
+/// 2. Move the border centered with the radio.
+/// 3. Move the contents of the conditional inline with the label.
 
 .nhsuk-radios__conditional {
+  $conditional-border-width: $nhsuk-border-width-mobile;
+  $conditional-border-padding: math.div($nhsuk-radios-size, 2) - math.div($conditional-border-width, 2); // [2]
+  $conditional-margin-left: $conditional-border-padding; // [2]
+  $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right; // [3]
+
   border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
