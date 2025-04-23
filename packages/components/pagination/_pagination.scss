@@ -144,14 +144,17 @@
 .nhsuk-pagination--numbered__next,
 .nhsuk-pagination--numbered__item {
   @include nhsuk-font(19);
-  box-sizing: border-box;
-  position: relative;
-  min-width: 45px;
-  min-height: 45px;
-  padding: nhsuk-spacing(2);
-  text-align: center;
-  margin: 0;
-  float: left;
+
+  & {
+    box-sizing: border-box;
+    position: relative;
+    min-width: 45px;
+    min-height: 45px;
+    padding: nhsuk-spacing(2);
+    text-align: center;
+    margin: 0;
+    float: left;
+  }
 }
 
 .nhsuk-pagination--numbered__link:visited:hover,
