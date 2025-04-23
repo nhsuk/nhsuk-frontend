@@ -1,9 +1,15 @@
 [
   {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "Text content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored."
+  },
+  {
     "name": "html",
     "type": "string",
     "required": true,
-    "description": "HTML content to be used within the inset text component."
+    "description": "HTML content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored."
   },
   {
     "name": "classes",
