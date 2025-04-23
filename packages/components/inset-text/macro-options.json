@@ -1,0 +1,22 @@
+{
+  "params": [
+    {
+      "name": "html",
+      "type": "string",
+      "required": true,
+      "description": "HTML content to be used within the inset text component."
+    },
+    {
+      "name": "classes",
+      "type": "string",
+      "required": false,
+      "description": "Classes to add to the inset text."
+    },
+    {
+      "name": "attributes",
+      "type": "object",
+      "required": false,
+      "description": "HTML attributes (for example data attributes) to add to the inset text."
+    }
+  ]
+}
