@@ -8,16 +8,16 @@
 ////
 
 .nhsuk-error-summary {
-  @include nhsuk-responsive-padding(4);
-
   // Not using responsive spacing as we want smaller margin on mobile
   margin-bottom: nhsuk-spacing(5);
+
+  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
+
+  @include nhsuk-responsive-padding(4);
 
   @include govuk-media-query($from: tablet) {
     margin-bottom: nhsuk-spacing(7);
   }
-
-  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
 
   @include govuk-media-query($from: tablet) {
     border: $nhsuk-border-width solid $nhsuk-error-color;
@@ -31,9 +31,9 @@
 }
 
 .nhsuk-error-summary__title {
-  @include nhsuk-font(26, $weight: bold);
-
   margin-top: 0;
+
+  @include nhsuk-font(26, $weight: bold);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 

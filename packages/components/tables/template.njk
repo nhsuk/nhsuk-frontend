@@ -55,9 +55,10 @@
             {{- cell.html | safe if cell.html else cell.text -}}
           {% endset -%}
 
-          {%- if loop.first and params.firstCellIsHeader and not params.responsive %}
+          {%- if loop.first and params.firstCellIsHeader %}
             <th scope="row" class="nhsuk-table__header
               {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+              {%- if params.responsive %} role="rowheader"{% endif %}
               {{- commonAttributes | safe }}>
               {{- commonContents | safe -}}
             </th>

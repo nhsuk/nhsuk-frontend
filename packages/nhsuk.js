@@ -1,17 +1,17 @@
 /* eslint-disable import/prefer-default-export */
 
 // Components
-import initButton from './components/button/button.js'
-import initCharacterCount from './components/character-count/character-count.js'
-import initCheckboxes from './components/checkboxes/checkboxes.js'
-import initDetails from './components/details/details.js'
-import initErrorSummary from './components/error-summary/error-summary.js'
-import initHeader from './components/header/header.js'
-import initRadios from './components/radios/radios.js'
-import initSkipLink from './components/skip-link/skip-link.js'
-import initTabs from './components/tabs/tabs.js'
+const initButton = require('./components/button/button')
+const initCharacterCount = require('./components/character-count/character-count')
+const initCheckboxes = require('./components/checkboxes/checkboxes')
+const initDetails = require('./components/details/details')
+const initErrorSummary = require('./components/error-summary/error-summary')
+const initHeader = require('./components/header/header')
+const initRadios = require('./components/radios/radios')
+const initSkipLink = require('./components/skip-link/skip-link')
+const initTabs = require('./components/tabs/tabs')
 
-import './polyfills.js'
+require('./polyfills.js')
 
 /**
  * Use this function to initialise nhsuk-frontend components within a
@@ -21,7 +21,7 @@ import './polyfills.js'
  *
  * @param {HTMLElement} scope
  */
-export function initAll(scope) {
+function initAll(scope) {
   initButton({ scope })
   initCharacterCount({ scope })
   initCheckboxes({ scope })
@@ -38,3 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initAll(document)
 })
+
+module.exports = {
+  initAll
+}

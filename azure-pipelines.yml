@@ -30,6 +30,9 @@ steps:
   - script: npm test --ignore-scripts
     displayName: 'Test'
 
+  - script: npm run install:playwright
+    displayName: 'Setup Playwright'
+
   - script: npm run test:visual --ignore-scripts
     displayName: 'Backstop'
 

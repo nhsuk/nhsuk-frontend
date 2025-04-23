@@ -1,10 +1,9 @@
 ////
 /// Font face
 ///
-/// NHS uses the Frutiger font, it was originally made
-/// for print, but we've had to adapt for web.
-/// NHS England has a licence for the Frutiger webfont that the NHS website team can use.
-/// All other NHS England teams and other NHS organisations must have their own licence with Monotype.
+/// NHS uses the Frutiger font. To use the font you must have a licence.
+/// NHS England has a licence for the Frutiger webfont which all NHS organisations in England can use.
+/// NHS organisations can register here: https://service-manual.nhs.uk/design-system/styles/use-frutiger-font/
 ///
 /// @group settings
 ////
@@ -19,7 +18,7 @@
       font-display: swap;
       font-family: "Frutiger W01";
       font-style: normal;
-      font-weight: 400;
+      font-weight: $nhsuk-font-normal;
       src: nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix");
       src:
         nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix") format("eot"),

@@ -5,11 +5,11 @@
 ////
 
 .nhsuk-hint {
-  @include nhsuk-font(19);
-
   color: $nhsuk-secondary-text-color;
   display: block;
   margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(19);
 }
 
 // Reduces margin-bottom of hint when used after the default label (no class)

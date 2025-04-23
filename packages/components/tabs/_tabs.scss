@@ -4,9 +4,9 @@
 }
 
 .nhsuk-tabs__title {
-  @include nhsuk-font($size: 19);
   color: $nhsuk-text-color;
   margin-bottom: nhsuk-spacing(2);
+  @include nhsuk-font($size: 19);
 }
 
 .nhsuk-tabs__list {
@@ -17,8 +17,8 @@
 }
 
 .nhsuk-tabs__list-item {
-  @include nhsuk-font($size: 19);
   margin-left: nhsuk-spacing(5);
+  @include nhsuk-font($size: 19);
 
   &::before {
     color: $nhsuk-text-color;
@@ -29,10 +29,9 @@
 }
 
 .nhsuk-tabs__tab {
-  @include nhsuk-link-style-default;
-
   display: inline-block;
   margin-bottom: nhsuk-spacing(2);
+  @include nhsuk-link-style-default;
 }
 
 .nhsuk-tabs__panel {
@@ -43,9 +42,9 @@
 .js-enabled {
   @include govuk-media-query($from: tablet) {
     .nhsuk-tabs__list {
-      @include clearfix;
       border-bottom: 1px solid $nhsuk-border-color;
       margin-bottom: 0;
+      @include clearfix;
     }
 
     .nhsuk-tabs__title {
@@ -86,9 +85,9 @@
     }
 
     .nhsuk-tabs__tab {
-      @include nhsuk-link-style-text;
-
       margin-bottom: 0;
+
+      @include nhsuk-link-style-text;
 
       &::after {
         bottom: 0;
@@ -101,11 +100,11 @@
     }
 
     .nhsuk-tabs__panel {
-      @include nhsuk-responsive-margin(0, "bottom");
       background-color: $color_nhsuk-white;
       border: 1px solid $nhsuk-border-color;
       border-top: 0;
       padding: nhsuk-spacing(6) nhsuk-spacing(4);
+      @include nhsuk-responsive-margin(0, "bottom");
 
       & > :last-child {
         margin-bottom: 0;

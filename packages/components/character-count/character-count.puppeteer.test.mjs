@@ -1,5 +1,5 @@
 const {
-  PORT = 3000,
+  PORT = '3000',
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env

@@ -9,11 +9,11 @@
 ////
 
 table {
-  @include nhsuk-responsive-margin(7, "bottom");
-
   border-spacing: 0;
   vertical-align: top;
   width: 100%; // [1]
+
+  @include nhsuk-responsive-margin(7, "bottom");
 
   .nhsuk-u-text-break-word {
     word-break: break-all; // [2]
@@ -33,15 +33,16 @@ thead {
 
 th,
 td {
-  @include nhsuk-typography-responsive(19);
-  @include nhsuk-responsive-padding(3, "bottom");
-  @include nhsuk-responsive-padding(4, "right");
-  @include nhsuk-responsive-padding(3, "top");
   padding-left: 0;
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
   text-align: left;
   vertical-align: top;
+
+  @include nhsuk-typography-responsive(19);
+  @include nhsuk-responsive-padding(3, "bottom");
+  @include nhsuk-responsive-padding(4, "right");
+  @include nhsuk-responsive-padding(3, "top");
 
   &:last-child {
     padding-right: 0;
@@ -53,6 +54,6 @@ th {
 }
 
 caption {
-  @include nhsuk-font($size: 22, $weight: bold);
   text-align: left;
+  @include nhsuk-font($size: 22, $weight: bold);
 }

@@ -33,7 +33,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 
 {{ errorSummary({
@@ -103,7 +103,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/input/macro.njk' import input %}
 
@@ -218,7 +218,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/radios/macro.njk' import radios %}
 

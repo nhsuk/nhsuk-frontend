@@ -145,20 +145,22 @@
     $font-size-rem: $font-size-rem iff($important, !important);
     $line-height: $line-height iff($important, !important);
 
-    @if not $breakpoint {
-      font-size: $font-size;
-      font-size: $font-size-rem;
-      line-height: $line-height;
-    } @else if $breakpoint == "print" {
-      @include govuk-media-query($media-type: print) {
-        font-size: $font-size;
-        line-height: $line-height;
-      }
-    } @else {
-      @include govuk-media-query($from: $breakpoint) {
+    & {
+      @if not $breakpoint {
         font-size: $font-size;
         font-size: $font-size-rem;
         line-height: $line-height;
+      } @else if $breakpoint == "print" {
+        @include govuk-media-query($media-type: print) {
+          font-size: $font-size;
+          line-height: $line-height;
+        }
+      } @else {
+        @include govuk-media-query($from: $breakpoint) {
+          font-size: $font-size;
+          font-size: $font-size-rem;
+          line-height: $line-height;
+        }
       }
     }
   }
@@ -181,10 +183,12 @@
 /// @param {Number} $line-height [false] - Line-height, if overriding the default
 
 @mixin nhsuk-font($size, $weight: normal, $line-height: false) {
-  @if $weight == normal {
-    @include nhsuk-typography-weight-normal;
-  } @else if $weight == bold {
-    @include nhsuk-typography-weight-bold;
+  & {
+    @if $weight == normal {
+      @include nhsuk-typography-weight-normal;
+    } @else if $weight == bold {
+      @include nhsuk-typography-weight-bold;
+    }
   }
 
   @if $size {

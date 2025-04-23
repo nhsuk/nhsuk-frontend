@@ -18,13 +18,15 @@
 /// @group components
 ////
 
+@use "sass:math";
+
 .nhsuk-header {
   background-color: $color_nhsuk-blue;
 }
 
 .nhsuk-header__container {
-  @include govuk-width-container;
   padding: 20px 0;
+  @include govuk-width-container;
 
   @include mq($from: tablet) {
     display: flex;
@@ -92,16 +94,16 @@
     }
   }
 
-  @include mq($media-type: print) {
-    &::after {
-      content: "";
-    }
-  }
-
   &:hover,
   &:active,
   &:focus {
     background-color: transparent;
+  }
+
+  @include mq($media-type: print) {
+    &::after {
+      content: "";
+    }
   }
 }
 
@@ -124,8 +126,8 @@
 }
 
 .nhsuk-header__content {
-  @include print-hide;
   position: relative;
+  @include print-hide;
 
   &.js-show {
     border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
@@ -313,10 +315,10 @@
     }
 
     &:focus {
-      @include nhsuk-focused-button;
       box-shadow:
         0 -2px $nhsuk-focus-color,
         0 $nhsuk-focus-width $nhsuk-focus-text-color;
+      @include nhsuk-focused-button;
     }
 
     &:active {
@@ -331,15 +333,18 @@
 }
 
 .nhsuk-header__navigation-link {
-  @include nhsuk-font(16);
   border-bottom: nhsuk-spacing(1) solid transparent;
   border-top: nhsuk-spacing(1) solid transparent;
   color: $color_nhsuk-white;
   display: block;
-  font-size: inherit;
   padding: nhsuk-spacing(3) 2px;
   text-decoration: underline;
   white-space: nowrap;
+  @include nhsuk-font(16);
+
+  @include mq($until: tablet) {
+    font-size: inherit;
+  }
 
   @include mq($from: tablet) {
     padding: 12px 2px;
@@ -441,11 +446,15 @@
 }
 
 .nhsuk-navigation {
-  display: flex;
+  @include govuk-width-container;
 
   @include mq($until: tablet) {
     position: relative;
     z-index: 10;
+  }
+
+  @include mq($from: tablet) {
+    border-top: 1px solid $color_transparent_nhsuk-white-20;
   }
 }
 
@@ -458,13 +467,14 @@
 // ul of visible nav
 .nhsuk-header__navigation-list {
   @extend %nhsuk-navigation-list;
-  @include govuk-width-container;
   display: flex;
-  gap: nhsuk-spacing(4);
-  width: 100%;
+  flex-wrap: wrap;
+  width: calc(100% + $nhsuk-gutter-half);
+  margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
 
   @include mq($from: tablet) {
-    border-top: 1px solid $color_transparent_nhsuk-white-20;
+    width: calc(100% + $nhsuk-gutter);
+    margin: 0 math.div($nhsuk-gutter, 2) * -1;
   }
 
   @include mq($from: desktop) {
@@ -472,7 +482,8 @@
   }
 
   .js-enabled & {
-    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
 }
 
@@ -484,11 +495,16 @@
 
 .nhsuk-header__navigation-item {
   margin-bottom: 0;
+  padding: 0 math.div($nhsuk-gutter-half, 2);
+
+  @include mq($from: tablet) {
+    padding: 0 $nhsuk-gutter-half;
+  }
 }
 
 .nhsuk-navigation-container {
-  @include print-hide;
   position: relative;
+  @include print-hide;
 
   @include mq($until: tablet) {
     margin-top: -20px;
@@ -498,7 +514,6 @@
 // ul of hidden nav
 .nhsuk-header__drop-down {
   @extend %nhsuk-navigation-list;
-  @include print-hide;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
   overflow: hidden;
@@ -506,14 +521,21 @@
   right: 0;
   top: 100%;
   left: 0;
+  @include print-hide;
+
+  @include mq($until: tablet) {
+    margin: 0 $nhsuk-gutter-half * -1;
+  }
 
   .nhsuk-header__navigation-link {
+    margin: 0;
+    padding: 12px 0;
     @include govuk-width-container;
     @include nhsuk-link-style-no-visited-state;
-    padding: 12px 0;
   }
 
   .nhsuk-header__navigation-item {
+    padding: 0;
     border-top: 1px solid $color_nhsuk-grey-5;
   }
 }
@@ -525,6 +547,11 @@
 .nhsuk-mobile-menu-container {
   align-self: center;
   display: none;
+  padding: 0 math.div($nhsuk-gutter-half, 2);
+
+  @include mq($from: desktop) {
+    padding: 0 $nhsuk-gutter-half;
+  }
 }
 
 .nhsuk-mobile-menu-container--visible {

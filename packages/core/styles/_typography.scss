@@ -17,12 +17,11 @@
 ////
 
 %nhsuk-heading-xl {
-  @include nhsuk-typography-responsive(48);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(48);
   @include nhsuk-responsive-margin(7, "bottom");
 }
 
@@ -32,12 +31,11 @@ h1,
 }
 
 %nhsuk-heading-l {
-  @include nhsuk-typography-responsive(36);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(36);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -47,12 +45,11 @@ h2,
 }
 
 %nhsuk-heading-m {
-  @include nhsuk-typography-responsive(26);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(26);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -62,12 +59,11 @@ h3,
 }
 
 %nhsuk-heading-s {
-  @include nhsuk-typography-responsive(22);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(22);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -77,12 +73,11 @@ h4,
 }
 
 %nhsuk-heading-xs {
-  @include nhsuk-typography-responsive(19);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -92,12 +87,11 @@ h5,
 }
 
 %nhsuk-heading-xxs {
-  @include nhsuk-typography-responsive(19);
-
   display: block;
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -109,26 +103,26 @@ h6,
 /// Captions to be used inside headings
 
 .nhsuk-caption-xl {
-  @include nhsuk-font(26);
-
   color: $nhsuk-secondary-text-color;
   display: block;
   margin-bottom: nhsuk-spacing(1);
+
+  @include nhsuk-font(26);
 }
 
 .nhsuk-caption-l {
-  @include nhsuk-font(22);
-
   color: $nhsuk-secondary-text-color;
   display: block;
   margin-bottom: nhsuk-spacing(1);
+
+  @include nhsuk-font(22);
 }
 
 .nhsuk-caption-m {
-  @include nhsuk-font(19);
-
   color: $nhsuk-secondary-text-color;
   display: block;
+
+  @include nhsuk-font(19);
 }
 
 .nhsuk-caption--bottom {
@@ -139,11 +133,10 @@ h6,
 /// Body (paragraphs)
 
 %nhsuk-body-l {
-  @include nhsuk-typography-responsive(24);
-
   display: block;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(24);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
@@ -152,11 +145,10 @@ h6,
 }
 
 %nhsuk-body-m {
-  @include nhsuk-typography-responsive(19);
-
   display: block;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -167,11 +159,10 @@ p,
 }
 
 %nhsuk-body-s {
-  @include nhsuk-typography-responsive(16);
-
   display: block;
   margin-top: 0;
 
+  @include nhsuk-typography-responsive(16);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 

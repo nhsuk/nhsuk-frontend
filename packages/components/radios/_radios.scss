@@ -14,14 +14,14 @@ $nhsuk-radios-label-padding-left-right: 12px;
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 .nhsuk-radios__item {
-  @include nhsuk-font(19);
-
   clear: left;
   display: block;
   margin-bottom: nhsuk-spacing(2);
   min-height: $nhsuk-radios-size;
   padding: 0 0 0 $nhsuk-radios-size;
   position: relative;
+
+  @include nhsuk-font(19);
 }
 
 .nhsuk-radios__item:last-child,
@@ -138,12 +138,13 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 .nhsuk-radios__divider {
   $nhsuk-divider-size: $nhsuk-radios-size !default;
-  @include nhsuk-font(19);
 
   color: $nhsuk-text-color;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
+
+  @include nhsuk-font(19);
 }
 
 /// Conditional
@@ -157,10 +158,11 @@ $conditional-margin-left: $conditional-border-padding;
 $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
 
 .nhsuk-radios__conditional {
-  @include nhsuk-responsive-margin(4, "bottom");
   border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
+
+  @include nhsuk-responsive-margin(4, "bottom");
 
   & > :last-child {
     margin-bottom: 0;

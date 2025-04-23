@@ -41,7 +41,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({
@@ -78,7 +78,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({
@@ -113,7 +113,7 @@ Find out more about the pagination component and when to use it in the [NHS digi
 
 #### Nunjucks macro
 
-```
+```njk
 {% from 'components/pagination/macro.njk' import pagination %}
 
 {{ pagination({

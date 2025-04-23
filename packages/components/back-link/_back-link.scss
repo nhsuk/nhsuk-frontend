@@ -19,9 +19,6 @@
 }
 
 .nhsuk-back-link__link {
-  @include nhsuk-typography-responsive(16);
-  @include nhsuk-link-style-default;
-
   background: none;
   border: 0;
   cursor: pointer;
@@ -29,6 +26,9 @@
   padding: 0 0 0 16px; // [1]
   position: relative;
   text-decoration: none;
+
+  @include nhsuk-link-style-default;
+  @include nhsuk-typography-responsive(16);
 
   .nhsuk-icon__chevron-left {
     height: 24px;

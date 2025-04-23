@@ -17,17 +17,17 @@
 ////
 
 %nhsuk-list {
-  @include nhsuk-typography-responsive(19);
-  @include nhsuk-responsive-margin(4, "bottom");
-
   list-style-type: none;
   margin-top: 0;
   padding-left: 0;
 
+  @include nhsuk-typography-responsive(19);
+  @include nhsuk-responsive-margin(4, "bottom");
+
   // Add a top margin and remove bottom margin for nested lists
   %nhsuk-list {
-    @include nhsuk-responsive-margin(2, "top");
     margin-bottom: 0;
+    @include nhsuk-responsive-margin(2, "top");
   }
 }
 

@@ -7,9 +7,9 @@
 ////
 
 .nhsuk-date-input {
-  @include clearfix;
-
   font-size: 0; // [1]
+
+  @include clearfix;
 }
 
 .nhsuk-date-input__item {

@@ -332,7 +332,7 @@ class Tabs {
  * Tabs({responsive: false});
  * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
  */
-export default ({
+module.exports = ({
   namespace = 'nhsuk-tabs',
   responsive = true,
   historyEnabled = true,

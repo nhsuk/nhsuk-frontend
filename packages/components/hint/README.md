@@ -18,7 +18,7 @@ Find out more about the hint component and when to use it in the [NHS digital se
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/hint/macro.njk' import hint %}
 
 {{ hint({

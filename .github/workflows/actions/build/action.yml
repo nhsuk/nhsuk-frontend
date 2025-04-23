@@ -43,13 +43,13 @@ runs:
     - name: Install dependencies only
       if: ${{ steps.cache-build.outputs.cache-hit == 'true' }}
       shell: bash
-      run: npm install --ignore-scripts
+      run: npm install
 
     - name: Install and build
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
-        npm install --ignore-scripts
+        npm install
         npm run build
 
     - name: Save build (to cache)

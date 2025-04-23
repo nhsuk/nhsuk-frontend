@@ -74,7 +74,7 @@
 
 #### Nunjucks macro
 
-```
+```njk
 {% from "components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
@@ -201,7 +201,7 @@
 
 #### Nunjucks macro
 
-```
+```njk
 {% from "components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
@@ -292,7 +292,7 @@
 
 #### Nunjucks macro
 
-```
+```njk
 {% from "components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({

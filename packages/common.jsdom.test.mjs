@@ -1,7 +1,4 @@
-import {
-  toggleAttribute,
-  toggleConditionalInput
-} from '../../../packages/common.js'
+import { toggleAttribute, toggleConditionalInput } from './common.js'
 
 describe('toggleAttribute util', () => {
   const attr = 'test-attribute'
@@ -20,7 +17,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toBe('true')
+      expect(element).toHaveAttribute(attr, 'true')
     })
 
     it('if the attributes current value is "false"', () => {
@@ -28,7 +25,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toBe('true')
+      expect(element).toHaveAttribute(attr, 'true')
     })
   })
 
@@ -38,7 +35,7 @@ describe('toggleAttribute util', () => {
       const element = document.querySelector('div')
       expect(element).not.toBeNull()
       toggleAttribute(element, attr)
-      expect(element.getAttribute(attr)).toBe('false')
+      expect(element).toHaveAttribute(attr, 'false')
     })
   })
 })
@@ -84,12 +81,12 @@ describe('toggleConditionalInput util', () => {
       expect(content).not.toBeNull()
       input.checked = true
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toBe(false)
-      expect(input.getAttribute('aria-expanded')).toBe('true')
+      expect(content).not.toHaveClass('hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'true')
       input.checked = false
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toBe(true)
-      expect(input.getAttribute('aria-expanded')).toBe('false')
+      expect(content).toHaveClass('hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'false')
     })
 
     it('if the aria-controls element is valid and content is not hidden', () => {
@@ -101,12 +98,12 @@ describe('toggleConditionalInput util', () => {
       expect(content).not.toBeNull()
       input.checked = false
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toBe(true)
-      expect(input.getAttribute('aria-expanded')).toBe('false')
+      expect(content).toHaveClass('hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'false')
       input.checked = true
       toggleConditionalInput(input, 'hidden')
-      expect(content.classList.contains('hidden')).toBe(false)
-      expect(input.getAttribute('aria-expanded')).toBe('true')
+      expect(content).not.toHaveClass('hidden')
+      expect(input).toHaveAttribute('aria-expanded', 'true')
     })
   })
 })

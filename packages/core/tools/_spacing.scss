@@ -98,20 +98,21 @@
       $breakpoint-value: $breakpoint-value + $adjustment;
     }
 
-    @if not $breakpoint {
-      // [3]
-
-      @if $direction == all {
-        #{$property}: $breakpoint-value iff($important, !important);
-      } @else {
-        #{$property}-#{$direction}: $breakpoint-value iff($important, !important);
-      }
-    } @else {
-      @include govuk-media-query($from: $breakpoint) {
+    & {
+      @if not $breakpoint {
+        // [3]
         @if $direction == all {
           #{$property}: $breakpoint-value iff($important, !important);
         } @else {
           #{$property}-#{$direction}: $breakpoint-value iff($important, !important);
+        }
+      } @else {
+        @include govuk-media-query($from: $breakpoint) {
+          @if $direction == all {
+            #{$property}: $breakpoint-value iff($important, !important);
+          } @else {
+            #{$property}-#{$direction}: $breakpoint-value iff($important, !important);
+          }
         }
       }
     }
