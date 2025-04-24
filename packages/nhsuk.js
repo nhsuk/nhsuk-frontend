@@ -31,7 +31,7 @@ function initAll(scope) {
   initTabs({ scope })
 }
 
-// Initialize components
+// Initialise components
 document.addEventListener('DOMContentLoaded', () => {
   initHeader()
   initSkipLink()
