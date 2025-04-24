@@ -5,6 +5,9 @@
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   },
+  "workspaces": [
+    "."
+  ],
   "exports": {
     ".": {
       "sass": "./packages/nhsuk.scss",
