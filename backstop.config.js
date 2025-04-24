@@ -80,7 +80,7 @@ module.exports = {
     engine_scripts: 'tests/backstop/engine_scripts',
     html_report: 'tests/backstop/html_report'
   },
-  readySelector: 'body.js-enabled',
+  readySelector: 'body.nhsuk-frontend-supported',
   report: ['browser'],
   scenarios: [
     {
