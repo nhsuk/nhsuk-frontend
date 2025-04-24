@@ -79,19 +79,19 @@ document.body.className = ((document.body.className) ? document.body.className +
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
+Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `type="module"` attribute.
 
-> The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
+> The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors. The script will be loaded as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 
 You might wish to copy the file into your project or reference it straight from node_modules.
 
 ```html
-    <script src="path-to-assets/nhsuk.min.js" defer></script>
+    <script src="path-to-assets/nhsuk.min.js" type="module"></script>
   </head>
 ```
 
 ```html
-    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" defer></script>
+    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" type="module"></script>
   </head>
 ```
 
