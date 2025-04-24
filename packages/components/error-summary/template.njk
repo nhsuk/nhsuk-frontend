@@ -7,11 +7,11 @@
     {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
   </h2>
   <div class="nhsuk-error-summary__body">
-    {%- if params.descriptionHtml or params.descriptionText %}
-    <p>
-      {{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}
-    </p>
-    {% endif -%}
+    {% if caller %}
+      <p>{{ caller() }}</p>
+    {% elif params.descriptionHtml or params.descriptionText %}
+      <p>{{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}</p>
+    {% endif %}
     <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
     {%- for item in params.errorList %}
       <li>
