@@ -38,8 +38,8 @@
   @include nhsuk-responsive-margin(8, "bottom");
 }
 
-// JavaScript enabled
-.js-enabled {
+// ES module JavaScript supported
+.nhsuk-frontend-supported {
   @include govuk-media-query($from: tablet) {
     .nhsuk-tabs__list {
       border-bottom: 1px solid $nhsuk-border-color;

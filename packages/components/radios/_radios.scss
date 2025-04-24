@@ -169,6 +169,6 @@ $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-pad
   }
 }
 
-.js-enabled .nhsuk-radios__conditional--hidden {
+.nhsuk-frontend-supported .nhsuk-radios__conditional--hidden {
   display: none;
 }
