@@ -12,10 +12,22 @@
     "description": "Optional heading level for the heading. Default: 3."
   },
   {
-    "name": "HTML",
+    "name": "text",
     "type": "string",
     "required": true,
-    "description": "Content to be used within the warning callout."
+    "description": "Text content to be used within the warning callout."
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "HTML content to be used within the warning callout."
+  },
+  {
+    "name": "caller",
+    "type": "nunjucks-block",
+    "required": false,
+    "description": "Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire warning callout component in a `call` block."
   },
   {
     "name": "classes",
