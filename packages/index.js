@@ -22,6 +22,8 @@ require('./polyfills.js')
  * @param {HTMLElement} scope
  */
 function initAll(scope) {
+  initHeader()
+  initSkipLink()
   initButton({ scope })
   initCharacterCount({ scope })
   initCheckboxes({ scope })
@@ -31,14 +33,15 @@ function initAll(scope) {
   initTabs({ scope })
 }
 
-// Initialise components
-document.addEventListener('DOMContentLoaded', () => {
-  initHeader()
-  initSkipLink()
-
-  initAll(document)
-})
-
 module.exports = {
+  initButton,
+  initCharacterCount,
+  initCheckboxes,
+  initDetails,
+  initErrorSummary,
+  initHeader,
+  initRadios,
+  initSkipLink,
+  initTabs,
   initAll
 }
