@@ -1,5 +1,27 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:new: **New features**
+
+#### Add Nunjucks macro option configs
+
+We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
+
+This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
+
+#### Review Nunjucks macro `text`, `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added card component `caller` support
+2. Added details component `caller` support
+3. Added error summary component `caller` support
+4. Added inset text component `caller` support
+5. Added warning callout component `caller` and `params.text` support
+
+This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
+
 ## 9.4.1 - 22 April 2025
 
 :wrench: **Fixes**
