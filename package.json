@@ -10,8 +10,8 @@
   ],
   "exports": {
     ".": {
-      "sass": "./packages/nhsuk.scss",
-      "default": "./packages/nhsuk.js"
+      "sass": "./packages/index.scss",
+      "default": "./packages/index.js"
     },
     "./*": "./*",
     "./packages/*": {
@@ -22,8 +22,8 @@
     "./packages/*.scss": "./packages/*.scss",
     "./package.json": "./package.json"
   },
-  "main": "packages/nhsuk.js",
-  "sass": "packages/nhsuk.scss",
+  "main": "packages/index.js",
+  "sass": "packages/index.scss",
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
