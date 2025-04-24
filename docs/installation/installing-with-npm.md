@@ -114,9 +114,6 @@ Rather than using `initAll`, you can initialise individual components used by yo
 import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js';
 import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
 
-// Polyfills
-import 'nhsuk-frontend/packages/polyfills.js';
-
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {
   initRadios();
