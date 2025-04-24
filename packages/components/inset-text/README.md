@@ -13,7 +13,7 @@ Find out more about the inset text component and when to use it in the [NHS digi
 ```html
 <div class="nhsuk-inset-text">
   <span class="nhsuk-u-visually-hidden">Information: </span>
-  <p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
+  <p>You can report any suspected side effects to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
 </div>
 ```
 
@@ -25,7 +25,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 {% from 'components/inset-text/macro.njk' import insetText %}
 
 {% call insetText() %}
-  <p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
+  <p>You can report any suspected side effects to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
 {% endcall %}
 ```
 
