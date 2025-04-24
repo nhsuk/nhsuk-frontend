@@ -29,7 +29,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
    <link rel="stylesheet" href="css/nhsuk-[latest version].min.css">
 
    <!-- Scripts -->
-   <script src="js/nhsuk-[latest version].min.js" defer></script>
+   <script src="js/nhsuk-[latest version].min.js" type="module"></script>
 
    <!-- Favicons -->
    <link rel="shortcut icon" href="assets/favicons/favicon.ico" type="image/x-icon">
