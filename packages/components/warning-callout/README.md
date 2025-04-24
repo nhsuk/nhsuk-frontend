@@ -30,7 +30,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ warningCallout({
   "heading": "Important",
-  "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+  "text": "If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help."
 }) }}
 ```
 
@@ -61,7 +61,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ warningCallout({
   "heading": "School, nursery or work",
-  "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  "text": "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
 }) }}
 ```
 

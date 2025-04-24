@@ -24,9 +24,9 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 ```njk
 {% from 'components/inset-text/macro.njk' import insetText %}
 
-{{ insetText({
-  "html": "<p>You can report any suspected side effect to the <a href=\"https://yellowcard.mhra.gov.uk/\" title=\"External website\">UK safety scheme</a>.</p>"
-}) }}
+{% call insetText() %}
+  <p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
+{% endcall %}
 ```
 
 ### Nunjucks arguments
