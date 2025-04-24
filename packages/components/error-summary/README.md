@@ -107,16 +107,18 @@ Find out more about the error summary component and when to use it in the [NHS d
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/input/macro.njk' import input %}
 
-{{ errorSummary({
+{% call errorSummary({
   "titleText": "There is a problem",
-  "descriptionHtml": "Optional description of the errors and how to correct them.<br>Note that the error summary should receive focus on page load using the JavaScript that comes with this component.",
   "errorList": [
     {
       "text": "Link to input error with explanation",
       "href": "#input-with-error-message"
     }
   ]
-}) }}
+}) %}
+  Optional description of the errors and how to correct them.<br>
+  Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
+{% endcall %}
 
 {{ input({
   "label": {
@@ -222,16 +224,18 @@ Find out more about the error summary component and when to use it in the [NHS d
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/radios/macro.njk' import radios %}
 
-{{ errorSummary({
+{% call errorSummary({
   "titleText": "There is a problem",
-  "descriptionHtml": "Optional description of the errors and how to correct them.<br>Note that the error summary should receive focus on page load using the JavaScript that comes with this component.",
   "errorList": [
     {
       "text": "Link to radio error with explanation (Note how it links to the first radio)",
       "href": "#example-1"
     }
   ]
-}) }}
+}) %}
+  Optional description of the errors and how to correct them.<br>
+  Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
+{% endcall %}
 
 {{ radios({
   "idPrefix": "example",
