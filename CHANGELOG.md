@@ -4,6 +4,12 @@
 
 :new: **New features**
 
+#### Add Nunjucks macro option configs
+
+We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
+
+This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
+
 #### Review Nunjucks macro `text`, `html` and `call` usage
 
 For consistency with other components, the following Nunjucks macro changes have been included:
