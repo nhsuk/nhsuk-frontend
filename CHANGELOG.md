@@ -4,36 +4,6 @@
 
 :new: **New features**
 
-#### Add Nunjucks macro option configs
-
-We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
-
-This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
-
-#### Review Nunjucks macro `text`, `html` and `call` usage
-
-For consistency with other components, the following Nunjucks macro changes have been included:
-
-1. Added card component `caller` support
-2. Added details component `caller` support
-3. Added error summary component `caller` support
-4. Added inset text component `caller` support
-5. Added warning callout component `caller` and `params.text` support
-
-This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
-
-## 9.4.1 - 22 April 2025
-
-:wrench: **Fixes**
-
-We've made fixes to NHS.UK frontend in the following pull requests:
-
-- [#1248: Prevent Playwright setup running on npm `postinstall`](https://github.com/nhsuk/nhsuk-frontend/pull/1248)
-
-## 9.4.0 - 22 April 2025
-
-:new: **New features**
-
 #### Updated header
 
 - Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
@@ -94,6 +64,36 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 - Remove hardcoded home link from navigation ([PR 986](https://github.com/nhsuk/nhsuk-frontend/pull/986))
 - Header refactor: update CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element ([PR 1234](https://github.com/nhsuk/nhsuk-frontend/pull/1234))
 - We've updated the secondary, reverse and warning buttons to use the correct background colour on hover ([PR 908](https://github.com/nhsuk/nhsuk-frontend/pull/908))
+
+#### Add Nunjucks macro option configs
+
+We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
+
+This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
+
+#### Review Nunjucks macro `text`, `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added card component `caller` support
+2. Added details component `caller` support
+3. Added error summary component `caller` support
+4. Added inset text component `caller` support
+5. Added warning callout component `caller` and `params.text` support
+
+This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
+
+## 9.4.1 - 22 April 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1248: Prevent Playwright setup running on npm `postinstall`](https://github.com/nhsuk/nhsuk-frontend/pull/1248)
+
+## 9.4.0 - 22 April 2025
+
+:new: **New features**
 
 #### Include a page template
 
