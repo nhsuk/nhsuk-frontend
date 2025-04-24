@@ -11,6 +11,12 @@
       "default": "./packages/nhsuk.js"
     },
     "./*": "./*",
+    "./packages/*": {
+      "sass": "./packages/*.scss",
+      "default": "./packages/*.js"
+    },
+    "./packages/*.js": "./packages/*.js",
+    "./packages/*.scss": "./packages/*.scss",
     "./package.json": "./package.json"
   },
   "main": "packages/nhsuk.js",
