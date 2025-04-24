@@ -7,7 +7,7 @@ class CharacterCount {
     this.lastInputTimestamp = null
   }
 
-  // Initialize component
+  // Initialise component
   init() {
     // Check that required elements are present
     if (!this.$textarea) {
