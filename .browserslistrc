@@ -1,3 +1,7 @@
+[javascripts]
+supports es6-module
+
+[stylesheets]
 > 0.1% in GB and not dead
 last 6 Chrome versions
 last 6 Firefox versions

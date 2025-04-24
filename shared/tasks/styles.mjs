@@ -58,7 +58,13 @@ export function compileCSS(done) {
         }
       })
     )
-    .pipe(postcss([autoprefixer()]))
+    .pipe(
+      postcss([
+        autoprefixer({
+          env: 'stylesheets'
+        })
+      ])
+    )
     .pipe(
       gulp.dest('dist/', {
         sourcemaps: '.'
@@ -75,7 +81,13 @@ export function minifyCSS() {
       .src('dist/nhsuk.css', {
         sourcemaps: true
       })
-      .pipe(postcss([cssnano()]))
+      .pipe(
+        postcss([
+          cssnano({
+            env: 'stylesheets'
+          })
+        ])
+      )
 
       // Output minified
       .pipe(
