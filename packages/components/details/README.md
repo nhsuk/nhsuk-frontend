@@ -43,9 +43,9 @@ For this component to be accessible and compatible with older browsers, include 
 ```njk
 {% from 'components/details/macro.njk' import details %}
 
-{{ details({
-  "text": "Where can I find my NHS number?",
-  "html": "
+{% call details({
+  "text": "Where can I find my NHS number?"
+}) %}
   <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
   <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
   <ul>
@@ -56,8 +56,7 @@ For this component to be accessible and compatible with older browsers, include 
     <li>your NHS medical card</li>
   </ul>
   <p>Ask your GP practice for help if you can't find your NHS number.</p>
-  "
-}) }}
+{% endcall %}
 ```
 
 ---
@@ -76,46 +75,18 @@ Find out more about the expander component and when to use it in the [NHS digita
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
-    Opening times
+    How to measure your blood glucose levels
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    <table>
-      <tbody>
-        <tr>
-          <th><strong>Day of the week</strong></th>
-          <th><strong>Opening hours</strong></th>
-        </tr>
-        <tr>
-          <th>Monday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Tuesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Wednesday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Thursday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Friday</th>
-          <td>9am to 6pm</td>
-        </tr>
-        <tr>
-          <th>Saturday</th>
-          <td>9am to 1pm</td>
-        </tr>
-        <tr>
-          <th>Sunday</th>
-          <td>Closed</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+    <p>You would have been given:</p>
+    <ul>
+      <li>a blood glucose metre</li>
+      <li>small needles called lancets</li>
+      <li>a plastic pen to hold the lancest</li>
+      <li>small test strips</li>
+    </ul>
   </div>
 </details>
 ```
@@ -125,47 +96,19 @@ Find out more about the expander component and when to use it in the [NHS digita
 ```njk
 {% from 'components/details/macro.njk' import details %}
 
-{{ details({
-  "classes": "nhsuk-expander",
-  "text": "Opening times",
-  "HTML": "
-  <table>
-    <tbody>
-      <tr>
-        <th><strong>Day of the week</strong></th>
-        <th><strong>Opening hours</strong></th>
-      </tr>
-      <tr>
-        <th>Monday</th>
-        <td>9am to 6pm</td>
-      </tr>
-      <tr>
-        <th>Tuesday</th>
-        <td>9am to 6pm</td>
-      </tr>
-      <tr>
-        <th>Wednesday</th>
-        <td>9am to 6pm</td>
-      </tr>
-      <tr>
-        <th>Thursday</th>
-        <td>9am to 6pm</td>
-      </tr>
-      <tr>
-        <th>Friday</th>
-        <td>9am to 6pm</td>
-      </tr>
-      <tr>
-        <th>Saturday</th>
-        <td>9am to 1pm</td>
-      </tr>
-      <tr>
-        <th>Sunday</th>
-        <td>Closed</td>
-      </tr>
-    </tbody>
-  </table>"
-}) }}
+{% call details({
+  "text": "How to measure your blood glucose levels",
+  "classes": "nhsuk-expander"
+}) %}
+  <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+  <p>You would have been given:</p>
+  <ul>
+    <li>a blood glucose metre</li>
+    <li>small needles called lancets</li>
+    <li>a plastic pen to hold the lancest</li>
+    <li>small test strips</li>
+  </ul>
+{% endcall %}
 ```
 
 ---
@@ -220,10 +163,10 @@ Find out more about the expander component and when to use it in the [NHS digita
 {% from 'components/details/macro.njk' import details %}
 
 <div class="nhsuk-expander-group">
-  {{ details({
-    "classes": "nhsuk-expander",
+  {% call details({
     "text": "How to measure your blood glucose levels",
-    "HTML": "
+    "classes": "nhsuk-expander"
+  }) %}
     <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
     <p>You would have been given:</p>
     <ul>
@@ -232,12 +175,12 @@ Find out more about the expander component and when to use it in the [NHS digita
       <li>a plastic pen to hold the lancest</li>
       <li>small test strips</li>
     </ul>
-    "
-  }) }}
-  {{ details({
-    "classes": "nhsuk-expander",
+  {% endcall %}
+
+  {% call details({
     "text": "When to check your blood glucose level",
-    "HTML": "
+    "classes": "nhsuk-expander"
+  }) %}
     <p>Try to check your blood:</p>
     <ul>
       <li>before meals</li>
@@ -245,8 +188,7 @@ Find out more about the expander component and when to use it in the [NHS digita
       <li>before, during (take a break) and after exercise</li>
     </ul>
     <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-    "
-  }) }}
+  {% endcall %}
 </div>
 ```
 
@@ -256,13 +198,14 @@ Find out more about the expander component and when to use it in the [NHS digita
 
 The details Nunjucks macro takes the following arguments:
 
-| Name       | Type    | Required | Description                                                                             |
-| ---------- | ------- | -------- | --------------------------------------------------------------------------------------- |
-| text       | string  | Yes      | Text to be displayed on the expander component.                                         |
-| html       | string  | Yes      | HTML content to be displayed within the expander component                              |
-| id         | string  | false    | Id to add to the details element.                                                       |
-| open       | boolean | false    | If true, details element will be expanded.                                              |
-| classes    | string  | No       | Optional additional classes to add to the anchor tag. Separate each class with a space. |
-| attributes | object  | No       | Any extra HTML attributes (for example data attributes) to add to the anchor tag.       |
+| Name       | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text       | string         | Yes      | Text to be displayed on the expander component.                                                                                                                                                                                                                                                                                                          |
+| html       | string         | Yes      | HTML content to be displayed within the expander component                                                                                                                                                                                                                                                                                               |
+| caller     | nunjucks-block | Yes      | Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire details component in a `call` block. |
+| id         | string         | false    | Id to add to the details element.                                                                                                                                                                                                                                                                                                                        |
+| open       | boolean        | false    | If true, details element will be expanded.                                                                                                                                                                                                                                                                                                               |
+| classes    | string         | No       | Optional additional classes to add to the anchor tag. Separate each class with a space.                                                                                                                                                                                                                                                                  |
+| attributes | object         | No       | Any extra HTML attributes (for example data attributes) to add to the anchor tag.                                                                                                                                                                                                                                                                        |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

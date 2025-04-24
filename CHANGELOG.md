@@ -1,5 +1,21 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:new: **New features**
+
+#### Review Nunjucks macro `text`, `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added card component `caller` and `params.html` support
+2. Added details component `caller` support
+3. Added error summary component `caller` support
+4. Added inset text component `caller` support
+5. Added warning callout component `caller`, `params.text` and `params.html` support
+
+This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
+
 ## 9.4.1 - 22 April 2025
 
 :wrench: **Fixes**
