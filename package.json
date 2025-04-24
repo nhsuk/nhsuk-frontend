@@ -5,6 +5,16 @@
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   },
+  "exports": {
+    ".": {
+      "sass": "./packages/nhsuk.scss",
+      "default": "./packages/nhsuk.js"
+    },
+    "./*": "./*",
+    "./package.json": "./package.json"
+  },
+  "main": "packages/nhsuk.js",
+  "sass": "packages/nhsuk.scss",
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
