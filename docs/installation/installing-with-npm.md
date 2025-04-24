@@ -74,7 +74,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
 ```js
-document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
 ### Option 1: Include compiled JavaScript
