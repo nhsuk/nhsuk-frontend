@@ -10,6 +10,6 @@
   </summary>
   <div class="nhsuk-details__text">
     {# params.HTML supported for backwards compatibility - see issue #1089 #}
-    {{- (params.html or params.HTML) | safe }}
+    {{- caller() if caller else (params.html or params.HTML) | safe }}
   </div>
 </details>
