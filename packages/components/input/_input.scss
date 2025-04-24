@@ -80,6 +80,11 @@
 .nhsuk-input__wrapper {
   display: flex;
 
+  .nhsuk-input:focus {
+    // Hack to stop focus style being overlapped by the suffix
+    z-index: 1;
+  }
+
   @include mq($until: mobile) {
     display: block;
   }
