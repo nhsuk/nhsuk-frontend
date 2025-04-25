@@ -1,29 +1,11 @@
 {
-  "name": "nhsuk-frontend",
-  "version": "9.4.1",
-  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
-  "engines": {
-    "node": "^20.9.0 || ^22.11.0"
-  },
+  "name": "nhsuk-frontend-repository",
+  "private": true,
+  "description": "Used only for the development of NHS.UK frontend, see `packages/nhsuk-frontend/package.json` for the published `package.json`",
+  "license": "MIT",
   "workspaces": [
-    "."
+    "packages/*"
   ],
-  "exports": {
-    ".": {
-      "sass": "./packages/index.scss",
-      "default": "./packages/index.js"
-    },
-    "./*": "./*",
-    "./packages/*": {
-      "sass": "./packages/*.scss",
-      "default": "./packages/*.js"
-    },
-    "./packages/*.js": "./packages/*.js",
-    "./packages/*.scss": "./packages/*.scss",
-    "./package.json": "./package.json"
-  },
-  "main": "packages/index.js",
-  "sass": "packages/index.scss",
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
@@ -106,23 +88,7 @@
     "wait-on": "^8.0.3",
     "webpack-stream": "^7.0.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist",
-    "packages",
-    "!dist/{app,assets,css,js}",
-    "!dist/*.zip",
-    "!**/*.test.*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
-  },
-  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
-  "bugs": {
-    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
-  },
-  "license": "MIT"
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
 }

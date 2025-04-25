@@ -57,8 +57,10 @@ jobs:
       - name: Restore build (from cache)
         uses: actions/cache/restore@v4
         with:
-          path: dist/
           key: build-${{ github.sha }}
+          path: |
+            dist
+            packages/*/dist
 
       - name: Setup Node
         uses: actions/setup-node@v4

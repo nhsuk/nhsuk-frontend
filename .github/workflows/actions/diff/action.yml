@@ -20,10 +20,15 @@ runs:
       with:
         ref: ${{ github.event.pull_request.base.sha }}
 
+    - name: Copy base build (legacy) into workspace
+      if: ${{ hashFiles('dist/app') != '' }}
+      shell: bash
+      run: mv dist/app packages/nhsuk-frontend-review/dist
+
     - name: Commit base build for comparison
       shell: bash
       run: |
-        git add --force dist/
+        git add --force packages/nhsuk-frontend-review/dist
         git commit --allow-empty -m "Build output for '${{ github.base_ref }}'" --no-verify
 
     - name: Install and build head
@@ -32,7 +37,7 @@ runs:
     - name: Commit head build for comparison
       shell: bash
       run: |
-        git add --force dist/
+        git add --force packages/nhsuk-frontend-review/dist
         git commit --allow-empty -m "Build output for '${{ github.head_ref }}'" --no-verify
 
     - name: Check for changes
@@ -40,6 +45,6 @@ runs:
       shell: bash
       run: |
         set +e
-        git diff HEAD^ --exit-code --quiet -- 'dist/**/*'
+        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend-review/dist/**/*'
         [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
         exit 0

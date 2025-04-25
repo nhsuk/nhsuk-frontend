@@ -1,5 +1,4 @@
 import { join, relative } from 'path'
-import { cwd } from 'process'
 
 import gulp from 'gulp'
 import filter from 'gulp-filter'
@@ -8,14 +7,14 @@ import terser from 'gulp-terser'
 import PluginError from 'plugin-error'
 import webpack from 'webpack-stream'
 
-import pkg from '../../package.json' with { type: 'json' }
+import * as config from '../config/index.mjs'
 
 /**
  * Compile JavaScript task
  */
 export function webpackJS(done) {
   return gulp
-    .src('packages/nhsuk.js', {
+    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.js'), {
       sourcemaps: true
     })
     .pipe(
@@ -42,7 +41,10 @@ export function webpackJS(done) {
 
           // Make source webpack:// paths relative
           devtoolModuleFilenameTemplate(info) {
-            return relative(join(cwd(), 'dist'), info.absoluteResourcePath)
+            return relative(
+              join(config.paths.root, 'dist'),
+              info.absoluteResourcePath
+            )
           }
         },
         stats: {
@@ -59,7 +61,7 @@ export function webpackJS(done) {
       })
     )
     .pipe(
-      gulp.dest('dist', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
@@ -71,7 +73,7 @@ export function webpackJS(done) {
 export function minifyJS() {
   return (
     gulp
-      .src('dist/nhsuk.js', {
+      .src(join(config.paths.root, 'dist/nhsuk.js'), {
         sourcemaps: true
       })
       .pipe(
@@ -94,7 +96,7 @@ export function minifyJS() {
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )
@@ -105,12 +107,12 @@ export function minifyJS() {
       // Output minified + versioned
       .pipe(
         rename({
-          basename: `nhsuk-${pkg.version}`,
+          basename: `nhsuk-${config.version}`,
           suffix: '.min'
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )
