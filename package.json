@@ -71,7 +71,7 @@
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "nunjucks": "^3.2.4",
-    "playwright": "^1.52.0",
+    "playwright-core": "^1.52.0",
     "plugin-error": "^2.0.1",
     "postcss": "^8.5.3",
     "postcss-markdown": "^1.3.0",
