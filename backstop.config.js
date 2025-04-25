@@ -71,6 +71,7 @@ module.exports = {
   },
   fileNameTemplate: '{scenarioLabel}_{viewportLabel}',
   misMatchThreshold: 0.8,
+  onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
   paths: {
     bitmaps_reference: 'tests/backstop/bitmaps_reference',

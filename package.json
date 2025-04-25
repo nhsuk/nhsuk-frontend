@@ -28,7 +28,7 @@
     "test:visual:interactive": "backstop --config backstop.config.js remote",
     "test:visual:approve": "backstop --config backstop.config.js approve",
     "test:visual:clean": "rm -rf tests/backstop/bitmaps_test/*",
-    "test:visual:cli": "concurrently \"gulp docs:serve\" \"wait-on --config wait-on.config.js && backstop --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
+    "test:visual:cli": "concurrently \"gulp docs:serve --color\" \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -79,6 +79,7 @@
     "prettier": "^3.5.3",
     "puppeteer": "^24.6.0",
     "sass-embedded": "^1.79.6",
+    "strip-ansi": "^7.1.0",
     "stylelint": "^16.18.0",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^7.0.0",
