@@ -41,7 +41,7 @@ For this component to be accessible and compatible with older browsers, include 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/details/macro.njk' import details %}
+{% from 'nhsuk/components/details/macro.njk' import details %}
 
 {% call details({
   "text": "Where can I find my NHS number?"
@@ -94,7 +94,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 #### Nunjucks macro
 
 ```njk
-{% from 'components/details/macro.njk' import details %}
+{% from 'nhsuk/components/details/macro.njk' import details %}
 
 {% call details({
   "text": "How to measure your blood glucose levels",
@@ -160,7 +160,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 #### Nunjucks macro
 
 ```njk
-{% from 'components/details/macro.njk' import details %}
+{% from 'nhsuk/components/details/macro.njk' import details %}
 
 <div class="nhsuk-expander-group">
   {% call details({

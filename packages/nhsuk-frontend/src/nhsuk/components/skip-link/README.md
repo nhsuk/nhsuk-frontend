@@ -28,7 +28,7 @@ Ensure the correct `id` value has been added to your main content for the skip l
 ### Nunjucks macro
 
 ```html
-{% from 'components/skip-link/macro.njk' import skipLink %}
+{% from 'nhsuk/components/skip-link/macro.njk' import skipLink %}
 
 {{ skipLink({
   "href": "#maincontent",

@@ -1,7 +1,7 @@
-{% from "macros/attributes.njk" import nhsukAttributes -%}
-{% from "components/skip-link/macro.njk" import skipLink -%}
-{% from "components/header/macro.njk" import header -%}
-{% from "components/footer/macro.njk" import footer -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/components/skip-link/macro.njk" import skipLink -%}
+{% from "nhsuk/components/header/macro.njk" import header -%}
+{% from "nhsuk/components/footer/macro.njk" import footer -%}
 <!DOCTYPE html>
   <html lang="{{ htmlLang | default("en", true) }}" {{- nhsukAttributes(htmlAttributes) }}>
   <head>

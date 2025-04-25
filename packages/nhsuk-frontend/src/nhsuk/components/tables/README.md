@@ -43,7 +43,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %}
+{% from 'nhsuk/components/tables/macro.njk' import table %}
 
 {{ table({
   panel: false,
@@ -128,7 +128,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %}
+{% from 'nhsuk/components/tables/macro.njk' import table %}
 
 {{ table({
   panel: true,
@@ -237,7 +237,7 @@ Find out more about the table component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```html
-{% from 'components/tables/macro.njk' import table %}
+{% from 'nhsuk/components/tables/macro.njk' import table %}
 {{ table({
   responsive: true,
   panel: false,

@@ -25,7 +25,7 @@ Find out more about the action link component and when to use it in the [NHS dig
 ### Nunjucks macro
 
 ```njk
-{% from 'components/action-link/macro.njk' import actionLink %}
+{% from 'nhsuk/components/action-link/macro.njk' import actionLink %}
 
 {{ actionLink({
   "text": "Find a minor injuries unit",

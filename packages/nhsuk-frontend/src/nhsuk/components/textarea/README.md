@@ -27,7 +27,7 @@ Find out more about the textarea component and when to use it in the [NHS digita
 #### Nunjucks macro
 
 ```njk
-{% from 'components/textarea/macro.njk' import textarea %}
+{% from 'nhsuk/components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
   "name": "more-detail",
@@ -65,7 +65,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/textarea/macro.njk' import textarea %}
+{% from 'nhsuk/components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
   "name": "address",
@@ -100,7 +100,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/textarea/macro.njk' import textarea %}
+{% from 'nhsuk/components/textarea/macro.njk' import textarea %}
 
 {{ textarea({
   "name": "no-ni-reason",
@@ -127,9 +127,9 @@ The textarea Nunjucks macro takes the following arguments:
 | **name**         | string | Yes      | The name of the textarea, which is submitted with the form data.                                                                                                                                                                                                                                                                                          |
 | **rows**         | string | No       | Optional number of textarea rows (default is 5 rows).                                                                                                                                                                                                                                                                                                     |
 | **value**        | string | No       | Optional initial value of the textarea.                                                                                                                                                                                                                                                                                                                   |
-| **label**        | object | Yes      | Arguments for the label component. See [label](/packages/nhsuk-frontend/src/components/label) component.                                                                                                                                                                                                                                                  |
-| **hint**         | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                                                                                                                                                                                                                         |
-| **errorMessage** | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.                                                                                                                                                                                                              |
+| **label**        | object | Yes      | Arguments for the label component. See [label](/packages/nhsuk-frontend/src/nhsuk/components/label) component.                                                                                                                                                                                                                                            |
+| **hint**         | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                                                                                                                                                                                                                   |
+| **errorMessage** | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.                                                                                                                                                                                                        |
 | **classes**      | string | No       | Optional additional classes to add to the textarea tag. Separate each class with a space.                                                                                                                                                                                                                                                                 |
 | **autocomplete** | string | No       | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **attributes**   | object | No       | Any extra HTML attributes (for example data attributes) to add to the textarea tag.                                                                                                                                                                                                                                                                       |

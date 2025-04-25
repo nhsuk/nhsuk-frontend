@@ -75,7 +75,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from "components/summary-list/macro.njk" import summaryList %}
+{% from "nhsuk/components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
   rows: [
@@ -202,7 +202,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from "components/summary-list/macro.njk" import summaryList %}
+{% from "nhsuk/components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
   rows: [
@@ -293,7 +293,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from "components/summary-list/macro.njk" import summaryList %}
+{% from "nhsuk/components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
   classes: 'nhsuk-summary-list--no-border',

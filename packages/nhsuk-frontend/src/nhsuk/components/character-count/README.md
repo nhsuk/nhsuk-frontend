@@ -34,7 +34,7 @@ Find out more about the character component and when to use it in the [NHS digit
 #### Nunjucks macro
 
 ```njk
-{% from 'components/character-count/macro.njk' import characterCount %}
+{% from 'nhsuk/components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({
   "name": "more-detail",
@@ -79,7 +79,7 @@ Find out more about the character component and when to use it in the [NHS digit
 #### Nunjucks macro
 
 ```njk
-{% from 'components/character-count/macro.njk' import characterCount %}
+{% from 'nhsuk/components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({
   "name": "more-detail",
@@ -125,7 +125,7 @@ Find out more about the character component and when to use it in the [NHS digit
 #### Nunjucks macro
 
 ```njk
-{% from 'components/character-count/macro.njk' import characterCount %}
+{% from 'nhsuk/components/character-count/macro.njk' import characterCount %}
 
 {{ characterCount({
   "name": "more-detail",
@@ -153,9 +153,9 @@ The character count Nunjucks macro takes the following arguments:
 | **name**                 | string | Yes      | The name of the textarea, which is submitted with the form data.                                                                                        |
 | **rows**                 | string | No       | Optional number of textarea rows (default is 5 rows).                                                                                                   |
 | **value**                | string | No       | Optional initial value of the textarea.                                                                                                                 |
-| **label**                | object | Yes      | Arguments for the label component. See [label](/packages/nhsuk-frontend/src/components/label) component.                                                |
-| **hint**                 | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                       |
-| **errorMessage**         | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.            |
+| **label**                | object | Yes      | Arguments for the label component. See [label](/packages/nhsuk-frontend/src/nhsuk/components/label) component.                                          |
+| **hint**                 | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                 |
+| **errorMessage**         | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.      |
 | **classes**              | string | No       | Optional additional classes to add to the textarea tag. Separate each class with a space.                                                               |
 | **attributes**           | object | No       | Any extra HTML attributes (for example data attributes) to add to the textarea tag.                                                                     |
 | **maxlength**            | string | No.      | If maxwords is set, this is not required. The maximum number of characters. If maxwords is provided, the maxlength argument will be ignored.            |

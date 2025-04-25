@@ -48,7 +48,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
   "idPrefix": "nationality",
@@ -121,7 +121,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
   "fieldset": {
@@ -189,7 +189,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
   "name": "colours",
@@ -257,7 +257,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
   "name": "waste",
@@ -332,7 +332,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
 
 {{ checkboxes({
   "name": "waste",
@@ -431,8 +431,8 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {% set emailHtml %}
   {{ input({
@@ -579,8 +579,8 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 #### Nunjucks macro
 
 ```njk
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/checkboxes/macro.njk' import checkboxes %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {% set emailHtml %}
   {{ input({
@@ -678,9 +678,9 @@ The checkboxes Nunjucks macro takes the following arguments:
 
 | Name                               | Type    | Required | Description                                                                                                                                                         |
 | ---------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **fieldset**                       | object  | No       | Arguments for the fieldset component (e.g. legend). See [fieldset](/packages/nhsuk-frontend/src/components/fieldset) component.                                     |
-| **hint**                           | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                                   |
-| **errorMessage**                   | object  | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.                        |
+| **fieldset**                       | object  | No       | Arguments for the fieldset component (e.g. legend). See [fieldset](/packages/nhsuk-frontend/src/nhsuk/components/fieldset) component.                               |
+| **hint**                           | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                             |
+| **errorMessage**                   | object  | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.                  |
 | **idPrefix**                       | string  | No       | String to prefix id for each checkbox item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.            |
 | **name**                           | string  | Yes      | Name attribute for each checkbox item.                                                                                                                              |
 | **items**                          | array   | Yes      | Array of checkbox items objects.                                                                                                                                    |
@@ -688,7 +688,7 @@ The checkboxes Nunjucks macro takes the following arguments:
 | **items[].id**                     | string  | No       | Specific id attribute for the checkbox item. If omitted, then `idPrefix` string will be applied.                                                                    |
 | **items[].name**                   | string  | Yes      | Specific name for the checkbox item. If omitted, then component global `name` string will be applied.                                                               |
 | **items[].value**                  | string  | Yes      | Value for the checkbox input.                                                                                                                                       |
-| **items[].hint**                   | object  | No       | Provide optional hint to each checkbox item. See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                                    |
+| **items[].hint**                   | object  | No       | Provide optional hint to each checkbox item. See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                              |
 | **items[].divider**                | string  | No       | Optional divider text to separate checkbox items, for example the text "or".                                                                                        |
 | **items[].checked**                | boolean | No       | If true, checkbox will be checked.                                                                                                                                  |
 | **items[].conditional**            | boolean | No       | If true, content provided will be revealed when the item is checked.                                                                                                |

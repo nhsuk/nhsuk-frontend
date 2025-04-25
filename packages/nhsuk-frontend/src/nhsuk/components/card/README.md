@@ -24,7 +24,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {% call card({
   "heading": "If you need help now, but it’s not an emergency",
@@ -55,7 +55,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {{ card({
   "href": "#",
@@ -87,7 +87,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
     {{ card({
       "href": "#",
@@ -122,7 +122,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {{ card({
   "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
@@ -276,7 +276,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 <h2>Halves</h2>
 
@@ -402,7 +402,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {{ card({
   "feature": "true",
@@ -441,7 +441,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {% call card({
   "heading": "Speak to a GP if:",
@@ -489,7 +489,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {% call card({
   "heading": "Ask for an urgent GP appointment if:",
@@ -536,7 +536,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 #### Nunjucks macro
 
 ```njk
-{% from 'components/card/macro.njk' import card %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
 
 {% call card({
   "heading": "Call 999 if you have sudden chest pain that:",

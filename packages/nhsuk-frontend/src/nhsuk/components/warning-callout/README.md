@@ -26,7 +26,7 @@ Find out more about the warning callout component and when to use it in the [NHS
 If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
-{% from 'components/warning-callout/macro.njk' import warningCallout %}
+{% from 'nhsuk/components/warning-callout/macro.njk' import warningCallout %}
 
 {{ warningCallout({
   "heading": "Important",
@@ -57,7 +57,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 If you’re using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://en.wikipedia.org/wiki/Cross-site_scripting). More about it in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
 ```html
-{% from 'components/warning-callout/macro.njk' import warningCallout %}
+{% from 'nhsuk/components/warning-callout/macro.njk' import warningCallout %}
 
 {{ warningCallout({
   "heading": "School, nursery or work",

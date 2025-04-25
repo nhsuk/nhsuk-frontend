@@ -115,7 +115,7 @@ export async function copyBinaryAssets() {
   })
 
   return gulp
-    .src(join(config.paths.pkg, 'src/assets/**'), { encoding: false })
+    .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
     .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
     .pipe(browserSync.stream())
 }

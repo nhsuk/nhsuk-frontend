@@ -59,7 +59,7 @@ Find out more about the tabs component and when to use it in the [NHS digital se
 ### Nunjucks macro
 
 ```html
-{% from 'components/tabs/macro.njk' import tabs %}
+{% from 'nhsuk/components/tabs/macro.njk' import tabs %}
 
 {% set tabOneContent %}
   <h2>Tab one content</h2>

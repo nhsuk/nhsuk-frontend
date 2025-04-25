@@ -17,7 +17,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from 'components/label/macro.njk' import label %}
+{% from 'nhsuk/components/label/macro.njk' import label %}
 
 {{ label({
   "text": "National Insurance number"
@@ -41,7 +41,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from 'components/label/macro.njk' import label %}
+{% from 'nhsuk/components/label/macro.njk' import label %}
 
 {{ label({
   "classes": "nhsuk-label--s",
@@ -68,7 +68,7 @@
 #### Nunjucks macro
 
 ```njk
-{% from 'components/label/macro.njk' import label %}
+{% from 'nhsuk/components/label/macro.njk' import label %}
 
 {{ label({
   "text": "National Insurance number",

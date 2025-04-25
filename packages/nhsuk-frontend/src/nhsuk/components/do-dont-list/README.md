@@ -72,7 +72,7 @@ Find out more about the do and don't list component and when to use it in the [N
 ### Nunjucks macro
 
 ```njk
-{% from 'components/do-dont-list/macro.njk' import list %}
+{% from 'nhsuk/components/do-dont-list/macro.njk' import list %}
 
 {{ list({
   "title": "Do",

@@ -21,7 +21,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Save and continue"
@@ -45,7 +45,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Link button",
@@ -70,7 +70,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Disabled button",
@@ -95,7 +95,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Find my location",
@@ -120,7 +120,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Save and continue",
@@ -145,7 +145,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Yes, delete this vaccine",
@@ -168,7 +168,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/button/macro.njk' import button %}
+{% from 'nhsuk/components/button/macro.njk' import button %}
 
 {{ button({
   "text": "Save and continue",

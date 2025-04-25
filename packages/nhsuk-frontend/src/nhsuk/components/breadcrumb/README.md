@@ -31,7 +31,7 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 ### Nunjucks macro
 
 ```njk
-{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% from 'nhsuk/components/breadcrumb/macro.njk' import breadcrumb %}
 
 {{ breadcrumb({
   items: [

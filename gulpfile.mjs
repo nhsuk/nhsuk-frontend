@@ -54,10 +54,13 @@ gulp.task(
 gulp.task('watch', () =>
   Promise.all([
     gulp.watch(
-      [join(config.paths.pkg, 'src/**/*.scss')],
+      [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
       gulp.series(['style'])
     ),
-    gulp.watch([join(config.paths.pkg, 'src/**/*.js')], gulp.series(['script']))
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/**/*.js')],
+      gulp.series(['script'])
+    )
   ])
 )
 
@@ -75,7 +78,7 @@ gulp.task('docs:watch', () =>
     gulp.watch(
       [
         join(config.paths.app, 'src/**/*.njk'),
-        join(config.paths.pkg, 'src/**/*.njk')
+        join(config.paths.pkg, 'src/nhsuk/**/*.njk')
       ],
       buildHTML
     ),
@@ -84,7 +87,10 @@ gulp.task('docs:watch', () =>
       .on('change', browserSync.reload),
     gulp.watch([join(config.paths.root, 'dist/*.min.{css,css.map}')], copyCSS),
     gulp.watch([join(config.paths.root, 'dist/*.min.{js,js.map}')], copyJS),
-    gulp.watch([join(config.paths.pkg, 'src/assets/**/*')], copyBinaryAssets)
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
+      copyBinaryAssets
+    )
   ])
 )
 

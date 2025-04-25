@@ -105,7 +105,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
     "showNav": "true",
@@ -218,7 +218,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
       "showNav": "true",
@@ -288,7 +288,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
     "showNav": "false",
@@ -344,7 +344,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
   "showNav": "false",
@@ -379,7 +379,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
   "transactionalService": {
@@ -480,7 +480,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
     "showNav": "true",
@@ -604,7 +604,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
     "showNav": "true",
@@ -729,7 +729,7 @@ compiled JavaScript for all components `nhsuk.min.js` or the individual componen
 #### Nunjucks macro
 
 ```njk
-{% from 'components/header/macro.njk' import header %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
 
 {{ header({
     "showNav": "true",

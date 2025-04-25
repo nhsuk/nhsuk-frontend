@@ -28,7 +28,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/select/macro.njk' import select %}
+{% from 'nhsuk/components/select/macro.njk' import select %}
 
 {{ select({
   "id": "select-1",
@@ -85,7 +85,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/select/macro.njk' import select %}
+{% from 'nhsuk/components/select/macro.njk' import select %}
 
 {{ select({
   "id": "select-2",
@@ -122,21 +122,21 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 The select Nunjucks macro takes the following arguments:
 
-| Name                | Type    | Required | Description                                                                                                                                         |
-| ------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**              | string  | Yes      | The id for each select box.                                                                                                                         |
-| **name**            | string  | Yes      | The name of the select, which is submitted with the form data.                                                                                      |
-| **items**           | array   | Yes      | Array of option items for the select.                                                                                                               |
-| **item.value**      | string  | No       | Value for the option item.                                                                                                                          |
-| **item.text**       | string  | No       | Text for the option item.                                                                                                                           |
-| **item.selected**   | boolean | No       | Sets the option as the selected.                                                                                                                    |
-| **item.disabled**   | boolean | No       | Sets the option item as disabled.                                                                                                                   |
-| **item.attributes** | object  | No       | Any extra HTML attributes (for example data attributes) to the select option tag.                                                                   |
-| **label**           | object  | Yes      | Optional label text or HTML by specifying value for either text or html keys. See [label](/packages/nhsuk-frontend/src/components/label) component. |
-| **hint**            | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                   |
-| **errorMessage**    | object  | No       | Arguments for the errorMessage component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.         |
-| **classes**         | string  | No       | Optional additional classes to add to the select component. Separate each class with a space.                                                       |
-| **attributes**      | object  | No       | Any extra HTML attributes (for example data attributes) to add to the select component.                                                             |
+| Name                | Type    | Required | Description                                                                                                                                               |
+| ------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**              | string  | Yes      | The id for each select box.                                                                                                                               |
+| **name**            | string  | Yes      | The name of the select, which is submitted with the form data.                                                                                            |
+| **items**           | array   | Yes      | Array of option items for the select.                                                                                                                     |
+| **item.value**      | string  | No       | Value for the option item.                                                                                                                                |
+| **item.text**       | string  | No       | Text for the option item.                                                                                                                                 |
+| **item.selected**   | boolean | No       | Sets the option as the selected.                                                                                                                          |
+| **item.disabled**   | boolean | No       | Sets the option item as disabled.                                                                                                                         |
+| **item.attributes** | object  | No       | Any extra HTML attributes (for example data attributes) to the select option tag.                                                                         |
+| **label**           | object  | Yes      | Optional label text or HTML by specifying value for either text or html keys. See [label](/packages/nhsuk-frontend/src/nhsuk/components/label) component. |
+| **hint**            | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                   |
+| **errorMessage**    | object  | No       | Arguments for the errorMessage component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.         |
+| **classes**         | string  | No       | Optional additional classes to add to the select component. Separate each class with a space.                                                             |
+| **attributes**      | object  | No       | Any extra HTML attributes (for example data attributes) to add to the select component.                                                                   |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 

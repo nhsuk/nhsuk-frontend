@@ -135,7 +135,7 @@ This enables the NHSUK styles to be used inside other applications, where, for e
 ```scss
 div#nhsuk-ers {
 // ...
-@import "node_modules/nhsuk-frontend/src/core/all";
+@import "node_modules/nhsuk-frontend/src/nhsuk/core/all";
 // ...
 }
 ```

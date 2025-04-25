@@ -25,7 +25,7 @@ Find out more about the images component and when to use it in the [NHS digital 
 ### Nunjucks macro
 
 ```njk
-{% from 'components/images/macro.njk' import image %}
+{% from 'nhsuk/components/images/macro.njk' import image %}
 
 {{ image({
   src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",

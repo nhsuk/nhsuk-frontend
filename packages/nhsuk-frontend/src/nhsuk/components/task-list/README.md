@@ -63,7 +63,7 @@ Find out more about the task-list component and when to use it in the [NHS digit
 ### Nunjucks macro
 
 ```html
-{% from 'components/task-list/macro.njk' import taskList %}
+{% from 'nhsuk/components/task-list/macro.njk' import taskList %}
 
 {{ taskList({
   idPrefix: "your-health",

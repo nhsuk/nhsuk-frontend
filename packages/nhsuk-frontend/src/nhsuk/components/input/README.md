@@ -24,7 +24,7 @@ Find out more about the input component and when to use it in the [NHS digital s
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -59,7 +59,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -95,7 +95,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -138,7 +138,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -180,7 +180,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -219,7 +219,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -256,7 +256,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -294,7 +294,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -336,7 +336,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {{ input({
   "label": {
@@ -368,8 +368,8 @@ The input macro takes the following arguments:
 | **inputmode**    | string  | No       | Optional value for [inputmode](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).                                                                                                                                                                                                                                            |
 | **value**        | string  | No       | Optional initial value of the input.                                                                                                                                                                                                                                                                                                                      |
 | **label**        | object  | No       | Arguments for the label component. See label component.                                                                                                                                                                                                                                                                                                   |
-| **hint**         | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                                                                                                                                                                                                                         |
-| **errorMessage** | object  | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.                                                                                                                                                                                                              |
+| **hint**         | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                                                                                                                                                                                                                   |
+| **errorMessage** | object  | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.                                                                                                                                                                                                        |
 | **classes**      | string  | No       | Optional additional classes add to the input component. Separate each class with a space.                                                                                                                                                                                                                                                                 |
 | **autocomplete** | string  | No       | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **pattern**      | string  | No       | Attribute to [provide a regular expression pattern](https://www.w3.org/TR/html51/sec-forms.html#the-pattern-attribute), used to match allowed character combinations for the input value.                                                                                                                                                                 |

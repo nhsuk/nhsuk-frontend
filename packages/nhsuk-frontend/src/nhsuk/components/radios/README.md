@@ -42,7 +42,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "example",
@@ -107,7 +107,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "example",
@@ -173,7 +173,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "example-disabled",
@@ -243,7 +243,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "example-divider",
@@ -316,7 +316,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "gov",
@@ -382,7 +382,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "name": "colours",
@@ -444,7 +444,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
 
 {{ radios({
   "idPrefix": "example",
@@ -549,8 +549,8 @@ Find out more about the radios component and when to use it in the [NHS digital 
 #### Nunjucks macro
 
 ```njk
-{% from 'components/radios/macro.njk' import radios %}
-{% from 'components/input/macro.njk' import input %}
+{% from 'nhsuk/components/radios/macro.njk' import radios %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
 
 {% set emailHtml %}
   {{ input({
@@ -632,9 +632,9 @@ The radios Nunjucks macro takes the following arguments:
 
 | Name                               | Type    | Required | Description                                                                                                                                           |
 | ---------------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **fieldset**                       | object  | No       | Arguments for the fieldset component (e.g. legend). See See [fieldset](/packages/nhsuk-frontend/src/components/fieldset) component.                   |
-| **hint**                           | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                     |
-| **errorMessage**                   | object  | No       | Arguments for the errorMessage component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.           |
+| **fieldset**                       | object  | No       | Arguments for the fieldset component (e.g. legend). See See [fieldset](/packages/nhsuk-frontend/src/nhsuk/components/fieldset) component.             |
+| **hint**                           | object  | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                               |
+| **errorMessage**                   | object  | No       | Arguments for the errorMessage component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.     |
 | **idPrefix**                       | string  | No       | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead. |
 | **name**                           | string  | Yes      | Name attribute for each radio item.                                                                                                                   |
 | **items**                          | array   | Yes      | Array of radio item objects.                                                                                                                          |
@@ -642,7 +642,7 @@ The radios Nunjucks macro takes the following arguments:
 | **items[].id**                     | string  | No       | Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.                                                         |
 | **items[].name**                   | string  | Yes      | Specific name for the radio item. If omitted, then component global `name` string will be applied.                                                    |
 | **items[].value**                  | string  | Yes      | Value for the radio input.                                                                                                                            |
-| **items[].hint**                   | object  | No       | Provide optional hint to each radio item. See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                         |
+| **items[].hint**                   | object  | No       | Provide optional hint to each radio item. See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                   |
 | **items[].divider**                | string  | No       | Optional divider text to separate radio items, for example the text "or".                                                                             |
 | **items[].checked**                | boolean | No       | If true, radio will be checked.                                                                                                                       |
 | **items[].disabled**               | boolean | No       | If true, radio will be disabled.                                                                                                                      |

@@ -56,7 +56,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 #### Nunjucks macro
 
 ```njk
-{% from 'components/date-input/macro.njk' import dateInput %}
+{% from 'nhsuk/components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
   "id": "dob",
@@ -140,7 +140,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/date-input/macro.njk' import dateInput %}
+{% from 'nhsuk/components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
   "id": "dob-with-autocomplete-attribute",
@@ -226,7 +226,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/date-input/macro.njk' import dateInput %}
+{% from 'nhsuk/components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
   "id": "dob-errors",
@@ -311,7 +311,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### Nunjucks macro
 
 ```njk
-{% from 'components/date-input/macro.njk' import dateInput %}
+{% from 'nhsuk/components/date-input/macro.njk' import dateInput %}
 
 {{ dateInput({
   "id": "dob-day-error",
@@ -359,9 +359,9 @@ The date input Nunjucks macro takes the following arguments:
 | **items[].name**  | array  | Yes      | Item-specific name attribute.                                                                                                                                                                                                                                                                                                                             |
 | **items[].value** | string | No       | Optional item-specific value attribute. If provided, it will be used as the initial value of the input.                                                                                                                                                                                                                                                   |
 | **items[].label** | string | No       | Optional item-specific label text. If provided, this will be used instead of the items[].name.                                                                                                                                                                                                                                                            |
-| **hint**          | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/components/hint) component.                                                                                                                                                                                                                                         |
-| **errorMessage**  | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/components/error-message) component.                                                                                                                                                                                                              |
-| **fieldset**      | object | No       | Arguments for the fieldset component (e.g. legend). See [fieldset](/packages/nhsuk-frontend/src/components/fieldset) component.                                                                                                                                                                                                                           |
+| **hint**          | object | No       | Arguments for the hint component (e.g. text). See [hint](/packages/nhsuk-frontend/src/nhsuk/components/hint) component.                                                                                                                                                                                                                                   |
+| **errorMessage**  | object | No       | Arguments for the error message component (e.g. text). See [error message](/packages/nhsuk-frontend/src/nhsuk/components/error-message) component.                                                                                                                                                                                                        |
+| **fieldset**      | object | No       | Arguments for the fieldset component (e.g. legend). See [fieldset](/packages/nhsuk-frontend/src/nhsuk/components/fieldset) component.                                                                                                                                                                                                                     |
 | **autocomplete**  | string | No       | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **pattern**       | string | No       | Attribute to [provide a regular expression pattern](https://www.w3.org/TR/html51/sec-forms.html#the-pattern-attribute), used to match allowed character combinations for the input value.                                                                                                                                                                 |
 | **classes**       | string | No       | Optional additional classes to add to the date-input container. Separate each class with a space.                                                                                                                                                                                                                                                         |
