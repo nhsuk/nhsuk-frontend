@@ -17,37 +17,24 @@ module.exports = async function (page, scenario) {
     scenario.keyPressSelectors ||
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
-  for (const keyPressSelectorItem of keyPressSelectors) {
-    await page.waitForSelector(keyPressSelectorItem.selector)
-    await page.type(
-      keyPressSelectorItem.selector,
-      keyPressSelectorItem.keyPress
-    )
+  for (const { selector, keyPress } of keyPressSelectors) {
+    await page.locator(selector).first().pressSequentially(keyPress)
   }
 
-  for (const hoverSelectorItem of hoverSelectors) {
-    await page.waitForSelector(hoverSelectorItem)
-    await page.hover(hoverSelectorItem)
+  for (const selector of hoverSelectors) {
+    await page.locator(selector).first().hover()
   }
 
-  for (const clickSelectorItem of clickSelectors) {
-    await page.waitForSelector(clickSelectorItem)
-    await page.click(clickSelectorItem)
+  for (const selector of clickSelectors) {
+    await page.locator(selector).first().click()
   }
 
-  if (postInteractionWait) {
-    if (parseInt(postInteractionWait) > 0) {
-      await page.waitForTimeout(postInteractionWait)
-    } else {
-      await page.waitForSelector(postInteractionWait)
-    }
+  if (postInteractionWait > 0) {
+    await page.waitForTimeout(postInteractionWait)
   }
 
   if (scrollToSelector) {
-    await page.waitForSelector(scrollToSelector)
-    await page.evaluate((scrollToSelector) => {
-      document.querySelector(scrollToSelector).scrollIntoView()
-    }, scrollToSelector)
+    await page.locator(scrollToSelector).first().scrollIntoViewIfNeeded()
   }
 }
 
