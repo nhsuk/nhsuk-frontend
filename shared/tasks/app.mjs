@@ -18,15 +18,22 @@ const { PORT = '3000' } = process.env
  */
 export async function buildHTML() {
   const paths = await glob('**/*.njk', {
-    cwd: 'app',
+    cwd: join(config.paths.app, 'src'),
     nodir: true
   })
 
   // Configure Nunjucks
-  const env = nunjucks.configure(['app', 'app/_templates', 'packages'], {
-    trimBlocks: true,
-    lstripBlocks: true
-  })
+  const env = nunjucks.configure(
+    [
+      join(config.paths.app, 'src'),
+      join(config.paths.app, 'src/_templates'),
+      join(config.paths.pkg, 'src')
+    ],
+    {
+      trimBlocks: true,
+      lstripBlocks: true
+    }
+  )
 
   for (const path of paths) {
     const { name, dir } = parse(path)
@@ -37,7 +44,7 @@ export async function buildHTML() {
       version: config.version
     })
 
-    const destPath = join('dist/app', dir)
+    const destPath = join(config.paths.app, `dist/${dir}`)
     const filePath = join(destPath, `${name}.html`)
 
     // Write to disk
@@ -50,7 +57,7 @@ export async function buildHTML() {
  * Validate Nunjucks HTML output
  */
 export async function validateHTML() {
-  const paths = await glob('dist/app/**/*.html', {
+  const paths = await glob(join(config.paths.app, 'dist/**/*.html'), {
     nodir: true
   })
 
@@ -80,8 +87,8 @@ export async function copyCSS() {
   })
 
   return gulp
-    .src('dist/*.min.{css,css.map}')
-    .pipe(gulp.dest('dist/app/stylesheets'))
+    .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
+    .pipe(gulp.dest(join(config.paths.app, 'dist/stylesheets')))
     .pipe(browserSync.stream())
 }
 
@@ -94,8 +101,8 @@ export async function copyJS() {
   })
 
   return gulp
-    .src('dist/*.min.{js,js.map}')
-    .pipe(gulp.dest('dist/app/javascripts'))
+    .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
+    .pipe(gulp.dest(join(config.paths.app, 'dist/javascripts')))
     .pipe(browserSync.stream())
 }
 
@@ -108,8 +115,8 @@ export async function copyBinaryAssets() {
   })
 
   return gulp
-    .src('packages/assets/**', { encoding: false })
-    .pipe(gulp.dest('dist/app/assets'))
+    .src(join(config.paths.pkg, 'src/assets/**'), { encoding: false })
+    .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
     .pipe(browserSync.stream())
 }
 
@@ -142,7 +149,7 @@ export function serve(done) {
 
       // Development server
       server: {
-        baseDir: 'dist/app',
+        baseDir: join(config.paths.app, 'dist'),
         directory: true
       },
 
@@ -151,7 +158,7 @@ export function serve(done) {
       serveStatic: [
         {
           route: '/nhsuk-frontend',
-          dir: 'dist/app'
+          dir: join(config.paths.app, 'dist')
         }
       ],
 

@@ -46,10 +46,10 @@ Alternatively you can import each of the individual components separately, meani
 
 ```scss
 // Core (required)
-@import "node_modules/nhsuk-frontend/packages/core/all";
+@import "node_modules/nhsuk-frontend/src/core/all";
 
 // Individual component (optional)
-@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@import "node_modules/nhsuk-frontend/src/components/action-link/action-link";
 ```
 
 ## Importing JavaScript
@@ -98,11 +98,11 @@ initAll()
 Rather than using `initAll`, you can initialise individual components used by your service. For example:
 
 ```js
-import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js';
-import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
+import initRadios from 'nhsuk-frontend/src/components/radios/radios.js';
+import initSkipLink from 'nhsuk-frontend/src/components/skip-link/skip-link.js';
 
 // Polyfills
-import 'nhsuk-frontend/packages/polyfills.js';
+import 'nhsuk-frontend/src/polyfills.js';
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {
