@@ -22,6 +22,12 @@ For consistency with other components, the following Nunjucks macro changes have
 
 This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
 
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1258: Fix text input with prefix/suffix focus and width](https://github.com/nhsuk/nhsuk-frontend/pull/1258)
+
 ## 9.4.1 - 22 April 2025
 
 :wrench: **Fixes**
