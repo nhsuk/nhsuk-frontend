@@ -22,11 +22,7 @@ Visit our [support for browsers and assistive technology](/docs/contributing/bro
 
 ## Contribute
 
-Read our [contributing guidelines](CONTRIBUTING.md) to contribute to NHS.UK frontend.
-
-## Development environment
-
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/nhsuk/nhsuk-frontend)
+Read our [contributing guidelines](/CONTRIBUTING.md) to contribute to NHS.UK frontend.
 
 ## Get in touch
 
