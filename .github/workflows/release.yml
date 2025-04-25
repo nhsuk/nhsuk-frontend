@@ -1,9 +1,9 @@
 name: Create release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types:
+      - published
 
 jobs:
   build:
@@ -23,6 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Configure git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Get package version
+        run: echo "VERSION=${github.event.release.tag_name#v}" >> $GITHUB_ENV
+
+      - name: Write package version
+        run: npm version $VERSION --allow-same-version --no-git-tag-version
+
       - name: Build
         run: npm run build
 
@@ -32,23 +43,8 @@ jobs:
       - name: Run tests
         run: npm test --ignore-scripts
 
-      - name: Get package version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-
       - name: Create release artifact
         run: npx --workspace nhsuk-frontend gulp zip
-
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: false
-          prerelease: false
 
       - name: Upload release asset
         id: upload-release-asset
@@ -56,12 +52,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
-          asset_name: nhsuk-frontend-${{ steps.get_version.outputs.VERSION }}.zip
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/nhsuk-frontend-$VERSION.zip
+          asset_name: nhsuk-frontend-$VERSION.zip
           asset_content_type: application/zip
 
       - name: Publish npm package
         run: npm publish --workspace nhsuk-frontend
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Push changes
+        run: git push
