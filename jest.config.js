@@ -34,14 +34,20 @@ module.exports = {
   projects: [
     {
       ...config,
-      displayName: 'JSDom',
+      displayName: 'JavaScript unit tests',
+      testEnvironment: 'node',
+      testMatch: ['<rootDir>/**/*.unit.test.{js,mjs}']
+    },
+    {
+      ...config,
+      displayName: 'JavaScript behaviour tests',
       setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       ...config,
-      displayName: 'Pupppeteer',
+      displayName: 'JavaScript component tests',
       setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
       testEnvironment: 'jest-environment-puppeteer',
       testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],
