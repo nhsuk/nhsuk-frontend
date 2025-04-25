@@ -10,7 +10,7 @@ Visit the [NHS digital service manual](https://service-manual.nhs.uk/) for examp
 
 ### 1. Install with package managers
 
-We recommend that you [install NHS.UK frontend using node package manager (npm)](/docs/installation/installing-with-npm.md).
+We recommend that you [install NHS.UK frontend using Node.js package manager (npm)](/docs/installation/installing-with-npm.md).
 
 ### 2. Install by using compiled files
 
