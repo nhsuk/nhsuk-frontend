@@ -29,6 +29,7 @@ if (!Element.prototype.matches) {
 
 if (!Element.prototype.closest) {
   Element.prototype.closest = function (s) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     var el = this
 
     do {
