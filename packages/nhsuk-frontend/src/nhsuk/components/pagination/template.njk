@@ -29,11 +29,12 @@ the numbered variant only, and including an arrow pointing left or right. #}
 {%- macro _arrowLink(link, type = "next") %}
   {% set iconName = "arrow-left" if type == "prev" else "arrow-right" %}
   <div class="nhsuk-pagination--numbered__{{ type }}">
-    <a class="nhsuk-pagination--numbered__link" href="{{ link }}" rel="{{ type }}">
+    <a class="nhsuk-pagination--numbered__link" href="{{ link.href }}" rel="{{ type }}"
+      {{- nhsukAttributes(link.attributes) }}>
       {%- if type == "prev" -%}
         {{ nhsukIcon(iconName) | indent(4, true) }}
       {%- endif -%}
-      {{ caller() | safe }}
+      {{- caller() | safe | trim -}}
       {%- if type == "next" -%}
         {{ nhsukIcon(iconName) | indent(4, true) }}
       {%- endif -%}
@@ -42,16 +43,23 @@ the numbered variant only, and including an arrow pointing left or right. #}
 {% endmacro -%}
 
 <nav class="nhsuk-pagination {{ "nhsuk-pagination--numbered" if numbered }}
-{%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
+{%- if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
 {{- nhsukAttributes(params.attributes) }}>
+
+  {% set previous = params.previous %}
+  {% set next = params.next %}
 
   {%- if numbered %}
 
-    {% if params.previousUrl %}
-      {% call _arrowLink(params.previousUrl, "prev") -%}
-        Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    {%- if previous and previous.href %}
+      {% call _arrowLink(previous, "prev") %}
+        {% if previous.html or previous.text %}
+          {{ previous.html | safe | trim | indent(8) if previous.html else previous.text }}
+        {% else %}
+          Previous<span class="nhsuk-u-visually-hidden"> page</span>
+        {% endif %}
       {% endcall %}
-    {% endif %}
+    {%- endif %}
 
     <ul class="nhsuk-pagination__list--numbered">
     {% for item in params.items %}
@@ -59,31 +67,35 @@ the numbered variant only, and including an arrow pointing left or right. #}
     {% endfor %}
     </ul>
 
-    {% if params.nextUrl %}
-      {% call _arrowLink(params.nextUrl, "next") -%}
-        Next<span class="nhsuk-u-visually-hidden"> page</span>
+    {%- if next and next.href %}
+      {% call _arrowLink(next, "next") -%}
+        {% if next.html or next.text %}
+          {{ next.html | safe | trim | indent(8) if next.html else next.text }}
+        {% else %}
+          Next<span class="nhsuk-u-visually-hidden"> page</span>
+        {% endif %}
       {%- endcall %}
     {% endif %}
 
   {%- else %}
 
     <ul class="nhsuk-list nhsuk-pagination__list">
-      {%- if params.previousUrl and params.previousPage %}
+      {%- if previous and previous.labelText %}
         <li class="nhsuk-pagination-item--previous">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ params.previousUrl }}">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
             <span class="nhsuk-pagination__title">Previous</span>
             <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">{{ params.previousPage }}</span>
+            <span class="nhsuk-pagination__page">{{ previous.labelText }}</span>
             {{ nhsukIcon("arrow-left") | indent(12, true) }}
           </a>
         </li>
       {%- endif %}
-      {%- if params.nextUrl and params.nextPage %}
+      {%- if next and next.labelText %}
         <li class="nhsuk-pagination-item--next">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.nextUrl }}">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
             <span class="nhsuk-pagination__title">Next</span>
             <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">{{ params.nextPage }}</span>
+            <span class="nhsuk-pagination__page">{{ next.labelText }}</span>
             {{ nhsukIcon("arrow-right") | indent(12, true) }}
           </a>
         </li>
