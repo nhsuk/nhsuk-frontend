@@ -70,7 +70,7 @@
       fill: $nhsuk-link-hover-color;
     }
 
-    .nhsuk-pagination__page {
+    .nhsuk-pagination__link-label {
       text-decoration: none;
     }
   }
@@ -78,7 +78,7 @@
   &:focus {
     @include nhsuk-focused-text;
 
-    .nhsuk-pagination__page {
+    .nhsuk-pagination__link-label {
       text-decoration: none;
     }
 
@@ -122,7 +122,7 @@
   }
 }
 
-.nhsuk-pagination__page {
+.nhsuk-pagination__link-label {
   display: block;
   text-decoration: underline;
 
