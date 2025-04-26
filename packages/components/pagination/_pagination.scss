@@ -152,7 +152,7 @@
   @include nhsuk-font(19);
 }
 
-.nhsuk-pagination--numbered__link:visited:hover,
+.nhsuk-pagination--numbered .nhsuk-pagination__link:visited:hover,
 .nhsuk-pagination--numbered__item a:hover {
   color: $nhsuk-link-hover-color;
 }
@@ -171,21 +171,6 @@
   list-style: none;
 }
 
-// Current number
-.nhsuk-pagination--numbered__item--current,
-.nhsuk-pagination--numbered__item--current:hover {
-  background-color: $color_nhsuk-blue;
-  font-weight: $nhsuk-font-bold;
-
-  .nhsuk-pagination--numbered__link {
-    color: $color_nhsuk-white;
-  }
-
-  .nhsuk-pagination--numbered__link:focus {
-    color: $color_nhsuk-black;
-  }
-}
-
 .nhsuk-pagination--numbered__item--ellipses {
   font-weight: $nhsuk-font-bold;
   color: $nhsuk-secondary-text-color;
@@ -195,10 +180,11 @@
   }
 }
 
-.nhsuk-pagination--numbered__link {
+.nhsuk-pagination--numbered .nhsuk-pagination__link {
   min-width: nhsuk-spacing(3);
   vertical-align: middle;
   color: $color_nhsuk-blue;
+  text-decoration: underline;
 
   // Increase the touch area for the link to the parent element.
   @media screen {
@@ -213,10 +199,23 @@
   }
 }
 
+// Current number
+.nhsuk-pagination--numbered__item--current,
+.nhsuk-pagination--numbered__item--current:hover {
+  background-color: $color_nhsuk-blue;
+  font-weight: $nhsuk-font-bold;
+
+  .nhsuk-pagination__link {
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-pagination__link:focus {
+    color: $color_nhsuk-black;
+  }
+}
+
 .nhsuk-pagination--numbered .nhsuk-pagination__link-title {
   display: inline;
-  padding-right: 0;
-
   @include nhsuk-font(19);
 }
 
@@ -226,11 +225,11 @@
   fill: $color_nhsuk-blue;
 }
 
-.nhsuk-pagination--numbered__link:visited .nhsuk-icon {
+.nhsuk-pagination--numbered .nhsuk-pagination__link:visited .nhsuk-icon {
   fill: $nhsuk-link-visited-color;
 }
 
-.nhsuk-pagination--numbered__link:hover .nhsuk-icon {
+.nhsuk-pagination--numbered .nhsuk-pagination__link:hover .nhsuk-icon {
   fill: $nhsuk-link-hover-color;
 }
 

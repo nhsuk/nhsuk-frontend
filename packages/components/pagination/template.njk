@@ -28,7 +28,7 @@ presence of items (pages). #}
   {% if item.ellipsis %}
     &ctdot;
   {% else %}
-    <a class="nhsuk-pagination--numbered__link" href="{{ item.href }}" aria-label="{{ item.visuallyHiddenText | default("Page " + item.number) }}"
+    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ item.visuallyHiddenText | default("Page " + item.number) }}"
       {%- if item.current %} aria-current="page"{% endif %}
       {{- nhsukAttributes(item.attributes) }}>
       {{ item.number }}
@@ -42,7 +42,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
 {%- macro _arrowLink(link, type = "next") %}
   {% set arrowType = arrowPrevious if type == "prev" else arrowNext %}
   <div class="nhsuk-pagination__{{ type }}">
-    <a class="nhsuk-pagination--numbered__link" href="{{ link.href }}" rel="{{ type }}"
+    <a class="nhsuk-pagination__link" href="{{ link.href }}" rel="{{ type }}"
       {{- nhsukAttributes(link.attributes) }}>
       {%- if type == "prev" -%}
         {{- arrowType | safe | indent(4, true) }}
