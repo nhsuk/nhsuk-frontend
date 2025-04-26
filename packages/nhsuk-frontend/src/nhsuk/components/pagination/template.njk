@@ -68,55 +68,31 @@ the numbered variant only, and including an arrow pointing left or right. #}
   {% set previous = params.previous %}
   {% set next = params.next %}
 
+  {%- if previous and previous.href %}
+    {% call _arrowLink(previous, "prev") %}
+      {% if previous.html or previous.text %}
+        {{ previous.html | safe | trim | indent(8) if previous.html else previous.text }}
+      {% else %}
+        Previous<span class="nhsuk-u-visually-hidden"> page</span>
+      {% endif %}
+    {% endcall %}
+  {%- endif %}
+
   {%- if numbered %}
-
-    {%- if previous and previous.href %}
-      {% call _arrowLink(previous, "prev") %}
-        {% if previous.html or previous.text %}
-          {{ previous.html | safe | trim | indent(8) if previous.html else previous.text }}
-        {% else %}
-          Previous<span class="nhsuk-u-visually-hidden"> page</span>
-        {% endif %}
-      {% endcall %}
-    {%- endif %}
-
     <ul class="nhsuk-pagination__list">
     {% for item in params.items %}
       {{ _pageItem(item) | indent(2) }}
     {% endfor %}
     </ul>
+  {% endif %}
 
-    {%- if next and next.href %}
-      {% call _arrowLink(next, "next") -%}
-        {% if next.html or next.text %}
-          {{ next.html | safe | trim | indent(8) if next.html else next.text }}
-        {% else %}
-          Next<span class="nhsuk-u-visually-hidden"> page</span>
-        {% endif %}
-      {%- endcall %}
-    {% endif %}
-
-  {%- else %}
-
-    {%- if previous and previous.labelText %}
-      {% call _arrowLink(previous, "prev") %}
-        {% if previous.html or previous.text %}
-          {{ previous.html | safe | trim | indent(8) if previous.html else previous.text }}
-        {% else %}
-          Previous<span class="nhsuk-u-visually-hidden"> page</span>
-        {% endif %}
-      {% endcall %}
-    {%- endif %}
-    {%- if next and next.labelText %}
-      {%- if next and next.href %}
-        {% call _arrowLink(next, "next") -%}
-          {% if next.html or next.text %}
-            {{ next.html | safe | trim | indent(8) if next.html else next.text }}
-          {% else %}
-            Next<span class="nhsuk-u-visually-hidden"> page</span>
-          {% endif %}
-        {%- endcall %}
+  {%- if next and next.href %}
+    {% call _arrowLink(next, "next") -%}
+      {% if next.html or next.text %}
+        {{ next.html | safe | trim | indent(8) if next.html else next.text }}
+      {% else %}
+        Next<span class="nhsuk-u-visually-hidden"> page</span>
       {% endif %}
-    {%- endif %}
-  {%- endif %}
+    {%- endcall %}
+  {% endif %}
 </nav>
