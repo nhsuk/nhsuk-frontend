@@ -100,7 +100,7 @@
 // and next link should all line up
 .nhsuk-pagination--numbered .nhsuk-pagination__prev,
 .nhsuk-pagination--numbered .nhsuk-pagination__next,
-.nhsuk-pagination--numbered__item {
+.nhsuk-pagination__item {
   box-sizing: border-box;
   position: relative;
   width: auto;
@@ -114,13 +114,13 @@
 }
 
 .nhsuk-pagination--numbered .nhsuk-pagination__link:visited:hover,
-.nhsuk-pagination--numbered__item a:hover {
+.nhsuk-pagination__item a:hover {
   color: $nhsuk-link-hover-color;
 }
 
 .nhsuk-pagination--numbered .nhsuk-pagination__prev:hover,
 .nhsuk-pagination--numbered .nhsuk-pagination__next:hover,
-.nhsuk-pagination--numbered__item:hover {
+.nhsuk-pagination__item:hover {
   background-color: $color_nhsuk-grey-4;
   color: $color_nhsuk-blue;
 }
@@ -132,7 +132,7 @@
   list-style: none;
 }
 
-.nhsuk-pagination--numbered__item--ellipses {
+.nhsuk-pagination__item--ellipses {
   font-weight: $nhsuk-font-bold;
   color: $nhsuk-secondary-text-color;
 
@@ -161,8 +161,8 @@
 }
 
 // Current number
-.nhsuk-pagination--numbered__item--current,
-.nhsuk-pagination--numbered__item--current:hover {
+.nhsuk-pagination__item--current,
+.nhsuk-pagination__item--current:hover {
   background-color: $color_nhsuk-blue;
   font-weight: $nhsuk-font-bold;
 
