@@ -27,7 +27,7 @@
     width: 50%;
   }
 
-  .nhsuk-pagination-item--previous {
+  .nhsuk-pagination__previous {
     float: left;
     margin-left: nhsuk-spacing(-2);
     text-align: left;
@@ -41,7 +41,7 @@
     }
   }
 
-  .nhsuk-pagination-item--next {
+  .nhsuk-pagination__next {
     float: right;
     margin-right: nhsuk-spacing(-2);
     text-align: right;
@@ -117,6 +117,7 @@
   .nhsuk-pagination--numbered__item {
     box-sizing: border-box;
     position: relative;
+    width: auto;
     min-width: 45px;
     min-height: 45px;
     padding: nhsuk-spacing(2);
@@ -189,6 +190,8 @@
 
   .nhsuk-pagination--numbered .nhsuk-pagination__link-title {
     display: inline;
+    padding-right: 0;
+
     @include nhsuk-font(19);
   }
 

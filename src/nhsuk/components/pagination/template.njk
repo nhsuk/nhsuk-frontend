@@ -82,7 +82,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
   {%- else %}
 
     {%- if previous and previous.labelText %}
-      <div class="nhsuk-pagination-item--previous">
+      <div class="nhsuk-pagination__previous">
         <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
           <span class="nhsuk-pagination__link-title">
             {% if previous.html or previous.text %}
@@ -98,7 +98,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
       </div>
     {%- endif %}
     {%- if next and next.labelText %}
-      <div class="nhsuk-pagination-item--next">
+      <div class="nhsuk-pagination__next">
         <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
           <span class="nhsuk-pagination__link-title">
             {% if next.html or next.text %}
