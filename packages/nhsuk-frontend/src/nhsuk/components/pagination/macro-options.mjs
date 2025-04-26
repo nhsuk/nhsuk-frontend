@@ -51,10 +51,12 @@ export const examples = {
     context: {
       previous: {
         href: '/section/treatments',
+        text: 'Previous',
         labelText: 'Treatments'
       },
       next: {
         href: '/section/symptoms',
+        text: 'Next',
         labelText: 'Symptoms'
       }
     }
