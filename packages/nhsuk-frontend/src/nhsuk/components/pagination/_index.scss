@@ -36,7 +36,7 @@
       left: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
     }
 
-    .nhsuk-pagination__title {
+    .nhsuk-pagination__link-title {
       padding-left: $_icon-size; // [1]
     }
   }
@@ -50,7 +50,7 @@
       right: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
     }
 
-    .nhsuk-pagination__title {
+    .nhsuk-pagination__link-title {
       padding-right: $_icon-size; // [1]
     }
   }
@@ -81,7 +81,7 @@
     }
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     display: block;
 
     @include nhsuk-media-query($media-type: print) {
@@ -185,6 +185,11 @@
         left: 0;
       }
     }
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__link-title {
+    display: inline;
+    @include nhsuk-font(19);
   }
 
   .nhsuk-pagination--numbered .nhsuk-icon {
