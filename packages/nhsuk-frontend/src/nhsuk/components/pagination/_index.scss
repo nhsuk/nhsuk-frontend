@@ -18,10 +18,6 @@
   @include nhsuk-responsive-margin(7, "bottom");
 }
 
-.nhsuk-pagination__list {
-  @include nhsuk-clearfix;
-}
-
 .nhsuk-pagination-item--previous {
   float: left;
   text-align: left;
@@ -129,7 +125,7 @@
 }
 
 // Container for the list of numbered items
-.nhsuk-pagination__list--numbered {
+.nhsuk-pagination__list {
   margin: 0;
   padding: 0;
   list-style: none;
