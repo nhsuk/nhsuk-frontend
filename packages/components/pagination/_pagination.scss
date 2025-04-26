@@ -24,7 +24,7 @@
     left: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-left: nhsuk-spacing(5); // [1]
   }
 }
@@ -38,7 +38,7 @@
     right: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-right: nhsuk-spacing(5); // [1]
   }
 }
@@ -110,7 +110,7 @@
   }
 }
 
-.nhsuk-pagination__title {
+.nhsuk-pagination__link-title {
   display: block;
 
   @include nhsuk-typography-responsive(24);
@@ -210,6 +210,11 @@
       left: 0;
     }
   }
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link-title {
+  display: inline;
+  @include nhsuk-font(19);
 }
 
 .nhsuk-pagination--numbered .nhsuk-icon {
