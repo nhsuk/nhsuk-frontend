@@ -61,7 +61,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
       {% endcall %}
     {%- endif %}
 
-    <ul class="nhsuk-pagination__list--numbered">
+    <ul class="nhsuk-pagination__list">
     {% for item in params.items %}
       {{ _pageItem(item) | indent(2) }}
     {% endfor %}
@@ -79,28 +79,25 @@ the numbered variant only, and including an arrow pointing left or right. #}
 
   {%- else %}
 
-    <ul class="nhsuk-list nhsuk-pagination__list">
-      {%- if previous and previous.labelText %}
-        <li class="nhsuk-pagination-item--previous">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
-            <span class="nhsuk-pagination__title">Previous</span>
-            <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">{{ previous.labelText }}</span>
-            {{ nhsukIcon("arrow-left") | indent(12, true) }}
-          </a>
-        </li>
-      {%- endif %}
-      {%- if next and next.labelText %}
-        <li class="nhsuk-pagination-item--next">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
-            <span class="nhsuk-pagination__title">Next</span>
-            <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">{{ next.labelText }}</span>
-            {{ nhsukIcon("arrow-right") | indent(12, true) }}
-          </a>
-        </li>
-
-      {%- endif %}
-    </ul>
+    {%- if previous and previous.labelText %}
+      <div class="nhsuk-pagination-item--previous">
+        <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
+          <span class="nhsuk-pagination__title">Previous</span>
+          <span class="nhsuk-u-visually-hidden">:</span>
+          <span class="nhsuk-pagination__page">{{ previous.labelText }}</span>
+          {{ nhsukIcon("arrow-left") | indent(12, true) }}
+        </a>
+      </div>
+    {%- endif %}
+    {%- if next and next.labelText %}
+      <div class="nhsuk-pagination-item--next">
+        <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
+          <span class="nhsuk-pagination__title">Next</span>
+          <span class="nhsuk-u-visually-hidden">:</span>
+          <span class="nhsuk-pagination__page">{{ next.labelText }}</span>
+          {{ nhsukIcon("arrow-right") | indent(12, true) }}
+        </a>
+      </div>
+    {%- endif %}
   {%- endif %}
 </nav>
