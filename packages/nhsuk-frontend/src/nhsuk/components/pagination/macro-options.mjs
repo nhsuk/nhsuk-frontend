@@ -49,16 +49,24 @@ export const params = {
 export const examples = {
   default: {
     context: {
-      previousUrl: '/section/treatments',
-      previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
-      nextPage: 'Symptoms'
+      previous: {
+        href: '/section/treatments',
+        labelText: 'Treatments'
+      },
+      next: {
+        href: '/section/symptoms',
+        labelText: 'Symptoms'
+      }
     }
   },
   numbered: {
     context: {
-      previousUrl: '#',
-      nextUrl: '#',
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
       items: [
         {
           number: 1,
