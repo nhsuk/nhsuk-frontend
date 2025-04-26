@@ -47,7 +47,9 @@ the numbered variant only, and including an arrow pointing left or right. #}
       {%- if type == "prev" -%}
         {{- arrowType | safe | indent(4, true) }}
       {%- endif -%}
-      {{- caller() | safe | trim -}}
+      <span class="nhsuk-pagination__link-title">
+        {{- caller() | safe | trim -}}
+      </span>
       {%- if type == "next" -%}
         {{- arrowType | safe | indent(4, true) }}
       {%- endif -%}
@@ -95,7 +97,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
     {%- if previous and previous.labelText %}
       <div class="nhsuk-pagination-item--previous">
         <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
-          <span class="nhsuk-pagination__title">Previous</span>
+          <span class="nhsuk-pagination__link-title">Previous</span>
           <span class="nhsuk-u-visually-hidden">:</span>
           <span class="nhsuk-pagination__link-label">{{ previous.labelText }}</span>
           {{ arrowPrevious | safe }}
@@ -105,7 +107,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
     {%- if next and next.labelText %}
       <div class="nhsuk-pagination-item--next">
         <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
-          <span class="nhsuk-pagination__title">Next</span>
+          <span class="nhsuk-pagination__link-title">Next</span>
           <span class="nhsuk-u-visually-hidden">:</span>
           <span class="nhsuk-pagination__link-label">{{ next.labelText }}</span>
           {{ arrowNext | safe }}
