@@ -30,7 +30,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ warningCallout({
   "heading": "Important",
-  "HTML": "<p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>"
+  "text": "If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help."
 }) }}
 ```
 
@@ -61,7 +61,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 {{ warningCallout({
   "heading": "School, nursery or work",
-  "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  "text": "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
 }) }}
 ```
 
@@ -69,12 +69,14 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 The warning callout Nunjucks macro takes the following arguments:
 
-| Name             | Type    | Required | Description                                                                                  |
-| ---------------- | ------- | -------- | -------------------------------------------------------------------------------------------- |
-| **heading**      | string  | Yes      | Heading to be used within the warning callout component.                                     |
-| **HTML**         | string  | Yes      | Content to be used within the warning callout component.                                     |
-| **headingLevel** | integer | No       | Optional heading level for the heading. Default: 3                                           |
-| **classes**      | string  | No       | Optional additional classes to add to the warning callout. Separate each class with a space. |
-| **attributes**   | object  | No       | Any extra HTML attributes (for example data attributes) to add to the warning callout.       |
+| Name             | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------- | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **heading**      | string         | Yes      | Heading to be used within the warning callout component.                                                                                                                                                                                                                                                                                                         |
+| **text**         | string         | Yes      | Text content to be used within the warning callout component.                                                                                                                                                                                                                                                                                                    |
+| **html**         | string         | Yes      | HTML content to be used within the warning callout component.                                                                                                                                                                                                                                                                                                    |
+| **caller**       | nunjucks-block | No       | Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire warning callout component in a `call` block. |
+| **headingLevel** | integer        | No       | Optional heading level for the heading. Default: 3                                                                                                                                                                                                                                                                                                               |
+| **classes**      | string         | No       | Optional additional classes to add to the warning callout. Separate each class with a space.                                                                                                                                                                                                                                                                     |
+| **attributes**   | object         | No       | Any extra HTML attributes (for example data attributes) to add to the warning callout.                                                                                                                                                                                                                                                                           |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).

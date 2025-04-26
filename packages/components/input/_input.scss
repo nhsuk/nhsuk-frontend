@@ -80,8 +80,22 @@
 .nhsuk-input__wrapper {
   display: flex;
 
+  .nhsuk-input {
+    flex: 0 1 auto;
+  }
+
+  .nhsuk-input:focus {
+    // Hack to stop focus style being overlapped by the suffix
+    z-index: 1;
+  }
+
   @include mq($until: mobile) {
     display: block;
+
+    .nhsuk-input {
+      // Set max-width to override potential width override class on the input
+      max-width: 100%;
+    }
   }
 }
 
@@ -102,7 +116,6 @@
   @include nhsuk-font($size: 19);
 
   @include mq($until: mobile) {
-    max-width: 9.1ex;
     display: block;
     height: 100%;
     white-space: normal;

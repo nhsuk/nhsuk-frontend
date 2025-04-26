@@ -6,7 +6,6 @@ module.exports = {
   ignorePatterns: [
     '**/coverage/**',
     '**/dist/**',
-    '**/engine_scripts/**/*',
 
     // Enable dotfile linting
     '!.*',

@@ -6,11 +6,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ card({
+      {% call card({
         "heading": "If you need help now, but it’s not an emergency",
-        "headingLevel": "3",
-        "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
-      }) }}
+        "headingLevel": "3"
+      }) %}
+        <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+      {% endcall %}
 
     </div>
   </div>

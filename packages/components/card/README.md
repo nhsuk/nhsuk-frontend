@@ -26,11 +26,12 @@ Find out more about the card component and when to use it in the [NHS digital se
 ```njk
 {% from 'components/card/macro.njk' import card %}
 
-{{ card({
+{% call card({
   "heading": "If you need help now, but it’s not an emergency",
-  "headingLevel": "3",
-  "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
-}) }}
+  "headingLevel": "3"
+}) %}
+  <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+{% endcall %}
 ```
 
 ### Primary card (with chevron)
@@ -356,25 +357,25 @@ Find out more about the card component and when to use it in the [NHS digital se
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91 <span class=\"nhsuk-u-visually-hidden\">Applicants</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Applicants</a>"
+      "headingHtml": '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23 <span class=\"nhsuk-u-visually-hidden\">Jobs</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Jobs</a>"
+      "headingHtml": '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8 <span class=\"nhsuk-u-visually-hidden\">Services</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Services</a>"
+      "headingHtml": '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
     }) }}
   </li>
   <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33 <span class=\"nhsuk-u-visually-hidden\">Messages</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Messages</a>"
+      "headingHtml": '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
     }) }}
   </li>
 </ul>
@@ -442,20 +443,19 @@ Find out more about the card component and when to use it in the [NHS digital se
 ```njk
 {% from 'components/card/macro.njk' import card %}
 
-{{ card({
-  "type": "non-urgent",
+{% call card({
   "heading": "Speak to a GP if:",
   "headingLevel": 3,
-  "descriptionHtml": "
+  "type": "non-urgent"
+}) %}
   <ul>
     <li>you're not sure it's chickenpox</li>
     <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-    <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>
+    <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
     <li>you're concerned about your child or they get worse</li>
   </ul>
   <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-  "
-}) }}
+{% endcall %}
 ```
 
 ---
@@ -491,11 +491,11 @@ Find out more about the card component and when to use it in the [NHS digital se
 ```njk
 {% from 'components/card/macro.njk' import card %}
 
-{{ card({
-  "type": "urgent",
+{% call card({
   "heading": "Ask for an urgent GP appointment if:",
   "headingLevel": 3,
-  "descriptionHtml": "
+  "type": "urgent"
+}) %}
   <ul>
     <li>you're an adult and have chickenpox</li>
     <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
@@ -503,8 +503,7 @@ Find out more about the card component and when to use it in the [NHS digital se
     <li>you think your newborn baby has chickenpox</li>
   </ul>
   <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-  "
-}) }}
+{% endcall %}
 ```
 
 ---
@@ -539,42 +538,42 @@ Find out more about the card component and when to use it in the [NHS digital se
 ```njk
 {% from 'components/card/macro.njk' import card %}
 
-{{ card({
-  "type": "emergency",
+{% call card({
   "heading": "Call 999 if you have sudden chest pain that:",
   "headingLevel": 3,
-  "descriptionHtml": "
+  "type": "emergency"
+}) %}
   <ul>
     <li>spreads to your arms, back, neck or jaw</li>
     <li>makes your chest feel tight or heavy</li>
     <li>also started with shortness of breath, sweating and feeling or being sick</li>
   </ul>
   <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
-  "
-}) }}
+{% endcall %}
 ```
 
 ### Nunjucks arguments
 
 The card Nunjucks macro takes the following arguments:
 
-| Name                | Type    | Required | Description                                                                                                         |
-| ------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| **heading**         | string  | Yes      | Text heading of the card. If headingHtml is provided, the heading argument will be ignored.                         |
-| **headingHtml**     | string  | Yes      | HTML heading of the card. If headingHtml is provided, the heading argument will be ignored.                         |
-| **headingClasses**  | string  | No       | Optional additional classes to add to heading. Separate each class with a space.                                    |
-| **headingLevel**    | integer | No       | Optional heading level for the card heading. Default: 2                                                             |
-| **href**            | string  | No       | The value of the card href attribute                                                                                |
-| **clickable**       | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied.                                             |
-| **feature**         | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied.   |
-| **primary**         | boolean | No       | If set to true, then the class `nhsuk-card__content--primary` will be applied.                                      |
-| **secondary**       | boolean | No       | If set to true, then the class `nhsuk-card--secondary` and `nhsuk-card__content--secondary` will be applied.        |
-| **type**            | string  | No       | Care card component variant type - non-urgent, urgent or emergency                                                  |
-| **imgURL**          | string  | No       | The URL of the image in the card                                                                                    |
-| **imgALT**          | string  | No       | The alternative text of the image in the card                                                                       |
-| **description**     | string  | No       | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored. |
-| **descriptionHtml** | string  | No       | HTML to use within the card content. If descriptionHtml is provided, the description argument will be ignored.      |
-| **classes**         | string  | No       | Optional additional classes to add to the card. Separate each class with a space.                                   |
-| **attributes**      | object  | No       | Any extra HTML attributes (for example data attributes) to add to the card.                                         |
+| Name                | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                           |
+| ------------------- | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **heading**         | string         | Yes      | Text heading of the card. If headingHtml is provided, the heading argument will be ignored.                                                                                                                                                                                                                                                           |
+| **headingHtml**     | string         | Yes      | HTML heading of the card. If headingHtml is provided, the heading argument will be ignored.                                                                                                                                                                                                                                                           |
+| **headingClasses**  | string         | No       | Optional additional classes to add to heading. Separate each class with a space.                                                                                                                                                                                                                                                                      |
+| **headingLevel**    | integer        | No       | Optional heading level for the card heading. Default: 2                                                                                                                                                                                                                                                                                               |
+| **href**            | string         | No       | The value of the card href attribute                                                                                                                                                                                                                                                                                                                  |
+| **clickable**       | boolean        | No       | If set to true, then the class `nhsuk-card--clickable` will be applied.                                                                                                                                                                                                                                                                               |
+| **feature**         | boolean        | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied.                                                                                                                                                                                                                                     |
+| **primary**         | boolean        | No       | If set to true, then the class `nhsuk-card__content--primary` will be applied.                                                                                                                                                                                                                                                                        |
+| **secondary**       | boolean        | No       | If set to true, then the class `nhsuk-card--secondary` and `nhsuk-card__content--secondary` will be applied.                                                                                                                                                                                                                                          |
+| **type**            | string         | No       | Care card component variant type - non-urgent, urgent or emergency                                                                                                                                                                                                                                                                                    |
+| **imgURL**          | string         | No       | The URL of the image in the card                                                                                                                                                                                                                                                                                                                      |
+| **imgALT**          | string         | No       | The alternative text of the image in the card                                                                                                                                                                                                                                                                                                         |
+| **description**     | string         | No       | Text description within the card content. If descriptionHtml is provided, the description argument will be ignored.                                                                                                                                                                                                                                   |
+| **descriptionHtml** | string         | No       | HTML to use within the card content. If descriptionHtml is provided, the description argument will be ignored.                                                                                                                                                                                                                                        |
+| **caller**          | nunjucks-block | No       | Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire card component in a `call` block. |
+| **classes**         | string         | No       | Optional additional classes to add to the card. Separate each class with a space.                                                                                                                                                                                                                                                                     |
+| **attributes**      | object         | No       | Any extra HTML attributes (for example data attributes) to add to the card.                                                                                                                                                                                                                                                                           |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
