@@ -143,13 +143,6 @@
 .nhsuk-pagination--numbered__next,
 .nhsuk-pagination--numbered__item {
   @include nhsuk-font(19);
-}
-
-// In a numbered list, the previous link, numbered page links,
-// and next link should all line up
-.nhsuk-pagination--numbered__prev,
-.nhsuk-pagination--numbered__next,
-.nhsuk-pagination--numbered__item {
   box-sizing: border-box;
   position: relative;
   min-width: 45px;
