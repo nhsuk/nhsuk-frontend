@@ -84,7 +84,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
         <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}">
           <span class="nhsuk-pagination__title">Previous</span>
           <span class="nhsuk-u-visually-hidden">:</span>
-          <span class="nhsuk-pagination__page">{{ previous.labelText }}</span>
+          <span class="nhsuk-pagination__link-label">{{ previous.labelText }}</span>
           {{ nhsukIcon("arrow-left") | indent(12, true) }}
         </a>
       </div>
@@ -94,7 +94,7 @@ the numbered variant only, and including an arrow pointing left or right. #}
         <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}">
           <span class="nhsuk-pagination__title">Next</span>
           <span class="nhsuk-u-visually-hidden">:</span>
-          <span class="nhsuk-pagination__page">{{ next.labelText }}</span>
+          <span class="nhsuk-pagination__link-label">{{ next.labelText }}</span>
           {{ nhsukIcon("arrow-right") | indent(12, true) }}
         </a>
       </div>
