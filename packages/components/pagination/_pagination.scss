@@ -138,11 +138,11 @@
   @include clearfix;
 }
 
-// Override default font size
+// In a numbered list, the previous link, numbered page links,
+// and next link should all line up
 .nhsuk-pagination--numbered__prev,
 .nhsuk-pagination--numbered__next,
 .nhsuk-pagination--numbered__item {
-  @include nhsuk-font(19);
   box-sizing: border-box;
   position: relative;
   min-width: 45px;
@@ -151,6 +151,8 @@
   text-align: center;
   margin: 0;
   float: left;
+
+  @include nhsuk-font(19);
 }
 
 .nhsuk-pagination--numbered__link:visited:hover,
