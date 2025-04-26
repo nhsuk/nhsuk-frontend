@@ -37,6 +37,10 @@ the numbered variant only, and including an arrow pointing left or right. #}
       <span class="nhsuk-pagination__link-title">
         {{- caller() | safe | trim -}}
       </span>
+      {% if not numbered and link.labelText %}
+        <span class="nhsuk-u-visually-hidden">:</span>
+        <span class="nhsuk-pagination__link-label">{{ previous.labelText }}</span>
+      {% endif %}
       {%- if type == "next" -%}
         {{ nhsukIcon(iconName) | indent(4, true) }}
       {%- endif -%}
