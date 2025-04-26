@@ -91,7 +91,7 @@
     }
   }
 
-  .nhsuk-pagination__page {
+  .nhsuk-pagination__link-label {
     display: block;
     @include nhsuk-link-decoration;
     @include nhsuk-font-size(16);
