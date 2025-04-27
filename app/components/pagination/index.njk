@@ -6,10 +6,16 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {{ pagination({
-        "previousUrl": "/section/treatments",
-        "previousPage": "Treatments",
-        "nextUrl": "/section/symptoms",
-        "nextPage": "Symptoms"
+        previous: {
+          href: "/section/treatments",
+          text: "Previous",
+          labelText: "Treatments"
+        },
+        next: {
+          href: "/section/symptoms",
+          text: "Next",
+          labelText: "Symptoms"
+        }
       }) }}
     </div>
   </div>

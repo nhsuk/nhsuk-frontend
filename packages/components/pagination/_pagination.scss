@@ -9,16 +9,13 @@
 /// @group components
 ////
 
+// Previous and next pages variant
 .nhsuk-pagination {
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-margin(7, "bottom");
 }
 
-.nhsuk-pagination__list {
-  @include clearfix;
-}
-
-.nhsuk-pagination-item--previous {
+.nhsuk-pagination__prev {
   float: left;
   text-align: left;
   width: 50%;
@@ -27,12 +24,12 @@
     left: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-left: nhsuk-spacing(5); // [1]
   }
 }
 
-.nhsuk-pagination-item--next {
+.nhsuk-pagination__next {
   float: right;
   text-align: right;
   width: 50%;
@@ -41,7 +38,7 @@
     right: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-right: nhsuk-spacing(5); // [1]
   }
 }
@@ -73,7 +70,7 @@
       fill: $nhsuk-link-hover-color;
     }
 
-    .nhsuk-pagination__page {
+    .nhsuk-pagination__link-label {
       text-decoration: none;
     }
   }
@@ -81,7 +78,7 @@
   &:focus {
     @include nhsuk-focused-text;
 
-    .nhsuk-pagination__page {
+    .nhsuk-pagination__link-label {
       text-decoration: none;
     }
 
@@ -113,7 +110,7 @@
   }
 }
 
-.nhsuk-pagination__title {
+.nhsuk-pagination__link-title {
   display: block;
 
   @include nhsuk-typography-responsive(24);
@@ -125,9 +122,123 @@
   }
 }
 
-.nhsuk-pagination__page {
+.nhsuk-pagination__link-label {
   display: block;
   text-decoration: underline;
 
   @include nhsuk-typography-responsive(16);
+}
+
+// Numbered pages variant
+.nhsuk-pagination--numbered {
+  @include clearfix;
+}
+
+// In a numbered list, the previous link, numbered page links,
+// and next link should all line up
+.nhsuk-pagination--numbered .nhsuk-pagination__prev,
+.nhsuk-pagination--numbered .nhsuk-pagination__next,
+.nhsuk-pagination__item {
+  box-sizing: border-box;
+  position: relative;
+  width: auto;
+  min-width: 45px;
+  min-height: 45px;
+  padding: nhsuk-spacing(2);
+  text-align: center;
+  margin: 0;
+  float: left;
+
+  @include nhsuk-font(19);
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link:visited:hover,
+.nhsuk-pagination__item a:hover {
+  color: $nhsuk-link-hover-color;
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__prev:hover,
+.nhsuk-pagination--numbered .nhsuk-pagination__next:hover,
+.nhsuk-pagination__item:hover {
+  background-color: $color_nhsuk-grey-4;
+  color: $color_nhsuk-blue;
+}
+
+// Container for the list of numbered items
+.nhsuk-pagination__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsuk-pagination__item--ellipses {
+  font-weight: $nhsuk-font-bold;
+  color: $nhsuk-secondary-text-color;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link {
+  min-width: nhsuk-spacing(3);
+  vertical-align: middle;
+  color: $color_nhsuk-blue;
+  text-decoration: underline;
+
+  // Increase the touch area for the link to the parent element.
+  @media screen {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+// Current number
+.nhsuk-pagination__item--current,
+.nhsuk-pagination__item--current:hover {
+  background-color: $color_nhsuk-blue;
+  font-weight: $nhsuk-font-bold;
+
+  .nhsuk-pagination__link {
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-pagination__link:focus {
+    color: $color_nhsuk-black;
+  }
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link-title {
+  display: inline;
+  @include nhsuk-font(19);
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon {
+  margin-top: 0;
+  margin-bottom: -12px;
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link:visited .nhsuk-icon {
+  fill: $nhsuk-link-visited-color;
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link:hover .nhsuk-icon {
+  fill: $nhsuk-link-hover-color;
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
+  margin-left: -13px;
+  margin-right: nhsuk-spacing(2);
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon__arrow-right {
+  margin-left: nhsuk-spacing(2);
+  margin-right: -13px;
 }
