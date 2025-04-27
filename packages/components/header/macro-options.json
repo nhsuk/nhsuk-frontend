@@ -1,27 +1,49 @@
 [
   {
-    "name": "showNav",
-    "type": "boolean",
-    "required": true,
-    "description": "Set to `true` to show the navigation links in the header."
+    "name": "logo",
+    "type": "object",
+    "required": false,
+    "description": "Object containing options for the logo",
+    "params": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The `href` of the link for the logo. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link."
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": "The path of the logo image, if you are not using the default NHS logo."
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for the logo. Defaults to 'NHS homepage'"
+      }
+    ]
   },
   {
-    "name": "showSearch",
-    "type": "boolean",
-    "required": true,
-    "description": "Set to `true` to show the site search input form."
-  },
-  {
-    "name": "homeHref",
-    "type": "string",
-    "required": "No",
-    "description": "The `href` of the link for the logo and mobile home link in the navigation links. Defaults to \"/\""
-  },
-  {
-    "name": "ariaLabel",
-    "type": "string",
-    "required": "No",
-    "description": "Aria label for the logo href. Defaults to \"NHS homepage\"."
+    "name": "service",
+    "type": "object",
+    "required": false,
+    "description": "Object containing options for the service name.",
+    "params": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "The text to use for the service name."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The `href` of the link for the service name."
+      }
+    ]
   },
   {
     "name": "organisation",
@@ -33,7 +55,7 @@
         "name": "name",
         "type": "string",
         "required": false,
-        "description": "Organisation name value."
+        "description": "Organisation name."
       },
       {
         "name": "split",
@@ -46,26 +68,6 @@
         "type": "string",
         "required": false,
         "description": "Organisation descriptor."
-      },
-      {
-        "name": "logoURL",
-        "type": "string",
-        "required": false,
-        "description": "Organisation logo if using a static asset, such as PNG, is preferred."
-      }
-    ]
-  },
-  {
-    "name": "service",
-    "type": "object",
-    "required": false,
-    "description": "Settings for the service name in the header.",
-    "params": [
-      {
-        "name": "name",
-        "type": "string",
-        "required": false,
-        "description": "Name of the service."
       }
     ]
   },
@@ -76,16 +78,28 @@
     "description": "Array of navigation links for use in the header.",
     "params": [
       {
-        "name": "url",
+        "name": "href",
         "type": "string",
         "required": true,
         "description": "The href of a navigation item in the header."
       },
       {
-        "name": "label",
+        "name": "text",
         "type": "string",
         "required": false,
-        "description": "The label of a navigation item in the header."
+        "description": "The text of a navigation item in the header."
+      },
+      {
+        "name": "current",
+        "type": "boolean",
+        "required": false,
+        "description": "Set to true if this links to the current page being shown."
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "required": false,
+        "description": "Set to true if the current page is within this section, but the link doesn’t necessarily link to the current page"
       },
       {
         "name": "classes",
@@ -102,48 +116,82 @@
     ]
   },
   {
-    "name": "transactional",
-    "type": "string",
-    "required": "No",
-    "description": "Set to `true` if this is a transactional header (with smaller logo)."
-  },
-  {
-    "name": "transactionalService",
+    "name": "search",
     "type": "object",
     "required": false,
-    "description": "Settings for transactional service header.",
+    "description": "Object containing settings for a search box",
     "params": [
+      {
+        "name": "action",
+        "type": "string",
+        "required": false,
+        "description": "The search action endpoint. Defaults to `https://www.nhs.uk/search`"
+      },
       {
         "name": "name",
         "type": "string",
         "required": false,
-        "description": "Transactional service name value."
+        "description": "The name for the search field. Defaults to \"q\""
       },
       {
-        "name": "href",
+        "name": "visuallyHiddenLabel",
         "type": "string",
         "required": false,
-        "description": "The href of the transactional header name."
+        "description": "The label for the search field. Defaults to \"Search the NHS website\""
       },
       {
-        "name": "longName",
-        "type": "boolean",
+        "name": "visuallyHiddenButton",
+        "type": "string",
         "required": false,
-        "description": "Set this to `true` if the transactional service name is longer than 22 characters."
+        "description": "The label for the visually hidden button. Defaults to \"Search\""
       }
     ]
   },
   {
-    "name": "searchAction",
-    "type": "string",
-    "required": "No",
-    "description": "Custom search action endpoint."
-  },
-  {
-    "name": "searchInputName",
-    "type": "string",
-    "required": "No",
-    "description": "The name for the search field. Defaults to \"q\""
+    "name": "account",
+    "type": "object",
+    "required": false,
+    "description": "Object containing settings for the 'account' section of the header.",
+    "params": [
+      {
+        "name": "items",
+        "type": "array",
+        "required": false,
+        "description": "The search action endpoint. Defaults to `https://www.nhs.uk/search`",
+        "params": [
+          {
+            "name": "text",
+            "type": "string",
+            "required": false,
+            "description": "The text to display for the item. Ignored if `html` is set."
+          },
+          {
+            "name": "html",
+            "type": "string",
+            "required": false,
+            "description": "The html to display for the item. If set, `text` is ignored"
+          },
+          {
+            "name": "icon",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether to include the account icon for the item. Defaults to `false`."
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "required": false,
+            "description": "If set, the item will become a button wrapped in a form with the action given. Useful for log out buttons."
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "required": false,
+            "description": "The value to use for the `method` of the form if `action` is set. Defaults to \"post\""
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "baseUrl",
