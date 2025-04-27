@@ -15,7 +15,7 @@
         "name": "text",
         "type": "string",
         "required": false,
-        "description": "Text to use within the previous link, defaults to 'Previous page', with 'page' being visually-hidden. If `html` is provided, the `text` argument will be ignored."
+        "description": "Text to use within the previous link, defaults to 'Previous page', with 'page' being visually hidden. If `html` is provided, the `text` argument will be ignored."
       },
       {
         "name": "html",
@@ -53,7 +53,7 @@
         "name": "text",
         "type": "string",
         "required": false,
-        "description": "Text to use within the next link, defaults to 'Next page', with 'page' being visually-hidden. If `html` is provided, the `text` argument will be ignored."
+        "description": "Text to use within the next link, defaults to 'Next page', with 'page' being visually hidden. If `html` is provided, the `text` argument will be ignored."
       },
       {
         "name": "html",
