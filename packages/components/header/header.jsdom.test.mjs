@@ -24,7 +24,7 @@ describe('Header class', () => {
           <ul class="nhsuk-header__navigation-list">
             <li class="nhsuk-header__navigation-item">
               <a class="nhsuk-header__navigation-link" href="#">
-                Health A-Z
+                Health A to Z
               </a>
             </li>
             <li class="nhsuk-header__navigation-item">
