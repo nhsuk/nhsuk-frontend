@@ -15,7 +15,7 @@
     "name": "type",
     "type": "string",
     "required": false,
-    "description": "Type of input control to render. Defaults to \"text\"."
+    "description": "Type of input control to render. Defaults to `\"text\"`."
   },
   {
     "name": "inputmode",
@@ -78,7 +78,7 @@
         "name": "classes",
         "type": "string",
         "required": false,
-        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+        "description": "Classes to add to the form group (for example to show error state for the whole group)."
       }
     ]
   },
@@ -92,7 +92,7 @@
     "name": "autocomplete",
     "type": "string",
     "required": false,
-    "description": "autocomplete attribute to identify input purpose, for instance \"postal-code\" or \"username\"."
+    "description": "autocomplete attribute to identify input purpose, for instance `\"postal-code\"` or `\"username\"`."
   },
   {
     "name": "pattern",
