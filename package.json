@@ -21,7 +21,7 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "pretest": "npm run lint && npm run build",
     "test": "npm run test:js",
-    "test:js": "jest --color --coverage",
+    "test:js": "jest --color",
     "pretest:visual": "npm run install:playwright && npm run build",
     "test:visual": "npm run test:visual:cli -- -- test",
     "test:visual:ref": "npm run test:visual:cli -- -- reference",
