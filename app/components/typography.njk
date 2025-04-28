@@ -1,6 +1,7 @@
 {% set title = 'Components - New typography and spacing' %}
 {% from 'components/action-link/macro.njk' import actionLink %}
 {% from 'components/breadcrumb/macro.njk' import breadcrumb %}
+{% from 'components/button/macro.njk' import button %}
 {% from 'components/card/macro.njk' import card %}
 {% from 'components/do-dont-list/macro.njk' import list %}
 {% from 'components/images/macro.njk' import image %}
@@ -465,6 +466,18 @@
       <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
       <p>nhsuk-section-break nhsuk-section-break--visible</p>
       <hr class="nhsuk-section-break nhsuk-section-break--visible">
+
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-top-9">Reversed styles</h2>
+
+      <div style="background-color: #005eb8;" class="nhsuk-u-padding-5">
+        {{ button({
+          "text": "Save and continue",
+          "classes": "nhsuk-button--reverse"
+        }) }}
+
+        <p><a href="#" class="nhsuk-link nhsuk-link--reverse">Find out more</a></p>
+      </div>
 
     </div>
   </div>
