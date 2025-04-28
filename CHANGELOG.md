@@ -6,10 +6,12 @@
 
 #### Updated header
 
-- Show account information and links in the header ([PR 1063](https://github.com/nhsuk/nhsuk-frontend/pull/1063))
-- Support form submission from header account items ([PR 1155](https://github.com/nhsuk/nhsuk-frontend/pull/1155))
-- The primary navigation in the header now lets you show which item is the current section or page. ([PR 1067](https://github.com/nhsuk/nhsuk-frontend/pull/1067))
-- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes. ([PR 1073](https://github.com/nhsuk/nhsuk-frontend/pull/1073)) To update your HTML, replace:
+We've added a new header variant to show account information and links. As part of this work we've also made some other improvements to the header, detailed below.
+
+- Show account information and links in the header.
+- The primary navigation in the header now lets you show which item is the current section or page.
+- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+To update your HTML, replace:
 
   ```html
   <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
@@ -21,7 +23,7 @@
   <nav class="nhsuk-header__navigation" aria-label="Menu">
   ```
 
-- Update header navigation to align items to the left. ([PR 1138](https://github.com/nhsuk/nhsuk-frontend/pull/1138)). To restore the previous behaviour, where navigation items appeared evenly spaced out, use the `.nhsuk-header__navigation-list--justified` modifier class:
+- Update header navigation to align items to the left. To restore the previous behaviour, where navigation items appeared evenly spaced out, use the `.nhsuk-header__navigation-list--justified` modifier class:
 
   ```html
   <ul class="nhsuk-header__navigation-list nhsuk-header__navigation-list--justified">
@@ -34,15 +36,15 @@
 
   If you are using the `.nhsuk-header__navigation-list--left-aligned` modifier class, this can now be removed.
 
-:boom: **Breaking changes**
+:boom: **Header breaking changes**
 
 - Remove the boolean `showNav`, `showSearch`, `transactional` and `transactionalService` options from the header component as respective parts of the header are shown automatically when `primaryLinks` or `search` options are provided.
 - Replace the `searchAction` option with the nested `search.action` option
 - Replace the `searchInputName` option with the nested `search.name` option
 
-- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url` ([PR 1083](https://github.com/nhsuk/nhsuk-frontend/pull/1083))
+- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url`.
 
-- We've changed the NHS logo in the header to have higher contrast when focused. ([PR 1047]([https://github.com/nhsuk/nhsuk-frontend/pull/1047]))
+- We've changed the NHS logo in the header to have higher contrast when focused.
 
   If you're not using the Nunjucks macro, locate the SVG code for the existing logo:
 
@@ -61,9 +63,10 @@
   </svg>
   ```
 
-- Remove hardcoded home link from navigation ([PR 986](https://github.com/nhsuk/nhsuk-frontend/pull/986))
-- Header refactor: update CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element ([PR 1234](https://github.com/nhsuk/nhsuk-frontend/pull/1234))
-- We've updated the secondary, reverse and warning buttons to use the correct background colour on hover ([PR 908](https://github.com/nhsuk/nhsuk-frontend/pull/908))
+- Remove hardcoded home link from navigation.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+[These changes were added in pull request #1058: Header updates - breaking changes.](https://github.com/nhsuk/nhsuk-frontend/pull/1058)
 
 #### Add Nunjucks macro option configs
 
