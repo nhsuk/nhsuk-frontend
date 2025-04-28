@@ -34,7 +34,7 @@ git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
 
 ## 3. Install dependencies
 
-We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage third party dependencies.
+We use [Node.js package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage third party dependencies.
 
 Whilst in the project directory you will need to install the dependencies listed in `package.json`
 
