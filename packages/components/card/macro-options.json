@@ -21,7 +21,7 @@
     "name": "headingLevel",
     "type": "integer",
     "required": false,
-    "description": "Optional heading level for the card heading. Default: 2."
+    "description": "Optional heading level for the card heading. Defaults to `2`."
   },
   {
     "name": "href",
@@ -39,7 +39,7 @@
     "name": "type",
     "type": "string",
     "required": false,
-    "description": "Care card variant type – \"non-urgent\", \"urgent\" or \"emergency\"."
+    "description": "Care card variant type – `\"non-urgent\"`, `\"urgent\"` or `\"emergency\"`."
   },
   {
     "name": "feature",
