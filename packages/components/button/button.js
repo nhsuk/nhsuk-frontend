@@ -14,7 +14,7 @@ class Button {
    * will tell a user to press space on a 'button', so this functionality needs to be shimmed
    * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
    *
-   * @param {object} event event
+   * @param {KeyboardEvent} event - Keydown event
    */
   handleKeyDown(event) {
     // get the target element
@@ -64,7 +64,7 @@ class Button {
   }
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
     new Button(el).init()

@@ -1,5 +1,5 @@
 /**
- * Adapted from https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/error-summary/error-summary.js
+ * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  */
 
 /**
@@ -104,7 +104,7 @@ function handleClick(event) {
   }
 }
 
-export default ({ focusOnPageLoad = true, scope = document } = {}) => {
+module.exports = ({ focusOnPageLoad = true, scope = document } = {}) => {
   // Error summary component
   const errorSummary = scope.querySelector('.nhsuk-error-summary')
 

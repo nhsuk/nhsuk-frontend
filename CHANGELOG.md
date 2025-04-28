@@ -4,7 +4,58 @@
 
 :new: **New features**
 
-- Add styles for NHS login buttons ([PR 992](https://github.com/nhsuk/nhsuk-frontend/pull/992))
+#### Blue login button
+
+We've added styling for a blue button, to be used for login buttons, for example NHS login buttons. 
+
+This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
+
+#### Add Nunjucks macro option configs
+
+We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
+
+This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
+
+#### Review Nunjucks macro `text`, `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added card component `caller` support
+2. Added details component `caller` support
+3. Added error summary component `caller` support
+4. Added inset text component `caller` support
+5. Added warning callout component `caller` and `params.text` support
+
+This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1258: Fix text input with prefix/suffix focus and width](https://github.com/nhsuk/nhsuk-frontend/pull/1258)
+
+## 9.4.1 - 22 April 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1248: Prevent Playwright setup running on npm `postinstall`](https://github.com/nhsuk/nhsuk-frontend/pull/1248)
+
+## 9.4.0 - 22 April 2025
+
+:new: **New features**
+
+#### Include a page template
+
+A Nunjucks page template is now included within the npm package. See [Page template](https://service-manual.nhs.uk/design-system/styles/page-template) for documentation on the supported options.
+
+New options added to the template are:
+
+- `htmlLang` - for setting the language of the page, defaults to `en` (English)
+- `htmlAttributes` - allows you to set any extra attributes on the `<html>` element
+
+This was added in [pull request #1186: Add page template](https://github.com/nhsuk/nhsuk-frontend/pull/1186).
 
 #### Stop long words breaking out of components with `nhsuk-u-text-break-word`
 
@@ -44,13 +95,23 @@ You can now add `classes` and `attributes` to table cells, for example using the
       {
         text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
         classes: "nhsuk-u-text-break-word"
-      },
+      }
     ]
   ]
 }) }}
 ```
 
 This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
+
+#### Add html content and heading attributes to hero
+
+You can now use `caller`, `html`, `headingClasses` and `headingLevel` in the hero component.
+
+This was added in [pull request #1201: Add missing params to hero component](https://github.com/nhsuk/nhsuk-frontend/pull/1201).
+
+#### Default bottom margin on tables
+
+This was added in [pull request #1005: Update table styles so nhsuk-table has bottom margin](https://github.com/nhsuk/nhsuk-frontend/pull/1005).
 
 #### Source maps for precompiled files
 
@@ -62,15 +123,23 @@ This was added in [pull request #1152: Add source maps to compiled JavaScript an
 
 We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
 
-- Updated stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
-- Changed stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
-- Changed JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
-- Fixed JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
-- Fixed JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
+- Update stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
+- Change stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
+- Change JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
+- Fix JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
+- Fix JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
+- [#908: Update secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
+- [#1207: Update wording around font licence](https://github.com/nhsuk/nhsuk-frontend/pull/1207)
+- [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
+- [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
+- [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
+- [#1200: Fix bottom padding on the `nhsuk-main-wrapper--l` modifier class](https://github.com/nhsuk/nhsuk-frontend/pull/1200)
+- [#1221: Fix JavaScript exports to use CommonJS by default](https://github.com/nhsuk/nhsuk-frontend/pull/1221)
+- [#1228: Fix header navigation item allocation on resize](https://github.com/nhsuk/nhsuk-frontend/pull/1228)
 
 ## 9.3.0 - 13 February 2025
 

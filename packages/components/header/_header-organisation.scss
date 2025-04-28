@@ -59,7 +59,7 @@
   color: $color_nhsuk-white;
   display: block;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: $nhsuk-font-bold;
   letter-spacing: 0.2px;
   line-height: 23px;
   margin-top: -2px;
@@ -88,7 +88,7 @@
   color: $color_nhsuk-white;
   display: block;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: $nhsuk-font-bold;
   line-height: 21px;
 
   @include mq($media-type: print) {

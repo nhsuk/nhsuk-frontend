@@ -1,0 +1,65 @@
+name: Build
+
+inputs:
+  ref:
+    description: Restore or build from branch or SHA
+    required: false
+    type: string
+
+outputs:
+  cache-hit:
+    description: Returns true if build restored from cache
+    value: ${{ steps.cache-build.outputs.cache-hit || 'false' }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Switch branch or SHA
+      if: ${{ inputs.ref }}
+      shell: bash
+      run: git switch --detach ${{ inputs.ref }}
+
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      id: npm-install-cache
+      with:
+        key: npm-install-${{ hashFiles('package-lock.json') }}
+        path: node_modules
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' && 'npm' || '' }}
+        node-version-file: .nvmrc
+
+    - name: Restore build (from cache)
+      uses: actions/cache/restore@v4
+      id: cache-build
+      with:
+        path: dist/
+        key: build-${{ inputs.ref || github.sha }}
+
+    - name: Install dependencies only
+      if: ${{ steps.cache-build.outputs.cache-hit == 'true' }}
+      shell: bash
+      run: npm install
+
+    - name: Install and build
+      if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: |
+        npm install
+        npm run build
+
+    - name: Save build (to cache)
+      if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v4
+      with:
+        path: dist/
+        key: build-${{ inputs.ref || github.sha }}
+
+    - name: Restore branch or SHA
+      if: ${{ !cancelled() && inputs.ref }}
+      shell: bash
+      run: git switch --detach -

@@ -12,7 +12,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-   ```
+   ```sh
    npm install nunjucks --save
    ```
 
@@ -20,7 +20,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 Install the NHS.UK frontend package into your project:
 
-```
+```sh
 npm install nhsuk-frontend --save
 ```
 
@@ -60,7 +60,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
-```
+```js
 document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 ```
 
@@ -86,17 +86,17 @@ You might wish to copy the file into your project or reference it straight from 
 
 If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or [Webpack](https://webpack.js.org/), you can use the ES6 import syntax to import components via modules into your main Javascript file.
 
-```javascript
+```js
 // Components
-import Checkboxes from './components/checkboxes/checkboxes';
-import Details from './components/details/details';
-import ErrorSummary from './components/error-summary/error-summary';
-import Header from './components/header/header';
-import Radios from './components/radios/radios';
-import SkipLink from './components/skip-link/skip-link';
+import Checkboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js';
+import Details from 'nhsuk-frontend/packages/components/details/details.js';
+import ErrorSummary from 'nhsuk-frontend/packages/components/error-summary/error-summary.js';
+import Header from 'nhsuk-frontend/packages/components/header/header.js';
+import Radios from 'nhsuk-frontend/packages/components/radios/radios.js';
+import SkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
 
 // Polyfills
-import '../node_modules/nhsuk-frontend/packages/polyfills';
+import 'nhsuk-frontend/packages/polyfills.js';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
@@ -128,4 +128,4 @@ If you want to import assets such as the NHS logo, favicons and SVG icons, you m
 
 ## Thanks to the Government Digital Service (GDS)
 
-This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md) with a few minor adaptations.
+This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/v2.13.0/docs/installation/installing-with-npm.md) with a few minor adaptations.

@@ -1,11 +1,11 @@
-import { toggleAttribute } from '../../common.js'
+const { toggleAttribute } = require('../../common')
 
 /**
  * Ensure details component is cross browser and accessible
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Does the browser support details component
   const nativeSupport =
     typeof document.createElement('details').open === 'boolean'
@@ -18,8 +18,9 @@ export default ({ scope = document } = {}) => {
 
   /**
    * Adds all necessary functionality to a details element
-   * @param {HTMLElement} element details element to initialise
-   * @param {number} index number to be appended to dynamic IDs
+   *
+   * @param {HTMLElement} element - details element to initialise
+   * @param {number} index - number to be appended to dynamic IDs
    */
   const initDetails = (element, index) => {
     // Set details element as polyfilled to prevent duplicate events being added
