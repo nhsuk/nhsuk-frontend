@@ -148,6 +148,10 @@ $button-padding-left-right: nhsuk-spacing(3);
     outline: $nhsuk-focus-width solid transparent;
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // [4]
 
+    &:link {
+      color: $nhsuk-focus-text-color;
+    }
+
     &:visited {
       color: $nhsuk-focus-text-color;
 
