@@ -134,6 +134,12 @@
         "description": "The name for the search field. Defaults to \"q\""
       },
       {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "The placeholder text for the search field. Defaults to \"Search\""
+      },
+      {
         "name": "visuallyHiddenLabel",
         "type": "string",
         "required": false,
