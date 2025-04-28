@@ -9,6 +9,8 @@
 /// @group components
 ////
 
+@use "sass:color";
+
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s1) and
 // increase the bottom margin to include it (s1).
@@ -194,7 +196,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-login-button-color, 10%);
+    background-color: color.adjust($nhsuk-login-button-color, $lightness: -10%);
   }
 
   &:focus {
@@ -222,7 +224,7 @@ $button-shadow-size: 4px;
   color: $nhsuk-login-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-login-reverse-button-color, 5%);
+    background-color: color.adjust($nhsuk-login-reverse-button-color, $lightness: -5%);
     color: $nhsuk-login-reverse-button-text-color;
   }
 

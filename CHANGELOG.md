@@ -6,7 +6,7 @@
 
 #### Blue login button
 
-We've added styling for a blue button, to be used for login buttons, for example NHS login buttons. 
+We've added styling for a blue button, to be used for login buttons, for example NHS login buttons.
 
 This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
 
