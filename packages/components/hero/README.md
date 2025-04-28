@@ -6,4 +6,4 @@ See the [main README quick start guide](https://github.com/nhsuk/nhsuk-frontend#
 
 ## Guidance and examples
 
-The hero component was used by the NHS website and is not documented by the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system).
+The hero component was used by the NHS website and is not currently documented by the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system).
