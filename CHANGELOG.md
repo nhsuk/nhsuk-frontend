@@ -11,7 +11,7 @@ We've added a new header variant to show account information and links. As part 
 - Show account information and links in the header.
 - The primary navigation in the header now lets you show which item is the current section or page.
 - Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
-To update your HTML, replace:
+  To update your HTML, replace:
 
   ```html
   <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
