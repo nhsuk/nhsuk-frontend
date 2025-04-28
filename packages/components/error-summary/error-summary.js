@@ -1,5 +1,5 @@
 /**
- * Adapted from https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/error-summary/error-summary.js
+ * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  */
 
 /**

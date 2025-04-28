@@ -69,7 +69,7 @@ jobs:
         run: npm run install:puppeteer
 
       - name: Run tests
-        run: npm test --ignore-scripts
+        run: npm test --ignore-scripts -- --coverage
 
       - name: Save test coverage
         uses: actions/upload-artifact@v4
