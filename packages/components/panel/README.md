@@ -23,7 +23,7 @@ Find out more about the panel component and when to use it in the [NHS digital s
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/panel/macro.njk' import panel %}
 
 {{ panel({

@@ -94,6 +94,7 @@ class CharacterCount {
     const dataset = {}
     const { attributes } = element
     if (attributes) {
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < attributes.length; i++) {
         const attribute = attributes[i]
         const match = attribute.name.match(/^data-(.+)/)
@@ -267,7 +268,7 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   const characterCounts = scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
   )

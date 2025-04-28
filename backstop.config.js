@@ -2,13 +2,14 @@ const { executablePath } = require('puppeteer')
 
 const {
   HEADLESS,
-  PORT = 3000,
+  PORT = '3000',
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
 
 /**
  * Default viewport sizes
+ *
  * @type {Map<string, Viewport>}
  */
 const viewports = new Map([
@@ -120,7 +121,7 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary.html`
     },
     {
-      label: 'Button secondary - white background',
+      label: 'Button secondary, white background',
       url: `${BASE_URL}/components/button/secondary-white.html`
     },
     {
@@ -401,6 +402,7 @@ module.exports = {
     {
       label: 'Header (default)',
       url: `${BASE_URL}/components/header/index.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -411,6 +413,7 @@ module.exports = {
     {
       label: 'Header with navigation',
       url: `${BASE_URL}/components/header/header-navigation.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -451,6 +454,7 @@ module.exports = {
     {
       label: 'Header with service name, search, navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -471,6 +475,7 @@ module.exports = {
     {
       label: 'Header organisational',
       url: `${BASE_URL}/components/header/header-org.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -481,6 +486,7 @@ module.exports = {
     {
       label: 'Header organisational with white header',
       url: `${BASE_URL}/components/header/header-org-white.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -491,6 +497,7 @@ module.exports = {
     {
       label: 'Header organisational with white header, navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -502,6 +509,7 @@ module.exports = {
       clickSelector: '#toggle-menu',
       label: 'Header with navigation open',
       url: `${BASE_URL}/components/header/header-navigation.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [viewports.get('mobile'), viewports.get('tablet')]
     },
     {

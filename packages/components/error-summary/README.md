@@ -33,7 +33,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 
 {{ errorSummary({
@@ -103,20 +103,22 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/input/macro.njk' import input %}
 
-{{ errorSummary({
+{% call errorSummary({
   "titleText": "There is a problem",
-  "descriptionHtml": "Optional description of the errors and how to correct them.<br>Note that the error summary should receive focus on page load using the JavaScript that comes with this component.",
   "errorList": [
     {
       "text": "Link to input error with explanation",
       "href": "#input-with-error-message"
     }
   ]
-}) }}
+}) %}
+  Optional description of the errors and how to correct them.<br>
+  Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
+{% endcall %}
 
 {{ input({
   "label": {
@@ -218,20 +220,22 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ### Nunjucks macro
 
-```
+```njk
 {% from 'components/error-summary/macro.njk' import errorSummary %}
 {% from 'components/radios/macro.njk' import radios %}
 
-{{ errorSummary({
+{% call errorSummary({
   "titleText": "There is a problem",
-  "descriptionHtml": "Optional description of the errors and how to correct them.<br>Note that the error summary should receive focus on page load using the JavaScript that comes with this component.",
   "errorList": [
     {
       "text": "Link to radio error with explanation (Note how it links to the first radio)",
       "href": "#example-1"
     }
   ]
-}) }}
+}) %}
+  Optional description of the errors and how to correct them.<br>
+  Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
+{% endcall %}
 
 {{ radios({
   "idPrefix": "example",
@@ -265,16 +269,17 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 The error summary Nunjucks macro takes the following arguments:
 
-| Name                                         | Type   | Required | Description                                                                                                                           |
-| -------------------------------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **titleText (or) titleHtml**                 | string | Yes      | Text or HTML to use for the heading of the error summary block. If `titleHtml` is provided, the `titleText` argument will be ignored. |
-| **descriptionText (or) descriptionHtml**     | string | No       | Optional text or HTML description of the errors. If `descriptionhtml` is provided, the `descriptionText` argument will be ignored.    |
-| **errorList**                                | object | Yes      | Contains an array of error link items and all their available arguments.                                                              |
-| **errorList.{}.href**                        | string | No       | Href attribute for the error link item. If provided item will be an anchor.                                                           |
-| **errorList.{}.text (or) errorList.{}.html** | string | No       | Text or HTML for the error link item. If `html` is provided, the `text` argument will be ignored.                                     |
-| **errorList.{}.attributes**                  | object | No       | Any extra HTML attributes (for example data attributes) to add to the error link anchor.                                              |
-| **classes**                                  | string | No       | Optional additional classes to add to the error-summary container. Separate each class with a space.                                  |
-| **attributes**                               | object | No       | Any extra HTML attributes (for example data attributes) to add to the error-summary container.                                        |
+| Name                                         | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------- | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **titleText (or) titleHtml**                 | string         | Yes      | Text or HTML to use for the heading of the error summary block. If `titleHtml` is provided, the `titleText` argument will be ignored.                                                                                                                                                                                                                          |
+| **descriptionText (or) descriptionHtml**     | string         | No       | Optional text or HTML description of the errors. If `descriptionhtml` is provided, the `descriptionText` argument will be ignored.                                                                                                                                                                                                                             |
+| **caller**                                   | nunjucks-block | No       | Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire error summary component in a `call` block. |
+| **errorList**                                | object         | Yes      | Contains an array of error link items and all their available arguments.                                                                                                                                                                                                                                                                                       |
+| **errorList.{}.href**                        | string         | No       | Href attribute for the error link item. If provided item will be an anchor.                                                                                                                                                                                                                                                                                    |
+| **errorList.{}.text (or) errorList.{}.html** | string         | No       | Text or HTML for the error link item. If `html` is provided, the `text` argument will be ignored.                                                                                                                                                                                                                                                              |
+| **errorList.{}.attributes**                  | object         | No       | Any extra HTML attributes (for example data attributes) to add to the error link anchor.                                                                                                                                                                                                                                                                       |
+| **classes**                                  | string         | No       | Optional additional classes to add to the error-summary container. Separate each class with a space.                                                                                                                                                                                                                                                           |
+| **attributes**                               | object         | No       | Any extra HTML attributes (for example data attributes) to add to the error-summary container.                                                                                                                                                                                                                                                                 |
 
 If you are using Nunjucks macros in production be aware that using `html` arguments, or ones ending with `html` can be a [security risk](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting). Read more about this in the [Nunjucks documentation](https://mozilla.github.io/nunjucks/api.html#user-defined-templates-warning).
 
