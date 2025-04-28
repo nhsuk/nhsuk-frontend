@@ -22,6 +22,10 @@ For consistency with other components, the following Nunjucks macro changes have
 
 This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
 
+:recycle: **Changes**
+
+- [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+
 :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
@@ -112,10 +116,6 @@ This was added in [pull request #1005: Update table styles so nhsuk-table has bo
 You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) to help identify errors and console messages from NHS.UK Frontend precompiled files.
 
 This was added in [pull request #1152: Add source maps to compiled JavaScript and CSS](https://github.com/nhsuk/nhsuk-frontend/pull/1152).
-
-:recycle: Changes
-
-- [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
 
 :wrench: **Fixes**
 
