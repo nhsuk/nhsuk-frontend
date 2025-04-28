@@ -7,9 +7,3 @@ See the [main README quick start guide](https://github.com/nhsuk/nhsuk-frontend#
 ## Guidance and examples
 
 The label component is used in other input components. To see an example of it in use, see the [text input component](https://service-manual.nhs.uk/design-system/components/text-input).
-
-## Component options
-
-Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
-
-See [options table](https://service-manual.nhs.uk/design-system/components/text-input#options-text-input-example--label) for details.
