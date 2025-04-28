@@ -69,7 +69,7 @@ jobs:
         run: npm run install:puppeteer
 
       - name: Run tests
-        run: npm test --ignore-scripts
+        run: npm test --ignore-scripts -- --coverage
 
   regression:
     name: Visual regression tests
