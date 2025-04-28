@@ -203,7 +203,7 @@
     "name": "baseUrl",
     "type": "string",
     "required": false,
-    "description": "Base URL to prepend to the organisation logo URL."
+    "description": "Base URL to prepend to the `logo.src` path."
   },
   {
     "name": "classes",
