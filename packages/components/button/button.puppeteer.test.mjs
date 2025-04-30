@@ -25,7 +25,7 @@ describe('Button', () => {
       ])
 
       const url = new URL(page.url())
-      expect(url.pathname).toBe('/nhsuk-frontend/')
+      expect(url.href).toBe(`${BASE_URL}/components/button/link.html#`)
     })
   })
 
