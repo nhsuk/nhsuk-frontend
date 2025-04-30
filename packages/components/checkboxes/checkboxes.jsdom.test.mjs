@@ -1,13 +1,13 @@
-import Checkboxes from './checkboxes.js'
+import initCheckboxes from './checkboxes.js'
 
 describe('Checkboxes module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional checkboxes container', () => {
-      expect(() => Checkboxes()).not.toThrow()
+      expect(() => initCheckboxes()).not.toThrow()
     })
     it('if there are no conditional checkboxes inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-checkboxes"></div>'
-      expect(() => Checkboxes()).not.toThrow()
+      expect(() => initCheckboxes()).not.toThrow()
     })
   })
 
@@ -19,7 +19,7 @@ describe('Checkboxes module', () => {
             </div></form>`
       const input = document.querySelector('#input-1')
       const conditional = document.querySelector('#conditional-1')
-      Checkboxes()
+      initCheckboxes()
       input.click()
       expect(conditional).not.toHaveClass(
         'nhsuk-checkboxes__conditional--hidden'
@@ -36,7 +36,7 @@ describe('Checkboxes module', () => {
             </div></form>`
       const input = document.querySelector('#input-1')
       const conditional = document.querySelector('#conditional-1')
-      Checkboxes()
+      initCheckboxes()
       input.click()
       expect(conditional).not.toHaveClass(
         'nhsuk-checkboxes__conditional--hidden'

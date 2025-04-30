@@ -1,4 +1,4 @@
-import SkipLink from './skip-link.js'
+import initSkipLink from './skip-link.js'
 
 // Mock HTML
 const skipLinkHtml =
@@ -16,7 +16,7 @@ const initTest = (html = '') => {
   document.body.innerHTML = html
   skipLink = document.querySelector('.nhsuk-skip-link')
   main = document.querySelector('main')
-  SkipLink()
+  initSkipLink()
 }
 
 describe('NHS.UK skiplink', () => {

@@ -3,7 +3,7 @@ import { setTimeout } from 'timers/promises'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import Header from './header.js'
+import initHeader from './header.js'
 
 const user = userEvent.setup()
 
@@ -100,7 +100,7 @@ describe('Header class', () => {
     })
 
     it('should be hidden when items do not overflow', () => {
-      Header()
+      initHeader()
 
       expect(menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
     })
@@ -108,7 +108,7 @@ describe('Header class', () => {
     it('should be visible when items overflow', () => {
       listWidth = 700
 
-      Header()
+      initHeader()
 
       expect(menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
     })
@@ -116,7 +116,7 @@ describe('Header class', () => {
     it('should toggle menu via click', () => {
       listWidth = 700
 
-      Header()
+      initHeader()
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
@@ -143,7 +143,7 @@ describe('Header class', () => {
     it('should close menu via escape key', async () => {
       listWidth = 700
 
-      Header()
+      initHeader()
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
@@ -174,7 +174,7 @@ describe('Header class', () => {
     })
 
     it('should be skipped when items do not overflow', () => {
-      Header()
+      initHeader()
 
       expect(menuButton.nextElementSibling).not.toBeInTheDocument()
     })
@@ -182,7 +182,7 @@ describe('Header class', () => {
     it('should be added when items overflow', () => {
       listWidth = 700
 
-      Header()
+      initHeader()
 
       expect(menuButton.nextElementSibling).toBeInTheDocument()
       expect(menuButton.nextElementSibling).toHaveRole('list')
@@ -192,7 +192,7 @@ describe('Header class', () => {
     })
 
     it('should be added when items overflow when resized', async () => {
-      Header()
+      initHeader()
 
       expect(menuButton.nextElementSibling).not.toBeInTheDocument()
 
@@ -257,7 +257,7 @@ describe('Header class', () => {
     it.each(examples)('should be allocated', async (expected) => {
       listWidth = expected.listWidth
 
-      Header()
+      initHeader()
 
       const listItems = navigation.querySelectorAll('nav > ul > li')
       const menuItems = navigation.querySelectorAll('nav > ul > li li')
@@ -271,7 +271,7 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 0
 
-        Header()
+        initHeader()
 
         listWidth = expected.listWidth
 
@@ -292,7 +292,7 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 900
 
-        Header()
+        initHeader()
 
         listWidth = expected.listWidth
 
