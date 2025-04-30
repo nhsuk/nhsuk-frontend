@@ -1,29 +1,28 @@
 class CharacterCount {
   constructor($module) {
+    if (!$module) {
+      return this
+    }
+
+    const $textarea = $module.querySelector('.nhsuk-js-character-count')
+    if (!$textarea) {
+      return this
+    }
+
     this.$module = $module
-    this.$textarea = $module.querySelector('.nhsuk-js-character-count')
+    this.$textarea = $textarea
     this.$visibleCountMessage = null
     this.$screenReaderCountMessage = null
     this.lastInputTimestamp = null
-  }
-
-  // Initialise component
-  init() {
-    // Check that required elements are present
-    if (!this.$textarea) {
-      return
-    }
 
     // Check for module
-    const { $module } = this
-    const { $textarea } = this
     const $fallbackLimitMessage = document.getElementById(
-      `${$textarea.id}-info`
+      `${this.$textarea.id}-info`
     )
 
     // Move the fallback count message to be immediately after the textarea
     // Kept for backwards compatibility
-    $textarea.insertAdjacentElement('afterend', $fallbackLimitMessage)
+    this.$textarea.insertAdjacentElement('afterend', $fallbackLimitMessage)
 
     // Create the *screen reader* specific live-updating counter
     // This doesn't need any styling classes, as it is never visible
@@ -53,7 +52,7 @@ class CharacterCount {
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
     // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset($module)
+    this.options = CharacterCount.getDataset(this.$module)
 
     // Determine the limit attribute (characters or words)
     let countAttribute = this.defaults.characterCountAttribute
@@ -62,7 +61,7 @@ class CharacterCount {
     }
 
     // Save the element limit
-    this.maxLength = $module.getAttribute(countAttribute)
+    this.maxLength = this.$module.getAttribute(countAttribute)
 
     // Check for limit
     if (!this.maxLength) {
@@ -70,7 +69,7 @@ class CharacterCount {
     }
 
     // Remove hard limit if set
-    $textarea.removeAttribute('maxlength')
+    this.$textarea.removeAttribute('maxlength')
 
     this.bindChangeEvents()
 
@@ -273,6 +272,6 @@ module.exports = ({ scope = document } = {}) => {
     '[data-module="nhsuk-character-count"]'
   )
   characterCounts.forEach((el) => {
-    new CharacterCount(el).init()
+    new CharacterCount(el)
   })
 }
