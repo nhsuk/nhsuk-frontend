@@ -9,13 +9,13 @@
     "name": "idPrefix",
     "type": "string",
     "required": false,
-    "description": "String to prefix id for each tab item if no id is specified on each item"
+    "description": "String to prefix id for each tab item if no id is specified on each item."
   },
   {
     "name": "title",
     "type": "string",
     "required": false,
-    "description": "Title for the tabs table of contents"
+    "description": "Title for the tabs table of contents."
   },
   {
     "name": "items",
