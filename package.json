@@ -5,6 +5,25 @@
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   },
+  "workspaces": [
+    "."
+  ],
+  "exports": {
+    ".": {
+      "sass": "./packages/index.scss",
+      "default": "./packages/index.js"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./packages/*.scss",
+      "default": "./packages/*.js"
+    },
+    "./packages/*.js": "./packages/*.js",
+    "./packages/*.scss": "./packages/*.scss",
+    "./package.json": "./package.json"
+  },
+  "main": "packages/index.js",
+  "sass": "packages/index.scss",
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
@@ -21,7 +40,7 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "pretest": "npm run lint && npm run build",
     "test": "npm run test:js",
-    "test:js": "jest --color --coverage",
+    "test:js": "jest --color",
     "pretest:visual": "npm run install:playwright && npm run build",
     "test:visual": "npm run test:visual:cli -- -- test",
     "test:visual:ref": "npm run test:visual:cli -- -- reference",
@@ -68,6 +87,7 @@
     "html-validate": "^9.5.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "nunjucks": "^3.2.4",

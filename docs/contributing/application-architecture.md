@@ -22,7 +22,7 @@ The application generates static HTML pages to preview components, with each com
 
 - `node_modules/` (Automatically generated)
 
-  Node package manager modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
+  Node.js package manager (npm) modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
 
 - `packages/`
 

@@ -69,13 +69,56 @@ jobs:
         run: npm run install:puppeteer
 
       - name: Run tests
-        run: npm test --ignore-scripts
+        run: npm run test:js -- --coverage
 
       - name: Save test coverage
         uses: actions/upload-artifact@v4
         with:
           name: Javascript unit tests coverage
           path: coverage
+
+  exports:
+    name: Package ${{ matrix.conditions }}
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        conditions:
+          - require
+          - import
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore dependencies (from cache)
+        uses: actions/cache/restore@v4
+        with:
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+      - name: Restore build (from cache)
+        uses: actions/cache/restore@v4
+        with:
+          path: dist/
+          key: build-${{ github.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Resolve entry path
+        run: |
+          node --eval "console.log(require.resolve('nhsuk-frontend'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/package.json'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button.js'))" --conditions ${{ matrix.conditions }}
 
   regression:
     name: Visual regression tests
