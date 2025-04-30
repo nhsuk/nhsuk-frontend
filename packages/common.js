@@ -39,6 +39,29 @@ const toggleConditionalInput = (input, className) => {
 }
 
 /**
+ * Used to generate a unique string, allows multiple instances of the component
+ * without them conflicting with each other.
+ * https://stackoverflow.com/a/8809472
+ *
+ * Original code taken from GDS (Government Digital Service)
+ * {@link https://github.com/alphagov/govuk-frontend}
+ */
+function generateUniqueID() {
+  let d = new Date().getTime()
+  if (
+    typeof window.performance !== 'undefined' &&
+    typeof window.performance.now === 'function'
+  ) {
+    d += window.performance.now() // use high-precision timer if available
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0
+    d = Math.floor(d / 16)
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16)
+  })
+}
+
+/**
  * Move focus to element
  *
  * Sets tabindex to -1 to make the element programmatically focusable,
@@ -97,5 +120,6 @@ function setFocus($element, options = {}) {
 module.exports = {
   toggleAttribute,
   toggleConditionalInput,
+  generateUniqueID,
   setFocus
 }
