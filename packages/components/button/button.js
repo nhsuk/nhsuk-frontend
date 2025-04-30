@@ -1,10 +1,21 @@
+const KEY_SPACE = 32
+const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+
 class Button {
   constructor($module) {
-    this.KEY_SPACE = 32
-    this.DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+    if (!$module) {
+      return this
+    }
 
     this.$module = $module
     this.debounceFormSubmitTimer = null
+
+    /**
+     * Initialise an event listener for keydown at document level
+     * this will help listening for later inserted elements with a role="button"
+     */
+    this.$module.addEventListener('keydown', this.handleKeyDown.bind(this))
+    this.$module.addEventListener('click', this.debounce.bind(this))
   }
 
   /**
@@ -23,7 +34,7 @@ class Button {
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
     if (
       target.getAttribute('role') === 'button' &&
-      event.keyCode === this.KEY_SPACE
+      event.keyCode === KEY_SPACE
     ) {
       event.preventDefault()
       // trigger the target's click event
@@ -51,22 +62,13 @@ class Button {
 
     this.debounceFormSubmitTimer = setTimeout(() => {
       this.debounceFormSubmitTimer = null
-    }, this.DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
-  }
-
-  /**
-   * Initialise an event listener for keydown at document level
-   * this will help listening for later inserted elements with a role="button"
-   */
-  init() {
-    this.$module.addEventListener('keydown', this.handleKeyDown.bind(this))
-    this.$module.addEventListener('click', this.debounce.bind(this))
+    }, DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
   }
 }
 
 module.exports = ({ scope = document } = {}) => {
   const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
-    new Button(el).init()
+    new Button(el)
   })
 }
