@@ -109,6 +109,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/index.html`
     },
     {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button hover',
+      url: `${BASE_URL}/components/button/index.html`
+    },
+    {
       label: 'Button as link',
       url: `${BASE_URL}/components/button/link.html`
     },
