@@ -1,9 +1,9 @@
-import ErrorSummary from './error-summary.js'
+import initErrorSummary from './error-summary.js'
 
 describe('Error summary module', () => {
   describe('if no error summary elements exists', () => {
     it('should not throw an error', () => {
-      expect(() => ErrorSummary()).not.toThrow()
+      expect(() => initErrorSummary()).not.toThrow()
     })
   })
 
@@ -11,7 +11,7 @@ describe('Error summary module', () => {
     beforeEach(() => {
       document.body.innerHTML =
         '<div role="alert" tabindex="-1" class="nhsuk-error-summary"></div>'
-      ErrorSummary()
+      initErrorSummary()
     })
 
     it('should focus on the error summary', () => {
@@ -29,7 +29,7 @@ describe('Error summary module', () => {
 
       expect(document.body.childElementCount).toBe(2)
 
-      ErrorSummary()
+      initErrorSummary()
 
       expect(document.body.firstElementChild).toHaveFocus()
       expect(document.body.children[1]).not.toHaveFocus()

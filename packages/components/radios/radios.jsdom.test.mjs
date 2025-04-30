@@ -1,13 +1,13 @@
-import Radios from './radios.js'
+import initRadios from './radios.js'
 
 describe('Radios module', () => {
   describe('does not throw an error', () => {
     it('if there is no conditional radios container', () => {
-      expect(() => Radios()).not.toThrow()
+      expect(() => initRadios()).not.toThrow()
     })
     it('if there are no conditional radios inside the container', () => {
       document.body.innerHTML = '<div class="nhsuk-radios--conditional"></div>'
-      expect(() => Radios()).not.toThrow()
+      expect(() => initRadios()).not.toThrow()
     })
   })
 
@@ -19,7 +19,7 @@ describe('Radios module', () => {
             </div>`
       const input = document.querySelector('#input-1')
       const conditional = document.querySelector('#conditional-1')
-      Radios()
+      initRadios()
       input.click()
       expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'true')
@@ -36,7 +36,7 @@ describe('Radios module', () => {
       const input = document.querySelector('#input-1')
       const conditional = document.querySelector('#conditional-1')
       const otherInput = document.querySelector('#input-2')
-      Radios()
+      initRadios()
       input.click()
       expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'true')
