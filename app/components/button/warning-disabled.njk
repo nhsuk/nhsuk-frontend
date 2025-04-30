@@ -1,4 +1,4 @@
-{% set title = 'Button as a link' %}
+{% set title = 'Button warning disabled' %}
 {% from 'components/button/macro.njk' import button %}
 {% extends 'example.njk' %}
 
@@ -6,8 +6,9 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {{ button({
-        "text": "Link button",
-        "href": "#"
+        "text": "Yes, delete this vaccine",
+        "classes": "nhsuk-button--warning",
+        "disabled": true
       }) }}
     </div>
   </div>

@@ -1,6 +1,6 @@
-{% extends 'page.njk' %}
-
 {% set title = 'NHS.UK frontend' %}
+
+{% extends 'page.njk' %}
 
 {% block header %}
   {% call hero({
@@ -28,13 +28,21 @@
         <li><a href="components/back-link/button.html">Back link - as a button</a></li>
         <li><a href="components/breadcrumb/index.html">Breadcrumb</a></li>
         <li><a href="components/button/index.html">Button</a></li>
-        <li><a href="components/button/prevent-double-click.html">Button - with double click prevented</a></li>
-        <li><a href="components/button/link.html">Buttons as a links</a></li>
-        <li><a href="components/button/disabled.html">Buttons disabled</a></li>
+        <li><a href="components/button/prevent-double-click.html">Button (double click prevented)</a></li>
+        <li><a href="components/button/disabled.html">Button disabled</a></li>
+        <li><a href="components/button/link.html">Button as link</a></li>
         <li><a href="components/button/secondary.html">Button secondary</a></li>
+        <li><a href="components/button/secondary-disabled.html">Button secondary disabled</a></li>
+        <li><a href="components/button/secondary-link.html">Button secondary as link</a></li>
         <li><a href="components/button/secondary-white.html">Button secondary – white background</a></li>
+        <li><a href="components/button/secondary-white-disabled.html">Button secondary disabled – white background</a></li>
+        <li><a href="components/button/secondary-white-link.html">Button secondary as link – white background</a></li>
         <li><a href="components/button/reverse.html">Button reverse</a></li>
+        <li><a href="components/button/reverse-disabled.html">Button reverse disabled</a></li>
+        <li><a href="components/button/reverse-link.html">Button reverse as link</a></li>
         <li><a href="components/button/warning.html">Button warning</a></li>
+        <li><a href="components/button/warning-disabled.html">Button warning disabled</a></li>
+        <li><a href="components/button/warning-link.html">Button warning as link</a></li>
         <li><a href="components/card/basic-card.html">Card - Basic card</a></li>
         <li><a href="components/card/card-with-image.html">Card - Card with an image</a></li>
         <li><a href="components/card/card-group.html">Card - Card group</a></li>
@@ -144,6 +152,10 @@
           {
             href: "components/all.html",
             text: "All component examples"
+          },
+          {
+            href: "components/all-buttons.html",
+            text: "All button examples"
           },
           {
             href: "components/typography.html",

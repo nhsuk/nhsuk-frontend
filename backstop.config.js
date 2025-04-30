@@ -114,24 +114,150 @@ module.exports = {
       url: `${BASE_URL}/components/button/index.html`
     },
     {
+      label: 'Button disabled',
+      url: `${BASE_URL}/components/button/disabled.html`
+    },
+    {
       label: 'Button as link',
       url: `${BASE_URL}/components/button/link.html`
     },
     {
-      label: 'Button disabled',
-      url: `${BASE_URL}/components/button/disabled.html`
+      clickSelector: '.nhsuk-button',
+      label: 'Button as link click',
+      url: `${BASE_URL}/components/button/link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button as link hover',
+      url: `${BASE_URL}/components/button/link.html`
     },
     {
       label: 'Button secondary',
       url: `${BASE_URL}/components/button/secondary.html`
     },
     {
+      clickSelector: '.nhsuk-button',
+      label: 'Button secondary click',
+      url: `${BASE_URL}/components/button/secondary.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button secondary hover',
+      url: `${BASE_URL}/components/button/secondary.html`
+    },
+    {
+      label: 'Button secondary disabled',
+      url: `${BASE_URL}/components/button/secondary-disabled.html`
+    },
+    {
+      label: 'Button secondary as link',
+      url: `${BASE_URL}/components/button/secondary-link.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button secondary as link click',
+      url: `${BASE_URL}/components/button/secondary-link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button secondary as link hover',
+      url: `${BASE_URL}/components/button/secondary-link.html`
+    },
+    {
       label: 'Button secondary, white background',
       url: `${BASE_URL}/components/button/secondary-white.html`
     },
     {
+      clickSelector: '.nhsuk-button',
+      label: 'Button secondary click, white background',
+      url: `${BASE_URL}/components/button/secondary-white.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button secondary hover, white background',
+      url: `${BASE_URL}/components/button/secondary-white.html`
+    },
+    {
+      label: 'Button secondary disabled, white background',
+      url: `${BASE_URL}/components/button/secondary-white-disabled.html`
+    },
+    {
+      label: 'Button secondary as link, white background',
+      url: `${BASE_URL}/components/button/secondary-white-link.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button secondary as link click, white background',
+      url: `${BASE_URL}/components/button/secondary-white-link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button secondary as link hover, white background',
+      url: `${BASE_URL}/components/button/secondary-white-link.html`
+    },
+    {
       label: 'Button reverse',
       url: `${BASE_URL}/components/button/reverse.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button reverse click',
+      url: `${BASE_URL}/components/button/reverse.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button reverse hover',
+      url: `${BASE_URL}/components/button/reverse.html`
+    },
+    {
+      label: 'Button reverse disabled',
+      url: `${BASE_URL}/components/button/reverse-disabled.html`
+    },
+    {
+      label: 'Button reverse as link',
+      url: `${BASE_URL}/components/button/reverse-link.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button reverse as link click',
+      url: `${BASE_URL}/components/button/reverse-link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button reverse as link hover',
+      url: `${BASE_URL}/components/button/reverse-link.html`
+    },
+    {
+      label: 'Button warning',
+      url: `${BASE_URL}/components/button/warning.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button warning click',
+      url: `${BASE_URL}/components/button/warning.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button warning hover',
+      url: `${BASE_URL}/components/button/warning.html`
+    },
+    {
+      label: 'Button warning disabled',
+      url: `${BASE_URL}/components/button/warning-disabled.html`
+    },
+    {
+      label: 'Button warning as link',
+      url: `${BASE_URL}/components/button/warning-link.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button warning as link click',
+      url: `${BASE_URL}/components/button/warning-link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button warning as link hover',
+      url: `${BASE_URL}/components/button/warning-link.html`
     },
     {
       label: 'Card, Basic',
