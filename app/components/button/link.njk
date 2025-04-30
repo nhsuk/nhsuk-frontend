@@ -3,6 +3,7 @@
 {% extends 'example.njk' %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       {{ button({
@@ -17,7 +18,7 @@
         "classes": "nhsuk-button--secondary"
       }) }}
     </div>
-        <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-grid-column-full">
       {{ button({
         "text": "Link secondary button",
         "href": baseUrl,
@@ -39,4 +40,5 @@
       }) }}
     </div>
   </div>
+
 {% endblock %}
