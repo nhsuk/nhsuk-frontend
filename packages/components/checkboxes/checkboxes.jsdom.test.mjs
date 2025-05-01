@@ -4,10 +4,10 @@ import initCheckboxes from './checkboxes.js'
 
 describe('Checkboxes', () => {
   /** @type {HTMLDivElement[]} */
-  let conditionals
+  let $conditionals
 
   /** @type {HTMLInputElement[]} */
-  let inputs
+  let $inputs
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -76,37 +76,37 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    const container = document.querySelector('.nhsuk-checkboxes')
+    const $container = document.querySelector('.nhsuk-checkboxes')
 
-    conditionals = [
-      ...container.querySelectorAll('.nhsuk-checkboxes__conditional')
+    $conditionals = [
+      ...$container.querySelectorAll('.nhsuk-checkboxes__conditional')
     ]
 
-    const input1 = getByRole(container, 'checkbox', {
+    const $input1 = getByRole($container, 'checkbox', {
       name: 'Email'
     })
 
-    const input2 = getByRole(container, 'checkbox', {
+    const $input2 = getByRole($container, 'checkbox', {
       name: 'Phone'
     })
 
-    const input3 = getByRole(container, 'checkbox', {
+    const $input3 = getByRole($container, 'checkbox', {
       name: 'Text message'
     })
 
-    inputs = [input1, input2, input3]
+    $inputs = [$input1, $input2, $input3]
 
-    jest.spyOn(input1, 'addEventListener')
-    jest.spyOn(input2, 'addEventListener')
-    jest.spyOn(input3, 'addEventListener')
+    jest.spyOn($input1, 'addEventListener')
+    jest.spyOn($input2, 'addEventListener')
+    jest.spyOn($input3, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initCheckboxes()
 
-      for (const input of inputs) {
-        expect(input.addEventListener).toHaveBeenCalledWith(
+      for (const $input of $inputs) {
+        expect($input.addEventListener).toHaveBeenCalledWith(
           'change',
           expect.any(Function)
         )
@@ -114,8 +114,8 @@ describe('Checkboxes', () => {
     })
 
     it('should not throw with missing checkboxes', () => {
-      for (const input of inputs) {
-        input.remove()
+      for (const $input of $inputs) {
+        $input.remove()
       }
 
       expect(() => initCheckboxes()).not.toThrow()
@@ -136,28 +136,30 @@ describe('Checkboxes', () => {
     it('should be hidden by default', () => {
       initCheckboxes()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
-        const conditional = conditionals.at(index)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
+        const $conditional = $conditionals.at(index)
 
         // Conditional content hidden
-        expect(input).toHaveAttribute('aria-expanded', 'false')
-        expect(conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
+        expect($input).toHaveAttribute('aria-expanded', 'false')
+        expect($conditional).toHaveClass(
+          'nhsuk-checkboxes__conditional--hidden'
+        )
       }
     })
 
     it('should be visible when input is checked', () => {
       initCheckboxes()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
-        const conditional = conditionals.at(index)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
+        const $conditional = $conditionals.at(index)
 
-        input.click()
+        $input.click()
 
         // Conditional content visible
-        expect(input).toHaveAttribute('aria-expanded', 'true')
-        expect(conditional).not.toHaveClass(
+        expect($input).toHaveAttribute('aria-expanded', 'true')
+        expect($conditional).not.toHaveClass(
           'nhsuk-checkboxes__conditional--hidden'
         )
       }
@@ -166,16 +168,18 @@ describe('Checkboxes', () => {
     it('should be hidden when input is unchecked', () => {
       initCheckboxes()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
-        const conditional = conditionals.at(index)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
+        const $conditional = $conditionals.at(index)
 
-        input.click()
-        input.click()
+        $input.click()
+        $input.click()
 
         // Conditional content hidden
-        expect(input).toHaveAttribute('aria-expanded', 'false')
-        expect(conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
+        expect($input).toHaveAttribute('aria-expanded', 'false')
+        expect($conditional).toHaveClass(
+          'nhsuk-checkboxes__conditional--hidden'
+        )
       }
     })
   })

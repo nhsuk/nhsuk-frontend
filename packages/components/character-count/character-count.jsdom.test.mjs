@@ -4,7 +4,7 @@ import initCharacterCount from './character-count.js'
 
 describe('Character count', () => {
   /** @type {HTMLTextAreaElement} */
-  let textarea
+  let $textarea
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -24,37 +24,37 @@ describe('Character count', () => {
       </div>
     `
 
-    const container = document.querySelector('.nhsuk-character-count')
+    const $container = document.querySelector('.nhsuk-character-count')
 
-    textarea = getByRole(container, 'textbox', {
+    $textarea = getByRole($container, 'textbox', {
       name: 'Can you provide more detail?'
     })
 
-    jest.spyOn(textarea, 'addEventListener')
+    jest.spyOn($textarea, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initCharacterCount()
 
-      expect(textarea.addEventListener).toHaveBeenCalledWith(
+      expect($textarea.addEventListener).toHaveBeenCalledWith(
         'keyup',
         expect.any(Function)
       )
 
-      expect(textarea.addEventListener).toHaveBeenCalledWith(
+      expect($textarea.addEventListener).toHaveBeenCalledWith(
         'focus',
         expect.any(Function)
       )
 
-      expect(textarea.addEventListener).toHaveBeenCalledWith(
+      expect($textarea.addEventListener).toHaveBeenCalledWith(
         'blur',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing textarea', () => {
-      textarea.remove()
+      $textarea.remove()
       expect(() => initCharacterCount()).not.toThrow()
     })
 

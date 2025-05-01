@@ -4,16 +4,16 @@ import initErrorSummary from './error-summary.js'
 
 describe('Error summary', () => {
   /** @type {HTMLAnchorElement} */
-  let errorSummary
+  let $errorSummary
 
   /** @type {HTMLAnchorElement[]} */
-  let links
+  let $links
 
   /** @type {HTMLInputElement} */
-  let input
+  let $input
 
   /** @type {HTMLLabelElement} */
-  let label
+  let $label
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -50,42 +50,42 @@ describe('Error summary', () => {
       </form>
     `
 
-    const container = document.querySelector('form')
+    const $container = document.querySelector('form')
 
-    errorSummary = getByRole(container, 'alert', {
+    $errorSummary = getByRole($container, 'alert', {
       name: 'There is a problem'
     })
 
-    links = getAllByRole(errorSummary, 'link')
+    $links = getAllByRole($errorSummary, 'link')
 
-    input = getByRole(container, 'textbox', {
+    $input = getByRole($container, 'textbox', {
       name: 'National Insurance number'
     })
 
-    label = input.labels[0]
+    $label = $input.labels[0]
 
-    jest.spyOn(errorSummary, 'addEventListener')
-    jest.spyOn(input, 'focus')
-    jest.spyOn(label, 'scrollIntoView')
+    jest.spyOn($errorSummary, 'addEventListener')
+    jest.spyOn($input, 'focus')
+    jest.spyOn($label, 'scrollIntoView')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initErrorSummary()
 
-      expect(errorSummary.addEventListener).toHaveBeenCalledWith(
+      expect($errorSummary.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing error summary', () => {
-      errorSummary.remove()
+      $errorSummary.remove()
       expect(() => initErrorSummary()).not.toThrow()
     })
 
     it('should not throw with missing linked element', () => {
-      input.remove()
+      $input.remove()
       expect(() => initErrorSummary()).not.toThrow()
     })
 
@@ -105,7 +105,7 @@ describe('Error summary', () => {
       it('sets focus automatically', () => {
         initErrorSummary()
 
-        expect(errorSummary).toHaveFocus()
+        expect($errorSummary).toHaveFocus()
       })
 
       it('sets focus automatically (focusOnPageLoad: true)', () => {
@@ -113,7 +113,7 @@ describe('Error summary', () => {
           focusOnPageLoad: true
         })
 
-        expect(errorSummary).toHaveFocus()
+        expect($errorSummary).toHaveFocus()
       })
 
       it('does not set focus automatically (focusOnPageLoad: false)', () => {
@@ -121,7 +121,7 @@ describe('Error summary', () => {
           focusOnPageLoad: false
         })
 
-        expect(errorSummary).not.toHaveFocus()
+        expect($errorSummary).not.toHaveFocus()
       })
     })
 
@@ -129,11 +129,11 @@ describe('Error summary', () => {
       it('moves focus to the linked element', () => {
         initErrorSummary()
 
-        links[0].click()
+        $links[0].click()
 
-        expect(input).toHaveFocus()
-        expect(label.scrollIntoView).toHaveBeenCalled()
-        expect(input.focus).toHaveBeenCalledWith({
+        expect($input).toHaveFocus()
+        expect($label.scrollIntoView).toHaveBeenCalled()
+        expect($input.focus).toHaveBeenCalledWith({
           preventScroll: true
         })
       })
