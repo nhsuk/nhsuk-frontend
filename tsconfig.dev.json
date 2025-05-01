@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "types": [
+      "@testing-library/jest-dom",
+      "jest",
+      "jest-puppeteer",
+      "node",
+      "typed-query-selector"
+    ]
+  },
+  "include": [
+    "./.htmlvalidate.js",
+    "./.prettierrc.js",
+    "./.stylelintrc.js",
+    "./gulpfile.mjs",
+    "./*.config.js",
+    "./*.setup.js",
+    "**/*.test.*",
+    "**/.eslintrc.*"
+  ]
+}
