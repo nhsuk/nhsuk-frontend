@@ -272,7 +272,9 @@ class Header {
   }
 }
 
-module.exports = () => {
-  const $module = document.querySelector('.nhsuk-navigation')
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $module = $scope.querySelector('.nhsuk-navigation')
+
   new Header($module)
 }

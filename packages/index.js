@@ -22,7 +22,7 @@ require('./polyfills.js')
  * @param {HTMLElement} scope
  */
 function initAll(scope) {
-  initHeader()
+  initHeader({ scope })
   initSkipLink()
   initButton({ scope })
   initCharacterCount({ scope })
