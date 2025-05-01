@@ -64,12 +64,6 @@ describe('Tabs', () => {
     jest.spyOn(window, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initTabs).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initTabs()

@@ -33,12 +33,6 @@ describe('Character count', () => {
     jest.spyOn(textarea, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initCharacterCount).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initCharacterCount()

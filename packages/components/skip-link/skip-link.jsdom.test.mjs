@@ -36,12 +36,6 @@ describe('Skip link', () => {
     jest.spyOn(skipLink, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initSkipLink).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initSkipLink()
