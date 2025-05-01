@@ -7,8 +7,11 @@ const { generateUniqueID, toggleAttribute } = require('../../common')
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
 class Details {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -77,6 +80,12 @@ class Details {
   }
 }
 
+/**
+ * Initialise details component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $details = $scope.querySelectorAll('.nhsuk-details')
