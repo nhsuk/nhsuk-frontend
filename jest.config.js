@@ -47,14 +47,18 @@ module.exports = {
     {
       ...config,
       displayName: 'JavaScript behaviour tests',
-      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+      setupFilesAfterEnv: [
+        '<rootDir>/shared/helpers/jest/environment/jest.jsdom.setup.js'
+      ],
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       ...config,
       displayName: 'JavaScript component tests',
-      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+      setupFilesAfterEnv: [
+        '<rootDir>/shared/helpers/jest/environment/jest.puppeteer.setup.js'
+      ],
       testEnvironment: 'jest-environment-puppeteer',
       testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],
 
