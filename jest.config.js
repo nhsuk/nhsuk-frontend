@@ -10,6 +10,11 @@ const { headless = true } = jestPuppeteerConfig.launch
  */
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
+  coveragePathIgnorePatterns: [
+    '.eslintrc.js',
+    '.test.(js|mjs)',
+    'polyfills.js'
+  ],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
@@ -25,6 +30,7 @@ const config = {
  */
 module.exports = {
   collectCoverageFrom: ['packages/**/*.{js,mjs}'],
+  coverageProvider: 'v8',
 
   // Reduce CPU usage during project test runs
   maxWorkers: headless
