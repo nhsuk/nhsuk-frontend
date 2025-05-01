@@ -40,12 +40,6 @@ describe('Details', () => {
     jest.spyOn(summary, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initDetails).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Modern browsers', () => {
     describe('Initialisation', () => {
       it('should not add event listeners', () => {

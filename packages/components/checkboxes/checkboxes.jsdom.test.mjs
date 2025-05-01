@@ -101,12 +101,6 @@ describe('Checkboxes', () => {
     jest.spyOn(input3, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initCheckboxes).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initCheckboxes()

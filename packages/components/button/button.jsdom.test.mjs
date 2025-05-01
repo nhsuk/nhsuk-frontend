@@ -18,12 +18,6 @@ describe('Button', () => {
     jest.spyOn(button, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initButton).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initButton()

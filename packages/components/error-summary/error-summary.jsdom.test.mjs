@@ -69,12 +69,6 @@ describe('Error summary', () => {
     jest.spyOn(label, 'scrollIntoView')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initErrorSummary).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initErrorSummary()

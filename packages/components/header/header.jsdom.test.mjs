@@ -98,12 +98,6 @@ describe('Header class', () => {
     jest.spyOn(document, 'removeEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initHeader).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initHeader()

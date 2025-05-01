@@ -99,12 +99,6 @@ describe('Radios', () => {
     jest.spyOn(input3, 'addEventListener')
   })
 
-  describe('Exports', () => {
-    it('should export init function', () => {
-      expect(initRadios).toBeInstanceOf(Function)
-    })
-  })
-
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initRadios()
