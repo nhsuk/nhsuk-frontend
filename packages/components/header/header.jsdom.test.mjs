@@ -91,6 +91,68 @@ describe('Header class', () => {
           ? listWidth // Mock list width
           : itemWidth // Mock item width
       })
+
+    jest.spyOn(menuButton, 'addEventListener')
+    jest.spyOn(window, 'addEventListener')
+    jest.spyOn(document, 'addEventListener')
+    jest.spyOn(document, 'removeEventListener')
+  })
+
+  describe('Exports', () => {
+    it('should export init function', () => {
+      expect(initHeader).toBeInstanceOf(Function)
+    })
+  })
+
+  describe('Initialisation', () => {
+    it('should add event listeners', () => {
+      initHeader()
+
+      // Adds listener for window resize
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'resize',
+        expect.any(Function)
+      )
+
+      // Skips listener for menu button click
+      expect(menuButton.addEventListener).not.toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('should add event listeners when items overflow', () => {
+      listWidth = 700
+
+      initHeader()
+
+      // Adds listener for window resize
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'resize',
+        expect.any(Function)
+      )
+
+      // Adds listener for menu button click
+      expect(menuButton.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('should not throw with missing navigation', () => {
+      navigation.remove()
+      expect(() => initHeader()).not.toThrow()
+    })
+
+    it('should not throw with missing menu button', () => {
+      menuButton.remove()
+      expect(() => initHeader()).not.toThrow()
+    })
+
+    it('should not throw with empty body', () => {
+      document.body.innerHTML = ''
+      expect(() => initHeader()).not.toThrow()
+    })
   })
 
   describe('Menu button', () => {
@@ -131,12 +193,24 @@ describe('Header class', () => {
         'nhsuk-header__drop-down--hidden'
       )
 
+      // Adds listener for escape key
+      expect(document.addEventListener).toHaveBeenCalledWith(
+        'keydown',
+        expect.any(Function)
+      )
+
       // Close menu
       menuButton.click()
 
       // Menu closed
       expect(menuButton.nextElementSibling).toHaveClass(
         'nhsuk-header__drop-down--hidden'
+      )
+
+      // Removes listener for escape key
+      expect(document.removeEventListener).toHaveBeenCalledWith(
+        'keydown',
+        expect.any(Function)
       )
     })
 
