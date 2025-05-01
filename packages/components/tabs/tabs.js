@@ -1,6 +1,12 @@
+/**
+ * Tabs component
+ */
 class Tabs {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -190,9 +196,15 @@ class Tabs {
   }
 
   onTabClick(e) {
-    e.preventDefault()
-    const $newTab = e.currentTarget
     const $currentTab = this.getCurrentTab()
+    const $newTab = e.currentTarget
+
+    if (!$currentTab || !($newTab instanceof HTMLAnchorElement)) {
+      return
+    }
+
+    e.preventDefault()
+
     this.hideTab($currentTab)
     this.showTab($newTab)
     this.createHistoryEntry($newTab)
@@ -306,9 +318,13 @@ class Tabs {
 
 /**
  * Initialise tabs component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = ({ scope = document } = {}) => {
-  const $tabs = scope.querySelectorAll('[data-module="nhsuk-tabs"]')
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $tabs = $scope.querySelectorAll('[data-module="nhsuk-tabs"]')
 
   $tabs.forEach(($module) => {
     new Tabs($module)

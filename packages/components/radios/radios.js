@@ -8,7 +8,7 @@ const { toggleConditionalInput } = require('../../common')
  */
 class Radios {
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -57,6 +57,12 @@ class Radios {
   }
 }
 
+/**
+ * Initialise radios component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $module = $scope.querySelector('.nhsuk-radios--conditional')
