@@ -4,7 +4,7 @@ import initButton from './button.js'
 
 describe('Button', () => {
   /** @type {HTMLButtonElement} */
-  let button
+  let $button
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -13,22 +13,22 @@ describe('Button', () => {
       </button>
     `
 
-    button = getByRole(document.body, 'button')
+    $button = getByRole(document.body, 'button')
 
-    jest.spyOn(button, 'addEventListener')
+    jest.spyOn($button, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initButton()
 
-      expect(button.addEventListener).toHaveBeenNthCalledWith(
+      expect($button.addEventListener).toHaveBeenNthCalledWith(
         1,
         'keydown',
         expect.any(Function)
       )
 
-      expect(button.addEventListener).toHaveBeenNthCalledWith(
+      expect($button.addEventListener).toHaveBeenNthCalledWith(
         2,
         'click',
         expect.any(Function)
@@ -36,7 +36,7 @@ describe('Button', () => {
     })
 
     it('should not throw with missing button', () => {
-      button.remove()
+      $button.remove()
       expect(() => initButton()).not.toThrow()
     })
 

@@ -4,16 +4,16 @@ import initTabs from './tabs.js'
 
 describe('Tabs', () => {
   /** @type {HTMLUListElement} */
-  let list
+  let $list
 
   /** @type {HTMLLIElement[]} */
-  let listItems
+  let $listItems
 
   /** @type {HTMLAnchorElement[]} */
-  let tabs
+  let $tabs
 
   /** @type {HTMLDivElement[]} */
-  let panels
+  let $panels
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -53,14 +53,14 @@ describe('Tabs', () => {
       </div>
     `
 
-    const container = document.querySelector('.nhsuk-tabs')
+    const $container = document.querySelector('.nhsuk-tabs')
 
-    list = getByRole(container, 'list')
-    listItems = getAllByRole(container, 'listitem')
-    tabs = getAllByRole(container, 'link')
-    panels = [...document.querySelectorAll('.nhsuk-tabs__panel')]
+    $list = getByRole($container, 'list')
+    $listItems = getAllByRole($container, 'listitem')
+    $tabs = getAllByRole($container, 'link')
+    $panels = [...document.querySelectorAll('.nhsuk-tabs__panel')]
 
-    tabs.forEach((tab) => jest.spyOn(tab, 'addEventListener'))
+    $tabs.forEach(($tab) => jest.spyOn($tab, 'addEventListener'))
     jest.spyOn(window, 'addEventListener')
   })
 
@@ -74,15 +74,15 @@ describe('Tabs', () => {
         true
       )
 
-      for (const tab of tabs) {
-        expect(tab.addEventListener).toHaveBeenNthCalledWith(
+      for (const $tab of $tabs) {
+        expect($tab.addEventListener).toHaveBeenNthCalledWith(
           1,
           'click',
           expect.any(Function),
           true
         )
 
-        expect(tab.addEventListener).toHaveBeenNthCalledWith(
+        expect($tab.addEventListener).toHaveBeenNthCalledWith(
           2,
           'keydown',
           expect.any(Function),
@@ -108,48 +108,48 @@ describe('Tabs', () => {
     })
 
     it('should add to list the tablist role', async () => {
-      expect(list).toHaveAttribute('role', 'tablist')
+      expect($list).toHaveAttribute('role', 'tablist')
 
-      for (const listItem of listItems) {
-        expect(listItem).toHaveAttribute('role', 'presentation')
+      for (const $listItem of $listItems) {
+        expect($listItem).toHaveAttribute('role', 'presentation')
       }
     })
 
     it('should add to list items the presentation role', async () => {
-      for (const listItem of listItems) {
-        expect(listItem).toHaveAttribute('role', 'presentation')
+      for (const $listItem of $listItems) {
+        expect($listItem).toHaveAttribute('role', 'presentation')
       }
     })
 
     it('should add to tab panels the tabpanel role', async () => {
-      for (const panel of panels) {
-        expect(panel).toHaveAttribute('role', 'tabpanel')
+      for (const $panel of $panels) {
+        expect($panel).toHaveAttribute('role', 'tabpanel')
       }
     })
 
     it('should add to tab links the tab role', async () => {
-      for (const tab of tabs) {
-        expect(tab).toHaveAttribute('role', 'tab')
+      for (const $tab of $tabs) {
+        expect($tab).toHaveAttribute('role', 'tab')
       }
     })
 
     it('should set the panel controlled by the tab link using aria-controls', async () => {
-      for (const panel of panels) {
-        const index = panels.indexOf(panel)
-        const tab = tabs.at(index)
+      for (const $panel of $panels) {
+        const index = $panels.indexOf($panel)
+        const $tab = $tabs.at(index)
 
-        expect(tab).toHaveAttribute('aria-controls', panel.id)
-        expect(panel).toHaveAttribute('id')
+        expect($tab).toHaveAttribute('aria-controls', $panel.id)
+        expect($panel).toHaveAttribute('id')
       }
     })
 
     it('should set the panel labelled by the tab link using aria-labelledby', async () => {
-      for (const panel of panels) {
-        const index = panels.indexOf(panel)
-        const tab = tabs.at(index)
+      for (const $panel of $panels) {
+        const index = $panels.indexOf($panel)
+        const $tab = $tabs.at(index)
 
-        expect(panel).toHaveAttribute('aria-labelledby', tab.id)
-        expect(tab).toHaveAttribute('id')
+        expect($panel).toHaveAttribute('aria-labelledby', $tab.id)
+        expect($tab).toHaveAttribute('id')
       }
     })
   })
@@ -162,21 +162,21 @@ describe('Tabs', () => {
     })
 
     it('should be hidden except for first tab', () => {
-      const tab = tabs.at(0)
-      const panel = panels.at(0)
-      const panelsHidden = panels.filter((panel) => panel !== panel)
+      const $tab = $tabs.at(0)
+      const $panel = $panels.at(0)
+      const $panelsHidden = $panels.filter(($panel) => $panel !== $panel)
 
       // First panel visible
-      expect(tab).toHaveAttribute('aria-selected', 'true')
-      expect(panel).not.toHaveClass('govuk-tabs__panel--hidden')
+      expect($tab).toHaveAttribute('aria-selected', 'true')
+      expect($panel).not.toHaveClass('govuk-tabs__panel--hidden')
 
-      for (const panelHidden of panelsHidden) {
-        const index = panels.indexOf(panelHidden)
-        const tabHidden = tabs.at(index)
+      for (const $panelHidden of $panelsHidden) {
+        const index = $panels.indexOf($panelHidden)
+        const $tabHidden = $tabs.at(index)
 
         // Other panels hidden
-        expect(tabHidden).not.toHaveAttribute('aria-selected', 'true')
-        expect(panelHidden).toHaveClass('govuk-tabs__panel--hidden')
+        expect($tabHidden).not.toHaveAttribute('aria-selected', 'true')
+        expect($panelHidden).toHaveClass('govuk-tabs__panel--hidden')
       }
     })
 
@@ -185,23 +185,23 @@ describe('Tabs', () => {
       (selector) => {
         window.location.hash = selector
 
-        const tab = document.querySelector(`a[href="${selector}"]`)
-        const panel = document.querySelector(selector)
-        const panelsHidden = panels.filter((panel) => panel !== panel)
+        const $tab = document.querySelector(`a[href="${selector}"]`)
+        const $panel = document.querySelector(selector)
+        const $panelsHidden = $panels.filter(($panel) => $panel !== $panel)
 
-        tab.click()
+        $tab.click()
 
         // Active panel visible
-        expect(tab).toHaveAttribute('aria-selected', 'true')
-        expect(panel).not.toHaveClass('govuk-tabs__panel--hidden')
+        expect($tab).toHaveAttribute('aria-selected', 'true')
+        expect($panel).not.toHaveClass('govuk-tabs__panel--hidden')
 
-        for (const panelHidden of panelsHidden) {
-          const index = panels.indexOf(panelHidden)
-          const tabHidden = tabs.at(index)
+        for (const $panelHidden of $panelsHidden) {
+          const index = $panels.indexOf($panelHidden)
+          const $tabHidden = $tabs.at(index)
 
           // Other panels hidden
-          expect(tabHidden).not.toHaveAttribute('aria-selected', 'true')
-          expect(panelHidden).toHaveClass('govuk-tabs__panel--hidden')
+          expect($tabHidden).not.toHaveAttribute('aria-selected', 'true')
+          expect($panelHidden).toHaveClass('govuk-tabs__panel--hidden')
         }
       }
     )
@@ -209,23 +209,23 @@ describe('Tabs', () => {
     it.each(['#tab-one', '#tab-two', '#tab-three'])(
       'should be visible when %s is clicked',
       (selector) => {
-        const tab = document.querySelector(`a[href="${selector}"]`)
-        const panel = document.querySelector(selector)
-        const panelsHidden = panels.filter((panel) => panel !== panel)
+        const $tab = document.querySelector(`a[href="${selector}"]`)
+        const $panel = document.querySelector(selector)
+        const $panelsHidden = $panels.filter(($panel) => $panel !== $panel)
 
-        tab.click()
+        $tab.click()
 
         // Clicked panel visible
-        expect(tab).toHaveAttribute('aria-selected', 'true')
-        expect(panel).not.toHaveClass('govuk-tabs__panel--hidden')
+        expect($tab).toHaveAttribute('aria-selected', 'true')
+        expect($panel).not.toHaveClass('govuk-tabs__panel--hidden')
 
-        for (const panelHidden of panelsHidden) {
-          const index = panels.indexOf(panelHidden)
-          const tabHidden = tabs.at(index)
+        for (const $panelHidden of $panelsHidden) {
+          const index = $panels.indexOf($panelHidden)
+          const $tabHidden = $tabs.at(index)
 
           // Other panels hidden
-          expect(tabHidden).not.toHaveAttribute('aria-selected', 'true')
-          expect(panelHidden).toHaveClass('govuk-tabs__panel--hidden')
+          expect($tabHidden).not.toHaveAttribute('aria-selected', 'true')
+          expect($panelHidden).toHaveClass('govuk-tabs__panel--hidden')
         }
       }
     )

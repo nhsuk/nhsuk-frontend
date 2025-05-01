@@ -4,10 +4,10 @@ import initRadios from './radios.js'
 
 describe('Radios', () => {
   /** @type {HTMLDivElement[]} */
-  let conditionals
+  let $conditionals
 
   /** @type {HTMLInputElement[]} */
-  let inputs
+  let $inputs
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -76,35 +76,37 @@ describe('Radios', () => {
       </form>
     `
 
-    const container = document.querySelector('.nhsuk-radios')
+    const $container = document.querySelector('.nhsuk-radios')
 
-    conditionals = [...container.querySelectorAll('.nhsuk-radios__conditional')]
+    $conditionals = [
+      ...$container.querySelectorAll('.nhsuk-radios__conditional')
+    ]
 
-    const input1 = getByRole(container, 'radio', {
+    const $input1 = getByRole($container, 'radio', {
       name: 'Email'
     })
 
-    const input2 = getByRole(container, 'radio', {
+    const $input2 = getByRole($container, 'radio', {
       name: 'Phone'
     })
 
-    const input3 = getByRole(container, 'radio', {
+    const $input3 = getByRole($container, 'radio', {
       name: 'Text message'
     })
 
-    inputs = [input1, input2, input3]
+    $inputs = [$input1, $input2, $input3]
 
-    jest.spyOn(input1, 'addEventListener')
-    jest.spyOn(input2, 'addEventListener')
-    jest.spyOn(input3, 'addEventListener')
+    jest.spyOn($input1, 'addEventListener')
+    jest.spyOn($input2, 'addEventListener')
+    jest.spyOn($input3, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initRadios()
 
-      for (const input of inputs) {
-        expect(input.addEventListener).toHaveBeenCalledWith(
+      for (const $input of $inputs) {
+        expect($input.addEventListener).toHaveBeenCalledWith(
           'change',
           expect.any(Function)
         )
@@ -112,8 +114,8 @@ describe('Radios', () => {
     })
 
     it('should not throw with missing radios', () => {
-      for (const input of inputs) {
-        input.remove()
+      for (const $input of $inputs) {
+        $input.remove()
       }
 
       expect(() => initRadios()).not.toThrow()
@@ -134,51 +136,53 @@ describe('Radios', () => {
     it('should be hidden by default', () => {
       initRadios()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
-        const conditional = conditionals.at(index)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
+        const $conditional = $conditionals.at(index)
 
         // Conditional content hidden
-        expect(input).toHaveAttribute('aria-expanded', 'false')
-        expect(conditional).toHaveClass('nhsuk-radios__conditional--hidden')
+        expect($input).toHaveAttribute('aria-expanded', 'false')
+        expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
       }
     })
 
     it('should be visible when input is checked', () => {
       initRadios()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
-        const conditional = conditionals.at(index)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
+        const $conditional = $conditionals.at(index)
 
-        input.click()
+        $input.click()
 
         // Conditional content visible
-        expect(input).toHaveAttribute('aria-expanded', 'true')
-        expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
+        expect($input).toHaveAttribute('aria-expanded', 'true')
+        expect($conditional).not.toHaveClass(
+          'nhsuk-radios__conditional--hidden'
+        )
       }
     })
 
     it('should be hidden when other input is checked', () => {
       initRadios()
 
-      for (const input of inputs) {
-        const index = inputs.indexOf(input)
+      for (const $input of $inputs) {
+        const index = $inputs.indexOf($input)
 
-        const conditional = conditionals.at(index)
-        const conditionalOther = conditionals.at(index - 1)
-        const inputOther = inputs.at(index - 1)
+        const $conditional = $conditionals.at(index)
+        const $conditionalOther = $conditionals.at(index - 1)
+        const $inputOther = $inputs.at(index - 1)
 
-        input.click()
-        inputOther.click()
+        $input.click()
+        $inputOther.click()
 
         // Conditional content hidden for input
-        expect(input).toHaveAttribute('aria-expanded', 'false')
-        expect(conditional).toHaveClass('nhsuk-radios__conditional--hidden')
+        expect($input).toHaveAttribute('aria-expanded', 'false')
+        expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
 
         // Conditional content visible for other input
-        expect(inputOther).toHaveAttribute('aria-expanded', 'true')
-        expect(conditionalOther).not.toHaveClass(
+        expect($inputOther).toHaveAttribute('aria-expanded', 'true')
+        expect($conditionalOther).not.toHaveClass(
           'nhsuk-radios__conditional--hidden'
         )
       }

@@ -2,13 +2,13 @@ import initDetails from './details.js'
 
 describe('Details', () => {
   /** @type {HTMLDetailsElement} */
-  let details
+  let $details
 
   /** @type {HTMLElement} */
-  let summary
+  let $summary
 
   /** @type {HTMLDivElement} */
-  let content
+  let $content
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -33,11 +33,11 @@ describe('Details', () => {
       </details>
     `
 
-    details = document.querySelector('.nhsuk-details')
-    summary = document.querySelector('.nhsuk-details__summary')
-    content = document.querySelector('.nhsuk-details__text')
+    $details = document.querySelector('.nhsuk-details')
+    $summary = document.querySelector('.nhsuk-details__summary')
+    $content = document.querySelector('.nhsuk-details__text')
 
-    jest.spyOn(summary, 'addEventListener')
+    jest.spyOn($summary, 'addEventListener')
   })
 
   describe('Modern browsers', () => {
@@ -45,12 +45,12 @@ describe('Details', () => {
       it('should not add event listeners', () => {
         initDetails()
 
-        expect(summary.addEventListener).not.toHaveBeenCalledWith(
+        expect($summary.addEventListener).not.toHaveBeenCalledWith(
           'click',
           expect.any(Function)
         )
 
-        expect(summary.addEventListener).not.toHaveBeenCalledWith(
+        expect($summary.addEventListener).not.toHaveBeenCalledWith(
           'keydown',
           expect.any(Function)
         )
@@ -73,11 +73,11 @@ describe('Details', () => {
       })
 
       it('should not add attributes', () => {
-        expect(summary).not.toHaveAttribute('role')
-        expect(summary).not.toHaveAttribute('aria-controls')
-        expect(summary).not.toHaveAttribute('aria-expanded')
-        expect(content).not.toHaveAttribute('aria-hidden')
-        expect(content).not.toHaveAttribute('id')
+        expect($summary).not.toHaveAttribute('role')
+        expect($summary).not.toHaveAttribute('aria-controls')
+        expect($summary).not.toHaveAttribute('aria-expanded')
+        expect($content).not.toHaveAttribute('aria-hidden')
+        expect($content).not.toHaveAttribute('id')
       })
     })
   })
@@ -85,19 +85,19 @@ describe('Details', () => {
   describe('Older browsers', () => {
     beforeEach(() => {
       // Identify HTMLDetailsElement (modern browsers) as HTMLDivElement
-      Object.setPrototypeOf(details, document.createElement('div'))
+      Object.setPrototypeOf($details, document.createElement('div'))
     })
 
     describe('Initialisation', () => {
       it('should add event listeners', () => {
         initDetails()
 
-        expect(summary.addEventListener).toHaveBeenCalledWith(
+        expect($summary.addEventListener).toHaveBeenCalledWith(
           'click',
           expect.any(Function)
         )
 
-        expect(summary.addEventListener).toHaveBeenCalledWith(
+        expect($summary.addEventListener).toHaveBeenCalledWith(
           'keydown',
           expect.any(Function)
         )
@@ -120,17 +120,17 @@ describe('Details', () => {
       })
 
       it('should add to summary the button role', async () => {
-        expect(summary).toHaveAttribute('role', 'button')
+        expect($summary).toHaveAttribute('role', 'button')
       })
 
       it('should set the element controlled by the summary using aria-controls', async () => {
-        expect(summary).toHaveAttribute('aria-controls', content.id)
-        expect(content).toHaveAttribute('id')
+        expect($summary).toHaveAttribute('aria-controls', $content.id)
+        expect($content).toHaveAttribute('id')
       })
 
       it('should set the expanded state of the summary to false using aria-expanded', async () => {
-        expect(summary).toHaveAttribute('aria-expanded', 'false')
-        expect(content).toHaveAttribute('aria-hidden', 'true')
+        expect($summary).toHaveAttribute('aria-expanded', 'false')
+        expect($content).toHaveAttribute('aria-hidden', 'true')
       })
     })
 
@@ -140,20 +140,20 @@ describe('Details', () => {
       })
 
       it('should be visible when summary is clicked', () => {
-        summary.click()
+        $summary.click()
 
         // Expanded content visible
-        expect(summary).toHaveAttribute('aria-expanded', 'true')
-        expect(content).toHaveAttribute('aria-hidden', 'false')
+        expect($summary).toHaveAttribute('aria-expanded', 'true')
+        expect($content).toHaveAttribute('aria-hidden', 'false')
       })
 
       it('should be hidden when summary is clicked (again)', () => {
-        summary.click()
-        summary.click()
+        $summary.click()
+        $summary.click()
 
         // Expanded content hidden
-        expect(summary).toHaveAttribute('aria-expanded', 'false')
-        expect(content).toHaveAttribute('aria-hidden', 'true')
+        expect($summary).toHaveAttribute('aria-expanded', 'false')
+        expect($content).toHaveAttribute('aria-hidden', 'true')
       })
     })
   })
