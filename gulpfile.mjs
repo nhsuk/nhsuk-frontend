@@ -1,4 +1,5 @@
 import browserSync from 'browser-sync'
+import { deleteAsync } from 'del'
 import gulp from 'gulp'
 
 import {
@@ -9,7 +10,6 @@ import {
   copyBinaryAssets,
   serve
 } from './shared/tasks/app.mjs'
-import { clean } from './shared/tasks/clean.mjs'
 import {
   assets,
   cssFolder,
@@ -23,12 +23,12 @@ import { compileCSS, minifyCSS } from './shared/tasks/styles.mjs'
  * Development tasks
  */
 
-gulp.task('clean', async () => {
-  return clean(['dist/**/*'])
+gulp.task('clean', () => {
+  return deleteAsync(['dist/**/*'])
 })
 
-gulp.task('clean:zip', async () => {
-  return clean(['dist/{assets,css,js}', 'dist/*.zip'])
+gulp.task('clean:zip', () => {
+  return deleteAsync(['dist/{assets,css,js}', 'dist/*.zip'])
 })
 
 gulp.task('style', gulp.series([compileCSS, minifyCSS]))

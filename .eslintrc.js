@@ -38,7 +38,9 @@ module.exports = {
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 'latest'
+        ecmaVersion: 'latest',
+        projectService: true,
+        tsconfigRootDir: __dirname
       },
       plugins: [
         '@typescript-eslint',
@@ -181,6 +183,7 @@ module.exports = {
     {
       // Configure ESLint in Markdown code blocks
       files: ['**/*.md/*.{cjs,js,mjs}'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
       env: {
         browser: true
       },

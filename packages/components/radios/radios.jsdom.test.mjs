@@ -17,10 +17,19 @@ describe('Radios module', () => {
             <input class="nhsuk-radios__input" id="input-1" type="radio" aria-controls="conditional-1" aria-expanded="false" />
             <div class="nhsuk-radios__conditional--hidden" id="conditional-1">Test</div>
             </div>`
-      const input = document.querySelector('#input-1')
-      const conditional = document.querySelector('#conditional-1')
+
+      const input = /** @type {HTMLInputElement} */ (
+        document.querySelector('#input-1')
+      )
+
+      const conditional = /** @type {HTMLInputElement} */ (
+        document.querySelector('#conditional-1')
+      )
+
       Radios()
+
       input.click()
+
       expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'true')
     })
@@ -33,14 +42,28 @@ describe('Radios module', () => {
             <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-1">Test</div>
             <input class="nhsuk-radios__input" id="input-2" name="test" type="radio" aria-expanded="false" />
             </div>`
-      const input = document.querySelector('#input-1')
-      const conditional = document.querySelector('#conditional-1')
-      const otherInput = document.querySelector('#input-2')
+
+      const input = /** @type {HTMLInputElement} */ (
+        document.querySelector('#input-1')
+      )
+
+      const conditional = /** @type {HTMLInputElement} */ (
+        document.querySelector('#conditional-1')
+      )
+
+      const otherInput = /** @type {HTMLInputElement} */ (
+        document.querySelector('#input-2')
+      )
+
       Radios()
+
       input.click()
+
       expect(conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'true')
+
       otherInput.click()
+
       expect(conditional).toHaveClass('nhsuk-radios__conditional--hidden')
       expect(input).toHaveAttribute('aria-expanded', 'false')
     })
