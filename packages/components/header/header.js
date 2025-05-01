@@ -4,25 +4,24 @@
  */
 
 class Header {
-  constructor() {
-    const $navigation = document.querySelector('.nhsuk-navigation')
-    if (!$navigation) {
-      return
+  constructor($module) {
+    if (!$module) {
+      return this
     }
 
-    this.navigation = $navigation
+    this.$module = $module
 
-    this.navigationList = this.navigation.querySelector(
+    this.navigationList = this.$module.querySelector(
       '.nhsuk-header__navigation-list'
     )
-    this.navigationItems = this.navigation.querySelectorAll(
+    this.navigationItems = this.$module.querySelectorAll(
       '.nhsuk-header__navigation-item'
     )
 
-    this.mobileMenuToggleButton = document.querySelector(
+    this.mobileMenuToggleButton = this.$module.querySelector(
       '.nhsuk-header__menu-toggle'
     )
-    this.mobileMenuContainer = document.querySelector(
+    this.mobileMenuContainer = this.$module.querySelector(
       '.nhsuk-mobile-menu-container'
     )
 
@@ -176,7 +175,7 @@ class Header {
 
     this.menuIsOpen = false
     this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
-    this.navigation.style.marginBottom = 0
+    this.$module.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
 
     // Remove escape key listener to close menu
@@ -215,7 +214,7 @@ class Header {
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
     const marginBody = this.mobileMenu.offsetHeight
-    this.navigation.style.marginBottom = `${marginBody}px`
+    this.$module.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 
     // Add escape key listener to close menu
@@ -274,5 +273,6 @@ class Header {
 }
 
 module.exports = () => {
-  new Header()
+  const $module = document.querySelector('.nhsuk-navigation')
+  new Header($module)
 }
