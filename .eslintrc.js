@@ -150,7 +150,11 @@ module.exports = {
     },
     {
       // Configure ESLint in test files
-      files: ['**/*.test.{cjs,js,mjs}', 'jest.config.*', 'jest.setup.*'],
+      files: [
+        '**/*.test.{cjs,js,mjs}',
+        'jest?(.*).config.*',
+        'jest?(.*).setup.*'
+      ],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
         browser: true,

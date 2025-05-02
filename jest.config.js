@@ -10,6 +10,11 @@ const { headless = true } = jestPuppeteerConfig.launch
  */
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
+  coveragePathIgnorePatterns: [
+    '.eslintrc.js',
+    '.test.(js|mjs)',
+    'polyfills.js'
+  ],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
@@ -25,6 +30,7 @@ const config = {
  */
 module.exports = {
   collectCoverageFrom: ['packages/**/*.{js,mjs}'],
+  coverageProvider: 'v8',
 
   // Reduce CPU usage during project test runs
   maxWorkers: headless
@@ -34,15 +40,25 @@ module.exports = {
   projects: [
     {
       ...config,
-      displayName: 'JSDom',
-      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+      displayName: 'JavaScript unit tests',
+      testEnvironment: 'node',
+      testMatch: ['<rootDir>/**/*.unit.test.{js,mjs}']
+    },
+    {
+      ...config,
+      displayName: 'JavaScript behaviour tests',
+      setupFilesAfterEnv: [
+        '<rootDir>/shared/helpers/jest/environment/jest.jsdom.setup.js'
+      ],
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       ...config,
-      displayName: 'Pupppeteer',
-      setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+      displayName: 'JavaScript component tests',
+      setupFilesAfterEnv: [
+        '<rootDir>/shared/helpers/jest/environment/jest.puppeteer.setup.js'
+      ],
       testEnvironment: 'jest-environment-puppeteer',
       testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],
 

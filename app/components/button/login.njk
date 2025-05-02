@@ -1,0 +1,21 @@
+{% set title = 'Login button' %}
+{% from 'components/button/macro.njk' import button %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ button({
+            "text": "Continue",
+            "classes": "nhsuk-button--login"
+          }) }}
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

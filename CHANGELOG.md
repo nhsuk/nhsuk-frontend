@@ -4,6 +4,12 @@
 
 :new: **New features**
 
+#### Blue login button
+
+We've added styling for a blue button, to be used for login buttons, for example NHS login buttons.
+
+This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
+
 #### Add Nunjucks macro option configs
 
 We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
