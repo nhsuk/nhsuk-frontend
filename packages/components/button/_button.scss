@@ -212,10 +212,6 @@ $button-shadow-size: 4px;
     color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
-
-  &.nhsuk-button--disabled {
-    background-color: $nhsuk-login-button-color;
-  }
 }
 
 /// Button disabled states
