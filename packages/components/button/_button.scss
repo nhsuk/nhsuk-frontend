@@ -20,6 +20,10 @@ $button-padding-top-bottom-desktop: 12px;
 $button-padding-top-bottom-mobile: nhsuk-spacing(2);
 $button-padding-left-right: nhsuk-spacing(3);
 
+// Outlined buttons have slightly different sizings, as they have a
+// visible border, so the box-shadow needs to be reduced to compensate
+$button-outlined-shadow-size: 2px;
+
 .nhsuk-button {
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
@@ -118,7 +122,7 @@ $button-padding-left-right: nhsuk-spacing(3);
 .nhsuk-button--secondary,
 .nhsuk-button--secondary-white-background {
   border-color: $nhsuk-secondary-button-border-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
+  box-shadow: 0 $button-outlined-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
 
   color: $nhsuk-secondary-button-text-color;
 
@@ -132,6 +136,8 @@ $button-padding-left-right: nhsuk-spacing(3);
     background: $nhsuk-focus-color;
     border-color: $nhsuk-focus-color;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    padding-bottom: $button-padding-top-bottom-desktop - 2;
+    margin-bottom: 38px; // 2px more to compensate for reduced padding
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
 
@@ -152,6 +158,8 @@ $button-padding-left-right: nhsuk-spacing(3);
   &:active:focus {
     background: $nhsuk-secondary-button-active-color;
     border-color: $nhsuk-secondary-button-border-color;
+    padding-bottom: $button-padding-top-bottom-desktop - 2;
+    margin-bottom: 38px; // 2px more to compensate for reduced padding
     box-shadow: none;
     color: $nhsuk-secondary-button-text-color;
   }
