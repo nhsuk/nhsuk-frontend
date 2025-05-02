@@ -117,21 +117,15 @@ $button-padding-left-right: nhsuk-spacing(3);
 
 .nhsuk-button--secondary,
 .nhsuk-button--secondary-white-background {
-  border: $button-border-width solid $nhsuk-secondary-button-border-color;
-  box-shadow: 0 calc($button-shadow-size - $button-border-width) 0 $nhsuk-secondary-button-shadow-color; // [4]
+  /* Secondary button uses a blue border on the top, left and right,
+     but not on the bottom as there’s box-shadow instead */
+  border-left-color: $nhsuk-secondary-button-border-color;
+  border-top-color: $nhsuk-secondary-button-border-color;
+  border-right-color: $nhsuk-secondary-button-border-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
+
   color: $nhsuk-secondary-button-text-color;
-  padding-bottom: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4]
-  padding-top: $button-padding-top-bottom-desktop + calc($button-border-width / 2); // [4]
 
-  @include mq($until: tablet) {
-    padding-bottom: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4]
-    padding-top: $button-padding-top-bottom-mobile + calc($button-border-width / 2); // [4]
-  }
-
-  // [3]
-  &::before {
-    bottom: -$button-shadow-size;
-  }
 
   &:hover {
     background-color: $nhsuk-secondary-button-hover-color;
@@ -141,17 +135,9 @@ $button-padding-left-right: nhsuk-spacing(3);
   &:focus {
     background: $nhsuk-focus-color;
     border-color: $nhsuk-focus-color;
-    border-bottom: 0;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
-    padding-bottom: $button-padding-top-bottom-desktop + 2px; // [4]
-    padding-top: $button-padding-top-bottom-desktop + 2px; // [4]
-
-    @include mq($until: tablet) {
-      padding-bottom: calc($button-padding-top-bottom-mobile + ($button-border-width)); // [4]
-      padding-top: calc($button-padding-top-bottom-mobile + ($button-border-width)); // [4]
-    }
 
     &:link {
       color: $nhsuk-focus-text-color;
@@ -166,17 +152,12 @@ $button-padding-left-right: nhsuk-spacing(3);
     }
   }
 
-  &:active {
+  &:active,
+  &:active:focus {
     background: $nhsuk-secondary-button-active-color;
     border-color: $nhsuk-secondary-button-border-color;
-    border-bottom: $button-border-width solid;
     box-shadow: none;
     color: $nhsuk-secondary-button-text-color;
-    top: calc($button-shadow-size / 2);
-  }
-
-  &:active::before {
-    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
   }
 
   &:link,
