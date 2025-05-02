@@ -1,6 +1,6 @@
-{% set title = 'Components' %}
-
 {% extends 'page.njk' %}
+
+{% set title = 'Components' %}
 
 {% block header %}
   {{ skipLink({
@@ -926,6 +926,15 @@
         {{ button({
           "text": "Yes, delete this vaccine",
           "classes": "nhsuk-button--warning nhsuk-u-margin-bottom-0"
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-form-group">
+
+        {{ button({
+          "text": "Continue",
+          "classes": "nhsuk-button--login nhsuk-u-margin-bottom-0"
         }) }}
 
       </div>

@@ -92,7 +92,7 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/index.html`
     },
     {
-      label: 'Back link as button',
+      label: 'Back link as a button',
       url: `${BASE_URL}/components/back-link/button.html`
     },
     {
@@ -118,17 +118,17 @@ module.exports = {
       url: `${BASE_URL}/components/button/disabled.html`
     },
     {
-      label: 'Button as link',
+      label: 'Button as a link',
       url: `${BASE_URL}/components/button/link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button as link click',
+      label: 'Button as a link click',
       url: `${BASE_URL}/components/button/link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button as link hover',
+      label: 'Button as a link hover',
       url: `${BASE_URL}/components/button/link.html`
     },
     {
@@ -150,17 +150,17 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-disabled.html`
     },
     {
-      label: 'Button secondary as link',
+      label: 'Button secondary as a link',
       url: `${BASE_URL}/components/button/secondary-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button secondary as link click',
+      label: 'Button secondary as a link click',
       url: `${BASE_URL}/components/button/secondary-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary as link hover',
+      label: 'Button secondary as a link hover',
       url: `${BASE_URL}/components/button/secondary-link.html`
     },
     {
@@ -182,17 +182,17 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-white-disabled.html`
     },
     {
-      label: 'Button secondary as link, white background',
+      label: 'Button secondary as a link, white background',
       url: `${BASE_URL}/components/button/secondary-white-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button secondary as link click, white background',
+      label: 'Button secondary as a link click, white background',
       url: `${BASE_URL}/components/button/secondary-white-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary as link hover, white background',
+      label: 'Button secondary as a link hover, white background',
       url: `${BASE_URL}/components/button/secondary-white-link.html`
     },
     {
@@ -214,17 +214,17 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse-disabled.html`
     },
     {
-      label: 'Button reverse as link',
+      label: 'Button reverse as a link',
       url: `${BASE_URL}/components/button/reverse-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button reverse as link click',
+      label: 'Button reverse as a link click',
       url: `${BASE_URL}/components/button/reverse-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button reverse as link hover',
+      label: 'Button reverse as a link hover',
       url: `${BASE_URL}/components/button/reverse-link.html`
     },
     {
@@ -246,21 +246,53 @@ module.exports = {
       url: `${BASE_URL}/components/button/warning-disabled.html`
     },
     {
-      label: 'Button warning as link',
+      label: 'Button warning as a link',
       url: `${BASE_URL}/components/button/warning-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button warning as link click',
+      label: 'Button warning as a link click',
       url: `${BASE_URL}/components/button/warning-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button warning as link hover',
+      label: 'Button warning as a link hover',
       url: `${BASE_URL}/components/button/warning-link.html`
     },
     {
-      label: 'Card, Basic',
+      label: 'Button login',
+      url: `${BASE_URL}/components/button/login.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button login click',
+      url: `${BASE_URL}/components/button/login.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button login hover',
+      url: `${BASE_URL}/components/button/login.html`
+    },
+    {
+      label: 'Button login disabled',
+      url: `${BASE_URL}/components/button/login-disabled.html`
+    },
+    {
+      label: 'Button login as a link',
+      url: `${BASE_URL}/components/button/login-link.html`
+    },
+    {
+      clickSelector: '.nhsuk-button',
+      label: 'Button login as a link click',
+      url: `${BASE_URL}/components/button/login-link.html`
+    },
+    {
+      hoverSelector: '.nhsuk-button',
+      label: 'Button login as a link hover',
+      url: `${BASE_URL}/components/button/login-link.html`
+    },
+    {
+      label: 'Card, basic',
       url: `${BASE_URL}/components/card/basic-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -269,7 +301,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card, Clickable',
+      label: 'Card, clickable',
       url: `${BASE_URL}/components/card/clickable-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -333,16 +365,16 @@ module.exports = {
       ]
     },
     {
-      label: 'Character Count with max characters',
+      label: 'Character count with max characters',
       url: `${BASE_URL}/components/character-count/index.html`
     },
     {
-      label: 'Character Count with threshold',
+      label: 'Character count with threshold',
       url: `${BASE_URL}/components/character-count/with-threshold.html`,
       viewports: [viewports.get('tablet')]
     },
     {
-      label: 'Character Count with max words',
+      label: 'Character count with max words',
       url: `${BASE_URL}/components/character-count/with-word-count.html`,
       viewports: [viewports.get('tablet')]
     },

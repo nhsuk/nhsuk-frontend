@@ -11,6 +11,8 @@
 /// @group components
 ////
 
+@use "sass:color";
+
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
 // increase the bottom margin to include it (s1).
@@ -232,6 +234,29 @@ $button-outlined-shadow-size: 2px;
 
   &:active {
     background: $nhsuk-warning-button-active-color;
+    box-shadow: none;
+    color: $nhsuk-button-text-color;
+    top: $button-shadow-size;
+  }
+}
+
+.nhsuk-button--login {
+  background-color: $nhsuk-login-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
+
+  &:hover {
+    background-color: $nhsuk-login-button-hover-color;
+  }
+
+  &:focus {
+    background: $nhsuk-focus-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+
+  &:active {
+    background: $nhsuk-login-button-active-color;
     box-shadow: none;
     color: $nhsuk-button-text-color;
     top: $button-shadow-size;

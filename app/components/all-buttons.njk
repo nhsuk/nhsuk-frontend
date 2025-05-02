@@ -1,16 +1,18 @@
-{% set title = 'Buttons' %}
-
 {% extends 'page.njk' %}
+
+{% set title = 'Buttons' %}
 
 {% block main %}
   <main id="maincontent">
     <section class="nhsuk-main-wrapper">
       <div class="nhsuk-width-container">
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-two-thirds">
             <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-0">Buttons</h1>
           </div>
         </div>
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
@@ -21,12 +23,21 @@
                 "classes": "nhsuk-u-margin-bottom-0"
               }) }}
             </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Yes, delete this vaccine",
                 "classes": "nhsuk-button--warning nhsuk-u-margin-bottom-0"
               }) }}
             </div>
+
+            <div class="nhsuk-form-group">
+              {{ button({
+                "text": "Continue",
+                "classes": "nhsuk-button--login nhsuk-u-margin-bottom-0"
+              }) }}
+            </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Find my location",
@@ -34,6 +45,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
@@ -44,6 +56,7 @@
                 "href": "#"
               }) }}
             </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Yes, delete this vaccine",
@@ -51,6 +64,15 @@
                 "href": "#"
               }) }}
             </div>
+
+            <div class="nhsuk-form-group">
+              {{ button({
+                "text": "Continue",
+                "classes": "nhsuk-button--login nhsuk-u-margin-bottom-0",
+                "href": "#"
+              }) }}
+            </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Find my location",
@@ -59,6 +81,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
@@ -69,6 +92,7 @@
                 "disabled": true
               }) }}
             </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Yes, delete this vaccine",
@@ -76,6 +100,15 @@
                 "disabled": true
               }) }}
             </div>
+
+            <div class="nhsuk-form-group">
+              {{ button({
+                "text": "Continue",
+                "classes": "nhsuk-button--login nhsuk-u-margin-bottom-0",
+                "disabled": true
+              }) }}
+            </div>
+
             <div class="nhsuk-form-group">
               {{ button({
                 "text": "Find my location",
@@ -90,11 +123,13 @@
 
     <section class="nhsuk-main-wrapper" style="background-color: #d8dde0;">
       <div class="nhsuk-width-container">
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-two-thirds">
             <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">White background</h2>
           </div>
         </div>
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
@@ -106,6 +141,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
@@ -117,6 +153,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
@@ -134,11 +171,13 @@
 
     <section class="nhsuk-main-wrapper" style="background-color: #005eb8; color: #fff;">
       <div class="nhsuk-width-container">
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-two-thirds">
             <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">Reversed</h2>
           </div>
         </div>
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
@@ -150,6 +189,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
@@ -161,6 +201,7 @@
               }) }}
             </div>
           </div>
+
           <div class="nhsuk-grid-column-one-third">
             <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
