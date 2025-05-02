@@ -15,13 +15,13 @@
     "name": "homeHref",
     "type": "string",
     "required": "No",
-    "description": "The `href` of the link for the logo and mobile home link in the navigation links. Defaults to \"/\""
+    "description": "The `href` of the link for the logo and mobile home link in the navigation links. Defaults to `\"/\"`."
   },
   {
     "name": "ariaLabel",
     "type": "string",
     "required": "No",
-    "description": "Aria label for the logo href. Defaults to \"NHS homepage\"."
+    "description": "Aria label for the logo href. Defaults to `\"NHS homepage\"`."
   },
   {
     "name": "organisation",
@@ -143,7 +143,7 @@
     "name": "searchInputName",
     "type": "string",
     "required": "No",
-    "description": "The name for the search field. Defaults to \"q\""
+    "description": "The name for the search field. Defaults to `\"q\"`."
   },
   {
     "name": "baseUrl",
