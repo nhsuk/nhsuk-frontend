@@ -100,7 +100,7 @@
     "puppeteer": "^24.7.2",
     "sass-embedded": "^1.79.6",
     "strip-ansi": "^7.1.0",
-    "stylelint": "^16.18.0",
+    "stylelint": "^16.19.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^7.0.0",
     "wait-on": "^8.0.3",
