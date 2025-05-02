@@ -1,4 +1,4 @@
-{% set title = 'Button reverse' %}
+{% set title = 'Button reverse as a link' %}
 {% from 'components/button/macro.njk' import button %}
 {% extends 'example.njk' %}
 
@@ -12,7 +12,8 @@
         <div class="nhsuk-grid-column-two-thirds">
           {{ button({
             "text": "Log out",
-            "classes": "nhsuk-button--reverse"
+            "classes": "nhsuk-button--reverse",
+            "href": "#"
           }) }}
         </div>
       </div>
