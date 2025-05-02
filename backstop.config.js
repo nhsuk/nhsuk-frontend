@@ -292,7 +292,7 @@ module.exports = {
       url: `${BASE_URL}/components/button/login-link.html`
     },
     {
-      label: 'Card, Basic',
+      label: 'Card, basic',
       url: `${BASE_URL}/components/card/basic-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -301,7 +301,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Card, Clickable',
+      label: 'Card, clickable',
       url: `${BASE_URL}/components/card/clickable-card.html`,
       viewports: [
         viewports.get('mobile'),
@@ -365,16 +365,16 @@ module.exports = {
       ]
     },
     {
-      label: 'Character Count with max characters',
+      label: 'Character count with max characters',
       url: `${BASE_URL}/components/character-count/index.html`
     },
     {
-      label: 'Character Count with threshold',
+      label: 'Character count with threshold',
       url: `${BASE_URL}/components/character-count/with-threshold.html`,
       viewports: [viewports.get('tablet')]
     },
     {
-      label: 'Character Count with max words',
+      label: 'Character count with max words',
       url: `${BASE_URL}/components/character-count/with-word-count.html`,
       viewports: [viewports.get('tablet')]
     },
