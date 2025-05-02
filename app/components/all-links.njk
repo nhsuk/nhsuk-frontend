@@ -1,0 +1,80 @@
+{% set title = 'Links' %}
+
+{% extends 'page.njk' %}
+
+{% block main %}
+  <main id="maincontent">
+    <section class="nhsuk-main-wrapper">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1 class="nhsuk-heading-xl">Links</h1>
+
+            <h2 class="nhsuk-heading-l">Page background</h2>
+          </div>
+        </div>
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-one-third">
+            <p><a href="#" class="nhsuk-link">Link</a></p>
+
+            {{ actionLink({
+              "text": "Action link",
+              "href": "#"
+            }) }}
+
+            {{ backLink({
+              href: "#",
+              text: "Back"
+            }) }}
+          </div>
+          <div class="nhsuk-grid-column-one-third">
+
+          </div>
+          <div class="nhsuk-grid-column-one-third">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nhsuk-main-wrapper" style="background-color: #fff; color: #000;">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h2 class="nhsuk-heading-l">White background</h2>
+          </div>
+        </div>
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-one-third">
+            <p><a href="#" class="nhsuk-link">Link</a></p>
+
+            {{ actionLink({
+              "text": "Action link",
+              "href": "#"
+            }) }}
+
+            {{ backLink({
+              href: "#",
+              text: "Back"
+            }) }}
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="nhsuk-main-wrapper" style="background-color: #d8dde0;">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h2 class="nhsuk-heading-l">Grey background (used in footer)</h2>
+          </div>
+        </div>
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-one-third">
+            <p><a href="#" class="nhsuk-link">Link</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
