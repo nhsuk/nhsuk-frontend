@@ -6,13 +6,6 @@ const { toggleAttribute } = require('../../common')
  */
 
 module.exports = ({ scope = document } = {}) => {
-  // Does the browser support details component
-  const nativeSupport =
-    typeof document.createElement('details').open === 'boolean'
-  if (nativeSupport) {
-    return
-  }
-
   // Nodelist of all details elements
   const allDetails = scope.querySelectorAll('details')
 
@@ -77,10 +70,13 @@ module.exports = ({ scope = document } = {}) => {
     })
   }
 
-  // Initialise details for any new details element
-  if (allDetails.length) {
-    allDetails.forEach((element, index) => {
-      if (!element.hasAttribute('nhsuk-polyfilled')) initDetails(element, index)
-    })
-  }
+  allDetails.forEach((element, index) => {
+    // If there is native details support, we want to avoid running code to polyfill native behaviour.
+    const hasNativeDetails =
+      'HTMLDetailsElement' in window && element instanceof HTMLDetailsElement
+
+    if (!hasNativeDetails && !element.hasAttribute('nhsuk-polyfilled')) {
+      initDetails(element, index)
+    }
+  })
 }
