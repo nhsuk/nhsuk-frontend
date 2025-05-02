@@ -125,6 +125,14 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse.html`
     },
     {
+      label: 'Button warning',
+      url: `${BASE_URL}/components/button/warning.html`
+    },
+    {
+      label: 'Button login',
+      url: `${BASE_URL}/components/button/login.html`
+    },
+    {
       label: 'Card, Basic',
       url: `${BASE_URL}/components/card/basic-card.html`,
       viewports: [
