@@ -1,12 +1,14 @@
-import { toggleConditionalInput } from '../../common'
+const { toggleConditionalInput } = require('../../common')
 
 /**
  * Conditionally show content when a checkbox button is checked
- * Test at http://0.0.0.0:3000/components/checkboxes/conditional.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
 const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
   const allInputsInForm = input.form.querySelectorAll('input[type="checkbox"]')
-  allInputsInForm.forEach((item) => toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden'))
+  allInputsInForm.forEach((item) =>
+    toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden')
+  )
 }
 
 /**
@@ -54,17 +56,23 @@ const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
   syncAllConditionalReveals(input)
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Checkbox input DOMElements inside a conditional form group
-  const checkboxInputs = scope.querySelectorAll('.nhsuk-checkboxes .nhsuk-checkboxes__input')
+  const checkboxInputs = scope.querySelectorAll(
+    '.nhsuk-checkboxes .nhsuk-checkboxes__input'
+  )
 
   /**
    * Toggle classes and attributes
-   * @param {Object} event click event object
+   *
+   * @param {MouseEvent} event - Click event
    */
   const handleClick = (event) => {
     // Toggle conditional content based on checked state
-    toggleConditionalInput(event.target, 'nhsuk-checkboxes__conditional--hidden')
+    toggleConditionalInput(
+      event.target,
+      'nhsuk-checkboxes__conditional--hidden'
+    )
 
     if (!event.target.checked) {
       return
@@ -83,7 +91,9 @@ export default ({ scope = document } = {}) => {
   // event is fired, so we need to sync after the pageshow event in browsers
   // that support it.
   if ('onpageshow' in window) {
-    window.addEventListener('pageshow', () => checkboxInputs.forEach((input) => syncAllConditionalReveals(input)))
+    window.addEventListener('pageshow', () =>
+      checkboxInputs.forEach((input) => syncAllConditionalReveals(input))
+    )
   } else {
     window.addEventListener('DOMContentLoaded', () =>
       checkboxInputs.forEach((input) => syncAllConditionalReveals(input))

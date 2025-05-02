@@ -1,15 +1,13 @@
-/* ==========================================================================
-   UTILITIES / #CLEARFIX
-   ========================================================================== */
-
-/**
- * Automatically clear an elements
- * child elements
- *
- * Usage: class="nhsuk-u-clear"
- * See tools/mixins
- */
+////
+/// Clearfix
+///
+/// Automatically clear an elements
+/// child elements
+///
+/// @example html
+///   <div class="nhsuk-u-clear"></div>
+////
 
 .nhsuk-u-clear {
-  @include clearfix();
+  @include clearfix;
 }

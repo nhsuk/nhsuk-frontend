@@ -36,11 +36,5 @@ tests/backstop/html_report/*
 # Compiled files
 dist/
 
-## Duplicated the above for .npmignore
-dist/nhsuk.css
-dist/nhsuk.js
-dist/nhsuk-*.min.css
-dist/nhsuk-*.min.js
-
 # Puppeteer / chrome
 .cache

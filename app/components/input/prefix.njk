@@ -1,29 +1,20 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Input with prefix' %}
 {% from 'components/input/macro.njk' import input %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ input({
-            "label": {
-              "text": "What is the cost in pounds?",
-              "classes": "nhsuk-label--l"
-            },
-            "id": "input-with-prefix",
-            "name": "test-name-4",
-            "prefix": "£",
-            "classes": "nhsuk-input--width-5"
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ input({
+        "label": {
+          "text": "What is the cost in pounds?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-prefix",
+        "name": "test-name-4",
+        "prefix": "£",
+        "classes": "nhsuk-input--width-5"
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

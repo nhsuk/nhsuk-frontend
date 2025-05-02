@@ -1,9 +1,10 @@
-/* ==========================================================================
-   #TAG
-   ========================================================================== */
+////
+/// Footer component
+///
+/// @group components
+////
 
 .nhsuk-tag {
-  @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
   background-color: shade($color_nhsuk-blue, 10%);
   border: 1px solid shade($color_nhsuk-blue, 10%);
   color: $color_nhsuk-white;
@@ -15,10 +16,11 @@
   padding-right: nhsuk-spacing(2);
   padding-top: nhsuk-spacing(1);
   text-decoration: none;
+
+  @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
 }
 
-/* Colour variants
-  ========================================================================== */
+/// Colour variants
 
 .nhsuk-tag--white {
   background-color: $color_nhsuk-white;
@@ -80,8 +82,7 @@
   color: shade($color_nhsuk-yellow, 70%);
 }
 
-/* Remove tag border
-  ========================================================================== */
+/// Remove tag border
 
 .nhsuk-tag--no-border {
   border: 0;

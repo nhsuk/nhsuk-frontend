@@ -12,7 +12,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
 
-   ```
+   ```sh
    npm install nunjucks --save
    ```
 
@@ -20,7 +20,7 @@ To use NHS.UK frontend in your projects with npm you must:
 
 Install the NHS.UK frontend package into your project:
 
-```
+```sh
 npm install nhsuk-frontend --save
 ```
 
@@ -38,18 +38,18 @@ To build the stylesheet you will need a pipeline set up to compile [Sass](https:
 
 You need to import the NHS.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
-```SCSS
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+```scss
+@import "node_modules/nhsuk-frontend";
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.
 
-```SCSS
+```scss
 // Core (required)
-@import 'node_modules/nhsuk-frontend/packages/core/all';
+@import "node_modules/nhsuk-frontend/packages/core/all";
 
 // Individual component (optional)
-@import 'node_modules/nhsuk-frontend/packages/components/action-link/action-link';
+@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
 ```
 
 ## Importing JavaScript
@@ -60,7 +60,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
-```
+```js
 document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 ```
 
@@ -82,30 +82,32 @@ You might wish to copy the file into your project or reference it straight from 
   </head>
 ```
 
-### Option 2: Import JavaScript using modules
+### Option 2: Import JavaScript using a bundler
 
-If you're using a transpiler or bundler such as [Babel](https://babeljs.io/) or [Webpack](https://webpack.js.org/), you can use the ES6 import syntax to import components via modules into your main Javascript file.
+We encourage the use of ECMAScript (ES) modules, but you should check your bundler does not unnecessarily downgrade modern JavaScript for unsupported browsers.
 
-```javascript
-// Components
-import Checkboxes from './components/checkboxes/checkboxes';
-import Details from './components/details/details';
-import ErrorSummary from './components/error-summary/error-summary';
-import Header from './components/header/header';
-import Radios from './components/radios/radios';
-import SkipLink from './components/skip-link/skip-link';
+If you decide to import using a bundler like [Rollup](https://rollupjs.org/) or [webpack](https://webpack.js.org/), import and run the `initAll` function to initialise NHS.UK frontend:
+
+```js
+import { initAll } from 'nhsuk-frontend'
+initAll()
+```
+
+#### Initialise individual components
+
+Rather than using `initAll`, you can initialise individual components used by your service. For example:
+
+```js
+import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js';
+import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
 
 // Polyfills
-import '../node_modules/nhsuk-frontend/packages/polyfills';
+import 'nhsuk-frontend/packages/polyfills.js';
 
-// Initialize components
+// Initialise components
 document.addEventListener('DOMContentLoaded', () => {
-  Checkboxes();
-  Details();
-  ErrorSummary();
-  Header();
-  Radios();
-  SkipLink();
+  initRadios();
+  initSkipLink();
 });
 ```
 
@@ -128,4 +130,4 @@ If you want to import assets such as the NHS logo, favicons and SVG icons, you m
 
 ## Thanks to the Government Digital Service (GDS)
 
-This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md) with a few minor adaptations.
+This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/v2.13.0/docs/installation/installing-with-npm.md) with a few minor adaptations.

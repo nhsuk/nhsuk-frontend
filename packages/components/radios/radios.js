@@ -1,19 +1,23 @@
-import { toggleConditionalInput } from '../../common'
+const { toggleConditionalInput } = require('../../common')
 
 /**
  * Conditionally show content when a radio button is checked
- * Test at http://0.0.0.0:3000/components/radios/conditional.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Radio input HTMLElements inside a conditional form group
-  const radioInputs = scope.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__input')
+  const radioInputs = scope.querySelectorAll(
+    '.nhsuk-radios--conditional .nhsuk-radios__input'
+  )
 
   /**
    * Update all conditional reveals to match checked state
    */
   const syncAllConditionalReveals = () => {
-    radioInputs.forEach((input) => toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden'))
+    radioInputs.forEach((input) =>
+      toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
+    )
   }
 
   // When the page is restored after navigating 'back' in some browsers the

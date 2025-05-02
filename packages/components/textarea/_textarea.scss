@@ -1,10 +1,10 @@
-/* ==========================================================================
-   COMPONENTS/ #TEXTAREA
-   ========================================================================== */
+////
+/// Textarea component
+///
+/// @group components
+////
 
 .nhsuk-textarea {
-  @include nhsuk-font(19);
-
   -webkit-appearance: none;
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   border-radius: 0;
@@ -14,6 +14,8 @@
   padding: nhsuk-spacing(1);
   resize: vertical;
   width: 100%;
+
+  @include nhsuk-font(19);
 
   &:focus {
     @include nhsuk-focused-input;

@@ -1,8 +1,7 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Checkboxes with conditional content' %}
 {% from 'components/checkboxes/macro.njk' import checkboxes %}
 {% from 'components/input/macro.njk' import input %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
 {% set emailHtml %}
   {{ input({
@@ -37,56 +36,48 @@
   }) }}
 {% endset -%}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <form>
-            {{ checkboxes({
-              "idPrefix": "contact",
-              "name": "contact",
-              "fieldset": {
-                "legend": {
-                  "text": "How would you prefer to be contacted?",
-                  "classes": "nhsuk-fieldset__legend--l",
-                  "isPageHeading": "true"
-                }
-              },
-              "hint": {
-                "text": "Select all options that are relevant to you."
-              },
-              "items": [
-                {
-                  "value": "email",
-                  "text": "Email",
-                  "conditional": {
-                    "html": emailHtml
-                  }
-                },
-                {
-                  "value": "phone",
-                  "text": "Phone",
-                  "conditional": {
-                    "html": phoneHtml
-                  }
-                },
-                {
-                  "value": "text",
-                  "text": "Text message",
-                  "conditional": {
-                    "html": mobileHtml
-                  }
-                }
-              ]
-            }) }}
-          </form>
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form>
+        {{ checkboxes({
+          "idPrefix": "contact",
+          "name": "contact",
+          "fieldset": {
+            "legend": {
+              "text": "How would you prefer to be contacted?",
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": "true"
+            }
+          },
+          "hint": {
+            "text": "Select all options that are relevant to you."
+          },
+          "items": [
+            {
+              "value": "email",
+              "text": "Email",
+              "conditional": {
+                "html": emailHtml
+              }
+            },
+            {
+              "value": "phone",
+              "text": "Phone",
+              "conditional": {
+                "html": phoneHtml
+              }
+            },
+            {
+              "value": "text",
+              "text": "Text message",
+              "conditional": {
+                "html": mobileHtml
+              }
+            }
+          ]
+        }) }}
+      </form>
+    </div>
   </div>
-
 {% endblock %}

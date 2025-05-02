@@ -1,29 +1,20 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Input with suffix' %}
 {% from 'components/input/macro.njk' import input %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ input({
-            "label": {
-              "text": "What is the weight in kilograms?",
-              "classes": "nhsuk-label--l"
-            },
-            "id": "input-with-suffix",
-            "name": "test-name-5",
-            "suffix": "kg",
-            "classes": "nhsuk-input--width-5"
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ input({
+        "label": {
+          "text": "What is the weight in kilograms?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-suffix",
+        "name": "test-name-5",
+        "suffix": "kg",
+        "classes": "nhsuk-input--width-5"
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

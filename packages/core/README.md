@@ -228,7 +228,7 @@ Hide elements visually but keep it in the DOM, useful for screen readers.
 The default `@font-face`, "Frutiger", is loaded from `https://assets.nhs.uk`. The host for the fonts can be
 overridden or disabled entirely.
 
-NHS England has a licence for the Frutiger webfont that the NHS website team can use. All other NHS England teams and other NHS organisations **must** have their own licence with Monotype.
+To use the font you must have a licence. NHS England has a licence for the Frutiger webfont which all NHS organisations in England can use. [NHS organisations can register here](https://service-manual.nhs.uk/design-system/styles/use-frutiger-font/)
 
 - `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
 - `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
@@ -253,22 +253,22 @@ large-desktop: 990px
 - `$and`: additional custom directives
 
 ```scss
-.responsive {
+.nhsuk-example {
   // Apply styling to mobile and upwards
   @include mq($from: mobile) {
-    color: red;
+    color: $color_nhsuk-red;
   }
   // Apply styling up to devices smaller than tablets (exclude tablets)
   @include mq($until: tablet) {
-    color: blue;
+    color: $color_nhsuk-blue;
   }
   // Same thing, in landscape orientation
   @include mq($until: tablet, $and: '(orientation: landscape)') {
-    color: green;
+    color: $color_nhsuk-green;
   }
   // Apply styling to print media
   @include mq($media-type: print) {
-    color: orange;
+    color: $color_nhsuk-orange;
   }
 }
 ```

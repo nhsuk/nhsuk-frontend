@@ -1,13 +1,13 @@
-/* ==========================================================================
-   COMPONENTS/ #BUTTON
-   ========================================================================== */
-
-/**
- * 1. Ensure that any global link styles are overridden.
- * 2. Fix unwanted button padding in Firefox.
- * 3. Use a pseudo element to expand the click target area to include the
- *    button's shadow as well, in case users try to click it.
- */
+////
+/// Button component
+///
+/// 1. Ensure that any global link styles are overridden.
+/// 2. Fix unwanted button padding in Firefox.
+/// 3. Use a pseudo element to expand the click target area to include the
+///    button's shadow as well, in case users try to click it.
+///
+/// @group components
+////
 
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s1) and
@@ -15,9 +15,6 @@
 $button-shadow-size: 4px;
 
 .nhsuk-button {
-  @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
-
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
@@ -27,7 +24,6 @@ $button-shadow-size: 4px;
   color: $nhsuk-button-text-color;
   cursor: pointer;
   display: inline-block;
-  font-weight: 600;
   margin-top: 0;
   padding: 12px nhsuk-spacing(3); // s2
   position: relative;
@@ -35,11 +31,14 @@ $button-shadow-size: 4px;
   vertical-align: top;
   width: auto;
 
+  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
+
   @include mq($until: tablet) {
     padding: nhsuk-spacing(2) nhsuk-spacing(3); // s2
   }
 
-  /* 2 */
+  // [2]
   &:link,
   &:visited,
   &:active,
@@ -48,7 +47,7 @@ $button-shadow-size: 4px;
     text-decoration: none;
   }
 
-  /* 3 */
+  // [3]
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
@@ -80,7 +79,7 @@ $button-shadow-size: 4px;
     top: $button-shadow-size;
   }
 
-  /* 4 */
+  // [5]
   &::before {
     background: transparent;
     bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
@@ -108,16 +107,14 @@ $button-shadow-size: 4px;
   }
 }
 
-/**
- * Button variations
- */
+/// Button variations
 
 .nhsuk-button--secondary {
   background-color: $nhsuk-secondary-button-color;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-secondary-button-color, 10%);
+    background-color: $nhsuk-secondary-button-hover-color;
   }
 
   &:focus {
@@ -141,7 +138,7 @@ $button-shadow-size: 4px;
   color: $nhsuk-reverse-button-text-color;
 
   &:hover {
-    background-color: darken($nhsuk-reverse-button-color, 5%);
+    background-color: $nhsuk-reverse-button-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -159,7 +156,8 @@ $button-shadow-size: 4px;
     top: $button-shadow-size;
   }
 
-  &:link {
+  &:link,
+  &:visited {
     color: $nhsuk-reverse-button-text-color;
 
     &:active {
@@ -173,7 +171,7 @@ $button-shadow-size: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
 
   &:hover {
-    background-color: darken($nhsuk-warning-button-color, 10%);
+    background-color: $nhsuk-warning-button-hover-color;
   }
 
   &:focus {
@@ -191,9 +189,9 @@ $button-shadow-size: 4px;
   }
 }
 
-/**
- * Button disabled states
- */
+/// Button disabled states
+
+.nhsuk-button--disabled,
 .nhsuk-button:disabled {
   opacity: (0.5);
   pointer-events: none;

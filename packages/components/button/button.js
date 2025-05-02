@@ -1,9 +1,8 @@
 class Button {
-  KEY_SPACE = 32
-
-  DEBOUNCE_TIMEOUT_IN_SECONDS = 1
-
   constructor($module) {
+    this.KEY_SPACE = 32
+    this.DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+
     this.$module = $module
     this.debounceFormSubmitTimer = null
   }
@@ -15,14 +14,17 @@ class Button {
    * will tell a user to press space on a 'button', so this functionality needs to be shimmed
    * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
    *
-   * @param {object} event event
+   * @param {KeyboardEvent} event - Keydown event
    */
   handleKeyDown(event) {
     // get the target element
 
     const { target } = event
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (target.getAttribute('role') === 'button' && event.keyCode === this.KEY_SPACE) {
+    if (
+      target.getAttribute('role') === 'button' &&
+      event.keyCode === this.KEY_SPACE
+    ) {
       event.preventDefault()
       // trigger the target's click event
       target.click()
@@ -62,7 +64,7 @@ class Button {
   }
 }
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
     new Button(el).init()

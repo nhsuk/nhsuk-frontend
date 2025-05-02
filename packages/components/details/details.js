@@ -1,13 +1,14 @@
-import { toggleAttribute } from '../../common'
+const { toggleAttribute } = require('../../common')
 
 /**
  * Ensure details component is cross browser and accessible
- * Test at http://0.0.0.0:3000/components/details/index.html
+ * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
 
-export default ({ scope = document } = {}) => {
+module.exports = ({ scope = document } = {}) => {
   // Does the browser support details component
-  const nativeSupport = typeof document.createElement('details').open === 'boolean'
+  const nativeSupport =
+    typeof document.createElement('details').open === 'boolean'
   if (nativeSupport) {
     return
   }
@@ -17,8 +18,9 @@ export default ({ scope = document } = {}) => {
 
   /**
    * Adds all necessary functionality to a details element
-   * @param {HTMLElement} element details element to initialise
-   * @param {number} index number to be appended to dynamic IDs
+   *
+   * @param {HTMLElement} element - details element to initialise
+   * @param {number} index - number to be appended to dynamic IDs
    */
   const initDetails = (element, index) => {
     // Set details element as polyfilled to prevent duplicate events being added
@@ -32,7 +34,9 @@ export default ({ scope = document } = {}) => {
     if (!content.id) content.setAttribute('id', `nhsuk-details__text${index}`)
 
     // Set summary element
-    const summary = scope.querySelector(`#${element.id} .nhsuk-details__summary`)
+    const summary = scope.querySelector(
+      `#${element.id} .nhsuk-details__summary`
+    )
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')
@@ -52,7 +56,8 @@ export default ({ scope = document } = {}) => {
       toggleAttribute(summary, 'aria-expanded')
       toggleAttribute(content, 'aria-hidden')
 
-      content.style.display = content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
+      content.style.display =
+        content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
       if (element.hasAttribute('open')) {
         element.removeAttribute('open')
       } else {

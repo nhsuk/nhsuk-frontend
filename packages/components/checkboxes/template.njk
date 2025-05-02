@@ -53,9 +53,11 @@
 	  {%- if item.divider %}
     <div class="nhsuk-checkboxes__divider">{{ item.divider }}</div>
     {%- else %}
+    {% set isChecked = item.checked | default((item.value in params.values and item.checked != false) if params.values else false, true) %}
+
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="{{ id }}" name="{{ name }}" type="checkbox" value="{{ item.value }}"
-      {{-" checked" if item.checked }}
+      {{-" checked" if isChecked }}
       {{-" disabled" if item.disabled }}
       {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
       {%- if item.exclusiveGroup %} data-checkbox-exclusive-group="{{ item.exclusiveGroup }}"{% endif -%}
@@ -80,7 +82,7 @@
       {%- endif %}
     </div>
     {% if item.conditional %}
-    <div class="nhsuk-checkboxes__conditional{% if not item.checked %} nhsuk-checkboxes__conditional--hidden{% endif %}" id="{{ conditionalId }}">
+    <div class="nhsuk-checkboxes__conditional{% if not isChecked %} nhsuk-checkboxes__conditional--hidden{% endif %}" id="{{ conditionalId }}">
       {{ item.conditional.html | safe }}
     </div>
     {% endif %}

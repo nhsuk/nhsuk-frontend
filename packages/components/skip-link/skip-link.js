@@ -1,3 +1,5 @@
+const { setFocus } = require('../../common')
+
 /*
  * NHS.UK skip link.
  *
@@ -5,24 +7,38 @@
  * when elected so the next focusable element is not at the jumped to area.
  */
 
-export default () => {
-  // Assign required DOM elements
-  const heading = document.querySelector('h1')
-  const skipLink = document.querySelector('.nhsuk-skip-link')
+module.exports = () => {
+  const $skipLink = document.querySelector('.nhsuk-skip-link')
 
-  const addEvents = () => {
-    // Add tabindex = -1 and apply focus to heading on skip link click
-    skipLink.addEventListener('click', (event) => {
-      event.preventDefault()
-      heading.setAttribute('tabIndex', '-1')
-      heading.focus()
-    })
-    // Remove tabindex from heading on blur
-    heading.addEventListener('blur', (event) => {
-      event.preventDefault()
-      heading.removeAttribute('tabIndex')
-    })
+  // Check for skip link
+  if (!$skipLink || !($skipLink instanceof HTMLAnchorElement)) {
+    return
   }
 
-  if (heading && skipLink) addEvents()
+  const linkedElementId = $skipLink.hash.split('#').pop()
+  const $linkedElement = linkedElementId
+    ? document.getElementById(linkedElementId)
+    : null
+
+  // Check for linked element
+  if (!$linkedElement) {
+    return
+  }
+
+  /**
+   * Focus the linked element on click
+   *
+   * Adds a helper CSS class to hide native focus styles,
+   * but removes it on blur to restore native focus styles
+   */
+  $skipLink.addEventListener('click', () =>
+    setFocus($linkedElement, {
+      onBeforeFocus() {
+        $linkedElement.classList.add('nhsuk-skip-link-focused-element')
+      },
+      onBlur() {
+        $linkedElement.classList.remove('nhsuk-skip-link-focused-element')
+      }
+    })
+  )
 }

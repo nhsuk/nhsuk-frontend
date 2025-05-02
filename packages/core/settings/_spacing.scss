@@ -1,13 +1,12 @@
-// ==========================================================================
-// SETTINGS / #SPACING
-// ==========================================================================
+////
+/// Spacing
+///
+/// @group settings
+////
 
-//
-// Single point spacing variables
-//
-// Original code taken from GDS (Government Digital Service)
-// https://github.com/alphagov/govuk-frontend
-//
+/// Single point spacing variables
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 $nhsuk-spacing-points: (
   0: 0,
@@ -22,23 +21,19 @@ $nhsuk-spacing-points: (
   9: 64px
 ) !default;
 
-// Responsive spacing map
-// ==========================================================================
-
-//
-// These definitions are used to generate responsive spacing that adapts
-// according to the breakpoints (see 'tools/spacing'). These maps should be
-// used wherever possible to standardise responsive spacing.
-//
-// You can define different behaviour on tablet and desktop. The 'null'
-// breakpoint is for mobile.
-//
-// Access responsive spacing with `nhsuk-responsive-margin` or
-// `nhsuk-responsive-padding` mixins.
-//
-// Original code taken from GDS (Government Digital Service)
-// https://github.com/alphagov/govuk-frontend
-//
+/// Responsive spacing map
+///
+/// These definitions are used to generate responsive spacing that adapts
+/// according to the breakpoints (see 'tools/spacing'). These maps should be
+/// used wherever possible to standardise responsive spacing.
+///
+/// You can define different behaviour on tablet and desktop. The 'null'
+/// breakpoint is for mobile.
+///
+/// Access responsive spacing with `nhsuk-responsive-margin` or
+/// `nhsuk-responsive-padding` mixins.
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 $nhsuk-spacing-responsive-scale: (
   0: (

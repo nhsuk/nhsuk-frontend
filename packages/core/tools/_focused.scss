@@ -1,13 +1,13 @@
-// ==========================================================================
-// TOOLS / #FOCUSED
-// ==========================================================================
+////
+/// Focused
+///
+/// @group tools
+////
 
-//
-// Focused text
-//
-// Provides an outline to clearly indicate when the target element is focused.
-// Used for interactive text-based elements.
-//
+/// Focused text
+///
+/// Provides an outline to clearly indicate when the target element is focused.
+/// Used for interactive text-based elements.
 
 @mixin nhsuk-focused-text {
   background-color: $nhsuk-focus-color;
@@ -33,7 +33,7 @@
 @mixin nhsuk-focused-input {
   border: 2px solid $nhsuk-focus-text-color;
   box-shadow: inset 0 0 0 2px;
-  outline: $nhsuk-focus-width solid $nhsuk-focus-color; /* 1 */
+  outline: $nhsuk-focus-width solid $nhsuk-focus-color; // [1]
   outline-offset: 0;
 }
 
@@ -67,7 +67,7 @@
   border: 0;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-color;
   color: $nhsuk-focus-text-color;
-  outline: $nhsuk-focus-width solid transparent; /* 1 */
+  outline: $nhsuk-focus-width solid transparent; // [1]
   outline-offset: $nhsuk-focus-width;
 
   .nhsuk-icon {

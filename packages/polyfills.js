@@ -22,11 +22,14 @@ if (!Array.prototype.includes) {
  * IE polyfill for Element.closest()
  */
 if (!Element.prototype.matches) {
-  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector
+  Element.prototype.matches =
+    Element.prototype.msMatchesSelector ||
+    Element.prototype.webkitMatchesSelector
 }
 
 if (!Element.prototype.closest) {
   Element.prototype.closest = function (s) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     var el = this
 
     do {
@@ -41,12 +44,10 @@ if (!Element.prototype.closest) {
  * IE polyfill for CustomEvent
  */
 if (typeof window.CustomEvent !== 'function') {
-  function CustomEvent(event, params) {
+  window.CustomEvent = function (event, params) {
     params = params || { bubbles: false, cancelable: false, detail: null }
     var evt = document.createEvent('CustomEvent')
     evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
     return evt
   }
-
-  window.CustomEvent = CustomEvent
 }

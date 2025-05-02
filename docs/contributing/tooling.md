@@ -2,29 +2,39 @@
 
 ## npm scripts
 
-| command                | action                                                                              |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | Runs the _default_ gulp task                                                        |
-| `npm test`             | Runs CSS linting                                                                    |
-| `npm build-gh-pages`   | Build documentation with a base url that is suitable for publishing on github pages |
-| `npm build-gh-release` | Runs `gulp zip` for publishing to github releases                                   |
+To run an npm script, run `npm run <script_name>` on the command line.
+
+| command | action                                                     |
+| ------- | ---------------------------------------------------------- |
+| `start` | Runs the _default_ gulp task (runs pre script `build`)     |
+| `test`  | Runs tests using ESLint (runs pre scripts `lint`, `build`) |
+| `lint`  | Runs linting and formatting checks only                    |
+| `build` | Compiles CSS, JS and builds documentation                  |
+
+You can optionally add `--ignore-scripts` to skip pre and post scripts.
+
+For example, skip straight to the local server without building again:
+
+```console
+npm start --ignore-scripts
+```
 
 ## Gulp tasks
 
 We use [gulp](https://gulpjs.com/) for automating common tasks.
 
-To run a gulp task, run `./node_modules/.bin/gulp <task_name>` on the command line.
+To run a gulp task, run `npx gulp <task_name>` on the command line.
 
 | task         | action                                                                 |
 | ------------ | ---------------------------------------------------------------------- |
 | `default`    | Serve the documentation on port 3000. Recompile when there are changes |
-| `clean`      | Remove all compiled files                                              |
-| `style`      | Compiles CSS                                                           |
-| `build`      | Compiles CSS and JS                                                    |
-| `bundle`     | Creates distributable CSS and JS files in `dist/`                      |
+| `style`      | Compiles CSS only, including minified files in `dist/`                 |
+| `script`     | Compiles JS only, including minified files in `dist/`                  |
+| `build`      | Deletes `dist/` contents then runs `style` and `script`                |
 | `zip`        | Creates a distributable zip file in `dist/`                            |
-| `watch`      | Recompile documentation and distributables when there are changes      |
+| `watch`      | Runs `style` and `script` when there are changes                       |
 | `docs:build` | Recompile documentation                                                |
+| `docs:watch` | Recompile documentation when there are changes                         |
 | `docs:serve` | Serve documentation on port 3000                                       |
 
 ---

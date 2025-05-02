@@ -1,13 +1,14 @@
-/* ==========================================================================
-   UTILITIES / #LINK-NOWRAP
-   ========================================================================== */
-
-/**
- * Prevent long anchor links from line breaking
- * on smaller screens
- *
- * Usage: class="nhsuk-u-nowrap"
- */
+////
+/// Link nowrap
+///
+/// Prevent long anchor links from line breaking
+/// on smaller screens
+///
+/// @group utilities
+///
+/// @example html
+///   <a href="#" class="nhsuk-u-nowrap"></a>
+////
 
 .nhsuk-u-nowrap {
   @include mq($until: tablet) {

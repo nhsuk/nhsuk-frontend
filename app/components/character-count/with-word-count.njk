@@ -1,30 +1,21 @@
-{% set html_style = 'background-color: #f0f4f5;' %}
 {% set title = 'Character Count - max words' %}
 {% from 'components/character-count/macro.njk' import characterCount %}
-{% extends 'layout.njk' %}
+{% extends 'example.njk' %}
 
-{% block body %}
-
-  <div class="nhsuk-width-container">
-    <main class="nhsuk-main-wrapper" id="maincontent">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          {{ characterCount({
-            "name": "more-detail",
-            "id": "more-detail",
-            "maxwords": 10,
-            "label": {
-              "text": "Can you provide more detail?"
-            },
-            "hint": {
-              "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
-            }
-          }) }}
-        </div>
-      </div>
-
-    </main>
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ characterCount({
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxwords": 10,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Don't include personal or financial information, eg your National Insurance number or credit card details."
+        }
+      }) }}
+    </div>
   </div>
-
 {% endblock %}

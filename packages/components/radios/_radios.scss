@@ -1,11 +1,11 @@
-/* ==========================================================================
-   COMPONENTS/ #RADIOS
-   ========================================================================== */
-
-/**
- * 1. remove 300ms pause on mobile.
- * 2. Fix bug in IE11 caused by transform rotate (-45deg).
- */
+////
+/// Radios component
+///
+/// 1. remove 300ms pause on mobile.
+/// 2. Fix bug in IE11 caused by transform rotate (-45deg).
+///
+/// @group components
+////
 
 $nhsuk-radios-size: nhsuk-spacing(6);
 $nhsuk-radios-label-padding-left-right: 12px;
@@ -14,14 +14,14 @@ $nhsuk-radios-label-padding-left-right: 12px;
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 .nhsuk-radios__item {
-  @include nhsuk-font(19);
-
   clear: left;
   display: block;
   margin-bottom: nhsuk-spacing(2);
   min-height: $nhsuk-radios-size;
   padding: 0 0 0 $nhsuk-radios-size;
   position: relative;
+
+  @include nhsuk-font(19);
 }
 
 .nhsuk-radios__item:last-child,
@@ -46,8 +46,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   display: inline-block;
   margin-bottom: 0;
   padding: 8px $nhsuk-radios-label-padding-left-right nhsuk-spacing(1);
-  -ms-touch-action: manipulation; /* 1 */
-  touch-action: manipulation; /* 1 */
+  -ms-touch-action: manipulation; // [1]
+  touch-action: manipulation; // [1]
 }
 
 .nhsuk-radios__hint {
@@ -82,25 +82,24 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   width: 0;
 }
 
-/**
- * Focus state
- *
- * 1. Since box-shadows are removed when users customise their colours
- *    We set a transparent outline that is shown instead.
- *    https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
- */
+/// Focus state
+///
+/// 1. Since box-shadows are removed when users customise their colours
+///    We set a transparent outline that is shown instead.
+///
+/// @link https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
 
 .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
-  @include nhsuk-focused-radio();
+  @include nhsuk-focused-radio;
 }
 
-/* Selected state */
+/// Selected state
 
 .nhsuk-radios__input:checked + .nhsuk-radios__label::after {
   opacity: 1;
 }
 
-/* Disabled state */
+/// Disabled state
 
 .nhsuk-radios__input:disabled,
 .nhsuk-radios__input:disabled + .nhsuk-radios__label {
@@ -111,11 +110,9 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   opacity: 0.5;
 }
 
-/*
- * Inline variant
- *
- * 1. Prevent inline modifier being used with conditional reveals
- */
+/// Inline variant
+///
+/// 1. Prevent inline modifier being used with conditional reveals
 
 .nhsuk-radios--inline {
   @include mq($from: tablet) {
@@ -129,7 +126,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 
   &.nhsuk-radios--conditional {
-    /* 1 */
+    // [1]
     .nhsuk-radios__item {
       float: none;
       margin-right: 0;
@@ -137,19 +134,20 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 }
 
-/* Divider variant */
+/// Divider variant
 
 .nhsuk-radios__divider {
   $nhsuk-divider-size: $nhsuk-radios-size !default;
-  @include nhsuk-font(19);
 
   color: $nhsuk-text-color;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
+
+  @include nhsuk-font(19);
 }
 
-/* Conditional */
+/// Conditional
 
 $conditional-border-width: $nhsuk-border-width-mobile;
 // Calculate the amount of padding needed to keep the border centered against the radios.
@@ -160,10 +158,11 @@ $conditional-margin-left: $conditional-border-padding;
 $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
 
 .nhsuk-radios__conditional {
-  @include nhsuk-responsive-margin(4, "bottom");
   border-left: $conditional-border-width solid $nhsuk-form-border-color;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
+
+  @include nhsuk-responsive-margin(4, "bottom");
 
   & > :last-child {
     margin-bottom: 0;
