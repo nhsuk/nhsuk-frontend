@@ -15,14 +15,13 @@
 // the height of the button to compensate by adjusting its padding (s2) and
 // increase the bottom margin to include it (s1).
 $button-shadow-size: 4px;
-$button-border-width: 2px;
 $button-padding-top-bottom-desktop: 12px;
 $button-padding-top-bottom-mobile: nhsuk-spacing(2);
 $button-padding-left-right: nhsuk-spacing(3);
 
 // Outlined buttons have slightly different sizings, as they have a
 // visible border, so the box-shadow needs to be reduced to compensate
-$button-outlined-shadow-size: 2px;
+$button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-element;
 
 .nhsuk-button {
   -webkit-appearance: none;
@@ -34,7 +33,7 @@ $button-outlined-shadow-size: 2px;
   cursor: pointer;
   display: inline-block;
   margin-top: 0;
-  padding: $button-padding-top-bottom-desktop $button-padding-left-right; // s2
+  padding: $button-padding-top-bottom-mobile $button-padding-left-right; // s2
   position: relative;
   text-align: center;
   vertical-align: top;
@@ -43,8 +42,8 @@ $button-outlined-shadow-size: 2px;
   @include nhsuk-font(19, $weight: bold);
   @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
-  @include mq($until: tablet) {
-    padding: $button-padding-top-bottom-mobile $button-padding-left-right; // s2
+  @include mq($from: tablet) {
+    padding: $button-padding-top-bottom-desktop $button-padding-left-right; // s2
   }
 
   // [1]
@@ -69,28 +68,28 @@ $button-outlined-shadow-size: 2px;
 
   &:focus:not(:active),
   &:focus:not(:active):hover {
-    background: $nhsuk-focus-color;
+    background-color: $nhsuk-focus-color;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
   }
 
   &:active {
-    background: $nhsuk-button-active-color;
+    background-color: $nhsuk-button-active-color;
     box-shadow: none;
     top: $button-shadow-size;
   }
 
   // [3]
   &::before {
-    background: transparent;
-    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
     content: "";
     display: block;
-    left: -$nhsuk-border-width-form-element;
     position: absolute;
-    right: -$nhsuk-border-width-form-element;
     top: -$nhsuk-border-width-form-element;
+    right: -$nhsuk-border-width-form-element;
+    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
+    left: -$nhsuk-border-width-form-element;
+    background-color: transparent;
   }
 
   //
@@ -135,7 +134,7 @@ $button-outlined-shadow-size: 2px;
   }
 
   &:active {
-    background: $nhsuk-secondary-button-active-color;
+    background-color: $nhsuk-secondary-button-active-color;
   }
 }
 
@@ -163,7 +162,7 @@ $button-outlined-shadow-size: 2px;
   }
 
   &:active {
-    background: $nhsuk-reverse-button-active-color;
+    background-color: $nhsuk-reverse-button-active-color;
     color: $nhsuk-reverse-button-active-text-color;
   }
 }
@@ -177,7 +176,7 @@ $button-outlined-shadow-size: 2px;
   }
 
   &:active {
-    background: $nhsuk-warning-button-active-color;
+    background-color: $nhsuk-warning-button-active-color;
   }
 }
 
@@ -190,7 +189,7 @@ $button-outlined-shadow-size: 2px;
   }
 
   &:active {
-    background: $nhsuk-login-button-active-color;
+    background-color: $nhsuk-login-button-active-color;
   }
 }
 
