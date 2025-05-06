@@ -28,6 +28,10 @@ For consistency with other components, the following Nunjucks macro changes have
 
 This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
 
+#### Reversed link style
+
+You can now use links on dark background by using the `.nhsuk-link--reverse` class. Added in [pull request #1269](https://github.com/nhsuk/nhsuk-frontend/pull/1269).
+
 :recycle: **Changes**
 
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
