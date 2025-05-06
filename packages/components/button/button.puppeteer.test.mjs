@@ -9,7 +9,7 @@ describe('Button', () => {
     await page.goto(`${BASE_URL}/components/button/link.html`)
   })
 
-  describe('Button as link', () => {
+  describe('Button as a link', () => {
     it('triggers the click event when the space key is pressed', async () => {
       await page.evaluate(() => document.body.querySelector('.nhsuk-button'))
 
@@ -25,7 +25,7 @@ describe('Button', () => {
       ])
 
       const url = new URL(page.url())
-      expect(url.pathname).toBe('/nhsuk-frontend/')
+      expect(url.href).toBe(`${BASE_URL}/components/button/link.html#`)
     })
   })
 

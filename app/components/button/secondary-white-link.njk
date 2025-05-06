@@ -1,0 +1,24 @@
+{% set title = 'Button secondary white as a link' %}
+{% from 'components/button/macro.njk' import button %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+<section style="background-color: #d8dde0;">
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {{ button({
+            "text": "Find my location",
+            "classes": "nhsuk-button--secondary-white-background",
+            "href": "#"
+          }) }}
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+{% endblock %}
