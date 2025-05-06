@@ -16,7 +16,8 @@
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
 // increase the bottom margin to include it (s1).
-$button-shadow-size: $nhsuk-border-width-form-element * 2;
+$button-border-radius: $nhsuk-border-width-form-element * 2;
+$button-shadow-size: $button-border-radius;
 $button-padding-top-bottom-mobile: 8px;
 $button-padding-top-bottom-desktop: 12px;
 $button-padding-left-right: 16px;
@@ -25,7 +26,9 @@ $button-padding-left-right: 16px;
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
-  border-radius: 4px 4px 0 0;
+  // Remove border radius from bottom left/right to hide pixel artifacts caused
+  // by the shadow inner radius not matching the outer radius of the button
+  border-radius: $button-border-radius $button-border-radius 0 0;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -84,7 +87,7 @@ $button-padding-left-right: 16px;
 
   &:active {
     background-color: $nhsuk-button-active-color;
-    border-radius: 4px;
+    border-radius: $button-border-radius;
     top: $button-shadow-size;
   }
 
@@ -98,7 +101,7 @@ $button-padding-left-right: 16px;
     right: -$nhsuk-border-width-form-element;
     bottom: -$nhsuk-border-width-form-element;
     left: -$nhsuk-border-width-form-element;
-    border-radius: 4px;
+    border-radius: $button-border-radius;
   }
 
   // Use a pseudo element to expand the click target area to include the
@@ -168,7 +171,7 @@ $button-padding-left-right: 16px;
     left: 0;
     right: 0;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
-    border-radius: 2px;
+    border-radius: math.div($button-border-radius, 2);
   }
 }
 
