@@ -196,11 +196,16 @@ $button-padding-left-right: 16px;
 
   &:hover {
     background-color: $nhsuk-reverse-button-hover-color;
+
+    // Set shadow below the button [4]
+    &:not(:active)::after {
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
+    }
   }
 
   &:active {
     background-color: $nhsuk-reverse-button-active-color;
-    color: $nhsuk-reverse-button-active-text-color;
+    color: $nhsuk-reverse-button-text-color;
   }
 
   // Set shadow below the button [4]

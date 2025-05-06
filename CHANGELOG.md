@@ -35,6 +35,7 @@ You can now use links on dark background by using the `.nhsuk-link--reverse` cla
 :recycle: **Changes**
 
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+- [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
 
 :wrench: **Fixes**
 
