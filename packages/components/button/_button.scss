@@ -1,3 +1,5 @@
+@use "sass:math";
+
 ////
 /// Button component
 ///
@@ -27,8 +29,7 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
   border: $nhsuk-border-width-form-element solid transparent;
-  border-radius: 4px;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
+  border-radius: 4px 4px 0 0;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -66,30 +67,51 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
     background-color: $nhsuk-button-hover-color;
   }
 
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
   &:focus:not(:active),
   &:focus:not(:active):hover {
     background-color: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
+
+    // [4]
+    &::after {
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
+    }
   }
 
   &:active {
     background-color: $nhsuk-button-active-color;
-    box-shadow: none;
+    border-radius: 4px;
     top: $button-shadow-size;
   }
 
-  // [3]
-  &::before {
+  &::before,
+  &::after {
     content: "";
     display: block;
     position: absolute;
     top: -$nhsuk-border-width-form-element;
     right: -$nhsuk-border-width-form-element;
-    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
+    bottom: -$nhsuk-border-width-form-element;
     left: -$nhsuk-border-width-form-element;
+    border-radius: 4px;
+  }
+
+  // [3]
+  &::before {
+    bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
+    border: $nhsuk-border-width-form-element solid transparent;
     background-color: transparent;
+  }
+
+  // [4]
+  &::after {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
   }
 
   //
@@ -107,15 +129,16 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
     top: -($nhsuk-border-width-form-element + $button-shadow-size);
     bottom: -$nhsuk-border-width-form-element;
   }
+
+  &:active::after {
+    box-shadow: none;
+  }
 }
 
 /// Button variations
 
 .nhsuk-button--secondary,
 .nhsuk-button--secondary-white-background {
-  border-color: $nhsuk-secondary-button-border-color;
-  box-shadow: 0 $button-outlined-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
-
   &,
   &:link,
   &:visited,
@@ -128,13 +151,22 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
     background-color: $nhsuk-secondary-button-hover-color;
   }
 
-  &:focus:not(:active),
-  &:focus:not(:active):hover {
-    border-color: transparent;
-  }
-
   &:active {
     background-color: $nhsuk-secondary-button-active-color;
+    border-color: $nhsuk-secondary-button-border-color;
+  }
+
+  // [3]
+  &:not(:focus):not(:active)::before {
+    border-color: $nhsuk-secondary-button-border-color;
+  }
+
+  // [4]
+  &:not(:focus):not(:active)::after {
+    left: 0;
+    right: 0;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
+    border-radius: 2px;
   }
 }
 
@@ -148,7 +180,6 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
 
 .nhsuk-button--reverse {
   background-color: $nhsuk-reverse-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
 
   &,
   &:link,
@@ -165,11 +196,15 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
     background-color: $nhsuk-reverse-button-active-color;
     color: $nhsuk-reverse-button-active-text-color;
   }
+
+  // [4]
+  &::after {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
+  }
 }
 
 .nhsuk-button--warning {
   background-color: $nhsuk-warning-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color; // s0
 
   &:hover {
     background-color: $nhsuk-warning-button-hover-color;
@@ -178,11 +213,15 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
   &:active {
     background-color: $nhsuk-warning-button-active-color;
   }
+
+  // [4]
+  &::after {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color; // s0
+  }
 }
 
 .nhsuk-button--login {
   background-color: $nhsuk-login-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
 
   &:hover {
     background-color: $nhsuk-login-button-hover-color;
@@ -190,6 +229,11 @@ $button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-ele
 
   &:active {
     background-color: $nhsuk-login-button-active-color;
+  }
+
+  // [4]
+  &::after {
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
   }
 }
 
