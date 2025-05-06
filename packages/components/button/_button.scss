@@ -116,6 +116,7 @@ $button-outlined-shadow-size: 2px;
 
   &:active::before {
     top: -($nhsuk-border-width-form-element + $button-shadow-size);
+    bottom: -$nhsuk-border-width-form-element;
   }
 }
 
