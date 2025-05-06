@@ -11,8 +11,6 @@
 /// @group components
 ////
 
-@use "sass:color";
-
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
 // increase the bottom margin to include it (s1).
@@ -33,7 +31,6 @@ $button-outlined-shadow-size: 2px;
   border-radius: 4px;
   box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
   box-sizing: border-box;
-  color: $nhsuk-button-text-color;
   cursor: pointer;
   display: inline-block;
   margin-top: 0;
@@ -51,6 +48,7 @@ $button-outlined-shadow-size: 2px;
   }
 
   // [1]
+  &,
   &:link,
   &:visited,
   &:active,
@@ -69,25 +67,17 @@ $button-outlined-shadow-size: 2px;
     background-color: $nhsuk-button-hover-color;
   }
 
-  &:focus {
+  &:focus:not(:active),
+  &:focus:not(:active):hover {
     background: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
-
-    &:visited {
-      color: $nhsuk-focus-text-color;
-
-      &:active {
-        color: $color_nhsuk-white;
-      }
-    }
   }
 
   &:active {
     background: $nhsuk-button-active-color;
     box-shadow: none;
-    color: $nhsuk-button-text-color;
     top: $button-shadow-size;
   }
 
@@ -127,52 +117,25 @@ $button-outlined-shadow-size: 2px;
   border-color: $nhsuk-secondary-button-border-color;
   box-shadow: 0 $button-outlined-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
 
-  color: $nhsuk-secondary-button-text-color;
+  &,
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $nhsuk-secondary-button-text-color;
+  }
 
   &:hover {
     background-color: $nhsuk-secondary-button-hover-color;
-    color: $nhsuk-secondary-button-text-color;
   }
 
-  &:focus {
-    background: $nhsuk-focus-color;
-    border-color: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-    padding-bottom: $button-padding-top-bottom-desktop - 2;
-    margin-bottom: 38px; // 2px more to compensate for reduced padding
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-
-    &:link {
-      color: $nhsuk-focus-text-color;
-    }
-
-    &:visited {
-      color: $nhsuk-focus-text-color;
-
-      &:active {
-        color: $nhsuk-secondary-button-text-color;
-      }
-    }
+  &:focus:not(:active),
+  &:focus:not(:active):hover {
+    border-color: transparent;
   }
 
-  &:active,
-  &:active:focus {
+  &:active {
     background: $nhsuk-secondary-button-active-color;
-    border-color: $nhsuk-secondary-button-border-color;
-    padding-bottom: $button-padding-top-bottom-desktop - 2;
-    margin-bottom: 38px; // 2px more to compensate for reduced padding
-    box-shadow: none;
-    color: $nhsuk-secondary-button-text-color;
-
-    @include mq($until: tablet) {
-      margin-bottom: 26px; // 2px less than non-active
-    }
-  }
-
-  &:link,
-  &:visited {
-    color: $nhsuk-secondary-button-text-color;
   }
 }
 
@@ -181,86 +144,53 @@ $button-outlined-shadow-size: 2px;
 }
 
 .nhsuk-button--secondary-white-background {
-  background-color: $color_nhsuk-white;
+  background-color: $nhsuk-secondary-button-white-background-color;
 }
 
 .nhsuk-button--reverse {
   background-color: $nhsuk-reverse-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color;
-  color: $nhsuk-reverse-button-text-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
 
+  &,
+  &:link,
+  &:visited,
   &:hover {
-    background-color: $nhsuk-reverse-button-hover-color;
     color: $nhsuk-reverse-button-text-color;
   }
 
-  &:focus {
-    background: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
+  &:hover {
+    background-color: $nhsuk-reverse-button-hover-color;
   }
 
   &:active {
     background: $nhsuk-reverse-button-active-color;
-    box-shadow: none;
-    color: $color_nhsuk-white;
-    top: $button-shadow-size;
-  }
-
-  &:link,
-  &:visited {
-    color: $nhsuk-reverse-button-text-color;
-
-    &:active {
-      color: $color_nhsuk-white;
-    }
+    color: $nhsuk-reverse-button-active-text-color;
   }
 }
 
 .nhsuk-button--warning {
   background-color: $nhsuk-warning-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color; // s0
 
   &:hover {
     background-color: $nhsuk-warning-button-hover-color;
   }
 
-  &:focus {
-    background: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-  }
-
   &:active {
     background: $nhsuk-warning-button-active-color;
-    box-shadow: none;
-    color: $nhsuk-button-text-color;
-    top: $button-shadow-size;
   }
 }
 
 .nhsuk-button--login {
   background-color: $nhsuk-login-button-color;
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
 
   &:hover {
     background-color: $nhsuk-login-button-hover-color;
   }
 
-  &:focus {
-    background: $nhsuk-focus-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color;
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-  }
-
   &:active {
     background: $nhsuk-login-button-active-color;
-    box-shadow: none;
-    color: $nhsuk-button-text-color;
-    top: $button-shadow-size;
   }
 }
 

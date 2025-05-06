@@ -131,11 +131,13 @@ $nhsuk-form-element-background-color: $color_nhsuk-white;
 /// Buttons
 
 $nhsuk-button-color: $color_nhsuk-green;
+$nhsuk-button-text-color: $color_nhsuk-white;
 $nhsuk-button-hover-color: shade($nhsuk-button-color, 20%);
 $nhsuk-button-active-color: shade($nhsuk-button-color, 50%);
 $nhsuk-button-shadow-color: shade($nhsuk-button-color, 50%);
 
 $nhsuk-secondary-button-color: transparent;
+$nhsuk-secondary-button-white-background-color: $color_nhsuk-white;
 $nhsuk-secondary-button-border-color: $color_nhsuk-blue;
 $nhsuk-secondary-button-text-color: $color_nhsuk-blue;
 $nhsuk-secondary-button-hover-color: tint($nhsuk-secondary-button-border-color, 85%);
@@ -143,8 +145,10 @@ $nhsuk-secondary-button-active-color: tint($nhsuk-secondary-button-border-color,
 $nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color;
 
 $nhsuk-reverse-button-color: $color_nhsuk-white;
+$nhsuk-reverse-button-text-color: $color_nhsuk-black;
 $nhsuk-reverse-button-hover-color: shade($nhsuk-reverse-button-color, 20%);
 $nhsuk-reverse-button-active-color: $color-nhsuk-black;
+$nhsuk-reverse-button-active-text-color: $color_nhsuk-white;
 $nhsuk-reverse-button-shadow-color: $color-nhsuk-black;
 
 $nhsuk-warning-button-color: $color_nhsuk-red;
@@ -156,6 +160,3 @@ $nhsuk-login-button-color: $color_nhsuk-blue;
 $nhsuk-login-button-hover-color: shade($nhsuk-login-button-color, 20%);
 $nhsuk-login-button-active-color: shade($nhsuk-login-button-color, 50%);
 $nhsuk-login-button-shadow-color: shade($nhsuk-login-button-color, 50%);
-
-$nhsuk-button-text-color: $color_nhsuk-white;
-$nhsuk-reverse-button-text-color: $color_nhsuk-black;
