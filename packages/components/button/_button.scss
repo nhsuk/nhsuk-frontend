@@ -7,8 +7,8 @@
 /// 2. Fix unwanted button padding in Firefox.
 /// 3. Use a pseudo element to expand the click target area to include the
 ///    button's shadow as well, in case users try to click it.
-/// 4. Makes the secondary button that has a border the same height as the other
-///    buttons that don't have a border.
+/// 4. Use a pseudo element to expand and cover the button's bounds, used to
+///    add a button shadow or border without affecting the total height
 ///
 /// @group components
 ////
@@ -63,18 +63,20 @@ $button-padding-left-right: nhsuk-spacing(3);
     background-color: $nhsuk-button-hover-color;
   }
 
+  // Reset focus styles added to buttons as links
   &:focus {
     box-shadow: none;
     outline: none;
   }
 
+  // Add button focus styles ensuring the active "pressed" state has priority
   &:focus:not(:active),
   &:focus:not(:active):hover {
     background-color: $nhsuk-focus-color;
     color: $nhsuk-focus-text-color;
     outline: $nhsuk-focus-width solid transparent;
 
-    // [4]
+    // Set shadow below the button [4]
     &::after {
       box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
     }
@@ -86,6 +88,7 @@ $button-padding-left-right: nhsuk-spacing(3);
     top: $button-shadow-size;
   }
 
+  // Default pseudo element styles for [3] and [4] below
   &::before,
   &::after {
     content: "";
@@ -98,19 +101,20 @@ $button-padding-left-right: nhsuk-spacing(3);
     border-radius: 4px;
   }
 
-  // [3]
+  // Use a pseudo element to expand the click target area to include the
+  // button's shadow as well, in case users try to click it [3]
   &::before {
     bottom: -($nhsuk-border-width-form-element + $button-shadow-size);
     border: $nhsuk-border-width-form-element solid transparent;
     background-color: transparent;
   }
 
-  // [4]
+  // Use a pseudo element to expand and cover the button's bounds, used to
+  // add a button shadow without affecting the button's size or border [4]
   &::after {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
   }
 
-  //
   // When the button is active it is shifted down by $button-shadow-size to
   // denote a 'pressed' state. If the user happened to click at the very top
   // of the button, their mouse is no longer over the button (because it has
@@ -119,13 +123,12 @@ $button-padding-left-right: nhsuk-spacing(3);
   // This corrects that by shifting the top of the pseudo element so that it
   // continues to cover the area that the user originally clicked, which means
   // the click event is still fired.
-  //
-
   &:active::before {
     top: -($nhsuk-border-width-form-element + $button-shadow-size);
     bottom: -$nhsuk-border-width-form-element;
   }
 
+  // Remove button shadow when pressed
   &:active::after {
     box-shadow: none;
   }
@@ -147,17 +150,20 @@ $button-padding-left-right: nhsuk-spacing(3);
     background-color: $nhsuk-secondary-button-hover-color;
   }
 
+  // Set border for active state (no shadow)
   &:active {
     background-color: $nhsuk-secondary-button-active-color;
     border-color: $nhsuk-secondary-button-border-color;
   }
 
-  // [3]
+  // Set border on click area for default and hover states which allows the
+  // border to render underneath the shadow and hide pixel artifacts, but
+  // ensuring the active "pressed" and focus states have priority [3]
   &:not(:focus):not(:active)::before {
     border-color: $nhsuk-secondary-button-border-color;
   }
 
-  // [4]
+  // Set shadow below the button for default and hover states [4]
   &:not(:focus):not(:active)::after {
     left: 0;
     right: 0;
@@ -193,7 +199,7 @@ $button-padding-left-right: nhsuk-spacing(3);
     color: $nhsuk-reverse-button-active-text-color;
   }
 
-  // [4]
+  // Set shadow below the button [4]
   &::after {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
   }
@@ -210,7 +216,7 @@ $button-padding-left-right: nhsuk-spacing(3);
     background-color: $nhsuk-warning-button-active-color;
   }
 
-  // [4]
+  // Set shadow below the button [4]
   &::after {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color; // s0
   }
@@ -227,7 +233,7 @@ $button-padding-left-right: nhsuk-spacing(3);
     background-color: $nhsuk-login-button-active-color;
   }
 
-  // [4]
+  // Set shadow below the button [4]
   &::after {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
   }
