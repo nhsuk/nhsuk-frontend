@@ -16,10 +16,10 @@
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
 // increase the bottom margin to include it (s1).
-$button-shadow-size: 4px;
+$button-shadow-size: $nhsuk-border-width-form-element * 2;
+$button-padding-top-bottom-mobile: 8px;
 $button-padding-top-bottom-desktop: 12px;
-$button-padding-top-bottom-mobile: nhsuk-spacing(2);
-$button-padding-left-right: nhsuk-spacing(3);
+$button-padding-left-right: 16px;
 
 .nhsuk-button {
   -webkit-appearance: none;
