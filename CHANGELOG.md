@@ -31,6 +31,7 @@ This was added in [pull request #1257: Review and update `text`, `html` and `cal
 :recycle: **Changes**
 
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+- [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
 
 :wrench: **Fixes**
 
@@ -141,7 +142,6 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 - [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
 - [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
 - [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
-- [#1198: Update reverse button styling to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
 - [#1200: Fix bottom padding on the `nhsuk-main-wrapper--l` modifier class](https://github.com/nhsuk/nhsuk-frontend/pull/1200)
 - [#1221: Fix JavaScript exports to use CommonJS by default](https://github.com/nhsuk/nhsuk-frontend/pull/1221)
 - [#1228: Fix header navigation item allocation on resize](https://github.com/nhsuk/nhsuk-frontend/pull/1228)
