@@ -32,6 +32,7 @@ $button-padding-left-right: 16px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
+  overflow: visible;
   margin-top: 0;
   padding: $button-padding-top-bottom-mobile $button-padding-left-right; // s2
   position: relative;
