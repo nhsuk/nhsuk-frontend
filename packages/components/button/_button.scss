@@ -21,10 +21,6 @@ $button-padding-top-bottom-desktop: 12px;
 $button-padding-top-bottom-mobile: nhsuk-spacing(2);
 $button-padding-left-right: nhsuk-spacing(3);
 
-// Outlined buttons have slightly different sizings, as they have a
-// visible border, so the box-shadow needs to be reduced to compensate
-$button-outlined-shadow-size: $button-shadow-size - $nhsuk-border-width-form-element;
-
 .nhsuk-button {
   -webkit-appearance: none;
   background-color: $nhsuk-button-color;
