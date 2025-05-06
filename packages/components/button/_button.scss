@@ -198,7 +198,7 @@ $button-padding-left-right: 16px;
 
     // Set shadow below the button [4]
     &:not(:active)::after {
-      box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-hover-color; // s0
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
     }
   }
 
