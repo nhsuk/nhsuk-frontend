@@ -4,7 +4,7 @@
 /// @group objects
 ////
 
-@include govuk-exports("govuk/objects/grid") {
+@include nhsuk-exports("govuk/objects/grid") {
   @include govuk-grid-row;
   @include govuk-grid-column(one-quarter);
   @include govuk-grid-column(one-third);
