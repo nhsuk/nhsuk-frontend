@@ -19,7 +19,7 @@
 @mixin nhsuk-text-color {
   color: $nhsuk-text-color;
 
-  @include govuk-media-query($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $nhsuk-print-text-color;
   }
 }
@@ -150,12 +150,12 @@
         font-size: $font-size-rem;
         line-height: $line-height;
       } @else if $breakpoint == "print" {
-        @include govuk-media-query($media-type: print) {
+        @include nhsuk-media-query($media-type: print) {
           font-size: $font-size;
           line-height: $line-height;
         }
       } @else {
-        @include govuk-media-query($from: $breakpoint) {
+        @include nhsuk-media-query($from: $breakpoint) {
           font-size: $font-size;
           font-size: $font-size-rem;
           line-height: $line-height;

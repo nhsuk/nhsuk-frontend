@@ -50,30 +50,41 @@ $sass-mq-already-included: true;
 ///
 /// @example scss
 ///  .element {
-///    @include govuk-media-query($from: mobile) {
+///    @include nhsuk-media-query($from: mobile) {
 ///      color: red;
 ///    }
-///    @include govuk-media-query($until: tablet) {
+///    @include nhsuk-media-query($until: tablet) {
 ///      color: blue;
 ///    }
-///    @include govuk-media-query(mobile, tablet) {
+///    @include nhsuk-media-query(mobile, tablet) {
 ///      color: green;
 ///    }
-///    @include govuk-media-query($from: tablet, $and: '(orientation: landscape)') {
+///    @include nhsuk-media-query($from: tablet, $and: '(orientation: landscape)') {
 ///      color: teal;
 ///    }
-///    @include govuk-media-query(950px) {
+///    @include nhsuk-media-query(950px) {
 ///      color: hotpink;
 ///    }
-///    @include govuk-media-query(tablet, $media-type: screen) {
+///    @include nhsuk-media-query(tablet, $media-type: screen) {
 ///      color: hotpink;
 ///    }
 ///  }
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin govuk-media-query($args...) {
+@mixin nhsuk-media-query($args...) {
   @include mq($args...) {
+    @content;
+  }
+}
+
+/// Media query (deprecated)
+///
+/// @alias nhsuk-media-query
+/// @deprecated To be removed in v10.0, replaced by nhsuk-media-query
+
+@mixin govuk-media-query($args...) {
+  @include nhsuk-media-query($args...) {
     @content;
   }
 }
