@@ -16,9 +16,7 @@ class Tabs {
 
     this.showEvent = new CustomEvent('tab.show')
     this.hideEvent = new CustomEvent('tab.hide')
-  }
 
-  init() {
     if (typeof window.matchMedia === 'function' && this.responsive) {
       this.setupResponsiveChecks()
     } else {
@@ -340,6 +338,6 @@ module.exports = ({
 } = {}) => {
   const tabs = scope.querySelectorAll(`[data-module="${namespace}"]`)
   tabs.forEach((el) => {
-    new Tabs(el, namespace, responsive, historyEnabled).init()
+    new Tabs(el, namespace, responsive, historyEnabled)
   })
 }

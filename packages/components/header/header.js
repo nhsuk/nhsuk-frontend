@@ -5,16 +5,12 @@
 
 class Header {
   constructor() {
-    this.menuIsEnabled = false
-    this.menuIsOpen = false
-
-    this.navigation = document.querySelector('.nhsuk-navigation')
-    this.navigationList = null
-    this.navigationItems = null
-
-    if (!this.navigation) {
+    const $navigation = document.querySelector('.nhsuk-navigation')
+    if (!$navigation) {
       return
     }
+
+    this.navigation = $navigation
 
     this.navigationList = this.navigation.querySelector(
       '.nhsuk-header__navigation-list'
@@ -23,7 +19,6 @@ class Header {
       '.nhsuk-header__navigation-item'
     )
 
-    this.mobileMenu = document.createElement('ul')
     this.mobileMenuToggleButton = document.querySelector(
       '.nhsuk-header__menu-toggle'
     )
@@ -31,20 +26,19 @@ class Header {
       '.nhsuk-mobile-menu-container'
     )
 
-    this.width = 0
-  }
-
-  init() {
     if (
-      !this.navigation ||
       !this.navigationList ||
       !this.navigationItems ||
       !this.navigationItems.length ||
       !this.mobileMenuToggleButton ||
       !this.mobileMenuContainer
     ) {
-      return
+      return this
     }
+
+    this.mobileMenu = document.createElement('ul')
+    this.menuIsEnabled = false
+    this.menuIsOpen = false
 
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.debounce(this.updateNavigation)
@@ -280,5 +274,5 @@ class Header {
 }
 
 module.exports = () => {
-  new Header().init()
+  new Header()
 }
