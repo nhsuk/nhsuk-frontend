@@ -26,7 +26,7 @@
 
 .nhsuk-header__container {
   padding: 20px 0;
-  @include govuk-width-container;
+  @include nhsuk-width-container;
 
   @include mq($from: tablet) {
     display: flex;
@@ -446,7 +446,7 @@
 }
 
 .nhsuk-navigation {
-  @include govuk-width-container;
+  @include nhsuk-width-container;
 
   @include mq($until: tablet) {
     position: relative;
@@ -530,7 +530,7 @@
   .nhsuk-header__navigation-link {
     margin: 0;
     padding: 12px 0;
-    @include govuk-width-container;
+    @include nhsuk-width-container;
     @include nhsuk-link-style-no-visited-state;
   }
 
