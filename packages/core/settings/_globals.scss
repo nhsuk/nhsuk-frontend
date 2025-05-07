@@ -32,7 +32,7 @@ $nhsuk-icon-size: 34px !default;
 
 $nhsuk-page-width: 960px !default;
 $nhsuk-gutter: 32px;
-$nhsuk-gutter-half: $nhsuk-gutter * 0.5;
+$nhsuk-gutter-half: math.div($nhsuk-gutter, 2);
 
 /// Map of grid column widths
 
