@@ -30,12 +30,12 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   @include nhsuk-typography-responsive(24);
   @include nhsuk-responsive-margin(4, "bottom");
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
     @include nhsuk-text-break-word; /* [3] */
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     border-color: currentcolor;
     color: $nhsuk-print-text-color;
     background: none;

@@ -64,7 +64,7 @@
   line-height: 23px;
   margin-top: -2px;
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $nhsuk-print-text-color;
   }
 
@@ -91,7 +91,7 @@
   font-weight: $nhsuk-font-bold;
   line-height: 21px;
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-blue;
   }
 

@@ -11,7 +11,7 @@
 ////
 
 .nhsuk-u-nowrap {
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     white-space: nowrap;
   }
 }

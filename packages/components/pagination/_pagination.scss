@@ -52,7 +52,7 @@
   text-decoration: none;
   width: 100%;
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-black;
   }
 
@@ -60,7 +60,7 @@
     position: absolute;
     top: -2px;
 
-    @include mq($media-type: print) {
+    @include nhsuk-media-query($media-type: print) {
       color: $color_nhsuk-black;
       margin-top: 0;
     }
@@ -118,7 +118,7 @@
 
   @include nhsuk-typography-responsive(24);
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     &::after {
       content: " page"; // [2]
     }

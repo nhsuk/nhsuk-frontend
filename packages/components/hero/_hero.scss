@@ -53,7 +53,7 @@
     min-height: 200px;
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     @media only screen {
       // [4]
       min-height: 320px; // [5]
@@ -97,7 +97,7 @@
 .nhsuk-hero--image-description {
   margin-bottom: calc(70px + 20px + nhsuk-spacing(3)); // [16]
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     margin-bottom: calc(48px + 20px + nhsuk-spacing(4)); // [16]
   }
 
@@ -134,13 +134,13 @@
     }
   }
 
-  @include mq(375px) {
+  @include nhsuk-media-query(375px) {
     .nhsuk-hero-content {
       width: 85%; // [15]
     }
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     .nhsuk-hero-content {
       bottom: -48px; // [8]
       margin-bottom: 0;
@@ -157,7 +157,7 @@
     }
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     .nhsuk-hero-content {
       color: $color_nhsuk-black;
       max-width: 100%;

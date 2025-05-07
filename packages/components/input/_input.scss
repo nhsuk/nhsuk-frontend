@@ -89,7 +89,7 @@
     z-index: 1;
   }
 
-  @include mq($until: mobile) {
+  @include nhsuk-media-query($until: mobile) {
     display: block;
 
     .nhsuk-input {
@@ -115,32 +115,32 @@
 
   @include nhsuk-font($size: 19);
 
-  @include mq($until: mobile) {
+  @include nhsuk-media-query($until: mobile) {
     display: block;
     height: 100%;
     white-space: normal;
   }
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     line-height: 1.6;
     font-size: 1.1875rem;
   }
 }
 
 .nhsuk-input__prefix {
-  @include mq($until: mobile) {
+  @include nhsuk-media-query($until: mobile) {
     border-bottom: 0;
   }
-  @include mq($from: mobile) {
+  @include nhsuk-media-query($from: mobile) {
     border-right: 0;
   }
 }
 
 .nhsuk-input__suffix {
-  @include mq($until: mobile) {
+  @include nhsuk-media-query($until: mobile) {
     border-top: 0;
   }
-  @include mq($from: mobile) {
+  @include nhsuk-media-query($from: mobile) {
     border-left: 0;
   }
 }

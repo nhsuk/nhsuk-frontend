@@ -6,7 +6,7 @@
   .nhsuk-header__search-wrap {
     margin-bottom: nhsuk-spacing(3);
 
-    @include mq($until: tablet) {
+    @include nhsuk-media-query($until: tablet) {
       &::after {
         background: $color_nhsuk-white;
       }
@@ -69,14 +69,14 @@
     &:focus {
       border: 2px solid $nhsuk-focus-text-color;
 
-      @include mq($until: tablet) {
+      @include nhsuk-media-query($until: tablet) {
         border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
       }
     }
   }
 
   .nhsuk-header__search-form {
-    @include mq($until: tablet) {
+    @include nhsuk-media-query($until: tablet) {
       padding-top: 0;
     }
   }
