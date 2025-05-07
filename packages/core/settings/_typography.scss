@@ -1,3 +1,5 @@
+@forward "globals" show $nhsuk-font-normal, $nhsuk-font-bold;
+
 ////
 /// Typography
 ///
@@ -154,13 +156,3 @@ $nhsuk-typography-scale: (
     )
   )
 ) !default;
-
-/// Font weights
-
-/// Font weight for normal typography
-
-$nhsuk-font-normal: 400 !default;
-
-/// Font weight for bold typography
-
-$nhsuk-font-bold: 600 !default;

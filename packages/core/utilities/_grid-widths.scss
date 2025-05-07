@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "../tools/sass-mq" as *;
+
 ////
 /// Grid widths
 ///
@@ -12,8 +15,6 @@
 /// @example html
 ///   <div class="nhsuk-u-one-half"></div>
 ////
-
-@use "sass:math";
 
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule

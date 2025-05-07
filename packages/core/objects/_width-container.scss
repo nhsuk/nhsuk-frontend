@@ -1,3 +1,7 @@
+@use "../settings/globals" as *;
+@use "../tools/exports" as *;
+@use "../tools/sass-mq" as *;
+
 ////
 /// Page width for the grid system
 ///

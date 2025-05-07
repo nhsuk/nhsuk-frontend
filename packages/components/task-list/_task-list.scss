@@ -1,11 +1,14 @@
+@use "sass:color";
+@use "../../core/settings/colours" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Task list component
 ///
 /// @group components
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
-
-@use "sass:color";
 
 // NHS pages have a grey background, so we need a slightly darker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s

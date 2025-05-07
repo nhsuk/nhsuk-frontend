@@ -1,10 +1,13 @@
+@use "sass:map";
+@use "../settings/colours" as *;
+@use "../settings/typography" as *;
+@use "../tools/typography" as *;
+
 ////
 /// Typography
 ///
 /// @group utilities
 ////
-
-@use "sass:map";
 
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule

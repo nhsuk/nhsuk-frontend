@@ -1,11 +1,14 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../settings/spacing" as *;
+@use "ifff" as *;
+@use "sass-mq" as *;
+
 ////
 /// Spacing
 ///
 /// @group tools
 ////
-
-@use "sass:map";
-@use "sass:meta";
 
 /// Single point spacing
 ///

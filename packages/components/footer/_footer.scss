@@ -1,10 +1,15 @@
+@use "sass:math";
+@use "../../core/settings/colours" as *;
+@use "../../core/tools/mixins" as *;
+@use "../../core/tools/sass-mq" as *;
+@use "../../core/tools/spacing" as *;
+@use "../../core/tools/typography" as *;
+
 ////
 /// Footer component
 ///
 /// @group components
 ////
-
-@use "sass:math";
 
 .nhsuk-footer-container {
   background-color: $color_nhsuk-grey-4;
