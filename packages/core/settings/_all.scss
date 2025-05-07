@@ -2,8 +2,8 @@
 /// Settings
 ////
 
-@import "breakpoints";
-@import "colours";
-@import "globals";
-@import "spacing";
-@import "typography";
+@forward "breakpoints";
+@forward "colours";
+@forward "globals";
+@forward "spacing";
+@forward "typography";

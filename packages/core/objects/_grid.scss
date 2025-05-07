@@ -1,4 +1,8 @@
 @use "sass:map";
+@use "../settings/globals" as *;
+@use "../tools/exports" as *;
+@use "../tools/grid" as *;
+@use "../tools/mixins" as *;
 
 ////
 /// Grid

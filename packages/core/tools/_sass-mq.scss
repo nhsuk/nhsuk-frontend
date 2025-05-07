@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
-
+@use "../settings/breakpoints" as *;
 @use "../vendor/sass-mq" as * with (
   $mq-breakpoints: $nhsuk-breakpoints,
   $mq-show-breakpoints: if(

@@ -1,4 +1,8 @@
 @use "sass:map";
+@use "sass:math";
+@use "../settings/globals" as *;
+@use "mixins" as *;
+@use "sass-mq" as *;
 
 ////
 /// Grid
