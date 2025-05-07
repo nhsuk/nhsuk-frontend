@@ -117,7 +117,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 /// 1. Prevent inline modifier being used with conditional reveals
 
 .nhsuk-radios--inline {
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     @include clearfix;
 
     .nhsuk-radios__item {

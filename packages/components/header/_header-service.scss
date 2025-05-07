@@ -6,7 +6,7 @@
   text-decoration: none;
   width: auto;
 
-  @include mq($from: large-desktop) {
+  @include nhsuk-media-query($from: large-desktop) {
     align-items: center;
     display: flex;
     -ms-flex-align: center;
@@ -47,11 +47,11 @@
 
   @include nhsuk-font(19);
 
-  @include mq($from: large-desktop) {
+  @include nhsuk-media-query($from: large-desktop) {
     padding-left: nhsuk-spacing(3);
   }
 
-  @include mq($until: large-desktop) {
+  @include nhsuk-media-query($until: large-desktop) {
     max-width: 220px;
   }
 }

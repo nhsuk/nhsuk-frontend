@@ -19,7 +19,7 @@
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(4);
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     border-color: $nhsuk-print-text-color;
   }
 }

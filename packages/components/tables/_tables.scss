@@ -95,7 +95,7 @@
 
 .nhsuk-table-responsive {
   thead {
-    @include mq($until: desktop) {
+    @include nhsuk-media-query($until: desktop) {
       @include visually-hidden; // [1]
     }
   }
@@ -131,7 +131,7 @@
       }
     }
 
-    @include mq($until: desktop) {
+    @include nhsuk-media-query($until: desktop) {
       .nhsuk-table__row th {
         font-weight: $nhsuk-font-normal;
       }
@@ -147,7 +147,7 @@
       }
     }
 
-    @include mq($from: desktop) {
+    @include nhsuk-media-query($from: desktop) {
       .nhsuk-table-responsive__heading {
         display: none; // [9]
       }

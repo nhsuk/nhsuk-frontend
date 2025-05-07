@@ -214,7 +214,7 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
@@ -233,7 +233,7 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-list + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
@@ -250,7 +250,7 @@ b {
   font-weight: $nhsuk-font-bold;
 }
 
-@include mq($media-type: print) {
+@include nhsuk-media-query($media-type: print) {
   .nhsuk-main-wrapper {
     padding-top: 1em;
     padding-bottom: 1em;
