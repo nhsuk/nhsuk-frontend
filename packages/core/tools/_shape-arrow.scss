@@ -34,8 +34,10 @@
 /// @param {Number} $base - Length of the triangle 'base' side
 /// @param {Number} $height [null] - Height of triangle. Omit for equilateral.
 /// @param {String} $display [block] - CSS display property of the arrow
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin govuk-shape-arrow($direction, $base, $height: null, $display: block) {
+@mixin nhsuk-shape-arrow($direction, $base, $height: null, $display: block) {
   display: $display;
 
   width: 0;
@@ -73,4 +75,13 @@
   } @else {
     @error "Invalid arrow direction: expected `up`, `right`, `down` or `left`, got `#{$direction}`";
   }
+}
+
+/// Arrow mixin (deprecated)
+///
+/// @alias nhsuk-shape-arrow
+/// @deprecated To be removed in v10.0, replaced by nhsuk-shape-arrow
+
+@mixin govuk-shape-arrow($args...) {
+  @include nhsuk-shape-arrow($args...);
 }
