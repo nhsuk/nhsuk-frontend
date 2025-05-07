@@ -146,6 +146,6 @@ $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label
   }
 }
 
-.js-enabled .nhsuk-checkboxes__conditional--hidden {
+.nhsuk-frontend-supported .nhsuk-checkboxes__conditional--hidden {
   display: none;
 }

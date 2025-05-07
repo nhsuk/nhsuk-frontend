@@ -61,24 +61,24 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
 ```js
-document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `defer` attribute.
+Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `type="module"` attribute.
 
-> The defer attribute is used for performance benefits as the browser loads the JavaScript file as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
+> The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors. The script will be loaded as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 
 You might wish to copy the file into your project or reference it straight from node_modules.
 
 ```html
-    <script src="path-to-assets/nhsuk.min.js" defer></script>
+    <script src="path-to-assets/nhsuk.min.js" type="module"></script>
   </head>
 ```
 
 ```html
-    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" defer></script>
+    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" type="module"></script>
   </head>
 ```
 
@@ -100,9 +100,6 @@ Rather than using `initAll`, you can initialise individual components used by yo
 ```js
 import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js';
 import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
-
-// Polyfills
-import 'nhsuk-frontend/packages/polyfills.js';
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {
