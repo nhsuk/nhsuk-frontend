@@ -17,12 +17,12 @@
 
   max-width: $nhsuk-page-width; // [2]
 
-  @include govuk-media-query($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; // [3]
   }
 
   // [4]
-  @include govuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
+  @include nhsuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
     margin: 0 auto;
   }
 }
@@ -31,7 +31,7 @@
   margin: 0 $nhsuk-gutter-half;
   max-width: 100%; // [5]
 
-  @include govuk-media-query($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; // [3]
   }
 }

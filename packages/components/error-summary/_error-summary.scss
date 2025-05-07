@@ -15,11 +15,11 @@
 
   @include nhsuk-responsive-padding(4);
 
-  @include govuk-media-query($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     margin-bottom: nhsuk-spacing(7);
   }
 
-  @include govuk-media-query($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     border: $nhsuk-border-width solid $nhsuk-error-color;
   }
 
