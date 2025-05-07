@@ -22,11 +22,11 @@ class Tabs {
   }
 
   setupResponsiveChecks() {
-    // $mq-breakpoints: (
+    // $nhsuk-breakpoints: (
     // mobile: 320px,
     // tablet: 641px,
     // desktop: 769px,
-    // large - desktop: 990px
+    // large-desktop: 990px
     // );
     this.mql = window.matchMedia('(min-width: 641px)')
 

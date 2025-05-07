@@ -1,5 +1,5 @@
 ////
-/// Breakpoints
+/// Breakpoint definitions
 ///
 /// @link https://github.com/sass-mq/sass-mq sass-mq config
 ///
@@ -20,9 +20,9 @@
 /// @group settings
 ////
 
-$mq-breakpoints: (
+$nhsuk-breakpoints: (
   mobile: 320px,
   tablet: 641px,
   desktop: 769px,
   large-desktop: 990px
-);
+) !default;
