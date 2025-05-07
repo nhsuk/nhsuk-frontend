@@ -49,7 +49,6 @@
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally used to create override classes.
-/// @access public
 
 @mixin nhsuk-text-break-word($important: false) {
   // IE 11 and Edge 16–17 only support the non-standard `word-wrap` property
