@@ -73,12 +73,12 @@
 /// Grid widths are defined in the `$nhsuk-grid-widths` map.
 ///
 /// By default the column width changes from 100% to specified width at the
-/// 'tablet' breakpoint, but other breakpoints can be specified using the `$at`
+/// 'desktop' breakpoint, but other breakpoints can be specified using the `$at`
 /// parameter.
 ///
 /// @param {String} $width [full] name of a grid width from $nhsuk-grid-widths
 /// @param {String} $float [left] left | right
-/// @param {String} $at [tablet] - mobile | tablet | desktop | any custom breakpoint
+/// @param {String} $at [desktop] - mobile | tablet | desktop | any custom breakpoint
 /// @param {String} $class [nhsuk-grid-column] CSS class name (deprecated)
 ///
 /// @example scss - Default
@@ -87,8 +87,8 @@
 ///   }
 ///
 /// @example scss - Customising the breakpoint where width percentage is applied
-///   .nhsuk-grid-column-one-half-at-desktop {
-///     @include nhsuk-grid-column(one-half, $at: desktop);
+///   .nhsuk-grid-column-one-half-at-tablet {
+///     @include nhsuk-grid-column(one-half, $at: tablet);
 ///   }
 ///
 /// @example scss - Customising the float direction
@@ -101,14 +101,14 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-grid-column($width: full, $float: left, $at: tablet, $class: "nhsuk-grid-column") {
+@mixin nhsuk-grid-column($width: full, $float: left, $at: desktop, $class: "nhsuk-grid-column") {
   @if $class {
     .#{$class}-#{$width} {
       @include nhsuk-grid-column($width, $float, $at, $class: false);
     }
   } @else {
     box-sizing: border-box;
-    @if $at != desktop {
+    @if $at != tablet {
       width: 100%;
     }
     padding: 0 $nhsuk-gutter-half;
