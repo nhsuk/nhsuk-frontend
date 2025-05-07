@@ -67,7 +67,7 @@
   @include _govuk-main-wrapper--s;
 }
 
-@include nhsuk-exports("govuk/objects/main-wrapper") {
+@include nhsuk-exports("nhsuk/core/objects/main-wrapper") {
   .nhsuk-main-wrapper {
     @include _nhsuk-main-wrapper;
   }
