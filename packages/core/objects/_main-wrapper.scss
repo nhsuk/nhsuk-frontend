@@ -17,7 +17,7 @@
 ///   </div>
 ////
 
-@mixin govuk-main-wrapper {
+@mixin _nhsuk-main-wrapper {
   display: block; // [1]
   padding-top: nhsuk-spacing(4);
   padding-bottom: nhsuk-spacing(4);
@@ -29,7 +29,13 @@
   }
 }
 
-@mixin govuk-main-wrapper--l {
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper {
+  @include _govuk-main-wrapper;
+}
+
+@mixin _nhsuk-main-wrapper--l {
   padding-bottom: nhsuk-spacing(6);
   padding-top: nhsuk-spacing(6);
 
@@ -39,7 +45,13 @@
   }
 }
 
-@mixin govuk-main-wrapper--s {
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--l {
+  @include _govuk-main-wrapper--l;
+}
+
+@mixin _nhsuk-main-wrapper--s {
   padding-top: nhsuk-spacing(3);
   padding-bottom: nhsuk-spacing(3);
 
@@ -49,16 +61,22 @@
   }
 }
 
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--s {
+  @include _govuk-main-wrapper--s;
+}
+
 @include nhsuk-exports("govuk/objects/main-wrapper") {
   .nhsuk-main-wrapper {
-    @include govuk-main-wrapper;
+    @include _nhsuk-main-wrapper;
   }
 
   .nhsuk-main-wrapper--l {
-    @include govuk-main-wrapper--l;
+    @include _nhsuk-main-wrapper--l;
   }
 
   .nhsuk-main-wrapper--s {
-    @include govuk-main-wrapper--s;
+    @include _nhsuk-main-wrapper--s;
   }
 }
