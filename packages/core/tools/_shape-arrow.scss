@@ -15,7 +15,7 @@
 /// @param {Number} $base - Length of the base of the triangle
 /// @return {Number} Calculated height of the triangle
 
-@function _govuk-equilateral-height($base) {
+@function _nhsuk-equilateral-height($base) {
   $square-root-of-three: 1.732;
 
   @return math.div($base, 2) * $square-root-of-three;
@@ -51,7 +51,7 @@
   $perpendicular: math.div($base, 2);
 
   @if not $height {
-    $height: _govuk-equilateral-height($base);
+    $height: _nhsuk-equilateral-height($base);
   }
 
   @if $direction == "up" {
