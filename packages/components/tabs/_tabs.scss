@@ -40,7 +40,7 @@
 
 // JavaScript enabled
 .js-enabled {
-  @include govuk-media-query($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     .nhsuk-tabs__list {
       border-bottom: 1px solid $nhsuk-border-color;
       margin-bottom: 0;
