@@ -5,7 +5,7 @@
   padding-left: nhsuk-spacing(3);
   padding-top: 2px;
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     padding-left: 0;
     padding-top: nhsuk-spacing(2);
     width: 100%;
@@ -40,7 +40,7 @@
 .nhsuk-header__transactional--logo {
   max-width: 100%;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     .nhsuk-header__link--service {
       align-items: center;
       display: flex;

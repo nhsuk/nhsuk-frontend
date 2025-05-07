@@ -20,7 +20,7 @@
   background-color: $color_nhsuk-grey-4;
   margin-bottom: 15px;
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     display: flex;
     justify-content: space-between;
   }
@@ -37,7 +37,7 @@
     margin-bottom: 15px;
   }
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     float: left;
     padding-bottom: 0;
     padding-right: 40px;
@@ -52,14 +52,14 @@
 .nhsuk-footer__list-item {
   @include nhsuk-font(16);
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     float: none;
     margin-right: 0;
   }
 }
 
 .nhsuk-footer-default__list-item {
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     float: left;
     margin-right: nhsuk-spacing(5);
   }
@@ -85,7 +85,7 @@
 }
 
 .nhsuk-footer__meta {
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     border-top: 1px solid $color_nhsuk-grey-5;
     padding-top: 35px;
   }

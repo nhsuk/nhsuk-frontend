@@ -42,11 +42,11 @@
     }
   }
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     padding-left: 26px; // [2]
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $nhsuk-print-text-color;
 
     &:visited {
@@ -64,7 +64,7 @@
 
     @include print-color($nhsuk-print-text-color);
 
-    @include mq($until: tablet) {
+    @include nhsuk-media-query($until: tablet) {
       height: 24px;
       left: -2px;
       margin-bottom: 0;
