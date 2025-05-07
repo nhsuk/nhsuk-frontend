@@ -7,8 +7,9 @@ const { setFocus } = require('../../common')
  * when elected so the next focusable element is not at the jumped to area.
  */
 
-module.exports = () => {
-  const $module = document.querySelector('.nhsuk-skip-link')
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $module = $scope.querySelector('.nhsuk-skip-link')
 
   // Check for skip link
   if (!$module || !($module instanceof HTMLAnchorElement)) {

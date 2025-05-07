@@ -60,6 +60,11 @@ describe('Skip link', () => {
       document.body.innerHTML = ''
       expect(() => initSkipLink()).not.toThrow()
     })
+
+    it('should not throw with empty scope', () => {
+      const scope = document.createElement('div')
+      expect(() => initSkipLink({ scope })).not.toThrow()
+    })
   })
 
   describe('Focus handling', () => {

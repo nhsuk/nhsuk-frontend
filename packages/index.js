@@ -23,7 +23,7 @@ require('./polyfills.js')
  */
 function initAll(scope) {
   initHeader({ scope })
-  initSkipLink()
+  initSkipLink({ scope })
   initButton({ scope })
   initCharacterCount({ scope })
   initCheckboxes({ scope })
