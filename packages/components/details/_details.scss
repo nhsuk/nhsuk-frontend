@@ -109,7 +109,7 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     display: block;
     padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
 
-    @include mq($until: tablet) {
+    @include nhsuk-media-query($until: tablet) {
       padding: nhsuk-spacing(3) - $nhsuk-focus-width nhsuk-spacing(3) nhsuk-spacing(3);
     }
 
