@@ -5,7 +5,12 @@
 ////
 
 @include nhsuk-exports("govuk/objects/grid") {
-  @include govuk-grid-row;
+  .nhsuk-grid-row {
+    @include clearfix;
+    margin-right: -($nhsuk-gutter-half);
+    margin-left: -($nhsuk-gutter-half);
+  }
+
   @include govuk-grid-column(one-quarter);
   @include govuk-grid-column(one-third);
   @include govuk-grid-column(one-half);

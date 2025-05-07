@@ -41,13 +41,24 @@
 ///
 /// @example scss - Customising the class name
 ///   @include govuk-grid-row("app-grid");
+///
+/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
 
-@mixin govuk-grid-row($class: "nhsuk-grid-row") {
+@mixin nhsuk-grid-row($class: "nhsuk-grid-row") {
   .#{$class} {
     @include clearfix;
     margin-left: -($nhsuk-gutter-half);
     margin-right: -($nhsuk-gutter-half);
   }
+}
+
+/// Generate grid row styles (deprecated)
+///
+/// @alias nhsuk-grid-row
+/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
+
+@mixin govuk-grid-row($args...) {
+  @include nhsuk-grid-row($args...);
 }
 
 /// Generate grid column styles
