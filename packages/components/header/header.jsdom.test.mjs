@@ -147,6 +147,11 @@ describe('Header class', () => {
       document.body.innerHTML = ''
       expect(() => initHeader()).not.toThrow()
     })
+
+    it('should not throw with empty scope', () => {
+      const scope = document.createElement('div')
+      expect(() => initHeader({ scope })).not.toThrow()
+    })
   })
 
   describe('Menu button', () => {
