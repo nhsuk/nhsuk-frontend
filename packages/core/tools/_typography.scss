@@ -30,7 +30,7 @@
 ///   `!important`. Generally Used to create override classes.
 
 @mixin nhsuk-typography-weight-normal($important: false) {
-  font-weight: $nhsuk-font-normal iff($important, !important);
+  font-weight: $nhsuk-font-normal if($important, !important, null);
 }
 
 /// Bold font weight
@@ -39,7 +39,7 @@
 ///   `!important`. Generally Used to create override classes.
 
 @mixin nhsuk-typography-weight-bold($important: false) {
-  font-weight: $nhsuk-font-bold iff($important, !important);
+  font-weight: $nhsuk-font-bold if($important, !important, null);
 }
 
 /// Word break helper
@@ -140,9 +140,9 @@
     );
 
     // [1]
-    $font-size: $font-size iff($important, !important);
-    $font-size-rem: $font-size-rem iff($important, !important);
-    $line-height: $line-height iff($important, !important);
+    $font-size: $font-size if($important, !important, null);
+    $font-size-rem: $font-size-rem if($important, !important, null);
+    $line-height: $line-height if($important, !important, null);
 
     & {
       @if not $breakpoint {
