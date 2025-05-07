@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "sass:math";
+@use "../settings/colours" as *;
+@use "../settings/typography" as *;
+@use "functions" as *;
+@use "ifff" as *;
+@use "sass-mq" as *;
+
 ////
 /// Typography
 ///
@@ -6,9 +14,6 @@
 ///
 /// @group tools
 ////
-
-@use "sass:map";
-@use "sass:math";
 
 /// Text colour
 ///
