@@ -26,3 +26,9 @@ $nhsuk-breakpoints: (
   desktop: 769px,
   large-desktop: 990px
 ) !default;
+
+/// Show active breakpoint in top-right corner.
+///
+/// Only use this during local development.
+
+$nhsuk-show-breakpoints: false !default;
