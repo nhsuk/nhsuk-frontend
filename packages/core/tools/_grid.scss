@@ -76,7 +76,7 @@
     @if $at != desktop {
       width: 100%;
     }
-    @include govuk-media-query($from: $at) {
+    @include nhsuk-media-query($from: $at) {
       float: $float;
       width: grid-width($width);
     }
