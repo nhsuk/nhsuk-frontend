@@ -46,7 +46,7 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
   }
 }
 
-@include nhsuk-exports("govuk/overrides/spacing") {
+@include nhsuk-exports("nhsuk/core/utilities/spacing") {
   @include _nhsuk-generate-spacing-overrides("margin");
   @include _nhsuk-generate-spacing-overrides("padding");
 }

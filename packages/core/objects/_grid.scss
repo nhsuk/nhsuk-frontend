@@ -6,7 +6,7 @@
 /// @group objects
 ////
 
-@include nhsuk-exports("govuk/objects/grid") {
+@include nhsuk-exports("nhsuk/core/objects/grid") {
   .nhsuk-grid-row {
     @include clearfix;
     margin-right: -($nhsuk-gutter-half);
