@@ -3,8 +3,8 @@ import { compileStringAsync } from 'sass-embedded'
 
 describe('Grid system', () => {
   const sassModules = `
-    @use "core/settings/all" as *;
-    @use "core/tools/all" as *;
+    @use "core/settings" as *;
+    @use "core/tools" as *;
   `
 
   describe('@function nhsuk-grid-width', () => {
