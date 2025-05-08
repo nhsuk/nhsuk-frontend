@@ -3,7 +3,7 @@
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  */
-class ErrorSummary {
+export class ErrorSummary {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    * @param {ErrorSummaryConfig} [config] - Error summary config
@@ -132,7 +132,7 @@ class ErrorSummary {
  * @param {boolean} [options.focusOnPageLoad] - If set to `false` the error
  *   summary will not be focussed when the page loads.
  */
-module.exports = (options = {}) => {
+export function initErrorSummary(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-error-summary')
 

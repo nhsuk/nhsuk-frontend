@@ -1,4 +1,4 @@
-const { toggleConditionalInput } = require('../../common')
+import { toggleConditionalInput } from '../../common.mjs'
 
 /**
  * Radios component
@@ -6,7 +6,7 @@ const { toggleConditionalInput } = require('../../common')
  * Conditionally show content when a radio button is checked
  * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
-class Radios {
+export class Radios {
   constructor($root) {
     if (!$root || !($root instanceof HTMLElement)) {
       return this
@@ -63,7 +63,7 @@ class Radios {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initRadios(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-radios--conditional')
 

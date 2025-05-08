@@ -1,7 +1,7 @@
 /**
  * Character count component
  */
-class CharacterCount {
+export class CharacterCount {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -285,7 +285,7 @@ CharacterCount.prototype.defaults = {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initCharacterCount(options = {}) {
   const $scope = options.scope || document
   const $characterCounts = $scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
