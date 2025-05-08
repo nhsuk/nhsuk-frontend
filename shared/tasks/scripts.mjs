@@ -15,7 +15,7 @@ import pkg from '../../package.json' with { type: 'json' }
  */
 export function webpackJS(done) {
   return gulp
-    .src('packages/nhsuk.js', {
+    .src('packages/nhsuk.mjs', {
       sourcemaps: true
     })
     .pipe(

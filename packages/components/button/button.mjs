@@ -4,7 +4,7 @@ const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 /**
  * Button component
  */
-class Button {
+export class Button {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -78,7 +78,7 @@ class Button {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initButton(options = {}) {
   const $scope = options.scope || document
   const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
 

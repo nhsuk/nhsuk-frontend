@@ -1,4 +1,4 @@
-const { initAll } = require('./index')
+import { initAll } from './index.mjs'
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => initAll(document))

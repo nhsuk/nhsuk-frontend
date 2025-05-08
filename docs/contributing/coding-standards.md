@@ -316,7 +316,7 @@ The folder structure should be:
 
     component-name
       - `_component-name.scss`
-      - `component-name.js`
+      - `component-name.mjs`
       - `macro.njk`
       - `README.md`
       - `template.njk`

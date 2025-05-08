@@ -3,7 +3,7 @@ import { setTimeout } from 'timers/promises'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import initHeader from './header.js'
+import { initHeader } from './header.mjs'
 
 const user = userEvent.setup()
 

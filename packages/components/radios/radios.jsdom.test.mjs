@@ -1,6 +1,6 @@
 import { getByRole } from '@testing-library/dom'
 
-import initRadios from './radios.js'
+import { initRadios } from './radios.mjs'
 
 describe('Radios', () => {
   /** @type {HTMLDivElement[]} */

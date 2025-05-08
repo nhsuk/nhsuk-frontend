@@ -1,4 +1,4 @@
-import initDetails from './details.js'
+import { initDetails } from './details.mjs'
 
 describe('Details', () => {
   /** @type {HTMLDetailsElement} */
