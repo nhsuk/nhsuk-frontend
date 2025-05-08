@@ -48,7 +48,7 @@ gulp.task(
 gulp.task('watch', () =>
   Promise.all([
     gulp.watch(['packages/**/*.scss'], gulp.series(['style'])),
-    gulp.watch(['packages/**/*.js'], gulp.series(['script']))
+    gulp.watch(['packages/**/*.mjs'], gulp.series(['script']))
   ])
 )
 

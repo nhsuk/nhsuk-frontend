@@ -1,7 +1,7 @@
 /**
  * Header component
  */
-class Header {
+export class Header {
   /**
    * @param {Element | null} [$module] - HTML element to use for component
    */
@@ -279,7 +279,7 @@ class Header {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initHeader(options = {}) {
   const $scope = options.scope || document
   const $module = $scope.querySelector('.nhsuk-navigation')
 
