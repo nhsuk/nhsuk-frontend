@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@use "../settings/colours" as *;
-@use "../settings/typography" as *;
+@use "../settings" as *;
 @use "functions" as *;
 @use "ifff" as *;
 @use "sass-mq" as *;
