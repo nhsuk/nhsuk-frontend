@@ -9,18 +9,18 @@ import {
   initRadios,
   initSkipLink,
   initTabs
-} from './index.js'
-import * as NHSUKFrontend from './index.js'
+} from './index.mjs'
+import * as NHSUKFrontend from './index.mjs'
 
-jest.mock('./components/button/button.js')
-jest.mock('./components/character-count/character-count.js')
-jest.mock('./components/checkboxes/checkboxes.js')
-jest.mock('./components/details/details.js')
-jest.mock('./components/error-summary/error-summary.js')
-jest.mock('./components/header/header.js')
-jest.mock('./components/radios/radios.js')
-jest.mock('./components/skip-link/skip-link.js')
-jest.mock('./components/tabs/tabs.js')
+jest.mock('./components/button/button.mjs')
+jest.mock('./components/character-count/character-count.mjs')
+jest.mock('./components/checkboxes/checkboxes.mjs')
+jest.mock('./components/details/details.mjs')
+jest.mock('./components/error-summary/error-summary.mjs')
+jest.mock('./components/header/header.mjs')
+jest.mock('./components/radios/radios.mjs')
+jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
   describe('Exports', () => {

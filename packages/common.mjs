@@ -4,7 +4,7 @@
  * @param {HTMLElement} element
  * @param {string} attr
  */
-const toggleAttribute = (element, attr) => {
+export function toggleAttribute(element, attr) {
   // Return without error if element or attr are missing
   if (!element || !attr) return
   // Toggle attribute value. Treat no existing attr same as when set to false
@@ -18,7 +18,7 @@ const toggleAttribute = (element, attr) => {
  * @param {HTMLElement} input - input element
  * @param {string} className - class to toggle
  */
-const toggleConditionalInput = (input, className) => {
+export function toggleConditionalInput(input, className) {
   // Return without error if input or class are missing
   if (!input || !className) return
   // If the input has conditional content it had a data-aria-controls attribute
@@ -46,7 +46,7 @@ const toggleConditionalInput = (input, className) => {
  * Original code taken from GDS (Government Digital Service)
  * {@link https://github.com/alphagov/govuk-frontend}
  */
-function generateUniqueID() {
+export function generateUniqueID() {
   let d = new Date().getTime()
   if (
     typeof window.performance !== 'undefined' &&
@@ -76,7 +76,7 @@ function generateUniqueID() {
  * @param {function(this: FocusElement): void} [options.onBeforeFocus] - Callback before focus
  * @param {function(this: FocusElement): void} [options.onBlur] - Callback on blur
  */
-function setFocus($element, options = {}) {
+export function setFocus($element, options = {}) {
   const isFocusable = $element.getAttribute('tabindex')
 
   if (!isFocusable) {
@@ -115,11 +115,4 @@ function setFocus($element, options = {}) {
   }
 
   $element.focus()
-}
-
-module.exports = {
-  toggleAttribute,
-  toggleConditionalInput,
-  generateUniqueID,
-  setFocus
 }

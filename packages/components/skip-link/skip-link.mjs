@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
-const { setFocus } = require('../../common')
+import { setFocus } from '../../common.mjs'
 
 /*
  * Skip link component
@@ -8,7 +8,7 @@ const { setFocus } = require('../../common')
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when elected so the next focusable element is not at the jumped to area.
  */
-class SkipLink {
+export class SkipLink {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -54,7 +54,7 @@ class SkipLink {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initSkipLink(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-skip-link')
 

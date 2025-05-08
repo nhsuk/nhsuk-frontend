@@ -13,7 +13,7 @@ const config = {
   coveragePathIgnorePatterns: [
     '.eslintrc.js',
     '.test.(js|mjs)',
-    'polyfills.js'
+    'polyfills.mjs'
   ],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
