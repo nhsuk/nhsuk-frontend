@@ -49,7 +49,7 @@
   }
 }
 
-@include govuk-exports("govuk/objects/main-wrapper") {
+@include nhsuk-exports("govuk/objects/main-wrapper") {
   .nhsuk-main-wrapper {
     @include govuk-main-wrapper;
   }
