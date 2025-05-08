@@ -21,11 +21,22 @@
 
 $imported-modules: () !default; // [1]
 
-@mixin govuk-exports($name, $warn: true) {
+@mixin nhsuk-exports($name) {
   @if not list.index($imported-modules, $name) {
     // [2]
     $imported-modules: list.append($imported-modules, $name) !global; // [3]
     @content; // [4]
   }
   // [5]
+}
+
+/// Export module (deprecated)
+///
+/// @alias nhsuk-exports
+/// @deprecated To be removed in v10.0, replaced by nhsuk-exports
+
+@mixin govuk-exports($args...) {
+  @include nhsuk-exports($args...) {
+    @content;
+  }
 }
