@@ -59,7 +59,7 @@ Or to use only the minimum components necessary:
 
 ```scss
 // Core (required)
-@forward "node_modules/nhsuk-frontend/packages/core/all";
+@forward "node_modules/nhsuk-frontend/packages/core";
 
 // Individual component (optional)
 @forward "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
