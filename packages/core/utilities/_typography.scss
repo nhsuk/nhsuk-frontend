@@ -1,7 +1,6 @@
 @use "sass:map";
-@use "../settings/colours" as *;
-@use "../settings/typography" as *;
-@use "../tools/typography" as *;
+@use "../settings" as *;
+@use "../tools" as *;
 
 ////
 /// Typography

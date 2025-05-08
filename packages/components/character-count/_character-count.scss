@@ -1,4 +1,4 @@
-@use "../../core/tools/spacing" as *;
+@use "../../core/tools" as *;
 
 .nhsuk-character-count {
   @include nhsuk-responsive-margin(6, "bottom");

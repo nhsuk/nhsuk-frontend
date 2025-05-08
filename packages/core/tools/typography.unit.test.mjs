@@ -3,8 +3,8 @@ import { compileStringAsync } from 'sass-embedded'
 
 describe('Typography tools', () => {
   const sassModules = `
-    @use "core/settings/all" as *;
-    @use "core/tools/all" as *;
+    @use "core/settings" as *;
+    @use "core/tools" as *;
   `
 
   const sassBootstrap = `
