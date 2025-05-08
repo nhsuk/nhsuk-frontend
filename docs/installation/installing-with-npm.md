@@ -111,11 +111,11 @@ initAll()
 Rather than using `initAll`, you can initialise individual components used by your service. For example:
 
 ```js
-import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js';
-import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js';
+import { initRadios } from 'nhsuk-frontend/packages/components/radios/radios.mjs';
+import { initSkipLink } from 'nhsuk-frontend/packages/components/skip-link/skip-link.mjs';
 
 // Polyfills
-import 'nhsuk-frontend/packages/polyfills.js';
+import 'nhsuk-frontend/packages/polyfills.mjs';
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {
