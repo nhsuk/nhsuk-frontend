@@ -36,7 +36,7 @@
   }
 }
 
-@include govuk-exports("govuk/objects/width-container") {
+@include nhsuk-exports("govuk/objects/width-container") {
   .nhsuk-width-container {
     @include govuk-width-container;
   }
