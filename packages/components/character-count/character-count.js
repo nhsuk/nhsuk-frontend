@@ -1,11 +1,23 @@
+/**
+ * Character count component
+ */
 class CharacterCount {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
     const $textarea = $module.querySelector('.nhsuk-js-character-count')
-    if (!$textarea) {
+    if (
+      !$textarea ||
+      !(
+        $textarea instanceof HTMLTextAreaElement ||
+        $textarea instanceof HTMLInputElement
+      )
+    ) {
       return this
     }
 
@@ -65,7 +77,7 @@ class CharacterCount {
 
     // Check for limit
     if (!this.maxLength) {
-      return
+      return this
     }
 
     // Remove hard limit if set
@@ -267,11 +279,19 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
-module.exports = ({ scope = document } = {}) => {
-  const characterCounts = scope.querySelectorAll(
+/**
+ * Initialise character count component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $characterCounts = $scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
   )
-  characterCounts.forEach((el) => {
-    new CharacterCount(el)
+
+  $characterCounts.forEach(($module) => {
+    new CharacterCount($module)
   })
 }
