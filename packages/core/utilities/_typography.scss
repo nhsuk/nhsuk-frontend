@@ -18,7 +18,7 @@
 
 @each $size in map.keys($nhsuk-typography-scale) {
   .nhsuk-u-font-size-#{$size} {
-    @include nhsuk-typography-responsive($size, $important: true);
+    @include nhsuk-font-size($size, $important: true);
   }
 }
 
