@@ -1,20 +1,33 @@
+@use "sass:map";
+@use "sass:meta";
+
 ////
-/// Sass MQ
-///
-/// We use sass-mq module for media queries
-///
-/// 1. Import sass-mq from our vendor dependencies folder opposed to node_modules
-/// in case node_modules is not installed in the folder relative to the root folder
+/// Wrangle sass-mq config...
 ///
 /// @group tools
+////
 
+// Pass our breakpoint definitions through to sass-mq.
+$mq-breakpoints: if(meta.variable-exists(nhsuk-breakpoints), $nhsuk-breakpoints, ());
+
+$mq-show-breakpoints: ();
+
+@if meta.variable-exists(nhsuk-show-breakpoints) and $nhsuk-show-breakpoints {
+  $mq-show-breakpoints: map.keys($nhsuk-breakpoints);
+}
+
+// This is a horrible, horrible hack to prevent the 'dev mode' CSS to display
+// the current breakpoint from being included multiple times.
+//
+// We can't use the `exports` mixin for this because import directives cannot be
+// used within control directives 😠
 $sass-mq-already-included: false !default;
 
 @if $sass-mq-already-included {
   $mq-show-breakpoints: ();
 }
 
-@import "../vendor/sass-mq"; // [1]
+@import "../vendor/sass-mq";
 
 $sass-mq-already-included: true;
 

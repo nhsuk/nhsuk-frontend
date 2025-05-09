@@ -32,6 +32,42 @@ This was added in [pull request #1257: Review and update `text`, `html` and `cal
 
 You can now use links on dark background by using the `.nhsuk-link--reverse` class. Added in [pull request #1269](https://github.com/nhsuk/nhsuk-frontend/pull/1269).
 
+#### Custom Sass grid column widths and breakpoints
+
+We are now exposing new settings to allow you to customise breakpoints and responsive behaviour:
+
+- `$nhsuk-grid-widths` - Map of grid column widths
+- `$nhsuk-breakpoints` - Map of breakpoint definitions
+- `$nhsuk-show-breakpoints` - Whether to show the current breakpoint in the top right corner
+
+For example, Sass grid column widths can be configured using:
+
+```scss
+$nhsuk-grid-widths: (
+  one-quarter: math.percentage(math.div(1, 4)),
+  one-third: math.percentage(math.div(1, 3)),
+  one-half: math.percentage(math.div(1, 2)),
+  two-thirds: math.percentage(math.div(2, 3)),
+  three-quarters: math.percentage(math.div(3, 4)),
+  full: 100%
+);
+```
+
+Sass breakpoint definitions can be configured using:
+
+```scss
+$nhsuk-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+  large-desktop: 990px
+);
+```
+
+If you are overriding any settings prefixed with `$mq-` in your application you will need to update to use the new `$nhsuk-` prefixed settings.
+
+This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
+
 :recycle: **Changes**
 
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
