@@ -72,6 +72,18 @@ $nhsuk-breakpoints: (
 
 This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
 
+#### Suppress Sass deprecation warnings
+
+You can now suppress Sass warnings from deprecations within NHS.UK frontend by updating the `$nhsuk-suppressed-warnings` map. Every deprecation warning will now include a warning "key" which you can use in the following code, placed at the root of your Sass project:
+
+```scss
+$nhsuk-suppressed-warnings: (
+  deprecated-feature
+);
+```
+
+This was added in [pull request #1291: Add Sass warning suppression functionality](https://github.com/nhsuk/nhsuk-frontend/pull/1291)
+
 :wastebasket: **Deprecated features**
 
 #### Replace Sass mixins for media queries
