@@ -64,9 +64,73 @@ $nhsuk-breakpoints: (
 );
 ```
 
+This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
+
+:wastebasket: **Deprecated features**
+
+#### Replace Sass mixins for media queries
+
+If you're using the `mq()` Sass mixin to output CSS media queries, you must replace it with the `nhsuk-media-query()` mixin.
+
+Before:
+
+```scss
+@include mq($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
+After:
+
+```scss
+@include nhsuk-media-query($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
 If you are overriding any settings prefixed with `$mq-` in your application you will need to update to use the new `$nhsuk-` prefixed settings.
 
-This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
+#### Replace Sass mixins for grids
+
+If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and remove the `$class` parameter.
+
+Before:
+
+```scss
+@include govuk-grid-column(
+  one-quarter,
+  $at: desktop,
+  $class: "app-grid-column"
+);
+```
+
+After:
+
+```scss
+.app-grid-column-one-quarter-at-desktop {
+  @include nhsuk-grid-column(one-quarter, $at: desktop);
+}
+```
+
+If you're using the `govuk-grid-row()` Sass mixin, you must replace it with the `.nhsuk-grid-row` class in your HTML.
+
+If you're using the `grid-width()` Sass mixin, you must replace it with the `nhsuk-grid-width()` mixin.
+
+#### Replace Sass mixins for wrappers
+
+If you're using the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` or `govuk-main-wrapper--s()` Sass mixins, you must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
+
+#### Replace Sass mixin `nhsuk-typography-responsive` with `nhsuk-font-size`
+
+We've renamed the Sass mixin `nhsuk-typography-responsive` to `nhsuk-font-size` and have deprecated `nhsuk-typography-responsive` to better communicate its intended use.
+
+You can still use `nhsuk-typography-responsive`, but we'll remove it in a future breaking release.
+
+#### Updated Sass mixin, function and variable namespace
+
+All other Sass mixins, functions and variables prefixed `govuk` are now prefixed `nhsuk`. The previous names are deprecated and will be removed in a future release.
+
+For more information, see [pull request #1289: Deprecate Sass `govuk` namespace usage](https://github.com/nhsuk/nhsuk-frontend/pull/1289).
 
 :recycle: **Changes**
 
