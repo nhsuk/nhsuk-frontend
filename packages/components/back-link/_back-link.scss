@@ -28,7 +28,7 @@
   text-decoration: none;
 
   @include nhsuk-link-style-default;
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 
   .nhsuk-icon__chevron-left {
     height: 24px;

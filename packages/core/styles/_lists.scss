@@ -21,7 +21,7 @@
   margin-top: 0;
   padding-left: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 
   // Add a top margin and remove bottom margin for nested lists

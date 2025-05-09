@@ -116,7 +116,7 @@
 .nhsuk-pagination__title {
   display: block;
 
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font-size(24);
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
@@ -129,5 +129,5 @@
   display: block;
   text-decoration: underline;
 
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 }

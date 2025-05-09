@@ -36,19 +36,19 @@
 }
 
 .nhsuk-table__caption--xl {
-  @include nhsuk-typography-responsive(48);
+  @include nhsuk-font-size(48);
 }
 
 .nhsuk-table__caption--l {
-  @include nhsuk-typography-responsive(36);
+  @include nhsuk-font-size(36);
 }
 
 .nhsuk-table__caption--m {
-  @include nhsuk-typography-responsive(26);
+  @include nhsuk-font-size(26);
 }
 
 .nhsuk-table__caption--s {
-  @include nhsuk-typography-responsive(22);
+  @include nhsuk-font-size(22);
 }
 
 // [2]
