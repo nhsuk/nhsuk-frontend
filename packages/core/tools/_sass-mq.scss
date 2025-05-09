@@ -1,5 +1,14 @@
 @use "sass:map";
 @use "sass:meta";
+@use "../settings" as *;
+@use "../vendor/sass-mq" as * with (
+  $mq-breakpoints: $nhsuk-breakpoints,
+  $mq-show-breakpoints: if(
+      meta.variable-exists(nhsuk-show-breakpoints) and $nhsuk-show-breakpoints,
+      map.keys($nhsuk-breakpoints),
+      ()
+    )
+);
 
 ////
 /// Wrangle sass-mq config...
@@ -7,29 +16,7 @@
 /// @group tools
 ////
 
-// Pass our breakpoint definitions through to sass-mq.
-$mq-breakpoints: if(meta.variable-exists(nhsuk-breakpoints), $nhsuk-breakpoints, ());
-
-$mq-show-breakpoints: ();
-
-@if meta.variable-exists(nhsuk-show-breakpoints) and $nhsuk-show-breakpoints {
-  $mq-show-breakpoints: map.keys($nhsuk-breakpoints);
-}
-
-// This is a horrible, horrible hack to prevent the 'dev mode' CSS to display
-// the current breakpoint from being included multiple times.
-//
-// We can't use the `exports` mixin for this because import directives cannot be
-// used within control directives 😠
-$sass-mq-already-included: false !default;
-
-@if $sass-mq-already-included {
-  $mq-show-breakpoints: ();
-}
-
-@import "../vendor/sass-mq";
-
-$sass-mq-already-included: true;
+@forward "../vendor/sass-mq";
 
 /// Helpers
 

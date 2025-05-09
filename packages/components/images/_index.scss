@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Image component
+///
+/// 1. Overrides default browser margin values.
+/// 2. Makes the image width two thirds of its container for desktop.
+/// 3. Avoid image printing full width of a page.
+/// 4. Removes top margin from subsequent nhsuk-image.
+///
+/// @group components
+////
+
+.nhsuk-image {
+  background-color: $color_nhsuk-white;
+  border-bottom: 1px solid $color_nhsuk-grey-4;
+
+  margin-left: 0; // [1]
+  margin-right: 0; // [1]
+
+  @include nhsuk-responsive-margin(6, "bottom");
+  @include nhsuk-responsive-margin(6, "top");
+
+  @include nhsuk-media-query($from: desktop) {
+    width: math.percentage(math.div(2, 3)); // [2]
+  }
+
+  @include nhsuk-media-query($media-type: print) {
+    width: math.percentage(math.div(1, 2)); // [3]
+  }
+
+  & + .nhsuk-image {
+    @include nhsuk-responsive-margin(0, "top"); // [4]
+  }
+}
+
+.nhsuk-image__img {
+  display: block;
+  width: 100%;
+}
+
+.nhsuk-image__caption {
+  padding: nhsuk-spacing(3);
+
+  @include nhsuk-font-size(16);
+}

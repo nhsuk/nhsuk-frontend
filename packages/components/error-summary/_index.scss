@@ -1,0 +1,72 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Error summary component
+///
+/// 1. Cross-component class - adjusts styling of list component.
+/// 2. Override default link styling to use error colour
+///
+/// @group components
+////
+
+.nhsuk-error-summary {
+  // Not using responsive spacing as we want smaller margin on mobile
+  margin-bottom: nhsuk-spacing(5);
+
+  border: $nhsuk-border-width-mobile solid $nhsuk-error-color;
+
+  @include nhsuk-responsive-padding(4);
+
+  @include nhsuk-media-query($from: tablet) {
+    margin-bottom: nhsuk-spacing(7);
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    border: $nhsuk-border-width solid $nhsuk-error-color;
+  }
+
+  &:focus {
+    border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+    box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+    outline: $nhsuk-focus-width solid transparent;
+  }
+}
+
+.nhsuk-error-summary__title {
+  margin-top: 0;
+
+  @include nhsuk-font(26, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-error-summary__body {
+  @include nhsuk-font(19);
+
+  p {
+    margin-top: 0;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+}
+
+.nhsuk-error-summary__list {
+  // [1]
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.nhsuk-error-summary__list a {
+  @include nhsuk-typography-weight-bold;
+
+  // [2]
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $nhsuk-error-color;
+  }
+
+  &:focus {
+    @include nhsuk-focused-text;
+  }
+}

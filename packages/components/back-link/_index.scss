@@ -1,0 +1,66 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Back link component
+///
+/// 1. Allow space for the arrow.
+/// 2. Align the icon with the start of the back link.
+/// 3. Align the icon with the middle of the text.
+/// 4. Make back link same height as breadcrumb.
+///
+/// @group components
+////
+
+.nhsuk-back-link {
+  margin-top: nhsuk-spacing(3);
+  line-height: 1; // [5]
+
+  @include nhsuk-media-query($from: tablet) {
+    margin-top: nhsuk-spacing(4);
+  }
+}
+
+.nhsuk-back-link__link {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 0 16px; // [1]
+  position: relative;
+  text-decoration: none;
+
+  @include nhsuk-link-style-default;
+  @include nhsuk-font-size(16);
+
+  .nhsuk-icon__chevron-left {
+    height: 24px;
+    left: -8px; // [2]
+    position: absolute;
+    top: -1px; // [3]
+    width: 24px;
+
+    @include nhsuk-media-query($from: tablet) {
+      top: 0; // [3]
+    }
+  }
+
+  &:visited {
+    color: $nhsuk-link-color;
+  }
+
+  &:hover {
+    color: $nhsuk-link-hover-color;
+    text-decoration: underline;
+
+    .nhsuk-icon__chevron-left {
+      fill: $nhsuk-link-hover-color;
+    }
+  }
+
+  &:focus {
+    .nhsuk-icon__chevron-left {
+      fill: $nhsuk-focus-text-color;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Checkboxes component
+///
+/// 1. remove 300ms pause on mobile.
+/// 2. Fix bug in IE11 caused by transform rotate (-45deg).
+///
+/// @group components
+////
+
+$nhsuk-checkboxes-size: nhsuk-spacing(6);
+$nhsuk-checkboxes-label-padding-left-right: 12px;
+
+.nhsuk-checkboxes__item {
+  clear: left;
+  display: block;
+  margin-bottom: nhsuk-spacing(2);
+  min-height: $nhsuk-checkboxes-size;
+  padding: 0 0 0 $nhsuk-checkboxes-size;
+  position: relative;
+
+  @include nhsuk-font(19);
+}
+
+.nhsuk-checkboxes__item:last-child,
+.nhsuk-checkboxes__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.nhsuk-checkboxes__input {
+  cursor: pointer;
+  height: $nhsuk-checkboxes-size;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: $nhsuk-checkboxes-size;
+  z-index: 1;
+}
+
+.nhsuk-checkboxes__label {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px $nhsuk-checkboxes-label-padding-left-right nhsuk-spacing(1);
+  -ms-touch-action: manipulation; // [1]
+  touch-action: manipulation;
+}
+
+.nhsuk-checkboxes__hint {
+  display: block;
+  padding-left: $nhsuk-checkboxes-label-padding-left-right;
+  padding-right: $nhsuk-checkboxes-label-padding-left-right;
+}
+
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::before {
+  background: $nhsuk-form-element-background-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  box-sizing: border-box;
+  content: "";
+  height: $nhsuk-checkboxes-size;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $nhsuk-checkboxes-size;
+}
+
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::after {
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 $nhsuk-border-width $nhsuk-border-width;
+  content: "";
+  height: 10px;
+  left: 10px;
+  opacity: 0; // [2]
+  position: absolute;
+  top: 13px;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 22px;
+}
+
+/// Focus state
+///
+/// 1. Since box-shadows are removed when users customise their colours
+///    We set a transparent outline that is shown instead.
+///
+/// @link https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+
+.nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
+  @include nhsuk-focused-checkbox;
+}
+
+/// Selected state
+
+.nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label::after {
+  opacity: 1;
+}
+
+/// Disabled state
+
+.nhsuk-checkboxes__input:disabled,
+.nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+  cursor: default;
+}
+
+.nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+  opacity: 0.5;
+}
+
+/// Divider variant
+
+.nhsuk-checkboxes__divider {
+  $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
+
+  color: $nhsuk-text-color;
+  margin-bottom: nhsuk-spacing(2);
+  text-align: center;
+  width: $nhsuk-divider-size;
+
+  @include nhsuk-font(19);
+}
+
+/// Conditional
+///
+/// 1. Calculate the amount of padding needed to keep the border
+///    centered against the checkbox.
+/// 2. Move the border centered with the checkbox.
+/// 3. Move the contents of the conditional inline with the label.
+
+.nhsuk-checkboxes__conditional {
+  $conditional-border-width: $nhsuk-border-width-mobile;
+  $conditional-border-padding: math.div($nhsuk-checkboxes-size, 2) - math.div($conditional-border-width, 2); // [1]
+  $conditional-margin-left: $conditional-border-padding; // [2]
+  $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; // [3]
+
+  border-left: $conditional-border-width solid $nhsuk-form-border-color;
+  margin-left: $conditional-margin-left;
+  padding-left: $conditional-padding-left;
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.js-enabled .nhsuk-checkboxes__conditional--hidden {
+  display: none;
+}

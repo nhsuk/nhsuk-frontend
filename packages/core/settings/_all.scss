@@ -1,9 +1,1 @@
-////
-/// Settings
-////
-
-@import "breakpoints";
-@import "colours";
-@import "globals";
-@import "spacing";
-@import "typography";
+@forward ".";

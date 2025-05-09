@@ -1,0 +1,17 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Error message component
+///
+/// @group components
+////
+
+.nhsuk-error-message {
+  clear: both;
+  color: $nhsuk-error-color;
+  display: block;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(19, $weight: bold);
+}

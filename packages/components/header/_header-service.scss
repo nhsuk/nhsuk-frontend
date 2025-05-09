@@ -1,3 +1,6 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
 /// These are the styles for the service header variants.
 
 .nhsuk-header__link--service {

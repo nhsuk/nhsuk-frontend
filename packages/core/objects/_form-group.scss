@@ -1,3 +1,6 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
 .nhsuk-form-group {
   @include nhsuk-responsive-margin(4, "bottom");
 

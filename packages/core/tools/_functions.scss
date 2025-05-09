@@ -1,10 +1,11 @@
+@use "sass:math";
+@use "../settings" as *;
+
 ////
 /// Functions
 ///
 /// @group tools
 ////
-
-@use "sass:math";
 
 /// Convert pixels to em
 ///
