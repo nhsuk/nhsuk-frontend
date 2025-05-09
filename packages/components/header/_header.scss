@@ -26,16 +26,16 @@
 
 .nhsuk-header__container {
   padding: 20px 0;
-  @include govuk-width-container;
+  @include nhsuk-width-container;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     display: flex;
     justify-content: space-between;
   }
 }
 
 .nhsuk-header__logo {
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     position: relative;
     z-index: 1;
   }
@@ -43,7 +43,7 @@
   .nhsuk-logo__background {
     fill: $color_nhsuk-white;
 
-    @include mq($media-type: print) {
+    @include nhsuk-media-query($media-type: print) {
       fill: $color_nhsuk-blue;
     }
   }
@@ -51,12 +51,12 @@
   .nhsuk-logo__text {
     fill: $color_nhsuk-blue;
 
-    @include mq($media-type: print) {
+    @include nhsuk-media-query($media-type: print) {
       fill: $color_nhsuk-white;
     }
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-left: 0;
   }
 
@@ -65,7 +65,7 @@
     border: 0;
   }
 
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     max-width: 60%;
   }
 
@@ -100,7 +100,7 @@
     background-color: transparent;
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     &::after {
       content: "";
     }
@@ -110,7 +110,7 @@
 .nhsuk-header__logo--only {
   max-width: 100%;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     .nhsuk-header__link--service {
       align-items: center;
       display: flex;
@@ -133,7 +133,7 @@
     border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     &.js-show {
       border-bottom: 0;
     }
@@ -144,7 +144,7 @@
   position: relative;
   text-align: right;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     margin-left: nhsuk-spacing(2);
   }
 }
@@ -153,7 +153,7 @@
   height: 100%;
   overflow: visible;
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     display: flex;
     margin: nhsuk-spacing(3) 0 0;
     position: relative;
@@ -162,7 +162,7 @@
 }
 
 .nhsuk-header__search-wrap {
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     display: block;
   }
 }
@@ -199,7 +199,7 @@
     font-size: $nhsuk-base-font-size;
   }
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     border: 1px solid $color_nhsuk-white;
     border-bottom-right-radius: $nhsuk-border-radius;
     border-top-right-radius: $nhsuk-border-radius;
@@ -213,14 +213,14 @@
     z-index: 1;
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     border: 1px solid $color_nhsuk-white;
     font-size: $nhsuk-base-font-size;
     height: nhsuk-spacing(6);
     width: 200px;
   }
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     width: 235px;
   }
 }
@@ -245,7 +245,7 @@
     cursor: pointer;
   }
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     background-color: $color_nhsuk-grey-5;
     border: 0;
     height: 40px;
@@ -293,7 +293,7 @@
     }
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     background-color: $color_nhsuk-grey-5;
     display: block;
     height: nhsuk-spacing(6);
@@ -342,11 +342,11 @@
   white-space: nowrap;
   @include nhsuk-font(16);
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     font-size: inherit;
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding: 12px 2px;
   }
 
@@ -360,7 +360,7 @@
   &:visited {
     color: $color_nhsuk-white;
 
-    @include mq($from: large-desktop) {
+    @include nhsuk-media-query($from: large-desktop) {
       color: $color_nhsuk-white;
     }
   }
@@ -370,7 +370,7 @@
     color: $color_nhsuk-white;
     text-decoration: none;
 
-    @include mq($from: large-desktop) {
+    @include nhsuk-media-query($from: large-desktop) {
       color: $color_nhsuk-white;
     }
   }
@@ -446,14 +446,14 @@
 }
 
 .nhsuk-navigation {
-  @include govuk-width-container;
+  @include nhsuk-width-container;
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     position: relative;
     z-index: 10;
   }
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     border-top: 1px solid $color_transparent_nhsuk-white-20;
   }
 }
@@ -472,12 +472,12 @@
   width: calc(100% + $nhsuk-gutter-half);
   margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     width: calc(100% + $nhsuk-gutter);
     margin: 0 math.div($nhsuk-gutter, 2) * -1;
   }
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     justify-content: space-between;
   }
 
@@ -488,7 +488,7 @@
 }
 
 .nhsuk-header__navigation-list--left-aligned {
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     justify-content: initial;
   }
 }
@@ -497,7 +497,7 @@
   margin-bottom: 0;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
 }
@@ -506,7 +506,7 @@
   position: relative;
   @include print-hide;
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     margin-top: -20px;
   }
 }
@@ -523,14 +523,14 @@
   left: 0;
   @include print-hide;
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
   }
 
   .nhsuk-header__navigation-link {
     margin: 0;
     padding: 12px 0;
-    @include govuk-width-container;
+    @include nhsuk-width-container;
     @include nhsuk-link-style-no-visited-state;
   }
 
@@ -549,7 +549,7 @@
   display: none;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     padding: 0 $nhsuk-gutter-half;
   }
 }
@@ -559,7 +559,7 @@
 }
 
 .nhsuk-header__navigation-item--home {
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     display: none;
   }
 }

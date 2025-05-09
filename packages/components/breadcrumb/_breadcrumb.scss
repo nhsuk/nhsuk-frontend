@@ -15,7 +15,7 @@
   margin-top: nhsuk-spacing(3);
   @include print-hide; // [1]
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     margin-top: nhsuk-spacing(4);
   }
 }
@@ -27,7 +27,7 @@
 
   @include nhsuk-font(16); // [4]
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     display: none; // [3]
   }
 }
@@ -72,7 +72,7 @@
   position: relative;
   @include nhsuk-font(16); // [4]
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     display: none; // [5]
   }
 

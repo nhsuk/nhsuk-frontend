@@ -13,7 +13,7 @@
 /// @return {Number} Percentage width
 /// @throw if `$key` is not a valid grid width
 
-@function grid-width($key) {
+@function nhsuk-grid-width($key) {
   @if map.has-key($nhsuk-grid-widths, $key) {
     @return map.get($nhsuk-grid-widths, $key);
   }
@@ -21,64 +21,109 @@
   @error "Unknown grid width `#{$key}`";
 }
 
+/// Grid width percentage (alias)
+///
+/// @alias nhsuk-grid-width
+/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-width
+
+@function grid-width($key) {
+  @return nhsuk-grid-width($key);
+}
+
 /// Generate grid row styles
 ///
 /// Creates a grid row class with a standardised margin.
 ///
-/// @param {String} $class [govuk-grid-row] CSS class name
+/// @param {String} $class [nhsuk-grid-row] CSS class name
 ///
 /// @example scss - Default
 ///   @include govuk-grid-row;
 ///
 /// @example scss - Customising the class name
 ///   @include govuk-grid-row("app-grid");
+///
+/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
 
-@mixin govuk-grid-row($class: "nhsuk-grid-row") {
+@mixin nhsuk-grid-row($class: "nhsuk-grid-row") {
   .#{$class} {
-    margin-left: -($nhsuk-gutter-half);
-    margin-right: -($nhsuk-gutter-half);
     @include clearfix;
+    margin-right: -($nhsuk-gutter-half);
+    margin-left: -($nhsuk-gutter-half);
   }
+}
+
+/// Generate grid row styles (deprecated)
+///
+/// @alias nhsuk-grid-row
+/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
+
+@mixin govuk-grid-row($args...) {
+  @include nhsuk-grid-row($args...);
 }
 
 /// Generate grid column styles
 ///
-/// Creates a cross browser grid column with a class of '.govuk-grid-column' by
-/// default, and a standardised gutter between the columns.
+/// Creates a grid column with standard gutter between the columns.
 ///
-/// Common widths are predefined above as keywords in the `$grid-widths` map.
+/// If a `$class` is provided (which is the default, but deprecated behaviour),
+/// the generated rules will be wrapped in a predefined selector in the format
+/// `$class-$width` (e.g. `nhsuk-grid-column-full`). This behaviour is
+/// deprecated and will be removed in v10.0
 ///
-/// By default their width changes from 100% to specified width at the 'tablet'
-/// breakpoint, but that can be configured to be any other breakpoint by using
-/// the `$at` parameter.
+/// Grid widths are defined in the `$nhsuk-grid-widths` map.
 ///
-/// @param {String} $class [govuk-grid-column] CSS class name
-/// @param {String} $width [full] one-quarter | one-third | one-half | two-third | three-quarters | full
+/// By default the column width changes from 100% to specified width at the
+/// 'desktop' breakpoint, but other breakpoints can be specified using the `$at`
+/// parameter.
+///
+/// @param {String} $width [full] name of a grid width from $nhsuk-grid-widths
 /// @param {String} $float [left] left | right
-/// @param {String} $at [tablet] - mobile | tablet | desktop | any custom breakpoint in px or em
+/// @param {String} $at [desktop] - mobile | tablet | desktop | any custom breakpoint
+/// @param {String} $class [nhsuk-grid-column] CSS class name (deprecated)
 ///
 /// @example scss - Default
-///   @include govuk-grid-column(two-thirds)
-///
-/// @example scss - Customising the class name
-///   @include govuk-grid-column(one-half, $class: "test-column");
+///   .nhsuk-grid-column-two-thirds {
+///     @include nhsuk-grid-column(two-thirds, $class: false)
+///   }
 ///
 /// @example scss - Customising the breakpoint where width percentage is applied
-///   @include govuk-grid-column(one-half, $at: desktop);
+///   .nhsuk-grid-column-one-half-at-tablet {
+///     @include nhsuk-grid-column(one-half, $at: tablet);
+///   }
 ///
 /// @example scss - Customising the float direction
-///   @include govuk-grid-column(one-half, $float: right);
+///   .nhsuk-grid-column-one-half-right {
+///     @include nhsuk-grid-column(two-thirds, $float: right, $class: false);
+///   }
+///
+/// @example scss - Customising the class name (deprecated)
+///   @include nhsuk-grid-column(one-half, $class: "test-column");
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin govuk-grid-column($width: full, $float: left, $at: desktop, $class: "nhsuk-grid-column") {
-  .#{$class}-#{$width} {
+@mixin nhsuk-grid-column($width: full, $float: left, $at: desktop, $class: "nhsuk-grid-column") {
+  @if $class {
+    .#{$class}-#{$width} {
+      @include nhsuk-grid-column($width, $float, $at, $class: false);
+    }
+  } @else {
     box-sizing: border-box;
-    padding: 0 $nhsuk-gutter-half;
-    @if $at != desktop {
+    @if $at != tablet {
       width: 100%;
     }
-    @include govuk-media-query($from: $at) {
+    padding: 0 $nhsuk-gutter-half;
+    @include nhsuk-media-query($from: $at) {
+      width: nhsuk-grid-width($width);
       float: $float;
-      width: grid-width($width);
     }
   }
+}
+
+/// Generate grid column styles (deprecated)
+///
+/// @alias nhsuk-grid-column
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-grid-column($args...) {
+  @include nhsuk-grid-column($args...);
 }

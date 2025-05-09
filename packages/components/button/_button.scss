@@ -43,7 +43,7 @@ $button-padding-left-right: 16px;
   @include nhsuk-font(19, $weight: bold);
   @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding: $button-padding-top-bottom-desktop $button-padding-left-right; // s2
   }
 

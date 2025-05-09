@@ -34,19 +34,19 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
   // [1]
   @each $scale-point, $scale-map in $nhsuk-spacing-responsive-scale {
     .nhsuk-u-#{$property}-#{$scale-point} {
-      @include _nhsuk-responsive-spacing($scale-point, $property, "all", true);
+      @include nhsuk-responsive-spacing($scale-point, $property, "all", true);
     }
 
     // [2]
     @each $direction in $_spacing-directions {
       .nhsuk-u-#{$property}-#{$direction}-#{$scale-point} {
-        @include _nhsuk-responsive-spacing($scale-point, $property, $direction, true);
+        @include nhsuk-responsive-spacing($scale-point, $property, $direction, true);
       }
     }
   }
 }
 
-@include govuk-exports("govuk/overrides/spacing") {
+@include nhsuk-exports("nhsuk/core/utilities/spacing") {
   @include _nhsuk-generate-spacing-overrides("margin");
   @include _nhsuk-generate-spacing-overrides("padding");
 }

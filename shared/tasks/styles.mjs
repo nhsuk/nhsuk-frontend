@@ -10,7 +10,7 @@ import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
 import PluginError from 'plugin-error'
-import dartSass from 'sass-embedded'
+import * as dartSass from 'sass-embedded'
 
 import pkg from '../../package.json' with { type: 'json' }
 

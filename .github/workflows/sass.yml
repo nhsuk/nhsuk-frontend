@@ -66,8 +66,8 @@ jobs:
           time sass .tmp/input1.scss > .tmp/check1.css --load-path packages
           time sass .tmp/input2.scss > .tmp/check2.css --load-path packages
           time sass .tmp/input3.scss > .tmp/check3.css --load-path packages
-          time sass .tmp/input4.scss > .tmp/check3.css --load-path .
-          time sass .tmp/input5.scss > .tmp/check3.css --load-path .
+          time sass .tmp/input4.scss > .tmp/check4.css --load-path .
+          time sass .tmp/input5.scss > .tmp/check5.css --load-path .
 
       - name: Check package importer
         run: |

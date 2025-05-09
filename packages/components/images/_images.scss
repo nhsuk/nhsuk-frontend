@@ -21,11 +21,11 @@
   @include nhsuk-responsive-margin(6, "bottom");
   @include nhsuk-responsive-margin(6, "top");
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     width: math.percentage(math.div(2, 3)); // [2]
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     width: math.percentage(math.div(1, 2)); // [3]
   }
 
@@ -42,5 +42,5 @@
 .nhsuk-image__caption {
   padding: nhsuk-spacing(3);
 
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 }

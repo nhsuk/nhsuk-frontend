@@ -1,15 +1,21 @@
+@use "sass:map";
+
 ////
 /// Grid
 ///
 /// @group objects
 ////
 
-@include govuk-exports("govuk/objects/grid") {
-  @include govuk-grid-row;
-  @include govuk-grid-column(one-quarter);
-  @include govuk-grid-column(one-third);
-  @include govuk-grid-column(one-half);
-  @include govuk-grid-column(two-thirds);
-  @include govuk-grid-column(three-quarters);
-  @include govuk-grid-column(full);
+@include nhsuk-exports("nhsuk/core/objects/grid") {
+  .nhsuk-grid-row {
+    @include clearfix;
+    margin-right: -($nhsuk-gutter-half);
+    margin-left: -($nhsuk-gutter-half);
+  }
+
+  @each $width in map.keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width} {
+      @include nhsuk-grid-column($width, $class: false);
+    }
+  }
 }

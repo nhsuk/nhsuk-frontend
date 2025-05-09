@@ -13,7 +13,7 @@
   margin-top: nhsuk-spacing(3);
   line-height: 1; // [5]
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     margin-top: nhsuk-spacing(4);
   }
 }
@@ -28,7 +28,7 @@
   text-decoration: none;
 
   @include nhsuk-link-style-default;
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 
   .nhsuk-icon__chevron-left {
     height: 24px;
@@ -37,7 +37,7 @@
     top: -1px; // [3]
     width: 24px;
 
-    @include mq($from: tablet) {
+    @include nhsuk-media-query($from: tablet) {
       top: 0; // [3]
     }
   }

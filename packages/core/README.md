@@ -255,19 +255,19 @@ large-desktop: 990px
 ```scss
 .nhsuk-example {
   // Apply styling to mobile and upwards
-  @include mq($from: mobile) {
+  @include nhsuk-media-query($from: mobile) {
     color: $color_nhsuk-red;
   }
   // Apply styling up to devices smaller than tablets (exclude tablets)
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     color: $color_nhsuk-blue;
   }
   // Same thing, in landscape orientation
-  @include mq($until: tablet, $and: '(orientation: landscape)') {
+  @include nhsuk-media-query($until: tablet, $and: '(orientation: landscape)') {
     color: $color_nhsuk-green;
   }
   // Apply styling to print media
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-orange;
   }
 }

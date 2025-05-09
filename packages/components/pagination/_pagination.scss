@@ -52,7 +52,7 @@
   text-decoration: none;
   width: 100%;
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-black;
   }
 
@@ -60,7 +60,7 @@
     position: absolute;
     top: -2px;
 
-    @include mq($media-type: print) {
+    @include nhsuk-media-query($media-type: print) {
       color: $color_nhsuk-black;
       margin-top: 0;
     }
@@ -116,9 +116,9 @@
 .nhsuk-pagination__title {
   display: block;
 
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font-size(24);
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     &::after {
       content: " page"; // [2]
     }
@@ -129,5 +129,5 @@
   display: block;
   text-decoration: underline;
 
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 }

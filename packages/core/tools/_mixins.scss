@@ -175,7 +175,7 @@
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(5);
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     border: 1px solid $nhsuk-print-text-color;
     page-break-inside: avoid;
   }
@@ -225,16 +225,16 @@
   position: relative;
   top: -16px; // [5]
 
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font-size(24);
 
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     margin-left: -25px;
     margin-right: 0;
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
     top: -8px; // [5]
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     background: none;
     color: $color_nhsuk-black;
     top: 0;
@@ -255,7 +255,7 @@
     color: $heading-text-color;
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     border: $print-border-size solid $nhsuk-print-text-color;
     color: $nhsuk-print-text-color;
     page-break-inside: avoid;
@@ -271,7 +271,7 @@
 ///   @include print-color($nhsuk-print-text-color);
 
 @mixin print-color($print-color) {
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     color: $print-color;
     fill: $print-color;
 
@@ -291,7 +291,7 @@
 ///   @include print-hide();
 
 @mixin print-hide() {
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     display: none;
   }
 }
@@ -314,7 +314,7 @@
 @mixin flex-item() {
   display: flex;
 
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     flex: 0 0 100%;
   }
 }
@@ -324,7 +324,7 @@
 /// Removes left and right margin at tablet breakpoint
 
 @mixin remove-margin-mobile() {
-  @include mq($until: tablet) {
+  @include nhsuk-media-query($until: tablet) {
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;
   }

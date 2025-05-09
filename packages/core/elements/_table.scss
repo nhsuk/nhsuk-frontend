@@ -20,7 +20,7 @@ table {
     word-break: break-word; // [3]
   }
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     page-break-inside: avoid;
   }
 }
@@ -39,7 +39,7 @@ td {
   text-align: left;
   vertical-align: top;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-padding(3, "bottom");
   @include nhsuk-responsive-padding(4, "right");
   @include nhsuk-responsive-padding(3, "top");

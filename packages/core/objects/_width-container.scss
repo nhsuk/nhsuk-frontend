@@ -12,33 +12,42 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
-@mixin govuk-width-container {
+@mixin nhsuk-width-container {
   margin: 0 $nhsuk-gutter-half; // [1]
 
   max-width: $nhsuk-page-width; // [2]
 
-  @include govuk-media-query($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; // [3]
   }
 
   // [4]
-  @include govuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
+  @include nhsuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
     margin: 0 auto;
   }
+}
+
+/// Page width for the grid system (deprecated)
+///
+/// @alias nhsuk-width-container
+/// @deprecated To be removed in v10.0, replaced by nhsuk-width-container
+
+@mixin govuk-width-container {
+  @include nhsuk-width-container;
 }
 
 @mixin nhsuk-width-container-fluid {
   margin: 0 $nhsuk-gutter-half;
   max-width: 100%; // [5]
 
-  @include govuk-media-query($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     margin: 0 $nhsuk-gutter; // [3]
   }
 }
 
-@include govuk-exports("govuk/objects/width-container") {
+@include nhsuk-exports("nhsuk/core/objects/width-container") {
   .nhsuk-width-container {
-    @include govuk-width-container;
+    @include nhsuk-width-container;
   }
 
   .nhsuk-width-container-fluid {
