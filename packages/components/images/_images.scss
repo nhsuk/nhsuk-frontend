@@ -42,5 +42,5 @@
 .nhsuk-image__caption {
   padding: nhsuk-spacing(3);
 
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
 }

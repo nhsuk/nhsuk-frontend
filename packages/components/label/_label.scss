@@ -21,22 +21,22 @@
 }
 
 .nhsuk-label--xl {
-  @include nhsuk-typography-responsive(48);
+  @include nhsuk-font-size(48);
 }
 
 .nhsuk-label--l {
-  @include nhsuk-typography-responsive(36);
+  @include nhsuk-font-size(36);
 }
 
 .nhsuk-label--m {
-  @include nhsuk-typography-responsive(26);
+  @include nhsuk-font-size(26);
 }
 
 .nhsuk-label--s {
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
 }
 
 // When the label is nested inside a heading, override the heading so that it
