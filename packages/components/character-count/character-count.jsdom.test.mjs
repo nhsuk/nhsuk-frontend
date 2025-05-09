@@ -1,6 +1,6 @@
 import { getByRole } from '@testing-library/dom'
 
-import initCharacterCount from './character-count.js'
+import { initCharacterCount } from './character-count.mjs'
 
 describe('Character count', () => {
   /** @type {HTMLTextAreaElement} */

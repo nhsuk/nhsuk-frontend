@@ -1,6 +1,6 @@
 import { getByRole, getAllByRole } from '@testing-library/dom'
 
-import initTabs from './tabs.js'
+import { initTabs } from './tabs.mjs'
 
 describe('Tabs', () => {
   /** @type {HTMLUListElement} */
