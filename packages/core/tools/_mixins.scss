@@ -129,6 +129,11 @@
 /// @deprecated To be removed in v10.0, use @media queries to apply `visually-hidden` instead
 
 @mixin visually-shown($display: null, $important: true) {
+  @include nhsuk-warning(
+    "visually-shown",
+    "visually-shown is deprecated. Use @media queries to apply `visually-hidden` instead."
+  );
+
   position: static if($important, !important, null);
   width: auto if($important, !important, null);
   height: auto if($important, !important, null);

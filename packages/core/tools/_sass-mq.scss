@@ -71,6 +71,7 @@
 /// @deprecated To be removed in v10.0, replaced by nhsuk-media-query
 
 @mixin govuk-media-query($args...) {
+  @include nhsuk-warning("govuk-media-query", "govuk-media-query is deprecated. Use nhsuk-media-query instead.");
   @include nhsuk-media-query($args...) {
     @content;
   }

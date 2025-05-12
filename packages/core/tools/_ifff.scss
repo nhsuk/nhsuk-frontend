@@ -15,5 +15,6 @@
 ////
 
 @function iff($condition, $if-true) {
+  @warn "The `iff` function will be removed in a future release, use `if($condition, $if-true, null);` instead.";
   @return if($condition, $if-true, null);
 }

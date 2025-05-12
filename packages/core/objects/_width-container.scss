@@ -36,6 +36,10 @@
 /// @deprecated To be removed in v10.0, replaced by nhsuk-width-container
 
 @mixin govuk-width-container {
+  @include nhsuk-warning(
+    "govuk-width-container",
+    "govuk-width-container is deprecated. Use nhsuk-width-container instead."
+  );
   @include nhsuk-width-container;
 }
 

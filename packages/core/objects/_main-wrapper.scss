@@ -34,6 +34,10 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper {
+  @include nhsuk-warning(
+    "govuk-main-wrapper",
+    "govuk-main-wrapper is deprecated. Use `.nhsuk-main-wrapper` class instead."
+  );
   @include _nhsuk-main-wrapper;
 }
 
@@ -50,6 +54,10 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper--l {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--l",
+    "govuk-main-wrapper--l is deprecated. Use `.nhsuk-main-wrapper--l` class instead."
+  );
   @include _nhsuk-main-wrapper--l;
 }
 
@@ -66,6 +74,10 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper--s {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--s",
+    "govuk-main-wrapper--s is deprecated. Use `.nhsuk-main-wrapper--s` class instead."
+  );
   @include _nhsuk-main-wrapper--s;
 }
 
