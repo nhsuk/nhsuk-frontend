@@ -31,6 +31,7 @@
 /// @deprecated To be removed in v10.0, replaced by nhsuk-grid-width
 
 @function grid-width($key) {
+  @warn "The `grid-width` function will be removed in a future release, use `nhsuk-grid-width` instead.";
   @return nhsuk-grid-width($key);
 }
 
@@ -49,6 +50,8 @@
 /// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
 
 @mixin nhsuk-grid-row($class: "nhsuk-grid-row") {
+  @include nhsuk-warning("nhsuk-grid-row", "nhsuk-grid-row is deprecated. Use `.nhsuk-grid-row` class instead.");
+
   .#{$class} {
     @include clearfix;
     margin-right: -($nhsuk-gutter-half);
@@ -59,9 +62,10 @@
 /// Generate grid row styles (deprecated)
 ///
 /// @alias nhsuk-grid-row
-/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
+/// @deprecated To be removed in v10.0
 
 @mixin govuk-grid-row($args...) {
+  @include nhsuk-warning("govuk-grid-row", "govuk-grid-row is deprecated. Use `.nhsuk-grid-row` class instead.");
   @include nhsuk-grid-row($args...);
 }
 
@@ -126,8 +130,9 @@
 /// Generate grid column styles (deprecated)
 ///
 /// @alias nhsuk-grid-column
-/// @deprecated To be removed in v10.0
+/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-column
 
 @mixin govuk-grid-column($args...) {
+  @include nhsuk-warning("govuk-grid-column", "govuk-grid-column is deprecated. Use nhsuk-grid-column instead.");
   @include nhsuk-grid-column($args...);
 }

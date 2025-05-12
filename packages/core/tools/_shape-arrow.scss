@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "../settings/warnings" as *;
 
 ////
 /// Shape arrow
@@ -85,5 +86,6 @@
 /// @deprecated To be removed in v10.0, replaced by nhsuk-shape-arrow
 
 @mixin govuk-shape-arrow($args...) {
+  @include nhsuk-warning("govuk-shape-arrow", "govuk-shape-arrow is deprecated. Use nhsuk-shape-arrow instead.");
   @include nhsuk-shape-arrow($args...);
 }

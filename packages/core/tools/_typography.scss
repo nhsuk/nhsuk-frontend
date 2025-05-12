@@ -146,7 +146,7 @@
     // We continue to call the param $line-height to stay consistent with the
     // naming with nhsuk-font.
     $calculated-line-height: nhsuk-line-height(
-      $line-height: if($line-height, $line-height, map-get($breakpoint-map, "line-height")),
+      $line-height: if($line-height, $line-height, map.get($breakpoint-map, "line-height")),
       $font-size: $font-size
     );
 
@@ -193,6 +193,10 @@
 /// @deprecated Use `nhsuk-font-size` instead
 
 @mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
+  @include nhsuk-warning(
+    "nhsuk-typography-responsive",
+    "nhsuk-typography-responsive is deprecated. Use nhsuk-font-size instead."
+  );
   @include nhsuk-font-size($size, $override-line-height, $important);
 }
 

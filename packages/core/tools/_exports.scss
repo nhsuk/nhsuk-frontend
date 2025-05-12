@@ -40,6 +40,7 @@ $imported-modules: () !default;
 /// @deprecated To be removed in v10.0, replaced by nhsuk-exports
 
 @mixin govuk-exports($args...) {
+  @include nhsuk-warning("govuk-exports", "govuk-exports is deprecated. Use nhsuk-exports instead.");
   @include nhsuk-exports($args...) {
     @content;
   }
