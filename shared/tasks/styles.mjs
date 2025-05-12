@@ -26,7 +26,12 @@ export function compileCSS(done) {
     })
     .pipe(
       sass({
-        fatalDeprecations: ['color-functions', 'import', 'mixed-decls'],
+        fatalDeprecations: [
+          'color-functions',
+          'global-builtin',
+          'import',
+          'mixed-decls'
+        ],
         sourceMap: true,
         sourceMapIncludeSources: true
       }).on('error', (error) => {
