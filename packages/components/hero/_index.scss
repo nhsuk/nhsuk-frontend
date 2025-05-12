@@ -18,7 +18,7 @@
 
   @include print-color($nhsuk-print-text-color);
 
-  a {
+  a:not(.nhsuk-button) {
     @include nhsuk-link-style-white;
   }
 
