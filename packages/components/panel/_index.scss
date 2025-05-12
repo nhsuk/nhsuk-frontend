@@ -30,7 +30,7 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
   color: $color_nhsuk-white;
   padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
 
-  @include nhsuk-font-size(_24);
+  @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(4, "bottom");
 
   @include nhsuk-media-query($until: tablet) {
