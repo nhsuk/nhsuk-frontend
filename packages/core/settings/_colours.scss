@@ -137,7 +137,7 @@ $nhsuk-button-active-color: shade($nhsuk-button-color, 50%);
 $nhsuk-button-shadow-color: shade($nhsuk-button-color, 50%);
 
 $nhsuk-secondary-button-color: transparent;
-$nhsuk-secondary-button-white-background-color: $color_nhsuk-white;
+$nhsuk-secondary-button-solid-background-color: $color_nhsuk-white;
 $nhsuk-secondary-button-border-color: $color_nhsuk-blue;
 $nhsuk-secondary-button-text-color: $color_nhsuk-blue;
 $nhsuk-secondary-button-hover-color: tint($nhsuk-secondary-button-border-color, 85%);
