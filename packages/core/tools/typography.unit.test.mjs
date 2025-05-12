@@ -1,5 +1,5 @@
 import { outdent } from 'outdent'
-import { compileStringAsync } from 'sass-embedded'
+import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Typography tools', () => {
   const sassModules = `
@@ -55,6 +55,15 @@ describe('Typography tools', () => {
 
     @use "core/tools/typography" as *;
   `
+
+  /** @type {Logger} */
+  let logger = {}
+
+  beforeEach(() => {
+    // Create a mock warn function that we can use to override the native @warn
+    // function, that we can make assertions about post-render.
+    logger.warn = jest.fn().mockReturnValue(sassNull)
+  })
 
   describe('@mixin nhsuk-text-break-word', () => {
     it('adds the word-wrap and overflow-wrap properties', async () => {
@@ -586,6 +595,34 @@ describe('Typography tools', () => {
           ).css
         })
       })
+
+      it('throws a deprecation warning if govuk-typography-responsive is used', async () => {
+        const sass = `
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-typography-responsive($size: 14)
+          }
+        `
+
+        await compileStringAsync(sass, {
+          loadPaths: ['packages'],
+          logger
+        })
+
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          'nhsuk-typography-responsive is deprecated. Use nhsuk-font-size instead. ' +
+            'To silence this warning, update $nhsuk-suppressed-warnings with key: ' +
+            '"nhsuk-typography-responsive"',
+          expect.anything()
+        )
+      })
     })
   })
 })
+
+/**
+ * @import { Logger } from 'sass-embedded'
+ */
