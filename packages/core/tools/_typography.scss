@@ -146,7 +146,7 @@
     // We continue to call the param $line-height to stay consistent with the
     // naming with nhsuk-font.
     $calculated-line-height: nhsuk-line-height(
-      $line-height: if($line-height, $line-height, map-get($breakpoint-map, "line-height")),
+      $line-height: if($line-height, $line-height, map.get($breakpoint-map, "line-height")),
       $font-size: $font-size
     );
 
