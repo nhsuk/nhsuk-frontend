@@ -4,6 +4,14 @@
 
 :new: **New features**
 
+#### Define negative spacing using the `nhsuk-spacing()` function
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-spacing()` function to get negative spacing.
+
+For example, `nhsuk-spacing(1)` returns `4px`, and `nhsuk-spacing(-1)` returns `-4px`.
+
+This was added in [pull request #1293: Allow `nhsuk-spacing()` to output negative spacing](https://github.com/nhsuk/nhsuk-frontend/pull/1293).
+
 #### Support for Sass modules
 
 We’ve updated our Sass files to use the [Sass module system](https://sass-lang.com/blog/the-module-system-is-launched/).
