@@ -143,7 +143,7 @@ $button-padding-left-right: 16px;
 /// Button variations
 
 .nhsuk-button--secondary,
-.nhsuk-button--secondary-white-background {
+.nhsuk-button--secondary-solid {
   &,
   &:link,
   &:visited,
@@ -182,8 +182,8 @@ $button-padding-left-right: 16px;
   background-color: $nhsuk-secondary-button-color;
 }
 
-.nhsuk-button--secondary-white-background {
-  background-color: $nhsuk-secondary-button-white-background-color;
+.nhsuk-button--secondary-solid {
+  background-color: $nhsuk-secondary-button-solid-background-color;
 }
 
 .nhsuk-button--reverse {

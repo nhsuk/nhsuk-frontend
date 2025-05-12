@@ -164,36 +164,36 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-link.html`
     },
     {
-      label: 'Button secondary, white background',
-      url: `${BASE_URL}/components/button/secondary-white.html`
+      label: 'Button secondary, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button secondary click, white background',
-      url: `${BASE_URL}/components/button/secondary-white.html`
+      label: 'Button secondary click, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary hover, white background',
-      url: `${BASE_URL}/components/button/secondary-white.html`
+      label: 'Button secondary hover, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid.html`
     },
     {
-      label: 'Button secondary disabled, white background',
-      url: `${BASE_URL}/components/button/secondary-white-disabled.html`
+      label: 'Button secondary disabled, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid-disabled.html`
     },
     {
-      label: 'Button secondary as a link, white background',
-      url: `${BASE_URL}/components/button/secondary-white-link.html`
+      label: 'Button secondary as a link, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
-      label: 'Button secondary as a link click, white background',
-      url: `${BASE_URL}/components/button/secondary-white-link.html`
+      label: 'Button secondary as a link click, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary as a link hover, white background',
-      url: `${BASE_URL}/components/button/secondary-white-link.html`
+      label: 'Button secondary as a link hover, solid background',
+      url: `${BASE_URL}/components/button/secondary-solid-link.html`
     },
     {
       label: 'Button reverse',
