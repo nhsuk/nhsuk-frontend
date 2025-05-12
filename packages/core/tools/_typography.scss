@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:math";
+@use "sass:string";
 @use "../settings" as *;
 @use "functions" as *;
 @use "ifff" as *;
@@ -93,6 +94,7 @@
 ///
 /// Example font map:
 ///
+/// ```scss
 /// 19: (
 ///   null: (
 ///     font-size: 16px,
@@ -107,33 +109,58 @@
 ///     line-height: 1.15
 ///   )
 /// );
+/// ```
 ///
-/// @example scss
-///   .foo {
-///     @include nhsuk-font-size(19);
-///   }
-///
-///   .foo {
-///     @include nhsuk-font-size(36, $important: true);
-///   }
-///
-/// @param {Number} $size - Point from the spacing scale (the size as it would
-///   appear on tablet and above)
+/// @param {Number | String} $size - Point from the typography scale (the size
+///   as it would appear on tablet and above)
 /// @param {Number} $line-height [false] - Non responsive custom line
 ///   height. Omit to use the line height from the font map.
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`.
 ///
-/// @throw if `$size` is not a valid point from the spacing scale
+/// @throw if `$size` is not a valid point from the typography scale
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @mixin nhsuk-font-size($size, $line-height: false, $important: false) {
-  @if not map.has-key($nhsuk-typography-scale, $size) {
+  // Flag font sizes that start with underscores so we can suppress warnings on
+  // deprecated sizes used internally, for example `nhsuk-font($size: "_24")`
+  $size-internal-use-only: string.slice(#{$size}, 1, 1) == "_";
+
+  // Remove underscore from font sizes flagged for internal use
+  @if $size-internal-use-only {
+    $size: string.slice(#{$size}, 2);
+  }
+
+  // Check for a font map exactly matching the given size
+  $font-map: map.get($nhsuk-typography-scale, $size);
+
+  // No match? Try with string type (e.g. $size: "16" not 16)
+  @if not $font-map {
+    @each $font-size in map.keys($nhsuk-typography-scale) {
+      @if not $font-map and "#{$font-size}" == "#{$size}" {
+        $font-map: map.get($nhsuk-typography-scale, $font-size);
+      }
+    }
+  }
+
+  // Still no match? Throw error
+  @if not $font-map {
     @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
   }
 
-  $font-map: map.get($nhsuk-typography-scale, $size);
+  // Check for a deprecation within the typography scale
+  $deprecation: map.get($font-map, "deprecation");
+
+  @if $deprecation {
+    // Warn on deprecated font sizes unless flagged for internal use
+    @if not $size-internal-use-only {
+      @include nhsuk-warning(map.get($deprecation, "key"), map.get($deprecation, "message"));
+    }
+
+    // remove the deprecation map keys so they do not break the breakpoint loop
+    $font-map: map.remove($font-map, "deprecation");
+  }
 
   @each $breakpoint, $breakpoint-map in $font-map {
     $font-size: map.get($breakpoint-map, "font-size");
@@ -180,14 +207,15 @@
 
 /// Font size and line height helper (deprecated)
 ///
-/// @param {Number} $size - Point from the spacing scale (the size as it would
-///   appear on tablet and above)
+/// @param {Number | Boolean | String} $size - Point from the typography scale
+///   (the size as it would appear on tablet and above). Use `false` to avoid
+///   setting a size.
 /// @param {Number} $override-line-height [false] - Non responsive custom line
 ///   height. Omit to use the line height from the font map.
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`.
 ///
-/// @throw if `$size` is not a valid point from the spacing scale
+/// @throw if `$size` is not a valid point from the typography scale (or false)
 ///
 /// @alias nhsuk-font-size
 /// @deprecated Use `nhsuk-font-size` instead
@@ -200,7 +228,7 @@
   @include nhsuk-font-size($size, $override-line-height, $important);
 }
 
-/// Font
+/// Font helper
 ///
 /// @example scss
 ///   .foo {
