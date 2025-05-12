@@ -208,6 +208,7 @@ After:
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1258: Fix text input with prefix/suffix focus and width](https://github.com/nhsuk/nhsuk-frontend/pull/1258)
+- [#1292: Fix for reverse buttons within Hero components](https://github.com/nhsuk/nhsuk-frontend/pull/1292)
 
 ## 9.4.1 - 22 April 2025
 
