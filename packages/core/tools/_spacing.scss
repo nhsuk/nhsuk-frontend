@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:math";
 @use "sass:meta";
 @use "../settings" as *;
 @use "ifff" as *;
@@ -14,14 +15,24 @@
 ///
 /// Returns measurement corresponding to the spacing point requested.
 ///
-/// @param {Number} $spacing-point - Point on the spacing scale (set in `settings/_spacing.sccs`)
+/// @param {Number} $spacing-point - Point on the spacing scale
+///  (set in `settings/_spacing.scss`)
 ///
-/// @returns {String} Spacing Measurement eg. 8px
+/// @returns {String} Spacing measurement eg. 8px
 ///
 /// @example scss
-///   .foo {
+///   .element {
 ///     padding: nhsuk-spacing(5);
-///     top: nhsuk-spacing(2) !important; // if `!important` is required
+///   }
+///
+/// @example scss Using negative spacing
+///   .element {
+///     margin-top: nhsuk-spacing(-1);
+///   }
+///
+/// @example scss Marking spacing declarations as important
+///   .element {
+///     margin-top: nhsuk-spacing(1) !important;
 ///   }
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
@@ -33,11 +44,18 @@
       + "#{$actual-input-type}.";
   }
 
+  $is-negative: false;
+  @if $spacing-point < 0 {
+    $is-negative: true;
+    $spacing-point: math.abs($spacing-point);
+  }
+
   @if not map.has-key($nhsuk-spacing-points, $spacing-point) {
     @error "Unknown spacing variable `#{$spacing-point}`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.";
   }
 
-  @return map.get($nhsuk-spacing-points, $spacing-point);
+  $value: map.get($nhsuk-spacing-points, $spacing-point);
+  @return if($is-negative, $value * -1, $value);
 }
 
 /// Responsive spacing
