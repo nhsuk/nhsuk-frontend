@@ -43,7 +43,7 @@
     position: absolute;
     top: 0;
 
-    @include govuk-shape-arrow($direction: right, $base: 14px);
+    @include nhsuk-shape-arrow($direction: right, $base: 14px);
   }
 
   &:focus {
@@ -63,7 +63,7 @@
 }
 
 .nhsuk-details[open] > .nhsuk-details__summary::before {
-  @include govuk-shape-arrow($direction: down, $base: 14px);
+  @include nhsuk-shape-arrow($direction: down, $base: 14px);
 }
 
 .nhsuk-details__summary-text {

@@ -59,7 +59,7 @@
 /// Generate grid row styles (deprecated)
 ///
 /// @alias nhsuk-grid-row
-/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
+/// @deprecated To be removed in v10.0
 
 @mixin govuk-grid-row($args...) {
   @include nhsuk-grid-row($args...);
@@ -126,7 +126,7 @@
 /// Generate grid column styles (deprecated)
 ///
 /// @alias nhsuk-grid-column
-/// @deprecated To be removed in v10.0
+/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-column
 
 @mixin govuk-grid-column($args...) {
   @include nhsuk-grid-column($args...);

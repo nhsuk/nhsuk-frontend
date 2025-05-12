@@ -34,7 +34,7 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper {
-  @include _govuk-main-wrapper;
+  @include _nhsuk-main-wrapper;
 }
 
 @mixin _nhsuk-main-wrapper--l {
@@ -50,7 +50,7 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper--l {
-  @include _govuk-main-wrapper--l;
+  @include _nhsuk-main-wrapper--l;
 }
 
 @mixin _nhsuk-main-wrapper--s {
@@ -66,7 +66,7 @@
 /// @deprecated To be removed in v10.0
 
 @mixin govuk-main-wrapper--s {
-  @include _govuk-main-wrapper--s;
+  @include _nhsuk-main-wrapper--s;
 }
 
 @include nhsuk-exports("nhsuk/core/objects/main-wrapper") {
