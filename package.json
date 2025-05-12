@@ -99,7 +99,7 @@
     "postcss-scss": "^4.0.9",
     "prettier": "^3.5.3",
     "puppeteer": "^24.7.2",
-    "sass-embedded": "^1.79.6",
+    "sass-embedded": "^1.87.0",
     "strip-ansi": "^7.1.0",
     "stylelint": "^16.19.1",
     "stylelint-config-gds": "^2.0.0",

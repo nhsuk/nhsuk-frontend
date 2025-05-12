@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "../tools" as *;
+
 ////
 /// Widths
 ///
@@ -9,8 +12,6 @@
 /// @example html
 ///   <input class="nhsuk-input nhsuk-u-width-full" id="example" name="example" type="text">
 ////
-
-@use "sass:math";
 
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule

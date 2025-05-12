@@ -3,53 +3,57 @@ import { compileStringAsync } from 'sass-embedded'
 
 describe('Typography tools', () => {
   const sassModules = `
-    @import "core/settings/all";
-    @import "core/tools/all";
+    @use "core/settings" as *;
+    @use "core/tools" as *;
   `
 
   const sassBootstrap = `
-    $nhsuk-breakpoints: (
-      desktop: 30em
+    @use "core/settings/breakpoints" as * with (
+      $nhsuk-breakpoints: (
+        desktop: 30em
+      )
     );
 
-    $nhsuk-typography-scale: (
-      12: (
-        null: (
-          font-size: 12px,
-          line-height: 15px
+    @use "core/settings/typography" as * with (
+      $nhsuk-typography-scale: (
+        12: (
+          null: (
+            font-size: 12px,
+            line-height: 15px
+          ),
+          print: (
+            font-size: 14pt,
+            line-height: 1.5
+          )
         ),
-        print: (
-          font-size: 14pt,
-          line-height: 1.5
-        )
-      ),
-      14: (
-        null: (
-          font-size: 12px,
-          line-height: 15px
+        14: (
+          null: (
+            font-size: 12px,
+            line-height: 15px
+          ),
+          desktop: (
+            font-size: 14px,
+            line-height: 20px
+          )
         ),
-        desktop: (
-          font-size: 14px,
-          line-height: 20px
-        )
-      ),
-      16: (
-        null: (
-          font-size: 14px,
-          line-height: 15px
-        ),
-        desktop: (
-          font-size: 16px,
-          line-height: 20px
-        ),
-        deprecation: (
-          key: "test-key",
-          message: "This point on the scale is deprecated."
+        16: (
+          null: (
+            font-size: 14px,
+            line-height: 15px
+          ),
+          desktop: (
+            font-size: 16px,
+            line-height: 20px
+          ),
+          deprecation: (
+            key: "test-key",
+            message: "This point on the scale is deprecated."
+          )
         )
       )
     );
 
-    ${sassModules}
+    @use "core/tools/typography" as *;
   `
 
   describe('@mixin nhsuk-text-break-word', () => {
@@ -232,24 +236,28 @@ describe('Typography tools', () => {
 
     it('outputs CSS using points as strings', async () => {
       const sass = `
-        $nhsuk-breakpoints: (
-          desktop: 30em
+        @use "core/settings/breakpoints" as * with (
+          $nhsuk-breakpoints: (
+            desktop: 30em
+          )
         );
 
-        $nhsuk-typography-scale: (
-          "small": (
-            null: (
-              font-size: 12px,
-              line-height: 15px
-            ),
-            print: (
-              font-size: 14pt,
-              line-height: 1.5
+        @use "core/settings/typography" as * with (
+          $nhsuk-typography-scale: (
+            "small": (
+              null: (
+                font-size: 12px,
+                line-height: 15px
+              ),
+              print: (
+                font-size: 14pt,
+                line-height: 1.5
+              )
             )
           )
         );
 
-        ${sassModules}
+        @use "core/tools/typography" as *;
 
         .foo {
           @include nhsuk-font-size($size: "small")

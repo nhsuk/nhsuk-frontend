@@ -4,6 +4,12 @@
 
 :new: **New features**
 
+#### Support for Sass modules
+
+We’ve updated our Sass files to use the [Sass module system](https://sass-lang.com/blog/the-module-system-is-launched/).
+
+This was added in [pull request #1137: Upgrade to Sass modules](https://github.com/nhsuk/nhsuk-frontend/pull/1137).
+
 #### Blue login button
 
 We've added styling for a blue button, to be used for login buttons, for example NHS login buttons.
@@ -131,6 +137,54 @@ You can still use `nhsuk-typography-responsive`, but we'll remove it in a future
 All other Sass mixins, functions and variables prefixed `govuk` are now prefixed `nhsuk`. The previous names are deprecated and will be removed in a future release.
 
 For more information, see [pull request #1289: Deprecate Sass `govuk` namespace usage](https://github.com/nhsuk/nhsuk-frontend/pull/1289).
+
+#### Importing Sass using `all` files
+
+If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you should remove `/all` from each path.
+
+Before:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core/all";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings/all";
+@import "node_modules/nhsuk-frontend/packages/core/tools/all";
+```
+
+After:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings";
+@import "node_modules/nhsuk-frontend/packages/core/tools";
+```
+
+#### Importing Sass individual component partials
+
+If you're importing individual component Sass partials, then you should remove the duplicate component name from each path:
+
+Before:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb/breadcrumb";
+```
+
+After:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb";
+```
 
 :recycle: **Changes**
 

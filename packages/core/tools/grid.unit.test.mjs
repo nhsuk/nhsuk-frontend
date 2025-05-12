@@ -2,20 +2,15 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Grid system', () => {
-  const sassImports = `
-    @import "core/settings/breakpoints";
-    @import "core/settings/globals";
-    @import "core/settings/spacing";
-
-    @import "core/tools/grid";
-    @import "core/tools/exports";
-    @import "core/tools/sass-mq";
+  const sassModules = `
+    @use "core/settings" as *;
+    @use "core/tools" as *;
   `
 
   describe('@function nhsuk-grid-width', () => {
     it('outputs the specified key value from the map of widths', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .foo {
           content: nhsuk-grid-width(one-quarter);
@@ -37,7 +32,7 @@ describe('Grid system', () => {
 
     it('throws an error that the specified key does not exist in the map of widths', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         $value: nhsuk-grid-width(seven-fifths);
       `
@@ -53,9 +48,7 @@ describe('Grid system', () => {
   describe('@mixin nhsuk-grid-row', () => {
     it('outputs default defined styles for .nhsuk-grid-row class', async () => {
       const sass = `
-        ${sassImports}
-
-        @import "core/tools/mixins";
+        ${sassModules}
 
         @include nhsuk-grid-row;
       `
@@ -79,9 +72,7 @@ describe('Grid system', () => {
 
     it('outputs styles for the specified class', async () => {
       const sass = `
-        ${sassImports}
-
-        @import "core/tools/mixins";
+        ${sassModules}
 
         @include nhsuk-grid-row("app-grid-row");
       `
@@ -107,7 +98,7 @@ describe('Grid system', () => {
   describe('@mixin nhsuk-grid-column', () => {
     it('outputs the CSS required for a column in the grid', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .nhsuk-grid-column-full {
           @include nhsuk-grid-column($class: false);
@@ -135,7 +126,7 @@ describe('Grid system', () => {
 
     it('allows different widths to be specified using $width', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .nhsuk-grid-column-two-thirds {
           @include nhsuk-grid-column(two-thirds, $class: false);
@@ -163,7 +154,7 @@ describe('Grid system', () => {
 
     it('allows predefined breakpoints to be specified using $at', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-desktop {
           @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
@@ -191,7 +182,7 @@ describe('Grid system', () => {
 
     it('allows custom breakpoints to be specified using $at', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-500px {
           @include nhsuk-grid-column(one-quarter, $at: 500px, $class: false);
@@ -219,7 +210,7 @@ describe('Grid system', () => {
 
     it('allows columns to float right using $float: right', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         .nhsuk-grid-column-one-half-right {
           @include nhsuk-grid-column(one-half, $float: right, $class: false);
@@ -247,7 +238,7 @@ describe('Grid system', () => {
 
     it('includes the class name by default (deprecated)', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         @include nhsuk-grid-column();
       `
@@ -273,7 +264,7 @@ describe('Grid system', () => {
 
     it('allows the class name to be overridden (deprecated)', async () => {
       const sass = `
-        ${sassImports}
+        ${sassModules}
 
         @include nhsuk-grid-column(three-quarters, $class: "large-column");
       `
