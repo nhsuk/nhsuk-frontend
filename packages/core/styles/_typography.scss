@@ -139,7 +139,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(_24);
+  @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
