@@ -186,7 +186,10 @@ $button-padding-left-right: 16px;
   background-color: $nhsuk-secondary-button-white-background-color;
 }
 
-.nhsuk-button--reverse {
+// The .nhsuk-hero selector is needed here to override the
+// default white text for links within the hero component.
+.nhsuk-button--reverse,
+.nhsuk-hero .nhsuk-button--reverse {
   background-color: $nhsuk-reverse-button-color;
 
   &,
