@@ -1,6 +1,6 @@
 import { compileStringAsync, sassNull } from 'sass-embedded'
 
-describe('Warnings mixin', () => {
+describe('Warnings settings', () => {
   const sassModules = `
     @use "sass:list";
     @use "core/settings/warnings" as *;
