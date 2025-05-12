@@ -75,13 +75,14 @@ describe('Header class', () => {
     listWidth = 800
     itemWidth = 100
 
-    jest
-      .spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
-      .mockImplementation(function () {
+    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+      /** @this {HTMLElement} */
+      function () {
         return this instanceof HTMLUListElement
           ? listWidth // Mock list width
           : itemWidth // Mock item width
-      })
+      }
+    )
 
     jest.spyOn($menuButton, 'addEventListener')
     jest.spyOn(window, 'addEventListener')
