@@ -2,6 +2,22 @@
 
 ## 9.5.0 - 13 May 2025
 
+:boom: **Breaking changes**
+
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px) not desktop (769px).
+
+If necessary, different grid behaviour for the tablet and desktop breakpoints can be applied using new classes. For example, you can make a column one-half on tablet but expand to two-thirds on desktop sized screens.
+
+```html
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-half nhsuk-grid-column-two-thirds-from-desktop">
+    <!-- Component -->
+  </div>
+</div>
+```
+
 :new: **New features**
 
 #### Define negative spacing using the `nhsuk-spacing()` function
