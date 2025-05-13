@@ -65,7 +65,7 @@ describe('Grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 48.0625em) {
+        @media (min-width: 40.0625em) {
           .nhsuk-grid-column-full {
             width: 100%;
             float: left;
@@ -93,7 +93,7 @@ describe('Grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 48.0625em) {
+        @media (min-width: 40.0625em) {
           .nhsuk-grid-column-two-thirds {
             width: 66.6666666667%;
             float: left;
@@ -118,7 +118,6 @@ describe('Grid system', () => {
       expect(results.css).toBe(outdent`
         .nhsuk-grid-column-one-quarter-at-desktop {
           box-sizing: border-box;
-          width: 100%;
           padding: 0 16px;
         }
         @media (min-width: 48.0625em) {
@@ -177,7 +176,7 @@ describe('Grid system', () => {
           width: 100%;
           padding: 0 16px;
         }
-        @media (min-width: 48.0625em) {
+        @media (min-width: 40.0625em) {
           .nhsuk-grid-column-one-half-right {
             width: 50%;
             float: right;
