@@ -49,7 +49,7 @@ export function webpackJS(done) {
           colors: true,
           errors: false
         },
-        target: 'browserslist'
+        target: 'browserslist:javascripts'
       }).on('error', (error) => {
         done(
           new PluginError('webpackJS', error, {

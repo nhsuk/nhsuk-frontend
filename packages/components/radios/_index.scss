@@ -175,6 +175,6 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 }
 
-.js-enabled .nhsuk-radios__conditional--hidden {
+.nhsuk-frontend-supported .nhsuk-radios__conditional--hidden {
   display: none;
 }
