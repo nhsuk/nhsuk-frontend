@@ -11,18 +11,18 @@
   "exports": {
     ".": {
       "sass": "./packages/index.scss",
-      "default": "./packages/index.js"
+      "default": "./packages/index.mjs"
     },
     "./*": "./*",
     "./packages/*": {
       "sass": "./packages/*.scss",
-      "default": "./packages/*.js"
+      "default": "./packages/*.mjs"
     },
-    "./packages/*.js": "./packages/*.js",
+    "./packages/*.mjs": "./packages/*.mjs",
     "./packages/*.scss": "./packages/*.scss",
     "./package.json": "./package.json"
   },
-  "main": "packages/index.js",
+  "main": "packages/index.mjs",
   "sass": "packages/index.scss",
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
