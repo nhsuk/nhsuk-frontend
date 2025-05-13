@@ -185,8 +185,9 @@
       }) }}
     </li>
   </ul>
+
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-two-thirds-from-tablet nhsuk-grid-column-one-half">
 
       {% call card({
         "heading": "If you need help now, but it’s not an emergency",
@@ -195,6 +196,10 @@
         <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
       {% endcall %}
 
+    </div>
+
+    <div class="nhsuk-grid-column-two-thirds-from-tablet nhsuk-grid-column-one-half">
+
       {{ card({
         "href": "#",
         "clickable": "true",
@@ -202,6 +207,12 @@
         "headingClasses": "nhsuk-heading-m",
         "description": "A quick guide for people who have care and support needs and their carers."
       }) }}
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
       {{ card({
         "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",

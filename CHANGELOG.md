@@ -24,6 +24,18 @@ We've added styling for a blue button, to be used for login buttons, for example
 
 This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
 
+#### Add tablet specific grid column widths
+
+We've added new classes to define different grid behaviour for the tablet and desktop breakpoints. For example, you can make a column one-half on tablet but expand to two-thirds on desktop sized screens.
+
+```html
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-half-from-tablet nhsuk-grid-column-two-thirds">
+    <!-- Component -->
+  </div>
+</div>
+```
+
 #### Add Nunjucks macro option configs
 
 We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
