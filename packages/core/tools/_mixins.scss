@@ -235,7 +235,7 @@
   position: relative;
   top: -16px; // [5]
 
-  @include nhsuk-font-size(24);
+  @include nhsuk-font-size(26);
 
   @include nhsuk-media-query($until: tablet) {
     margin-left: -25px;

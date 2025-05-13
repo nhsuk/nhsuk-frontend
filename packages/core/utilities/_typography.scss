@@ -18,8 +18,16 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@each $size in map.keys($nhsuk-typography-scale) {
+// nhsuk-u-font-size-24 is deprecated
+@each $size, $font-map in $nhsuk-typography-scale {
   .nhsuk-u-font-size-#{$size} {
+    $font-map: map.get($nhsuk-typography-scale, $size);
+
+    // Add underscore to deprecated typography scale keys
+    @if map.has-key($font-map, "deprecation") {
+      $size: _#{$size};
+    }
+
     @include nhsuk-font-size($size, $important: true);
   }
 }

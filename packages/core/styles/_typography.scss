@@ -139,7 +139,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(24);
+  @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
@@ -185,13 +185,13 @@ address {
 /// 2. Reduces the spacing between the page heading and the lede text
 
 .nhsuk-lede-text {
-  @include nhsuk-font(24);
+  @include nhsuk-font(26);
   @include nhsuk-responsive-margin(7, "bottom");
 
   // [1]
   p,
   ul {
-    @include nhsuk-font(24);
+    @include nhsuk-font(26);
   }
 }
 

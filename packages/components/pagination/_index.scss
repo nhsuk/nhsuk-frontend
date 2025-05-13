@@ -119,7 +119,7 @@
 .nhsuk-pagination__title {
   display: block;
 
-  @include nhsuk-font-size(24);
+  @include nhsuk-font-size(26);
 
   @include nhsuk-media-query($media-type: print) {
     &::after {

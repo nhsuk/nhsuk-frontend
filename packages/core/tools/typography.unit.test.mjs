@@ -243,6 +243,37 @@ describe('Typography tools', () => {
       })
     })
 
+    it('outputs CSS when passing size as a string', async () => {
+      const sass = `
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-font-size($size: "14")
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            font-size: 12px;
+            font-size: 0.75rem;
+            line-height: 1.25;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              font-size: 14px;
+              font-size: 0.875rem;
+              line-height: 1.42857;
+            }
+          }
+        `
+      })
+    })
+
     it('outputs CSS using points as strings', async () => {
       const sass = `
         @use "core/settings/breakpoints" as * with (
@@ -309,6 +340,28 @@ describe('Typography tools', () => {
 
       await expect(results).rejects.toThrow(
         'Unknown font size `3.1415926536` - expected a point from the typography scale.'
+      )
+    })
+
+    it('throws a deprecation warning if a point on the scale is deprecated', async () => {
+      const sass = `
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-font-size($size: 16)
+        }
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages'],
+        logger
+      })
+
+      // Expect our mocked @warn function to have been called once with a single
+      // argument, which should be the deprecation notice
+      expect(logger.warn).toHaveBeenCalledWith(
+        'This point on the scale is deprecated. To silence this warning, update $nhsuk-suppressed-warnings with key: "test-key"',
+        expect.anything()
       )
     })
 

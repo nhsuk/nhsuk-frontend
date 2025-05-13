@@ -94,6 +94,14 @@ This was added in [pull request #1291: Add Sass warning suppression functionalit
 
 :wastebasket: **Deprecated features**
 
+#### Stop using `nhsuk-u-font-size-24` and '24' on the typography scale
+
+We have deprecated point 24 (24px large screens, 20px small screens) on the typography scale, including the font utility class `nhsuk-u-font-size-24` that uses point 24.
+
+We will be removing this class and point 24 on the typography scale in a future release. You will no longer be able to call the Sass mixins `nhsuk-font()` or `nhsuk-font-size()` with `$size` set to '24'.
+
+This change was introduced in [#1294: Deprecate 24 on the typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1294)
+
 #### Replace Sass mixins for media queries
 
 If you're using the `mq()` Sass mixin to output CSS media queries, you must replace it with the `nhsuk-media-query()` mixin.
@@ -207,6 +215,17 @@ After:
 ```
 
 :recycle: **Changes**
+
+We've completed changes to fully replace 24px with 26px from the typography scale in [pull request #1294](https://github.com/nhsuk/nhsuk-frontend/issues/1294) for the following:
+
+- Do and Don't list title
+- Pagination "Previous" and "Next" titles
+- Panel text content
+- Table and warning callout headings
+- Lead paragraph `.nhsuk-body-l` class
+- Lede text `.nhsuk-lede-text` class
+
+We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
 - [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
