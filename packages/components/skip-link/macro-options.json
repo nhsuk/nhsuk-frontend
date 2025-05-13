@@ -9,7 +9,7 @@
     "name": "href",
     "type": "string",
     "required": false,
-    "description": "The value of the skip link’s `href` attribute. Defaults to `\"#maincontent\"` if you do not provide a value."
+    "description": "The value of the skip link's `href` attribute. Defaults to `\"#maincontent\"` if you do not provide a value."
   },
   {
     "name": "classes",
