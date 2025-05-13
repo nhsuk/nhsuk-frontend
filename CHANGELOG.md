@@ -148,6 +148,20 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px) not desktop (769px).
+
+If necessary, different grid behaviour for the tablet and desktop breakpoints can be applied using new classes. For example, you can make a column one-half on tablet but expand to two-thirds on desktop sized screens.
+
+```html
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-half nhsuk-grid-column-two-thirds-from-desktop">
+    <!-- Component -->
+  </div>
+</div>
+```
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
