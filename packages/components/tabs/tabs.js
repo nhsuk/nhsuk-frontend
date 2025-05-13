@@ -1,10 +1,7 @@
 class Tabs {
-  constructor($module, namespace, responsive, historyEnabled) {
+  constructor($module) {
     this.$module = $module
-    this.namespace = namespace
-    this.responsive = responsive
-    this.historyEnabled = historyEnabled
-    this.$tabs = $module.querySelectorAll(`.${this.namespace}__tab`)
+    this.$tabs = $module.querySelectorAll('.nhsuk-tabs__tab')
 
     this.keys = {
       down: 40,
@@ -12,14 +9,12 @@ class Tabs {
       right: 39,
       up: 38
     }
-    this.jsHiddenClass = `${this.namespace}__panel--hidden`
+    this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
     this.showEvent = new CustomEvent('tab.show')
     this.hideEvent = new CustomEvent('tab.hide')
-  }
 
-  init() {
-    if (typeof window.matchMedia === 'function' && this.responsive) {
+    if (typeof window.matchMedia === 'function') {
       this.setupResponsiveChecks()
     } else {
       this.setup()
@@ -27,11 +22,11 @@ class Tabs {
   }
 
   setupResponsiveChecks() {
-    // $mq-breakpoints: (
+    // $nhsuk-breakpoints: (
     // mobile: 320px,
     // tablet: 641px,
     // desktop: 769px,
-    // large - desktop: 990px
+    // large-desktop: 990px
     // );
     this.mql = window.matchMedia('(min-width: 641px)')
 
@@ -60,10 +55,8 @@ class Tabs {
   setup() {
     const { $module } = this
     const { $tabs } = this
-    const $tabList = $module.querySelector(`.${this.namespace}__list`)
-    const $tabListItems = $module.querySelectorAll(
-      `.${this.namespace}__list-item`
-    )
+    const $tabList = $module.querySelector('.nhsuk-tabs__list')
+    const $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item')
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return
@@ -98,19 +91,15 @@ class Tabs {
     this.showTab($activeTab)
 
     // Handle hashchange events
-    if (this.historyEnabled) {
-      $module.boundOnHashChange = this.onHashChange.bind(this)
-      window.addEventListener('hashchange', $module.boundOnHashChange, true)
-    }
+    $module.boundOnHashChange = this.onHashChange.bind(this)
+    window.addEventListener('hashchange', $module.boundOnHashChange, true)
   }
 
   teardown() {
     const { $module } = this
     const { $tabs } = this
-    const $tabList = $module.querySelector(`.${this.namespace}__list`)
-    const $tabListItems = $module.querySelectorAll(
-      `.${this.namespace}__list-item`
-    )
+    const $tabList = $module.querySelector('.nhsuk-tabs__list')
+    const $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item')
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return
@@ -131,10 +120,8 @@ class Tabs {
       this.unsetAttributes($tab)
     })
 
-    if (this.historyEnabled) {
-      // Remove hashchange event handler
-      window.removeEventListener('hashchange', $module.boundOnHashChange, true)
-    }
+    // Remove hashchange event handler
+    window.removeEventListener('hashchange', $module.boundOnHashChange, true)
   }
 
   onHashChange() {
@@ -169,7 +156,7 @@ class Tabs {
   }
 
   getTab(hash) {
-    return this.$module.querySelector(`.${this.namespace}__tab[href="${hash}"]`)
+    return this.$module.querySelector(`.nhsuk-tabs__tab[href="${hash}"]`)
   }
 
   setAttributes($tab) {
@@ -205,7 +192,7 @@ class Tabs {
   }
 
   onTabClick(e) {
-    if (!e.target.classList.contains(`${this.namespace}__tab`)) {
+    if (!e.target.classList.contains('nhsuk-tabs__tab')) {
       e.stopPropagation()
       e.preventDefault()
     }
@@ -218,17 +205,15 @@ class Tabs {
   }
 
   createHistoryEntry($tab) {
-    if (this.historyEnabled) {
-      const $panel = this.getPanel($tab)
+    const $panel = this.getPanel($tab)
 
-      // Save and restore the id
-      // so the page doesn't jump when a user clicks a tab (which changes the hash)
-      const { id } = $panel
-      $panel.id = ''
-      this.changingHash = true
-      window.location.hash = Tabs.getHref($tab).slice(1)
-      $panel.id = id
-    }
+    // Save and restore the id
+    // so the page doesn't jump when a user clicks a tab (which changes the hash)
+    const { id } = $panel
+    $panel.id = ''
+    this.changingHash = true
+    window.location.hash = Tabs.getHref($tab).slice(1)
+    $panel.id = id
   }
 
   onTabKeydown(e) {
@@ -254,7 +239,7 @@ class Tabs {
     let nextTab
 
     if (nextTabListItem) {
-      nextTab = nextTabListItem.querySelector(`.${this.namespace}__tab`)
+      nextTab = nextTabListItem.querySelector('.nhsuk-tabs__tab')
     }
     if (nextTab) {
       this.hideTab(currentTab)
@@ -270,7 +255,7 @@ class Tabs {
     let previousTab
 
     if (previousTabListItem) {
-      previousTab = previousTabListItem.querySelector(`.${this.namespace}__tab`)
+      previousTab = previousTabListItem.querySelector('.nhsuk-tabs__tab')
     }
     if (previousTab) {
       this.hideTab(currentTab)
@@ -299,19 +284,19 @@ class Tabs {
 
   unhighlightTab($tab) {
     $tab.setAttribute('aria-selected', 'false')
-    $tab.parentNode.classList.remove(`${this.namespace}__list-item--selected`)
+    $tab.parentNode.classList.remove('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '-1')
   }
 
   highlightTab($tab) {
     $tab.setAttribute('aria-selected', 'true')
-    $tab.parentNode.classList.add(`${this.namespace}__list-item--selected`)
+    $tab.parentNode.classList.add('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '0')
   }
 
   getCurrentTab() {
     return this.$module.querySelector(
-      `.${this.namespace}__list-item--selected .${this.namespace}__tab`
+      '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
   }
 
@@ -326,20 +311,11 @@ class Tabs {
 }
 
 /**
- * Main function to invoke tabs. Can be called as follows to alter various features
- *
- * Tabs({historyEnabled: false});
- * Tabs({responsive: false});
- * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
+ * Initialise tabs component
  */
-module.exports = ({
-  namespace = 'nhsuk-tabs',
-  responsive = true,
-  historyEnabled = true,
-  scope = document
-} = {}) => {
-  const tabs = scope.querySelectorAll(`[data-module="${namespace}"]`)
+module.exports = ({ scope = document } = {}) => {
+  const tabs = scope.querySelectorAll('[data-module="nhsuk-tabs"]')
   tabs.forEach((el) => {
-    new Tabs(el, namespace, responsive, historyEnabled).init()
+    new Tabs(el)
   })
 }

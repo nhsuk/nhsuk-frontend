@@ -21,7 +21,7 @@
         "name": "ariaLabel",
         "type": "string",
         "required": false,
-        "description": "The `aria-label` for the logo. Defaults to 'NHS homepage'"
+        "description": "The `aria-label` for the logo. Defaults to `\"NHS homepage\"`"
       }
     ]
   },
@@ -99,7 +99,7 @@
         "name": "active",
         "type": "boolean",
         "required": false,
-        "description": "Set to true if the current page is within this section, but the link doesn’t necessarily link to the current page"
+        "description": "Set to true if the current page is within this section, but the link doesn't necessarily link to the current page"
       },
       {
         "name": "classes",
@@ -125,31 +125,31 @@
         "name": "action",
         "type": "string",
         "required": false,
-        "description": "The search action endpoint. Defaults to `https://www.nhs.uk/search`"
+        "description": "The search action endpoint. Defaults to `\"https://www.nhs.uk/search\"`"
       },
       {
         "name": "name",
         "type": "string",
         "required": false,
-        "description": "The name for the search field. Defaults to \"q\""
+        "description": "The name for the search field. Defaults to `\"q\"`"
       },
       {
         "name": "placeholder",
         "type": "string",
         "required": false,
-        "description": "The placeholder text for the search field. Defaults to \"Search\""
+        "description": "The placeholder text for the search field. Defaults to `\"Search\"`"
       },
       {
         "name": "visuallyHiddenLabel",
         "type": "string",
         "required": false,
-        "description": "The label for the search field. Defaults to \"Search the NHS website\""
+        "description": "The label for the search field. Defaults to `\"Search the NHS website\"`"
       },
       {
         "name": "visuallyHiddenButton",
         "type": "string",
         "required": false,
-        "description": "The label for the visually hidden button. Defaults to \"Search\""
+        "description": "The label for the visually hidden button. Defaults to `\"Search\"`"
       }
     ]
   },
@@ -163,7 +163,7 @@
         "name": "items",
         "type": "array",
         "required": false,
-        "description": "The search action endpoint. Defaults to `https://www.nhs.uk/search`",
+        "description": "The search action endpoint. Defaults to `\"https://www.nhs.uk/search\"`",
         "params": [
           {
             "name": "text",
@@ -193,7 +193,7 @@
             "name": "method",
             "type": "string",
             "required": false,
-            "description": "The value to use for the `method` of the form if `action` is set. Defaults to \"post\""
+            "description": "The value to use for the `method` of the form if `action` is set. Defaults to `\"post\"`"
           }
         ]
       }

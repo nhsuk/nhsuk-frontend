@@ -1,3 +1,6 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
 ////
 /// Links
 ///
@@ -15,7 +18,7 @@
 a {
   @include nhsuk-link-style-default;
 
-  @include mq($media-type: print) {
+  @include nhsuk-media-query($media-type: print) {
     &::after {
       color: $color_nhsuk-black;
       content: " (Link: " attr(href) ")"; // [1]
@@ -26,4 +29,8 @@ a {
 
 .nhsuk-link--no-visited-state {
   @include nhsuk-link-style-no-visited-state;
+}
+
+.nhsuk-link--reverse {
+  @include nhsuk-link-style-white;
 }

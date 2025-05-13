@@ -1,80 +1,104 @@
-import SkipLink from './skip-link.js'
+import { getByRole } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 
-// Mock HTML
-const skipLinkHtml =
-  '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>'
-const mainHtml = '<main class="nhsuk-main-wrapper" id="maincontent"></main>'
+import initSkipLink from './skip-link.js'
 
-/** @type {HTMLElement | null} */
-let main = null
+const user = userEvent.setup()
 
-/** @type {HTMLAnchorElement | null} */
-let skipLink = null
+describe('Skip link', () => {
+  /** @type {HTMLElement} */
+  let $main
 
-// Helper to set DOM Elements
-const initTest = (html = '') => {
-  document.body.innerHTML = html
-  skipLink = document.querySelector('.nhsuk-skip-link')
-  main = document.querySelector('main')
-  SkipLink()
-}
+  /** @type {HTMLAnchorElement} */
+  let $skipLink
 
-describe('NHS.UK skiplink', () => {
-  describe('Does not throw an error', () => {
-    it('if no skiplink exists', () => {
-      initTest(mainHtml)
-      expect(skipLink).toBeNull()
-      expect(main).toBeDefined()
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+      <div class="nhsuk-width-container">
+        <main class="nhsuk-main-wrapper" id="maincontent">
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-two-thirds">
+              <p>To view the skip link component, press tab or navigate to the next element.</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    `
+
+    $main = document.querySelector('main')
+
+    $skipLink = getByRole(document.body, 'link', {
+      name: 'Skip to main content'
     })
 
-    it('if no main content exists', () => {
-      initTest(skipLinkHtml)
-      expect(skipLink).toBeDefined()
-      expect(main).toBeNull()
+    jest.spyOn($skipLink, 'addEventListener')
+  })
+
+  describe('Initialisation', () => {
+    it('should add event listeners', () => {
+      initSkipLink()
+
+      expect($skipLink.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
-    it('if no skiplink or main content exists', () => {
-      initTest()
-      expect(skipLink).toBeNull()
-      expect(main).toBeNull()
+    it('should not throw with missing skip link', () => {
+      $skipLink.remove()
+      expect(() => initSkipLink()).not.toThrow()
+    })
+
+    it('should not throw with missing main content', () => {
+      $main.remove()
+      expect(() => initSkipLink()).not.toThrow()
+    })
+
+    it('should not throw with empty body', () => {
+      document.body.innerHTML = ''
+      expect(() => initSkipLink()).not.toThrow()
+    })
+
+    it('should not throw with empty scope', () => {
+      const scope = document.createElement('div')
+      expect(() => initSkipLink({ scope })).not.toThrow()
     })
   })
 
-  describe('Focuses main content on skiplink click', () => {
-    it('if skiplink and main element exist', () => {
-      initTest(skipLinkHtml + mainHtml)
+  describe('Focus handling', () => {
+    beforeEach(async () => {
+      initSkipLink()
 
-      // Main content not focused
-      expect(main).not.toHaveFocus()
-      expect(main).not.toHaveAttribute('tabIndex')
-      expect(main).not.toHaveClass('nhsuk-skip-link-focused-element')
-
-      skipLink.click()
-
-      // Main content focused
-      expect(main).toHaveFocus()
-      expect(main).toHaveAttribute('tabIndex', '-1')
-      expect(main).toHaveClass('nhsuk-skip-link-focused-element')
+      await user.tab()
+      await user.keyboard('[Enter]')
     })
-  })
 
-  describe('Unfocuses main content on blur', () => {
-    it('if skiplink and main element exist', () => {
-      initTest(skipLinkHtml + mainHtml)
+    it('moves focus to the linked element', () => {
+      expect($main).toHaveFocus()
+      expect($main).toHaveAttribute('tabIndex', '-1')
+      expect($main).toHaveClass('nhsuk-skip-link-focused-element')
+    })
 
-      skipLink.click()
+    it('adds the tabindex attribute to the linked element', () => {
+      expect($main).toHaveAttribute('tabIndex', '-1')
+    })
 
-      // Main content focused
-      expect(main).toHaveFocus()
-      expect(main).toHaveAttribute('tabIndex', '-1')
-      expect(main).toHaveClass('nhsuk-skip-link-focused-element')
+    it('adds the class for removing the native focus style to the linked element', async () => {
+      expect($main).toHaveClass('nhsuk-skip-link-focused-element')
+    })
 
-      main.blur()
+    it('removes the tabindex attribute from the linked element on blur', async () => {
+      $main.blur()
 
-      // Main content not focused
-      expect(main).not.toHaveFocus()
-      expect(main).not.toHaveAttribute('tabIndex')
-      expect(main).not.toHaveClass('nhsuk-skip-link-focused-element')
+      expect($main).not.toHaveAttribute('tabIndex')
+    })
+
+    it('removes the class for removing the native focus style from the linked element on blur', async () => {
+      $main.blur()
+
+      expect($main).not.toHaveClass('nhsuk-skip-link-focused-element')
     })
   })
 })

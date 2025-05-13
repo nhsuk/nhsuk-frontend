@@ -39,7 +39,7 @@ Good:
 
 ```scss
 .selector {
-  color: $colour_nhsuk-blue;
+  color: $color_nhsuk-blue;
 }
 ```
 
@@ -182,20 +182,20 @@ margin: 1px 2px 3px;
 
 ### Commas in lists should be followed by a space
 
-### The basenames of `@import`ed SCSS partials should not begin with an underscore and should not include the filename extension
+### The basenames of `@forward`ed SCSS partials should not begin with an underscore and should not include the filename extension
 
 Bad:
 
 ```scss
-@import "_foo.scss";
-@import "_bar/foo.scss";
+@forward "_foo.scss";
+@forward "_bar/foo.scss";
 ```
 
 Good:
 
 ```scss
-@import "foo";
-@import "bar/foo";
+@forward "foo";
+@forward "bar/foo";
 ```
 
 ### Properties should be formatted with a single space separating the colon from the property's value

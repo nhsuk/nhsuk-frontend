@@ -1,3 +1,5 @@
+@use "../settings" as *;
+
 ////
 /// Font face
 ///
@@ -12,7 +14,7 @@
   @return url($nhsuk-fonts-path + $filename);
 }
 
-@mixin _nhsuk-font-face-frutiger {
+@mixin nhsuk-font-face-frutiger {
   @at-root {
     @font-face {
       font-display: swap;

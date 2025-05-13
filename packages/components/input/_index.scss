@@ -1,0 +1,149 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Input component
+///
+/// 1. Disable inner shadow and remove rounded corners
+/// 2. setting any background-color makes text invisible when changing colours to dark
+///    backgrounds in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=1335476)
+///    as background-color and color need to always be set together, color should
+///    not be set either.
+///
+/// @group components
+////
+
+.nhsuk-input {
+  -moz-appearance: none; // [1]
+  -webkit-appearance: none; // [1]
+  appearance: none; // [1]
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; // [2]
+  border-radius: 0;
+  box-sizing: border-box;
+  min-height: 40px;
+  margin-top: 0;
+  padding: nhsuk-spacing(1);
+  width: 100%;
+
+  @include nhsuk-font(19);
+
+  &:focus {
+    @include nhsuk-focused-input;
+  }
+}
+
+.nhsuk-input::-webkit-outer-spin-button,
+.nhsuk-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.nhsuk-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.nhsuk-input--error {
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+}
+
+// The ex measurements are based on the number of W's that can fit inside the input
+// Extra space is left on the right hand side to allow for the Safari prefill icon
+// Linear regression estimation based on visual tests: y = 1.76 + 1.81x
+
+.nhsuk-input--width-30 {
+  max-width: 56ex + 3ex;
+}
+
+.nhsuk-input--width-20 {
+  max-width: 38ex + 3ex;
+}
+
+.nhsuk-input--width-10 {
+  max-width: 20ex + 3ex;
+}
+
+.nhsuk-input--width-5 {
+  max-width: 10.8ex;
+}
+
+.nhsuk-input--width-4 {
+  max-width: 9ex;
+}
+
+.nhsuk-input--width-3 {
+  max-width: 7.2ex;
+}
+
+.nhsuk-input--width-2 {
+  max-width: 5.4ex;
+}
+
+/// Suffix and prefix
+
+.nhsuk-input__wrapper {
+  display: flex;
+
+  .nhsuk-input {
+    flex: 0 1 auto;
+  }
+
+  .nhsuk-input:focus {
+    // Hack to stop focus style being overlapped by the suffix
+    z-index: 1;
+  }
+
+  @include nhsuk-media-query($until: mobile) {
+    display: block;
+
+    .nhsuk-input {
+      // Set max-width to override potential width override class on the input
+      max-width: 100%;
+    }
+  }
+}
+
+.nhsuk-input__prefix,
+.nhsuk-input__suffix {
+  background-color: $color_nhsuk-grey-4;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  box-sizing: border-box;
+  cursor: default; // emphasises non-editable status of prefixes and suffixes
+  display: inline-block;
+  flex: 0 0 auto;
+  min-height: 40px;
+  min-width: nhsuk-px-to-rem(40px);
+  padding: nhsuk-spacing(1);
+  text-align: center;
+  white-space: nowrap;
+
+  @include nhsuk-font($size: 19);
+
+  @include nhsuk-media-query($until: mobile) {
+    display: block;
+    height: 100%;
+    white-space: normal;
+  }
+
+  @include nhsuk-media-query($until: tablet) {
+    line-height: 1.6;
+    font-size: 1.1875rem;
+  }
+}
+
+.nhsuk-input__prefix {
+  @include nhsuk-media-query($until: mobile) {
+    border-bottom: 0;
+  }
+  @include nhsuk-media-query($from: mobile) {
+    border-right: 0;
+  }
+}
+
+.nhsuk-input__suffix {
+  @include nhsuk-media-query($until: mobile) {
+    border-top: 0;
+  }
+  @include nhsuk-media-query($from: mobile) {
+    border-left: 0;
+  }
+}

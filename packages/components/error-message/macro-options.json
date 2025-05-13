@@ -33,6 +33,6 @@
     "name": "visuallyHiddenText",
     "type": "string",
     "required": false,
-    "description": "A visually hidden prefix used before the error message. Defaults to \"Error\"."
+    "description": "A visually hidden prefix used before the error message. Defaults to `\"Error\"`."
   }
 ]

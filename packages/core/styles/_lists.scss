@@ -1,3 +1,5 @@
+@use "../tools" as *;
+
 ////
 /// Lists
 ///
@@ -12,7 +14,7 @@
 ///
 /// @example scss
 ///   .foo {
-///     @extend %nhsuk-section-break--xl;
+///     @extend %nhsuk-list--bullet;
 ///   }
 ////
 
@@ -21,7 +23,7 @@
   margin-top: 0;
   padding-left: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 
   // Add a top margin and remove bottom margin for nested lists
@@ -51,6 +53,33 @@
 %nhsuk-list--number {
   list-style-type: decimal;
   padding-left: 20px; // [1]
+}
+
+%nhsuk-list + h2,
+%nhsuk-list + .nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}
+
+%nhsuk-list + h3,
+%nhsuk-list + h4,
+%nhsuk-list + .nhsuk-heading-m,
+%nhsuk-list + .nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+@include mq($media-type: print) {
+  %nhsuk-list + h2,
+  %nhsuk-list + h3,
+  %nhsuk-list + h4,
+  %nhsuk-list + .nhsuk-heading-l,
+  %nhsuk-list + .nhsuk-heading-m,
+  %nhsuk-list + .nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
 }
 
 .nhsuk-list--number {

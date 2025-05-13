@@ -1,3 +1,5 @@
+@forward "globals" show $nhsuk-font-normal, $nhsuk-font-bold;
+
 ////
 /// Typography
 ///
@@ -95,6 +97,24 @@ $nhsuk-typography-scale: (
     print: (
       font-size: 16pt,
       line-height: 1.25
+    ),
+    deprecation: (
+      key: "nhsuk-typography-scale-24",
+      message: "24 on the typography scale is deprecated and will be removed in the next major version."
+    )
+  ),
+  _24: (
+    null: (
+      font-size: 20px,
+      line-height: 28px
+    ),
+    tablet: (
+      font-size: 24px,
+      line-height: 31px
+    ),
+    print: (
+      font-size: 16pt,
+      line-height: 1.25
     )
   ),
   22: (
@@ -154,13 +174,3 @@ $nhsuk-typography-scale: (
     )
   )
 ) !default;
-
-/// Font weights
-
-/// Font weight for normal typography
-
-$nhsuk-font-normal: 400 !default;
-
-/// Font weight for bold typography
-
-$nhsuk-font-bold: 600 !default;

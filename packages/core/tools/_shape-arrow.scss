@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "../settings/warnings" as *;
+
 ////
 /// Shape arrow
 ///
@@ -13,10 +16,10 @@
 /// @param {Number} $base - Length of the base of the triangle
 /// @return {Number} Calculated height of the triangle
 
-@function _govuk-equilateral-height($base) {
+@function _nhsuk-equilateral-height($base) {
   $square-root-of-three: 1.732;
 
-  @return ($base * 0.5) * $square-root-of-three;
+  @return math.div($base, 2) * $square-root-of-three;
 }
 
 /// Arrow mixin
@@ -34,8 +37,10 @@
 /// @param {Number} $base - Length of the triangle 'base' side
 /// @param {Number} $height [null] - Height of triangle. Omit for equilateral.
 /// @param {String} $display [block] - CSS display property of the arrow
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin govuk-shape-arrow($direction, $base, $height: null, $display: block) {
+@mixin nhsuk-shape-arrow($direction, $base, $height: null, $display: block) {
   display: $display;
 
   width: 0;
@@ -44,10 +49,10 @@
   border-style: solid;
   border-color: transparent; // 1
 
-  $perpendicular: $base * 0.5;
+  $perpendicular: math.div($base, 2);
 
   @if not $height {
-    $height: _govuk-equilateral-height($base);
+    $height: _nhsuk-equilateral-height($base);
   }
 
   @if $direction == "up" {
@@ -73,4 +78,14 @@
   } @else {
     @error "Invalid arrow direction: expected `up`, `right`, `down` or `left`, got `#{$direction}`";
   }
+}
+
+/// Arrow mixin (deprecated)
+///
+/// @alias nhsuk-shape-arrow
+/// @deprecated To be removed in v10.0, replaced by nhsuk-shape-arrow
+
+@mixin govuk-shape-arrow($args...) {
+  @include nhsuk-warning("govuk-shape-arrow", "govuk-shape-arrow is deprecated. Use nhsuk-shape-arrow instead.");
+  @include nhsuk-shape-arrow($args...);
 }

@@ -1,32 +1,6 @@
-{% set title = 'Components' %}
-{% from 'components/action-link/macro.njk' import actionLink %}
-{% from 'components/breadcrumb/macro.njk' import breadcrumb %}
-{% from 'components/card/macro.njk' import card %}
-{% from 'components/character-count/macro.njk' import characterCount %}
-{% from 'components/contents-list/macro.njk' import contentsList %}
-{% from 'components/details/macro.njk' import details %}
-{% from 'components/header/macro.njk' import header %}
-{% from 'components/footer/macro.njk' import footer %}
-{% from 'components/do-dont-list/macro.njk' import list %}
-{% from 'components/images/macro.njk' import image %}
-{% from 'components/inset-text/macro.njk' import insetText %}
-{% from 'components/pagination/macro.njk' import pagination %}
-{% from 'components/skip-link/macro.njk' import skipLink %}
-{% from "components/summary-list/macro.njk" import summaryList %}
-{% from 'components/tables/macro.njk' import table %}
-{% from 'components/tag/macro.njk' import tag %}
-{% from 'components/warning-callout/macro.njk' import warningCallout %}
-{% from 'components/back-link/macro.njk' import backLink %}
-{% from 'components/button/macro.njk' import button %}
-{% from 'components/checkboxes/macro.njk' import checkboxes %}
-{% from 'components/date-input/macro.njk' import dateInput %}
-{% from 'components/input/macro.njk' import input %}
-{% from 'components/radios/macro.njk' import radios %}
-{% from 'components/select/macro.njk' import select %}
-{% from 'components/textarea/macro.njk' import textarea %}
-{% from 'components/tabs/macro.njk' import tabs %}
-
 {% extends 'page.njk' %}
+
+{% set title = 'Components' %}
 
 {% block header %}
   {{ skipLink({
@@ -810,7 +784,7 @@
         }
       }) }}
 
-      <form>
+      <form method="post" novalidate>
         {{ checkboxes({
           "idPrefix": "nationality",
           "name": "nationality",
@@ -942,6 +916,24 @@
         {{ button({
           "text": "Save and continue",
           "classes": "nhsuk-u-margin-bottom-0"
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-form-group">
+
+        {{ button({
+          "text": "Yes, delete this vaccine",
+          "classes": "nhsuk-button--warning nhsuk-u-margin-bottom-0"
+        }) }}
+
+      </div>
+
+      <div class="nhsuk-form-group">
+
+        {{ button({
+          "text": "Continue",
+          "classes": "nhsuk-button--login nhsuk-u-margin-bottom-0"
         }) }}
 
       </div>

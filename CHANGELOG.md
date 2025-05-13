@@ -23,9 +23,29 @@ We've added a new header variant to show account information and links. As part 
 - Remove hardcoded home link from navigation.
 - Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
 
-To update your header, compare it with the [HTML markup for the header on the service manual website](https://service-manual.nhs.uk/design-system/components/header). 
+To update your header, compare it with the [HTML markup for the header on the service manual website](https://service-manual.nhs.uk/design-system/components/header).
 
 [These changes were added in pull request #1058: Header updates - breaking changes.](https://github.com/nhsuk/nhsuk-frontend/pull/1058)
+
+#### Define negative spacing using the `nhsuk-spacing()` function
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-spacing()` function to get negative spacing.
+
+For example, `nhsuk-spacing(1)` returns `4px`, and `nhsuk-spacing(-1)` returns `-4px`.
+
+This was added in [pull request #1293: Allow `nhsuk-spacing()` to output negative spacing](https://github.com/nhsuk/nhsuk-frontend/pull/1293).
+
+#### Support for Sass modules
+
+We’ve updated our Sass files to use the [Sass module system](https://sass-lang.com/blog/the-module-system-is-launched/).
+
+This was added in [pull request #1137: Upgrade to Sass modules](https://github.com/nhsuk/nhsuk-frontend/pull/1137).
+
+#### Blue login button
+
+We've added styling for a blue button, to be used for login buttons, for example NHS login buttons.
+
+This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
 
 #### Add Nunjucks macro option configs
 
@@ -45,11 +65,200 @@ For consistency with other components, the following Nunjucks macro changes have
 
 This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
 
+#### Reversed link style
+
+You can now use links on dark background by using the `.nhsuk-link--reverse` class. Added in [pull request #1269](https://github.com/nhsuk/nhsuk-frontend/pull/1269).
+
+#### Custom Sass grid column widths and breakpoints
+
+We are now exposing new settings to allow you to customise breakpoints and responsive behaviour:
+
+- `$nhsuk-grid-widths` - Map of grid column widths
+- `$nhsuk-breakpoints` - Map of breakpoint definitions
+- `$nhsuk-show-breakpoints` - Whether to show the current breakpoint in the top right corner
+
+For example, Sass grid column widths can be configured using:
+
+```scss
+$nhsuk-grid-widths: (
+  one-quarter: math.percentage(math.div(1, 4)),
+  one-third: math.percentage(math.div(1, 3)),
+  one-half: math.percentage(math.div(1, 2)),
+  two-thirds: math.percentage(math.div(2, 3)),
+  three-quarters: math.percentage(math.div(3, 4)),
+  full: 100%
+);
+```
+
+Sass breakpoint definitions can be configured using:
+
+```scss
+$nhsuk-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+  large-desktop: 990px
+);
+```
+
+This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
+
+#### Suppress Sass deprecation warnings
+
+You can now suppress Sass warnings from deprecations within NHS.UK frontend by updating the `$nhsuk-suppressed-warnings` map. Every deprecation warning will now include a warning "key" which you can use in the following code, placed at the root of your Sass project:
+
+```scss
+$nhsuk-suppressed-warnings: (
+  deprecated-feature
+);
+```
+
+This was added in [pull request #1291: Add Sass warning suppression functionality](https://github.com/nhsuk/nhsuk-frontend/pull/1291)
+
+:wastebasket: **Deprecated features**
+
+#### Stop using `nhsuk-u-font-size-24` and '24' on the typography scale
+
+We have deprecated point 24 (24px large screens, 20px small screens) on the typography scale, including the font utility class `nhsuk-u-font-size-24` that uses point 24.
+
+We will be removing this class and point 24 on the typography scale in a future release. You will no longer be able to call the Sass mixins `nhsuk-font()` or `nhsuk-font-size()` with `$size` set to '24'.
+
+This change was introduced in [#1294: Deprecate 24 on the typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1294)
+
+#### Replace Sass mixins for media queries
+
+If you're using the `mq()` Sass mixin to output CSS media queries, you must replace it with the `nhsuk-media-query()` mixin.
+
+Before:
+
+```scss
+@include mq($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
+After:
+
+```scss
+@include nhsuk-media-query($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
+If you are overriding any settings prefixed with `$mq-` in your application you will need to update to use the new `$nhsuk-` prefixed settings.
+
+#### Replace Sass mixins for grids
+
+If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and remove the `$class` parameter.
+
+Before:
+
+```scss
+@include govuk-grid-column(
+  one-quarter,
+  $at: desktop,
+  $class: "app-grid-column"
+);
+```
+
+After:
+
+```scss
+.app-grid-column-one-quarter-at-desktop {
+  @include nhsuk-grid-column(one-quarter, $at: desktop);
+}
+```
+
+If you're using the `govuk-grid-row()` Sass mixin, you must replace it with the `.nhsuk-grid-row` class in your HTML.
+
+If you're using the `grid-width()` Sass mixin, you must replace it with the `nhsuk-grid-width()` mixin.
+
+#### Replace Sass mixins for wrappers
+
+If you're using the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` or `govuk-main-wrapper--s()` Sass mixins, you must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
+
+#### Replace Sass mixin `nhsuk-typography-responsive` with `nhsuk-font-size`
+
+We've renamed the Sass mixin `nhsuk-typography-responsive` to `nhsuk-font-size` and have deprecated `nhsuk-typography-responsive` to better communicate its intended use.
+
+You can still use `nhsuk-typography-responsive`, but we'll remove it in a future breaking release.
+
+#### Updated Sass mixin, function and variable namespace
+
+All other Sass mixins, functions and variables prefixed `govuk` are now prefixed `nhsuk`. The previous names are deprecated and will be removed in a future release.
+
+For more information, see [pull request #1289: Deprecate Sass `govuk` namespace usage](https://github.com/nhsuk/nhsuk-frontend/pull/1289).
+
+#### Importing Sass using `all` files
+
+If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you should remove `/all` from each path.
+
+Before:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core/all";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings/all";
+@import "node_modules/nhsuk-frontend/packages/core/tools/all";
+```
+
+After:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings";
+@import "node_modules/nhsuk-frontend/packages/core/tools";
+```
+
+#### Importing Sass individual component partials
+
+If you're importing individual component Sass partials, then you should remove the duplicate component name from each path:
+
+Before:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb/breadcrumb";
+```
+
+After:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb";
+```
+
+:recycle: **Changes**
+
+We've completed changes to fully replace 24px with 26px from the typography scale in [pull request #1294](https://github.com/nhsuk/nhsuk-frontend/issues/1294) for the following:
+
+- Do and Don't list title
+- Pagination "Previous" and "Next" titles
+- Panel text content
+- Table and warning callout headings
+- Lead paragraph `.nhsuk-body-l` class
+- Lede text `.nhsuk-lede-text` class
+
+We've made changes to NHS.UK frontend in the following pull requests:
+
+- [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+- [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
+
 :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#1258: Fix text input with prefix/suffix focus and width](https://github.com/nhsuk/nhsuk-frontend/pull/1258)
+- [#1292: Fix for reverse buttons within Hero components](https://github.com/nhsuk/nhsuk-frontend/pull/1292)
 
 ## 9.4.1 - 22 April 2025
 

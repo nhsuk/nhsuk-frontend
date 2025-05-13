@@ -1,3 +1,6 @@
+@use "../settings" as *;
+@use "focused" as *;
+
 ////
 /// Links
 ///
@@ -42,7 +45,9 @@
   }
 }
 
-/// White link styling, used in the footer.
+/// White link styling, used in hero
+/// component, and in the `.nhsuk-link--reverse`
+/// modifier class.
 ///
 /// @example scss
 ///   @include nhsuk-link-style-white;

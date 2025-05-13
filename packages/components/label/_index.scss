@@ -1,0 +1,53 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Label component
+///
+/// @group components
+////
+
+.nhsuk-label {
+  display: block;
+  margin-bottom: nhsuk-spacing(1);
+
+  @include nhsuk-font(19);
+}
+
+// Modifiers that make labels look more like their equivalent headings
+.nhsuk-label--xl,
+.nhsuk-label--l,
+.nhsuk-label--m {
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label--xl {
+  @include nhsuk-font-size(48);
+}
+
+.nhsuk-label--l {
+  @include nhsuk-font-size(36);
+}
+
+.nhsuk-label--m {
+  @include nhsuk-font-size(26);
+}
+
+.nhsuk-label--s {
+  font-weight: $nhsuk-font-bold;
+  margin-top: 0;
+
+  @include nhsuk-font-size(19);
+}
+
+// When the label is nested inside a heading, override the heading so that it
+// does not have a margin. Effectively we want to be able to treat the heading
+// as if it is not there.
+//
+// This breaks BEM conventions because it exists as a parent of the 'block',
+// so we can't really consider an element.
+.nhsuk-label-wrapper {
+  margin: 0;
+}

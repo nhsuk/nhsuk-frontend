@@ -1,4 +1,4 @@
-const { toggleAttribute } = require('../../common')
+const { generateUniqueID, toggleAttribute } = require('../../common')
 
 /**
  * Ensure details component is cross browser and accessible
@@ -6,13 +6,6 @@ const { toggleAttribute } = require('../../common')
  */
 
 module.exports = ({ scope = document } = {}) => {
-  // Does the browser support details component
-  const nativeSupport =
-    typeof document.createElement('details').open === 'boolean'
-  if (nativeSupport) {
-    return
-  }
-
   // Nodelist of all details elements
   const allDetails = scope.querySelectorAll('details')
 
@@ -20,23 +13,19 @@ module.exports = ({ scope = document } = {}) => {
    * Adds all necessary functionality to a details element
    *
    * @param {HTMLElement} element - details element to initialise
-   * @param {number} index - number to be appended to dynamic IDs
    */
-  const initDetails = (element, index) => {
+  const initDetails = (element) => {
     // Set details element as polyfilled to prevent duplicate events being added
     element.setAttribute('nhsuk-polyfilled', 'true')
 
-    // Give details element an ID if it doesn't already have one
-    if (!element.id) element.setAttribute('id', `nhsuk-details${index}`)
-
     // Set content element and give it an ID if it doesn't already have one
-    const content = scope.querySelector(`#${element.id} .nhsuk-details__text`)
-    if (!content.id) content.setAttribute('id', `nhsuk-details__text${index}`)
+    const content = element.querySelector('.nhsuk-details__text')
+    if (!content.id) {
+      content.setAttribute('id', `details-content-${generateUniqueID()}`)
+    }
 
     // Set summary element
-    const summary = scope.querySelector(
-      `#${element.id} .nhsuk-details__summary`
-    )
+    const summary = element.querySelector('.nhsuk-details__summary')
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')
@@ -77,10 +66,13 @@ module.exports = ({ scope = document } = {}) => {
     })
   }
 
-  // Initialise details for any new details element
-  if (allDetails.length) {
-    allDetails.forEach((element, index) => {
-      if (!element.hasAttribute('nhsuk-polyfilled')) initDetails(element, index)
-    })
-  }
+  allDetails.forEach((element) => {
+    // If there is native details support, we want to avoid running code to polyfill native behaviour.
+    const hasNativeDetails =
+      'HTMLDetailsElement' in window && element instanceof HTMLDetailsElement
+
+    if (!hasNativeDetails && !element.hasAttribute('nhsuk-polyfilled')) {
+      initDetails(element)
+    }
+  })
 }

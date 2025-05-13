@@ -1,3 +1,6 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
 ////
 /// Typography
 ///
@@ -21,7 +24,7 @@
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(48);
+  @include nhsuk-font-size(48);
   @include nhsuk-responsive-margin(7, "bottom");
 }
 
@@ -35,7 +38,7 @@ h1,
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(36);
+  @include nhsuk-font-size(36);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -49,7 +52,7 @@ h2,
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(26);
+  @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -63,7 +66,7 @@ h3,
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(22);
+  @include nhsuk-font-size(22);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -77,7 +80,7 @@ h4,
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -91,7 +94,7 @@ h5,
   font-weight: $nhsuk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -136,7 +139,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(24);
+  @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
@@ -148,7 +151,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(19);
+  @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -162,7 +165,7 @@ p,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-typography-responsive(16);
+  @include nhsuk-font-size(16);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -182,13 +185,13 @@ address {
 /// 2. Reduces the spacing between the page heading and the lede text
 
 .nhsuk-lede-text {
-  @include nhsuk-font(24);
+  @include nhsuk-font(26);
   @include nhsuk-responsive-margin(7, "bottom");
 
   // [1]
   p,
   ul {
-    @include nhsuk-font(24);
+    @include nhsuk-font(26);
   }
 }
 
@@ -214,26 +217,23 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
 
 %nhsuk-body-m + %nhsuk-heading-l,
-%nhsuk-body-s + %nhsuk-heading-l,
-%nhsuk-list + %nhsuk-heading-l {
+%nhsuk-body-s + %nhsuk-heading-l {
   @include nhsuk-responsive-padding(4, "top");
 }
 
 %nhsuk-body-m + %nhsuk-heading-m,
 %nhsuk-body-s + %nhsuk-heading-m,
-%nhsuk-list + %nhsuk-heading-m,
 %nhsuk-body-m + %nhsuk-heading-s,
-%nhsuk-body-s + %nhsuk-heading-s,
-%nhsuk-list + %nhsuk-heading-s {
+%nhsuk-body-s + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
@@ -250,7 +250,7 @@ b {
   font-weight: $nhsuk-font-bold;
 }
 
-@include mq($media-type: print) {
+@include nhsuk-media-query($media-type: print) {
   .nhsuk-main-wrapper {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -288,13 +288,10 @@ b {
   %nhsuk-body-l + %nhsuk-heading-l,
   %nhsuk-body-m + %nhsuk-heading-l,
   %nhsuk-body-s + %nhsuk-heading-l,
-  %nhsuk-list + %nhsuk-heading-l,
   %nhsuk-body-m + %nhsuk-heading-m,
   %nhsuk-body-s + %nhsuk-heading-m,
-  %nhsuk-list + %nhsuk-heading-m,
   %nhsuk-body-m + %nhsuk-heading-s,
-  %nhsuk-body-s + %nhsuk-heading-s,
-  %nhsuk-list + %nhsuk-heading-s {
+  %nhsuk-body-s + %nhsuk-heading-s {
     padding-top: 0.45em;
   }
 }

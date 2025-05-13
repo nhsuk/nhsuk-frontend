@@ -30,7 +30,7 @@
         "name": "classes",
         "type": "string",
         "required": false,
-        "description": "Classes to add to the form group (for example to show error state for the whole group)"
+        "description": "Classes to add to the form group (for example to show error state for the whole group)."
       }
     ]
   },
@@ -93,7 +93,7 @@
         "name": "divider",
         "type": "string",
         "required": true,
-        "description": "Optional divider text to separate checkbox items, for example the text \"or\"."
+        "description": "Optional divider text to separate checkbox items, for example the text `\"or\"`."
       },
       {
         "name": "hint",

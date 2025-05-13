@@ -1,15 +1,8 @@
-////
-/// Tools
-////
+@use "settings/warnings" as *;
+@forward ".";
 
-@import "exports";
-@import "functions";
-@import "shape-arrow";
-@import "spacing";
-@import "sass-mq";
-@import "typography";
-@import "links";
-@import "mixins";
-@import "ifff";
-@import "grid";
-@import "focused";
+@include nhsuk-warning(
+  "import-using-all",
+  "Importing using 'core/tools/all' is deprecated. Update your import statement to import 'core/tools'.",
+  $silence-further-warnings: false
+);

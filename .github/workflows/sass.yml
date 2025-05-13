@@ -7,6 +7,15 @@ jobs:
     name: Dart Sass ${{ matrix.package-version }}
     runs-on: ubuntu-latest
 
+    env:
+      RULE_1: '@import "nhsuk";'
+      RULE_2: '@use "nhsuk" as *;'
+      RULE_3: '@forward "nhsuk";'
+      RULE_4: '@forward "node_modules/nhsuk-frontend/packages/nhsuk";'
+      RULE_5: '@forward "node_modules/nhsuk-frontend/packages/core";'
+      RULE_6: '@forward "node_modules/nhsuk-frontend/packages/core/all";'
+      RULE_7: '@forward "pkg:nhsuk-frontend";'
+
     strategy:
       fail-fast: false
 
@@ -35,20 +44,37 @@ jobs:
 
       - name: Install package
         run: |
+          npm install --omit=dev
           npm install -g sass@${{ matrix.package-version }}
           sass --version
 
-      - name: Check compilation
+      - name: Create test files
         run: |
           mkdir -p .tmp
-          time sass packages/nhsuk.scss > .tmp/check.css
+          echo '${{ env.RULE_1 }}' > .tmp/input1.scss
+          echo '${{ env.RULE_2 }}' > .tmp/input2.scss
+          echo '${{ env.RULE_3 }}' > .tmp/input3.scss
+          echo '${{ env.RULE_4 }}' > .tmp/input4.scss
+          echo '${{ env.RULE_5 }}' > .tmp/input5.scss
+          echo '${{ env.RULE_6 }}' > .tmp/input6.scss
+          echo '${{ env.RULE_7 }}' > .tmp/input7.scss
+
+      - name: Check compilation
+        run: |
+          time sass packages/nhsuk.scss > .tmp/check.css --load-path .
 
       - name: Check load paths
         run: |
-          mkdir -p .tmp
-          time sh -c 'echo "@import "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check1.css'
-          time sh -c 'echo "@forward "\""nhsuk"\"";" | sass --stdin --load-path packages > .tmp/check2.css'
-          time sh -c 'echo "@use "\""nhsuk"\"" as *;" | sass --stdin --load-path packages > .tmp/check3.css'
+          time sass .tmp/input1.scss > .tmp/check1.css --load-path packages
+          time sass .tmp/input2.scss > .tmp/check2.css --load-path packages
+          time sass .tmp/input3.scss > .tmp/check3.css --load-path packages
+          time sass .tmp/input4.scss > .tmp/check4.css --load-path .
+          time sass .tmp/input5.scss > .tmp/check5.css --load-path .
+          time sass .tmp/input6.scss > .tmp/check6.css --load-path .
+
+      - name: Check package importer
+        run: |
+          time sass .tmp/input7.scss > .tmp/check7.css --pkg-importer node
 
       # Check output for uncompiled Sass
       - name: Check output
@@ -57,3 +83,7 @@ jobs:
           ! grep "\$nhsuk-" .tmp/check1.css
           ! grep "\$nhsuk-" .tmp/check2.css
           ! grep "\$nhsuk-" .tmp/check3.css
+          ! grep "\$nhsuk-" .tmp/check4.css
+          ! grep "\$nhsuk-" .tmp/check5.css
+          ! grep "\$nhsuk-" .tmp/check6.css
+          ! grep "\$nhsuk-" .tmp/check7.css

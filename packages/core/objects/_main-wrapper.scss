@@ -1,3 +1,5 @@
+@use "../tools" as *;
+
 ////
 /// Page wrapper for the grid system
 ///
@@ -17,48 +19,78 @@
 ///   </div>
 ////
 
-@mixin govuk-main-wrapper {
+@mixin _nhsuk-main-wrapper {
   display: block; // [1]
   padding-top: nhsuk-spacing(4);
   padding-bottom: nhsuk-spacing(4);
   @include top-and-bottom;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(7);
     padding-bottom: nhsuk-spacing(7);
   }
 }
 
-@mixin govuk-main-wrapper--l {
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper {
+  @include nhsuk-warning(
+    "govuk-main-wrapper",
+    "govuk-main-wrapper is deprecated. Use `.nhsuk-main-wrapper` class instead."
+  );
+  @include _nhsuk-main-wrapper;
+}
+
+@mixin _nhsuk-main-wrapper--l {
   padding-bottom: nhsuk-spacing(6);
   padding-top: nhsuk-spacing(6);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-bottom: nhsuk-spacing(8);
     padding-top: nhsuk-spacing(8);
   }
 }
 
-@mixin govuk-main-wrapper--s {
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--l {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--l",
+    "govuk-main-wrapper--l is deprecated. Use `.nhsuk-main-wrapper--l` class instead."
+  );
+  @include _nhsuk-main-wrapper--l;
+}
+
+@mixin _nhsuk-main-wrapper--s {
   padding-top: nhsuk-spacing(3);
   padding-bottom: nhsuk-spacing(3);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(4);
     padding-bottom: nhsuk-spacing(4);
   }
 }
 
-@include govuk-exports("govuk/objects/main-wrapper") {
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--s {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--s",
+    "govuk-main-wrapper--s is deprecated. Use `.nhsuk-main-wrapper--s` class instead."
+  );
+  @include _nhsuk-main-wrapper--s;
+}
+
+@include nhsuk-exports("nhsuk/core/objects/main-wrapper") {
   .nhsuk-main-wrapper {
-    @include govuk-main-wrapper;
+    @include _nhsuk-main-wrapper;
   }
 
   .nhsuk-main-wrapper--l {
-    @include govuk-main-wrapper--l;
+    @include _nhsuk-main-wrapper--l;
   }
 
   .nhsuk-main-wrapper--s {
-    @include govuk-main-wrapper--s;
+    @include _nhsuk-main-wrapper--s;
   }
 }

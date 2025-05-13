@@ -1,45 +1,8 @@
-////
-/// Core
-////
+@use "settings/warnings" as *;
+@forward ".";
 
-// Settings
-@import "settings/all";
-
-// Tools
-@import "tools/all";
-
-// Generic
-@import "generic/box-sizing";
-@import "generic/font-face";
-
-// Elements
-@import "elements/forms";
-@import "elements/links";
-@import "elements/page";
-@import "elements/table";
-
-// Objects
-@import "objects/form-group";
-@import "objects/grid";
-@import "objects/main-wrapper";
-@import "objects/width-container";
-
-// Styles
-@import "styles/icons";
-@import "styles/lists";
-@import "styles/section-break";
-@import "styles/typography";
-
-// Utilities
-@import "utilities/clearfix";
-@import "utilities/display";
-@import "utilities/float";
-@import "utilities/grid-widths";
-@import "utilities/link-nowrap";
-@import "utilities/list-border";
-@import "utilities/reading-width";
-@import "utilities/spacing";
-@import "utilities/text-align";
-@import "utilities/typography";
-@import "utilities/visually-hidden";
-@import "utilities/widths";
+@include nhsuk-warning(
+  "import-using-all",
+  "Importing using 'core/all' is deprecated. Update your import statement to import 'core'.",
+  $silence-further-warnings: false
+);

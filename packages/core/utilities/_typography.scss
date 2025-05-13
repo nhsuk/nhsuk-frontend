@@ -1,10 +1,12 @@
+@use "sass:map";
+@use "../settings" as *;
+@use "../tools" as *;
+
 ////
 /// Typography
 ///
 /// @group utilities
 ////
-
-@use "sass:map";
 
 // Utility classes are allowed to use !important;
 // so we disable stylelint for that rule
@@ -16,9 +18,17 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@each $size in map.keys($nhsuk-typography-scale) {
+// nhsuk-u-font-size-24 is deprecated
+@each $size, $font-map in $nhsuk-typography-scale {
   .nhsuk-u-font-size-#{$size} {
-    @include nhsuk-typography-responsive($size, $important: true);
+    $font-map: map.get($nhsuk-typography-scale, $size);
+
+    // Add underscore to deprecated typography scale keys
+    @if map.has-key($font-map, "deprecation") {
+      $size: _#{$size};
+    }
+
+    @include nhsuk-font-size($size, $important: true);
   }
 }
 

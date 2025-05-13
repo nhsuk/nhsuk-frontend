@@ -1,3 +1,6 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
 ////
 /// Card component
 ///
@@ -95,7 +98,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   @include flex;
 
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     margin-bottom: nhsuk-spacing(6);
   }
 
@@ -117,7 +120,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     margin-bottom: nhsuk-spacing(5);
   }
 
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     .nhsuk-card {
       margin-bottom: nhsuk-spacing(3);
     }
@@ -145,7 +148,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   position: relative;
   top: -(nhsuk-spacing(2));
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     left: -(nhsuk-spacing(5) + $card-border-width); // [5]
     margin-right: -(nhsuk-spacing(5)); // [6]
     padding: nhsuk-spacing(2) nhsuk-spacing(5);
@@ -193,7 +196,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   width: 20px; // [9]
   @include print-hide;
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     left: 38px; // [10]
   }
 
@@ -244,7 +247,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
         color: $color_nhsuk-black; // [16]
       }
     }
-    @include mq($media-type: print) {
+    @include nhsuk-media-query($media-type: print) {
       background-color: $color_nhsuk-white;
       color: $nhsuk-print-text-color;
     }
@@ -277,7 +280,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card__content--primary {
   padding-right: 75px;
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     height: 100%;
   }
 
