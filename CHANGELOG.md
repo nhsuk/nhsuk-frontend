@@ -142,7 +142,7 @@ If you are overriding any settings prefixed with `$mq-` in your application you 
 
 #### Replace Sass mixins for grids
 
-If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and remove the `$class` parameter.
+If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and set the `$class` parameter to `false`.
 
 Before:
 
@@ -158,7 +158,7 @@ After:
 
 ```scss
 .app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop);
+  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
 }
 ```
 
