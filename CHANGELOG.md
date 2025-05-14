@@ -162,11 +162,23 @@ If you're using the `grid-width()` Sass mixin, you must replace it with the `nhs
 
 If you're using the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` or `govuk-main-wrapper--s()` Sass mixins, you must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
 
-#### Replace Sass mixin `nhsuk-typography-responsive` with `nhsuk-font-size`
+#### Replace Sass mixin `nhsuk-typography-responsive()` with `nhsuk-font-size()`
 
-We've renamed the Sass mixin `nhsuk-typography-responsive` to `nhsuk-font-size` and have deprecated `nhsuk-typography-responsive` to better communicate its intended use.
+We've renamed the Sass mixin `nhsuk-typography-responsive()` to `nhsuk-font-size()` and have deprecated `nhsuk-typography-responsive()`. This better communicates its intended purpose and aligns with `nhsuk-font()` parameters.
 
-You can still use `nhsuk-typography-responsive`, but we'll remove it in a future breaking release.
+Before:
+
+```scss
+@include nhsuk-typography-responsive(26, $override-line-height: 1.2);
+```
+
+After:
+
+```scss
+@include nhsuk-font-size(26, $line-height: 1.2);
+```
+
+You can still use `nhsuk-typography-responsive()`, but we'll remove it in a future breaking release.
 
 #### Updated Sass mixin, function and variable namespace
 
