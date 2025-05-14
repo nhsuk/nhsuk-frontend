@@ -234,7 +234,9 @@ $button-padding-left-right: 16px;
 }
 
 .nhsuk-button--login {
+  align-items: center;
   background-color: $nhsuk-login-button-color;
+  display: inline-flex;
 
   &:hover {
     background-color: $nhsuk-login-button-hover-color;
@@ -248,6 +250,16 @@ $button-padding-left-right: 16px;
   &::after {
     box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
   }
+}
+
+.nhsuk-button__login-icon {
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: nhsuk-spacing(3);
+  vertical-align: middle;
+  // Work around SVGs not inheriting color from parent in forced color mode
+  // (https://github.com/w3c/csswg-drafts/issues/6310)
+  forced-color-adjust: auto;
 }
 
 /// Button disabled states
