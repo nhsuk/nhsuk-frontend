@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 9.5.2 - 14 May 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Fix legacy Sass import path for inset text component](https://github.com/nhsuk/nhsuk-frontend/pull/1301)
+
 ## 9.5.1 - 14 May 2025
 
 :wrench: **Fixes**
