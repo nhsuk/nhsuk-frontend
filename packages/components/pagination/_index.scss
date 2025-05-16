@@ -18,7 +18,7 @@
 }
 
 .nhsuk-pagination__list {
-  @include clearfix;
+  @include nhsuk-clearfix;
 }
 
 .nhsuk-pagination-item--previous {

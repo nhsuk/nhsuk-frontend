@@ -2,6 +2,63 @@
 
 ## Unreleased
 
+:wastebasket: **Deprecated features**
+
+#### Add Sass mixin and function namespace
+
+We've completed changes to prefix all Sass mixins and functions with the `nhsuk` namespace. You can still use the previous names but we'll remove them in a future breaking release.
+
+**Sass mixins**
+
+The following mixins have been renamed:
+
+- `care-card` renamed to `nhsuk-care-card`
+- `clearfix` renamed to `nhsuk-clearfix`
+- `flex` renamed to `nhsuk-flex`
+- `flex-item` renamed to `nhsuk-flex-item`
+- `heading-label` renamed to `nhsuk-heading-label`
+- `panel` renamed to `nhsuk-panel`
+- `panel-with-label` renamed to `nhsuk-panel-with-label`
+- `print-color` renamed to `nhsuk-print-color`
+- `print-hide` renamed to `nhsuk-print-hide`
+- `reading-width` renamed to `nhsuk-reading-width`
+- `remove-margin-mobile` renamed to `nhsuk-remove-margin-mobile`
+- `top-and-bottom` renamed to `nhsuk-top-and-bottom`
+- `visually-hidden` renamed to `nhsuk-visually-hidden`
+- `visually-hidden-focusable` renamed to `nhsuk-visually-hidden-focusable`
+
+Except for `visually-shown` which will be removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead.
+
+Before:
+
+```scss
+// Hide by default
+@include visually-hidden;
+
+// Show from desktop
+@include nhsuk-media-query($from: desktop) {
+  @include visually-shown;
+}
+```
+
+After:
+
+```scss
+// Hide until desktop only
+@include nhsuk-media-query($until: desktop) {
+  @include nhsuk-visually-hidden;
+}
+```
+
+See https://github.com/nhsuk/nhsuk-frontend/issues/1168 for more details.
+
+**Sass functions**
+
+The following functions have been renamed:
+
+- `tint` renamed to `nhsuk-tint`
+- `shade` renamed to `nhsuk-shade`
+
 :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:

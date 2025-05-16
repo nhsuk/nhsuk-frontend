@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:map";
 @use "sass:meta";
 @use "../settings" as *;
@@ -60,7 +61,7 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @mixin nhsuk-media-query($args...) {
-  @include mq($args...) {
+  @include mq($args..., $silence-warning: true) {
     @content;
   }
 }

@@ -53,7 +53,7 @@
   @include nhsuk-warning("nhsuk-grid-row", "nhsuk-grid-row is deprecated. Use `.nhsuk-grid-row` class instead.");
 
   .#{$class} {
-    @include clearfix;
+    @include nhsuk-clearfix;
     margin-right: -($nhsuk-gutter-half);
     margin-left: -($nhsuk-gutter-half);
   }

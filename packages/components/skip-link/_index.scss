@@ -15,7 +15,7 @@
   left: nhsuk-spacing(3);
   top: nhsuk-spacing(3);
   padding: nhsuk-spacing(2);
-  @include visually-hidden-focusable; // [1]
+  @include nhsuk-visually-hidden-focusable; // [1]
 }
 
 .nhsuk-skip-link-focused-element {

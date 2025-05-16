@@ -48,11 +48,11 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   display: block;
   width: 100%;
 
-  @include print-hide;
+  @include nhsuk-print-hide;
 }
 
 .nhsuk-card__content {
-  @include top-and-bottom;
+  @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-padding(5);
 }
 
@@ -96,7 +96,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   margin-bottom: nhsuk-spacing(3);
   padding: 0;
 
-  @include flex;
+  @include nhsuk-flex;
 
   @include nhsuk-media-query($until: desktop) {
     margin-bottom: nhsuk-spacing(6);
@@ -114,7 +114,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   list-style-type: none;
   margin-bottom: 0;
 
-  @include flex-item;
+  @include nhsuk-flex-item;
 
   .nhsuk-card {
     margin-bottom: nhsuk-spacing(5);
@@ -164,7 +164,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 /// Care card
 
 .nhsuk-card--care {
-  @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); // [8]
+  @include nhsuk-care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); // [8]
   @include nhsuk-responsive-margin(7, "top");
 }
 
@@ -182,7 +182,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding-top: 0; // [13]
 
   @include nhsuk-font(26, $weight: bold);
-  @include print-color($nhsuk-print-text-color);
+  @include nhsuk-print-color($nhsuk-print-text-color);
 }
 
 .nhsuk-card--care__arrow {
@@ -194,7 +194,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   position: absolute;
   transform: rotate(45deg);
   width: 20px; // [9]
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   @include nhsuk-media-query($from: tablet) {
     left: 38px; // [10]
@@ -214,7 +214,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card--care--urgent {
-  @include care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
+  @include nhsuk-care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
 
   .nhsuk-card--care__arrow {
     &::before,
@@ -225,7 +225,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card--care--emergency {
-  @include care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
+  @include nhsuk-care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
 
   .nhsuk-card--care__arrow {
     &::before,

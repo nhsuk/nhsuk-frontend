@@ -161,7 +161,7 @@ Bad:
 Good:
 
 ```scss
-@include clearfix;
+@include nhsuk-clearfix;
 ```
 
 ### Allow max 3-rule property shorthand if possible
