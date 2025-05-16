@@ -1,5 +1,8 @@
+// stylelint-disable declaration-no-important
+
 @use "../settings" as *;
 @use "../tools" as *;
+@use "sass:map";
 
 ////
 /// Spacing
@@ -49,7 +52,36 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
   }
 }
 
+/// Generate static spacing override classes
+///
+/// Generate spacing override classes for the given property (e.g. margin)
+/// for each point in the non-responsive spacing scale.
+///
+/// @param {String} $property - Property to add spacing to (e.g. 'margin')
+///
+/// @example css
+///   .nhsuk-u-static-margin-4 {
+///      margin: 24px !important;
+///   }
+///
+@mixin _nhsuk-generate-static-spacing-overrides($property) {
+  @each $spacing-point in map.keys($nhsuk-spacing-points) {
+    .nhsuk-u-static-#{$property}-#{$spacing-point} {
+      #{$property}: nhsuk-spacing($spacing-point) !important;
+    }
+
+    @each $direction in $_spacing-directions {
+      .nhsuk-u-static-#{$property}-#{$direction}-#{$spacing-point} {
+        #{$property}-#{$direction}: nhsuk-spacing($spacing-point) !important;
+      }
+    }
+  }
+}
+
 @include nhsuk-exports("nhsuk/core/utilities/spacing") {
   @include _nhsuk-generate-spacing-overrides("margin");
   @include _nhsuk-generate-spacing-overrides("padding");
+
+  @include _nhsuk-generate-static-spacing-overrides("margin");
+  @include _nhsuk-generate-static-spacing-overrides("padding");
 }
