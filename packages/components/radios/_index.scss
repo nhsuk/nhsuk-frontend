@@ -120,7 +120,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
 .nhsuk-radios--inline {
   @include nhsuk-media-query($from: tablet) {
-    @include clearfix;
+    @include nhsuk-clearfix;
 
     .nhsuk-radios__item {
       clear: none;

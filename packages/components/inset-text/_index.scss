@@ -15,8 +15,8 @@
 .nhsuk-inset-text {
   border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
 
-  @include reading-width; // [2]
-  @include top-and-bottom; // [1]
+  @include nhsuk-reading-width; // [2]
+  @include nhsuk-top-and-bottom; // [1]
 
   @include nhsuk-responsive-margin(7, "bottom");
   @include nhsuk-responsive-margin(7, "top");

@@ -16,7 +16,7 @@
   color: $color_nhsuk-white;
   position: relative; // [1]
 
-  @include print-color($nhsuk-print-text-color);
+  @include nhsuk-print-color($nhsuk-print-text-color);
 
   .nhsuk-link,
   a:not(.nhsuk-button) {
@@ -122,7 +122,7 @@
       position: absolute;
       transform: rotate(45deg);
       width: 20px; // [8]
-      @include print-hide;
+      @include nhsuk-print-hide;
     }
 
     .nhsuk-hero__arrow::before,
@@ -153,7 +153,7 @@
       position: absolute;
       top: auto;
 
-      @include top-and-bottom;
+      @include nhsuk-top-and-bottom;
     }
 
     .nhsuk-hero__arrow {
