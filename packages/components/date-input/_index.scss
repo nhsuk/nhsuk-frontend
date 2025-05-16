@@ -11,7 +11,7 @@
 .nhsuk-date-input {
   font-size: 0; // [1]
 
-  @include clearfix;
+  @include nhsuk-clearfix;
 }
 
 .nhsuk-date-input__item {

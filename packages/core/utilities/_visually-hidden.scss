@@ -12,9 +12,9 @@
 ////
 
 .nhsuk-u-visually-hidden {
-  @include visually-hidden;
+  @include nhsuk-visually-hidden;
 }
 
 .nhsuk-u-visually-hidden-focusable {
-  @include visually-hidden-focusable;
+  @include nhsuk-visually-hidden-focusable;
 }

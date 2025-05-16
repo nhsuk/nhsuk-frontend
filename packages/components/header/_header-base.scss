@@ -130,7 +130,7 @@
 
 .nhsuk-header__content {
   position: relative;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   &.js-show {
     border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-5;
@@ -507,7 +507,7 @@
 
 .nhsuk-navigation-container {
   position: relative;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   @include nhsuk-media-query($until: tablet) {
     margin-top: -20px;
@@ -524,7 +524,7 @@
   right: 0;
   top: 100%;
   left: 0;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   @include nhsuk-media-query($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
