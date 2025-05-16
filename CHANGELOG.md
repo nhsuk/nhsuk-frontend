@@ -28,6 +28,29 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 :new: **New features**
 
+#### Updated header
+
+We've added a new header variant to show account information and links. As part of this work we've also made some other improvements to the header, detailed below.
+
+- Show account information and links in the header.
+- The primary navigation in the header now lets you show which item is the current section or page.
+- Update header navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+- Update header navigation to align items to the left. To restore the previous behaviour, where navigation items appeared evenly spaced out, use the new `.nhsuk-header__navigation-list--justified` modifier class. If you are using the `.nhsuk-header__navigation-list--left-aligned` modifier class, this can now be removed.
+
+:boom: **Header breaking changes**
+
+- Remove the boolean `showNav`, `showSearch`, `transactional` and `transactionalService` options from the header component as respective parts of the header are shown automatically when `primaryLinks` or `search` options are provided.
+- Replace the `searchAction` option with the nested `search.action` option
+- Replace the `searchInputName` option with the nested `search.name` option
+- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url`.
+- We've changed the NHS logo in the header to have higher contrast when focused.
+- Remove hardcoded home link from navigation.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+To update your header, compare it with the [HTML markup for the header on the service manual website](https://service-manual.nhs.uk/design-system/components/header).
+
+[These changes were added in pull request #1058: Header updates - breaking changes.](https://github.com/nhsuk/nhsuk-frontend/pull/1058)
+
 #### Define negative spacing using the `nhsuk-spacing()` function
 
 You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-spacing()` function to get negative spacing.

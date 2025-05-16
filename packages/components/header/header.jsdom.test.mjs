@@ -19,67 +19,79 @@ describe('Header class', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <div class="nhsuk-navigation-container">
-        <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-          <ul class="nhsuk-header__navigation-list">
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Health A-Z
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                NHS services
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Live Well
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Mental health
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Care and support
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Pregnancy
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Home
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="#">
-                Another one
-              </a>
-            </li>
-            <li class="nhsuk-mobile-menu-container">
-              <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-                <span class="nhsuk-u-visually-hidden">Browse</span>
-                More
-                <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </button>
-            </li>
-          </ul>
+      <header class="nhsuk-header" role="banner">
+        <div class="nhsuk-header__container">
+          <div class="nhsuk-header__service">
+            <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100">
+              <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"></path>
+            </svg>
+          </div>
+        </div>
+        <nav class="nhsuk-header__navigation" aria-label="Menu">
+          <div class="nhsuk-header__navigation-container">
+            <ul class="nhsuk-header__navigation-list">
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Health A to Z
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  NHS services
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Live Well
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Mental health
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Care and support
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Pregnancy
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Home
+                </a>
+              </li>
+              <li class="nhsuk-header__navigation-item">
+                <a class="nhsuk-header__navigation-link" href="#">
+                  Another one
+                </a>
+              </li>
+              <li class="nhsuk-header__menu" hidden>
+                <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+                  <span class="nhsuk-u-visually-hidden">Browse</span>
+                  More
+                  <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
         </nav>
-      </div>
+      </header>
     `
 
-    const $container = document.querySelector('.nhsuk-navigation-container')
+    const $container = document.querySelector('.nhsuk-header')
 
     $navigation = getByRole($container, 'navigation')
-    $menuButton = getByRole($container, 'button', { name: 'Browse More' })
+    $menuButton = getByRole($container, 'button', {
+      name: 'Browse More',
+      hidden: true
+    })
 
     listWidth = 800
     itemWidth = 100
@@ -157,13 +169,13 @@ describe('Header class', () => {
   describe('Menu button', () => {
     it('should be hidden by default', () => {
       expect($menuButton).toHaveRole('button')
-      expect($menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect($menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be hidden when items do not overflow', () => {
       initHeader()
 
-      expect($menuButton).not.toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect($menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be visible when items overflow', () => {
@@ -171,7 +183,7 @@ describe('Header class', () => {
 
       initHeader()
 
-      expect($menuButton).toHaveClass('nhsuk-header__menu-toggle--visible')
+      expect($menuButton.parentElement).not.toHaveAttribute('hidden')
     })
 
     it('should toggle menu via click', () => {
@@ -180,17 +192,13 @@ describe('Header class', () => {
       initHeader()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       $menuButton.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Adds listener for escape key
       expect(document.addEventListener).toHaveBeenCalledWith(
@@ -202,9 +210,7 @@ describe('Header class', () => {
       $menuButton.click()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Removes listener for escape key
       expect(document.removeEventListener).toHaveBeenCalledWith(
@@ -219,25 +225,19 @@ describe('Header class', () => {
       initHeader()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
       $menuButton.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Press the escape key to close it
       await user.keyboard('[Escape]')
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -259,9 +259,7 @@ describe('Header class', () => {
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should be added when items overflow when resized', async () => {
@@ -277,9 +275,7 @@ describe('Header class', () => {
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
-      expect($menuButton.nextElementSibling).toHaveClass(
-        'nhsuk-header__drop-down--hidden'
-      )
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -332,8 +328,8 @@ describe('Header class', () => {
 
       initHeader()
 
-      const $listItems = $navigation.querySelectorAll('nav > ul > li')
-      const $menuItems = $navigation.querySelectorAll('nav > ul > li li')
+      const $listItems = $navigation.querySelectorAll('div > ul > li')
+      const $menuItems = $navigation.querySelectorAll('div > ul > li li')
 
       expect($listItems).toHaveLength(expected.listItems)
       expect($menuItems).toHaveLength(expected.menuItems)
@@ -352,8 +348,8 @@ describe('Header class', () => {
         fireEvent.resize(window)
         await setTimeout(100)
 
-        const $listItems = $navigation.querySelectorAll('nav > ul > li')
-        const $menuItems = $navigation.querySelectorAll('nav > ul > li li')
+        const $listItems = $navigation.querySelectorAll('div > ul > li')
+        const $menuItems = $navigation.querySelectorAll('div > ul > li li')
 
         expect($listItems).toHaveLength(expected.listItems)
         expect($menuItems).toHaveLength(expected.menuItems)
@@ -373,8 +369,8 @@ describe('Header class', () => {
         fireEvent.resize(window)
         await setTimeout(100)
 
-        const $listItems = $navigation.querySelectorAll('nav > ul > li')
-        const $menuItems = $navigation.querySelectorAll('nav > ul > li li')
+        const $listItems = $navigation.querySelectorAll('div > ul > li')
+        const $menuItems = $navigation.querySelectorAll('div > ul > li li')
 
         expect($listItems).toHaveLength(expected.listItems)
         expect($menuItems).toHaveLength(expected.menuItems)
