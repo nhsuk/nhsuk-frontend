@@ -282,6 +282,10 @@ module.exports = {
       url: `${BASE_URL}/components/button/login-link.html`
     },
     {
+      label: 'Button login with icon',
+      url: `${BASE_URL}/components/button/login-with-icon.html`
+    },
+    {
       clickSelector: '.nhsuk-button',
       label: 'Button login as a link click',
       url: `${BASE_URL}/components/button/login-link.html`
