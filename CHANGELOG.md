@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Support webpack `sass-loader` pkg: scheme with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/1307)
+
 ## 9.5.2 - 14 May 2025
 
 :wrench: **Fixes**
