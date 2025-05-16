@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+:new: **New features**
+
+#### Use new override classes to apply static spacing
+
+You can now use static spacing override classes to apply spacing from [the static spacing scale](https://service-manual.nhs.uk/design-system/styles/spacing#static-spacing) to elements of your design.
+
+The new classes start with: `nhsuk-u-static` followed by either `margin-` or `padding-`, and then a spacing unit number.
+
+To apply spacing in a single direction, include `left-`, `right-`, `top-`, or `bottom-` just before the spacing unit.
+
+For example:
+
+- `nhsuk-u-static-margin-9` will apply a 64px margin to all sides of the element at all screen sizes
+- `nhsuk-u-static-padding-right-5` will apply 32px of padding to the right side of the element at all screen sizes
+- `nhsuk-u-static-margin-0` will remove all margins at all screen sizes
+
+This was added in [pull request #1163: Add static spacing override classes](https://github.com/nhsuk/nhsuk-frontend/pull/1163).
+
 :wastebasket: **Deprecated features**
 
 #### Add nhsuk namespace to Sass mixins and functions
