@@ -1,3 +1,5 @@
+@use "../settings/warnings" as *;
+
 // mq() v6.0.0
 // sass-mq/sass-mq
 
@@ -98,6 +100,9 @@ $mq-media-type: all !default;
 /// @ignore Undocumented API, for advanced use only:
 /// @ignore @param {Map} $breakpoints [$mq-breakpoints]
 ///
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning to use nhsuk-media-query instead
+///
 /// @content styling rules, wrapped into a @media query when $responsive is true
 ///
 /// @requires {Variable} $mq-media-type
@@ -134,10 +139,21 @@ $mq-media-type: all !default;
 ///      color: hotpink;
 ///    }
 ///  }
-@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type, $breakpoints: $mq-breakpoints) {
+@mixin mq(
+  $from: false,
+  $until: false,
+  $and: false,
+  $media-type: $mq-media-type,
+  $breakpoints: $mq-breakpoints,
+  $silence-warning: false
+) {
   $min-width: 0;
   $max-width: 0;
   $media-query: "";
+
+  @if not $silence-warning {
+    @include nhsuk-warning("mq", "mq is deprecated. Use nhsuk-media-query instead.");
+  }
 
   // From: this breakpoint (inclusive)
   @if $from {
