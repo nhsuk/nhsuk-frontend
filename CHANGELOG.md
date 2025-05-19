@@ -2,6 +2,30 @@
 
 ## Unreleased
 
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Support webpack `sass-loader` pkg: scheme with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/1307)
+
+## 9.5.2 - 14 May 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Fix legacy Sass import path for inset text component](https://github.com/nhsuk/nhsuk-frontend/pull/1301)
+
+## 9.5.1 - 14 May 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1300: Fix deprecation warnings for settings and tools `/all` paths](https://github.com/nhsuk/nhsuk-frontend/pull/1300)
+
+## 9.5.0 - 13 May 2025
+
 :new: **New features**
 
 #### Updated header
@@ -149,7 +173,7 @@ If you are overriding any settings prefixed with `$mq-` in your application you 
 
 #### Replace Sass mixins for grids
 
-If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and remove the `$class` parameter.
+If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and set the `$class` parameter to `false`.
 
 Before:
 
@@ -165,7 +189,7 @@ After:
 
 ```scss
 .app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop);
+  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
 }
 ```
 
@@ -177,11 +201,23 @@ If you're using the `grid-width()` Sass mixin, you must replace it with the `nhs
 
 If you're using the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` or `govuk-main-wrapper--s()` Sass mixins, you must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
 
-#### Replace Sass mixin `nhsuk-typography-responsive` with `nhsuk-font-size`
+#### Replace Sass mixin `nhsuk-typography-responsive()` with `nhsuk-font-size()`
 
-We've renamed the Sass mixin `nhsuk-typography-responsive` to `nhsuk-font-size` and have deprecated `nhsuk-typography-responsive` to better communicate its intended use.
+We've renamed the Sass mixin `nhsuk-typography-responsive()` to `nhsuk-font-size()` and have deprecated `nhsuk-typography-responsive()`. This better communicates its intended purpose and aligns with `nhsuk-font()` parameters.
 
-You can still use `nhsuk-typography-responsive`, but we'll remove it in a future breaking release.
+Before:
+
+```scss
+@include nhsuk-typography-responsive(26, $override-line-height: 1.2);
+```
+
+After:
+
+```scss
+@include nhsuk-font-size(26, $line-height: 1.2);
+```
+
+You can still use `nhsuk-typography-responsive()`, but we'll remove it in a future breaking release.
 
 #### Updated Sass mixin, function and variable namespace
 

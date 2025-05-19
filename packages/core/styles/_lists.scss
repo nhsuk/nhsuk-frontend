@@ -66,12 +66,12 @@
 %nhsuk-list + .nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
-  @include mq($from: tablet) {
+  @include nhsuk-media-query($from: tablet) {
     padding-top: nhsuk-spacing(2);
   }
 }
 
-@include mq($media-type: print) {
+@include nhsuk-media-query($media-type: print) {
   %nhsuk-list + h2,
   %nhsuk-list + h3,
   %nhsuk-list + h4,
