@@ -218,7 +218,7 @@
 /// @throw if `$size` is not a valid point from the typography scale (or false)
 ///
 /// @alias nhsuk-font-size
-/// @deprecated Use `nhsuk-font-size` instead
+/// @deprecated To be removed in v11.0, replaced by nhsuk-font-size
 
 @mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
   @include nhsuk-warning(

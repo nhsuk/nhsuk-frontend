@@ -27,7 +27,7 @@
 /// Clearfix mixin (deprecated)
 ///
 /// @alias nhsuk-clearfix
-/// @deprecated To be removed in v10.0, replaced by nhsuk-clearfix
+/// @deprecated To be removed in v11.0, replaced by nhsuk-clearfix
 
 @mixin clearfix() {
   @include nhsuk-warning("clearfix", "clearfix is deprecated. Use nhsuk-clearfix instead.");
@@ -50,7 +50,7 @@
 /// to large pieces of content (deprecated)
 ///
 /// @alias nhsuk-reading-width
-/// @deprecated To be removed in v10.0, replaced by nhsuk-reading-width
+/// @deprecated To be removed in v11.0, replaced by nhsuk-reading-width
 
 @mixin reading-width() {
   @include nhsuk-warning("reading-width", "reading-width is deprecated. Use nhsuk-reading-width instead.");
@@ -126,7 +126,7 @@
 /// (deprecated)
 ///
 /// @alias nhsuk-visually-hidden
-/// @deprecated To be removed in v10.0, replaced by nhsuk-visually-hidden
+/// @deprecated To be removed in v11.0, replaced by nhsuk-visually-hidden
 
 @mixin visually-hidden() {
   @include nhsuk-visually-hidden;
@@ -152,7 +152,7 @@
 /// for the skip link) (deprecated)
 ///
 /// @alias nhsuk-visually-hidden-focusable
-/// @deprecated To be removed in v10.0, replaced by nhsuk-visually-hidden-focusable
+/// @deprecated To be removed in v11.0, replaced by nhsuk-visually-hidden-focusable
 
 @mixin visually-hidden-focusable($args...) {
   @include nhsuk-warning(
@@ -169,7 +169,7 @@
 /// @param {String} $display [null] - CSS display property (optional)
 /// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
-/// @deprecated To be removed in v10.0, use @media queries to apply `visually-hidden` instead
+/// @deprecated To be removed in v11.0, use @media queries to apply `visually-hidden` instead
 
 @mixin visually-shown($display: null, $important: true) {
   @include nhsuk-warning(
@@ -216,7 +216,7 @@
 /// the top and bottom margin spacing (deprecated)
 ///
 /// @alias nhsuk-top-and-bottom
-/// @deprecated To be removed in v10.0, replaced by nhsuk-top-and-bottom
+/// @deprecated To be removed in v11.0, replaced by nhsuk-top-and-bottom
 
 @mixin top-and-bottom() {
   @include nhsuk-warning("top-and-bottom", "top-and-bottom is deprecated and will be removed in a future release.");
@@ -248,7 +248,7 @@
 /// Panel mixin (deprecated)
 ///
 /// @alias nhsuk-panel
-/// @deprecated To be removed in v10.0, replaced by nhsuk-panel
+/// @deprecated To be removed in v11.0, replaced by nhsuk-panel
 
 @mixin panel($args...) {
   @include nhsuk-warning("panel", "panel is deprecated. Use nhsuk-panel instead.");
@@ -277,7 +277,7 @@
 /// and removes padding top for the label positioning (deprecated)
 ///
 /// @alias nhsuk-panel-with-label
-/// @deprecated To be removed in v10.0, replaced by nhsuk-panel-with-label
+/// @deprecated To be removed in v11.0, replaced by nhsuk-panel-with-label
 
 @mixin panel-with-label($args...) {
   @include nhsuk-warning("panel-with-label", "panel-with-label is deprecated. Use nhsuk-panel-with-label instead.");
@@ -330,7 +330,7 @@
 /// warning callout, do and don't lists and panel (deprecated)
 ///
 /// @alias nhsuk-heading-label
-/// @deprecated To be removed in v10.0, replaced by nhsuk-heading-label
+/// @deprecated To be removed in v11.0, replaced by nhsuk-heading-label
 
 @mixin heading-label($args...) {
   @include nhsuk-warning("heading-label", "heading-label is deprecated. Use nhsuk-heading-label instead.");
@@ -362,7 +362,7 @@
 /// different coloured care cards (deprecated)
 ///
 /// @alias nhsuk-care-card
-/// @deprecated To be removed in v10.0, replaced by nhsuk-care-card
+/// @deprecated To be removed in v11.0, replaced by nhsuk-care-card
 
 @mixin care-card($args...) {
   @include nhsuk-warning("care-card", "care-card is deprecated. Use nhsuk-care-card instead.");
@@ -394,7 +394,7 @@
 /// warning callout, do and don't lists and panels (deprecated)
 ///
 /// @alias nhsuk-print-color
-/// @deprecated To be removed in v10.0, replaced by nhsuk-print-color
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-color
 
 @mixin print-color($args...) {
   @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-color instead.");
@@ -415,7 +415,7 @@
 /// Print hide mixin, hides the element from print (deprecated)
 ///
 /// @alias nhsuk-print-hide
-/// @deprecated To be removed in v10.0, replaced by nhsuk-print-hide
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-hide
 
 @mixin print-hide($args...) {
   @include nhsuk-warning("print-hide", "print-hide is deprecated. Use nhsuk-print-hide instead.");
@@ -435,7 +435,7 @@
 // Flex mixin (deprecated)
 ///
 /// @alias nhsuk-flex
-/// @deprecated To be removed in v10.0, replaced by nhsuk-flex
+/// @deprecated To be removed in v11.0, replaced by nhsuk-flex
 
 @mixin flex($args...) {
   @include nhsuk-warning("flex", "flex is deprecated. Use nhsuk-flex instead.");
@@ -458,7 +458,7 @@
 // Flex item mixin (deprecated)
 ///
 /// @alias nhsuk-flex-item
-/// @deprecated To be removed in v10.0, replaced by nhsuk-flex-item
+/// @deprecated To be removed in v11.0, replaced by nhsuk-flex-item
 
 @mixin flex-item($args...) {
   @include nhsuk-warning("flex-item", "flex-item is deprecated. Use nhsuk-flex-item instead.");
@@ -481,7 +481,7 @@
 /// Removes left and right margin at tablet breakpoint
 ///
 /// @alias nhsuk-remove-margin-mobile
-/// @deprecated To be removed in v10.0, replaced by nhsuk-remove-margin-mobile
+/// @deprecated To be removed in v11.0, replaced by nhsuk-remove-margin-mobile
 
 @mixin remove-margin-mobile() {
   @include nhsuk-warning(
