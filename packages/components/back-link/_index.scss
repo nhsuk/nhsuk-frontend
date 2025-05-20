@@ -13,11 +13,11 @@
 ////
 
 .nhsuk-back-link {
-  margin-top: nhsuk-spacing(3);
-  line-height: 1; // [5]
+  padding-top: nhsuk-spacing(3);
+  line-height: 1; // [4]
 
   @include nhsuk-media-query($from: tablet) {
-    margin-top: nhsuk-spacing(4);
+    padding-top: nhsuk-spacing(4);
   }
 }
 

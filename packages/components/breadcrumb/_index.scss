@@ -15,11 +15,11 @@
 ////
 
 .nhsuk-breadcrumb {
-  margin-top: nhsuk-spacing(3);
+  padding-top: nhsuk-spacing(3);
   @include nhsuk-print-hide; // [1]
 
   @include nhsuk-media-query($from: tablet) {
-    margin-top: nhsuk-spacing(4);
+    padding-top: nhsuk-spacing(4);
   }
 }
 
