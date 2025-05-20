@@ -2,6 +2,7 @@
 @use "../tools" as *;
 
 .nhsuk-form-group {
+  @include nhsuk-clearfix;
   @include nhsuk-responsive-margin(4, "bottom");
 
   .nhsuk-form-group:last-of-type {
