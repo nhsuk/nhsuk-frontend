@@ -4,7 +4,7 @@
 
 :wastebasket: **Deprecated features**
 
-#### Add Sass mixin and function namespace
+#### Add nhsuk namespace to Sass mixins and functions
 
 We've completed changes to prefix all Sass mixins and functions with the `nhsuk` namespace. You can still use the previous names but we'll remove them in a future breaking release.
 
