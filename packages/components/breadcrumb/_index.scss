@@ -16,7 +16,7 @@
 
 .nhsuk-breadcrumb {
   margin-top: nhsuk-spacing(3);
-  @include print-hide; // [1]
+  @include nhsuk-print-hide; // [1]
 
   @include nhsuk-media-query($from: tablet) {
     margin-top: nhsuk-spacing(4);

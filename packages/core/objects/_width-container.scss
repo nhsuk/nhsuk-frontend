@@ -33,7 +33,7 @@
 /// Page width for the grid system (deprecated)
 ///
 /// @alias nhsuk-width-container
-/// @deprecated To be removed in v10.0, replaced by nhsuk-width-container
+/// @deprecated To be removed in v11.0, replaced by nhsuk-width-container
 
 @mixin govuk-width-container {
   @include nhsuk-warning(

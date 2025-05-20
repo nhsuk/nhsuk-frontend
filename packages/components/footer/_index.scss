@@ -12,8 +12,8 @@
   background-color: $color_nhsuk-grey-4;
   border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
 
-  @include clearfix;
-  @include print-hide;
+  @include nhsuk-clearfix;
+  @include nhsuk-print-hide;
   @include nhsuk-responsive-padding(5, bottom);
   @include nhsuk-responsive-padding(5, top);
 }

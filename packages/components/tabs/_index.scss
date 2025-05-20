@@ -47,7 +47,7 @@
     .nhsuk-tabs__list {
       border-bottom: 1px solid $nhsuk-border-color;
       margin-bottom: 0;
-      @include clearfix;
+      @include nhsuk-clearfix;
     }
 
     .nhsuk-tabs__title {
