@@ -6,9 +6,9 @@
 
 You must make the following changes when you migrate to this release, or your service might break.
 
-#### Rename legacy component `HTML` params to `html`
+#### Rename component `HTML` param to `html`
 
-If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` params to `html`.
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
 
 Before:
 
@@ -28,9 +28,9 @@ After:
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
-#### Rename details component `text` params to `summaryText`
+#### Rename details component `text` param to `summaryText`
 
-If you're using the `details` Nunjucks macro you need to rename the `text` params to `summaryText`.
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
 
 Before:
 
@@ -50,7 +50,16 @@ After:
 }) }}
 ```
 
-This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) for consistency with other components, where `text` or `html` params are alternatives and cannot be used together.
+This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  text: "An NHS number is a 10 digit number, like 485 777 3456."
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
 ## 9.6.0 - 20 May 2025
 
