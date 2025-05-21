@@ -34,7 +34,6 @@
 .nhsuk-tabs__tab {
   display: inline-block;
   margin-bottom: nhsuk-spacing(2);
-  @include nhsuk-link-style-default;
 }
 
 .nhsuk-tabs__panel {
