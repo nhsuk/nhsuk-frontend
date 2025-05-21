@@ -20,7 +20,7 @@ a {
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
-      color: $color_nhsuk-black;
+      color: $nhsuk-text-color;
       content: " (Link: " attr(href) ")"; // [1]
       font-size: inherit; // [2]
     }
@@ -33,4 +33,10 @@ a {
 
 .nhsuk-link--reverse {
   @include nhsuk-link-style-white;
+
+  @include nhsuk-media-query($media-type: print) {
+    &::after {
+      color: currentcolor;
+    }
+  }
 }
