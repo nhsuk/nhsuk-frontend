@@ -54,19 +54,7 @@
 }
 
 .nhsuk-breadcrumb__link {
-  &:visited {
-    color: $nhsuk-link-color;
-
-    &:hover {
-      color: $nhsuk-link-hover-color;
-    }
-  }
-
-  &:focus {
-    &:hover {
-      color: $nhsuk-focus-text-color;
-    }
-  }
+  @include nhsuk-link-style-no-visited-state;
 }
 
 .nhsuk-breadcrumb__back {
@@ -95,11 +83,9 @@
 .nhsuk-breadcrumb__backlink {
   text-decoration: none;
 
-  &:visited {
-    color: $nhsuk-link-color;
+  @include nhsuk-link-style-no-visited-state;
 
-    &:hover {
-      color: $nhsuk-link-hover-color;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
