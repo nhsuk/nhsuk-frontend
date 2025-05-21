@@ -1,5 +1,66 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
+
+#### Rename component `HTML` param to `html`
+
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
+
+Before:
+
+```njk
+{{ insetText({
+  HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ insetText({
+  html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
+#### Rename details component `text` param to `summaryText`
+
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
+
+Before:
+
+```njk
+{{ details({
+  text: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  text: "An NHS number is a 10 digit number, like 485 777 3456."
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
 ## 9.6.0 - 20 May 2025
 
 :new: **New features**
