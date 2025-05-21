@@ -15,9 +15,12 @@
 }
 
 .nhsuk-header__transactional-service-name--link {
-  text-decoration: none;
   @include nhsuk-link-style-white;
   @include nhsuk-font(19);
+
+  &:link {
+    text-decoration: none;
+  }
 
   &:hover {
     text-decoration: underline;

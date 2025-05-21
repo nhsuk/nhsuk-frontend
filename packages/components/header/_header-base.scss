@@ -78,8 +78,9 @@
 }
 
 .nhsuk-header__link {
-  @include nhsuk-logo-size;
   display: block;
+  @include nhsuk-logo-size;
+  @include nhsuk-link-style-white;
 
   &:hover {
     .nhsuk-logo {
@@ -344,6 +345,7 @@
   text-decoration: underline;
   white-space: nowrap;
   @include nhsuk-font(16);
+  @include nhsuk-link-style-white;
 
   @include nhsuk-media-query($until: tablet) {
     font-size: inherit;
@@ -360,22 +362,9 @@
     top: 11px;
   }
 
-  &:visited {
-    color: $color_nhsuk-white;
-
-    @include nhsuk-media-query($from: large-desktop) {
-      color: $color_nhsuk-white;
-    }
-  }
-
   &:hover {
     box-shadow: none;
-    color: $color_nhsuk-white;
     text-decoration: none;
-
-    @include nhsuk-media-query($from: large-desktop) {
-      color: $color_nhsuk-white;
-    }
   }
 
   &:active,
@@ -426,14 +415,6 @@
 
   .nhsuk-icon__chevron-down {
     right: -3px;
-  }
-
-  &:focus {
-    text-decoration: none;
-
-    .nhsuk-icon__chevron-down {
-      fill: $color_nhsuk-black;
-    }
   }
 }
 
@@ -534,7 +515,13 @@
     margin: 0;
     padding: 12px 0;
     @include nhsuk-width-container;
+    @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
+
+    &:active,
+    &:focus {
+      color: $nhsuk-focus-text-color;
+    }
   }
 
   .nhsuk-header__navigation-item {
