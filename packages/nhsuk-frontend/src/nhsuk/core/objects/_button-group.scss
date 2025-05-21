@@ -30,7 +30,7 @@
     // (https://github.com/w3c/csswg-drafts/issues/3559)
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
 
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $vertical-gap * -1);
 
