@@ -46,8 +46,6 @@
 {%- endif %}
 {%- if caller or params.descriptionHtml %}
   {{ caller() if caller else params.descriptionHtml | safe }}
-{%- elif params.HTML %}
-  {{ params.HTML | safe }}
 {%- elif params.description %}
   <p class="nhsuk-card__description">{{ params.description | safe }}</p>
 {%- else %}
