@@ -32,10 +32,6 @@ describe('Components', () => {
         @forward "components/fieldset/fieldset";
         @forward "components/footer/footer";
         @forward "components/header/header";
-        @forward "components/header/header-organisation";
-        @forward "components/header/header-service";
-        @forward "components/header/header-transactional";
-        @forward "components/header/header-white";
         @forward "components/hero/hero";
         @forward "components/hint/hint";
         @forward "components/images/images";
