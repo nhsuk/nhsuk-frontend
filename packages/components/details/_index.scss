@@ -110,10 +110,10 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     background-color: $color_nhsuk-white;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
-    padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
+    padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) nhsuk-spacing(5);
 
     @include nhsuk-media-query($until: tablet) {
-      padding: nhsuk-spacing(3) - $nhsuk-focus-width nhsuk-spacing(3) nhsuk-spacing(3);
+      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
     }
 
     &::before {
@@ -167,9 +167,9 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     margin-left: 0;
     margin-top: 0;
 
-    @include nhsuk-responsive-padding(4, "bottom");
-    @include nhsuk-responsive-padding(4, "left");
-    @include nhsuk-responsive-padding(4, "right");
+    @include nhsuk-responsive-padding(5, "bottom");
+    @include nhsuk-responsive-padding(5, "left");
+    @include nhsuk-responsive-padding(5, "right");
     @include nhsuk-responsive-padding(0, "top");
   }
 }
