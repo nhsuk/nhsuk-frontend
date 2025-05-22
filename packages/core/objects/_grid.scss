@@ -10,7 +10,7 @@
 
 @include nhsuk-exports("nhsuk/core/objects/grid") {
   .nhsuk-grid-row {
-    @include clearfix;
+    @include nhsuk-clearfix;
     margin-right: -($nhsuk-gutter-half);
     margin-left: -($nhsuk-gutter-half);
   }

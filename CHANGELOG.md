@@ -2,6 +2,142 @@
 
 ## Unreleased
 
+:boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
+
+#### Rename component `HTML` param to `html`
+
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
+
+Before:
+
+```njk
+{{ insetText({
+  HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ insetText({
+  html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
+#### Rename details component `text` param to `summaryText`
+
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
+
+Before:
+
+```njk
+{{ details({
+  text: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  text: "An NHS number is a 10 digit number, like 485 777 3456."
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
+## 9.6.0 - 20 May 2025
+
+:new: **New features**
+
+#### Use new override classes to apply static spacing
+
+You can now use static spacing override classes to apply spacing from [the static spacing scale](https://service-manual.nhs.uk/design-system/styles/spacing#static-spacing) to elements of your design.
+
+The new classes start with: `nhsuk-u-static` followed by either `margin-` or `padding-`, and then a spacing unit number.
+
+To apply spacing in a single direction, include `left-`, `right-`, `top-`, or `bottom-` just before the spacing unit.
+
+For example:
+
+- `nhsuk-u-static-margin-9` will apply a 64px margin to all sides of the element at all screen sizes
+- `nhsuk-u-static-padding-right-5` will apply 32px of padding to the right side of the element at all screen sizes
+- `nhsuk-u-static-margin-0` will remove all margins at all screen sizes
+
+This was added in [pull request #1163: Add static spacing override classes](https://github.com/nhsuk/nhsuk-frontend/pull/1163).
+
+:wastebasket: **Deprecated features**
+
+#### Add nhsuk namespace to Sass mixins and functions
+
+We've completed changes to prefix all Sass mixins and functions with the `nhsuk` namespace. You can still use the previous names but we'll remove them in a future breaking release.
+
+**Sass mixins**
+
+The following mixins have been renamed:
+
+- `care-card` renamed to `nhsuk-care-card`
+- `clearfix` renamed to `nhsuk-clearfix`
+- `flex` renamed to `nhsuk-flex`
+- `flex-item` renamed to `nhsuk-flex-item`
+- `heading-label` renamed to `nhsuk-heading-label`
+- `panel` renamed to `nhsuk-panel`
+- `panel-with-label` renamed to `nhsuk-panel-with-label`
+- `print-color` renamed to `nhsuk-print-color`
+- `print-hide` renamed to `nhsuk-print-hide`
+- `reading-width` renamed to `nhsuk-reading-width`
+- `remove-margin-mobile` renamed to `nhsuk-remove-margin-mobile`
+- `top-and-bottom` renamed to `nhsuk-top-and-bottom`
+- `visually-hidden` renamed to `nhsuk-visually-hidden`
+- `visually-hidden-focusable` renamed to `nhsuk-visually-hidden-focusable`
+
+Except for `visually-shown` which will be removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead.
+
+Before:
+
+```scss
+// Hide by default
+@include visually-hidden;
+
+// Show from desktop
+@include nhsuk-media-query($from: desktop) {
+  @include visually-shown;
+}
+```
+
+After:
+
+```scss
+// Hide until desktop only
+@include nhsuk-media-query($until: desktop) {
+  @include nhsuk-visually-hidden;
+}
+```
+
+See https://github.com/nhsuk/nhsuk-frontend/issues/1168 for more details.
+
+**Sass functions**
+
+The following functions have been renamed:
+
+- `tint` renamed to `nhsuk-tint`
+- `shade` renamed to `nhsuk-shade`
+
 :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:

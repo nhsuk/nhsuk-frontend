@@ -85,10 +85,10 @@
 /// Account
 
 .nhsuk-header__account {
-  background: shade($color_nhsuk-blue, 20%);
+  background: nhsuk-shade($color_nhsuk-blue, 20%);
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
-  outline: 1px solid shade($color_nhsuk-blue, 20%);
+  outline: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
   margin-bottom: 1px;
 
   @include nhsuk-media-query($from: tablet) {
@@ -113,7 +113,7 @@
 }
 
 .nhsuk-header__account-item {
-  background-color: shade($color_nhsuk-blue, 20%);
+  background-color: nhsuk-shade($color_nhsuk-blue, 20%);
   display: flex;
   flex-grow: 1;
   gap: nhsuk-spacing(2);
@@ -159,7 +159,7 @@
   flex-grow: 1;
   position: relative;
   z-index: 13;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   .nhsuk-icon__search {
     height: 28px;
@@ -243,7 +243,7 @@
 
 .nhsuk-header__navigation {
   position: relative;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   @include nhsuk-media-query($until: tablet) {
     margin-top: math.div($nhsuk-gutter, 2) * -1;
@@ -386,7 +386,7 @@
   right: 0;
   top: 100%;
   left: 0;
-  @include print-hide;
+  @include nhsuk-print-hide;
 
   &[hidden] {
     display: none;

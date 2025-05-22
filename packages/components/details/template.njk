@@ -5,11 +5,14 @@
 {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
-      {{ params.text }}
+      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    {# params.HTML supported for backwards compatibility - see issue #1089 #}
-    {{- caller() if caller else (params.html or params.HTML) | safe }}
+    {% if caller or params.html -%}
+      {{ caller() if caller else params.html | safe | trim | indent(4) }}
+    {% elif params.text -%}
+      {{ params.text }}
+    {% endif %}
   </div>
 </details>

@@ -11,9 +11,9 @@
 ////
 
 .nhsuk-warning-callout {
-  @include panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color, $color_nhsuk-yellow); // [1]
+  @include nhsuk-panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color, $color_nhsuk-yellow); // [1]
 }
 
 .nhsuk-warning-callout__label {
-  @include heading-label($color_nhsuk-yellow, $nhsuk-text-color); // [2]
+  @include nhsuk-heading-label($color_nhsuk-yellow, $nhsuk-text-color); // [2]
 }
