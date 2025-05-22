@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- Removed empty meta description from default Nunjucks template ([Pull request #1316](https://github.com/nhsuk/nhsuk-frontend/pull/1316))
+
 ## 9.6.0 - 20 May 2025
 
 :new: **New features**
