@@ -595,6 +595,17 @@ module.exports = {
       ]
     },
     {
+      clickSelector: '.nhsuk-header__search-input',
+      label: 'Header with search (focused search input)',
+      url: `${BASE_URL}/components/header/header-search.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
       label: 'Header with account (logged in)',
       url: `${BASE_URL}/components/header/header-account-logged-in.html`,
       viewports: [
@@ -678,6 +689,18 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header',
+      url: `${BASE_URL}/components/header/header-org-white.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__search-input',
+      label: 'Header organisational with white header (focused search input)',
       url: `${BASE_URL}/components/header/header-org-white.html`,
       onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
