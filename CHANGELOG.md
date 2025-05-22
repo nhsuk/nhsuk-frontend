@@ -61,6 +61,12 @@ This change ensures consistency with other components, where `text` or `html` pa
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1313: Fix header menu margin collapse issue](https://github.com/nhsuk/nhsuk-frontend/pull/1313)
+
 ## 9.6.0 - 20 May 2025
 
 :new: **New features**
