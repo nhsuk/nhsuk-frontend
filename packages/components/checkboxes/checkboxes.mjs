@@ -1,4 +1,4 @@
-const { toggleConditionalInput } = require('../../common')
+import { toggleConditionalInput } from '../../common.mjs'
 
 /**
  * Checkboxes component
@@ -6,7 +6,7 @@ const { toggleConditionalInput } = require('../../common')
  * Conditionally show content when a checkbox button is checked
  * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
-class Checkboxes {
+export class Checkboxes {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -134,7 +134,7 @@ class Checkboxes {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initCheckboxes(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-checkboxes')
 

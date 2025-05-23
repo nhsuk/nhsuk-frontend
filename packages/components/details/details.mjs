@@ -1,4 +1,4 @@
-const { generateUniqueID, toggleAttribute } = require('../../common')
+import { generateUniqueID, toggleAttribute } from '../../common.mjs'
 
 /**
  * Details component
@@ -6,7 +6,7 @@ const { generateUniqueID, toggleAttribute } = require('../../common')
  * Ensure details component is cross browser and accessible
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
-class Details {
+export class Details {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -85,7 +85,7 @@ class Details {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initDetails(options = {}) {
   const $scope = options.scope || document
   const $details = $scope.querySelectorAll('.nhsuk-details')
 

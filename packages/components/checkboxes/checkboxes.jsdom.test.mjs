@@ -1,6 +1,6 @@
 import { getByRole } from '@testing-library/dom'
 
-import initCheckboxes from './checkboxes.js'
+import { initCheckboxes } from './checkboxes.mjs'
 
 describe('Checkboxes', () => {
   /** @type {HTMLDivElement[]} */
