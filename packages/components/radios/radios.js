@@ -7,14 +7,14 @@ const { toggleConditionalInput } = require('../../common')
  * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
 class Radios {
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    const $inputs = this.$module.querySelectorAll('.nhsuk-radios__input')
+    const $inputs = this.$root.querySelectorAll('.nhsuk-radios__input')
     if (!$inputs.length) {
       return this
     }
@@ -65,7 +65,7 @@ class Radios {
  */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-radios--conditional')
+  const $root = $scope.querySelector('.nhsuk-radios--conditional')
 
-  new Radios($module)
+  new Radios($root)
 }

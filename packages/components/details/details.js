@@ -8,19 +8,18 @@ const { generateUniqueID, toggleAttribute } = require('../../common')
  */
 class Details {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
     // If there is native details support, we want to avoid running code to polyfill native behaviour.
     const hasNativeDetails =
-      'HTMLDetailsElement' in window &&
-      this.$module instanceof HTMLDetailsElement
+      'HTMLDetailsElement' in window && this.$root instanceof HTMLDetailsElement
 
     if (!hasNativeDetails) {
       this.polyfillDetails()
@@ -32,19 +31,19 @@ class Details {
    */
   polyfillDetails() {
     // Set content element and give it an ID if it doesn't already have one
-    const content = this.$module.querySelector('.nhsuk-details__text')
+    const content = this.$root.querySelector('.nhsuk-details__text')
     if (!content.id) {
       content.setAttribute('id', `details-content-${generateUniqueID()}`)
     }
 
     // Set summary element
-    const summary = this.$module.querySelector('.nhsuk-details__summary')
+    const summary = this.$root.querySelector('.nhsuk-details__summary')
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')
     summary.setAttribute('aria-controls', content.id)
     summary.setAttribute('tabIndex', '0')
-    const openAttr = this.$module.getAttribute('open') !== null
+    const openAttr = this.$root.getAttribute('open') !== null
     if (openAttr === true) {
       summary.setAttribute('aria-expanded', 'true')
       content.setAttribute('aria-hidden', 'false')
@@ -60,10 +59,10 @@ class Details {
 
       content.style.display =
         content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
-      if (this.$module.hasAttribute('open')) {
-        this.$module.removeAttribute('open')
+      if (this.$root.hasAttribute('open')) {
+        this.$root.removeAttribute('open')
       } else {
-        this.$module.setAttribute('open', 'open')
+        this.$root.setAttribute('open', 'open')
       }
     }
 
@@ -90,7 +89,7 @@ module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $details = $scope.querySelectorAll('.nhsuk-details')
 
-  $details.forEach(($module) => {
-    new Details($module)
+  $details.forEach(($root) => {
+    new Details($root)
   })
 }

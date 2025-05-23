@@ -6,22 +6,22 @@ const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
  */
 class Button {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
     this.debounceFormSubmitTimer = null
 
     /**
      * Initialise an event listener for keydown at document level
      * this will help listening for later inserted elements with a role="button"
      */
-    this.$module.addEventListener('keydown', this.handleKeyDown.bind(this))
-    this.$module.addEventListener('click', this.debounce.bind(this))
+    this.$root.addEventListener('keydown', this.handleKeyDown.bind(this))
+    this.$root.addEventListener('click', this.debounce.bind(this))
   }
 
   /**
@@ -82,7 +82,7 @@ module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
 
-  $buttons.forEach(($module) => {
-    new Button($module)
+  $buttons.forEach(($root) => {
+    new Button($root)
   })
 }

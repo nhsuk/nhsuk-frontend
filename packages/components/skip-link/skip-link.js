@@ -10,16 +10,16 @@ const { setFocus } = require('../../common')
  */
 class SkipLink {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLAnchorElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLAnchorElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    const linkedElementId = this.$module.hash.split('#').pop()
+    const linkedElementId = this.$root.hash.split('#').pop()
     const $linkedElement = linkedElementId
       ? document.getElementById(linkedElementId)
       : null
@@ -35,7 +35,7 @@ class SkipLink {
      * Adds a helper CSS class to hide native focus styles,
      * but removes it on blur to restore native focus styles
      */
-    this.$module.addEventListener('click', () =>
+    this.$root.addEventListener('click', () =>
       setFocus($linkedElement, {
         onBeforeFocus() {
           $linkedElement.classList.add('nhsuk-skip-link-focused-element')
@@ -56,7 +56,7 @@ class SkipLink {
  */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-skip-link')
+  const $root = $scope.querySelector('.nhsuk-skip-link')
 
-  new SkipLink($module)
+  new SkipLink($root)
 }
