@@ -18,6 +18,8 @@ const sass = gulpSass(dartSass)
 
 /**
  * Compile Sass task
+ *
+ * @param {TaskCallback} done
  */
 export function compileCSS(done) {
   return gulp
@@ -106,3 +108,7 @@ export function minifyCSS() {
       )
   )
 }
+
+/**
+ * @import { TaskCallback } from 'undertaker'
+ */
