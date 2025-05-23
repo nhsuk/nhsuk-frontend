@@ -20,7 +20,7 @@ NHS.UK frontend browser support is shown in the table below.
 | Samsung Internet (most recent) | Compliant |
 | Samsung Internet 8.2 and later | Necessary |
 
-From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 will no longer run NHS.UK frontend JavaScript and support is completely removed for Internet Explorer 8 to 10. Our CSS are still compatible with Internet Explorer 11.
+From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 will no longer run NHS.UK frontend JavaScript and support is completely removed for Internet Explorer 8 to 10. Our CSS is still compatible with Internet Explorer 11.
 
 Stable versions of browsers refer to all stable releases of Chrome, Firefox and Edge released in the last 6 months and the last 4 releases of Safari.
 
