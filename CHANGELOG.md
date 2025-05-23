@@ -4,6 +4,10 @@
 
 Note: This release was created from the `support/9.x` branch.
 
+:wrench: **Fixes**
+
+- [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
+
 ## 9.6.1 - 22 May 2025
 
 Note: This release was created from the `support/9.x` branch.
