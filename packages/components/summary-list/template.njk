@@ -8,10 +8,17 @@
     {% endif -%}
   </a>
 {% endmacro -%}
+
+{#- Determine if we need 2 or 3 columns #}
+{%- set anyRowHasActions = false %}
+{% for row in params.rows %}
+  {% set anyRowHasActions = true if row.actions.items | length else anyRowHasActions %}
+{% endfor -%}
+
 <dl class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
   {% for row in params.rows %}
     {% if row %}
-    <div class="nhsuk-summary-list__row {%- if row.classes %} {{ row.classes }}{% endif %}">
+    <div class="nhsuk-summary-list__row {%- if anyRowHasActions and not row.actions.items %} nhsuk-summary-list__row--no-actions{% endif %} {%- if row.classes %} {{ row.classes }}{% endif %}">
       <dt class="nhsuk-summary-list__key {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
         {{ row.key.html | safe if row.key.html else row.key.text }}
       </dt>
