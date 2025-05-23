@@ -49,7 +49,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
    Add the following JavaScript to the top of the `<body>` section of your page template:
 
    ```html
-   <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
    ```
 
 4. Create pages using NHS.UK frontend
