@@ -20,6 +20,11 @@ class Tabs {
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
 
+    // Save bound functions so we can remove event listeners during teardown
+    this.boundTabClick = this.onTabClick.bind(this)
+    this.boundTabKeydown = this.onTabKeydown.bind(this)
+    this.boundOnHashChange = this.onHashChange.bind(this)
+
     this.keys = {
       down: 40,
       left: 37,
@@ -81,15 +86,9 @@ class Tabs {
       // Set HTML attributes
       this.setAttributes($tab)
 
-      // Save bounded functions to use when removing event listeners during teardown
-      // eslint-disable-next-line no-param-reassign
-      $tab.boundTabClick = this.onTabClick.bind(this)
-      // eslint-disable-next-line no-param-reassign
-      $tab.boundTabKeydown = this.onTabKeydown.bind(this)
-
       // Handle events
-      $tab.addEventListener('click', $tab.boundTabClick, true)
-      $tab.addEventListener('keydown', $tab.boundTabKeydown, true)
+      $tab.addEventListener('click', this.boundTabClick, true)
+      $tab.addEventListener('keydown', this.boundTabKeydown, true)
 
       // Remove old active panels
       this.hideTab($tab)
@@ -100,8 +99,7 @@ class Tabs {
     this.showTab($activeTab)
 
     // Handle hashchange events
-    this.$module.boundOnHashChange = this.onHashChange.bind(this)
-    window.addEventListener('hashchange', this.$module.boundOnHashChange, true)
+    window.addEventListener('hashchange', this.boundOnHashChange, true)
   }
 
   teardown() {
@@ -113,19 +111,15 @@ class Tabs {
 
     this.$tabs.forEach(($tab) => {
       // Remove events
-      $tab.removeEventListener('click', $tab.boundTabClick, true)
-      $tab.removeEventListener('keydown', $tab.boundTabKeydown, true)
+      $tab.removeEventListener('click', this.boundTabClick, true)
+      $tab.removeEventListener('keydown', this.boundTabKeydown, true)
 
       // Unset HTML attributes
       this.unsetAttributes($tab)
     })
 
     // Remove hashchange event handler
-    window.removeEventListener(
-      'hashchange',
-      this.$module.boundOnHashChange,
-      true
-    )
+    window.removeEventListener('hashchange', this.boundOnHashChange, true)
   }
 
   onHashChange() {
@@ -196,12 +190,8 @@ class Tabs {
   }
 
   onTabClick(e) {
-    if (!e.target.classList.contains('nhsuk-tabs__tab')) {
-      e.stopPropagation()
-      e.preventDefault()
-    }
     e.preventDefault()
-    const $newTab = e.target
+    const $newTab = e.currentTarget
     const $currentTab = this.getCurrentTab()
     this.hideTab($currentTab)
     this.showTab($newTab)
