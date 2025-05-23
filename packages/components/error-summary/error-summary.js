@@ -4,8 +4,12 @@
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  */
 class ErrorSummary {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {ErrorSummaryConfig} [config] - Error summary config
+   */
   constructor($module, config = {}) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -120,6 +124,14 @@ class ErrorSummary {
   }
 }
 
+/**
+ * Initialise error summary component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @param {boolean} [options.focusOnPageLoad] - If set to `false` the error
+ *   summary will not be focussed when the page loads.
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $module = $scope.querySelector('.nhsuk-error-summary')
@@ -128,3 +140,11 @@ module.exports = (options = {}) => {
     disableAutoFocus: options.focusOnPageLoad === false
   })
 }
+
+/**
+ * Error summary config
+ *
+ * @typedef {object} ErrorSummaryConfig
+ * @property {boolean} [disableAutoFocus=false] - If set to `true` the error
+ *   summary will not be focussed when the page loads.
+ */

@@ -3,12 +3,15 @@
 const { setFocus } = require('../../common')
 
 /*
- * NHS.UK skip link.
+ * Skip link component
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when elected so the next focusable element is not at the jumped to area.
  */
 class SkipLink {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
     if (!$module || !($module instanceof HTMLAnchorElement)) {
       return this
@@ -23,7 +26,7 @@ class SkipLink {
 
     // Check for linked element
     if (!$linkedElement) {
-      return
+      return this
     }
 
     /**
@@ -45,6 +48,12 @@ class SkipLink {
   }
 }
 
+/**
+ * Initialise skip link component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $module = $scope.querySelector('.nhsuk-skip-link')
