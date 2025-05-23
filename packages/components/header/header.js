@@ -1,27 +1,28 @@
 /**
  * Header component
- *
  */
-
 class Header {
-  constructor($module) {
-    if (!$module) {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    this.navigationList = this.$module.querySelector(
+    this.navigationList = this.$root.querySelector(
       '.nhsuk-header__navigation-list'
     )
-    this.navigationItems = this.$module.querySelectorAll(
+    this.navigationItems = this.$root.querySelectorAll(
       '.nhsuk-header__navigation-item'
     )
 
-    this.mobileMenuToggleButton = this.$module.querySelector(
+    this.mobileMenuToggleButton = this.$root.querySelector(
       '.nhsuk-header__menu-toggle'
     )
-    this.mobileMenuContainer = this.$module.querySelector(
+    this.mobileMenuContainer = this.$root.querySelector(
       '.nhsuk-mobile-menu-container'
     )
 
@@ -175,7 +176,7 @@ class Header {
 
     this.menuIsOpen = false
     this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
-    this.$module.style.marginBottom = 0
+    this.$root.style.marginBottom = 0
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
 
     // Remove escape key listener to close menu
@@ -214,7 +215,7 @@ class Header {
     this.menuIsOpen = true
     this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
     const marginBody = this.mobileMenu.offsetHeight
-    this.$module.style.marginBottom = `${marginBody}px`
+    this.$root.style.marginBottom = `${marginBody}px`
     this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
 
     // Add escape key listener to close menu
@@ -272,9 +273,15 @@ class Header {
   }
 }
 
+/**
+ * Initialise header component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-navigation')
+  const $root = $scope.querySelector('.nhsuk-navigation')
 
-  new Header($module)
+  new Header($root)
 }

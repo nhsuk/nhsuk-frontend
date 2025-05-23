@@ -19,18 +19,22 @@ require('./polyfills.js')
  * element, but you can call it again later with a new DOM element
  * containing nhsuk-frontend components which you wish to initialise.
  *
- * @param {HTMLElement} scope
+ * @param {Element | Document | null} [$scope] - Scope of the document to search within
  */
-function initAll(scope) {
-  initHeader({ scope })
-  initSkipLink({ scope })
-  initButton({ scope })
-  initCharacterCount({ scope })
-  initCheckboxes({ scope })
-  initDetails({ scope })
-  initErrorSummary({ scope })
-  initRadios({ scope })
-  initTabs({ scope })
+function initAll($scope) {
+  const options = {
+    scope: $scope || document
+  }
+
+  initHeader(options)
+  initSkipLink(options)
+  initButton(options)
+  initCharacterCount(options)
+  initCheckboxes(options)
+  initDetails(options)
+  initErrorSummary(options)
+  initRadios(options)
+  initTabs(options)
 }
 
 module.exports = {

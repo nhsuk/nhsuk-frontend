@@ -1,15 +1,27 @@
+/**
+ * Character count component
+ */
 class CharacterCount {
-  constructor($module) {
-    if (!$module) {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    const $textarea = $module.querySelector('.nhsuk-js-character-count')
-    if (!$textarea) {
+    const $textarea = $root.querySelector('.nhsuk-js-character-count')
+    if (
+      !$textarea ||
+      !(
+        $textarea instanceof HTMLTextAreaElement ||
+        $textarea instanceof HTMLInputElement
+      )
+    ) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
     this.$textarea = $textarea
     this.$visibleCountMessage = null
     this.$screenReaderCountMessage = null
@@ -52,7 +64,7 @@ class CharacterCount {
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
     // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset(this.$module)
+    this.options = CharacterCount.getDataset(this.$root)
 
     // Determine the limit attribute (characters or words)
     let countAttribute = this.defaults.characterCountAttribute
@@ -61,11 +73,11 @@ class CharacterCount {
     }
 
     // Save the element limit
-    this.maxLength = this.$module.getAttribute(countAttribute)
+    this.maxLength = this.$root.getAttribute(countAttribute)
 
     // Check for limit
     if (!this.maxLength) {
-      return
+      return this
     }
 
     // Remove hard limit if set
@@ -267,11 +279,19 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
-module.exports = ({ scope = document } = {}) => {
-  const characterCounts = scope.querySelectorAll(
+/**
+ * Initialise character count component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $characterCounts = $scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
   )
-  characterCounts.forEach((el) => {
-    new CharacterCount(el)
+
+  $characterCounts.forEach(($root) => {
+    new CharacterCount($root)
   })
 }
