@@ -1,9 +1,15 @@
 const KEY_SPACE = 32
 const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
+/**
+ * Button component
+ */
 class Button {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -66,9 +72,17 @@ class Button {
   }
 }
 
-module.exports = ({ scope = document } = {}) => {
-  const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
-  buttons.forEach((el) => {
-    new Button(el)
+/**
+ * Initialise button component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
+
+  $buttons.forEach(($module) => {
+    new Button($module)
   })
 }

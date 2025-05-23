@@ -7,8 +7,11 @@ const { toggleConditionalInput } = require('../../common')
  * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
 class Checkboxes {
+  /**
+   * @param {Element | null} [$module] - HTML element to use for component
+   */
   constructor($module) {
-    if (!$module) {
+    if (!$module || !($module instanceof HTMLElement)) {
       return this
     }
 
@@ -125,6 +128,12 @@ class Checkboxes {
   }
 }
 
+/**
+ * Initialise checkboxes component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $module = $scope.querySelector('.nhsuk-checkboxes')
