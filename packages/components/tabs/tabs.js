@@ -1,7 +1,24 @@
 class Tabs {
   constructor($module) {
+    if (!$module) {
+      return this
+    }
+
     this.$module = $module
-    this.$tabs = $module.querySelectorAll('.nhsuk-tabs__tab')
+
+    const $tabs = this.$module.querySelectorAll('.nhsuk-tabs__tab')
+    const $tabList = this.$module.querySelector('.nhsuk-tabs__list')
+    const $tabListItems = this.$module.querySelectorAll(
+      '.nhsuk-tabs__list-item'
+    )
+
+    if (!$tabs.length || !$tabList || !$tabListItems.length) {
+      return this
+    }
+
+    this.$tabs = $tabs
+    this.$tabList = $tabList
+    this.$tabListItems = $tabListItems
 
     this.keys = {
       down: 40,
@@ -9,6 +26,7 @@ class Tabs {
       right: 39,
       up: 38
     }
+
     this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
     this.showEvent = new CustomEvent('tab.show')
@@ -53,22 +71,13 @@ class Tabs {
   }
 
   setup() {
-    const { $module } = this
-    const { $tabs } = this
-    const $tabList = $module.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item')
+    this.$tabList.setAttribute('role', 'tablist')
 
-    if (!$tabs || !$tabList || !$tabListItems) {
-      return
-    }
-
-    $tabList.setAttribute('role', 'tablist')
-
-    $tabListItems.forEach(($item) => {
+    this.$tabListItems.forEach(($item) => {
       $item.setAttribute('role', 'presentation')
     })
 
-    $tabs.forEach(($tab) => {
+    this.$tabs.forEach(($tab) => {
       // Set HTML attributes
       this.setAttributes($tab)
 
@@ -91,27 +100,18 @@ class Tabs {
     this.showTab($activeTab)
 
     // Handle hashchange events
-    $module.boundOnHashChange = this.onHashChange.bind(this)
-    window.addEventListener('hashchange', $module.boundOnHashChange, true)
+    this.$module.boundOnHashChange = this.onHashChange.bind(this)
+    window.addEventListener('hashchange', this.$module.boundOnHashChange, true)
   }
 
   teardown() {
-    const { $module } = this
-    const { $tabs } = this
-    const $tabList = $module.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = $module.querySelectorAll('.nhsuk-tabs__list-item')
+    this.$tabList.removeAttribute('role')
 
-    if (!$tabs || !$tabList || !$tabListItems) {
-      return
-    }
-
-    $tabList.removeAttribute('role')
-
-    $tabListItems.forEach(($item) => {
+    this.$tabListItems.forEach(($item) => {
       $item.removeAttribute('role', 'presentation')
     })
 
-    $tabs.forEach(($tab) => {
+    this.$tabs.forEach(($tab) => {
       // Remove events
       $tab.removeEventListener('click', $tab.boundTabClick, true)
       $tab.removeEventListener('keydown', $tab.boundTabKeydown, true)
@@ -121,7 +121,11 @@ class Tabs {
     })
 
     // Remove hashchange event handler
-    window.removeEventListener('hashchange', $module.boundOnHashChange, true)
+    window.removeEventListener(
+      'hashchange',
+      this.$module.boundOnHashChange,
+      true
+    )
   }
 
   onHashChange() {
@@ -314,8 +318,9 @@ class Tabs {
  * Initialise tabs component
  */
 module.exports = ({ scope = document } = {}) => {
-  const tabs = scope.querySelectorAll('[data-module="nhsuk-tabs"]')
-  tabs.forEach((el) => {
-    new Tabs(el)
+  const $tabs = scope.querySelectorAll('[data-module="nhsuk-tabs"]')
+
+  $tabs.forEach(($module) => {
+    new Tabs($module)
   })
 }
