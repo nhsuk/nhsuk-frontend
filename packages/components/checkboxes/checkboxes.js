@@ -8,16 +8,16 @@ const { toggleConditionalInput } = require('../../common')
  */
 class Checkboxes {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    const $inputs = this.$module.querySelectorAll('.nhsuk-checkboxes__input')
+    const $inputs = this.$root.querySelectorAll('.nhsuk-checkboxes__input')
     if (!$inputs.length) {
       return this
     }
@@ -136,7 +136,7 @@ class Checkboxes {
  */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-checkboxes')
+  const $root = $scope.querySelector('.nhsuk-checkboxes')
 
-  new Checkboxes($module)
+  new Checkboxes($root)
 }

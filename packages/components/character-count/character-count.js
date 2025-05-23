@@ -3,14 +3,14 @@
  */
 class CharacterCount {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    const $textarea = $module.querySelector('.nhsuk-js-character-count')
+    const $textarea = $root.querySelector('.nhsuk-js-character-count')
     if (
       !$textarea ||
       !(
@@ -21,7 +21,7 @@ class CharacterCount {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
     this.$textarea = $textarea
     this.$visibleCountMessage = null
     this.$screenReaderCountMessage = null
@@ -64,7 +64,7 @@ class CharacterCount {
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
     // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset(this.$module)
+    this.options = CharacterCount.getDataset(this.$root)
 
     // Determine the limit attribute (characters or words)
     let countAttribute = this.defaults.characterCountAttribute
@@ -73,7 +73,7 @@ class CharacterCount {
     }
 
     // Save the element limit
-    this.maxLength = this.$module.getAttribute(countAttribute)
+    this.maxLength = this.$root.getAttribute(countAttribute)
 
     // Check for limit
     if (!this.maxLength) {
@@ -291,7 +291,7 @@ module.exports = (options = {}) => {
     '[data-module="nhsuk-character-count"]'
   )
 
-  $characterCounts.forEach(($module) => {
-    new CharacterCount($module)
+  $characterCounts.forEach(($root) => {
+    new CharacterCount($root)
   })
 }

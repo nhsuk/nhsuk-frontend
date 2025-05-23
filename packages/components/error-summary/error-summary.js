@@ -5,19 +5,19 @@
  */
 class ErrorSummary {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    * @param {ErrorSummaryConfig} [config] - Error summary config
    */
-  constructor($module, config = {}) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root, config = {}) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
-    this.$module.addEventListener('click', this.handleClick.bind(this))
+    this.$root = $root
+    this.$root.addEventListener('click', this.handleClick.bind(this))
 
     if (!config.disableAutoFocus) {
-      this.$module.focus()
+      this.$root.focus()
     }
   }
 
@@ -134,9 +134,9 @@ class ErrorSummary {
  */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-error-summary')
+  const $root = $scope.querySelector('.nhsuk-error-summary')
 
-  new ErrorSummary($module, {
+  new ErrorSummary($root, {
     disableAutoFocus: options.focusOnPageLoad === false
   })
 }

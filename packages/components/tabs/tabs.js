@@ -3,20 +3,18 @@
  */
 class Tabs {
   /**
-   * @param {Element | null} [$module] - HTML element to use for component
+   * @param {Element | null} [$root] - HTML element to use for component
    */
-  constructor($module) {
-    if (!$module || !($module instanceof HTMLElement)) {
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    const $tabs = this.$module.querySelectorAll('.nhsuk-tabs__tab')
-    const $tabList = this.$module.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = this.$module.querySelectorAll(
-      '.nhsuk-tabs__list-item'
-    )
+    const $tabs = this.$root.querySelectorAll('.nhsuk-tabs__tab')
+    const $tabList = this.$root.querySelector('.nhsuk-tabs__list')
+    const $tabListItems = this.$root.querySelectorAll('.nhsuk-tabs__list-item')
 
     if (!$tabs.length || !$tabList || !$tabListItems.length) {
       return this
@@ -160,7 +158,7 @@ class Tabs {
   }
 
   getTab(hash) {
-    return this.$module.querySelector(`.nhsuk-tabs__tab[href="${hash}"]`)
+    return this.$root.querySelector(`.nhsuk-tabs__tab[href="${hash}"]`)
   }
 
   setAttributes($tab) {
@@ -272,7 +270,7 @@ class Tabs {
   }
 
   getPanel($tab) {
-    const $panel = this.$module.querySelector(Tabs.getHref($tab))
+    const $panel = this.$root.querySelector(Tabs.getHref($tab))
     return $panel
   }
 
@@ -301,7 +299,7 @@ class Tabs {
   }
 
   getCurrentTab() {
-    return this.$module.querySelector(
+    return this.$root.querySelector(
       '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
   }
@@ -326,7 +324,7 @@ module.exports = (options = {}) => {
   const $scope = options.scope || document
   const $tabs = $scope.querySelectorAll('[data-module="nhsuk-tabs"]')
 
-  $tabs.forEach(($module) => {
-    new Tabs($module)
+  $tabs.forEach(($root) => {
+    new Tabs($root)
   })
 }
