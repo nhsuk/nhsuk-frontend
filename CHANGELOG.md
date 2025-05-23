@@ -61,6 +61,12 @@ This change ensures consistency with other components, where `text` or `html` pa
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
+:recycle: **Changes**
+
+We've made changes to NHS.UK frontend in the following pull requests:
+
+- [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+
 :wrench: **Fixes**
 
 - [#1312: Review and fix inconsistent link styles](https://github.com/nhsuk/nhsuk-frontend/pull/1312)
@@ -76,6 +82,7 @@ Note: This release was created from the `support/9.x` branch.
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
+- [#1312: Review and fix inconsistent link styles](https://github.com/nhsuk/nhsuk-frontend/pull/1312)
 - [#1313: Fix header menu margin collapse issue](https://github.com/nhsuk/nhsuk-frontend/pull/1313)
 - [#1316: Removed empty meta description from default Nunjucks template](https://github.com/nhsuk/nhsuk-frontend/pull/1316)
 

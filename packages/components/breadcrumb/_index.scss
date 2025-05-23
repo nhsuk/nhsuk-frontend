@@ -77,7 +77,6 @@
   display: inline-block;
   padding: 0 0 0 16px;
   position: relative;
-  text-decoration: none;
 
   @include nhsuk-link-style-no-visited-state;
   @include nhsuk-font(16); // [4]
@@ -96,10 +95,6 @@
     @include nhsuk-media-query($from: tablet) {
       top: 0; // [3]
     }
-  }
-
-  &:hover {
-    text-decoration: underline;
   }
 
   &:hover::before {

@@ -44,17 +44,4 @@
       top: 0; // [3]
     }
   }
-
-  &:link {
-    text-decoration: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-// stylelint-disable-next-line selector-no-qualifying-type
-button.nhsuk-back-link__link {
-  text-decoration: none;
 }
