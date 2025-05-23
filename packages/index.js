@@ -11,8 +11,6 @@ const initRadios = require('./components/radios/radios')
 const initSkipLink = require('./components/skip-link/skip-link')
 const initTabs = require('./components/tabs/tabs')
 
-require('./polyfills.js')
-
 /**
  * Use this function to initialise nhsuk-frontend components within a
  * given scope. This function is called by default with the document
