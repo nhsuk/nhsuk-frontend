@@ -64,6 +64,8 @@ This change was made in [pull request #1259: Review legacy Nunjucks params](http
 :wrench: **Fixes**
 
 - [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
+- [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
 
 ## 9.6.1 - 22 May 2025
 
