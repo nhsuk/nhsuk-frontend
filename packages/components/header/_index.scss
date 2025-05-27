@@ -167,6 +167,10 @@ $_header-item-padding: 12px;
   .nhsuk-icon__search {
     height: 28px;
     width: 28px;
+
+    // Adjust optical alignment due to the handle appearing
+    // to push the magnifying glass circle to the top left
+    margin: 0 -2px -2px 0;
   }
 }
 
