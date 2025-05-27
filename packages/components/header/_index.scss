@@ -87,24 +87,44 @@ $_header-item-padding: 12px;
 /// Account
 
 .nhsuk-header__account {
-  background: nhsuk-shade($color_nhsuk-blue, 20%);
+  position: relative;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
-  outline: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
   margin-bottom: 1px;
-
-  @include nhsuk-media-query($from: tablet) {
-    align-self: start;
-  }
 
   .nhsuk-icon__user {
     height: 24px;
     width: 24px;
     flex-shrink: 0;
   }
+
+  &,
+  &::before {
+    background-color: nhsuk-shade($color_nhsuk-blue, 20%);
+  }
+
+  // Expand header account by 1px to ensure the search
+  // input does not appear to be taller when inline
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    border: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
+    border-radius: $nhsuk-border-radius + 1px;
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    align-self: start;
+  }
 }
 
 .nhsuk-header__account-list {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 1px;
@@ -115,7 +135,6 @@ $_header-item-padding: 12px;
 }
 
 .nhsuk-header__account-item {
-  background-color: nhsuk-shade($color_nhsuk-blue, 20%);
   display: flex;
   flex-grow: 1;
   gap: nhsuk-spacing(2);
@@ -455,8 +474,15 @@ $_header-item-padding: 12px;
   }
 
   .nhsuk-header__account,
-  .nhsuk-header__account-item {
+  .nhsuk-header__account::before {
     background-color: $color_nhsuk-grey-5;
+  }
+
+  .nhsuk-header__account::before {
+    border-color: $color_nhsuk-grey-4;
+  }
+
+  .nhsuk-header__account-item {
     outline-color: $color_nhsuk-grey-4;
   }
 
