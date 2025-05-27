@@ -200,6 +200,17 @@ $_header-item-padding: 12px;
     opacity: 1; // Fixes low contrast of placeholder text in firefox
   }
 
+  // Hide search input clear button (IE)
+  &::-ms-clear {
+    display: none;
+  }
+
+  // Hide search input icon and cancel button (WebKit, Blink)
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
   @include nhsuk-media-query($until: tablet) {
     font-size: inherit;
   }
