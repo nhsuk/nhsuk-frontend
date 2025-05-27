@@ -184,11 +184,12 @@ $_header-item-padding: 12px;
 .nhsuk-header__search-input.nhsuk-input {
   border-color: transparent;
   border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
-  font-size: $nhsuk-base-font-size;
   height: 40px;
   margin-right: -$nhsuk-border-width-form-element;
-  padding: 0 $_header-item-padding;
+  padding-right: $_header-item-padding;
+  padding-left: $_header-item-padding - $nhsuk-border-width-form-element;
   width: 100%;
+  @include nhsuk-font-size(16);
 
   &:focus {
     z-index: 10;
@@ -197,6 +198,10 @@ $_header-item-padding: 12px;
   &::placeholder {
     color: $color_nhsuk-grey-1;
     opacity: 1; // Fixes low contrast of placeholder text in firefox
+  }
+
+  @include nhsuk-media-query($until: tablet) {
+    font-size: inherit;
   }
 }
 
