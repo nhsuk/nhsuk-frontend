@@ -5,34 +5,40 @@
 {% block main %}
 
   {{ header({
-    "service": {
-      "name": "Digital service manual"
+    logo: {
+      href: "#"
     },
-    "showNav": "true",
-    "showSearch": "true",
-    "primaryLinks": [
+    service: {
+      text: "Digital service manual",
+      href: "#"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the NHS digital service manual"
+    },
+    navigation: {
+      items: [
         {
-          "url"  : "#",
-          "label" : "Standards and technology"
+          href: "#",
+          text: "Standards and technology"
         },
         {
-          'url' : '#',
-          'label' : 'Design system'
+          href: "#",
+          text: "Design system",
+          current: true
         },
         {
-          'url'  : '#',
-          'label' : 'Content style guide'
+          href: "#",
+          text: "Content style guide"
         },
         {
-          'url'  : '#',
-          'label' : 'Accessibility'
+          href: "#",
+          text: "Accessibility"
         },
         {
-          'url' : '#',
-          'label' : 'Community and contribution'
+          href: "#",
+          text: "Community and contribution"
         }
       ]
-    })
-  }}
-
+    }
+  }) }}
 {% endblock %}

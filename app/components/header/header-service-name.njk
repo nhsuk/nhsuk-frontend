@@ -5,10 +5,14 @@
 {% block main %}
 
   {{ header({
-      "service": {
-        "name": "Prototype kit"
-      }
-    })
-  }}
+    logo: {
+      href: "#nhs",
+      ariaLabel: "NHS homepage"
+    },
+    service: {
+      text: "Find your NHS number",
+      href: "#"
+    }
+  }) }}
 
 {% endblock %}

@@ -584,8 +584,19 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with navigation',
+      label: 'Header with navigation (left aligned)',
       url: `${BASE_URL}/components/header/header-navigation.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with navigation (justified)',
+      url: `${BASE_URL}/components/header/header-navigation-justified.html`,
       onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
@@ -597,6 +608,47 @@ module.exports = {
     {
       label: 'Header with search',
       url: `${BASE_URL}/components/header/header-search.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__search-input',
+      label: 'Header with search (focused search input)',
+      url: `${BASE_URL}/components/header/header-search.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with account (logged in)',
+      url: `${BASE_URL}/components/header/header-account-logged-in.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with account (logged out)',
+      url: `${BASE_URL}/components/header/header-account-logged-out.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with account (logged in, RBAC)',
+      url: `${BASE_URL}/components/header/header-account-rbac.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -636,8 +688,8 @@ module.exports = {
       ]
     },
     {
-      label: 'Header transactional with service name',
-      url: `${BASE_URL}/components/header/header-transactional-service-name.html`,
+      label: 'Header with account, navigation and search',
+      url: `${BASE_URL}/components/header/header-service-name-with-account-search-nav.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -668,9 +720,31 @@ module.exports = {
       ]
     },
     {
+      clickSelector: '.nhsuk-header__search-input',
+      label: 'Header organisational with white header (focused search input)',
+      url: `${BASE_URL}/components/header/header-org-white.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
       label: 'Header organisational with white header, navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
       onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header organisational with white header and account',
+      url: `${BASE_URL}/components/header/header-org-white-account.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),

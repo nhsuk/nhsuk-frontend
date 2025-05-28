@@ -3,38 +3,33 @@
 {% set title = 'Components' %}
 
 {% block header %}
-  {{ skipLink({
-    "URL": "#maincontent",
-    "heading": "Skip to main content"
-  }) }}
-
   {{ header({
-      "showNav": "true",
-      "showSearch": "true",
-      "primaryLinks": [
+    search: true,
+    navigation: {
+      items: [
         {
-          "url"  : "https://www.nhs.uk/conditions",
-          "label" : "Health A-Z"
+          href: "https://www.nhs.uk/conditions",
+          text: "Health A to Z"
         },
         {
-          'url' : 'https://www.nhs.uk/live-well/',
-          'label' : 'Live Well'
+          href: 'https://www.nhs.uk/live-well/',
+          text: 'Live Well'
         },
         {
-          'url'  : 'https://www.nhs.uk/conditions/social-care-and-support/',
-          'label' : 'Care and support'
+          href: 'https://www.nhs.uk/conditions/social-care-and-support/',
+          text: 'Care and support'
         },
         {
-          'url'  : 'https://www.nhs.uk/news/',
-          'label' : 'Health news'
+          href: 'https://www.nhs.uk/news/',
+          text: 'Health news'
         },
         {
-          'url' : 'https://www.nhs.uk/service-search',
-          'label' : 'Services near you'
+          href: 'https://www.nhs.uk/service-search',
+          text: 'Services near you'
         }
       ]
-    })
-  }}
+    }
+  }) }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -45,7 +40,7 @@
         href: "#"
       },
       {
-        text: "Health A-Z",
+        text: "Health A to Z",
         href: "#"
       }
     ]
