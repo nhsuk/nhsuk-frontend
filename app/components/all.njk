@@ -598,6 +598,7 @@
             }
           },
           {
+            classes: "nhsuk-summary-list__row--no-border",
             key: {
               text: "Contact details"
             },
@@ -608,10 +609,53 @@
               items: [
                 {
                   href: "#",
+                  text: "Add",
+                  visuallyHiddenText: "new contact details"
+                },
+                {
+                  href: "#",
                   text: "Change",
                   visuallyHiddenText: "contact details"
                 }
               ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        classes: "nhsuk-summary-list--no-border",
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            }
+          },
+          {
+            key: {
+              text: "Contact information"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: '<p>07700 900457</p><p>sarah.philips@example.com</p>'
             }
           }
         ]

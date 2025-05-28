@@ -1011,6 +1011,15 @@ module.exports = {
       ]
     },
     {
+      label: 'Summary list without row border',
+      url: `${BASE_URL}/components/summary-list/without-row-border.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Table',
       url: `${BASE_URL}/components/tables/index.html`,
       viewports: [
