@@ -7,42 +7,42 @@
 /// @group tools
 ////
 
+/// Link styling with colour overrides
+///
+/// @param {Color} $link-colour [$nhsuk-link-color] - Link colour
+/// @param {Color} $link-hover-colour [$nhsuk-link-hover-color] - Link hover colour
+/// @param {Color} $link-visited-colour [$nhsuk-link-visited-color] - Link visited colour
+/// @param {Color} $link-active-colour [$nhsuk-link-active-color] - Link active colour
+///
+
+@mixin nhsuk-link-style(
+  $link-color: $nhsuk-link-color,
+  $link-visited-color: $nhsuk-link-visited-color,
+  $link-hover-color: $nhsuk-link-hover-color,
+  $link-active-color: $nhsuk-link-active-color
+) {
+  & {
+    color: $link-color;
+    text-decoration: underline;
+  }
+
+  .nhsuk-icon {
+    fill: currentcolor;
+  }
+
+  @include nhsuk-link-style-visited($link-visited-color);
+  @include nhsuk-link-style-hover($link-hover-color);
+  @include nhsuk-link-style-focus;
+  @include nhsuk-link-style-active($link-active-color);
+}
+
 /// Default link styling
 ///
 /// @example scss
 ///   @include nhsuk-link-style-default;
 
 @mixin nhsuk-link-style-default {
-  color: $nhsuk-link-color;
-
-  &:visited {
-    color: $nhsuk-link-visited-color;
-  }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-    text-decoration: none;
-  }
-
-  &:focus {
-    @include nhsuk-focused-text;
-
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:visited {
-      color: $nhsuk-focus-text-color;
-    }
-
-    .nhsuk-icon {
-      fill: $nhsuk-focus-text-color;
-    }
-  }
-
-  &:active {
-    color: $nhsuk-link-active-color;
-  }
+  @include nhsuk-link-style;
 }
 
 /// White link styling, used in hero
@@ -53,26 +53,19 @@
 ///   @include nhsuk-link-style-white;
 
 @mixin nhsuk-link-style-white {
-  color: $color_nhsuk-white;
+  @include nhsuk-link-style-text($override-color: $nhsuk-reverse-text-color);
+}
 
-  &:visited {
-    color: $color_nhsuk-white;
-  }
+/// Default link visited only styling
+///
+/// @param {Color} $link-visited-color [$nhsuk-link-visited-color] - Link visited colour
+///
+/// @example scss
+///   @include nhsuk-link-style-visited;
 
-  &:hover {
-    color: $color_nhsuk-white;
-    text-decoration: none;
-  }
-
-  &:focus {
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: $nhsuk-link-active-color;
+@mixin nhsuk-link-style-visited($link-visited-color: $nhsuk-link-visited-color) {
+  &:not(.nhsuk-button):not(:hover):not(:focus):not(:active):visited {
+    color: $link-visited-color;
   }
 }
 
@@ -105,12 +98,43 @@
 
 /// Default link hover only styling
 ///
+/// @param {Color} $link-hover-colour [$nhsuk-link-hover-color] - Link hover colour
+///
 /// @example scss
 ///   @include nhsuk-link-style-hover;
 
-@mixin nhsuk-link-style-hover {
+@mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-color) {
   &:hover {
+    color: $link-hover-colour;
     text-decoration: none;
+  }
+}
+
+/// Default link focus only styling
+///
+/// @example scss
+///   @include nhsuk-link-style-focus;
+
+@mixin nhsuk-link-style-focus {
+  &:focus {
+    @include nhsuk-focused-text;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/// Default link active only styling
+///
+/// @param {Color} $link-active-colour [$nhsuk-link-active-color] - Link active colour
+///
+/// @example scss
+///   @include nhsuk-link-style-active;
+
+@mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-color) {
+  &:active {
+    color: $link-active-colour;
   }
 }
 
@@ -133,25 +157,7 @@
 ///   }
 
 @mixin nhsuk-link-style-no-visited-state {
-  &:link {
-    color: $nhsuk-link-color;
-  }
-
-  &:visited {
-    color: $nhsuk-link-color;
-  }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-  }
-
-  &:active {
-    color: $nhsuk-link-active-color;
-  }
-
-  &:focus {
-    color: $nhsuk-focus-text-color;
-  }
+  @include nhsuk-link-style-visited($link-visited-color: $nhsuk-link-color);
 }
 
 /// Text link styles
@@ -159,29 +165,24 @@
 /// Makes links use the primary text colour, in all states. Use this mixin for
 /// navigation components, such as breadcrumbs or the back link.
 ///
-/// If you use this mixin in a component, you must also include the
-/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+/// @param {Color} $override-color [$nhsuk-text-color] - Link colour for all states
 ///
 /// @example scss
 ///   .nhsuk-component__link {
-///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-text;
 ///   }
 
-@mixin nhsuk-link-style-text {
-  &:link,
-  &:visited {
-    color: $nhsuk-text-color;
-  }
+@mixin nhsuk-link-style-text($override-color: $nhsuk-text-color) {
+  @include nhsuk-link-style(
+    $link-color: $override-color,
+    $link-visited-color: $override-color,
+    $link-hover-color: $override-color,
+    $link-active-color: $override-color
+  );
 
   // Force a colour change on hover to work around a bug in Safari
   // https://bugs.webkit.org/show_bug.cgi?id=224483
-  &:hover {
-    color: rgba($nhsuk-text-color, 0.99);
-  }
-
-  &:active,
-  &:focus {
-    color: $nhsuk-text-color;
+  &:not(:focus):hover {
+    color: rgba($override-color, 0.99);
   }
 }

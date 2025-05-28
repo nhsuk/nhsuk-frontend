@@ -1,26 +1,27 @@
 /**
  * Header component
- *
  */
-
 class Header {
-  constructor($module) {
-    if (!$module) {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
       return this
     }
 
-    this.$module = $module
+    this.$root = $root
 
-    this.navigation = this.$module.querySelector('.nhsuk-header__navigation')
-    this.navigationList = this.$module.querySelector(
+    this.navigation = this.$root.querySelector('.nhsuk-header__navigation')
+    this.navigationList = this.$root.querySelector(
       '.nhsuk-header__navigation-list'
     )
-    this.navigationItems = this.$module.querySelectorAll(
+    this.navigationItems = this.$root.querySelectorAll(
       '.nhsuk-header__navigation-item'
     )
 
-    this.menu = this.$module.querySelector('.nhsuk-header__menu')
-    this.menuToggle = this.$module.querySelector('.nhsuk-header__menu-toggle')
+    this.menu = this.$root.querySelector('.nhsuk-header__menu')
+    this.menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
 
     if (
       !this.navigation ||
@@ -32,6 +33,8 @@ class Header {
     ) {
       return this
     }
+
+    this.menuList = document.createElement('ul')
 
     this.menuIsEnabled = false
     this.menuIsOpen = false
@@ -93,11 +96,10 @@ class Header {
    * Add the menu to the DOM
    */
   setupMenu() {
-    if (this.menuList) {
+    if (this.menuList.parentElement) {
       return
     }
 
-    this.menuList = document.createElement('ul')
     this.menuList.classList.add('nhsuk-header__menu-list')
     this.menuList.setAttribute('hidden', '')
     this.menu.appendChild(this.menuList)
@@ -130,7 +132,7 @@ class Header {
     this.menuIsEnabled = false
     this.menu.setAttribute('hidden', '')
 
-    // Remove click listener to toggle menu
+    // Remove click listener from toggle menu
     this.menuToggle.removeEventListener('click', this.handleToggleMenu)
   }
 
@@ -244,9 +246,15 @@ class Header {
   }
 }
 
+/**
+ * Initialise header component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $module = $scope.querySelector('.nhsuk-header')
+  const $root = $scope.querySelector('.nhsuk-header')
 
-  new Header($module)
+  new Header($root)
 }

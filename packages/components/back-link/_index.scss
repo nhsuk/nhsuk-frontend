@@ -13,11 +13,11 @@
 ////
 
 .nhsuk-back-link {
-  margin-top: nhsuk-spacing(3);
-  line-height: 1; // [5]
+  padding-top: nhsuk-spacing(3);
+  line-height: 1; // [4]
 
   @include nhsuk-media-query($from: tablet) {
-    margin-top: nhsuk-spacing(4);
+    padding-top: nhsuk-spacing(4);
   }
 }
 
@@ -28,9 +28,9 @@
   display: inline-block;
   padding: 0 0 0 16px; // [1]
   position: relative;
-  text-decoration: none;
 
   @include nhsuk-link-style-default;
+  @include nhsuk-link-style-no-visited-state;
   @include nhsuk-font-size(16);
 
   .nhsuk-icon__chevron-left {
@@ -45,22 +45,16 @@
     }
   }
 
-  &:visited {
-    color: $nhsuk-link-color;
+  &:link {
+    text-decoration: none;
   }
 
   &:hover {
-    color: $nhsuk-link-hover-color;
     text-decoration: underline;
-
-    .nhsuk-icon__chevron-left {
-      fill: $nhsuk-link-hover-color;
-    }
   }
+}
 
-  &:focus {
-    .nhsuk-icon__chevron-left {
-      fill: $nhsuk-focus-text-color;
-    }
-  }
+// stylelint-disable-next-line selector-no-qualifying-type
+button.nhsuk-back-link__link {
+  text-decoration: none;
 }

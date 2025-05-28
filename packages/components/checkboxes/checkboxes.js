@@ -1,73 +1,114 @@
 const { toggleConditionalInput } = require('../../common')
 
 /**
+ * Checkboxes component
+ *
  * Conditionally show content when a checkbox button is checked
  * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
-const syncAllConditionalReveals = function syncAllConditionalReveals(input) {
-  const allInputsInForm = input.form.querySelectorAll('input[type="checkbox"]')
-  allInputsInForm.forEach((item) =>
-    toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden')
-  )
-}
-
-/**
- * Uncheck other checkboxes
- *
- * Find any other checkbox inputs with the checkbox group value, and uncheck them.
- * This is useful for when a “None of these" checkbox is checked.
- */
-const unCheckAllInputsExcept = function unCheckAllInputsExcept(input) {
-  const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
-    `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
-  )
-
-  allInputsInSameExclusiveGroup.forEach((inputWithSameName) => {
-    const hasSameFormOwner = input.form === inputWithSameName.form
-    if (hasSameFormOwner && inputWithSameName !== input) {
-      inputWithSameName.checked = false // eslint-disable-line no-param-reassign
+class Checkboxes {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
+      return this
     }
-  })
 
-  syncAllConditionalReveals(input)
-}
+    this.$root = $root
 
-/**
- * Uncheck exclusive inputs
- *
- * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
- * and uncheck them. This helps prevent someone checking both a regular checkbox and a
- * "None of these" checkbox in the same fieldset.
- */
-const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
-  const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
-    `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute(
-      'data-checkbox-exclusive-group'
-    )}"]`
-  )
-
-  allExclusiveInputsInSameExclusiveGroup.forEach((exclusiveInput) => {
-    const hasSameFormOwner = input.form === exclusiveInput.form
-    if (hasSameFormOwner) {
-      exclusiveInput.checked = false // eslint-disable-line no-param-reassign
+    const $inputs = this.$root.querySelectorAll('.nhsuk-checkboxes__input')
+    if (!$inputs.length) {
+      return this
     }
-  })
 
-  syncAllConditionalReveals(input)
-}
+    this.$inputs = $inputs
 
-module.exports = ({ scope = document } = {}) => {
-  // Checkbox input DOMElements inside a conditional form group
-  const checkboxInputs = scope.querySelectorAll(
-    '.nhsuk-checkboxes .nhsuk-checkboxes__input'
-  )
+    // When the page is restored after navigating 'back' in some browsers the
+    // state of form controls is not restored until *after* the DOMContentLoaded
+    // event is fired, so we need to sync after the pageshow event in browsers
+    // that support it.
+    if ('onpageshow' in window) {
+      window.addEventListener('pageshow', () =>
+        this.syncAllConditionalReveals()
+      )
+    } else {
+      window.addEventListener('DOMContentLoaded', () =>
+        this.syncAllConditionalReveals()
+      )
+    }
+
+    // Although we've set up handlers to sync state on the pageshow or
+    // DOMContentLoaded event, init could be called after those events have fired,
+    // for example if they are added to the page dynamically, so sync now too.
+    this.syncAllConditionalReveals()
+
+    // Attach handleClick as click to inputs
+    this.$inputs.forEach((checkboxButton) => {
+      checkboxButton.addEventListener('change', this.handleClick.bind(this))
+    })
+  }
+
+  /**
+   * Update all conditional reveals to match checked state
+   */
+  syncAllConditionalReveals() {
+    this.$inputs.forEach((item) =>
+      toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden')
+    )
+  }
+
+  /**
+   * Uncheck other checkboxes
+   *
+   * Find any other checkbox inputs with the checkbox group value, and uncheck them.
+   * This is useful for when a “None of these" checkbox is checked.
+   */
+  unCheckAllInputsExcept(input) {
+    const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
+      `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
+    )
+
+    allInputsInSameExclusiveGroup.forEach((inputWithSameName) => {
+      const hasSameFormOwner = input.form === inputWithSameName.form
+      if (hasSameFormOwner && inputWithSameName !== input) {
+        inputWithSameName.checked = false // eslint-disable-line no-param-reassign
+      }
+    })
+
+    this.syncAllConditionalReveals()
+  }
+
+  /**
+   * Uncheck exclusive inputs
+   *
+   * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
+   * and uncheck them. This helps prevent someone checking both a regular checkbox and a
+   * "None of these" checkbox in the same fieldset.
+   */
+  unCheckExclusiveInputs(input) {
+    const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
+      `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute(
+        'data-checkbox-exclusive-group'
+      )}"]`
+    )
+
+    allExclusiveInputsInSameExclusiveGroup.forEach((exclusiveInput) => {
+      const hasSameFormOwner = input.form === exclusiveInput.form
+      if (hasSameFormOwner) {
+        exclusiveInput.checked = false // eslint-disable-line no-param-reassign
+      }
+    })
+
+    this.syncAllConditionalReveals()
+  }
 
   /**
    * Toggle classes and attributes
    *
    * @param {MouseEvent} event - Click event
    */
-  const handleClick = (event) => {
+  handleClick(event) {
     // Toggle conditional content based on checked state
     toggleConditionalInput(
       event.target,
@@ -80,33 +121,22 @@ module.exports = ({ scope = document } = {}) => {
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
     if (event.target.hasAttribute('data-checkbox-exclusive')) {
-      unCheckAllInputsExcept(event.target)
+      this.unCheckAllInputsExcept(event.target)
     } else {
-      unCheckExclusiveInputs(event.target)
+      this.unCheckExclusiveInputs(event.target)
     }
   }
+}
 
-  // When the page is restored after navigating 'back' in some browsers the
-  // state of form controls is not restored until *after* the DOMContentLoaded
-  // event is fired, so we need to sync after the pageshow event in browsers
-  // that support it.
-  if ('onpageshow' in window) {
-    window.addEventListener('pageshow', () =>
-      checkboxInputs.forEach((input) => syncAllConditionalReveals(input))
-    )
-  } else {
-    window.addEventListener('DOMContentLoaded', () =>
-      checkboxInputs.forEach((input) => syncAllConditionalReveals(input))
-    )
-  }
+/**
+ * Initialise checkboxes component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $root = $scope.querySelector('.nhsuk-checkboxes')
 
-  // Although we've set up handlers to sync state on the pageshow or
-  // DOMContentLoaded event, init could be called after those events have fired,
-  // for example if they are added to the page dynamically, so sync now too.
-  checkboxInputs.forEach((input) => syncAllConditionalReveals(input))
-
-  // Attach handleClick as click to checkboxInputs
-  checkboxInputs.forEach((checkboxButton) => {
-    checkboxButton.addEventListener('change', handleClick)
-  })
+  new Checkboxes($root)
 }

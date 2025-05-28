@@ -505,6 +505,16 @@ module.exports = {
     },
     {
       clickSelector: '.nhsuk-details__summary',
+      label: 'Expander alongside card',
+      url: `${BASE_URL}/components/details/expander-alongside-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-details__summary',
       label: 'Expander group',
       url: `${BASE_URL}/components/details/expander-group.html`,
       viewports: [

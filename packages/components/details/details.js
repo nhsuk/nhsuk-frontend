@@ -1,37 +1,49 @@
 const { generateUniqueID, toggleAttribute } = require('../../common')
 
 /**
+ * Details component
+ *
  * Ensure details component is cross browser and accessible
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
+class Details {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
+  constructor($root) {
+    if (!$root || !($root instanceof HTMLElement)) {
+      return this
+    }
 
-module.exports = ({ scope = document } = {}) => {
-  // Nodelist of all details elements
-  const allDetails = scope.querySelectorAll('details')
+    this.$root = $root
+
+    // If there is native details support, we want to avoid running code to polyfill native behaviour.
+    const hasNativeDetails =
+      'HTMLDetailsElement' in window && this.$root instanceof HTMLDetailsElement
+
+    if (!hasNativeDetails) {
+      this.polyfillDetails()
+    }
+  }
 
   /**
    * Adds all necessary functionality to a details element
-   *
-   * @param {HTMLElement} element - details element to initialise
    */
-  const initDetails = (element) => {
-    // Set details element as polyfilled to prevent duplicate events being added
-    element.setAttribute('nhsuk-polyfilled', 'true')
-
+  polyfillDetails() {
     // Set content element and give it an ID if it doesn't already have one
-    const content = element.querySelector('.nhsuk-details__text')
+    const content = this.$root.querySelector('.nhsuk-details__text')
     if (!content.id) {
       content.setAttribute('id', `details-content-${generateUniqueID()}`)
     }
 
     // Set summary element
-    const summary = element.querySelector('.nhsuk-details__summary')
+    const summary = this.$root.querySelector('.nhsuk-details__summary')
 
     // Set initial summary aria attributes
     summary.setAttribute('role', 'button')
     summary.setAttribute('aria-controls', content.id)
     summary.setAttribute('tabIndex', '0')
-    const openAttr = element.getAttribute('open') !== null
+    const openAttr = this.$root.getAttribute('open') !== null
     if (openAttr === true) {
       summary.setAttribute('aria-expanded', 'true')
       content.setAttribute('aria-hidden', 'false')
@@ -47,10 +59,10 @@ module.exports = ({ scope = document } = {}) => {
 
       content.style.display =
         content.getAttribute('aria-hidden') === 'true' ? 'none' : ''
-      if (element.hasAttribute('open')) {
-        element.removeAttribute('open')
+      if (this.$root.hasAttribute('open')) {
+        this.$root.removeAttribute('open')
       } else {
-        element.setAttribute('open', 'open')
+        this.$root.setAttribute('open', 'open')
       }
     }
 
@@ -65,14 +77,19 @@ module.exports = ({ scope = document } = {}) => {
       }
     })
   }
+}
 
-  allDetails.forEach((element) => {
-    // If there is native details support, we want to avoid running code to polyfill native behaviour.
-    const hasNativeDetails =
-      'HTMLDetailsElement' in window && element instanceof HTMLDetailsElement
+/**
+ * Initialise details component
+ *
+ * @param {object} [options]
+ * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ */
+module.exports = (options = {}) => {
+  const $scope = options.scope || document
+  const $details = $scope.querySelectorAll('.nhsuk-details')
 
-    if (!hasNativeDetails && !element.hasAttribute('nhsuk-polyfilled')) {
-      initDetails(element)
-    }
+  $details.forEach(($root) => {
+    new Details($root)
   })
 }
