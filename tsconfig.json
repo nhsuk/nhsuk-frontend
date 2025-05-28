@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.dev.json"
+    },
+    {
+      "path": "./packages/nhsuk-frontend/tsconfig.json"
+    },
+    {
+      "path": "./shared/tsconfig.json"
+    }
+  ]
+}
