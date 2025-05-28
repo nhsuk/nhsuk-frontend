@@ -96,9 +96,6 @@
   @include nhsuk-media-query($until: tablet) {
     margin-bottom: nhsuk-spacing(3);
   }
-  @include nhsuk-media-query($from: tablet) {
-    width: 50%;
-  }
 }
 
 .nhsuk-summary-list__value > p {
@@ -116,26 +113,71 @@
 }
 
 .nhsuk-summary-list__actions-list-item {
-  display: inline;
-  margin-right: nhsuk-spacing(2);
-  padding-right: nhsuk-spacing(2);
+  display: inline-block;
+
+  @include nhsuk-media-query($until: tablet) {
+    border-right: 1px solid $nhsuk-border-color;
+    margin-right: nhsuk-spacing(2);
+    padding-right: nhsuk-spacing(2);
+
+    &:last-child {
+      border: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    margin-left: nhsuk-spacing(2);
+    padding-left: nhsuk-spacing(2);
+
+    &:first-child {
+      border: 0;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    &:not(:first-child) {
+      border-left: 1px solid $nhsuk-border-color;
+    }
+  }
 }
 
-.nhsuk-summary-list__actions-list-item:not(:last-child) {
-  border-right: 1px solid $nhsuk-border-color;
+// Large groups of action links may wrap onto multiple lines. Because the link
+// focus styles are applied outside of the link's bounding box, there are
+// situations where the focus style on a link can be overlapped by subsequent
+// links. We don't want this, so let's create a new stacking context on focus
+// so the link always appears to be 'on top'.
+.nhsuk-summary-list__actions-list-item .nhsuk-link:focus {
+  isolation: isolate;
 }
 
-.nhsuk-summary-list__actions-list-item:last-child {
-  border: 0;
-  margin-right: 0;
-  padding-right: 0;
-}
-
+// No border on entire summary list
 .nhsuk-summary-list--no-border {
-  .nhsuk-summary-list__key,
-  .nhsuk-summary-list__value,
-  .nhsuk-summary-list__actions,
   .nhsuk-summary-list__row {
     border: 0;
+  }
+
+  // Increase padding by 1px to compensate for 'missing' border
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2) + 1px;
+    }
+  }
+}
+
+// No border on specific rows
+.nhsuk-summary-list__row--no-border {
+  border: 0;
+
+  // Increase padding by 1px to compensate for 'missing' border
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2) + 1px;
+    }
   }
 }
