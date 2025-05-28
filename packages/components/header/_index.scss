@@ -91,6 +91,7 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__account {
   position: relative;
+  z-index: 10;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
 
@@ -131,7 +132,6 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__account-list {
   position: relative;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 1px;
@@ -181,7 +181,7 @@ $_header-item-padding: 12px;
 .nhsuk-header__search {
   flex-grow: 1;
   position: relative;
-  z-index: 13;
+  z-index: 10;
 
   @include nhsuk-print-hide;
 
@@ -247,7 +247,6 @@ $_header-item-padding: 12px;
   line-height: 1;
   margin: 0;
   width: 44px;
-  z-index: 9;
   cursor: pointer;
 
   &:hover,
