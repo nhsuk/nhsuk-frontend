@@ -167,3 +167,17 @@
     }
   }
 }
+
+// No border on specific rows
+.nhsuk-summary-list__row--no-border {
+  border: 0;
+
+  // Increase padding by 1px to compensate for 'missing' border
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2) + 1px;
+    }
+  }
+}
