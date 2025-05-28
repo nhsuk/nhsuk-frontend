@@ -47,13 +47,13 @@
 {% endmacro %}
 
 <header class="nhsuk-header
-{%- if params.organisation %} nhsuk-header--organisation{% endif %}
-{%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
-{{- nhsukAttributes(params.attributes) }}>
+  {%- if params.organisation %} nhsuk-header--organisation{% endif %}
+  {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
+  {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-header__container">
     <div class="nhsuk-header__service">
     {% if logoHref %}
-      <a class="nhsuk-header__service-logo" href="{{ logoHref }}" aria-label="{{ params.logo.ariaLabel | default('NHS homepage') }}">
+      <a class="nhsuk-header__service-logo" href="{{ logoHref }}" aria-label="{{ params.logo.ariaLabel | default("NHS homepage") }}">
         {{ _serviceLogo(params.logo.src, params.organisation) | indent(8) }}
         {{- _serviceName(params.service.text) if combineLogoAndServiceNameLinks }}
       </a>
@@ -120,7 +120,7 @@
           {%- endif -%}
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-          <a class="nhsuk-header__navigation-link" href="{{ item.href }}" {%- if item.active or item.current %} aria-current="{{ 'page' if item.current else 'true' }}"{% endif %}>
+          <a class="nhsuk-header__navigation-link" href="{{ item.href }}" {%- if item.active or item.current %} aria-current="{{ "page" if item.current else "true" }}"{% endif %}>
             {{- linkInnerContent | safe -}}
           </a>
         </li>
