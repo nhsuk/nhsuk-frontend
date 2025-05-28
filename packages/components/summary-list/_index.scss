@@ -96,9 +96,6 @@
   @include nhsuk-media-query($until: tablet) {
     margin-bottom: nhsuk-spacing(3);
   }
-  @include nhsuk-media-query($from: tablet) {
-    width: 50%;
-  }
 }
 
 .nhsuk-summary-list__value > p {
