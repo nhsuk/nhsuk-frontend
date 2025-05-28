@@ -584,8 +584,19 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with navigation',
+      label: 'Header with navigation (left aligned)',
       url: `${BASE_URL}/components/header/header-navigation.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with navigation (justified)',
+      url: `${BASE_URL}/components/header/header-navigation-justified.html`,
       onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),

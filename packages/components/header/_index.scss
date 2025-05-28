@@ -302,15 +302,15 @@ $_header-item-padding: 12px;
     margin: 0 math.div($nhsuk-gutter, 2) * -1;
   }
 
+  .nhsuk-header__navigation--justified & {
+    @include nhsuk-media-query($from: desktop) {
+      justify-content: space-between;
+    }
+  }
+
   .js-enabled & {
     flex-wrap: nowrap;
     overflow: hidden;
-  }
-}
-
-.nhsuk-header__navigation-list--justified {
-  @include nhsuk-media-query($from: desktop) {
-    justify-content: space-between;
   }
 }
 
