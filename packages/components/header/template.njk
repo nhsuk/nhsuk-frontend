@@ -80,7 +80,9 @@
     </search>
 {% endif %}
 {% if params.account %}
-    <nav class="nhsuk-header__account" aria-label="Account">
+    <nav class="nhsuk-header__account
+      {%- if params.account.classes %} {{ params.account.classes }}{% endif %}" aria-label="{{ params.account.ariaLabel | default("Account") }}"
+      {{- nhsukAttributes(params.account.attributes) }}>
       <ul class="nhsuk-header__account-list">
       {% for item in params.account.items %}
         {% if item %}
@@ -106,7 +108,9 @@
 {% endif %}
   </div>
 {% if params.navigation and params.navigation.items | length %}
-  <nav class="nhsuk-header__navigation" aria-label="Menu">
+  <nav class="nhsuk-header__navigation
+    {%- if params.navigation.classes %} {{ params.navigation.classes }}{% endif %}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
+    {{- nhsukAttributes(params.navigation.attributes) }}>
     <div class="nhsuk-header__navigation-container">
       <ul class="nhsuk-header__navigation-list">
       {% for item in params.navigation.items %}

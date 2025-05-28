@@ -120,6 +120,24 @@
             "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
           }
         ]
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for the primary navigation. Defaults to `\"Menu\"`"
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the primary navigation."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the primary navigation."
       }
     ]
   },
@@ -165,7 +183,7 @@
     "name": "account",
     "type": "object",
     "required": false,
-    "description": "Object containing settings for the 'account' section of the header.",
+    "description": "Object containing settings for the account section of the header.",
     "params": [
       {
         "name": "items",
@@ -204,6 +222,24 @@
             "description": "The value to use for the `method` of the form if `action` is set. Defaults to `\"post\"`"
           }
         ]
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for the account navigation. Defaults to `\"Account\"`"
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the account navigation."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the account navigation."
       }
     ]
   },
