@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+This release stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
 :new: **New features**
 
 #### New header with account section
@@ -21,6 +23,14 @@ This was added in [pull request #1058: New header with account section](https://
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
+
+#### Verify your code does not rely on polyfills we have now removed
+
+We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.closest()`, `matches()` DOM method and NodeList API `forEach` required for Internet Explorer 11 and below.
+
+However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
+
+These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk-frontend/pull/1326).
 
 #### Update header component params
 
