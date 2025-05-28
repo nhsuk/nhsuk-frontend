@@ -62,7 +62,7 @@
     "backstopjs": "^6.3.25",
     "browser-sync": "^3.0.4",
     "concurrently": "^9.1.2",
-    "cssnano": "^7.0.6",
+    "cssnano": "^7.0.7",
     "del": "^8.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.2",
