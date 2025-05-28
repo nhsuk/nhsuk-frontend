@@ -72,46 +72,54 @@
     ]
   },
   {
-    "name": "primaryLinks",
-    "type": "array",
+    "name": "navigation",
+    "type": "object",
     "required": false,
-    "description": "Array of navigation links for use in the header.",
+    "description": "Object containing settings for the primary navigation.",
     "params": [
       {
-        "name": "href",
-        "type": "string",
-        "required": true,
-        "description": "The href of a navigation item in the header."
-      },
-      {
-        "name": "text",
-        "type": "string",
+        "name": "items",
+        "type": "array",
         "required": false,
-        "description": "The text of a navigation item in the header."
-      },
-      {
-        "name": "current",
-        "type": "boolean",
-        "required": false,
-        "description": "Set to true if this links to the current page being shown."
-      },
-      {
-        "name": "active",
-        "type": "boolean",
-        "required": false,
-        "description": "Set to true if the current page is within this section, but the link doesn't necessarily link to the current page"
-      },
-      {
-        "name": "classes",
-        "type": "string",
-        "required": false,
-        "description": "Classes to add to the list item containing the link."
-      },
-      {
-        "name": "attributes",
-        "type": "object",
-        "required": false,
-        "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
+        "description": "Array of navigation links for use in the header.",
+        "params": [
+          {
+            "name": "href",
+            "type": "string",
+            "required": true,
+            "description": "The href of a navigation item in the header."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "required": false,
+            "description": "The text of a navigation item in the header."
+          },
+          {
+            "name": "current",
+            "type": "boolean",
+            "required": false,
+            "description": "Set to true if this links to the current page being shown."
+          },
+          {
+            "name": "active",
+            "type": "boolean",
+            "required": false,
+            "description": "Set to true if the current page is within this section, but the link doesn't necessarily link to the current page"
+          },
+          {
+            "name": "classes",
+            "type": "string",
+            "required": false,
+            "description": "Classes to add to the list item containing the link."
+          },
+          {
+            "name": "attributes",
+            "type": "object",
+            "required": false,
+            "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
+          }
+        ]
       }
     ]
   },

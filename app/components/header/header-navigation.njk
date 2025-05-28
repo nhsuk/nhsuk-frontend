@@ -5,33 +5,35 @@
 {% block main %}
 
   {{ header({
-    primaryLinks: [
-      {
-        href: "#",
-        text: "Health A to Z"
-      },
-      {
-        href: "#",
-        text: "Live Well"
-      },
-      {
-        href: "#",
-        text: "Mental health"
-      },
-      {
-        href: "#",
-        text: "Care and support",
-        active: true
-      },
-      {
-        href: "#",
-        text: "Pregnancy"
-      },
-      {
-        href: "#",
-        text: "NHS services"
-      }
-    ]
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Health A to Z"
+        },
+        {
+          href: "#",
+          text: "Live Well"
+        },
+        {
+          href: "#",
+          text: "Mental health"
+        },
+        {
+          href: "#",
+          text: "Care and support",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Pregnancy"
+        },
+        {
+          href: "#",
+          text: "NHS services"
+        }
+      ]
+    }
   }) }}
 
 {% endblock %}

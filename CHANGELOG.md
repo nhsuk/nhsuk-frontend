@@ -30,7 +30,7 @@ If you’re using the `header` Nunjucks macro in your service, you must:
 - Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
 - Replace the `searchAction` option with the nested `search.action` option.
 - Replace the `searchInputName` option with the nested `search.name` option.
-- Update `primaryLinks` in the header to use `text` and `href` instead of `label` and `url`.
+- Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
 
 To restore the previous justified alignment, where navigation items appeared evenly spaced out, use the new `.nhsuk-header__navigation-list--justified` modifier class.
 

@@ -5,28 +5,30 @@
 {% block header %}
   {{ header({
     search: true,
-    primaryLinks: [
-      {
-        href: "https://www.nhs.uk/conditions",
-        text: "Health A to Z"
-      },
-      {
-        href: 'https://www.nhs.uk/live-well/',
-        text: 'Live Well'
-      },
-      {
-        href: 'https://www.nhs.uk/conditions/social-care-and-support/',
-        text: 'Care and support'
-      },
-      {
-        href: 'https://www.nhs.uk/news/',
-        text: 'Health news'
-      },
-      {
-        href: 'https://www.nhs.uk/service-search',
-        text: 'Services near you'
-      }
-    ]
+    navigation: {
+      items: [
+        {
+          href: "https://www.nhs.uk/conditions",
+          text: "Health A to Z"
+        },
+        {
+          href: 'https://www.nhs.uk/live-well/',
+          text: 'Live Well'
+        },
+        {
+          href: 'https://www.nhs.uk/conditions/social-care-and-support/',
+          text: 'Care and support'
+        },
+        {
+          href: 'https://www.nhs.uk/news/',
+          text: 'Health news'
+        },
+        {
+          href: 'https://www.nhs.uk/service-search',
+          text: 'Services near you'
+        }
+      ]
+    }
   }) }}
 {% endblock %}
 

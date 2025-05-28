@@ -105,11 +105,11 @@
     </nav>
 {% endif %}
   </div>
-{% if params.primaryLinks and params.primaryLinks.length > 0 %}
+{% if params.navigation and params.navigation.items | length %}
   <nav class="nhsuk-header__navigation" aria-label="Menu">
     <div class="nhsuk-header__navigation-container">
       <ul class="nhsuk-header__navigation-list">
-      {% for item in params.primaryLinks %}
+      {% for item in params.navigation.items %}
         {% set linkInnerContent %}
           {#- Wrap active links in strong element so users who override colours
               or styles still have some indicator of the current nav item. -#}
