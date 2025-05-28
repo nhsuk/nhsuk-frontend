@@ -93,7 +93,6 @@ $_header-item-padding: 12px;
   position: relative;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
-  margin-bottom: 1px;
 
   .nhsuk-icon__user {
     height: 24px;
@@ -106,15 +105,13 @@ $_header-item-padding: 12px;
     background-color: nhsuk-shade($color_nhsuk-blue, 20%);
   }
 
-  // Expand header account by 1px to ensure the search
-  // input does not appear to be taller when inline
   &::before {
     content: "";
     display: block;
     position: absolute;
-    top: -1px;
+    top: 0;
     right: 0;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
     border: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
     border-radius: $nhsuk-border-radius + 1px;
@@ -122,6 +119,13 @@ $_header-item-padding: 12px;
 
   @include nhsuk-media-query($from: tablet) {
     align-self: start;
+
+    // Expand header account by 1px to ensure the search
+    // input does not appear to be taller when inline
+    &::before {
+      top: -1px;
+      bottom: -1px;
+    }
   }
 }
 
