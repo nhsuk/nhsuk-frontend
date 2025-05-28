@@ -70,8 +70,11 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__service-logo,
 .nhsuk-header__service-name[href] {
-  text-decoration: none;
-  @include nhsuk-link-style-header;
+  @include nhsuk-link-style-white;
+
+  &:link {
+    text-decoration: none;
+  }
 
   &:hover {
     text-decoration: underline;
@@ -158,20 +161,15 @@ $_header-item-padding: 12px;
   display: flex;
   gap: nhsuk-spacing(2);
   overflow-wrap: anywhere;
-  @include nhsuk-link-style-header;
+  @include nhsuk-link-style-white;
 }
 
 .nhsuk-header__account-button {
   background: none;
   border: 0;
   padding: 0;
-  text-decoration: underline;
+  cursor: pointer;
   @include nhsuk-font(16);
-
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-  }
 }
 
 /// Search
@@ -246,12 +244,13 @@ $_header-item-padding: 12px;
   margin: 0;
   width: 44px;
   z-index: 9;
+  cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $color_shade_nhsuk-blue-35;
     box-shadow: inset 0 0 0 1px $color_nhsuk-white;
     color: $color_nhsuk-white;
-    cursor: pointer;
   }
 
   &:active {
@@ -259,9 +258,6 @@ $_header-item-padding: 12px;
   }
 
   &:focus {
-    background-color: $nhsuk-focus-color;
-    box-shadow: inset 0 -4px 0 0 $nhsuk-focus-text-color;
-
     @include nhsuk-focused-button;
   }
 }
@@ -335,8 +331,8 @@ $_header-item-padding: 12px;
   display: block;
   padding: nhsuk-spacing(3) 2px;
   white-space: nowrap;
-  @include nhsuk-link-style-header;
   @include nhsuk-font(16);
+  @include nhsuk-link-style-white;
 
   // Visual indicator for current navigation item has grey line on bottom edge,
   // and no underline on the link.
@@ -379,13 +375,9 @@ $_header-item-padding: 12px;
   cursor: pointer;
   display: flex;
   margin: 0;
-  overflow: visible;
-  position: relative;
-  right: 0;
   text-align: center;
+  text-decoration: none;
   vertical-align: top;
-  width: auto;
-  z-index: 1;
 
   &[hidden] {
     display: none;
@@ -425,6 +417,7 @@ $_header-item-padding: 12px;
 
   .nhsuk-header__navigation-link {
     @include nhsuk-width-container;
+    @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
     // When in expanded menu, a current item link should revert to having a
@@ -461,15 +454,35 @@ $_header-item-padding: 12px;
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
 
-  .nhsuk-header__container {
+  .nhsuk-header__container,
+  .nhsuk-header__logo {
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__service-logo:hover {
-    color: $nhsuk-text-color;
+  .nhsuk-header__service-logo {
+    @include nhsuk-link-style-default;
 
-    .nhsuk-header__organisation-name-descriptor {
-      color: $nhsuk-text-color;
+    &:link {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .nhsuk-header__organisation-name,
+      .nhsuk-header__organisation-name-descriptor {
+        color: inherit;
+      }
+    }
+
+    &:focus {
+      .nhsuk-header__logo {
+        color: inherit;
+      }
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -486,35 +499,36 @@ $_header-item-padding: 12px;
     outline-color: $color_nhsuk-grey-4;
   }
 
+  .nhsuk-header__account-button,
   .nhsuk-header__account-link {
+    @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
   }
 
-  .nhsuk-header__search-input.nhsuk-input {
+  .nhsuk-header__search-input.nhsuk-input:not(:focus) {
+    margin-right: -1px;
+    padding-left: $_header-item-padding - 1px;
     border-color: $color_nhsuk-grey-3;
     border-width: 1px;
-    margin-right: -1px;
-
-    &:focus {
-      border-color: $nhsuk-focus-text-color;
-      border-width: 2px;
-      margin-right: -2px;
-    }
   }
 
   .nhsuk-header__search-submit {
     background-color: $color_nhsuk-blue;
     color: $color_nhsuk-white;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $color_shade_nhsuk-blue-20;
       border-color: $color_shade_nhsuk-blue-20;
       box-shadow: none;
     }
 
+    &:active {
+      background-color: $color_shade_nhsuk-blue-50;
+    }
+
     &:focus {
-      background-color: $nhsuk-focus-color;
-      color: $nhsuk-focus-text-color;
+      @include nhsuk-focused-button;
     }
   }
 
@@ -556,12 +570,14 @@ $_header-item-padding: 12px;
   }
 
   .nhsuk-header__navigation-link {
+    @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
     // Visual indicator for current navigation item has blue line on
     // bottom edge instead of grey in the regular Header nav
     &[aria-current="page"],
     &[aria-current="true"] {
+      text-decoration: none;
       box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-blue;
     }
 
@@ -571,6 +587,14 @@ $_header-item-padding: 12px;
   }
 
   // Menu
+  .nhsuk-header__menu-toggle {
+    text-decoration: none;
+
+    &:not(:focus):not(:active):hover {
+      color: $color_nhsuk-blue;
+    }
+  }
+
   .nhsuk-header__menu-list {
     // When in expanded menu, a current item link should revert to having a
     // no box-shadow, with a box-shadow added to containing list item instead.

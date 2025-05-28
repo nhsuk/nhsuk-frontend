@@ -69,33 +69,6 @@
   }
 }
 
-/// Header link styling (accounts for different header colour variants)
-///
-/// @example scss
-///   @include nhsuk-link-style-header;
-
-@mixin nhsuk-link-style-header {
-  color: inherit;
-
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    color: inherit;
-  }
-
-  &:focus {
-    background-color: $nhsuk-focus-color;
-    box-shadow:
-      0 0 0 $nhsuk-focus-width $nhsuk-focus-color,
-      0 $nhsuk-focus-width 0 $nhsuk-focus-width $nhsuk-focus-text-color;
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
-    text-decoration: none;
-  }
-}
-
 /// Default link hover only styling
 ///
 /// @param {Color} $link-hover-colour [$nhsuk-link-hover-color] - Link hover colour
