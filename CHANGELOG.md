@@ -48,6 +48,24 @@ If your service has JavaScript you want to run successfully in Internet Explorer
 
 These changes were introduced in [pull request #1260: Remove legacy browser support with `<script type="module">`](https://github.com/nhsuk-frontend/pull/1260).
 
+#### Update the `<script>` snippet at the top of your `<body>` tag
+
+Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
+
+If you are not using our Nunjucks page template, replace the existing snippet:
+
+```js
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+```
+
+with:
+
+```js
+<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+```
+
+These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support] (https://github.com/nhsuk-frontend/pull/1327).
+
 #### Update header component params
 
 If you’re using the `header` Nunjucks macro in your service, you must:
