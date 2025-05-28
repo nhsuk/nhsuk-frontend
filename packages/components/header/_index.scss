@@ -387,9 +387,13 @@ $_header-item-padding: 12px;
   }
 
   .nhsuk-icon__chevron-down {
+    width: nhsuk-spacing(4);
     height: nhsuk-spacing(4);
     transform: rotate(90deg);
-    width: nhsuk-spacing(4);
+
+    // Move icon to align with edge of button, offseting 8px of empty
+    // SVG viewbox but keeping the same 2px padding used by text links
+    margin-right: -8px + 2px;
   }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
