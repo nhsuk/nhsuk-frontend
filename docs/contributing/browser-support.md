@@ -2,47 +2,58 @@
 
 NHS.UK frontend browser support is shown in the table below.
 
-| Operating system | Browser                            | Support   |
-| ---------------- | ---------------------------------- | --------- |
-| Windows          | Internet Explorer 11               | compliant |
-| Windows          | Edge (latest versions)             | compliant |
-| Windows          | Google Chrome (latest versions)    | compliant |
-| Windows          | Mozilla Firefox (latest versions)  | compliant |
-| macOS            | Safari 12+                         | compliant |
-| macOS            | Google Chrome (latest versions)    | compliant |
-| macOS            | Mozilla Firefox (latest versions)  | compliant |
-| iOS              | Safari for iOS 12.1 and later      | compliant |
-| iOS              | Google Chrome (latest versions)    | compliant |
-| Android          | Google Chrome (latest versions)    | compliant |
-| Android          | Samsung Internet (latest versions) | compliant |
+| Browser                        | Support   |
+| ------------------------------ | --------- |
+| Chrome (stable versions)       | Compliant |
+| Chrome 61 and later            | Necessary |
+| Firefox (stable versions)      | Compliant |
+| Firefox 60 and later           | Necessary |
+| Edge (stable versions)         | Compliant |
+| Edge 16-18, Edge 79 and later  | Necessary |
+| Internet Explorer 11           | Limited   |
+| Safari (stable versions)       | Compliant |
+| Safari 11 and later            | Necessary |
+| Safari 10.3 (iOS)              | Limited   |
+| Safari 10.1 (macOS)            | Limited   |
+| Opera (most recent)            | Compliant |
+| Opera 48 and later             | Necessary |
+| Samsung Internet (most recent) | Compliant |
+| Samsung Internet 8.2 and later | Necessary |
 
-'Compliant' means that components should look and function as they were designed to do in other modern browsers.
+From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 and other older browsers will no longer run NHS.UK frontend JavaScript. Our CSS is still compatible with Internet Explorer 11.
 
-'Latest versions' refers to the latest stable version and the version immediately before that.
+Stable versions of browsers refer to all stable releases of Chrome, Firefox and Edge released in the last 6 months and the last 4 releases of Safari.
 
-We no longer support older versions of Internet Explorer. This is due to the very low and falling numbers that these browsers make up compared to our total visits. Read the blog post [Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/) by GOV.UK for more information on why we have done this.
+For 'compliant' browsers we aim to provide the same baseline experience.
+
+For 'necessary' browsers we aim to support optional enhancements as much as possible. However, we might sometimes need to adjust the component's behaviour, while still allowing the users to complete their task. This might include:
+
+- falling back to the no-JavaScript experience
+- disabling parts of the enhancement
+- doing a simpler alternative
+
+For 'limited' browsers we do not download or attempt to parse NHS.UK frontend’s JavaScript. We will not regularly test in these browsers. We will not fix bugs affecting these browsers.
 
 # Assistive technology support
 
-We test the NHS.UK frontend with the following assistive technology:
+We test NHS.UK frontend with the following assistive technology:
 
-| Software                                                                                              | Type                                   | Browser                                       |
-| ----------------------------------------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------- |
-| [JAWS](https://www.freedomscientific.com/Products/Blindness/JAWS)                                     | Windows desktop screen reader          | Internet Explorer 11, Chrome (latest version) |
-| [NVDA](https://www.nvaccess.org/)                                                                     | Windows desktop screen reader          | Firefox (latest versions)                     |
-| [VoiceOver](https://www.apple.com/uk/accessibility/iphone/vision/)                                    | Apple mobile and desktop screen reader | Safari 12+                                    |
-| [TalkBack](https://support.google.com/accessibility/android/topic/3529932?hl=en-GB&ref_topic=9078845) | Android mobile screen reader           | Chrome (latest version)                       |
-| [Dragon NaturallySpeaking](https://www.nuance.com/en-gb/dragon.html)                                  | Windows speech recognition             | Internet Explorer 11                          |
-| [ZoomText](https://www.zoomtext.com/products/zoomtext-magnifierreader/)                               | Windows desktop screen magnifier       | Internet Explorer 11                          |
+| Software                                            | Software version | Browser                                  |
+| --------------------------------------------------- | ---------------- | ---------------------------------------- |
+| JAWS (desktop screen reader)                        | 2019 or later    | Chrome or Edge (latest version)          |
+| NVDA (desktop screen reader)                        | Latest           | Chrome, Firefox or Edge (latest version) |
+| VoiceOver on iOS (mobile screen reader)             | Latest           | Safari (latest version                   |
+| TalkBack (mobile screen reader)                     | Latest           | Chrome (latest version)                  |
+| Windows Magnifier or Apple Zoom (screen magnifiers) | Latest           | Any                                      |
+| Dragon (speech recognition)                         | 15 or later      | Chrome (latest version)                  |
 
-Testing with the various technologies above should cover the vast amount of
-users who use assistive technologies.
+This table is based on the [2016 survey of assistive technologies used to access GOV.UK](https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/) and the more recent [WebAIM screen reader survey](https://webaim.org/projects/screenreadersurvey9/).
 
 We also test that our components:
 
 - are accessible using a keyboard only
 - function correctly when using [high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
-- function correctly when changing colour schemes in ZoomText
+- function correctly when using ZoomText (screen magnifier)
 
 ---
 
