@@ -12,6 +12,7 @@ class Header {
 
     this.$root = $root
 
+    this.navigation = this.$root.querySelector('.nhsuk-header__navigation')
     this.navigationList = this.$root.querySelector(
       '.nhsuk-header__navigation-list'
     )
@@ -19,30 +20,28 @@ class Header {
       '.nhsuk-header__navigation-item'
     )
 
-    this.mobileMenuToggleButton = this.$root.querySelector(
-      '.nhsuk-header__menu-toggle'
-    )
-    this.mobileMenuContainer = this.$root.querySelector(
-      '.nhsuk-mobile-menu-container'
-    )
+    this.menu = this.$root.querySelector('.nhsuk-header__menu')
+    this.menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
 
     if (
+      !this.navigation ||
       !this.navigationList ||
       !this.navigationItems ||
       !this.navigationItems.length ||
-      !this.mobileMenuToggleButton ||
-      !this.mobileMenuContainer
+      !this.menu ||
+      !this.menuToggle
     ) {
       return this
     }
 
-    this.mobileMenu = document.createElement('ul')
+    this.menuList = document.createElement('ul')
+
     this.menuIsEnabled = false
     this.menuIsOpen = false
 
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.debounce(this.updateNavigation)
-    this.handleToggleMobileMenu = this.toggleMobileMenu.bind(this)
+    this.handleToggleMenu = this.toggleMenu.bind(this)
 
     this.setupNavigation()
     this.updateNavigation()
@@ -68,10 +67,7 @@ class Header {
 
     // Reset and calculate widths on every resize
     this.breakpoints.forEach((breakpoint) => {
-      this.navigationList.insertBefore(
-        breakpoint.element,
-        this.mobileMenuContainer
-      )
+      this.navigationList.insertBefore(breakpoint.element, this.menu)
 
       // Calculate widths
       right += breakpoint.element.offsetWidth
@@ -97,87 +93,65 @@ class Header {
   }
 
   /**
-   * Add the mobile menu to the DOM
+   * Add the menu to the DOM
    */
-  setupMobileMenu() {
-    if (this.mobileMenu.parentElement) {
+  setupMenu() {
+    if (this.menuList.parentElement) {
       return
     }
 
-    this.mobileMenuContainer.appendChild(this.mobileMenu)
-    this.mobileMenu.classList.add(
-      'nhsuk-header__drop-down',
-      'nhsuk-header__drop-down--hidden'
-    )
+    this.menuList.classList.add('nhsuk-header__menu-list')
+    this.menuList.setAttribute('hidden', '')
+    this.menu.appendChild(this.menuList)
   }
 
   /**
-   * Enable the mobile menu
+   * Enable the menu
    */
-  enableMobileMenu() {
+  enableMenu() {
     if (this.menuIsEnabled) {
       return
     }
 
     this.menuIsEnabled = true
-
-    this.mobileMenuToggleButton.classList.add(
-      'nhsuk-header__menu-toggle--visible'
-    )
-
-    this.mobileMenuContainer.classList.add(
-      'nhsuk-mobile-menu-container--visible'
-    )
+    this.menu.removeAttribute('hidden')
 
     // Add click listener to toggle menu
-    this.mobileMenuToggleButton.addEventListener(
-      'click',
-      this.handleToggleMobileMenu
-    )
+    this.menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
   /**
-   * Disable the mobile menu
+   * Disable the menu
    */
-  disableMobileMenu() {
+  disableMenu() {
     if (!this.menuIsEnabled) {
       return
     }
 
-    this.closeMobileMenu()
+    this.closeMenu()
     this.menuIsEnabled = false
+    this.menu.setAttribute('hidden', '')
 
-    this.mobileMenuToggleButton.classList.remove(
-      'nhsuk-header__menu-toggle--visible'
-    )
-
-    this.mobileMenuContainer.classList.remove(
-      'nhsuk-mobile-menu-container--visible'
-    )
-
-    // Remove click listener to toggle menu
-    this.mobileMenuToggleButton.removeEventListener(
-      'click',
-      this.handleToggleMobileMenu
-    )
+    // Remove click listener from toggle menu
+    this.menuToggle.removeEventListener('click', this.handleToggleMenu)
   }
 
   /**
-   * Close the mobile menu
+   * Close the menu
    *
-   * Closes the mobile menu and updates accessibility state.
+   * Closes the menu and updates accessibility state.
    *
    * Removes the margin-bottom from the navigation
    */
-  closeMobileMenu() {
+  closeMenu() {
     if (!this.menuIsEnabled || !this.menuIsOpen) {
       return
     }
 
     this.menuIsOpen = false
-    this.mobileMenu.classList.add('nhsuk-header__drop-down--hidden')
-    this.$root.style.marginBottom = 0
-    this.mobileMenuToggleButton.setAttribute('aria-expanded', 'false')
+    this.menuList.setAttribute('hidden', '')
+    this.menuToggle.setAttribute('aria-expanded', 'false')
+    this.navigation.style.marginBottom = 0
 
     // Remove escape key listener to close menu
     document.removeEventListener('keydown', this.handleEscapeKey)
@@ -187,36 +161,35 @@ class Header {
    * Escape key handler
    *
    * This function is called when the user
-   * presses the escape key to close the mobile menu.
+   * presses the escape key to close the menu.
    *
    * @param {KeyboardEvent} event - Key press event
    */
   onEscapeKey(event) {
     if (event.key === 'Escape') {
-      this.closeMobileMenu()
+      this.closeMenu()
     }
   }
 
   /**
-   * Open the mobile menu
+   * Open the menu
    *
-   * Opens the mobile menu and updates accessibility state.
+   * Opens the menu and updates accessibility state.
    *
-   * The mobile menu is absolutely positioned, so it adds a margin
+   * The menu is absolutely positioned, so it adds a margin
    * to the bottom of the navigation to prevent it from overlapping
    *
    * Adds event listeners for the close button,
    */
-  openMobileMenu() {
+  openMenu() {
     if (!this.menuIsEnabled || this.menuIsOpen) {
       return
     }
 
     this.menuIsOpen = true
-    this.mobileMenu.classList.remove('nhsuk-header__drop-down--hidden')
-    const marginBody = this.mobileMenu.offsetHeight
-    this.$root.style.marginBottom = `${marginBody}px`
-    this.mobileMenuToggleButton.setAttribute('aria-expanded', 'true')
+    this.menuList.removeAttribute('hidden')
+    this.menuToggle.setAttribute('aria-expanded', 'true')
+    this.navigation.style.marginBottom = `${this.menuList.offsetHeight}px`
 
     // Add escape key listener to close menu
     document.addEventListener('keydown', this.handleEscapeKey)
@@ -225,24 +198,24 @@ class Header {
   /**
    * Handle menu button click
    *
-   * Toggles the mobile menu between open and closed
+   * Toggles the menu between open and closed
    */
-  toggleMobileMenu() {
+  toggleMenu() {
     if (!this.menuIsEnabled) {
       return
     }
 
     if (this.menuIsOpen) {
-      this.closeMobileMenu()
+      this.closeMenu()
     } else {
-      this.openMobileMenu()
+      this.openMenu()
     }
   }
 
   /**
    * Update navigation for the available space
    *
-   * Moves all items that overflow the available space into the mobile menu
+   * Moves all items that overflow the available space into the menu
    */
   updateNavigation() {
     this.resetNavigation()
@@ -252,22 +225,22 @@ class Header {
       return breakpoint.right > this.width
     })
 
-    // Disable mobile menu if empty
+    // Disable menu if empty
     if (!menuItems.length) {
-      this.disableMobileMenu()
+      this.disableMenu()
       return
     }
 
-    this.setupMobileMenu()
-    this.enableMobileMenu()
+    this.setupMenu()
+    this.enableMenu()
 
     // Subtract space for menu button
-    this.width -= this.mobileMenuContainer.offsetWidth
+    this.width -= this.menu.offsetWidth
 
     // Move items based on available width
     this.breakpoints.forEach((breakpoint) => {
       if (breakpoint.right > this.width) {
-        this.mobileMenu.insertAdjacentElement('beforeend', breakpoint.element)
+        this.menuList.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
   }
@@ -281,7 +254,7 @@ class Header {
  */
 module.exports = (options = {}) => {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-navigation')
+  const $root = $scope.querySelector('.nhsuk-header')
 
   new Header($root)
 }

@@ -1,0 +1,14 @@
+{% set title = "Header with service name as a combined link" %}
+{% from "components/header/macro.njk" import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    service: {
+      text: "Prototype kit",
+      href: "#"
+    }
+  }) }}
+
+{% endblock %}

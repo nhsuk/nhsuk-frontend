@@ -1,0 +1,53 @@
+{% set title = "Header with account (logged in, RBAC)" %}
+{% from "components/header/macro.njk" import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    service: {
+      text: "Manage patients"
+    },
+    search: {
+      placeholder: "NHS number, date of birth",
+      visuallyHiddenLabel: "Search for a user"
+    },
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          text: "RA Manager, Hull and East Yorkshire Hospitals NHS Trust (RWA)"
+        },
+        {
+          href: "#",
+          text: "Change role"
+        },
+        {
+          action: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Home"
+        },
+        {
+          href: "#",
+          text: "Create user"
+        },
+        {
+          href: "#",
+          text: "Find user"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}

@@ -2,9 +2,43 @@
 
 ## Unreleased
 
+:new: **New features**
+
+#### New header with account section
+
+We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
+
+- Show account information and links in the header.
+- Show currently active section or page in the navigation.
+- Remove hardcoded home link from the navigation.
+- Align navigation items to the left by default.
+- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+- Update NHS logo in the header to have higher contrast when focused.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
+
+#### Update header component params
+
+If you’re using the `header` Nunjucks macro in your service, you must:
+
+- Remove the boolean `showNav`, `showSearch`, `transactional` and `transactionalService` options from the header component as respective parts of the header are shown automatically when `primaryLinks` or `search` options are provided.
+- Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
+- Replace the `searchAction` option with the nested `search.action` option.
+- Replace the `searchInputName` option with the nested `search.name` option.
+- Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
+
+To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
+
+#### Update header component HTML markup
+
+You do not need to do anything if you’re using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
 
 #### Rename component `HTML` param to `html`
 
