@@ -41,8 +41,8 @@
 
     figcaption {
       // [5]
-      @include nhsuk-font($size: 22, $weight: bold);
       text-align: left;
+      @include nhsuk-font($size: 22, $weight: bold);
     }
 
     .nhsuk-table__row {
@@ -62,7 +62,7 @@
       padding-right: 0;
 
       &:last-child {
-        border-bottom: 3px solid $color_nhsuk-grey-4;
+        border-bottom: 3px solid $nhsuk-border-colour;
       }
 
       dd {
@@ -178,7 +178,7 @@
     }
   }
 
-  @include mq($until: desktop) {
+  @include nhsuk-media-query($until: desktop) {
     // [3]
     .nhsuk-table__list-view-container,
     .nhsuk-table__list-view-container .nhsuk-table__row {
@@ -190,7 +190,7 @@
     }
   }
 
-  @include mq($from: desktop) {
+  @include nhsuk-media-query($from: desktop) {
     // [4]
     .nhsuk-table__list-view-container,
     .nhsuk-table__list-view-container .nhsuk-table__row {
