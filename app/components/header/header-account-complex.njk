@@ -1,4 +1,4 @@
-{% set title = "Header with account (logged in, RBAC)" %}
+{% set title = "Header with account (logged in, complex)" %}
 {% from "components/header/macro.njk" import header %}
 {% extends 'example.njk' %}
 
@@ -9,8 +9,8 @@
       text: "Manage patients"
     },
     search: {
-      placeholder: "NHS number, date of birth",
-      visuallyHiddenLabel: "Search for a user"
+      placeholder: "Name or NHS number",
+      visuallyHiddenLabel: "Search for a patient"
     },
     account: {
       items: [
@@ -20,7 +20,7 @@
           icon: true
         },
         {
-          text: "RA Manager, Hull and East Yorkshire Hospitals NHS Trust (RWA)"
+          text: "Regional Manager, Hull and East Yorkshire Hospitals NHS Trust"
         },
         {
           href: "#",
