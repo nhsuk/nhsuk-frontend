@@ -647,8 +647,8 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with account (logged in, RBAC)',
-      url: `${BASE_URL}/components/header/header-account-rbac.html`,
+      label: 'Header with account (logged in, complex)',
+      url: `${BASE_URL}/components/header/header-account-complex.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
