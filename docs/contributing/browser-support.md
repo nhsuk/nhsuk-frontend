@@ -1,6 +1,21 @@
-# Browser support
+# How we provide support for different browsers
 
-NHS.UK frontend browser support is shown in the table below.
+From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 and other older browsers will no longer run NHS.UK frontend JavaScript. Your service will not stop working, but components will look and behave differently without JavaScript.
+
+## Browser support
+
+Supported browsers can be split into three levels:
+
+- **Compliant** – we aim to provide the same baseline experience.
+- **Necessary** – we aim to support optional enhancements as much as possible. However, we might sometimes need to adjust the component's behaviour, while still allowing the users to complete their task. This might include:
+
+  - falling back to the no-JavaScript experience
+  - disabling parts of the enhancement
+  - doing a simpler alternative
+
+- **Limited** – we do not download or attempt to parse NHS.UK frontend JavaScript. We will not regularly test in these browsers. We will not fix bugs affecting these browsers.
+
+We test NHS.UK frontend with the following browsers:
 
 | Browser                        | Support   |
 | ------------------------------ | --------- |
@@ -20,21 +35,9 @@ NHS.UK frontend browser support is shown in the table below.
 | Samsung Internet (most recent) | Compliant |
 | Samsung Internet 8.2 and later | Necessary |
 
-From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 and other older browsers will no longer run NHS.UK frontend JavaScript. Our CSS is still compatible with Internet Explorer 11.
+Stable versions refer to all stable releases of Chrome, Firefox and Edge released in the last 6 months and the last 4 releases of Safari.
 
-Stable versions of browsers refer to all stable releases of Chrome, Firefox and Edge released in the last 6 months and the last 4 releases of Safari.
-
-For 'compliant' browsers we aim to provide the same baseline experience.
-
-For 'necessary' browsers we aim to support optional enhancements as much as possible. However, we might sometimes need to adjust the component's behaviour, while still allowing the users to complete their task. This might include:
-
-- falling back to the no-JavaScript experience
-- disabling parts of the enhancement
-- doing a simpler alternative
-
-For 'limited' browsers we do not download or attempt to parse NHS.UK frontend’s JavaScript. We will not regularly test in these browsers. We will not fix bugs affecting these browsers.
-
-# Assistive technology support
+## Assistive technology support
 
 We test NHS.UK frontend with the following assistive technology:
 
