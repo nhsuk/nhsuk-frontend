@@ -1,6 +1,10 @@
 # How we provide support for different browsers
 
+Users can access NHS services through a wide range of new to older browsers. Our components provide a baseline experience through HTML and CSS, allowing all users to complete their tasks even if JavaScript is not working. Some components have JavaScript enhancements which add extra features or fix accessibility issues.
+
 From NHS.UK frontend v10.0.0 onwards, Internet Explorer 11 and other older browsers will no longer run NHS.UK frontend JavaScript. Your service will not stop working, but components will look and behave differently without JavaScript.
+
+Service teams should [use a progressive enhancement approach (GOV.UK service manual)](https://www.gov.uk/service-manual/technology/using-progressive-enhancement) to make sure users can still access any content and complete their tasks.
 
 ## Browser support
 
