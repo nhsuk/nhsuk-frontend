@@ -38,9 +38,10 @@
   }
 
   figcaption {
+    text-align: left;
+
     // [5]
     @include nhsuk-font($size: 22, $weight: bold);
-    text-align: left;
   }
 
   .nhsuk-table__row {
@@ -176,7 +177,7 @@
   }
 }
 
-@include mq($until: desktop) {
+@include nhsuk-media-query($until: desktop) {
   // [3]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
@@ -188,7 +189,7 @@
   }
 }
 
-@include mq($from: desktop) {
+@include nhsuk-media-query($from: desktop) {
   // [4]
   .nhsuk-table__list-view-container,
   .nhsuk-table__list-view-container .nhsuk-table__row {
