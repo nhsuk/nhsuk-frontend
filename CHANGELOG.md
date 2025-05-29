@@ -70,12 +70,12 @@ These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend
 
 If you’re using the `header` Nunjucks macro in your service, you must:
 
-- Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component as respective parts of the header are shown automatically when `primaryLinks` or `search` options are provided.
 - Rename the `transactionalService` option to the new `service` option.
-- Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
 - Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
 - Replace the `searchAction` option with the nested `search.action` option.
 - Replace the `searchInputName` option with the nested `search.name` option.
+- Remove the boolean `showNav`, `showSearch` and `transactional` options from the header component as respective parts of the header are shown automatically when `navigation.items` or `search` options are provided.
+- Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
 
 To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
 
