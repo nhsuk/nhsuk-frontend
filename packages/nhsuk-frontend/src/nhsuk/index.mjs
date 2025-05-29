@@ -1,3 +1,4 @@
+import { isSupported } from './common.mjs'
 import {
   initRadios,
   initHeader,
@@ -9,6 +10,7 @@ import {
   initSkipLink,
   initTabs
 } from './components/index.mjs'
+import { SupportError } from './errors/index.mjs'
 
 /**
  * Use this function to initialise nhsuk-frontend components within a
@@ -19,6 +21,12 @@ import {
  * @param {Element | Document | null} [$scope] - Scope of the document to search within
  */
 export function initAll($scope) {
+  // Skip initialisation when NHS.UK frontend is not supported
+  if (!isSupported()) {
+    console.log(new SupportError())
+    return
+  }
+
   const options = {
     scope: $scope || document
   }

@@ -272,11 +272,19 @@ export class CharacterCount {
     // Cancel value checking on blur
     clearInterval(this.valueChecker)
   }
-}
 
-CharacterCount.prototype.defaults = {
-  characterCountAttribute: 'data-maxlength',
-  wordCountAttribute: 'data-maxwords'
+  /**
+   * Character count default config
+   */
+  static defaults = Object.freeze({
+    characterCountAttribute: 'data-maxlength',
+    wordCountAttribute: 'data-maxwords'
+  })
+
+  /**
+   * Name for the component used when initialising using data-module attributes.
+   */
+  static moduleName = 'nhsuk-character-count'
 }
 
 /**
@@ -288,7 +296,7 @@ CharacterCount.prototype.defaults = {
 export function initCharacterCount(options = {}) {
   const $scope = options.scope || document
   const $characterCounts = $scope.querySelectorAll(
-    '[data-module="nhsuk-character-count"]'
+    `[data-module="${CharacterCount.moduleName}"]`
   )
 
   $characterCounts.forEach(($root) => {
