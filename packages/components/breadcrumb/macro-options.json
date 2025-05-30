@@ -48,5 +48,11 @@
     "type": "object",
     "required": false,
     "description": "HTML attributes (for example data attributes) to add to the container."
+  },
+  {
+    "name": "labelText",
+    "type": "string",
+    "required": false,
+    "description": "Plain text label identifying the landmark to screen readers. Defaults to \"Breadcrumb\"."
   }
 ]
