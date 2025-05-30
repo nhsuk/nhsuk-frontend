@@ -27,7 +27,7 @@
   }
 
   .nhsuk-icon {
-    fill: currentcolor;
+    fill: $link-color;
   }
 
   @include nhsuk-link-style-visited($link-visited-color);
@@ -69,6 +69,10 @@
 @mixin nhsuk-link-style-visited($link-visited-color: $nhsuk-link-visited-color) {
   &:visited {
     color: $link-visited-color;
+
+    .nhsuk-icon {
+      fill: $link-visited-color;
+    }
   }
 }
 
@@ -85,6 +89,10 @@
   &:hover:visited {
     color: $link-hover-colour;
     text-decoration: none;
+
+    .nhsuk-icon {
+      fill: $link-hover-colour;
+    }
   }
 }
 
@@ -117,6 +125,10 @@
   &:active,
   &:active:visited {
     color: $link-active-colour;
+
+    .nhsuk-icon {
+      fill: $link-active-colour;
+    }
   }
 }
 
