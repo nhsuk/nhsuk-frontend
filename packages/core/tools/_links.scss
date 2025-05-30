@@ -40,6 +40,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-default;
+///
 
 @mixin nhsuk-link-style-default {
   @include nhsuk-link-style;
@@ -51,6 +52,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-white;
+///
 
 @mixin nhsuk-link-style-white {
   @include nhsuk-link-style-text($override-color: $nhsuk-reverse-text-color);
@@ -62,6 +64,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-visited;
+///
 
 @mixin nhsuk-link-style-visited($link-visited-color: $nhsuk-link-visited-color) {
   &:not(.nhsuk-button):not(:hover):not(:focus):not(:active):visited {
@@ -75,6 +78,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-hover;
+///
 
 @mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-color) {
   &:hover {
@@ -87,6 +91,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-focus;
+///
 
 @mixin nhsuk-link-style-focus {
   &:focus {
@@ -104,6 +109,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-active;
+///
 
 @mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-color) {
   &:active {
@@ -128,6 +134,7 @@
 ///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-no-visited-state;
 ///   }
+///
 
 @mixin nhsuk-link-style-no-visited-state {
   @include nhsuk-link-style-visited($link-visited-color: $nhsuk-link-color);
@@ -144,6 +151,7 @@
 ///   .nhsuk-component__link {
 ///     @include nhsuk-link-style-text;
 ///   }
+///
 
 @mixin nhsuk-link-style-text($override-color: $nhsuk-text-color) {
   @include nhsuk-link-style(
