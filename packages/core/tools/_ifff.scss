@@ -12,7 +12,6 @@
 /// @return {Mixed} Value of `$if-true` if `$condition` is truthy, else null
 ///
 /// @deprecated To be removed in v10.0, use `if($condition, $if-true, null);` instead.
-////
 
 @function iff($condition, $if-true) {
   @warn "The `iff` function will be removed in a future release, use `if($condition, $if-true, null);` instead.";
