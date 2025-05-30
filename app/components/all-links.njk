@@ -161,8 +161,23 @@
 
             {{ backLink({
               "text": "Back",
-              "classes": "nhsuk-back-link--reverse nhsuk-u-margin-bottom-4",
+              "classes": "nhsuk-back-link--reverse",
               "href": "#"
+            }) }}
+
+            {{ breadcrumb({
+              "labelText": "Breadcrumb (reversed)",
+              "classes": "nhsuk-breadcrumb--reverse nhsuk-u-margin-bottom-4",
+              "items": [
+                {
+                  "text": "Example one",
+                  "href": "#"
+                },
+                {
+                  "text": "Example two",
+                  "href": "#"
+                }
+              ]
             }) }}
 
             <p><a href="#" class="nhsuk-link nhsuk-link--reverse">Example link 1</a></p>
