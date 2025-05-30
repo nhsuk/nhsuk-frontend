@@ -86,7 +86,6 @@
 /// 3. The 'null' breakpoint is for mobile.
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
-///
 
 @mixin nhsuk-responsive-spacing(
   $responsive-spacing-point,
@@ -161,7 +160,6 @@
 ///   }
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
-///
 
 @mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
   @include nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
@@ -188,7 +186,6 @@
 ///   }
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
-///
 
 @mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
   @include nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);

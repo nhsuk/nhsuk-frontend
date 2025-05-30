@@ -15,6 +15,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-clearfix();
+///
 
 @mixin nhsuk-clearfix() {
   &::after {
@@ -41,6 +42,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-reading-width();
+///
 
 @mixin nhsuk-reading-width() {
   max-width: 44em;
@@ -105,6 +107,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-visually-hidden;
+///
 
 @mixin nhsuk-visually-hidden($important: true) {
   @include _nhsuk-visually-hide-content($important: $important);
@@ -201,6 +204,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-top-and-bottom;
+///
 
 @mixin nhsuk-top-and-bottom() {
   & > *:first-child {
@@ -229,6 +233,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-panel($color_nhsuk-blue, $color_nhsuk-white);
+///
 
 @mixin nhsuk-panel($panel-background-color, $panel-text-color) {
   background-color: $panel-background-color;
@@ -264,6 +269,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+///
 
 @mixin nhsuk-panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
   border: 1px solid $panel-border-color;
@@ -300,6 +306,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white);
+///
 
 @mixin nhsuk-heading-label($heading-background-color, $heading-text-color) {
   background-color: $heading-background-color; // [1]
@@ -344,6 +351,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
+///
 
 @mixin nhsuk-care-card($heading-background-color, $heading-text-color, $print-border-size) {
   .nhsuk-card--care__heading-container {
@@ -376,6 +384,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-print-color($nhsuk-print-text-color);
+///
 
 @mixin nhsuk-print-color($print-color) {
   @include nhsuk-media-query($media-type: print) {
@@ -405,6 +414,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-print-hide();
+///
 
 @mixin nhsuk-print-hide() {
   @include nhsuk-media-query($media-type: print) {
@@ -426,6 +436,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-flex;
+///
 
 @mixin nhsuk-flex() {
   display: flex;
@@ -446,6 +457,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-flex-item;
+///
 
 @mixin nhsuk-flex-item() {
   display: flex;
