@@ -76,7 +76,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.6.0",
     "glob": "^11.0.2",
-    "gulp": "^5.0.0",
+    "gulp": "^5.0.1",
     "gulp-filter": "^9.0.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
