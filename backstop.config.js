@@ -1069,11 +1069,15 @@ module.exports = {
       url: `${BASE_URL}/components/select/index.html`
     },
     {
+      label: 'Select with hint text',
+      url: `${BASE_URL}/components/select/hint.html`
+    },
+    {
       label: 'Select with hint text, error message',
       url: `${BASE_URL}/components/select/hint-error.html`
     },
     {
-      clickSelector: '[for=select-2]',
+      clickSelector: '[for=location]',
       label: 'Select with hint text, error message (focused)',
       url: `${BASE_URL}/components/select/hint-error.html`
     },
