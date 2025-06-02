@@ -68,52 +68,6 @@
       margin-top: 0;
     }
   }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-
-    .nhsuk-icon {
-      fill: $nhsuk-link-hover-color;
-    }
-
-    .nhsuk-pagination__page {
-      text-decoration: none;
-    }
-  }
-
-  &:focus {
-    @include nhsuk-focused-text;
-
-    .nhsuk-pagination__page {
-      text-decoration: none;
-    }
-
-    &:visited,
-    &:hover,
-    &:active {
-      .nhsuk-icon {
-        fill: $nhsuk-focus-text-color;
-      }
-    }
-  }
-
-  &:visited {
-    .nhsuk-icon {
-      fill: $nhsuk-link-visited-color;
-    }
-
-    &:hover {
-      .nhsuk-icon {
-        fill: $nhsuk-link-hover-color;
-      }
-    }
-
-    &:focus {
-      .nhsuk-icon {
-        fill: $nhsuk-focus-text-color;
-      }
-    }
-  }
 }
 
 .nhsuk-pagination__title {
@@ -133,4 +87,9 @@
   text-decoration: underline;
 
   @include nhsuk-font-size(16);
+
+  .nhsuk-pagination__link:hover &,
+  .nhsuk-pagination__link:focus & {
+    text-decoration: none;
+  }
 }
