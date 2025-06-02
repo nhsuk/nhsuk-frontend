@@ -152,6 +152,7 @@ This change was made in [pull request #1259: Review legacy Nunjucks params](http
 - [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
 - [#1325: Ensure summary list keys are aligned across lists](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
 - [#1325: Add `nhsuk-summary-list__row--no-border` modifier to remove border on an individual summary list row](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1345: Fix primary card chevron position without description](https://github.com/nhsuk/nhsuk-frontend/pull/1345)
 
 ## 9.6.1 - 22 May 2025
 
