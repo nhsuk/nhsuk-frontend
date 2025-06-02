@@ -50,6 +50,18 @@
     ]
   },
   {
+    "name": "value",
+    "type": "string",
+    "required": false,
+    "description": "Value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item."
+  },
+  {
+    "name": "disabled",
+    "type": "boolean",
+    "required": false,
+    "description": "If `true`, select box will be disabled. Use the `disabled` option on each individual item to only disable certain options."
+  },
+  {
     "name": "label",
     "type": "object",
     "required": false,
@@ -69,6 +81,20 @@
     "required": false,
     "description": "Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.",
     "isComponent": true
+  },
+  {
+    "name": "formGroup",
+    "type": "object",
+    "required": false,
+    "description": "Additional options for the form group containing the select component.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the form group (for example to show error state for the whole group)."
+      }
+    ]
   },
   {
     "name": "classes",
