@@ -112,16 +112,6 @@
     @include nhsuk-link-style-white;
   }
 
-  &:link,
-  .nhsuk-breadcrumb--reverse &:link {
-    text-decoration: none;
-  }
-
-  &:hover,
-  .nhsuk-breadcrumb--reverse &:hover {
-    text-decoration: underline;
-  }
-
   &:hover::before {
     background-image: url($icon-background-hover);
   }
