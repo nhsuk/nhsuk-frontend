@@ -297,7 +297,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     width: $icon-width;
     height: $icon-height;
     fill: $color_nhsuk-blue;
-    margin-top: math.floor(math.div($icon-height, 2)) * -1;
+    margin-top: -(math.floor(math.div($icon-height, 2)));
     pointer-events: none;
     position: absolute;
     top: 50%;
