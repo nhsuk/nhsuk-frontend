@@ -51,12 +51,14 @@ $button-padding-left-right: 16px;
 
   // [1]
   &,
-  &:link,
-  &:visited,
-  &:active,
-  &:hover {
-    color: $nhsuk-button-text-color;
+  &:hover,
+  &:active {
     text-decoration: none;
+
+    &,
+    &:visited {
+      color: $nhsuk-button-text-color;
+    }
   }
 
   // [2]
@@ -78,9 +80,12 @@ $button-padding-left-right: 16px;
   // Add button focus styles ensuring the active "pressed" state has priority
   &:focus:not(:active),
   &:focus:not(:active):hover {
-    background-color: $nhsuk-focus-color;
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
+    @include nhsuk-focused-button;
+
+    // stylelint-disable-next-line no-duplicate-selectors
+    & {
+      box-shadow: none;
+    }
 
     // Set shadow below the button [4]
     &::after {
@@ -145,10 +150,11 @@ $button-padding-left-right: 16px;
 .nhsuk-button--secondary,
 .nhsuk-button--secondary-solid {
   &,
-  &:link,
   &:visited,
+  &:hover,
+  &:hover:visited,
   &:active,
-  &:hover {
+  &:active:visited {
     color: $nhsuk-secondary-button-text-color;
   }
 
@@ -190,9 +196,11 @@ $button-padding-left-right: 16px;
   background-color: $nhsuk-reverse-button-color;
 
   &,
-  &:link,
   &:visited,
-  &:hover {
+  &:hover,
+  &:hover:visited,
+  &:active,
+  &:active:visited {
     color: $nhsuk-reverse-button-text-color;
   }
 
@@ -207,7 +215,6 @@ $button-padding-left-right: 16px;
 
   &:active {
     background-color: $nhsuk-reverse-button-active-color;
-    color: $nhsuk-reverse-button-text-color;
   }
 
   // Set shadow below the button [4]

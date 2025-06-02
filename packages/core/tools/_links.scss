@@ -67,7 +67,7 @@
 ///
 
 @mixin nhsuk-link-style-visited($link-visited-color: $nhsuk-link-visited-color) {
-  &:not(.nhsuk-button):not(:hover):not(:focus):not(:active):visited {
+  &:visited {
     color: $link-visited-color;
   }
 }
@@ -81,7 +81,8 @@
 ///
 
 @mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-color) {
-  &:hover {
+  &:hover,
+  &:hover:visited {
     color: $link-hover-colour;
     text-decoration: none;
   }
@@ -94,7 +95,8 @@
 ///
 
 @mixin nhsuk-link-style-focus {
-  &:focus {
+  &:focus,
+  &:focus:visited {
     @include nhsuk-focused-text;
 
     &:hover {
@@ -112,7 +114,8 @@
 ///
 
 @mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-color) {
-  &:active {
+  &:active,
+  &:active:visited {
     color: $link-active-colour;
   }
 }
