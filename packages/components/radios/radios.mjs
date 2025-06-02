@@ -65,7 +65,9 @@ export class Radios {
  */
 export function initRadios(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-radios--conditional')
+  const $radios = $scope.querySelectorAll('.nhsuk-radios--conditional')
 
-  new Radios($root)
+  $radios.forEach(($root) => {
+    new Radios($root)
+  })
 }
