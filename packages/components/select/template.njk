@@ -6,8 +6,10 @@
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
 {%- set describedBy = "" -%}
-<div class="nhsuk-form-group
-{%- if params.errorMessage %} nhsuk-form-group--error{% endif %}">
+{%- set id = params.id if params.id else params.name -%}
+
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
     html: params.label.html,
     text: params.label.text,
@@ -38,15 +40,21 @@
   }) | indent(2) | trim }}
 {%- endif %}
   <select class="nhsuk-select
-    {%- if params.classes %} {{ params.classes }}{% endif %}
-    {%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}"
+    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ id }}" name="{{ params.name }}"
+    {%- if params.disabled %} disabled{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
   {%- for item in params.items %}
-    <option value="{{ item.value }}"
-      {{-" selected" if item.selected }}
+    {% if item %}
+    {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
+    {%- set effectiveValue = item.value | default(item.text) %}
+    <option {%- if item.value !== undefined %} value="{{ item.value }}"{% endif %}
+      {{-" selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
       {{-" disabled" if item.disabled }}
-      {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</option>
+      {{- nhsukAttributes(item.attributes) }}>
+      {{- item.text -}}
+    </option>
+    {% endif %}
   {%- endfor %}
   </select>
 </div>
