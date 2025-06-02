@@ -8,7 +8,7 @@ This release stops Internet Explorer 11 and other older browsers from running NH
 
 #### Reversed link style for breadcrumb and back link
 
-You can now use the breadcrumb and back link components on dark background by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
+You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
 
 #### New header with account section
 
