@@ -58,7 +58,11 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card__heading,
 .nhsuk-card__description {
-  margin-bottom: nhsuk-spacing(3);
+  margin-bottom: 0;
+}
+
+.nhsuk-card__description {
+  margin-top: nhsuk-spacing(3);
 }
 
 /// Clickable card
@@ -146,6 +150,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding: nhsuk-spacing(2) nhsuk-spacing(4);
   position: relative;
   top: -(nhsuk-spacing(2));
+
+  + .nhsuk-card__description {
+    margin-top: 0;
+  }
 
   @include nhsuk-media-query($from: tablet) {
     left: -(nhsuk-spacing(5) + $card-border-width); // [5]
