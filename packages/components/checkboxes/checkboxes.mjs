@@ -136,7 +136,9 @@ export class Checkboxes {
  */
 export function initCheckboxes(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-checkboxes')
+  const $checkboxes = $scope.querySelectorAll('.nhsuk-checkboxes')
 
-  new Checkboxes($root)
+  $checkboxes.forEach(($root) => {
+    new Checkboxes($root)
+  })
 }
