@@ -19,6 +19,10 @@
 
             {{ backLink() }}
 
+            {{ backLink({
+              "text": "Back to search results"
+            }) }}
+
             {{ breadcrumb({
               "labelText": "Breadcrumb (page background)",
               "classes": "nhsuk-u-margin-bottom-4",
@@ -62,6 +66,10 @@
           <div class="nhsuk-grid-column-one-third">
 
             {{ backLink() }}
+
+            {{ backLink({
+              "text": "Back to search results"
+            }) }}
 
             {{ breadcrumb({
               "labelText": "Breadcrumb (white background)",
@@ -107,6 +115,10 @@
 
             {{ backLink() }}
 
+            {{ backLink({
+              "text": "Back to search results"
+            }) }}
+
             {{ breadcrumb({
               "labelText": "Breadcrumb (grey background)",
               "classes": "nhsuk-u-margin-bottom-4",
@@ -151,6 +163,11 @@
           <div class="nhsuk-grid-column-one-third">
 
             {{ backLink({
+              "classes": "nhsuk-back-link--reverse"
+            }) }}
+
+            {{ backLink({
+              "text": "Back to search results",
               "classes": "nhsuk-back-link--reverse"
             }) }}
 
