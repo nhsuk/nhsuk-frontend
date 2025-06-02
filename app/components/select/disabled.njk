@@ -1,4 +1,4 @@
-{% set title = 'Select' %}
+{% set title = 'Select with disabled option' %}
 {% from 'components/select/macro.njk' import select %}
 {% extends 'example.njk' %}
 
@@ -27,7 +27,8 @@
           },
           {
             "value": "comments",
-            "text": "Most comments"
+            "text": "Most comments",
+            "disabled": true
           }
         ]
       }) }}
