@@ -32,8 +32,8 @@
 
   @include nhsuk-link-style-visited($link-visited-color);
   @include nhsuk-link-style-hover($link-hover-color);
-  @include nhsuk-link-style-focus;
   @include nhsuk-link-style-active($link-active-color);
+  @include nhsuk-link-style-focus;
 }
 
 /// Default link styling
