@@ -396,6 +396,42 @@ module.exports = {
       ]
     },
     {
+      label: 'Primary card (with chevron)',
+      url: `${BASE_URL}/components/card/card-primary.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Primary card (with chevron and description)',
+      url: `${BASE_URL}/components/card/card-primary-with-description.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Secondary card',
+      url: `${BASE_URL}/components/card/card-secondary.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Top task card',
+      url: `${BASE_URL}/components/card/top-task-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Care card (Non urgent)',
       url: `${BASE_URL}/components/card/care-card-non-urgent.html`,
       viewports: [
