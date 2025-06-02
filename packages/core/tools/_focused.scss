@@ -16,14 +16,21 @@
   box-shadow:
     0 -2px $nhsuk-focus-color,
     0 $nhsuk-focus-width $nhsuk-focus-text-color;
-  color: $nhsuk-focus-text-color;
+
   // When colours are overridden, for example when users have a dark mode,
   // backgrounds and box-shadows disappear, so we need to ensure there's a
   // transparent outline which will be set to a visible colour.
   outline: $nhsuk-focus-width solid transparent;
+
   // When link is focussed, hide the default underline since the
   // box shadow adds the "underline"
   text-decoration: none;
+
+  &,
+  .nhsuk-icon {
+    color: $nhsuk-focus-text-color;
+    fill: $nhsuk-focus-text-color;
+  }
 }
 
 /// Focused input (form elements)
@@ -66,13 +73,14 @@
 
 @mixin nhsuk-focused-button {
   background-color: $nhsuk-focus-color;
-  border: 0;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-color;
   color: $nhsuk-focus-text-color;
   outline: $nhsuk-focus-width solid transparent; // [1]
   outline-offset: $nhsuk-focus-width;
 
+  &,
   .nhsuk-icon {
+    color: $nhsuk-focus-text-color;
     fill: $nhsuk-focus-text-color;
   }
 }

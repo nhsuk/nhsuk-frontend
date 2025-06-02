@@ -34,17 +34,6 @@
     }
   }
 
-  &:focus {
-    @include nhsuk-focused-text;
-
-    &:hover {
-      .nhsuk-action-link__text {
-        color: $nhsuk-focus-text-color;
-        text-decoration: none;
-      }
-    }
-  }
-
   @include nhsuk-media-query($until: tablet) {
     padding-left: 26px; // [2]
   }

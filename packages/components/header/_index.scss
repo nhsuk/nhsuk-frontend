@@ -596,10 +596,6 @@ $_header-item-padding: 12px;
   // Menu
   .nhsuk-header__menu-toggle {
     text-decoration: none;
-
-    &:not(:focus):not(:active):hover {
-      color: $color_nhsuk-blue;
-    }
   }
 
   .nhsuk-header__menu-list {

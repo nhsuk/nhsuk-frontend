@@ -27,19 +27,20 @@
   }
 
   .nhsuk-icon {
-    fill: currentcolor;
+    fill: $link-color;
   }
 
   @include nhsuk-link-style-visited($link-visited-color);
   @include nhsuk-link-style-hover($link-hover-color);
-  @include nhsuk-link-style-focus;
   @include nhsuk-link-style-active($link-active-color);
+  @include nhsuk-link-style-focus;
 }
 
 /// Default link styling
 ///
 /// @example scss
 ///   @include nhsuk-link-style-default;
+///
 
 @mixin nhsuk-link-style-default {
   @include nhsuk-link-style;
@@ -51,6 +52,7 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-white;
+///
 
 @mixin nhsuk-link-style-white {
   @include nhsuk-link-style-text($override-color: $nhsuk-reverse-text-color);
@@ -62,10 +64,15 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-visited;
+///
 
 @mixin nhsuk-link-style-visited($link-visited-color: $nhsuk-link-visited-color) {
-  &:not(.nhsuk-button):not(:hover):not(:focus):not(:active):visited {
+  &:visited {
     color: $link-visited-color;
+
+    .nhsuk-icon {
+      fill: $link-visited-color;
+    }
   }
 }
 
@@ -75,11 +82,17 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-hover;
+///
 
 @mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-color) {
-  &:hover {
+  &:hover,
+  &:hover:visited {
     color: $link-hover-colour;
     text-decoration: none;
+
+    .nhsuk-icon {
+      fill: $link-hover-colour;
+    }
   }
 }
 
@@ -87,9 +100,11 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-focus;
+///
 
 @mixin nhsuk-link-style-focus {
-  &:focus {
+  &:focus,
+  &:focus:visited {
     @include nhsuk-focused-text;
 
     &:hover {
@@ -104,10 +119,16 @@
 ///
 /// @example scss
 ///   @include nhsuk-link-style-active;
+///
 
 @mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-color) {
-  &:active {
+  &:active,
+  &:active:visited {
     color: $link-active-colour;
+
+    .nhsuk-icon {
+      fill: $link-active-colour;
+    }
   }
 }
 
@@ -128,6 +149,7 @@
 ///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-no-visited-state;
 ///   }
+///
 
 @mixin nhsuk-link-style-no-visited-state {
   @include nhsuk-link-style-visited($link-visited-color: $nhsuk-link-color);
@@ -144,6 +166,7 @@
 ///   .nhsuk-component__link {
 ///     @include nhsuk-link-style-text;
 ///   }
+///
 
 @mixin nhsuk-link-style-text($override-color: $nhsuk-text-color) {
   @include nhsuk-link-style(

@@ -45,11 +45,17 @@
     }
   }
 
-  &:link {
+  .nhsuk-back-link--reverse & {
+    @include nhsuk-link-style-white;
+  }
+
+  &:link,
+  .nhsuk-back-link--reverse &:link {
     text-decoration: none;
   }
 
-  &:hover {
+  &:hover,
+  .nhsuk-back-link--reverse &:hover {
     text-decoration: underline;
   }
 }
