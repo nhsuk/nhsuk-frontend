@@ -66,7 +66,6 @@
 
 @mixin nhsuk-focused-button {
   background-color: $nhsuk-focus-color;
-  border: 0;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-color;
   color: $nhsuk-focus-text-color;
   outline: $nhsuk-focus-width solid transparent; // [1]
