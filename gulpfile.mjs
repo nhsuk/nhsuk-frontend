@@ -1,6 +1,9 @@
+import { join } from 'path'
+
 import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
+import * as config from './shared/config/index.mjs'
 import {
   buildHTML,
   validateHTML,
@@ -24,11 +27,14 @@ import { compileCSS, minifyCSS } from './shared/tasks/styles.mjs'
  */
 
 gulp.task('clean', async () => {
-  return clean(['dist/**/*'])
+  return clean([join(config.paths.root, 'dist/**/*')])
 })
 
 gulp.task('clean:zip', async () => {
-  return clean(['dist/{assets,css,js}', 'dist/*.zip'])
+  return clean([
+    join(config.paths.root, 'dist/{assets,css,js}'),
+    join(config.paths.root, 'dist/*.zip')
+  ])
 })
 
 gulp.task('style', gulp.series([compileCSS, minifyCSS]))
@@ -47,8 +53,14 @@ gulp.task(
 
 gulp.task('watch', () =>
   Promise.all([
-    gulp.watch(['packages/**/*.scss'], gulp.series(['style'])),
-    gulp.watch(['packages/**/*.mjs'], gulp.series(['script']))
+    gulp.watch(
+      [join(config.paths.pkg, 'src/**/*.scss')],
+      gulp.series(['style'])
+    ),
+    gulp.watch(
+      [join(config.paths.pkg, 'src/**/*.mjs')],
+      gulp.series(['script'])
+    )
   ])
 )
 
@@ -63,11 +75,19 @@ gulp.task(
 
 gulp.task('docs:watch', () =>
   Promise.all([
-    gulp.watch(['app/**/*.njk', 'packages/**/*.njk'], buildHTML),
-    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
-    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
-    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
+    gulp.watch(
+      [
+        join(config.paths.app, 'src/**/*.njk'),
+        join(config.paths.pkg, 'src/**/*.njk')
+      ],
+      buildHTML
+    ),
+    gulp
+      .watch([join(config.paths.root, 'dist/**/*.html')])
+      .on('change', browserSync.reload),
+    gulp.watch([join(config.paths.root, 'dist/*.min.{css,css.map}')], copyCSS),
+    gulp.watch([join(config.paths.root, 'dist/*.min.{js,js.map}')], copyJS),
+    gulp.watch([join(config.paths.pkg, 'src/assets/**/*')], copyBinaryAssets)
   ])
 )
 

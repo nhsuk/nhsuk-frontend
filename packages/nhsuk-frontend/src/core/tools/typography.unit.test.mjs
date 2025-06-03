@@ -76,7 +76,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -99,7 +99,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -124,7 +124,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -146,7 +146,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -168,7 +168,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -192,7 +192,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -223,7 +223,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -253,7 +253,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -305,7 +305,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -335,7 +335,7 @@ describe('Typography tools', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow(
@@ -353,7 +353,7 @@ describe('Typography tools', () => {
       `
 
       await compileStringAsync(sass, {
-        loadPaths: ['packages'],
+        loadPaths: ['packages/nhsuk-frontend/src'],
         logger
       })
 
@@ -376,7 +376,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -407,7 +407,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -439,7 +439,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -472,7 +472,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -506,7 +506,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -528,7 +528,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -546,7 +546,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -564,7 +564,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -582,7 +582,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -600,7 +600,7 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -637,13 +637,13 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
           css: (
             await compileStringAsync(expectedSass, {
-              loadPaths: ['packages']
+              loadPaths: ['packages/nhsuk-frontend/src']
             })
           ).css
         })
@@ -659,7 +659,7 @@ describe('Typography tools', () => {
         `
 
         await compileStringAsync(sass, {
-          loadPaths: ['packages'],
+          loadPaths: ['packages/nhsuk-frontend/src'],
           logger
         })
 
