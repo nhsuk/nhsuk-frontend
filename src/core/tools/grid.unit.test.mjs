@@ -18,7 +18,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(
@@ -38,7 +38,7 @@ describe('Grid system', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow('Unknown grid width `seven-fifths`')
@@ -54,7 +54,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -78,7 +78,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -106,7 +106,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -134,7 +134,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -162,7 +162,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -190,7 +190,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -218,7 +218,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -244,7 +244,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
@@ -270,7 +270,7 @@ describe('Grid system', () => {
       `
 
       const results = await compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       expect(results.css).toBe(outdent`
