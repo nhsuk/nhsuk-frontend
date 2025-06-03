@@ -1,0 +1,188 @@
+@use "sass:color";
+
+////
+/// NHS colour palette
+///
+/// Colours are prefixed with color_ to make them easier to
+/// search for within the code base.
+///
+/// We also prefix them with nhsuk- to prevent clashing with
+/// other colours in existing code bases.
+///
+/// We use the word color, not colour, for variables.
+///
+/// @group settings
+////
+
+// stylelint-disable color-no-hex
+
+$color_nhsuk-blue: #005eb8;
+$color_nhsuk-white: #ffffff;
+$color_nhsuk-black: #212b32;
+$color_nhsuk-green: #007f3b;
+$color_nhsuk-purple: #330072;
+$color_nhsuk-dark-pink: #7c2855;
+$color_nhsuk-red: #d5281b;
+$color_nhsuk-yellow: #ffeb3b;
+
+/// Secondary colours
+
+$color_nhsuk-pale-yellow: #fff9c4;
+$color_nhsuk-warm-yellow: #ffb81c;
+$color_nhsuk-orange: #ed8b00;
+$color_nhsuk-aqua-green: #00a499;
+$color_nhsuk-pink: #ae2573;
+
+/// Greyscale
+
+$color_nhsuk-grey-1: #4c6272;
+$color_nhsuk-grey-2: #768692;
+$color_nhsuk-grey-3: #aeb7bd;
+$color_nhsuk-grey-4: #d8dde0;
+$color_nhsuk-grey-5: #f0f4f5;
+
+// stylelint-enable color-no-hex
+
+/// RGB and alpha values
+///
+/// Used to create drop/box shadows e.g. for search suggestions dropdown
+///
+
+$color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
+$alpha-transparency-50: 0.5;
+
+/// Tint function
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint($color_nhsuk-black, 10%);
+///
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
+
+/// Tint function (deprecated)
+///
+/// @alias nhsuk-tint
+/// @deprecated To be removed in v10.0, replaced by nhsuk-tint
+
+@function tint($color, $percentage) {
+  @warn "The `tint` function will be removed in a future release, use `nhsuk-tint` instead.";
+  @return nhsuk-tint($color, $percentage);
+}
+
+/// Shade function
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade($color_nhsuk-blue, 50%);
+///
+
+@function nhsuk-shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
+
+/// Shade function (deprecated)
+///
+/// @alias nhsuk-shade
+/// @deprecated To be removed in v10.0, replaced by nhsuk-shade
+
+@function shade($color, $percentage) {
+  @warn "The `shade` function will be removed in a future release, use `nhsuk-shade` instead.";
+  @return nhsuk-shade($color, $percentage);
+}
+
+/// Primary colour variations
+///
+/// 1. used for link :active states
+/// 2. used for .is-active state on main navigation
+/// 3. used for :hover states on main navigation
+/// 4. used for :active states on main navigation
+/// 5. used for primary button and action link icon :hover states
+/// 6. used for primary button and action link icon :active states
+
+$color_tint_nhsuk-black-10: nhsuk-tint($color_nhsuk-black, 10%); // [1]
+
+$color_shade_nhsuk-blue-20: nhsuk-shade($color_nhsuk-blue, 20%); // [2]
+$color_shade_nhsuk-blue-35: nhsuk-shade($color_nhsuk-blue, 35%); // [3]
+$color_shade_nhsuk-blue-50: nhsuk-shade($color_nhsuk-blue, 50%); // [4]
+
+$color_shade_nhsuk-green-35: nhsuk-shade($color_nhsuk-green, 35%); // [5]
+$color_shade_nhsuk-green-50: nhsuk-shade($color_nhsuk-green, 50%); // [6]
+
+$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, 0.2);
+$color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, 0.1);
+
+/// Colour aliases
+
+/// Text
+
+$nhsuk-text-color: $color_nhsuk-black;
+$nhsuk-reverse-text-color: $color_nhsuk-white;
+$nhsuk-secondary-text-color: $color_nhsuk-grey-1;
+$nhsuk-print-text-color: $color_nhsuk-black;
+// stylelint-disable-next-line color-no-hex
+$nhsuk-footer-link-text-color: #003087;
+// stylelint-disable-next-line color-no-hex
+$nhsuk-footer-copyright-text-color: #231f20;
+
+/// Links
+
+$nhsuk-link-color: $color_nhsuk-blue;
+$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
+$nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%);
+$nhsuk-link-visited-color: $color_nhsuk-purple;
+
+/// Focus
+
+$nhsuk-focus-color: $color_nhsuk-yellow;
+$nhsuk-focus-text-color: $color_nhsuk-black;
+
+/// Border
+
+$nhsuk-border-color: $color_nhsuk-grey-4;
+$nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
+
+/// Box shadow
+
+$nhsuk-box-shadow: rgba(33, 43, 50, 0.16);
+$nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
+
+/// Forms
+
+$nhsuk-error-color: $color_nhsuk-red;
+$nhsuk-form-border-color: $color_nhsuk-grey-1;
+$nhsuk-form-element-background-color: $color_nhsuk-white;
+
+/// Buttons
+
+$nhsuk-button-color: $color_nhsuk-green;
+$nhsuk-button-text-color: $color_nhsuk-white;
+$nhsuk-button-hover-color: nhsuk-shade($nhsuk-button-color, 20%);
+$nhsuk-button-active-color: nhsuk-shade($nhsuk-button-color, 50%);
+$nhsuk-button-shadow-color: nhsuk-shade($nhsuk-button-color, 50%);
+
+$nhsuk-secondary-button-color: transparent;
+$nhsuk-secondary-button-solid-background-color: $color_nhsuk-white;
+$nhsuk-secondary-button-border-color: $color_nhsuk-blue;
+$nhsuk-secondary-button-text-color: $color_nhsuk-blue;
+$nhsuk-secondary-button-hover-color: nhsuk-tint($nhsuk-secondary-button-border-color, 85%);
+$nhsuk-secondary-button-active-color: nhsuk-tint($nhsuk-secondary-button-border-color, 78%);
+$nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color;
+
+$nhsuk-reverse-button-color: $color_nhsuk-white;
+$nhsuk-reverse-button-text-color: $color_nhsuk-black;
+$nhsuk-reverse-button-hover-color: nhsuk-shade($nhsuk-reverse-button-color, 15%);
+$nhsuk-reverse-button-active-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
+$nhsuk-reverse-button-shadow-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
+
+$nhsuk-warning-button-color: $color_nhsuk-red;
+$nhsuk-warning-button-hover-color: nhsuk-shade($nhsuk-warning-button-color, 20%);
+$nhsuk-warning-button-active-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
+$nhsuk-warning-button-shadow-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
+
+$nhsuk-login-button-color: $color_nhsuk-blue;
+$nhsuk-login-button-hover-color: nhsuk-shade($nhsuk-login-button-color, 20%);
+$nhsuk-login-button-active-color: nhsuk-shade($nhsuk-login-button-color, 50%);
+$nhsuk-login-button-shadow-color: nhsuk-shade($nhsuk-login-button-color, 50%);

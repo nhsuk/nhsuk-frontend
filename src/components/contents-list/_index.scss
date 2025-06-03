@@ -1,0 +1,40 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Contents list component
+///
+/// 1. Creates a grey line before each list
+///    item using a ASCII number for the symbol.
+///
+/// @group components
+////
+
+.nhsuk-contents-list {
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+.nhsuk-contents-list__list {
+  list-style: none;
+  padding: 0;
+}
+
+.nhsuk-contents-list__item {
+  background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='19' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E")
+    left nhsuk-px-to-rem(12px) no-repeat;
+  padding: 0 0 0 nhsuk-spacing(5);
+  position: relative;
+
+  @include nhsuk-media-query($from: tablet) {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='16' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E")
+      left nhsuk-px-to-rem(14px) no-repeat;
+  }
+}
+
+.nhsuk-contents-list__link {
+  display: inline-block;
+}
+
+.nhsuk-contents-list__current {
+  font-weight: $nhsuk-font-bold;
+}

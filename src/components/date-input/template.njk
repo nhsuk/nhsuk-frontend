@@ -1,0 +1,101 @@
+{% from "../error-message/macro.njk" import errorMessage -%}
+{% from "../fieldset/macro.njk" import fieldset %}
+{% from "../hint/macro.njk" import hint %}
+{% from "../input/macro.njk" import input %}
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+{#- a record of other elements that we need to associate with the input using
+   aria-describedby – for example hints or error messages -#}
+{% set describedBy = "" %}
+
+{% if params.items %}
+  {% set dateInputItems = params.items %}
+{% else %}
+  {% set dateInputItems = [
+    {
+      name: "day",
+      classes: "nhsuk-input--width-2",
+      value: params.values.day
+    },
+    {
+      name: "month",
+      classes: "nhsuk-input--width-2",
+      value: params.values.month
+    },
+    {
+      name: "year",
+      classes: "nhsuk-input--width-4",
+      value: params.values.year
+    }
+  ] %}
+{% endif %}
+
+{#- Capture the HTML so we can optionally nest it in a fieldset -#}
+{%- set innerHtml -%}
+{% if params.hint %}
+  {% set hintId = params.id + "-hint" %}
+  {% set describedBy = describedBy + " " + hintId if describedBy else hintId %}
+
+  {{ hint({
+    id: hintId,
+    classes: params.hint.classes,
+    attributes: params.hint.attributes,
+    html: params.hint.html,
+    text: params.hint.text
+  }) | indent(2) | trim }}
+{% endif %}
+{% if params.errorMessage %}
+  {% set errorId = params.id + "-error" %}
+  {% set describedBy = describedBy + " " + errorId if describedBy else errorId %}
+  {{ errorMessage({
+    id: errorId,
+    classes: params.errorMessage.classes,
+    html: params.errorMessage.html,
+    text: params.errorMessage.text
+  }) | indent(2) | trim }}
+{% endif %}
+  <div class="nhsuk-date-input
+    {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {{- nhsukAttributes(params.attributes) }}
+    {%- if params.id %} id="{{ params.id }}"{% endif %}>
+    {%- for item in dateInputItems %}
+    <div class="nhsuk-date-input__item">
+      {{ input({
+        label: {
+          text: item.label if item.label else item.name | capitalize,
+          classes: "nhsuk-date-input__label"
+        },
+        id: item.id if item.id else (params.id + "-" + item.name),
+        classes: "nhsuk-date-input__input " + (item.classes if item.classes),
+        name: (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
+        value: item.value or params.values[item.name],
+        inputmode: item.inputmode if item.inputmode else "numeric",
+        autocomplete: item.autocomplete,
+        pattern: item.pattern,
+        attributes: item.attributes
+      }) | indent(6) | trim }}
+    </div>
+  {%- endfor -%}
+  </div>
+{%- endset -%}
+
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}  {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+{% if params.fieldset %}
+{#- We override the fieldset's role to 'group' because otherwise JAWS does not
+    announce the description for a fieldset comprised of text inputs, but
+    adding the role to the fieldset always makes the output overly verbose for
+    radio buttons or checkboxes. -#}
+  {% call fieldset({
+    describedBy: describedBy,
+    classes: params.fieldset.classes,
+    attributes: {
+      role: "group"
+    },
+    legend: params.fieldset.legend
+  }) %}
+  {{- innerHtml | trim | safe -}}
+  {% endcall %}
+{% else %}
+  {{- innerHtml | trim | safe -}}
+{% endif %}
+</div>

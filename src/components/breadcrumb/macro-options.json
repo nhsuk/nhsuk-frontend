@@ -1,0 +1,58 @@
+[
+  {
+    "name": "items",
+    "type": "array",
+    "required": true,
+    "description": "Array of breadcrumbs item objects. This should contain all pages in the breadcrumb except for the parent page.",
+    "params": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "Text to use within the breadcrumbs item."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The value of the breadcrumb item link href attribute."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the individual crumb."
+      }
+    ]
+  },
+  {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "Text to use for the parent page."
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": true,
+    "description": "The value of the parent page link href attribute."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the container."
+  },
+  {
+    "name": "labelText",
+    "type": "string",
+    "required": false,
+    "description": "Plain text label identifying the landmark to screen readers. Defaults to \"Breadcrumb\"."
+  }
+]

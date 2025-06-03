@@ -1,0 +1,8 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+<div class="nhsuk-hint
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- if params.id %} id="{{ params.id }}"{% endif %}
+{{- nhsukAttributes(params.attributes) }}>
+  {{ params.html | safe if params.html else params.text }}
+</div>

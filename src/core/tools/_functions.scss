@@ -1,0 +1,45 @@
+@use "sass:math";
+@use "../settings" as *;
+
+////
+/// Functions
+///
+/// @group tools
+////
+
+/// Convert pixels to em
+///
+/// A quick way to convert px into em
+///
+/// @example scss
+///   nhsuk-em(20px, $nhsuk-base-font-size);
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-em($value, $context-font-size) {
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+  @if math.is-unitless($context-font-size) {
+    $context-font-size: $context-font-size * 1px;
+  }
+  @return math.div($value, $context-font-size) * 1em;
+}
+
+/// Convert pixels to rem
+///
+/// A quick way to convert px into rem
+///
+/// @example scss
+///   nhsuk-px-to-rem(20px);
+///
+/// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+/// must be configured to match the font-size of your root (html) element
+
+@function nhsuk-px-to-rem($value) {
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+
+  @return math.div($value, $nhsuk-base-font-size) * 1rem;
+}
