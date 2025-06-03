@@ -29,7 +29,7 @@ const config = {
  * @type {Config}
  */
 module.exports = {
-  collectCoverageFrom: ['packages/**/*.{js,mjs}'],
+  collectCoverageFrom: ['packages/nhsuk-frontend/src/**/*.{js,mjs}'],
   coverageProvider: 'v8',
 
   // Reduce CPU usage during project test runs

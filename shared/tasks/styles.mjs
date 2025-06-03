@@ -1,5 +1,4 @@
 import { join, relative } from 'path'
-import { cwd } from 'process'
 import { Transform } from 'stream'
 
 import autoprefixer from 'autoprefixer'
@@ -21,7 +20,7 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src('packages/nhsuk.scss', {
+    .src(join(config.paths.pkg, 'src/nhsuk.scss'), {
       sourcemaps: true
     })
     .pipe(
@@ -50,7 +49,7 @@ export function compileCSS(done) {
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(cwd(), 'dist'), join(file.base, path))
+              relative(join(config.paths.root, 'dist'), join(file.base, path))
             )
           }
 
@@ -66,7 +65,7 @@ export function compileCSS(done) {
       ])
     )
     .pipe(
-      gulp.dest('dist/', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
@@ -78,7 +77,7 @@ export function compileCSS(done) {
 export function minifyCSS() {
   return (
     gulp
-      .src('dist/nhsuk.css', {
+      .src(join(config.paths.root, 'dist/nhsuk.css'), {
         sourcemaps: true
       })
       .pipe(
@@ -96,7 +95,7 @@ export function minifyCSS() {
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )
@@ -112,7 +111,7 @@ export function minifyCSS() {
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )

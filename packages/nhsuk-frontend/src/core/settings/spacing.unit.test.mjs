@@ -38,7 +38,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -60,7 +60,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -82,7 +82,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow(
@@ -100,7 +100,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow(
@@ -118,7 +118,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow(
@@ -136,7 +136,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -160,7 +160,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -187,7 +187,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -214,7 +214,7 @@ describe('Spacing settings', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).rejects.toThrow(
@@ -237,7 +237,7 @@ describe('Spacing settings', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -269,7 +269,7 @@ describe('Spacing settings', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -302,7 +302,7 @@ describe('Spacing settings', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -334,7 +334,7 @@ describe('Spacing settings', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages']
+          loadPaths: ['packages/nhsuk-frontend/src']
         })
 
         await expect(results).resolves.toMatchObject({
@@ -364,7 +364,7 @@ describe('Spacing settings', () => {
         `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -396,7 +396,7 @@ describe('Spacing settings', () => {
         `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -425,7 +425,7 @@ describe('Spacing settings', () => {
         `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
@@ -457,7 +457,7 @@ describe('Spacing settings', () => {
         `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages']
+        loadPaths: ['packages/nhsuk-frontend/src']
       })
 
       await expect(results).resolves.toMatchObject({
