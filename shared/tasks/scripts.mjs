@@ -4,10 +4,9 @@ import gulp from 'gulp'
 import filter from 'gulp-filter'
 import rename from 'gulp-rename'
 import terser from 'gulp-terser'
+import * as config from 'nhsuk-frontend-config'
 import PluginError from 'plugin-error'
 import webpack from 'webpack-stream'
-
-import * as config from '../config/index.mjs'
 
 /**
  * Compile JavaScript task

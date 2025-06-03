@@ -5,11 +5,11 @@ import browserSync from 'browser-sync'
 import { glob } from 'glob'
 import gulp from 'gulp'
 import { HtmlValidate, formatterFactory } from 'html-validate'
+import * as config from 'nhsuk-frontend-config'
 import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../../.htmlvalidate.js'
-import * as config from '../config/index.mjs'
 
 const { PORT = '3000' } = process.env
 
