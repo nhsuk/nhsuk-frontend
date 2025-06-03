@@ -8,7 +8,7 @@ describe('Components', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
       await expect(results).resolves.not.toThrow()
@@ -55,7 +55,7 @@ describe('Components', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
       await expect(results).resolves.not.toThrow()

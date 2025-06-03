@@ -21,8 +21,8 @@ jobs:
       RULE_2: '@use "nhsuk" as *;'
       RULE_3: '@forward "nhsuk";'
       RULE_4: '@forward "node_modules/nhsuk-frontend/src/nhsuk";'
-      RULE_5: '@forward "node_modules/nhsuk-frontend/src/core";'
-      RULE_6: '@forward "node_modules/nhsuk-frontend/src/core/all";'
+      RULE_5: '@forward "node_modules/nhsuk-frontend/src/nhsuk/core";'
+      RULE_6: '@forward "node_modules/nhsuk-frontend/src/nhsuk/core/all";'
       RULE_7: '@forward "pkg:nhsuk-frontend";'
 
     strategy:
@@ -70,7 +70,7 @@ jobs:
 
       - name: Check compilation
         run: |
-          time sass packages/nhsuk-frontend/src/nhsuk.scss > .tmp/check.css --load-path .
+          time sass packages/nhsuk-frontend/src/nhsuk/nhsuk.scss > .tmp/check.css --load-path .
 
       - name: Check load paths
         run: |

@@ -13,7 +13,7 @@ import * as config from 'nhsuk-frontend-config'
  */
 export function assets() {
   return gulp
-    .src(join(config.paths.pkg, 'src/assets/**'), { encoding: false })
+    .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
     .pipe(gulp.dest(join(config.paths.root, 'dist/assets')))
 }
 

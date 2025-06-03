@@ -13,7 +13,7 @@ import webpack from 'webpack-stream'
  */
 export function webpackJS(done) {
   return gulp
-    .src(join(config.paths.pkg, 'src/nhsuk.mjs'), {
+    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.mjs'), {
       sourcemaps: true
     })
     .pipe(

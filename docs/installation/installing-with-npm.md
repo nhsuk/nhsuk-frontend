@@ -59,10 +59,10 @@ Or to use only the minimum components necessary:
 
 ```scss
 // Core (required)
-@forward "node_modules/nhsuk-frontend/src/core";
+@forward "node_modules/nhsuk-frontend/src/nhsuk/core";
 
 // Individual component (optional)
-@forward "node_modules/nhsuk-frontend/src/components/action-link";
+@forward "node_modules/nhsuk-frontend/src/nhsuk/components/action-link";
 ```
 
 ## Importing JavaScript
@@ -111,8 +111,8 @@ initAll()
 Rather than using `initAll`, you can initialise individual components used by your service. For example:
 
 ```js
-import { initRadios } from 'nhsuk-frontend/src/components/radios/radios.mjs';
-import { initSkipLink } from 'nhsuk-frontend/src/components/skip-link/skip-link.mjs';
+import { initRadios } from 'nhsuk-frontend/src/nhsuk/components/radios/radios.mjs';
+import { initSkipLink } from 'nhsuk-frontend/src/nhsuk/components/skip-link/skip-link.mjs';
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {

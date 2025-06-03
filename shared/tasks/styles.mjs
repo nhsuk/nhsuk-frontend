@@ -19,7 +19,7 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src(join(config.paths.pkg, 'src/nhsuk.scss'), {
+    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.scss'), {
       sourcemaps: true
     })
     .pipe(

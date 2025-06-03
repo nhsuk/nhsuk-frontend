@@ -126,8 +126,8 @@ jobs:
         run: |
           node --eval "console.log(require.resolve('nhsuk-frontend'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/package.json'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/src/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/src/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/src/nhsuk/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/src/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
 
   regression:
     name: Visual regression tests
