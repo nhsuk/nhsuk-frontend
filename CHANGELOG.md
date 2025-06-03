@@ -146,7 +146,7 @@ This change was made in [pull request #1259: Review legacy Nunjucks params](http
 
 #### Stop using deprecated 24 point on the typography scale
 
-The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated.
+The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
 Use either point 22 or point 26 instead.
 
