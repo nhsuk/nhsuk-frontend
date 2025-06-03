@@ -832,6 +832,7 @@
           "hint": {
             "text": "If you have more than 1 nationality, select all options that are relevant to you"
           },
+          "values": ["british"],
           "items": [
             {
               "value": "british",
@@ -860,6 +861,7 @@
         "hint": {
           "text": "This includes changing your last name or spelling your name differently"
         },
+        "value": "no",
         "items": [
           {
             "value": "yes",
@@ -867,8 +869,7 @@
           },
           {
             "value": "no",
-            "text": "No",
-            "checked": true
+            "text": "No"
           }
         ]
       }) }}
@@ -924,25 +925,28 @@
       }) }}
 
       {{ select({
-        "id": "select-1",
-        "name": "select-1",
+        "id": "sort",
+        "name": "sort",
         "label": {
-          "text": "Label text goes here"
+          "text": "Sort by"
         },
+        "value": "updated",
         "items": [
           {
-            "value": 1,
-            "text": "NHS.UK frontend option 1"
+            "value": "published",
+            "text": "Recently published"
           },
           {
-            "value": 2,
-            "text": "NHS.UK frontend option 2",
-            "selected": true
+            "value": "updated",
+            "text": "Recently updated"
           },
           {
-            "value": 3,
-            "text": "NHS.UK frontend option 3",
-            "disabled": true
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
           }
         ]
       }) }}

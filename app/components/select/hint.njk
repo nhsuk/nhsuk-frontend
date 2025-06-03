@@ -1,4 +1,4 @@
-{% set title = 'Select with hint text and error message' %}
+{% set title = 'Select with hint text' %}
 {% from 'components/select/macro.njk' import select %}
 {% extends 'example.njk' %}
 
@@ -13,9 +13,6 @@
         },
         "hint": {
           "text": "This can be different to where you went before"
-        },
-        "errorMessage": {
-          "text": "Select a location"
         },
         "value": "choose",
         "items": [
