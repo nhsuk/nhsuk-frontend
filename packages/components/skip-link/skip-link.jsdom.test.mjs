@@ -1,7 +1,7 @@
 import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import initSkipLink from './skip-link.js'
+import { initSkipLink } from './skip-link.mjs'
 
 const user = userEvent.setup()
 

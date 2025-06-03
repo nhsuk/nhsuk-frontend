@@ -1,4 +1,4 @@
-import { toggleAttribute, toggleConditionalInput } from './common.js'
+import { toggleAttribute, toggleConditionalInput } from './common.mjs'
 
 describe('toggleAttribute util', () => {
   const attr = 'test-attribute'

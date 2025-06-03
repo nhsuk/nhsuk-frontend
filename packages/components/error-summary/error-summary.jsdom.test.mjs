@@ -1,6 +1,6 @@
 import { getAllByRole, getByRole } from '@testing-library/dom'
 
-import initErrorSummary from './error-summary.js'
+import { initErrorSummary } from './error-summary.mjs'
 
 describe('Error summary', () => {
   /** @type {HTMLAnchorElement} */

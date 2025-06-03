@@ -1,7 +1,7 @@
 /**
  * Tabs component
  */
-class Tabs {
+export class Tabs {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -320,7 +320,7 @@ class Tabs {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-module.exports = (options = {}) => {
+export function initTabs(options = {}) {
   const $scope = options.scope || document
   const $tabs = $scope.querySelectorAll('[data-module="nhsuk-tabs"]')
 

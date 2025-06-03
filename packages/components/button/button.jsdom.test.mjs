@@ -1,6 +1,6 @@
 import { getByRole } from '@testing-library/dom'
 
-import initButton from './button.js'
+import { initButton } from './button.mjs'
 
 describe('Button', () => {
   /** @type {HTMLButtonElement} */
