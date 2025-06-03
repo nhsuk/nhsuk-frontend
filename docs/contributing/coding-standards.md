@@ -137,7 +137,7 @@ This enables the NHSUK styles to be used inside other applications, where, for e
 
 div#nhsuk-ers {
   // ...
-  @include meta.load-css("node_modules/nhsuk-frontend/src/core");
+  @include meta.load-css("node_modules/nhsuk-frontend/src/nhsuk/core");
   // ...
 }
 ```
@@ -287,7 +287,7 @@ Care card emergency (red and black) example:
 
 ## Components
 
-You can find NHS.UK frontend components in `packages/nhsuk-frontend/src/components`.
+You can find NHS.UK frontend components in `packages/nhsuk-frontend/src/nhsuk/components`.
 
 Components must use the `.nhsuk-` namespace.
 
