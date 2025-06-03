@@ -17,7 +17,7 @@ describe('Core', () => {
       `
 
       await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src'],
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
         logger
       })
 
@@ -34,7 +34,7 @@ describe('Core', () => {
       `
 
       await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src'],
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
         logger
       })
 
