@@ -2,8 +2,7 @@ import { join } from 'path'
 
 import gulp from 'gulp'
 import zip from 'gulp-zip'
-
-import * as config from '../config/index.mjs'
+import * as config from 'nhsuk-frontend-config'
 
 /**
  * Assets tasks

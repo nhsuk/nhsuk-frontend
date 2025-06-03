@@ -8,10 +8,9 @@ import filter from 'gulp-filter'
 import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
+import * as config from 'nhsuk-frontend-config'
 import PluginError from 'plugin-error'
 import * as dartSass from 'sass-embedded'
-
-import * as config from '../config/index.mjs'
 
 const sass = gulpSass(dartSass)
 
