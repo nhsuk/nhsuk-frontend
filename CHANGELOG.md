@@ -144,6 +144,14 @@ This change ensures consistency with other components, where `text` or `html` pa
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
+#### 24 point typography size removed
+
+The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated.
+
+Use either point 22 or point 26 instead.
+
+This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
+
 :wrench: **Fixes**
 
 - [#1312: Review and fix inconsistent link styles](https://github.com/nhsuk/nhsuk-frontend/pull/1312)
