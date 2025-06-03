@@ -1,0 +1,42 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+{# Define type of element to use, if not explicitly set #}
+
+{% if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = 'a' %}
+  {% else %}
+    {% set element = 'button' %}
+  {% endif %}
+{% endif %}
+
+{# Define common attributes that we can use across all element types #}
+{% set commonAttributes %} class="nhsuk-button
+  {%- if params.classes %} {{ params.classes }}{% endif %}
+  {%- if params.disabled %} nhsuk-button--disabled{% endif %}"
+  data-module="nhsuk-button"
+  {% if params.preventDoubleClick %} data-prevent-double-click="true"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}
+{%- endset -%}
+
+{# Define common attributes we can use for both button and input types #}
+{%- set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"
+   {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}
+ {%- endset -%}
+
+{% if element == 'a' %}
+<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" draggable="false"{%- if params.disabled %} aria-disabled="true"{% endif %} role="button">
+  {{ params.html | safe if params.html else params.text }}
+</a>
+
+{% elseif element == 'button' %}
+<button{{ commonAttributes | safe }}{% if params.value %} value="{{ params.value }}"{% endif %}{{ buttonAttributes | safe }}>
+  {{ params.html | safe if params.html else params.text }}
+</button>
+
+{% elseif element == 'input' %}
+<input{{ commonAttributes | safe }} value="{{ params.text }}"{{ buttonAttributes | safe }}>
+
+{% endif %}

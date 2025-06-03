@@ -1,0 +1,20 @@
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+<nav class="nhsuk-contents-list
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{{- nhsukAttributes(params.attributes) }} role="navigation" aria-label="Pages in this guide">
+  <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+  <ol class="nhsuk-contents-list__list">
+    {%- for item in params.items %}
+      {%- if item.current %}
+        <li class="nhsuk-contents-list__item" aria-current="page">
+          <span class="nhsuk-contents-list__current">{{ item.text }}</span>
+        </li>
+      {%- else %}
+        <li class="nhsuk-contents-list__item">
+          <a class="nhsuk-contents-list__link" href="{{ item.href }}">{{ item.text }}</a>
+        </li>
+      {%- endif %}
+    {%- endfor %}
+  </ol>
+</nav>

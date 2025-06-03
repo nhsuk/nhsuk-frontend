@@ -1,0 +1,96 @@
+@use "../tools" as *;
+
+////
+/// Page wrapper for the grid system
+///
+/// 1. In IE11 the `main` element can be used, but is not recognized  –
+///    meaning it's not defined in IE's default style sheet,
+///    so it uses CSS initial value, which is inline
+///
+/// @group objects
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example html
+///   <div class="nhsuk-width-container">
+///     <div class="nhsuk-main-wrapper">
+///      <!-- Wrapper for the main content of your page which applies padding
+///           to the top / bottom -->
+///     </div>
+///   </div>
+////
+
+@mixin _nhsuk-main-wrapper {
+  display: block; // [1]
+  padding-top: nhsuk-spacing(4);
+  padding-bottom: nhsuk-spacing(4);
+  @include nhsuk-top-and-bottom;
+
+  @include nhsuk-media-query($from: tablet) {
+    padding-top: nhsuk-spacing(7);
+    padding-bottom: nhsuk-spacing(7);
+  }
+}
+
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper {
+  @include nhsuk-warning(
+    "govuk-main-wrapper",
+    "govuk-main-wrapper is deprecated. Use `.nhsuk-main-wrapper` class instead."
+  );
+  @include _nhsuk-main-wrapper;
+}
+
+@mixin _nhsuk-main-wrapper--l {
+  padding-bottom: nhsuk-spacing(6);
+  padding-top: nhsuk-spacing(6);
+
+  @include nhsuk-media-query($from: tablet) {
+    padding-bottom: nhsuk-spacing(8);
+    padding-top: nhsuk-spacing(8);
+  }
+}
+
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--l {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--l",
+    "govuk-main-wrapper--l is deprecated. Use `.nhsuk-main-wrapper--l` class instead."
+  );
+  @include _nhsuk-main-wrapper--l;
+}
+
+@mixin _nhsuk-main-wrapper--s {
+  padding-top: nhsuk-spacing(3);
+  padding-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-media-query($from: tablet) {
+    padding-top: nhsuk-spacing(4);
+    padding-bottom: nhsuk-spacing(4);
+  }
+}
+
+/// @deprecated To be removed in v10.0
+
+@mixin govuk-main-wrapper--s {
+  @include nhsuk-warning(
+    "govuk-main-wrapper--s",
+    "govuk-main-wrapper--s is deprecated. Use `.nhsuk-main-wrapper--s` class instead."
+  );
+  @include _nhsuk-main-wrapper--s;
+}
+
+@include nhsuk-exports("nhsuk/core/objects/main-wrapper") {
+  .nhsuk-main-wrapper {
+    @include _nhsuk-main-wrapper;
+  }
+
+  .nhsuk-main-wrapper--l {
+    @include _nhsuk-main-wrapper--l;
+  }
+
+  .nhsuk-main-wrapper--s {
+    @include _nhsuk-main-wrapper--s;
+  }
+}

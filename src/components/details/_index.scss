@@ -1,0 +1,211 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Details component
+///
+/// 1. Style the summary to look like a link...
+/// 2. Make the focus outline shrink-wrap the text content of the summary
+/// 3. Absolutely position the marker against this element
+/// 3. Allow for absolutely positioned marker and align with disclosed text
+/// 4. Only underline the text, not the arrow
+/// 5. Remove the default details marker so we can style our own consistently and
+///    ensure it displays in Firefox
+/// 6. Custom padding to left align the details text with the summary
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+.nhsuk-details {
+  display: block;
+  @include nhsuk-text-color;
+  @include nhsuk-font-size(19);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-details__summary {
+  color: $color_nhsuk-blue; // [1]
+  cursor: pointer;
+  display: inline-block; // [2]
+  padding-left: nhsuk-spacing(4);
+  position: relative; // [3]
+
+  &:hover {
+    color: $nhsuk-link-hover-color;
+  }
+
+  &::before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+
+    @include nhsuk-shape-arrow($direction: right, $base: 14px);
+  }
+
+  &:focus {
+    @include nhsuk-focused-text;
+  }
+
+  &:hover,
+  &:focus {
+    .nhsuk-details__summary-text {
+      text-decoration: none;
+    }
+  }
+}
+
+.nhsuk-details[open] > .nhsuk-details__summary::before {
+  @include nhsuk-shape-arrow($direction: down, $base: 14px);
+}
+
+.nhsuk-details__summary-text {
+  text-decoration: underline; // [4]
+}
+
+.nhsuk-details__summary::-webkit-details-marker {
+  display: none; // [5]
+}
+
+.nhsuk-details__text {
+  border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+  margin-top: nhsuk-spacing(2);
+  padding: nhsuk-spacing(3);
+  padding-left: 20px; // [6]
+  @include nhsuk-top-and-bottom;
+}
+
+/// Expander variation.
+///
+/// 1. !important used because the icon is populated
+///    by the JavaScript polyfill
+/// 2. Remove the default hover, focus and active
+///    styles for this component.
+/// 3. -2px left margin to align the icon to the content.
+/// 4. When a group of details is used reduce the
+///    margin between them so they sit together.
+
+$expander-border-width: 1px;
+$expander-border-bottom-width: nhsuk-spacing(1);
+$expander-border-color: $color_nhsuk-grey-4;
+$expander-border-hover-color: $color_nhsuk-grey-3;
+
+.nhsuk-expander {
+  background-color: $color_nhsuk-white;
+  border: $expander-border-width solid $expander-border-color;
+  border-bottom-width: $expander-border-bottom-width;
+
+  &:hover {
+    border-color: $expander-border-hover-color;
+  }
+
+  .nhsuk-details__summary {
+    background-color: $color_nhsuk-white;
+    border-top: $nhsuk-focus-width solid transparent;
+    display: block;
+    padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) nhsuk-spacing(5);
+
+    @include nhsuk-media-query($until: tablet) {
+      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
+    }
+
+    &::before {
+      // stylelint-disable-next-line declaration-no-important
+      display: none !important; // [1]
+    }
+
+    &:hover {
+      .nhsuk-details__summary-text {
+        color: $nhsuk-link-hover-color;
+      }
+    }
+
+    &:focus {
+      box-shadow: none;
+
+      .nhsuk-details__summary-text {
+        @include nhsuk-focused-text;
+      }
+
+      .nhsuk-details__summary-text::before {
+        background: $nhsuk-focus-color
+          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+          left -2px center no-repeat;
+      }
+    }
+  }
+
+  .nhsuk-details__summary-text {
+    color: $color_nhsuk-blue;
+    cursor: pointer;
+    display: inline-block;
+    padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
+    position: relative;
+  }
+
+  .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+      left -2px center no-repeat;
+    content: "";
+    display: inline-block;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: calc(50% - 16px);
+    width: 32px;
+  }
+
+  .nhsuk-details__text {
+    border-left: 0;
+    margin-left: 0;
+    margin-top: 0;
+
+    @include nhsuk-responsive-padding(5, "bottom");
+    @include nhsuk-responsive-padding(5, "left");
+    @include nhsuk-responsive-padding(5, "right");
+    @include nhsuk-responsive-padding(0, "top");
+  }
+}
+
+.nhsuk-expander[open] {
+  border-bottom-width: $expander-border-width;
+
+  .nhsuk-details__summary {
+    &:focus {
+      &:hover {
+        .nhsuk-details__summary-text {
+          text-decoration: none;
+        }
+      }
+
+      .nhsuk-details__summary-text::before {
+        background: $nhsuk-focus-color
+          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+          left -2px center no-repeat; // [3]
+      }
+    }
+  }
+
+  .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+      left -2px center no-repeat; // [3]
+  }
+}
+
+.nhsuk-expander-group {
+  // [4]
+
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  > .nhsuk-details {
+    @include nhsuk-responsive-margin(2, "bottom");
+  }
+}
+
+.nhsuk-details + h2,
+.nhsuk-details + .nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}

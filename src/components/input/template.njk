@@ -1,0 +1,63 @@
+{% from "../error-message/macro.njk" import errorMessage -%}
+{% from "../hint/macro.njk" import hint %}
+{% from "../label/macro.njk" import label %}
+{% from "../../macros/attributes.njk" import nhsukAttributes %}
+
+{#- a record of other elements that we need to associate with the input using
+   aria-describedby – for example hints or error messages -#}
+{% set describedBy = "" %}
+<div class="nhsuk-form-group
+{%- if params.errorMessage %} nhsuk-form-group--error{% endif %}
+{%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+  {{ label({
+    html: params.label.html,
+    text: params.label.text,
+    classes: params.label.classes,
+    isPageHeading: params.label.isPageHeading,
+    attributes: params.label.attributes,
+    for: params.id
+  }) | indent(2) | trim -}}
+{%- if params.hint %}
+  {%- set hintId = params.id + '-hint' if params.id %}
+  {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {{ hint({
+    id: hintId,
+    classes: params.hint.classes,
+    attributes: params.hint.attributes,
+    html: params.hint.html,
+    text: params.hint.text
+  }) | indent(2) | trim -}}
+{% endif -%}
+{%- if params.errorMessage %}
+  {%- set errorId = params.id + '-error' %}
+  {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {{ errorMessage({
+    id: errorId,
+    classes: params.errorMessage.classes,
+    html: params.errorMessage.html,
+    text: params.errorMessage.text
+  }) | indent(2) | trim -}}
+{% endif %}
+{%- if params.prefix or params.suffix %}
+  <div class="nhsuk-input__wrapper">
+{% endif %}
+    {%- if params.prefix %}
+    <div class="nhsuk-input__prefix" aria-hidden="true">{{ params.prefix }}</div>
+    {% endif %}
+    <input class="nhsuk-input
+    {%- if params.classes %} {{ params.classes }}{% endif %}
+    {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+    {%- if (params.spellcheck === false) or (params.spellcheck === true) %} spellcheck="{{ params.spellcheck }}"{% endif %}
+    {%- if params.value %} value="{{ params.value}}"{% endif %}
+    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+    {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
+    {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
+    {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
+    {{- nhsukAttributes(params.attributes) }}>
+    {%- if params.suffix %}
+    <div class="nhsuk-input__suffix" aria-hidden="true">{{ params.suffix }}</div>
+    {% endif %}
+{%- if params.prefix or params.suffix %}
+</div> {# close nhsuk-input__wrapper #}
+{% endif %}
+</div> {# close nhsuk-form-group #}

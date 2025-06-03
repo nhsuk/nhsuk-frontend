@@ -1,0 +1,44 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Select component
+///
+/// Input sizing:
+///
+/// 1. Uses rems so that safari input scales with font size
+/// 2. This min-width was chosen because:
+///    - it makes the Select wider than it is tall (which is what users expect)
+///    - 20ex + 3ex matches the 'width-10' variant of the input component
+///    - it fits comfortably on screens as narrow as 240px wide
+///
+/// @group components
+////
+
+.nhsuk-select {
+  background-color: $color_nhsuk-white;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  box-sizing: border-box;
+  color: $color_nhsuk-black;
+  height: 2.5rem; // [1]
+  min-width: 20ex + 3ex; // [2]
+  max-width: 100%;
+  padding: nhsuk-spacing(1);
+
+  @include nhsuk-font(19);
+
+  &:focus {
+    @include nhsuk-focused-input;
+  }
+}
+
+.nhsuk-select option:active,
+.nhsuk-select option:checked,
+.nhsuk-select:focus::-ms-value {
+  background-color: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
+}
+
+.nhsuk-select--error {
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+}

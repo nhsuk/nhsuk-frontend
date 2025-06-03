@@ -1,0 +1,26 @@
+[
+  {
+    "name": "text",
+    "type": "string",
+    "required": false,
+    "description": "Text to use within the skip link component. Defaults to `\"Skip to main content\"` if you do not provide a value."
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": false,
+    "description": "The value of the skip link's `href` attribute. Defaults to `\"#maincontent\"` if you do not provide a value."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the skip link."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the skip link."
+  }
+]

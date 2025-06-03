@@ -1,0 +1,63 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Page width for the grid system
+///
+/// 1. On mobile, add half width gutters
+/// 2. Limit the width of the container to the page width
+/// 3. From desktop, add full width gutters
+/// 4. As soon as the viewport is greater than the width of the page plus the
+///    gutters, just centre the content instead of adding gutters.
+/// 5. Full width container, spanning the entire width of the viewport
+///
+/// @group objects
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+@mixin nhsuk-width-container {
+  margin: 0 $nhsuk-gutter-half; // [1]
+
+  max-width: $nhsuk-page-width; // [2]
+
+  @include nhsuk-media-query($from: desktop) {
+    margin: 0 $nhsuk-gutter; // [3]
+  }
+
+  // [4]
+  @include nhsuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
+    margin: 0 auto;
+  }
+}
+
+/// Page width for the grid system (deprecated)
+///
+/// @alias nhsuk-width-container
+/// @deprecated To be removed in v11.0, replaced by nhsuk-width-container
+
+@mixin govuk-width-container {
+  @include nhsuk-warning(
+    "govuk-width-container",
+    "govuk-width-container is deprecated. Use nhsuk-width-container instead."
+  );
+  @include nhsuk-width-container;
+}
+
+@mixin nhsuk-width-container-fluid {
+  margin: 0 $nhsuk-gutter-half;
+  max-width: 100%; // [5]
+
+  @include nhsuk-media-query($from: desktop) {
+    margin: 0 $nhsuk-gutter; // [3]
+  }
+}
+
+@include nhsuk-exports("nhsuk/core/objects/width-container") {
+  .nhsuk-width-container {
+    @include nhsuk-width-container;
+  }
+
+  .nhsuk-width-container-fluid {
+    @include nhsuk-width-container-fluid;
+  }
+}

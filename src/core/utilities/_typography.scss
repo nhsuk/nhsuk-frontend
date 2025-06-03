@@ -1,0 +1,72 @@
+@use "sass:map";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Typography
+///
+/// @group utilities
+////
+
+// Utility classes are allowed to use !important;
+// so we disable stylelint for that rule
+
+/// Font size and line height
+///
+/// Generate typography override classes for each responsive font map in the
+/// typography scale eg .nhsuk-u-font-size-48
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+// nhsuk-u-font-size-24 is deprecated
+@each $size, $font-map in $nhsuk-typography-scale {
+  .nhsuk-u-font-size-#{$size} {
+    $font-map: map.get($nhsuk-typography-scale, $size);
+
+    // Add underscore to deprecated typography scale keys
+    @if map.has-key($font-map, "deprecation") {
+      $size: _#{$size};
+    }
+
+    @include nhsuk-font-size($size, $important: true);
+  }
+}
+
+/// Weights
+///
+/// Generate font weight override classes for normal and bold
+///
+/// @example html
+///   <h3 class="nhsuk-heading-s nhsuk-u-font-weight-normal">Example</h3>
+///   <p class="nhsuk-u-font-weight-bold">Example</p>
+
+.nhsuk-u-font-weight-normal {
+  @include nhsuk-typography-weight-normal($important: true);
+}
+
+.nhsuk-u-font-weight-bold {
+  @include nhsuk-typography-weight-bold($important: true);
+}
+
+/// Typography helpers
+
+/// Word break
+///
+/// @example html
+///   <p class="text-u-word-break-word"></p>
+
+.nhsuk-u-text-break-word {
+  @include nhsuk-text-break-word($important: true);
+}
+
+/// Colours
+
+/// Secondary text colour
+///
+/// @example html
+///   <p class="nhsuk-u-secondary-text-color">Published on: 15 March 2018</p>
+
+.nhsuk-u-secondary-text-color {
+  // stylelint-disable-next-line declaration-no-important
+  color: $nhsuk-secondary-text-color !important;
+}

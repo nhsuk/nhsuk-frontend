@@ -1,0 +1,34 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Skip link component
+///
+/// 1. Hide until the skip link gains focus from keyboard tabbing.
+///
+/// @group components
+////
+
+.nhsuk-skip-link {
+  position: absolute;
+  z-index: 2;
+  left: nhsuk-spacing(3);
+  top: nhsuk-spacing(3);
+  padding: nhsuk-spacing(2);
+  @include nhsuk-visually-hidden-focusable; // [1]
+}
+
+.nhsuk-skip-link-focused-element {
+  &:focus {
+    // Remove the native visible focus indicator when the element is
+    // programmatically focused.
+    //
+    // We set the focus on the linked element (this is usually the <main>
+    // element) when the skip link is activated to improve screen reader
+    // announcements. However, we remove the visible focus indicator from the
+    // linked element because the user cannot interact with it.
+    //
+    // A related discussion: https://github.com/w3c/wcag/issues/1001
+    outline: none;
+  }
+}

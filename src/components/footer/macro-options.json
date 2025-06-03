@@ -1,0 +1,100 @@
+[
+  {
+    "name": "links",
+    "type": "array",
+    "required": false,
+    "description": "Contains the array of the first column of footer link items.",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Href attribute for a footer link item in the first column."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "The label for a footer link item in the first column."
+      }
+    ]
+  },
+  {
+    "name": "linksColumn2",
+    "type": "array",
+    "required": false,
+    "description": "Contains the array of the second column of footer link items.",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Href attribute for a footer link item in the second column."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "The label for a footer link item in the second column."
+      }
+    ]
+  },
+  {
+    "name": "linksColumn3",
+    "type": "array",
+    "required": false,
+    "description": "Contains the array of the third column of footer link items.",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Href attribute for a footer link item in the third column."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "The label for a footer link item in the third column."
+      }
+    ]
+  },
+  {
+    "name": "copyright",
+    "type": "string",
+    "required": false,
+    "description": "Optional text for the copyright notice in the footer."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the footer container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the footer container."
+  },
+  {
+    "name": "metaLinks",
+    "type": "array",
+    "required": false,
+    "description": "Contains the array of key policy footer link items.",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Href attribute for a key policy footer link item."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "The label for a key policy footer link item."
+      }
+    ]
+  }
+]

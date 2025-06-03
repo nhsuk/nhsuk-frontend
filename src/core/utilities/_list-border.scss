@@ -1,0 +1,20 @@
+@use "../settings" as *;
+
+////
+/// List border
+///
+/// Adds a grey border to the bottom of an <li> tag
+///
+/// @group utilities
+///
+/// @example html
+///   <ul class="nhsuk-list nhsuk-list--border">
+///     <li>Item 1</li>
+///     <li>Item 2</li>
+///   </ul>
+////
+
+.nhsuk-list--border li {
+  border-bottom: 1px solid $color_nhsuk-grey-4;
+  padding: 8px 0 16px;
+}
