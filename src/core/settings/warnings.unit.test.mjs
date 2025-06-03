@@ -23,7 +23,7 @@ describe('Warnings settings', () => {
     `
 
     await compileStringAsync(sass, {
-      loadPaths: ['packages'],
+      loadPaths: ['packages/nhsuk-frontend/src'],
       logger
     })
 
@@ -45,7 +45,7 @@ describe('Warnings settings', () => {
     `
 
     await compileStringAsync(sass, {
-      loadPaths: ['packages'],
+      loadPaths: ['packages/nhsuk-frontend/src'],
       logger
     })
 
@@ -63,7 +63,7 @@ describe('Warnings settings', () => {
     `
 
     await compileStringAsync(sass, {
-      loadPaths: ['packages'],
+      loadPaths: ['packages/nhsuk-frontend/src'],
       logger
     })
 
@@ -79,7 +79,7 @@ describe('Warnings settings', () => {
     `
 
     await compileStringAsync(sass, {
-      loadPaths: ['packages'],
+      loadPaths: ['packages/nhsuk-frontend/src'],
       logger
     })
 
