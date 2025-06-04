@@ -3,11 +3,11 @@
   "private": true,
   "description": "NHS.UK frontend shared config",
   "license": "MIT",
-  "main": "index.mjs",
   "exports": {
     ".": "./index.mjs",
     "./*": "./*"
   },
+  "main": "index.mjs",
   "dependencies": {
     "nhsuk-frontend": "*"
   },

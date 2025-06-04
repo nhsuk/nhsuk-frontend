@@ -1,6 +1,7 @@
 import { join, relative } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import { task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 import filter from 'gulp-filter'
 import rename from 'gulp-rename'
@@ -11,7 +12,7 @@ import webpack from 'webpack-stream'
 /**
  * Compile JavaScript task
  */
-export function webpackJS(done) {
+export const compile = task.name('scripts:compile', (done) => {
   return gulp
     .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.mjs'), {
       sourcemaps: true
@@ -53,7 +54,7 @@ export function webpackJS(done) {
         target: 'browserslist:javascripts'
       }).on('error', (error) => {
         done(
-          new PluginError('webpackJS', error, {
+          new PluginError('scripts:compile', error, {
             showProperties: false
           })
         )
@@ -64,12 +65,12 @@ export function webpackJS(done) {
         sourcemaps: '.'
       })
     )
-}
+})
 
 /**
  * Minify JavaScript task
  */
-export function minifyJS() {
+export const minify = task.name('scripts:minify', () => {
   return (
     gulp
       .src(join(config.paths.root, 'dist/nhsuk.js'), {
@@ -116,4 +117,4 @@ export function minifyJS() {
         })
       )
   )
-}
+})

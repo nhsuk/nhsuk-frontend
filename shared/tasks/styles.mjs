@@ -2,6 +2,7 @@ import { join, relative } from 'path'
 import { Transform } from 'stream'
 
 import * as config from '@nhsuk/frontend-config'
+import { task } from '@nhsuk/frontend-tasks'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import gulp from 'gulp'
@@ -17,7 +18,7 @@ const sass = gulpSass(dartSass)
 /**
  * Compile Sass task
  */
-export function compileCSS(done) {
+export const compile = task.name('styles:compile', (done) => {
   return gulp
     .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.scss'), {
       sourcemaps: true
@@ -34,7 +35,7 @@ export function compileCSS(done) {
         sourceMapIncludeSources: true
       }).on('error', (error) => {
         done(
-          new PluginError('compileCSS', error.messageFormatted, {
+          new PluginError('styles:compile', error.messageFormatted, {
             showProperties: false
           })
         )
@@ -68,12 +69,12 @@ export function compileCSS(done) {
         sourcemaps: '.'
       })
     )
-}
+})
 
 /**
  * Minify CSS task
  */
-export function minifyCSS() {
+export const minify = task.name('styles:minify', () => {
   return (
     gulp
       .src(join(config.paths.root, 'dist/nhsuk.css'), {
@@ -115,4 +116,4 @@ export function minifyCSS() {
         })
       )
   )
-}
+})

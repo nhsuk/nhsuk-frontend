@@ -4,8 +4,10 @@
   "description": "NHS.UK frontend shared tasks",
   "license": "MIT",
   "exports": {
+    ".": "./index.mjs",
     "./*": "./*"
   },
+  "main": "index.mjs",
   "dependencies": {
     "@nhsuk/frontend-config": "*",
     "autoprefixer": "^10.4.21",

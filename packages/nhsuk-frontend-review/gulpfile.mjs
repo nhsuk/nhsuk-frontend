@@ -4,32 +4,23 @@ import * as config from '@nhsuk/frontend-config'
 import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
-import {
-  buildHTML,
-  validateHTML,
-  copyCSS,
-  copyJS,
-  copyBinaryAssets,
-  serve
-} from './tasks/app.mjs'
+import { app } from './tasks/index.mjs'
 
-gulp.task('styles', copyCSS)
-gulp.task('scripts', copyJS)
-gulp.task('assets', copyBinaryAssets)
-gulp.task('html', buildHTML)
-gulp.task('validate', validateHTML)
+gulp.task('styles', app.styles)
+gulp.task('scripts', app.scripts)
+gulp.task('assets', app.assets)
+gulp.task('html', app.html)
+gulp.task('validate', app.validate)
 
 gulp.task(
   'build',
   gulp.parallel([
-    'styles',
-    'scripts',
-    'assets',
+    gulp.series(['styles', 'scripts', 'assets']),
     gulp.series(['html', 'validate'])
   ])
 )
 
-gulp.task('serve', serve)
+gulp.task('serve', app.serve)
 
 gulp.task('watch', () =>
   Promise.all([
