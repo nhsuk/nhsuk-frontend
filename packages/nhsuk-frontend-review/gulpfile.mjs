@@ -13,9 +13,20 @@ import {
   serve
 } from './tasks/app.mjs'
 
+gulp.task('styles', copyCSS)
+gulp.task('scripts', copyJS)
+gulp.task('assets', copyBinaryAssets)
+gulp.task('html', buildHTML)
+gulp.task('validate', validateHTML)
+
 gulp.task(
   'build',
-  gulp.series([copyCSS, copyJS, copyBinaryAssets, buildHTML, validateHTML])
+  gulp.parallel([
+    'styles',
+    'scripts',
+    'assets',
+    gulp.series(['html', 'validate'])
+  ])
 )
 
 gulp.task('serve', serve)
@@ -30,7 +41,7 @@ gulp.task('watch', () =>
         join(config.paths.app, 'src/**/*.njk'),
         join(config.paths.pkg, 'src/nhsuk/**/*.njk')
       ],
-      buildHTML
+      gulp.series(['html'])
     ),
 
     /**
@@ -41,17 +52,27 @@ gulp.task('watch', () =>
       .on('change', browserSync.reload),
 
     /**
-     * Watch and copy minified CSS and JS
+     * Watch and copy minified styles
      */
-    gulp.watch([join(config.paths.root, 'dist/*.min.{css,css.map}')], copyCSS),
-    gulp.watch([join(config.paths.root, 'dist/*.min.{js,js.map}')], copyJS),
+    gulp.watch(
+      [join(config.paths.root, 'dist/*.min.{css,css.map}')],
+      gulp.series(['styles'])
+    ),
+
+    /**
+     * Watch and copy minified scripts
+     */
+    gulp.watch(
+      [join(config.paths.root, 'dist/*.min.{js,js.map}')],
+      gulp.series(['scripts'])
+    ),
 
     /**
      * Watch and copy assets
      */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
-      copyBinaryAssets
+      gulp.series(['assets'])
     )
   ])
 )
