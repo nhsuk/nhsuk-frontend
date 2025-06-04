@@ -1,8 +1,8 @@
 import { join } from 'path'
 
+import * as config from '@nhsuk/frontend-config'
 import gulp from 'gulp'
 import zip from 'gulp-zip'
-import * as config from 'nhsuk-frontend-config'
 
 /**
  * Assets tasks

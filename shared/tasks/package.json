@@ -1,5 +1,5 @@
 {
-  "name": "nhsuk-frontend-tasks",
+  "name": "@nhsuk/frontend-tasks",
   "private": true,
   "description": "NHS.UK frontend shared tasks",
   "license": "MIT",
@@ -7,6 +7,7 @@
     "./*": "./*"
   },
   "dependencies": {
+    "@nhsuk/frontend-config": "*",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",
     "browser-sync": "^3.0.4",
@@ -21,7 +22,6 @@
     "gulp-terser": "^2.1.0",
     "gulp-zip": "^6.1.0",
     "html-validate": "^9.5.3",
-    "nhsuk-frontend-config": "*",
     "nunjucks": "^3.2.4",
     "plugin-error": "^2.0.1",
     "sass-embedded": "^1.87.0",

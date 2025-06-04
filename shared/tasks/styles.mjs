@@ -1,6 +1,7 @@
 import { join, relative } from 'path'
 import { Transform } from 'stream'
 
+import * as config from '@nhsuk/frontend-config'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import gulp from 'gulp'
@@ -8,7 +9,6 @@ import filter from 'gulp-filter'
 import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
-import * as config from 'nhsuk-frontend-config'
 import PluginError from 'plugin-error'
 import * as dartSass from 'sass-embedded'
 

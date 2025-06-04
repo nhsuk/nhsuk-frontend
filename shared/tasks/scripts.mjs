@@ -1,10 +1,10 @@
 import { join, relative } from 'path'
 
+import * as config from '@nhsuk/frontend-config'
 import gulp from 'gulp'
 import filter from 'gulp-filter'
 import rename from 'gulp-rename'
 import terser from 'gulp-terser'
-import * as config from 'nhsuk-frontend-config'
 import PluginError from 'plugin-error'
 import webpack from 'webpack-stream'
 

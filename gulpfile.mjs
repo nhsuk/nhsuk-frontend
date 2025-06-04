@@ -1,8 +1,6 @@
 import { join } from 'path'
 
-import browserSync from 'browser-sync'
-import gulp from 'gulp'
-import * as config from 'nhsuk-frontend-config'
+import * as config from '@nhsuk/frontend-config'
 import {
   buildHTML,
   validateHTML,
@@ -10,16 +8,18 @@ import {
   copyJS,
   copyBinaryAssets,
   serve
-} from 'nhsuk-frontend-tasks/app.mjs'
-import { clean } from 'nhsuk-frontend-tasks/clean.mjs'
+} from '@nhsuk/frontend-tasks/app.mjs'
+import { clean } from '@nhsuk/frontend-tasks/clean.mjs'
 import {
   assets,
   cssFolder,
   jsFolder,
   createZip
-} from 'nhsuk-frontend-tasks/release.mjs'
-import { webpackJS, minifyJS } from 'nhsuk-frontend-tasks/scripts.mjs'
-import { compileCSS, minifyCSS } from 'nhsuk-frontend-tasks/styles.mjs'
+} from '@nhsuk/frontend-tasks/release.mjs'
+import { webpackJS, minifyJS } from '@nhsuk/frontend-tasks/scripts.mjs'
+import { compileCSS, minifyCSS } from '@nhsuk/frontend-tasks/styles.mjs'
+import browserSync from 'browser-sync'
+import gulp from 'gulp'
 
 /**
  * Development tasks

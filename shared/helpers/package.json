@@ -1,5 +1,5 @@
 {
-  "name": "nhsuk-frontend-helpers",
+  "name": "@nhsuk/frontend-helpers",
   "private": true,
   "description": "NHS.UK frontend shared helpers",
   "license": "MIT",
