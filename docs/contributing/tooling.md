@@ -39,13 +39,13 @@ npx --workspace nhsuk-frontend -- gulp --tasks
 
 For a specific task, run `npx --workspace nhsuk-frontend -- gulp <task-name>` on the command line:
 
-| task     | action                                                  |
-| -------- | ------------------------------------------------------- |
-| `style`  | Compiles CSS only, including minified files in `dist/`  |
-| `script` | Compiles JS only, including minified files in `dist/`   |
-| `build`  | Deletes `dist/` contents then runs `style` and `script` |
-| `zip`    | Creates a distributable zip file in `dist/`             |
-| `watch`  | Runs `style` and `script` when there are changes        |
+| task      | action                                            |
+| --------- | ------------------------------------------------- |
+| `styles`  | Compile NHS.UK frontend styles only               |
+| `scripts` | Compiles NHS.UK frontend scripts only             |
+| `build`   | Run tasks `styles`, `scripts` once only           |
+| `watch`   | Run tasks `styles`, `scripts` on relevant changes |
+| `zip`     | Create GitHub release zip file                    |
 
 ### Review app only
 
@@ -57,11 +57,16 @@ npx --workspace @nhsuk/frontend-review -- gulp --tasks
 
 For a specific task, run `npx --workspace @nhsuk/frontend-review -- gulp <task-name>` on the command line:
 
-| task    | action                                      |
-| ------- | ------------------------------------------- |
-| `build` | Recompile review app                        |
-| `watch` | Recompile review app when there are changes |
-| `serve` | Serve review app on port 3000               |
+| task       | action                                                                |
+| ---------- | --------------------------------------------------------------------- |
+| `styles`   | Compile review app styles only                                        |
+| `scripts`  | Compiles review app scripts only                                      |
+| `assets`   | Copy review app assets only                                           |
+| `html`     | Compile review app Nunjucks into HTML                                 |
+| `validate` | Validate review app Nunjucks HTML output                              |
+| `build`    | Run tasks `styles`, `scripts`, `assets`, `html`, `validate` once only |
+| `watch`    | Run tasks `styles`, `scripts`, `assets`, `html` on relevant changes   |
+| `serve`    | Serve review app on port 3000                                         |
 
 ---
 

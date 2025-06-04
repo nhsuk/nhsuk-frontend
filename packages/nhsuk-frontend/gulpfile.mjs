@@ -7,9 +7,9 @@ import gulp from 'gulp'
 
 import { assets, cssFolder, jsFolder, createZip } from './tasks/release.mjs'
 
-gulp.task('style', gulp.series([compileCSS, minifyCSS]))
-gulp.task('script', gulp.series([webpackJS, minifyJS]))
-gulp.task('build', gulp.parallel(['style', 'script']))
+gulp.task('styles', gulp.series([compileCSS, minifyCSS]))
+gulp.task('scripts', gulp.series([webpackJS, minifyJS]))
+gulp.task('build', gulp.parallel(['styles', 'scripts']))
 
 gulp.task(
   'zip',
@@ -18,13 +18,20 @@ gulp.task(
 
 gulp.task('watch', () =>
   Promise.all([
+    /**
+     * Watch and compile styles
+     */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
-      gulp.series(['style'])
+      gulp.series(['styles'])
     ),
+
+    /**
+     * Watch and compile scripts
+     */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
-      gulp.series(['script'])
+      gulp.series(['scripts'])
     )
   ])
 )
