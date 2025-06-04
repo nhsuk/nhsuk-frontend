@@ -14,10 +14,10 @@ gulp.task('validate', app.validate)
 
 gulp.task(
   'build',
-  gulp.parallel([
-    gulp.series(['styles', 'scripts', 'assets']),
-    gulp.series(['html', 'validate'])
-  ])
+  gulp.parallel(
+    gulp.series('styles', 'scripts', 'assets'),
+    gulp.series('html', 'validate')
+  )
 )
 
 gulp.task('serve', app.serve)
@@ -32,7 +32,7 @@ gulp.task('watch', () =>
         join(config.paths.app, 'src/**/*.njk'),
         join(config.paths.pkg, 'src/nhsuk/**/*.njk')
       ],
-      gulp.series(['html'])
+      gulp.series('html')
     ),
 
     /**
@@ -47,7 +47,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.root, 'dist/*.min.{css,css.map}')],
-      gulp.series(['styles'])
+      gulp.series('styles')
     ),
 
     /**
@@ -55,7 +55,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.root, 'dist/*.min.{js,js.map}')],
-      gulp.series(['scripts'])
+      gulp.series('scripts')
     ),
 
     /**
@@ -63,7 +63,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
-      gulp.series(['assets'])
+      gulp.series('assets')
     )
   ])
 )
