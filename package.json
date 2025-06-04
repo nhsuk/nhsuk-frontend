@@ -36,7 +36,8 @@
     "prebuild": "npm run clean",
     "clean": "del-cli dist/**",
     "build": "gulp build --color",
-    "watch": "gulp watch --color"
+    "watch": "gulp watch --color",
+    "start": "npm run watch"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",
