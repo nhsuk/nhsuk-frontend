@@ -9,7 +9,6 @@ import {
   copyBinaryAssets,
   serve
 } from '@nhsuk/frontend-tasks/app.mjs'
-import { clean } from '@nhsuk/frontend-tasks/clean.mjs'
 import {
   assets,
   cssFolder,
@@ -19,18 +18,19 @@ import {
 import { webpackJS, minifyJS } from '@nhsuk/frontend-tasks/scripts.mjs'
 import { compileCSS, minifyCSS } from '@nhsuk/frontend-tasks/styles.mjs'
 import browserSync from 'browser-sync'
+import { deleteAsync } from 'del'
 import gulp from 'gulp'
 
 /**
  * Development tasks
  */
 
-gulp.task('clean', async () => {
-  return clean([join(config.paths.root, 'dist/**/*')])
+gulp.task('clean', () => {
+  return deleteAsync([join(config.paths.root, 'dist/**/*')])
 })
 
-gulp.task('clean:zip', async () => {
-  return clean([
+gulp.task('clean:zip', () => {
+  return deleteAsync([
     join(config.paths.root, 'dist/{assets,css,js}'),
     join(config.paths.root, 'dist/*.zip')
   ])
