@@ -9,7 +9,7 @@ import { HtmlValidate, formatterFactory } from 'html-validate'
 import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
-import validatorConfig from '../../.htmlvalidate.js'
+import validatorConfig from '../.htmlvalidate.js'
 
 const { PORT = '3000' } = process.env
 
@@ -79,13 +79,9 @@ export async function validateHTML() {
 }
 
 /**
- * Copy CSS from dist into the documentation directory
+ * Copy CSS from dist into the review app directory
  */
-export async function copyCSS() {
-  await mkdir('dist/app/stylesheets', {
-    recursive: true
-  })
-
+export function copyCSS() {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/stylesheets')))
@@ -93,13 +89,9 @@ export async function copyCSS() {
 }
 
 /**
- * Copy JS from dist into the documentation directory
+ * Copy JS from dist into the review app directory
  */
-export async function copyJS() {
-  await mkdir('dist/app/javascripts', {
-    recursive: true
-  })
-
+export function copyJS() {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/javascripts')))
@@ -109,11 +101,7 @@ export async function copyJS() {
 /**
  * Copy logos, icons and other binary assets
  */
-export async function copyBinaryAssets() {
-  await mkdir('dist/app/assets', {
-    recursive: true
-  })
-
+export function copyBinaryAssets() {
   return gulp
     .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
     .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
@@ -121,7 +109,7 @@ export async function copyBinaryAssets() {
 }
 
 /**
- * Serve the static docs directory over localhost
+ * Serve the review app directory over localhost
  *
  * @param {TaskCallback} done
  */

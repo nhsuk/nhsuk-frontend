@@ -9,7 +9,7 @@ To run an npm script, run `npm run <script_name>` on the command line.
 | `start` | Runs the _default_ gulp task (runs pre script `build`)     |
 | `test`  | Runs tests using ESLint (runs pre scripts `lint`, `build`) |
 | `lint`  | Runs linting and formatting checks only                    |
-| `build` | Compiles CSS, JS and builds documentation                  |
+| `build` | Compiles CSS, JS and builds the review app                 |
 
 You can optionally add `--ignore-scripts` to skip pre and post scripts.
 
@@ -21,21 +21,47 @@ npm start --ignore-scripts
 
 ## Gulp tasks
 
-We use [gulp](https://gulpjs.com/) for automating common tasks.
+We use [Gulp](https://gulpjs.com/) for automating common tasks.
 
-To run a gulp task, run `npx gulp <task_name>` on the command line.
+Gulp tasks are defined in:
 
-| task         | action                                                                 |
-| ------------ | ---------------------------------------------------------------------- |
-| `default`    | Serve the documentation on port 3000. Recompile when there are changes |
-| `style`      | Compiles CSS only, including minified files in `dist/`                 |
-| `script`     | Compiles JS only, including minified files in `dist/`                  |
-| `build`      | Deletes `dist/` contents then runs `style` and `script`                |
-| `zip`        | Creates a distributable zip file in `dist/`                            |
-| `watch`      | Runs `style` and `script` when there are changes                       |
-| `docs:build` | Recompile documentation                                                |
-| `docs:watch` | Recompile documentation when there are changes                         |
-| `docs:serve` | Serve documentation on port 3000                                       |
+- [Project `gulpfile.mjs`](/gulpfile.mjs) and [`shared/tasks/`](/shared/tasks) folder
+- [Package `gulpfile.mjs` for NHS.UK frontend](/packages/nhsuk-frontend/gulpfile.mjs)
+- [Package `gulpfile.mjs` for the review app](/packages/nhsuk-frontend-review/gulpfile.mjs)
+
+### NHS.UK frontend only
+
+To list all available tasks for the NHS.UK frontend package:
+
+```sh
+npx --workspace nhsuk-frontend -- gulp --tasks
+```
+
+For a specific task, run `npx --workspace nhsuk-frontend -- gulp <task-name>` on the command line:
+
+| task     | action                                                  |
+| -------- | ------------------------------------------------------- |
+| `style`  | Compiles CSS only, including minified files in `dist/`  |
+| `script` | Compiles JS only, including minified files in `dist/`   |
+| `build`  | Deletes `dist/` contents then runs `style` and `script` |
+| `zip`    | Creates a distributable zip file in `dist/`             |
+| `watch`  | Runs `style` and `script` when there are changes        |
+
+### Review app only
+
+To list all available tasks for the review app:
+
+```sh
+npx --workspace @nhsuk/frontend-review -- gulp --tasks
+```
+
+For a specific task, run `npx --workspace @nhsuk/frontend-review -- gulp <task-name>` on the command line:
+
+| task    | action                                      |
+| ------- | ------------------------------------------- |
+| `build` | Recompile review app                        |
+| `watch` | Recompile review app when there are changes |
+| `serve` | Serve review app on port 3000               |
 
 ---
 
