@@ -8,7 +8,8 @@
     "clean": "del-cli dist/**",
     "build": "gulp build --color",
     "serve": "gulp serve --color",
-    "watch": "gulp serve watch --color"
+    "watch": "gulp serve watch --color",
+    "start": "npm run watch"
   },
   "devDependencies": {
     "@nhsuk/frontend-config": "*",
