@@ -1,6 +1,6 @@
-import browserSync from 'browser-sync'
-import gulp from 'gulp'
+import { join } from 'path'
 
+import * as config from '@nhsuk/frontend-config'
 import {
   buildHTML,
   validateHTML,
@@ -8,27 +8,32 @@ import {
   copyJS,
   copyBinaryAssets,
   serve
-} from './shared/tasks/app.mjs'
-import { clean } from './shared/tasks/clean.mjs'
+} from '@nhsuk/frontend-tasks/app.mjs'
+import { clean } from '@nhsuk/frontend-tasks/clean.mjs'
 import {
   assets,
   cssFolder,
   jsFolder,
   createZip
-} from './shared/tasks/release.mjs'
-import { webpackJS, minifyJS } from './shared/tasks/scripts.mjs'
-import { compileCSS, minifyCSS } from './shared/tasks/styles.mjs'
+} from '@nhsuk/frontend-tasks/release.mjs'
+import { webpackJS, minifyJS } from '@nhsuk/frontend-tasks/scripts.mjs'
+import { compileCSS, minifyCSS } from '@nhsuk/frontend-tasks/styles.mjs'
+import browserSync from 'browser-sync'
+import gulp from 'gulp'
 
 /**
  * Development tasks
  */
 
 gulp.task('clean', async () => {
-  return clean(['dist/**/*'])
+  return clean([join(config.paths.root, 'dist/**/*')])
 })
 
 gulp.task('clean:zip', async () => {
-  return clean(['dist/{assets,css,js}', 'dist/*.zip'])
+  return clean([
+    join(config.paths.root, 'dist/{assets,css,js}'),
+    join(config.paths.root, 'dist/*.zip')
+  ])
 })
 
 gulp.task('style', gulp.series([compileCSS, minifyCSS]))
@@ -47,8 +52,14 @@ gulp.task(
 
 gulp.task('watch', () =>
   Promise.all([
-    gulp.watch(['packages/**/*.scss'], gulp.series(['style'])),
-    gulp.watch(['packages/**/*.mjs'], gulp.series(['script']))
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/**/*.scss')],
+      gulp.series(['style'])
+    ),
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+      gulp.series(['script'])
+    )
   ])
 )
 
@@ -63,11 +74,37 @@ gulp.task(
 
 gulp.task('docs:watch', () =>
   Promise.all([
-    gulp.watch(['app/**/*.njk', 'packages/**/*.njk'], buildHTML),
-    gulp.watch(['dist/**/*.html']).on('change', browserSync.reload),
-    gulp.watch(['dist/*.min.{css,css.map}'], copyCSS),
-    gulp.watch(['dist/*.min.{js,js.map}'], copyJS),
-    gulp.watch(['packages/assets/**/*'], copyBinaryAssets)
+    /**
+     * Watch and render Nunjucks
+     */
+    gulp.watch(
+      [
+        join(config.paths.app, 'src/**/*.njk'),
+        join(config.paths.pkg, 'src/nhsuk/**/*.njk')
+      ],
+      buildHTML
+    ),
+
+    /**
+     * Watch and reload HTML pages
+     */
+    gulp
+      .watch([join(config.paths.root, 'dist/**/*.html')])
+      .on('change', browserSync.reload),
+
+    /**
+     * Watch and copy minified CSS and JS
+     */
+    gulp.watch([join(config.paths.root, 'dist/*.min.{css,css.map}')], copyCSS),
+    gulp.watch([join(config.paths.root, 'dist/*.min.{js,js.map}')], copyJS),
+
+    /**
+     * Watch and copy assets
+     */
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
+      copyBinaryAssets
+    )
   ])
 )
 

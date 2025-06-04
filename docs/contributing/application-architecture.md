@@ -1,16 +1,12 @@
 # Application architecture
 
-The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `app/`. To make changes to components, you will have to edit the individual components files within `packages/`. These are usually the only 2 folders that you will need.
+The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `packages/nhsuk-frontend-review/`. To make changes to components, you will have to edit the individual components files within `packages/nhsuk-frontend/`. These are usually the only 2 folders that you will need.
 
 ---
 
 - `.github/`
 
   GitHub specific files, such templates for pull requests and issues.
-
-- `app/`
-
-  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
 
 - `dist/` (Automatically generated)
 
@@ -26,7 +22,28 @@ The application generates static HTML pages to preview components, with each com
 
 - `packages/`
 
-  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+  - `nhsuk-frontend-review`
+
+    - `dist/` **contains auto-generated files**
+
+      Builds of nhsuk-frontend-review served by [GitHub Pages](https://pages.github.com).
+
+    - `src/`
+
+      Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000/nhsuk-frontend when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
+
+  - `nhsuk-frontend`
+
+    Package published on npm.
+    Consume all of nhsuk-frontend through a single package.
+
+    - `dist/` **contains auto-generated files**
+
+      Builds of nhsuk-frontend published and exported from the npm package.
+
+    - `src/`
+
+      NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 - `shared/`
 

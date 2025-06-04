@@ -1,0 +1,49 @@
+{
+  "name": "nhsuk-frontend",
+  "version": "9.4.1",
+  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "sass": "./src/nhsuk/index.scss",
+      "default": "./src/nhsuk/index.mjs"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./src/nhsuk/*",
+      "default": "./src/nhsuk/*.js"
+    },
+    "./packages/*.mjs": "./src/nhsuk/*.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "src/nhsuk/index.mjs",
+  "sass": "src/nhsuk/index.scss",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.test.*"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "outdent": "^0.8.0",
+    "puppeteer": "^24.10.0",
+    "sass-embedded": "^1.87.0"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

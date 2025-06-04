@@ -1,0 +1,21 @@
+{% set title = 'Character Count - max words' %}
+{% from 'nhsuk/components/character-count/macro.njk' import characterCount %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ characterCount({
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxwords": 10,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

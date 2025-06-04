@@ -1,0 +1,11 @@
+{% set title = 'Header with search' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    search: true
+  }) }}
+
+{% endblock %}

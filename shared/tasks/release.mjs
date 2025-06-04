@@ -1,7 +1,8 @@
+import { join } from 'path'
+
+import * as config from '@nhsuk/frontend-config'
 import gulp from 'gulp'
 import zip from 'gulp-zip'
-
-import pkg from '../../package.json' with { type: 'json' }
 
 /**
  * Assets tasks
@@ -12,8 +13,8 @@ import pkg from '../../package.json' with { type: 'json' }
  */
 export function assets() {
   return gulp
-    .src('packages/assets/**', { encoding: false })
-    .pipe(gulp.dest('dist/assets/'))
+    .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
+    .pipe(gulp.dest(join(config.paths.root, 'dist/assets')))
 }
 
 /**
@@ -22,27 +23,31 @@ export function assets() {
 
 /* Copy JS files into their relevant folders */
 export function jsFolder() {
-  return gulp.src('dist/*.min.{js,js.map}').pipe(gulp.dest('dist/js/'))
+  return gulp
+    .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
+    .pipe(gulp.dest(join(config.paths.root, 'dist/js')))
 }
 
 /* Copy CSS files into their relevant folders */
 export function cssFolder() {
-  return gulp.src('dist/*.min.{css,css.map}').pipe(gulp.dest('dist/css/'))
+  return gulp
+    .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
+    .pipe(gulp.dest(join(config.paths.root, 'dist/css')))
 }
 
 export function createZip() {
   return gulp
     .src(
       [
-        'dist/css/*.min.{css,css.map}',
-        'dist/js/*.min.{js,js.map}',
-        'dist/assets/**'
+        join(config.paths.root, 'dist/css/*.min.{css,css.map}'),
+        join(config.paths.root, 'dist/js/*.min.{js,js.map}'),
+        join(config.paths.root, 'dist/assets/**')
       ],
       {
-        base: 'dist',
+        base: join(config.paths.root, 'dist'),
         encoding: false
       }
     )
-    .pipe(zip(`nhsuk-frontend-${pkg.version}.zip`))
-    .pipe(gulp.dest('dist'))
+    .pipe(zip(`nhsuk-frontend-${config.version}.zip`))
+    .pipe(gulp.dest(join(config.paths.root, 'dist')))
 }

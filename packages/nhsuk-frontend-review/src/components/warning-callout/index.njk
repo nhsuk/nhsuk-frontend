@@ -1,0 +1,14 @@
+{% set title = 'Warning callout' %}
+{% from 'nhsuk/components/warning-callout/macro.njk' import warningCallout %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ warningCallout({
+        "heading": "Important",
+        "text": "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
+      }) }}
+    </div>
+  </div>
+{% endblock %}

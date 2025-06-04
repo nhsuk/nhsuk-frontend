@@ -62,6 +62,6 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish npm package
-        run: npm publish
+        run: npm publish --workspace nhsuk-frontend
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

@@ -1,0 +1,33 @@
+{
+  "name": "@nhsuk/frontend-tasks",
+  "private": true,
+  "description": "NHS.UK frontend shared tasks",
+  "license": "MIT",
+  "exports": {
+    "./*": "./*"
+  },
+  "dependencies": {
+    "@nhsuk/frontend-config": "*",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "browser-sync": "^3.0.4",
+    "cssnano": "^7.0.7",
+    "del": "^8.0.0",
+    "glob": "^11.0.2",
+    "gulp": "^5.0.1",
+    "gulp-filter": "^9.0.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "gulp-zip": "^6.1.0",
+    "html-validate": "^9.5.3",
+    "nunjucks": "^3.2.4",
+    "plugin-error": "^2.0.1",
+    "sass-embedded": "^1.87.0",
+    "webpack-stream": "^7.0.0"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
+}

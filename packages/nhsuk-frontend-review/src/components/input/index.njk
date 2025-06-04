@@ -1,0 +1,17 @@
+{% set title = 'Input' %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ input({
+        "label": {
+          "text": "NHS number"
+        },
+        "id": "input-example",
+        "name": "test-name"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

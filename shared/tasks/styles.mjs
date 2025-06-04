@@ -1,7 +1,7 @@
 import { join, relative } from 'path'
-import { cwd } from 'process'
 import { Transform } from 'stream'
 
+import * as config from '@nhsuk/frontend-config'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import gulp from 'gulp'
@@ -12,8 +12,6 @@ import gulpSass from 'gulp-sass'
 import PluginError from 'plugin-error'
 import * as dartSass from 'sass-embedded'
 
-import pkg from '../../package.json' with { type: 'json' }
-
 const sass = gulpSass(dartSass)
 
 /**
@@ -21,7 +19,7 @@ const sass = gulpSass(dartSass)
  */
 export function compileCSS(done) {
   return gulp
-    .src('packages/nhsuk.scss', {
+    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.scss'), {
       sourcemaps: true
     })
     .pipe(
@@ -50,7 +48,7 @@ export function compileCSS(done) {
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(cwd(), 'dist'), join(file.base, path))
+              relative(join(config.paths.root, 'dist'), join(file.base, path))
             )
           }
 
@@ -66,7 +64,7 @@ export function compileCSS(done) {
       ])
     )
     .pipe(
-      gulp.dest('dist/', {
+      gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
@@ -78,7 +76,7 @@ export function compileCSS(done) {
 export function minifyCSS() {
   return (
     gulp
-      .src('dist/nhsuk.css', {
+      .src(join(config.paths.root, 'dist/nhsuk.css'), {
         sourcemaps: true
       })
       .pipe(
@@ -96,7 +94,7 @@ export function minifyCSS() {
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )
@@ -107,12 +105,12 @@ export function minifyCSS() {
       // Output minified + versioned
       .pipe(
         rename({
-          basename: `nhsuk-${pkg.version}`,
+          basename: `nhsuk-${config.version}`,
           suffix: '.min'
         })
       )
       .pipe(
-        gulp.dest('dist/', {
+        gulp.dest(join(config.paths.root, 'dist'), {
           sourcemaps: '.'
         })
       )

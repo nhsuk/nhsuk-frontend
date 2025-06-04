@@ -1,0 +1,18 @@
+{% set title = 'Card - primary card (with chevron and description)' %}
+{% from 'nhsuk/components/card/macro.njk' import card %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ card({
+        "href": "#",
+        "primary": "true",
+        "clickable": "true",
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% set title = 'Header with a service name, search and navigation' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    logo: {
+      href: "#"
+    },
+    service: {
+      text: "Digital service manual",
+      href: "#"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the NHS digital service manual"
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Standards and technology"
+        },
+        {
+          href: "#",
+          text: "Design system",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Content style guide"
+        },
+        {
+          href: "#",
+          text: "Accessibility"
+        },
+        {
+          href: "#",
+          text: "Community and contribution"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+  "name": "@nhsuk/frontend-config",
+  "private": true,
+  "description": "NHS.UK frontend shared config",
+  "license": "MIT",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./*": "./*"
+  },
+  "dependencies": {
+    "nhsuk-frontend": "*"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
+}

@@ -4,14 +4,11 @@ NHS.UK frontend contains the code you need to start building user interfaces for
 
 ## Guidance
 
-Visit the [NHS digital service manual](https://service-manual.nhs.uk/) for examples of components and guidance for when to use them. If we haven't yet published guidance on the component you want, please [email us](mailto:service-manual@nhs.net) or get in touch on the [NHS digital service manual Slack workspace](https://join.slack.com/t/nhs-service-manual/shared_invite/enQtNTIyOTEyNjU3NDkyLTk4NDQ3YzkwYzk1Njk5YjAxYTI5YTVkZmUxMGQ0ZjA3NjMyM2ZkNjBlMWMxODVjZjYzNzg1ZmU4MWY1NmE2YzE).
+Visit the [NHS digital service manual](https://service-manual.nhs.uk/) for examples of components and guidance for when to use them. If we haven’t yet published guidance on the component you want, please [email us](mailto:service-manual@nhs.net) or get in touch on the [NHS digital service manual Slack workspace](https://join.slack.com/t/nhs-service-manual/shared_invite/enQtNTIyOTEyNjU3NDkyLTk4NDQ3YzkwYzk1Njk5YjAxYTI5YTVkZmUxMGQ0ZjA3NjMyM2ZkNjBlMWMxODVjZjYzNzg1ZmU4MWY1NmE2YzE).
 
-## Quick start
+## How to install
 
-There are 2 ways to start using NHS.UK frontend in your app:
-
-- [using Node.js package manager (npm)](/docs/installation/installing-with-npm.md) (recommended)
-- by [copying our CSS, JavaScript and asset files into your project](/docs/installation/installing-compiled.md)
+See the [`nhsuk-frontend` README.md](/packages/nhsuk-frontend/README.md) in the packages directory for details.
 
 ## Browsers and assistive technology
 

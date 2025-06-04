@@ -66,8 +66,10 @@ jobs:
       - name: Restore build (from cache)
         uses: actions/cache/restore@v4
         with:
-          path: dist/
           key: build-${{ github.sha }}
+          path: |
+            dist
+            packages/*/dist
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -124,8 +126,8 @@ jobs:
         run: |
           node --eval "console.log(require.resolve('nhsuk-frontend'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/package.json'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/src/nhsuk/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/src/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
 
   regression:
     name: Visual regression tests

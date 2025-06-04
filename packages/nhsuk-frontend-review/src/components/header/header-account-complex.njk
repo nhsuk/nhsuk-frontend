@@ -1,0 +1,53 @@
+{% set title = "Header with account (logged in, complex)" %}
+{% from "nhsuk/components/header/macro.njk" import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    service: {
+      text: "Manage patients"
+    },
+    search: {
+      placeholder: "Name or NHS number",
+      visuallyHiddenLabel: "Search patients by name or NHS number"
+    },
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          text: "Regional Manager, Hull and East Yorkshire Hospitals NHS Trust"
+        },
+        {
+          href: "#",
+          text: "Change role"
+        },
+        {
+          action: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Home"
+        },
+        {
+          href: "#",
+          text: "Create user"
+        },
+        {
+          href: "#",
+          text: "Find user"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}

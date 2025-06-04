@@ -44,13 +44,13 @@ You must add the root of your application to Sass load paths, by either:
 Then load the NHS.UK frontend styles by adding the following to your Sass file. You should place the below code before your own Sass rules (or Sass `@forward`).
 
 ```scss
-@forward "node_modules/nhsuk-frontend/packages/nhsuk";
+@forward "node_modules/nhsuk-frontend/src/nhsuk";
 ```
 
 Alternatively you can use NHS.UK frontend styles with a custom configuration:
 
 ```scss
-@forward "node_modules/nhsuk-frontend/packages/nhsuk" with (
+@forward "node_modules/nhsuk-frontend/src/nhsuk" with (
   $nhsuk-include-font-face: false
 );
 ```
@@ -59,10 +59,10 @@ Or to use only the minimum components necessary:
 
 ```scss
 // Core (required)
-@forward "node_modules/nhsuk-frontend/packages/core";
+@forward "node_modules/nhsuk-frontend/src/nhsuk/core";
 
 // Individual component (optional)
-@forward "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@forward "node_modules/nhsuk-frontend/src/nhsuk/components/action-link";
 ```
 
 ## Importing JavaScript
@@ -111,8 +111,8 @@ initAll()
 Rather than using `initAll`, you can initialise individual components used by your service. For example:
 
 ```js
-import { initRadios } from 'nhsuk-frontend/packages/components/radios/radios.mjs';
-import { initSkipLink } from 'nhsuk-frontend/packages/components/skip-link/skip-link.mjs';
+import { initRadios } from 'nhsuk-frontend/src/nhsuk/components/radios/radios.mjs';
+import { initSkipLink } from 'nhsuk-frontend/src/nhsuk/components/skip-link/skip-link.mjs';
 
 // Initialise components
 document.addEventListener('DOMContentLoaded', () => {
