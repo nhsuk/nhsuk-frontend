@@ -18,36 +18,16 @@ import {
 import { webpackJS, minifyJS } from '@nhsuk/frontend-tasks/scripts.mjs'
 import { compileCSS, minifyCSS } from '@nhsuk/frontend-tasks/styles.mjs'
 import browserSync from 'browser-sync'
-import { deleteAsync } from 'del'
 import gulp from 'gulp'
-
-/**
- * Development tasks
- */
-
-gulp.task('clean', () => {
-  return deleteAsync([join(config.paths.root, 'dist/**/*')])
-})
-
-gulp.task('clean:zip', () => {
-  return deleteAsync([
-    join(config.paths.root, 'dist/{assets,css,js}'),
-    join(config.paths.root, 'dist/*.zip')
-  ])
-})
 
 gulp.task('style', gulp.series([compileCSS, minifyCSS]))
 gulp.task('script', gulp.series([webpackJS, minifyJS]))
 
-gulp.task('build', gulp.series(['clean', gulp.parallel(['style', 'script'])]))
+gulp.task('build', gulp.parallel(['style', 'script']))
 
 gulp.task(
   'zip',
-  gulp.series([
-    'clean:zip',
-    gulp.parallel([assets, jsFolder, cssFolder]),
-    createZip
-  ])
+  gulp.series([gulp.parallel([assets, jsFolder, cssFolder]), createZip])
 )
 
 gulp.task('watch', () =>

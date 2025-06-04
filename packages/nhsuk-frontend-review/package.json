@@ -3,6 +3,12 @@
   "private": true,
   "description": "NHS.UK frontend review app",
   "license": "MIT",
+  "scripts": {
+    "clean": "del-cli dist/**"
+  },
+  "devDependencies": {
+    "del-cli": "^6.0.0"
+  },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
   }

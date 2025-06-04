@@ -18,6 +18,8 @@
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
+    "clean": "del-cli dist/**",
+    "prebuild": "npm run clean --if-present --include-workspace-root --workspaces",
     "build": "gulp build docs:build --color --series",
     "prestart": "npm run build",
     "start": "gulp --color",
@@ -52,6 +54,7 @@
     "backstopjs": "^6.3.25",
     "browser-sync": "^3.0.4",
     "concurrently": "^9.1.2",
+    "del-cli": "^6.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
