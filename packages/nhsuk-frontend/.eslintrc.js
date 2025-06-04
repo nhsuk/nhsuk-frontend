@@ -4,8 +4,8 @@
 module.exports = {
   overrides: [
     {
-      files: ['**/*.{cjs,js,mjs}'],
-      excludedFiles: ['**/*.test.{cjs,js,mjs}'],
+      files: ['src/**/*.{cjs,js,mjs}'],
+      excludedFiles: ['src/**/*.test.{cjs,js,mjs}'],
       extends: ['plugin:es-x/restrict-to-es2015', 'prettier'],
       env: {
         browser: true

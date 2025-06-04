@@ -100,7 +100,7 @@ export function minifyCSS() {
       )
 
       // Exclude output source map
-      .pipe(filter(['**', '!dist/*.map']))
+      .pipe(filter(['**', `!${join(config.paths.root, 'dist/*.map')}`]))
 
       // Output minified + versioned
       .pipe(

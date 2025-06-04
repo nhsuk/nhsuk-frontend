@@ -4,10 +4,22 @@
   "description": "NHS.UK frontend review app",
   "license": "MIT",
   "scripts": {
-    "clean": "del-cli dist/**"
+    "prebuild": "npm run clean",
+    "clean": "del-cli dist/**",
+    "build": "gulp build --color",
+    "serve": "gulp serve --color",
+    "watch": "gulp serve watch --color"
   },
   "devDependencies": {
-    "del-cli": "^6.0.0"
+    "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-tasks": "*",
+    "browser-sync": "^3.0.4",
+    "del-cli": "^6.0.0",
+    "glob": "^11.0.2",
+    "gulp": "^5.0.1",
+    "html-validate": "^9.5.3",
+    "nunjucks": "^3.2.4",
+    "plugin-error": "^2.0.1"
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
