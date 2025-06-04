@@ -1,5 +1,5 @@
 {
-  "name": "nhsuk-frontend-config",
+  "name": "@nhsuk/frontend-config",
   "private": true,
   "description": "NHS.UK frontend shared config",
   "license": "MIT",

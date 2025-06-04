@@ -1,11 +1,11 @@
 import { mkdir, writeFile } from 'fs/promises'
 import { join, parse } from 'path'
 
+import * as config from '@nhsuk/frontend-config'
 import browserSync from 'browser-sync'
 import { glob } from 'glob'
 import gulp from 'gulp'
 import { HtmlValidate, formatterFactory } from 'html-validate'
-import * as config from 'nhsuk-frontend-config'
 import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 

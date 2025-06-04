@@ -1,5 +1,5 @@
 {
-  "name": "nhsuk-frontend-review",
+  "name": "@nhsuk/frontend-review",
   "private": true,
   "description": "NHS.UK frontend review app",
   "license": "MIT",
