@@ -153,6 +153,7 @@ This change was introduced in [#1139: Remove 24px from typography scale](https:/
 We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+- [#1359: Add action link underline](https://github.com/nhsuk/nhsuk-frontend/pull/1359)
 
 :wrench: **Fixes**
 
