@@ -678,6 +678,12 @@ module.exports = {
       ]
     },
     {
+      clickSelector: '.nhsuk-header__service-logo',
+      label: 'Header (default, focused logo)',
+      url: `${BASE_URL}/components/header/index.html`,
+      viewports: [viewports.get('desktop')]
+    },
+    {
       label: 'Header with navigation (left aligned)',
       url: `${BASE_URL}/components/header/header-navigation.html`,
       onReadyScript: 'playwright/onReadyResize.js',
@@ -771,6 +777,22 @@ module.exports = {
       ]
     },
     {
+      label: 'Header with service name as a combined link',
+      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-logo',
+      label: 'Header with service name as a combined link (focused)',
+      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      viewports: [viewports.get('desktop')]
+    },
+    {
       label: 'Header with service name, search, navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
       onReadyScript: 'playwright/onReadyResize.js',
@@ -812,6 +834,12 @@ module.exports = {
         viewports.get('desktop'),
         viewports.get('large-desktop')
       ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-logo',
+      label: 'Header organisational with white header (focused logo)',
+      url: `${BASE_URL}/components/header/header-org-white.html`,
+      viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__search-input',
