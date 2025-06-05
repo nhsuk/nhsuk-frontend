@@ -84,3 +84,19 @@
     fill: $nhsuk-focus-text-color;
   }
 }
+
+/// Focused box
+///
+/// Provides an outline to clearly indicate when the target element is focused.
+/// Unlike nhsuk-focused-text, which only draws an underline below the element,
+/// nhsuk-focused-box draws an outline around all sides of the element.
+/// Best used for non-text content contained within links.
+///
+/// @access public
+
+@mixin nhsuk-focused-box {
+  outline: $nhsuk-focus-width solid transparent;
+  box-shadow:
+    0 0 0 4px $nhsuk-focus-color,
+    0 0 0 8px $nhsuk-focus-text-color;
+}
