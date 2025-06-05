@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'fs/promises'
 import { join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import { task } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
 import { glob } from 'glob'
 import gulp from 'gulp'
@@ -9,14 +10,14 @@ import { HtmlValidate, formatterFactory } from 'html-validate'
 import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
-import validatorConfig from '../../.htmlvalidate.js'
+import validatorConfig from '../.htmlvalidate.js'
 
 const { PORT = '3000' } = process.env
 
 /**
- * Compile Nunjucks into HTML
+ * Compile review app Nunjucks into HTML
  */
-export async function buildHTML() {
+export const html = task.name('app:html', async () => {
   const paths = await glob('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
     nodir: true
@@ -51,12 +52,12 @@ export async function buildHTML() {
     await mkdir(destPath, { recursive: true })
     await writeFile(filePath, html)
   }
-}
+})
 
 /**
- * Validate Nunjucks HTML output
+ * Validate review app HTML output
  */
-export async function validateHTML() {
+export const validate = task.name('app:validate', async () => {
   const paths = await glob(join(config.paths.app, 'dist/**/*.html'), {
     nodir: true
   })
@@ -76,56 +77,42 @@ export async function validateHTML() {
     const formatter = formatterFactory('codeframe')
     throw new PluginError('validateHTML', formatter(validatorErrors))
   }
-}
+})
 
 /**
- * Copy CSS from dist into the documentation directory
+ * Copy GitHub release styles into review app
  */
-export async function copyCSS() {
-  await mkdir('dist/app/stylesheets', {
-    recursive: true
-  })
-
+export const styles = task.name('app:styles', () => {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/stylesheets')))
     .pipe(browserSync.stream())
-}
+})
 
 /**
- * Copy JS from dist into the documentation directory
+ * Copy GitHub release scripts into review app
  */
-export async function copyJS() {
-  await mkdir('dist/app/javascripts', {
-    recursive: true
-  })
-
+export const scripts = task.name('app:scripts', () => {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/javascripts')))
     .pipe(browserSync.stream())
-}
+})
 
 /**
- * Copy logos, icons and other binary assets
+ * Copy NHS.UK frontend logos, icons and other assets into review app
  */
-export async function copyBinaryAssets() {
-  await mkdir('dist/app/assets', {
-    recursive: true
-  })
-
+export const assets = task.name('app:assets', () => {
   return gulp
     .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
     .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
     .pipe(browserSync.stream())
-}
+})
 
 /**
- * Serve the static docs directory over localhost
- *
- * @param {TaskCallback} done
+ * Serve review app directory over localhost
  */
-export function serve(done) {
+export const serve = task.name('app:serve', (done) => {
   browserSync(
     {
       ghostMode: false,
@@ -167,9 +154,8 @@ export function serve(done) {
     },
     done
   )
-}
+})
 
 /**
  * @import { Result } from 'html-validate'
- * @import { TaskCallback } from 'undertaker'
  */

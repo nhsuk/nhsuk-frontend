@@ -1,3 +1,5 @@
+const config = require('@nhsuk/frontend-config')
+
 const waitOnScheme = require('./wait-on.config')
 
 const { BASE_URL, HEADLESS, PORT = '3000' } = process.env
@@ -40,7 +42,8 @@ module.exports = {
   server: BASE_URL
     ? undefined
     : {
-        command: 'gulp docs:serve',
+        command: 'npm run serve',
+        options: { cwd: config.paths.app },
         port: Number(PORT),
 
         // Skip when already running

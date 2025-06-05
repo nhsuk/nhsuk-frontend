@@ -32,10 +32,22 @@
     "src",
     "!**/*.test.*"
   ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "clean": "del-cli dist/**",
+    "build": "gulp build --color",
+    "watch": "gulp watch --color",
+    "start": "npm run watch"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",
+    "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.6.1",
+    "del-cli": "^6.0.0",
+    "gulp": "^5.0.1",
+    "gulp-zip": "^6.1.0",
     "outdent": "^0.8.0",
     "puppeteer": "^24.10.0",
     "sass-embedded": "^1.87.0"
