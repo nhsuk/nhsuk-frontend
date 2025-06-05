@@ -28,7 +28,7 @@
 
   @include nhsuk-font(22, $weight: bold);
 
-  &:hover {
+  &:not(:focus):hover {
     .nhsuk-action-link__text {
       text-decoration: underline; // [6]
     }
