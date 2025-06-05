@@ -61,10 +61,12 @@ $_header-link-padding: 2px;
 
 .nhsuk-header__service-logo {
   flex-grow: 0;
+  margin-right: 0;
 }
 
 .nhsuk-header__service-name {
-  flex-grow: 999;
+  flex-grow: 0;
+  margin-right: auto;
   text-wrap: balance;
   @include nhsuk-font(19, $line-height: 1.1);
 }
