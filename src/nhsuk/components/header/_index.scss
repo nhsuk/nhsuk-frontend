@@ -4,6 +4,7 @@
 @use "../../core/tools" as *;
 
 $_header-item-padding: 12px;
+$_header-link-padding: 2px;
 
 ////
 /// Header component
@@ -66,6 +67,12 @@ $_header-item-padding: 12px;
   flex-grow: 999;
   text-wrap: balance;
   @include nhsuk-font(19, $line-height: 1.1);
+}
+
+.nhsuk-header__service-logo[href] {
+  @include nhsuk-link-image;
+
+  display: inline-flex;
 }
 
 .nhsuk-header__service-logo,
@@ -332,7 +339,7 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__navigation-link {
   display: block;
-  padding: nhsuk-spacing(3) 2px;
+  padding: nhsuk-spacing(3) $_header-link-padding;
   white-space: nowrap;
   @include nhsuk-font(16);
   @include nhsuk-link-style-white;
@@ -391,9 +398,9 @@ $_header-item-padding: 12px;
     height: nhsuk-spacing(4);
     transform: rotate(90deg);
 
-    // Move icon to align with edge of button, offseting 8px of empty
-    // SVG viewbox but keeping the same 2px padding used by text links
-    margin-right: -8px + 2px;
+    // Move icon to align with edge of button, offsetting 8px of empty
+    // SVG view box but keeping the same 2px padding used by text links
+    margin-right: -8px + $_header-link-padding;
   }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
@@ -611,25 +618,19 @@ $_header-item-padding: 12px;
 /// Organisation header variant
 
 .nhsuk-header--organisation {
-  .nhsuk-header__service-logo {
-    display: block;
-
-    &:focus {
-      .nhsuk-header__organisation-name,
-      .nhsuk-header__organisation-name-descriptor {
-        color: $nhsuk-focus-text-color;
-      }
-    }
-  }
-
   .nhsuk-header__logo {
     height: 24px;
+    margin-bottom: 6px;
     width: 60px;
 
     @include nhsuk-media-query($from: tablet) {
       height: 32px;
       width: 80px;
     }
+  }
+
+  .nhsuk-header__service-logo {
+    display: block;
   }
 }
 
