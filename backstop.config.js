@@ -88,6 +88,16 @@ module.exports = {
       url: `${BASE_URL}/components/action-link/index.html`
     },
     {
+      clickSelector: '.nhsuk-action-link__link',
+      label: 'Action link click',
+      url: `${BASE_URL}/components/action-link/index.html`
+    },
+    {
+      hoverSelector: '.nhsuk-action-link__link',
+      label: 'Action link hover',
+      url: `${BASE_URL}/components/action-link/index.html`
+    },
+    {
       label: 'Back link',
       url: `${BASE_URL}/components/back-link/index.html`
     },
