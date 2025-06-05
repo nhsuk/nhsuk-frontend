@@ -160,7 +160,7 @@ This change was introduced in [#1139: Remove 24px from typography scale](https:/
 - [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
 - [#1325: Ensure summary list keys are aligned across lists](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
 - [#1325: Add `nhsuk-summary-list__row--no-border` modifier to remove border on an individual summary list row](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
-- [#1345: Fix primary card chevron position without description](https://github.com/nhsuk/nhsuk-frontend/pull/1345)
+- [#1346: Fix primary card chevron position without description](https://github.com/nhsuk/nhsuk-frontend/pull/1346)
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 - [#1358: Fix spacing between button background and box shadow](https://github.com/nhsuk/nhsuk-frontend/pull/1358)
 
