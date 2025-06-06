@@ -24,6 +24,8 @@
   & {
     color: $link-colour;
     text-decoration: underline;
+    text-decoration-thickness: $nhsuk-link-underline-thickness;
+    text-underline-offset: $nhsuk-link-underline-offset;
   }
 
   .nhsuk-icon {
@@ -88,7 +90,9 @@
   &:hover,
   &:hover:visited {
     color: $link-hover-colour;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
+    text-underline-offset: $nhsuk-link-underline-offset;
 
     .nhsuk-icon {
       fill: $link-hover-colour;
