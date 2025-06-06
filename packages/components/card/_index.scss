@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
@@ -57,9 +58,12 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__heading,
-.nhsuk-card__metadata,
 .nhsuk-card__description {
-  margin-bottom: nhsuk-spacing(3);
+  margin-bottom: 0;
+}
+
+.nhsuk-card__description {
+  margin-top: nhsuk-spacing(3);
 }
 
 /// Clickable card
@@ -147,6 +151,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding: nhsuk-spacing(2) nhsuk-spacing(4);
   position: relative;
   top: -(nhsuk-spacing(2));
+
+  + .nhsuk-card__description {
+    margin-top: 0;
+  }
 
   @include nhsuk-media-query($from: tablet) {
     left: -(nhsuk-spacing(5) + $card-border-width); // [5]
@@ -275,7 +283,10 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 /// Card primary
 
 .nhsuk-card__content--primary {
-  padding-right: 75px;
+  $icon-width: 27px;
+  $icon-height: 27px;
+
+  @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: $icon-width + nhsuk-spacing(4));
 
   @include nhsuk-media-query($from: desktop) {
     height: 100%;
@@ -283,12 +294,14 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   .nhsuk-icon {
     display: block;
+    width: $icon-width;
+    height: $icon-height;
     fill: $color_nhsuk-blue;
-    margin-top: -(nhsuk-spacing(2));
+    margin-top: -(math.floor(math.div($icon-height, 2)));
     pointer-events: none;
     position: absolute;
-    right: nhsuk-spacing(4);
     top: 50%;
+    @include nhsuk-responsive-spacing(5, "right");
   }
 }
 
