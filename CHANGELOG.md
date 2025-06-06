@@ -7,6 +7,10 @@ Note: This release was created from the `support/9.x` branch.
 :wrench: **Fixes**
 
 - [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
+- [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1325: Ensure summary list keys are aligned across lists](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1325: Add `nhsuk-summary-list__row--no-border` modifier to remove border on an individual summary list row](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
 
 ## 9.6.1 - 22 May 2025
 
