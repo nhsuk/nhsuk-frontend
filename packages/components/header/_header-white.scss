@@ -52,30 +52,24 @@
       fill: $color_nhsuk-white;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $color_shade_nhsuk-blue-20;
       border-color: $color_shade_nhsuk-blue-20;
+      box-shadow: none;
     }
 
-    &:focus {
-      background-color: $nhsuk-focus-color;
+    &:active {
+      background-color: $color_shade_nhsuk-blue-50;
+    }
 
-      .nhsuk-icon__search {
-        fill: $nhsuk-focus-text-color;
-      }
+    &:focus:not(:active) {
+      @include nhsuk-focused-button;
     }
   }
 
-  .nhsuk-search__input {
+  .nhsuk-search__input:not(:focus) {
     border: 1px solid $color_nhsuk-grey-3;
-
-    &:focus {
-      border: 2px solid $nhsuk-focus-text-color;
-
-      @include nhsuk-media-query($until: tablet) {
-        border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-      }
-    }
   }
 
   .nhsuk-header__search-form {
