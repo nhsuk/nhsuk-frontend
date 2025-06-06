@@ -1,6 +1,12 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/9.x` branch.
+
 ## 9.6.1 - 22 May 2025
+
+Note: This release was created from the `support/9.x` branch.
 
 :wrench: **Fixes**
 
