@@ -130,7 +130,7 @@ $nhsuk-footer-copyright-text-color: #231f20;
 /// Links
 
 $nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
+$nhsuk-link-hover-color: nhsuk-shade($nhsuk-link-color, 50%);
 $nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%);
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
