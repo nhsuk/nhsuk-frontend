@@ -67,16 +67,9 @@
   }
 }
 
-.nhsuk-footer__list-item-link {
+.nhsuk-footer__list-item-link,
+.nhsuk-footer__list-item-link:visited {
   color: $nhsuk-footer-link-text-color;
-
-  &:visited {
-    color: $nhsuk-footer-link-text-color;
-  }
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-  }
 }
 
 .nhsuk-footer__copyright {

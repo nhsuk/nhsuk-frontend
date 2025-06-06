@@ -241,12 +241,9 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     position: static; // [15]
 
     a {
-      color: $color_nhsuk-white; // [16]
-
-      &:focus {
-        color: $color_nhsuk-black; // [16]
-      }
+      @include nhsuk-link-style-white;
     }
+
     @include nhsuk-media-query($media-type: print) {
       background-color: $color_nhsuk-white;
       color: $nhsuk-print-text-color;

@@ -48,10 +48,6 @@
 
   &:focus {
     @include nhsuk-focused-text;
-
-    .nhsuk-icon {
-      fill: $nhsuk-focus-text-color;
-    }
   }
 
   &:hover,
