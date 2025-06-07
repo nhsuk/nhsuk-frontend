@@ -25,15 +25,11 @@
 }
 
 .nhsuk-details__summary {
-  color: $color_nhsuk-blue; // [1]
   cursor: pointer;
   display: inline-block; // [2]
   padding-left: nhsuk-spacing(4);
   position: relative; // [3]
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-  }
+  @include nhsuk-link-style($link-underlines: true);
 
   &::before {
     bottom: 0;
@@ -49,13 +45,6 @@
   &:focus {
     @include nhsuk-focused-text;
   }
-
-  &:hover,
-  &:focus {
-    .nhsuk-details__summary-text {
-      text-decoration: none;
-    }
-  }
 }
 
 .nhsuk-details[open] > .nhsuk-details__summary::before {
@@ -63,7 +52,7 @@
 }
 
 .nhsuk-details__summary-text {
-  text-decoration: underline; // [4]
+  @include nhsuk-link-style;
 }
 
 .nhsuk-details__summary::-webkit-details-marker {
@@ -120,6 +109,9 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     &:hover {
       .nhsuk-details__summary-text {
         color: $nhsuk-link-hover-color;
+        text-decoration: underline;
+        text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
+        text-underline-offset: $nhsuk-link-underline-offset;
       }
     }
 
@@ -175,12 +167,6 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
 
   .nhsuk-details__summary {
     &:focus {
-      &:hover {
-        .nhsuk-details__summary-text {
-          text-decoration: none;
-        }
-      }
-
       .nhsuk-details__summary-text::before {
         background: $nhsuk-focus-color
           url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
