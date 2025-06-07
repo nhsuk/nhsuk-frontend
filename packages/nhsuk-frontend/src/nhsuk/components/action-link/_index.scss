@@ -9,9 +9,6 @@
 /// 2. 'Random number' is used to properly have sufficient space between icon
 ///    and text.
 /// 3. Position is relative so the arrow icon can display absolute.
-/// 4. Text decoration none used to override default <a> styling.
-/// 5. Box shadow 8px used instead of the default 4px.
-/// 6. Text decoration underline used to override default <a> styling.
 ///
 /// @group components
 ////
@@ -24,15 +21,10 @@
   display: inline-block; // [1]
   padding-left: 38px; // [2]
   position: relative; // [3]
-  text-decoration: none; // [4]
 
+  @include nhsuk-link-style($link-underlines: false);
+  @include nhsuk-link-style-no-visited-state;
   @include nhsuk-font(22, $weight: bold);
-
-  &:not(:focus):hover {
-    .nhsuk-action-link__text {
-      text-decoration: underline; // [6]
-    }
-  }
 
   @include nhsuk-media-query($until: tablet) {
     padding-left: 26px; // [2]
