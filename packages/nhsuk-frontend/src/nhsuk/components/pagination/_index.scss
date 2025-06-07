@@ -58,9 +58,9 @@
     display: block;
     position: relative;
     width: 100%;
-    text-decoration: none;
-
+    @include nhsuk-link-style($link-underlines: true);
     @include nhsuk-font-size(26);
+
     @include nhsuk-print-colour {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
@@ -85,13 +85,6 @@
 
   .nhsuk-pagination__page {
     display: block;
-    text-decoration: underline;
-
     @include nhsuk-font-size(16);
-
-    .nhsuk-pagination__link:hover &,
-    .nhsuk-pagination__link:focus & {
-      text-decoration: none;
-    }
   }
 }
