@@ -51,10 +51,6 @@
   @include nhsuk-shape-arrow($direction: down, $base: 14px);
 }
 
-.nhsuk-details__summary-text {
-  @include nhsuk-link-style;
-}
-
 .nhsuk-details__summary::-webkit-details-marker {
   display: none; // [5]
 }
