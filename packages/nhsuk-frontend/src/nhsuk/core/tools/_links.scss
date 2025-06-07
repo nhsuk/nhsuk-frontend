@@ -163,6 +163,7 @@
 ///
 /// If you use this mixin in a component you must also include the
 /// nhsuk-link-style-default mixin in order to get the focus state.
+/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
 ///
 /// @example scss
 ///   .nhsuk-component__link {
@@ -171,8 +172,8 @@
 ///   }
 ///
 
-@mixin nhsuk-link-style-no-visited-state {
-  @include nhsuk-link-style-visited($link-visited-color: $nhsuk-link-color);
+@mixin nhsuk-link-style-no-visited-state($link-underlines: true) {
+  @include nhsuk-link-style-visited($link-visited-color: $nhsuk-link-color, $link-underlines: $link-underlines);
 }
 
 /// Text link styles
