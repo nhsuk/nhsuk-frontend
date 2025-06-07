@@ -111,7 +111,6 @@
       // standardised on this part of the spec yet, so set both properties
       text-decoration-skip-ink: none; // Chromium, Firefox
       text-decoration-skip: none; // Safari
-
     } @else {
       text-decoration: none;
     }
