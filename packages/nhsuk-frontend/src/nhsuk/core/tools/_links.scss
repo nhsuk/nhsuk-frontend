@@ -106,6 +106,12 @@
       text-decoration: underline;
       text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
       text-underline-offset: $nhsuk-link-underline-offset;
+
+      // Disable ink skipping on underlines on hover. Browsers haven't
+      // standardised on this part of the spec yet, so set both properties
+      text-decoration-skip-ink: none; // Chromium, Firefox
+      text-decoration-skip: none; // Safari
+
     } @else {
       text-decoration: none;
     }
