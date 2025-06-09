@@ -4,5 +4,5 @@
 # See https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-slugignore
 
 # Don't include the folder of reference images for tests
-tests/backstop/bitmaps_reference
+/tests/backstop/bitmaps_reference
 
