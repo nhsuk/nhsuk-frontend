@@ -10,9 +10,16 @@ Note: This release was created from the `support/9.x` branch.
 
 You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
 
+:recycle: **Changes**
+
+#### Resolve inconsistent link styles
+
+We've completed a spring clean to resolve inconsistent link styles in [pull request #1312](https://github.com/nhsuk/nhsuk-frontend/pull/1312).
+
+Please carefully review all links in custom or modified components to make sure that your hover, focus and active styles do not conflict with the defaults.
+
 :wrench: **Fixes**
 
-- [#1312: Review and fix inconsistent link styles](https://github.com/nhsuk/nhsuk-frontend/pull/1312)
 - [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
 - [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
 - [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
