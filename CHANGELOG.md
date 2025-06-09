@@ -4,12 +4,6 @@
 
 Note: This release was created from the `support/9.x` branch.
 
-:new: **New features**
-
-#### Reversed link style for breadcrumb and back link
-
-You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
-
 :recycle: **Changes**
 
 #### Resolve inconsistent link styles
@@ -17,6 +11,10 @@ You can now use the breadcrumb and back link components on dark backgrounds by u
 We've completed a spring clean to resolve inconsistent link styles in [pull request #1312](https://github.com/nhsuk/nhsuk-frontend/pull/1312).
 
 Please carefully review all links in custom or modified components to make sure that your hover, focus and active styles do not conflict with the defaults.
+
+#### Reversed link style for breadcrumb and back link
+
+You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
 
 :wrench: **Fixes**
 
