@@ -49,8 +49,11 @@
 .nhsuk-pagination__link {
   display: block;
   position: relative;
-  text-decoration: none;
   width: 100%;
+
+  &:has(.nhsuk-pagination__link-label) {
+    text-decoration: none;
+  }
 
   @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-black;
@@ -111,18 +114,10 @@
   margin: 0;
   float: left;
   @include nhsuk-font(19);
-}
 
-.nhsuk-pagination--numbered .nhsuk-pagination__link:visited:hover,
-.nhsuk-pagination__item a:hover {
-  color: $nhsuk-link-hover-color;
-}
-
-.nhsuk-pagination--numbered .nhsuk-pagination__prev:hover,
-.nhsuk-pagination--numbered .nhsuk-pagination__next:hover,
-.nhsuk-pagination__item:hover {
-  background-color: $color_nhsuk-grey-4;
-  color: $color_nhsuk-blue;
+  &:hover {
+    background-color: $color_nhsuk-grey-4;
+  }
 }
 
 // Container for the list of numbered items
@@ -144,8 +139,6 @@
 .nhsuk-pagination--numbered .nhsuk-pagination__link {
   min-width: nhsuk-spacing(3);
   vertical-align: middle;
-  color: $color_nhsuk-blue;
-  text-decoration: underline;
 
   // Increase the touch area for the link to the parent element.
   @media screen {
@@ -164,14 +157,13 @@
 .nhsuk-pagination__item--current,
 .nhsuk-pagination__item--current:hover {
   background-color: $color_nhsuk-blue;
+}
+
+.nhsuk-pagination__item--current {
   font-weight: $nhsuk-font-bold;
 
   .nhsuk-pagination__link {
-    color: $color_nhsuk-white;
-  }
-
-  .nhsuk-pagination__link:focus {
-    color: $color_nhsuk-black;
+    @include nhsuk-link-style-white;
   }
 }
 
@@ -183,15 +175,6 @@
 .nhsuk-pagination--numbered .nhsuk-icon {
   margin-top: 0;
   margin-bottom: -12px;
-  fill: $color_nhsuk-blue;
-}
-
-.nhsuk-pagination--numbered .nhsuk-pagination__link:visited .nhsuk-icon {
-  fill: $nhsuk-link-visited-color;
-}
-
-.nhsuk-pagination--numbered .nhsuk-pagination__link:hover .nhsuk-icon {
-  fill: $nhsuk-link-hover-color;
 }
 
 .nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
