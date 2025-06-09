@@ -91,8 +91,6 @@
 /// Unlike nhsuk-focused-text, which only draws an underline below the element,
 /// nhsuk-focused-box draws an outline around all sides of the element.
 /// Best used for non-text content contained within links.
-///
-/// @access public
 
 @mixin nhsuk-focused-box {
   outline: $nhsuk-focus-width solid transparent;

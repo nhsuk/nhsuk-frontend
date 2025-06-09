@@ -187,8 +187,6 @@
 ///
 /// Prepares and provides the focus state for links that only contain images
 /// with no accompanying text.
-///
-/// @access public
 
 @mixin nhsuk-link-image {
   // Needed to draw the focus around the entire image
