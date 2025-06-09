@@ -28,7 +28,7 @@ presence of items (pages). #}
 the numbered variant only, and including an arrow pointing left or right. #}
 {%- macro _arrowLink(link, type = "next") %}
   {% set iconName = "arrow-left" if type == "prev" else "arrow-right" %}
-  <div class="nhsuk-pagination--numbered__{{ type }}">
+  <div class="nhsuk-pagination__{{ type }}">
     <a class="nhsuk-pagination--numbered__link" href="{{ link.href }}" rel="{{ type }}"
       {{- nhsukAttributes(link.attributes) }}>
       {%- if type == "prev" -%}
