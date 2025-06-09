@@ -270,6 +270,11 @@ $_header-link-padding: 2px;
   }
 
   &:focus {
+    outline: none;
+  }
+
+  &:focus:not(:active),
+  &:focus:not(:active):hover {
     @include nhsuk-focused-button;
   }
 }
@@ -541,10 +546,6 @@ $_header-link-padding: 2px;
 
     &:active {
       background-color: $color_shade_nhsuk-blue-50;
-    }
-
-    &:focus {
-      @include nhsuk-focused-button;
     }
   }
 
