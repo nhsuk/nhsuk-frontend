@@ -137,6 +137,8 @@
 }
 
 .nhsuk-pagination--numbered .nhsuk-pagination__link {
+  position: static;
+  width: auto;
   min-width: nhsuk-spacing(3);
   vertical-align: middle;
 
@@ -173,16 +175,17 @@
 }
 
 .nhsuk-pagination--numbered .nhsuk-icon {
-  margin-top: 0;
-  margin-bottom: -12px;
+  top: 50%;
+  margin-top: -17px;
+  margin-bottom: 0;
 }
 
 .nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
-  margin-left: -13px;
+  margin-left: 0;
   margin-right: nhsuk-spacing(2);
 }
 
 .nhsuk-pagination--numbered .nhsuk-icon__arrow-right {
   margin-left: nhsuk-spacing(2);
-  margin-right: -13px;
+  margin-right: 0;
 }
