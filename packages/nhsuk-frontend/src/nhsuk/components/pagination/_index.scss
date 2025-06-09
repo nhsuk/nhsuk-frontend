@@ -112,8 +112,8 @@
 
   // In a numbered list, the previous link, numbered page links,
   // and next link should all line up
-  .nhsuk-pagination--numbered__prev,
-  .nhsuk-pagination--numbered__next,
+  .nhsuk-pagination--numbered .nhsuk-pagination__prev,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next,
   .nhsuk-pagination--numbered__item {
     box-sizing: border-box;
     position: relative;
@@ -131,8 +131,8 @@
     color: $nhsuk-link-hover-colour;
   }
 
-  .nhsuk-pagination--numbered__prev:hover,
-  .nhsuk-pagination--numbered__next:hover,
+  .nhsuk-pagination--numbered .nhsuk-pagination__prev:hover,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next:hover,
   .nhsuk-pagination--numbered__item:hover {
     background-color: nhsuk-colour("grey-4");
     color: nhsuk-colour("blue");
