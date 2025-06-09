@@ -149,12 +149,12 @@ export const examples = {
   default: {
     context: {
       previous: {
-        href: '/section/treatments',
+        href: '#/section/treatments',
         text: 'Previous',
         labelText: 'Treatments'
       },
       next: {
-        href: '/section/symptoms',
+        href: '#/section/symptoms',
         text: 'Next',
         labelText: 'Symptoms'
       }
@@ -163,38 +163,38 @@ export const examples = {
   numbered: {
     context: {
       previous: {
-        href: '#'
+        href: '#/page/1'
       },
       next: {
-        href: '#'
+        href: '#/page/8'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/page/1'
         },
         {
           ellipsis: true
         },
         {
           number: 6,
-          href: '#'
+          href: '#/page/6'
         },
         {
           number: 7,
-          href: '#',
+          href: '#/page/7',
           current: true
         },
         {
           number: 8,
-          href: '#'
+          href: '#/page/8'
         },
         {
           ellipsis: true
         },
         {
           number: 10,
-          href: '#'
+          href: '#/page/10'
         }
       ]
     }
