@@ -92,12 +92,70 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/index.html`
     },
     {
+      clickSelector: '.nhsuk-back-link__link',
+      label: 'Back link click',
+      url: `${BASE_URL}/components/back-link/index.html`
+    },
+    {
+      hoverSelector: '.nhsuk-back-link__link',
+      label: 'Back link hover',
+      url: `${BASE_URL}/components/back-link/index.html`
+    },
+    {
+      label: 'Back link reverse',
+      url: `${BASE_URL}/components/back-link/reverse.html`
+    },
+    {
+      clickSelector: '.nhsuk-back-link__link',
+      label: 'Back link reverse click',
+      url: `${BASE_URL}/components/back-link/reverse.html`
+    },
+    {
+      hoverSelector: '.nhsuk-back-link__link',
+      label: 'Back link reverse hover',
+      url: `${BASE_URL}/components/back-link/reverse.html`
+    },
+    {
       label: 'Back link as a button',
+      url: `${BASE_URL}/components/back-link/button.html`
+    },
+    {
+      clickSelector: '.nhsuk-back-link__link',
+      label: 'Back link as a button click',
+      url: `${BASE_URL}/components/back-link/button.html`
+    },
+    {
+      hoverSelector: '.nhsuk-back-link__link',
+      label: 'Back link as a button hover',
       url: `${BASE_URL}/components/back-link/button.html`
     },
     {
       label: 'Breadcrumb',
       url: `${BASE_URL}/components/breadcrumb/index.html`
+    },
+    {
+      clickSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb click',
+      url: `${BASE_URL}/components/breadcrumb/index.html`
+    },
+    {
+      hoverSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb hover',
+      url: `${BASE_URL}/components/breadcrumb/index.html`
+    },
+    {
+      label: 'Breadcrumb reverse',
+      url: `${BASE_URL}/components/breadcrumb/reverse.html`
+    },
+    {
+      clickSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb reverse click',
+      url: `${BASE_URL}/components/breadcrumb/reverse.html`
+    },
+    {
+      hoverSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb reverse hover',
+      url: `${BASE_URL}/components/breadcrumb/reverse.html`
     },
     {
       label: 'Button',
@@ -338,6 +396,42 @@ module.exports = {
       ]
     },
     {
+      label: 'Primary card (with chevron)',
+      url: `${BASE_URL}/components/card/card-primary.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Primary card (with chevron and description)',
+      url: `${BASE_URL}/components/card/card-primary-with-description.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Secondary card',
+      url: `${BASE_URL}/components/card/card-secondary.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Top task card',
+      url: `${BASE_URL}/components/card/top-task-card.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Care card (Non urgent)',
       url: `${BASE_URL}/components/card/care-card-non-urgent.html`,
       viewports: [
@@ -497,6 +591,16 @@ module.exports = {
       clickSelector: '.nhsuk-details__summary',
       label: 'Expander',
       url: `${BASE_URL}/components/details/expander.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-details__summary',
+      label: 'Expander alongside card',
+      url: `${BASE_URL}/components/details/expander-alongside-card.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -920,6 +1024,15 @@ module.exports = {
     {
       label: 'Summary list without border',
       url: `${BASE_URL}/components/summary-list/without-border.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
+      label: 'Summary list without row border',
+      url: `${BASE_URL}/components/summary-list/without-row-border.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),

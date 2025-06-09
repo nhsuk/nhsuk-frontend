@@ -1,6 +1,36 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/9.x` branch.
+
+:new: **New features**
+
+#### Reversed link style for breadcrumb and back link
+
+You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
+
+:recycle: **Changes**
+
+#### Resolve inconsistent link styles
+
+We've completed a spring clean to resolve inconsistent link styles in [pull request #1312](https://github.com/nhsuk/nhsuk-frontend/pull/1312).
+
+Please carefully review all links in custom or modified components to make sure that your hover, focus and active styles do not conflict with the defaults.
+
+:wrench: **Fixes**
+
+- [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
+- [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1325: Ensure summary list keys are aligned across lists](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1325: Add `nhsuk-summary-list__row--no-border` modifier to remove border on an individual summary list row](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1346: Fix primary card chevron position without description](https://github.com/nhsuk/nhsuk-frontend/pull/1346)
+- [#1358: Fix spacing between button background and box shadow](https://github.com/nhsuk/nhsuk-frontend/pull/1358)
+
 ## 9.6.1 - 22 May 2025
+
+Note: This release was created from the `support/9.x` branch.
 
 :wrench: **Fixes**
 

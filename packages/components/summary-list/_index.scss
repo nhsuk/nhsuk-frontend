@@ -19,6 +19,7 @@
   @include nhsuk-responsive-margin(6, "bottom");
 
   @include nhsuk-media-query($from: tablet) {
+    border-collapse: collapse;
     display: table;
     table-layout: fixed; // [1]
     width: 100%;
@@ -26,12 +27,30 @@
 }
 
 .nhsuk-summary-list__row {
+  border-bottom: 1px solid $nhsuk-border-color;
+
   @include nhsuk-media-query($until: tablet) {
-    border-bottom: 1px solid $nhsuk-border-color;
     margin-bottom: nhsuk-spacing(3);
   }
   @include nhsuk-media-query($from: tablet) {
     display: table-row;
+  }
+}
+
+// Remove right padding from the last column in the row
+.nhsuk-summary-list__row:not(.nhsuk-summary-list__row--no-actions) > :last-child {
+  padding-right: 0;
+}
+
+// Provide an empty 'cell' for rows that don't have actions – otherwise the
+// bottom border is not drawn for that part of the row in some browsers.
+.nhsuk-summary-list__row--no-actions {
+  @include nhsuk-media-query($from: tablet) {
+    &::after {
+      content: "";
+      display: table-cell;
+      width: 20%;
+    }
   }
 }
 
@@ -42,7 +61,6 @@
   vertical-align: top;
 
   @include nhsuk-media-query($from: tablet) {
-    border-bottom: 1px solid $nhsuk-border-color;
     display: table-cell;
     padding-bottom: nhsuk-spacing(2);
     padding-right: nhsuk-spacing(4);
@@ -54,7 +72,6 @@
   margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-media-query($from: tablet) {
-    padding-right: 0;
     text-align: right;
     width: 20%;
   }
@@ -79,13 +96,10 @@
   @include nhsuk-media-query($until: tablet) {
     margin-bottom: nhsuk-spacing(3);
   }
-  @include nhsuk-media-query($from: tablet) {
-    width: 50%;
-  }
 }
 
 .nhsuk-summary-list__value > p {
-  margin-bottom: nhsuk-spacing(2);
+  margin-bottom: 12px;
 }
 
 .nhsuk-summary-list__value > :last-child {
@@ -99,26 +113,71 @@
 }
 
 .nhsuk-summary-list__actions-list-item {
-  display: inline;
-  margin-right: nhsuk-spacing(2);
-  padding-right: nhsuk-spacing(2);
+  display: inline-block;
+
+  @include nhsuk-media-query($until: tablet) {
+    border-right: 1px solid $nhsuk-border-color;
+    margin-right: nhsuk-spacing(2);
+    padding-right: nhsuk-spacing(2);
+
+    &:last-child {
+      border: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    margin-left: nhsuk-spacing(2);
+    padding-left: nhsuk-spacing(2);
+
+    &:first-child {
+      border: 0;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    &:not(:first-child) {
+      border-left: 1px solid $nhsuk-border-color;
+    }
+  }
 }
 
-.nhsuk-summary-list__actions-list-item:not(:last-child) {
-  border-right: 1px solid $nhsuk-border-color;
+// Large groups of action links may wrap onto multiple lines. Because the link
+// focus styles are applied outside of the link's bounding box, there are
+// situations where the focus style on a link can be overlapped by subsequent
+// links. We don't want this, so let's create a new stacking context on focus
+// so the link always appears to be 'on top'.
+.nhsuk-summary-list__actions-list-item .nhsuk-link:focus {
+  isolation: isolate;
 }
 
-.nhsuk-summary-list__actions-list-item:last-child {
-  border: 0;
-  margin-right: 0;
-  padding-right: 0;
-}
-
+// No border on entire summary list
 .nhsuk-summary-list--no-border {
-  .nhsuk-summary-list__key,
-  .nhsuk-summary-list__value,
-  .nhsuk-summary-list__actions,
   .nhsuk-summary-list__row {
     border: 0;
+  }
+
+  // Increase padding by 1px to compensate for 'missing' border
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2) + 1px;
+    }
+  }
+}
+
+// No border on specific rows
+.nhsuk-summary-list__row--no-border {
+  border: 0;
+
+  // Increase padding by 1px to compensate for 'missing' border
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2) + 1px;
+    }
   }
 }
