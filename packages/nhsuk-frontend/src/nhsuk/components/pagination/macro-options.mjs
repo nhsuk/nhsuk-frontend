@@ -54,6 +54,41 @@ export const examples = {
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
     }
+  },
+  numbered: {
+    context: {
+      previousUrl: '#',
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 6,
+          href: '#'
+        },
+        {
+          number: 7,
+          href: '#',
+          current: true
+        },
+        {
+          number: 8,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 10,
+          href: '#'
+        }
+      ]
+    }
   }
 }
 

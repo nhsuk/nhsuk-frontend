@@ -1250,6 +1250,15 @@ module.exports = {
       ]
     },
     {
+      label: 'Pagination numbered',
+      url: `${BASE_URL}/components/pagination/numbered/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Panel',
       url: `${BASE_URL}/components/panel/default/`,
       viewports: [
