@@ -3,5 +3,6 @@
 #
 # See https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-slugignore
 
-# Don't tests
 /tests
+/dist
+/docs
