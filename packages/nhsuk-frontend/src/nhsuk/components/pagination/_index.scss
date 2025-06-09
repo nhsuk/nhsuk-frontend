@@ -20,6 +20,7 @@
 
   // Previous and next pages variant
   .nhsuk-pagination {
+    @include nhsuk-clearfix;
     @include nhsuk-responsive-margin(7, "top");
     @include nhsuk-responsive-margin(7, "bottom");
   }
@@ -107,9 +108,6 @@
   }
 
   // Numbered pages variant
-  .nhsuk-pagination--numbered {
-    @include nhsuk-clearfix;
-  }
 
   // In a numbered list, the previous link, numbered page links,
   // and next link should all line up
