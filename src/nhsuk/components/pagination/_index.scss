@@ -125,18 +125,10 @@
     margin: 0;
     float: left;
     @include nhsuk-font(19);
-  }
 
-  .nhsuk-pagination--numbered .nhsuk-pagination__link:visited:hover,
-  .nhsuk-pagination__item a:hover {
-    color: $nhsuk-link-hover-colour;
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__prev:hover,
-  .nhsuk-pagination--numbered .nhsuk-pagination__next:hover,
-  .nhsuk-pagination__item:hover {
-    background-color: nhsuk-colour("grey-4");
-    color: nhsuk-colour("blue");
+    &:hover {
+      background-color: nhsuk-colour("grey-4");
+    }
   }
 
   // Container for the list of numbered items
@@ -160,9 +152,12 @@
     min-width: nhsuk-spacing(3);
     padding: 0;
     vertical-align: middle;
-    color: nhsuk-colour("blue");
     text-decoration: underline;
     @include nhsuk-font(19);
+
+    &:focus {
+      text-decoration: none;
+    }
 
     // Increase the touch area for the link to the parent element.
     @media screen {
@@ -181,15 +176,11 @@
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current,
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
     background-color: nhsuk-colour("blue");
+  }
+
+  .nhsuk-pagination__item--current .nhsuk-pagination__link {
     font-weight: $nhsuk-font-bold;
-
-    .nhsuk-pagination__link {
-      color: nhsuk-colour("white");
-    }
-
-    .nhsuk-pagination__link:focus {
-      color: nhsuk-colour("black");
-    }
+    @include nhsuk-link-style-reverse;
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__link-title {
@@ -200,15 +191,6 @@
   .nhsuk-pagination--numbered .nhsuk-icon {
     margin-top: 0;
     margin-bottom: -12px;
-    fill: nhsuk-colour("blue");
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__link:visited .nhsuk-icon {
-    fill: $nhsuk-link-visited-colour;
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__link:hover .nhsuk-icon {
-    fill: $nhsuk-link-hover-colour;
   }
 
   .nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
