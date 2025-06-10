@@ -37,6 +37,7 @@
     "clean": "del-cli dist/**",
     "build": "gulp build --color",
     "watch": "gulp watch --color",
+    "release": "gulp release --color",
     "start": "npm run watch"
   },
   "devDependencies": {
