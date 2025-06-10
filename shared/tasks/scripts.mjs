@@ -51,12 +51,12 @@ export const compile = task.name('scripts:compile', (done) =>
           ]
         },
         output: {
-          filename: `nhsuk-${config.version}.min.js`,
+          filename: `nhsuk-frontend.min.js`,
 
           // Make source webpack:// paths relative
           devtoolModuleFilenameTemplate(info) {
             return relative(
-              join(config.paths.root, 'dist'),
+              join(config.paths.pkg, 'dist/nhsuk'),
               info.absoluteResourcePath
             )
           }
@@ -77,7 +77,7 @@ export const compile = task.name('scripts:compile', (done) =>
 
     // Write to dist
     .pipe(
-      gulp.dest(join(config.paths.root, 'dist'), {
+      gulp.dest(join(config.paths.pkg, 'dist/nhsuk'), {
         sourcemaps: '.'
       })
     )

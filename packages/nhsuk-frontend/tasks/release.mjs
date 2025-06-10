@@ -12,28 +12,30 @@ export const zip = gulp.series(
      */
     task.name('zip:assets', () =>
       files.copy('nhsuk/assets/**', {
-        srcPath: join(config.paths.pkg, 'src'),
+        srcPath: join(config.paths.pkg, 'dist'),
         destPath: join(config.paths.root, 'dist/assets')
       })
     ),
 
     /**
-     * Copy GitHub release scripts
+     * Copy and version GitHub release scripts
      */
     task.name('zip:scripts', () =>
-      files.copy(`nhsuk-${config.version}.min.js`, {
-        srcPath: join(config.paths.root, 'dist'),
-        destPath: join(config.paths.root, 'dist/js')
+      files.copy('nhsuk/nhsuk-frontend.min.js', {
+        srcPath: join(config.paths.pkg, 'dist'),
+        destPath: join(config.paths.root, 'dist/js'),
+        output: { file: `nhsuk-${config.version}.min.js` }
       })
     ),
 
     /**
-     * Copy GitHub release styles
+     * Copy and version GitHub release styles
      */
     task.name('zip:styles', () =>
-      files.copy(`nhsuk-${config.version}.min.css`, {
-        srcPath: join(config.paths.root, 'dist'),
-        destPath: join(config.paths.root, 'dist/css')
+      files.copy('nhsuk/nhsuk-frontend.min.css', {
+        srcPath: join(config.paths.pkg, 'dist'),
+        destPath: join(config.paths.root, 'dist/css'),
+        output: { file: `nhsuk-${config.version}.min.css` }
       })
     )
   ),
