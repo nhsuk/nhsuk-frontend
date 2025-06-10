@@ -37,7 +37,7 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
 
       - name: Create release artifact
-        run: npx --workspace nhsuk-frontend gulp zip
+        run: npm run release --workspace nhsuk-frontend
 
       - name: Create release
         id: create_release

@@ -46,7 +46,7 @@ For a specific task, run `npx --workspace nhsuk-frontend -- gulp <task-name>` on
 | `assets`  | Copy NHS.UK frontend assets only                            |
 | `build`   | Run tasks `styles`, `scripts`, `assets` once only           |
 | `watch`   | Run tasks `styles`, `scripts`, `assets` on relevant changes |
-| `zip`     | Create GitHub release zip file                              |
+| `release` | Create GitHub release distribution zip file                 |
 
 ### Review app only
 
