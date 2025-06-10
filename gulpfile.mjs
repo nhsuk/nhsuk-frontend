@@ -10,7 +10,7 @@ gulp.task('styles', styles.compile)
 gulp.task('scripts', scripts.compile)
 gulp.task('assets', assets.copy)
 gulp.task('build', gulp.parallel('styles', 'scripts', 'assets'))
-gulp.task('zip', release.zip)
+gulp.task('release', gulp.series(release.copy, release.zip))
 
 gulp.task('watch', () =>
   Promise.all([
