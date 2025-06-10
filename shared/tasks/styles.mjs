@@ -50,7 +50,10 @@ export const compile = task.name('styles:compile', (done) =>
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(config.paths.root, 'dist'), join(file.base, path))
+              relative(
+                join(config.paths.pkg, 'dist/nhsuk'),
+                join(file.base, path)
+              )
             )
           }
 
@@ -74,12 +77,12 @@ export const compile = task.name('styles:compile', (done) =>
     // Write to dist
     .pipe(
       rename({
-        basename: `nhsuk-${config.version}`,
+        basename: 'nhsuk-frontend',
         suffix: '.min'
       })
     )
     .pipe(
-      gulp.dest(join(config.paths.root, 'dist'), {
+      gulp.dest(join(config.paths.pkg, 'dist/nhsuk'), {
         sourcemaps: '.'
       })
     )

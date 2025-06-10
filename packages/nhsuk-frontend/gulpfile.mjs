@@ -4,11 +4,12 @@ import * as config from '@nhsuk/frontend-config'
 import { scripts, styles } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
-import { release } from './tasks/index.mjs'
+import { assets, release } from './tasks/index.mjs'
 
 gulp.task('styles', styles.compile)
 gulp.task('scripts', scripts.compile)
-gulp.task('build', gulp.parallel('styles', 'scripts'))
+gulp.task('assets', assets.copy)
+gulp.task('build', gulp.parallel('styles', 'scripts', 'assets'))
 gulp.task('zip', release.zip)
 
 gulp.task('watch', () =>
