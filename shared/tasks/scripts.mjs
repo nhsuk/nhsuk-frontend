@@ -3,20 +3,20 @@ import { join, relative } from 'path'
 import * as config from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
-import filter from 'gulp-filter'
-import rename from 'gulp-rename'
-import terser from 'gulp-terser'
 import PluginError from 'plugin-error'
+import TerserPlugin from 'terser-webpack-plugin'
 import webpack from 'webpack-stream'
 
 /**
  * Compile JavaScript task
  */
-export const compile = task.name('scripts:compile', (done) => {
-  return gulp
+export const compile = task.name('scripts:compile', (done) =>
+  gulp
     .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.mjs'), {
       sourcemaps: true
     })
+
+    // Compile scripts
     .pipe(
       webpack({
         devtool: 'source-map',
@@ -34,10 +34,24 @@ export const compile = task.name('scripts:compile', (done) => {
           ]
         },
         optimization: {
-          minimize: false // minification is handled by terser
+          minimize: true,
+          minimizer: [
+            new TerserPlugin({
+              terserOptions: {
+                format: { comments: false },
+                sourceMap: {
+                  includeSources: true
+                },
+
+                // Compatibility workarounds
+                ecma: 5,
+                safari10: true
+              }
+            })
+          ]
         },
         output: {
-          filename: 'nhsuk.js',
+          filename: `nhsuk-${config.version}.min.js`,
 
           // Make source webpack:// paths relative
           devtoolModuleFilenameTemplate(info) {
@@ -60,61 +74,11 @@ export const compile = task.name('scripts:compile', (done) => {
         )
       })
     )
+
+    // Write to dist
     .pipe(
       gulp.dest(join(config.paths.root, 'dist'), {
         sourcemaps: '.'
       })
     )
-})
-
-/**
- * Minify JavaScript task
- */
-export const minify = task.name('scripts:minify', () => {
-  return (
-    gulp
-      .src(join(config.paths.root, 'dist/nhsuk.js'), {
-        sourcemaps: true
-      })
-      .pipe(
-        terser({
-          format: { comments: false },
-          sourceMap: {
-            includeSources: true
-          },
-
-          // Compatibility workarounds
-          ecma: 5,
-          safari10: true
-        })
-      )
-
-      // Output minified
-      .pipe(
-        rename({
-          suffix: '.min'
-        })
-      )
-      .pipe(
-        gulp.dest(join(config.paths.root, 'dist'), {
-          sourcemaps: '.'
-        })
-      )
-
-      // Exclude output source map
-      .pipe(filter(['**', `!${join(config.paths.root, 'dist/*.map')}`]))
-
-      // Output minified + versioned
-      .pipe(
-        rename({
-          basename: `nhsuk-${config.version}`,
-          suffix: '.min'
-        })
-      )
-      .pipe(
-        gulp.dest(join(config.paths.root, 'dist'), {
-          sourcemaps: '.'
-        })
-      )
-  )
-})
+)

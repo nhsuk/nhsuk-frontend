@@ -6,8 +6,8 @@ import gulp from 'gulp'
 
 import { release } from './tasks/index.mjs'
 
-gulp.task('styles', gulp.series(styles.compile, styles.minify))
-gulp.task('scripts', gulp.series(scripts.compile, scripts.minify))
+gulp.task('styles', styles.compile)
+gulp.task('scripts', scripts.compile)
 gulp.task('build', gulp.parallel('styles', 'scripts'))
 gulp.task('zip', release.zip)
 
