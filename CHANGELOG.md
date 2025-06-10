@@ -148,6 +148,12 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
+#### Stop using `nhsuk-button--disabled` class
+
+We've removed support for the `nhsuk-button--disabled` class. Buttons will be styled as disabled when they have the disabled attribute applied. Links styled as links cannot be disabled.
+
+This change was introduced in [#1075: Remove support for disabled links](https://github.com/nhsuk/nhsuk-frontend/pull/1075)
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
