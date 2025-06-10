@@ -1,89 +1,112 @@
-import { join, relative } from 'path'
-import { Transform } from 'stream'
+import { readFile, mkdir, writeFile } from 'fs/promises'
+import { dirname, join, parse, relative } from 'path'
+import { fileURLToPath } from 'url'
 
-import * as config from '@nhsuk/frontend-config'
+import { paths } from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
-import gulp from 'gulp'
-import postcss from 'gulp-postcss'
-import rename from 'gulp-rename'
-import gulpSass from 'gulp-sass'
-import PluginError from 'plugin-error'
-import * as dartSass from 'sass-embedded'
-
-const sass = gulpSass(dartSass)
+import postcss from 'postcss'
+import postcssrc from 'postcss-load-config'
+import scss from 'postcss-scss'
+import { compileAsync } from 'sass-embedded'
 
 /**
  * Compile Sass task
+ *
+ * @param {string} assetPath
+ * @param {CompileStylesOptions} entry
  */
-export const compile = task.name('styles:compile', (done) =>
-  gulp
-    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.scss'), {
-      sourcemaps: true
-    })
+export function compile(assetPath, { srcPath, destPath, output = {} }) {
+  const { name } = parse(assetPath)
 
-    // Compile styles
-    .pipe(
-      sass({
+  /**
+   * Configure PostCSS
+   *
+   * @satisfies {ProcessOptions}
+   */
+  const options = {
+    from: join(srcPath, assetPath),
+    to: join(destPath, output.file ?? `${name}.css`),
+
+    /**
+     * Always generate source maps for either:
+     *
+     * 1. PostCSS on Sass compiler result
+     * 2. PostCSS on Sass sources (Autoprefixer only)
+     */
+    map: {
+      annotation: true,
+      inline: false,
+      prev: false
+    },
+
+    // Sass syntax support
+    syntax: output.file?.endsWith('.scss') ? scss : postcss
+  }
+
+  return task.name('styles:compile', async () => {
+    let css
+    let map
+
+    // Compile Sass to CSS
+    if (options.to.endsWith('.css')) {
+      ;({ css, sourceMap: map } = await compileAsync(options.from, {
         fatalDeprecations: [
           'color-functions',
           'global-builtin',
           'import',
           'mixed-decls'
         ],
+        loadPaths: [join(paths.root, 'node_modules')],
         sourceMap: true,
         sourceMapIncludeSources: true
-      }).on('error', (error) => {
-        done(
-          new PluginError('styles:compile', error.messageFormatted, {
-            showProperties: false
-          })
+      }))
+
+      // Make source file:// paths relative
+      if (map?.sources) {
+        map.sources = map.sources.map((path) =>
+          path.startsWith('file:')
+            ? relative(options.from, fileURLToPath(path))
+            : path
         )
-      })
-    )
-    .pipe(
-      new Transform({
-        objectMode: true,
+      }
 
-        // Make source file:// paths relative
-        transform(file, enc, cb) {
-          if (file.sourceMap?.sources) {
-            file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(
-                join(config.paths.pkg, 'dist/nhsuk'),
-                join(file.base, path)
-              )
-            )
-          }
+      // Pass source maps to PostCSS
+      options.map.prev = map
+    }
 
-          cb(null, file)
-        }
-      })
-    )
+    // Use Sass source when not compiling
+    if (!css) {
+      css = await readFile(options.from)
+    }
 
-    // Transform and minify styles
-    .pipe(
-      postcss([
-        autoprefixer({
-          env: 'stylesheets'
-        }),
-        cssnano({
-          env: 'stylesheets'
-        })
-      ])
-    )
+    // Locate PostCSS config
+    const config = await postcssrc(options)
 
-    // Write to dist
-    .pipe(
-      rename({
-        basename: 'nhsuk-frontend',
-        suffix: '.min'
-      })
-    )
-    .pipe(
-      gulp.dest(join(config.paths.pkg, 'dist/nhsuk'), {
-        sourcemaps: '.'
-      })
-    )
-)
+    // Apply PostCSS transforms (e.g. vendor prefixes)
+    const result = await postcss(config.plugins).process(css, {
+      ...options,
+      ...config.options
+    })
+
+    // Write to files
+    await mkdir(dirname(options.to), { recursive: true })
+    await writeFile(options.to, result.css)
+
+    if (result.map) {
+      await writeFile(`${options.to}.map`, result.map.toString())
+    }
+  })
+}
+
+/**
+ * Compile Sass options
+ *
+ * @typedef {object} CompileStylesOptions
+ * @property {string} srcPath - Source directory
+ * @property {string} destPath - Destination directory
+ * @property {{ file?: string }} [output] - Output options
+ */
+
+/**
+ * @import { ProcessOptions } from 'postcss'
+ */
