@@ -2,10 +2,9 @@ import { mkdir, writeFile } from 'fs/promises'
 import { join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
-import { task } from '@nhsuk/frontend-tasks'
+import { files, task } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
 import { glob } from 'glob'
-import gulp from 'gulp'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
@@ -84,41 +83,32 @@ export const validate = task.name('app:validate', async () => {
 /**
  * Copy GitHub release styles into review app
  */
-export const styles = task.name('app:styles', () => {
-  return gulp
-    .src(join(config.paths.root, `dist/nhsuk-${config.version}.min.css`), {
-      sourcemaps: true
-    })
-    .pipe(
-      gulp.dest(join(config.paths.app, 'dist/stylesheets'), {
-        sourcemaps: '.'
-      })
-    )
-})
+export const styles = task.name('app:styles', () =>
+  files.copy(`nhsuk-${config.version}.min.css`, {
+    srcPath: join(config.paths.root, 'dist'),
+    destPath: join(config.paths.app, 'dist/stylesheets')
+  })
+)
 
 /**
  * Copy GitHub release scripts into review app
  */
-export const scripts = task.name('app:scripts', () => {
-  return gulp
-    .src(join(config.paths.root, `dist/nhsuk-${config.version}.min.js`), {
-      sourcemaps: true
-    })
-    .pipe(
-      gulp.dest(join(config.paths.app, 'dist/javascripts'), {
-        sourcemaps: '.'
-      })
-    )
-})
+export const scripts = task.name('app:scripts', () =>
+  files.copy(`nhsuk-${config.version}.min.js`, {
+    srcPath: join(config.paths.root, 'dist'),
+    destPath: join(config.paths.app, 'dist/javascripts')
+  })
+)
 
 /**
  * Copy NHS.UK frontend logos, icons and other assets into review app
  */
-export const assets = task.name('app:assets', () => {
-  return gulp
-    .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
-    .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
-})
+export const assets = task.name('app:assets', () =>
+  files.copy('nhsuk/assets/**', {
+    srcPath: join(config.paths.pkg, 'src'),
+    destPath: join(config.paths.app, 'dist/assets')
+  })
+)
 
 /**
  * Serve review app directory over localhost
