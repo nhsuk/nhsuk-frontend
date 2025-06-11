@@ -11,7 +11,7 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../../.htmlvalidate.js'
 import pkg from '../../package.json' with { type: 'json' }
 
-const { PORT = '3000' } = process.env
+const { HEROKU_BRANCH = 'main', PORT = '3000' } = process.env
 
 /**
  * Compile Nunjucks into HTML
@@ -34,6 +34,7 @@ export async function buildHTML() {
     const html = env.render(path, {
       assetPath: `/nhsuk-frontend/assets`,
       baseUrl: '/nhsuk-frontend/',
+      branchName: HEROKU_BRANCH,
       version: pkg.version
     })
 
