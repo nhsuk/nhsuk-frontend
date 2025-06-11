@@ -21,6 +21,8 @@
     "clean": "del-cli dist/**",
     "prebuild": "npm run clean",
     "build": "npm run build --if-present --workspaces",
+    "heroku-postbuild": "npm run build",
+    "postheroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm ci --omit=dev --omit=optional --workspace @nhsuk/frontend-review",
     "prestart": "npm run build",
     "start": "npm run watch",
     "watch": "concurrently npm:watch:* --kill-others --prefix-colors \"red.dim,blue.dim\"",
@@ -84,5 +86,9 @@
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
+  },
+  "overrides": {
+    "playwright": "$playwright-core",
+    "puppeteer": "$puppeteer"
   }
 }
