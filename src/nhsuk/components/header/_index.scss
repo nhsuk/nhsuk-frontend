@@ -86,6 +86,23 @@ $_header-link-padding: 2px;
     text-decoration: underline;
   }
 
+  // It should be possible to add a box shadow directly to .nhsuk-header_logo
+  // however Safari doesn’t render anything beyond the bounding box of the SVG.
+  // By adding a pseudo element with the same dimensions, we style this instead.
+  &:hover:not(:focus) {
+    position: relative;
+
+    &::before {
+      content: "";
+      border-bottom: 0.1rem solid currentcolor;
+      display: inline;
+      height: 40px;
+      position: absolute;
+      top: 0.2rem;
+      width: 100px;
+    }
+  }
+
   &:hover,
   &:focus,
   &:active {
@@ -650,6 +667,16 @@ $_header-link-padding: 2px;
 
   .nhsuk-header__service-logo {
     display: block;
+  }
+
+  .nhsuk-header__service-logo[href]:hover:not(:focus)::before {
+    height: 24px;
+    width: 60px;
+
+    @include nhsuk-media-query($from: tablet) {
+      height: 32px;
+      width: 80px;
+    }
   }
 }
 
