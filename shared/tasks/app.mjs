@@ -9,9 +9,10 @@ import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../../.htmlvalidate.js'
+import browserSyncConfig from '../../browsersync.config.js'
 import pkg from '../../package.json' with { type: 'json' }
 
-const { HEROKU_BRANCH = 'main', PORT = '3000' } = process.env
+const { HEROKU_BRANCH = 'main' } = process.env
 
 /**
  * Compile Nunjucks into HTML
@@ -120,47 +121,7 @@ export async function copyBinaryAssets() {
  * @param {TaskCallback} done
  */
 export function serve(done) {
-  browserSync(
-    {
-      ghostMode: false,
-      host: '0.0.0.0',
-
-      // Redirect to start path
-      middleware: [
-        {
-          route: '/',
-          handle(req, res) {
-            res.writeHead(302, { location: '/nhsuk-frontend/' })
-            res.end()
-          }
-        }
-      ],
-
-      online: false,
-      open: false,
-      notify: false,
-      port: Number(PORT),
-
-      // Development server
-      server: {
-        baseDir: 'dist/app',
-        directory: true
-      },
-
-      // Match local paths to deployed preview
-      // https://nhsuk.github.io/nhsuk-frontend
-      serveStatic: [
-        {
-          route: '/nhsuk-frontend',
-          dir: 'dist/app'
-        }
-      ],
-
-      // Show start path in console
-      startPath: '/nhsuk-frontend/'
-    },
-    done
-  )
+  browserSync(browserSyncConfig, done)
 }
 
 /**
