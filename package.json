@@ -86,5 +86,9 @@
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
+  },
+  "overrides": {
+    "playwright": "$playwright-core",
+    "puppeteer": "$puppeteer"
   }
 }
