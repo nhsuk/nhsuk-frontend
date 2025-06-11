@@ -48,19 +48,4 @@
   .nhsuk-back-link--reverse & {
     @include nhsuk-link-style-white;
   }
-
-  &:link,
-  .nhsuk-back-link--reverse &:link {
-    text-decoration: none;
-  }
-
-  &:hover,
-  .nhsuk-back-link--reverse &:hover {
-    text-decoration: underline;
-  }
-}
-
-// stylelint-disable-next-line selector-no-qualifying-type
-button.nhsuk-back-link__link {
-  text-decoration: none;
 }
