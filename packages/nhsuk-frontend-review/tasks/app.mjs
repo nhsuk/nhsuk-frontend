@@ -11,8 +11,7 @@ import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
-
-const { PORT = '3000' } = process.env
+import browserSyncConfig from '../browsersync.config.js'
 
 /**
  * Compile review app Nunjucks into HTML
@@ -113,47 +112,7 @@ export const assets = task.name('app:assets', () => {
  * Serve review app directory over localhost
  */
 export const serve = task.name('app:serve', (done) => {
-  browserSync(
-    {
-      ghostMode: false,
-      host: '0.0.0.0',
-
-      // Redirect to start path
-      middleware: [
-        {
-          route: '/',
-          handle(req, res) {
-            res.writeHead(302, { location: '/nhsuk-frontend/' })
-            res.end()
-          }
-        }
-      ],
-
-      online: false,
-      open: false,
-      notify: false,
-      port: Number(PORT),
-
-      // Development server
-      server: {
-        baseDir: join(config.paths.app, 'dist'),
-        directory: true
-      },
-
-      // Match local paths to deployed preview
-      // https://nhsuk.github.io/nhsuk-frontend
-      serveStatic: [
-        {
-          route: '/nhsuk-frontend',
-          dir: join(config.paths.app, 'dist')
-        }
-      ],
-
-      // Show start path in console
-      startPath: '/nhsuk-frontend/'
-    },
-    done
-  )
+  browserSync(browserSyncConfig, done)
 })
 
 /**
