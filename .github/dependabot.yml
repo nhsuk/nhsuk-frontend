@@ -22,6 +22,7 @@ updates:
   - package-ecosystem: github-actions
     directories:
       - .github/workflows/
+      - .github/workflows/actions/build/
       - .github/workflows/actions/diff/
 
     schedule:
