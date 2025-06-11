@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Importing assets (optional)
 
-If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory.
+If you want to import assets such as the NHS logo, favicons and SVG icons, copy the files into your project folders from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory.
 
 ```html
 <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
