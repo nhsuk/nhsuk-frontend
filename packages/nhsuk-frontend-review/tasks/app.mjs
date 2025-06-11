@@ -13,6 +13,8 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../.htmlvalidate.js'
 import browserSyncConfig from '../browsersync.config.js'
 
+const { HEROKU_BRANCH = 'main' } = process.env
+
 /**
  * Compile review app Nunjucks into HTML
  */
@@ -41,6 +43,7 @@ export const html = task.name('app:html', async () => {
     const html = env.render(path, {
       assetPath: `/nhsuk-frontend/assets`,
       baseUrl: '/nhsuk-frontend/',
+      branchName: HEROKU_BRANCH,
       version: config.version
     })
 
