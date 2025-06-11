@@ -9,12 +9,14 @@
     "build": "gulp build --color",
     "serve": "gulp serve --color",
     "watch": "gulp serve watch --color",
-    "start": "npm run watch"
+    "start": "browser-sync start --config browsersync.config.js"
+  },
+  "dependencies": {
+    "browser-sync": "^3.0.4"
   },
   "devDependencies": {
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-tasks": "*",
-    "browser-sync": "^3.0.4",
     "del-cli": "^6.0.0",
     "glob": "^11.0.2",
     "gulp": "^5.0.1",
