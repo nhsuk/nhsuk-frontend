@@ -106,6 +106,10 @@
     "wait-on": "^8.0.3",
     "webpack-stream": "^7.0.0"
   },
+  "overrides": {
+    "playwright": "$playwright-core",
+    "puppeteer": "$puppeteer"
+  },
   "publishConfig": {
     "access": "public"
   },
