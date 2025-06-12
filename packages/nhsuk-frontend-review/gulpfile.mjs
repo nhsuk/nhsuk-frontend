@@ -38,7 +38,7 @@ gulp.task('watch', () =>
      * Watch and copy minified styles
      */
     gulp.watch(
-      [join(config.paths.root, 'dist/*.min.{css,css.map}')],
+      [join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}')],
       gulp.series('styles')
     ),
 
@@ -46,7 +46,7 @@ gulp.task('watch', () =>
      * Watch and copy minified scripts
      */
     gulp.watch(
-      [join(config.paths.root, 'dist/*.min.{js,js.map}')],
+      [join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}')],
       gulp.series('scripts')
     ),
 
@@ -54,7 +54,7 @@ gulp.task('watch', () =>
      * Watch and copy assets
      */
     gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/assets/**/*')],
+      [join(config.paths.pkg, 'dist/nhsuk/assets/**')],
       gulp.series('assets')
     )
   ])

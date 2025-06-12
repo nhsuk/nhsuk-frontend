@@ -6,7 +6,6 @@ import { task } from '@nhsuk/frontend-tasks'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import gulp from 'gulp'
-import filter from 'gulp-filter'
 import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
@@ -18,11 +17,13 @@ const sass = gulpSass(dartSass)
 /**
  * Compile Sass task
  */
-export const compile = task.name('styles:compile', (done) => {
-  return gulp
+export const compile = task.name('styles:compile', (done) =>
+  gulp
     .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.scss'), {
       sourcemaps: true
     })
+
+    // Compile styles
     .pipe(
       sass({
         fatalDeprecations: [
@@ -49,7 +50,10 @@ export const compile = task.name('styles:compile', (done) => {
         transform(file, enc, cb) {
           if (file.sourceMap?.sources) {
             file.sourceMap.sources = file.sourceMap.sources.map((path) =>
-              relative(join(config.paths.root, 'dist'), join(file.base, path))
+              relative(
+                join(config.paths.pkg, 'dist/nhsuk'),
+                join(file.base, path)
+              )
             )
           }
 
@@ -57,63 +61,29 @@ export const compile = task.name('styles:compile', (done) => {
         }
       })
     )
+
+    // Transform and minify styles
     .pipe(
       postcss([
         autoprefixer({
           env: 'stylesheets'
+        }),
+        cssnano({
+          env: 'stylesheets'
         })
       ])
     )
+
+    // Write to dist
     .pipe(
-      gulp.dest(join(config.paths.root, 'dist'), {
+      rename({
+        basename: 'nhsuk-frontend',
+        suffix: '.min'
+      })
+    )
+    .pipe(
+      gulp.dest(join(config.paths.pkg, 'dist/nhsuk'), {
         sourcemaps: '.'
       })
     )
-})
-
-/**
- * Minify CSS task
- */
-export const minify = task.name('styles:minify', () => {
-  return (
-    gulp
-      .src(join(config.paths.root, 'dist/nhsuk.css'), {
-        sourcemaps: true
-      })
-      .pipe(
-        postcss([
-          cssnano({
-            env: 'stylesheets'
-          })
-        ])
-      )
-
-      // Output minified
-      .pipe(
-        rename({
-          suffix: '.min'
-        })
-      )
-      .pipe(
-        gulp.dest(join(config.paths.root, 'dist'), {
-          sourcemaps: '.'
-        })
-      )
-
-      // Exclude output source map
-      .pipe(filter(['**', `!${join(config.paths.root, 'dist/*.map')}`]))
-
-      // Output minified + versioned
-      .pipe(
-        rename({
-          basename: `nhsuk-${config.version}`,
-          suffix: '.min'
-        })
-      )
-      .pipe(
-        gulp.dest(join(config.paths.root, 'dist'), {
-          sourcemaps: '.'
-        })
-      )
-  )
-})
+)

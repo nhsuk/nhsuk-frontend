@@ -81,21 +81,21 @@ export const validate = task.name('app:validate', async () => {
 })
 
 /**
- * Copy GitHub release styles into review app
+ * Copy NHS.UK frontend styles into review app
  */
 export const styles = task.name('app:styles', () =>
-  files.copy(`nhsuk-${config.version}.min.css`, {
-    srcPath: join(config.paths.root, 'dist'),
+  files.copy('nhsuk/nhsuk-frontend.min.css', {
+    srcPath: join(config.paths.pkg, 'dist'),
     destPath: join(config.paths.app, 'dist/stylesheets')
   })
 )
 
 /**
- * Copy GitHub release scripts into review app
+ * Copy NHS.UK frontend scripts into review app
  */
 export const scripts = task.name('app:scripts', () =>
-  files.copy(`nhsuk-${config.version}.min.js`, {
-    srcPath: join(config.paths.root, 'dist'),
+  files.copy('nhsuk/nhsuk-frontend.min.js', {
+    srcPath: join(config.paths.pkg, 'dist'),
     destPath: join(config.paths.app, 'dist/javascripts')
   })
 )
@@ -105,7 +105,7 @@ export const scripts = task.name('app:scripts', () =>
  */
 export const assets = task.name('app:assets', () =>
   files.copy('nhsuk/assets/**', {
-    srcPath: join(config.paths.pkg, 'src'),
+    srcPath: join(config.paths.pkg, 'dist'),
     destPath: join(config.paths.app, 'dist/assets')
   })
 )

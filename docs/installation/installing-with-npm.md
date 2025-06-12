@@ -16,13 +16,15 @@ To use NHS.UK frontend in your projects with npm you must:
    npm install nunjucks --save
    ```
 
-## Installation
+## Install dependencies
 
 Install the NHS.UK frontend package into your project:
 
 ```sh
 npm install nhsuk-frontend --save
 ```
+
+When the installation finishes, the `nhsuk-frontend` package and other dependencies will be in your `node_modules` folder.
 
 ## Configuration
 
@@ -34,7 +36,7 @@ You will need to import a couple of things into your project before you can star
 
 ## Importing styles
 
-To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
+To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [Gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
 
 You must add the root of your application to Sass load paths, by either:
 
@@ -79,19 +81,14 @@ Add the following JavaScript to the top of the `<body>` section of your page tem
 
 ### Option 1: Include compiled JavaScript
 
-Include the `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script in the `<head>` of your page using the `type="module"` attribute.
+Copy the `/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js` script file into your application.
+
+Include the script in the `<head>` of your page using the `type="module"` attribute.
 
 > The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors. The script will be loaded as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
 
-You might wish to copy the file into your project or reference it straight from node_modules.
-
 ```html
-    <script src="path-to-assets/nhsuk.min.js" type="module"></script>
-  </head>
-```
-
-```html
-    <script src="node_modules/nhsuk-frontend/dist/nhsuk.min.js" type="module"></script>
+    <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
   </head>
 ```
 
@@ -123,19 +120,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Importing assets (optional)
 
-If you want to import assets such as the NHS logo, favicons and SVG icons, you might wish to copy the files into your project folders from the `node_modules/nhsuk-frontend/assets/` directory or you can reference them straight from the `node_modules` folder.
+If you want to import assets such as the NHS logo, favicons and SVG icons, copy the files into your project folders from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory.
 
 ```html
-<link rel="shortcut icon" href="path-to-assets/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="path-to-assets/apple-touch-icon-180x180.png">
-<link rel="mask-icon" href="path-to-assets/favicon.svg" color="#005eb8">
-<link rel="icon" sizes="192x192" href="path-to-assets/favicon-192x192.png">
-<meta name="msapplication-TileImage" content="path-to-assets/mediumtile-144x144.png">
+<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180x180.png">
+<link rel="mask-icon" href="/assets/favicon.svg" color="#005eb8">
+<link rel="icon" sizes="192x192" href="/assets/favicon-192x192.png">
+<meta name="msapplication-TileImage" content="/assets/mediumtile-144x144.png">
 <meta name="msapplication-TileColor" content="#005eb8">
-<meta name="msapplication-square70x70logo" content="path-to-assets/smalltile-70x70.png">
-<meta name="msapplication-square150x150logo" content="path-to-assets/mediumtile-150x150.png">
-<meta name="msapplication-wide310x150logo" content="path-to-assets/widetile-310x150.png">
-<meta name="msapplication-square310x310logo" content="path-to-assets/largetile-310x310.png">
+<meta name="msapplication-square70x70logo" content="/assets/smalltile-70x70.png">
+<meta name="msapplication-square150x150logo" content="/assets/mediumtile-150x150.png">
+<meta name="msapplication-wide310x150logo" content="/assets/widetile-310x150.png">
+<meta name="msapplication-square310x310logo" content="/assets/largetile-310x310.png">
 ```
 
 ## Thanks to the Government Digital Service (GDS)
