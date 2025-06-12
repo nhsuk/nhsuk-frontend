@@ -103,6 +103,11 @@ module.exports = {
           }
         ],
 
+        // Ignore `nhsuk-frontend` exports as they require auto-generated files
+        'import/no-unresolved': ['error', { ignore: ['nhsuk-frontend'] }],
+        'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
+        'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }],
+
         // Automatically use template strings
         'no-useless-concat': 'error',
         'prefer-template': 'error',
