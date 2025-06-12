@@ -8,6 +8,14 @@ const { PORT = '3000' } = process.env
  * @type {Options}
  */
 module.exports = {
+  // Files to watch for auto reload
+  files: [
+    join(__dirname, 'dist/**/*.html'),
+    join(__dirname, 'dist/javascripts/*.min.js'),
+    join(__dirname, 'dist/stylesheets/*.min.css'),
+    join(__dirname, 'dist/assets/**')
+  ],
+
   ghostMode: false,
   host: '0.0.0.0',
 
