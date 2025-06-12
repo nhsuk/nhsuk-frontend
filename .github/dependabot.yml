@@ -10,12 +10,15 @@ updates:
       build:
         patterns:
           - '@babel/*'
+          - '@rollup/*'
           - 'autoprefixer'
           - 'cssnano'
           - 'cssnano-*'
           - 'nunjucks'
           - 'postcss'
           - 'postcss-*'
+          - 'rollup'
+          - 'rollup-*'
           - 'sass-embedded'
 
       lint:

@@ -1,84 +1,117 @@
-import { join, relative } from 'path'
+import { join, parse } from 'path'
 
-import * as config from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
-import gulp from 'gulp'
+import { babel } from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import terser from '@rollup/plugin-terser'
+import * as NHSUKFrontend from 'nhsuk-frontend/src/nhsuk/index.mjs'
 import PluginError from 'plugin-error'
-import TerserPlugin from 'terser-webpack-plugin'
-import webpack from 'webpack-stream'
+import { rollup } from 'rollup'
 
 /**
  * Compile JavaScript task
+ *
+ * @param {string} assetPath
+ * @param {CompileScriptsOptions} entry
  */
-export const compile = task.name('scripts:compile', (done) =>
-  gulp
-    .src(join(config.paths.pkg, 'src/nhsuk/nhsuk.mjs'), {
-      sourcemaps: true
+export function compile(
+  assetPath,
+  {
+    srcPath,
+    destPath,
+    input = {}, // Rollup input options
+    output = {} // Rollup output options
+  }
+) {
+  const { name } = parse(assetPath)
+
+  return task.name('scripts:compile', async () => {
+    const bundle = await rollup({
+      ...input,
+
+      /**
+       * Input path
+       */
+      input: join(srcPath, assetPath),
+
+      /**
+       * Input plugins
+       */
+      plugins: [
+        nodeResolve(),
+        commonjs(),
+        babel({
+          babelHelpers: 'bundled'
+        })
+      ],
+
+      // Handle warnings as errors
+      onwarn(warning) {
+        throw new PluginError('scripts:compile', warning.message, {
+          name: warning.code ?? 'Error',
+          showProperties: false
+        })
+      }
     })
 
-    // Compile scripts
-    .pipe(
-      webpack({
-        devtool: 'source-map',
-        mode: 'production',
-        module: {
-          rules: [
-            {
-              use: {
-                loader: 'babel-loader',
-                options: {
-                  rootMode: 'upward'
-                }
-              }
-            }
-          ]
-        },
-        optimization: {
-          minimize: true,
-          minimizer: [
-            new TerserPlugin({
-              terserOptions: {
-                format: { comments: false },
-                sourceMap: {
-                  includeSources: true
-                },
+    // Add minifier plugin (optional)
+    if (output.compact) {
+      output.plugins ??= []
+      output.plugins.push(
+        terser({
+          format: { comments: false },
 
-                // Compatibility workarounds
-                ecma: 5,
-                safari10: true
-              }
-            })
-          ]
-        },
-        output: {
-          filename: `nhsuk-frontend.min.js`,
+          mangle: {
+            keep_classnames: true,
+            keep_fnames: true,
+            // Ensure all top-level exports skip mangling, for example
+            // non-function string constants like `export { version }`
+            reserved: Object.keys(NHSUKFrontend)
+          },
 
-          // Make source webpack:// paths relative
-          devtoolModuleFilenameTemplate(info) {
-            return relative(
-              join(config.paths.pkg, 'dist/nhsuk'),
-              info.absoluteResourcePath
-            )
-          }
-        },
-        stats: {
-          colors: true,
-          errors: false
-        },
-        target: 'browserslist:javascripts'
-      }).on('error', (error) => {
-        done(
-          new PluginError('scripts:compile', error, {
-            showProperties: false
-          })
-        )
-      })
-    )
+          // Include sources content from source maps to inspect
+          // NHS.UK frontend and other dependencies' source code
+          sourceMap: {
+            includeSources: true
+          },
 
-    // Write to dist
-    .pipe(
-      gulp.dest(join(config.paths.pkg, 'dist/nhsuk'), {
-        sourcemaps: '.'
-      })
-    )
-)
+          // Compatibility workarounds
+          safari10: true
+        })
+      )
+    }
+
+    // Write to output format
+    await bundle.write({
+      extend: true,
+      format: 'esm',
+      ...output,
+
+      // Write to directory for modules
+      dir: output.preserveModules ? destPath : undefined,
+
+      // Write to file when bundling
+      file: !output.preserveModules
+        ? join(destPath, output.file ?? `${name}.bundle.js`)
+        : undefined,
+
+      // Enable source maps
+      sourcemap: true
+    })
+  })
+}
+
+/**
+ * Compile scripts options
+ *
+ * @typedef {object} CompileScriptsOptions
+ * @property {string} srcPath - Source directory
+ * @property {string} destPath - Destination directory
+ * @property {InputOptions} [input] - Rollup input options
+ * @property {OutputOptions} [output] - Rollup output options
+ */
+
+/**
+ * @import { InputOptions, OutputOptions } from 'rollup'
+ */
