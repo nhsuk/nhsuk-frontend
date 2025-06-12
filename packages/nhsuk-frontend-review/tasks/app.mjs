@@ -103,12 +103,23 @@ export const scripts = task.name('app:scripts', () =>
 /**
  * Copy NHS.UK frontend logos, icons and other assets into review app
  */
-export const assets = task.name('app:assets', () =>
-  files.copy('nhsuk/assets/**', {
+export const assets = task.name('app:assets', async () => {
+  /**
+   * Copy NHS.UK frontend assets
+   */
+  await files.copy('nhsuk/assets/**', {
     srcPath: join(config.paths.pkg, 'src'),
     destPath: join(config.paths.app, 'dist/assets')
   })
-)
+
+  /**
+   * Copy review app assets
+   */
+  await files.copy('assets/**', {
+    srcPath: join(config.paths.app, 'src'),
+    destPath: join(config.paths.app, 'dist/assets')
+  })
+})
 
 /**
  * Serve review app directory over localhost
