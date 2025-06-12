@@ -22,7 +22,7 @@
   padding-left: 38px; // [2]
   position: relative; // [3]
 
-  @include nhsuk-link-style($link-underlines: false);
+  @include nhsuk-link-style;
   @include nhsuk-link-style-no-visited-state;
   @include nhsuk-font(22, $weight: bold);
 
