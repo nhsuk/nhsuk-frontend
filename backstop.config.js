@@ -787,6 +787,28 @@ module.exports = {
       ]
     },
     {
+      hoverSelector: '.nhsuk-header__service-logo',
+      label: 'Header with service name (hovered logo)',
+      url: `${BASE_URL}/components/header/header-service-name.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-logo',
+      label: 'Header with service name (focused logo)',
+      url: `${BASE_URL}/components/header/header-service-name.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
       label: 'Header with service name unlinked',
       url: `${BASE_URL}/components/header/header-service-name-unlinked.html`,
       viewports: [
@@ -805,6 +827,12 @@ module.exports = {
         viewports.get('desktop'),
         viewports.get('large-desktop')
       ]
+    },
+    {
+      hoverSelector: '.nhsuk-header__service-logo',
+      label: 'Header with service name as a combined link (hovered logo)',
+      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
@@ -856,6 +884,12 @@ module.exports = {
       ]
     },
     {
+      hoverSelector: '.nhsuk-header__service-logo',
+      label: 'Header organisational with white header (hovered logo)',
+      url: `${BASE_URL}/components/header/header-org-white.html`,
+      viewports: [viewports.get('desktop')]
+    },
+    {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header organisational with white header (focused logo)',
       url: `${BASE_URL}/components/header/header-org-white.html`,
@@ -883,6 +917,12 @@ module.exports = {
         viewports.get('desktop'),
         viewports.get('large-desktop')
       ]
+    },
+    {
+      hoverSelector: '.nhsuk-header__service-logo',
+      label:
+        'Header organisational with white header and custom logo (hovered logo)',
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
