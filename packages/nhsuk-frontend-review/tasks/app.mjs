@@ -86,8 +86,14 @@ export const validate = task.name('app:validate', async () => {
  */
 export const styles = task.name('app:styles', () => {
   return gulp
-    .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
-    .pipe(gulp.dest(join(config.paths.app, 'dist/stylesheets')))
+    .src(join(config.paths.root, `dist/nhsuk-${config.version}.min.css`), {
+      sourcemaps: true
+    })
+    .pipe(
+      gulp.dest(join(config.paths.app, 'dist/stylesheets'), {
+        sourcemaps: '.'
+      })
+    )
 })
 
 /**
@@ -95,8 +101,14 @@ export const styles = task.name('app:styles', () => {
  */
 export const scripts = task.name('app:scripts', () => {
   return gulp
-    .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
-    .pipe(gulp.dest(join(config.paths.app, 'dist/javascripts')))
+    .src(join(config.paths.root, `dist/nhsuk-${config.version}.min.js`), {
+      sourcemaps: true
+    })
+    .pipe(
+      gulp.dest(join(config.paths.app, 'dist/javascripts'), {
+        sourcemaps: '.'
+      })
+    )
 })
 
 /**

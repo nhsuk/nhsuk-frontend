@@ -21,8 +21,20 @@ export const zip = gulp.series(
      */
     task.name('zip:scripts', () =>
       gulp
-        .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
-        .pipe(gulp.dest(join(config.paths.root, 'dist/js')))
+        .src(
+          [
+            join(config.paths.root, 'dist/nhsuk.min.js'),
+            join(config.paths.root, `dist/nhsuk-${config.version}.min.js`)
+          ],
+          {
+            sourcemaps: true
+          }
+        )
+        .pipe(
+          gulp.dest(join(config.paths.root, 'dist/js'), {
+            sourcemaps: '.'
+          })
+        )
     ),
 
     /**
@@ -30,8 +42,20 @@ export const zip = gulp.series(
      */
     task.name('zip:styles', () =>
       gulp
-        .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
-        .pipe(gulp.dest(join(config.paths.root, 'dist/css')))
+        .src(
+          [
+            join(config.paths.root, 'dist/nhsuk.min.css'),
+            join(config.paths.root, `dist/nhsuk-${config.version}.min.css`)
+          ],
+          {
+            sourcemaps: true
+          }
+        )
+        .pipe(
+          gulp.dest(join(config.paths.root, 'dist/css'), {
+            sourcemaps: '.'
+          })
+        )
     )
   ),
 
