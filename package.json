@@ -53,7 +53,7 @@
     "@nhsuk/frontend-helpers": "*",
     "@testing-library/user-event": "^14.6.1",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
-    "@typescript-eslint/parser": "^8.33.0",
+    "@typescript-eslint/parser": "^8.34.0",
     "babel-jest": "^29.7.0",
     "backstopjs": "^6.3.25",
     "concurrently": "^9.1.2",
