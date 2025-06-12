@@ -757,8 +757,18 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with logo only',
+      label: 'Header with logo',
       url: `${BASE_URL}/components/header/header-logo.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with logo unlinked',
+      url: `${BASE_URL}/components/header/header-logo-unlinked.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -769,6 +779,16 @@ module.exports = {
     {
       label: 'Header with service name',
       url: `${BASE_URL}/components/header/header-service-name.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with service name unlinked',
+      url: `${BASE_URL}/components/header/header-service-name-unlinked.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -788,7 +808,7 @@ module.exports = {
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
-      label: 'Header with service name as a combined link (focused)',
+      label: 'Header with service name as a combined link (focused logo)',
       url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
       viewports: [viewports.get('desktop')]
     },
