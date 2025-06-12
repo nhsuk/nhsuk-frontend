@@ -15,6 +15,7 @@
   "exports": {
     ".": {
       "sass": "./dist/nhsuk/index.scss",
+      "style": "./dist/nhsuk/nhsuk-frontend.min.css",
       "import": "./dist/nhsuk/index.mjs",
       "require": "./dist/nhsuk/index.js",
       "default": "./dist/nhsuk/index.js"
@@ -30,6 +31,7 @@
   "main": "dist/nhsuk/index.js",
   "module": "dist/nhsuk/index.mjs",
   "sass": "dist/nhsuk/index.scss",
+  "style": "dist/nhsuk/nhsuk-frontend.min.css",
   "files": [
     "dist",
     "src",
