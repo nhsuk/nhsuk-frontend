@@ -11,14 +11,16 @@
   // - spacing between the buttons and links is handled automatically, including
   //   when they wrap across multiple lines
   .nhsuk-button-group {
-    $horizontal-gap: nhsuk-spacing(3);
+    $horizontal-gap: nhsuk-spacing(4);
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
     $button-border-radius: $nhsuk-border-width-form-element * 2;
     $button-shadow-size: $button-border-radius;
+    $button-padding-top-bottom-mobile: 8px;
+    $button-padding-top-bottom-desktop: 12px;
 
-    $link-spacing: nhsuk-spacing(1);
+    $link-spacing: nhsuk-spacing(2);
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -32,7 +34,7 @@
     flex-direction: column;
     align-items: center;
 
-    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $vertical-gap * -1);
+    @include nhsuk-responsive-margin(6, "bottom", $adjustment: $vertical-gap * -1);
 
     // Give links within the button group the same font-size and line-height
     // as buttons.
@@ -42,9 +44,18 @@
     .nhsuk-link,
     a:not(.nhsuk-button) {
       display: inline-block;
-      margin-top: $link-spacing;
-      margin-bottom: $vertical-gap;
+      // Prevent links overflowing their container in IE10/11 because of bug
+      // with align-items: center
+      max-width: 100%;
+      margin-top: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+      margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+      text-align: center;
       @include nhsuk-font($size: 19);
+
+      @include nhsuk-media-query($until: tablet) {
+        margin-top: $link-spacing;
+        margin-bottom: $link-spacing + $vertical-gap;
+      }
     }
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating
@@ -61,7 +72,7 @@
 
       flex-direction: row;
       flex-wrap: wrap;
-      align-items: baseline;
+      align-items: flex-start;
 
       .nhsuk-button,
       .nhsuk-link,
