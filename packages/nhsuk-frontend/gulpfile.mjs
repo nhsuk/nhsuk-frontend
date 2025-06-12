@@ -1,10 +1,10 @@
 import { join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
-import { scripts, styles } from '@nhsuk/frontend-tasks'
+import { scripts } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
-import { assets, release } from './tasks/index.mjs'
+import { assets, release, styles } from './tasks/index.mjs'
 
 gulp.task('styles', styles.compile)
 gulp.task('scripts', scripts.compile)
