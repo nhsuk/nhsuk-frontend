@@ -88,7 +88,6 @@ export const styles = task.name('app:styles', () => {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{css,css.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/stylesheets')))
-    .pipe(browserSync.stream())
 })
 
 /**
@@ -98,7 +97,6 @@ export const scripts = task.name('app:scripts', () => {
   return gulp
     .src(join(config.paths.root, 'dist/*.min.{js,js.map}'))
     .pipe(gulp.dest(join(config.paths.app, 'dist/javascripts')))
-    .pipe(browserSync.stream())
 })
 
 /**
@@ -108,7 +106,6 @@ export const assets = task.name('app:assets', () => {
   return gulp
     .src(join(config.paths.pkg, 'src/nhsuk/assets/**'), { encoding: false })
     .pipe(gulp.dest(join(config.paths.app, 'dist/assets')))
-    .pipe(browserSync.stream())
 })
 
 /**
