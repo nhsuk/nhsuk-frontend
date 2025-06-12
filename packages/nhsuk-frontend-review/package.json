@@ -20,7 +20,7 @@
     "del-cli": "^6.0.0",
     "glob": "^11.0.2",
     "gulp": "^5.0.1",
-    "html-validate": "^9.5.3",
+    "html-validate": "^9.5.5",
     "nunjucks": "^3.2.4",
     "plugin-error": "^2.0.1"
   },
