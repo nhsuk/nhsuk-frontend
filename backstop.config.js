@@ -826,7 +826,24 @@ module.exports = {
       ]
     },
     {
-      label: 'Header organisational with white header, navigation',
+      label: 'Header organisational with white header and custom logo',
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-logo',
+      label:
+        'Header organisational with white header and custom logo (focused logo)',
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
+    },
+    {
+      label: 'Header organisational with white header and navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
       onReadyScript: 'playwright/onReadyResize.js',
       viewports: [

@@ -1,0 +1,48 @@
+{% set title = 'Header organisational with white header and custom logo' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    classes: "nhsuk-header--white",
+    logo: {
+      href: "#",
+      src: "/assets/example-logo.svg",
+      ariaLabel: "Great Ormond Street Hospital for Children, NHS Foundation Trust"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the Great Ormond Street Hospital website"
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Parents and families"
+        },
+        {
+          href: "#",
+          text: "Wards and departments",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Conditions and treatments"
+        },
+        {
+          href: "#",
+          text: "Learning"
+        },
+        {
+          href: "#",
+          text: "Our research"
+        },
+        {
+          href: "#",
+          text: "Our people"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}
