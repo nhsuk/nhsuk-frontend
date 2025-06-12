@@ -1,14 +1,7 @@
 name: Sass
 
 on:
-  pull_request:
-
-  push:
-    branches:
-      - main
-      - 'feature/**'
-      - 'support/**'
-
+  workflow_call:
   workflow_dispatch:
 
 jobs:
@@ -48,14 +41,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
+      - name: Install and build
+        uses: ./.github/workflows/actions/build
 
       - name: Install package
         run: |
-          npm install --omit=dev
           npm install -g sass@${{ matrix.package-version }}
           sass --version
 
