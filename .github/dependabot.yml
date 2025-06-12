@@ -5,6 +5,51 @@ updates:
   - package-ecosystem: npm
     directory: /
 
+    # Group packages into shared PR
+    groups:
+      build:
+        patterns:
+          - '@babel/*'
+          - 'autoprefixer'
+          - 'cssnano'
+          - 'cssnano-*'
+          - 'nunjucks'
+          - 'postcss'
+          - 'postcss-*'
+          - 'sass-embedded'
+
+      lint:
+        patterns:
+          - '@typescript-eslint/*'
+          - 'eslint'
+          - 'eslint-*'
+          - 'html-validate'
+          - 'prettier'
+          - 'stylelint'
+          - 'stylelint-*'
+          - 'typescript'
+
+      test:
+        patterns:
+          - '@testing-library/*'
+          - 'babel-jest'
+          - 'backstopjs'
+          - 'jest'
+          - 'jest-*'
+          - 'outdent'
+          - 'playwright'
+          - 'playwright-*'
+          - 'puppeteer'
+          - 'puppeteer-*'
+
+      tools:
+        patterns:
+          - 'concurrently'
+          - 'del-cli'
+          - 'gulp'
+          - 'gulp-*'
+          - 'wait-on'
+
     schedule:
       interval: monthly
 
@@ -22,6 +67,7 @@ updates:
   - package-ecosystem: github-actions
     directories:
       - .github/workflows/
+      - .github/workflows/actions/build/
       - .github/workflows/actions/diff/
 
     schedule:
