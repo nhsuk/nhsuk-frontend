@@ -1,7 +1,6 @@
 import { join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
-import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
 import { app } from './tasks/index.mjs'
@@ -34,13 +33,6 @@ gulp.task('watch', () =>
       ],
       gulp.series('html')
     ),
-
-    /**
-     * Watch and reload HTML pages
-     */
-    gulp
-      .watch([join(config.paths.root, 'dist/**/*.html')])
-      .on('change', browserSync.reload),
 
     /**
      * Watch and copy minified styles
