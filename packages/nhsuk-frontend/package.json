@@ -14,8 +14,12 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "browser": {
+        "sass": "./dist/nhsuk/index.scss",
+        "style": "./dist/nhsuk/nhsuk-frontend.min.css",
+        "default": "./dist/nhsuk/nhsuk-frontend.min.js"
+      },
       "sass": "./dist/nhsuk/index.scss",
-      "style": "./dist/nhsuk/nhsuk-frontend.min.css",
       "import": "./dist/nhsuk/index.mjs",
       "require": "./dist/nhsuk/index.js",
       "default": "./dist/nhsuk/index.js"
@@ -32,6 +36,7 @@
   "module": "dist/nhsuk/index.mjs",
   "sass": "dist/nhsuk/index.scss",
   "style": "dist/nhsuk/nhsuk-frontend.min.css",
+  "browser": "dist/nhsuk/nhsuk-frontend.min.js",
   "files": [
     "dist",
     "src",
