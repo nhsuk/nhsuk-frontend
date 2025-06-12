@@ -30,7 +30,10 @@ export function copy(assetPath, { srcPath, destPath, output = {} }) {
   return stream.pipe(
     gulp.dest(destPath, {
       encoding: false,
-      sourcemaps: '.'
+
+      // Only add source maps for styles and scripts
+      sourcemaps: (file) =>
+        ['.css', '.js'].includes(file.extname) ? '.' : undefined
     })
   )
 }
