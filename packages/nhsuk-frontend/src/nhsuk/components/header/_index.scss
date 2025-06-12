@@ -74,6 +74,7 @@ $_header-link-padding: 2px;
 .nhsuk-header__service-logo[href] {
   @include nhsuk-link-image;
 
+  position: relative;
   display: inline-flex;
   text-decoration: none;
 
@@ -82,25 +83,24 @@ $_header-link-padding: 2px;
     color: $color_nhsuk-white;
   }
 
+  // Add text underline on hover
   &:not(:focus):hover {
     text-decoration: underline;
   }
 
+  // Add SVG logo underline on hover
+  //
   // It should be possible to add a box shadow directly to .nhsuk-header_logo
   // however Safari doesn’t render anything beyond the bounding box of the SVG.
   // By adding a pseudo element with the same dimensions, we style this instead.
-  &:hover:not(:focus) {
-    position: relative;
-
-    &::before {
-      content: "";
-      border-bottom: 0.1rem solid currentcolor;
-      display: inline;
-      height: 40px;
-      position: absolute;
-      top: 0.2rem;
-      width: 100px;
-    }
+  &:not(:focus):hover::before {
+    content: "";
+    border-bottom: 0.1rem solid currentcolor;
+    display: inline;
+    height: 40px;
+    position: absolute;
+    top: 0.2rem;
+    width: 100px;
   }
 
   &:hover,
@@ -669,13 +669,16 @@ $_header-link-padding: 2px;
     display: block;
   }
 
-  .nhsuk-header__service-logo[href]:hover:not(:focus)::before {
-    height: 24px;
-    width: 60px;
+  .nhsuk-header__service-logo[href] {
+    // Adjust SVG logo underline position
+    &:not(:focus):hover::before {
+      height: 24px;
+      width: 60px;
 
-    @include nhsuk-media-query($from: tablet) {
-      height: 32px;
-      width: 80px;
+      @include nhsuk-media-query($from: tablet) {
+        height: 32px;
+        width: 80px;
+      }
     }
   }
 }
