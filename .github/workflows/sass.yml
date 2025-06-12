@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      PUPPETEER_SKIP_DOWNLOAD: true
+
       RULE_1: '@import "nhsuk";'
       RULE_2: '@use "nhsuk" as *;'
       RULE_3: '@forward "nhsuk";'
