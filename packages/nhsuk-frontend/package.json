@@ -14,19 +14,22 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "sass": "./src/nhsuk/index.scss",
-      "default": "./src/nhsuk/index.mjs"
+      "sass": "./dist/nhsuk/index.scss",
+      "import": "./dist/nhsuk/index.mjs",
+      "require": "./dist/nhsuk/index.js",
+      "default": "./dist/nhsuk/index.js"
     },
     "./*": "./*",
     "./packages/*": {
-      "sass": "./src/nhsuk/*",
-      "default": "./src/nhsuk/*.js"
+      "sass": "./dist/nhsuk/*",
+      "default": "./dist/nhsuk/*.js"
     },
-    "./packages/*.mjs": "./src/nhsuk/*.mjs",
+    "./packages/*.js": "./dist/nhsuk/*.js",
     "./package.json": "./package.json"
   },
-  "main": "src/nhsuk/index.mjs",
-  "sass": "src/nhsuk/index.scss",
+  "main": "dist/nhsuk/index.js",
+  "module": "dist/nhsuk/index.mjs",
+  "sass": "dist/nhsuk/index.scss",
   "files": [
     "dist",
     "src",
