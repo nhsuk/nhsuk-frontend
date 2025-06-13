@@ -1,0 +1,20 @@
+{
+  "name": "@nhsuk/frontend-lib",
+  "private": true,
+  "description": "NHS.UK frontend shared library",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.mjs",
+    "./*": "./*"
+  },
+  "main": "index.mjs",
+  "dependencies": {
+    "@nhsuk/frontend-config": "*",
+    "lodash": "^4.17.21",
+    "nunjucks": "^3.2.4",
+    "outdent": "^0.8.0"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
+}
