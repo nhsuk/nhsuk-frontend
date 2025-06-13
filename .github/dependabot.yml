@@ -12,6 +12,7 @@ updates:
           - '@babel/*'
           - '@rollup/*'
           - 'autoprefixer'
+          - 'caniuse-lite'
           - 'cssnano'
           - 'cssnano-*'
           - 'nunjucks'
@@ -39,7 +40,6 @@ updates:
           - 'backstopjs'
           - 'jest'
           - 'jest-*'
-          - 'outdent'
           - 'playwright'
           - 'playwright-*'
           - 'puppeteer'
@@ -49,8 +49,10 @@ updates:
         patterns:
           - 'concurrently'
           - 'del-cli'
+          - 'glob'
           - 'gulp'
           - 'gulp-*'
+          - 'outdent'
           - 'wait-on'
 
     schedule:
