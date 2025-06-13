@@ -1,3 +1,4 @@
+import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
 import { initButton } from './button.mjs'
@@ -7,11 +8,9 @@ describe('Button', () => {
   let $button
 
   beforeEach(() => {
-    document.body.innerHTML = `
-      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-        Save and continue
-      </button>
-    `
+    document.body.innerHTML = components.render('button', {
+      context: { text: 'Save and continue' }
+    })
 
     $button = getByRole(document.body, 'button')
 
