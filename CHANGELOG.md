@@ -138,7 +138,7 @@ This change ensures consistency with other components, where `text` or `html` pa
 }) }}
 ```
 
-This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
 
 #### Stop using deprecated 24 point on the typography scale
 
