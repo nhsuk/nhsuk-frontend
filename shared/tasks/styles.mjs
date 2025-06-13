@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 import { paths } from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
 import postcss from 'postcss'
+// eslint-disable-next-line import/default
 import postcssrc from 'postcss-load-config'
 import scss from 'postcss-scss'
 import { compileAsync } from 'sass-embedded'
