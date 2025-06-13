@@ -375,6 +375,7 @@ $_header-link-padding: 2px;
 }
 
 .nhsuk-header__navigation-item {
+  position: relative;
   margin-bottom: 0;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
@@ -502,17 +503,32 @@ $_header-link-padding: 2px;
   }
 
   .nhsuk-header__navigation-item {
-    border-top: 1px solid $color_nhsuk-grey-5;
     padding: 0;
+    max-width: $nhsuk-page-width;
+    border-top: 1px solid $color_nhsuk-grey-5;
   }
 
-  // Current item within expended mobile menu gets blue line on left edge.
-  //
-  // The blue line uses an inset box-shadow instead of a border, as there’s
-  // already a grey border on the top, and using 2 different colour borders
-  // creates an awkward diagonal line where they meet.
-  .nhsuk-header__navigation-item--current {
-    box-shadow: inset 6px 0 $color_nhsuk-blue;
+  // Current item within menu gets blue line on left edge
+  .nhsuk-header__navigation-item--current::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    border-left: 6px solid $color_nhsuk-blue;
+  }
+
+  @include nhsuk-media-query($nhsuk-page-width + $nhsuk-gutter * 2) {
+    // Center navigation items within full width menu
+    .nhsuk-header__navigation-item {
+      margin: 0 auto;
+    }
+
+    // Put offset blue line back into gutter area
+    .nhsuk-header__navigation-item--current::before {
+      left: -$nhsuk-gutter;
+    }
   }
 }
 
