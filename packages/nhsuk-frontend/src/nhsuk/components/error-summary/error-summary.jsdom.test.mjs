@@ -1,4 +1,6 @@
+import { components } from '@nhsuk/frontend-lib'
 import { getAllByRole, getByRole } from '@testing-library/dom'
+import { outdent } from 'outdent'
 
 import { initErrorSummary } from './error-summary.mjs'
 
@@ -16,37 +18,41 @@ describe('Error summary', () => {
   let $label
 
   beforeEach(() => {
-    document.body.innerHTML = `
-      <form method="post" novalidate>
-        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
-          <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-            There is a problem
-          </h2>
-          <div class="nhsuk-error-summary__body">
-            <p>
-              Optional description of the errors and how to correct them.<br>
-              Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
-            </p>
-            <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
-              <li>
-                <a href="#input-with-error-message">Link to input error with explanation</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    const descriptionHtml = outdent`
+      Optional description of the errors and how to correct them.<br>
+      Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
+    `
 
-        <div class="nhsuk-form-group nhsuk-form-group--error">
-          <label class="nhsuk-label" for="input-with-error-message">
-            National Insurance number
-          </label>
-          <div class="nhsuk-hint" id="input-with-error-message-hint">
-            Clicking an error summary link should scroll the top of this input's label into view.
-          </div>
-          <span class="nhsuk-error-message" id="input-with-error-message-error">
-            <span class="nhsuk-u-visually-hidden">Error:</span> Error message goes here
-          </span>
-          <input class="nhsuk-input nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
-        </div>
+    document.body.innerHTML = outdent`
+      <form method="post" novalidate>
+        ${components.render('error-summary', {
+          context: {
+            titleText: 'There is a problem',
+            descriptionHtml,
+            errorList: [
+              {
+                text: 'Link to input error with explanation',
+                href: '#example'
+              }
+            ]
+          }
+        })}
+
+        ${components.render('input', {
+          context: {
+            id: 'example',
+            name: 'example',
+            label: {
+              text: 'National Insurance number'
+            },
+            hint: {
+              text: "Clicking an error summary link should scroll the top of this input's label into view."
+            },
+            errorMessage: {
+              text: 'Error message goes here'
+            }
+          }
+        })}
       </form>
     `
 
