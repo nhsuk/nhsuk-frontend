@@ -40,6 +40,13 @@ const viewports = new Map([
       width: 990,
       height: 100
     }
+  ],
+  [
+    'xlarge-desktop',
+    {
+      width: 1281,
+      height: 100
+    }
   ]
 ])
 
@@ -922,13 +929,29 @@ module.exports = {
       hoverSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (hovered logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      onReadyScript: 'playwright/onReadyResize.js'
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (focused logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      onReadyScript: 'playwright/onReadyResize.js'
+    },
+    {
+      clickSelector: '#toggle-menu',
+      label:
+        'Header organisational with white header and custom logo (menu open)',
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      onReadyScript: 'playwright/onReadyResize.js',
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop'),
+        viewports.get('xlarge-desktop')
+      ]
     },
     {
       label: 'Header organisational with white header and navigation',
@@ -950,13 +973,6 @@ module.exports = {
         viewports.get('desktop'),
         viewports.get('large-desktop')
       ]
-    },
-    {
-      clickSelector: '#toggle-menu',
-      label: 'Header with navigation open',
-      url: `${BASE_URL}/components/header/header-navigation.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
-      viewports: [viewports.get('mobile'), viewports.get('tablet')]
     },
     {
       label: 'Hero',
