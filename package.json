@@ -55,6 +55,7 @@
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.33.0",
     "babel-jest": "^30.0.0",
+    "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
     "concurrently": "^9.1.2",
     "eslint": "^8.57.1",
