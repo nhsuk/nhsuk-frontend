@@ -19,7 +19,6 @@
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
     "del-cli": "^6.0.0",
-    "glob": "^11.0.3",
     "gulp": "^5.0.1",
     "html-validate": "^9.5.5",
     "plugin-error": "^2.0.1"
