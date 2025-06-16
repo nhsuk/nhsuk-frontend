@@ -25,6 +25,40 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
 }
 
 /**
+ * Convert macro option params to JSON format
+ *
+ * @param {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
+ * @returns {MacroOption[] | undefined} Nunjucks macro options
+ */
+export function getComponentMacroOptions(params) {
+  if (!params) {
+    return
+  }
+
+  // Format nested params
+  return Object.entries(params).map(([name, param]) => {
+    const option = /** @type {MacroOption} */ ({
+      name,
+      type: param.type,
+      required: param.required,
+      description: param.description
+    })
+
+    // Optional component flag
+    if (param.isComponent) {
+      option.isComponent = true
+    }
+
+    // Optional nested params
+    if (param.params) {
+      option.params = getComponentMacroOptions(param.params)
+    }
+
+    return option
+  })
+}
+
+/**
  * Render component HTML
  *
  * @param {string} componentName - Component name
@@ -91,16 +125,37 @@ export function renderTemplate(templatePath, options) {
 }
 
 /**
- * Nunjucks macro options
+ * Component data
  *
- * @typedef {{ [param: string]: unknown }} MacroOptions
+ * @typedef {object} ComponentData
+ * @property {string} name - Component name
+ * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
+ * @property {MacroOption[]} options - Nunjucks macro options fixtures
+ */
+
+/**
+ * Nunjucks macro option config
+ *
+ * @typedef {object} MacroParam
+ * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
+ * @property {boolean} required - Option required
+ * @property {string} description - Option description
+ * @property {true} [isComponent] - Option is another component
+ * @property {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
+ */
+
+/**
+ * Nunjucks macro option
+ * (used by the Design System website)
+ *
+ * @typedef {Omit<MacroParam, 'params'> & { name: string, params?: MacroOption[] }} MacroOption
  */
 
 /**
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {MacroOptions | unknown} [context] - Nunjucks mixed context (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
@@ -109,7 +164,7 @@ export function renderTemplate(templatePath, options) {
  * Nunjucks template render options
  *
  * @typedef {object} TemplateRenderOptions
- * @property {MacroOptions | unknown} [context] - Nunjucks context object (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
 
