@@ -168,7 +168,6 @@ This means you should change your error summary from:
 
 to
 
-```
 ```njk
 {{ errorSummary({
   titleText: "There is a problem",
