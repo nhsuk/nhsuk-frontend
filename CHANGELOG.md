@@ -183,6 +183,8 @@ to
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
+This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
