@@ -1,6 +1,7 @@
-import { join } from 'path'
+import { basename, join } from 'path'
 
 import { paths } from '@nhsuk/frontend-config'
+import { getDirectories } from '@nhsuk/frontend-lib/files.mjs'
 import camelCase from 'lodash/camelCase.js'
 import nunjucks from 'nunjucks'
 
@@ -22,6 +23,30 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
     lstripBlocks: true, // automatically remove leading whitespace from a block/tag,
     ...nunjucksOptions
   })
+}
+
+/**
+ * Load single component macro options (from source)
+ *
+ * @param {string} componentName - Component name
+ * @returns {Promise<ComponentData>} Component data
+ */
+export async function getComponentData(componentName) {
+  return import(
+    join(paths.pkg, `src/nhsuk/components/${componentName}/macro-options.mjs`)
+  )
+}
+
+/**
+ * Get component names
+ */
+export async function getComponentNames() {
+  const listing = await getDirectories('nhsuk/components', {
+    cwd: join(paths.pkg, 'src')
+  })
+
+  // Use directory names only
+  return listing.map((directoryPath) => basename(directoryPath)).sort()
 }
 
 /**
