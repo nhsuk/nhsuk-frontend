@@ -1,4 +1,4 @@
-import { getComponentMacroOptions } from '@nhsuk/frontend-lib/components.mjs'
+import { components } from '@nhsuk/frontend-lib'
 
 export const name = 'Text input'
 
@@ -113,7 +113,7 @@ export const params = {
   }
 }
 
-export const options = getComponentMacroOptions(params)
+export const options = components.getMacroOptions(params)
 
 /**
  * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
