@@ -148,6 +148,41 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
+#### Update links in the error summary to the first checkbox or radio item
+
+The default HTML `id` for the first checkbox or radio item no longer has a `-1` suffix.
+
+This means you should change your error summary from:
+
+```njk
+{{ errorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select how you like to be contacted",
+      href: "#contact-preference-1"
+    }
+  ]
+}) }}
+```
+
+to
+
+```
+```njk
+{{ errorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select how you like to be contacted",
+      href: "#contact-preference"
+    }
+  ]
+}) }}
+```
+
+You do not need to do this if you specified an `id` for the individual checkbox or radio item.
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
