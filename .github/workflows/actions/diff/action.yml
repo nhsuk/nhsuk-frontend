@@ -1,0 +1,45 @@
+name: Build and diff
+
+outputs:
+  changes:
+    description: Returns true if build output has changes
+    value: ${{ steps.diff.outputs.changes || 'true' }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Set up git for temporary commits
+      shell: bash
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Install and build base
+      uses: ./.github/workflows/actions/build
+      with:
+        ref: ${{ github.event.pull_request.base.sha }}
+
+    - name: Commit base build for comparison
+      shell: bash
+      run: |
+        git add --force packages/nhsuk-frontend-review/dist
+        git commit --allow-empty -m "Build output for '${{ github.base_ref }}'" --no-verify
+
+    - name: Install and build head
+      uses: ./.github/workflows/actions/build
+
+    - name: Commit head build for comparison
+      shell: bash
+      run: |
+        git add --force packages/nhsuk-frontend-review/dist
+        git commit --allow-empty -m "Build output for '${{ github.head_ref }}'" --no-verify
+
+    - name: Check for changes
+      id: diff
+      shell: bash
+      run: |
+        set +e
+        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend-review/dist/**/*'
+        [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
+        exit 0

@@ -1,0 +1,22 @@
+{% set title = 'Character Count - with threshold' %}
+{% from 'nhsuk/components/character-count/macro.njk' import characterCount %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ characterCount({
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 10,
+        "threshold": 8,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

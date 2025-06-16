@@ -1,0 +1,88 @@
+// stylelint-disable declaration-no-important
+
+@use "../settings" as *;
+@use "../tools" as *;
+@use "sass:map";
+
+////
+/// Spacing
+///
+/// @group utilities
+////
+
+/// Directions for spacing
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+$_spacing-directions: ("top", "right", "bottom", "left") !default;
+
+/// Generate responsive spacing override classes
+///
+/// Generate spacing override classes for the given property (e.g. margin)
+/// for each point in the responsive spacing scale.
+///
+/// @param {String} $property - Property to add spacing to (e.g. 'margin')
+///
+/// @example css
+///   .nhsuk-u-margin-4 {
+///     margin: 16px !important;
+///   }
+///
+///   @media (min-width: 40.0625em) {
+///     .nhsuk-u-margin-4 {
+///       margin: 24px !important;
+///     }
+///   }
+///
+
+@mixin _nhsuk-generate-responsive-spacing-overrides($property) {
+  // For each point in the spacing scale (defined in settings), create an
+  // override that affects all directions...
+  @each $scale-point, $scale-map in $nhsuk-spacing-responsive-scale {
+    .nhsuk-u-#{$property}-#{$scale-point} {
+      @include nhsuk-responsive-spacing($scale-point, $property, "all", true);
+    }
+
+    // ... and then an override for each individual direction
+    @each $direction in $_spacing-directions {
+      .nhsuk-u-#{$property}-#{$direction}-#{$scale-point} {
+        @include nhsuk-responsive-spacing($scale-point, $property, $direction, true);
+      }
+    }
+  }
+}
+
+/// Generate static spacing override classes
+///
+/// Generate spacing override classes for the given property (e.g. margin)
+/// for each point in the non-responsive spacing scale.
+///
+/// @param {String} $property - Property to add spacing to (e.g. 'margin')
+///
+/// @example css
+///   .nhsuk-u-static-margin-4 {
+///      margin: 24px !important;
+///   }
+///
+
+@mixin _nhsuk-generate-static-spacing-overrides($property) {
+  @each $spacing-point in map.keys($nhsuk-spacing-points) {
+    .nhsuk-u-static-#{$property}-#{$spacing-point} {
+      #{$property}: nhsuk-spacing($spacing-point) !important;
+    }
+
+    @each $direction in $_spacing-directions {
+      .nhsuk-u-static-#{$property}-#{$direction}-#{$spacing-point} {
+        #{$property}-#{$direction}: nhsuk-spacing($spacing-point) !important;
+      }
+    }
+  }
+}
+
+@include nhsuk-exports("nhsuk/core/utilities/spacing") {
+  @include _nhsuk-generate-responsive-spacing-overrides("margin");
+  @include _nhsuk-generate-responsive-spacing-overrides("padding");
+
+  @include _nhsuk-generate-static-spacing-overrides("margin");
+  @include _nhsuk-generate-static-spacing-overrides("padding");
+}

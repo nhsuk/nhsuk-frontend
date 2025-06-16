@@ -1,0 +1,62 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Tables
+///
+/// 1. Force `<table>`s to be full-width by default.
+/// 2. Allow word breaks anywhere to prevent table fit-to-content.
+/// 3. Allow word breaks when necessary (deprecated but works, unlike overflow-wrap).
+///
+/// @group elements
+////
+
+table {
+  border-spacing: 0;
+  vertical-align: top;
+  width: 100%; // [1]
+
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  .nhsuk-u-text-break-word {
+    word-break: break-all; // [2]
+    word-break: break-word; // [3]
+  }
+
+  @include nhsuk-media-query($media-type: print) {
+    page-break-inside: avoid;
+  }
+}
+
+thead {
+  th {
+    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
+  }
+}
+
+th,
+td {
+  padding-left: 0;
+
+  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
+  text-align: left;
+  vertical-align: top;
+
+  @include nhsuk-font-size(19);
+  @include nhsuk-responsive-padding(3, "bottom");
+  @include nhsuk-responsive-padding(4, "right");
+  @include nhsuk-responsive-padding(3, "top");
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+th {
+  font-weight: $nhsuk-font-bold;
+}
+
+caption {
+  text-align: left;
+  @include nhsuk-font($size: 22, $weight: bold);
+}

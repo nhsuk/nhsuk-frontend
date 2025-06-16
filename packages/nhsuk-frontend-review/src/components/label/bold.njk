@@ -1,0 +1,14 @@
+{% set title = 'Label with bold text' %}
+{% from 'nhsuk/components/label/macro.njk' import label %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ label({
+        "classes": "nhsuk-label--s",
+        "text": "NHS number"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

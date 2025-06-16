@@ -1,0 +1,79 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../settings" as *;
+@use "../vendor/sass-mq" as * with (
+  $mq-breakpoints: $nhsuk-breakpoints,
+  $mq-show-breakpoints: if(
+      meta.variable-exists(nhsuk-show-breakpoints) and $nhsuk-show-breakpoints,
+      map.keys($nhsuk-breakpoints),
+      ()
+    )
+);
+
+////
+/// Wrangle sass-mq config...
+///
+/// @group tools
+////
+
+@forward "../vendor/sass-mq";
+
+/// Helpers
+
+/// Media query
+///
+/// This is a currently a wrapper for sass-mq - abstracted so that we can
+/// replace it in the future if we so choose.
+///
+/// @param {String | Boolean} $from [false] - One of $nhsuk-breakpoints
+/// @param {String | Boolean} $until [false] - One of $nhsuk-breakpoints
+/// @param {String | Boolean} $and [false] - Additional media query parameters
+/// @param {String} $media-type [all] - Media type: screen, print…
+///
+/// @ignore Undocumented mq API, for advanced use only:
+/// @ignore @param {Map} $breakpoints [$nhsuk-breakpoints]
+///
+/// @content styling rules, wrapped into a @media query when $responsive is true
+///
+/// @example scss
+///  .element {
+///    @include nhsuk-media-query($from: mobile) {
+///      color: red;
+///    }
+///    @include nhsuk-media-query($until: tablet) {
+///      color: blue;
+///    }
+///    @include nhsuk-media-query(mobile, tablet) {
+///      color: green;
+///    }
+///    @include nhsuk-media-query($from: tablet, $and: '(orientation: landscape)') {
+///      color: teal;
+///    }
+///    @include nhsuk-media-query(950px) {
+///      color: hotpink;
+///    }
+///    @include nhsuk-media-query(tablet, $media-type: screen) {
+///      color: hotpink;
+///    }
+///  }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-media-query($args...) {
+  @include mq($args..., $silence-warning: true) {
+    @content;
+  }
+}
+
+/// Media query (deprecated)
+///
+/// @alias nhsuk-media-query
+/// @deprecated To be removed in v11.0, replaced by nhsuk-media-query
+
+@mixin govuk-media-query($args...) {
+  @include nhsuk-warning("govuk-media-query", "govuk-media-query is deprecated. Use nhsuk-media-query instead.");
+  @include nhsuk-media-query($args...) {
+    @content;
+  }
+}

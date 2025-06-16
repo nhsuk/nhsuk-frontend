@@ -2,12 +2,674 @@
 
 ## Unreleased
 
+This release stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
+:new: **New features**
+
+#### New header with account section
+
+We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
+
+- Show account information and links in the header.
+- Show currently active section or page in the navigation.
+- Remove hardcoded home link from the navigation.
+- Align navigation items to the left by default.
+- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+- Update NHS logo in the header to have higher contrast when focused.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+
+:boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
+
+#### Verify your code does not rely on polyfills we have now removed
+
+We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.closest()`, `matches()` DOM method and NodeList API `forEach` required for Internet Explorer 11 and below.
+
+However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
+
+These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk-frontend/pull/1326).
+
+#### Stop Internet Explorer 11 and other older browsers running unsupported JavaScript
+
+Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK frontend.
+
+This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
+
+Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module". You'll need to assess the impact of these nuances and make sure that:
+
+- when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+- if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
+- code that needs to run without being deferred, is split into its own file and loaded with a `<script>` tag without `type="module"`
+
+If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see previous section about polyfills).
+
+These changes were introduced in [pull request #1260: Remove legacy browser support with `<script type="module">`](https://github.com/nhsuk-frontend/pull/1260).
+
+#### Update the `<script>` snippet at the top of your `<body>` tag
+
+Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
+
+If you are not using our Nunjucks page template, replace the existing snippet:
+
+```js
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+```
+
+with:
+
+```js
+<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+```
+
+These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support] (https://github.com/nhsuk-frontend/pull/1327).
+
+#### Update header component params
+
+If you’re using the `header` Nunjucks macro in your service, you must:
+
+- Rename the `transactionalService` option to the new `service` option, and remove the boolean `transactional` option.
+- Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
+- Replace the `searchAction` option with the nested `search.action` option.
+- Replace the `searchInputName` option with the nested `search.name` option.
+- Remove the boolean `showNav` and `showSearch` options. The respective parts of the header are now shown automatically when `navigation.items` or `search` options are provided.
+- Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
+
+To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
+
+#### Update header component HTML markup
+
+You do not need to do anything if you’re using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
+
+#### Rename component `HTML` param to `html`
+
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
+
+Before:
+
+```njk
+{{ insetText({
+  HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ insetText({
+  html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+}) }}
+```
+
+This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
+#### Rename details component `text` param to `summaryText`
+
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
+
+Before:
+
+```njk
+{{ details({
+  text: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+After:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+}) }}
+```
+
+This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
+
+```njk
+{{ details({
+  summaryText: "Where can I find my NHS number?",
+  text: "An NHS number is a 10 digit number, like 485 777 3456."
+}) }}
+```
+
+This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
+
+#### Stop using deprecated 24 point on the typography scale
+
+The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
+
+Use either point 22 or point 26 instead.
+
+This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
+
+:recycle: **Changes**
+
+We've made changes to NHS.UK frontend in the following pull requests:
+
+- [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+
+:wrench: **Fixes**
+
+- [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
+
+## 9.6.2 - 9 June 2025
+
+Note: This release was created from the `support/9.x` branch.
+
+:recycle: **Changes**
+
+#### Resolve inconsistent link styles
+
+We've completed a spring clean to resolve inconsistent link styles in [pull request #1312](https://github.com/nhsuk/nhsuk-frontend/pull/1312).
+
+Please carefully review all links in custom or modified components to make sure that your hover, focus and active styles do not conflict with the defaults.
+
+#### Reversed link style for breadcrumb and back link
+
+You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
+
+:wrench: **Fixes**
+
+- [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
+- [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1324: Increase spacing between paragraphs in summary list values](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
+- [#1325: Ensure summary list keys are aligned across lists](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1325: Add `nhsuk-summary-list__row--no-border` modifier to remove border on an individual summary list row](https://github.com/nhsuk/nhsuk-frontend/pull/1325)
+- [#1346: Fix primary card chevron position without description](https://github.com/nhsuk/nhsuk-frontend/pull/1346)
+- [#1358: Fix spacing between button background and box shadow](https://github.com/nhsuk/nhsuk-frontend/pull/1358)
+
+## 9.6.1 - 22 May 2025
+
+Note: This release was created from the `support/9.x` branch.
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1313: Fix header menu margin collapse issue](https://github.com/nhsuk/nhsuk-frontend/pull/1313)
+- [#1316: Removed empty meta description from default Nunjucks template](https://github.com/nhsuk/nhsuk-frontend/pull/1316)
+
+## 9.6.0 - 20 May 2025
+
+:new: **New features**
+
+#### Use new override classes to apply static spacing
+
+You can now use static spacing override classes to apply spacing from [the static spacing scale](https://service-manual.nhs.uk/design-system/styles/spacing#static-spacing) to elements of your design.
+
+The new classes start with: `nhsuk-u-static` followed by either `margin-` or `padding-`, and then a spacing unit number.
+
+To apply spacing in a single direction, include `left-`, `right-`, `top-`, or `bottom-` just before the spacing unit.
+
+For example:
+
+- `nhsuk-u-static-margin-9` will apply a 64px margin to all sides of the element at all screen sizes
+- `nhsuk-u-static-padding-right-5` will apply 32px of padding to the right side of the element at all screen sizes
+- `nhsuk-u-static-margin-0` will remove all margins at all screen sizes
+
+This was added in [pull request #1163: Add static spacing override classes](https://github.com/nhsuk/nhsuk-frontend/pull/1163).
+
+:wastebasket: **Deprecated features**
+
+#### Add nhsuk namespace to Sass mixins and functions
+
+We've completed changes to prefix all Sass mixins and functions with the `nhsuk` namespace. You can still use the previous names but we'll remove them in a future breaking release.
+
+**Sass mixins**
+
+The following mixins have been renamed:
+
+- `care-card` renamed to `nhsuk-care-card`
+- `clearfix` renamed to `nhsuk-clearfix`
+- `flex` renamed to `nhsuk-flex`
+- `flex-item` renamed to `nhsuk-flex-item`
+- `heading-label` renamed to `nhsuk-heading-label`
+- `panel` renamed to `nhsuk-panel`
+- `panel-with-label` renamed to `nhsuk-panel-with-label`
+- `print-color` renamed to `nhsuk-print-color`
+- `print-hide` renamed to `nhsuk-print-hide`
+- `reading-width` renamed to `nhsuk-reading-width`
+- `remove-margin-mobile` renamed to `nhsuk-remove-margin-mobile`
+- `top-and-bottom` renamed to `nhsuk-top-and-bottom`
+- `visually-hidden` renamed to `nhsuk-visually-hidden`
+- `visually-hidden-focusable` renamed to `nhsuk-visually-hidden-focusable`
+
+Except for `visually-shown` which will be removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead.
+
+Before:
+
+```scss
+// Hide by default
+@include visually-hidden;
+
+// Show from desktop
+@include nhsuk-media-query($from: desktop) {
+  @include visually-shown;
+}
+```
+
+After:
+
+```scss
+// Hide until desktop only
+@include nhsuk-media-query($until: desktop) {
+  @include nhsuk-visually-hidden;
+}
+```
+
+See https://github.com/nhsuk/nhsuk-frontend/issues/1168 for more details.
+
+**Sass functions**
+
+The following functions have been renamed:
+
+- `tint` renamed to `nhsuk-tint`
+- `shade` renamed to `nhsuk-shade`
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Support webpack `sass-loader` pkg: scheme with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/1307)
+
+## 9.5.2 - 14 May 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1301: Fix legacy Sass import path for inset text component](https://github.com/nhsuk/nhsuk-frontend/pull/1301)
+
+## 9.5.1 - 14 May 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1300: Fix deprecation warnings for settings and tools `/all` paths](https://github.com/nhsuk/nhsuk-frontend/pull/1300)
+
+## 9.5.0 - 13 May 2025
+
+:new: **New features**
+
+#### Define negative spacing using the `nhsuk-spacing()` function
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-spacing()` function to get negative spacing.
+
+For example, `nhsuk-spacing(1)` returns `4px`, and `nhsuk-spacing(-1)` returns `-4px`.
+
+This was added in [pull request #1293: Allow `nhsuk-spacing()` to output negative spacing](https://github.com/nhsuk/nhsuk-frontend/pull/1293).
+
+#### Support for Sass modules
+
+We’ve updated our Sass files to use the [Sass module system](https://sass-lang.com/blog/the-module-system-is-launched/).
+
+This was added in [pull request #1137: Upgrade to Sass modules](https://github.com/nhsuk/nhsuk-frontend/pull/1137).
+
+#### Blue login button
+
+We've added styling for a blue button, to be used for login buttons, for example NHS login buttons.
+
+This was added in [pull request #992: Add NHS login buttons](https://github.com/nhsuk/nhsuk-frontend/pull/992).
+
+#### Add Nunjucks macro option configs
+
+We've added `macro-options.json` files to share component options with ports of NHS.UK frontend and the design system website.
+
+This was added in [pull request #1251: Add macro options config files to components](https://github.com/nhsuk/nhsuk-frontend/pull/1251).
+
+#### Review Nunjucks macro `text`, `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added card component `caller` support
+2. Added details component `caller` support
+3. Added error summary component `caller` support
+4. Added inset text component `caller` support
+5. Added warning callout component `caller` and `params.text` support
+
+This was added in [pull request #1257: Review and update `text`, `html` and `call` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1257).
+
+#### Reversed link style
+
+You can now use links on dark background by using the `.nhsuk-link--reverse` class. Added in [pull request #1269](https://github.com/nhsuk/nhsuk-frontend/pull/1269).
+
+#### Custom Sass grid column widths and breakpoints
+
+We are now exposing new settings to allow you to customise breakpoints and responsive behaviour:
+
+- `$nhsuk-grid-widths` - Map of grid column widths
+- `$nhsuk-breakpoints` - Map of breakpoint definitions
+- `$nhsuk-show-breakpoints` - Whether to show the current breakpoint in the top right corner
+
+For example, Sass grid column widths can be configured using:
+
+```scss
+$nhsuk-grid-widths: (
+  one-quarter: math.percentage(math.div(1, 4)),
+  one-third: math.percentage(math.div(1, 3)),
+  one-half: math.percentage(math.div(1, 2)),
+  two-thirds: math.percentage(math.div(2, 3)),
+  three-quarters: math.percentage(math.div(3, 4)),
+  full: 100%
+);
+```
+
+Sass breakpoint definitions can be configured using:
+
+```scss
+$nhsuk-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+  large-desktop: 990px
+);
+```
+
+This was added in [pull request #1288: Allow custom Sass grid column widths and breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1288).
+
+#### Suppress Sass deprecation warnings
+
+You can now suppress Sass warnings from deprecations within NHS.UK frontend by updating the `$nhsuk-suppressed-warnings` map. Every deprecation warning will now include a warning "key" which you can use in the following code, placed at the root of your Sass project:
+
+```scss
+$nhsuk-suppressed-warnings: (
+  deprecated-feature
+);
+```
+
+This was added in [pull request #1291: Add Sass warning suppression functionality](https://github.com/nhsuk/nhsuk-frontend/pull/1291)
+
+:wastebasket: **Deprecated features**
+
+#### Stop using `nhsuk-u-font-size-24` and '24' on the typography scale
+
+We have deprecated point 24 (24px large screens, 20px small screens) on the typography scale, including the font utility class `nhsuk-u-font-size-24` that uses point 24.
+
+We will be removing this class and point 24 on the typography scale in a future release. You will no longer be able to call the Sass mixins `nhsuk-font()` or `nhsuk-font-size()` with `$size` set to '24'.
+
+This change was introduced in [#1294: Deprecate 24 on the typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1294)
+
+#### Replace Sass mixins for media queries
+
+If you're using the `mq()` Sass mixin to output CSS media queries, you must replace it with the `nhsuk-media-query()` mixin.
+
+Before:
+
+```scss
+@include mq($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
+After:
+
+```scss
+@include nhsuk-media-query($from: tablet) {
+  margin-top: nhsuk-spacing(4);
+}
+```
+
+If you are overriding any settings prefixed with `$mq-` in your application you will need to update to use the new `$nhsuk-` prefixed settings.
+
+#### Replace Sass mixins for grids
+
+If you're using the `govuk-grid-column()` Sass mixin to create custom grid classes, you must replace it with the `nhsuk-grid-column()` mixin and set the `$class` parameter to `false`.
+
+Before:
+
+```scss
+@include govuk-grid-column(
+  one-quarter,
+  $at: desktop,
+  $class: "app-grid-column"
+);
+```
+
+After:
+
+```scss
+.app-grid-column-one-quarter-at-desktop {
+  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
+}
+```
+
+If you're using the `govuk-grid-row()` Sass mixin, you must replace it with the `.nhsuk-grid-row` class in your HTML.
+
+If you're using the `grid-width()` Sass mixin, you must replace it with the `nhsuk-grid-width()` mixin.
+
+#### Replace Sass mixins for wrappers
+
+If you're using the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` or `govuk-main-wrapper--s()` Sass mixins, you must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
+
+#### Replace Sass mixin `nhsuk-typography-responsive()` with `nhsuk-font-size()`
+
+We've renamed the Sass mixin `nhsuk-typography-responsive()` to `nhsuk-font-size()` and have deprecated `nhsuk-typography-responsive()`. This better communicates its intended purpose and aligns with `nhsuk-font()` parameters.
+
+Before:
+
+```scss
+@include nhsuk-typography-responsive(26, $override-line-height: 1.2);
+```
+
+After:
+
+```scss
+@include nhsuk-font-size(26, $line-height: 1.2);
+```
+
+You can still use `nhsuk-typography-responsive()`, but we'll remove it in a future breaking release.
+
+#### Updated Sass mixin, function and variable namespace
+
+All other Sass mixins, functions and variables prefixed `govuk` are now prefixed `nhsuk`. The previous names are deprecated and will be removed in a future release.
+
+For more information, see [pull request #1289: Deprecate Sass `govuk` namespace usage](https://github.com/nhsuk/nhsuk-frontend/pull/1289).
+
+#### Importing Sass using `all` files
+
+If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you should remove `/all` from each path.
+
+Before:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core/all";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings/all";
+@import "node_modules/nhsuk-frontend/packages/core/tools/all";
+```
+
+After:
+
+```scss
+// Example 1: NHS.UK frontend core
+@import "node_modules/nhsuk-frontend/packages/core";
+
+// Example 2: NHS.UK frontend layers
+@import "node_modules/nhsuk-frontend/packages/core/settings";
+@import "node_modules/nhsuk-frontend/packages/core/tools";
+```
+
+#### Importing Sass individual component partials
+
+If you're importing individual component Sass partials, then you should remove the duplicate component name from each path:
+
+Before:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb/breadcrumb";
+```
+
+After:
+
+```scss
+// Example: NHS.UK frontend individual components
+@import "node_modules/nhsuk-frontend/packages/components/action-link";
+@import "node_modules/nhsuk-frontend/packages/components/back-link";
+@import "node_modules/nhsuk-frontend/packages/components/breadcrumb";
+```
+
+:recycle: **Changes**
+
+We've completed changes to fully replace 24px with 26px from the typography scale in [pull request #1294](https://github.com/nhsuk/nhsuk-frontend/issues/1294) for the following:
+
+- Do and Don't list title
+- Pagination "Previous" and "Next" titles
+- Panel text content
+- Table and warning callout headings
+- Lead paragraph `.nhsuk-body-l` class
+- Lede text `.nhsuk-lede-text` class
+
+We've made changes to NHS.UK frontend in the following pull requests:
+
+- [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
+- [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1258: Fix text input with prefix/suffix focus and width](https://github.com/nhsuk/nhsuk-frontend/pull/1258)
+- [#1292: Fix for reverse buttons within Hero components](https://github.com/nhsuk/nhsuk-frontend/pull/1292)
+
+## 9.4.1 - 22 April 2025
+
+:wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1248: Prevent Playwright setup running on npm `postinstall`](https://github.com/nhsuk/nhsuk-frontend/pull/1248)
+
+## 9.4.0 - 22 April 2025
+
+:new: **New features**
+
+#### Include a page template
+
+A Nunjucks page template is now included within the npm package. See [Page template](https://service-manual.nhs.uk/design-system/styles/page-template) for documentation on the supported options.
+
+New options added to the template are:
+
+- `htmlLang` - for setting the language of the page, defaults to `en` (English)
+- `htmlAttributes` - allows you to set any extra attributes on the `<html>` element
+
+This was added in [pull request #1186: Add page template](https://github.com/nhsuk/nhsuk-frontend/pull/1186).
+
+#### Stop long words breaking out of components with `nhsuk-u-text-break-word`
+
+We've added a new override class to help display long or unpredictable words on narrow screens, such as an email address entered by a user.
+
+Wrapping content with the `nhsuk-u-text-break-word` class or applying it to table cells will force words that are too long to break onto a new line.
+
+```html
+A confirmation email will be sent to <span class="nhsuk-u-text-break-word">aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com</span>.
+```
+
+Sass users can also use the `nhsuk-text-break-word` mixin.
+
+This change was introduced in [pull request #1061: Add break-word typography helper](https://github.com/nhsuk/nhsuk-frontend/pull/1061).
+
+#### Add classes and attributes to table cells
+
+You can now add `classes` and `attributes` to table cells, for example using the break-word typography helper:
+
+```njk
+{{ table({
+  caption: "Users",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Email address"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Aleksandrina Featherstonehaugh-Whitehead",
+        classes: "nhsuk-u-text-break-word"
+      },
+      {
+        text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
+        classes: "nhsuk-u-text-break-word"
+      }
+    ]
+  ]
+}) }}
+```
+
+This was added in [pull request #1172: Add table cell `classes` and `attributes` param support](https://github.com/nhsuk/nhsuk-frontend/pull/1172).
+
+#### Add html content and heading attributes to hero
+
+You can now use `caller`, `html`, `headingClasses` and `headingLevel` in the hero component.
+
+This was added in [pull request #1201: Add missing params to hero component](https://github.com/nhsuk/nhsuk-frontend/pull/1201).
+
+#### Default bottom margin on tables
+
+This was added in [pull request #1005: Update table styles so nhsuk-table has bottom margin](https://github.com/nhsuk/nhsuk-frontend/pull/1005).
+
+#### Source maps for precompiled files
+
+You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) to help identify errors and console messages from NHS.UK Frontend precompiled files.
+
+This was added in [pull request #1152: Add source maps to compiled JavaScript and CSS](https://github.com/nhsuk/nhsuk-frontend/pull/1152).
+
+:wrench: **Fixes**
+
+We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
+
+- Update stylesheet build to automatically add vendor prefixes using [Autoprefixer](https://github.com/postcss/autoprefixer)
+- Change stylesheet minifier from [`clean-css`](https://www.npmjs.com/package/clean-css) to [`cssnano`](https://www.npmjs.com/package/cssnano) for Browserslist support
+- Change JavaScript minifier from [`uglify-js`](https://www.npmjs.com/package/uglify-js) to [`terser`](https://www.npmjs.com/package/terser) with compatibility workarounds
+- Fix JavaScript build to ensure Babel uses [Browserslist](https://browsersl.ist) configured browsers
+- Fix JavaScript build to ensure only `nhsuk.min.js` is minified not `nhsuk.js`
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#1148: Fix Tabs component in Safari < 14 and Internet Explorer 11](https://github.com/nhsuk/nhsuk-frontend/pull/1148)
+- [#908: Update secondary, reverse and warning buttons to use their hover variable rather than darkening the base colour](https://github.com/nhsuk/nhsuk-frontend/pull/908)
+- [#1207: Update wording around font licence](https://github.com/nhsuk/nhsuk-frontend/pull/1207)
+- [#1169: Update visually hidden behaviour to match GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1169)
+- [#1173: Focus skip link target to improve screen reader announcements](https://github.com/nhsuk/nhsuk-frontend/pull/1173)
+- [#1174: Fix Table component responsive semantics when `firstCellIsHeader` is set](https://github.com/nhsuk/nhsuk-frontend/pull/1174)
+- [#1200: Fix bottom padding on the `nhsuk-main-wrapper--l` modifier class](https://github.com/nhsuk/nhsuk-frontend/pull/1200)
+- [#1221: Fix JavaScript exports to use CommonJS by default](https://github.com/nhsuk/nhsuk-frontend/pull/1221)
+- [#1228: Fix header navigation item allocation on resize](https://github.com/nhsuk/nhsuk-frontend/pull/1228)
+
+## 9.3.0 - 13 February 2025
+
+:new: **New features**
+
+- Add panel component ([PR 1012](https://github.com/nhsuk/nhsuk-frontend/pull/1012))
+
+## 9.2.0 - 12 February 2025
+
+:new: **New features**
+
+- Adds `text` param for Inset text ([PR 1113](https://github.com/nhsuk/nhsuk-frontend/pull/1113))
+- Make it easier to set checkbox and radio checked items ([PR 1105](https://github.com/nhsuk/nhsuk-frontend/pull/1105))
+
 :wrench: **Fixes**
 
 - Fix appearance of the select element for more consistency between browsers and OS ([Issue 527](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/527))
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
 - Fix reverse button text colour ([PR 1080]([https://github.com/nhsuk/nhsuk-frontend/pull/1080]))
 - Fix details component requiring html param in uppercase ([PR 1090](https://github.com/nhsuk/nhsuk-frontend/pull/1090), [Issue 1089](https://github.com/nhsuk/nhsuk-frontend/issues/1089))
+- Replace image component example images to match assets used on service manual ([Issue 1091](https://github.com/nhsuk/nhsuk-frontend/issues/1091))
 
 ## 9.1.0 - 4 November 2024
 
@@ -404,7 +1066,7 @@ You will only now need this:
 
 :recycle: **Changes**
 
-- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).  
+- Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).
   This change removes the `Card` component's associated JavaScript. If you are bundling this yourself in your pipeline you will need to edit your JS entrypoint to remove the lines which read: `import Card from '[wherever]';` and `Card();`
   You do not need to update your html as part of this change - this remains the same.
 

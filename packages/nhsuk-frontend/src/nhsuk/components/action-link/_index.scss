@@ -1,0 +1,73 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Action link component
+///
+/// 1. Display is inline-block so the top and bottom margins/paddings are
+///    respected.
+/// 2. 'Random number' is used to properly have sufficient space between icon
+///    and text.
+/// 3. Position is relative so the arrow icon can display absolute.
+/// 4. Text decoration none used to override default <a> styling.
+/// 5. Box shadow 8px used instead of the default 4px.
+/// 6. Text decoration underline used to override default <a> styling.
+///
+/// @group components
+////
+
+.nhsuk-action-link {
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+.nhsuk-action-link__link {
+  display: inline-block; // [1]
+  padding-left: 38px; // [2]
+  position: relative; // [3]
+  text-decoration: none; // [4]
+
+  @include nhsuk-font(22, $weight: bold);
+
+  &:not(:focus):hover {
+    .nhsuk-action-link__text {
+      text-decoration: underline; // [6]
+    }
+  }
+
+  @include nhsuk-media-query($until: tablet) {
+    padding-left: 26px; // [2]
+  }
+
+  @include nhsuk-media-query($media-type: print) {
+    color: $nhsuk-print-text-color;
+
+    &:visited {
+      color: $nhsuk-print-text-color;
+    }
+  }
+
+  .nhsuk-icon__arrow-right-circle {
+    // stylelint-disable-next-line declaration-no-important
+    fill: $color_nhsuk-green !important;
+    height: 36px;
+    left: -3px;
+    position: absolute;
+    top: -3px;
+    width: 36px;
+
+    @include nhsuk-print-color($nhsuk-print-text-color);
+
+    @include nhsuk-media-query($until: tablet) {
+      height: 24px;
+      left: -2px;
+      margin-bottom: 0;
+      top: 1px;
+      width: 24px;
+    }
+  }
+
+  &:focus .nhsuk-icon__arrow-right-circle {
+    // stylelint-disable-next-line declaration-no-important
+    fill: $color_nhsuk-black !important;
+  }
+}

@@ -1,0 +1,71 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Section break
+///
+/// The % (silent class) allows code to be extended (@extend) to other elements
+/// without bloating the code.
+///
+/// 1. Extended the section-break--l code for usage of a semantic <hr> with
+/// no class name.
+///
+/// @group styles
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example scss
+///   .foo {
+///     @extend %nhsuk-section-break--xl;
+///   }
+////
+
+%nhsuk-section-break {
+  border: 0;
+  margin: 0;
+}
+
+.nhsuk-section-break {
+  @extend %nhsuk-section-break;
+}
+
+%nhsuk-section-break--xl {
+  @include nhsuk-responsive-margin(8, "top");
+  @include nhsuk-responsive-margin(8, "bottom");
+}
+
+.nhsuk-section-break--xl {
+  @extend %nhsuk-section-break--xl;
+}
+
+%nhsuk-section-break--l {
+  @include nhsuk-responsive-margin(6, "top");
+  @include nhsuk-responsive-margin(6, "bottom");
+}
+
+.nhsuk-section-break--l {
+  @extend %nhsuk-section-break--l;
+}
+
+%nhsuk-section-break--m {
+  @include nhsuk-responsive-margin(4, "top");
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-section-break--m {
+  @extend %nhsuk-section-break--m;
+}
+
+%nhsuk-section-break--visible {
+  border-bottom: 1px solid $nhsuk-border-color;
+}
+
+.nhsuk-section-break--visible {
+  @extend %nhsuk-section-break--visible;
+}
+
+hr {
+  // [1]
+  @extend %nhsuk-section-break;
+  @extend %nhsuk-section-break--l;
+  @extend %nhsuk-section-break--visible;
+}

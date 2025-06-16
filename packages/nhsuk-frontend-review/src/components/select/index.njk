@@ -1,0 +1,36 @@
+{% set title = 'Select' %}
+{% from 'nhsuk/components/select/macro.njk' import select %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ select({
+        "id": "sort",
+        "name": "sort",
+        "label": {
+          "text": "Sort by"
+        },
+        "value": "updated",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

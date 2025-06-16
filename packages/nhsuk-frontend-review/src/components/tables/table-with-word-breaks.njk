@@ -1,0 +1,63 @@
+{% set title = 'Tables' %}
+{% from 'nhsuk/components/tables/macro.njk' import table %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      {{ table({
+        panel: false,
+        caption: "Users",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Status"
+          },
+          {
+            html: '<span class="nhsuk-u-visually-hidden">Actions</span>'
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Stephanie Meyer",
+              classes: "nhsuk-u-text-break-word"
+            },
+            {
+              text: "stephanie.meyer9@test.com",
+              classes: "nhsuk-u-text-break-word"
+            },
+            {
+              text: "Active"
+            },
+            {
+              html: '<a href="#">Change <span class="nhsuk-u-visually-hidden">status for Stephanie Meyer</span></a>'
+            }
+          ],
+          [
+            {
+              text: "Aleksandrina Featherstonehaugh-Whitehead",
+              classes: "nhsuk-u-text-break-word"
+            },
+            {
+              text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
+              classes: "nhsuk-u-text-break-word"
+            },
+            {
+              text: "Inactive"
+            },
+            {
+              html: '<a href="#">Change <span class="nhsuk-u-visually-hidden">status for Aleksandrina Featherstonehaugh-Whitehead</span></a>'
+            }
+          ]
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

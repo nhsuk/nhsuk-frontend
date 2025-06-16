@@ -1,0 +1,22 @@
+{% set title = "Header with account (logged out)" %}
+{% from "nhsuk/components/header/macro.njk" import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    service: {
+      href: "#",
+      text: "Manage patients"
+    },
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Log in"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}

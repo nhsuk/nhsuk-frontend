@@ -27,10 +27,13 @@ steps:
   - script: npm run lint
     displayName: 'Lint'
 
-  - script: npm run test
+  - script: npm test --ignore-scripts
     displayName: 'Test'
 
-  - script: npm run backstop:ci
+  - script: npm run install:playwright
+    displayName: 'Setup Playwright'
+
+  - script: npm run test:visual --ignore-scripts
     displayName: 'Backstop'
 
   - task: ArchiveFiles@2

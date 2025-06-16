@@ -1,10 +1,79 @@
 version: 2
+
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  # Update npm packages
+  - package-ecosystem: npm
+    directory: /
+
+    # Group packages into shared PR
+    groups:
+      build:
+        patterns:
+          - '@babel/*'
+          - '@rollup/*'
+          - 'autoprefixer'
+          - 'caniuse-lite'
+          - 'cssnano'
+          - 'cssnano-*'
+          - 'nunjucks'
+          - 'postcss'
+          - 'postcss-*'
+          - 'rollup'
+          - 'rollup-*'
+          - 'sass-embedded'
+
+      lint:
+        patterns:
+          - '@typescript-eslint/*'
+          - 'eslint'
+          - 'eslint-*'
+          - 'html-validate'
+          - 'prettier'
+          - 'stylelint'
+          - 'stylelint-*'
+          - 'typescript'
+
+      test:
+        patterns:
+          - '@testing-library/*'
+          - 'babel-jest'
+          - 'backstopjs'
+          - 'jest'
+          - 'jest-*'
+          - 'playwright'
+          - 'playwright-*'
+          - 'puppeteer'
+          - 'puppeteer-*'
+
+      tools:
+        patterns:
+          - 'concurrently'
+          - 'del-cli'
+          - 'glob'
+          - 'gulp'
+          - 'gulp-*'
+          - 'outdent'
+          - 'wait-on'
+
     schedule:
-      interval: "monthly"
-  - package-ecosystem: "npm"
-    directory: "/"
+      interval: monthly
+
+    versioning-strategy: increase
+
+    allow:
+      # Include direct package.json updates
+      - dependency-type: direct
+
+      # Include indirect browser data updates
+      # https://caniuse.com
+      - dependency-name: caniuse-lite
+
+  # Update GitHub Actions
+  - package-ecosystem: github-actions
+    directories:
+      - .github/workflows/
+      - .github/workflows/actions/build/
+      - .github/workflows/actions/diff/
+
     schedule:
-      interval: "monthly"
+      interval: 'monthly'

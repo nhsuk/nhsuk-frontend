@@ -1,15 +1,17 @@
+const config = require('@nhsuk/frontend-config')
+
+const waitOnScheme = require('./wait-on.config')
+
+const { BASE_URL, HEADLESS, PORT = '3000' } = process.env
+
+/**
+ * @type {JestPuppeteerConfig}
+ */
 module.exports = {
   browserContext: 'incognito',
-  browserPerWorker: true,
 
   /**
-   * Workaround for jest-environment-puppeteer 'uncaughtException'
-   * see error handling in ./config/jest/environment/puppeteer.mjs
-   */
-  exitOnPageError: false,
-
-  /**
-   * @type {import('puppeteer').PuppeteerLaunchOptions}
+   * Puppeteer launch options
    */
   launch: {
     args: [
@@ -21,18 +23,37 @@ module.exports = {
       '--disable-setuid-sandbox',
 
       /**
-       * Prevent empty Chromium startup window
+       * Prevent empty Chrome startup window
        * Tests use their own `browser.newPage()` instead
        */
       '--no-startup-window'
     ],
+
+    // Allow headless mode switching using `HEADLESS=false`
+    headless: HEADLESS !== 'false',
+
+    // See launch arg '--no-startup-window'
     waitForInitialPage: false
   },
 
-  server: {
-    command: 'npm start',
-    port: 3000,
-    launchTimeout: 30000,
-    host: '127.0.0.1'
-  }
+  /**
+   * Development server options
+   */
+  server: BASE_URL
+    ? undefined
+    : {
+        command: 'npm run serve',
+        options: { cwd: config.paths.app },
+        port: Number(PORT),
+
+        // Skip when already running
+        usedPortAction: 'ignore',
+
+        // Shared wait-on options
+        waitOnScheme
+      }
 }
+
+/**
+ * @import { JestPuppeteerConfig } from 'jest-environment-puppeteer'
+ */

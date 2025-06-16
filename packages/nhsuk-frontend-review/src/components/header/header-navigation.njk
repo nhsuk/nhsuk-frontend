@@ -1,0 +1,42 @@
+{% set title = 'Header with navigation' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    logo: {
+      href: "#"
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Health A to Z"
+        },
+        {
+          href: "#",
+          text: "Live Well"
+        },
+        {
+          href: "#",
+          text: "Mental health"
+        },
+        {
+          href: "#",
+          text: "Care and support"
+        },
+        {
+          href: "#",
+          text: "Pregnancy",
+          active: true
+        },
+        {
+          href: "#",
+          text: "NHS services"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}

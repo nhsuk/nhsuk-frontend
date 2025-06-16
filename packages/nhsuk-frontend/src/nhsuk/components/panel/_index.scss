@@ -1,0 +1,57 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Panel component
+///
+/// 1. Adds a transparent border for high contrast modes
+/// 2. This subtracts the transparent border width from the padding (because the border
+///    visually adds to the total padding)
+/// 3. This is an if-all-else-fails attempt to stop long words from overflowing the container
+///    on very narrow viewports by forcing them to break and wrap instead. This
+///    overflowing is more likely to happen when user increases text size on a mobile eg. using
+///    iOS Safari text resize controls.
+
+///    The overflowing is a particular problem with the panel component since it uses white
+///    text: when the text overflows the container, it is invisible on the white (page)
+///    background. When the text in our other components overflow, the user might have to scroll
+///    horizontally to view it but the text remains legible.
+///
+/// @group components
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+$nhsuk-border-width-panel: nhsuk-spacing(1);
+
+.nhsuk-panel {
+  background: $color_nhsuk-green;
+  border: $nhsuk-border-width-panel solid transparent; /* [1] */
+  box-sizing: border-box;
+  color: $color_nhsuk-white;
+  padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
+
+  @include nhsuk-font-size(26);
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  @include nhsuk-media-query($until: tablet) {
+    padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
+    @include nhsuk-text-break-word; /* [3] */
+  }
+
+  @include nhsuk-media-query($media-type: print) {
+    border-color: currentcolor;
+    color: $nhsuk-print-text-color;
+    background: none;
+  }
+}
+
+.nhsuk-panel__title {
+  margin-top: 0;
+
+  @include nhsuk-font-size(48);
+  @include nhsuk-responsive-margin(5, "bottom");
+}
+
+.nhsuk-panel__title:last-child {
+  margin-bottom: 0;
+}

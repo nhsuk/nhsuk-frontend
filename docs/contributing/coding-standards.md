@@ -61,9 +61,9 @@ The naming convention follows this pattern:
 .block__element {}
 .block--modifier {}
 
-.nhsuk-card              // Block - the root of a component
-.nhsuk-card__heading     // Element - a part of the block
-.nhsuk-card--clickable   // Modifier - a variant of the block
+.nhsuk-card {}            // Block - the root of a component
+.nhsuk-card__heading {}   // Element - a part of the block
+.nhsuk-card--clickable {} // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element
@@ -72,9 +72,9 @@ or modifiers themselves can be hyphen delimited without causing ambiguity.
 For example:
 
 ```scss
-.nhsuk-a-z-nav
-.nhsuk-a-z-nav__link
-.nhsuk-a-z-nav__link--disabled
+.nhsuk-a-z-nav {}
+.nhsuk-a-z-nav__link {}
+.nhsuk-a-z-nav__link--disabled {}
 ```
 
 #### BEM further reading:
@@ -97,11 +97,11 @@ Bad:
 
 ```scss
 .nhsuk-contents-list {
-  ...
+  // ...
   &__item {
-    ...
-    &:before {
-      ...
+    // ...
+    &::before {
+      // ...
     }
   }
 }
@@ -111,13 +111,13 @@ Good:
 
 ```scss
 .nhsuk-contents-list {
-  ...
+  // ...
 }
 
 .nhsuk-contents-list__item {
-  ...
-  &:before {
-    ...
+  // ...
+  &::before {
+    // ...
   }
 }
 ```
@@ -133,10 +133,12 @@ Create separate selectors rather using an `&` in the middle of a selector.
 This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g.
 
 ```scss
+@use "sass:meta";
+
 div#nhsuk-ers {
-...
-@import 'node_modules/nhsuk-frontend/packages/core/all';
-...
+  // ...
+  @include meta.load-css("node_modules/nhsuk-frontend/src/nhsuk/core");
+  // ...
 }
 ```
 
@@ -144,11 +146,11 @@ Bad:
 
 ```scss
 .nhsuk-checkboxes__conditional {
-  ...
-  .js-enabled &--hidden {
-    ...
+  // ...
+  .nhsuk-frontend-supported &--hidden {
+    // ...
   }
- ...
+ // ...
 }
 ```
 
@@ -156,11 +158,11 @@ Good:
 
 ```scss
 .nhsuk-checkboxes__conditional {
-  ...
+  // ...
 }
 
-.js-enabled .nhsuk-checkboxes__conditional--hidden {
-  ...
+.nhsuk-frontend-supported .nhsuk-checkboxes__conditional--hidden {
+  // ...
 }
 ```
 
@@ -200,21 +202,19 @@ the top block comment and then a reference to the number should go next to the l
 Example:
 
 ```scss
-/* ==========================================================================
-   #TITLE
-   ========================================================================== */
+////
+/// Title
+////
 
-/**
- * Long-form comment.
- *
- * This spans multiple lines and is also constrained to no longer than 80
- * characters in width.
- *
- * 1. Provide line-comments like this.
- */
+/// Long-form comment
+///
+/// This spans multiple lines and is also constrained to no longer than 80
+/// characters in width.
+///
+/// 1. Provide line-comments like this.
 
-.X-class {
-  color: red; /* [1] */
+.nhsuk-example {
+  color: $color_nhsuk-red; // [1]
 }
 ```
 
@@ -241,15 +241,15 @@ When providing _content_ to a macro, say for a label or a button, we accept two 
 
 Example:
 
-```
+```njk
 {{ insetText({
-  "text": "You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+  text: "You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
 }) }}
 ```
 
-```
+```njk
 {{ insetText({
-  "html": "<p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla/' title='External website'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href='https://www.gov.uk/dizziness-and-driving' title='External website'>driving with vertigo</a></p>"
+  html: '<p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla/" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>'
 }) }}
 ```
 
@@ -287,7 +287,7 @@ Care card emergency (red and black) example:
 
 ## Components
 
-You can find NHS.UK frontend components in `packages/components`.
+You can find NHS.UK frontend components in `packages/nhsuk-frontend/src/nhsuk/components`.
 
 Components must use the `.nhsuk-` namespace.
 
@@ -316,7 +316,7 @@ The folder structure should be:
 
     component-name
       - `_component-name.scss`
-      - `component-name.js`
+      - `component-name.mjs`
       - `macro.njk`
       - `README.md`
       - `template.njk`

@@ -1,0 +1,46 @@
+{% set title = 'Header organisational' %}
+{% from 'nhsuk/components/header/macro.njk' import header %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ header({
+    logo: {
+      href: "#"
+    },
+    organisation: {
+      name: "Anytown Anyplace",
+      split: "Anywhere",
+      descriptor: "NHS Foundation Trust"
+    },
+    search: {
+      visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Your hospital visit"
+        },
+        {
+          href: "#",
+          text: "Wards and departments",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Conditions and treatments"
+        },
+        {
+          href: "#",
+          text: "Our people"
+        },
+        {
+          href: "#",
+          text: "Our research"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}

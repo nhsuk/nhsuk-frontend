@@ -1,0 +1,32 @@
+{% set title = 'Footer (default)' %}
+{% from 'nhsuk/components/footer/macro.njk' import footer %}
+{% extends 'example.njk' %}
+
+{% block main %}
+
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "Accessibility statement"
+      },
+      {
+        "URL": "#",
+        "label": "Give us feedback"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Privacy policy"
+      },
+      {
+        "URL": "#",
+        "label": "Terms and conditions"
+      }
+    ]
+  })}}
+
+{% endblock %}

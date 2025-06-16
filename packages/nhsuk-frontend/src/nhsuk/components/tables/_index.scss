@@ -1,0 +1,181 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Table component
+///
+/// @group components
+////
+
+/// Table container is used to ensure the table does not break the container.
+///
+/// 1. Margin is removed so there isn't double spacing.
+/// 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
+
+.nhsuk-table-container {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
+  width: 100%;
+
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  .nhsuk-table,
+  .nhsuk-table-responsive {
+    margin: 0; // [1]
+  }
+}
+
+.nhsuk-table,
+.nhsuk-table-responsive {
+  width: 100%;
+
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  @include nhsuk-font($size: 19);
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+.nhsuk-table__caption--xl {
+  @include nhsuk-font-size(48);
+}
+
+.nhsuk-table__caption--l {
+  @include nhsuk-font-size(36);
+}
+
+.nhsuk-table__caption--m {
+  @include nhsuk-font-size(26);
+}
+
+.nhsuk-table__caption--s {
+  @include nhsuk-font-size(22);
+}
+
+// [2]
+
+/// Table row hover
+///
+/// Table row hover is used to aid readability for users.
+
+.nhsuk-table__row {
+  &:hover {
+    background-color: $color_nhsuk-grey-5;
+  }
+}
+
+/// Table panel with tab heading
+///
+/// 1. Margin is removed so there isn't double spacing.
+
+.nhsuk-table__panel-with-heading-tab {
+  @include nhsuk-panel-with-label($color_nhsuk-white, $nhsuk-text-color, $color_nhsuk-grey-4);
+
+  .nhsuk-table,
+  .nhsuk-table-container,
+  .nhsuk-table-responsive {
+    margin: 0; // [1]
+  }
+}
+
+.nhsuk-table__heading-tab {
+  @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white);
+}
+
+/// Responsive table
+///
+/// 1. Hide the thead until desktop
+/// 2. Removing default screen reader behaviour
+/// 3. Assigning role of table-row on desktop to give default screen reader behaviour
+/// 4. Using justify content to space out elements in the row on mobile
+/// 5. Assigning a minimum width in case of black cell
+/// 6. Aligning content to the right on mobile
+/// 7. Aligning mobile header to left to split it from the data
+/// 8. Hiding mobile specific header from desktop view
+/// 9. Adding a display block value due to IE 11 not having full flex support
+
+.nhsuk-table-responsive {
+  thead {
+    @include nhsuk-media-query($until: desktop) {
+      @include nhsuk-visually-hidden; // [1]
+    }
+  }
+
+  .nhsuk-table__body {
+    .nhsuk-table-responsive__heading {
+      @include nhsuk-typography-weight-bold;
+      padding-right: nhsuk-spacing(3);
+      text-align: left; // [8]
+    }
+
+    .nhsuk-table__row {
+      display: block; // [3]
+      margin-bottom: nhsuk-spacing(4);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .nhsuk-table__row th,
+    .nhsuk-table__row td {
+      display: block; // For browsers that don't support flexbox
+      display: flex;
+      justify-content: space-between; // [5]
+      min-width: 1px; // [6]
+    }
+
+    @media all and (-ms-high-contrast: none) {
+      .nhsuk-table__row th,
+      .nhsuk-table__row td {
+        display: block; // [10]
+      }
+    }
+
+    @include nhsuk-media-query($until: desktop) {
+      .nhsuk-table__row th {
+        font-weight: $nhsuk-font-normal;
+      }
+
+      .nhsuk-table__row th,
+      .nhsuk-table__row td {
+        padding-right: 0;
+        text-align: right; // [7]
+
+        &:last-child {
+          border-bottom: 3px solid $color_nhsuk-grey-4;
+        }
+      }
+    }
+
+    @include nhsuk-media-query($from: desktop) {
+      .nhsuk-table-responsive__heading {
+        display: none; // [9]
+      }
+
+      .nhsuk-table__row {
+        display: table-row; // [4]
+      }
+
+      .nhsuk-table__row th {
+        text-align: left;
+      }
+
+      .nhsuk-table__row th,
+      .nhsuk-table__row td {
+        display: table-cell;
+      }
+    }
+  }
+}
+
+/// Numeric tables
+///
+/// Right aligns table cells for numeric tables.
+
+.nhsuk-table__header--numeric,
+.nhsuk-table__cell--numeric {
+  text-align: right;
+}

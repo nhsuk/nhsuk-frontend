@@ -1,0 +1,77 @@
+{
+  "name": "nhsuk-frontend",
+  "version": "9.4.1",
+  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "browser": {
+        "sass": "./dist/nhsuk/index.scss",
+        "style": "./dist/nhsuk/nhsuk-frontend.min.css",
+        "default": "./dist/nhsuk/nhsuk-frontend.min.js"
+      },
+      "sass": "./dist/nhsuk/index.scss",
+      "import": "./dist/nhsuk/index.mjs",
+      "require": "./dist/nhsuk/index.js",
+      "default": "./dist/nhsuk/index.js"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./dist/nhsuk/*",
+      "default": "./dist/nhsuk/*.js"
+    },
+    "./packages/*.js": "./dist/nhsuk/*.js",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/nhsuk/index.js",
+  "module": "dist/nhsuk/index.mjs",
+  "sass": "dist/nhsuk/index.scss",
+  "style": "dist/nhsuk/nhsuk-frontend.min.css",
+  "browser": "dist/nhsuk/nhsuk-frontend.min.js",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.test.*"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "clean": "del-cli dist/**",
+    "build": "gulp build --color",
+    "watch": "gulp watch --color",
+    "release": "gulp release --color",
+    "start": "npm run watch"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-tasks": "*",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "del-cli": "^6.0.0",
+    "glob": "^11.0.3",
+    "gulp": "^5.0.1",
+    "gulp-zip": "^6.1.0",
+    "outdent": "^0.8.0",
+    "postcss": "^8.5.4",
+    "postcss-scss": "^4.0.9",
+    "puppeteer": "^24.10.1",
+    "sass-embedded": "^1.87.0"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

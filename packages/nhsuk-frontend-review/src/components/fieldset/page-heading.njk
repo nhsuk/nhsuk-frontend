@@ -1,0 +1,17 @@
+{% set title = 'Fieldset as page heading' %}
+{% from 'nhsuk/components/fieldset/macro.njk' import fieldset %}
+{% extends 'example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ fieldset({
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--xl",
+          "isPageHeading": true
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}
