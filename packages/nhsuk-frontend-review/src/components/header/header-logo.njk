@@ -1,7 +1,11 @@
-{% set title = 'Header with logo only' %}
+{% set title = 'Header with logo' %}
 {% from 'nhsuk/components/header/macro.njk' import header %}
 {% extends 'example.njk' %}
 
 {% block main %}
-  {{ header() }}
+  {{ header({
+    logo: {
+      href: "#"
+    }
+  }) }}
 {% endblock %}
