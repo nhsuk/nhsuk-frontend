@@ -152,7 +152,9 @@ This change was introduced in [#1139: Remove 24px from typography scale](https:/
 
 The default HTML `id` for the first checkbox or radio item no longer has a `-1` suffix.
 
-This means you should change your error summary from:
+If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute.
+
+Before:
 
 ```njk
 {{ errorSummary({
@@ -166,7 +168,7 @@ This means you should change your error summary from:
 }) }}
 ```
 
-to
+After:
 
 ```njk
 {{ errorSummary({
