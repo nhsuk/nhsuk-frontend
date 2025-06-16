@@ -1,9 +1,6 @@
 import { join } from 'path'
 
-import {
-  getComponentData,
-  getComponentNames
-} from '@nhsuk/frontend-lib/components.mjs'
+import { components } from '@nhsuk/frontend-lib'
 
 import { files } from './index.mjs'
 
@@ -13,11 +10,11 @@ import { files } from './index.mjs'
  * @param {Pick<AssetOptions, "destPath">} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  const componentNames = await getComponentNames()
+  const componentNames = await components.getNames()
 
   // Loop component names
   const macroOptions = componentNames.map(async (componentName) => {
-    const { options } = await getComponentData(componentName)
+    const { options } = await components.getData(componentName)
 
     // Add macro options as JSON (formatted)
     const contents = JSON.stringify(options, undefined, 2)

@@ -26,12 +26,12 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
 }
 
 /**
- * Load single component macro options (from source)
+ * Load single component data (from source)
  *
  * @param {string} componentName - Component name
  * @returns {Promise<ComponentData>} Component data
  */
-export async function getComponentData(componentName) {
+export async function getData(componentName) {
   return import(
     join(paths.pkg, `src/nhsuk/components/${componentName}/macro-options.mjs`)
   )
@@ -40,7 +40,7 @@ export async function getComponentData(componentName) {
 /**
  * Get component names
  */
-export async function getComponentNames() {
+export async function getNames() {
   const listing = await getDirectories('nhsuk/components', {
     cwd: join(paths.pkg, 'src')
   })
@@ -55,7 +55,7 @@ export async function getComponentNames() {
  * @param {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
  * @returns {MacroOption[] | undefined} Nunjucks macro options
  */
-export function getComponentMacroOptions(params) {
+export function getMacroOptions(params) {
   if (!params) {
     return
   }
@@ -76,7 +76,7 @@ export function getComponentMacroOptions(params) {
 
     // Optional nested params
     if (param.params) {
-      option.params = getComponentMacroOptions(param.params)
+      option.params = getMacroOptions(param.params)
     }
 
     return option
