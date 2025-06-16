@@ -1,4 +1,5 @@
-import { join, parse } from 'path'
+import { mkdir, writeFile } from 'fs/promises'
+import { dirname, join, parse } from 'path'
 
 import gulp from 'gulp'
 import rename from 'gulp-rename'
@@ -6,8 +7,8 @@ import rename from 'gulp-rename'
 /**
  * Copy asset
  *
- * @param {string} assetPath
- * @param {AssetOptions} entry
+ * @param {string} assetPath - File path to asset
+ * @param {AssetOptions} options - Asset options
  */
 export function copy(assetPath, { srcPath, destPath, output = {} }) {
   let stream = gulp.src(join(srcPath, assetPath), {
@@ -39,10 +40,35 @@ export function copy(assetPath, { srcPath, destPath, output = {} }) {
 }
 
 /**
+ * Write file task
+ *
+ * @param {string} assetPath - File path to asset
+ * @param {Pick<AssetOptions, "destPath" | "output">} options - Asset options
+ */
+export async function write(assetPath, { destPath, output = {} }) {
+  const filePath = join(destPath, assetPath)
+
+  if (!output.contents) {
+    throw new Error("Option 'contents' required")
+  }
+
+  await mkdir(dirname(filePath), { recursive: true })
+  await writeFile(filePath, `${output.contents}\n`)
+}
+
+/**
  * Asset options
  *
  * @typedef {object} AssetOptions
  * @property {string} srcPath - Source directory
  * @property {string} destPath - Destination directory
- * @property {{ file?: string }} [output] - Output options
+ * @property {AssetOutputOptions} [output] - Output options
+ */
+
+/**
+ * Asset output options
+ *
+ * @typedef {object} AssetOutputOptions
+ * @property {string} [file] - Output file path
+ * @property {string} [contents] - Output file contents
  */
