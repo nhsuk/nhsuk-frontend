@@ -3,9 +3,9 @@ import { join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
 import { nunjucksEnv, renderTemplate } from '@nhsuk/frontend-lib/components.mjs'
+import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { files, task } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
-import { glob } from 'glob'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
@@ -18,9 +18,8 @@ const { HEROKU_BRANCH = 'main' } = process.env
  * Compile review app Nunjucks into HTML
  */
 export const html = task.name('app:html', async () => {
-  const paths = await glob('**/*.njk', {
-    cwd: join(config.paths.app, 'src'),
-    nodir: true
+  const paths = await getListing('**/*.njk', {
+    cwd: join(config.paths.app, 'src')
   })
 
   // Configure Nunjucks
@@ -56,8 +55,8 @@ export const html = task.name('app:html', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('app:validate', async () => {
-  const paths = await glob(join(config.paths.app, 'dist/**/*.html'), {
-    nodir: true
+  const paths = await getListing('dist/**/*.html', {
+    cwd: config.paths.app
   })
 
   // Configure validator
