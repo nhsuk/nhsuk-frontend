@@ -12,7 +12,7 @@ export const compile = gulp.series(
   task.name('scripts:transform', async () => {
     const modulePaths = await glob('nhsuk/components/**/*.mjs', {
       cwd: join(config.paths.pkg, 'src'),
-      ignore: ['**/*.test.{cjs,js,mjs}'],
+      ignore: ['**/macro-options.mjs', '**/*.test.{cjs,js,mjs}'],
       nodir: true
     })
 
