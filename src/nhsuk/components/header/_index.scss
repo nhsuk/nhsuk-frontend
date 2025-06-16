@@ -4,6 +4,7 @@
 @use "../../core/tools" as *;
 
 $_header-item-padding: 12px;
+$_header-link-padding: 2px;
 
 ////
 /// Header component
@@ -60,12 +61,66 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__service-logo {
   flex-grow: 0;
+  margin-right: 0;
 }
 
 .nhsuk-header__service-name {
-  flex-grow: 999;
+  flex-grow: 0;
+  margin-right: auto;
   text-wrap: balance;
   @include nhsuk-font(19, $line-height: 1.1);
+}
+
+.nhsuk-header__service-logo[href] {
+  @include nhsuk-link-image;
+
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: $color_nhsuk-white;
+  }
+
+  // Add text underline on hover
+  &:not(:focus):hover {
+    text-decoration: underline;
+  }
+
+  // Add SVG logo underline on hover
+  //
+  // It should be possible to add a box shadow directly to .nhsuk-header_logo
+  // however Safari doesn’t render anything beyond the bounding box of the SVG.
+  // By adding a pseudo element with the same dimensions, we style this instead.
+  &:has(svg):not(:focus):hover::before {
+    content: "";
+    border-bottom: 0.1rem solid currentcolor;
+    display: inline;
+    height: 40px;
+    position: absolute;
+    top: 0.2rem;
+    width: 100px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    .nhsuk-header__organisation-name,
+    .nhsuk-header__organisation-name-descriptor,
+    .nhsuk-header__service-name {
+      color: inherit;
+    }
+  }
+
+  &:focus {
+    .nhsuk-header__logo,
+    .nhsuk-header__organisation-name,
+    .nhsuk-header__organisation-name-descriptor,
+    .nhsuk-header__service-name {
+      color: $nhsuk-text-color;
+    }
+  }
 }
 
 .nhsuk-header__service-logo,
@@ -76,7 +131,7 @@ $_header-item-padding: 12px;
     text-decoration: none;
   }
 
-  &:hover {
+  &:not(:focus):hover {
     text-decoration: underline;
   }
 
@@ -261,6 +316,11 @@ $_header-item-padding: 12px;
   }
 
   &:focus {
+    outline: none;
+  }
+
+  &:focus:not(:active),
+  &:focus:not(:active):hover {
     @include nhsuk-focused-button;
   }
 }
@@ -332,7 +392,7 @@ $_header-item-padding: 12px;
 
 .nhsuk-header__navigation-link {
   display: block;
-  padding: nhsuk-spacing(3) 2px;
+  padding: nhsuk-spacing(3) $_header-link-padding;
   white-space: nowrap;
   @include nhsuk-font(16);
   @include nhsuk-link-style-white;
@@ -391,9 +451,9 @@ $_header-item-padding: 12px;
     height: nhsuk-spacing(4);
     transform: rotate(90deg);
 
-    // Move icon to align with edge of button, offseting 8px of empty
-    // SVG viewbox but keeping the same 2px padding used by text links
-    margin-right: -8px + 2px;
+    // Move icon to align with edge of button, offsetting 8px of empty
+    // SVG view box but keeping the same 2px padding used by text links
+    margin-right: -8px + $_header-link-padding;
   }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
@@ -466,30 +526,17 @@ $_header-item-padding: 12px;
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__service-logo {
-    @include nhsuk-link-style-default;
-
-    &:link {
-      text-decoration: none;
+  .nhsuk-header__service-logo[href] {
+    &:link,
+    &:visited {
+      color: $nhsuk-text-color;
     }
 
-    &:hover,
-    &:focus,
-    &:active {
-      .nhsuk-header__organisation-name,
-      .nhsuk-header__organisation-name-descriptor {
-        color: inherit;
-      }
-    }
+    @include nhsuk-link-style-active;
 
-    &:focus {
-      .nhsuk-header__logo {
-        color: inherit;
-      }
-    }
-
-    &:hover {
-      text-decoration: underline;
+    &:not(:focus):not(:active):hover,
+    &:not(:focus):not(:active):hover:visited {
+      color: $nhsuk-link-hover-color;
     }
   }
 
@@ -532,10 +579,6 @@ $_header-item-padding: 12px;
 
     &:active {
       background-color: $color_shade_nhsuk-blue-50;
-    }
-
-    &:focus {
-      @include nhsuk-focused-button;
     }
   }
 
@@ -611,24 +654,31 @@ $_header-item-padding: 12px;
 /// Organisation header variant
 
 .nhsuk-header--organisation {
-  .nhsuk-header__service-logo {
-    display: block;
-
-    &:focus {
-      .nhsuk-header__organisation-name,
-      .nhsuk-header__organisation-name-descriptor {
-        color: $nhsuk-focus-text-color;
-      }
-    }
-  }
-
   .nhsuk-header__logo {
     height: 24px;
+    margin-bottom: 6px;
     width: 60px;
 
     @include nhsuk-media-query($from: tablet) {
       height: 32px;
       width: 80px;
+    }
+  }
+
+  .nhsuk-header__service-logo {
+    display: block;
+  }
+
+  .nhsuk-header__service-logo[href] {
+    // Adjust SVG logo underline position
+    &:has(svg):not(:focus):hover::before {
+      height: 24px;
+      width: 60px;
+
+      @include nhsuk-media-query($from: tablet) {
+        height: 32px;
+        width: 80px;
+      }
     }
   }
 }
