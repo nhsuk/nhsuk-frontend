@@ -514,7 +514,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '#waste-1',
+      clickSelector: '#waste',
       label: 'Checkboxes with error message (focused)',
       url: `${BASE_URL}/components/checkboxes/error.html`,
       viewports: [
@@ -524,7 +524,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '#contact-1',
+      clickSelector: '#contact',
       label: 'Checkboxes with conditional content',
       url: `${BASE_URL}/components/checkboxes/conditional.html`,
       viewports: [
@@ -1160,7 +1160,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '#contact-1',
+      clickSelector: '#contact',
       label: 'Radios with conditional content',
       url: `${BASE_URL}/components/radios/conditional.html`,
       viewports: [
