@@ -241,6 +241,12 @@ export const params = {
     required: false,
     description: 'Base URL to prepend to the `logo.src` path.'
   },
+  containerClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the header container, useful if you want to make the header fixed width.'
+  },
   classes: {
     type: 'string',
     required: false,
