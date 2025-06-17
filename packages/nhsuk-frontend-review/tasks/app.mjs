@@ -2,11 +2,11 @@ import { mkdir, writeFile } from 'fs/promises'
 import { join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import { nunjucksEnv, renderTemplate } from '@nhsuk/frontend-lib/components.mjs'
+import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { files, task } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
-import { glob } from 'glob'
 import { HtmlValidate, formatterFactory } from 'html-validate'
-import nunjucks from 'nunjucks'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
@@ -18,32 +18,28 @@ const { HEROKU_BRANCH = 'main' } = process.env
  * Compile review app Nunjucks into HTML
  */
 export const html = task.name('app:html', async () => {
-  const paths = await glob('**/*.njk', {
-    cwd: join(config.paths.app, 'src'),
-    nodir: true
+  const paths = await getListing('**/*.njk', {
+    cwd: join(config.paths.app, 'src')
   })
 
   // Configure Nunjucks
-  const env = nunjucks.configure(
-    [
-      join(config.paths.app, 'src'),
-      join(config.paths.app, 'src/_templates'),
-      join(config.paths.pkg, 'src')
-    ],
-    {
-      trimBlocks: true,
-      lstripBlocks: true
-    }
-  )
+  const env = nunjucksEnv([
+    join(config.paths.app, 'src'),
+    join(config.paths.app, 'src/_templates'),
+    join(config.paths.pkg, 'src')
+  ])
 
   for (const path of paths) {
     const { name, dir } = parse(path)
 
-    const html = env.render(path, {
-      assetPath: `/nhsuk-frontend/assets`,
-      baseUrl: '/nhsuk-frontend/',
-      branchName: HEROKU_BRANCH,
-      version: config.version
+    const html = renderTemplate(path, {
+      context: {
+        assetPath: `/nhsuk-frontend/assets`,
+        baseUrl: '/nhsuk-frontend/',
+        branchName: HEROKU_BRANCH,
+        version: config.version
+      },
+      env
     })
 
     const destPath = join(config.paths.app, `dist/${dir}`)
@@ -59,8 +55,8 @@ export const html = task.name('app:html', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('app:validate', async () => {
-  const paths = await glob(join(config.paths.app, 'dist/**/*.html'), {
-    nodir: true
+  const paths = await getListing('dist/**/*.html', {
+    cwd: config.paths.app
   })
 
   // Configure validator
