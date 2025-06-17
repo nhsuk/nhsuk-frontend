@@ -243,6 +243,11 @@ export class Header {
         this.menuList.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
+
+    // Update menu height if open
+    if (this.menuIsOpen) {
+      this.navigation.style.marginBottom = `${this.menuList.offsetHeight}px`
+    }
   }
 }
 
