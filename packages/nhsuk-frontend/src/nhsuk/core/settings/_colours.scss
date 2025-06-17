@@ -62,16 +62,6 @@ $alpha-transparency-50: 0.5;
   @return color.mix(white, $color, $percentage);
 }
 
-/// Tint function (deprecated)
-///
-/// @alias nhsuk-tint
-/// @deprecated To be removed in v10.0, replaced by nhsuk-tint
-
-@function tint($color, $percentage) {
-  @warn "The `tint` function will be removed in a future release, use `nhsuk-tint` instead.";
-  @return nhsuk-tint($color, $percentage);
-}
-
 /// Shade function
 ///
 /// @example scss
@@ -81,16 +71,6 @@ $alpha-transparency-50: 0.5;
 
 @function nhsuk-shade($color, $percentage) {
   @return color.mix(black, $color, $percentage);
-}
-
-/// Shade function (deprecated)
-///
-/// @alias nhsuk-shade
-/// @deprecated To be removed in v10.0, replaced by nhsuk-shade
-
-@function shade($color, $percentage) {
-  @warn "The `shade` function will be removed in a future release, use `nhsuk-shade` instead.";
-  @return nhsuk-shade($color, $percentage);
 }
 
 /// Primary colour variations
