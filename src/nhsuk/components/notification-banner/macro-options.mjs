@@ -90,7 +90,7 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      text: 'This publication was withdrawn on 7 March 2014.'
+      text: 'The patient record was updated.'
     }
   },
   'paragraph as html heading': {
@@ -102,10 +102,10 @@ export const examples = {
     context: {
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
-          This publication was withdrawn on 7 March 2014
+          The patient record was updated
         </h3>
         <p class="nhsuk-body">
-          Archived and replaced by the <a href="#" class="nhsuk-notification-banner__link">new planning guidance</a> launched 6 March 2014 on an external website
+          Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
         </p>
       `
     }
@@ -145,7 +145,7 @@ export const examples = {
   },
   'with long heading': {
     context: {
-      text: 'This publication was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters.'
+      text: 'The patient record was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters.'
     }
   },
   'with lots of content': {
