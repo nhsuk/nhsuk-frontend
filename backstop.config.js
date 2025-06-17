@@ -359,6 +359,15 @@ module.exports = {
       ]
     },
     {
+      label: 'Card, basic with HTML',
+      url: `${BASE_URL}/components/card/basic-card-with-html.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Card, clickable',
       url: `${BASE_URL}/components/card/clickable-card.html`,
       viewports: [
