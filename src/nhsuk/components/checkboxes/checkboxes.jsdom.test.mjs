@@ -1,4 +1,6 @@
+import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
+import { outdent } from 'outdent'
 
 import { initCheckboxes } from './checkboxes.mjs'
 
@@ -10,69 +12,80 @@ describe('Checkboxes', () => {
   let $inputs
 
   beforeEach(() => {
-    document.body.innerHTML = `
+    const emailHtml = components.render('input', {
+      context: {
+        id: 'email',
+        name: 'email',
+        classes: 'nhsuk-u-width-two-thirds',
+        label: {
+          text: 'Email address'
+        }
+      }
+    })
+
+    const phoneHtml = components.render('input', {
+      context: {
+        id: 'phone',
+        name: 'phone',
+        classes: 'nhsuk-u-width-two-thirds',
+        label: {
+          text: 'Phone number'
+        }
+      }
+    })
+
+    const mobileHtml = components.render('input', {
+      context: {
+        id: 'mobile',
+        name: 'mobile',
+        classes: 'nhsuk-u-width-two-thirds',
+        label: {
+          text: 'Mobile phone number'
+        }
+      }
+    })
+
+    document.body.innerHTML = outdent`
       <form method="post" novalidate>
-        <div class="nhsuk-form-group">
-          <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-              How would you prefer to be contacted?
-            </legend>
-
-            <div class="nhsuk-hint" id="contact-hint">
-              Select all options that are relevant to you.
-            </div>
-
-            <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1">
-                  Email
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-1">
-                <div class="nhsuk-form-group">
-                  <label class="nhsuk-label" for="email">
-                    Email address
-                  </label>
-                  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
-                </div>
-              </div>
-
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
-                  Phone
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-2">
-                <div class="nhsuk-form-group">
-                  <label class="nhsuk-label" for="phone">
-                    Phone number
-                  </label>
-                  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
-                </div>
-              </div>
-
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
-                  Text message
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-3">
-                <div class="nhsuk-form-group">
-                  <label class="nhsuk-label" for="text">
-                    Mobile phone number
-                  </label>
-                  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+        ${components.render('checkboxes', {
+          context: {
+            idPrefix: 'contact',
+            name: 'contact',
+            fieldset: {
+              legend: {
+                text: 'How would you prefer to be contacted?',
+                classes: 'nhsuk-fieldset__legend--l',
+                isPageHeading: 'true'
+              }
+            },
+            hint: {
+              text: 'Select all options that are relevant to you'
+            },
+            items: [
+              {
+                value: 'email',
+                text: 'Email',
+                conditional: {
+                  html: emailHtml
+                }
+              },
+              {
+                value: 'phone',
+                text: 'Phone',
+                conditional: {
+                  html: phoneHtml
+                }
+              },
+              {
+                value: 'text',
+                text: 'Text message',
+                conditional: {
+                  html: mobileHtml
+                }
+              }
+            ]
+          }
+        })}
       </form>
     `
 

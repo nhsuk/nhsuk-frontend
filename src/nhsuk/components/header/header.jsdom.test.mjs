@@ -1,5 +1,6 @@
 import { setTimeout } from 'timers/promises'
 
+import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
@@ -18,72 +19,47 @@ describe('Header class', () => {
   let itemWidth = 0
 
   beforeEach(() => {
-    document.body.innerHTML = `
-      <header class="nhsuk-header" role="banner">
-        <div class="nhsuk-header__container">
-          <div class="nhsuk-header__service">
-            <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100">
-              <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"></path>
-            </svg>
-          </div>
-        </div>
-        <nav class="nhsuk-header__navigation" aria-label="Menu">
-          <div class="nhsuk-header__navigation-container">
-            <ul class="nhsuk-header__navigation-list">
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Health A to Z
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  NHS services
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Live Well
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Mental health
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Care and support
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Pregnancy
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Home
-                </a>
-              </li>
-              <li class="nhsuk-header__navigation-item">
-                <a class="nhsuk-header__navigation-link" href="#">
-                  Another one
-                </a>
-              </li>
-              <li class="nhsuk-header__menu" hidden>
-                <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-                  <span class="nhsuk-u-visually-hidden">Browse</span>
-                  More
-                  <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-    `
+    document.body.innerHTML = components.render('header', {
+      context: {
+        navigation: {
+          items: [
+            {
+              href: '#',
+              text: 'Health A to Z'
+            },
+            {
+              href: '#',
+              text: 'Live Well'
+            },
+            {
+              href: '#',
+              text: 'Mental health'
+            },
+            {
+              href: '#',
+              text: 'Care and support'
+            },
+            {
+              href: '#',
+              text: 'Pregnancy',
+              active: true
+            },
+            {
+              href: '#',
+              text: 'NHS services'
+            },
+            {
+              href: '#',
+              text: 'Another item #1'
+            },
+            {
+              href: '#',
+              text: 'Another item #2'
+            }
+          ]
+        }
+      }
+    })
 
     const $container = document.querySelector('.nhsuk-header')
 

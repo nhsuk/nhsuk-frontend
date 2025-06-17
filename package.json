@@ -40,6 +40,7 @@
   "files": [
     "dist",
     "src",
+    "!**/macro-options.mjs",
     "!**/*.test.*"
   ],
   "scripts": {
@@ -53,13 +54,13 @@
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",
     "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.6.1",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.0.7",
     "del-cli": "^6.0.0",
-    "glob": "^11.0.3",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
     "outdent": "^0.8.0",

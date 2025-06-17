@@ -1,3 +1,6 @@
+import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
+
 import { initDetails } from './details.mjs'
 
 describe('Details', () => {
@@ -11,27 +14,23 @@ describe('Details', () => {
   let $content
 
   beforeEach(() => {
-    document.body.innerHTML = `
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Where can I find my NHS number?
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-          <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
-          <ul>
-            <li>prescriptions</li>
-            <li>test results</li>
-            <li>hospital referral letters</li>
-            <li>appointment letters</li>
-            <li>your NHS medical card</li>
-          </ul>
-          <p>Ask your GP practice for help if you can't find your NHS number.</p>
-        </div>
-      </details>
+    const detailsHtml = outdent`
+      <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+      <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+      <ul>
+        <li>prescriptions</li>
+        <li>test results</li>
+        <li>hospital referral letters</li>
+        <li>appointment letters</li>
+        <li>your NHS medical card</li>
+      </ul>
+      <p>Ask your GP practice for help if you can't find your NHS number.</p>
     `
+
+    document.body.innerHTML = components.render('details', {
+      context: { summaryText: 'Where can I find my NHS number?' },
+      callBlock: detailsHtml
+    })
 
     $details = document.querySelector('.nhsuk-details')
     $summary = document.querySelector('.nhsuk-details__summary')
