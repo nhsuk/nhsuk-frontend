@@ -150,7 +150,9 @@ This change was introduced in [#1139: Remove 24px from typography scale](https:/
 
 #### Update links in the error summary to the first checkbox or radio item
 
-The default HTML `id` for the first checkbox or radio item no longer has a `-1` suffix.
+If you've linked from an [error summary](https://design-system.service.gov.uk/components/error-summary/) component to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component, the link may no longer work.
+
+This is because the `id` of the first checkbox or radio item no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
 If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute.
 
