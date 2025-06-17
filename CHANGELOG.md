@@ -148,6 +148,46 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
+#### Update links in the error summary to the first checkbox or radio item
+
+If you've linked from an [error summary](https://design-system.service.gov.uk/components/error-summary/) component to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component, the link may no longer work.
+
+This is because the `id` of the first checkbox or radio item no longer has the suffix `-1` when rendered using the Nunjucks macros.
+
+If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute.
+
+Before:
+
+```njk
+{{ errorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select how you like to be contacted",
+      href: "#contact-preference-1"
+    }
+  ]
+}) }}
+```
+
+After:
+
+```njk
+{{ errorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Select how you like to be contacted",
+      href: "#contact-preference"
+    }
+  ]
+}) }}
+```
+
+You do not need to do this if you specified an `id` for the individual checkbox or radio item.
+
+This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
