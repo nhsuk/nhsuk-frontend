@@ -1,6 +1,7 @@
-import { join } from 'path'
+import { basename, join } from 'path'
 
 import { paths } from '@nhsuk/frontend-config'
+import { getDirectories } from '@nhsuk/frontend-lib/files.mjs'
 import camelCase from 'lodash/camelCase.js'
 import nunjucks from 'nunjucks'
 
@@ -21,6 +22,64 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
     trimBlocks: true, // automatically remove trailing newlines from a block/tag
     lstripBlocks: true, // automatically remove leading whitespace from a block/tag,
     ...nunjucksOptions
+  })
+}
+
+/**
+ * Load single component data (from source)
+ *
+ * @param {string} componentName - Component name
+ * @returns {Promise<ComponentData>} Component data
+ */
+export async function getData(componentName) {
+  return import(
+    join(paths.pkg, `src/nhsuk/components/${componentName}/macro-options.mjs`)
+  )
+}
+
+/**
+ * Get component names
+ */
+export async function getNames() {
+  const listing = await getDirectories('nhsuk/components', {
+    cwd: join(paths.pkg, 'src')
+  })
+
+  // Use directory names only
+  return listing.map((directoryPath) => basename(directoryPath)).sort()
+}
+
+/**
+ * Convert macro option params to array of options
+ *
+ * @param {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
+ * @returns {MacroOption[] | undefined} Nunjucks macro options
+ */
+export function getMacroOptions(params) {
+  if (!params) {
+    return
+  }
+
+  // Format nested params
+  return Object.entries(params).map(([name, param]) => {
+    const option = /** @type {MacroOption} */ ({
+      name,
+      type: param.type,
+      required: param.required,
+      description: param.description
+    })
+
+    // Optional component flag
+    if (param.isComponent) {
+      option.isComponent = true
+    }
+
+    // Optional nested params
+    if (param.params) {
+      option.params = getMacroOptions(param.params)
+    }
+
+    return option
   })
 }
 
@@ -91,16 +150,37 @@ export function renderTemplate(templatePath, options) {
 }
 
 /**
- * Nunjucks macro options
+ * Component data
  *
- * @typedef {{ [param: string]: unknown }} MacroOptions
+ * @typedef {object} ComponentData
+ * @property {string} name - Component name
+ * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
+ * @property {MacroOption[]} options - Nunjucks macro options fixtures
+ */
+
+/**
+ * Nunjucks macro option config
+ *
+ * @typedef {object} MacroParam
+ * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
+ * @property {boolean} required - Option required
+ * @property {string} description - Option description
+ * @property {true} [isComponent] - Option is another component
+ * @property {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
+ */
+
+/**
+ * Nunjucks macro option
+ * (used by the Design System website)
+ *
+ * @typedef {Omit<MacroParam, 'params'> & { name: string, params?: MacroOption[] }} MacroOption
  */
 
 /**
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {MacroOptions | unknown} [context] - Nunjucks mixed context (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
@@ -109,7 +189,7 @@ export function renderTemplate(templatePath, options) {
  * Nunjucks template render options
  *
  * @typedef {object} TemplateRenderOptions
- * @property {MacroOptions | unknown} [context] - Nunjucks context object (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
 

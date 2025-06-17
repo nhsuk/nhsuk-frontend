@@ -1,8 +1,8 @@
 import { join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { styles, task } from '@nhsuk/frontend-tasks'
-import { glob } from 'glob'
 import gulp from 'gulp'
 
 export const compile = gulp.series(
@@ -10,9 +10,8 @@ export const compile = gulp.series(
    * Transform NHS.UK frontend styles
    */
   task.name('styles:transform', async () => {
-    const modulePaths = await glob('nhsuk/**/*.scss', {
-      cwd: join(config.paths.pkg, 'src'),
-      nodir: true
+    const modulePaths = await getListing('nhsuk/**/*.scss', {
+      cwd: join(config.paths.pkg, 'src')
     })
 
     // Apply PostCSS transforms (e.g. vendor prefixes)
