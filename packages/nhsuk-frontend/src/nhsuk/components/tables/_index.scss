@@ -27,8 +27,60 @@
   }
 }
 
+.nhsuk-table__list-view-container {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  .nhsuk-table__list-view {
+    margin-bottom: 0;
+  }
+
+  figcaption {
+    text-align: left;
+
+    // [5]
+    @include nhsuk-font($size: 22, $weight: bold);
+  }
+
+  .nhsuk-table__row {
+    margin-block-start: 0;
+    margin-bottom: nhsuk-spacing(4);
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  .nhsuk-table__cell {
+    // [7]
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-right: 0;
+
+    &:last-child {
+      border-bottom: 3px solid $color_nhsuk-grey-4;
+    }
+
+    dd {
+      margin-inline-start: 0;
+      box-sizing: border-box;
+      margin: 0 1em 0 0; // so that the label and the data can't touch
+    }
+
+    dt {
+      text-align: right;
+      flex-grow: 1; // So that the text-align right always works
+      box-sizing: border-box;
+    }
+  }
+}
+
 .nhsuk-table,
 .nhsuk-table-responsive {
+  // [2]
   width: 100%;
 
   border-spacing: 0;
@@ -86,32 +138,21 @@
 
 /// Responsive table
 ///
-/// 1. Hide the thead until desktop
-/// 2. Removing default screen reader behaviour
-/// 3. Assigning role of table-row on desktop to give default screen reader behaviour
-/// 4. Using justify content to space out elements in the row on mobile
-/// 5. Assigning a minimum width in case of black cell
-/// 6. Aligning content to the right on mobile
-/// 7. Aligning mobile header to left to split it from the data
-/// 8. Hiding mobile specific header from desktop view
-/// 9. Adding a display block value due to IE 11 not having full flex support
+/// 1. Defining the mobile view of the table
+/// 2. Defining the desktop view of the table
+/// 3. Hiding the table view on mobile
+/// 4. Displaying the table view on desktop
+/// 5. Set up the figcaption to match the table caption
+/// 6. Assigning a minimum width in case of blank cell
+/// 7. Make the (dt,dd) pair together act like a table cell
 
 .nhsuk-table-responsive {
-  thead {
-    @include nhsuk-media-query($until: desktop) {
-      @include nhsuk-visually-hidden; // [1]
-    }
-  }
-
   .nhsuk-table__body {
     .nhsuk-table-responsive__heading {
-      @include nhsuk-typography-weight-bold;
       padding-right: nhsuk-spacing(3);
-      text-align: left; // [8]
     }
 
     .nhsuk-table__row {
-      display: block; // [3]
       margin-bottom: nhsuk-spacing(4);
 
       &:last-child {
@@ -121,53 +162,42 @@
 
     .nhsuk-table__row th,
     .nhsuk-table__row td {
-      display: block; // For browsers that don't support flexbox
-      display: flex;
-      justify-content: space-between; // [5]
-      min-width: 1px; // [6]
-    }
-
-    @media all and (-ms-high-contrast: none) {
-      .nhsuk-table__row th,
-      .nhsuk-table__row td {
-        display: block; // [10]
-      }
+      min-width: 1px; // [5]
     }
 
     @include nhsuk-media-query($until: desktop) {
       .nhsuk-table__row th {
         font-weight: $nhsuk-font-normal;
       }
-
-      .nhsuk-table__row th,
-      .nhsuk-table__row td {
-        padding-right: 0;
-        text-align: right; // [7]
-
-        &:last-child {
-          border-bottom: 3px solid $color_nhsuk-grey-4;
-        }
-      }
     }
 
-    @include nhsuk-media-query($from: desktop) {
-      .nhsuk-table-responsive__heading {
-        display: none; // [9]
-      }
-
-      .nhsuk-table__row {
-        display: table-row; // [4]
-      }
-
-      .nhsuk-table__row th {
-        text-align: left;
-      }
-
-      .nhsuk-table__row th,
-      .nhsuk-table__row td {
-        display: table-cell;
-      }
+    .nhsuk-table__row th {
+      text-align: left;
     }
+  }
+}
+
+@include nhsuk-media-query($until: desktop) {
+  // [3]
+  .nhsuk-table__list-view-container,
+  .nhsuk-table__list-view-container .nhsuk-table__row {
+    display: block;
+  }
+
+  .nhsuk-table-responsive {
+    display: none;
+  }
+}
+
+@include nhsuk-media-query($from: desktop) {
+  // [4]
+  .nhsuk-table__list-view-container,
+  .nhsuk-table__list-view-container .nhsuk-table__row {
+    display: none;
+  }
+
+  .nhsuk-table-responsive {
+    display: table; // Not `block`, otherwise the table will not be full width
   }
 }
 

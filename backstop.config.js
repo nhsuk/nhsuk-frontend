@@ -1257,6 +1257,10 @@ module.exports = {
       ]
     },
     {
+      label: 'Responsive table with blank cells',
+      url: `${BASE_URL}/components/tables/responsive-table-with-blank-cells.html`
+    },
+    {
       label: 'Table as panel',
       url: `${BASE_URL}/components/tables/tables-panel.html`,
       viewports: [
