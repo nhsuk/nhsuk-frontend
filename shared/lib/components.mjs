@@ -32,7 +32,14 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
  * @returns HTML rendered by the component
  */
 export function render(componentName, options) {
-  const macroName = camelCase(componentName)
+  const renamed = new Map([
+    ['do-dont-list', 'list'],
+    ['images', 'image'],
+    ['tables', 'table']
+  ])
+
+  // Replace plural directory name with singular macro name
+  const macroName = camelCase(renamed.get(componentName) || componentName)
   const macroPath = `nhsuk/components/${componentName}/macro.njk`
 
   return renderMacro(macroName, macroPath, options)
