@@ -28,7 +28,7 @@
 .nhsuk-notification-banner__title {
   margin: 0;
   padding: 0;
-  color: nhsuk-color("white");
+  color: $color_nhsuk-white;
   font-weight: $nhsuk-font-bold;
 
   // Set the size again because this element is a heading and the user agent
