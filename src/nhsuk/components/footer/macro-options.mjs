@@ -68,6 +68,12 @@ export const params = {
     required: false,
     description: 'Optional text for the copyright notice in the footer.'
   },
+  containerClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the footer container, useful if you want to make the footer fixed width.'
+  },
   classes: {
     type: 'string',
     required: false,
