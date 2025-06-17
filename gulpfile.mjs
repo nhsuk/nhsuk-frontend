@@ -3,12 +3,13 @@ import { join } from 'path'
 import * as config from '@nhsuk/frontend-config'
 import gulp from 'gulp'
 
-import { assets, release, scripts, styles } from './tasks/index.mjs'
+import { assets, fixtures, release, scripts, styles } from './tasks/index.mjs'
 
 gulp.task('styles', styles.compile)
 gulp.task('scripts', scripts.compile)
+gulp.task('fixtures', fixtures.compile)
 gulp.task('assets', assets.copy)
-gulp.task('build', gulp.parallel('styles', 'scripts', 'assets'))
+gulp.task('build', gulp.parallel('styles', 'scripts', 'fixtures', 'assets'))
 gulp.task('release', gulp.series(release.copy, release.zip))
 
 gulp.task('watch', () =>
