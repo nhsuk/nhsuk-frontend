@@ -48,6 +48,12 @@ export const params = {
     required: false,
     description: 'The URL of the image in the hero.'
   },
+  containerClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the hero container, useful if you want to make the hero fixed width.'
+  },
   classes: {
     type: 'string',
     required: false,
