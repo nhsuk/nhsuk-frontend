@@ -1,3 +1,4 @@
+import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
 import { initCharacterCount } from './character-count.mjs'
@@ -7,22 +8,18 @@ describe('Character count', () => {
   let $textarea
 
   beforeEach(() => {
-    document.body.innerHTML = `
-      <div class="nhsuk-character-count" data-module="nhsuk-character-count" data-maxlength="10">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="more-detail">
-            Can you provide more detail?
-          </label>
-          <div class="nhsuk-hint" id="more-detail-hint">
-            Don't include personal or financial information, eg your National Insurance number or credit card details.
-          </div>
-          <textarea class="nhsuk-textarea nhsuk-js-character-count" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-        </div>
-        <div class="nhsuk-hint nhsuk-character-count__message" id="more-detail-info">
-          You can enter up to 10 characters
-        </div>
-      </div>
-    `
+    document.body.innerHTML = components.render('character-count', {
+      context: {
+        label: {
+          text: 'Can you provide more detail?'
+        },
+        hint: {
+          text: "Don't include personal or financial information, eg your National Insurance number or credit card details."
+        },
+        id: 'example',
+        maxlength: '10'
+      }
+    })
 
     const $container = document.querySelector('.nhsuk-character-count')
 
