@@ -24,13 +24,13 @@ describe('Radios', () => {
 
             <div class="nhsuk-radios nhsuk-radios--conditional">
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
-                <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+                <input class="nhsuk-radios__input" id="contact" name="contact" type="radio" value="email" aria-controls="conditional-contact" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="contact">
                   Email
                 </label>
               </div>
 
-              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact">
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label" for="email">
                     Email address
