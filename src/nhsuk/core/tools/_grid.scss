@@ -25,50 +25,6 @@
   @error "Unknown grid width `#{$key}`";
 }
 
-/// Grid width percentage (alias)
-///
-/// @alias nhsuk-grid-width
-/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-width
-
-@function grid-width($key) {
-  @warn "The `grid-width` function will be removed in a future release, use `nhsuk-grid-width` instead.";
-  @return nhsuk-grid-width($key);
-}
-
-/// Generate grid row styles
-///
-/// Creates a grid row class with a standardised margin.
-///
-/// @param {String} $class [nhsuk-grid-row] CSS class name
-///
-/// @example scss - Default
-///   @include govuk-grid-row;
-///
-/// @example scss - Customising the class name
-///   @include govuk-grid-row("app-grid");
-///
-/// @deprecated To be removed in v10.0, replaced by the nhsuk-grid-row class
-
-@mixin nhsuk-grid-row($class: "nhsuk-grid-row") {
-  @include nhsuk-warning("nhsuk-grid-row", "nhsuk-grid-row is deprecated. Use `.nhsuk-grid-row` class instead.");
-
-  .#{$class} {
-    @include nhsuk-clearfix;
-    margin-right: -($nhsuk-gutter-half);
-    margin-left: -($nhsuk-gutter-half);
-  }
-}
-
-/// Generate grid row styles (deprecated)
-///
-/// @alias nhsuk-grid-row
-/// @deprecated To be removed in v10.0
-
-@mixin govuk-grid-row($args...) {
-  @include nhsuk-warning("govuk-grid-row", "govuk-grid-row is deprecated. Use `.nhsuk-grid-row` class instead.");
-  @include nhsuk-grid-row($args...);
-}
-
 /// Generate grid column styles
 ///
 /// Creates a grid column with standard gutter between the columns.
@@ -125,14 +81,4 @@
       float: $float;
     }
   }
-}
-
-/// Generate grid column styles (deprecated)
-///
-/// @alias nhsuk-grid-column
-/// @deprecated To be removed in v10.0, replaced by nhsuk-grid-column
-
-@mixin govuk-grid-column($args...) {
-  @include nhsuk-warning("govuk-grid-column", "govuk-grid-column is deprecated. Use nhsuk-grid-column instead.");
-  @include nhsuk-grid-column($args...);
 }

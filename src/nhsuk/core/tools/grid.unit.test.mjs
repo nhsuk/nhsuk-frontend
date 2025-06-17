@@ -45,56 +45,6 @@ describe('Grid system', () => {
     })
   })
 
-  describe('@mixin nhsuk-grid-row', () => {
-    it('outputs default defined styles for .nhsuk-grid-row class', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-row;
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .nhsuk-grid-row {
-          margin-right: -16px;
-          margin-left: -16px;
-        }
-        .nhsuk-grid-row::after {
-          clear: both;
-          content: \"\";
-          display: block;
-        }
-      `)
-    })
-
-    it('outputs styles for the specified class', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-row("app-grid-row");
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .app-grid-row {
-          margin-right: -16px;
-          margin-left: -16px;
-        }
-        .app-grid-row::after {
-          clear: both;
-          content: \"\";
-          display: block;
-        }
-      `)
-    })
-  })
-
   describe('@mixin nhsuk-grid-column', () => {
     it('outputs the CSS required for a column in the grid', async () => {
       const sass = `
