@@ -33,15 +33,3 @@ $imported-modules: () !default;
   // The next time exports is called for the module of the same name, it will be
   // found in the list and so nothing will be outputted.
 }
-
-/// Export module (deprecated)
-///
-/// @alias nhsuk-exports
-/// @deprecated To be removed in v10.0, replaced by nhsuk-exports
-
-@mixin govuk-exports($args...) {
-  @include nhsuk-warning("govuk-exports", "govuk-exports is deprecated. Use nhsuk-exports instead.");
-  @include nhsuk-exports($args...) {
-    @content;
-  }
-}
