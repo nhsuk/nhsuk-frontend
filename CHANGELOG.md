@@ -148,6 +148,18 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
+#### Stop using the `nhsuk-button--disabled` class on buttons
+
+We've removed support for the `nhsuk-button--disabled` class.
+
+For the [button component](https://service-manual.nhs.uk/design-system/components/buttons), remove any references to the `nhsuk-button--disabled` class.
+
+Use the [`disabled` HTML boolean attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/disabled) to mark `<button>` elements as being disabled instead.
+
+We no longer support link buttons being disabled or using disabled styles.
+
+This change was introduced in [#1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075)
+
 #### Update links in the error summary to the first checkbox or radio item
 
 If you've linked from an [error summary](https://design-system.service.gov.uk/components/error-summary/) component to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component, the link may no longer work.
