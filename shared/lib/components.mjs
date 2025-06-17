@@ -50,7 +50,7 @@ export async function getNames() {
 }
 
 /**
- * Convert macro option params to JSON format
+ * Convert macro option params to array of options
  *
  * @param {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
  * @returns {MacroOption[] | undefined} Nunjucks macro options
