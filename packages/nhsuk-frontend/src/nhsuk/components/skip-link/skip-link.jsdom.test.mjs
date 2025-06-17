@@ -1,3 +1,4 @@
+import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
@@ -14,7 +15,12 @@ describe('Skip link', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+      ${components.render('skip-link', {
+        context: {
+          href: '#maincontent',
+          text: 'Skip to main content'
+        }
+      })}
 
       <div class="nhsuk-width-container">
         <main class="nhsuk-main-wrapper" id="maincontent">

@@ -11,7 +11,7 @@ module.exports = function () {
       'Disposing Browser',
 
       // Ignore success messages
-      'COMMAND',
+      'COMMAND | Executing',
       'compare | OK',
 
       // Ignore report messages

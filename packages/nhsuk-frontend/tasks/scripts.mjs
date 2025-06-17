@@ -1,8 +1,8 @@
 import { join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { scripts, task } from '@nhsuk/frontend-tasks'
-import { glob } from 'glob'
 import gulp from 'gulp'
 
 export const compile = gulp.series(
@@ -10,10 +10,9 @@ export const compile = gulp.series(
    * Transform NHS.UK frontend scripts
    */
   task.name('scripts:transform', async () => {
-    const modulePaths = await glob('nhsuk/components/**/*.mjs', {
+    const modulePaths = await getListing('nhsuk/components/**/*.mjs', {
       cwd: join(config.paths.pkg, 'src'),
-      ignore: ['**/*.test.{cjs,js,mjs}'],
-      nodir: true
+      ignore: ['**/macro-options.mjs', '**/*.test.{cjs,js,mjs}']
     })
 
     // Create Rollup bundle(s)
