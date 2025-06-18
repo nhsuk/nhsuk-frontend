@@ -66,4 +66,8 @@
   .nhsuk-width-container-fluid {
     @include nhsuk-width-container-fluid;
   }
+
+  .app-width-container--wide {
+    @include nhsuk-width-container(1200px);
+  }
 }
