@@ -30,7 +30,7 @@ export function compileCSS(done) {
           'color-functions',
           'global-builtin',
           'import',
-          // 'mixed-decls'
+          'mixed-decls'
         ],
         sourceMap: true,
         sourceMapIncludeSources: true
