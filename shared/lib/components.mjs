@@ -5,6 +5,8 @@ import { getDirectories } from '@nhsuk/frontend-lib/files.mjs'
 import camelCase from 'lodash/camelCase.js'
 import nunjucks from 'nunjucks'
 
+const { NODE_ENV } = process.env
+
 // Nunjucks default environment
 const env = nunjucksEnv()
 
@@ -15,7 +17,11 @@ const env = nunjucksEnv()
  * @param {ConfigureOptions} [nunjucksOptions] - Nunjucks options (optional)
  */
 export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
-  searchPaths.push(join(paths.pkg, 'src'))
+  searchPaths.push(
+    NODE_ENV === 'test'
+      ? join(paths.pkg, 'src') // Use source files for tests
+      : join(paths.pkg, 'dist') // Use build output for review
+  )
 
   // Nunjucks environment
   return nunjucks.configure(searchPaths, {
