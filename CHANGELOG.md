@@ -64,7 +64,7 @@ with:
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
-These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support] (https://github.com/nhsuk-frontend/pull/1327).
+These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support](https://github.com/nhsuk-frontend/pull/1327).
 
 #### Update header component params
 
