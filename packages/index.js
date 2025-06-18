@@ -7,6 +7,7 @@ const initCheckboxes = require('./components/checkboxes/checkboxes')
 const initDetails = require('./components/details/details')
 const initErrorSummary = require('./components/error-summary/error-summary')
 const initHeader = require('./components/header/header')
+const initNotificationBanner = require('./components/notification-banner/notification-banner')
 const initRadios = require('./components/radios/radios')
 const initSkipLink = require('./components/skip-link/skip-link')
 const initTabs = require('./components/tabs/tabs')
@@ -29,6 +30,7 @@ function initAll(scope) {
   initCheckboxes({ scope })
   initDetails({ scope })
   initErrorSummary({ scope })
+  initNotificationBanner({ scope })
   initRadios({ scope })
   initTabs({ scope })
 }
@@ -40,6 +42,7 @@ module.exports = {
   initDetails,
   initErrorSummary,
   initHeader,
+  initNotificationBanner,
   initRadios,
   initSkipLink,
   initTabs,

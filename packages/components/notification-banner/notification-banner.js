@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
+const { setFocus } = require('../../common')
+
 /**
  * Notification banner component
  *
@@ -32,8 +34,7 @@ class NotificationBanner {
       this.$root.getAttribute('role') === 'alert' &&
       !config.disableAutoFocus
     ) {
-      console.log('Javascript running')
-      this.$root.focus()
+      setFocus(this.$root)
     }
   }
 }

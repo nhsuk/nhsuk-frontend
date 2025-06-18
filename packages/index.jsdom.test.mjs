@@ -6,6 +6,7 @@ import {
   initDetails,
   initErrorSummary,
   initHeader,
+  initNotificationBanner,
   initRadios,
   initSkipLink,
   initTabs
@@ -18,6 +19,7 @@ jest.mock('./components/checkboxes/checkboxes.js')
 jest.mock('./components/details/details.js')
 jest.mock('./components/error-summary/error-summary.js')
 jest.mock('./components/header/header.js')
+jest.mock('./components/notification-banner/notification-banner.js')
 jest.mock('./components/radios/radios.js')
 jest.mock('./components/skip-link/skip-link.js')
 jest.mock('./components/tabs/tabs.js')
@@ -35,6 +37,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initDetails')
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
+      expect(NHSUKFrontend).toHaveProperty('initNotificationBanner')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initSkipLink')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
@@ -51,6 +54,7 @@ describe('NHS.UK frontend', () => {
       expect(initDetails).toHaveBeenCalled()
       expect(initErrorSummary).toHaveBeenCalled()
       expect(initHeader).toHaveBeenCalled()
+      expect(initNotificationBanner).toHaveBeenCalled()
       expect(initRadios).toHaveBeenCalled()
       expect(initSkipLink).toHaveBeenCalled()
       expect(initTabs).toHaveBeenCalled()
@@ -69,6 +73,7 @@ describe('NHS.UK frontend', () => {
       expect(initCheckboxes).toHaveBeenCalledWith({ scope })
       expect(initDetails).toHaveBeenCalledWith({ scope })
       expect(initErrorSummary).toHaveBeenCalledWith({ scope })
+      expect(initNotificationBanner).toHaveBeenCalledWith({ scope })
       expect(initRadios).toHaveBeenCalledWith({ scope })
       expect(initTabs).toHaveBeenCalledWith({ scope })
     })
