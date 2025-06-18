@@ -4,38 +4,57 @@
 ////
 /// Page width for the grid system
 ///
-/// 1. On mobile, add half width gutters
-/// 2. Limit the width of the container to the page width
-/// 3. From desktop, add full width gutters
-/// 4. As soon as the viewport is greater than the width of the page plus the
-///    gutters, just centre the content instead of adding gutters.
-/// 5. Full width container, spanning the entire width of the viewport
-///
 /// @group objects
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
-@mixin nhsuk-width-container {
-  margin: 0 $nhsuk-gutter-half; // [1]
+////
+/// Width container mixin
+///
+/// Used to create page width and custom width container classes.
+///
+/// @param {String} $width [$nhsuk-page-width] - Width in pixels
+///
+/// @example scss - Creating a 1200px wide container class
+///   .app-width-container--wide {
+///     @include nhsuk-width-container(1200px);
+///   }
+////
 
-  max-width: $nhsuk-page-width; // [2]
+@mixin nhsuk-width-container($width: $nhsuk-page-width) {
+  // By default, limit the width of the container to the page width
+  max-width: $width;
 
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // On desktop, add full width gutters
   @include nhsuk-media-query($from: desktop) {
-    margin: 0 $nhsuk-gutter; // [3]
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
   }
 
-  // [4]
-  @include nhsuk-media-query($and: "(min-width: #{($nhsuk-page-width + $nhsuk-gutter * 2)})") {
-    margin: 0 auto;
+  // As soon as the viewport is greater than the width of the page plus the
+  // gutters, just centre the content instead of adding gutters.
+  @include nhsuk-media-query($and: "(min-width: #{($width + $nhsuk-gutter * 2)})") {
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 @mixin nhsuk-width-container-fluid {
-  margin: 0 $nhsuk-gutter-half;
-  max-width: 100%; // [5]
+  // Full width container, spanning the entire width of the viewport
+  max-width: 100%;
 
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // On desktop, add full width gutters
   @include nhsuk-media-query($from: desktop) {
-    margin: 0 $nhsuk-gutter; // [3]
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
   }
 }
 
