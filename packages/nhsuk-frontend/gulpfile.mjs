@@ -5,13 +5,33 @@ import gulp from 'gulp'
 
 import { assets, fixtures, release, scripts, styles } from './tasks/index.mjs'
 
-gulp.task('styles', styles.compile)
-gulp.task('scripts', scripts.compile)
-gulp.task('fixtures', fixtures.compile)
+/**
+ * Utility tasks
+ */
 gulp.task('assets', assets.copy)
-gulp.task('build', gulp.parallel('styles', 'scripts', 'fixtures', 'assets'))
+gulp.task('fixtures', fixtures.compile)
+gulp.task('scripts', scripts.compile)
+gulp.task('styles', styles.compile)
+
+/**
+ * NHS.UK frontend build
+ */
+gulp.task(
+  'build',
+  gulp.parallel(
+    gulp.series('styles', 'scripts', 'assets'),
+    gulp.series('fixtures')
+  )
+)
+
+/**
+ * GitHub release distribution
+ */
 gulp.task('release', gulp.series(release.copy, release.zip))
 
+/**
+ * Development tasks
+ */
 gulp.task('watch', () =>
   Promise.all([
     /**
