@@ -6,17 +6,14 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      {% set html %}
+      {% call notificationBanner({
+        type: "success"
+      }) %}
         <h3 class="nhsuk-notification-banner__heading">
           The patient record was updated
         </h3>
         <p class="nhsuk-body">Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there’s a problem.</p>
-      {% endset %}
-
-      {{ notificationBanner({
-        html: html,
-        type: "success"
-      }) }}
+      {% endcall %}
     </div>
   </div>
 
