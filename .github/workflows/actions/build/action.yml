@@ -38,9 +38,7 @@ runs:
       id: cache-build
       with:
         key: build-${{ inputs.ref || github.sha }}
-        path: |
-          dist
-          packages/*/dist
+        path: packages/*/dist/
 
     - name: Install dependencies only
       if: ${{ steps.cache-build.outputs.cache-hit == 'true' }}
@@ -59,9 +57,7 @@ runs:
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.cache-build.outputs.cache-primary-key }}
-        path: |
-          dist
-          packages/*/dist
+        path: packages/*/dist/
 
     - name: Restore branch or SHA
       if: ${{ !cancelled() && inputs.ref }}

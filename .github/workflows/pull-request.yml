@@ -73,9 +73,7 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
-          path: |
-            dist
-            packages/*/dist
+          path: packages/*/dist/
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -123,9 +121,7 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
-          path: |
-            dist
-            packages/*/dist
+          path: packages/*/dist/
 
       - name: Setup Node
         uses: actions/setup-node@v4
