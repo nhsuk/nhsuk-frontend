@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
 /**
  * Notification banner component
  *
