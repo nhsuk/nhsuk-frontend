@@ -1,4 +1,5 @@
 name: Build and diff
+description: Install and build NHS.UK frontend, checking for review app changes
 
 outputs:
   changes:

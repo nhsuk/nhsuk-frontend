@@ -1,4 +1,5 @@
 name: Build
+description: Install and build NHS.UK frontend, restoring from cache if possible
 
 inputs:
   ref:
