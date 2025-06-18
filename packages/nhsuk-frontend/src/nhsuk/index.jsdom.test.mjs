@@ -5,6 +5,7 @@ import {
   initCheckboxes,
   initErrorSummary,
   initHeader,
+  initNotificationBanners,
   initRadios,
   initSkipLinks,
   initTabs
@@ -16,6 +17,7 @@ jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
 jest.mock('./components/error-summary/error-summary.mjs')
 jest.mock('./components/header/header.mjs')
+jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/radios/radios.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
 jest.mock('./components/tabs/tabs.mjs')
@@ -36,6 +38,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
+      expect(NHSUKFrontend).toHaveProperty('initNotificationBanners')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
@@ -59,6 +62,7 @@ describe('NHS.UK frontend', () => {
       expect(initCheckboxes).not.toHaveBeenCalled()
       expect(initErrorSummary).not.toHaveBeenCalled()
       expect(initHeader).not.toHaveBeenCalled()
+      expect(initNotificationBanners).not.toHaveBeenCalled()
       expect(initRadios).not.toHaveBeenCalled()
       expect(initSkipLinks).not.toHaveBeenCalled()
       expect(initTabs).not.toHaveBeenCalled()
@@ -72,6 +76,7 @@ describe('NHS.UK frontend', () => {
       expect(initCheckboxes).toHaveBeenCalled()
       expect(initErrorSummary).toHaveBeenCalled()
       expect(initHeader).toHaveBeenCalled()
+      expect(initNotificationBanners).toHaveBeenCalled()
       expect(initRadios).toHaveBeenCalled()
       expect(initSkipLinks).toHaveBeenCalled()
       expect(initTabs).toHaveBeenCalled()
@@ -87,6 +92,7 @@ describe('NHS.UK frontend', () => {
       expect(initCheckboxes).toHaveBeenCalledWith({ scope })
       expect(initErrorSummary).toHaveBeenCalledWith({ scope })
       expect(initHeader).toHaveBeenCalledWith({ scope })
+      expect(initNotificationBanners).toHaveBeenCalledWith({ scope })
       expect(initRadios).toHaveBeenCalledWith({ scope })
       expect(initSkipLinks).toHaveBeenCalledWith({ scope })
       expect(initTabs).toHaveBeenCalledWith({ scope })
