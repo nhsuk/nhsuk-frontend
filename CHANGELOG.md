@@ -140,7 +140,7 @@ This change ensures consistency with other components, where `text` or `html` pa
 
 This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
 
-#### Stop using deprecated 24 point on the typography scale
+#### Remove deprecated 24 point on the typography scale
 
 The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
@@ -148,7 +148,7 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
-#### Stop using the `nhsuk-button--disabled` class on buttons
+#### Remove the `nhsuk-button--disabled` class from buttons
 
 We've removed support for the `nhsuk-button--disabled` class.
 
