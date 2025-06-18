@@ -1,9 +1,10 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
+$nhsuk-notification-banner-background-color: $color_nhsuk-grey-5 !default;
+
 .nhsuk-notification-banner {
   border: $nhsuk-border-width solid $color_nhsuk-blue;
-  background-color: $color_nhsuk-blue;
 
   @include nhsuk-font($size: 19);
   @include nhsuk-responsive-margin(8, "bottom");
@@ -15,6 +16,7 @@
 
 .nhsuk-notification-banner__header {
   padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
+  background-color: $color_nhsuk-blue;
 
   // Ensures the notification header appears separate to the notification body
   // text in high contrast mode
@@ -38,7 +40,6 @@
 .nhsuk-notification-banner__content {
   $padding-tablet: nhsuk-spacing(4);
   padding: nhsuk-spacing(3);
-  background-color: $color_nhsuk-white;
 
   @include nhsuk-text-color;
   @include nhsuk-media-query($from: tablet) {
@@ -80,7 +81,9 @@
 .nhsuk-notification-banner--success {
   border-color: $nhsuk-success-color;
 
-  background-color: $nhsuk-success-color;
+  .nhsuk-notification-banner__header {
+    background-color: $nhsuk-success-color;
+  }
 
   .nhsuk-notification-banner__link {
     @include nhsuk-link-style-success;
