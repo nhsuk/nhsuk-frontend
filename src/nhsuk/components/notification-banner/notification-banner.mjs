@@ -3,7 +3,7 @@ import { Component } from '../../component.mjs'
 /**
  * Notification banner component
  *
- * Adapted from https://github.com/alphagov/govuk-frontend/blob/main/packages/govuk-frontend/src/govuk/components/notification-banner/notification-banner.mjs
+ * Adapted from https://github.com/alphagov/govuk-frontend/blob/v5.10.2/packages/govuk-frontend/src/govuk/components/notification-banner/notification-banner.mjs
  */
 export class NotificationBanner extends Component {
   /**
