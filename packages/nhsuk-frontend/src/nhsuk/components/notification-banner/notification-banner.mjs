@@ -1,3 +1,4 @@
+import { setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 
 /**
@@ -28,7 +29,7 @@ export class NotificationBanner extends Component {
       this.$root.getAttribute('role') === 'alert' &&
       !config.disableAutoFocus
     ) {
-      this.$root.focus()
+      setFocus(this.$root)
     }
   }
 
