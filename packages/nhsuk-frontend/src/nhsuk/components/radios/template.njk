@@ -43,8 +43,9 @@
   }) | indent(2) | trim }}
 {% endif %}
   <div class="nhsuk-radios
-  {%- if params.classes %} {{ params.classes }}{% endif %} {%- if isConditional %} nhsuk-radios--conditional{% endif -%}"
-  {{- nhsukAttributes(params.attributes) }}>
+    {%- if params.classes %} {{ params.classes }}{% endif %}
+    {%- if isConditional %} nhsuk-radios--conditional{% endif %}"
+    {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-radios">
     {%- for item in params.items %}
     {%- set id = item.id if item.id else idPrefix + ("-" + loop.index if loop.index > 1 else "") %}
     {% set conditionalId = "conditional-" + id %}
