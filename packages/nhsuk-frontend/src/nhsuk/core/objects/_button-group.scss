@@ -41,8 +41,9 @@
     //
     // Because we want the focus state to be tight around the link text, we use
     // margins where the buttons would use padding.
-    .nhsuk-link,
-    a:not(.nhsuk-button) {
+    .nhsuk-link:not(span a),
+    span,
+    a:not(.nhsuk-button):not(span a) {
       display: inline-block;
       // Prevent links overflowing their container in IE10/11 because of bug
       // with align-items: center
