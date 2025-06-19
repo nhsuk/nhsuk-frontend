@@ -210,6 +210,7 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 - [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
+- [#1411: Fix card heading margin above custom HTML content](https://github.com/nhsuk/nhsuk-frontend/issues/1411)
 
 ## 9.6.2 - 9 June 2025
 
