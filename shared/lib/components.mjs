@@ -37,8 +37,23 @@ export async function getData(component) {
     `src/nhsuk/components/${component}/macro-options.mjs`
   )
 
+  const collator = new Intl.Collator('en', {
+    ignorePunctuation: true,
+    sensitivity: 'base'
+  })
+
   // Bypass import cache (e.g. gulp watch changes)
-  const options = await import(`${optionsPath}?imported=${Date.now()}`)
+  const options = /** @type {Omit<ComponentData, "component">} */ (
+    await import(`${optionsPath}?imported=${Date.now()}`)
+  )
+
+  // Sort examples by name, default at top
+  options.examples.sort((exampleA, exampleB) =>
+    collator.compare(
+      exampleA.name.replace('default', ''),
+      exampleB.name.replace('default', '')
+    )
+  )
 
   // Add component directory name to options
   return { component, ...options }
