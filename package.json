@@ -27,8 +27,6 @@
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
     "build": "gulp build docs:build --color --series",
-    "heroku-postbuild": "npm run build",
-    "postheroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm ci --omit=dev --omit=optional",
     "prestart": "npm run build",
     "start": "gulp --color",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:prettier",
@@ -50,9 +48,6 @@
     "test:visual:clean": "rm -rf tests/backstop/bitmaps_test/*",
     "test:visual:cli": "concurrently \"gulp docs:serve --color\" \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --success first"
   },
-  "dependencies": {
-    "browser-sync": "^3.0.4"
-  },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
@@ -65,6 +60,7 @@
     "babel-jest": "^29.7.0",
     "babel-loader": "^10.0.0",
     "backstopjs": "^6.3.25",
+    "browser-sync": "^3.0.4",
     "concurrently": "^9.1.2",
     "cssnano": "^7.0.6",
     "del": "^8.0.0",
