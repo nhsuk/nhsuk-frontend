@@ -64,7 +64,7 @@ with:
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
-These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support] (https://github.com/nhsuk-frontend/pull/1327).
+These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support](https://github.com/nhsuk-frontend/pull/1327).
 
 #### Update header component params
 
@@ -140,7 +140,7 @@ This change ensures consistency with other components, where `text` or `html` pa
 
 This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
 
-#### Stop using deprecated 24 point on the typography scale
+#### Remove deprecated 24 point on the typography scale
 
 The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
@@ -148,7 +148,7 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
-#### Stop using the `nhsuk-button--disabled` class on buttons
+#### Remove the `nhsuk-button--disabled` class from buttons
 
 We've removed support for the `nhsuk-button--disabled` class.
 
@@ -159,6 +159,55 @@ Use the [`disabled` HTML boolean attribute](https://developer.mozilla.org/en-US/
 We no longer support link buttons being disabled or using disabled styles.
 
 This change was introduced in [#1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075)
+
+#### Remove deprecated Sass mixins and functions
+
+We've removed the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` and `govuk-main-wrapper--s()` Sass mixins we deprecated in [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
+
+Remove any use of these mixins in your own Sass. You must replace them with the `.nhsuk-main-wrapper`, `.nhsuk-main-wrapper--l` and `.nhsuk-main-wrapper--s` classes in your HTML.
+
+If you're using the `nhsuk-grid-column()` Sass mixin to create custom grid classes, you must remove the `$class` parameter:
+
+Before:
+
+```scss
+.app-grid-column-one-quarter-at-desktop {
+  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
+}
+```
+
+After:
+
+```scss
+.app-grid-column-one-quarter-at-desktop {
+  @include nhsuk-grid-column(one-quarter, $at: desktop);
+}
+```
+
+See the full list of previously deprecated features below:
+
+**Sass mixins**
+
+The following mixins have been removed:
+
+- `govuk-exports` replaced with `nhsuk-exports`
+- `govuk-grid-column` replaced with `nhsuk-grid-column`
+- `govuk-grid-row` replaced with `.nhsuk-grid-row` HTML class
+- `govuk-shape-arrow` replaced with `nhsuk-shape-arrow`
+- `govuk-width-container` replaced with `nhsuk-width-container`
+- `grid-width` replaced with `nhsuk-grid-width`
+
+**Sass functions**
+
+The following deprecated functions have been removed:
+
+- `tint` replaced with `nhsuk-tint`
+- `shade` replaced with `nhsuk-shade`
+- `iff` replaced with [Sass `if` function](https://sass-lang.com/documentation/modules/#if)
+
+This change was introduced in [#1409: Remove deprecated features marked for removal in v10](https://github.com/nhsuk/nhsuk-frontend/pull/1409).
+
+See the [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [NHS.UK frontend v9.6.0 release notes](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0) for more details on previously deprecated features.
 
 #### Update links in the error summary to the first checkbox or radio item
 

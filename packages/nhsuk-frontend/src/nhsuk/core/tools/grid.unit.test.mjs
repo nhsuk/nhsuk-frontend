@@ -45,63 +45,13 @@ describe('Grid system', () => {
     })
   })
 
-  describe('@mixin nhsuk-grid-row', () => {
-    it('outputs default defined styles for .nhsuk-grid-row class', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-row;
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .nhsuk-grid-row {
-          margin-right: -16px;
-          margin-left: -16px;
-        }
-        .nhsuk-grid-row::after {
-          clear: both;
-          content: \"\";
-          display: block;
-        }
-      `)
-    })
-
-    it('outputs styles for the specified class', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-row("app-grid-row");
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .app-grid-row {
-          margin-right: -16px;
-          margin-left: -16px;
-        }
-        .app-grid-row::after {
-          clear: both;
-          content: \"\";
-          display: block;
-        }
-      `)
-    })
-  })
-
   describe('@mixin nhsuk-grid-column', () => {
     it('outputs the CSS required for a column in the grid', async () => {
       const sass = `
         ${sassModules}
 
         .nhsuk-grid-column-full {
-          @include nhsuk-grid-column($class: false);
+          @include nhsuk-grid-column;
         }
       `
 
@@ -129,7 +79,7 @@ describe('Grid system', () => {
         ${sassModules}
 
         .nhsuk-grid-column-two-thirds {
-          @include nhsuk-grid-column(two-thirds, $class: false);
+          @include nhsuk-grid-column(two-thirds);
         }
       `
 
@@ -157,7 +107,7 @@ describe('Grid system', () => {
         ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-desktop {
-          @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
+          @include nhsuk-grid-column(one-quarter, $at: desktop);
         }
       `
 
@@ -185,7 +135,7 @@ describe('Grid system', () => {
         ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-500px {
-          @include nhsuk-grid-column(one-quarter, $at: 500px, $class: false);
+          @include nhsuk-grid-column(one-quarter, $at: 500px);
         }
       `
 
@@ -213,7 +163,7 @@ describe('Grid system', () => {
         ${sassModules}
 
         .nhsuk-grid-column-one-half-right {
-          @include nhsuk-grid-column(one-half, $float: right, $class: false);
+          @include nhsuk-grid-column(one-half, $float: right);
         }
       `
 
@@ -231,58 +181,6 @@ describe('Grid system', () => {
           .nhsuk-grid-column-one-half-right {
             width: 50%;
             float: right;
-          }
-        }
-      `)
-    })
-
-    it('includes the class name by default (deprecated)', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-column();
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .nhsuk-grid-column-full {
-          box-sizing: border-box;
-          width: 100%;
-          padding: 0 16px;
-        }
-        @media (min-width: 48.0625em) {
-          .nhsuk-grid-column-full {
-            width: 100%;
-            float: left;
-          }
-        }
-      `)
-    })
-
-    it('allows the class name to be overridden (deprecated)', async () => {
-      const sass = `
-        ${sassModules}
-
-        @include nhsuk-grid-column(three-quarters, $class: "large-column");
-      `
-
-      const results = await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-      })
-
-      expect(results.css).toBe(outdent`
-        .large-column-three-quarters {
-          box-sizing: border-box;
-          width: 100%;
-          padding: 0 16px;
-        }
-        @media (min-width: 48.0625em) {
-          .large-column-three-quarters {
-            width: 75%;
-            float: left;
           }
         }
       `)
