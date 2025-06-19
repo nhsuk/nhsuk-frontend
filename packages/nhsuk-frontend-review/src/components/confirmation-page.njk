@@ -1,0 +1,53 @@
+{% extends 'page.njk' %}
+
+{% set title = 'Confirmation page' %}
+
+{% block header %}
+  {{ header({
+  }) }}
+{% endblock %}
+
+{% block content %}
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+
+            {{ panel({
+                titleText: "Booking complete",
+                html: "We have sent you a confirmation email"
+            }) }}
+
+            <h2 class="nhsuk-heading-m">Your appointment details</h2>
+
+                {{ summaryList({
+                classes: 'nhsuk-summary-list--no-border',
+                rows: [
+                    {
+                        key: {
+                            text: "Site location"
+                        },
+                        value: {
+                            html: "St Georges Pharmacy<br>46 St George's Rd,<br>Elephant and Castle,<br>London<br>SE1 6ET<br>
+                            <a href='#'>Map and directions (opens in a new tab)</a>"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Date and time"
+                        },
+                        value: {
+                            text: "Thursday 15 June at 9:10am"
+                        }
+                    }
+                ]
+                }) }}
+
+            <p><a href="#" class="nhsuk-link">Tell us about your experience using this service (opens in a new tab)</a></p>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+  }) }}
+{% endblock %}

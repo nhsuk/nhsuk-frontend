@@ -1,0 +1,86 @@
+{% extends 'page.njk' %}
+
+{% set title = 'Mini-hub' %}
+
+{% block header %}
+  {{ header({
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      }
+    ],
+    href: "#",
+    text: "Health A to Z"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span role="text">
+          What is AMD?
+          <span class="nhsuk-caption-xl nhsuk-caption--bottom">
+            <span class="nhsuk-u-visually-hidden">
+            -
+            </span>
+              Age-related macular degeneration (AMD)
+          </span>
+        </span>
+      </h1>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "#",
+            text: "What is AMD?",
+            current: "true"
+          },
+          {
+            href: "#",
+            text: "Symptoms"
+          },
+          {
+            href: "#",
+            text: "Getting diagnosed"
+          }
+          ,
+          {
+            href: "#",
+            text: "Treatments"
+          }
+          ,
+          {
+            href: "#",
+            text: "Living with AMD"
+          }
+        ]
+      }) }}
+
+      <ul>
+        <li><strong>Age-related macular degeneration (AMD) is a common condition that affects the middle part of your vision.</strong> It usually first affects people in their 50s and 60s.</li>
+        <li><strong>It doesn't cause total blindness.</strong> But it can make everyday activities like reading and recognising faces difficult.</li>
+        <li><strong>Without treatment, your vision may get worse.</strong> This can happen gradually over several years ("dry AMD"), or quickly over a few weeks or months ("wet AMD").</li>
+        <li><strong>The exact cause is unknown.</strong> It's been linked to smoking, high blood pressure, being overweight and having a family history of AMD.</li>
+      </ul>
+
+      <p class="nhsuk-body-s nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color">
+        Page last reviewed: 27 March 2018<br>
+        Next review due: 27 March 2021
+      </p>
+
+      {{ pagination({
+        nextUrl: "#",
+        nextPage: "Symptoms"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

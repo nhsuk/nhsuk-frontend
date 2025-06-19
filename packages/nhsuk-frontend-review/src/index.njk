@@ -18,9 +18,13 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">NHS.UK frontend</h1>
       <p class="nhsuk-body">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
-
-      <h2 class="nhsuk-heading-l">Components and variants</h2>
       <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+      <h2 class="nhsuk-heading-l">Components and variants</h2>
 
       <ul class="nhsuk-list">
         <li><a href="components/action-link/index.html">Action link</a></li>
@@ -162,29 +166,28 @@
         <li><a href="components/warning-callout/index.html">Warning callout</a></li>
         <li><a href="components/warning-callout/custom-heading.html">Warning callout with custom heading</a></li>
       </ul>
+    </div>
 
+    <div class="nhsuk-grid-column-one-half">
       <h2 class="nhsuk-heading-l">Example pages</h2>
 
-      {{ contentsList({
-        items: [
-          {
-            href: "components/all.html",
-            text: "All component examples"
-          },
-          {
-            href: "components/all-buttons.html",
-            text: "All button examples"
-          },
-          {
-            href: "components/all-links.html",
-            text: "All link examples"
-          },
-          {
-            href: "components/typography.html",
-            text: "Typography and spacing examples"
-          }
-        ]
-      }) }}
+      <ul class="nhsuk-list">
+        <li><a href="components/a-to-z-page.html">A to Z page</a></li>
+        <li><a href="components/confirmation-page.html">Confirmation page</a></li>
+        <li><a href="components/mini-hub.html">Mini-hub</a></li>
+        <li><a href="components/start-page.html">Start page</a></li>
+      </ul>
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+      <h2 class="nhsuk-heading-l">Test pages</h2>
+
+      <ul class="nhsuk-list">
+        <li><a href="components/all.html">All component examples</a></li>
+        <li><a href="components/all-buttons.html">All button examples</a></li>
+        <li><a href="components/all-links.html">All link examples</a></li>
+        <li><a href="components/typography.html">Typography and spacing examples</a></li>
+      </ul>
     </div>
   </div>
 
