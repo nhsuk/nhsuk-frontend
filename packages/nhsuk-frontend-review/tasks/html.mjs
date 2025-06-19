@@ -27,7 +27,6 @@ export const compile = task.name('html:render', async () => {
   // Configure Nunjucks
   const env = nunjucksEnv([
     join(config.paths.app, 'src'),
-    join(config.paths.app, 'src/_templates'),
     join(config.paths.pkg, 'src')
   ])
 
