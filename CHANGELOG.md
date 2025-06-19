@@ -249,6 +249,28 @@ You do not need to do this if you specified an `id` for the individual checkbox 
 
 This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
 
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
 :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:

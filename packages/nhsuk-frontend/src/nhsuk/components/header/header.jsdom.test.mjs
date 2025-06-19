@@ -195,6 +195,48 @@ describe('Header class', () => {
       )
     })
 
+    it('should stay open when resized down', async () => {
+      listWidth = 700
+
+      initHeader()
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      listWidth = 500
+
+      // Trigger resize
+      fireEvent.resize(window)
+      await setTimeout(100)
+
+      // Menu open (still)
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+    })
+
+    it('should close menu when resized up', async () => {
+      listWidth = 700
+
+      initHeader()
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      listWidth = 900
+
+      // Trigger resize
+      fireEvent.resize(window)
+      await setTimeout(100)
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+
     it('should close menu via escape key', async () => {
       listWidth = 700
 
