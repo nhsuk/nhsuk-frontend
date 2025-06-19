@@ -87,8 +87,53 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      name: 'more-detail',
+      id: 'more-detail',
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  {
+    name: 'with error message',
+    options: {
+      name: 'no-ni-reason',
+      id: 'no-ni-reason',
+      label: {
+        text: "Why can't you provide an NHS number?"
+      },
+      errorMessage: {
+        text: 'You must provide an explanation'
+      }
+    }
+  },
+  {
+    name: 'with autocomplete attribute',
+    options: {
+      name: 'address',
+      id: 'textarea-with-autocomplete-attribute',
+      label: {
+        text: 'Full address'
+      },
+      autocomplete: 'street-address'
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

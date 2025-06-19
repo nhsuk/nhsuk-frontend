@@ -254,8 +254,613 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      logo: {
+        href: '#'
+      },
+      search: true,
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy'
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with service name',
+    options: {
+      logo: {
+        href: '#nhs',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'Find your NHS number',
+        href: '#'
+      }
+    }
+  },
+  {
+    name: 'with navigation',
+    options: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy'
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with search',
+    options: {
+      logo: {
+        href: '#'
+      },
+      search: true
+    }
+  },
+  {
+    name: 'with logo',
+    options: {
+      logo: {
+        href: '#'
+      }
+    }
+  },
+  {
+    name: 'with logo unlinked',
+    options: {}
+  },
+  {
+    name: 'with account (logged in)',
+    options: {
+      service: {
+        href: '#',
+        text: 'Manage patients'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'florence.nightingale@nhs.net',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with account (logged out)',
+    options: {
+      service: {
+        href: '#',
+        text: 'Manage patients'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with account, search, navigation (logged in, complex)',
+    options: {
+      service: {
+        href: '#',
+        text: 'Manage patients'
+      },
+      search: {
+        placeholder: 'Name or NHS number',
+        visuallyHiddenLabel: 'Search patients by name or NHS number'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Florence Nightingale',
+            icon: true
+          },
+          {
+            text: 'Regional Manager, Hull and East Yorkshire Hospitals NHS Trust'
+          },
+          {
+            href: '#',
+            text: 'Change role'
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Home'
+          },
+          {
+            href: '#',
+            text: 'Create user'
+          },
+          {
+            href: '#',
+            text: 'Find user'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with service name, account, search and navigation',
+    options: {
+      service: {
+        text: 'Search patient directory',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Name or NHS number',
+        visuallyHiddenLabel: 'Search patients by name or NHS number'
+      },
+      account: {
+        items: [
+          {
+            text: 'Florence Nightingale',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Home'
+          },
+          {
+            href: '#',
+            text: 'Patient list'
+          },
+          {
+            href: '#',
+            text: 'Advanced search'
+          },
+          {
+            href: '#',
+            text: 'Help guides'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with service name, search and navigation',
+    options: {
+      logo: {
+        href: '#'
+      },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Standards and technology'
+          },
+          {
+            href: '#',
+            text: 'Design system',
+            current: true
+          },
+          {
+            href: '#',
+            text: 'Content style guide'
+          },
+          {
+            href: '#',
+            text: 'Accessibility'
+          },
+          {
+            href: '#',
+            text: 'Community and contribution'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'with service name combined with logo',
+    options: {
+      service: {
+        text: 'Prototype kit',
+        href: '#'
+      }
+    }
+  },
+  {
+    name: 'with service name unlinked',
+    options: {
+      logo: {
+        href: '#',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'Find your NHS number'
+      }
+    }
+  },
+  {
+    name: 'with navigation justified',
+    options: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        classes: 'nhsuk-header__navigation--justified',
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy'
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational with search',
+    options: {
+      logo: {
+        href: '#'
+      },
+      organisation: {
+        name: 'Anytown Anyplace',
+        split: 'Anywhere',
+        descriptor: 'NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+      }
+    }
+  },
+  {
+    name: 'organisational with search, navigation',
+    options: {
+      logo: {
+        href: '#'
+      },
+      organisation: {
+        name: 'Anytown Anyplace',
+        split: 'Anywhere',
+        descriptor: 'NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Your hospital visit'
+          },
+          {
+            href: '#',
+            text: 'Wards and departments',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'Conditions and treatments'
+          },
+          {
+            href: '#',
+            text: 'Our people'
+          },
+          {
+            href: '#',
+            text: 'Join our team'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational white with search',
+    options: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#'
+      },
+      organisation: {
+        name: 'Anytown Anyplace',
+        split: 'Anywhere',
+        descriptor: 'NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+      }
+    }
+  },
+  {
+    name: 'organisational white with search, navigation',
+    options: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#'
+      },
+      organisation: {
+        name: 'Anytown Anyplace',
+        split: 'Anywhere',
+        descriptor: 'NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Your hospital visit'
+          },
+          {
+            href: '#',
+            text: 'Wards and departments',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'Conditions and treatments'
+          },
+          {
+            href: '#',
+            text: 'Our people'
+          },
+          {
+            href: '#',
+            text: 'Join our team'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational white with search, navigation (white)',
+    options: {
+      classes: 'nhsuk-header--white nhsuk-header--white-navigation',
+      logo: {
+        href: '#'
+      },
+      organisation: {
+        name: 'Anytown Anyplace',
+        split: 'Anywhere',
+        descriptor: 'NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Your hospital visit'
+          },
+          {
+            href: '#',
+            text: 'Wards and departments',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'Conditions and treatments'
+          },
+          {
+            href: '#',
+            text: 'Our people'
+          },
+          {
+            href: '#',
+            text: 'Join our team'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational white with account (logged in)',
+    options: {
+      classes: 'nhsuk-header--white',
+      service: {
+        href: '#',
+        text: 'Manage patients'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'florence.nightingale@nhs.net',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational white with account (logged out)',
+    options: {
+      classes: 'nhsuk-header--white',
+      service: {
+        href: '#',
+        text: 'Manage patients'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'organisational white with search, navigation (custom logo)',
+    options: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#',
+        src: '/assets/example-logo.svg',
+        ariaLabel:
+          'Great Ormond Street Hospital for Children, NHS Foundation Trust'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the Great Ormond Street Hospital website'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Parents and families'
+          },
+          {
+            href: '#',
+            text: 'Wards and departments'
+          },
+          {
+            href: '#',
+            text: 'Conditions and treatments'
+          },
+          {
+            href: '#',
+            text: 'Learning'
+          },
+          {
+            href: '#',
+            text: 'Our research'
+          },
+          {
+            href: '#',
+            text: 'Our people'
+          },
+          {
+            href: '#',
+            text: 'Our children'
+          },
+          {
+            href: '#',
+            text: 'Hospital',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'Private care'
+          },
+          {
+            href: '#',
+            text: 'Charity'
+          }
+        ]
+      }
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

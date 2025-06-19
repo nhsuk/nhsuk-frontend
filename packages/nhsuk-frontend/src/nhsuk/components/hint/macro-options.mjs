@@ -38,8 +38,22 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      text: 'Do not include personal information, like your name, date of birth or NHS number'
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

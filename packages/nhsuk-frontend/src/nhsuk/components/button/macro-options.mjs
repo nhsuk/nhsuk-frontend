@@ -75,8 +75,158 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      text: 'Save and continue'
+    }
+  },
+  {
+    name: 'disabled',
+    options: {
+      text: 'Disabled button',
+      disabled: true
+    }
+  },
+  {
+    name: 'as a link',
+    options: {
+      text: 'Link button',
+      href: '#'
+    }
+  },
+  {
+    name: 'login',
+    options: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login'
+    }
+  },
+  {
+    name: 'login disabled',
+    options: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login',
+      disabled: true
+    }
+  },
+  {
+    name: 'login as a link',
+    options: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login',
+      href: '#'
+    }
+  },
+  {
+    name: 'with double click prevented',
+    options: {
+      text: 'Save and continue',
+      preventDoubleClick: true
+    }
+  },
+  {
+    name: 'reverse',
+    options: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse'
+    }
+  },
+  {
+    name: 'reverse disabled',
+    options: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse',
+      disabled: true
+    }
+  },
+  {
+    name: 'reverse as a link',
+    options: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse',
+      href: '#'
+    }
+  },
+  {
+    name: 'secondary',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary'
+    }
+  },
+  {
+    name: 'secondary disabled',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary',
+      disabled: true
+    }
+  },
+  {
+    name: 'secondary as a link',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary',
+      href: '#'
+    }
+  },
+  {
+    name: 'secondary – solid background',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid'
+    }
+  },
+  {
+    name: 'secondary disabled – solid background',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid',
+      disabled: true
+    }
+  },
+  {
+    name: 'secondary as a link – solid background',
+    options: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid',
+      href: '#'
+    }
+  },
+  {
+    name: 'warning',
+    options: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning'
+    }
+  },
+  {
+    name: 'warning disabled',
+    options: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning',
+      disabled: true
+    }
+  },
+  {
+    name: 'warning as a link',
+    options: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning',
+      href: '#'
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

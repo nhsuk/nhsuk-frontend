@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-export const name = 'Breadcrumbs'
+export const name = 'Breadcrumb'
 
 /**
  * Nunjucks macro option params
@@ -61,8 +61,71 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      items: [
+        {
+          href: '#',
+          text: 'Level one',
+          attributes: { lang: 'en' }
+        },
+        {
+          href: '#',
+          text: 'Level two'
+        },
+        {
+          href: '#',
+          text: 'Level three',
+          attributes: { lang: 'en' }
+        },
+        {
+          href: '#',
+          text: 'Level four',
+          classes: 'example-class-one example-class-two',
+          attributes: { lang: 'en' }
+        }
+      ]
+    }
+  },
+  {
+    name: 'reverse',
+    options: {
+      classes: 'nhsuk-breadcrumb--reverse',
+      items: [
+        {
+          href: '#',
+          text: 'Level one',
+          attributes: { lang: 'en' }
+        },
+        {
+          href: '#',
+          text: 'Level two'
+        },
+        {
+          href: '#',
+          text: 'Level three',
+          attributes: { lang: 'en' }
+        },
+        {
+          href: '#',
+          text: 'Level four',
+          classes: 'example-class-one example-class-two',
+          attributes: { lang: 'en' }
+        }
+      ]
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */
