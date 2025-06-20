@@ -403,7 +403,7 @@ $_header-link-padding: 2px;
   &[aria-current="page"],
   &[aria-current="true"] {
     text-decoration: none;
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-border-color;
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) currentcolor;
   }
 
   &:focus {
@@ -516,7 +516,7 @@ $_header-link-padding: 2px;
     height: 100%;
     bottom: 0;
     left: 0;
-    border-left: 6px solid $color_nhsuk-blue;
+    border-left: 6px solid currentcolor;
   }
 
   @include nhsuk-media-query($nhsuk-page-width + $nhsuk-gutter * 2) {
