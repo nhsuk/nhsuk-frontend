@@ -149,8 +149,8 @@ $_header-active-item-size: $nhsuk-focus-width;
 /// Account
 
 .nhsuk-header__account {
-  position: relative;
-  z-index: 10;
+  background-color: $color_shade_nhsuk-blue-20;
+  border: 1px solid $color_shade_nhsuk-blue-20;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
 
@@ -160,32 +160,12 @@ $_header-active-item-size: $nhsuk-focus-width;
     flex-shrink: 0;
   }
 
-  &,
-  &::before {
-    background-color: $color_shade_nhsuk-blue-20;
-  }
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 1px solid $color_shade_nhsuk-blue-20;
-    border-radius: $nhsuk-border-radius + 1px;
-  }
-
   @include nhsuk-media-query($from: tablet) {
     align-self: start;
 
     // Expand header account by 1px to ensure the search
     // input does not appear to be taller when inline
-    &::before {
-      top: -1px;
-      bottom: -1px;
-    }
+    margin: -1px;
   }
 }
 
@@ -558,12 +538,8 @@ $_header-active-item-size: $nhsuk-focus-width;
     }
   }
 
-  .nhsuk-header__account,
-  .nhsuk-header__account::before {
+  .nhsuk-header__account {
     background-color: $color_nhsuk-grey-5;
-  }
-
-  .nhsuk-header__account::before {
     border-color: $color_nhsuk-grey-4;
   }
 
