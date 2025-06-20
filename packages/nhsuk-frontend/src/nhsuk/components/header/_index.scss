@@ -5,6 +5,8 @@
 
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
+$_navigation-current-size: 5px;
+$_navigation-hover-size: $nhsuk-link-hover-underline-thickness;
 
 ////
 /// Header component
@@ -394,16 +396,38 @@ $_header-link-padding: 2px;
 .nhsuk-header__navigation-link {
   display: block;
   padding: nhsuk-spacing(3) $_header-link-padding;
+  position: relative;
   white-space: nowrap;
   @include nhsuk-font(16);
   @include nhsuk-link-style-white;
 
-  // Visual indicator for current navigation item has grey line on bottom edge,
-  // and no underline on the link.
-  &[aria-current="page"],
-  &[aria-current="true"] {
-    text-decoration: none;
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-border-color;
+  // Current item/hover indicator appears along bottom edge
+  // We animate it’s height for it to display
+  // We use a pseudo element as this is easier to adjust compared to redefining
+  // box-shadow for each navigation link state, placement and background colour
+  &:not(:focus)::before {
+    background-color: currentcolor;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+  }
+
+  &:hover::before {
+    height: $_navigation-hover-size;
+  }
+
+  &[aria-current="page"]::before,
+  &[aria-current="true"]::before {
+    height: $_navigation-current-size;
+  }
+
+  &[aria-current="page"]:not(:hover)::before,
+  &[aria-current="true"]:not(:hover)::before {
+    background-color: $color_nhsuk-grey-4;
   }
 
   &:focus {
@@ -466,8 +490,7 @@ $_header-link-padding: 2px;
   background-color: $color_nhsuk-white;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   list-style: none;
-  margin: 0;
-  overflow: hidden;
+  margin: 0 $nhsuk-gutter * -1;
   padding: 0;
   position: absolute;
   right: 0;
@@ -475,11 +498,7 @@ $_header-link-padding: 2px;
   left: 0;
   @include nhsuk-print-hide;
 
-  &[hidden] {
-    display: none;
-  }
-
-  @include nhsuk-media-query($until: tablet) {
+  @include nhsuk-media-query($from: tablet, $until: desktop) {
     margin: 0 $nhsuk-gutter-half * -1;
   }
 
@@ -636,8 +655,7 @@ $_header-link-padding: 2px;
   }
 
   .nhsuk-header__navigation-link {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
+    @include nhsuk-link-style-default($link-underlines: false);
 
     // Visual indicator for current navigation item has blue line on
     // bottom edge instead of grey in the regular Header nav
