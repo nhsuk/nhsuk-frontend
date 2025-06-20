@@ -39,15 +39,15 @@ npx --workspace nhsuk-frontend -- gulp --tasks
 
 For a specific task, run `npx --workspace nhsuk-frontend -- gulp <task-name>` on the command line:
 
-| task       | action                                                                  |
-| ---------- | ----------------------------------------------------------------------- |
-| `styles`   | Compile NHS.UK frontend styles only                                     |
-| `scripts`  | Compile NHS.UK frontend scripts only                                    |
-| `fixtures` | Compile NHS.UK frontend component fixtures and macro options            |
-| `assets`   | Copy NHS.UK frontend assets only                                        |
-| `build`    | Run tasks `styles`, `scripts`, `fixtures`, `assets` once only           |
-| `watch`    | Run tasks `styles`, `scripts`, `fixtures`, `assets` on relevant changes |
-| `release`  | Create GitHub release distribution zip file                             |
+| task       | action                                                                               |
+| ---------- | ------------------------------------------------------------------------------------ |
+| `styles`   | Compile NHS.UK frontend styles only                                                  |
+| `scripts`  | Compile NHS.UK frontend scripts only                                                 |
+| `fixtures` | Compile NHS.UK frontend component fixtures and macro options                         |
+| `assets`   | Copy NHS.UK frontend assets only                                                     |
+| `build`    | Run tasks `styles`, `scripts`, `assets`, `templates`, `fixtures` once only           |
+| `watch`    | Run tasks `styles`, `scripts`, `assets`, `templates`, `fixtures` on relevant changes |
+| `release`  | Create GitHub release distribution zip file                                          |
 
 ### Review app only
 

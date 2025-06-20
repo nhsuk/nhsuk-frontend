@@ -3,17 +3,53 @@ import { join } from 'path'
 import * as config from '@nhsuk/frontend-config'
 import gulp from 'gulp'
 
-import { assets, fixtures, release, scripts, styles } from './tasks/index.mjs'
+import {
+  assets,
+  fixtures,
+  release,
+  scripts,
+  styles,
+  templates
+} from './tasks/index.mjs'
 
-gulp.task('styles', styles.compile)
-gulp.task('scripts', scripts.compile)
-gulp.task('fixtures', fixtures.compile)
+/**
+ * Utility tasks
+ */
 gulp.task('assets', assets.copy)
-gulp.task('build', gulp.parallel('styles', 'scripts', 'fixtures', 'assets'))
+gulp.task('fixtures', fixtures.compile)
+gulp.task('scripts', scripts.compile)
+gulp.task('styles', styles.compile)
+gulp.task('templates', templates.copy)
+
+/**
+ * NHS.UK frontend build
+ */
+gulp.task(
+  'build',
+  gulp.parallel(
+    gulp.series('styles', 'scripts', 'assets'),
+    gulp.series('templates', 'fixtures')
+  )
+)
+
+/**
+ * GitHub release distribution
+ */
 gulp.task('release', gulp.series(release.copy, release.zip))
 
+/**
+ * Development tasks
+ */
 gulp.task('watch', () =>
   Promise.all([
+    /**
+     * Watch and copy template files and READMEs
+     */
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}')],
+      gulp.series('templates')
+    ),
+
     /**
      * Watch and compile component fixtures and macro options
      */

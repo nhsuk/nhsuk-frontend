@@ -5,12 +5,19 @@ import gulp from 'gulp'
 
 import { app } from './tasks/index.mjs'
 
-gulp.task('styles', app.styles)
-gulp.task('scripts', app.scripts)
+/**
+ * Utility tasks
+ */
 gulp.task('assets', app.assets)
 gulp.task('html', app.html)
+gulp.task('serve', app.serve)
+gulp.task('scripts', app.scripts)
+gulp.task('styles', app.styles)
 gulp.task('validate', app.validate)
 
+/**
+ * Review app build
+ */
 gulp.task(
   'build',
   gulp.parallel(
@@ -19,8 +26,9 @@ gulp.task(
   )
 )
 
-gulp.task('serve', app.serve)
-
+/**
+ * Development tasks
+ */
 gulp.task('watch', () =>
   Promise.all([
     /**
