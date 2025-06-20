@@ -1244,10 +1244,6 @@ module.exports = {
       ]
     },
     {
-      label: 'Tag',
-      url: `${BASE_URL}/components/tag/index.html`
-    },
-    {
       label: 'Task list',
       url: `${BASE_URL}/components/task-list/index.html`,
       viewports: [
