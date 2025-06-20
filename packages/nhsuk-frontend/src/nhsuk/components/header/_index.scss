@@ -396,6 +396,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   }
 
   // Visual indicator for current navigation
+  &:hover::before,
   &[aria-current="page"]::before,
   &[aria-current="true"]::before {
     border-bottom-width: $_header-active-item-size;
@@ -478,6 +479,7 @@ $_header-active-item-size: $nhsuk-focus-width;
     @include nhsuk-link-style-no-visited-state;
 
     // Visual indicator for navigation item uses a border on left edge
+    &:hover::before,
     &[aria-current="page"]::before,
     &[aria-current="true"]::before {
       width: 0;
