@@ -121,7 +121,7 @@ $_header-link-padding: 2px;
     .nhsuk-header__organisation-name,
     .nhsuk-header__organisation-name-descriptor,
     .nhsuk-header__service-name {
-      color: $nhsuk-text-color;
+      color: $nhsuk-focus-text-color;
     }
   }
 }
@@ -161,7 +161,7 @@ $_header-link-padding: 2px;
 
   &,
   &::before {
-    background-color: nhsuk-shade($color_nhsuk-blue, 20%);
+    background-color: $color_shade_nhsuk-blue-20;
   }
 
   &::before {
@@ -172,7 +172,7 @@ $_header-link-padding: 2px;
     right: 0;
     bottom: 0;
     left: 0;
-    border: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
+    border: 1px solid $color_shade_nhsuk-blue-20;
     border-radius: $nhsuk-border-radius + 1px;
   }
 
