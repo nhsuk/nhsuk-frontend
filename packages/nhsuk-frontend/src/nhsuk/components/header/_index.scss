@@ -397,7 +397,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   position: relative;
   white-space: nowrap;
   @include nhsuk-font(16);
-  @include nhsuk-link-style-white;
+  @include nhsuk-link-style-white($link-underlines: false);
 
   &::before {
     content: "";
@@ -495,7 +495,7 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   .nhsuk-header__navigation-link {
     @include nhsuk-width-container;
-    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-default($link-underlines: false);
     @include nhsuk-link-style-no-visited-state;
 
     // Current item within menu gets blue line on left edge
@@ -631,13 +631,8 @@ $_header-active-item-size: $nhsuk-focus-width;
   }
 
   .nhsuk-header__navigation-link {
-    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-default($link-underlines: false);
     @include nhsuk-link-style-no-visited-state;
-  }
-
-  // Menu
-  .nhsuk-header__menu-toggle {
-    text-decoration: none;
   }
 }
 
