@@ -3,24 +3,37 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
+$_header-logo-height: 40px;
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
 $_header-active-item-size: $nhsuk-focus-width;
 
-@mixin _header-link-style {
+@mixin _header-link-style(
+  $link-color: $nhsuk-link-color,
+  $link-hover-color: $nhsuk-link-hover-color,
+  $link-active-color: $nhsuk-link-active-color,
+  $link-underline: false
+) {
   & {
-    color: inherit;
-    text-decoration: none;
+    color: $link-color;
+
+    @if not $link-underline {
+      text-decoration: none;
+    } @else {
+      text-decoration: underline;
+    }
   }
 
-  .nhsuk-header__logo,
-  .nhsuk-icon {
-    fill: inherit;
-  }
+  @include nhsuk-link-style-visited($link-color);
+  @include nhsuk-link-style-hover($link-hover-color);
+  @include nhsuk-link-style-active($link-active-color);
+  @include nhsuk-link-style-focus;
 
-  @include nhsuk-link-style-visited(inherit);
-  @include nhsuk-link-style-hover(inherit);
-  @include nhsuk-link-style-active(inherit);
+  &:focus,
+  &:focus:visited {
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+  }
 }
 
 ////
@@ -55,7 +68,9 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header__container {
   display: flex;
   flex-flow: column wrap;
-  gap: nhsuk-spacing(3);
+  column-gap: nhsuk-spacing(3);
+  // Prevent logo hover underline clashing with full-width account navigation
+  row-gap: (nhsuk-spacing(3) + 1px);
   padding: nhsuk-spacing(3) 0;
   @include nhsuk-width-container;
 
@@ -82,75 +97,36 @@ $_header-active-item-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__service-name {
+  align-content: center;
   flex-grow: 0;
   margin-right: auto;
   text-wrap: balance;
   @include nhsuk-font(19, $line-height: 1.1);
 }
 
-.nhsuk-header__service-logo[href] {
-  @include nhsuk-link-image;
-
-  position: relative;
-  display: inline-flex;
-  text-decoration: none;
-
-  &:link,
-  &:visited {
-    color: $color_nhsuk-white;
-  }
-
-  // Add text underline on hover
-  &:not(:focus):hover {
-    text-decoration: underline;
-  }
-
-  // Add SVG logo underline on hover
-  //
-  // It should be possible to add a box shadow directly to .nhsuk-header_logo
-  // however Safari doesn’t render anything beyond the bounding box of the SVG.
-  // By adding a pseudo element with the same dimensions, we style this instead.
-  &:has(svg):not(:focus):hover::before {
-    content: "";
-    border-bottom: 0.1rem solid currentcolor;
-    display: inline;
-    height: 40px;
-    position: absolute;
-    top: 0.2rem;
-    width: 100px;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    .nhsuk-header__organisation-name,
-    .nhsuk-header__organisation-name-descriptor,
-    .nhsuk-header__service-name {
-      color: inherit;
-    }
-  }
-
-  &:focus {
-    .nhsuk-header__logo,
-    .nhsuk-header__organisation-name,
-    .nhsuk-header__organisation-name-descriptor,
-    .nhsuk-header__service-name {
-      color: $nhsuk-text-color;
-    }
-  }
-}
-
-.nhsuk-header__service-logo,
+.nhsuk-header__service-logo[href],
 .nhsuk-header__service-name[href] {
-  @include nhsuk-link-style-white;
+  // Ensure linked service name link is same height as linked logo
+  min-height: $_header-logo-height + nhsuk-spacing(3) + nhsuk-spacing(3);
+  position: relative;
+  margin: nhsuk-spacing(-3) ($_header-link-padding * -1);
+  padding: nhsuk-spacing(3) $_header-link-padding;
 
-  &:link {
-    text-decoration: none;
+  &:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: $_header-active-item-size solid currentcolor;
   }
 
-  &:not(:focus):hover {
-    text-decoration: underline;
-  }
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-active-color: $nhsuk-reverse-text-color
+  );
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
@@ -165,9 +141,13 @@ $_header-active-item-size: $nhsuk-focus-width;
   position: relative;
   z-index: 10;
   border-radius: $nhsuk-border-radius;
+  border: 1px solid $color_shade_nhsuk-blue-20;
+  margin: -1px;
   flex-grow: 1;
+  overflow: hidden;
 
   .nhsuk-icon__user {
+    fill: currentcolor;
     height: 24px;
     width: 24px;
     flex-shrink: 0;
@@ -175,30 +155,30 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   &,
   &::before {
-    background-color: nhsuk-shade($color_nhsuk-blue, 20%);
+    background-color: $color_shade_nhsuk-blue-20;
   }
 
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
-    border-radius: $nhsuk-border-radius + 1px;
-  }
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   border: 1px solid $color_shade_nhsuk-blue-20;
+  //   border-radius: $nhsuk-border-radius + 1px;
+  // }
 
   @include nhsuk-media-query($from: tablet) {
     align-self: start;
 
     // Expand header account by 1px to ensure the search
     // input does not appear to be taller when inline
-    &::before {
-      top: -1px;
-      bottom: -1px;
-    }
+    // &::before {
+    //   top: -1px;
+    //   bottom: -1px;
+    // }
   }
 }
 
@@ -236,14 +216,21 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header__account-link {
   display: flex;
   gap: nhsuk-spacing(2);
+  margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
+  padding: nhsuk-spacing(2) $_header-item-padding;
   overflow-wrap: anywhere;
-  @include nhsuk-link-style-white;
+
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-active-color: $nhsuk-reverse-text-color,
+    $link-underline: true
+  );
 }
 
 .nhsuk-header__account-button {
   background: none;
   border: 0;
-  padding: 0;
   cursor: pointer;
   @include nhsuk-font(16);
 }
@@ -408,19 +395,17 @@ $_header-active-item-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__navigation-link {
-  color: inherit;
   display: block;
   padding: nhsuk-spacing(3) $_header-link-padding;
   position: relative;
   text-decoration: none;
   white-space: nowrap;
   @include nhsuk-font(16);
-  @include _header-link-style;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-  }
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-active-color: $nhsuk-reverse-text-color
+  );
 
   &::before {
     content: "";
@@ -438,10 +423,6 @@ $_header-active-item-size: $nhsuk-focus-width;
   &[aria-current="true"]::before {
     width: 100%;
     border-bottom-width: $_header-active-item-size;
-  }
-
-  &:focus {
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
   }
 
   @include nhsuk-media-query($until: tablet) {
@@ -520,7 +501,11 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   .nhsuk-header__navigation-link {
     @include nhsuk-width-container;
-    @include _header-link-style;
+    @include _header-link-style(
+      $link-color: $nhsuk-link-color,
+      $link-hover-color: $color_nhsuk-dark-blue,
+      $link-active-color: $nhsuk-link-active-color
+    );
 
     // Current item within menu gets blue line on left edge
     &:hover::before,
@@ -556,18 +541,25 @@ $_header-active-item-size: $nhsuk-focus-width;
 
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
-  color: $color_nhsuk-blue;
 
-  .nhsuk-header__service-logo[href] {
-    @include _header-link-style;
+  .nhsuk-header__container {
+    color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__account,
-  .nhsuk-header__account::before {
+  .nhsuk-header__service-logo,
+  .nhsuk-header__service-name[href] {
+    @include _header-link-style(
+      $link-color: $nhsuk-link-color,
+      $link-hover-color: $color_nhsuk-dark-blue,
+      $link-active-color: $nhsuk-link-active-color
+    );
+  }
+
+  .nhsuk-header__account {
     background-color: $color_nhsuk-grey-5;
   }
 
-  .nhsuk-header__account::before {
+  .nhsuk-header__account {
     border-color: $color_nhsuk-grey-4;
   }
 
@@ -575,10 +567,14 @@ $_header-active-item-size: $nhsuk-focus-width;
     outline-color: $color_nhsuk-grey-4;
   }
 
-  .nhsuk-header__account-button,
-  .nhsuk-header__account-link {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
+  .nhsuk-header__account-link,
+  .nhsuk-header__account-button {
+    @include _header-link-style(
+      $link-color: $nhsuk-link-color,
+      $link-hover-color: $color_nhsuk-dark-blue,
+      $link-active-color: $nhsuk-link-active-color,
+      $link-underline: true
+    );
   }
 
   .nhsuk-header__search-input.nhsuk-input:not(:focus) {
@@ -609,10 +605,6 @@ $_header-active-item-size: $nhsuk-focus-width;
     color: $color_nhsuk-black;
   }
 
-  .nhsuk-header__organisation-name-descriptor {
-    color: $color_nhsuk-blue;
-  }
-
   .nhsuk-header__navigation {
     background-color: $color_nhsuk-blue;
 
@@ -641,10 +633,12 @@ $_header-active-item-size: $nhsuk-focus-width;
     border-top-width: 1px;
   }
 
-  .nhsuk-header__account-button:hover,
-  .nhsuk-header__account-link:hover,
-  .nhsuk-header__navigation-link:hover {
-    color: $color_nhsuk-dark-blue;
+  .nhsuk-header__navigation-link {
+    @include _header-link-style(
+      $link-color: $nhsuk-link-color,
+      $link-hover-color: $color_nhsuk-dark-blue,
+      $link-active-color: $nhsuk-link-active-color
+    );
   }
 }
 
@@ -653,7 +647,6 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header--organisation {
   .nhsuk-header__logo {
     height: 24px;
-    margin-bottom: 6px;
     width: 60px;
 
     @include nhsuk-media-query($from: tablet) {
@@ -665,23 +658,9 @@ $_header-active-item-size: $nhsuk-focus-width;
   .nhsuk-header__service-logo {
     display: block;
   }
-
-  .nhsuk-header__service-logo[href] {
-    // Adjust SVG logo underline position
-    &:has(svg):not(:focus):hover::before {
-      height: 24px;
-      width: 60px;
-
-      @include nhsuk-media-query($from: tablet) {
-        height: 32px;
-        width: 80px;
-      }
-    }
-  }
 }
 
 .nhsuk-header__organisation-name {
-  color: $color_nhsuk-white;
   display: block;
   @include nhsuk-font(22, $weight: bold, $line-height: 1.1);
 
@@ -695,13 +674,8 @@ $_header-active-item-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__organisation-name-descriptor {
-  color: $color_nhsuk-white;
   display: block;
   @include nhsuk-font(14, $weight: bold);
-
-  @include nhsuk-media-query($media-type: print) {
-    color: $color_nhsuk-blue;
-  }
 }
 
 .nhsuk-header__organisation-logo {
