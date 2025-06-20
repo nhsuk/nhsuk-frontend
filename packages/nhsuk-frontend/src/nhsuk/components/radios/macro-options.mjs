@@ -135,8 +135,377 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      idPrefix: 'example',
+      name: 'example',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      value: 'no',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with hint text',
+    options: {
+      idPrefix: 'gov',
+      name: 'gov',
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      items: [
+        {
+          value: 'gateway',
+          text: 'Sign in with Government Gateway',
+          hint: {
+            text: "You'll have a user ID if you've registered for self assessment or filed a tax return online before"
+          }
+        },
+        {
+          value: 'verify',
+          text: 'Sign in with NHS.UK login',
+          hint: {
+            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+          }
+        }
+      ]
+    }
+  },
+  {
+    name: 'with disabled item',
+    options: {
+      idPrefix: 'example-disabled',
+      name: 'example-disabled',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes',
+          disabled: true
+        },
+        {
+          value: 'no',
+          text: 'No',
+          disabled: true
+        }
+      ]
+    }
+  },
+  {
+    name: 'inline',
+    options: {
+      idPrefix: 'example',
+      classes: 'nhsuk-radios--inline',
+      name: 'example',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      value: 'no',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with hint text, error message',
+    options: {
+      idPrefix: 'example',
+      name: 'example',
+      errorMessage: {
+        text: 'Please select an option'
+      },
+      fieldset: {
+        classes: 'app-fieldset--custom-modifier',
+        attributes: {
+          'data-attribute': 'value',
+          'data-second-attribute': 'second-value'
+        },
+        legend: {
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      value: 'no',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with divider',
+    options: {
+      idPrefix: 'example-divider',
+      name: 'example',
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?',
+          classes: 'nhsuk-fieldset__legend--l',
+          pageHeading: 'true'
+        }
+      },
+      items: [
+        {
+          value: 'government-gateway',
+          text: 'Use Government Gateway'
+        },
+        {
+          value: 'nhsuk-login',
+          text: 'Use NHS.UK login'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'create-account',
+          text: 'Create an account'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with conditional content',
+    options: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Email address'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  {
+    name: 'without fieldset',
+    options: {
+      name: 'colours',
+      items: [
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with nested conditional radios',
+    options: {
+      idPrefix: 'outer',
+      name: 'outer',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      items: [
+        {
+          value: 'no-conditional',
+          text: 'No conditional'
+        },
+        {
+          value: 'nested',
+          text: 'Nested conditional',
+          conditional: {
+            html: components.render('radios', {
+              context: {
+                idPrefix: 'contact',
+                name: 'contact',
+                fieldset: {
+                  legend: {
+                    text: 'How would you prefer to be contacted?',
+                    classes: 'nhsuk-fieldset__legend--l',
+                    isPageHeading: 'true'
+                  }
+                },
+                hint: {
+                  text: 'Select 1 option'
+                },
+                items: [
+                  {
+                    value: 'email',
+                    text: 'Email',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          id: 'email',
+                          name: 'email',
+                          classes: 'nhsuk-u-width-two-thirds',
+                          label: {
+                            text: 'Email address'
+                          }
+                        }
+                      })
+                    }
+                  },
+                  {
+                    value: 'phone',
+                    text: 'Phone',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          id: 'phone',
+                          name: 'phone',
+                          classes: 'nhsuk-u-width-two-thirds',
+                          label: {
+                            text: 'Phone number'
+                          }
+                        }
+                      })
+                    }
+                  },
+                  {
+                    value: 'text',
+                    text: 'Text message',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          id: 'mobile',
+                          name: 'mobile',
+                          classes: 'nhsuk-u-width-two-thirds',
+                          label: {
+                            text: 'Mobile phone number'
+                          }
+                        }
+                      })
+                    }
+                  }
+                ]
+              }
+            })
+          }
+        }
+      ]
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

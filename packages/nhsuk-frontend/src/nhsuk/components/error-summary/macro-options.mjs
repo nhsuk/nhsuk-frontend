@@ -83,8 +83,41 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const examples = [
+  {
+    name: 'default',
+    options: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Date of birth must be in the past',
+          href: '#example-error'
+        }
+      ]
+    }
+  },
+  {
+    name: 'with description',
+    options: {
+      titleText: 'There is a problem',
+      descriptionText: 'Describe the errors and how to correct them',
+      errorList: [
+        {
+          text: 'Date of birth must be in the past',
+          href: '#example-error'
+        }
+      ]
+    }
+  }
+]
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

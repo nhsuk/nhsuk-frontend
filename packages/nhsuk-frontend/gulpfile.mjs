@@ -15,6 +15,14 @@ gulp.task('release', gulp.series(release.copy, release.zip))
 gulp.task('watch', () =>
   Promise.all([
     /**
+     * Watch and compile component fixtures and macro options
+     */
+    gulp.watch(
+      [join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')],
+      gulp.series('fixtures')
+    ),
+
+    /**
      * Watch and compile styles
      */
     gulp.watch(
@@ -27,6 +35,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
+      { ignored: ['**/macro-options.mjs'] },
       gulp.series('scripts')
     )
   ])
