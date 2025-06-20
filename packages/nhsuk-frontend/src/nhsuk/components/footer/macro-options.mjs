@@ -106,6 +106,7 @@ export const params = {
 export const examples = [
   {
     name: 'default',
+    layout: 'layouts/example-full-width.njk',
     options: {
       links: [
         {
@@ -133,6 +134,7 @@ export const examples = [
   },
   {
     name: 'columns',
+    layout: 'layouts/example-full-width.njk',
     options: {
       copyright: '© Crown copyright',
       links: [
@@ -231,6 +233,7 @@ export const examples = [
   },
   {
     name: 'with custom copyright statement',
+    layout: 'layouts/example-full-width.njk',
     options: {
       copyright: '© East London NHS Foundation Trust',
       links: [

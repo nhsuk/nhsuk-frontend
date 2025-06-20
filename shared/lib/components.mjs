@@ -151,6 +151,7 @@ export function render(component, options) {
  * @typedef {object} MacroExample
  * @property {string} name - Example name
  * @property {string} [description] - Example description (optional)
+ * @property {string} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [options] - Nunjucks macro options (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  */

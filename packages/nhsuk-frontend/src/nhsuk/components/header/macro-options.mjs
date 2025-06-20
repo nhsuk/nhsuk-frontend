@@ -262,6 +262,7 @@ export const params = {
 export const examples = [
   {
     name: 'default',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -299,6 +300,7 @@ export const examples = [
   },
   {
     name: 'with service name',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#nhs',
@@ -312,6 +314,7 @@ export const examples = [
   },
   {
     name: 'with navigation',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -348,6 +351,7 @@ export const examples = [
   },
   {
     name: 'with search',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -357,6 +361,7 @@ export const examples = [
   },
   {
     name: 'with logo',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -365,10 +370,12 @@ export const examples = [
   },
   {
     name: 'with logo unlinked',
+    layout: 'layouts/example-full-width.njk',
     options: {}
   },
   {
     name: 'with account (logged in)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       service: {
         href: '#',
@@ -391,6 +398,7 @@ export const examples = [
   },
   {
     name: 'with account (logged out)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       service: {
         href: '#',
@@ -408,6 +416,7 @@ export const examples = [
   },
   {
     name: 'with account, search, navigation (logged in, complex)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       service: {
         href: '#',
@@ -457,6 +466,7 @@ export const examples = [
   },
   {
     name: 'with service name, account, search and navigation',
+    layout: 'layouts/example-full-width.njk',
     options: {
       service: {
         text: 'Search patient directory',
@@ -502,6 +512,7 @@ export const examples = [
   },
   {
     name: 'with service name, search and navigation',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -542,6 +553,7 @@ export const examples = [
   },
   {
     name: 'with service name combined with logo',
+    layout: 'layouts/example-full-width.njk',
     options: {
       service: {
         text: 'Prototype kit',
@@ -551,6 +563,7 @@ export const examples = [
   },
   {
     name: 'with service name unlinked',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#',
@@ -563,6 +576,7 @@ export const examples = [
   },
   {
     name: 'with navigation justified',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -600,6 +614,7 @@ export const examples = [
   },
   {
     name: 'organisational with search',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -616,6 +631,7 @@ export const examples = [
   },
   {
     name: 'organisational with search, navigation',
+    layout: 'layouts/example-full-width.njk',
     options: {
       logo: {
         href: '#'
@@ -657,6 +673,7 @@ export const examples = [
   },
   {
     name: 'organisational white with search',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -674,6 +691,7 @@ export const examples = [
   },
   {
     name: 'organisational white with search, navigation',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -716,6 +734,7 @@ export const examples = [
   },
   {
     name: 'organisational white with search, navigation (white)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white nhsuk-header--white-navigation',
       logo: {
@@ -758,6 +777,7 @@ export const examples = [
   },
   {
     name: 'organisational white with account (logged in)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white',
       service: {
@@ -781,6 +801,7 @@ export const examples = [
   },
   {
     name: 'organisational white with account (logged out)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white',
       service: {
@@ -799,6 +820,7 @@ export const examples = [
   },
   {
     name: 'organisational white with search, navigation (custom logo)',
+    layout: 'layouts/example-full-width.njk',
     options: {
       classes: 'nhsuk-header--white',
       logo: {

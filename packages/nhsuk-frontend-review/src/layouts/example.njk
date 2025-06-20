@@ -1,6 +1,7 @@
 {% extends 'layouts/layout.njk' %}
 
-{% set htmlAttributes = {"style": "background-color: #f0f4f5;"} %}
+{% set htmlAttributes = htmlAttributes | default({ style: "background-color: #f0f4f5;" }) %}
+{% set bodyAttributes = bodyAttributes | default(htmlAttributes) %}
 
 {# Turn the skip link off #}
 {% block skipLink %}{% endblock %}

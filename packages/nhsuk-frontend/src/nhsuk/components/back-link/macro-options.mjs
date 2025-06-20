@@ -62,6 +62,7 @@ export const examples = [
   },
   {
     name: 'reverse',
+    layout: 'layouts/example-background-blue.njk',
     options: {
       classes: 'nhsuk-back-link--reverse'
     }
