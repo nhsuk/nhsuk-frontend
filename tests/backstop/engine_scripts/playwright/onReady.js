@@ -6,6 +6,9 @@ const clickAndHoverHelper = require('./clickAndHoverHelper')
  */
 module.exports = async function (page, scenario) {
   await clickAndHoverHelper(page, scenario)
+
+  await page.dispatchEvent('body', 'resize')
+  await page.waitForTimeout(200)
 }
 
 /**
