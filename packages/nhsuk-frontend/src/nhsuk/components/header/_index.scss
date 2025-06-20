@@ -5,6 +5,7 @@
 
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
+$_header-active-item-size: $nhsuk-focus-width;
 
 ////
 /// Header component
@@ -377,7 +378,6 @@ $_header-link-padding: 2px;
 }
 
 .nhsuk-header__navigation-item {
-  position: relative;
   margin-bottom: 0;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
@@ -396,16 +396,26 @@ $_header-link-padding: 2px;
 .nhsuk-header__navigation-link {
   display: block;
   padding: nhsuk-spacing(3) $_header-link-padding;
+  position: relative;
   white-space: nowrap;
   @include nhsuk-font(16);
   @include nhsuk-link-style-white;
 
-  // Visual indicator for current navigation item has grey line on bottom edge,
-  // and no underline on the link.
-  &[aria-current="page"],
-  &[aria-current="true"] {
-    text-decoration: none;
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-border-color;
+  // Visual indicator for navigation item uses a border on bottom edge
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0 solid currentcolor;
+  }
+
+  // Visual indicator for current navigation
+  &[aria-current="page"]::before,
+  &[aria-current="true"]::before {
+    border-bottom-width: $_header-active-item-size;
   }
 
   &:focus {
@@ -483,17 +493,20 @@ $_header-link-padding: 2px;
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
-    // When in expanded menu, a current item link should revert to having a
-    // no box-shadow, with a box-shadow added to containing list item instead.
-    &[aria-current="page"],
-    &[aria-current="true"] {
-      box-shadow: none;
-    }
+    // Visual indicator for navigation item uses a border on left edge
+    &[aria-current="page"]::before,
+    &[aria-current="true"]::before {
+      width: 0;
+      top: 0;
+      bottom: 0;
+      left: -$nhsuk-gutter;
+      right: auto;
+      border-left-width: $_header-active-item-size;
 
-    // But when focused the black line at the bottom should return,
-    // again using box-shadow.
-    &:focus {
-      box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
+      // stylelint-disable-next-line max-nesting-depth
+      @include nhsuk-media-query($until: desktop) {
+        left: -$nhsuk-gutter-half;
+      }
     }
   }
 
@@ -508,17 +521,6 @@ $_header-link-padding: 2px;
     @include nhsuk-media-query($from: desktop) {
       padding: 0 $nhsuk-gutter;
     }
-  }
-
-  // Current item within menu gets blue line on left edge
-  .nhsuk-header__navigation-item--current::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    border-left: 6px solid $color_nhsuk-blue;
   }
 
   @include nhsuk-media-query($from: tablet) {
@@ -636,32 +638,11 @@ $_header-link-padding: 2px;
   .nhsuk-header__navigation-link {
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
-
-    // Visual indicator for current navigation item has blue line on
-    // bottom edge instead of grey in the regular Header nav
-    &[aria-current="page"],
-    &[aria-current="true"] {
-      text-decoration: none;
-      box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-blue;
-    }
-
-    &:focus {
-      box-shadow: inset 0 ($nhsuk-focus-width * -1) $color_nhsuk-black;
-    }
   }
 
   // Menu
   .nhsuk-header__menu-toggle {
     text-decoration: none;
-  }
-
-  .nhsuk-header__menu-list {
-    // When in expanded menu, a current item link should revert to having a
-    // no box-shadow, with a box-shadow added to containing list item instead.
-    .nhsuk-header__navigation-link[aria-current="page"],
-    .nhsuk-header__navigation-link[aria-current="true"] {
-      box-shadow: none;
-    }
   }
 }
 
