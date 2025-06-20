@@ -301,7 +301,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              `${BASE_URL}/components/character-count/with-textarea-maxlength-attribute.html`
+              `${BASE_URL}/components/character-count/with-maxlength-attribute.html`
             ),
             page.waitForNavigation()
           ])
@@ -320,7 +320,7 @@ describe('Character count', () => {
       beforeEach(async () => {
         await Promise.all([
           page.goto(
-            `${BASE_URL}/components/character-count/with-word-count.html`
+            `${BASE_URL}/components/character-count/with-max-words.html`
           ),
           page.waitForNavigation()
         ])
@@ -382,7 +382,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              `${BASE_URL}/components/character-count/with-word-count.html`
+              `${BASE_URL}/components/character-count/with-max-words.html`
             ),
             page.waitForNavigation()
           ])

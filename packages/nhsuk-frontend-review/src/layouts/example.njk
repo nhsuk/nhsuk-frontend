@@ -1,0 +1,15 @@
+{% extends 'layouts/layout.njk' %}
+
+{% set htmlAttributes = htmlAttributes | default({ style: "background-color: #f0f4f5;" }) %}
+{% set bodyAttributes = bodyAttributes | default(htmlAttributes) %}
+
+{# Turn the skip link off #}
+{% block skipLink %}{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% block example %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

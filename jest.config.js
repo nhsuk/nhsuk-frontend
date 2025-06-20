@@ -20,7 +20,11 @@ const config = {
   // See: https://jestjs.io/docs/ecmascript-modules
   transform: {
     '^.+\\.(js|mjs)$': ['babel-jest', { rootMode: 'upward' }]
-  }
+  },
+
+  // Enable Babel transforms for ESM-only node_modules
+  // See: https://jestjs.io/docs/ecmascript-modules
+  transformIgnorePatterns: [`<rootDir>/node_modules/(?!${['slug'].join('|')}/)`]
 }
 
 /**

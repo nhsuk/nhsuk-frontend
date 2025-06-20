@@ -124,17 +124,17 @@ module.exports = {
     },
     {
       label: 'Back link as a button',
-      url: `${BASE_URL}/components/back-link/button.html`
+      url: `${BASE_URL}/components/back-link/as-a-button.html`
     },
     {
       clickSelector: '.nhsuk-back-link__link',
       label: 'Back link as a button click',
-      url: `${BASE_URL}/components/back-link/button.html`
+      url: `${BASE_URL}/components/back-link/as-a-button.html`
     },
     {
       hoverSelector: '.nhsuk-back-link__link',
       label: 'Back link as a button hover',
-      url: `${BASE_URL}/components/back-link/button.html`
+      url: `${BASE_URL}/components/back-link/as-a-button.html`
     },
     {
       label: 'Breadcrumb',
@@ -184,17 +184,17 @@ module.exports = {
     },
     {
       label: 'Button as a link',
-      url: `${BASE_URL}/components/button/link.html`
+      url: `${BASE_URL}/components/button/as-a-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button as a link click',
-      url: `${BASE_URL}/components/button/link.html`
+      url: `${BASE_URL}/components/button/as-a-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button as a link hover',
-      url: `${BASE_URL}/components/button/link.html`
+      url: `${BASE_URL}/components/button/as-a-link.html`
     },
     {
       label: 'Button secondary',
@@ -216,49 +216,49 @@ module.exports = {
     },
     {
       label: 'Button secondary as a link',
-      url: `${BASE_URL}/components/button/secondary-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button secondary as a link click',
-      url: `${BASE_URL}/components/button/secondary-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button secondary as a link hover',
-      url: `${BASE_URL}/components/button/secondary-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link.html`
     },
     {
       label: 'Button secondary, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid.html`
+      url: `${BASE_URL}/components/button/secondary-solid-background.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button secondary click, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid.html`
+      url: `${BASE_URL}/components/button/secondary-solid-background.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button secondary hover, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid.html`
+      url: `${BASE_URL}/components/button/secondary-solid-background.html`
     },
     {
       label: 'Button secondary disabled, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid-disabled.html`
+      url: `${BASE_URL}/components/button/secondary-disabled-solid-background.html`
     },
     {
       label: 'Button secondary as a link, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button secondary as a link click, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button secondary as a link hover, solid background',
-      url: `${BASE_URL}/components/button/secondary-solid-link.html`
+      url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background.html`
     },
     {
       label: 'Button reverse',
@@ -280,17 +280,17 @@ module.exports = {
     },
     {
       label: 'Button reverse as a link',
-      url: `${BASE_URL}/components/button/reverse-link.html`
+      url: `${BASE_URL}/components/button/reverse-as-a-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button reverse as a link click',
-      url: `${BASE_URL}/components/button/reverse-link.html`
+      url: `${BASE_URL}/components/button/reverse-as-a-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button reverse as a link hover',
-      url: `${BASE_URL}/components/button/reverse-link.html`
+      url: `${BASE_URL}/components/button/reverse-as-a-link.html`
     },
     {
       label: 'Button warning',
@@ -312,17 +312,17 @@ module.exports = {
     },
     {
       label: 'Button warning as a link',
-      url: `${BASE_URL}/components/button/warning-link.html`
+      url: `${BASE_URL}/components/button/warning-as-a-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button warning as a link click',
-      url: `${BASE_URL}/components/button/warning-link.html`
+      url: `${BASE_URL}/components/button/warning-as-a-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button warning as a link hover',
-      url: `${BASE_URL}/components/button/warning-link.html`
+      url: `${BASE_URL}/components/button/warning-as-a-link.html`
     },
     {
       label: 'Button login',
@@ -344,21 +344,21 @@ module.exports = {
     },
     {
       label: 'Button login as a link',
-      url: `${BASE_URL}/components/button/login-link.html`
+      url: `${BASE_URL}/components/button/login-as-a-link.html`
     },
     {
       clickSelector: '.nhsuk-button',
       label: 'Button login as a link click',
-      url: `${BASE_URL}/components/button/login-link.html`
+      url: `${BASE_URL}/components/button/login-as-a-link.html`
     },
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button login as a link hover',
-      url: `${BASE_URL}/components/button/login-link.html`
+      url: `${BASE_URL}/components/button/login-as-a-link.html`
     },
     {
       label: 'Card, basic',
-      url: `${BASE_URL}/components/card/basic-card.html`,
+      url: `${BASE_URL}/components/card/index.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -367,7 +367,7 @@ module.exports = {
     },
     {
       label: 'Card, basic with HTML',
-      url: `${BASE_URL}/components/card/basic-card-with-html.html`,
+      url: `${BASE_URL}/components/card/basic-with-custom-html.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -376,7 +376,7 @@ module.exports = {
     },
     {
       label: 'Card, clickable',
-      url: `${BASE_URL}/components/card/clickable-card.html`,
+      url: `${BASE_URL}/components/card/clickable.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -385,7 +385,7 @@ module.exports = {
     },
     {
       label: 'Card with image',
-      url: `${BASE_URL}/components/card/card-with-image.html`,
+      url: `${BASE_URL}/components/card/with-image.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -394,7 +394,7 @@ module.exports = {
     },
     {
       label: 'Feature card',
-      url: `${BASE_URL}/components/card/feature-card.html`,
+      url: `${BASE_URL}/components/card/feature.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -403,7 +403,7 @@ module.exports = {
     },
     {
       label: 'Primary card (with chevron)',
-      url: `${BASE_URL}/components/card/card-primary.html`,
+      url: `${BASE_URL}/components/card/primary-with-chevron.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -412,7 +412,7 @@ module.exports = {
     },
     {
       label: 'Primary card (with chevron and description)',
-      url: `${BASE_URL}/components/card/card-primary-with-description.html`,
+      url: `${BASE_URL}/components/card/primary-with-chevron-and-description.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -421,7 +421,7 @@ module.exports = {
     },
     {
       label: 'Secondary card',
-      url: `${BASE_URL}/components/card/card-secondary.html`,
+      url: `${BASE_URL}/components/card/secondary.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -430,7 +430,7 @@ module.exports = {
     },
     {
       label: 'Top task card',
-      url: `${BASE_URL}/components/card/top-task-card.html`,
+      url: `${BASE_URL}/components/card/top-task.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -439,7 +439,7 @@ module.exports = {
     },
     {
       label: 'Care card (Non urgent)',
-      url: `${BASE_URL}/components/card/care-card-non-urgent.html`,
+      url: `${BASE_URL}/components/card/non-urgent-blue.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -448,7 +448,7 @@ module.exports = {
     },
     {
       label: 'Care card (Urgent)',
-      url: `${BASE_URL}/components/card/care-card-urgent.html`,
+      url: `${BASE_URL}/components/card/urgent-red.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -457,7 +457,7 @@ module.exports = {
     },
     {
       label: 'Care card (Emergency)',
-      url: `${BASE_URL}/components/card/care-card-emergency.html`,
+      url: `${BASE_URL}/components/card/emergency-red-and-black.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -475,7 +475,7 @@ module.exports = {
     },
     {
       label: 'Character count with max words',
-      url: `${BASE_URL}/components/character-count/with-word-count.html`,
+      url: `${BASE_URL}/components/character-count/with-max-words.html`,
       viewports: [viewports.get('tablet')]
     },
     {
@@ -489,7 +489,7 @@ module.exports = {
     },
     {
       label: 'Checkboxes with hint text',
-      url: `${BASE_URL}/components/checkboxes/hint.html`,
+      url: `${BASE_URL}/components/checkboxes/with-hint-text.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -498,12 +498,12 @@ module.exports = {
     },
     {
       label: 'Checkboxes with disabled item',
-      url: `${BASE_URL}/components/checkboxes/disabled.html`,
+      url: `${BASE_URL}/components/checkboxes/with-disabled-item.html`,
       viewports: [viewports.get('mobile')]
     },
     {
       label: 'Checkboxes with legend as page heading',
-      url: `${BASE_URL}/components/checkboxes/page-heading.html`,
+      url: `${BASE_URL}/components/checkboxes/with-legend-as-page-heading.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -512,7 +512,7 @@ module.exports = {
     },
     {
       label: 'Checkboxes with error message',
-      url: `${BASE_URL}/components/checkboxes/error.html`,
+      url: `${BASE_URL}/components/checkboxes/with-error-message.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -522,7 +522,7 @@ module.exports = {
     {
       clickSelector: '#waste',
       label: 'Checkboxes with error message (focused)',
-      url: `${BASE_URL}/components/checkboxes/error.html`,
+      url: `${BASE_URL}/components/checkboxes/with-error-message.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -532,7 +532,7 @@ module.exports = {
     {
       clickSelector: '#contact',
       label: 'Checkboxes with conditional content',
-      url: `${BASE_URL}/components/checkboxes/conditional.html`,
+      url: `${BASE_URL}/components/checkboxes/with-conditional-content.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -541,7 +541,7 @@ module.exports = {
     },
     {
       label: 'Checkboxes with "none of the above" option',
-      url: `${BASE_URL}/components/checkboxes/none-of-the-above.html`,
+      url: `${BASE_URL}/components/checkboxes/with-none-of-the-above-option.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -558,7 +558,7 @@ module.exports = {
     },
     {
       label: 'Date input with multiple errors',
-      url: `${BASE_URL}/components/date-input/multiple-errors.html`
+      url: `${BASE_URL}/components/date-input/with-multiple-errors.html`
     },
     {
       clickSelector: '.nhsuk-details__summary',
@@ -575,13 +575,22 @@ module.exports = {
       ]
     },
     {
+      label: "Do & Don't list (don't)",
+      url: `${BASE_URL}/components/do-dont-list/dont.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop')
+      ]
+    },
+    {
       label: 'Error message',
       url: `${BASE_URL}/components/error-message/index.html`,
       viewports: [viewports.get('tablet')]
     },
     {
       label: 'Error summary',
-      url: `${BASE_URL}/components/error-summary/index.html`
+      url: `${BASE_URL}/components/error-summary/with-description.html`
     },
     {
       clickSelector: '.nhsuk-details__summary',
@@ -605,7 +614,7 @@ module.exports = {
     },
     {
       label: 'Footer (columns)',
-      url: `${BASE_URL}/components/footer/footer-in-columns.html`,
+      url: `${BASE_URL}/components/footer/columns.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -615,7 +624,7 @@ module.exports = {
     },
     {
       label: 'Footer (custom copyright statement)',
-      url: `${BASE_URL}/components/footer/custom-copyright.html`,
+      url: `${BASE_URL}/components/footer/with-custom-copyright-statement.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -630,7 +639,7 @@ module.exports = {
     },
     {
       label: 'Fieldset as page heading',
-      url: `${BASE_URL}/components/fieldset/page-heading.html`,
+      url: `${BASE_URL}/components/fieldset/as-page-heading.html`,
       viewports: [viewports.get('tablet')]
     },
     {
@@ -660,7 +669,7 @@ module.exports = {
     },
     {
       label: 'Header with navigation (left aligned)',
-      url: `${BASE_URL}/components/header/header-navigation.html`,
+      url: `${BASE_URL}/components/header/with-navigation.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -670,7 +679,7 @@ module.exports = {
     },
     {
       label: 'Header with navigation (justified)',
-      url: `${BASE_URL}/components/header/header-navigation-justified.html`,
+      url: `${BASE_URL}/components/header/with-navigation-justified.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -680,7 +689,7 @@ module.exports = {
     },
     {
       label: 'Header with search',
-      url: `${BASE_URL}/components/header/header-search.html`,
+      url: `${BASE_URL}/components/header/with-search.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -691,7 +700,7 @@ module.exports = {
     {
       clickSelector: '.nhsuk-header__search-input',
       label: 'Header with search (focused search input)',
-      url: `${BASE_URL}/components/header/header-search.html`,
+      url: `${BASE_URL}/components/header/with-search.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -701,7 +710,7 @@ module.exports = {
     },
     {
       label: 'Header with account (logged in)',
-      url: `${BASE_URL}/components/header/header-account-logged-in.html`,
+      url: `${BASE_URL}/components/header/with-account-logged-in.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -711,7 +720,7 @@ module.exports = {
     },
     {
       label: 'Header with account (logged out)',
-      url: `${BASE_URL}/components/header/header-account-logged-out.html`,
+      url: `${BASE_URL}/components/header/with-account-logged-out.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -721,7 +730,7 @@ module.exports = {
     },
     {
       label: 'Header with account (logged in, complex)',
-      url: `${BASE_URL}/components/header/header-account-complex.html`,
+      url: `${BASE_URL}/components/header/with-account-search-navigation-logged-in-complex.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -731,7 +740,7 @@ module.exports = {
     },
     {
       label: 'Header with logo',
-      url: `${BASE_URL}/components/header/header-logo.html`,
+      url: `${BASE_URL}/components/header/with-logo.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -741,7 +750,7 @@ module.exports = {
     },
     {
       label: 'Header with logo unlinked',
-      url: `${BASE_URL}/components/header/header-logo-unlinked.html`,
+      url: `${BASE_URL}/components/header/with-logo-unlinked.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -751,7 +760,7 @@ module.exports = {
     },
     {
       label: 'Header with service name',
-      url: `${BASE_URL}/components/header/header-service-name.html`,
+      url: `${BASE_URL}/components/header/with-service-name.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -762,7 +771,7 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name (hovered logo)',
-      url: `${BASE_URL}/components/header/header-service-name.html`,
+      url: `${BASE_URL}/components/header/with-service-name.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -773,7 +782,7 @@ module.exports = {
     {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name (focused logo)',
-      url: `${BASE_URL}/components/header/header-service-name.html`,
+      url: `${BASE_URL}/components/header/with-service-name.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -783,7 +792,7 @@ module.exports = {
     },
     {
       label: 'Header with service name unlinked',
-      url: `${BASE_URL}/components/header/header-service-name-unlinked.html`,
+      url: `${BASE_URL}/components/header/with-service-name-unlinked.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -793,7 +802,7 @@ module.exports = {
     },
     {
       label: 'Header with service name as a combined link',
-      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -804,18 +813,18 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name as a combined link (hovered logo)',
-      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo.html`,
       viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name as a combined link (focused logo)',
-      url: `${BASE_URL}/components/header/header-service-name-combined-with-logo.html`,
+      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo.html`,
       viewports: [viewports.get('desktop')]
     },
     {
       label: 'Header with service name, search, navigation',
-      url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
+      url: `${BASE_URL}/components/header/with-service-name-search-and-navigation.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -825,7 +834,7 @@ module.exports = {
     },
     {
       label: 'Header with account, navigation and search',
-      url: `${BASE_URL}/components/header/header-service-name-with-account-search-nav.html`,
+      url: `${BASE_URL}/components/header/with-service-name-account-search-and-navigation.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -835,7 +844,7 @@ module.exports = {
     },
     {
       label: 'Header organisational',
-      url: `${BASE_URL}/components/header/header-org.html`,
+      url: `${BASE_URL}/components/header/organisational-with-search.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -845,7 +854,7 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header',
-      url: `${BASE_URL}/components/header/header-org-white.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -856,19 +865,19 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-header__service-logo',
       label: 'Header organisational with white header (hovered logo)',
-      url: `${BASE_URL}/components/header/header-org-white.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search.html`,
       viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header organisational with white header (focused logo)',
-      url: `${BASE_URL}/components/header/header-org-white.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search.html`,
       viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__search-input',
       label: 'Header organisational with white header (focused search input)',
-      url: `${BASE_URL}/components/header/header-org-white.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -878,7 +887,7 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header and custom logo',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -890,19 +899,19 @@ module.exports = {
       hoverSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (hovered logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo.html`
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (focused logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo.html`
     },
     {
       clickSelector: '#toggle-menu',
       label:
         'Header organisational with white header and custom logo (menu open)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -913,7 +922,17 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header and navigation',
-      url: `${BASE_URL}/components/header/header-org-white-nav.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation.html`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header organisational with white header and navigation (white)',
+      url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-white.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -923,7 +942,7 @@ module.exports = {
     },
     {
       label: 'Header organisational with white header and account',
-      url: `${BASE_URL}/components/header/header-org-white-account.html`,
+      url: `${BASE_URL}/components/header/organisational-white-with-account-logged-in.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -943,7 +962,7 @@ module.exports = {
     },
     {
       label: 'Hero with image',
-      url: `${BASE_URL}/components/hero/hero-image.html`,
+      url: `${BASE_URL}/components/hero/with-image.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -953,7 +972,7 @@ module.exports = {
     },
     {
       label: 'Hero with image, content',
-      url: `${BASE_URL}/components/hero/hero-image-content.html`,
+      url: `${BASE_URL}/components/hero/with-image-content.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -968,7 +987,7 @@ module.exports = {
     },
     {
       label: 'Images',
-      url: `${BASE_URL}/components/images/index.html`,
+      url: `${BASE_URL}/components/images/with-caption.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -981,45 +1000,45 @@ module.exports = {
     },
     {
       label: 'Input with autocomplete attribute',
-      url: `${BASE_URL}/components/input/autocomplete.html`
+      url: `${BASE_URL}/components/input/with-autocomplete-attribute.html`
     },
     {
       label: 'Input with hint text',
-      url: `${BASE_URL}/components/input/hint.html`
+      url: `${BASE_URL}/components/input/with-hint-text.html`
     },
     {
       label: 'Input with error message',
-      url: `${BASE_URL}/components/input/error.html`
+      url: `${BASE_URL}/components/input/with-error-message.html`
     },
     {
       clickSelector: '#input-with-error-message',
       label: 'Input with error message (focused)',
-      url: `${BASE_URL}/components/input/error.html`
+      url: `${BASE_URL}/components/input/with-error-message.html`
     },
     {
       label: 'Input with width modifier',
-      url: `${BASE_URL}/components/input/custom-width.html`
+      url: `${BASE_URL}/components/input/with-width-modifier.html`
     },
     {
       label: 'Input with prefix',
-      url: `${BASE_URL}/components/input/prefix.html`
+      url: `${BASE_URL}/components/input/with-prefix.html`
     },
     {
       label: 'Input with suffix',
-      url: `${BASE_URL}/components/input/suffix.html`
+      url: `${BASE_URL}/components/input/with-suffix.html`
     },
     {
       label: 'Input with prefix, suffix',
-      url: `${BASE_URL}/components/input/prefix-and-suffix.html`
+      url: `${BASE_URL}/components/input/with-prefix-and-suffix.html`
     },
     {
       label: 'Input with error message, prefix, suffix',
-      url: `${BASE_URL}/components/input/error-and-prefix-and-suffix.html`
+      url: `${BASE_URL}/components/input/with-error-message-prefix-and-suffix.html`
     },
     {
       clickSelector: '#input-with-error-message-and-prefix-and-suffix',
       label: 'Input with error message, prefix, suffix (focused)',
-      url: `${BASE_URL}/components/input/error-and-prefix-and-suffix.html`
+      url: `${BASE_URL}/components/input/with-error-message-prefix-and-suffix.html`
     },
     {
       label: 'Inset text',
@@ -1032,12 +1051,12 @@ module.exports = {
     },
     {
       label: 'Label with bold text',
-      url: `${BASE_URL}/components/label/bold.html`,
+      url: `${BASE_URL}/components/label/with-bold-text.html`,
       viewports: [viewports.get('tablet')]
     },
     {
       label: 'Label as page heading',
-      url: `${BASE_URL}/components/label/page-heading.html`,
+      url: `${BASE_URL}/components/label/as-page-heading.html`,
       viewports: [viewports.get('tablet')]
     },
     {
@@ -1079,7 +1098,7 @@ module.exports = {
     },
     {
       label: 'Radios disabled',
-      url: `${BASE_URL}/components/radios/disabled.html`,
+      url: `${BASE_URL}/components/radios/with-disabled-item.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1088,7 +1107,7 @@ module.exports = {
     },
     {
       label: 'Radios with divider',
-      url: `${BASE_URL}/components/radios/divider.html`,
+      url: `${BASE_URL}/components/radios/with-divider.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1097,7 +1116,7 @@ module.exports = {
     },
     {
       label: 'Radios with hint text',
-      url: `${BASE_URL}/components/radios/hint.html`,
+      url: `${BASE_URL}/components/radios/with-hint-text.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1115,7 +1134,7 @@ module.exports = {
     },
     {
       label: 'Radios with hint text, error message',
-      url: `${BASE_URL}/components/radios/hint-error.html`,
+      url: `${BASE_URL}/components/radios/with-hint-text-error-message.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1125,7 +1144,7 @@ module.exports = {
     {
       clickSelector: '#example-2',
       label: 'Radios with hint text, error message (focused)',
-      url: `${BASE_URL}/components/radios/hint-error.html`,
+      url: `${BASE_URL}/components/radios/with-hint-text-error-message.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1135,7 +1154,7 @@ module.exports = {
     {
       clickSelector: '#contact',
       label: 'Radios with conditional content',
-      url: `${BASE_URL}/components/radios/conditional.html`,
+      url: `${BASE_URL}/components/radios/with-conditional-content.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1148,16 +1167,16 @@ module.exports = {
     },
     {
       label: 'Select with hint text',
-      url: `${BASE_URL}/components/select/hint.html`
+      url: `${BASE_URL}/components/select/with-hint-text.html`
     },
     {
       label: 'Select with hint text, error message',
-      url: `${BASE_URL}/components/select/hint-error.html`
+      url: `${BASE_URL}/components/select/with-hint-text-error-message.html`
     },
     {
       clickSelector: '[for=location]',
       label: 'Select with hint text, error message (focused)',
-      url: `${BASE_URL}/components/select/hint-error.html`
+      url: `${BASE_URL}/components/select/with-hint-text-error-message.html`
     },
     {
       label: 'Summary list',
@@ -1206,7 +1225,7 @@ module.exports = {
     },
     {
       label: 'Responsive table',
-      url: `${BASE_URL}/components/tables/responsive-table.html`,
+      url: `${BASE_URL}/components/tables/with-responsive-layout.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1215,7 +1234,7 @@ module.exports = {
     },
     {
       label: 'Table as panel',
-      url: `${BASE_URL}/components/tables/tables-panel.html`,
+      url: `${BASE_URL}/components/tables/as-a-panel.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1232,6 +1251,61 @@ module.exports = {
       ]
     },
     {
+      label: 'Tag',
+      url: `${BASE_URL}/components/tag/index.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag white',
+      url: `${BASE_URL}/components/tag/white.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag grey',
+      url: `${BASE_URL}/components/tag/grey.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag green',
+      url: `${BASE_URL}/components/tag/green.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag aqua-green',
+      url: `${BASE_URL}/components/tag/aqua-green.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag blue',
+      url: `${BASE_URL}/components/tag/blue.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag purple',
+      url: `${BASE_URL}/components/tag/purple.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag pink',
+      url: `${BASE_URL}/components/tag/pink.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag red',
+      url: `${BASE_URL}/components/tag/red.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag orange',
+      url: `${BASE_URL}/components/tag/orange.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
+      label: 'Tag yellow',
+      url: `${BASE_URL}/components/tag/yellow.html`,
+      viewports: [viewports.get('mobile')]
+    },
+    {
       label: 'Task list',
       url: `${BASE_URL}/components/task-list/index.html`,
       viewports: [
@@ -1246,12 +1320,12 @@ module.exports = {
     },
     {
       label: 'Textarea with error message',
-      url: `${BASE_URL}/components/textarea/error.html`
+      url: `${BASE_URL}/components/textarea/with-error-message.html`
     },
     {
       clickSelector: '#no-ni-reason',
       label: 'Textarea with error message (focused)',
-      url: `${BASE_URL}/components/textarea/error.html`
+      url: `${BASE_URL}/components/textarea/with-error-message.html`
     },
     {
       label: 'Warning callout',
@@ -1264,7 +1338,7 @@ module.exports = {
     },
     {
       label: 'Warning callout with custom heading',
-      url: `${BASE_URL}/components/warning-callout/custom-heading.html`,
+      url: `${BASE_URL}/components/warning-callout/with-custom-heading.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),

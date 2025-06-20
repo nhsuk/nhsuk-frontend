@@ -69,6 +69,7 @@ export const params = {
 export const examples = [
   {
     name: 'default',
+    layout: 'layouts/example-full-width.njk',
     options: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.'
@@ -76,6 +77,7 @@ export const examples = [
   },
   {
     name: 'with image',
+    layout: 'layouts/example-full-width.njk',
     options: {
       imageURL:
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
@@ -83,6 +85,7 @@ export const examples = [
   },
   {
     name: 'with image, content',
+    layout: 'layouts/example-full-width.njk',
     options: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.',
@@ -92,6 +95,7 @@ export const examples = [
   },
   {
     name: 'with html content',
+    layout: 'layouts/example-full-width.njk',
     options: {
       heading: 'This is a header for the product or service',
       headingClasses: 'nhsuk-heading-l nhsuk-u-margin-top-5',

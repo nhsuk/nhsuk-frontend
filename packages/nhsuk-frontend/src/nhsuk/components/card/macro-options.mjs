@@ -260,6 +260,7 @@ export const examples = [
   },
   {
     name: 'top task',
+    layout: 'layouts/example-one-third.njk',
     options: {
       href: '#',
       clickable: true,
