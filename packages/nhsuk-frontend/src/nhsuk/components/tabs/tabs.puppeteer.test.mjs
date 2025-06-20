@@ -233,7 +233,7 @@ describe('Tabs', () => {
 
     it('should only update based on hashes that are tabs', async () => {
       await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/tabs-with-anchor-in-panel.html`),
+        page.goto(`${BASE_URL}/components/tabs/with-anchor-in-panel.html`),
         page.waitForNavigation()
       ])
 
