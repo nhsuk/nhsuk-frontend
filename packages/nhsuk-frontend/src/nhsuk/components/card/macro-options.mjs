@@ -267,18 +267,6 @@ export const examples = [
       heading: 'Order a repeat prescription',
       headingClasses: 'nhsuk-heading-xs'
     }
-  },
-  {
-    name: 'group',
-    options: {
-      href: '#',
-      primary: true,
-      clickable: true,
-      heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
-      description:
-        'A quick guide for people who have care and support needs and their carers'
-    }
   }
 ]
 

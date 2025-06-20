@@ -393,16 +393,6 @@ module.exports = {
       ]
     },
     {
-      label: 'Card group',
-      url: `${BASE_URL}/components/card/card-group.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop'),
-        viewports.get('large-desktop')
-      ]
-    },
-    {
       label: 'Feature card',
       url: `${BASE_URL}/components/card/feature-card.html`,
       viewports: [
