@@ -125,12 +125,14 @@ export const examples = {
     }
   },
   'reverse': {
+    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse'
     }
   },
   'reverse disabled': {
+    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
@@ -138,6 +140,7 @@ export const examples = {
     }
   },
   'reverse as a link': {
+    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
@@ -165,12 +168,14 @@ export const examples = {
     }
   },
   'secondary – solid background': {
+    layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid'
     }
   },
   'secondary disabled – solid background': {
+    layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
@@ -178,6 +183,7 @@ export const examples = {
     }
   },
   'secondary as a link – solid background': {
+    layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
