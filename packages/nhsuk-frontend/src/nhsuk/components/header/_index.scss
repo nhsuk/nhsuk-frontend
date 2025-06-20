@@ -7,6 +7,22 @@ $_header-item-padding: 12px;
 $_header-link-padding: 2px;
 $_header-active-item-size: $nhsuk-focus-width;
 
+@mixin _header-link-style {
+  & {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .nhsuk-header__logo,
+  .nhsuk-icon {
+    fill: inherit;
+  }
+
+  @include nhsuk-link-style-visited(inherit);
+  @include nhsuk-link-style-hover(inherit);
+  @include nhsuk-link-style-active(inherit);
+}
+
 ////
 /// Header component
 ///
@@ -392,12 +408,19 @@ $_header-active-item-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__navigation-link {
+  color: inherit;
   display: block;
   padding: nhsuk-spacing(3) $_header-link-padding;
   position: relative;
+  text-decoration: none;
   white-space: nowrap;
   @include nhsuk-font(16);
-  @include nhsuk-link-style-white($link-underlines: false);
+  @include _header-link-style;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
 
   &::before {
     content: "";
@@ -410,6 +433,7 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   // Visual indicator for current navigation item has grey line on bottom edge,
   // and no underline on the link.
+  &:hover::before,
   &[aria-current="page"]::before,
   &[aria-current="true"]::before {
     width: 100%;
@@ -474,6 +498,7 @@ $_header-active-item-size: $nhsuk-focus-width;
 
 .nhsuk-header__menu-list {
   background-color: $color_nhsuk-white;
+  color: $color_nhsuk-blue;
   border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   list-style: none;
   margin: 0;
@@ -495,10 +520,10 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   .nhsuk-header__navigation-link {
     @include nhsuk-width-container;
-    @include nhsuk-link-style-default($link-underlines: false);
-    @include nhsuk-link-style-no-visited-state;
+    @include _header-link-style;
 
     // Current item within menu gets blue line on left edge
+    &:hover::before,
     &[aria-current="page"]::before,
     &[aria-current="true"]::before {
       width: 0;
@@ -531,24 +556,10 @@ $_header-active-item-size: $nhsuk-focus-width;
 
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
-
-  .nhsuk-header__container,
-  .nhsuk-header__logo {
-    color: $color_nhsuk-blue;
-  }
+  color: $color_nhsuk-blue;
 
   .nhsuk-header__service-logo[href] {
-    &:link,
-    &:visited {
-      color: $nhsuk-text-color;
-    }
-
-    @include nhsuk-link-style-active;
-
-    &:not(:focus):not(:active):hover,
-    &:not(:focus):not(:active):hover:visited {
-      color: $nhsuk-link-hover-color;
-    }
+    @include _header-link-style;
   }
 
   .nhsuk-header__account,
@@ -630,9 +641,10 @@ $_header-active-item-size: $nhsuk-focus-width;
     border-top-width: 1px;
   }
 
-  .nhsuk-header__navigation-link {
-    @include nhsuk-link-style-default($link-underlines: false);
-    @include nhsuk-link-style-no-visited-state;
+  .nhsuk-header__account-button:hover,
+  .nhsuk-header__account-link:hover,
+  .nhsuk-header__navigation-link:hover {
+    color: $color_nhsuk-dark-blue;
   }
 }
 
