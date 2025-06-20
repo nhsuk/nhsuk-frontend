@@ -1253,15 +1253,6 @@ module.exports = {
       ]
     },
     {
-      label: 'Task list with multiple sections',
-      url: `${BASE_URL}/components/task-list/multiple-sections.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop')
-      ]
-    },
-    {
       label: 'Textarea',
       url: `${BASE_URL}/components/textarea/index.html`
     },

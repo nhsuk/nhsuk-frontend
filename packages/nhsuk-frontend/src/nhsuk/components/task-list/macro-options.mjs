@@ -191,36 +191,6 @@ export const examples = [
         }
       ]
     }
-  },
-  {
-    name: 'with multiple sections',
-    options: {
-      idPrefix: 'before-you-start',
-      items: [
-        {
-          title: {
-            text: 'Check eligibility'
-          },
-          href: '#',
-          status: {
-            text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
-          }
-        },
-        {
-          title: {
-            text: 'Read declaration'
-          },
-          href: '#',
-          status: {
-            tag: {
-              text: 'Incomplete',
-              classes: 'nhsuk-tag--blue'
-            }
-          }
-        }
-      ]
-    }
   }
 ]
 
