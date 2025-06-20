@@ -645,7 +645,6 @@ module.exports = {
     {
       label: 'Header (default)',
       url: `${BASE_URL}/components/header/index.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -662,7 +661,6 @@ module.exports = {
     {
       label: 'Header with navigation (left aligned)',
       url: `${BASE_URL}/components/header/header-navigation.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -673,7 +671,6 @@ module.exports = {
     {
       label: 'Header with navigation (justified)',
       url: `${BASE_URL}/components/header/header-navigation-justified.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -819,7 +816,6 @@ module.exports = {
     {
       label: 'Header with service name, search, navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -840,7 +836,6 @@ module.exports = {
     {
       label: 'Header organisational',
       url: `${BASE_URL}/components/header/header-org.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -851,7 +846,6 @@ module.exports = {
     {
       label: 'Header organisational with white header',
       url: `${BASE_URL}/components/header/header-org-white.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -875,7 +869,6 @@ module.exports = {
       clickSelector: '.nhsuk-header__search-input',
       label: 'Header organisational with white header (focused search input)',
       url: `${BASE_URL}/components/header/header-org-white.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -886,7 +879,6 @@ module.exports = {
     {
       label: 'Header organisational with white header and custom logo',
       url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -898,22 +890,19 @@ module.exports = {
       hoverSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (hovered logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js'
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (focused logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js'
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
     },
     {
       clickSelector: '#toggle-menu',
       label:
         'Header organisational with white header and custom logo (menu open)',
       url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -925,7 +914,6 @@ module.exports = {
     {
       label: 'Header organisational with white header and navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
