@@ -584,16 +584,6 @@ module.exports = {
       url: `${BASE_URL}/components/error-summary/index.html`
     },
     {
-      label: 'Error summary with link to an input field',
-      url: `${BASE_URL}/components/error-summary/linking-to-input.html`,
-      viewports: [viewports.get('desktop')]
-    },
-    {
-      label: 'Error summary with link to a radio field',
-      url: `${BASE_URL}/components/error-summary/linking-to-radios.html`,
-      viewports: [viewports.get('desktop')]
-    },
-    {
       clickSelector: '.nhsuk-details__summary',
       label: 'Expander',
       url: `${BASE_URL}/components/details/expander.html`,

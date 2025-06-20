@@ -1,7 +1,9 @@
-{% set title = 'Error summary' %}
-{% from 'nhsuk/components/error-summary/macro.njk' import errorSummary %}
-{% from 'nhsuk/components/radios/macro.njk' import radios %}
 {% extends 'example.njk' %}
+
+{% from 'nhsuk/components/error-summary/macro.njk' import errorSummary %}
+{% from 'nhsuk/components/input/macro.njk' import input %}
+
+{% set title = 'Error summary with link to an input field' %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -10,8 +12,8 @@
         "titleText": "There is a problem",
         "errorList": [
           {
-            "text": "Link to radio error with explanation (Note how it links to the first radio)",
-            "href": "#example"
+            "text": "Link to input error with explanation",
+            "href": "#input-with-error-message"
           }
         ]
       }) %}
@@ -21,31 +23,18 @@
 
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-      {{ radios({
-        "idPrefix": "example",
-        "name": "radios-example",
-        "errorMessage": {
-          "text": "Please select an option"
-        },
-        "fieldset": {
-          "legend": {
-            "text": "Have you changed your name?",
-            "classes": "nhsuk-fieldset__legend--m"
-          }
+      {{ input({
+        "label": {
+          "text": "NHS number"
         },
         "hint": {
-          "text": "Clicking an error summary link should scroll the top of this radio fieldset into view"
+          "text": "Clicking an error summary link should scroll the top of this input's label into view"
         },
-        "items": [
-          {
-            "value": "yes",
-            "text": "Yes"
-          },
-          {
-            "value": "no",
-            "text": "No"
-          }
-        ]
+        "id": "input-with-error-message",
+        "name": "test-name-3",
+        "errorMessage": {
+          "text": "Error message goes here"
+        }
       }) }}
 
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
