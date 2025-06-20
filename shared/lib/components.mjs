@@ -1,35 +1,9 @@
 import { basename, join } from 'path'
 
 import { paths } from '@nhsuk/frontend-config'
-import { getDirectories } from '@nhsuk/frontend-lib/files.mjs'
 import camelCase from 'lodash/camelCase.js'
-import nunjucks from 'nunjucks'
 
-const { NODE_ENV } = process.env
-
-// Nunjucks default environment
-const env = nunjucksEnv()
-
-/**
- * Nunjucks environment factory
- *
- * @param {string[]} [searchPaths] - Nunjucks search paths (optional)
- * @param {ConfigureOptions} [nunjucksOptions] - Nunjucks options (optional)
- */
-export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
-  searchPaths.push(
-    NODE_ENV === 'test'
-      ? join(paths.pkg, 'src') // Use source files for tests
-      : join(paths.pkg, 'dist') // Use build output for review
-  )
-
-  // Nunjucks environment
-  return nunjucks.configure(searchPaths, {
-    trimBlocks: true, // automatically remove trailing newlines from a block/tag
-    lstripBlocks: true, // automatically remove leading whitespace from a block/tag,
-    ...nunjucksOptions
-  })
-}
+import { files, nunjucks } from './index.mjs'
 
 /**
  * Load single component data (from source)
@@ -76,14 +50,7 @@ export async function load(component) {
  * Load all component data (from source)
  */
 export async function loadAll() {
-  const listing = await getDirectories('nhsuk/components', {
-    cwd: join(paths.pkg, 'src')
-  })
-
-  // Use directory names only
-  const components = listing
-    .map((directoryPath) => basename(directoryPath))
-    .sort()
+  const components = await getNames()
 
   // Load component data per directory
   return Promise.all(components.map(load))
@@ -93,7 +60,7 @@ export async function loadAll() {
  * Get component names
  */
 export async function getNames() {
-  const listing = await getDirectories('nhsuk/components', {
+  const listing = await files.getDirectories('nhsuk/components', {
     cwd: join(paths.pkg, 'src')
   })
 
@@ -153,52 +120,7 @@ export function render(component, options) {
   const macroName = camelCase(renamed.get(component) || component)
   const macroPath = `nhsuk/components/${component}/macro.njk`
 
-  return renderMacro(macroName, macroPath, options)
-}
-
-/**
- * Render macro HTML
- *
- * @param {string} macroName - The name of the macro
- * @param {string} macroPath - The path to the file containing the macro
- * @param {MacroRenderOptions} [options] - Nunjucks macro render options
- * @returns HTML rendered by the macro
- */
-export function renderMacro(macroName, macroPath, options) {
-  const paramsFormatted = JSON.stringify(options?.context ?? {}, undefined, 2)
-
-  let macroString = `{%- from "${macroPath}" import ${macroName} -%}`
-
-  // If we're nesting child components or text, pass the children to the macro
-  // using the 'caller' Nunjucks feature
-  macroString += options?.callBlock
-    ? `{%- call ${macroName}(${paramsFormatted}) -%}${options.callBlock}{%- endcall -%}`
-    : `{{- ${macroName}(${paramsFormatted}) -}}`
-
-  return renderString(macroString, options)
-}
-
-/**
- * Render string
- *
- * @param {string} string - Nunjucks string to render
- * @param {MacroRenderOptions | TemplateRenderOptions} [options] - Nunjucks render options
- * @returns HTML rendered from the Nunjucks string
- */
-export function renderString(string, options) {
-  const nunjucksEnv = options?.env ?? env
-  return nunjucksEnv.renderString(string, options?.context ?? {})
-}
-
-/**
- * Render template HTML
- *
- * @param {string} templatePath - Nunjucks template path
- * @param {TemplateRenderOptions} [options] - Nunjucks template render options
- * @returns HTML rendered by template.njk
- */
-export function renderTemplate(templatePath, options) {
-  return renderString(`{% extends "${templatePath}" %}`, options)
+  return nunjucks.renderMacro(macroName, macroPath, options)
 }
 
 /**
@@ -240,22 +162,5 @@ export function renderTemplate(templatePath, options) {
  */
 
 /**
- * Nunjucks macro render options
- *
- * @typedef {object} MacroRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
- * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
- * @property {Environment} [env] - Nunjucks environment (optional)
- */
-
-/**
- * Nunjucks template render options
- *
- * @typedef {object} TemplateRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
- * @property {Environment} [env] - Nunjucks environment (optional)
- */
-
-/**
- * @import { ConfigureOptions, Environment } from 'nunjucks'
+ * @import { MacroRenderOptions } from './nunjucks/index.mjs'
  */

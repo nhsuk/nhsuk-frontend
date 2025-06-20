@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'fs/promises'
 import { join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
-import { nunjucksEnv, renderTemplate } from '@nhsuk/frontend-lib/components.mjs'
+import { components, nunjucks } from '@nhsuk/frontend-lib'
 import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
@@ -26,7 +26,7 @@ export const compile = task.name('html:render', async () => {
   })
 
   // Configure Nunjucks
-  const env = nunjucksEnv([
+  const env = nunjucks.configure([
     join(config.paths.app, 'src'),
     join(config.paths.pkg, 'src')
   ])
@@ -34,7 +34,7 @@ export const compile = task.name('html:render', async () => {
   for (const path of paths) {
     const { name, dir } = parse(path)
 
-    const html = renderTemplate(path, {
+    const html = nunjucks.renderTemplate(path, {
       context: {
         assetPath: `/nhsuk-frontend/assets`,
         baseUrl: '/nhsuk-frontend/',
