@@ -2,14 +2,8 @@
 
 ## Installation
 
-See the [main README quick start guide](https://github.com/alphagov/govuk-frontend#quick-start) for how to install this component.
+See the [main README quick start guide](https://github.com/nhsuk/nhsuk-frontend#quick-start) for how to install this component.
 
-## Guidance and Examples
+## Guidance and examples
 
-Find out when to use the notification banner component in your service in the [GOV.UK Design System](https://design-system.service.gov.uk/components/notification-banner).
-
-## Component options
-
-Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
-
-See [options table](https://design-system.service.gov.uk/components/notification-banner/#options-notification-banner-example) for details.
+To learn more about the notification banner component and when to use it, visit the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/notification-banner) for guidance, examples and options.

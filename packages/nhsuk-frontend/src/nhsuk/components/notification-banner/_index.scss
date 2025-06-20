@@ -29,13 +29,10 @@
   margin: 0;
   padding: 0;
   color: $color_nhsuk-white;
-  font-weight: $nhsuk-font-bold;
 
   // Set the size again because this element is a heading and the user agent
   // font size overrides the inherited font size
-  @include nhsuk-font-size($size: 19);
-  // @include nhsuk-typography-weight-bold;
-
+  @include nhsuk-font($size: 19, $weight: bold);
 }
 
 .nhsuk-notification-banner__content {
@@ -72,8 +69,7 @@
   margin: 0 0 nhsuk-spacing(3);
   padding: 0;
 
-  @include nhsuk-font-size($size: 26);
-  @include nhsuk-typography-weight-bold;
+  @include nhsuk-font($size: 26, $weight: bold);
 }
 
 .nhsuk-notification-banner__link {
