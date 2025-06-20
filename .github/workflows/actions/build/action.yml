@@ -1,10 +1,10 @@
 name: Build
+description: Install and build NHS.UK frontend, restoring from cache if possible
 
 inputs:
   ref:
     description: Restore or build from branch or SHA
     required: false
-    type: string
 
 outputs:
   cache-hit:
@@ -38,9 +38,7 @@ runs:
       id: cache-build
       with:
         key: build-${{ inputs.ref || github.sha }}
-        path: |
-          dist
-          packages/*/dist
+        path: packages/*/dist/
 
     - name: Install dependencies only
       if: ${{ steps.cache-build.outputs.cache-hit == 'true' }}
@@ -58,10 +56,8 @@ runs:
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
       uses: actions/cache/save@v4
       with:
-        key: build-${{ inputs.ref || github.sha }}
-        path: |
-          dist
-          packages/*/dist
+        key: ${{ steps.cache-build.outputs.cache-primary-key }}
+        path: packages/*/dist/
 
     - name: Restore branch or SHA
       if: ${{ !cancelled() && inputs.ref }}

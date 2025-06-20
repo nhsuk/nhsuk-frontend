@@ -40,6 +40,7 @@ jobs:
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
@@ -63,16 +64,16 @@ jobs:
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: build-${{ github.sha }}
-          path: |
-            dist
-            packages/*/dist
+          path: packages/*/dist/
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -111,16 +112,16 @@ jobs:
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: build-${{ github.sha }}
-          path: |
-            dist
-            packages/*/dist
+          path: packages/*/dist/
 
       - name: Setup Node
         uses: actions/setup-node@v4
