@@ -38,6 +38,7 @@ gulp.task('watch', () =>
     gulp.watch(
       [
         join(config.paths.app, 'src/**/*.njk'),
+        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs'),
         join(config.paths.pkg, 'dist/nhsuk/**/*.njk')
       ],
       gulp.series('html')

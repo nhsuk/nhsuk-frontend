@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'fs/promises'
-import { join, parse } from 'path'
+import { dirname, join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
 import { components, nunjucks } from '@nhsuk/frontend-lib'
@@ -30,24 +30,65 @@ export const compile = task.name('html:render', async () => {
     join(config.paths.pkg, 'src')
   ])
 
+  // Default Nunjucks context
+  const context = {
+    assetPath: `/nhsuk-frontend/assets`,
+    baseUrl: '/nhsuk-frontend/',
+    branchName: HEROKU_BRANCH,
+    version: config.version
+  }
+
+  // Components and examples
+  const list = await components.getDataList()
+
+  env.addGlobal('components', list)
+
+  // Render component examples
+  for (const data of list) {
+    const { name, component, examples } = data
+
+    for (const example of examples) {
+      const title = `${name} ${example.name}`
+      const layout = example.layout ?? 'layouts/example.njk'
+
+      const html = nunjucks.renderTemplate(layout, {
+        blocks: {
+          example: components.render(component, {
+            context: example.options,
+            callBlock: example.callBlock
+          })
+        },
+        context: { ...context, title },
+        env
+      })
+
+      const { slugify } = nunjucks.filters
+
+      const filePath = join(
+        config.paths.app,
+        `dist/components/${component}`,
+        example.name !== 'default'
+          ? `${slugify(example.name)}.html`
+          : `index.html`
+      )
+
+      // Write example to disk
+      await mkdir(dirname(filePath), { recursive: true })
+      await writeFile(filePath, html)
+    }
+  }
+
+  // Render pages on disk
   for (const path of paths) {
-    const { name, dir } = parse(path)
+    const html = nunjucks.renderTemplate(path, { context, env })
 
-    const html = nunjucks.renderTemplate(path, {
-      context: {
-        assetPath: `/nhsuk-frontend/assets`,
-        baseUrl: '/nhsuk-frontend/',
-        branchName: HEROKU_BRANCH,
-        version: config.version
-      },
-      env
-    })
+    const filePath = join(
+      config.paths.app,
+      `dist/${path.replace('.njk', '.html')}`
+    )
 
-    const destPath = join(config.paths.app, `dist/${dir}`)
-    const filePath = join(destPath, `${name}.html`)
-
-    // Write to disk
-    await mkdir(destPath, { recursive: true })
+    // Write page to disk
+    await mkdir(dirname(filePath), { recursive: true })
     await writeFile(filePath, html)
   }
 })
