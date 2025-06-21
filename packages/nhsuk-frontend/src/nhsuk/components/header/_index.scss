@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sass:math";
 @use "../../core/objects" as *;
 @use "../../core/settings" as *;
@@ -5,7 +6,31 @@
 
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
-$_header-active-item-size: $nhsuk-focus-width;
+$_header-item-hover-color: $color_shade_nhsuk-blue-20;
+$_header-item-hover-color-reversed: nhsuk-tint($color_nhsuk-light-blue, 80%);
+$_header-item-active-color: $color_shade_nhsuk-blue-35;
+$_header-item-active-size: $nhsuk-focus-width;
+
+@mixin _header-link-style(
+  $link-color: $nhsuk-link-color,
+  $link-hover-color: $_header-item-hover-color,
+  $link-active-color: $_header-item-active-color
+) {
+  & {
+    color: $link-color;
+  }
+
+  @include nhsuk-link-style-visited($link-color);
+  @include nhsuk-link-style-hover($link-hover-color);
+  @include nhsuk-link-style-active($link-active-color);
+  @include nhsuk-link-style-focus;
+
+  &:focus,
+  &:focus:visited {
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-color;
+  }
+}
 
 ////
 /// Header component
@@ -34,6 +59,14 @@ $_header-active-item-size: $nhsuk-focus-width;
   &:has(.nhsuk-header__menu-list:not([hidden])) {
     border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   }
+
+  @include nhsuk-media-query($media-type: print) {
+    color: $nhsuk-print-text-color;
+  }
+}
+
+.nhsuk-header__logo {
+  color: inherit;
 
   @include nhsuk-media-query($media-type: print) {
     color: $nhsuk-print-text-color;
@@ -75,55 +108,25 @@ $_header-active-item-size: $nhsuk-focus-width;
   @include nhsuk-font(19, $line-height: 1.1);
 }
 
-.nhsuk-header__service-logo[href] {
-  display: inline-flex;
-
-  &:link,
-  &:visited {
-    color: $color_nhsuk-white;
-  }
-
-  // Add text underline on hover
-  &:not(:focus):hover {
-    text-decoration: underline;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    .nhsuk-header__organisation-name,
-    .nhsuk-header__organisation-name-descriptor,
-    .nhsuk-header__service-name {
-      color: inherit;
-    }
-  }
-
-  &:focus {
-    .nhsuk-header__logo,
-    .nhsuk-header__organisation-name,
-    .nhsuk-header__organisation-name-descriptor,
-    .nhsuk-header__service-name {
-      color: $nhsuk-focus-text-color;
-    }
-  }
-}
-
-.nhsuk-header__service-logo,
+.nhsuk-header__service-logo[href],
 .nhsuk-header__service-name[href] {
-  @include nhsuk-link-style-white;
-
-  &:link {
-    text-decoration: none;
-  }
-
-  &:not(:focus):hover {
-    text-decoration: underline;
-  }
+  text-decoration: none;
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $_header-item-hover-color-reversed,
+    $link-active-color: $nhsuk-reverse-text-color
+  );
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
       content: "";
     }
+  }
+}
+
+.nhsuk-header__service-logo[href] {
+  &:focus {
+    @include nhsuk-focused-box;
   }
 }
 
@@ -134,8 +137,10 @@ $_header-active-item-size: $nhsuk-focus-width;
   border: 1px solid $color_shade_nhsuk-blue-20;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
+  overflow: hidden;
 
   .nhsuk-icon__user {
+    fill: currentcolor;
     height: 24px;
     width: 24px;
     flex-shrink: 0;
@@ -186,15 +191,21 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header__account-link {
   display: flex;
   gap: nhsuk-spacing(2);
+  margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
+  padding: nhsuk-spacing(2) $_header-item-padding;
   overflow-wrap: anywhere;
-  @include nhsuk-link-style-white;
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $_header-item-hover-color-reversed,
+    $link-active-color: $nhsuk-reverse-text-color
+  );
 }
 
 .nhsuk-header__account-button {
   background: none;
   border: 0;
-  padding: 0;
   cursor: pointer;
+  text-decoration: underline;
   @include nhsuk-font(16);
 }
 
@@ -273,13 +284,13 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   &:hover,
   &:active {
-    background-color: $color_shade_nhsuk-blue-35;
+    background-color: $_header-item-hover-color;
     box-shadow: inset 0 0 0 1px $color_nhsuk-white;
     color: $color_nhsuk-white;
   }
 
   &:active {
-    background-color: $color_shade_nhsuk-blue-50;
+    background-color: $_header-item-active-color;
   }
 
   &:focus {
@@ -361,9 +372,15 @@ $_header-active-item-size: $nhsuk-focus-width;
   display: block;
   padding: nhsuk-spacing(3) $_header-link-padding;
   position: relative;
+  text-decoration: none;
   white-space: nowrap;
   @include nhsuk-font(16);
-  @include nhsuk-link-style-white;
+
+  @include _header-link-style(
+    $link-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-active-color: $nhsuk-reverse-text-color
+  );
 
   // Visual indicator for navigation item uses a border on bottom edge
   &::before {
@@ -376,15 +393,11 @@ $_header-active-item-size: $nhsuk-focus-width;
     border: 0 solid currentcolor;
   }
 
-  // Visual indicator for current navigation
+  // Visual indicator for hovered and current navigation
   &:hover::before,
   &[aria-current="page"]::before,
   &[aria-current="true"]::before {
-    border-bottom-width: $_header-active-item-size;
-  }
-
-  &:focus {
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-color;
+    border-bottom-width: $_header-item-active-size;
   }
 
   @include nhsuk-media-query($until: tablet) {
@@ -417,7 +430,6 @@ $_header-active-item-size: $nhsuk-focus-width;
   display: flex;
   margin: 0;
   text-align: center;
-  text-decoration: none;
   vertical-align: top;
 
   &[hidden] {
@@ -456,8 +468,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   }
 
   .nhsuk-header__navigation-link {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
+    @include _header-link-style;
 
     // Visual indicator for navigation item uses a border on left edge
     &:hover::before,
@@ -468,7 +479,7 @@ $_header-active-item-size: $nhsuk-focus-width;
       bottom: 0;
       left: -$nhsuk-gutter;
       right: auto;
-      border-left-width: $_header-active-item-size;
+      border-left-width: $_header-item-active-size;
 
       // stylelint-disable-next-line max-nesting-depth
       @include nhsuk-media-query($until: desktop) {
@@ -504,22 +515,25 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header--white {
   background-color: $color_nhsuk-white;
 
-  .nhsuk-header__container,
-  .nhsuk-header__logo {
+  .nhsuk-header__container {
     color: $color_nhsuk-blue;
   }
 
+  .nhsuk-header__service-name,
+  .nhsuk-header__organisation-name {
+    color: $color_nhsuk-black;
+  }
+
+  .nhsuk-header__service-logo[href],
+  .nhsuk-header__service-name[href],
+  .nhsuk-header__account-button,
+  .nhsuk-header__account-link {
+    @include _header-link-style;
+  }
+
   .nhsuk-header__service-logo[href] {
-    &:link,
-    &:visited {
-      color: $nhsuk-text-color;
-    }
-
-    @include nhsuk-link-style-active;
-
-    &:not(:focus):not(:active):hover,
-    &:not(:focus):not(:active):hover:visited {
-      color: $nhsuk-link-hover-color;
+    &:focus {
+      @include nhsuk-focused-box;
     }
   }
 
@@ -530,12 +544,6 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   .nhsuk-header__account-item {
     outline-color: $color_nhsuk-grey-4;
-  }
-
-  .nhsuk-header__account-button,
-  .nhsuk-header__account-link {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
   }
 
   .nhsuk-header__search-input.nhsuk-input:not(:focus) {
@@ -551,23 +559,14 @@ $_header-active-item-size: $nhsuk-focus-width;
 
     &:hover,
     &:active {
-      background-color: $color_shade_nhsuk-blue-20;
-      border-color: $color_shade_nhsuk-blue-20;
+      background-color: $_header-item-hover-color;
+      border-color: $_header-item-hover-color;
       box-shadow: none;
     }
 
     &:active {
-      background-color: $color_shade_nhsuk-blue-50;
+      background-color: $_header-item-active-color;
     }
-  }
-
-  .nhsuk-header__organisation-name,
-  .nhsuk-header__service-name {
-    color: $color_nhsuk-black;
-  }
-
-  .nhsuk-header__organisation-name-descriptor {
-    color: $color_nhsuk-blue;
   }
 
   .nhsuk-header__navigation {
@@ -599,13 +598,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   }
 
   .nhsuk-header__navigation-link {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
-  }
-
-  // Menu
-  .nhsuk-header__menu-toggle {
-    text-decoration: none;
+    @include _header-link-style;
   }
 }
 
@@ -624,6 +617,10 @@ $_header-active-item-size: $nhsuk-focus-width;
 
   .nhsuk-header__service-logo {
     display: block;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -643,10 +640,6 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header__organisation-name-descriptor {
   display: block;
   @include nhsuk-font(14, $weight: bold);
-
-  @include nhsuk-media-query($media-type: print) {
-    color: $color_nhsuk-blue;
-  }
 }
 
 .nhsuk-header__organisation-logo {
