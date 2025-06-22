@@ -421,10 +421,6 @@ $_header-link-padding: 2px;
   align-self: center;
   padding: 0 math.div($nhsuk-gutter-half, 2);
 
-  &[hidden] {
-    display: none;
-  }
-
   @include nhsuk-media-query($from: tablet) {
     padding: 0 $nhsuk-gutter-half;
   }
@@ -442,10 +438,6 @@ $_header-link-padding: 2px;
   text-align: center;
   text-decoration: none;
   vertical-align: top;
-
-  &[hidden] {
-    display: none;
-  }
 
   .nhsuk-icon__chevron-down {
     width: nhsuk-spacing(4);
@@ -474,10 +466,6 @@ $_header-link-padding: 2px;
   top: 100%;
   left: 0;
   @include nhsuk-print-hide;
-
-  &[hidden] {
-    display: none;
-  }
 
   @include nhsuk-media-query($until: tablet) {
     margin: 0 $nhsuk-gutter-half * -1;
