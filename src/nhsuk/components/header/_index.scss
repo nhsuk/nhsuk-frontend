@@ -9,19 +9,17 @@ $_header-link-padding: 2px;
 ////
 /// Header component
 ///
-/// The behaviour with regards to responsiveness is as follow:
+/// This component has three colour variations:
 ///
-/// - Mobile to tablet view
-///   Menu toggle button visible and navigation links hidden, search toggle
-///   button visible and search form hidden
+/// 1. Blue background
+/// 2. White background with blue background for navigation
+/// 3. White background
 ///
-/// - Tablet to desktop view
-///   Menu toggle button visible and navigation links hidden, search toggle
-///   button hidden and search form visible
+/// The behaviour with regards to navigation is as follows:
 ///
-/// - Desktop+ view
-///   Menu toggle button hidden and navigation links visible, search toggle
-///   button hidden and search form visible
+/// Menu toggle button is hidden until there is no space for navigation items
+/// to display horizontally. Once there are overflowing navigation items to
+/// display, the menu toggle button is shown, which toggles the overflow menu.
 ///
 /// @group components
 ////
@@ -256,7 +254,7 @@ $_header-link-padding: 2px;
   overflow: visible;
 }
 
-// 1. Disable default search input appearance
+// Disable default search input appearance
 .nhsuk-header__search-input.nhsuk-input {
   border-color: transparent;
   border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
