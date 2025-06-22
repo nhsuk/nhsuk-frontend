@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sass:math";
 @use "../../core/objects" as *;
 @use "../../core/settings" as *;
@@ -6,6 +7,7 @@
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
 $_header-item-hover-color: $color_shade_nhsuk-blue-20;
+$_header-item-hover-color-reversed: nhsuk-tint($color_nhsuk-light-blue, 80%);
 $_header-item-active-color: $color_shade_nhsuk-blue-35;
 $_header-item-active-size: $nhsuk-focus-width;
 
@@ -111,13 +113,9 @@ $_header-item-active-size: $nhsuk-focus-width;
   text-decoration: none;
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
-    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $_header-item-hover-color-reversed,
     $link-active-color: $nhsuk-reverse-text-color
   );
-
-  &:hover {
-    text-decoration: underline;
-  }
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
@@ -129,14 +127,6 @@ $_header-item-active-size: $nhsuk-focus-width;
 .nhsuk-header__service-logo[href] {
   &:focus {
     @include nhsuk-focused-box;
-  }
-
-  &:not(:focus):hover .nhsuk-header__logo {
-    background-color: $_header-item-hover-color;
-  }
-
-  &:not(:focus):active .nhsuk-header__logo {
-    background-color: $_header-item-active-color;
   }
 }
 
@@ -204,7 +194,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   overflow-wrap: anywhere;
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
-    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $_header-item-hover-color-reversed,
     $link-active-color: $nhsuk-reverse-text-color
   );
 }
@@ -385,7 +375,7 @@ $_header-item-active-size: $nhsuk-focus-width;
 
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
-    $link-hover-color: $nhsuk-reverse-text-color,
+    $link-hover-color: $_header-item-hover-color-reversed,
     $link-active-color: $nhsuk-reverse-text-color
   );
 
@@ -540,11 +530,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   .nhsuk-header__service-logo[href] {
     &:focus {
       @include nhsuk-focused-box;
-    }
-
-    &:not(:focus):hover .nhsuk-header__logo,
-    &:not(:focus):active .nhsuk-header__logo {
-      background-color: transparent;
     }
   }
 
