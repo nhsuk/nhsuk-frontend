@@ -160,6 +160,8 @@ $_header-active-item-size: $nhsuk-focus-width;
     flex-shrink: 0;
   }
 
+  @include nhsuk-print-hide;
+
   @include nhsuk-media-query($from: tablet) {
     align-self: start;
 
@@ -314,6 +316,7 @@ $_header-active-item-size: $nhsuk-focus-width;
 .nhsuk-header__navigation {
   position: relative;
   border: 0 solid $color_nhsuk-white;
+
   @include nhsuk-print-hide;
 
   @include nhsuk-media-query($until: tablet) {
@@ -463,6 +466,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   right: 0;
   top: 100%;
   left: 0;
+
   @include nhsuk-print-hide;
 
   &[hidden] {
