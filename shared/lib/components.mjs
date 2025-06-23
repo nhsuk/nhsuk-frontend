@@ -31,7 +31,7 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
  * @param {string} component - Component directory name
  * @returns {Promise<ComponentData>} Component data
  */
-export async function getData(component) {
+export async function load(component) {
   const optionsPath = join(
     paths.pkg,
     `src/nhsuk/components/${component}/macro-options.mjs`
@@ -69,7 +69,7 @@ export async function getData(component) {
 /**
  * Load all component data (from source)
  */
-export async function getDataList() {
+export async function loadAll() {
   const listing = await getDirectories('nhsuk/components', {
     cwd: join(paths.pkg, 'src')
   })
@@ -80,7 +80,7 @@ export async function getDataList() {
     .sort()
 
   // Load component data per directory
-  return Promise.all(components.map(getData))
+  return Promise.all(components.map(load))
 }
 
 /**

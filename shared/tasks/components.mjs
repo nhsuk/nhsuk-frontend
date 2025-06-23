@@ -10,7 +10,7 @@ import { files } from './index.mjs'
  * @param {Pick<AssetOptions, "destPath">} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
-  const list = await components.getDataList()
+  const list = await components.loadAll()
 
   // Loop component names
   const fixtures = list.map(async (data) => {
@@ -39,7 +39,7 @@ export async function generateFixtures({ destPath }) {
  * @param {Pick<AssetOptions, "destPath">} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  const list = await components.getDataList()
+  const list = await components.loadAll()
 
   // Loop component names
   const macroOptions = list.map(async (data) => {
