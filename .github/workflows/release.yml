@@ -48,7 +48,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: false
-          prerelease: false
+          prerelease: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
 
       - name: Upload release asset
         id: upload-release-asset
@@ -62,6 +62,13 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish npm package
-        run: npm publish --workspace nhsuk-frontend
+        if: ${{ !contains(steps.get_version.outputs.VERSION, '-') }}
+        run: npm publish --workspace nhsuk-frontend --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publish npm package (pre-release)
+        if: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
+        run: npm publish --workspace nhsuk-frontend --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
