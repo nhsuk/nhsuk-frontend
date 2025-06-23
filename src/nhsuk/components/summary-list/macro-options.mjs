@@ -13,7 +13,7 @@ export const params = {
     required: true,
     description: 'Array of row item objects.',
     params: {
-      classes: {
+      'classes': {
         type: 'string',
         required: false,
         description: 'Classes to add to the row `div`.'
