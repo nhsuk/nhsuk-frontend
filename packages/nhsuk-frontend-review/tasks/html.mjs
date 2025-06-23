@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'fs/promises'
-import { join, parse } from 'path'
+import { dirname, join, parse } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
 import { components, nunjucks } from '@nhsuk/frontend-lib'
@@ -11,6 +11,7 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../.htmlvalidate.js'
 
 const { HEROKU_BRANCH = 'main' } = process.env
+const { slugify } = nunjucks.filters
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -25,30 +26,63 @@ export const compile = task.name('html:render', async () => {
     ignore: ['**/layouts/**']
   })
 
+  // Components and examples
+  const list = await components.loadAll()
+
   // Configure Nunjucks
   const env = nunjucks.configure([
     join(config.paths.app, 'src'),
     join(config.paths.pkg, 'src')
   ])
 
+  env.addGlobal('components', list)
+
+  // Default Nunjucks context
+  const context = {
+    assetPath: `/nhsuk-frontend/assets`,
+    baseUrl: '/nhsuk-frontend/',
+    branchName: HEROKU_BRANCH,
+    version: config.version
+  }
+
+  // Render component examples
+  for (const data of list) {
+    const { name, component, examples = {} } = data
+
+    for (const [exampleName, example] of Object.entries(examples)) {
+      const html = nunjucks.renderTemplate(
+        example.layout ?? 'layouts/example.njk',
+        {
+          blocks: { example: components.render(component, example) },
+          context: { ...context, title: `${name} ${exampleName}` },
+          env
+        }
+      )
+
+      const fileName = `${slugify(exampleName)}/index.html`
+
+      const filePath = join(
+        config.paths.app,
+        `dist/components/${component}/${fileName}`
+      )
+
+      // Write example to disk
+      await mkdir(dirname(filePath), { recursive: true })
+      await writeFile(filePath, html)
+    }
+  }
+
+  // Render pages on disk
   for (const path of paths) {
+    const html = nunjucks.renderTemplate(path, { context, env })
+
     const { name, dir } = parse(path)
 
-    const html = nunjucks.renderTemplate(path, {
-      context: {
-        assetPath: `/nhsuk-frontend/assets`,
-        baseUrl: '/nhsuk-frontend/',
-        branchName: HEROKU_BRANCH,
-        version: config.version
-      },
-      env
-    })
+    const fileName = name === 'index' ? 'index.html' : `${name}/index.html`
+    const filePath = join(config.paths.app, `dist/${dir}/${fileName}`)
 
-    const destPath = join(config.paths.app, `dist/${dir}`)
-    const filePath = join(destPath, `${name}.html`)
-
-    // Write to disk
-    await mkdir(destPath, { recursive: true })
+    // Write page to disk
+    await mkdir(dirname(filePath), { recursive: true })
     await writeFile(filePath, html)
   }
 })
