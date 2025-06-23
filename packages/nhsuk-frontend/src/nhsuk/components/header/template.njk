@@ -52,7 +52,7 @@
   {%- if params.organisation %} nhsuk-header--organisation{% endif %}
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
   {{- nhsukAttributes(params.attributes) }}>
-  <div class="nhsuk-header__container">
+  <div class="nhsuk-header__container nhsuk-width-container">
     <div class="nhsuk-header__service">
     {% if logoHref %}
       <a class="nhsuk-header__service-logo" href="{{ logoHref }}">
@@ -113,7 +113,7 @@
   <nav class="nhsuk-header__navigation
     {%- if params.navigation.classes %} {{ params.navigation.classes }}{% endif %}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
     {{- nhsukAttributes(params.navigation.attributes) }}>
-    <div class="nhsuk-header__navigation-container">
+    <div class="nhsuk-header__navigation-container nhsuk-width-container">
       <ul class="nhsuk-header__navigation-list">
       {% for item in params.navigation.items %}
         {% set linkInnerContent %}
