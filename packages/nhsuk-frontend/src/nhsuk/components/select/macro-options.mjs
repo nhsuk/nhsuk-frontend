@@ -109,8 +109,186 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      id: 'sort',
+      name: 'sort',
+      label: {
+        text: 'Sort by'
+      },
+      value: 'updated',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with disabled option': {
+    context: {
+      id: 'sort',
+      name: 'sort',
+      label: {
+        text: 'Sort by'
+      },
+      value: 'updated',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments',
+          disabled: true
+        }
+      ]
+    }
+  },
+  'with hint text': {
+    context: {
+      id: 'location',
+      name: 'location',
+      label: {
+        text: 'Choose location'
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      value: 'choose',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ]
+    }
+  },
+  'with hint text, error message': {
+    context: {
+      id: 'location',
+      name: 'location',
+      label: {
+        text: 'Choose location'
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      errorMessage: {
+        text: 'Select a location'
+      },
+      value: 'choose',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

@@ -163,8 +163,296 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      idPrefix: 'nationality',
+      name: 'nationality',
+      fieldset: {
+        legend: {
+          text: 'What is your nationality?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      values: ['british'],
+      hint: {
+        text: 'If you have more than 1 nationality, select all options that are relevant to you'
+      },
+      items: [
+        {
+          value: 'british',
+          text: 'British'
+        },
+        {
+          value: 'irish',
+          text: 'Irish'
+        },
+        {
+          value: 'other',
+          text: 'citizen of another country'
+        }
+      ]
+    }
+  },
+  'with hint text': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
+        }
+      },
+      items: [
+        {
+          name: 'gateway',
+          id: 'government-gateway',
+          value: 'gov-gateway',
+          text: 'Sign in with Government Gateway',
+          hint: {
+            text: "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before"
+          }
+        },
+        {
+          name: 'verify',
+          id: 'nhsuk-login',
+          value: 'nhsuk-verify',
+          text: 'Sign in with NHS.UK login',
+          hint: {
+            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+          }
+        }
+      ]
+    }
+  },
+  'with disabled item': {
+    context: {
+      name: 'colours',
+      items: [
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue',
+          disabled: true
+        }
+      ]
+    }
+  },
+  'with error message': {
+    context: {
+      name: 'waste',
+      errorMessage: {
+        text: 'Please select an option'
+      },
+      fieldset: {
+        legend: {
+          text: 'Which types of waste do you transport regularly?',
+          classes: 'nhsuk-fieldset__legend--m'
+        }
+      },
+      items: [
+        {
+          value: 'animal',
+          text: 'Waste from animal carcasses'
+        },
+        {
+          value: 'mines',
+          text: 'Waste from mines or quarries'
+        },
+        {
+          value: 'farm',
+          text: 'Farm or agricultural waste'
+        }
+      ]
+    }
+  },
+  'with legend as page heading': {
+    context: {
+      name: 'waste',
+      fieldset: {
+        legend: {
+          text: 'Which types of waste do you transport regularly?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all that apply'
+      },
+      items: [
+        {
+          value: 'animal',
+          text: 'Waste from animal carcasses'
+        },
+        {
+          value: 'mines',
+          text: 'Waste from mines or quarries'
+        },
+        {
+          value: 'farm',
+          text: 'Farm or agricultural waste'
+        }
+      ]
+    }
+  },
+  'with conditional content': {
+    context: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Email address'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'with "none of the above" option': {
+    context: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: { text: 'Email address' }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'None of the above',
+          exclusive: true,
+          exclusiveGroup: 'communication-preferences'
+        }
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

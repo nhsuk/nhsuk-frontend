@@ -98,8 +98,166 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      links: [
+        {
+          url: '#',
+          label: 'Accessibility statement'
+        },
+        {
+          url: '#',
+          label: 'Give us feedback'
+        },
+        {
+          url: '#',
+          label: 'Cookies'
+        },
+        {
+          url: '#',
+          label: 'Privacy policy'
+        },
+        {
+          url: '#',
+          label: 'Terms and conditions'
+        }
+      ]
+    }
+  },
+  'columns': {
+    context: {
+      copyright: '© Crown copyright',
+      links: [
+        {
+          url: '#',
+          label: 'Home'
+        },
+        {
+          url: '#',
+          label: 'Health A to Z'
+        },
+        {
+          url: '#',
+          label: 'Live Well'
+        },
+        {
+          url: '#',
+          label: 'Mental health'
+        },
+        {
+          url: '#',
+          label: 'Care and support'
+        },
+        {
+          url: '#',
+          label: 'Accessibility statement'
+        },
+        {
+          url: '#',
+          label: 'Pregnancy'
+        },
+        {
+          url: '#',
+          label: 'NHS services'
+        },
+        {
+          url: '#',
+          label: 'Coronavirus (COVID-19)'
+        }
+      ],
+      linksColumn2: [
+        {
+          url: '#',
+          label: 'NHS App'
+        },
+        {
+          url: '#',
+          label: 'Find my NHS number'
+        },
+        {
+          url: '#',
+          label: 'Your health records'
+        },
+        {
+          url: '#',
+          label: 'About the NHS'
+        },
+        {
+          url: '#',
+          label: 'Healthcare abroad'
+        }
+      ],
+      linksColumn3: [
+        {
+          url: '#',
+          label: 'Other NHS websites'
+        },
+        {
+          url: '#',
+          label: 'Profile editor login'
+        }
+      ],
+      metaLinks: [
+        {
+          url: '#',
+          label: 'About us'
+        },
+        {
+          url: '#',
+          label: 'Give us feedback'
+        },
+        {
+          url: '#',
+          label: 'Accessibility statement'
+        },
+        {
+          url: '#',
+          label: 'Our policies'
+        },
+        {
+          url: '#',
+          label: 'Cookies'
+        }
+      ]
+    }
+  },
+  'with custom copyright statement': {
+    context: {
+      copyright: '© East London NHS Foundation Trust',
+      links: [
+        {
+          url: '#',
+          label: 'Accessibility statement'
+        },
+        {
+          url: '#',
+          label: 'Give us feedback'
+        },
+        {
+          url: '#',
+          label: 'Cookies'
+        },
+        {
+          url: '#',
+          label: 'Privacy policy'
+        },
+        {
+          url: '#',
+          label: 'Terms and conditions'
+        }
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

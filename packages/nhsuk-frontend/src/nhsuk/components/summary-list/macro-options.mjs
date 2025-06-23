@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Summary list'
 
@@ -101,8 +102,256 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Sarah Philips'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '5 January 1978'
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'date of birth'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              72 Guild Street<br>
+              London<br>
+              SE23 6FH
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact information'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900457</p>
+              <p>sarah.philips@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Add',
+                visuallyHiddenText: 'new contact details'
+              },
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact details'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Medicines'
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Add',
+                visuallyHiddenText: 'new medicine'
+              },
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'medicines'
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  'without actions': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Sarah Philips'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '5 January 1978'
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              72 Guild Street<br>
+              London<br>
+              SE23 6FH
+            `
+          }
+        },
+        {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900457</p>
+              <p>sarah.philips@example.com</p>
+            `
+          }
+        }
+      ]
+    }
+  },
+  'without border': {
+    context: {
+      classes: 'nhsuk-summary-list--no-border',
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Sarah Philips'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '5 January 1978'
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              72 Guild Street<br>
+              London<br>
+              SE23 6FH
+            `
+          }
+        },
+        {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900457</p>
+              <p>sarah.philips@example.com</p>
+            `
+          }
+        }
+      ]
+    }
+  },
+  'without row border': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Sarah Philips'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '5 January 1978'
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              72 Guild Street<br>
+              London<br>
+              SE23 6FH
+            `
+          }
+        },
+        {
+          classes: 'nhsuk-summary-list__row--no-border',
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900457</p>
+              <p>sarah.philips@example.com</p>
+            `
+          }
+        }
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */
