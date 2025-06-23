@@ -118,8 +118,100 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxlength: 10,
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  'with default value': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxlength: 70,
+      value: '123',
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  'with default value exceeding limit': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxlength: 10,
+      value: '012345678901234567890123456789123',
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  'with maxlength attribute': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxlength: 11,
+      attributes: {
+        maxlength: 11
+      },
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  'with threshold': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxlength: 10,
+      threshold: 8,
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  },
+  'with max words': {
+    context: {
+      name: 'more-detail',
+      id: 'more-detail',
+      maxwords: 10,
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      }
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

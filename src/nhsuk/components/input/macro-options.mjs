@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-export const name = 'Text input'
+export const name = 'Input'
 
 /**
  * Nunjucks macro option params
@@ -113,8 +113,134 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-example',
+      name: 'test-name'
+    }
+  },
+  'with hint text': {
+    context: {
+      label: {
+        text: 'NHS number',
+        classes: 'nhsuk-label--l'
+      },
+      hint: {
+        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+      },
+      id: 'input-with-hint-text',
+      name: 'test-name-2',
+      classes: 'nhsuk-input--width-10'
+    }
+  },
+  'with error message': {
+    context: {
+      label: {
+        text: 'NHS number',
+        classes: 'nhsuk-label--l'
+      },
+      hint: {
+        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+      },
+      id: 'input-with-error-message',
+      name: 'test-name-3',
+      classes: 'nhsuk-input--width-10',
+      errorMessage: {
+        text: 'Error message goes here'
+      }
+    }
+  },
+  'with width modifier': {
+    context: {
+      label: {
+        text: 'NHS number',
+        classes: 'nhsuk-label--l'
+      },
+      hint: {
+        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+      },
+      id: 'input-width-10',
+      name: 'test-width-10',
+      classes: 'nhsuk-input--width-10'
+    }
+  },
+  'with prefix': {
+    context: {
+      label: {
+        text: 'What is the cost in pounds?',
+        classes: 'nhsuk-label--l'
+      },
+      id: 'input-with-prefix',
+      name: 'test-name-4',
+      prefix: '£',
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with suffix': {
+    context: {
+      label: {
+        text: 'What is the weight in kilograms?',
+        classes: 'nhsuk-label--l'
+      },
+      id: 'input-with-suffix',
+      name: 'test-name-5',
+      suffix: 'kg',
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with prefix and suffix': {
+    context: {
+      label: {
+        text: 'What is the cost per item, in pounds?',
+        classes: 'nhsuk-label--l'
+      },
+      id: 'input-with-prefix-and-suffix',
+      name: 'test-name-6',
+      prefix: '£',
+      suffix: 'per item',
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with autocomplete attribute': {
+    context: {
+      label: {
+        text: 'Postcode'
+      },
+      id: 'input-with-autocomplete-attribute',
+      name: 'postcode',
+      autocomplete: 'postal-code',
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with error message, prefix and suffix': {
+    context: {
+      label: {
+        text: 'What is the cost per item, in pounds?',
+        classes: 'nhsuk-label--l'
+      },
+      id: 'input-with-error-message-and-prefix-and-suffix',
+      name: 'test-name-7',
+      prefix: '£',
+      suffix: 'per item',
+      classes: 'nhsuk-input--width-5',
+      errorMessage: {
+        text: 'Enter a cost per item, in pounds'
+      }
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

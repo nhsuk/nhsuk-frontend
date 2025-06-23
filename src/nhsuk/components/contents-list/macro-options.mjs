@@ -43,8 +43,43 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  default: {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'What is AMD?',
+          current: true
+        },
+        {
+          href: '#',
+          text: 'Symptoms'
+        },
+        {
+          href: '#',
+          text: 'Getting diagnosed'
+        },
+        {
+          href: '#',
+          text: 'Treatments'
+        },
+        {
+          href: '#',
+          text: 'Living with AMD'
+        }
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

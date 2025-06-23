@@ -9,9 +9,18 @@ import gulp from 'gulp'
  */
 export const compile = gulp.series(
   /**
+   * Generate NHS.UK frontend fixtures.json
+   */
+  task.name('fixtures:examples', () =>
+    components.generateFixtures({
+      destPath: join(config.paths.pkg, 'dist/nhsuk/components')
+    })
+  ),
+
+  /**
    * Generate NHS.UK frontend macro-options.json
    */
-  task.name('compile:macro-options', () =>
+  task.name('fixtures:macro-options', () =>
     components.generateMacroOptions({
       destPath: join(config.paths.pkg, 'dist/nhsuk/components')
     })
