@@ -28,13 +28,39 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
 /**
  * Load single component data (from source)
  *
- * @param {string} componentName - Component name
+ * @param {string} component - Component directory name
  * @returns {Promise<ComponentData>} Component data
  */
-export async function getData(componentName) {
-  return import(
-    join(paths.pkg, `src/nhsuk/components/${componentName}/macro-options.mjs`)
+export async function getData(component) {
+  const optionsPath = join(
+    paths.pkg,
+    `src/nhsuk/components/${component}/macro-options.mjs`
   )
+
+  // Bypass import cache (e.g. Gulp watch changes)
+  const options = /** @type {Omit<ComponentData, "component">} */ (
+    await import(`${optionsPath}?imported=${Date.now()}`)
+  )
+
+  // Add component directory name to options
+  return { component, ...options }
+}
+
+/**
+ * Load all component data (from source)
+ */
+export async function getDataList() {
+  const listing = await getDirectories('nhsuk/components', {
+    cwd: join(paths.pkg, 'src')
+  })
+
+  // Use directory names only
+  const components = listing
+    .map((directoryPath) => basename(directoryPath))
+    .sort()
+
+  // Load component data per directory
+  return Promise.all(components.map(getData))
 }
 
 /**
@@ -86,11 +112,11 @@ export function getMacroOptions(params) {
 /**
  * Render component HTML
  *
- * @param {string} componentName - Component name
+ * @param {string} component - Component directory name
  * @param {MacroRenderOptions} [options] - Nunjucks macro render options
  * @returns HTML rendered by the component
  */
-export function render(componentName, options) {
+export function render(component, options) {
   const renamed = new Map([
     ['do-dont-list', 'list'],
     ['images', 'image'],
@@ -98,8 +124,8 @@ export function render(componentName, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = camelCase(renamed.get(componentName) || componentName)
-  const macroPath = `nhsuk/components/${componentName}/macro.njk`
+  const macroName = camelCase(renamed.get(component) || component)
+  const macroPath = `nhsuk/components/${component}/macro.njk`
 
   return renderMacro(macroName, macroPath, options)
 }
@@ -153,8 +179,10 @@ export function renderTemplate(templatePath, options) {
  * Component data
  *
  * @typedef {object} ComponentData
- * @property {string} name - Component name
+ * @property {string} name - Component friendly name
+ * @property {string} component - Component directory name
  * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
+ * @property {MacroExample[]} [examples] - Nunjucks macro option examples
  * @property {MacroOption[]} options - Nunjucks macro options fixtures
  */
 
@@ -167,6 +195,16 @@ export function renderTemplate(templatePath, options) {
  * @property {string} description - Option description
  * @property {true} [isComponent] - Option is another component
  * @property {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
+ */
+
+/**
+ * Nunjucks macro option example
+ *
+ * @typedef {object} MacroExample
+ * @property {string} name - Example name
+ * @property {string} [description] - Example description (optional)
+ * @property {{ [param: string]: unknown }} [options] - Nunjucks macro options (optional)
+ * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  */
 
 /**
