@@ -21,13 +21,13 @@ const formatter = formatterFactory('codeframe')
  */
 export const compile = task.name('html:render', async () => {
   const paths = await getListing('**/*.njk', {
-    cwd: join(config.paths.app, 'src')
+    cwd: join(config.paths.app, 'src'),
+    ignore: ['**/layouts/**']
   })
 
   // Configure Nunjucks
   const env = nunjucksEnv([
     join(config.paths.app, 'src'),
-    join(config.paths.app, 'src/_templates'),
     join(config.paths.pkg, 'src')
   ])
 
