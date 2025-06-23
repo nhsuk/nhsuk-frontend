@@ -21,7 +21,7 @@ export default (ctx = {}) => {
       // Minify CSS only
       to?.endsWith('.min.css') &&
         cssnano({
-          env: 'stylesheets'
+          preset: ['default', { env: 'stylesheets' }]
         })
     ],
 
