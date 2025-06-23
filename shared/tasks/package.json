@@ -12,7 +12,7 @@
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "autoprefixer": "^10.4.21",
@@ -22,10 +22,10 @@
     "gulp-rename": "^2.0.0",
     "nhsuk-frontend": "*",
     "plugin-error": "^2.0.1",
-    "postcss": "^8.5.4",
+    "postcss": "^8.5.6",
     "postcss-load-config": "^6.0.1",
     "postcss-scss": "^4.0.9",
-    "rollup": "^4.43.0",
+    "rollup": "^4.44.0",
     "sass-embedded": "^1.87.0"
   },
   "engines": {
