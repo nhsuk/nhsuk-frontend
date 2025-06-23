@@ -18,7 +18,7 @@ describe('Character count', () => {
       await page.setJavaScriptEnabled(false)
 
       await Promise.all([
-        page.goto(`${BASE_URL}/components/character-count/index.html`),
+        page.goto(`${BASE_URL}/components/character-count/default/`),
         page.waitForNavigation()
       ])
     })
@@ -37,7 +37,7 @@ describe('Character count', () => {
     describe('on page load', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto(`${BASE_URL}/components/character-count/index.html`),
+          page.goto(`${BASE_URL}/components/character-count/default/`),
           page.waitForNavigation()
         ])
       })
@@ -66,7 +66,7 @@ describe('Character count', () => {
     describe('when counting characters', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto(`${BASE_URL}/components/character-count/index.html`),
+          page.goto(`${BASE_URL}/components/character-count/default/`),
           page.waitForNavigation()
         ])
       })
@@ -88,7 +88,7 @@ describe('Character count', () => {
       it('shows the characters remaining if the field is pre-filled', async () => {
         await Promise.all([
           page.goto(
-            `${BASE_URL}/components/character-count/with-default-value.html`
+            `${BASE_URL}/components/character-count/with-default-value/`
           ),
           page.waitForNavigation()
         ])
@@ -147,7 +147,7 @@ describe('Character count', () => {
       describe('when the character limit is exceeded', () => {
         beforeEach(async () => {
           await Promise.all([
-            page.goto(`${BASE_URL}/components/character-count/index.html`),
+            page.goto(`${BASE_URL}/components/character-count/default/`),
             page.waitForNavigation()
           ])
 
@@ -211,7 +211,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              `${BASE_URL}/components/character-count/with-default-value-exceeding-limit.html`
+              `${BASE_URL}/components/character-count/with-default-value-exceeding-limit/`
             ),
             page.waitForNavigation()
           ])
@@ -251,9 +251,7 @@ describe('Character count', () => {
       describe('when a threshold is set', () => {
         beforeEach(async () => {
           await Promise.all([
-            page.goto(
-              `${BASE_URL}/components/character-count/with-threshold.html`
-            ),
+            page.goto(`${BASE_URL}/components/character-count/with-threshold/`),
             page.waitForNavigation()
           ])
         })
@@ -301,7 +299,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await Promise.all([
             page.goto(
-              `${BASE_URL}/components/character-count/with-textarea-maxlength-attribute.html`
+              `${BASE_URL}/components/character-count/with-maxlength-attribute/`
             ),
             page.waitForNavigation()
           ])
@@ -319,9 +317,7 @@ describe('Character count', () => {
     describe('when counting words', () => {
       beforeEach(async () => {
         await Promise.all([
-          page.goto(
-            `${BASE_URL}/components/character-count/with-word-count.html`
-          ),
+          page.goto(`${BASE_URL}/components/character-count/with-max-words/`),
           page.waitForNavigation()
         ])
       })
@@ -381,9 +377,7 @@ describe('Character count', () => {
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
           await Promise.all([
-            page.goto(
-              `${BASE_URL}/components/character-count/with-word-count.html`
-            ),
+            page.goto(`${BASE_URL}/components/character-count/with-max-words/`),
             page.waitForNavigation()
           ])
           await page.type('.nhsuk-js-character-count', 'Hello '.repeat(11))

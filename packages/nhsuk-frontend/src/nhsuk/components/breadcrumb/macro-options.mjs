@@ -94,6 +94,7 @@ export const examples = {
     }
   },
   reverse: {
+    layout: 'layouts/example-background-blue.njk',
     context: {
       classes: 'nhsuk-breadcrumb--reverse',
       items: [
