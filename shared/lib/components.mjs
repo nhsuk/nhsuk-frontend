@@ -28,13 +28,59 @@ export function nunjucksEnv(searchPaths = [], nunjucksOptions = {}) {
 /**
  * Load single component data (from source)
  *
- * @param {string} componentName - Component name
+ * @param {string} component - Component directory name
  * @returns {Promise<ComponentData>} Component data
  */
-export async function getData(componentName) {
-  return import(
-    join(paths.pkg, `src/nhsuk/components/${componentName}/macro-options.mjs`)
+export async function load(component) {
+  const optionsPath = join(
+    paths.pkg,
+    `src/nhsuk/components/${component}/macro-options.mjs`
   )
+
+  const collator = new Intl.Collator('en', {
+    ignorePunctuation: true,
+    sensitivity: 'base'
+  })
+
+  // Bypass import cache (e.g. Gulp watch changes)
+  const options = /** @type {Omit<ComponentData, "component">} */ (
+    await import(`${optionsPath}?imported=${Date.now()}`)
+  )
+
+  // Add component directory name to options
+  const data = /** @type {ComponentData} */ ({
+    component,
+    ...options
+  })
+
+  // Sort examples by name, default at top
+  data.examples = Object.fromEntries(
+    Object.entries(options.examples).sort(([nameA], [nameB]) =>
+      collator.compare(
+        nameA.replace('default', ''),
+        nameB.replace('default', '')
+      )
+    )
+  )
+
+  return data
+}
+
+/**
+ * Load all component data (from source)
+ */
+export async function loadAll() {
+  const listing = await getDirectories('nhsuk/components', {
+    cwd: join(paths.pkg, 'src')
+  })
+
+  // Use directory names only
+  const components = listing
+    .map((directoryPath) => basename(directoryPath))
+    .sort()
+
+  // Load component data per directory
+  return Promise.all(components.map(load))
 }
 
 /**
@@ -86,11 +132,11 @@ export function getMacroOptions(params) {
 /**
  * Render component HTML
  *
- * @param {string} componentName - Component name
+ * @param {string} component - Component directory name
  * @param {MacroRenderOptions} [options] - Nunjucks macro render options
  * @returns HTML rendered by the component
  */
-export function render(componentName, options) {
+export function render(component, options) {
   const renamed = new Map([
     ['do-dont-list', 'list'],
     ['images', 'image'],
@@ -98,8 +144,8 @@ export function render(componentName, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = camelCase(renamed.get(componentName) || componentName)
-  const macroPath = `nhsuk/components/${componentName}/macro.njk`
+  const macroName = camelCase(renamed.get(component) || component)
+  const macroPath = `nhsuk/components/${component}/macro.njk`
 
   return renderMacro(macroName, macroPath, options)
 }
@@ -153,8 +199,10 @@ export function renderTemplate(templatePath, options) {
  * Component data
  *
  * @typedef {object} ComponentData
- * @property {string} name - Component name
+ * @property {string} name - Component friendly name
+ * @property {string} component - Component directory name
  * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
+ * @property {{ [example: string]: MacroExample }} [examples] - Nunjucks macro option examples
  * @property {MacroOption[]} options - Nunjucks macro options fixtures
  */
 
@@ -170,6 +218,15 @@ export function renderTemplate(templatePath, options) {
  */
 
 /**
+ * Nunjucks macro option example
+ *
+ * @typedef {object} MacroExample
+ * @property {string} [description] - Example description (optional)
+ * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
+ * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
+ */
+
+/**
  * Nunjucks macro option
  * (used by the Design System website)
  *
@@ -180,7 +237,7 @@ export function renderTemplate(templatePath, options) {
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks mixed context (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */

@@ -1,4 +1,8 @@
+/**
+ * @type {Config}
+ */
 module.exports = {
+  quoteProps: 'consistent',
   semi: false,
   singleQuote: true,
   trailingComma: 'none',
@@ -19,3 +23,7 @@ module.exports = {
     }
   ]
 }
+
+/**
+ * @import { Config } from 'prettier'
+ */

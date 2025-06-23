@@ -64,7 +64,7 @@ module.exports = {
         // Properties and values that are disallowed
         // https://stylelint.io/user-guide/rules/declaration-property-value-disallowed-list/
         'declaration-property-value-disallowed-list': {
-          transition: ['all'],
+          'transition': ['all'],
           '/^border/': ['none']
         },
 

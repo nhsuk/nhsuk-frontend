@@ -36,8 +36,22 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  default: {
+    context: {
+      text: 'Find your nearest A&E',
+      href: '#'
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

@@ -45,8 +45,34 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      text: 'NHS number'
+    }
+  },
+  'with bold text': {
+    context: {
+      classes: 'nhsuk-label--s',
+      text: 'NHS number'
+    }
+  },
+  'as page heading': {
+    context: {
+      text: 'NHS number',
+      classes: 'nhsuk-label--xl',
+      isPageHeading: true
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

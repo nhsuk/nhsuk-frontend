@@ -54,7 +54,7 @@ module.exports = {
         'import/order': [
           'error',
           {
-            alphabetize: { order: 'asc' },
+            'alphabetize': { order: 'asc' },
             'newlines-between': 'always'
           }
         ],
@@ -162,7 +162,7 @@ module.exports = {
       ],
       extends: ['plugin:jest/recommended', 'plugin:jest/style'],
       env: {
-        browser: true,
+        'browser': true,
         'jest/globals': true
       },
       plugins: ['jest'],

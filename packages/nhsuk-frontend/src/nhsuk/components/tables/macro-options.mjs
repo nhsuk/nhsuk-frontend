@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Tables'
 
@@ -129,8 +130,283 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      panel: false,
+      caption: 'Skin symptoms and possible causes',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Skin symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            text: 'cold sores'
+          }
+        ],
+        [
+          {
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            text: 'eczema'
+          }
+        ],
+        [
+          {
+            text: 'Itchy blisters'
+          },
+          {
+            text: 'shingles, chickenpox'
+          }
+        ]
+      ]
+    }
+  },
+  'with responsive layout': {
+    context: {
+      responsive: true,
+      panel: false,
+      caption: 'Ibuprofen syrup dosages for children',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Age',
+          classes: 'nhsuk-u-width-one-half'
+        },
+        {
+          text: 'How much?',
+          classes: 'nhsuk-u-width-one-quarter'
+        },
+        {
+          text: 'How often?',
+          classes: 'nhsuk-u-width-one-quarter'
+        }
+      ],
+      rows: [
+        [
+          {
+            header: 'Age',
+            text: '3 to 5 months (weighing more than 5kg)'
+          },
+          {
+            header: 'How much?',
+            text: '2.5ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '6 to 11 months'
+          },
+          {
+            header: 'How much?',
+            text: '2.5ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '1 to 3 years'
+          },
+          {
+            header: 'How much?',
+            text: '5ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '4 to 6 years'
+          },
+          {
+            header: 'How much?',
+            text: '7.5ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '7 to 9 years'
+          },
+          {
+            header: 'How much?',
+            text: '10ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '10 to 11 years'
+          },
+          {
+            header: 'How much?',
+            text: '15ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '12 to 17 years'
+          },
+          {
+            header: 'How much?',
+            text: '15ml to 20ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ]
+      ]
+    }
+  },
+  'with word breaks': {
+    context: {
+      panel: false,
+      caption: 'Users',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Name'
+        },
+        {
+          text: 'Email address'
+        },
+        {
+          text: 'Status'
+        },
+        {
+          html: outdent`
+            <span class="nhsuk-u-visually-hidden">Actions</span>
+          `
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Stephanie Meyer',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'stephanie.meyer9@test.com',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'Active'
+          },
+          {
+            html: outdent`
+              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Stephanie Meyer</span></a>
+            `
+          }
+        ],
+        [
+          {
+            text: 'Aleksandrina Featherstonehaugh-Whitehead',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'Inactive'
+          },
+          {
+            html: outdent`
+              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Aleksandrina Featherstonehaugh-Whitehead</span></a>
+            `
+          }
+        ]
+      ]
+    }
+  },
+  'as a panel': {
+    context: {
+      panel: true,
+      heading: 'Conditions similar to impetigo',
+      caption: 'Other possible causes of your symptoms',
+      captionClasses: 'nhsuk-u-visually-hidden',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            text: 'cold sores'
+          }
+        ],
+        [
+          {
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            text: 'eczema'
+          }
+        ],
+        [
+          {
+            text: 'Itchy blisters'
+          },
+          {
+            text: 'shingles, chickenpox'
+          }
+        ]
+      ]
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

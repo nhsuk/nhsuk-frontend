@@ -393,16 +393,6 @@ module.exports = {
       ]
     },
     {
-      label: 'Card group',
-      url: `${BASE_URL}/components/card/card-group.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop'),
-        viewports.get('large-desktop')
-      ]
-    },
-    {
       label: 'Feature card',
       url: `${BASE_URL}/components/card/feature-card.html`,
       viewports: [
@@ -594,39 +584,9 @@ module.exports = {
       url: `${BASE_URL}/components/error-summary/index.html`
     },
     {
-      label: 'Error summary with link to an input field',
-      url: `${BASE_URL}/components/error-summary/linking-to-input.html`,
-      viewports: [viewports.get('desktop')]
-    },
-    {
-      label: 'Error summary with link to a radio field',
-      url: `${BASE_URL}/components/error-summary/linking-to-radios.html`,
-      viewports: [viewports.get('desktop')]
-    },
-    {
       clickSelector: '.nhsuk-details__summary',
       label: 'Expander',
       url: `${BASE_URL}/components/details/expander.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop')
-      ]
-    },
-    {
-      clickSelector: '.nhsuk-details__summary',
-      label: 'Expander alongside card',
-      url: `${BASE_URL}/components/details/expander-alongside-card.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop')
-      ]
-    },
-    {
-      clickSelector: '.nhsuk-details__summary',
-      label: 'Expander group',
-      url: `${BASE_URL}/components/details/expander-group.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -685,7 +645,6 @@ module.exports = {
     {
       label: 'Header (default)',
       url: `${BASE_URL}/components/header/index.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -702,7 +661,6 @@ module.exports = {
     {
       label: 'Header with navigation (left aligned)',
       url: `${BASE_URL}/components/header/header-navigation.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -713,7 +671,6 @@ module.exports = {
     {
       label: 'Header with navigation (justified)',
       url: `${BASE_URL}/components/header/header-navigation-justified.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -859,7 +816,6 @@ module.exports = {
     {
       label: 'Header with service name, search, navigation',
       url: `${BASE_URL}/components/header/header-service-name-with-nav.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -880,7 +836,6 @@ module.exports = {
     {
       label: 'Header organisational',
       url: `${BASE_URL}/components/header/header-org.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -891,7 +846,6 @@ module.exports = {
     {
       label: 'Header organisational with white header',
       url: `${BASE_URL}/components/header/header-org-white.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -915,7 +869,6 @@ module.exports = {
       clickSelector: '.nhsuk-header__search-input',
       label: 'Header organisational with white header (focused search input)',
       url: `${BASE_URL}/components/header/header-org-white.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -926,7 +879,6 @@ module.exports = {
     {
       label: 'Header organisational with white header and custom logo',
       url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -938,22 +890,19 @@ module.exports = {
       hoverSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (hovered logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js'
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (focused logo)',
-      url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js'
+      url: `${BASE_URL}/components/header/header-org-white-logo.html`
     },
     {
       clickSelector: '#toggle-menu',
       label:
         'Header organisational with white header and custom logo (menu open)',
       url: `${BASE_URL}/components/header/header-org-white-logo.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -965,7 +914,6 @@ module.exports = {
     {
       label: 'Header organisational with white header and navigation',
       url: `${BASE_URL}/components/header/header-org-white-nav.html`,
-      onReadyScript: 'playwright/onReadyResize.js',
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -1284,21 +1232,8 @@ module.exports = {
       ]
     },
     {
-      label: 'Tag',
-      url: `${BASE_URL}/components/tag/index.html`
-    },
-    {
       label: 'Task list',
       url: `${BASE_URL}/components/task-list/index.html`,
-      viewports: [
-        viewports.get('mobile'),
-        viewports.get('tablet'),
-        viewports.get('desktop')
-      ]
-    },
-    {
-      label: 'Task list with multiple sections',
-      url: `${BASE_URL}/components/task-list/multiple-sections.html`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
