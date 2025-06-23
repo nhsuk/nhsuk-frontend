@@ -25,8 +25,14 @@ $_header-link-padding: 2px;
 ////
 
 .nhsuk-header {
+  overflow-x: hidden;
   background-color: $color_nhsuk-blue;
   color: $color_nhsuk-white;
+
+  // Add shadow to bottom of header when open
+  &:has(.nhsuk-header__menu-list:not([hidden])) {
+    border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+  }
 
   @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-black;
@@ -38,7 +44,6 @@ $_header-link-padding: 2px;
   flex-flow: column wrap;
   gap: nhsuk-spacing(3);
   padding: nhsuk-spacing(3) 0;
-  @include nhsuk-width-container;
 
   @include nhsuk-media-query($from: tablet) {
     flex-direction: row;
@@ -327,6 +332,7 @@ $_header-link-padding: 2px;
 
 .nhsuk-header__navigation {
   position: relative;
+  border: 0 solid $color_nhsuk-white;
   @include nhsuk-print-hide;
 
   @include nhsuk-media-query($until: tablet) {
@@ -335,8 +341,6 @@ $_header-link-padding: 2px;
 }
 
 .nhsuk-header__navigation-container {
-  @include nhsuk-width-container;
-
   @include nhsuk-media-query($until: tablet) {
     position: relative;
     z-index: 10;
@@ -348,6 +352,7 @@ $_header-link-padding: 2px;
 }
 
 .nhsuk-header__navigation-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -368,7 +373,6 @@ $_header-link-padding: 2px;
 
   .nhsuk-frontend-supported & {
     flex-wrap: nowrap;
-    overflow: hidden;
   }
 }
 
@@ -461,10 +465,8 @@ $_header-link-padding: 2px;
 }
 
 .nhsuk-header__menu-list {
-  background-color: $color_nhsuk-white;
-  border-bottom: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   list-style: none;
-  margin: 0;
+  margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
   overflow: hidden;
   padding: 0;
   position: absolute;
@@ -477,12 +479,7 @@ $_header-link-padding: 2px;
     display: none;
   }
 
-  @include nhsuk-media-query($until: tablet) {
-    margin: 0 $nhsuk-gutter-half * -1;
-  }
-
   .nhsuk-header__navigation-link {
-    @include nhsuk-width-container;
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
@@ -501,9 +498,16 @@ $_header-link-padding: 2px;
   }
 
   .nhsuk-header__navigation-item {
-    padding: 0;
-    max-width: $nhsuk-page-width;
-    border-top: 1px solid $color_nhsuk-grey-5;
+    padding: 0 $nhsuk-gutter-half;
+    border-bottom: 1px solid $color_nhsuk-grey-5;
+
+    &:last-child {
+      border: 0;
+    }
+
+    @include nhsuk-media-query($from: desktop) {
+      padding: 0 $nhsuk-gutter;
+    }
   }
 
   // Current item within menu gets blue line on left edge
@@ -517,16 +521,12 @@ $_header-link-padding: 2px;
     border-left: 6px solid $color_nhsuk-blue;
   }
 
-  @include nhsuk-media-query($nhsuk-page-width + $nhsuk-gutter * 2) {
-    // Center navigation items within full width menu
-    .nhsuk-header__navigation-item {
-      margin: 0 auto;
-    }
+  @include nhsuk-media-query($from: tablet) {
+    margin: 0;
+  }
 
-    // Put offset blue line back into gutter area
-    .nhsuk-header__navigation-item--current::before {
-      left: -$nhsuk-gutter;
-    }
+  @include nhsuk-media-query($from: desktop) {
+    margin: 0 $nhsuk-gutter-half * -1;
   }
 }
 
