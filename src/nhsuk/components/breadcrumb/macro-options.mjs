@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-export const name = 'Breadcrumbs'
+export const name = 'Breadcrumb'
 
 /**
  * Nunjucks macro option params

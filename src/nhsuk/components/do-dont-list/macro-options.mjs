@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-export const name = "Do and Don't lists"
+export const name = "Do and Don't list"
 
 /**
  * Nunjucks macro option params
