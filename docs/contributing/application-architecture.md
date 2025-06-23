@@ -21,9 +21,7 @@ The application generates static HTML pages to preview components, with each com
   Node.js package manager (npm) modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
 
 - `packages/`
-
   - `nhsuk-frontend-review`
-
     - `dist/` **contains auto-generated files**
 
       Builds of nhsuk-frontend-review served by [GitHub Pages](https://pages.github.com).
@@ -36,7 +34,6 @@ The application generates static HTML pages to preview components, with each com
 
     Package published on npm.
     Consume all of nhsuk-frontend through a single package.
-
     - `dist/` **contains auto-generated files**
 
       Builds of nhsuk-frontend published and exported from the npm package.
@@ -46,13 +43,11 @@ The application generates static HTML pages to preview components, with each com
       NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 - `shared/`
-
   - `tasks/`
 
     Read about [npm and Gulp tasks](tooling.md) for more information.
 
 - `tests/`
-
   - `backstop/`
 
     BackstopJS visual regression test output and reference files. See project [backstop.config.js](../../backstop.config.js) for more information.

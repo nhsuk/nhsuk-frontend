@@ -1218,7 +1218,6 @@ You will only now need this:
 :new: **New features**
 
 - Button improvements
-
   - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
   - Add optional `data-prevent-double-click="true"` attribute to buttons to trigger simple "debounce" behaviour to buttons to catch double clicks and prevent double submissions.
   - Add `data-module="nhsuk-button"` to buttons in order to trigger the above JS behaviours (it is recommended that you do this)
@@ -1625,7 +1624,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 
   The default `@font-face`, "Frutiger", is loaded from `https://assets.nhs.uk`. The host for the fonts can be
   overridden or disabled entirely.
-
   - `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
   - `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
 
@@ -1748,7 +1746,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ### For Nunjucks macro
 
   You need to:
-
   - replace `{% from 'components/panel/macro.njk' import panel %}` with `{% from 'components/card/macro.njk' import card %}`
   - replace `{{ panel({` with `{{ card({`
   - replace `"html"` with the relevant arguments - for example: `"heading"` and `"descriptionHtml"`
@@ -1795,7 +1792,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ### For HTML
 
   You need to:
-
   - replace all `nhsuk-panel` classes to `nhsuk-card`
 
   For example:
@@ -1830,7 +1826,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ### For Nunjucks macro
 
   You need to:
-
   - replace `{% from 'components/promo/macro.njk' import promo %}` with `{% from 'components/card/macro.njk' import card %}`
   - replace `{{ promo({` with `{{ card({`
   - declare the heading level size and heading sizes (with helper classes) because the default heading level is now 2 instead of 3
@@ -1880,7 +1875,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
   ### For HTML
 
   You need to:
-
   - replace all `nhsuk-promo` classes to `nhsuk-card`
   - remove surrounding `<a class="nhsuk-promo__link-wrapper" href="#">` and add `<a class="nhsuk-card__link" href="#">` within `<h3 class="nhsuk-card__heading">`
   - add `nhsuk-card--clickable` class to make entire card clickable
@@ -1958,7 +1952,6 @@ The list panel component can be recreated by adding `nhsuk-list--border` to the 
 - Style updates to a few components so that they render properly on a range of quality monitors and devices found in use in the NHS.
 
   Including adding a 1px border to:
-
   - care cards (non-urgent and urgent)
   - do and don't list
   - expander

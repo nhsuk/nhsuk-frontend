@@ -12,7 +12,6 @@ Supported browsers can be split into three levels:
 
 - **Compliant** – we aim to provide the same baseline experience.
 - **Necessary** – we aim to support optional enhancements as much as possible. However, we might sometimes need to adjust the component's behaviour, while still allowing the users to complete their task. This might include:
-
   - falling back to the no-JavaScript experience
   - disabling parts of the enhancement
   - doing a simpler alternative
