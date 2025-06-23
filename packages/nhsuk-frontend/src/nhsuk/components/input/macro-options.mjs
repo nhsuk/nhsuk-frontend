@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-export const name = 'Text input'
+export const name = 'Input'
 
 /**
  * Nunjucks macro option params
