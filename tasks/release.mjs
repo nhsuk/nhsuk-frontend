@@ -5,6 +5,9 @@ import { files, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 import gulpZip from 'gulp-zip'
 
+// Prefer release version if available
+const { NPM_PACKAGE_VERSION = config.version } = process.env
+
 export const copy = gulp.parallel(
   /**
    * Copy GitHub release logos, icons and other assets
@@ -23,7 +26,7 @@ export const copy = gulp.parallel(
     files.copy('nhsuk/nhsuk-frontend.min.js', {
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.root, 'dist'),
-      output: { file: `nhsuk-frontend-${config.version}.min.js` }
+      output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
     })
   ),
 
@@ -34,7 +37,7 @@ export const copy = gulp.parallel(
     files.copy('nhsuk/nhsuk-frontend.min.css', {
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.root, 'dist'),
-      output: { file: `nhsuk-frontend-${config.version}.min.css` }
+      output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.css` }
     })
   )
 )
@@ -56,7 +59,7 @@ export const zip = gulp.series(
           encoding: false
         }
       )
-      .pipe(gulpZip(`nhsuk-frontend-${config.version}.zip`))
+      .pipe(gulpZip(`nhsuk-frontend-${NPM_PACKAGE_VERSION}.zip`))
       .pipe(gulp.dest(join(config.paths.root, 'dist')))
   )
 )
