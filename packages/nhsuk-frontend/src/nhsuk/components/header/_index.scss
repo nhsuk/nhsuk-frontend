@@ -118,10 +118,14 @@ $_header-item-active-size: $nhsuk-focus-width;
   );
 }
 
-.nhsuk-header__service-logo[href] {
-  &:focus {
-    @include nhsuk-focused-box;
-  }
+.nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
+.nhsuk-header__service-name[href]:hover {
+  color: $nhsuk-reverse-text-color;
+  text-decoration: underline;
+}
+
+.nhsuk-header__service-logo[href]:focus {
+  @include nhsuk-focused-box;
 }
 
 /// Account
@@ -513,7 +517,6 @@ $_header-item-active-size: $nhsuk-focus-width;
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__service-name,
   .nhsuk-header__organisation-name {
     color: $color_nhsuk-black;
   }
@@ -523,6 +526,11 @@ $_header-item-active-size: $nhsuk-focus-width;
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
     @include _header-link-style;
+  }
+
+  .nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
+  .nhsuk-header__service-name[href]:hover {
+    color: inherit;
   }
 
   .nhsuk-header__service-logo[href] {
