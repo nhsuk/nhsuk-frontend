@@ -33,8 +33,81 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      text: 'Active'
+    }
+  },
+  'white': {
+    context: {
+      text: 'In progress',
+      classes: 'nhsuk-tag--white'
+    }
+  },
+  'grey': {
+    context: {
+      text: 'Inactive',
+      classes: 'nhsuk-tag--grey'
+    }
+  },
+  'green': {
+    context: {
+      text: 'New',
+      classes: 'nhsuk-tag--green'
+    }
+  },
+  'aqua-green': {
+    context: {
+      text: 'Active',
+      classes: 'nhsuk-tag--aqua-green'
+    }
+  },
+  'blue': {
+    context: {
+      text: 'Pending',
+      classes: 'nhsuk-tag--blue'
+    }
+  },
+  'purple': {
+    context: {
+      text: 'Received',
+      classes: 'nhsuk-tag--purple'
+    }
+  },
+  'pink': {
+    context: {
+      text: 'Sent',
+      classes: 'nhsuk-tag--pink'
+    }
+  },
+  'red': {
+    context: {
+      text: 'Rejected',
+      classes: 'nhsuk-tag--red'
+    }
+  },
+  'orange': {
+    context: {
+      text: 'Declined',
+      classes: 'nhsuk-tag--orange'
+    }
+  },
+  'yellow': {
+    context: {
+      text: 'Delayed',
+      classes: 'nhsuk-tag--yellow'
+    }
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

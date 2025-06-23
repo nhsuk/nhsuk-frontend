@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Fieldset'
 
@@ -62,8 +63,82 @@ export const params = {
   }
 }
 
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+export const examples = {
+  'default': {
+    context: {
+      legend: {
+        text: 'What is your address?'
+      }
+    }
+  },
+  'as page heading': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }
+  },
+  'with inputs': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    },
+    callBlock: outdent`
+      ${components.render('input', {
+        context: {
+          label: {
+            text: 'Address line 1'
+          },
+          id: 'input-address1',
+          name: 'address1'
+        }
+      })}
+
+      ${components.render('input', {
+        context: {
+          label: {
+            text: 'Address line 2'
+          },
+          id: 'input-address2',
+          name: 'address2'
+        }
+      })}
+
+      ${components.render('input', {
+        context: {
+          label: {
+            text: 'Town or city'
+          },
+          id: 'input-town-city',
+          name: 'town'
+        }
+      })}
+
+      ${components.render('input', {
+        context: {
+          label: {
+            text: 'County'
+          },
+          id: 'input-county',
+          name: 'county'
+        }
+      })}
+    `
+  }
+}
+
 export const options = components.getMacroOptions(params)
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */
