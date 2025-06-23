@@ -36,7 +36,7 @@ $_header-active-item-size: $nhsuk-focus-width;
   }
 
   @include nhsuk-media-query($media-type: print) {
-    color: $color_nhsuk-black;
+    color: $nhsuk-print-text-color;
   }
 }
 
