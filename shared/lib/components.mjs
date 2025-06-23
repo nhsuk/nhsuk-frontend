@@ -182,7 +182,7 @@ export function renderTemplate(templatePath, options) {
  * @property {string} name - Component friendly name
  * @property {string} component - Component directory name
  * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
- * @property {MacroExample[]} [examples] - Nunjucks macro option examples
+ * @property {{ [example: string]: MacroExample }} [examples] - Nunjucks macro option examples
  * @property {MacroOption[]} options - Nunjucks macro options fixtures
  */
 
@@ -201,9 +201,8 @@ export function renderTemplate(templatePath, options) {
  * Nunjucks macro option example
  *
  * @typedef {object} MacroExample
- * @property {string} name - Example name
  * @property {string} [description] - Example description (optional)
- * @property {{ [param: string]: unknown }} [options] - Nunjucks macro options (optional)
+ * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  */
 
@@ -218,7 +217,7 @@ export function renderTemplate(templatePath, options) {
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks mixed context (optional)
+ * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
