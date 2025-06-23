@@ -148,10 +148,55 @@ export const params = {
 export const examples = {
   default: {
     context: {
-      previousUrl: '/section/treatments',
-      previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
-      nextPage: 'Symptoms'
+      previous: {
+        href: '#/section/treatments',
+        text: 'Previous',
+        labelText: 'Treatments'
+      },
+      next: {
+        href: '#/section/symptoms',
+        text: 'Next',
+        labelText: 'Symptoms'
+      }
+    }
+  },
+  numbered: {
+    context: {
+      previous: {
+        href: '#/page/1'
+      },
+      next: {
+        href: '#/page/8'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#/page/1'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 6,
+          href: '#/page/6'
+        },
+        {
+          number: 7,
+          href: '#/page/7',
+          current: true
+        },
+        {
+          number: 8,
+          href: '#/page/8'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 10,
+          href: '#/page/10'
+        }
+      ]
     }
   }
 }
