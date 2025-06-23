@@ -6,7 +6,7 @@ const {
 
 describe('Button', () => {
   beforeAll(async () => {
-    await page.goto(`${BASE_URL}/components/button/link.html`)
+    await page.goto(`${BASE_URL}/components/button/as-a-link/`)
   })
 
   describe('Button as a link', () => {
@@ -25,7 +25,7 @@ describe('Button', () => {
       ])
 
       const url = new URL(page.url())
-      expect(url.href).toBe(`${BASE_URL}/components/button/link.html#`)
+      expect(url.href).toBe(`${BASE_URL}/components/button/as-a-link/#`)
     })
   })
 
@@ -66,7 +66,7 @@ describe('Button', () => {
 
     describe('not enabled', () => {
       beforeEach(async () => {
-        await page.goto(`${BASE_URL}/components/button/index.html`)
+        await page.goto(`${BASE_URL}/components/button/default/`)
         await trackClicks()
       })
 
@@ -83,7 +83,7 @@ describe('Button', () => {
     describe('using data-attributes', () => {
       beforeEach(async () => {
         await page.goto(
-          `${BASE_URL}/components/button/prevent-double-click.html`
+          `${BASE_URL}/components/button/with-double-click-prevented/`
         )
         await trackClicks()
       })
