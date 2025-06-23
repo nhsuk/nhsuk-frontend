@@ -1,19 +1,20 @@
 import { join } from 'path'
 
 import * as config from '@nhsuk/frontend-config'
+import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
-import { app } from './tasks/index.mjs'
+import browserSyncConfig from './browsersync.config.js'
+import { assets, html, scripts, styles } from './tasks/index.mjs'
 
 /**
  * Utility tasks
  */
-gulp.task('assets', app.assets)
-gulp.task('html', app.html)
-gulp.task('serve', app.serve)
-gulp.task('scripts', app.scripts)
-gulp.task('styles', app.styles)
-gulp.task('validate', app.validate)
+gulp.task('assets', assets.copy)
+gulp.task('html', html.compile)
+gulp.task('scripts', scripts.copy)
+gulp.task('styles', styles.copy)
+gulp.task('validate', html.validate)
 
 /**
  * Review app build
@@ -37,7 +38,8 @@ gulp.task('watch', () =>
     gulp.watch(
       [
         join(config.paths.app, 'src/**/*.njk'),
-        join(config.paths.pkg, 'src/nhsuk/**/*.njk')
+        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs'),
+        join(config.paths.pkg, 'dist/nhsuk/**/*.njk')
       ],
       gulp.series('html')
     ),
@@ -67,3 +69,7 @@ gulp.task('watch', () =>
     )
   ])
 )
+
+gulp.task('serve', (done) => {
+  browserSync(browserSyncConfig, done)
+})

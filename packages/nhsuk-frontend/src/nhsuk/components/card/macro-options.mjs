@@ -248,6 +248,7 @@ export const examples = {
     }
   },
   'top task': {
+    layout: 'layouts/example-one-third.njk',
     context: {
       href: '#',
       clickable: true,
