@@ -141,7 +141,7 @@ export class Header {
    *
    * Closes the menu and updates accessibility state.
    *
-   * Removes the margin-bottom from the navigation
+   * Removes the bottom border from the navigation
    */
   closeMenu() {
     if (!this.menuIsEnabled || !this.menuIsOpen) {
@@ -151,7 +151,7 @@ export class Header {
     this.menuIsOpen = false
     this.menuList.setAttribute('hidden', '')
     this.menuToggle.setAttribute('aria-expanded', 'false')
-    this.navigation.style.marginBottom = 0
+    this.navigation.style.removeProperty('border-bottom-width')
 
     // Remove escape key listener to close menu
     document.removeEventListener('keydown', this.handleEscapeKey)
@@ -176,7 +176,7 @@ export class Header {
    *
    * Opens the menu and updates accessibility state.
    *
-   * The menu is absolutely positioned, so it adds a margin
+   * The menu is absolutely positioned, so it adds a border
    * to the bottom of the navigation to prevent it from overlapping
    *
    * Adds event listeners for the close button,
@@ -189,7 +189,10 @@ export class Header {
     this.menuIsOpen = true
     this.menuList.removeAttribute('hidden')
     this.menuToggle.setAttribute('aria-expanded', 'true')
-    this.navigation.style.marginBottom = `${this.menuList.offsetHeight}px`
+    this.navigation.style.setProperty(
+      'border-bottom-width',
+      `${this.menuList.offsetHeight}px`
+    )
 
     // Add escape key listener to close menu
     document.addEventListener('keydown', this.handleEscapeKey)
@@ -243,6 +246,14 @@ export class Header {
         this.menuList.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
+
+    // Update menu height if open
+    if (this.menuIsOpen) {
+      this.navigation.style.setProperty(
+        'border-bottom-width',
+        `${this.menuList.offsetHeight}px`
+      )
+    }
   }
 }
 
