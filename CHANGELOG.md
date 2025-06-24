@@ -26,6 +26,28 @@ You can now group buttons and links together so that they appear side-by-side on
 
 This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
 
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
@@ -399,28 +421,6 @@ After:
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
 This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
-
-#### Create custom width container classes
-
-You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
-
-For example:
-
-```scss
-.app-width-container--wide {
-  @include nhsuk-width-container(1200px);
-}
-```
-
-You can use the generated classes to set the width of:
-
-- template container
-- header container
-- footer container
-
-It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
-
-This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 #### Buttons are now full width on mobile
 
