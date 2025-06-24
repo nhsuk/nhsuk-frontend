@@ -203,6 +203,11 @@ export const params = {
             description:
               'Whether to include the account icon for the item. Defaults to `false`.'
           },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The href for the item.'
+          },
           action: {
             type: 'string',
             required: false,
