@@ -72,7 +72,7 @@ export const compile = gulp.series(
    */
   task.name(
     'scripts:compile',
-    scripts.compile('nhsuk/nhsuk.mjs', {
+    scripts.compile('nhsuk/index.mjs', {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
@@ -80,7 +80,7 @@ export const compile = gulp.series(
       output: {
         compact: true,
         file: 'nhsuk/nhsuk-frontend.min.js',
-        format: 'iife'
+        format: 'esm'
       }
     })
   )
