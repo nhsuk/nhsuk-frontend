@@ -55,30 +55,48 @@ You must add `node_modules` to Sass load paths, by either:
 - calling the Sass compiler from the command line with the `--load-path node_modules` flag
 - using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
 
-##### If you’re using Javascript
+##### If you’re using JavaScript
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
 
 Before:
 
 ```mjs
+import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
 import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
-import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js'
-import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js'
 
-initCheckboxes()
-initRadios()
-initSkipLink()
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
 ```
 
 After:
 
 ```mjs
-import { initCheckboxes, initRadios, initSkipLink } from 'nhsuk-frontend'
+import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 
-initCheckboxes()
-initRadios()
-initSkipLink()
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
+```
+
+Or alternatively, you can initialise individual components only:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
 ```
 
 For precompiled JavaScript `nhsuk.min.js` or `nhsuk-<VERSION-NUMBER>.min.js`, you must include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
