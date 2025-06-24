@@ -90,8 +90,9 @@ export const params = {
           },
           text: {
             type: 'string',
-            required: false,
-            description: 'The text of a navigation item in the header.'
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` argument will be ignored.'
           },
           current: {
             type: 'boolean',
@@ -186,21 +187,21 @@ export const params = {
         params: {
           text: {
             type: 'string',
-            required: false,
+            required: true,
             description:
-              'The text to display for the item. Ignored if `html` is set.'
+              'If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` argument will be ignored.'
           },
           html: {
             type: 'string',
-            required: false,
+            required: true,
             description:
-              'The html to display for the item. If set, `text` is ignored'
+              'If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` argument will be ignored.'
           },
           icon: {
             type: 'boolean',
             required: false,
             description:
-              'Whether to include the account icon for the item. Defaults to `false`.'
+              'Whether to include the account icon for the account item. Defaults to `false`.'
           },
           href: {
             type: 'string',
