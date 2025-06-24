@@ -31,11 +31,17 @@ You'll not be able to:
        <title>Example - NHS.UK</title>
        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
        <link rel="stylesheet" href="/stylesheets/nhsuk-frontend-<VERSION-NUMBER>.min.css">
-       <script type="module" src="/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js"></script>
      </head>
      <body>
        <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+
        <!-- component HTML -->
+
+       <script type="module" src="/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js"></script>
+       <script type="module">
+         import { initAll } from '/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js'
+         initAll()
+       </script>
      </body>
    </html>
    ```
