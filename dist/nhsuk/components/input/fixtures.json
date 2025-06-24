@@ -1,0 +1,151 @@
+{
+  "name": "Input",
+  "component": "input",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "NHS number"
+        },
+        "id": "input-example",
+        "name": "test-name"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-example\">\n    NHS number\n  </label>    <input class=\"nhsuk-input\" id=\"input-example\" name=\"test-name\" type=\"text\"></div>"
+    },
+    {
+      "name": "with autocomplete attribute",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "Postcode"
+        },
+        "id": "input-with-autocomplete-attribute",
+        "name": "postcode",
+        "autocomplete": "postal-code",
+        "classes": "nhsuk-input--width-5"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-with-autocomplete-attribute\">\n    Postcode\n  </label>    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"input-with-autocomplete-attribute\" name=\"postcode\" type=\"text\" autocomplete=\"postal-code\"></div>"
+    },
+    {
+      "name": "with error message",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "NHS number",
+          "classes": "nhsuk-label--l"
+        },
+        "hint": {
+          "text": "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "id": "input-with-error-message",
+        "name": "test-name-3",
+        "classes": "nhsuk-input--width-10",
+        "errorMessage": {
+          "text": "Error message goes here"
+        }
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-error-message\">\n    NHS number\n  </label>  <div class=\"nhsuk-hint\" id=\"input-with-error-message-hint\">\n    It&#39;s a 10-digit number that&#39;s on any letter the NHS has sent you, for example, 485 777 3456\n  </div>  <span class=\"nhsuk-error-message\" id=\"input-with-error-message-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-input--error\" id=\"input-with-error-message\" name=\"test-name-3\" type=\"text\" aria-describedby=\"input-with-error-message-hint input-with-error-message-error\"></div>"
+    },
+    {
+      "name": "with error message, prefix and suffix",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "What is the cost per item, in pounds?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-error-message-and-prefix-and-suffix",
+        "name": "test-name-7",
+        "prefix": "£",
+        "suffix": "per item",
+        "classes": "nhsuk-input--width-5",
+        "errorMessage": {
+          "text": "Enter a cost per item, in pounds"
+        }
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-error-message-and-prefix-and-suffix\">\n    What is the cost per item, in pounds?\n  </label>  <span class=\"nhsuk-error-message\" id=\"input-with-error-message-and-prefix-and-suffix-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter a cost per item, in pounds\n  </span>  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5 nhsuk-input--error\" id=\"input-with-error-message-and-prefix-and-suffix\" name=\"test-name-7\" type=\"text\" aria-describedby=\"input-with-error-message-and-prefix-and-suffix-error\">    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">per item</div>\n</div> \n</div>"
+    },
+    {
+      "name": "with hint text",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "NHS number",
+          "classes": "nhsuk-label--l"
+        },
+        "hint": {
+          "text": "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "id": "input-with-hint-text",
+        "name": "test-name-2",
+        "classes": "nhsuk-input--width-10"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-hint-text\">\n    NHS number\n  </label>  <div class=\"nhsuk-hint\" id=\"input-with-hint-text-hint\">\n    It&#39;s a 10-digit number that&#39;s on any letter the NHS has sent you, for example, 485 777 3456\n  </div>    <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"input-with-hint-text\" name=\"test-name-2\" type=\"text\" aria-describedby=\"input-with-hint-text-hint\"></div>"
+    },
+    {
+      "name": "with prefix",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "What is the cost in pounds?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-prefix",
+        "name": "test-name-4",
+        "prefix": "£",
+        "classes": "nhsuk-input--width-5"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-prefix\">\n    What is the cost in pounds?\n  </label>  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"input-with-prefix\" name=\"test-name-4\" type=\"text\"></div> \n</div>"
+    },
+    {
+      "name": "with prefix and suffix",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "What is the cost per item, in pounds?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-prefix-and-suffix",
+        "name": "test-name-6",
+        "prefix": "£",
+        "suffix": "per item",
+        "classes": "nhsuk-input--width-5"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-prefix-and-suffix\">\n    What is the cost per item, in pounds?\n  </label>  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"input-with-prefix-and-suffix\" name=\"test-name-6\" type=\"text\">    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">per item</div>\n</div> \n</div>"
+    },
+    {
+      "name": "with suffix",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "What is the weight in kilograms?",
+          "classes": "nhsuk-label--l"
+        },
+        "id": "input-with-suffix",
+        "name": "test-name-5",
+        "suffix": "kg",
+        "classes": "nhsuk-input--width-5"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-with-suffix\">\n    What is the weight in kilograms?\n  </label>  <div class=\"nhsuk-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"input-with-suffix\" name=\"test-name-5\" type=\"text\">    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">kg</div>\n</div> \n</div>"
+    },
+    {
+      "name": "with width modifier",
+      "description": "",
+      "options": {
+        "label": {
+          "text": "NHS number",
+          "classes": "nhsuk-label--l"
+        },
+        "hint": {
+          "text": "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "id": "input-width-10",
+        "name": "test-width-10",
+        "classes": "nhsuk-input--width-10"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label nhsuk-label--l\" for=\"input-width-10\">\n    NHS number\n  </label>  <div class=\"nhsuk-hint\" id=\"input-width-10-hint\">\n    It&#39;s a 10-digit number that&#39;s on any letter the NHS has sent you, for example, 485 777 3456\n  </div>    <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"input-width-10\" name=\"test-width-10\" type=\"text\" aria-describedby=\"input-width-10-hint\"></div>"
+    }
+  ]
+}

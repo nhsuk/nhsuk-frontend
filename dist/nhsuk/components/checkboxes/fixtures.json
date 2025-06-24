@@ -1,0 +1,257 @@
+{
+  "name": "Checkboxes",
+  "component": "checkboxes",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "idPrefix": "nationality",
+        "name": "nationality",
+        "fieldset": {
+          "legend": {
+            "text": "What is your nationality?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "values": [
+          "british"
+        ],
+        "hint": {
+          "text": "If you have more than 1 nationality, select all options that are relevant to you"
+        },
+        "items": [
+          {
+            "value": "british",
+            "text": "British"
+          },
+          {
+            "value": "irish",
+            "text": "Irish"
+          },
+          {
+            "value": "other",
+            "text": "citizen of another country"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"nationality-hint\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    What is your nationality?\n</legend>  <div class=\"nhsuk-hint\" id=\"nationality-hint\">\n    If you have more than 1 nationality, select all options that are relevant to you\n  </div>\n  <div class=\"nhsuk-checkboxes\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"nationality\" name=\"nationality\" type=\"checkbox\" value=\"british\" checked>\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"nationality\">\n        British\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"nationality-2\" name=\"nationality\" type=\"checkbox\" value=\"irish\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"nationality-2\">\n        Irish\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"nationality-3\" name=\"nationality\" type=\"checkbox\" value=\"other\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"nationality-3\">\n        citizen of another country\n      </label>    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with conditional content",
+      "description": "",
+      "options": {
+        "idPrefix": "contact",
+        "name": "contact",
+        "fieldset": {
+          "legend": {
+            "text": "How would you prefer to be contacted?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": "true"
+          }
+        },
+        "hint": {
+          "text": "Select all options that are relevant to you"
+        },
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\"></div> \n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"text\"></div> \n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"text\"></div> \n"
+            }
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"contact-hint\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    <h1 class=\"nhsuk-fieldset__heading\">\n      How would you prefer to be contacted?\n    </h1>\n</legend>  <div class=\"nhsuk-hint\" id=\"contact-hint\">\n    Select all options that are relevant to you\n  </div>\n  <div class=\"nhsuk-checkboxes nhsuk-checkboxes--conditional\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact\" name=\"contact\" type=\"checkbox\" value=\"email\" aria-controls=\"conditional-contact\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact\">\n        Email\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\"></div> \n\n    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact-2\" name=\"contact\" type=\"checkbox\" value=\"phone\" aria-controls=\"conditional-contact-2\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact-2\">\n        Phone\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"text\"></div> \n\n    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact-3\" name=\"contact\" type=\"checkbox\" value=\"text\" aria-controls=\"conditional-contact-3\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact-3\">\n        Text message\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"text\"></div> \n\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with disabled item",
+      "description": "",
+      "options": {
+        "name": "colours",
+        "items": [
+          {
+            "value": "red",
+            "text": "Red"
+          },
+          {
+            "value": "green",
+            "text": "Green"
+          },
+          {
+            "value": "blue",
+            "text": "Blue",
+            "disabled": true
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <div class=\"nhsuk-checkboxes\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"colours\" name=\"colours\" type=\"checkbox\" value=\"red\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"colours\">\n        Red\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"colours-2\" name=\"colours\" type=\"checkbox\" value=\"green\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"colours-2\">\n        Green\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"colours-3\" name=\"colours\" type=\"checkbox\" value=\"blue\" disabled>\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"colours-3\">\n        Blue\n      </label>    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "description": "",
+      "options": {
+        "name": "waste",
+        "errorMessage": {
+          "text": "Please select an option"
+        },
+        "fieldset": {
+          "legend": {
+            "text": "Which types of waste do you transport regularly?",
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "animal",
+            "text": "Waste from animal carcasses"
+          },
+          {
+            "value": "mines",
+            "text": "Waste from mines or quarries"
+          },
+          {
+            "value": "farm",
+            "text": "Farm or agricultural waste"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"waste-error\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    Which types of waste do you transport regularly?\n</legend>  <span class=\"nhsuk-error-message\" id=\"waste-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Please select an option\n  </span>\n  <div class=\"nhsuk-checkboxes\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste\" name=\"waste\" type=\"checkbox\" value=\"animal\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste\">\n        Waste from animal carcasses\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste-2\" name=\"waste\" type=\"checkbox\" value=\"mines\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste-2\">\n        Waste from mines or quarries\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste-3\" name=\"waste\" type=\"checkbox\" value=\"farm\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste-3\">\n        Farm or agricultural waste\n      </label>    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with hint text",
+      "description": "",
+      "options": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to sign in?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "name": "gateway",
+            "id": "government-gateway",
+            "value": "gov-gateway",
+            "text": "Sign in with Government Gateway",
+            "hint": {
+              "text": "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before"
+            }
+          },
+          {
+            "name": "verify",
+            "id": "nhsuk-login",
+            "value": "nhsuk-verify",
+            "text": "Sign in with NHS.UK login",
+            "hint": {
+              "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+            }
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to sign in?\n    </h1>\n</legend>  <div class=\"nhsuk-checkboxes\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"government-gateway\" name=\"gateway\" type=\"checkbox\" value=\"gov-gateway\" aria-describedby=\"government-gateway-item-hint\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"government-gateway\">\n        Sign in with Government Gateway\n      </label>      <div class=\"nhsuk-hint nhsuk-checkboxes__hint\" id=\"government-gateway-item-hint\">\n        You&#39;ll have a user ID if you&#39;ve registered for Self Assessment or filed a tax return online before\n      </div>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"nhsuk-login\" name=\"verify\" type=\"checkbox\" value=\"nhsuk-verify\" aria-describedby=\"nhsuk-login-item-hint\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"nhsuk-login\">\n        Sign in with NHS.UK login\n      </label>      <div class=\"nhsuk-hint nhsuk-checkboxes__hint\" id=\"nhsuk-login-item-hint\">\n        You&#39;ll have an account if you&#39;ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity\n      </div>    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with legend as page heading",
+      "description": "",
+      "options": {
+        "name": "waste",
+        "fieldset": {
+          "legend": {
+            "text": "Which types of waste do you transport regularly?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select all that apply"
+        },
+        "items": [
+          {
+            "value": "animal",
+            "text": "Waste from animal carcasses"
+          },
+          {
+            "value": "mines",
+            "text": "Waste from mines or quarries"
+          },
+          {
+            "value": "farm",
+            "text": "Farm or agricultural waste"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"waste-hint\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    <h1 class=\"nhsuk-fieldset__heading\">\n      Which types of waste do you transport regularly?\n    </h1>\n</legend>  <div class=\"nhsuk-hint\" id=\"waste-hint\">\n    Select all that apply\n  </div>\n  <div class=\"nhsuk-checkboxes\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste\" name=\"waste\" type=\"checkbox\" value=\"animal\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste\">\n        Waste from animal carcasses\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste-2\" name=\"waste\" type=\"checkbox\" value=\"mines\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste-2\">\n        Waste from mines or quarries\n      </label>    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"waste-3\" name=\"waste\" type=\"checkbox\" value=\"farm\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"waste-3\">\n        Farm or agricultural waste\n      </label>    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with \"none of the above\" option",
+      "description": "",
+      "options": {
+        "idPrefix": "contact",
+        "name": "contact",
+        "fieldset": {
+          "legend": {
+            "text": "How would you prefer to be contacted?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": "true"
+          }
+        },
+        "hint": {
+          "text": "Select all options that are relevant to you"
+        },
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "exclusiveGroup": "communication-preferences",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\"></div> \n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "exclusiveGroup": "communication-preferences",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"text\"></div> \n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "exclusiveGroup": "communication-preferences",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"text\"></div> \n"
+            }
+          },
+          {
+            "divider": "or"
+          },
+          {
+            "value": "none",
+            "text": "None of the above",
+            "exclusive": true,
+            "exclusiveGroup": "communication-preferences"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"contact-hint\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    <h1 class=\"nhsuk-fieldset__heading\">\n      How would you prefer to be contacted?\n    </h1>\n</legend>  <div class=\"nhsuk-hint\" id=\"contact-hint\">\n    Select all options that are relevant to you\n  </div>\n  <div class=\"nhsuk-checkboxes nhsuk-checkboxes--conditional\">\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact\" name=\"contact\" type=\"checkbox\" value=\"email\" data-checkbox-exclusive-group=\"communication-preferences\" aria-controls=\"conditional-contact\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact\">\n        Email\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\"></div> \n\n    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact-2\" name=\"contact\" type=\"checkbox\" value=\"phone\" data-checkbox-exclusive-group=\"communication-preferences\" aria-controls=\"conditional-contact-2\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact-2\">\n        Phone\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"text\"></div> \n\n    </div>\n\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact-3\" name=\"contact\" type=\"checkbox\" value=\"text\" data-checkbox-exclusive-group=\"communication-preferences\" aria-controls=\"conditional-contact-3\" aria-expanded=\"false\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact-3\">\n        Text message\n      </label>    </div>\n    <div class=\"nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden\" id=\"conditional-contact-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"text\"></div> \n\n    </div>\n    <div class=\"nhsuk-checkboxes__divider\">or</div>\n    <div class=\"nhsuk-checkboxes__item\">\n      <input class=\"nhsuk-checkboxes__input\" id=\"contact-5\" name=\"contact\" type=\"checkbox\" value=\"none\" data-checkbox-exclusive data-checkbox-exclusive-group=\"communication-preferences\">\n      <label class=\"nhsuk-label nhsuk-checkboxes__label\" for=\"contact-5\">\n        None of the above\n      </label>    </div>\n  </div>\n</fieldset>\n</div>"
+    }
+  ]
+}

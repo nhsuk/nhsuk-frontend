@@ -1,0 +1,15 @@
+{
+  "name": "Skip link",
+  "component": "skip-link",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "href": "#maincontent",
+        "text": "Skip to main content"
+      },
+      "html": "<a class=\"nhsuk-skip-link\" href=\"#maincontent\">Skip to main content</a>"
+    }
+  ]
+}

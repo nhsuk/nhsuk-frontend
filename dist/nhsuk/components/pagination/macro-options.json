@@ -1,0 +1,38 @@
+[
+  {
+    "name": "previousUrl",
+    "type": "string",
+    "required": true,
+    "description": "The value of the previous link href attribute."
+  },
+  {
+    "name": "previousPage",
+    "type": "string",
+    "required": true,
+    "description": "The text of the previous link."
+  },
+  {
+    "name": "nextUrl",
+    "type": "string",
+    "required": true,
+    "description": "The value of the next link href attribute."
+  },
+  {
+    "name": "nextPage",
+    "type": "string",
+    "required": true,
+    "description": "The text of the next link."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the pagination container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the pagination container."
+  }
+]
