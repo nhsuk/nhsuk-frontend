@@ -54,9 +54,11 @@ export class SkipLink {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-export function initSkipLink(options = {}) {
+export function initSkipLinks(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-skip-link')
+  const $skipLinks = $scope.querySelectorAll('.nhsuk-skip-link')
 
-  new SkipLink($root)
+  $skipLinks.forEach(($root) => {
+    new SkipLink($root)
+  })
 }

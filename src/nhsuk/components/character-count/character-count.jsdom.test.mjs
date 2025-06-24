@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
-import { initCharacterCount } from './character-count.mjs'
+import { initCharacterCounts } from './character-count.mjs'
 
 describe('Character count', () => {
   /** @type {HTMLTextAreaElement} */
@@ -32,7 +32,7 @@ describe('Character count', () => {
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
-      initCharacterCount()
+      initCharacterCounts()
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
         'keyup',
@@ -52,17 +52,17 @@ describe('Character count', () => {
 
     it('should not throw with missing textarea', () => {
       $textarea.remove()
-      expect(() => initCharacterCount()).not.toThrow()
+      expect(() => initCharacterCounts()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
       document.body.innerHTML = ''
-      expect(() => initCharacterCount()).not.toThrow()
+      expect(() => initCharacterCounts()).not.toThrow()
     })
 
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
-      expect(() => initCharacterCount({ scope })).not.toThrow()
+      expect(() => initCharacterCounts({ scope })).not.toThrow()
     })
   })
 })

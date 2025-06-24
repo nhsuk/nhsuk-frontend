@@ -1,12 +1,12 @@
 import {
   initRadios,
   initHeader,
-  initButton,
-  initCharacterCount,
+  initButtons,
+  initCharacterCounts,
   initCheckboxes,
   initDetails,
   initErrorSummary,
-  initSkipLink,
+  initSkipLinks,
   initTabs
 } from './components/index.mjs'
 
@@ -24,9 +24,9 @@ export function initAll($scope) {
   }
 
   initHeader(options)
-  initSkipLink(options)
-  initButton(options)
-  initCharacterCount(options)
+  initSkipLinks(options)
+  initButtons(options)
+  initCharacterCounts(options)
   initCheckboxes(options)
   initDetails(options)
   initErrorSummary(options)
