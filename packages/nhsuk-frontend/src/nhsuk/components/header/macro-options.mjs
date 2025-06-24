@@ -185,6 +185,11 @@ export const params = {
         required: false,
         description: 'Array of account items for use in the header.',
         params: {
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The href of an account item in the header.'
+          },
           text: {
             type: 'string',
             required: true,
@@ -202,11 +207,6 @@ export const params = {
             required: false,
             description:
               'Whether to include the account icon for the account item. Defaults to `false`.'
-          },
-          href: {
-            type: 'string',
-            required: false,
-            description: 'The href for the item.'
           },
           action: {
             type: 'string',
