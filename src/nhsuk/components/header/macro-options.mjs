@@ -820,7 +820,7 @@ export const examples = {
       classes: 'nhsuk-header--white',
       logo: {
         href: '#',
-        src: '/assets/example-logo.svg',
+        src: '/nhsuk-frontend/assets/example-logo.svg',
         ariaLabel:
           'Great Ormond Street Hospital for Children, NHS Foundation Trust'
       },
