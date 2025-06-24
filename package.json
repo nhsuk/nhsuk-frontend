@@ -42,6 +42,7 @@
     "build": "gulp build --color",
     "watch": "gulp watch --color",
     "release": "gulp release --color",
+    "version": "echo $npm_package_version",
     "start": "npm run watch"
   },
   "devDependencies": {
