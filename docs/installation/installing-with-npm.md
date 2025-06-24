@@ -109,17 +109,31 @@ initAll()
 
 #### Initialise individual components
 
-Rather than using `initAll`, you can initialise individual components used by your service. For example:
+Rather than using `initAll`, you can initialise all instances of individual components used by your service. For example:
 
 ```js
-import { initRadios } from 'nhsuk-frontend/src/nhsuk/components/radios/radios.mjs';
-import { initSkipLink } from 'nhsuk-frontend/src/nhsuk/components/skip-link/skip-link.mjs';
+import { initButton, initRadios } from 'nhsuk-frontend';
 
-// Initialise components
-document.addEventListener('DOMContentLoaded', () => {
-  initRadios();
-  initSkipLink();
-});
+// Initialise all button components
+initButton();
+
+// Initialise all radios components
+initRadios();
+```
+
+Or where necessary, single instances of individual components only:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
 ```
 
 ## Importing assets (optional)
