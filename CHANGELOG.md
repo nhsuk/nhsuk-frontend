@@ -36,7 +36,7 @@ We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.cl
 
 However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
 
-These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk-frontend/pull/1326).
+These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk/nhsuk-frontend/pull/1326).
 
 #### Stop Internet Explorer 11 and other older browsers running unsupported JavaScript
 
