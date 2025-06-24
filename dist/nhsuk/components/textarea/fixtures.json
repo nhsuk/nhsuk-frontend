@@ -1,0 +1,49 @@
+{
+  "name": "Textarea",
+  "component": "textarea",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with autocomplete attribute",
+      "description": "",
+      "options": {
+        "name": "address",
+        "id": "textarea-with-autocomplete-attribute",
+        "label": {
+          "text": "Full address"
+        },
+        "autocomplete": "street-address"
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"textarea-with-autocomplete-attribute\">\n    Full address\n  </label>  <textarea class=\"nhsuk-textarea\" id=\"textarea-with-autocomplete-attribute\" name=\"address\" rows=\"5\" autocomplete=\"street-address\"></textarea>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "description": "",
+      "options": {
+        "name": "no-ni-reason",
+        "id": "no-ni-reason",
+        "label": {
+          "text": "Why can't you provide an NHS number?"
+        },
+        "errorMessage": {
+          "text": "You must provide an explanation"
+        }
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"no-ni-reason\">\n    Why can&#39;t you provide an NHS number?\n  </label>  <span class=\"nhsuk-error-message\" id=\"no-ni-reason-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> You must provide an explanation\n  </span>  <textarea class=\"nhsuk-textarea nhsuk-textarea--error\" id=\"no-ni-reason\" name=\"no-ni-reason\" rows=\"5\" aria-describedby=\"no-ni-reason-error\"></textarea>\n</div>"
+    }
+  ]
+}

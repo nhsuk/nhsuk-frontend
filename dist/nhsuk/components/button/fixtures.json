@@ -1,0 +1,186 @@
+{
+  "name": "Button",
+  "component": "button",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "text": "Save and continue"
+      },
+      "html": "<button class=\"nhsuk-button\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Save and continue\n</button>"
+    },
+    {
+      "name": "as a link",
+      "description": "",
+      "options": {
+        "text": "Link button",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Link button\n</a>"
+    },
+    {
+      "name": "disabled",
+      "description": "",
+      "options": {
+        "text": "Disabled button",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Disabled button\n</button>"
+    },
+    {
+      "name": "login",
+      "description": "",
+      "options": {
+        "text": "Continue",
+        "classes": "nhsuk-button--login"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--login\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Continue\n</button>"
+    },
+    {
+      "name": "login as a link",
+      "description": "",
+      "options": {
+        "text": "Continue",
+        "classes": "nhsuk-button--login",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--login\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Continue\n</a>"
+    },
+    {
+      "name": "login disabled",
+      "description": "",
+      "options": {
+        "text": "Continue",
+        "classes": "nhsuk-button--login",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--login\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Continue\n</button>"
+    },
+    {
+      "name": "reverse",
+      "description": "",
+      "options": {
+        "text": "Log out",
+        "classes": "nhsuk-button--reverse"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Log out\n</button>"
+    },
+    {
+      "name": "reverse as a link",
+      "description": "",
+      "options": {
+        "text": "Log out",
+        "classes": "nhsuk-button--reverse",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--reverse\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Log out\n</a>"
+    },
+    {
+      "name": "reverse disabled",
+      "description": "",
+      "options": {
+        "text": "Log out",
+        "classes": "nhsuk-button--reverse",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--reverse\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Log out\n</button>"
+    },
+    {
+      "name": "secondary",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Find my location\n</button>"
+    },
+    {
+      "name": "secondary as a link",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Find my location\n</a>"
+    },
+    {
+      "name": "secondary as a link – solid background",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary-solid",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--secondary-solid\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Find my location\n</a>"
+    },
+    {
+      "name": "secondary disabled",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>"
+    },
+    {
+      "name": "secondary disabled – solid background",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary-solid",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Find my location\n</button>"
+    },
+    {
+      "name": "secondary – solid background",
+      "description": "",
+      "options": {
+        "text": "Find my location",
+        "classes": "nhsuk-button--secondary-solid"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--secondary-solid\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Find my location\n</button>"
+    },
+    {
+      "name": "warning",
+      "description": "",
+      "options": {
+        "text": "Yes, delete this vaccine",
+        "classes": "nhsuk-button--warning"
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning\"\n  data-module=\"nhsuk-button\"\n type=\"submit\">\n  Yes, delete this vaccine\n</button>"
+    },
+    {
+      "name": "warning as a link",
+      "description": "",
+      "options": {
+        "text": "Yes, delete this vaccine",
+        "classes": "nhsuk-button--warning",
+        "href": "#"
+      },
+      "html": "<a class=\"nhsuk-button nhsuk-button--warning\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Yes, delete this vaccine\n</a>"
+    },
+    {
+      "name": "warning disabled",
+      "description": "",
+      "options": {
+        "text": "Yes, delete this vaccine",
+        "classes": "nhsuk-button--warning",
+        "disabled": true
+      },
+      "html": "<button class=\"nhsuk-button nhsuk-button--warning\"\n  data-module=\"nhsuk-button\"\n type=\"submit\" disabled aria-disabled=\"true\">\n  Yes, delete this vaccine\n</button>"
+    },
+    {
+      "name": "with double click prevented",
+      "description": "",
+      "options": {
+        "text": "Save and continue",
+        "preventDoubleClick": true
+      },
+      "html": "<button class=\"nhsuk-button\"\n  data-module=\"nhsuk-button\"\n data-prevent-double-click=\"true\" type=\"submit\">\n  Save and continue\n</button>"
+    }
+  ]
+}

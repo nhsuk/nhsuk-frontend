@@ -1,0 +1,646 @@
+{
+  "name": "Header",
+  "component": "header",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "search": true,
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Health A to Z"
+            },
+            {
+              "href": "#",
+              "text": "Live Well"
+            },
+            {
+              "href": "#",
+              "text": "Mental health"
+            },
+            {
+              "href": "#",
+              "text": "Care and support"
+            },
+            {
+              "href": "#",
+              "text": "Pregnancy"
+            },
+            {
+              "href": "#",
+              "text": "NHS services"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the NHS website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Health A to Z</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Live Well</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Mental health</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Care and support</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Pregnancy</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">NHS services</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "organisational white with account (logged in)",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white",
+        "service": {
+          "href": "#",
+          "text": "Manage patients"
+        },
+        "account": {
+          "items": [
+            {
+              "href": "#",
+              "text": "florence.nightingale@nhs.net",
+              "icon": true
+            },
+            {
+              "action": "#",
+              "text": "Log out"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--white\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Manage patients</span>\n      </a>\n    </div>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            <svg class=\"nhsuk-icon nhsuk-icon__user\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z\"></path>\n            </svg>florence.nightingale@nhs.net\n          </a>\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          <form class=\"nhsuk-header__account-form\" action=\"#\" method=\"post\">\n            <button class=\"nhsuk-header__account-button\">\n              Log out\n            </button>\n          </form>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>"
+    },
+    {
+      "name": "organisational white with account (logged out)",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white",
+        "service": {
+          "href": "#",
+          "text": "Manage patients"
+        },
+        "account": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Log in"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--white\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Manage patients</span>\n      </a>\n    </div>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            Log in\n          </a>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>"
+    },
+    {
+      "name": "organisational white with search",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white",
+        "logo": {
+          "href": "#"
+        },
+        "organisation": {
+          "name": "Anytown Anyplace",
+          "split": "Anywhere",
+          "descriptor": "NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--organisation nhsuk-header--white\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__organisation-name\">Anytown Anyplace <span class=\"nhsuk-header__organisation-name-split\">Anywhere</span></span><span class=\"nhsuk-header__organisation-name-descriptor\">NHS Foundation Trust</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Anytown Anyplace Anywhere website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n</header>"
+    },
+    {
+      "name": "organisational white with search, navigation",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white",
+        "logo": {
+          "href": "#"
+        },
+        "organisation": {
+          "name": "Anytown Anyplace",
+          "split": "Anywhere",
+          "descriptor": "NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Your hospital visit"
+            },
+            {
+              "href": "#",
+              "text": "Wards and departments",
+              "active": true
+            },
+            {
+              "href": "#",
+              "text": "Conditions and treatments"
+            },
+            {
+              "href": "#",
+              "text": "Our people"
+            },
+            {
+              "href": "#",
+              "text": "Join our team"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--organisation nhsuk-header--white\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__organisation-name\">Anytown Anyplace <span class=\"nhsuk-header__organisation-name-split\">Anywhere</span></span><span class=\"nhsuk-header__organisation-name-descriptor\">NHS Foundation Trust</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Anytown Anyplace Anywhere website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Your hospital visit</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item nhsuk-header__navigation-item--current\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\" aria-current=\"true\"><strong class=\"nhsuk-header__navigation-item-current-fallback\">Wards and departments</strong></a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Conditions and treatments</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our people</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Join our team</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "organisational white with search, navigation (custom logo)",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white",
+        "logo": {
+          "href": "#",
+          "src": "/nhsuk-frontend/assets/example-logo.svg",
+          "ariaLabel": "Great Ormond Street Hospital for Children, NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Great Ormond Street Hospital website"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Parents and families"
+            },
+            {
+              "href": "#",
+              "text": "Wards and departments"
+            },
+            {
+              "href": "#",
+              "text": "Conditions and treatments"
+            },
+            {
+              "href": "#",
+              "text": "Learning"
+            },
+            {
+              "href": "#",
+              "text": "Our research"
+            },
+            {
+              "href": "#",
+              "text": "Our people"
+            },
+            {
+              "href": "#",
+              "text": "Our children"
+            },
+            {
+              "href": "#",
+              "text": "Hospital",
+              "active": true
+            },
+            {
+              "href": "#",
+              "text": "Private care"
+            },
+            {
+              "href": "#",
+              "text": "Charity"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--white\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <img class=\"nhsuk-header__organisation-logo\" src=\"/nhsuk-frontend/assets/example-logo.svg\" alt=\"NHS\">\n        \n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Great Ormond Street Hospital website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Parents and families</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Wards and departments</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Conditions and treatments</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Learning</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our research</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our people</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our children</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item nhsuk-header__navigation-item--current\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\" aria-current=\"true\"><strong class=\"nhsuk-header__navigation-item-current-fallback\">Hospital</strong></a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Private care</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Charity</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "organisational white with search, navigation (white)",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-header--white nhsuk-header--white-navigation",
+        "logo": {
+          "href": "#"
+        },
+        "organisation": {
+          "name": "Anytown Anyplace",
+          "split": "Anywhere",
+          "descriptor": "NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Your hospital visit"
+            },
+            {
+              "href": "#",
+              "text": "Wards and departments",
+              "active": true
+            },
+            {
+              "href": "#",
+              "text": "Conditions and treatments"
+            },
+            {
+              "href": "#",
+              "text": "Our people"
+            },
+            {
+              "href": "#",
+              "text": "Join our team"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--organisation nhsuk-header--white nhsuk-header--white-navigation\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__organisation-name\">Anytown Anyplace <span class=\"nhsuk-header__organisation-name-split\">Anywhere</span></span><span class=\"nhsuk-header__organisation-name-descriptor\">NHS Foundation Trust</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Anytown Anyplace Anywhere website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Your hospital visit</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item nhsuk-header__navigation-item--current\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\" aria-current=\"true\"><strong class=\"nhsuk-header__navigation-item-current-fallback\">Wards and departments</strong></a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Conditions and treatments</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our people</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Join our team</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "organisational with search",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "organisation": {
+          "name": "Anytown Anyplace",
+          "split": "Anywhere",
+          "descriptor": "NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--organisation\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__organisation-name\">Anytown Anyplace <span class=\"nhsuk-header__organisation-name-split\">Anywhere</span></span><span class=\"nhsuk-header__organisation-name-descriptor\">NHS Foundation Trust</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Anytown Anyplace Anywhere website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n</header>"
+    },
+    {
+      "name": "organisational with search, navigation",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "organisation": {
+          "name": "Anytown Anyplace",
+          "split": "Anywhere",
+          "descriptor": "NHS Foundation Trust"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the Anytown Anyplace Anywhere website"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Your hospital visit"
+            },
+            {
+              "href": "#",
+              "text": "Wards and departments",
+              "active": true
+            },
+            {
+              "href": "#",
+              "text": "Conditions and treatments"
+            },
+            {
+              "href": "#",
+              "text": "Our people"
+            },
+            {
+              "href": "#",
+              "text": "Join our team"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header nhsuk-header--organisation\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__organisation-name\">Anytown Anyplace <span class=\"nhsuk-header__organisation-name-split\">Anywhere</span></span><span class=\"nhsuk-header__organisation-name-descriptor\">NHS Foundation Trust</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the Anytown Anyplace Anywhere website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Your hospital visit</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item nhsuk-header__navigation-item--current\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\" aria-current=\"true\"><strong class=\"nhsuk-header__navigation-item-current-fallback\">Wards and departments</strong></a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Conditions and treatments</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Our people</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Join our team</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with account (logged in)",
+      "description": "",
+      "options": {
+        "service": {
+          "href": "#",
+          "text": "Manage patients"
+        },
+        "account": {
+          "items": [
+            {
+              "href": "#",
+              "text": "florence.nightingale@nhs.net",
+              "icon": true
+            },
+            {
+              "action": "#",
+              "text": "Log out"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Manage patients</span>\n      </a>\n    </div>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            <svg class=\"nhsuk-icon nhsuk-icon__user\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z\"></path>\n            </svg>florence.nightingale@nhs.net\n          </a>\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          <form class=\"nhsuk-header__account-form\" action=\"#\" method=\"post\">\n            <button class=\"nhsuk-header__account-button\">\n              Log out\n            </button>\n          </form>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>"
+    },
+    {
+      "name": "with account (logged out)",
+      "description": "",
+      "options": {
+        "service": {
+          "href": "#",
+          "text": "Manage patients"
+        },
+        "account": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Log in"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Manage patients</span>\n      </a>\n    </div>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            Log in\n          </a>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>"
+    },
+    {
+      "name": "with account, search, navigation (logged in, complex)",
+      "description": "",
+      "options": {
+        "service": {
+          "href": "#",
+          "text": "Manage patients"
+        },
+        "search": {
+          "placeholder": "Name or NHS number",
+          "visuallyHiddenLabel": "Search patients by name or NHS number"
+        },
+        "account": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Florence Nightingale",
+              "icon": true
+            },
+            {
+              "text": "Regional Manager, Hull and East Yorkshire Hospitals NHS Trust"
+            },
+            {
+              "href": "#",
+              "text": "Change role"
+            },
+            {
+              "action": "#",
+              "text": "Log out"
+            }
+          ]
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Home"
+            },
+            {
+              "href": "#",
+              "text": "Create user"
+            },
+            {
+              "href": "#",
+              "text": "Find user"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Manage patients</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search patients by name or NHS number</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Name or NHS number\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            <svg class=\"nhsuk-icon nhsuk-icon__user\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z\"></path>\n            </svg>Florence Nightingale\n          </a>\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          Regional Manager, Hull and East Yorkshire Hospitals NHS Trust\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          <a class=\"nhsuk-header__account-link\" href=\"#\">\n            Change role\n          </a>\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          <form class=\"nhsuk-header__account-form\" action=\"#\" method=\"post\">\n            <button class=\"nhsuk-header__account-button\">\n              Log out\n            </button>\n          </form>\n        </li>\n      </ul>\n    </nav>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Home</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Create user</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Find user</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with logo",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n    </div>\n  </div>\n</header>"
+    },
+    {
+      "name": "with logo unlinked",
+      "description": "",
+      "options": {},
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n        <title>NHS</title>\n        <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n      </svg>\n      \n    </div>\n  </div>\n</header>"
+    },
+    {
+      "name": "with navigation",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Health A to Z"
+            },
+            {
+              "href": "#",
+              "text": "Live Well"
+            },
+            {
+              "href": "#",
+              "text": "Mental health"
+            },
+            {
+              "href": "#",
+              "text": "Care and support"
+            },
+            {
+              "href": "#",
+              "text": "Pregnancy"
+            },
+            {
+              "href": "#",
+              "text": "NHS services"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n    </div>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Health A to Z</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Live Well</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Mental health</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Care and support</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Pregnancy</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">NHS services</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with navigation justified",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "navigation": {
+          "classes": "nhsuk-header__navigation--justified",
+          "items": [
+            {
+              "href": "#",
+              "text": "Health A to Z"
+            },
+            {
+              "href": "#",
+              "text": "Live Well"
+            },
+            {
+              "href": "#",
+              "text": "Mental health"
+            },
+            {
+              "href": "#",
+              "text": "Care and support"
+            },
+            {
+              "href": "#",
+              "text": "Pregnancy"
+            },
+            {
+              "href": "#",
+              "text": "NHS services"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n    </div>\n  </div>\n  <nav class=\"nhsuk-header__navigation nhsuk-header__navigation--justified\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Health A to Z</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Live Well</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Mental health</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Care and support</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Pregnancy</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">NHS services</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with search",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "search": true
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the NHS website</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n</header>"
+    },
+    {
+      "name": "with service name",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#nhs",
+          "ariaLabel": "NHS homepage"
+        },
+        "service": {
+          "text": "Find your NHS number",
+          "href": "#"
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#nhs\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n      <a class=\"nhsuk-header__service-name\" href=\"#\">Find your NHS number</a>\n      \n    </div>\n  </div>\n</header>"
+    },
+    {
+      "name": "with service name, account, search and navigation",
+      "description": "",
+      "options": {
+        "service": {
+          "text": "Search patient directory",
+          "href": "#"
+        },
+        "search": {
+          "placeholder": "Name or NHS number",
+          "visuallyHiddenLabel": "Search patients by name or NHS number"
+        },
+        "account": {
+          "items": [
+            {
+              "text": "Florence Nightingale",
+              "icon": true
+            },
+            {
+              "action": "#",
+              "text": "Log out"
+            }
+          ]
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Home"
+            },
+            {
+              "href": "#",
+              "text": "Patient list"
+            },
+            {
+              "href": "#",
+              "text": "Advanced search"
+            },
+            {
+              "href": "#",
+              "text": "Help guides"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Search patient directory</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search patients by name or NHS number</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Name or NHS number\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n    <nav class=\"nhsuk-header__account\" aria-label=\"Account\">\n      <ul class=\"nhsuk-header__account-list\">\n        <li class=\"nhsuk-header__account-item\">\n          <svg class=\"nhsuk-icon nhsuk-icon__user\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z\"></path>\n          </svg>Florence Nightingale\n        </li>\n        <li class=\"nhsuk-header__account-item\">\n          <form class=\"nhsuk-header__account-form\" action=\"#\" method=\"post\">\n            <button class=\"nhsuk-header__account-button\">\n              Log out\n            </button>\n          </form>\n        </li>\n      </ul>\n    </nav>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Home</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Patient list</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Advanced search</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Help guides</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with service name combined with logo",
+      "description": "",
+      "options": {
+        "service": {
+          "text": "Prototype kit",
+          "href": "#"
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Prototype kit</span>\n      </a>\n    </div>\n  </div>\n</header>"
+    },
+    {
+      "name": "with service name, search and navigation",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#"
+        },
+        "service": {
+          "text": "Digital service manual",
+          "href": "#"
+        },
+        "search": {
+          "visuallyHiddenLabel": "Search the NHS digital service manual"
+        },
+        "navigation": {
+          "items": [
+            {
+              "href": "#",
+              "text": "Standards and technology"
+            },
+            {
+              "href": "#",
+              "text": "Design system",
+              "current": true
+            },
+            {
+              "href": "#",
+              "text": "Content style guide"
+            },
+            {
+              "href": "#",
+              "text": "Accessibility"
+            },
+            {
+              "href": "#",
+              "text": "Community and contribution"
+            }
+          ]
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        <span class=\"nhsuk-header__service-name\">Digital service manual</span>\n      </a>\n    </div>\n    <search class=\"nhsuk-header__search\">\n      <form class=\"nhsuk-header__search-form\" id=\"search\" action=\"https://www.nhs.uk/search/\" method=\"get\">\n        <label class=\"nhsuk-u-visually-hidden\" for=\"search-field\">Search the NHS digital service manual</label>\n        <input class=\"nhsuk-header__search-input nhsuk-input\" id=\"search-field\" name=\"q\" type=\"search\" placeholder=\"Search\" autocomplete=\"off\">\n        <button class=\"nhsuk-header__search-submit\" type=\"submit\">\n          <svg class=\"nhsuk-icon nhsuk-icon__search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n            <path d=\"M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z\"></path>\n          </svg>\n          <span class=\"nhsuk-u-visually-hidden\">Search</span>\n        </button>\n      </form>\n    </search>\n  </div>\n  <nav class=\"nhsuk-header__navigation\" aria-label=\"Menu\">\n    <div class=\"nhsuk-header__navigation-container nhsuk-width-container\">\n      <ul class=\"nhsuk-header__navigation-list\">\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Standards and technology</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item nhsuk-header__navigation-item--current\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-header__navigation-item-current-fallback\">Design system</strong></a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Content style guide</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Accessibility</a>\n        </li>\n        <li class=\"nhsuk-header__navigation-item\">\n          <a class=\"nhsuk-header__navigation-link\" href=\"#\">Community and contribution</a>\n        </li>\n        <li class=\"nhsuk-header__menu\" hidden>\n          <button class=\"nhsuk-header__menu-toggle nhsuk-header__navigation-link\" id=\"toggle-menu\" aria-expanded=\"false\">\n            <span class=\"nhsuk-u-visually-hidden\">Browse </span>More\n            <svg class=\"nhsuk-icon nhsuk-icon__chevron-down\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n              <path d=\"M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z\"></path>\n            </svg>\n          </button>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>"
+    },
+    {
+      "name": "with service name unlinked",
+      "description": "",
+      "options": {
+        "logo": {
+          "href": "#",
+          "ariaLabel": "NHS homepage"
+        },
+        "service": {
+          "text": "Find your NHS number"
+        }
+      },
+      "html": "<header class=\"nhsuk-header\" role=\"banner\">\n  <div class=\"nhsuk-header__container nhsuk-width-container\">\n    <div class=\"nhsuk-header__service\">\n      <a class=\"nhsuk-header__service-logo\" href=\"#\">\n        <svg class=\"nhsuk-header__logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" height=\"40\" width=\"100\" focusable=\"false\" role=\"img\" aria-label=\"NHS\">\n          <title>NHS</title>\n          <path fill=\"currentcolor\" d=\"M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z\"/>\n        </svg>\n        \n      </a>\n      <span class=\"nhsuk-header__service-name\">Find your NHS number</span>\n    </div>\n  </div>\n</header>"
+    }
+  ]
+}
