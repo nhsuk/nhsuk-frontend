@@ -137,7 +137,7 @@ This enables the NHSUK styles to be used inside other applications, where, for e
 
 div#nhsuk-ers {
   // ...
-  @include meta.load-css("node_modules/nhsuk-frontend/src/nhsuk/core");
+  @include meta.load-css("nhsuk-frontend/dist/nhsuk/core");
   // ...
 }
 ```
