@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
-import { initButton } from './button.mjs'
+import { initButtons } from './button.mjs'
 
 describe('Button', () => {
   /** @type {HTMLButtonElement} */
@@ -19,7 +19,7 @@ describe('Button', () => {
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
-      initButton()
+      initButtons()
 
       expect($button.addEventListener).toHaveBeenNthCalledWith(
         1,
@@ -36,17 +36,17 @@ describe('Button', () => {
 
     it('should not throw with missing button', () => {
       $button.remove()
-      expect(() => initButton()).not.toThrow()
+      expect(() => initButtons()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
       document.body.innerHTML = ''
-      expect(() => initButton()).not.toThrow()
+      expect(() => initButtons()).not.toThrow()
     })
 
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
-      expect(() => initButton({ scope })).not.toThrow()
+      expect(() => initButtons({ scope })).not.toThrow()
     })
   })
 })

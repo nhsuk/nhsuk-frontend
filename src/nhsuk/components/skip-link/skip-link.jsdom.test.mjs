@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { initSkipLink } from './skip-link.mjs'
+import { initSkipLinks } from './skip-link.mjs'
 
 const user = userEvent.setup()
 
@@ -44,7 +44,7 @@ describe('Skip link', () => {
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
-      initSkipLink()
+      initSkipLinks()
 
       expect($skipLink.addEventListener).toHaveBeenCalledWith(
         'click',
@@ -54,28 +54,28 @@ describe('Skip link', () => {
 
     it('should not throw with missing skip link', () => {
       $skipLink.remove()
-      expect(() => initSkipLink()).not.toThrow()
+      expect(() => initSkipLinks()).not.toThrow()
     })
 
     it('should not throw with missing main content', () => {
       $main.remove()
-      expect(() => initSkipLink()).not.toThrow()
+      expect(() => initSkipLinks()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
       document.body.innerHTML = ''
-      expect(() => initSkipLink()).not.toThrow()
+      expect(() => initSkipLinks()).not.toThrow()
     })
 
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
-      expect(() => initSkipLink({ scope })).not.toThrow()
+      expect(() => initSkipLinks({ scope })).not.toThrow()
     })
   })
 
   describe('Focus handling', () => {
     beforeEach(async () => {
-      initSkipLink()
+      initSkipLinks()
 
       await user.tab()
       await user.keyboard('[Enter]')

@@ -78,7 +78,7 @@ export class Button {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-export function initButton(options = {}) {
+export function initButtons(options = {}) {
   const $scope = options.scope || document
   const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
 
