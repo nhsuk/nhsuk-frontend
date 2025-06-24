@@ -325,7 +325,6 @@ $_header-item-active-size: $nhsuk-focus-width;
 /// Navigation
 
 .nhsuk-header__navigation {
-  position: relative;
   border: 0 solid $color_nhsuk-white;
 
   @include nhsuk-print-hide;
@@ -333,11 +332,6 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__navigation-container {
   border-top: 1px solid $nhsuk-secondary-border-color;
-
-  @include nhsuk-media-query($until: tablet) {
-    position: relative;
-    z-index: 10;
-  }
 }
 
 .nhsuk-header__navigation-list {
@@ -463,8 +457,7 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__menu-list {
   list-style: none;
-  margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
-  overflow: hidden;
+  margin: 0 math.div($nhsuk-gutter-half, 2);
   padding: 0;
   position: absolute;
   right: 0;
@@ -472,6 +465,10 @@ $_header-item-active-size: $nhsuk-focus-width;
   left: 0;
 
   @include nhsuk-print-hide;
+
+  @include nhsuk-media-query($from: tablet) {
+    margin: 0 $nhsuk-gutter-half;
+  }
 
   &[hidden] {
     display: none;
@@ -486,36 +483,24 @@ $_header-item-active-size: $nhsuk-focus-width;
       width: 0;
       top: 0;
       bottom: 0;
-      left: -$nhsuk-gutter;
+      left: -$nhsuk-gutter-half;
       right: auto;
       border-left-width: $_header-item-active-size;
 
       // stylelint-disable-next-line max-nesting-depth
-      @include nhsuk-media-query($until: desktop) {
-        left: -$nhsuk-gutter-half;
+      @include nhsuk-media-query($from: desktop) {
+        left: -$nhsuk-gutter;
       }
     }
   }
 
   .nhsuk-header__navigation-item {
-    padding: 0 $nhsuk-gutter-half;
+    padding: 0;
     border-bottom: 1px solid $color_nhsuk-grey-5;
 
     &:last-child {
       border: 0;
     }
-
-    @include nhsuk-media-query($from: desktop) {
-      padding: 0 $nhsuk-gutter;
-    }
-  }
-
-  @include nhsuk-media-query($from: tablet) {
-    margin: 0;
-  }
-
-  @include nhsuk-media-query($from: desktop) {
-    margin: 0 $nhsuk-gutter-half * -1;
   }
 }
 
@@ -583,7 +568,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 
   .nhsuk-header__navigation-container {
-    border-top-color: transparent;
+    border-top: 0;
   }
 }
 
@@ -598,7 +583,11 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 
   &.nhsuk-header--white .nhsuk-header__navigation-container {
-    border-top-color: $color_nhsuk-grey-4;
+    border-top: 1px solid $color_nhsuk-grey-4;
+  }
+
+  .nhsuk-header__menu-list {
+    border-top: 1px solid $color_nhsuk-grey-5;
   }
 }
 
