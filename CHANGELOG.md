@@ -30,6 +30,120 @@ This was added in [pull request #1309: Add button group and full width button st
 
 You must make the following changes when you migrate to this release, or your service might break.
 
+#### Update file paths
+
+To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
+
+##### If you’re using Sass
+
+Replace `packages/` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files.
+
+Before:
+
+```scss
+@forward "node_modules/nhsuk-frontend/packages/core";
+```
+
+After:
+
+```scss
+@forward "nhsuk-frontend/dist/nhsuk/core";
+```
+
+You must add `node_modules` to Sass load paths, by either:
+
+- calling the Sass compiler from the command line with the `--load-path node_modules` flag
+- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
+
+##### If you’re using Javascript
+
+For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
+
+Before:
+
+```mjs
+import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
+import initRadios from 'nhsuk-frontend/packages/components/radios/radios.js'
+import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link.js'
+
+initCheckboxes()
+initRadios()
+initSkipLink()
+```
+
+After:
+
+```mjs
+import { initCheckboxes, initRadios, initSkipLink } from 'nhsuk-frontend'
+
+initCheckboxes()
+initRadios()
+initSkipLink()
+```
+
+For precompiled JavaScript `nhsuk.min.js` or `nhsuk-<VERSION-NUMBER>.min.js`, you must include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js'
+    initAll()
+  </script>
+</body>
+```
+
+##### If you’re using Nunjucks
+
+1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
+
+Before:
+
+```mjs
+nunjucks.configure([
+  'node_modules/nhsuk-frontend/packages/components',
+  'node_modules/nhsuk-frontend/packages/macros'
+])
+```
+
+After:
+
+```mjs
+nunjucks.configure([
+  'node_modules/nhsuk-frontend/dist/nhsuk/components',
+  'node_modules/nhsuk-frontend/dist/nhsuk/macros',
+  'node_modules/nhsuk-frontend/dist/nhsuk',
+  'node_modules/nhsuk-frontend/dist'
+])
+```
+
+##### If you’re copying or serving assets
+
+Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend assets:
+
+```patch
+-node_modules/nhsuk-frontend/packages/assets
++node_modules/nhsuk-frontend/dist/nhsuk/assets
+```
+
+For example, if you’re using [Express.js](https://expressjs.com/), request routing could be set up as follows:
+
+```js
+router.use('/assets', [
+  express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
+])
+```
+
 #### Verify your code does not rely on polyfills we have now removed
 
 We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.closest()`, `matches()` DOM method and NodeList API `forEach` required for Internet Explorer 11 and below.
