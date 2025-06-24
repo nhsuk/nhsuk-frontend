@@ -182,8 +182,7 @@ export const params = {
       items: {
         type: 'array',
         required: false,
-        description:
-          "The search action endpoint. Defaults to `'https://www.nhs.uk/search'`",
+        description: 'Array of account items for use in the header.',
         params: {
           text: {
             type: 'string',
