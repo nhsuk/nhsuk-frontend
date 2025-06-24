@@ -94,6 +94,12 @@ export const params = {
             description:
               'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` argument will be ignored.'
           },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` argument will be ignored.'
+          },
           current: {
             type: 'boolean',
             required: false,
