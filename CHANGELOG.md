@@ -44,7 +44,7 @@ Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK fr
 
 This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
-Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module". You'll need to assess the impact of these nuances and make sure that:
+Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
 
 - when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
