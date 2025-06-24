@@ -112,10 +112,10 @@ initAll()
 Rather than using `initAll`, you can initialise all instances of individual components used by your service. For example:
 
 ```js
-import { initButton, initRadios } from 'nhsuk-frontend';
+import { initButtons, initRadios } from 'nhsuk-frontend';
 
 // Initialise all button components
-initButton();
+initButtons();
 
 // Initialise all radios components
 initRadios();

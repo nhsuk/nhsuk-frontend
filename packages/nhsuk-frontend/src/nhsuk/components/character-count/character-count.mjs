@@ -285,7 +285,7 @@ CharacterCount.prototype.defaults = {
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
-export function initCharacterCount(options = {}) {
+export function initCharacterCounts(options = {}) {
   const $scope = options.scope || document
   const $characterCounts = $scope.querySelectorAll(
     '[data-module="nhsuk-character-count"]'
