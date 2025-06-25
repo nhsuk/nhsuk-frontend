@@ -73,13 +73,12 @@ $_header-item-active-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__container {
-  display: flex;
-  flex-flow: column wrap;
-  gap: nhsuk-spacing(3);
   padding: nhsuk-spacing(3) 0;
 
   @include nhsuk-media-query($from: tablet) {
-    flex-direction: row;
+    display: flex;
+    flex-flow: row wrap;
+    gap: nhsuk-spacing(3);
   }
 }
 
@@ -97,7 +96,10 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__service {
   display: flex;
-  flex-grow: 999;
+
+  @include nhsuk-media-query($from: tablet) {
+    flex-grow: 999;
+  }
 }
 
 .nhsuk-header__service-name {
@@ -164,6 +166,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   border: 1px solid $color_shade_nhsuk-blue-20;
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
+  margin-top: nhsuk-spacing(3);
   overflow: hidden;
 
   .nhsuk-icon__user {
@@ -240,10 +243,15 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__search {
   flex-grow: 1;
+  margin-top: nhsuk-spacing(3);
   position: relative;
   z-index: 10;
 
   @include nhsuk-print-hide;
+
+  @include nhsuk-media-query($from: tablet) {
+    margin: 0;
+  }
 
   .nhsuk-icon__search {
     height: 28px;
