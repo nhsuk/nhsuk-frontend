@@ -654,17 +654,16 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__organisation-logo {
   border: 0;
-  max-height: 100px;
-  max-width: 280px;
+  height: auto;
+  width: 280px;
 
-  @media (max-width: 450px) {
+  @include nhsuk-media-query($until: 450px) {
     max-width: 150px;
   }
 
   &[src$=".svg"] {
-    height: auto;
     max-width: 220px;
-    width: 100%;
+    width: 220px;
   }
 }
 
