@@ -144,16 +144,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   );
 }
 
-.nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
-.nhsuk-header__service-name[href]:hover {
-  text-decoration: underline;
-}
-
-.nhsuk-header__service-logo[href]:focus .nhsuk-header__service-name,
-.nhsuk-header__service-name[href] {
-  text-decoration: none;
-}
-
 /// Account
 
 .nhsuk-header__account {
@@ -656,4 +646,18 @@ $_header-item-active-size: $nhsuk-focus-width;
     max-width: 220px;
     width: 100%;
   }
+}
+
+// Add service logo underline on hover
+.nhsuk-header .nhsuk-header__service-logo[href]:hover,
+.nhsuk-header .nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
+.nhsuk-header .nhsuk-header__service-name[href]:hover {
+  text-decoration: underline;
+}
+
+// Remove service logo underline on focus
+.nhsuk-header .nhsuk-header__service-logo[href]:focus,
+.nhsuk-header .nhsuk-header__service-logo[href]:focus .nhsuk-header__service-name,
+.nhsuk-header .nhsuk-header__service-name[href] {
+  text-decoration: none;
 }
