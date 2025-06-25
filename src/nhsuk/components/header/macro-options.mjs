@@ -353,11 +353,11 @@ export const examples = {
   'with navigation (white)': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      classes: 'nhsuk-header--white-navigation',
       logo: {
         href: '#'
       },
       navigation: {
+        classes: 'nhsuk-header__navigation--white',
         items: [
           {
             href: '#',
@@ -544,7 +544,6 @@ export const examples = {
   'with service name, account, search and navigation (white)': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      classes: 'nhsuk-header--white-navigation',
       service: {
         text: 'Search patient directory',
         href: '#'
@@ -566,6 +565,7 @@ export const examples = {
         ]
       },
       navigation: {
+        classes: 'nhsuk-header__navigation--white',
         items: [
           {
             href: '#',
@@ -630,7 +630,6 @@ export const examples = {
   'with service name, search and navigation (white)': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      classes: 'nhsuk-header--white-navigation',
       logo: {
         href: '#'
       },
@@ -642,6 +641,7 @@ export const examples = {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
+        classes: 'nhsuk-header__navigation--white',
         items: [
           {
             href: '#',
@@ -971,7 +971,7 @@ export const examples = {
   'organisational white with search, navigation (white)': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      classes: 'nhsuk-header--white nhsuk-header--white-navigation',
+      classes: 'nhsuk-header--white',
       logo: {
         href: '#'
       },
@@ -984,6 +984,7 @@ export const examples = {
         visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
       },
       navigation: {
+        classes: 'nhsuk-header__navigation--white',
         items: [
           {
             href: '#',
