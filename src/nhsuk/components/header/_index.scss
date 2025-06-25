@@ -137,7 +137,6 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__service-logo,
 .nhsuk-header__service-name[href] {
-  text-decoration: none;
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
     $link-hover-color: $nhsuk-reverse-text-color,
@@ -148,6 +147,11 @@ $_header-item-active-size: $nhsuk-focus-width;
 .nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
 .nhsuk-header__service-name[href]:hover {
   text-decoration: underline;
+}
+
+.nhsuk-header__service-logo[href]:focus .nhsuk-header__service-name,
+.nhsuk-header__service-name[href] {
+  text-decoration: none;
 }
 
 /// Account
