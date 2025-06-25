@@ -95,11 +95,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   margin-right: auto;
 }
 
-.nhsuk-header__service-logo {
-  flex-grow: 0;
-  margin-right: 0;
-}
-
 .nhsuk-header__service-name {
   flex-grow: 0;
   margin-right: auto;
@@ -113,6 +108,8 @@ $_header-item-active-size: $nhsuk-focus-width;
 
   position: relative;
   display: inline-flex;
+  flex-grow: 0;
+  margin-right: 0;
   text-decoration: none;
 
   // Add SVG logo underline on hover
@@ -135,7 +132,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 }
 
-.nhsuk-header__service-logo,
+.nhsuk-header__service-logo[href],
 .nhsuk-header__service-name[href] {
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
@@ -600,11 +597,9 @@ $_header-item-active-size: $nhsuk-focus-width;
     }
   }
 
-  .nhsuk-header__service-logo {
-    display: block;
-  }
-
   .nhsuk-header__service-logo[href] {
+    display: block;
+
     // Adjust SVG logo underline position
     &:has(svg):not(:focus):hover::before {
       height: 24px;
