@@ -117,7 +117,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 }
 
-.nhsuk-header__service-logo[href] {
+.nhsuk-header__service-logo {
   position: relative;
   display: inline-flex;
   flex-grow: 0;
@@ -149,7 +149,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 }
 
-.nhsuk-header__service-logo[href],
+.nhsuk-header__service-logo,
 .nhsuk-header__service-name[href] {
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
@@ -533,7 +533,7 @@ $_header-item-active-size: $nhsuk-focus-width;
     color: $color_nhsuk-black;
   }
 
-  .nhsuk-header__service-logo[href],
+  .nhsuk-header__service-logo,
   .nhsuk-header__service-name[href],
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
@@ -615,7 +615,7 @@ $_header-item-active-size: $nhsuk-focus-width;
     }
   }
 
-  .nhsuk-header__service-logo[href] {
+  .nhsuk-header__service-logo {
     display: block;
 
     // Adjust SVG logo underline position
@@ -661,20 +661,20 @@ $_header-item-active-size: $nhsuk-focus-width;
 }
 
 // Add service logo underline on hover
-.nhsuk-header .nhsuk-header__service-logo[href]:hover,
-.nhsuk-header .nhsuk-header__service-logo[href]:hover .nhsuk-header__service-name,
+.nhsuk-header .nhsuk-header__service-logo:hover,
+.nhsuk-header .nhsuk-header__service-logo:hover .nhsuk-header__service-name,
 .nhsuk-header .nhsuk-header__service-name[href]:hover {
   text-decoration: underline;
 }
 
 // Remove service logo underline on focus
-.nhsuk-header .nhsuk-header__service-logo[href]:focus,
-.nhsuk-header .nhsuk-header__service-logo[href]:focus .nhsuk-header__service-name,
+.nhsuk-header .nhsuk-header__service-logo:focus,
+.nhsuk-header .nhsuk-header__service-logo:focus .nhsuk-header__service-name,
 .nhsuk-header .nhsuk-header__service-name[href] {
   text-decoration: none;
 }
 
 // Add service logo box shadow on focus
-.nhsuk-header .nhsuk-header__service-logo[href]:focus {
+.nhsuk-header .nhsuk-header__service-logo:focus {
   @include nhsuk-focused-box;
 }
