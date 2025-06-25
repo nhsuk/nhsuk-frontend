@@ -85,22 +85,34 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 /// Service logo (and optional name)
 
+.nhsuk-header__logo {
+  min-width: 100px;
+}
+
 .nhsuk-header__service,
 .nhsuk-header__service-logo {
-  align-items: center;
-  display: flex;
-  flex-grow: 999;
-  flex-wrap: wrap;
   gap: nhsuk-spacing(2) nhsuk-spacing(3);
   margin-right: auto;
 }
 
+.nhsuk-header__service {
+  display: flex;
+  flex-grow: 999;
+}
+
 .nhsuk-header__service-name {
+  display: inline-flex;
+  flex-direction: column;
   flex-grow: 0;
+  justify-content: center;
   margin-right: auto;
   text-wrap: balance;
   max-width: 54ch;
   @include nhsuk-font(19, $line-height: 1.1);
+
+  &:only-child {
+    display: block;
+  }
 }
 
 .nhsuk-header__service-logo[href] {
@@ -111,6 +123,10 @@ $_header-item-active-size: $nhsuk-focus-width;
   flex-grow: 0;
   margin-right: 0;
   text-decoration: none;
+
+  &:only-child {
+    display: flex;
+  }
 
   // Add SVG logo underline on hover
   //
@@ -589,6 +605,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   .nhsuk-header__logo {
     height: 24px;
     margin-bottom: 6px;
+    min-width: auto;
     width: 60px;
 
     @include nhsuk-media-query($from: tablet) {
