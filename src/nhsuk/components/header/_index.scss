@@ -556,18 +556,15 @@ $_header-item-active-size: $nhsuk-focus-width;
   background-color: $color_nhsuk-white;
   color: $color_nhsuk-blue;
 
-  .nhsuk-header__service-name:not([href]),
-  .nhsuk-header__service-name[href]:not(:focus):not(:hover),
-  .nhsuk-header__service-logo:not(:focus):not(:hover) .nhsuk-header__service-name,
-  .nhsuk-header__service-logo:not(:focus):not(:hover) .nhsuk-header__organisation-name {
-    color: $color_nhsuk-black;
-  }
-
   .nhsuk-header__service-logo,
   .nhsuk-header__service-name[href],
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
     @include _header-link-style;
+  }
+
+  .nhsuk-header__service-logo:not(:focus):not(:hover) .nhsuk-header__organisation-name {
+    color: $color_nhsuk-black;
   }
 
   .nhsuk-header__account {
