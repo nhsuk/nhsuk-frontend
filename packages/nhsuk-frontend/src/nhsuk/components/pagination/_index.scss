@@ -12,16 +12,14 @@
 /// @group components
 ////
 
+// Previous and next pages variant
 .nhsuk-pagination {
+  @include nhsuk-clearfix;
   @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-margin(7, "bottom");
 }
 
-.nhsuk-pagination__list {
-  @include nhsuk-clearfix;
-}
-
-.nhsuk-pagination-item--previous {
+.nhsuk-pagination__prev {
   float: left;
   text-align: left;
   width: 50%;
@@ -30,12 +28,12 @@
     left: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-left: nhsuk-spacing(5); // [1]
   }
 }
 
-.nhsuk-pagination-item--next {
+.nhsuk-pagination__next {
   float: right;
   text-align: right;
   width: 50%;
@@ -44,7 +42,7 @@
     right: -6px;
   }
 
-  .nhsuk-pagination__title {
+  .nhsuk-pagination__link-title {
     padding-right: nhsuk-spacing(5); // [1]
   }
 }
@@ -52,8 +50,11 @@
 .nhsuk-pagination__link {
   display: block;
   position: relative;
-  text-decoration: none;
   width: 100%;
+
+  &:has(.nhsuk-pagination__link-label) {
+    text-decoration: none;
+  }
 
   @include nhsuk-media-query($media-type: print) {
     color: $color_nhsuk-black;
@@ -70,7 +71,7 @@
   }
 }
 
-.nhsuk-pagination__title {
+.nhsuk-pagination__link-title {
   display: block;
 
   @include nhsuk-font-size(26);
@@ -82,7 +83,7 @@
   }
 }
 
-.nhsuk-pagination__page {
+.nhsuk-pagination__link-label {
   display: block;
   text-decoration: underline;
 
@@ -92,4 +93,97 @@
   .nhsuk-pagination__link:focus & {
     text-decoration: none;
   }
+}
+
+// Numbered pages variant
+
+// In a numbered list, the previous link, numbered page links,
+// and next link should all line up
+.nhsuk-pagination--numbered .nhsuk-pagination__prev,
+.nhsuk-pagination--numbered .nhsuk-pagination__next,
+.nhsuk-pagination__item {
+  box-sizing: border-box;
+  position: relative;
+  width: auto;
+  min-width: 45px;
+  min-height: 45px;
+  padding: nhsuk-spacing(2);
+  text-align: center;
+  margin: 0;
+  float: left;
+  @include nhsuk-font(19);
+
+  &:hover {
+    background-color: $color_nhsuk-grey-4;
+  }
+}
+
+// Container for the list of numbered items
+.nhsuk-pagination__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsuk-pagination__item--ellipses {
+  font-weight: $nhsuk-font-bold;
+  color: $nhsuk-secondary-text-color;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link {
+  position: static;
+  width: auto;
+  min-width: nhsuk-spacing(3);
+  vertical-align: middle;
+
+  // Increase the touch area for the link to the parent element.
+  @media screen {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+// Current number
+.nhsuk-pagination__item--current,
+.nhsuk-pagination__item--current:hover {
+  background-color: $color_nhsuk-blue;
+}
+
+.nhsuk-pagination__item--current {
+  font-weight: $nhsuk-font-bold;
+
+  .nhsuk-pagination__link {
+    @include nhsuk-link-style-white;
+  }
+}
+
+.nhsuk-pagination--numbered .nhsuk-pagination__link-title {
+  display: inline;
+  @include nhsuk-font(19);
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon {
+  top: 50%;
+  margin-top: -17px;
+  margin-bottom: 0;
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
+  margin-left: 0;
+  margin-right: nhsuk-spacing(2);
+}
+
+.nhsuk-pagination--numbered .nhsuk-icon__arrow-right {
+  margin-left: nhsuk-spacing(2);
+  margin-right: 0;
 }
