@@ -528,8 +528,9 @@ $_header-item-active-size: $nhsuk-focus-width;
     color: $color_nhsuk-blue;
   }
 
-  .nhsuk-header__service-name,
-  .nhsuk-header__organisation-name {
+  .nhsuk-header__service-name[href]:not(:focus):not(:hover),
+  .nhsuk-header__service-logo:not(:focus):not(:hover) .nhsuk-header__service-name,
+  .nhsuk-header__service-logo:not(:focus):not(:hover) .nhsuk-header__organisation-name {
     color: $color_nhsuk-black;
   }
 
