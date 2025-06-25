@@ -347,10 +347,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   @include nhsuk-print-hide;
 }
 
-.nhsuk-header__navigation-container {
-  border-top: 1px solid $nhsuk-secondary-border-color;
-}
-
 .nhsuk-header__navigation-list {
   position: relative;
   display: flex;
@@ -527,16 +523,37 @@ $_header-item-active-size: $nhsuk-focus-width;
   background-color: $color_nhsuk-white;
   color: $color_nhsuk-blue;
 
-  .nhsuk-header--white & .nhsuk-header__navigation-container {
-    border-top: 1px solid $color_nhsuk-grey-4;
-  }
-
   .nhsuk-header__navigation-link {
     @include _header-link-style;
   }
 
   .nhsuk-header__menu-list {
     border-top: 1px solid $color_nhsuk-grey-5;
+  }
+}
+
+/// When header and navigation have the same background colour:
+/// - Until tablet breakpoint, add negative top margin
+/// - From tablet breakpoint, add a top border
+.nhsuk-header__navigation-container {
+  box-shadow: 0 -1px 0 0 $nhsuk-secondary-border-color;
+
+  .nhsuk-header--white .nhsuk-header__navigation--white & {
+    box-shadow: 0 -1px 0 0 $color_nhsuk-grey-4;
+  }
+
+  .nhsuk-header--white :not(.nhsuk-header__navigation--white) &,
+  .nhsuk-header__navigation--white & {
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+  &,
+  .nhsuk-header--white .nhsuk-header__navigation--white & {
+    @include nhsuk-media-query($until: tablet) {
+      box-shadow: none;
+      margin-top: math.div($nhsuk-gutter, 2) * -1;
+    }
   }
 }
 
