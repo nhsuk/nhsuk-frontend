@@ -150,7 +150,9 @@ $_header-item-active-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__service-logo,
-.nhsuk-header__service-name[href] {
+.nhsuk-header__service-name[href],
+.nhsuk-header__account-button,
+.nhsuk-header__account-link {
   @include _header-link-style(
     $link-color: $nhsuk-reverse-text-color,
     $link-hover-color: $nhsuk-reverse-text-color,
@@ -223,11 +225,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
   padding: nhsuk-spacing(2) $_header-item-padding;
   overflow-wrap: anywhere;
-  @include _header-link-style(
-    $link-color: $nhsuk-reverse-text-color,
-    $link-hover-color: $nhsuk-reverse-text-color,
-    $link-active-color: $nhsuk-reverse-text-color
-  );
 }
 
 .nhsuk-header__account-button {
