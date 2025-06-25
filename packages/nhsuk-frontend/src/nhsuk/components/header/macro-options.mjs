@@ -314,22 +314,46 @@ export const examples = {
       }
     }
   },
-  'with service name': {
-    layout: 'layouts/example-full-width.njk',
-    context: {
-      logo: {
-        href: '#nhs',
-        ariaLabel: 'NHS homepage'
-      },
-      service: {
-        text: 'Find your NHS number',
-        href: '#'
-      }
-    }
-  },
   'with navigation': {
     layout: 'layouts/example-full-width.njk',
     context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy'
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    }
+  },
+  'with navigation (white)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white-navigation',
       logo: {
         href: '#'
       },
@@ -517,6 +541,52 @@ export const examples = {
       }
     }
   },
+  'with service name, account, search and navigation (white)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white-navigation',
+      service: {
+        text: 'Search patient directory',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Name or NHS number',
+        visuallyHiddenLabel: 'Search patients by name or NHS number'
+      },
+      account: {
+        items: [
+          {
+            text: 'Florence Nightingale',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Home'
+          },
+          {
+            href: '#',
+            text: 'Patient list'
+          },
+          {
+            href: '#',
+            text: 'Advanced search'
+          },
+          {
+            href: '#',
+            text: 'Help guides'
+          }
+        ]
+      }
+    }
+  },
   'with service name, search and navigation': {
     layout: 'layouts/example-full-width.njk',
     context: {
@@ -557,16 +627,102 @@ export const examples = {
       }
     }
   },
-  'with service name combined with logo': {
+  'with service name, search and navigation (white)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white-navigation',
+      logo: {
+        href: '#'
+      },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Standards and technology'
+          },
+          {
+            href: '#',
+            text: 'Design system',
+            current: true
+          },
+          {
+            href: '#',
+            text: 'Content style guide'
+          },
+          {
+            href: '#',
+            text: 'Accessibility'
+          },
+          {
+            href: '#',
+            text: 'Community and contribution'
+          }
+        ]
+      }
+    }
+  },
+  'with service name logo separate, search': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      logo: {
+        href: '#nhs',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'Find your NHS number',
+        href: '#'
+      },
+      search: {}
+    }
+  },
+  'with service name logo separate, search (long service name)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      logo: {
+        href: '#nhs',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'This is a long service name',
+        href: '#'
+      },
+      search: {}
+    }
+  },
+  'with service name logo separate, search (longer service name)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      logo: {
+        href: '#nhs',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'This is an even longer service name to fully test wrapping',
+        href: '#'
+      },
+      search: {}
+    }
+  },
+  'with service name logo combo, search': {
     layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         text: 'Prototype kit',
         href: '#'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
       }
     }
   },
-  'with service name unlinked': {
+  'with service name unlinked, search': {
     layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
@@ -575,10 +731,11 @@ export const examples = {
       },
       service: {
         text: 'Find your NHS number'
-      }
+      },
+      search: {}
     }
   },
-  'with navigation justified': {
+  'with navigation (justified)': {
     layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
@@ -667,6 +824,86 @@ export const examples = {
           {
             href: '#',
             text: 'Join our team'
+          }
+        ]
+      }
+    }
+  },
+  'organisational white with service name logo separate, search': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#nhs',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'Find your NHS number',
+        href: '#'
+      },
+      search: {}
+    }
+  },
+  'organisational white with service name logo combo, search': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white',
+      service: {
+        text: 'Prototype kit',
+        href: '#'
+      },
+      search: {
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      }
+    }
+  },
+  'organisational white with service name unlinked, search': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#',
+        ariaLabel: 'NHS homepage'
+      },
+      service: {
+        text: 'Find your NHS number'
+      },
+      search: {}
+    }
+  },
+  'organisational white with navigation (justified)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        classes: 'nhsuk-header__navigation--justified',
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy'
+          },
+          {
+            href: '#',
+            text: 'NHS services'
           }
         ]
       }

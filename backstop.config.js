@@ -668,8 +668,18 @@ module.exports = {
       viewports: [viewports.get('desktop')]
     },
     {
-      label: 'Header with navigation (left aligned)',
+      label: 'Header with navigation',
       url: `${BASE_URL}/components/header/with-navigation/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with navigation (white)',
+      url: `${BASE_URL}/components/header/with-navigation-white/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -760,7 +770,18 @@ module.exports = {
     },
     {
       label: 'Header with service name',
-      url: `${BASE_URL}/components/header/with-service-name/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      hoverSelector: '.nhsuk-header__service-name',
+      label: 'Header with service name (hovered)',
+      url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -771,7 +792,18 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name (hovered logo)',
-      url: `${BASE_URL}/components/header/with-service-name/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-name',
+      label: 'Header with service name (focused)',
+      url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -782,7 +814,7 @@ module.exports = {
     {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name (focused logo)',
-      url: `${BASE_URL}/components/header/with-service-name/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -792,7 +824,7 @@ module.exports = {
     },
     {
       label: 'Header with service name unlinked',
-      url: `${BASE_URL}/components/header/with-service-name-unlinked/`,
+      url: `${BASE_URL}/components/header/with-service-name-unlinked-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -802,7 +834,7 @@ module.exports = {
     },
     {
       label: 'Header with service name as a combined link',
-      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-combo-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -813,13 +845,13 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name as a combined link (hovered logo)',
-      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-combo-search/`,
       viewports: [viewports.get('desktop')]
     },
     {
       clickSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name as a combined link (focused logo)',
-      url: `${BASE_URL}/components/header/with-service-name-combined-with-logo/`,
+      url: `${BASE_URL}/components/header/with-service-name-logo-combo-search/`,
       viewports: [viewports.get('desktop')]
     },
     {
@@ -833,8 +865,18 @@ module.exports = {
       ]
     },
     {
-      label: 'Header with account, navigation and search',
+      label: 'Header with service name, account, search and navigation',
       url: `${BASE_URL}/components/header/with-service-name-account-search-and-navigation/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header with service name, account, search and navigation (white)',
+      url: `${BASE_URL}/components/header/with-service-name-account-search-and-navigation-white/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
@@ -878,6 +920,60 @@ module.exports = {
       clickSelector: '.nhsuk-header__search-input',
       label: 'Header organisational with white header (focused search input)',
       url: `${BASE_URL}/components/header/organisational-white-with-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Header organisational white with service name',
+      url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      hoverSelector: '.nhsuk-header__service-name',
+      label: 'Header organisational white with service name (hovered)',
+      url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      hoverSelector: '.nhsuk-header__service-logo',
+      label: 'Header organisational white with service name (hovered logo)',
+      url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-name',
+      label: 'Header organisational white with service name (focused)',
+      url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      clickSelector: '.nhsuk-header__service-logo',
+      label: 'Header organisational white with service name (focused logo)',
+      url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
       viewports: [
         viewports.get('mobile'),
         viewports.get('tablet'),
