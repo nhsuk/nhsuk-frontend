@@ -143,10 +143,6 @@ $_header-item-active-size: $nhsuk-focus-width;
     top: 0.2rem;
     width: 100px;
   }
-
-  &:focus {
-    @include nhsuk-focused-box;
-  }
 }
 
 .nhsuk-header__service-logo,
