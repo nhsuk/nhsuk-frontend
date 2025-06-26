@@ -637,13 +637,15 @@ describe('Typography tools', () => {
         `
 
         const results = compileStringAsync(sass, {
-          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
         })
 
         await expect(results).resolves.toMatchObject({
           css: (
             await compileStringAsync(expectedSass, {
-              loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+              loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+              logger
             })
           ).css
         })
