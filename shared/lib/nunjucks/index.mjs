@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import nunjucks from 'nunjucks'

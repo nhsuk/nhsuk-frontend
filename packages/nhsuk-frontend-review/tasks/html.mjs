@@ -1,5 +1,5 @@
-import { mkdir, writeFile } from 'fs/promises'
-import { dirname, join, parse } from 'path'
+import { mkdir, writeFile } from 'node:fs/promises'
+import { dirname, join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
 import { components, nunjucks } from '@nhsuk/frontend-lib'

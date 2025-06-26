@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
 import { files, task } from '@nhsuk/frontend-tasks'

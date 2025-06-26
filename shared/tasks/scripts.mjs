@@ -1,4 +1,4 @@
-import { join, parse } from 'path'
+import { join, parse } from 'node:path'
 
 import { task } from '@nhsuk/frontend-tasks'
 import { babel } from '@rollup/plugin-babel'

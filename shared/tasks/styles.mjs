@@ -1,6 +1,6 @@
-import { readFile, mkdir, writeFile } from 'fs/promises'
-import { dirname, join, parse, relative } from 'path'
-import { fileURLToPath } from 'url'
+import { readFile, mkdir, writeFile } from 'node:fs/promises'
+import { dirname, join, parse, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import { paths } from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
