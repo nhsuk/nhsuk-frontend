@@ -75,7 +75,8 @@ If you’re using the `header` Nunjucks macro in your service, you must:
 - Replace the `searchAction` option with the nested `search.action` option.
 - Replace the `searchInputName` option with the nested `search.name` option.
 - Remove the boolean `showNav` and `showSearch` options. The respective parts of the header are now shown automatically when `navigation.items` or `search` options are provided.
-- Remove the `.nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
+- Check the `classes` option for `nhsuk-header--white-nav` and remove it. To turn the navigation white, add the modifier class `nhsuk-header__navigation--white` to the nested `navigation.classes` option.
+- Remove the `nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
 
 To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
 

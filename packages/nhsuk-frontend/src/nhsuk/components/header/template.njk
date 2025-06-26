@@ -18,7 +18,7 @@
 {%- macro _serviceLogo(logoSrc, organisation) %}
 {% set ariaLabel = params.logo.ariaLabel | default("NHS") %}
 {% if logoSrc %}
-<img class="nhsuk-header__organisation-logo" src="{{ baseUrl }}{{ logoSrc }}" alt="{{ ariaLabel }}">
+<img class="nhsuk-header__organisation-logo" src="{{ baseUrl }}{{ logoSrc }}" width="280" alt="{{ ariaLabel }}">
 {% else %}
 <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100" focusable="false" role="img" aria-label="{{ ariaLabel }}">
   <title>{{ ariaLabel }}</title>
