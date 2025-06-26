@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "10.0.0-beta.0",
+  "version": "10.0.0-beta.0-internal2",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
   "bugs": {
@@ -44,24 +44,6 @@
     "release": "gulp release --color",
     "version": "echo $npm_package_version",
     "start": "npm run watch"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.27.2",
-    "@nhsuk/frontend-config": "*",
-    "@nhsuk/frontend-lib": "*",
-    "@nhsuk/frontend-tasks": "*",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/user-event": "^14.6.1",
-    "autoprefixer": "^10.4.21",
-    "cssnano": "^7.0.7",
-    "del-cli": "^6.0.0",
-    "gulp": "^5.0.1",
-    "gulp-zip": "^6.1.0",
-    "outdent": "^0.8.0",
-    "postcss": "^8.5.6",
-    "postcss-scss": "^4.0.9",
-    "puppeteer": "^24.10.1",
-    "sass-embedded": "^1.87.0"
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"

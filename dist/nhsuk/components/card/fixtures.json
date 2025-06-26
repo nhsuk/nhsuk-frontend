@@ -1,0 +1,141 @@
+{
+  "name": "Card",
+  "component": "card",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "heading": "If you need help now, but it's not an emergency",
+        "headingLevel": 3
+      },
+      "html": "<div class=\"nhsuk-card\">  <div class=\"nhsuk-card__content\">    <h3 class=\"nhsuk-card__heading\">      If you need help now, but it&#39;s not an emergency\n    </h3>  <p class=\"nhsuk-card__description\">Go to <a href=\"#\">NHS 111 online</a> or <a href=\"#\">call 111</a>.</p>  </div>\n</div>"
+    },
+    {
+      "name": "basic with custom HTML",
+      "description": "",
+      "options": {
+        "heading": "Help from NHS 111",
+        "headingLevel": 3
+      },
+      "html": "<div class=\"nhsuk-card\">  <div class=\"nhsuk-card__content\">    <h3 class=\"nhsuk-card__heading\">      Help from NHS 111\n    </h3>  <p class=\"nhsuk-body\">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>\n<p class=\"nhsuk-body\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a>.</p>\n<p class=\"nhsuk-body\">For a life-threatening emergency call 999.</p>  </div>\n</div>"
+    },
+    {
+      "name": "clickable",
+      "description": "",
+      "options": {
+        "href": "#",
+        "clickable": true,
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable\">  <div class=\"nhsuk-card__content\">    <h2 class=\"nhsuk-card__heading nhsuk-heading-m\">        <a class=\"nhsuk-card__link\" href=\"#\">Introduction to care and support</a>    </h2>  <p class=\"nhsuk-card__description\">A quick guide for people who have care and support needs and their carers</p>  </div>\n</div>"
+    },
+    {
+      "name": "emergency (red and black)",
+      "description": "",
+      "options": {
+        "heading": "Call 999 if you have sudden chest pain that:",
+        "headingLevel": 3,
+        "type": "emergency"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--care nhsuk-card--care--emergency\">  <div class=\"nhsuk-card--care__heading-container\">    <h3 class=\"nhsuk-card--care__heading\">      <span role=\"text\"><span class=\"nhsuk-u-visually-hidden\">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>    </h3>    <span class=\"nhsuk-card--care__arrow\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"nhsuk-card__content\">  <ul>\n  <li>spreads to your arms, back, neck or jaw</li>\n  <li>makes your chest feel tight or heavy</li>\n  <li>also started with shortness of breath, sweating and feeling or being sick</li>\n</ul>\n<p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>  </div>\n</div>"
+    },
+    {
+      "name": "feature",
+      "description": "",
+      "options": {
+        "feature": true,
+        "href": "#",
+        "heading": "Feature card heading",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Feature card description"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--feature\">  <div class=\"nhsuk-card__content nhsuk-card__content--feature\">    <h2 class=\"nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m\">      Feature card heading\n    </h2>  <p class=\"nhsuk-card__description\">Feature card description</p>  </div>\n</div>"
+    },
+    {
+      "name": "non-urgent (blue)",
+      "description": "",
+      "options": {
+        "heading": "Speak to a GP if:",
+        "headingLevel": 3,
+        "type": "non-urgent"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent\">  <div class=\"nhsuk-card--care__heading-container\">    <h3 class=\"nhsuk-card--care__heading\">      <span role=\"text\"><span class=\"nhsuk-u-visually-hidden\">Non-urgent advice: </span>Speak to a GP if:</span>    </h3>    <span class=\"nhsuk-card--care__arrow\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"nhsuk-card__content\">  <ul>\n  <li>you're not sure it's chickenpox</li>\n  <li>the skin around the blisters is red, hot or painful (signs of infection)</li>\n  <li>your child is <a href=\"https://www.nhs.uk/conditions/dehydration\">dehydrated</a></li>\n  <li>you're concerned about your child or they get worse</li>\n</ul>\n<p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>  </div>\n</div>"
+    },
+    {
+      "name": "primary (with chevron)",
+      "description": "",
+      "options": {
+        "href": "#",
+        "primary": true,
+        "clickable": true,
+        "heading": "Breast screening",
+        "headingClasses": "nhsuk-heading-m"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable\">  <div class=\"nhsuk-card__content nhsuk-card__content--primary\">    <h2 class=\"nhsuk-card__heading nhsuk-heading-m\">        <a class=\"nhsuk-card__link\" href=\"#\">Breast screening</a>    </h2>    <svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"13.333\" cy=\"13.333\" r=\"13.333\" fill=\"\"/><g fill=\"none\" stroke=\"#fff\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\"><path d=\"M15.438 13l-3.771 3.771\"/><path d=\"M11.667 9.229L15.438 13\"/></g></svg>\n  </div>\n</div>"
+    },
+    {
+      "name": "primary (with chevron and description)",
+      "description": "",
+      "options": {
+        "href": "#",
+        "primary": true,
+        "clickable": true,
+        "heading": "Introduction to care and support",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "A quick guide for people who have care and support needs and their carers"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable\">  <div class=\"nhsuk-card__content nhsuk-card__content--primary\">    <h2 class=\"nhsuk-card__heading nhsuk-heading-m\">        <a class=\"nhsuk-card__link\" href=\"#\">Introduction to care and support</a>    </h2>  <p class=\"nhsuk-card__description\">A quick guide for people who have care and support needs and their carers</p>    <svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"13.333\" cy=\"13.333\" r=\"13.333\" fill=\"\"/><g fill=\"none\" stroke=\"#fff\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\"><path d=\"M15.438 13l-3.771 3.771\"/><path d=\"M11.667 9.229L15.438 13\"/></g></svg>\n  </div>\n</div>"
+    },
+    {
+      "name": "secondary",
+      "description": "",
+      "options": {
+        "href": "#",
+        "clickable": true,
+        "secondary": true,
+        "heading": "Urgent and emergency care services",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Services the NHS provides if you need urgent or emergency medical help"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable nhsuk-card--secondary\">  <div class=\"nhsuk-card__content nhsuk-card__content--secondary\">    <h2 class=\"nhsuk-card__heading nhsuk-heading-m\">        <a class=\"nhsuk-card__link\" href=\"#\">Urgent and emergency care services</a>    </h2>  <p class=\"nhsuk-card__description\">Services the NHS provides if you need urgent or emergency medical help</p>  </div>\n</div>"
+    },
+    {
+      "name": "top task",
+      "description": "",
+      "options": {
+        "href": "#",
+        "clickable": true,
+        "headingLevel": 5,
+        "heading": "Order a repeat prescription",
+        "headingClasses": "nhsuk-heading-xs"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable\">  <div class=\"nhsuk-card__content\">    <h5 class=\"nhsuk-card__heading nhsuk-heading-xs\">        <a class=\"nhsuk-card__link\" href=\"#\">Order a repeat prescription</a>    </h5>  </div>\n</div>"
+    },
+    {
+      "name": "urgent (red)",
+      "description": "",
+      "options": {
+        "heading": "Ask for an urgent GP appointment if:",
+        "headingLevel": 3,
+        "type": "urgent"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--care nhsuk-card--care--urgent\">  <div class=\"nhsuk-card--care__heading-container\">    <h3 class=\"nhsuk-card--care__heading\">      <span role=\"text\"><span class=\"nhsuk-u-visually-hidden\">Urgent advice: </span>Ask for an urgent GP appointment if:</span>    </h3>    <span class=\"nhsuk-card--care__arrow\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"nhsuk-card__content\">  <ul>\n  <li>you're an adult and have chickenpox</li>\n  <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>\n  <li>you have a weakened immune system and you've been near someone with chickenpox</li>\n  <li>you think your newborn baby has chickenpox</li>\n</ul>\n<p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>  </div>\n</div>"
+    },
+    {
+      "name": "with image",
+      "description": "",
+      "options": {
+        "imgURL": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "href": "#",
+        "clickable": true,
+        "heading": "Exercise",
+        "headingClasses": "nhsuk-heading-m",
+        "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
+      },
+      "html": "<div class=\"nhsuk-card nhsuk-card--clickable\">  <img class=\"nhsuk-card__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">  <div class=\"nhsuk-card__content\">    <h2 class=\"nhsuk-card__heading nhsuk-heading-m\">        <a class=\"nhsuk-card__link\" href=\"#\">Exercise</a>    </h2>  <p class=\"nhsuk-card__description\">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>  </div>\n</div>"
+    }
+  ]
+}

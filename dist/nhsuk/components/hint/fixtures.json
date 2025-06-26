@@ -1,0 +1,14 @@
+{
+  "name": "Hint text",
+  "component": "hint",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "text": "Do not include personal information, like your name, date of birth or NHS number"
+      },
+      "html": "<div class=\"nhsuk-hint\">\n  Do not include personal information, like your name, date of birth or NHS number\n</div>"
+    }
+  ]
+}

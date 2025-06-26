@@ -1,0 +1,104 @@
+{
+  "name": "Tag",
+  "component": "tag",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "text": "Active"
+      },
+      "html": "<strong class=\"nhsuk-tag\">\n  Active\n</strong>"
+    },
+    {
+      "name": "aqua-green",
+      "description": "",
+      "options": {
+        "text": "Active",
+        "classes": "nhsuk-tag--aqua-green"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--aqua-green\">\n  Active\n</strong>"
+    },
+    {
+      "name": "blue",
+      "description": "",
+      "options": {
+        "text": "Pending",
+        "classes": "nhsuk-tag--blue"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--blue\">\n  Pending\n</strong>"
+    },
+    {
+      "name": "green",
+      "description": "",
+      "options": {
+        "text": "New",
+        "classes": "nhsuk-tag--green"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--green\">\n  New\n</strong>"
+    },
+    {
+      "name": "grey",
+      "description": "",
+      "options": {
+        "text": "Inactive",
+        "classes": "nhsuk-tag--grey"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--grey\">\n  Inactive\n</strong>"
+    },
+    {
+      "name": "orange",
+      "description": "",
+      "options": {
+        "text": "Declined",
+        "classes": "nhsuk-tag--orange"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--orange\">\n  Declined\n</strong>"
+    },
+    {
+      "name": "pink",
+      "description": "",
+      "options": {
+        "text": "Sent",
+        "classes": "nhsuk-tag--pink"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--pink\">\n  Sent\n</strong>"
+    },
+    {
+      "name": "purple",
+      "description": "",
+      "options": {
+        "text": "Received",
+        "classes": "nhsuk-tag--purple"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--purple\">\n  Received\n</strong>"
+    },
+    {
+      "name": "red",
+      "description": "",
+      "options": {
+        "text": "Rejected",
+        "classes": "nhsuk-tag--red"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">\n  Rejected\n</strong>"
+    },
+    {
+      "name": "white",
+      "description": "",
+      "options": {
+        "text": "In progress",
+        "classes": "nhsuk-tag--white"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--white\">\n  In progress\n</strong>"
+    },
+    {
+      "name": "yellow",
+      "description": "",
+      "options": {
+        "text": "Delayed",
+        "classes": "nhsuk-tag--yellow"
+      },
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--yellow\">\n  Delayed\n</strong>"
+    }
+  ]
+}
