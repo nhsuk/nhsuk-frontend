@@ -64,9 +64,16 @@ module.exports = {
   engineOptions: {
     args: [
       '--deterministic-mode',
+      '--disable-font-subpixel-positioning',
+      '--disable-gpu',
+      '--disable-gpu-compositing',
+      '--disable-gpu-rasterization',
+      '--disable-partial-raster',
       '--disable-skia-runtime-opts',
-      '--font-render-hinting=medium',
+      '--disable-software-rasterizer',
+      '--force-color-profile=srgb',
       '--force-device-scale-factor=1',
+      '--ppapi-subpixel-rendering-setting=0'
     ],
     browser: 'chromium',
     executablePath: executablePath(),
