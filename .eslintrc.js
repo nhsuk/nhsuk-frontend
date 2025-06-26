@@ -103,6 +103,9 @@ module.exports = {
           }
         ],
 
+        // Always import Node.js packages from `node:*`
+        'import/enforce-node-protocol-usage': ['error', 'always'],
+
         // Ignore `nhsuk-frontend` exports as they require auto-generated files
         'import/no-unresolved': ['error', { ignore: ['nhsuk-frontend'] }],
         'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
