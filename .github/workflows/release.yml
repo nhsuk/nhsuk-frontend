@@ -64,12 +64,12 @@ jobs:
 
       - name: Publish npm package
         if: ${{ !contains(steps.get_version.outputs.VERSION, '-') }}
-        run: npm publish --dry-run --workspace nhsuk-frontend --tag latest
+        run: npm publish --workspace nhsuk-frontend --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish npm package (pre-release)
         if: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
-        run: npm publish --dry-run --workspace nhsuk-frontend --tag next
+        run: npm publish --workspace nhsuk-frontend --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
