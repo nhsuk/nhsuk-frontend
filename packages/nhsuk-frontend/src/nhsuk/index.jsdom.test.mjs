@@ -1,13 +1,13 @@
 import {
   initAll,
-  initButton,
-  initCharacterCount,
+  initButtons,
+  initCharacterCounts,
   initCheckboxes,
   initDetails,
   initErrorSummary,
   initHeader,
   initRadios,
-  initSkipLink,
+  initSkipLinks,
   initTabs
 } from './index.mjs'
 import * as NHSUKFrontend from './index.mjs'
@@ -29,14 +29,14 @@ describe('NHS.UK frontend', () => {
     })
 
     it('should export init component functions', () => {
-      expect(NHSUKFrontend).toHaveProperty('initButton')
-      expect(NHSUKFrontend).toHaveProperty('initCharacterCount')
+      expect(NHSUKFrontend).toHaveProperty('initButtons')
+      expect(NHSUKFrontend).toHaveProperty('initCharacterCounts')
       expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
       expect(NHSUKFrontend).toHaveProperty('initDetails')
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
-      expect(NHSUKFrontend).toHaveProperty('initSkipLink')
+      expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
     })
   })
@@ -45,14 +45,14 @@ describe('NHS.UK frontend', () => {
     it('should init components', () => {
       initAll()
 
-      expect(initButton).toHaveBeenCalled()
-      expect(initCharacterCount).toHaveBeenCalled()
+      expect(initButtons).toHaveBeenCalled()
+      expect(initCharacterCounts).toHaveBeenCalled()
       expect(initCheckboxes).toHaveBeenCalled()
       expect(initDetails).toHaveBeenCalled()
       expect(initErrorSummary).toHaveBeenCalled()
       expect(initHeader).toHaveBeenCalled()
       expect(initRadios).toHaveBeenCalled()
-      expect(initSkipLink).toHaveBeenCalled()
+      expect(initSkipLinks).toHaveBeenCalled()
       expect(initTabs).toHaveBeenCalled()
     })
 
@@ -62,10 +62,10 @@ describe('NHS.UK frontend', () => {
       initAll(scope)
 
       expect(initHeader).toHaveBeenCalled()
-      expect(initSkipLink).toHaveBeenCalled()
+      expect(initSkipLinks).toHaveBeenCalled()
 
-      expect(initButton).toHaveBeenCalledWith({ scope })
-      expect(initCharacterCount).toHaveBeenCalledWith({ scope })
+      expect(initButtons).toHaveBeenCalledWith({ scope })
+      expect(initCharacterCounts).toHaveBeenCalledWith({ scope })
       expect(initCheckboxes).toHaveBeenCalledWith({ scope })
       expect(initDetails).toHaveBeenCalledWith({ scope })
       expect(initErrorSummary).toHaveBeenCalledWith({ scope })

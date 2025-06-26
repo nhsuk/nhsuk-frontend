@@ -83,12 +83,16 @@ Add the following JavaScript to the top of the `<body>` section of your page tem
 
 Copy the `/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js` script file into your application.
 
-Include the script in the `<head>` of your page using the `type="module"` attribute.
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
 
-> The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors. The script will be loaded as soon as possible, due to it being in the `<head>`, but will not run until after the page has loaded.
+> The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
 ```html
     <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+    <script type="module">
+      import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+      initAll()
+    </script>
   </head>
 ```
 
@@ -105,17 +109,31 @@ initAll()
 
 #### Initialise individual components
 
-Rather than using `initAll`, you can initialise individual components used by your service. For example:
+Rather than using `initAll`, you can initialise all instances of individual components used by your service. For example:
 
 ```js
-import { initRadios } from 'nhsuk-frontend/src/nhsuk/components/radios/radios.mjs';
-import { initSkipLink } from 'nhsuk-frontend/src/nhsuk/components/skip-link/skip-link.mjs';
+import { initButtons, initRadios } from 'nhsuk-frontend';
 
-// Initialise components
-document.addEventListener('DOMContentLoaded', () => {
-  initRadios();
-  initSkipLink();
-});
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
+```
+
+Or where necessary, single instances of individual components only:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
 ```
 
 ## Importing assets (optional)
