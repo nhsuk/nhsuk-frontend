@@ -48,7 +48,7 @@
     "test:visual:cli": "concurrently npm:watch:app \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --prefix none --success first"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.27.7",
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-helpers": "*",
     "@testing-library/user-event": "^14.6.1",
