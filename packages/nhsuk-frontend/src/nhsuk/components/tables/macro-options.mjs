@@ -306,6 +306,128 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with responsive layout and blank cells': {
+    context: {
+      responsive: true,
+      panel: false,
+      caption: 'Ibuprofen syrup dosages for children',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Age',
+          classes: 'nhsuk-u-width-one-half'
+        },
+        {
+          text: 'How much?',
+          classes: 'nhsuk-u-width-one-quarter'
+        },
+        {
+          text: 'How often?',
+          classes: 'nhsuk-u-width-one-quarter'
+        }
+      ],
+      rows: [
+        [
+          {
+            header: 'Age',
+            text: ''
+          },
+          {
+            header: 'How much?',
+            text: '2.5ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '6 to 11 months'
+          },
+          {
+            header: 'How much?',
+            text: ''
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '1 to 3 years'
+          },
+          {
+            header: 'How much?',
+            text: '5ml'
+          },
+          {
+            header: 'How often?',
+            text: ''
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: ''
+          },
+          {
+            header: 'How much?',
+            text: ''
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '7 to 9 years'
+          },
+          {
+            header: 'How much?',
+            text: ''
+          },
+          {
+            header: 'How often?',
+            text: ''
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: ''
+          },
+          {
+            header: 'How much?',
+            text: ''
+          },
+          {
+            header: 'How often?',
+            text: ''
+          }
+        ],
+        [
+          {
+            header: 'Age',
+            text: '12 to 17 years'
+          },
+          {
+            header: 'How much?',
+            text: '15ml to 20ml'
+          },
+          {
+            header: 'How often?',
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ]
+      ]
+    }
+  },
   'with word breaks': {
     context: {
       caption: 'Users',
