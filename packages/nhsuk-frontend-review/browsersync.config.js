@@ -1,4 +1,4 @@
-const { join } = require('path')
+const { join } = require('node:path')
 
 const { PORT = '3000' } = process.env
 

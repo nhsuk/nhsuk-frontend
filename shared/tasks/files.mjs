@@ -1,5 +1,5 @@
-import { mkdir, writeFile } from 'fs/promises'
-import { dirname, join, parse } from 'path'
+import { mkdir, writeFile } from 'node:fs/promises'
+import { dirname, join, parse } from 'node:path'
 
 import gulp from 'gulp'
 import rename from 'gulp-rename'

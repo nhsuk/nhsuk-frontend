@@ -1,4 +1,4 @@
-import { basename, join } from 'path'
+import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import camelCase from 'lodash/camelCase.js'

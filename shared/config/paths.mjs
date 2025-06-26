@@ -1,4 +1,4 @@
-import { join, resolve } from 'path'
+import { join, resolve } from 'node:path'
 
 // Repository root directory
 export const root = resolve(import.meta.dirname, '../../')

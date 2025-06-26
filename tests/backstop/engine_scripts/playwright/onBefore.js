@@ -1,4 +1,4 @@
-const { Console } = require('console')
+const { Console } = require('node:console')
 
 const { default: stripAnsi } = require('strip-ansi')
 

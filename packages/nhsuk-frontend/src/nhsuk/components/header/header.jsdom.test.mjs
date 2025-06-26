@@ -1,4 +1,4 @@
-import { setTimeout } from 'timers/promises'
+import { setTimeout } from 'node:timers/promises'
 
 import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'

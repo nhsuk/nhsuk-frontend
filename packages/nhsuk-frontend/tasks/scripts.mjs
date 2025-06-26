@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
 import { getListing } from '@nhsuk/frontend-lib/files.mjs'
