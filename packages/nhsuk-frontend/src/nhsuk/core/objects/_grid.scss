@@ -20,4 +20,13 @@
       @include nhsuk-grid-column($width);
     }
   }
+
+  // These *must* be defined in a separate loop as they have the same
+  // specificity as the non-breakpoint specific classes, so need to appear after
+  // them in the outputted CSS
+  @each $width in map.keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width}-from-desktop {
+      @include nhsuk-grid-column($width, $at: desktop);
+    }
+  }
 }
