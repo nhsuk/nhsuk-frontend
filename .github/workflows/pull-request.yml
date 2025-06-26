@@ -161,9 +161,6 @@ jobs:
 
     if: ${{ github.base_ref == 'main' }}
 
-    env:
-      PUPPETEER_SKIP_DOWNLOAD: true
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -174,9 +171,11 @@ jobs:
         uses: ./.github/workflows/actions/diff
         id: changes
 
-      - name: Setup Playwright
+      - name: Download browsers
         if: ${{ steps.changes.outputs.changes == 'true' }}
-        run: npm run install:playwright
+        run: |
+          npm run install:puppeteer
+          npm run install:playwright
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' }}
