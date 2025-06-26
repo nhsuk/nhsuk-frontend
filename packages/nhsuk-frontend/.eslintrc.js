@@ -14,10 +14,13 @@ module.exports = {
         // Note: Allow ES2015 for import/export syntax
         ecmaVersion: '2015'
       },
-      plugins: ['es-x'],
+      plugins: ['@typescript-eslint', 'es-x'],
       rules: {
         // Babel transpiles ES2020 class fields
         'es-x/no-class-fields': 'off',
+
+        // Babel transpiles ES2022 class instance fields
+        'es-x/no-class-instance-fields': 'off',
 
         // Babel transpiles ES2022 class static fields
         'es-x/no-class-static-fields': 'off',
@@ -34,7 +37,28 @@ module.exports = {
         'es-x/no-object-entries': 'off',
 
         // Babel transpiles ES2020 optional chaining
-        'es-x/no-optional-chaining': 'off'
+        'es-x/no-optional-chaining': 'off',
+
+        // JSDoc blocks are optional but must be valid
+        'jsdoc/require-jsdoc': [
+          'error',
+          {
+            enableFixer: false,
+            require: {
+              FunctionDeclaration: false
+            }
+          }
+        ],
+
+        // JSDoc @param types are mandatory for JavaScript
+        'jsdoc/require-param-description': 'off',
+        'jsdoc/require-param-type': 'error',
+        'jsdoc/require-param': 'off',
+
+        // JSDoc @returns is optional
+        'jsdoc/require-returns-description': 'off',
+        'jsdoc/require-returns-type': 'off',
+        'jsdoc/require-returns': 'off'
       }
     }
   ]
