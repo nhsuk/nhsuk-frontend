@@ -70,7 +70,7 @@ module.exports = {
       '--hide-scrollbars'
     ],
     browser: 'chromium',
-    chromePath: executablePath(),
+    executablePath: executablePath(),
     gotoParameters: { waitUntil: 'load' },
 
     // Allow headless mode switching using `HEADLESS=false`
