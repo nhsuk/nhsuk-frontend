@@ -67,7 +67,6 @@ module.exports = {
       '--disable-skia-runtime-opts',
       '--font-render-hinting=medium',
       '--force-device-scale-factor=1',
-      '--hide-scrollbars'
     ],
     browser: 'chromium',
     executablePath: executablePath(),
