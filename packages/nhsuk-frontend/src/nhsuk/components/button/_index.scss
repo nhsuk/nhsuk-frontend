@@ -40,12 +40,13 @@ $button-padding-left-right: 16px;
   position: relative;
   text-align: center;
   vertical-align: top;
-  width: auto;
+  width: 100%;
 
   @include nhsuk-font(19, $weight: bold);
   @include nhsuk-responsive-margin(5, "bottom", $adjustment: $button-shadow-size); // s1
 
   @include nhsuk-media-query($from: tablet) {
+    width: auto;
     padding: $button-padding-top-bottom-desktop $button-padding-left-right; // s2
   }
 
