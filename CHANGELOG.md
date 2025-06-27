@@ -20,9 +20,175 @@ We’ve updated the header component to support account information and links. A
 
 This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
+
+#### Update file paths
+
+To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
+
+##### If you’re using Sass
+
+Replace `packages/` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files.
+
+Before:
+
+```scss
+@forward "node_modules/nhsuk-frontend/packages/core";
+```
+
+After:
+
+```scss
+@forward "nhsuk-frontend/dist/nhsuk/core";
+```
+
+You must add `node_modules` to Sass load paths, by either:
+
+- calling the Sass compiler from the command line with the `--load-path node_modules` flag
+- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
+
+##### If you’re using CSS
+
+For precompiled stylesheets, note the following path changes:
+
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`, not the previous `node_modules/dist/nhsuk.min.css` stylesheet
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file, not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
+
+##### If you’re using JavaScript
+
+For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
+
+Before:
+
+```mjs
+import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
+import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
+
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
+```
+
+After:
+
+```mjs
+import { initButtons, initCheckboxes } from 'nhsuk-frontend'
+
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
+```
+
+Or alternatively, you can initialise individual components only:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
+```
+
+For precompiled JavaScript, note the following path changes:
+
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`, not the previous `node_modules/dist/nhsuk.min.js` script
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file, not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
+
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+```
+
+##### If you’re using Nunjucks
+
+1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
+
+Before:
+
+```mjs
+nunjucks.configure([
+  'node_modules/nhsuk-frontend/packages/components',
+  'node_modules/nhsuk-frontend/packages/macros'
+])
+```
+
+After:
+
+```mjs
+nunjucks.configure([
+  'node_modules/nhsuk-frontend/dist/nhsuk/components',
+  'node_modules/nhsuk-frontend/dist/nhsuk/macros',
+  'node_modules/nhsuk-frontend/dist/nhsuk',
+  'node_modules/nhsuk-frontend/dist'
+])
+```
+
+##### If you’re copying or serving assets
+
+Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend assets:
+
+```patch
+-node_modules/nhsuk-frontend/packages/assets
++node_modules/nhsuk-frontend/dist/nhsuk/assets
+```
+
+For example, if you’re using [Express.js](https://expressjs.com/), request routing could be set up as follows:
+
+```js
+router.use('/assets', [
+  express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
+])
+```
 
 #### Verify your code does not rely on polyfills we have now removed
 
@@ -30,7 +196,7 @@ We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.cl
 
 However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
 
-These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk-frontend/pull/1326).
+These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk/nhsuk-frontend/pull/1326).
 
 #### Stop Internet Explorer 11 and other older browsers running unsupported JavaScript
 
@@ -38,7 +204,7 @@ Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK fr
 
 This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
-Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module". You'll need to assess the impact of these nuances and make sure that:
+Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
 
 - when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
@@ -249,28 +415,6 @@ After:
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
 This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
-
-#### Create custom width container classes
-
-You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
-
-For example:
-
-```scss
-.app-width-container--wide {
-  @include nhsuk-width-container(1200px);
-}
-```
-
-You can use the generated classes to set the width of:
-
-- template container
-- header container
-- footer container
-
-It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
-
-This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 :recycle: **Changes**
 
