@@ -20,6 +20,10 @@ We’ve updated the header component to support account information and links. A
 
 This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
+#### Button groups
+
+You can now group buttons and links together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
@@ -271,6 +275,10 @@ You can use the generated classes to set the width of:
 It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
 
 This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
+#### Buttons are now full-width on mobile
+
+All buttons now display as full-width at mobile size. This does not require any changes, but you should check that it does not break any of your layouts.
 
 :recycle: **Changes**
 
