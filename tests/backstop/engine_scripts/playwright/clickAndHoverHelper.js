@@ -18,15 +18,24 @@ module.exports = async function (page, scenario) {
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
   for (const { selector, keyPress } of keyPressSelectors) {
-    await getLocator(page, selector).pressSequentially(keyPress)
+    const locator = await getLocator(page, selector)
+
+    await page.bringToFront()
+    await locator.pressSequentially(keyPress)
   }
 
   for (const selector of hoverSelectors) {
-    await getLocator(page, selector).hover()
+    const locator = await getLocator(page, selector)
+
+    await page.bringToFront()
+    await locator.hover()
   }
 
   for (const selector of clickSelectors) {
-    await getLocator(page, selector).click()
+    const locator = await getLocator(page, selector)
+
+    await page.bringToFront()
+    await locator.click()
   }
 
   if (postInteractionWait > 0) {
@@ -35,6 +44,7 @@ module.exports = async function (page, scenario) {
 
   if (scrollToSelector) {
     await getLocator(page, scrollToSelector).scrollIntoViewIfNeeded()
+    await page.bringToFront()
   }
 }
 
