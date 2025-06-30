@@ -254,8 +254,6 @@ To restore the previous justified alignment, where navigation items appeared eve
 
 #### Update header component HTML markup
 
-You do not need to do anything if you’re using Nunjucks macros.
-
 If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
 
 #### Rename component `HTML` param to `html`
