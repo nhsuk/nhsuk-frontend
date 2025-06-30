@@ -13,6 +13,10 @@ module.exports = async function (page, scenario) {
     scenario.hoverSelectors ||
     (scenario.hoverSelector ? [scenario.hoverSelector] : [])
 
+  const focusSelectors =
+    scenario.focusSelectors ||
+    (scenario.focusSelector ? [scenario.focusSelector] : [])
+
   const keyPressSelectors =
     scenario.keyPressSelectors ||
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
@@ -29,6 +33,13 @@ module.exports = async function (page, scenario) {
 
     await page.bringToFront()
     await locator.hover()
+  }
+
+  for (const selector of focusSelectors) {
+    const locator = await getLocator(page, selector)
+
+    await page.bringToFront()
+    await locator.focus()
   }
 
   for (const selector of clickSelectors) {
