@@ -167,14 +167,14 @@ export const examples = {
       href: '#'
     }
   },
-  'secondary – solid background': {
+  'secondary, solid background': {
     layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid'
     }
   },
-  'secondary disabled – solid background': {
+  'secondary, solid background disabled': {
     layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
@@ -182,7 +182,7 @@ export const examples = {
       disabled: true
     }
   },
-  'secondary as a link – solid background': {
+  'secondary as a link, solid background': {
     layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
