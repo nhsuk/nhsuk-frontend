@@ -2,7 +2,10 @@ const { Console } = require('node:console')
 
 const { default: stripAnsi } = require('strip-ansi')
 
-module.exports = function () {
+/**
+ * @param {Page} page
+ */
+module.exports = function (page) {
   console.log = createLogger({
     silenced: [
       // Ignore browser noise
@@ -21,6 +24,15 @@ module.exports = function () {
       'report | Resources',
       'report | Writing'
     ]
+  })
+
+  page.on('response', (response) => {
+    const status = response.status()
+
+    // Throw on HTTP errors (e.g. component URL typo)
+    if (status >= 400) {
+      throw new Error(`HTTP ${status} for '${response.url()}'`)
+    }
   })
 }
 
@@ -54,3 +66,7 @@ function createLogger({ silenced }) {
     }
   }
 }
+
+/**
+ * @import { Page } from 'playwright-core'
+ */
