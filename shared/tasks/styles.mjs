@@ -1,9 +1,9 @@
-import { readFile, mkdir, writeFile } from 'node:fs/promises'
-import { dirname, join, parse, relative } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { basename, dirname, join, parse, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { paths } from '@nhsuk/frontend-config'
-import { task } from '@nhsuk/frontend-tasks'
+import { files, task } from '@nhsuk/frontend-tasks'
 import postcss from 'postcss'
 // eslint-disable-next-line import/default
 import postcssrc from 'postcss-load-config'
@@ -90,11 +90,16 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
     })
 
     // Write to files
-    await mkdir(dirname(options.to), { recursive: true })
-    await writeFile(options.to, result.css)
+    await files.write(basename(options.to), {
+      destPath: dirname(options.to),
+      output: { contents: result.css }
+    })
 
     if (result.map) {
-      await writeFile(`${options.to}.map`, result.map.toString())
+      await files.write(basename(`${options.to}.map`), {
+        destPath: dirname(options.to),
+        output: { contents: result.map.toString() }
+      })
     }
   })
 }
