@@ -1,10 +1,9 @@
-import { mkdir, writeFile } from 'node:fs/promises'
-import { dirname, join, parse } from 'node:path'
+import { basename, dirname, join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
 import { components, nunjucks } from '@nhsuk/frontend-lib'
 import { getListing } from '@nhsuk/frontend-lib/files.mjs'
-import { task } from '@nhsuk/frontend-tasks'
+import { files, task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
@@ -67,8 +66,10 @@ export const compile = task.name('html:render', async () => {
       )
 
       // Write example to disk
-      await mkdir(dirname(filePath), { recursive: true })
-      await writeFile(filePath, html)
+      await files.write(basename(filePath), {
+        destPath: dirname(filePath),
+        output: { contents: html }
+      })
     }
   }
 
@@ -82,8 +83,10 @@ export const compile = task.name('html:render', async () => {
     const filePath = join(config.paths.app, `dist/${dir}/${fileName}`)
 
     // Write page to disk
-    await mkdir(dirname(filePath), { recursive: true })
-    await writeFile(filePath, html)
+    await files.write(basename(filePath), {
+      destPath: dirname(filePath),
+      output: { contents: html }
+    })
   }
 })
 
