@@ -278,9 +278,9 @@ It was already possible to set the page app width with the `$nhsuk-page-width` v
 
 This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
-#### Buttons are now full-width on mobile
+#### Buttons are now full width on mobile
 
-All buttons now display as full-width at mobile size. This does not require any changes, but you should check that it does not break any of your layouts.
+All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
 
 This change was introduced in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
 
