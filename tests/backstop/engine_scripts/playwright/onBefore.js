@@ -34,12 +34,23 @@ function createLogger({ silenced }) {
     stderr: process.stderr
   })
 
-  return (message = '') => {
-    const text = stripAnsi(message)
+  /**
+   * @param {string[]} messages
+   * @param {string[]} silenced
+   */
+  const hasNoise = (messages, silenced) =>
+    silenced.some((noise) =>
+      messages.some((message) => message.includes(noise))
+    )
+
+  return (...args) => {
+    const messages = args.map((message) =>
+      typeof message === 'string' ? stripAnsi(message) : ''
+    )
 
     // Ignored silenced
-    if (silenced.every((term) => !text.includes(term))) {
-      logger.log(message)
+    if (!hasNoise(messages, silenced)) {
+      logger.log(...args)
     }
   }
 }
