@@ -99,8 +99,8 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/default/`
     },
     {
-      clickSelector: '.nhsuk-back-link__link',
-      label: 'Back link click',
+      focusSelector: '.nhsuk-back-link__link',
+      label: 'Back link (focused)',
       url: `${BASE_URL}/components/back-link/default/`
     },
     {
@@ -113,8 +113,8 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/reverse/`
     },
     {
-      clickSelector: '.nhsuk-back-link__link',
-      label: 'Back link reverse click',
+      focusSelector: '.nhsuk-back-link__link',
+      label: 'Back link reverse (focused)',
       url: `${BASE_URL}/components/back-link/reverse/`
     },
     {
@@ -127,8 +127,8 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/as-a-button/`
     },
     {
-      clickSelector: '.nhsuk-back-link__link',
-      label: 'Back link as a button click',
+      focusSelector: '.nhsuk-back-link__link',
+      label: 'Back link as a button (focused)',
       url: `${BASE_URL}/components/back-link/as-a-button/`
     },
     {
@@ -141,8 +141,8 @@ module.exports = {
       url: `${BASE_URL}/components/breadcrumb/default/`
     },
     {
-      clickSelector: '.nhsuk-breadcrumb a',
-      label: 'Breadcrumb click',
+      focusSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb (focused)',
       url: `${BASE_URL}/components/breadcrumb/default/`
     },
     {
@@ -155,8 +155,8 @@ module.exports = {
       url: `${BASE_URL}/components/breadcrumb/reverse/`
     },
     {
-      clickSelector: '.nhsuk-breadcrumb a',
-      label: 'Breadcrumb reverse click',
+      focusSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb reverse (focused)',
       url: `${BASE_URL}/components/breadcrumb/reverse/`
     },
     {
@@ -169,8 +169,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/default/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button (focused)',
       url: `${BASE_URL}/components/button/default/`
     },
     {
@@ -187,8 +187,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/as-a-link/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button as a link click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button as a link (focused)',
       url: `${BASE_URL}/components/button/as-a-link/`
     },
     {
@@ -201,8 +201,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button secondary click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button secondary (focused)',
       url: `${BASE_URL}/components/button/secondary/`
     },
     {
@@ -219,8 +219,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-as-a-link/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button secondary as a link click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button secondary as a link (focused)',
       url: `${BASE_URL}/components/button/secondary-as-a-link/`
     },
     {
@@ -233,31 +233,31 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-solid-background/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button secondary click, solid background',
+      focusSelector: '.nhsuk-button',
+      label: 'Button secondary, solid background (focused)',
       url: `${BASE_URL}/components/button/secondary-solid-background/`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary hover, solid background',
+      label: 'Button secondary, solid background hover',
       url: `${BASE_URL}/components/button/secondary-solid-background/`
     },
     {
-      label: 'Button secondary disabled, solid background',
-      url: `${BASE_URL}/components/button/secondary-disabled-solid-background/`
+      label: 'Button secondary, solid background disabled',
+      url: `${BASE_URL}/components/button/secondary-solid-background-disabled/`
     },
     {
       label: 'Button secondary as a link, solid background',
       url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button secondary as a link click, solid background',
+      focusSelector: '.nhsuk-button',
+      label: 'Button secondary as a link, solid background (focused)',
       url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background/`
     },
     {
       hoverSelector: '.nhsuk-button',
-      label: 'Button secondary as a link hover, solid background',
+      label: 'Button secondary as a link, solid background hover',
       url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background/`
     },
     {
@@ -265,8 +265,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button reverse click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button reverse (focused)',
       url: `${BASE_URL}/components/button/reverse/`
     },
     {
@@ -283,8 +283,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse-as-a-link/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button reverse as a link click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button reverse as a link (focused)',
       url: `${BASE_URL}/components/button/reverse-as-a-link/`
     },
     {
@@ -297,8 +297,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/warning/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button warning click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button warning (focused)',
       url: `${BASE_URL}/components/button/warning/`
     },
     {
@@ -315,8 +315,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/warning-as-a-link/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button warning as a link click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button warning as a link (focused)',
       url: `${BASE_URL}/components/button/warning-as-a-link/`
     },
     {
@@ -329,8 +329,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/login/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button login click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button login (focused)',
       url: `${BASE_URL}/components/button/login/`
     },
     {
@@ -347,8 +347,8 @@ module.exports = {
       url: `${BASE_URL}/components/button/login-as-a-link/`
     },
     {
-      clickSelector: '.nhsuk-button',
-      label: 'Button login as a link click',
+      focusSelector: '.nhsuk-button',
+      label: 'Button login as a link (focused)',
       url: `${BASE_URL}/components/button/login-as-a-link/`
     },
     {
@@ -520,7 +520,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '#waste',
+      focusSelector: '#waste',
       label: 'Checkboxes with error message (focused)',
       url: `${BASE_URL}/components/checkboxes/with-error-message/`,
       viewports: [
@@ -662,7 +662,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label: 'Header (default, focused logo)',
       url: `${BASE_URL}/components/header/default/`,
       viewports: [viewports.get('desktop')]
@@ -708,7 +708,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__search-input',
+      focusSelector: '.nhsuk-header__search-input',
       label: 'Header with search (focused search input)',
       url: `${BASE_URL}/components/header/with-search/`,
       viewports: [
@@ -801,7 +801,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__service-name',
+      focusSelector: '.nhsuk-header__service-name',
       label: 'Header with service name (focused)',
       url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
       viewports: [
@@ -812,7 +812,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name (focused logo)',
       url: `${BASE_URL}/components/header/with-service-name-logo-separate-search/`,
       viewports: [
@@ -849,7 +849,7 @@ module.exports = {
       viewports: [viewports.get('desktop')]
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label: 'Header with service name as a combined link (focused logo)',
       url: `${BASE_URL}/components/header/with-service-name-logo-combo-search/`,
       viewports: [viewports.get('desktop')]
@@ -911,13 +911,13 @@ module.exports = {
       viewports: [viewports.get('desktop')]
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label: 'Header organisational with white header (focused logo)',
       url: `${BASE_URL}/components/header/organisational-white-with-search/`,
       viewports: [viewports.get('desktop')]
     },
     {
-      clickSelector: '.nhsuk-header__search-input',
+      focusSelector: '.nhsuk-header__search-input',
       label: 'Header organisational with white header (focused search input)',
       url: `${BASE_URL}/components/header/organisational-white-with-search/`,
       viewports: [
@@ -960,7 +960,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__service-name',
+      focusSelector: '.nhsuk-header__service-name',
       label: 'Header organisational white with service name (focused)',
       url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
       viewports: [
@@ -971,7 +971,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label: 'Header organisational white with service name (focused logo)',
       url: `${BASE_URL}/components/header/organisational-white-with-service-name-logo-separate-search/`,
       viewports: [
@@ -998,7 +998,7 @@ module.exports = {
       url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo/`
     },
     {
-      clickSelector: '.nhsuk-header__service-logo',
+      focusSelector: '.nhsuk-header__service-logo',
       label:
         'Header organisational with white header and custom logo (focused logo)',
       url: `${BASE_URL}/components/header/organisational-white-with-search-navigation-custom-logo/`
@@ -1107,7 +1107,7 @@ module.exports = {
       url: `${BASE_URL}/components/input/with-error-message/`
     },
     {
-      clickSelector: '#input-with-error-message',
+      focusSelector: '#input-with-error-message',
       label: 'Input with error message (focused)',
       url: `${BASE_URL}/components/input/with-error-message/`
     },
@@ -1132,7 +1132,7 @@ module.exports = {
       url: `${BASE_URL}/components/input/with-error-message-prefix-and-suffix/`
     },
     {
-      clickSelector: '#input-with-error-message-and-prefix-and-suffix',
+      focusSelector: '#input-with-error-message-and-prefix-and-suffix',
       label: 'Input with error message, prefix, suffix (focused)',
       url: `${BASE_URL}/components/input/with-error-message-prefix-and-suffix/`
     },
@@ -1238,7 +1238,7 @@ module.exports = {
       ]
     },
     {
-      clickSelector: '#example-2',
+      focusSelector: '#example-2',
       label: 'Radios with hint text, error message (focused)',
       url: `${BASE_URL}/components/radios/with-hint-text-error-message/`,
       viewports: [
@@ -1270,7 +1270,7 @@ module.exports = {
       url: `${BASE_URL}/components/select/with-hint-text-error-message/`
     },
     {
-      clickSelector: '[for=location]',
+      focusSelector: '[for=location]',
       label: 'Select with hint text, error message (focused)',
       url: `${BASE_URL}/components/select/with-hint-text-error-message/`
     },
@@ -1419,7 +1419,7 @@ module.exports = {
       url: `${BASE_URL}/components/textarea/with-error-message/`
     },
     {
-      clickSelector: '#no-ni-reason',
+      focusSelector: '#no-ni-reason',
       label: 'Textarea with error message (focused)',
       url: `${BASE_URL}/components/textarea/with-error-message/`
     },
