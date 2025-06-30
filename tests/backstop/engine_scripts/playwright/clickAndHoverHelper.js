@@ -18,19 +18,15 @@ module.exports = async function (page, scenario) {
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
   for (const { selector, keyPress } of keyPressSelectors) {
-    await page
-      .locator(selector)
-      .filter({ visible: true })
-      .first()
-      .pressSequentially(keyPress)
+    await getLocator(page, selector).pressSequentially(keyPress)
   }
 
   for (const selector of hoverSelectors) {
-    await page.locator(selector).filter({ visible: true }).first().hover()
+    await getLocator(page, selector).hover()
   }
 
   for (const selector of clickSelectors) {
-    await page.locator(selector).filter({ visible: true }).first().click()
+    await getLocator(page, selector).click()
   }
 
   if (postInteractionWait > 0) {
@@ -38,12 +34,16 @@ module.exports = async function (page, scenario) {
   }
 
   if (scrollToSelector) {
-    await page
-      .locator(scrollToSelector)
-      .filter({ visible: true })
-      .first()
-      .scrollIntoViewIfNeeded()
+    await getLocator(page, scrollToSelector).scrollIntoViewIfNeeded()
   }
+}
+
+/**
+ * @param {Page} page
+ * @param {string} selector
+ */
+function getLocator(page, selector) {
+  return page.locator(selector).filter({ visible: true }).first()
 }
 
 /**
