@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises'
-import { basename, dirname, join, parse, relative } from 'node:path'
+import { join, parse, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { paths } from '@nhsuk/frontend-config'
@@ -13,11 +13,12 @@ import { compileAsync } from 'sass-embedded'
 /**
  * Compile Sass task
  *
- * @param {string} assetPath
+ * @param {string} inputPath
  * @param {CompileStylesOptions} entry
  */
-export function compile(assetPath, { srcPath, destPath, output = {} }) {
-  const { name } = parse(assetPath)
+export function compile(inputPath, { srcPath, destPath, output = {} }) {
+  const { dir, name } = parse(inputPath)
+  const outputPath = output.file ?? join(dir, `${name}.css`)
 
   /**
    * Configure PostCSS
@@ -25,8 +26,8 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
    * @satisfies {ProcessOptions}
    */
   const options = {
-    from: join(srcPath, assetPath),
-    to: join(destPath, output.file ?? `${name}.css`),
+    from: join(srcPath, inputPath),
+    to: join(destPath, outputPath),
 
     /**
      * Always generate source maps for either:
@@ -90,14 +91,14 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
     })
 
     // Write to files
-    await files.write(basename(options.to), {
-      destPath: dirname(options.to),
+    await files.write(outputPath, {
+      destPath,
       output: { contents: result.css }
     })
 
     if (result.map) {
-      await files.write(basename(`${options.to}.map`), {
-        destPath: dirname(options.to),
+      await files.write(`${outputPath}.map`, {
+        destPath,
         output: { contents: result.map.toString() }
       })
     }
