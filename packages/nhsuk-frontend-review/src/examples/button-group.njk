@@ -1,0 +1,126 @@
+{% extends 'layouts/page.njk' %}
+
+{% set title = 'Button group' %}
+
+{% block main %}
+  <main id="maincontent">
+    <section class="nhsuk-main-wrapper">
+      <div class="nhsuk-width-container">
+
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <h1 class="nhsuk-heading-xl">Button groups</h1>
+          </div>
+        </div>
+
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+
+            <div class="nhsuk-button-group">
+              {{ button({
+                "text": "I'm OK with analytics cookies"
+              }) }}
+
+              {{ button({
+                "text": "Do not use analytics cookies"
+              }) }}
+
+              <a href="#" class="nhsuk-link">Read more about our cookies</a>
+            </div>
+
+            <hr>
+
+            <div class="nhsuk-button-group">
+              {{ button({
+                "text": "Delete account",
+                "classes": "nhsuk-button--warning"
+              }) }}
+
+              <a href="#" class="nhsuk-link">Cancel</a>
+              <a href="#" class="nhsuk-link">Cancel and go back</a>
+            </div>
+
+            <hr>
+
+            <div class="nhsuk-button-group">
+              <a href="#" class="nhsuk-link">Buy it</a>
+
+              {{ button({
+                "text": "Use it"
+              }) }}
+
+              {{ button({
+                "text": "Break it"
+              }) }}
+
+              <a href="#" class="nhsuk-link">Fix it</a>
+              <a href="#" class="nhsuk-link">Trash it</a>
+              <a href="#" class="nhsuk-link">Change it</a>
+
+              {{ button({
+                "text": "Mail it"
+              }) }}
+
+              <a href="#" class="nhsuk-link">Upgrade it</a>
+
+              <a href="#" class="nhsuk-link">Charge it</a>
+
+              {{ button({
+                "text": "Point it",
+                "classes": "nhsuk-button--secondary"
+              }) }}
+
+              {{ button({
+                "text": "Zoom it",
+                "classes": "nhsuk-button--secondary"
+              }) }}
+
+              {{ button({
+                "text": "Press it",
+                "classes": "nhsuk-button--secondary"
+              }) }}
+            </div>
+
+            <hr>
+
+            <div class="nhsuk-button-group">
+              {{ button({
+                text: "Continue to NHS login",
+                classes: "nhsuk-button--login",
+                href: "#"
+              }) }}
+
+              <a href="#" class="nhsuk-link">Create an account</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nhsuk-main-wrapper" style="background-color: #005eb8; color: #fff;">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Continue to NHS login",
+            classes: "nhsuk-button--reverse",
+            href: "#"
+          }) }}
+
+          <p class="nhsuk-body">alternatively you can <a href="#" class="nhsuk-link nhsuk-link--reverse">register for a new account here</a></p>
+        </div>
+
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Register now",
+            classes: "nhsuk-button--reverse",
+            href: "#"
+          }) }}
+
+          <p class="nhsuk-body">It's free</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+{% endblock %}
