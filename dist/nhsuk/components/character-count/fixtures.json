@@ -1,0 +1,108 @@
+{
+  "name": "Character count",
+  "component": "character-count",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 10,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with maxlength attribute",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 11,
+        "attributes": {
+          "maxlength": 11
+        },
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"11\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\" maxlength=\"11\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 11 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with max words",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxwords": 10,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxwords=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 10 words\n</div>\n\n</div>"
+    },
+    {
+      "name": "with threshold",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 10,
+        "threshold": 8,
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\" data-threshold=\"8\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with default value",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 70,
+        "value": "123",
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"70\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\">123</textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 70 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with default value exceeding limit",
+      "description": "",
+      "options": {
+        "name": "more-detail",
+        "id": "more-detail",
+        "maxlength": 10,
+        "value": "012345678901234567890123456789123",
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        }
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"more-detail\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"more-detail-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"more-detail\" name=\"more-detail\" rows=\"5\" aria-describedby=\"more-detail-hint\">012345678901234567890123456789123</textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"more-detail-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    }
+  ]
+}

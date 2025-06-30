@@ -1,0 +1,165 @@
+{
+  "name": "Footer",
+  "component": "footer",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "links": [
+          {
+            "url": "#",
+            "label": "Accessibility statement"
+          },
+          {
+            "url": "#",
+            "label": "Give us feedback"
+          },
+          {
+            "url": "#",
+            "label": "Cookies"
+          },
+          {
+            "url": "#",
+            "label": "Privacy policy"
+          },
+          {
+            "url": "#",
+            "label": "Terms and conditions"
+          }
+        ]
+      },
+      "html": "<footer role=\"contentinfo\">\n  <div class=\"nhsuk-footer-container\">\n    <div class=\"nhsuk-width-container\">\n      <h2 class=\"nhsuk-u-visually-hidden\">Support links</h2>\n      <div class=\"nhsuk-footer\">\n              <ul class=\"nhsuk-footer__list\">                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Accessibility statement</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Give us feedback</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Cookies</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Privacy policy</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Terms and conditions</a>\n                  </li>              </ul>\n              <div>\n                <p class=\"nhsuk-footer__copyright\">© NHS England</p>\n              </div>\n      </div> \n    </div> \n  </div> \n</footer>"
+    },
+    {
+      "name": "columns",
+      "description": "",
+      "options": {
+        "copyright": "© Crown copyright",
+        "links": [
+          {
+            "url": "#",
+            "label": "Home"
+          },
+          {
+            "url": "#",
+            "label": "Health A to Z"
+          },
+          {
+            "url": "#",
+            "label": "Live Well"
+          },
+          {
+            "url": "#",
+            "label": "Mental health"
+          },
+          {
+            "url": "#",
+            "label": "Care and support"
+          },
+          {
+            "url": "#",
+            "label": "Accessibility statement"
+          },
+          {
+            "url": "#",
+            "label": "Pregnancy"
+          },
+          {
+            "url": "#",
+            "label": "NHS services"
+          },
+          {
+            "url": "#",
+            "label": "Coronavirus (COVID-19)"
+          }
+        ],
+        "linksColumn2": [
+          {
+            "url": "#",
+            "label": "NHS App"
+          },
+          {
+            "url": "#",
+            "label": "Find my NHS number"
+          },
+          {
+            "url": "#",
+            "label": "Your health records"
+          },
+          {
+            "url": "#",
+            "label": "About the NHS"
+          },
+          {
+            "url": "#",
+            "label": "Healthcare abroad"
+          }
+        ],
+        "linksColumn3": [
+          {
+            "url": "#",
+            "label": "Other NHS websites"
+          },
+          {
+            "url": "#",
+            "label": "Profile editor login"
+          }
+        ],
+        "metaLinks": [
+          {
+            "url": "#",
+            "label": "About us"
+          },
+          {
+            "url": "#",
+            "label": "Give us feedback"
+          },
+          {
+            "url": "#",
+            "label": "Accessibility statement"
+          },
+          {
+            "url": "#",
+            "label": "Our policies"
+          },
+          {
+            "url": "#",
+            "label": "Cookies"
+          }
+        ]
+      },
+      "html": "<footer role=\"contentinfo\">\n  <div class=\"nhsuk-footer-container\">\n    <div class=\"nhsuk-width-container\">\n      <h2 class=\"nhsuk-u-visually-hidden\">Support links</h2>\n      <div class=\"nhsuk-footer\">\n            <ul class=\"nhsuk-footer__list\">\n\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Home</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Health A to Z</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Live Well</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Mental health</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Care and support</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Accessibility statement</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Pregnancy</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">NHS services</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Coronavirus (COVID-19)</a>\n                  </li>            </ul>\n            <ul class=\"nhsuk-footer__list\">\n\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">NHS App</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Find my NHS number</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Your health records</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">About the NHS</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Healthcare abroad</a>\n                  </li>            </ul>\n            <ul class=\"nhsuk-footer__list\">\n\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Other NHS websites</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Profile editor login</a>\n                  </li>            </ul>\n<ul class=\"nhsuk-footer__list nhsuk-footer__meta\">\n\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">About us</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Give us feedback</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Accessibility statement</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Our policies</a>\n                  </li>\n                  <li class=\"nhsuk-footer__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Cookies</a>\n                  </li>            </ul>      </div> \n      <div>\n        <p class=\"nhsuk-footer__copyright\">© Crown copyright</p>\n      </div>\n    </div> \n  </div> \n</footer>"
+    },
+    {
+      "name": "with custom copyright statement",
+      "description": "",
+      "options": {
+        "copyright": "© East London NHS Foundation Trust",
+        "links": [
+          {
+            "url": "#",
+            "label": "Accessibility statement"
+          },
+          {
+            "url": "#",
+            "label": "Give us feedback"
+          },
+          {
+            "url": "#",
+            "label": "Cookies"
+          },
+          {
+            "url": "#",
+            "label": "Privacy policy"
+          },
+          {
+            "url": "#",
+            "label": "Terms and conditions"
+          }
+        ]
+      },
+      "html": "<footer role=\"contentinfo\">\n  <div class=\"nhsuk-footer-container\">\n    <div class=\"nhsuk-width-container\">\n      <h2 class=\"nhsuk-u-visually-hidden\">Support links</h2>\n      <div class=\"nhsuk-footer\">\n              <ul class=\"nhsuk-footer__list\">                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Accessibility statement</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Give us feedback</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Cookies</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Privacy policy</a>\n                  </li>                  <li class=\"nhsuk-footer__list-item nhsuk-footer-default__list-item\">\n                    <a class=\"nhsuk-footer__list-item-link\" href=\"\">Terms and conditions</a>\n                  </li>              </ul>\n              <div>\n                <p class=\"nhsuk-footer__copyright\">© East London NHS Foundation Trust</p>\n              </div>\n      </div> \n    </div> \n  </div> \n</footer>"
+    }
+  ]
+}

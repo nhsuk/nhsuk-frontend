@@ -1,0 +1,188 @@
+{
+  "name": "Select",
+  "component": "select",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "id": "sort",
+        "name": "sort",
+        "label": {
+          "text": "Sort by"
+        },
+        "value": "updated",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"sort\">\n    Sort by\n  </label>  <select class=\"nhsuk-select\" id=\"sort\" name=\"sort\">    <option value=\"published\">Recently published</option>\n    <option value=\"updated\" selected>Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with disabled option",
+      "description": "",
+      "options": {
+        "id": "sort",
+        "name": "sort",
+        "label": {
+          "text": "Sort by"
+        },
+        "value": "updated",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments",
+            "disabled": true
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"sort\">\n    Sort by\n  </label>  <select class=\"nhsuk-select\" id=\"sort\" name=\"sort\">    <option value=\"published\">Recently published</option>\n    <option value=\"updated\" selected>Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\" disabled>Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with hint text",
+      "description": "",
+      "options": {
+        "id": "location",
+        "name": "location",
+        "label": {
+          "text": "Choose location"
+        },
+        "hint": {
+          "text": "This can be different to where you went before"
+        },
+        "value": "choose",
+        "items": [
+          {
+            "value": "choose",
+            "text": "Choose location"
+          },
+          {
+            "value": "eastmidlands",
+            "text": "East Midlands"
+          },
+          {
+            "value": "eastofengland",
+            "text": "East of England"
+          },
+          {
+            "value": "london",
+            "text": "London"
+          },
+          {
+            "value": "northeast",
+            "text": "North East"
+          },
+          {
+            "value": "northwest",
+            "text": "North West"
+          },
+          {
+            "value": "southeast",
+            "text": "South East"
+          },
+          {
+            "value": "southwest",
+            "text": "South West"
+          },
+          {
+            "value": "westmidlands",
+            "text": "West Midlands"
+          },
+          {
+            "value": "yorkshire",
+            "text": "Yorkshire and the Humber"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"location\">\n    Choose location\n  </label>  <div class=\"nhsuk-hint\" id=\"location-hint\">\n    This can be different to where you went before\n  </div>  <select class=\"nhsuk-select\" id=\"location\" name=\"location\" aria-describedby=\"location-hint\">    <option value=\"choose\" selected>Choose location</option>\n    <option value=\"eastmidlands\">East Midlands</option>\n    <option value=\"eastofengland\">East of England</option>\n    <option value=\"london\">London</option>\n    <option value=\"northeast\">North East</option>\n    <option value=\"northwest\">North West</option>\n    <option value=\"southeast\">South East</option>\n    <option value=\"southwest\">South West</option>\n    <option value=\"westmidlands\">West Midlands</option>\n    <option value=\"yorkshire\">Yorkshire and the Humber</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with hint text, error message",
+      "description": "",
+      "options": {
+        "id": "location",
+        "name": "location",
+        "label": {
+          "text": "Choose location"
+        },
+        "hint": {
+          "text": "This can be different to where you went before"
+        },
+        "errorMessage": {
+          "text": "Select a location"
+        },
+        "value": "choose",
+        "items": [
+          {
+            "value": "choose",
+            "text": "Choose location"
+          },
+          {
+            "value": "eastmidlands",
+            "text": "East Midlands"
+          },
+          {
+            "value": "eastofengland",
+            "text": "East of England"
+          },
+          {
+            "value": "london",
+            "text": "London"
+          },
+          {
+            "value": "northeast",
+            "text": "North East"
+          },
+          {
+            "value": "northwest",
+            "text": "North West"
+          },
+          {
+            "value": "southeast",
+            "text": "South East"
+          },
+          {
+            "value": "southwest",
+            "text": "South West"
+          },
+          {
+            "value": "westmidlands",
+            "text": "West Midlands"
+          },
+          {
+            "value": "yorkshire",
+            "text": "Yorkshire and the Humber"
+          }
+        ]
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"location\">\n    Choose location\n  </label>  <div class=\"nhsuk-hint\" id=\"location-hint\">\n    This can be different to where you went before\n  </div>  <span class=\"nhsuk-error-message\" id=\"location-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select a location\n  </span>  <select class=\"nhsuk-select nhsuk-select--error\" id=\"location\" name=\"location\" aria-describedby=\"location-hint location-error\">    <option value=\"choose\" selected>Choose location</option>\n    <option value=\"eastmidlands\">East Midlands</option>\n    <option value=\"eastofengland\">East of England</option>\n    <option value=\"london\">London</option>\n    <option value=\"northeast\">North East</option>\n    <option value=\"northwest\">North West</option>\n    <option value=\"southeast\">South East</option>\n    <option value=\"southwest\">South West</option>\n    <option value=\"westmidlands\">West Midlands</option>\n    <option value=\"yorkshire\">Yorkshire and the Humber</option>\n  </select>\n</div>"
+    }
+  ]
+}

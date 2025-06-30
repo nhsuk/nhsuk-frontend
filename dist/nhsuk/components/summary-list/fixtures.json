@@ -1,0 +1,226 @@
+{
+  "name": "Summary list",
+  "component": "summary-list",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Sarah Philips"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "5 January 1978"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "72 Guild Street<br>\nLondon<br>\nSE23 6FH"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact information"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900457</p>\n<p>sarah.philips@example.com</p>"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Add",
+                  "visuallyHiddenText": "new contact details"
+                },
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact details"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Medicines"
+            },
+            "value": {
+              "html": "<p>Isotretinoin capsules (Roaccutane)</p>\n<p>Isotretinoin gel (Isotrex)</p>\n<p>Pepto-Bismol (bismuth subsalicylate)</p>"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Add",
+                  "visuallyHiddenText": "new medicine"
+                },
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "medicines"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row nhsuk-summary-list__row--no-actions\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Sarah Philips\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        5 January 1978\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> date of birth</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        72 Guild Street<br>\n        London<br>\n        SE23 6FH\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> contact information</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900457</p>\n        <p>sarah.philips@example.com</p>\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <ul class=\"nhsuk-summary-list__actions-list\">\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Add<span class=\"nhsuk-u-visually-hidden\"> new contact details</span>\n                  </a>\n                </li>\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Change<span class=\"nhsuk-u-visually-hidden\"> contact details</span>\n                  </a>\n                </li>\n            </ul>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Medicines\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>Isotretinoin capsules (Roaccutane)</p>\n        <p>Isotretinoin gel (Isotrex)</p>\n        <p>Pepto-Bismol (bismuth subsalicylate)</p>\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <ul class=\"nhsuk-summary-list__actions-list\">\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Add<span class=\"nhsuk-u-visually-hidden\"> new medicine</span>\n                  </a>\n                </li>\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Change<span class=\"nhsuk-u-visually-hidden\"> medicines</span>\n                  </a>\n                </li>\n            </ul>\n        </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without actions",
+      "description": "",
+      "options": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Sarah Philips"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "5 January 1978"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "72 Guild Street<br>\nLondon<br>\nSE23 6FH"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900457</p>\n<p>sarah.philips@example.com</p>"
+            }
+          }
+        ]
+      },
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Sarah Philips\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        5 January 1978\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        72 Guild Street<br>\n        London<br>\n        SE23 6FH\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900457</p>\n        <p>sarah.philips@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without border",
+      "description": "",
+      "options": {
+        "classes": "nhsuk-summary-list--no-border",
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Sarah Philips"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "5 January 1978"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "72 Guild Street<br>\nLondon<br>\nSE23 6FH"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900457</p>\n<p>sarah.philips@example.com</p>"
+            }
+          }
+        ]
+      },
+      "html": "<dl class=\"nhsuk-summary-list nhsuk-summary-list--no-border\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Sarah Philips\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        5 January 1978\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        72 Guild Street<br>\n        London<br>\n        SE23 6FH\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900457</p>\n        <p>sarah.philips@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without row border",
+      "description": "",
+      "options": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Sarah Philips"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "5 January 1978"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "72 Guild Street<br>\nLondon<br>\nSE23 6FH"
+            }
+          },
+          {
+            "classes": "nhsuk-summary-list__row--no-border",
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900457</p>\n<p>sarah.philips@example.com</p>"
+            }
+          }
+        ]
+      },
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Sarah Philips\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        5 January 1978\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        72 Guild Street<br>\n        London<br>\n        SE23 6FH\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row nhsuk-summary-list__row--no-border\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900457</p>\n        <p>sarah.philips@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    }
+  ]
+}

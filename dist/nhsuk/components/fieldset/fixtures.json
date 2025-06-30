@@ -1,0 +1,40 @@
+{
+  "name": "Fieldset",
+  "component": "fieldset",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {
+        "legend": {
+          "text": "What is your address?"
+        }
+      },
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading",
+      "description": "",
+      "options": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--xl",
+          "isPageHeading": true
+        }
+      },
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "with inputs",
+      "description": "",
+      "options": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--xl",
+          "isPageHeading": true
+        }
+      },
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend><div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-address1\">\n    Address line 1\n  </label>    <input class=\"nhsuk-input\" id=\"input-address1\" name=\"address1\" type=\"text\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-address2\">\n    Address line 2\n  </label>    <input class=\"nhsuk-input\" id=\"input-address2\" name=\"address2\" type=\"text\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-town-city\">\n    Town or city\n  </label>    <input class=\"nhsuk-input\" id=\"input-town-city\" name=\"town\" type=\"text\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-county\">\n    County\n  </label>    <input class=\"nhsuk-input\" id=\"input-county\" name=\"county\" type=\"text\"></div></fieldset>"
+    }
+  ]
+}

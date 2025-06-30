@@ -1,0 +1,12 @@
+{
+  "name": "Inset text",
+  "component": "inset-text",
+  "fixtures": [
+    {
+      "name": "default",
+      "description": "",
+      "options": {},
+      "html": "<div class=\"nhsuk-inset-text\">\n  <span class=\"nhsuk-u-visually-hidden\">Information: </span>\n<p>You can report any suspected side effects to the <a href=\"https://yellowcard.mhra.gov.uk/\" title=\"External website\">UK safety scheme</a>.</p>\n</div>"
+    }
+  ]
+}
