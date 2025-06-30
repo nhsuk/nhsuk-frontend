@@ -50,20 +50,15 @@
       // Prevent links overflowing their container in IE10/11 because of bug
       // with align-items: center
       max-width: 100%;
-      margin-top: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
-      margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+      margin-top: $link-spacing;
+      margin-bottom: $link-spacing + $vertical-gap;
       text-align: center;
       @include nhsuk-font($size: 19);
-
-      @include nhsuk-media-query($until: tablet) {
-        margin-top: $link-spacing;
-        margin-bottom: $link-spacing + $vertical-gap;
-      }
     }
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group.
-    .nhsuk-button {
+    > .nhsuk-button {
       margin-bottom: $vertical-gap + $button-shadow-size;
     }
 
@@ -80,9 +75,14 @@
       .nhsuk-body,
       .nhsuk-body-m,
       p,
-      > .nhsuk-button,
       > .nhsuk-link,
       > a:not(.nhsuk-button) {
+        margin-top: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+        margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+        margin-right: $horizontal-gap;
+      }
+
+      > .nhsuk-button {
         margin-right: $horizontal-gap;
       }
     }
