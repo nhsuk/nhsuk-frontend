@@ -24,6 +24,8 @@ This was added in [pull request #1058: New header with account section](https://
 
 You can now group buttons and links together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
 
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
@@ -279,6 +281,8 @@ This change was introduced in [#1412: Allow creating custom width containers](ht
 #### Buttons are now full-width on mobile
 
 All buttons now display as full-width at mobile size. This does not require any changes, but you should check that it does not break any of your layouts.
+
+This change was introduced in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
 
 :recycle: **Changes**
 
