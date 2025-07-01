@@ -122,7 +122,8 @@
   }
 
   &:focus::before,
-  &:active::before {
+  &:active::before,
+  .nhsuk-breadcrumb--reverse &:focus::before {
     background-image: url($icon-background-focus);
   }
 }
