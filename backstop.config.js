@@ -59,7 +59,7 @@ for (const [label, viewport] of viewports.entries()) {
  * @type {PlaywrightEngineConfig}
  */
 module.exports = {
-  asyncCaptureLimit: HEADLESS ? 1 : 4,
+  asyncCaptureLimit: HEADLESS === 'false' ? 1 : 6,
   engine: 'playwright',
   engineOptions: {
     args: [
