@@ -13,13 +13,13 @@ export const params = {
     required: false,
     description: 'Contains the array of the first column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the first column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the first column.'
@@ -32,13 +32,13 @@ export const params = {
     description:
       'Contains the array of the second column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the second column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the second column.'
@@ -50,13 +50,13 @@ export const params = {
     required: false,
     description: 'Contains the array of the third column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the third column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the third column.'
@@ -90,12 +90,12 @@ export const params = {
     required: false,
     description: 'Contains the array of key policy footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description: 'Href attribute for a key policy footer link item.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a key policy footer link item.'
@@ -115,24 +115,24 @@ export const examples = {
     context: {
       links: [
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
         },
         {
-          url: '#',
-          label: 'Privacy policy'
+          href: '#',
+          text: 'Privacy policy'
         },
         {
-          url: '#',
-          label: 'Terms and conditions'
+          href: '#',
+          text: 'Terms and conditions'
         }
       ]
     },
@@ -146,94 +146,94 @@ export const examples = {
       copyright: '© Crown copyright',
       links: [
         {
-          url: '#',
-          label: 'Home'
+          href: '#',
+          text: 'Home'
         },
         {
-          url: '#',
-          label: 'Health A to Z'
+          href: '#',
+          text: 'Health A to Z'
         },
         {
-          url: '#',
-          label: 'Live Well'
+          href: '#',
+          text: 'Live Well'
         },
         {
-          url: '#',
-          label: 'Mental health'
+          href: '#',
+          text: 'Mental health'
         },
         {
-          url: '#',
-          label: 'Care and support'
+          href: '#',
+          text: 'Care and support'
         },
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Pregnancy'
+          href: '#',
+          text: 'Pregnancy'
         },
         {
-          url: '#',
-          label: 'NHS services'
+          href: '#',
+          text: 'NHS services'
         },
         {
-          url: '#',
-          label: 'Coronavirus (COVID-19)'
+          href: '#',
+          text: 'Coronavirus (COVID-19)'
         }
       ],
       linksColumn2: [
         {
-          url: '#',
-          label: 'NHS App'
+          href: '#',
+          text: 'NHS App'
         },
         {
-          url: '#',
-          label: 'Find my NHS number'
+          href: '#',
+          text: 'Find my NHS number'
         },
         {
-          url: '#',
-          label: 'Your health records'
+          href: '#',
+          text: 'Your health records'
         },
         {
-          url: '#',
-          label: 'About the NHS'
+          href: '#',
+          text: 'About the NHS'
         },
         {
-          url: '#',
-          label: 'Healthcare abroad'
+          href: '#',
+          text: 'Healthcare abroad'
         }
       ],
       linksColumn3: [
         {
-          url: '#',
-          label: 'Other NHS websites'
+          href: '#',
+          text: 'Other NHS websites'
         },
         {
-          url: '#',
-          label: 'Profile editor login'
+          href: '#',
+          text: 'Profile editor login'
         }
       ],
       metaLinks: [
         {
-          url: '#',
-          label: 'About us'
+          href: '#',
+          text: 'About us'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Our policies'
+          href: '#',
+          text: 'Our policies'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
         }
       ]
     },
@@ -247,24 +247,24 @@ export const examples = {
       copyright: '© East London NHS Foundation Trust',
       links: [
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
         },
         {
-          url: '#',
-          label: 'Privacy policy'
+          href: '#',
+          text: 'Privacy policy'
         },
         {
-          url: '#',
-          label: 'Terms and conditions'
+          href: '#',
+          text: 'Terms and conditions'
         }
       ]
     },
