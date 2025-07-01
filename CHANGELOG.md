@@ -224,13 +224,13 @@ Page templates now include a new `nhsuk-frontend-supported` class on the `<body>
 
 If you are not using our Nunjucks page template, replace the existing snippet:
 
-```js
+```html
 <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 ```
 
 with:
 
-```js
+```html
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
