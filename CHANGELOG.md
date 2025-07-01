@@ -2,7 +2,11 @@
 
 ## Unreleased
 
-This release stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
+
+It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
+You must read and apply these updates carefully to ensure your service does not break.
 
 :new: **New features**
 
@@ -57,6 +61,15 @@ You must make the following changes when you migrate to this release, or your se
 #### Update file paths
 
 To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
+
+Make the following changes if they apply to your service:
+
+- [If you're using Sass](#if-youre-using-sass)
+- [If you're using precompiled CSS](#if-youre-using-precompiled-css)
+- [If you're using precompiled JavaScript](#if-youre-using-precompiled-javascript)
+- [If you're using JavaScript via a bundler](#if-youre-using-javascript-via-a-bundler)
+- [If you're using Nunjucks](#if-youre-using-nunjucks)
+- [If you're copying or serving assets](#if-youre-copying-or-serving-assets)
 
 ##### If you're using Sass
 
