@@ -80,16 +80,9 @@ You must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by eit
 
 Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files, making sure to remove the unnecessary `node_modules/` prefix:
 
-Before:
-
-```scss
-@import "node_modules/nhsuk-frontend/packages/nhsuk";
-```
-
-After:
-
-```scss
-@import "nhsuk-frontend/dist/nhsuk";
+```patch
+- @import "node_modules/nhsuk-frontend/packages/nhsuk";
++ @import "nhsuk-frontend/dist/nhsuk";
 ```
 
 #### Update precompiled CSS file paths
@@ -136,20 +129,13 @@ After:
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
 
-Before:
-
-```mjs
-import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
-import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
-
-// Initialise all button components
-initButtons();
-
-// Initialise all radios components
-initRadios();
+```patch
+- import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
+- import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
++ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 ```
 
-After:
+Ensuring component initialisation functions match the named exports:
 
 ```mjs
 import { initButtons, initCheckboxes } from 'nhsuk-frontend'
@@ -161,7 +147,7 @@ initButtons();
 initRadios();
 ```
 
-Or alternatively, you can initialise individual components only:
+Or alternatively, you can initialise individual component classes:
 
 ```js
 import { Button, Checkboxes } from 'nhsuk-frontend';
@@ -180,24 +166,15 @@ new Checkboxes($checkboxes);
 
 1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
 
-Before:
-
-```mjs
-nunjucks.configure([
-  'node_modules/nhsuk-frontend/packages/components',
-  'node_modules/nhsuk-frontend/packages/macros'
-])
-```
-
-After:
-
-```mjs
-nunjucks.configure([
-  'node_modules/nhsuk-frontend/dist/nhsuk/components',
-  'node_modules/nhsuk-frontend/dist/nhsuk/macros',
-  'node_modules/nhsuk-frontend/dist/nhsuk',
-  'node_modules/nhsuk-frontend/dist'
-])
+```patch
+  nunjucks.configure([
+-   'node_modules/nhsuk-frontend/packages/components',
+-   'node_modules/nhsuk-frontend/packages/macros'
++   'node_modules/nhsuk-frontend/dist/nhsuk/components',
++   'node_modules/nhsuk-frontend/dist/nhsuk/macros',
++   'node_modules/nhsuk-frontend/dist/nhsuk',
++   'node_modules/nhsuk-frontend/dist'
+  ])
 ```
 
 #### Update file paths for copying or serving assets
@@ -279,55 +256,37 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
 
 #### Rename component `HTML` param to `html`
 
-If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`:
 
-Before:
-
-```njk
-{{ insetText({
-  HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-}) }}
-```
-
-After:
-
-```njk
-{{ insetText({
-  html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-}) }}
+```patch
+  {{ insetText({
+-   HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
++   html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  }) }}
 ```
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
 #### Rename details component `text` param to `summaryText`
 
-If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`:
 
-Before:
-
-```njk
-{{ details({
-  text: "Where can I find my NHS number?",
-  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
-}) }}
-```
-
-After:
-
-```njk
-{{ details({
-  summaryText: "Where can I find my NHS number?",
-  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
-}) }}
+```patch
+  {{ details({
+-   text: "Where can I find my NHS number?",
++   summaryText: "Where can I find my NHS number?",
+    html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+  }) }}
 ```
 
 This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
 
-```njk
-{{ details({
-  summaryText: "Where can I find my NHS number?",
-  text: "An NHS number is a 10 digit number, like 485 777 3456."
-}) }}
+```patch
+  {{ details({
+    summaryText: "Where can I find my NHS number?",
+-   html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
++   text: "An NHS number is a 10 digit number, like 485 777 3456."
+  }) }}
 ```
 
 This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
@@ -360,20 +319,11 @@ Remove any use of these mixins in your own Sass. You must replace them with the 
 
 If you're using the `nhsuk-grid-column()` Sass mixin to create custom grid classes, you must remove the `$class` parameter:
 
-Before:
-
-```scss
-.app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
-}
-```
-
-After:
-
-```scss
-.app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop);
-}
+```patch
+  .app-grid-column-one-quarter-at-desktop {
+-   @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
++   @include nhsuk-grid-column(one-quarter, $at: desktop);
+  }
 ```
 
 See the full list of previously deprecated features below:
@@ -407,34 +357,19 @@ If you've linked from an [error summary](https://design-system.service.gov.uk/co
 
 This is because the `id` of the first checkbox or radio item no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
-If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute.
+If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute:
 
-Before:
-
-```njk
-{{ errorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    {
-      text: "Select how you like to be contacted",
-      href: "#contact-preference-1"
-    }
-  ]
-}) }}
-```
-
-After:
-
-```njk
-{{ errorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    {
-      text: "Select how you like to be contacted",
-      href: "#contact-preference"
-    }
-  ]
-}) }}
+```patch
+  {{ errorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: "Select how you like to be contacted",
+-       href: "#contact-preference-1"
++       href: "#contact-preference"
+      }
+    ]
+  }) }}
 ```
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
