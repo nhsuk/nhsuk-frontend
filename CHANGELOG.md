@@ -96,15 +96,19 @@ After:
 
 For precompiled stylesheets, note the following path changes:
 
-- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`, not the previous `node_modules/dist/nhsuk.min.css` stylesheet
-- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file, not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`  
+  – not the previous `node_modules/dist/nhsuk.min.css` stylesheet
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
+  – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
 #### Update precompiled JavaScript file paths
 
 For precompiled JavaScript, note the following path changes:
 
-- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`, not the previous `node_modules/dist/nhsuk.min.js` script
-- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file, not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`  
+  – not the previous `node_modules/dist/nhsuk.min.js` script
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
+  – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
 
 Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
 
