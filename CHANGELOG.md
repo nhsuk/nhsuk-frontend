@@ -198,7 +198,7 @@ nunjucks.configure([
 
 ##### If you're copying or serving assets
 
-Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend assets:
+Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend logos, icons and other assets:
 
 ```patch
 - node_modules/nhsuk-frontend/packages/assets
