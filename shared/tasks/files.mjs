@@ -12,6 +12,7 @@ import rename from 'gulp-rename'
  */
 export function copy(assetPath, { srcPath, destPath, output = {} }) {
   let stream = gulp.src(join(srcPath, assetPath), {
+    encoding: false,
     sourcemaps: true
   })
 
@@ -30,8 +31,6 @@ export function copy(assetPath, { srcPath, destPath, output = {} }) {
 
   return stream.pipe(
     gulp.dest(destPath, {
-      encoding: false,
-
       // Only add source maps for styles and scripts
       sourcemaps: (file) =>
         ['.css', '.js'].includes(file.extname) ? '.' : undefined
