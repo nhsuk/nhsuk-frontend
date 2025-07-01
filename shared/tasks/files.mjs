@@ -52,7 +52,7 @@ export async function write(inputPath, { destPath, output = {} }) {
   }
 
   await mkdir(dirname(filePath), { recursive: true })
-  await writeFile(filePath, `${output.contents}\n`)
+  await writeFile(filePath, `${output.contents.trimEnd()}\n`)
 }
 
 /**
