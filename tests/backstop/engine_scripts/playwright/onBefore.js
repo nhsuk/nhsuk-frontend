@@ -29,7 +29,8 @@ module.exports = function (page) {
   page.on('response', (response) => {
     const status = response.status()
 
-    // Throw on HTTP errors (e.g. component URL typo)
+    // Avoid Playwright locator timeouts by throwing immediately
+    // when requests fail (e.g. URL typos or port already in use)
     if (status >= 400) {
       throw new Error(`HTTP ${status} for '${response.url()}'`)
     }
