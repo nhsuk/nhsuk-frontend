@@ -79,14 +79,43 @@ You must add `node_modules` to Sass load paths, by either:
 - calling the Sass compiler from the command line with the `--load-path node_modules` flag
 - using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
 
-##### If you're using CSS
+##### If you're using precompiled CSS
 
 For precompiled stylesheets, note the following path changes:
 
 - Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`, not the previous `node_modules/dist/nhsuk.min.css` stylesheet
 - Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file, not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
-##### If you're using JavaScript
+##### If you're using precompiled JavaScript
+
+For precompiled JavaScript, note the following path changes:
+
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`, not the previous `node_modules/dist/nhsuk.min.js` script
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file, not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
+
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+```
+
+##### If you're using JavaScript via a bundler
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
 
@@ -128,33 +157,6 @@ new Button($button);
 
 // Initialise single checkboxes component
 new Checkboxes($checkboxes);
-```
-
-For precompiled JavaScript, note the following path changes:
-
-- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`, not the previous `node_modules/dist/nhsuk.min.js` script
-- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file, not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
-
-Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
-
-Before:
-
-```html
-  <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
-</head>
-```
-
-After:
-
-```html
-  <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
-</body>
 ```
 
 ##### If you're using Nunjucks
