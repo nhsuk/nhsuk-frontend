@@ -109,6 +109,11 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/default/`
     },
     {
+      activeSelector: '.nhsuk-back-link__link',
+      label: 'Back link active',
+      url: `${BASE_URL}/components/back-link/default/`
+    },
+    {
       label: 'Back link reverse',
       url: `${BASE_URL}/components/back-link/reverse/`
     },
@@ -120,6 +125,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-back-link__link',
       label: 'Back link reverse hover',
+      url: `${BASE_URL}/components/back-link/reverse/`
+    },
+    {
+      activeSelector: '.nhsuk-back-link__link',
+      label: 'Back link reverse active',
       url: `${BASE_URL}/components/back-link/reverse/`
     },
     {
@@ -137,6 +147,11 @@ module.exports = {
       url: `${BASE_URL}/components/back-link/as-a-button/`
     },
     {
+      activeSelector: '.nhsuk-back-link__link',
+      label: 'Back link as a button active',
+      url: `${BASE_URL}/components/back-link/as-a-button/`
+    },
+    {
       label: 'Breadcrumb',
       url: `${BASE_URL}/components/breadcrumb/default/`
     },
@@ -148,6 +163,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-breadcrumb a',
       label: 'Breadcrumb hover',
+      url: `${BASE_URL}/components/breadcrumb/default/`
+    },
+    {
+      activeSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb active',
       url: `${BASE_URL}/components/breadcrumb/default/`
     },
     {
@@ -165,6 +185,11 @@ module.exports = {
       url: `${BASE_URL}/components/breadcrumb/reverse/`
     },
     {
+      activeSelector: '.nhsuk-breadcrumb a',
+      label: 'Breadcrumb reverse active',
+      url: `${BASE_URL}/components/breadcrumb/reverse/`
+    },
+    {
       label: 'Button',
       url: `${BASE_URL}/components/button/default/`
     },
@@ -176,6 +201,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button hover',
+      url: `${BASE_URL}/components/button/default/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button active',
       url: `${BASE_URL}/components/button/default/`
     },
     {
@@ -197,6 +227,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/as-a-link/`
     },
     {
+      activeSelector: '.nhsuk-button',
+      label: 'Button as a link active',
+      url: `${BASE_URL}/components/button/as-a-link/`
+    },
+    {
       label: 'Button secondary',
       url: `${BASE_URL}/components/button/secondary/`
     },
@@ -208,6 +243,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button secondary hover',
+      url: `${BASE_URL}/components/button/secondary/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button secondary active',
       url: `${BASE_URL}/components/button/secondary/`
     },
     {
@@ -229,6 +269,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-as-a-link/`
     },
     {
+      activeSelector: '.nhsuk-button',
+      label: 'Button secondary as a link active',
+      url: `${BASE_URL}/components/button/secondary-as-a-link/`
+    },
+    {
       label: 'Button secondary, solid background',
       url: `${BASE_URL}/components/button/secondary-solid-background/`
     },
@@ -240,6 +285,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button secondary, solid background hover',
+      url: `${BASE_URL}/components/button/secondary-solid-background/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button secondary, solid background active',
       url: `${BASE_URL}/components/button/secondary-solid-background/`
     },
     {
@@ -261,6 +311,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background/`
     },
     {
+      activeSelector: '.nhsuk-button',
+      label: 'Button secondary as a link, solid background active',
+      url: `${BASE_URL}/components/button/secondary-as-a-link-solid-background/`
+    },
+    {
       label: 'Button reverse',
       url: `${BASE_URL}/components/button/reverse/`
     },
@@ -272,6 +327,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button reverse hover',
+      url: `${BASE_URL}/components/button/reverse/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button reverse active',
       url: `${BASE_URL}/components/button/reverse/`
     },
     {
@@ -293,6 +353,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/reverse-as-a-link/`
     },
     {
+      activeSelector: '.nhsuk-button',
+      label: 'Button reverse as a link active',
+      url: `${BASE_URL}/components/button/reverse-as-a-link/`
+    },
+    {
       label: 'Button warning',
       url: `${BASE_URL}/components/button/warning/`
     },
@@ -304,6 +369,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button warning hover',
+      url: `${BASE_URL}/components/button/warning/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button warning active',
       url: `${BASE_URL}/components/button/warning/`
     },
     {
@@ -325,6 +395,11 @@ module.exports = {
       url: `${BASE_URL}/components/button/warning-as-a-link/`
     },
     {
+      activeSelector: '.nhsuk-button',
+      label: 'Button warning as a link active',
+      url: `${BASE_URL}/components/button/warning-as-a-link/`
+    },
+    {
       label: 'Button login',
       url: `${BASE_URL}/components/button/login/`
     },
@@ -336,6 +411,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button login hover',
+      url: `${BASE_URL}/components/button/login/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button login active',
       url: `${BASE_URL}/components/button/login/`
     },
     {
@@ -354,6 +434,11 @@ module.exports = {
     {
       hoverSelector: '.nhsuk-button',
       label: 'Button login as a link hover',
+      url: `${BASE_URL}/components/button/login-as-a-link/`
+    },
+    {
+      activeSelector: '.nhsuk-button',
+      label: 'Button login as a link active',
       url: `${BASE_URL}/components/button/login-as-a-link/`
     },
     {
