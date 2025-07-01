@@ -38,6 +38,7 @@ npm pkg delete devDependencies --workspace nhsuk-frontend
 echo "✍️ Update package version"
 echo
 
+# Append branch name to npm package version if not already added
 npm version $VERSION --allow-same-version --no-git-tag-version --silent --workspace nhsuk-frontend
 git add packages/nhsuk-frontend/package.json
 git add package-lock.json
