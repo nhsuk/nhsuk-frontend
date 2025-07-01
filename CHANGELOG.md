@@ -58,7 +58,7 @@ You must make the following changes when you migrate to this release, or your se
 
 To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
 
-##### If you’re using Sass
+##### If you're using Sass
 
 Replace `packages/` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files.
 
@@ -79,14 +79,14 @@ You must add `node_modules` to Sass load paths, by either:
 - calling the Sass compiler from the command line with the `--load-path node_modules` flag
 - using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
 
-##### If you’re using CSS
+##### If you're using CSS
 
 For precompiled stylesheets, note the following path changes:
 
 - Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`, not the previous `node_modules/dist/nhsuk.min.css` stylesheet
 - Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file, not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
-##### If you’re using JavaScript
+##### If you're using JavaScript
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
 
@@ -157,7 +157,7 @@ After:
 </body>
 ```
 
-##### If you’re using Nunjucks
+##### If you're using Nunjucks
 
 1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
 
@@ -181,16 +181,16 @@ nunjucks.configure([
 ])
 ```
 
-##### If you’re copying or serving assets
+##### If you're copying or serving assets
 
 Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend assets:
 
 ```patch
--node_modules/nhsuk-frontend/packages/assets
-+node_modules/nhsuk-frontend/dist/nhsuk/assets
+- node_modules/nhsuk-frontend/packages/assets
++ node_modules/nhsuk-frontend/dist/nhsuk/assets
 ```
 
-For example, if you’re using [Express.js](https://expressjs.com/), request routing could be set up as follows:
+For example, if you're using [Express.js](https://expressjs.com/), request routing could be set up as follows:
 
 ```js
 router.use('/assets', [
@@ -242,7 +242,7 @@ These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend
 
 #### Update header component params
 
-If you’re using the `header` Nunjucks macro in your service, you must:
+If you're using the `header` Nunjucks macro in your service, you must:
 
 - Rename the `transactionalService` option to the new `service` option, and remove the boolean `transactional` option.
 - Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
