@@ -2,7 +2,10 @@ const { Console } = require('node:console')
 
 const { default: stripAnsi } = require('strip-ansi')
 
-module.exports = function () {
+/**
+ * @param {Page} page
+ */
+module.exports = function (page) {
   console.log = createLogger({
     silenced: [
       // Ignore browser noise
@@ -22,6 +25,16 @@ module.exports = function () {
       'report | Writing'
     ]
   })
+
+  page.on('response', (response) => {
+    const status = response.status()
+
+    // Avoid Playwright locator timeouts by throwing immediately
+    // when requests fail (e.g. URL typos or port already in use)
+    if (status >= 400) {
+      throw new Error(`HTTP ${status} for '${response.url()}'`)
+    }
+  })
 }
 
 /**
@@ -34,12 +47,27 @@ function createLogger({ silenced }) {
     stderr: process.stderr
   })
 
-  return (message = '') => {
-    const text = stripAnsi(message)
+  /**
+   * @param {string[]} messages
+   * @param {string[]} silenced
+   */
+  const hasNoise = (messages, silenced) =>
+    silenced.some((noise) =>
+      messages.some((message) => message.includes(noise))
+    )
+
+  return (...args) => {
+    const messages = args.map((message) =>
+      typeof message === 'string' ? stripAnsi(message) : ''
+    )
 
     // Ignored silenced
-    if (silenced.every((term) => !text.includes(term))) {
-      logger.log(message)
+    if (!hasNoise(messages, silenced)) {
+      logger.log(...args)
     }
   }
 }
+
+/**
+ * @import { Page } from 'playwright-core'
+ */
