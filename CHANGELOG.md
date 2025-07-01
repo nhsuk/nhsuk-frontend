@@ -64,14 +64,14 @@ To make sure NHS.UK frontend's files do not conflict with your code, we've moved
 
 Make the following changes if they apply to your service:
 
-- [If you're using Sass](#if-youre-using-sass)
-- [If you're using precompiled CSS](#if-youre-using-precompiled-css)
-- [If you're using precompiled JavaScript](#if-youre-using-precompiled-javascript)
-- [If you're using JavaScript via a bundler](#if-youre-using-javascript-via-a-bundler)
-- [If you're using Nunjucks](#if-youre-using-nunjucks)
-- [If you're copying or serving assets](#if-youre-copying-or-serving-assets)
+- [Update Sass file paths](#update-sass-file-paths)
+- [Update precompiled CSS file paths](#update-precompiled-css-file-paths)
+- [Update precompiled JavaScript file paths](#update-precompiled-javascript-file-paths)
+- [Update JavaScript file paths for bundlers](#update-javascript-file-paths-for-bundlers)
+- [Update Nunjucks file paths](#update-nunjucks-file-paths)
+- [Update file paths for copying or serving assets](#update-file-paths-for-copying-or-serving-assets)
 
-##### If you're using Sass
+#### Update Sass file paths
 
 You must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by either:
 
@@ -92,14 +92,14 @@ After:
 @import "nhsuk-frontend/dist/nhsuk";
 ```
 
-##### If you're using precompiled CSS
+#### Update precompiled CSS file paths
 
 For precompiled stylesheets, note the following path changes:
 
 - Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`, not the previous `node_modules/dist/nhsuk.min.css` stylesheet
 - Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file, not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
-##### If you're using precompiled JavaScript
+#### Update precompiled JavaScript file paths
 
 For precompiled JavaScript, note the following path changes:
 
@@ -128,7 +128,7 @@ After:
 </body>
 ```
 
-##### If you're using JavaScript via a bundler
+#### Update JavaScript file paths for bundlers
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
 
@@ -172,7 +172,7 @@ new Button($button);
 new Checkboxes($checkboxes);
 ```
 
-##### If you're using Nunjucks
+#### Update Nunjucks file paths
 
 1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
 
@@ -196,7 +196,7 @@ nunjucks.configure([
 ])
 ```
 
-##### If you're copying or serving assets
+#### Update file paths for copying or serving assets
 
 Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend logos, icons and other assets:
 
