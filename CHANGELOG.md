@@ -73,24 +73,24 @@ Make the following changes if they apply to your service:
 
 ##### If you're using Sass
 
-Replace `packages/` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files.
+You must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by either:
+
+- calling the Sass compiler from the command line with the `--load-path node_modules` flag
+- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
+
+Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files, making sure to remove the unnecessary `node_modules/` prefix:
 
 Before:
 
 ```scss
-@forward "node_modules/nhsuk-frontend/packages/core";
+@import "node_modules/nhsuk-frontend/packages/nhsuk";
 ```
 
 After:
 
 ```scss
-@forward "nhsuk-frontend/dist/nhsuk/core";
+@import "nhsuk-frontend/dist/nhsuk";
 ```
-
-You must add `node_modules` to Sass load paths, by either:
-
-- calling the Sass compiler from the command line with the `--load-path node_modules` flag
-- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
 
 ##### If you're using precompiled CSS
 
