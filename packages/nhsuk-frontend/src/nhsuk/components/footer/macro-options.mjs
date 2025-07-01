@@ -111,6 +111,9 @@ export const params = {
  */
 export const examples = {
   'default': {
+    layout: 'layouts/example-full-width.njk'
+  },
+  'with links': {
     layout: 'layouts/example-full-width.njk',
     context: {
       links: [
@@ -137,10 +140,58 @@ export const examples = {
       ]
     }
   },
-  'columns': {
+  'with links and meta links': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      copyright: '© Crown copyright',
+      links: [
+        {
+          href: '#',
+          text: 'Accessibility statement'
+        },
+        {
+          href: '#',
+          text: 'Give us feedback'
+        },
+        {
+          href: '#',
+          text: 'Cookies'
+        },
+        {
+          href: '#',
+          text: 'Privacy policy'
+        },
+        {
+          href: '#',
+          text: 'Terms and conditions'
+        }
+      ],
+      metaLinks: [
+        {
+          href: '#',
+          text: 'About us'
+        },
+        {
+          href: '#',
+          text: 'Give us feedback'
+        },
+        {
+          href: '#',
+          text: 'Accessibility statement'
+        },
+        {
+          href: '#',
+          text: 'Our policies'
+        },
+        {
+          href: '#',
+          text: 'Cookies'
+        }
+      ]
+    }
+  },
+  'with columns': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
       links: [
         {
           href: '#',
