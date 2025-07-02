@@ -45,7 +45,7 @@
     "start": "npm run watch"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-env": "^7.28.0",
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
