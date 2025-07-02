@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.0.0-internal.0 - 2 July 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
 
