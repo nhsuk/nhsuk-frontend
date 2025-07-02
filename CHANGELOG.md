@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.0.0-internal.0 - 2 July 2025
 
 This release stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
 
