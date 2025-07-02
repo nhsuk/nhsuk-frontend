@@ -2,7 +2,11 @@
 
 ## Unreleased
 
-This release stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
+
+It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
+You must read and apply these updates carefully to ensure your service does not break.
 
 :new: **New features**
 
@@ -20,15 +24,175 @@ We’ve updated the header component to support account information and links. A
 
 This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
-#### Button groups
+#### Buttons are now full width on mobile
 
-You can now group buttons and links together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
 
-This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+
+This change was introduced in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
+
+#### Update file paths
+
+To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
+
+Make the following changes if they apply to your service:
+
+- [Update Sass file paths](#update-sass-file-paths)
+- [Update precompiled CSS file paths](#update-precompiled-css-file-paths)
+- [Update precompiled JavaScript file paths](#update-precompiled-javascript-file-paths)
+- [Update JavaScript file paths for bundlers](#update-javascript-file-paths-for-bundlers)
+- [Update Nunjucks file paths](#update-nunjucks-file-paths)
+- [Update file paths for copying or serving assets](#update-file-paths-for-copying-or-serving-assets)
+
+#### Update Sass file paths
+
+You must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by either:
+
+- calling the Sass compiler from the command line with the `--load-path node_modules` flag
+- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
+
+Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` paths in your [Sass](https://sass-lang.com/) files, making sure to remove the unnecessary `node_modules/` prefix:
+
+```patch
+- @import "node_modules/nhsuk-frontend/packages/nhsuk";
++ @import "nhsuk-frontend/dist/nhsuk";
+```
+
+#### Update precompiled CSS file paths
+
+For precompiled stylesheets, note the following path changes:
+
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`  
+  – not the previous `node_modules/dist/nhsuk.min.css` stylesheet
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
+  – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
+
+#### Update precompiled JavaScript file paths
+
+For precompiled JavaScript, note the following path changes:
+
+- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`  
+  – not the previous `node_modules/dist/nhsuk.min.js` script
+- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
+  – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
+
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+```
+
+#### Update JavaScript file paths for bundlers
+
+For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
+
+```patch
+- import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
+- import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
++ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
+```
+
+Ensuring component initialisation functions match the named exports:
+
+```mjs
+import { initButtons, initCheckboxes } from 'nhsuk-frontend'
+
+// Initialise all button components
+initButtons();
+
+// Initialise all radios components
+initRadios();
+```
+
+Or alternatively, you can initialise individual component classes:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
+```
+
+#### Update Nunjucks file paths
+
+1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
+
+```patch
+  nunjucks.configure([
+-   'node_modules/nhsuk-frontend/packages/components',
+-   'node_modules/nhsuk-frontend/packages/macros'
++   'node_modules/nhsuk-frontend/dist/nhsuk/components',
++   'node_modules/nhsuk-frontend/dist/nhsuk/macros',
++   'node_modules/nhsuk-frontend/dist/nhsuk',
++   'node_modules/nhsuk-frontend/dist'
+  ])
+```
+
+#### Update file paths for copying or serving assets
+
+Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend logos, icons and other assets:
+
+```patch
+- node_modules/nhsuk-frontend/packages/assets
++ node_modules/nhsuk-frontend/dist/nhsuk/assets
+```
+
+For example, if you're using [Express.js](https://expressjs.com/), request routing could be set up as follows:
+
+```js
+router.use('/assets', [
+  express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
+])
+```
 
 #### Verify your code does not rely on polyfills we have now removed
 
@@ -36,7 +200,7 @@ We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.cl
 
 However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
 
-These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk-frontend/pull/1326).
+These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk/nhsuk-frontend/pull/1326).
 
 #### Stop Internet Explorer 11 and other older browsers running unsupported JavaScript
 
@@ -44,7 +208,7 @@ Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK fr
 
 This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
-Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module". You'll need to assess the impact of these nuances and make sure that:
+Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
 
 - when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
@@ -60,13 +224,13 @@ Page templates now include a new `nhsuk-frontend-supported` class on the `<body>
 
 If you are not using our Nunjucks page template, replace the existing snippet:
 
-```js
+```html
 <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 ```
 
 with:
 
-```js
+```html
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
@@ -74,7 +238,7 @@ These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend
 
 #### Update header component params
 
-If you’re using the `header` Nunjucks macro in your service, you must:
+If you're using the `header` Nunjucks macro in your service, you must:
 
 - Rename the `transactionalService` option to the new `service` option, and remove the boolean `transactional` option.
 - Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
@@ -88,61 +252,41 @@ To restore the previous justified alignment, where navigation items appeared eve
 
 #### Update header component HTML markup
 
-You do not need to do anything if you’re using Nunjucks macros.
-
 If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
 
 #### Rename component `HTML` param to `html`
 
-If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`.
+If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`:
 
-Before:
-
-```njk
-{{ insetText({
-  HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-}) }}
-```
-
-After:
-
-```njk
-{{ insetText({
-  html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-}) }}
+```patch
+  {{ insetText({
+-   HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
++   html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  }) }}
 ```
 
 This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
 #### Rename details component `text` param to `summaryText`
 
-If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`.
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`:
 
-Before:
-
-```njk
-{{ details({
-  text: "Where can I find my NHS number?",
-  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
-}) }}
-```
-
-After:
-
-```njk
-{{ details({
-  summaryText: "Where can I find my NHS number?",
-  html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
-}) }}
+```patch
+  {{ details({
+-   text: "Where can I find my NHS number?",
++   summaryText: "Where can I find my NHS number?",
+    html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+  }) }}
 ```
 
 This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
 
-```njk
-{{ details({
-  summaryText: "Where can I find my NHS number?",
-  text: "An NHS number is a 10 digit number, like 485 777 3456."
-}) }}
+```patch
+  {{ details({
+    summaryText: "Where can I find my NHS number?",
+-   html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
++   text: "An NHS number is a 10 digit number, like 485 777 3456."
+  }) }}
 ```
 
 This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
@@ -175,20 +319,11 @@ Remove any use of these mixins in your own Sass. You must replace them with the 
 
 If you're using the `nhsuk-grid-column()` Sass mixin to create custom grid classes, you must remove the `$class` parameter:
 
-Before:
-
-```scss
-.app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
-}
-```
-
-After:
-
-```scss
-.app-grid-column-one-quarter-at-desktop {
-  @include nhsuk-grid-column(one-quarter, $at: desktop);
-}
+```patch
+  .app-grid-column-one-quarter-at-desktop {
+-   @include nhsuk-grid-column(one-quarter, $at: desktop, $class: false);
++   @include nhsuk-grid-column(one-quarter, $at: desktop);
+  }
 ```
 
 See the full list of previously deprecated features below:
@@ -222,67 +357,24 @@ If you've linked from an [error summary](https://design-system.service.gov.uk/co
 
 This is because the `id` of the first checkbox or radio item no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
-If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute.
+If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute:
 
-Before:
-
-```njk
-{{ errorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    {
-      text: "Select how you like to be contacted",
-      href: "#contact-preference-1"
-    }
-  ]
-}) }}
-```
-
-After:
-
-```njk
-{{ errorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    {
-      text: "Select how you like to be contacted",
-      href: "#contact-preference"
-    }
-  ]
-}) }}
+```patch
+  {{ errorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: "Select how you like to be contacted",
+-       href: "#contact-preference-1"
++       href: "#contact-preference"
+      }
+    ]
+  }) }}
 ```
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
 This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
-
-#### Create custom width container classes
-
-You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
-
-For example:
-
-```scss
-.app-width-container--wide {
-  @include nhsuk-width-container(1200px);
-}
-```
-
-You can use the generated classes to set the width of:
-
-- template container
-- header container
-- footer container
-
-It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
-
-This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
-
-#### Buttons are now full width on mobile
-
-All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
-
-This change was introduced in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
 
 :recycle: **Changes**
 
