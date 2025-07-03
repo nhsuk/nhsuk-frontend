@@ -1,4 +1,5 @@
 import { toggleConditionalInput } from '../../common.mjs'
+import { Component } from '../../component.mjs'
 
 /**
  * Checkboxes component
@@ -6,16 +7,12 @@ import { toggleConditionalInput } from '../../common.mjs'
  * Conditionally show content when a checkbox button is checked
  * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
  */
-export class Checkboxes {
+export class Checkboxes extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     const $inputs = this.$root.querySelectorAll('.nhsuk-checkboxes__input')
     if (!$inputs.length) {
