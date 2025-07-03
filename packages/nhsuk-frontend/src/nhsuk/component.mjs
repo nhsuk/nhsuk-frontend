@@ -6,8 +6,17 @@ import { ElementError } from './errors/index.mjs'
  * Centralises the behaviours shared by our components
  *
  * @abstract
+ * @template {Element} [RootElementType=HTMLElement]
  */
 export class Component {
+  /**
+   * @type {typeof Element}
+   */
+  static elementType = HTMLElement
+
+  /**
+   * @type {RootElementType}
+   */
   $root
 
   /**
@@ -20,16 +29,16 @@ export class Component {
       this.constructor
     )
 
-    if (!$root || !($root instanceof HTMLElement)) {
+    if (!$root || !($root instanceof ComponentClass.elementType)) {
       throw new ElementError({
         element: $root,
         component: ComponentClass,
         identifier: 'Root element (`$root`)',
-        expectedType: 'HTMLElement'
+        expectedType: ComponentClass.elementType.name
       })
     }
 
-    this.$root = $root
+    this.$root = /** @type {RootElementType} */ ($root)
   }
 }
 
