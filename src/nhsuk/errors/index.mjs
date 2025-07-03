@@ -23,6 +23,31 @@ export class NHSUKFrontendError extends Error {
 }
 
 /**
+ * Indicates that NHS.UK frontend is not supported
+ */
+export class SupportError extends NHSUKFrontendError {
+  name = 'SupportError'
+
+  /**
+   * Checks if NHS.UK frontend is supported on this page
+   *
+   * @param {HTMLElement | null} [$scope] - HTML element `<body>` checked for browser support
+   */
+  constructor($scope = document.body) {
+    const supportMessage =
+      'noModule' in HTMLScriptElement.prototype
+        ? 'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        : 'NHS.UK frontend is not supported in this browser'
+
+    super(
+      $scope
+        ? supportMessage
+        : 'NHS.UK frontend initialised without `<script type="module">`'
+    )
+  }
+}
+
+/**
  * Indicates an issue with an element (possibly `null` or `undefined`)
  */
 export class ElementError extends NHSUKFrontendError {
