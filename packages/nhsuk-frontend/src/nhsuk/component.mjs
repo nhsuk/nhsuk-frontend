@@ -21,3 +21,8 @@ export class Component {
     this.$root = $root
   }
 }
+
+/**
+ * @template {Function} [ComponentType=typeof Component]
+ * @typedef {ComponentType} ComponentConstructor
+ */
