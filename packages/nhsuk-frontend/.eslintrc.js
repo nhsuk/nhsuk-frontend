@@ -5,8 +5,13 @@ module.exports = {
   overrides: [
     {
       files: ['src/**/*.{cjs,js,mjs}'],
-      excludedFiles: ['src/**/*.test.{cjs,js,mjs}'],
-      extends: ['plugin:es-x/restrict-to-es2015', 'prettier'],
+      excludedFiles: ['src/**/*.test.{cjs,js,mjs}', 'src/**/macro-options.mjs'],
+      extends: [
+        'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
+        'plugin:es-x/restrict-to-es2015',
+        'prettier'
+      ],
       env: {
         browser: true
       },
@@ -14,8 +19,25 @@ module.exports = {
         // Note: Allow ES2015 for import/export syntax
         ecmaVersion: '2015'
       },
-      plugins: ['es-x'],
+      plugins: ['@typescript-eslint', 'es-x'],
       rules: {
+        // Allow void return shorthand in arrow functions
+        '@typescript-eslint/no-confusing-void-expression': [
+          'error',
+          {
+            ignoreArrowShorthand: true
+          }
+        ],
+
+        // Check type support for template string implicit `.toString()`
+        '@typescript-eslint/restrict-template-expressions': [
+          'error',
+          {
+            allowBoolean: true,
+            allowNumber: true
+          }
+        ],
+
         // Babel transpiles ES2020 class fields
         'es-x/no-class-fields': 'off',
 
