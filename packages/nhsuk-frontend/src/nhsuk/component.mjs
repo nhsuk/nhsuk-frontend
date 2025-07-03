@@ -1,3 +1,5 @@
+import { ElementError } from './errors/index.mjs'
+
 /**
  * Base component class
  *
@@ -14,8 +16,17 @@ export class Component {
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
+    const ComponentClass = /** @type {ComponentConstructor} */ (
+      this.constructor
+    )
+
     if (!$root || !($root instanceof HTMLElement)) {
-      return this
+      throw new ElementError({
+        element: $root,
+        component: ComponentClass,
+        identifier: 'Root element (`$root`)',
+        expectedType: 'HTMLElement'
+      })
     }
 
     this.$root = $root
