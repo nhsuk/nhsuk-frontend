@@ -1,4 +1,4 @@
-require('@testing-library/jest-dom')
+import '@testing-library/jest-dom'
 
 /**
  * Polyfill Element methods for error summary
