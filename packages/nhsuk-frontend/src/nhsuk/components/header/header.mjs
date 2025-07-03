@@ -265,5 +265,9 @@ export function initHeader(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-header')
 
+  if (!$root) {
+    return
+  }
+
   new Header($root)
 }

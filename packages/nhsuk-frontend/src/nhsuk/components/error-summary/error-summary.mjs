@@ -135,6 +135,10 @@ export function initErrorSummary(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-error-summary')
 
+  if (!$root) {
+    return
+  }
+
   new ErrorSummary($root, {
     disableAutoFocus: options.focusOnPageLoad === false
   })
