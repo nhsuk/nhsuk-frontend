@@ -1,16 +1,14 @@
+import { Component } from '../../component.mjs'
+
 /**
  * Header component
  */
-export class Header {
+export class Header extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     this.navigation = this.$root.querySelector('.nhsuk-header__navigation')
     this.navigationList = this.$root.querySelector(

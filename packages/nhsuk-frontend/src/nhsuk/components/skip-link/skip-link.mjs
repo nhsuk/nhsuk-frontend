@@ -1,23 +1,20 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
 import { setFocus } from '../../common.mjs'
+import { Component } from '../../component.mjs'
 
-/*
+/**
  * Skip link component
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when elected so the next focusable element is not at the jumped to area.
  */
-export class SkipLink {
+export class SkipLink extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLAnchorElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     const linkedElementId = this.$root.hash.split('#').pop()
     const $linkedElement = linkedElementId

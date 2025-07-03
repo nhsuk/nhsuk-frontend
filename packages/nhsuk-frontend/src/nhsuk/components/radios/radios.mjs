@@ -1,4 +1,5 @@
 import { toggleConditionalInput } from '../../common.mjs'
+import { Component } from '../../component.mjs'
 
 /**
  * Radios component
@@ -6,13 +7,12 @@ import { toggleConditionalInput } from '../../common.mjs'
  * Conditionally show content when a radio button is checked
  * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
-export class Radios {
+export class Radios extends Component {
+  /**
+   * @param {Element | null} [$root] - HTML element to use for component
+   */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     const $inputs = this.$root.querySelectorAll('.nhsuk-radios__input')
     if (!$inputs.length) {
