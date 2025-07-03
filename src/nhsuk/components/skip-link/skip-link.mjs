@@ -8,8 +8,12 @@ import { Component } from '../../component.mjs'
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when elected so the next focusable element is not at the jumped to area.
+ *
+ * @augments Component<HTMLAnchorElement>
  */
 export class SkipLink extends Component {
+  static elementType = HTMLAnchorElement
+
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
