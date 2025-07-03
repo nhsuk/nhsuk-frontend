@@ -34,14 +34,16 @@ export async function load(component) {
   })
 
   // Sort examples by name, default at top
-  data.examples = Object.fromEntries(
-    Object.entries(options.examples).sort(([nameA], [nameB]) =>
-      collator.compare(
-        nameA.replace('default', ''),
-        nameB.replace('default', '')
+  if (options.examples) {
+    data.examples = Object.fromEntries(
+      Object.entries(options.examples).sort(([nameA], [nameB]) =>
+        collator.compare(
+          nameA.replace('default', ''),
+          nameB.replace('default', '')
+        )
       )
     )
-  )
+  }
 
   return data
 }

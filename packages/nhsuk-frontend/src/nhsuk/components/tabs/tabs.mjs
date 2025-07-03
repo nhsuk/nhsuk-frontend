@@ -302,11 +302,17 @@ export class Tabs extends Component {
     )
   }
 
-  // this is because IE doesn't always return the actual value but a relative full path
-  // should be a utility function most prob
-  // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
+  /**
+   * Get tab link href
+   *
+   * This is because IE doesn't always return the actual value but a relative full path
+   * should be a utility function most prob
+   *
+   * @see {@link http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/}
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   static getHref($tab) {
-    const href = $tab.getAttribute('href')
+    const href = $tab.href
     const hash = href.slice(href.indexOf('#'), href.length)
     return hash
   }

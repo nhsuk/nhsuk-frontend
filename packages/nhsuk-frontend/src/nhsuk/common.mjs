@@ -20,7 +20,7 @@ export function toggleAttribute(element, attr) {
  */
 export function toggleConditionalInput(input, className) {
   // Return without error if input or class are missing
-  if (!input || !className) return
+  if (!input || !(input instanceof HTMLInputElement) || !className) return
   // If the input has conditional content it had a data-aria-controls attribute
   const conditionalId = input.getAttribute('aria-controls')
   if (conditionalId) {
