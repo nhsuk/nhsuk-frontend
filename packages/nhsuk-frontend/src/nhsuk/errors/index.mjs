@@ -21,3 +21,41 @@
 export class NHSUKFrontendError extends Error {
   name = 'NHSUKFrontendError'
 }
+
+/**
+ * Indicates an issue with an element (possibly `null` or `undefined`)
+ */
+export class ElementError extends NHSUKFrontendError {
+  name = 'ElementError'
+
+  /**
+   * @param {ElementErrorOptions} options - Element error options
+   */
+  constructor(options) {
+    const { component, identifier, element, expectedType } = options
+
+    // Add prefix and identifier
+    let message = `${component.name}: ${identifier}`
+
+    // Append reason
+    message += element
+      ? ` is not of type ${expectedType ?? 'HTMLElement'}`
+      : ' not found'
+
+    super(message)
+  }
+}
+
+/**
+ * Element error options
+ *
+ * @typedef {object} ElementErrorOptions
+ * @property {Element | null} [element] - The element in error
+ * @property {ComponentConstructor} component - Component throwing the error
+ * @property {string} identifier - An identifier that'll let the user understand which element has an error. This is whatever makes the most sense
+ * @property {string} [expectedType] - The type that was expected for the identifier
+ */
+
+/**
+ * @import { ComponentConstructor } from '../component.mjs'
+ */

@@ -21,3 +21,8 @@ export class Component {
     this.$root = $root
   }
 }
+
+/**
+ * @template {Element} [RootElementType=HTMLElement]
+ * @typedef {typeof Component<RootElementType>} ComponentConstructor
+ */
