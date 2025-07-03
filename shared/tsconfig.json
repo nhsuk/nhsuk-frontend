@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "types": ["node", "typed-query-selector"]
+  },
+  "include": ["**/*.js", "**/*.mjs"]
+}
