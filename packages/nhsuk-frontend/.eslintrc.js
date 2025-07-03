@@ -14,7 +14,7 @@ module.exports = {
         // Note: Allow ES2015 for import/export syntax
         ecmaVersion: '2015'
       },
-      plugins: ['es-x'],
+      plugins: ['@typescript-eslint', 'es-x'],
       rules: {
         // Babel transpiles ES2020 class fields
         'es-x/no-class-fields': 'off',
