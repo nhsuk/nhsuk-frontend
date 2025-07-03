@@ -35,3 +35,4 @@ export function initAll($scope) {
 }
 
 export * from './components/index.mjs'
+export * from './component.mjs'

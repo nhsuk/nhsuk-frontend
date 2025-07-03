@@ -1,16 +1,16 @@
+import { Component } from '../../component.mjs'
+
 /**
  * Character count component
  */
-export class CharacterCount {
+export class CharacterCount extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
+    super($root)
 
-    const $textarea = $root.querySelector('.nhsuk-js-character-count')
+    const $textarea = this.$root.querySelector('.nhsuk-js-character-count')
     if (
       !$textarea ||
       !(
@@ -21,7 +21,6 @@ export class CharacterCount {
       return this
     }
 
-    this.$root = $root
     this.$textarea = $textarea
     this.$visibleCountMessage = null
     this.$screenReaderCountMessage = null

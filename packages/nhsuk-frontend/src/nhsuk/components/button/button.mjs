@@ -1,19 +1,18 @@
+import { Component } from '../../component.mjs'
+
 const KEY_SPACE = 32
 const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
 /**
  * Button component
  */
-export class Button {
+export class Button extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
+    super($root)
 
-    this.$root = $root
     this.debounceFormSubmitTimer = null
 
     /**

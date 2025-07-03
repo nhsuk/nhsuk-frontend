@@ -1,4 +1,5 @@
 import { generateUniqueID, toggleAttribute } from '../../common.mjs'
+import { Component } from '../../component.mjs'
 
 /**
  * Details component
@@ -6,16 +7,12 @@ import { generateUniqueID, toggleAttribute } from '../../common.mjs'
  * Ensure details component is cross browser and accessible
  * Test at http://localhost:3000/nhsuk-frontend/components/details/index.html
  */
-export class Details {
+export class Details extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     // If there is native details support, we want to avoid running code to polyfill native behaviour.
     const hasNativeDetails =
