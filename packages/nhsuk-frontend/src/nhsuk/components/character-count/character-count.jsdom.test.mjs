@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
-import { initCharacterCounts } from './character-count.mjs'
+import { CharacterCount, initCharacterCounts } from './character-count.mjs'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -33,7 +33,7 @@ describe('Character count', () => {
     jest.spyOn($textarea, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initCharacterCounts()
 
@@ -66,6 +66,26 @@ describe('Character count', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initCharacterCounts({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new CharacterCount($root)).not.toThrow()
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new CharacterCount()).toThrow(
+        'CharacterCount: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new CharacterCount($root)).toThrow(
+        'CharacterCount: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 })

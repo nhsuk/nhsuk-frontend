@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { initErrorSummary } from './error-summary.mjs'
+import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
 
 describe('Error summary', () => {
   /** @type {HTMLDivElement} */
@@ -75,7 +75,7 @@ describe('Error summary', () => {
     jest.spyOn($label, 'scrollIntoView')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initErrorSummary()
 
@@ -103,6 +103,26 @@ describe('Error summary', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initErrorSummary({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new ErrorSummary($root)).not.toThrow()
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new ErrorSummary()).toThrow(
+        'ErrorSummary: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new ErrorSummary($root)).toThrow(
+        'ErrorSummary: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 
