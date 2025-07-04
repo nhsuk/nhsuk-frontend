@@ -4,7 +4,6 @@ import {
   initButtons,
   initCharacterCounts,
   initCheckboxes,
-  initDetails,
   initErrorSummary,
   initSkipLinks,
   initTabs
@@ -28,7 +27,6 @@ export function initAll($scope) {
   initButtons(options)
   initCharacterCounts(options)
   initCheckboxes(options)
-  initDetails(options)
   initErrorSummary(options)
   initRadios(options)
   initTabs(options)

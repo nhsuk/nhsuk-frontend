@@ -3,7 +3,6 @@ import {
   initButtons,
   initCharacterCounts,
   initCheckboxes,
-  initDetails,
   initErrorSummary,
   initHeader,
   initRadios,
@@ -15,7 +14,6 @@ import * as NHSUKFrontend from './index.mjs'
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
-jest.mock('./components/details/details.mjs')
 jest.mock('./components/error-summary/error-summary.mjs')
 jest.mock('./components/header/header.mjs')
 jest.mock('./components/radios/radios.mjs')
@@ -32,7 +30,6 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initButtons')
       expect(NHSUKFrontend).toHaveProperty('initCharacterCounts')
       expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
-      expect(NHSUKFrontend).toHaveProperty('initDetails')
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
@@ -48,7 +45,6 @@ describe('NHS.UK frontend', () => {
       expect(initButtons).toHaveBeenCalled()
       expect(initCharacterCounts).toHaveBeenCalled()
       expect(initCheckboxes).toHaveBeenCalled()
-      expect(initDetails).toHaveBeenCalled()
       expect(initErrorSummary).toHaveBeenCalled()
       expect(initHeader).toHaveBeenCalled()
       expect(initRadios).toHaveBeenCalled()
@@ -67,7 +63,6 @@ describe('NHS.UK frontend', () => {
       expect(initButtons).toHaveBeenCalledWith({ scope })
       expect(initCharacterCounts).toHaveBeenCalledWith({ scope })
       expect(initCheckboxes).toHaveBeenCalledWith({ scope })
-      expect(initDetails).toHaveBeenCalledWith({ scope })
       expect(initErrorSummary).toHaveBeenCalledWith({ scope })
       expect(initRadios).toHaveBeenCalledWith({ scope })
       expect(initTabs).toHaveBeenCalledWith({ scope })
