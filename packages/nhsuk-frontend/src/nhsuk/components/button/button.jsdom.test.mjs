@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
-import { initButtons } from './button.mjs'
+import { Button, initButtons } from './button.mjs'
 
 describe('Button', () => {
   /** @type {HTMLElement} */
@@ -17,7 +17,7 @@ describe('Button', () => {
     jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initButtons()
 
@@ -47,6 +47,26 @@ describe('Button', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initButtons({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new Button($root)).not.toThrow()
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new Button()).toThrow(
+        'Button: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new Button($root)).toThrow(
+        'Button: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 })

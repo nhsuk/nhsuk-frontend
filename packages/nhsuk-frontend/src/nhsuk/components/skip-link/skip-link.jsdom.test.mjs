@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { initSkipLinks } from './skip-link.mjs'
+import { SkipLink, initSkipLinks } from './skip-link.mjs'
 
 const user = userEvent.setup()
 
@@ -42,7 +42,7 @@ describe('Skip link', () => {
     jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initSkipLinks()
 
@@ -70,6 +70,26 @@ describe('Skip link', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initSkipLinks({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new SkipLink($root)).not.toThrow()
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new SkipLink()).toThrow(
+        'SkipLink: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElement('div')
+
+      expect(() => new SkipLink($root)).toThrow(
+        'SkipLink: Root element (`$root`) is not of type HTMLAnchorElement'
+      )
     })
   })
 
