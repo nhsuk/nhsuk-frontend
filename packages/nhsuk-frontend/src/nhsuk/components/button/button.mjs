@@ -69,6 +69,11 @@ export class Button extends Component {
       this.debounceFormSubmitTimer = null
     }, DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes.
+   */
+  static moduleName = 'nhsuk-button'
 }
 
 /**
@@ -79,7 +84,9 @@ export class Button extends Component {
  */
 export function initButtons(options = {}) {
   const $scope = options.scope || document
-  const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
+  const $buttons = $scope.querySelectorAll(
+    `[data-module="${Button.moduleName}"]`
+  )
 
   $buttons.forEach(($root) => {
     new Button($root)

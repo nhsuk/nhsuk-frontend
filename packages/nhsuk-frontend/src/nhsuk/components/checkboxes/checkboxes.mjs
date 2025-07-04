@@ -123,6 +123,11 @@ export class Checkboxes extends Component {
       this.unCheckExclusiveInputs(event.target)
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes.
+   */
+  static moduleName = 'nhsuk-checkboxes'
 }
 
 /**
