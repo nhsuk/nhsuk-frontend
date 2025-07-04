@@ -4,30 +4,30 @@ import { getByRole } from '@testing-library/dom'
 import { initButtons } from './button.mjs'
 
 describe('Button', () => {
-  /** @type {HTMLButtonElement} */
-  let $button
+  /** @type {HTMLElement} */
+  let $root
 
   beforeEach(() => {
     document.body.innerHTML = components.render('button', {
       context: { text: 'Save and continue' }
     })
 
-    $button = getByRole(document.body, 'button')
+    $root = getByRole(document.body, 'button')
 
-    jest.spyOn($button, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initButtons()
 
-      expect($button.addEventListener).toHaveBeenNthCalledWith(
+      expect($root.addEventListener).toHaveBeenNthCalledWith(
         1,
         'keydown',
         expect.any(Function)
       )
 
-      expect($button.addEventListener).toHaveBeenNthCalledWith(
+      expect($root.addEventListener).toHaveBeenNthCalledWith(
         2,
         'click',
         expect.any(Function)
@@ -35,7 +35,7 @@ describe('Button', () => {
     })
 
     it('should not throw with missing button', () => {
-      $button.remove()
+      $root.remove()
       expect(() => initButtons()).not.toThrow()
     })
 

@@ -5,6 +5,9 @@ import { outdent } from 'outdent'
 import { initRadios } from './radios.mjs'
 
 describe('Radios', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLDivElement[]} */
   let $conditionals
 
@@ -89,21 +92,19 @@ describe('Radios', () => {
       </form>
     `
 
-    const $container = document.querySelector('.nhsuk-radios')
+    $root = document.querySelector('.nhsuk-radios')
 
-    $conditionals = [
-      ...$container.querySelectorAll('.nhsuk-radios__conditional')
-    ]
+    $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
 
-    const $input1 = getByRole($container, 'radio', {
+    const $input1 = getByRole($root, 'radio', {
       name: 'Email'
     })
 
-    const $input2 = getByRole($container, 'radio', {
+    const $input2 = getByRole($root, 'radio', {
       name: 'Phone'
     })
 
-    const $input3 = getByRole($container, 'radio', {
+    const $input3 = getByRole($root, 'radio', {
       name: 'Text message'
     })
 

@@ -5,8 +5,8 @@ import { outdent } from 'outdent'
 import { initErrorSummary } from './error-summary.mjs'
 
 describe('Error summary', () => {
-  /** @type {HTMLAnchorElement} */
-  let $errorSummary
+  /** @type {HTMLDivElement} */
+  let $root
 
   /** @type {HTMLAnchorElement[]} */
   let $links
@@ -58,11 +58,11 @@ describe('Error summary', () => {
 
     const $container = document.querySelector('form')
 
-    $errorSummary = getByRole($container, 'alert', {
+    $root = getByRole($container, 'alert', {
       name: 'There is a problem'
     })
 
-    $links = getAllByRole($errorSummary, 'link')
+    $links = getAllByRole($root, 'link')
 
     $input = getByRole($container, 'textbox', {
       name: 'National Insurance number'
@@ -70,7 +70,7 @@ describe('Error summary', () => {
 
     $label = $input.labels[0]
 
-    jest.spyOn($errorSummary, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
     jest.spyOn($input, 'focus')
     jest.spyOn($label, 'scrollIntoView')
   })
@@ -79,14 +79,14 @@ describe('Error summary', () => {
     it('should add event listeners', () => {
       initErrorSummary()
 
-      expect($errorSummary.addEventListener).toHaveBeenCalledWith(
+      expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing error summary', () => {
-      $errorSummary.remove()
+      $root.remove()
       expect(() => initErrorSummary()).not.toThrow()
     })
 
@@ -111,7 +111,7 @@ describe('Error summary', () => {
       it('sets focus automatically', () => {
         initErrorSummary()
 
-        expect($errorSummary).toHaveFocus()
+        expect($root).toHaveFocus()
       })
 
       it('sets focus automatically (focusOnPageLoad: true)', () => {
@@ -119,7 +119,7 @@ describe('Error summary', () => {
           focusOnPageLoad: true
         })
 
-        expect($errorSummary).toHaveFocus()
+        expect($root).toHaveFocus()
       })
 
       it('does not set focus automatically (focusOnPageLoad: false)', () => {
@@ -127,7 +127,7 @@ describe('Error summary', () => {
           focusOnPageLoad: false
         })
 
-        expect($errorSummary).not.toHaveFocus()
+        expect($root).not.toHaveFocus()
       })
     })
 

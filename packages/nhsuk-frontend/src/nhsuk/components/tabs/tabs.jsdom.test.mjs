@@ -5,6 +5,9 @@ import { outdent } from 'outdent'
 import { initTabs } from './tabs.mjs'
 
 describe('Tabs', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLUListElement} */
   let $list
 
@@ -55,11 +58,11 @@ describe('Tabs', () => {
       }
     })
 
-    const $container = document.querySelector('.nhsuk-tabs')
+    $root = document.querySelector('.nhsuk-tabs')
 
-    $list = getByRole($container, 'list')
-    $listItems = getAllByRole($container, 'listitem')
-    $tabs = getAllByRole($container, 'link')
+    $list = getByRole($root, 'list')
+    $listItems = getAllByRole($root, 'listitem')
+    $tabs = getAllByRole($root, 'link')
     $panels = [...document.querySelectorAll('.nhsuk-tabs__panel')]
 
     $tabs.forEach(($tab) => jest.spyOn($tab, 'addEventListener'))

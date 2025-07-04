@@ -8,10 +8,10 @@ const user = userEvent.setup()
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
-  let $main
+  let $root
 
-  /** @type {HTMLAnchorElement} */
-  let $skipLink
+  /** @type {HTMLElement} */
+  let $main
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -35,25 +35,25 @@ describe('Skip link', () => {
 
     $main = document.querySelector('main')
 
-    $skipLink = getByRole(document.body, 'link', {
+    $root = getByRole(document.body, 'link', {
       name: 'Skip to main content'
     })
 
-    jest.spyOn($skipLink, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation', () => {
     it('should add event listeners', () => {
       initSkipLinks()
 
-      expect($skipLink.addEventListener).toHaveBeenCalledWith(
+      expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing skip link', () => {
-      $skipLink.remove()
+      $root.remove()
       expect(() => initSkipLinks()).not.toThrow()
     })
 
