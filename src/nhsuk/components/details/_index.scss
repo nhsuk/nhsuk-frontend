@@ -25,7 +25,7 @@
 }
 
 .nhsuk-details__summary {
-  display: inline-block; // [2]
+  display: block;
 }
 
 .nhsuk-details__text {
@@ -62,6 +62,7 @@
     cursor: pointer;
     padding-left: nhsuk-spacing(4);
     position: relative; // [3]
+    width: fit-content; // [2]
 
     &:hover {
       color: $nhsuk-link-hover-color;
@@ -135,6 +136,7 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
     padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
+    width: auto; // [2]
 
     @include nhsuk-media-query($from: tablet) {
       padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
