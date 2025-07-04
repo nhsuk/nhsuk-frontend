@@ -1,4 +1,5 @@
-import { ElementError } from './errors/index.mjs'
+import { isSupported } from './common.mjs'
+import { ElementError, SupportError } from './errors/index.mjs'
 
 /**
  * Base component class
@@ -20,7 +21,7 @@ export class Component {
   $root
 
   /**
-   * Constructs a new component
+   * Constructs a new component, validating that NHS.UK frontend is supported
    *
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -39,6 +40,19 @@ export class Component {
     }
 
     this.$root = /** @type {RootElementType} */ ($root)
+
+    ComponentClass.checkSupport()
+  }
+
+  /**
+   * Validates whether components are supported
+   *
+   * @throws {SupportError} when the components are not supported
+   */
+  static checkSupport() {
+    if (!isSupported()) {
+      throw new SupportError()
+    }
   }
 }
 

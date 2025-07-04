@@ -153,6 +153,14 @@ describe('Checkboxes', () => {
       expect(() => new Checkboxes($root)).not.toThrow()
     })
 
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new Checkboxes($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
     it('should throw with missing $root element', () => {
       expect(() => new Checkboxes()).toThrow(
         'Checkboxes: Root element (`$root`) not found'

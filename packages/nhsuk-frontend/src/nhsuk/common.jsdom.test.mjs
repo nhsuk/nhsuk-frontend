@@ -1,4 +1,25 @@
-import { toggleAttribute, toggleConditionalInput } from './common.mjs'
+import {
+  isSupported,
+  toggleAttribute,
+  toggleConditionalInput
+} from './common.mjs'
+
+describe('isSupported util', () => {
+  it('returns true if the nhsuk-frontend-supported class is set', () => {
+    expect(isSupported(document.body)).toBe(true)
+  })
+
+  it('returns false if the nhsuk-frontend-supported class is not set', () => {
+    document.body.classList.remove('nhsuk-frontend-supported')
+    expect(isSupported(document.body)).toBe(false)
+  })
+
+  it('returns false when `document.body` is not set', () => {
+    // For example, running `initAll()` in `<head>` without `type="module"`
+    // will see support checks run when document.body is still `null`
+    expect(isSupported(null)).toBe(false)
+  })
+})
 
 describe('toggleAttribute util', () => {
   const attr = 'test-attribute'

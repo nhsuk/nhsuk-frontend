@@ -23,3 +23,8 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn()
   }))
 })
+
+beforeEach(async () => {
+  // Flag NHS.UK frontend as supported
+  document.body.classList.add('nhsuk-frontend-supported')
+})
