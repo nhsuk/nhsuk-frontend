@@ -4,6 +4,9 @@ import { getByRole } from '@testing-library/dom'
 import { initCharacterCounts } from './character-count.mjs'
 
 describe('Character count', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLTextAreaElement} */
   let $textarea
 
@@ -21,9 +24,9 @@ describe('Character count', () => {
       }
     })
 
-    const $container = document.querySelector('.nhsuk-character-count')
+    $root = document.querySelector('.nhsuk-character-count')
 
-    $textarea = getByRole($container, 'textbox', {
+    $textarea = getByRole($root, 'textbox', {
       name: 'Can you provide more detail?'
     })
 

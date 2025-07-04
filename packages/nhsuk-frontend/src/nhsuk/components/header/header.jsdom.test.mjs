@@ -10,6 +10,9 @@ const user = userEvent.setup()
 
 describe('Header class', () => {
   /** @type {HTMLElement} */
+  let $root
+
+  /** @type {HTMLElement} */
   let $navigation
 
   /** @type {HTMLElement} */
@@ -61,10 +64,10 @@ describe('Header class', () => {
       }
     })
 
-    const $container = document.querySelector('.nhsuk-header')
+    $root = document.querySelector('.nhsuk-header')
 
-    $navigation = getByRole($container, 'navigation')
-    $menuButton = getByRole($container, 'button', {
+    $navigation = getByRole($root, 'navigation')
+    $menuButton = getByRole($root, 'button', {
       name: 'Browse More',
       hidden: true
     })

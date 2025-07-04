@@ -5,6 +5,9 @@ import { outdent } from 'outdent'
 import { initCheckboxes } from './checkboxes.mjs'
 
 describe('Checkboxes', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLDivElement[]} */
   let $conditionals
 
@@ -89,21 +92,21 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    const $container = document.querySelector('.nhsuk-checkboxes')
+    $root = document.querySelector('.nhsuk-checkboxes')
 
     $conditionals = [
-      ...$container.querySelectorAll('.nhsuk-checkboxes__conditional')
+      ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
     ]
 
-    const $input1 = getByRole($container, 'checkbox', {
+    const $input1 = getByRole($root, 'checkbox', {
       name: 'Email'
     })
 
-    const $input2 = getByRole($container, 'checkbox', {
+    const $input2 = getByRole($root, 'checkbox', {
       name: 'Phone'
     })
 
-    const $input3 = getByRole($container, 'checkbox', {
+    const $input3 = getByRole($root, 'checkbox', {
       name: 'Text message'
     })
 

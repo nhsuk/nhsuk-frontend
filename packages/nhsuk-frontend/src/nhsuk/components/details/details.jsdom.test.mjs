@@ -4,8 +4,8 @@ import { outdent } from 'outdent'
 import { initDetails } from './details.mjs'
 
 describe('Details', () => {
-  /** @type {HTMLDetailsElement} */
-  let $details
+  /** @type {HTMLElement} */
+  let $root
 
   /** @type {HTMLElement} */
   let $summary
@@ -32,7 +32,7 @@ describe('Details', () => {
       callBlock: detailsHtml
     })
 
-    $details = document.querySelector('.nhsuk-details')
+    $root = document.querySelector('.nhsuk-details')
     $summary = document.querySelector('.nhsuk-details__summary')
     $content = document.querySelector('.nhsuk-details__text')
 
@@ -84,7 +84,7 @@ describe('Details', () => {
   describe('Older browsers', () => {
     beforeEach(() => {
       // Identify HTMLDetailsElement (modern browsers) as HTMLDivElement
-      Object.setPrototypeOf($details, document.createElement('div'))
+      Object.setPrototypeOf($root, document.createElement('div'))
     })
 
     describe('Initialisation', () => {
