@@ -71,7 +71,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
-      { ignored: ['**/macro-options.mjs'] },
+      { ignored: ['**/macro-options.mjs', '**/*.test.*'] },
       gulp.series('scripts')
     )
   ])
