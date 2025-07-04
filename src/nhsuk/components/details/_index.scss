@@ -73,7 +73,8 @@
 .nhsuk-details__text {
   border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   margin-top: nhsuk-spacing(2);
-  padding: nhsuk-spacing(3);
+  padding-top: nhsuk-spacing(3);
+  padding-bottom: nhsuk-spacing(3);
   padding-left: 20px; // [6]
   @include nhsuk-top-and-bottom;
 }
