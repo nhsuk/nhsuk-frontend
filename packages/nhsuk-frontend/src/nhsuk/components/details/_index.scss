@@ -18,7 +18,11 @@
 ////
 
 .nhsuk-details {
+  border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
   display: block;
+  margin-top: nhsuk-spacing(2);
+  padding: nhsuk-spacing(3) 0;
+  padding-left: 20px; // [6]
   @include nhsuk-text-color;
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -28,12 +32,31 @@
   display: inline-block; // [2]
 }
 
-// Fix for older browsers which:
+.nhsuk-details__summary-text {
+  display: block;
+  font-weight: $nhsuk-font-bold;
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-details__text {
+  @include nhsuk-top-and-bottom;
+}
+
+// We wrap styles for newer browsers in a feature query, which is ignored by
+// older browsers, which always expand the details element.
+//
+// Additionally, -ms-ime-align is only supported by Edge 12 - 18
+//
+// This ensures we don't use these styles in browsers which:
 //   - support ES6 modules but not the <details> element (Edge 16 - 18)
 //   - do not support ES6 modules or the <details> element (eg, IE8+)
-// -ms-ime-align is only supported by Edge 12 - 18
-// Older browsers ignore the entire feature query and use the styles above
 @supports not (-ms-ime-align: auto) {
+  .nhsuk-details {
+    border-left: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+
   .nhsuk-details__summary {
     color: $nhsuk-link-color; // [1]
     cursor: pointer;
@@ -76,16 +99,18 @@
   }
 
   .nhsuk-details__summary-text {
+    display: inline;
+    font-weight: $nhsuk-font-normal;
     text-decoration: underline; // [4]
+    margin-bottom: 0;
   }
 
   .nhsuk-details__text {
     border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
     margin-top: nhsuk-spacing(2);
-    padding-top: nhsuk-spacing(3);
-    padding-bottom: nhsuk-spacing(3);
+    padding: nhsuk-spacing(3) 0;
     padding-left: 20px; // [6]
-    @include nhsuk-top-and-bottom;
+    padding-right: 0;
   }
 }
 
@@ -107,16 +132,25 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-expander {
   background-color: $color_nhsuk-white;
   border: $expander-border-width solid $expander-border-color;
+  margin-top: 0;
+  padding: 0;
 
   .nhsuk-details__summary {
     background-color: $color_nhsuk-white;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
-    padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) nhsuk-spacing(5);
+    padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
 
-    @include nhsuk-media-query($until: tablet) {
-      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
+    @include nhsuk-media-query($from: tablet) {
+      padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
     }
+  }
+
+  .nhsuk-details__summary-text {
+    display: block;
+    font-weight: $nhsuk-font-bold;
+    @include nhsuk-font-size(26);
+    @include nhsuk-responsive-margin(4, "bottom");
   }
 
   .nhsuk-details__text {
@@ -128,7 +162,6 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     @include nhsuk-responsive-padding(5, "left");
     @include nhsuk-responsive-padding(5, "right");
     @include nhsuk-responsive-padding(0, "top");
-    @include nhsuk-top-and-bottom;
   }
 
   @supports not (-ms-ime-align: auto) {
@@ -136,6 +169,16 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
 
     &:hover {
       border-color: $expander-border-hover-color;
+    }
+
+    .nhsuk-details__summary {
+      padding-bottom: nhsuk-spacing(4);
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      .nhsuk-details__summary {
+        padding-bottom: nhsuk-spacing(5);
+      }
     }
 
     .nhsuk-details__summary::before {
@@ -151,8 +194,11 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       color: $color_nhsuk-blue;
       cursor: pointer;
       display: inline-block;
+      font-weight: $nhsuk-font-normal;
+      margin-bottom: 0;
       padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
       position: relative;
+      @include nhsuk-font-size(19);
     }
 
     .nhsuk-details__summary:hover .nhsuk-details__summary-text {
