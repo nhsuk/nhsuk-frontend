@@ -37,7 +37,8 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
     map: /** @type {ProcessOptions['map']} */ ({
       annotation: true,
       inline: false,
-      prev: false
+      prev: false,
+      sourcesContent: false
     }),
 
     // Sass syntax support
@@ -72,6 +73,7 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
 
         // Pass source maps to PostCSS
         options.map.prev = map
+        options.map.sourcesContent = true
       }
     }
 
