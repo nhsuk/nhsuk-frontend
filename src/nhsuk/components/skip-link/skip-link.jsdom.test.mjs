@@ -78,6 +78,14 @@ describe('Skip link', () => {
       expect(() => new SkipLink($root)).not.toThrow()
     })
 
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new SkipLink($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
     it('should throw with missing $root element', () => {
       expect(() => new SkipLink()).toThrow(
         'SkipLink: Root element (`$root`) not found'

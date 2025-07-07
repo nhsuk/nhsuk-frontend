@@ -74,6 +74,14 @@ describe('Character count', () => {
       expect(() => new CharacterCount($root)).not.toThrow()
     })
 
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new CharacterCount($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
     it('should throw with missing $root element', () => {
       expect(() => new CharacterCount()).toThrow(
         'CharacterCount: Root element (`$root`) not found'
