@@ -5,7 +5,8 @@ import { Component } from '../../component.mjs'
  * Checkboxes component
  *
  * Conditionally show content when a checkbox button is checked
- * Test at http://localhost:3000/nhsuk-frontend/components/checkboxes/conditional.html
+ *
+ * Test at {@link http://localhost:3000/nhsuk-frontend/components/checkboxes/with-conditional-content/}
  */
 export class Checkboxes extends Component {
   /**
