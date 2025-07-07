@@ -6,6 +6,11 @@ import { ElementError } from '../../errors/index.mjs'
  */
 export class Header extends Component {
   /**
+   * @type {number | null}
+   */
+  updateNavigationTimer = null
+
+  /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
@@ -71,21 +76,11 @@ export class Header extends Component {
     this.menuIsOpen = false
 
     this.handleEscapeKey = this.onEscapeKey.bind(this)
-    this.handleUpdateNavigation = this.debounce(this.updateNavigation)
+    this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
 
     this.setupNavigation()
     this.updateNavigation()
-  }
-
-  debounce(func, timeout = 100) {
-    let timer
-    return (...args) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        func.apply(this, args)
-      }, timeout)
-    }
   }
 
   /**
@@ -120,7 +115,16 @@ export class Header extends Component {
     })
 
     // Add resize listener for next update
-    window.addEventListener('resize', this.handleUpdateNavigation)
+    window.addEventListener('resize', () => {
+      if (this.updateNavigationTimer) {
+        window.clearTimeout(this.updateNavigationTimer)
+      }
+
+      this.updateNavigationTimer = window.setTimeout(
+        this.handleUpdateNavigation,
+        100
+      )
+    })
   }
 
   /**
