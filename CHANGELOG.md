@@ -12,11 +12,11 @@ The details component no longer uses JavaScript, and is no longer polyfilled in 
 
 If you have extended browser support requirements, check that the details component works as expected in older browsers.
 
-This change was introduced in [pull request #1460: Remove JavaScript from Details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
+This change was introduced in [pull request #1460: Remove JavaScript from details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
 
 #### Check your browser console for component initialisation errors
 
-NHS.UK frontend JavaScript components now provide errors if you initialise a component incorrectly.
+NHS.UK frontend component JavaScript now provides errors if you initialise a component incorrectly.
 
 These errors will be:
 
