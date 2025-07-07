@@ -697,7 +697,27 @@ module.exports = {
       ]
     },
     {
-      label: 'Footer (columns)',
+      label: 'Footer with links',
+      url: `${BASE_URL}/components/footer/with-links/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Footer with links and meta links',
+      url: `${BASE_URL}/components/footer/with-links-and-meta-links/`,
+      viewports: [
+        viewports.get('mobile'),
+        viewports.get('tablet'),
+        viewports.get('desktop'),
+        viewports.get('large-desktop')
+      ]
+    },
+    {
+      label: 'Footer with columns',
       url: `${BASE_URL}/components/footer/columns/`,
       viewports: [
         viewports.get('mobile'),
@@ -707,7 +727,7 @@ module.exports = {
       ]
     },
     {
-      label: 'Footer (custom copyright statement)',
+      label: 'Footer with custom copyright statement',
       url: `${BASE_URL}/components/footer/with-custom-copyright-statement/`,
       viewports: [
         viewports.get('mobile'),

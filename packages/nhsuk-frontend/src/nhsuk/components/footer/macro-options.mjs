@@ -13,13 +13,13 @@ export const params = {
     required: false,
     description: 'Contains the array of the first column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the first column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the first column.'
@@ -32,13 +32,13 @@ export const params = {
     description:
       'Contains the array of the second column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the second column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the second column.'
@@ -50,13 +50,13 @@ export const params = {
     required: false,
     description: 'Contains the array of the third column of footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description:
           'Href attribute for a footer link item in the third column.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a footer link item in the third column.'
@@ -90,12 +90,12 @@ export const params = {
     required: false,
     description: 'Contains the array of key policy footer link items.',
     params: {
-      url: {
+      href: {
         type: 'string',
         required: false,
         description: 'Href attribute for a key policy footer link item.'
       },
-      label: {
+      text: {
         type: 'string',
         required: true,
         description: 'The label for a key policy footer link item.'
@@ -111,126 +111,177 @@ export const params = {
  */
 export const examples = {
   'default': {
+    layout: 'layouts/example-full-width.njk'
+  },
+  'with links': {
     layout: 'layouts/example-full-width.njk',
     context: {
       links: [
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
         },
         {
-          url: '#',
-          label: 'Privacy policy'
+          href: '#',
+          text: 'Privacy policy'
         },
         {
-          url: '#',
-          label: 'Terms and conditions'
+          href: '#',
+          text: 'Terms and conditions'
         }
       ]
     }
   },
-  'columns': {
+  'with links and meta links': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      copyright: '© Crown copyright',
       links: [
         {
-          url: '#',
-          label: 'Home'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Health A to Z'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Live Well'
+          href: '#',
+          text: 'Cookies'
         },
         {
-          url: '#',
-          label: 'Mental health'
+          href: '#',
+          text: 'Privacy policy'
         },
         {
-          url: '#',
-          label: 'Care and support'
-        },
-        {
-          url: '#',
-          label: 'Accessibility statement'
-        },
-        {
-          url: '#',
-          label: 'Pregnancy'
-        },
-        {
-          url: '#',
-          label: 'NHS services'
-        },
-        {
-          url: '#',
-          label: 'Coronavirus (COVID-19)'
-        }
-      ],
-      linksColumn2: [
-        {
-          url: '#',
-          label: 'NHS App'
-        },
-        {
-          url: '#',
-          label: 'Find my NHS number'
-        },
-        {
-          url: '#',
-          label: 'Your health records'
-        },
-        {
-          url: '#',
-          label: 'About the NHS'
-        },
-        {
-          url: '#',
-          label: 'Healthcare abroad'
-        }
-      ],
-      linksColumn3: [
-        {
-          url: '#',
-          label: 'Other NHS websites'
-        },
-        {
-          url: '#',
-          label: 'Profile editor login'
+          href: '#',
+          text: 'Terms and conditions'
         }
       ],
       metaLinks: [
         {
-          url: '#',
-          label: 'About us'
+          href: '#',
+          text: 'About us'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Our policies'
+          href: '#',
+          text: 'Our policies'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
+        }
+      ]
+    }
+  },
+  'with columns': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      links: [
+        {
+          href: '#',
+          text: 'Home'
+        },
+        {
+          href: '#',
+          text: 'Health A to Z'
+        },
+        {
+          href: '#',
+          text: 'Live Well'
+        },
+        {
+          href: '#',
+          text: 'Mental health'
+        },
+        {
+          href: '#',
+          text: 'Care and support'
+        },
+        {
+          href: '#',
+          text: 'Accessibility statement'
+        },
+        {
+          href: '#',
+          text: 'Pregnancy'
+        },
+        {
+          href: '#',
+          text: 'NHS services'
+        },
+        {
+          href: '#',
+          text: 'Coronavirus (COVID-19)'
+        }
+      ],
+      linksColumn2: [
+        {
+          href: '#',
+          text: 'NHS App'
+        },
+        {
+          href: '#',
+          text: 'Find my NHS number'
+        },
+        {
+          href: '#',
+          text: 'Your health records'
+        },
+        {
+          href: '#',
+          text: 'About the NHS'
+        },
+        {
+          href: '#',
+          text: 'Healthcare abroad'
+        }
+      ],
+      linksColumn3: [
+        {
+          href: '#',
+          text: 'Other NHS websites'
+        },
+        {
+          href: '#',
+          text: 'Profile editor login'
+        }
+      ],
+      metaLinks: [
+        {
+          href: '#',
+          text: 'About us'
+        },
+        {
+          href: '#',
+          text: 'Give us feedback'
+        },
+        {
+          href: '#',
+          text: 'Accessibility statement'
+        },
+        {
+          href: '#',
+          text: 'Our policies'
+        },
+        {
+          href: '#',
+          text: 'Cookies'
         }
       ]
     }
@@ -241,24 +292,24 @@ export const examples = {
       copyright: '© East London NHS Foundation Trust',
       links: [
         {
-          url: '#',
-          label: 'Accessibility statement'
+          href: '#',
+          text: 'Accessibility statement'
         },
         {
-          url: '#',
-          label: 'Give us feedback'
+          href: '#',
+          text: 'Give us feedback'
         },
         {
-          url: '#',
-          label: 'Cookies'
+          href: '#',
+          text: 'Cookies'
         },
         {
-          url: '#',
-          label: 'Privacy policy'
+          href: '#',
+          text: 'Privacy policy'
         },
         {
-          url: '#',
-          label: 'Terms and conditions'
+          href: '#',
+          text: 'Terms and conditions'
         }
       ]
     }
