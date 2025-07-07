@@ -63,62 +63,64 @@ export const params = {
     required: true,
     description: 'Array of radio items objects.',
     params: {
-      'text': {
+      text: {
         type: 'string',
         required: true,
         description:
           'If `html` is set, this is not required. Text to use within each radio item label. If `html` is provided, the `text` argument will be ignored.'
       },
-      'html': {
+      html: {
         type: 'string',
         required: true,
         description:
           'If `text` is set, this is not required. HTML to use within each radio item label. If `html` is provided, the `text` argument will be ignored.'
       },
-      'id': {
+      id: {
         type: 'string',
         required: false,
         description:
           'Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.'
       },
-      'label': {
+      label: {
         type: 'object',
         required: false,
         description: 'Options for the label component.',
         isComponent: true
       },
-      'value': {
+      value: {
         type: 'string',
         required: true,
         description: 'Value for the radio input.'
       },
-      'hint': {
+      hint: {
         type: 'object',
         required: false,
         description: 'Provide hint to each radio item.',
         isComponent: true
       },
-      'divider': {
+      divider: {
         type: 'string',
         required: false,
         description:
           "Divider text to separate radio items, for example the text `'or'`."
       },
-      'checked': {
+      checked: {
         type: 'boolean',
         required: false,
         description: 'If true, radio will be checked.'
       },
-      'conditional': {
-        type: 'string',
+      conditional: {
+        type: 'object',
         required: false,
         description:
-          'If true, content provided will be revealed when the item is checked.'
-      },
-      'conditional.html': {
-        type: 'html',
-        required: false,
-        description: 'Provide content for the conditional reveal.'
+          'Provide additional content to reveal when the radio is checked.',
+        params: {
+          html: {
+            type: 'string',
+            description: 'The HTML to reveal when the radio is checked.',
+            required: true
+          }
+        }
       }
     }
   },
