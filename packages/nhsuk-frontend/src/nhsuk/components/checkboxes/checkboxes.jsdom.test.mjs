@@ -123,7 +123,7 @@ describe('Checkboxes', () => {
 
       for (const $input of $inputs) {
         expect($input.addEventListener).toHaveBeenCalledWith(
-          'change',
+          'click',
           expect.any(Function)
         )
       }

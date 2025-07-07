@@ -38,7 +38,7 @@ export class Checkboxes extends Component {
 
     // Attach handleClick as click to inputs
     this.$inputs.forEach((checkboxButton) => {
-      checkboxButton.addEventListener('change', this.handleClick.bind(this))
+      checkboxButton.addEventListener('click', this.handleClick.bind(this))
     })
   }
 

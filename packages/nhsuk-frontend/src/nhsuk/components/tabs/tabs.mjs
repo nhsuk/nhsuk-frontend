@@ -127,7 +127,7 @@ export class Tabs extends Component {
     this.$tabList.removeAttribute('role')
 
     this.$tabListItems.forEach(($item) => {
-      $item.removeAttribute('role', 'presentation')
+      $item.removeAttribute('role')
     })
 
     this.$tabs.forEach(($tab) => {
@@ -305,13 +305,13 @@ export class Tabs extends Component {
 
   unhighlightTab($tab) {
     $tab.setAttribute('aria-selected', 'false')
-    $tab.parentNode.classList.remove('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.remove('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '-1')
   }
 
   highlightTab($tab) {
     $tab.setAttribute('aria-selected', 'true')
-    $tab.parentNode.classList.add('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.add('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '0')
   }
 
