@@ -5,7 +5,8 @@ import { Component } from '../../component.mjs'
  * Radios component
  *
  * Conditionally show content when a radio button is checked
- * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
+ *
+ * Test at {@link http://localhost:3000/nhsuk-frontend/components/radios/with-conditional-content/}
  */
 export class Radios extends Component {
   /**
