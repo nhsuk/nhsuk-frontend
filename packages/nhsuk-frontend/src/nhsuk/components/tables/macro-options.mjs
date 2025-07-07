@@ -360,6 +360,49 @@ export const examples = {
       ]
     }
   },
+  'with missing data reason': {
+    context: {
+      panel: false,
+      caption: 'Vaccinations given',
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: 'Date'
+        },
+        {
+          text: 'Vaccine'
+        },
+        {
+          text: 'Product'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '10 July 2024'
+          },
+          {
+            text: 'COVID-19'
+          },
+          {
+            text: 'Spikevax JN.1'
+          }
+        ],
+        [
+          {
+            text: '6 September 2023'
+          },
+          {
+            text: 'RSV'
+          },
+          {
+            text: 'Not known',
+            classes: 'nhsuk-table__cell--missing-reason'
+          }
+        ]
+      ]
+    }
+  },
   'as a panel': {
     context: {
       panel: true,

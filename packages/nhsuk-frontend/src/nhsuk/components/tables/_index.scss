@@ -179,3 +179,9 @@
 .nhsuk-table__cell--numeric {
   text-align: right;
 }
+
+// Cells which contain a short label to explain
+// why they are otherwise empty
+.nhsuk-table__cell--missing-reason {
+  color: $nhsuk-secondary-text-color;
+}
