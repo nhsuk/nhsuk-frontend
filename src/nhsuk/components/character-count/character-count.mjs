@@ -210,7 +210,7 @@ export class CharacterCount extends Component {
     if (this.isOverThreshold()) {
       $screenReaderCountMessage.removeAttribute('aria-hidden')
     } else {
-      $screenReaderCountMessage.setAttribute('aria-hidden', true)
+      $screenReaderCountMessage.setAttribute('aria-hidden', 'true')
     }
 
     // Update message

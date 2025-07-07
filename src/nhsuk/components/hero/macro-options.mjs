@@ -104,7 +104,6 @@ export const examples = {
       html: outdent`
         <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
         ${components.render('button', {
-          layout: 'layouts/example-full-width.njk',
           context: {
             text: 'Sign up',
             classes: 'nhsuk-button--reverse',
