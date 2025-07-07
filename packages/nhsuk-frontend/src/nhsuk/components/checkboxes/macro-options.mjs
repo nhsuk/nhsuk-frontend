@@ -56,75 +56,77 @@ export const params = {
     required: true,
     description: 'Array of checkbox items objects.',
     params: {
-      'text': {
+      text: {
         type: 'string',
         required: true,
         description:
           'If `html` is set, this is not required. Text to use within each checkbox item label. If `html` is provided, the `text` argument will be ignored.'
       },
-      'html': {
+      html: {
         type: 'string',
         required: true,
         description:
           'If `text` is set, this is not required. HTML to use within each checkbox item label. If `html` is provided, the `text` argument will be ignored.'
       },
-      'id': {
+      id: {
         type: 'string',
         required: false,
         description:
           'Specific id attribute for the checkbox item. If omitted, then component global `idPrefix` option will be applied.'
       },
-      'name': {
+      name: {
         type: 'string',
         required: false,
         description:
           'Specific name for the checkbox item. If omitted, then component global `name` string will be applied.'
       },
-      'label': {
+      label: {
         type: 'object',
         required: false,
         description: 'Options for the label component.',
         isComponent: true
       },
-      'value': {
+      value: {
         type: 'string',
         required: true,
         description: 'Value for the checkbox input.'
       },
-      'divider': {
+      divider: {
         type: 'string',
         required: true,
         description:
           "Optional divider text to separate checkbox items, for example the text `'or'`."
       },
-      'hint': {
+      hint: {
         type: 'object',
         required: false,
         description: 'Provide hint to each checkbox item.',
         isComponent: true
       },
-      'checked': {
+      checked: {
         type: 'boolean',
         required: false,
         description: 'If true, checkbox will be checked.'
       },
-      'conditional': {
-        type: 'boolean',
+      conditional: {
+        type: 'object',
         required: false,
         description:
-          'If true, content provided will be revealed when the item is checked.'
+          'Provide additional content to reveal when the checkbox is checked.',
+        params: {
+          html: {
+            type: 'string',
+            description: 'The HTML to reveal when the checkbox is checked.',
+            required: true
+          }
+        }
       },
-      'conditional.html': {
-        type: 'string',
-        required: false,
-        description: 'Provide content for the conditional reveal.'
-      },
-      'disabled': {
+      disabled: {
         type: 'boolean',
         required: false,
         description: 'If true, checkbox will be disabled.'
       },
-      'attributes': {
+      attributes: {
         type: 'object',
         required: false,
         description:
