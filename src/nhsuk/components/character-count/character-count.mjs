@@ -5,7 +5,16 @@ import { ElementError } from '../../errors/index.mjs'
  * Character count component
  */
 export class CharacterCount extends Component {
+  /**
+   * @type {number | null}
+   */
+  lastInputTimestamp = null
   lastInputValue = ''
+
+  /**
+   * @type {number | null}
+   */
+  valueChecker = null
 
   /**
    * @param {Element | null} [$root] - HTML element to use for component
@@ -32,7 +41,6 @@ export class CharacterCount extends Component {
     this.$textarea = $textarea
     this.$visibleCountMessage = null
     this.$screenReaderCountMessage = null
-    this.lastInputTimestamp = null
 
     const fallbackLimitMessageId = `${this.$textarea.id}-info`
     const $fallbackLimitMessage = document.getElementById(
@@ -289,7 +297,7 @@ export class CharacterCount extends Component {
     // least 1000 ms (1 second), then run the manual change check.
     // This is so that the update triggered by the manual comparison doesn't
     // conflict with debounced KeyboardEvent updates.
-    this.valueChecker = setInterval(() => {
+    this.valueChecker = window.setInterval(() => {
       if (
         !this.lastInputTimestamp ||
         Date.now() - 500 >= this.lastInputTimestamp
@@ -306,7 +314,9 @@ export class CharacterCount extends Component {
    */
   handleBlur() {
     // Cancel value checking on blur
-    clearInterval(this.valueChecker)
+    if (this.valueChecker) {
+      window.clearInterval(this.valueChecker)
+    }
   }
 
   /**

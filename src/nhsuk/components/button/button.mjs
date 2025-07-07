@@ -7,12 +7,15 @@ const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
  */
 export class Button extends Component {
   /**
+   * @type {number | null}
+   */
+  debounceFormSubmitTimer = null
+
+  /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
     super($root)
-
-    this.debounceFormSubmitTimer = null
 
     /**
      * Initialise an event listener for keydown at document level
@@ -69,7 +72,7 @@ export class Button extends Component {
       return false // eslint-disable-line consistent-return
     }
 
-    this.debounceFormSubmitTimer = setTimeout(() => {
+    this.debounceFormSubmitTimer = window.setTimeout(() => {
       this.debounceFormSubmitTimer = null
     }, DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
   }
