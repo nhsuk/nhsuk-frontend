@@ -1,7 +1,6 @@
 export * from './button/button.mjs'
 export * from './character-count/character-count.mjs'
 export * from './checkboxes/checkboxes.mjs'
-export * from './details/details.mjs'
 export * from './error-summary/error-summary.mjs'
 export * from './header/header.mjs'
 export * from './radios/radios.mjs'

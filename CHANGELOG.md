@@ -194,6 +194,14 @@ router.use('/assets', [
 ])
 ```
 
+#### Check that details components work as expected
+
+The details component no longer uses JavaScript, and is no longer polyfilled in older browsers.
+
+If you have extended browser support requirements, check that the details component works as expected in older browsers.
+
+This change was introduced in [pull request #1460: Remove JavaScript from Details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
+
 #### Verify your code does not rely on polyfills we have now removed
 
 We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.closest()`, `matches()` DOM method and NodeList API `forEach` required for Internet Explorer 11 and below.

@@ -25,57 +25,91 @@
 }
 
 .nhsuk-details__summary {
-  color: $color_nhsuk-blue; // [1]
-  cursor: pointer;
-  display: inline-block; // [2]
-  padding-left: nhsuk-spacing(4);
-  position: relative; // [3]
-
-  &:hover {
-    color: $nhsuk-link-hover-color;
-  }
-
-  &::before {
-    bottom: 0;
-    content: "";
-    left: 0;
-    margin: auto;
-    position: absolute;
-    top: 0;
-
-    @include nhsuk-shape-arrow($direction: right, $base: 14px);
-  }
-
-  &:focus {
-    @include nhsuk-focused-text;
-  }
-
-  &:hover,
-  &:focus {
-    .nhsuk-details__summary-text {
-      text-decoration: none;
-    }
-  }
-}
-
-.nhsuk-details[open] > .nhsuk-details__summary::before {
-  @include nhsuk-shape-arrow($direction: down, $base: 14px);
-}
-
-.nhsuk-details__summary-text {
-  text-decoration: underline; // [4]
-}
-
-.nhsuk-details__summary::-webkit-details-marker {
-  display: none; // [5]
+  display: block;
 }
 
 .nhsuk-details__text {
-  border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
-  margin-top: nhsuk-spacing(2);
-  padding: nhsuk-spacing(3);
-  padding-left: 20px; // [6]
   @include nhsuk-top-and-bottom;
+}
+
+// Hack to support Internet Explorer 11
+@media screen\0 {
+  .nhsuk-details {
+    border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+    margin-top: nhsuk-spacing(2);
+    padding: nhsuk-spacing(3) 0;
+    padding-left: 20px; // [6]
+  }
+
+  .nhsuk-details__summary-text {
+    display: block;
+    font-weight: $nhsuk-font-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+}
+
+// We wrap styles for newer browsers in a feature query, which is ignored by
+// older browsers, which always expand the details element.
+//
+// Additionally, -ms-ime-align is only supported by Edge 12 - 18
+//
+// This ensures we don't use these styles in browsers which:
+//   - support ES6 modules but not the <details> element (Edge 16 - 18)
+//   - do not support ES6 modules or the <details> element (eg, IE8+)
+@supports not (-ms-ime-align: auto) {
+  .nhsuk-details__summary {
+    color: $nhsuk-link-color; // [1]
+    cursor: pointer;
+    padding-left: nhsuk-spacing(4);
+    position: relative; // [3]
+    width: fit-content; // [2]
+
+    &:hover {
+      color: $nhsuk-link-hover-color;
+    }
+
+    &:focus {
+      @include nhsuk-focused-text;
+    }
+
+    &:hover,
+    &:focus {
+      .nhsuk-details__summary-text {
+        text-decoration: none;
+      }
+    }
+
+    &::-webkit-details-marker {
+      display: none; // [5]
+    }
+
+    &::before {
+      bottom: 0;
+      content: "";
+      left: 0;
+      margin: auto;
+      position: absolute;
+      top: 0;
+
+      @include nhsuk-shape-arrow($direction: right, $base: 14px);
+
+      .nhsuk-details[open] > & {
+        @include nhsuk-shape-arrow($direction: down, $base: 14px);
+      }
+    }
+  }
+
+  .nhsuk-details__summary-text {
+    text-decoration: underline; // [4]
+  }
+
+  .nhsuk-details__text {
+    border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+    margin-top: nhsuk-spacing(2);
+    padding: nhsuk-spacing(3) 0;
+    padding-left: 20px; // [6]
+    padding-right: 0;
+  }
 }
 
 /// Expander variation.
@@ -96,66 +130,17 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
 .nhsuk-expander {
   background-color: $color_nhsuk-white;
   border: $expander-border-width solid $expander-border-color;
-  border-bottom-width: $expander-border-bottom-width;
-
-  &:hover {
-    border-color: $expander-border-hover-color;
-  }
 
   .nhsuk-details__summary {
     background-color: $color_nhsuk-white;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
-    padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) nhsuk-spacing(5);
+    padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
+    width: auto; // [2]
 
-    @include nhsuk-media-query($until: tablet) {
-      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) nhsuk-spacing(4);
+    @include nhsuk-media-query($from: tablet) {
+      padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
     }
-
-    &::before {
-      // stylelint-disable-next-line declaration-no-important
-      display: none !important; // [1]
-    }
-
-    &:hover {
-      .nhsuk-details__summary-text {
-        color: $nhsuk-link-hover-color;
-      }
-    }
-
-    &:focus {
-      box-shadow: none;
-
-      .nhsuk-details__summary-text {
-        @include nhsuk-focused-text;
-      }
-
-      .nhsuk-details__summary-text::before {
-        background: $nhsuk-focus-color
-          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-          left -2px center no-repeat;
-      }
-    }
-  }
-
-  .nhsuk-details__summary-text {
-    color: $color_nhsuk-blue;
-    cursor: pointer;
-    display: inline-block;
-    padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
-    position: relative;
-  }
-
-  .nhsuk-details__summary-text::before {
-    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-      left -2px center no-repeat;
-    content: "";
-    display: inline-block;
-    height: 32px;
-    left: 0;
-    position: absolute;
-    top: calc(50% - 16px);
-    width: 32px;
   }
 
   .nhsuk-details__text {
@@ -168,30 +153,94 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     @include nhsuk-responsive-padding(5, "right");
     @include nhsuk-responsive-padding(0, "top");
   }
-}
 
-.nhsuk-expander[open] {
-  border-bottom-width: $expander-border-width;
+  // Hack to support Internet Explorer 11
+  @media screen\0 {
+    margin-top: 0;
+    padding: 0;
 
-  .nhsuk-details__summary {
-    &:focus {
-      &:hover {
-        .nhsuk-details__summary-text {
-          text-decoration: none;
-        }
-      }
-
-      .nhsuk-details__summary-text::before {
-        background: $nhsuk-focus-color
-          url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-          left -2px center no-repeat; // [3]
-      }
+    .nhsuk-details__summary-text {
+      display: block;
+      font-weight: $nhsuk-font-bold;
+      @include nhsuk-font-size(26);
+      @include nhsuk-responsive-margin(4, "bottom");
     }
   }
 
-  .nhsuk-details__summary-text::before {
-    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-      left -2px center no-repeat; // [3]
+  @supports not (-ms-ime-align: auto) {
+    border-bottom-width: $expander-border-bottom-width;
+
+    &:hover {
+      border-color: $expander-border-hover-color;
+    }
+
+    .nhsuk-details__summary {
+      padding-bottom: nhsuk-spacing(4);
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      .nhsuk-details__summary {
+        padding-bottom: nhsuk-spacing(5);
+      }
+    }
+
+    .nhsuk-details__summary::before {
+      // stylelint-disable-next-line declaration-no-important
+      display: none !important; // [1]
+    }
+
+    .nhsuk-details__summary:focus {
+      box-shadow: none;
+    }
+
+    .nhsuk-details__summary-text {
+      color: $color_nhsuk-blue;
+      cursor: pointer;
+      display: inline-block;
+      padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
+      position: relative;
+    }
+
+    .nhsuk-details__summary:hover .nhsuk-details__summary-text {
+      color: $nhsuk-link-hover-color;
+    }
+
+    .nhsuk-details__summary:focus .nhsuk-details__summary-text {
+      @include nhsuk-focused-text;
+    }
+
+    .nhsuk-details__summary-text::before {
+      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+        left -2px center no-repeat;
+      content: "";
+      display: inline-block;
+      height: 32px;
+      left: 0;
+      position: absolute;
+      top: calc(50% - 16px);
+      width: 32px;
+    }
+
+    .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
+      background: $nhsuk-focus-color
+        url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+        left -2px center no-repeat;
+    }
+
+    &[open] {
+      border-bottom-width: $expander-border-width;
+    }
+
+    &[open] .nhsuk-details__summary-text::before {
+      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+        left -2px center no-repeat; // [3]
+    }
+
+    &[open] .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
+      background: $nhsuk-focus-color
+        url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
+        left -2px center no-repeat; // [3]
+    }
   }
 }
 
