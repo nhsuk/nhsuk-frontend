@@ -11,11 +11,11 @@ import { rollup } from 'rollup'
 /**
  * Compile JavaScript task
  *
- * @param {string} assetPath
+ * @param {string} inputPath
  * @param {CompileScriptsOptions} entry
  */
 export function compile(
-  assetPath,
+  inputPath,
   {
     srcPath,
     destPath,
@@ -23,7 +23,8 @@ export function compile(
     output = {} // Rollup output options
   }
 ) {
-  const { name } = parse(assetPath)
+  const { dir, name } = parse(inputPath)
+  const outputPath = output.file ?? join(dir, `${name}.bundle.js`)
 
   return task.name('scripts:compile', async () => {
     const bundle = await rollup({
@@ -32,7 +33,7 @@ export function compile(
       /**
        * Input path
        */
-      input: join(srcPath, assetPath),
+      input: join(srcPath, inputPath),
 
       /**
        * Input plugins
@@ -91,9 +92,7 @@ export function compile(
       dir: output.preserveModules ? destPath : undefined,
 
       // Write to file when bundling
-      file: !output.preserveModules
-        ? join(destPath, output.file ?? `${name}.bundle.js`)
-        : undefined,
+      file: !output.preserveModules ? join(destPath, outputPath) : undefined,
 
       // Enable source maps
       sourcemap: true

@@ -1,10 +1,9 @@
-import { mkdir, writeFile } from 'node:fs/promises'
-import { dirname, join, parse } from 'node:path'
+import { join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
 import { components, nunjucks } from '@nhsuk/frontend-lib'
 import { getListing } from '@nhsuk/frontend-lib/files.mjs'
-import { task } from '@nhsuk/frontend-tasks'
+import { files, task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
@@ -21,6 +20,9 @@ const formatter = formatterFactory('codeframe')
  * Render review app Nunjucks into HTML
  */
 export const compile = task.name('html:render', async () => {
+  const destPath = join(config.paths.app, 'dist')
+
+  // Find all Nunjucks views (excluding layouts)
   const paths = await getListing('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
     ignore: ['**/layouts/**']
@@ -50,6 +52,12 @@ export const compile = task.name('html:render', async () => {
     const { name, component, examples = {} } = data
 
     for (const [exampleName, example] of Object.entries(examples)) {
+      const outputPath = join(
+        `components/${component}/${slugify(exampleName)}`,
+        'index.html'
+      )
+
+      // Render example
       const html = nunjucks.renderTemplate(
         example.layout ?? 'layouts/example.njk',
         {
@@ -59,31 +67,31 @@ export const compile = task.name('html:render', async () => {
         }
       )
 
-      const fileName = `${slugify(exampleName)}/index.html`
-
-      const filePath = join(
-        config.paths.app,
-        `dist/components/${component}/${fileName}`
-      )
-
       // Write example to disk
-      await mkdir(dirname(filePath), { recursive: true })
-      await writeFile(filePath, html)
+      await files.write(outputPath, {
+        destPath,
+        output: { contents: html }
+      })
     }
   }
 
   // Render pages on disk
   for (const path of paths) {
-    const html = nunjucks.renderTemplate(path, { context, env })
-
     const { name, dir } = parse(path)
 
-    const fileName = name === 'index' ? 'index.html' : `${name}/index.html`
-    const filePath = join(config.paths.app, `dist/${dir}/${fileName}`)
+    const outputPath = join(
+      name === 'index' ? dir : `${dir}/${name}`,
+      'index.html'
+    )
+
+    // Render page
+    const html = nunjucks.renderTemplate(path, { context, env })
 
     // Write page to disk
-    await mkdir(dirname(filePath), { recursive: true })
-    await writeFile(filePath, html)
+    await files.write(outputPath, {
+      destPath,
+      output: { contents: html }
+    })
   }
 })
 
