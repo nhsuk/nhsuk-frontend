@@ -1,4 +1,4 @@
-require('@testing-library/jest-dom')
+import '@testing-library/jest-dom'
 
 /**
  * Polyfill Element methods for error summary
@@ -22,4 +22,9 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn()
   }))
+})
+
+beforeEach(async () => {
+  // Flag NHS.UK frontend as supported
+  document.body.classList.add('nhsuk-frontend-supported')
 })

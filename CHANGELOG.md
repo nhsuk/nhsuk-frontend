@@ -1,5 +1,37 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
+
+#### Check that details components work as expected
+
+The details component no longer uses JavaScript, and is no longer polyfilled in older browsers.
+
+If you have extended browser support requirements, check that the details component works as expected in older browsers.
+
+This change was introduced in [pull request #1460: Remove JavaScript from details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
+
+#### Check your browser console for component initialisation errors
+
+NHS.UK frontend component JavaScript now provides errors if you initialise a component incorrectly.
+
+These errors will be:
+
+- logged in the browser console when using the `initAll()` function
+- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components)
+
+To make sure the components behave as intended, we encourage you to check your browser console and address any errors by updating your markup or configuration.
+
+Errors you might see include:
+
+- `SupportError` - when NHS.UK frontend is not supported in the current browser
+- `ElementError` - when component templates have missing or broken HTML elements
+
+This change was introduced in [pull request #1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459).
+
 ## 10.0.0-internal.0 - 2 July 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
@@ -193,14 +225,6 @@ router.use('/assets', [
   express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
 ])
 ```
-
-#### Check that details components work as expected
-
-The details component no longer uses JavaScript, and is no longer polyfilled in older browsers.
-
-If you have extended browser support requirements, check that the details component works as expected in older browsers.
-
-This change was introduced in [pull request #1460: Remove JavaScript from Details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
 
 #### Verify your code does not rely on polyfills we have now removed
 

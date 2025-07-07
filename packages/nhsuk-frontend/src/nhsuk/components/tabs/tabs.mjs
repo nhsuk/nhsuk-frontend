@@ -1,16 +1,14 @@
+import { Component } from '../../component.mjs'
+
 /**
  * Tabs component
  */
-export class Tabs {
+export class Tabs extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
-
-    this.$root = $root
+    super($root)
 
     const $tabs = this.$root.querySelectorAll('.nhsuk-tabs__tab')
     const $tabList = this.$root.querySelector('.nhsuk-tabs__list')

@@ -52,7 +52,7 @@ module.exports = {
       ...config,
       displayName: 'JavaScript behaviour tests',
       setupFilesAfterEnv: [
-        '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.setup.js'
+        '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.setup.mjs'
       ],
       testEnvironment: 'jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
@@ -61,7 +61,7 @@ module.exports = {
       ...config,
       displayName: 'JavaScript component tests',
       setupFilesAfterEnv: [
-        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.js'
+        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
       ],
       testEnvironment: 'jest-environment-puppeteer',
       testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],

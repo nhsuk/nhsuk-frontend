@@ -2,11 +2,11 @@ import { components } from '@nhsuk/frontend-lib'
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { initErrorSummary } from './error-summary.mjs'
+import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
 
 describe('Error summary', () => {
-  /** @type {HTMLAnchorElement} */
-  let $errorSummary
+  /** @type {HTMLDivElement} */
+  let $root
 
   /** @type {HTMLAnchorElement[]} */
   let $links
@@ -58,11 +58,11 @@ describe('Error summary', () => {
 
     const $container = document.querySelector('form')
 
-    $errorSummary = getByRole($container, 'alert', {
+    $root = getByRole($container, 'alert', {
       name: 'There is a problem'
     })
 
-    $links = getAllByRole($errorSummary, 'link')
+    $links = getAllByRole($root, 'link')
 
     $input = getByRole($container, 'textbox', {
       name: 'National Insurance number'
@@ -70,23 +70,23 @@ describe('Error summary', () => {
 
     $label = $input.labels[0]
 
-    jest.spyOn($errorSummary, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
     jest.spyOn($input, 'focus')
     jest.spyOn($label, 'scrollIntoView')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initErrorSummary()
 
-      expect($errorSummary.addEventListener).toHaveBeenCalledWith(
+      expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing error summary', () => {
-      $errorSummary.remove()
+      $root.remove()
       expect(() => initErrorSummary()).not.toThrow()
     })
 
@@ -106,12 +106,40 @@ describe('Error summary', () => {
     })
   })
 
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new ErrorSummary($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new ErrorSummary($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new ErrorSummary()).toThrow(
+        'ErrorSummary: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new ErrorSummary($root)).toThrow(
+        'ErrorSummary: Root element (`$root`) is not of type HTMLElement'
+      )
+    })
+  })
+
   describe('Focus handling', () => {
     describe('Alert role', () => {
       it('sets focus automatically', () => {
         initErrorSummary()
 
-        expect($errorSummary).toHaveFocus()
+        expect($root).toHaveFocus()
       })
 
       it('sets focus automatically (focusOnPageLoad: true)', () => {
@@ -119,7 +147,7 @@ describe('Error summary', () => {
           focusOnPageLoad: true
         })
 
-        expect($errorSummary).toHaveFocus()
+        expect($root).toHaveFocus()
       })
 
       it('does not set focus automatically (focusOnPageLoad: false)', () => {
@@ -127,7 +155,7 @@ describe('Error summary', () => {
           focusOnPageLoad: false
         })
 
-        expect($errorSummary).not.toHaveFocus()
+        expect($root).not.toHaveFocus()
       })
     })
 

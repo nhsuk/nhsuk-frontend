@@ -93,3 +93,20 @@ export function setFocus($element, options = {}) {
 
   $element.focus()
 }
+
+/**
+ * Checks if NHS.UK frontend is supported on this page
+ *
+ * Some browsers will load and run our JavaScript but NHS.UK frontend
+ * won't be supported.
+ *
+ * @param {HTMLElement | null} [$scope] - (internal) `<body>` HTML element checked for browser support
+ * @returns {boolean} Whether NHS.UK frontend is supported on this page
+ */
+export function isSupported($scope = document.body) {
+  if (!$scope) {
+    return false
+  }
+
+  return $scope.classList.contains('nhsuk-frontend-supported')
+}

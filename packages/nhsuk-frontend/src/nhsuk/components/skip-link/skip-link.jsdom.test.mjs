@@ -2,16 +2,16 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { initSkipLinks } from './skip-link.mjs'
+import { SkipLink, initSkipLinks } from './skip-link.mjs'
 
 const user = userEvent.setup()
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
-  let $main
+  let $root
 
-  /** @type {HTMLAnchorElement} */
-  let $skipLink
+  /** @type {HTMLElement} */
+  let $main
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -35,25 +35,25 @@ describe('Skip link', () => {
 
     $main = document.querySelector('main')
 
-    $skipLink = getByRole(document.body, 'link', {
+    $root = getByRole(document.body, 'link', {
       name: 'Skip to main content'
     })
 
-    jest.spyOn($skipLink, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initSkipLinks()
 
-      expect($skipLink.addEventListener).toHaveBeenCalledWith(
+      expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should not throw with missing skip link', () => {
-      $skipLink.remove()
+      $root.remove()
       expect(() => initSkipLinks()).not.toThrow()
     })
 
@@ -70,6 +70,34 @@ describe('Skip link', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initSkipLinks({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new SkipLink($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new SkipLink($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new SkipLink()).toThrow(
+        'SkipLink: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElement('div')
+
+      expect(() => new SkipLink($root)).toThrow(
+        'SkipLink: Root element (`$root`) is not of type HTMLAnchorElement'
+      )
     })
   })
 

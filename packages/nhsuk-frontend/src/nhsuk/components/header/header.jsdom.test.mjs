@@ -4,11 +4,14 @@ import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { initHeader } from './header.mjs'
+import { Header, initHeader } from './header.mjs'
 
 const user = userEvent.setup()
 
 describe('Header class', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLElement} */
   let $navigation
 
@@ -61,10 +64,10 @@ describe('Header class', () => {
       }
     })
 
-    const $container = document.querySelector('.nhsuk-header')
+    $root = document.querySelector('.nhsuk-header')
 
-    $navigation = getByRole($container, 'navigation')
-    $menuButton = getByRole($container, 'button', {
+    $navigation = getByRole($root, 'navigation')
+    $menuButton = getByRole($root, 'button', {
       name: 'Browse More',
       hidden: true
     })
@@ -86,7 +89,7 @@ describe('Header class', () => {
     jest.spyOn(document, 'removeEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initHeader()
 
@@ -139,6 +142,34 @@ describe('Header class', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initHeader({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new Header($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new Header($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new Header()).toThrow(
+        'Header: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new Header($root)).toThrow(
+        'Header: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 

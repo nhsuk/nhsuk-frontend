@@ -21,6 +21,10 @@ jest.mock('./components/skip-link/skip-link.mjs')
 jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
+  beforeAll(() => {
+    jest.spyOn(console, 'log').mockImplementation(() => {})
+  })
+
   describe('Exports', () => {
     it('should export init all function', () => {
       expect(NHSUKFrontend).toHaveProperty('initAll')
@@ -39,6 +43,27 @@ describe('NHS.UK frontend', () => {
   })
 
   describe('initAll', () => {
+    it('should ignore unsupported browsers', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      initAll()
+
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'NHS.UK frontend is not supported in this browser'
+        })
+      )
+
+      expect(initButtons).not.toHaveBeenCalled()
+      expect(initCharacterCounts).not.toHaveBeenCalled()
+      expect(initCheckboxes).not.toHaveBeenCalled()
+      expect(initErrorSummary).not.toHaveBeenCalled()
+      expect(initHeader).not.toHaveBeenCalled()
+      expect(initRadios).not.toHaveBeenCalled()
+      expect(initSkipLinks).not.toHaveBeenCalled()
+      expect(initTabs).not.toHaveBeenCalled()
+    })
+
     it('should init components', () => {
       initAll()
 
@@ -57,14 +82,13 @@ describe('NHS.UK frontend', () => {
 
       initAll(scope)
 
-      expect(initHeader).toHaveBeenCalled()
-      expect(initSkipLinks).toHaveBeenCalled()
-
       expect(initButtons).toHaveBeenCalledWith({ scope })
       expect(initCharacterCounts).toHaveBeenCalledWith({ scope })
       expect(initCheckboxes).toHaveBeenCalledWith({ scope })
       expect(initErrorSummary).toHaveBeenCalledWith({ scope })
+      expect(initHeader).toHaveBeenCalledWith({ scope })
       expect(initRadios).toHaveBeenCalledWith({ scope })
+      expect(initSkipLinks).toHaveBeenCalledWith({ scope })
       expect(initTabs).toHaveBeenCalledWith({ scope })
     })
   })

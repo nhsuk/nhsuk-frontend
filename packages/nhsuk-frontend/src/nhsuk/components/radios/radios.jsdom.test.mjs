@@ -2,9 +2,12 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { initRadios } from './radios.mjs'
+import { Radios, initRadios } from './radios.mjs'
 
 describe('Radios', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLDivElement[]} */
   let $conditionals
 
@@ -89,21 +92,19 @@ describe('Radios', () => {
       </form>
     `
 
-    const $container = document.querySelector('.nhsuk-radios')
+    $root = document.querySelector('.nhsuk-radios')
 
-    $conditionals = [
-      ...$container.querySelectorAll('.nhsuk-radios__conditional')
-    ]
+    $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
 
-    const $input1 = getByRole($container, 'radio', {
+    const $input1 = getByRole($root, 'radio', {
       name: 'Email'
     })
 
-    const $input2 = getByRole($container, 'radio', {
+    const $input2 = getByRole($root, 'radio', {
       name: 'Phone'
     })
 
-    const $input3 = getByRole($container, 'radio', {
+    const $input3 = getByRole($root, 'radio', {
       name: 'Text message'
     })
 
@@ -114,7 +115,7 @@ describe('Radios', () => {
     jest.spyOn($input3, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initRadios()
 
@@ -142,6 +143,34 @@ describe('Radios', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initRadios({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new Radios($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new Radios($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new Radios()).toThrow(
+        'Radios: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new Radios($root)).toThrow(
+        'Radios: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 

@@ -2,9 +2,12 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole, getAllByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { initTabs } from './tabs.mjs'
+import { Tabs, initTabs } from './tabs.mjs'
 
 describe('Tabs', () => {
+  /** @type {HTMLElement} */
+  let $root
+
   /** @type {HTMLUListElement} */
   let $list
 
@@ -55,18 +58,18 @@ describe('Tabs', () => {
       }
     })
 
-    const $container = document.querySelector('.nhsuk-tabs')
+    $root = document.querySelector('.nhsuk-tabs')
 
-    $list = getByRole($container, 'list')
-    $listItems = getAllByRole($container, 'listitem')
-    $tabs = getAllByRole($container, 'link')
+    $list = getByRole($root, 'list')
+    $listItems = getAllByRole($root, 'listitem')
+    $tabs = getAllByRole($root, 'link')
     $panels = [...document.querySelectorAll('.nhsuk-tabs__panel')]
 
     $tabs.forEach(($tab) => jest.spyOn($tab, 'addEventListener'))
     jest.spyOn(window, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initTabs()
 
@@ -101,6 +104,32 @@ describe('Tabs', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initTabs({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new Tabs($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new Tabs($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new Tabs()).toThrow('Tabs: Root element (`$root`) not found')
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new Tabs($root)).toThrow(
+        'Tabs: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 

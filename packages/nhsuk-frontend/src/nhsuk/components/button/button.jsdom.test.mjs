@@ -1,33 +1,33 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
-import { initButtons } from './button.mjs'
+import { Button, initButtons } from './button.mjs'
 
 describe('Button', () => {
-  /** @type {HTMLButtonElement} */
-  let $button
+  /** @type {HTMLElement} */
+  let $root
 
   beforeEach(() => {
     document.body.innerHTML = components.render('button', {
       context: { text: 'Save and continue' }
     })
 
-    $button = getByRole(document.body, 'button')
+    $root = getByRole(document.body, 'button')
 
-    jest.spyOn($button, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation', () => {
+  describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initButtons()
 
-      expect($button.addEventListener).toHaveBeenNthCalledWith(
+      expect($root.addEventListener).toHaveBeenNthCalledWith(
         1,
         'keydown',
         expect.any(Function)
       )
 
-      expect($button.addEventListener).toHaveBeenNthCalledWith(
+      expect($root.addEventListener).toHaveBeenNthCalledWith(
         2,
         'click',
         expect.any(Function)
@@ -35,7 +35,7 @@ describe('Button', () => {
     })
 
     it('should not throw with missing button', () => {
-      $button.remove()
+      $root.remove()
       expect(() => initButtons()).not.toThrow()
     })
 
@@ -47,6 +47,34 @@ describe('Button', () => {
     it('should not throw with empty scope', () => {
       const scope = document.createElement('div')
       expect(() => initButtons({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new Button($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new Button($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      expect(() => new Button()).toThrow(
+        'Button: Root element (`$root`) not found'
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new Button($root)).toThrow(
+        'Button: Root element (`$root`) is not of type HTMLElement'
+      )
     })
   })
 })

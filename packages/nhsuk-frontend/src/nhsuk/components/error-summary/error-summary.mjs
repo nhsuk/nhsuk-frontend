@@ -1,19 +1,18 @@
+import { Component } from '../../component.mjs'
+
 /**
  * Error summary component
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  */
-export class ErrorSummary {
+export class ErrorSummary extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    * @param {ErrorSummaryConfig} [config] - Error summary config
    */
   constructor($root, config = {}) {
-    if (!$root || !($root instanceof HTMLElement)) {
-      return this
-    }
+    super($root)
 
-    this.$root = $root
     this.$root.addEventListener('click', this.handleClick.bind(this))
 
     if (!config.disableAutoFocus) {
@@ -135,6 +134,10 @@ export class ErrorSummary {
 export function initErrorSummary(options = {}) {
   const $scope = options.scope || document
   const $root = $scope.querySelector('.nhsuk-error-summary')
+
+  if (!$root) {
+    return
+  }
 
   new ErrorSummary($root, {
     disableAutoFocus: options.focusOnPageLoad === false
