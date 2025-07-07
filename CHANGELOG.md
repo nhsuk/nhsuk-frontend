@@ -202,6 +202,24 @@ If you have extended browser support requirements, check that the details compon
 
 This change was introduced in [pull request #1460: Remove JavaScript from Details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
 
+#### Check your browser console for component initialisation errors
+
+NHS.UK frontend JavaScript components now provide errors if you initialise a component incorrectly.
+
+These errors will be:
+
+- logged in the browser console when using the `initAll()` function
+- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components)
+
+To make sure the components behave as intended, we encourage you to check your browser console and address any errors by updating your markup or configuration.
+
+Errors you might see include:
+
+- `SupportError` - when NHS.UK frontend is not supported in the current browser
+- `ElementError` - when component templates have missing or broken HTML elements
+
+This change was introduced in [pull request #1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459).
+
 #### Verify your code does not rely on polyfills we have now removed
 
 We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.closest()`, `matches()` DOM method and NodeList API `forEach` required for Internet Explorer 11 and below.
