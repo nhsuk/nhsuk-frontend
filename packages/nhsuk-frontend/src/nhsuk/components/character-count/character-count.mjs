@@ -145,9 +145,9 @@ export class CharacterCount extends Component {
     let length
     if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      length = tokens.length // eslint-disable-line prefer-destructuring
+      length = tokens.length
     } else {
-      length = text.length // eslint-disable-line prefer-destructuring
+      length = text.length
     }
     return length
   }
