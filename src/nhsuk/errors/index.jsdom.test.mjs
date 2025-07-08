@@ -33,7 +33,6 @@ describe('Errors', () => {
     })
 
     it('provides feedback regarding browser support', () => {
-      // @ts-expect-error Allow property 'noModule' to be removed
       delete window.HTMLScriptElement.prototype.noModule
       expect(new SupportError(document.body).message).toBe(
         'NHS.UK frontend is not supported in this browser'
