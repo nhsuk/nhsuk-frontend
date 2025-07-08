@@ -47,13 +47,6 @@ export class Tabs extends Component {
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
 
-    this.keys = {
-      down: 40,
-      left: 37,
-      right: 39,
-      up: 38
-    }
-
     this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
     if (typeof window.matchMedia === 'function') {
@@ -235,20 +228,23 @@ export class Tabs extends Component {
     $panel.id = id
   }
 
-  onTabKeydown(e) {
-    switch (e.keyCode) {
-      case this.keys.left:
-      case this.keys.up:
+  onTabKeydown(event) {
+    switch (event.key) {
+      // 'Left', 'Right', 'Up' and 'Down' required for Edge 16 support.
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'Left':
+      case 'Up':
         this.activatePreviousTab()
-        e.preventDefault()
+        event.preventDefault()
         break
-      case this.keys.right:
-      case this.keys.down:
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case 'Right':
+      case 'Down':
         this.activateNextTab()
-        e.preventDefault()
+        event.preventDefault()
         break
-
-      default:
     }
   }
 
