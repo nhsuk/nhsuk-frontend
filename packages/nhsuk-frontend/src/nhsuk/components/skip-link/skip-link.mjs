@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
-import { setFocus } from '../../common.mjs'
+import { getFragmentFromUrl, setFocus } from '../../common.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -24,7 +24,7 @@ export class SkipLink extends Component {
     const hash = this.$root.hash
     const href = this.$root.getAttribute('href') ?? ''
 
-    const linkedElementId = hash.split('#').pop()
+    const linkedElementId = getFragmentFromUrl(hash)
     if (!linkedElementId) {
       throw new ElementError({
         component: SkipLink,
