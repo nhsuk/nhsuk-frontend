@@ -1,3 +1,4 @@
+import { getFragmentFromUrl } from '../../common.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -177,7 +178,7 @@ export class Tabs extends Component {
 
   setAttributes($tab) {
     // set tab attributes
-    const panelId = Tabs.getHref($tab).slice(1)
+    const panelId = getFragmentFromUrl($tab.href)
     $tab.setAttribute('id', `tab_${panelId}`)
     $tab.setAttribute('role', 'tab')
     $tab.setAttribute('aria-controls', panelId)
@@ -230,7 +231,7 @@ export class Tabs extends Component {
     const { id } = $panel
     $panel.id = ''
     this.changingHash = true
-    window.location.hash = Tabs.getHref($tab).slice(1)
+    window.location.hash = id
     $panel.id = id
   }
 
@@ -284,8 +285,8 @@ export class Tabs extends Component {
   }
 
   getPanel($tab) {
-    const $panel = this.$root.querySelector(Tabs.getHref($tab))
-    return $panel
+    const panelId = getFragmentFromUrl($tab.href)
+    return this.$root.querySelector(`#${panelId}`)
   }
 
   showPanel($tab) {
@@ -314,15 +315,6 @@ export class Tabs extends Component {
     return this.$root.querySelector(
       '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
-  }
-
-  // this is because IE doesn't always return the actual value but a relative full path
-  // should be a utility function most prob
-  // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
-  static getHref($tab) {
-    const href = $tab.getAttribute('href')
-    const hash = href.slice(href.indexOf('#'), href.length)
-    return hash
   }
 }
 
