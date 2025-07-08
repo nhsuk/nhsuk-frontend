@@ -5,6 +5,8 @@ import { ElementError } from '../../errors/index.mjs'
  * Character count component
  */
 export class CharacterCount extends Component {
+  lastInputValue = ''
+
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -149,11 +151,8 @@ export class CharacterCount extends Component {
   // fields by directly changing its `value`. These changes don't trigger events
   // in JavaScript, so we need to poll to handle when and if they occur.
   checkIfValueChanged() {
-    if (!this.$textarea.oldValue) {
-      this.$textarea.oldValue = ''
-    }
-    if (this.$textarea.value !== this.$textarea.oldValue) {
-      this.$textarea.oldValue = this.$textarea.value
+    if (this.$textarea.value !== this.lastInputValue) {
+      this.lastInputValue = this.$textarea.value
       this.updateCountMessage()
     }
   }
