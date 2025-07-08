@@ -10,6 +10,9 @@ describe('Character count', () => {
   /** @type {HTMLTextAreaElement} */
   let $textarea
 
+  /** @type {HTMLElement} */
+  let $description
+
   beforeEach(() => {
     document.body.innerHTML = components.render('character-count', {
       context: {
@@ -29,6 +32,8 @@ describe('Character count', () => {
     $textarea = getByRole($root, 'textbox', {
       name: 'Can you provide more detail?'
     })
+
+    $description = document.querySelector(`#${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
   })
@@ -53,9 +58,20 @@ describe('Character count', () => {
       )
     })
 
-    it('should not throw with missing textarea', () => {
+    it('should throw with missing textarea', () => {
       $textarea.remove()
-      expect(() => initCharacterCounts()).not.toThrow()
+
+      expect(() => initCharacterCounts()).toThrow(
+        'CharacterCount: Form field (`.nhsuk-js-character-count`) not found'
+      )
+    })
+
+    it('should throw with missing count message', () => {
+      $description.remove()
+
+      expect(() => new CharacterCount($root)).toThrow(
+        'CharacterCount: Count message (`id="example-info"`) not found'
+      )
     })
 
     it('should not throw with empty body', () => {

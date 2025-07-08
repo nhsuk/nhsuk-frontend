@@ -57,9 +57,20 @@ describe('Skip link', () => {
       expect(() => initSkipLinks()).not.toThrow()
     })
 
-    it('should not throw with missing main content', () => {
+    it('should throw with missing hash fragment', () => {
+      $root.setAttribute('href', 'https://example.com')
+
+      expect(() => initSkipLinks()).toThrow(
+        'SkipLink: Target link (`href="https://example.com"`) hash fragment not found'
+      )
+    })
+
+    it('should throw with missing main content', () => {
       $main.remove()
-      expect(() => initSkipLinks()).not.toThrow()
+
+      expect(() => initSkipLinks()).toThrow(
+        'SkipLink: Target content (`id="maincontent"`) not found'
+      )
     })
 
     it('should not throw with empty body', () => {
