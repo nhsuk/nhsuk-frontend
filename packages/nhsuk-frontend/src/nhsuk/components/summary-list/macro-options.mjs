@@ -12,78 +12,105 @@ export const params = {
   rows: {
     type: 'array',
     required: true,
-    description: 'Array of row item objects.',
+    description: 'The rows within the summary list component.',
     params: {
-      'classes': {
+      classes: {
         type: 'string',
         required: false,
         description: 'Classes to add to the row `div`.'
       },
-      'key.text': {
-        type: 'string',
+      key: {
+        type: 'object',
         required: true,
         description:
-          'If `html` is set, this is not required. Text to use within the each key. If `html` is provided, the `text` argument will be ignored.'
-      },
-      'key.html': {
-        type: 'string',
-        required: true
-      },
-      'key.classes': {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the key wrapper.'
-      },
-      'value.text': {
-        type: 'string',
-        required: true,
-        description:
-          'If `html` is set, this is not required. Text to use within the each value. If `html` is provided, the `text` argument will be ignored.'
-      },
-      'value.html': {
-        type: 'string',
-        required: true,
-        description:
-          'If `text` is set, this is not required. HTML to use within the each value. If `html` is provided, the `text` argument will be ignored.'
-      },
-      'value.classes': {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the value wrapper.'
-      },
-      'actions.classes': {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the actions wrapper.'
-      },
-      'actions.items': {
-        type: 'array',
-        required: false,
-        description: 'Array of action item objects.',
+          'The reference content (key) for each row item in the summary list component.',
         params: {
-          href: {
-            type: 'string',
-            required: true,
-            description:
-              'The value of the link href attribute for an action item.'
-          },
           text: {
             type: 'string',
             required: true,
             description:
-              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` argument will be ignored.'
+              'If `html` is set, this is not required. Text to use within each key. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'If `text` is set, this is not required. HTML to use within the each action item. If `html` is provided, the `text` argument will be ignored.'
+              'If `text` is set, this is not required. HTML to use within each key. If `html` is provided, the `text` option will be ignored.'
           },
-          visuallyHiddenText: {
+          classes: {
             type: 'string',
             required: false,
+            description: 'Classes to add to the key wrapper.'
+          }
+        }
+      },
+      value: {
+        type: 'object',
+        required: true,
+        description:
+          'The value for each row item in the summary list component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
             description:
-              'Actions rely on context from the surrounding content so may require additional accessible text, text supplied to this option is appended to the end, use `html` for more complicated scenarios.'
+              'If `html` is set, this is not required. Text to use within each value. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each value. If `html` is provided, the `text` option will be ignored.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the value wrapper.'
+          }
+        }
+      },
+      actions: {
+        type: 'object',
+        required: false,
+        description:
+          'The action link content for each row item in the summary list component.',
+        params: {
+          items: {
+            type: 'array',
+            required: false,
+            description:
+              'The action link items within the row item of the summary list component.',
+            params: {
+              href: {
+                type: 'string',
+                required: true,
+                description:
+                  "The value of the link's `href` attribute for an action item."
+              },
+              text: {
+                type: 'string',
+                required: true,
+                description:
+                  'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.'
+              },
+              html: {
+                type: 'string',
+                required: true,
+                description:
+                  'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.'
+              },
+              visuallyHiddenText: {
+                type: 'string',
+                required: false,
+                description:
+                  'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.'
+              }
+            }
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the actions wrapper.'
           }
         }
       }
@@ -92,13 +119,13 @@ export const params = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the summary list container.'
+    description: 'Classes to add to the container.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the summary list container.'
+      'HTML attributes (for example data attributes) to add to the container.'
   }
 }
 
