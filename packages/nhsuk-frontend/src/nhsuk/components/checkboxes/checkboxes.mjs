@@ -1,5 +1,6 @@
 import { toggleConditionalInput } from '../../common.mjs'
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Checkboxes component
@@ -15,9 +16,12 @@ export class Checkboxes extends Component {
   constructor($root) {
     super($root)
 
-    const $inputs = this.$root.querySelectorAll('.nhsuk-checkboxes__input')
+    const $inputs = this.$root.querySelectorAll('input[type="checkbox"]')
     if (!$inputs.length) {
-      return this
+      throw new ElementError({
+        component: Checkboxes,
+        identifier: 'Form inputs (`<input type="checkbox">`)'
+      })
     }
 
     this.$inputs = $inputs

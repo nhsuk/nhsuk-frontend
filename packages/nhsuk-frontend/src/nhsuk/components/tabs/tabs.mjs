@@ -1,4 +1,5 @@
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Tabs component
@@ -10,22 +11,40 @@ export class Tabs extends Component {
   constructor($root) {
     super($root)
 
-    const $tabs = this.$root.querySelectorAll('.nhsuk-tabs__tab')
-    const $tabList = this.$root.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = this.$root.querySelectorAll('.nhsuk-tabs__list-item')
-
-    if (!$tabs.length || !$tabList || !$tabListItems.length) {
-      return this
+    const $tabs = this.$root.querySelectorAll('a.nhsuk-tabs__tab')
+    if (!$tabs.length) {
+      throw new ElementError({
+        component: Tabs,
+        identifier: 'Links (`<a class="nhsuk-tabs__tab">`)'
+      })
     }
 
     this.$tabs = $tabs
-    this.$tabList = $tabList
-    this.$tabListItems = $tabListItems
 
     // Save bound functions so we can remove event listeners during teardown
     this.boundTabClick = this.onTabClick.bind(this)
     this.boundTabKeydown = this.onTabKeydown.bind(this)
     this.boundOnHashChange = this.onHashChange.bind(this)
+
+    const $tabList = this.$root.querySelector('.nhsuk-tabs__list')
+    const $tabListItems = this.$root.querySelectorAll('.nhsuk-tabs__list-item')
+
+    if (!$tabList) {
+      throw new ElementError({
+        component: Tabs,
+        identifier: 'List (`<ul class="nhsuk-tabs__list">`)'
+      })
+    }
+
+    if (!$tabListItems.length) {
+      throw new ElementError({
+        component: Tabs,
+        identifier: 'List items (`<li class="nhsuk-tabs__list-item">`)'
+      })
+    }
+
+    this.$tabList = $tabList
+    this.$tabListItems = $tabListItems
 
     this.keys = {
       down: 40,

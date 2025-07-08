@@ -1,4 +1,5 @@
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Header component
@@ -10,29 +11,61 @@ export class Header extends Component {
   constructor($root) {
     super($root)
 
-    this.navigation = this.$root.querySelector('.nhsuk-header__navigation')
-    this.navigationList = this.$root.querySelector(
+    const $navigation = this.$root.querySelector('.nhsuk-header__navigation')
+    const $navigationList = this.$root.querySelector(
       '.nhsuk-header__navigation-list'
     )
-    this.navigationItems = this.$root.querySelectorAll(
-      '.nhsuk-header__navigation-item'
+
+    const $navigationItems = /** @type {NodeListOf<HTMLElement>} */ (
+      this.$root.querySelectorAll('.nhsuk-header__navigation-item')
     )
 
-    this.menu = this.$root.querySelector('.nhsuk-header__menu')
-    this.menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
+    const $menu = this.$root.querySelector('.nhsuk-header__menu')
+    const $menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
 
-    if (
-      !this.navigation ||
-      !this.navigationList ||
-      !this.navigationItems ||
-      !this.navigationItems.length ||
-      !this.menu ||
-      !this.menuToggle
-    ) {
-      return this
+    if (!$navigation || !($navigation instanceof HTMLElement)) {
+      throw new ElementError({
+        component: Header,
+        identifier: 'Navigation (`<nav class="nhsuk-header__navigation">`)'
+      })
     }
 
-    this.menuList = document.createElement('ul')
+    if (!$navigationList || !($navigationList instanceof HTMLElement)) {
+      throw new ElementError({
+        component: Header,
+        identifier: 'List (`<ul class="nhsuk-header__navigation-list">`)'
+      })
+    }
+
+    if (!$navigationItems || !$navigationItems.length) {
+      throw new ElementError({
+        component: Header,
+        identifier: 'List items (`<li class="nhsuk-header__navigation-item">`)'
+      })
+    }
+
+    if (!$menu || !($menu instanceof HTMLElement)) {
+      throw new ElementError({
+        component: Header,
+        identifier: 'Menu item (`<li class="nhsuk-header__menu" hidden>`)'
+      })
+    }
+
+    if (!$menuToggle || !($menuToggle instanceof HTMLButtonElement)) {
+      throw new ElementError({
+        component: Header,
+        identifier:
+          'Menu button (`<button class="nhsuk-header__menu-toggle">`)',
+        expectedType: 'HTMLButtonElement'
+      })
+    }
+
+    this.$navigation = $navigation
+    this.$navigationList = $navigationList
+    this.$navigationItems = $navigationItems
+    this.$menu = $menu
+    this.$menuToggle = $menuToggle
+    this.$menuList = document.createElement('ul')
 
     this.menuIsEnabled = false
     this.menuIsOpen = false
@@ -65,7 +98,7 @@ export class Header extends Component {
 
     // Reset and calculate widths on every resize
     this.breakpoints.forEach((breakpoint) => {
-      this.navigationList.insertBefore(breakpoint.element, this.menu)
+      this.$navigationList.insertBefore(breakpoint.element, this.$menu)
 
       // Calculate widths
       right += breakpoint.element.offsetWidth
@@ -73,7 +106,7 @@ export class Header extends Component {
     })
 
     // Reset space for menu button
-    this.width = this.navigationList.offsetWidth
+    this.width = this.$navigationList.offsetWidth
   }
 
   /**
@@ -82,7 +115,7 @@ export class Header extends Component {
   setupNavigation() {
     this.breakpoints = []
 
-    this.navigationItems.forEach((element) => {
+    this.$navigationItems.forEach((element) => {
       this.breakpoints.push({ element, right: 0 })
     })
 
@@ -94,13 +127,13 @@ export class Header extends Component {
    * Add the menu to the DOM
    */
   setupMenu() {
-    if (this.menuList.parentElement) {
+    if (this.$menuList.parentElement) {
       return
     }
 
-    this.menuList.classList.add('nhsuk-header__menu-list')
-    this.menuList.setAttribute('hidden', '')
-    this.menu.appendChild(this.menuList)
+    this.$menuList.classList.add('nhsuk-header__menu-list')
+    this.$menuList.setAttribute('hidden', '')
+    this.$menu.appendChild(this.$menuList)
   }
 
   /**
@@ -112,10 +145,10 @@ export class Header extends Component {
     }
 
     this.menuIsEnabled = true
-    this.menu.removeAttribute('hidden')
+    this.$menu.removeAttribute('hidden')
 
     // Add click listener to toggle menu
-    this.menuToggle.addEventListener('click', this.handleToggleMenu)
+    this.$menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
   /**
@@ -128,10 +161,10 @@ export class Header extends Component {
 
     this.closeMenu()
     this.menuIsEnabled = false
-    this.menu.setAttribute('hidden', '')
+    this.$menu.setAttribute('hidden', '')
 
     // Remove click listener from toggle menu
-    this.menuToggle.removeEventListener('click', this.handleToggleMenu)
+    this.$menuToggle.removeEventListener('click', this.handleToggleMenu)
   }
 
   /**
@@ -147,9 +180,9 @@ export class Header extends Component {
     }
 
     this.menuIsOpen = false
-    this.menuList.setAttribute('hidden', '')
-    this.menuToggle.setAttribute('aria-expanded', 'false')
-    this.navigation.style.removeProperty('border-bottom-width')
+    this.$menuList.setAttribute('hidden', '')
+    this.$menuToggle.setAttribute('aria-expanded', 'false')
+    this.$navigation.style.removeProperty('border-bottom-width')
 
     // Remove escape key listener to close menu
     document.removeEventListener('keydown', this.handleEscapeKey)
@@ -185,11 +218,11 @@ export class Header extends Component {
     }
 
     this.menuIsOpen = true
-    this.menuList.removeAttribute('hidden')
-    this.menuToggle.setAttribute('aria-expanded', 'true')
-    this.navigation.style.setProperty(
+    this.$menuList.removeAttribute('hidden')
+    this.$menuToggle.setAttribute('aria-expanded', 'true')
+    this.$navigation.style.setProperty(
       'border-bottom-width',
-      `${this.menuList.offsetHeight}px`
+      `${this.$menuList.offsetHeight}px`
     )
 
     // Add escape key listener to close menu
@@ -236,20 +269,20 @@ export class Header extends Component {
     this.enableMenu()
 
     // Subtract space for menu button
-    this.width -= this.menu.offsetWidth
+    this.width -= this.$menu.offsetWidth
 
     // Move items based on available width
     this.breakpoints.forEach((breakpoint) => {
       if (breakpoint.right > this.width) {
-        this.menuList.insertAdjacentElement('beforeend', breakpoint.element)
+        this.$menuList.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
 
     // Update menu height if open
     if (this.menuIsOpen) {
-      this.navigation.style.setProperty(
+      this.$navigation.style.setProperty(
         'border-bottom-width',
-        `${this.menuList.offsetHeight}px`
+        `${this.$menuList.offsetHeight}px`
       )
     }
   }

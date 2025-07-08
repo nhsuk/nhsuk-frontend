@@ -127,12 +127,14 @@ describe('Radios', () => {
       }
     })
 
-    it('should not throw with missing radios', () => {
+    it('should throw with missing radios', () => {
       for (const $input of $inputs) {
         $input.remove()
       }
 
-      expect(() => initRadios()).not.toThrow()
+      expect(() => initRadios()).toThrow(
+        'Radios: Form inputs (`<input type="radio">`) not found'
+      )
     })
 
     it('should not throw with empty body', () => {
