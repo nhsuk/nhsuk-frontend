@@ -63,6 +63,12 @@ export const params = {
     description:
       'If `true`, select box will be disabled. Use the `disabled` option on each individual item to only disable certain options.'
   },
+  describedBy: {
+    type: 'string',
+    required: false,
+    description:
+      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
+  },
   label: {
     type: 'object',
     required: false,
