@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM"],
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
