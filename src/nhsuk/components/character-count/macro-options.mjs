@@ -10,8 +10,8 @@ export const name = 'Character count'
 export const params = {
   id: {
     type: 'string',
-    required: true,
-    description: 'The id of the textarea.'
+    required: false,
+    description: 'The ID of the textarea. Defaults to the value of `name`.'
   },
   describedBy: {
     type: 'string',
