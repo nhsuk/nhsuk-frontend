@@ -32,6 +32,10 @@ Errors you might see include:
 
 This change was introduced in [pull request #1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459).
 
+:wrench: **Fixes**
+
+- [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
+
 ## 10.0.0-internal.0 - 2 July 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
