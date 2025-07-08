@@ -72,6 +72,10 @@ Errors you might see include:
 
 This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459), [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466) and [#1481: Prevent multiple initialisations of a single component instance](https://github.com/nhsuk/nhsuk-frontend/pull/1481).
 
+:new: **New features**
+
+- [#1464: Export type declarations ` *.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464)
+
 :wrench: **Fixes**
 
 - [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
