@@ -10,8 +10,8 @@ export const name = 'Input'
 export const params = {
   id: {
     type: 'string',
-    required: true,
-    description: 'The id of the input.'
+    required: false,
+    description: 'The ID of the input. Defaults to the value of `name`.'
   },
   name: {
     type: 'string',
