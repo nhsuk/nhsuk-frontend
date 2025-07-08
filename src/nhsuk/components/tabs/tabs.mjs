@@ -55,9 +55,6 @@ export class Tabs extends Component {
 
     this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
-    this.showEvent = new CustomEvent('tab.show')
-    this.hideEvent = new CustomEvent('tab.hide')
-
     if (typeof window.matchMedia === 'function') {
       this.setupResponsiveChecks()
     } else {
@@ -294,13 +291,11 @@ export class Tabs extends Component {
   showPanel($tab) {
     const $panel = this.getPanel($tab)
     $panel.classList.remove(this.jsHiddenClass)
-    $panel.dispatchEvent(this.showEvent)
   }
 
   hidePanel(tab) {
     const $panel = this.getPanel(tab)
     $panel.classList.add(this.jsHiddenClass)
-    $panel.dispatchEvent(this.hideEvent)
   }
 
   unhighlightTab($tab) {
