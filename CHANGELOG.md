@@ -6,6 +6,12 @@
 
 You must make the following changes when you migrate to this release, or your service might break.
 
+#### Check that tabs components work as expected
+
+The tabs component no longer triggers the `tab.show` and `tab.hide` custom events. [Get in touch](https://service-manual.nhs.uk/get-in-touch) if you need to continue using these events.
+
+This change was introduced in [pull request #1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469).
+
 #### Check that details components work as expected
 
 The details component no longer uses JavaScript, and is no longer polyfilled in older browsers.
@@ -37,6 +43,7 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 - [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
 - [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
+- [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
 
 ## 10.0.0-internal.0 - 2 July 2025
 
