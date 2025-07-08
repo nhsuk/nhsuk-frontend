@@ -1,6 +1,5 @@
 import { Component } from '../../component.mjs'
 
-const KEY_SPACE = 32
 const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
 /**
@@ -33,16 +32,16 @@ export class Button extends Component {
    * @param {KeyboardEvent} event - Keydown event
    */
   handleKeyDown(event) {
-    // get the target element
+    const target = event.target
 
-    const { target } = event
-    // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (
-      target.getAttribute('role') === 'button' &&
-      event.keyCode === KEY_SPACE
-    ) {
+    // Handle space bar only
+    if (event.key !== ' ') {
+      return
+    }
+
+    // Handle elements with [role="button"] only
+    if (target.getAttribute('role') === 'button') {
       event.preventDefault()
-      // trigger the target's click event
       target.click()
     }
   }
