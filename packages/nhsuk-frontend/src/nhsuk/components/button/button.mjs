@@ -75,7 +75,7 @@ export class Button extends Component {
     // If the timer is still running then we want to prevent the click from submitting the form
     if (this.debounceFormSubmitTimer) {
       event.preventDefault()
-      return false // eslint-disable-line consistent-return
+      return false
     }
 
     this.debounceFormSubmitTimer = window.setTimeout(() => {
