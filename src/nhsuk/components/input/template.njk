@@ -5,7 +5,9 @@
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
-{% set describedBy = "" %}
+{%- set describedBy = "" -%}
+{%- set id = params.id if params.id else params.name -%}
+
 <div class="nhsuk-form-group
 {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}
 {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
@@ -15,10 +17,10 @@
     classes: params.label.classes,
     isPageHeading: params.label.isPageHeading,
     attributes: params.label.attributes,
-    for: params.id
+    for: id
   }) | indent(2) | trim -}}
 {%- if params.hint %}
-  {%- set hintId = params.id + '-hint' if params.id %}
+  {%- set hintId = id + '-hint' if id %}
   {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
@@ -29,7 +31,7 @@
   }) | indent(2) | trim -}}
 {% endif -%}
 {%- if params.errorMessage %}
-  {%- set errorId = params.id + '-error' %}
+  {%- set errorId = id + '-error' %}
   {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
@@ -46,7 +48,7 @@
     {% endif %}
     <input class="nhsuk-input
     {%- if params.classes %} {{ params.classes }}{% endif %}
-    {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+    {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
     {%- if (params.spellcheck === false) or (params.spellcheck === true) %} spellcheck="{{ params.spellcheck }}"{% endif %}
     {%- if params.value %} value="{{ params.value}}"{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
