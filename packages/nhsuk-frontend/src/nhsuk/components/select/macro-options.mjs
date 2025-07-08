@@ -10,8 +10,8 @@ export const name = 'Select'
 export const params = {
   id: {
     type: 'string',
-    required: true,
-    description: 'Id for each select box.'
+    required: false,
+    description: 'The ID of the select. Defaults to the value of `name`.'
   },
   name: {
     type: 'string',
