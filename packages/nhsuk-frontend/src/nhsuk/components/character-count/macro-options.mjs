@@ -13,12 +13,6 @@ export const params = {
     required: false,
     description: 'The ID of the textarea. Defaults to the value of `name`.'
   },
-  describedBy: {
-    type: 'string',
-    required: false,
-    description:
-      'Text or element id to add to the `aria-describedby` attribute to provide description for screenreader users.'
-  },
   name: {
     type: 'string',
     required: true,
