@@ -30,7 +30,7 @@ Errors you might see include:
 - `SupportError` - when NHS.UK frontend is not supported in the current browser
 - `ElementError` - when component templates have missing or broken HTML elements
 
-This change was introduced in [pull request #1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459).
+This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459) and [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466).
 
 :wrench: **Fixes**
 
