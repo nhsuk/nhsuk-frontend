@@ -337,7 +337,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   color: $color_nhsuk-white;
 
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    border: none;
+    border: 0;
   }
 
   @include nhsuk-print-hide;
