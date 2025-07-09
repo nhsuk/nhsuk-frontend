@@ -2,6 +2,7 @@
 
 import { setFocus } from '../../common.mjs'
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Skip link component
@@ -20,14 +21,26 @@ export class SkipLink extends Component {
   constructor($root) {
     super($root)
 
-    const linkedElementId = this.$root.hash.split('#').pop()
-    const $linkedElement = linkedElementId
-      ? document.getElementById(linkedElementId)
-      : null
+    const hash = this.$root.hash
+    const href = this.$root.getAttribute('href') ?? ''
+
+    const linkedElementId = hash.split('#').pop()
+    if (!linkedElementId) {
+      throw new ElementError({
+        component: SkipLink,
+        identifier: `Target link (\`href="${href}"\`) hash fragment`
+      })
+    }
+
+    const $linkedElement = document.getElementById(linkedElementId)
 
     // Check for linked element
     if (!$linkedElement) {
-      return this
+      throw new ElementError({
+        component: SkipLink,
+        element: $linkedElement,
+        identifier: `Target content (\`id="${linkedElementId}"\`)`
+      })
     }
 
     /**

@@ -16,6 +16,9 @@ describe('Header class', () => {
   let $navigation
 
   /** @type {HTMLElement} */
+  let $navigationList
+
+  /** @type {HTMLElement} */
   let $menuButton
 
   let listWidth = 0
@@ -67,6 +70,8 @@ describe('Header class', () => {
     $root = document.querySelector('.nhsuk-header')
 
     $navigation = getByRole($root, 'navigation')
+    $navigationList = getByRole($navigation, 'list')
+
     $menuButton = getByRole($root, 'button', {
       name: 'Browse More',
       hidden: true
@@ -124,14 +129,44 @@ describe('Header class', () => {
       )
     })
 
-    it('should not throw with missing navigation', () => {
+    it('should throw with missing navigation', () => {
       $navigation.remove()
-      expect(() => initHeader()).not.toThrow()
+
+      expect(() => initHeader()).toThrow(
+        'Header: Navigation (`<nav class="nhsuk-header__navigation">`) not found'
+      )
     })
 
-    it('should not throw with missing menu button', () => {
+    it('should throw with missing navigation list', () => {
+      $navigationList.remove()
+
+      expect(() => initHeader()).toThrow(
+        'Header: List (`<ul class="nhsuk-header__navigation-list">`) not found'
+      )
+    })
+
+    it('should throw with missing navigation list items', () => {
+      $navigationList.innerHTML = ''
+
+      expect(() => initHeader()).toThrow(
+        'Header: List items (`<li class="nhsuk-header__navigation-item">`) not found'
+      )
+    })
+
+    it('should throw with missing menu item', () => {
+      $menuButton.parentElement.remove()
+
+      expect(() => initHeader()).toThrow(
+        'Header: Menu item (`<li class="nhsuk-header__menu" hidden>`) not found'
+      )
+    })
+
+    it('should throw with missing menu button', () => {
       $menuButton.remove()
-      expect(() => initHeader()).not.toThrow()
+
+      expect(() => initHeader()).toThrow(
+        'Header: Menu button (`<button class="nhsuk-header__menu-toggle">`) not found'
+      )
     })
 
     it('should not throw with empty body', () => {

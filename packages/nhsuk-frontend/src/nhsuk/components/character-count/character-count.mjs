@@ -1,4 +1,5 @@
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Character count component
@@ -18,7 +19,12 @@ export class CharacterCount extends Component {
         $textarea instanceof HTMLInputElement
       )
     ) {
-      return this
+      throw new ElementError({
+        component: CharacterCount,
+        element: $textarea,
+        expectedType: 'HTMLTextareaElement or HTMLInputElement',
+        identifier: 'Form field (`.nhsuk-js-character-count`)'
+      })
     }
 
     this.$textarea = $textarea
@@ -26,10 +32,18 @@ export class CharacterCount extends Component {
     this.$screenReaderCountMessage = null
     this.lastInputTimestamp = null
 
-    // Check for module
+    const fallbackLimitMessageId = `${this.$textarea.id}-info`
     const $fallbackLimitMessage = document.getElementById(
-      `${this.$textarea.id}-info`
+      fallbackLimitMessageId
     )
+
+    if (!$fallbackLimitMessage) {
+      throw new ElementError({
+        component: CharacterCount,
+        element: $fallbackLimitMessage,
+        identifier: `Count message (\`id="${fallbackLimitMessageId}"\`)`
+      })
+    }
 
     // Move the fallback count message to be immediately after the textarea
     // Kept for backwards compatibility

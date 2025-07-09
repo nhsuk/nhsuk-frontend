@@ -1,5 +1,6 @@
 import { toggleConditionalInput } from '../../common.mjs'
 import { Component } from '../../component.mjs'
+import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Radios component
@@ -15,9 +16,12 @@ export class Radios extends Component {
   constructor($root) {
     super($root)
 
-    const $inputs = this.$root.querySelectorAll('.nhsuk-radios__input')
+    const $inputs = this.$root.querySelectorAll('input[type="radio"]')
     if (!$inputs.length) {
-      return this
+      throw new ElementError({
+        component: Radios,
+        identifier: 'Form inputs (`<input type="radio">`)'
+      })
     }
 
     this.$inputs = $inputs
