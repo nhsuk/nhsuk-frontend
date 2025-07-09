@@ -5,7 +5,9 @@
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
-{% set describedBy = "" %}
+{%- set describedBy = "" -%}
+{%- set id = params.id if params.id else params.name -%}
+
 <div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
   {{ label({
     html: params.label.html,
@@ -13,10 +15,10 @@
     classes: params.label.classes,
     isPageHeading: params.label.isPageHeading,
     attributes: params.label.attributes,
-    for: params.id
+    for: id
   }) | indent(2) | trim }}
 {%- if params.hint %}
-  {%- set hintId = params.id + '-hint' %}
+  {%- set hintId = id + '-hint' %}
   {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
@@ -27,7 +29,7 @@
   }) | indent(2) | trim }}
 {%- endif %}
 {%- if params.errorMessage %}
-  {%- set errorId = params.id + '-error' %}
+  {%- set errorId = id + '-error' %}
   {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
@@ -38,7 +40,7 @@
 {%- endif %}
   <textarea class="nhsuk-textarea
   {%- if params.errorMessage %} nhsuk-textarea--error{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ params.id }}" name="{{ params.name }}" rows="
+  {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" rows="
   {%- if params.rows %} {{ params.rows }} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
