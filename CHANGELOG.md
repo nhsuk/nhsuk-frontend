@@ -36,6 +36,7 @@ This change was introduced in [pull request #1459: Add NHS.UK frontend browser s
 
 - [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
+- [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
 
 ## 10.0.0-internal.0 - 2 July 2025
 

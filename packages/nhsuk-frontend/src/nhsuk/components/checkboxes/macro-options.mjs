@@ -8,6 +8,12 @@ export const name = 'Checkboxes'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  describedBy: {
+    type: 'string',
+    required: false,
+    description:
+      'One or more element IDs to add to the input `aria-describedby` attribute without a fieldset, used to provide additional descriptive information for screenreader users.'
+  },
   fieldset: {
     type: 'object',
     required: false,

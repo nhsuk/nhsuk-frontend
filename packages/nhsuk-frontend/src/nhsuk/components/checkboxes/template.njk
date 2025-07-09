@@ -6,11 +6,14 @@
 
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
    instead. We need this for error messages and hints as well -#}
-{% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
+{%- set idPrefix = params.idPrefix if params.idPrefix else params.name -%}
 
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
-{% set describedBy = "" %}
+{%- set describedBy = params.describedBy if params.describedBy else "" -%}
+{%- if params.fieldset.describedBy -%}
+  {% set describedBy = params.fieldset.describedBy %}
+{%- endif -%}
 
 {% set isConditional = false %}
 {% for item in params.items %}
