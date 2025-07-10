@@ -35,7 +35,8 @@ thead {
 }
 
 th,
-td {
+td,
+.nhsuk-table__cell {
   padding-left: 0;
 
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
@@ -52,8 +53,9 @@ td {
   }
 }
 
-th {
-  font-weight: $nhsuk-font-bold;
+th,
+.nhsuk-table-responsive__heading {
+  @include nhsuk-typography-weight-bold;
 }
 
 caption {
