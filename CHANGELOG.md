@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 9.6.4 - 10 July 2025
+
+Note: This release was created from the `support/9.x` branch.
+
+:wrench: **Fixes**
+
+- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
+
 ## 9.6.3 - 19 June 2025
 
 Note: This release was created from the `support/9.x` branch.
