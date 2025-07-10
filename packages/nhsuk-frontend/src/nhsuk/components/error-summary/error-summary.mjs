@@ -1,3 +1,4 @@
+import { getFragmentFromUrl } from '../../common.mjs'
 import { Component } from '../../component.mjs'
 
 /**
@@ -94,7 +95,12 @@ export class ErrorSummary extends Component {
       return false
     }
 
-    const input = document.querySelector(target.hash)
+    const inputId = getFragmentFromUrl(target.href)
+    if (!inputId) {
+      return false
+    }
+
+    const input = document.getElementById(inputId)
     if (!input) {
       return false
     }

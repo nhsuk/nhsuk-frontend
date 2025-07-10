@@ -28,17 +28,8 @@ export class Checkboxes extends Component {
 
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
-    // event is fired, so we need to sync after the pageshow event in browsers
-    // that support it.
-    if ('onpageshow' in window) {
-      window.addEventListener('pageshow', () =>
-        this.syncAllConditionalReveals()
-      )
-    } else {
-      window.addEventListener('DOMContentLoaded', () =>
-        this.syncAllConditionalReveals()
-      )
-    }
+    // event is fired, so we need to sync after the pageshow event.
+    window.addEventListener('pageshow', () => this.syncAllConditionalReveals())
 
     // Although we've set up handlers to sync state on the pageshow or
     // DOMContentLoaded event, init could be called after those events have fired,
@@ -47,7 +38,7 @@ export class Checkboxes extends Component {
 
     // Attach handleClick as click to inputs
     this.$inputs.forEach((checkboxButton) => {
-      checkboxButton.addEventListener('change', this.handleClick.bind(this))
+      checkboxButton.addEventListener('click', this.handleClick.bind(this))
     })
   }
 

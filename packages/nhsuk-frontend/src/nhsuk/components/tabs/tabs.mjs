@@ -1,3 +1,4 @@
+import { getFragmentFromUrl } from '../../common.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -46,17 +47,7 @@ export class Tabs extends Component {
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
 
-    this.keys = {
-      down: 40,
-      left: 37,
-      right: 39,
-      up: 38
-    }
-
     this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
-
-    this.showEvent = new CustomEvent('tab.show')
-    this.hideEvent = new CustomEvent('tab.hide')
 
     if (typeof window.matchMedia === 'function') {
       this.setupResponsiveChecks()
@@ -127,7 +118,7 @@ export class Tabs extends Component {
     this.$tabList.removeAttribute('role')
 
     this.$tabListItems.forEach(($item) => {
-      $item.removeAttribute('role', 'presentation')
+      $item.removeAttribute('role')
     })
 
     this.$tabs.forEach(($tab) => {
@@ -180,7 +171,7 @@ export class Tabs extends Component {
 
   setAttributes($tab) {
     // set tab attributes
-    const panelId = Tabs.getHref($tab).slice(1)
+    const panelId = getFragmentFromUrl($tab.href)
     $tab.setAttribute('id', `tab_${panelId}`)
     $tab.setAttribute('role', 'tab')
     $tab.setAttribute('aria-controls', panelId)
@@ -233,24 +224,27 @@ export class Tabs extends Component {
     const { id } = $panel
     $panel.id = ''
     this.changingHash = true
-    window.location.hash = Tabs.getHref($tab).slice(1)
+    window.location.hash = id
     $panel.id = id
   }
 
-  onTabKeydown(e) {
-    switch (e.keyCode) {
-      case this.keys.left:
-      case this.keys.up:
+  onTabKeydown(event) {
+    switch (event.key) {
+      // 'Left', 'Right', 'Up' and 'Down' required for Edge 16 support.
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'Left':
+      case 'Up':
         this.activatePreviousTab()
-        e.preventDefault()
+        event.preventDefault()
         break
-      case this.keys.right:
-      case this.keys.down:
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case 'Right':
+      case 'Down':
         this.activateNextTab()
-        e.preventDefault()
+        event.preventDefault()
         break
-
-      default:
     }
   }
 
@@ -287,31 +281,29 @@ export class Tabs extends Component {
   }
 
   getPanel($tab) {
-    const $panel = this.$root.querySelector(Tabs.getHref($tab))
-    return $panel
+    const panelId = getFragmentFromUrl($tab.href)
+    return this.$root.querySelector(`#${panelId}`)
   }
 
   showPanel($tab) {
     const $panel = this.getPanel($tab)
     $panel.classList.remove(this.jsHiddenClass)
-    $panel.dispatchEvent(this.showEvent)
   }
 
   hidePanel(tab) {
     const $panel = this.getPanel(tab)
     $panel.classList.add(this.jsHiddenClass)
-    $panel.dispatchEvent(this.hideEvent)
   }
 
   unhighlightTab($tab) {
     $tab.setAttribute('aria-selected', 'false')
-    $tab.parentNode.classList.remove('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.remove('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '-1')
   }
 
   highlightTab($tab) {
     $tab.setAttribute('aria-selected', 'true')
-    $tab.parentNode.classList.add('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.add('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '0')
   }
 
@@ -319,15 +311,6 @@ export class Tabs extends Component {
     return this.$root.querySelector(
       '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
-  }
-
-  // this is because IE doesn't always return the actual value but a relative full path
-  // should be a utility function most prob
-  // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
-  static getHref($tab) {
-    const href = $tab.getAttribute('href')
-    const hash = href.slice(href.indexOf('#'), href.length)
-    return hash
   }
 }
 
