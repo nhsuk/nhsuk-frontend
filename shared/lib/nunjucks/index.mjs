@@ -6,7 +6,9 @@ import { outdent } from 'outdent'
 
 import * as filters from './filters/index.mjs'
 
-const { NODE_ENV } = process.env
+// Node.js environment with default
+// https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
+const { NODE_ENV = 'development' } = process.env
 
 // Nunjucks default environment
 export const env = configure()
