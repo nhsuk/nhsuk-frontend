@@ -44,6 +44,7 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
 - [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
 - [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
+- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
 
 ## 10.0.0-internal.0 - 2 July 2025
 

@@ -91,7 +91,8 @@ $button-padding-left-right: 16px;
   }
 
   // Remove button shadow when pressed
-  &:active {
+  &:active,
+  &:active:focus {
     box-shadow: none;
     background-color: $nhsuk-button-active-color;
     top: $button-shadow-size;
@@ -150,7 +151,8 @@ $button-padding-left-right: 16px;
   }
 
   // Set border for active state (no shadow)
-  &:active {
+  &:active,
+  &:active:focus {
     background-color: $nhsuk-secondary-button-active-color;
     border-color: $nhsuk-secondary-button-border-color;
     border-radius: $button-border-radius;
@@ -211,7 +213,8 @@ $button-padding-left-right: 16px;
     background-color: $nhsuk-reverse-button-hover-color;
   }
 
-  &:active {
+  &:active,
+  &:active:focus {
     background-color: $nhsuk-reverse-button-active-color;
   }
 }
@@ -225,7 +228,8 @@ $button-padding-left-right: 16px;
     background-color: $nhsuk-warning-button-hover-color;
   }
 
-  &:active {
+  &:active,
+  &:active:focus {
     background-color: $nhsuk-warning-button-active-color;
   }
 }
@@ -239,7 +243,8 @@ $button-padding-left-right: 16px;
     background-color: $nhsuk-login-button-hover-color;
   }
 
-  &:active {
+  &:active,
+  &:active:focus {
     background-color: $nhsuk-login-button-active-color;
   }
 }
