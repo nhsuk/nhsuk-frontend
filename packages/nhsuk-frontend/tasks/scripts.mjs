@@ -21,7 +21,7 @@ export const compile = gulp.series(
 
       // Build entry scripts last to restore modules
       // removed from components due to tree-shaking
-      'nhsuk/common.mjs',
+      'nhsuk/common/index.mjs',
       'nhsuk/index.mjs',
       'nhsuk/nhsuk.mjs'
     ]) {

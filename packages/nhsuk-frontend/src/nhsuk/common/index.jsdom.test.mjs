@@ -2,7 +2,7 @@ import {
   getFragmentFromUrl,
   isSupported,
   toggleConditionalInput
-} from './common.mjs'
+} from './index.mjs'
 
 describe('getFragmentFromUrl util', () => {
   it.each([

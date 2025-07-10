@@ -1,4 +1,4 @@
-import { isSupported } from './common.mjs'
+import { isSupported } from './common/index.mjs'
 import {
   initRadios,
   initHeader,
@@ -40,5 +40,6 @@ export function initAll($scope) {
   initTabs(options)
 }
 
+export { isSupported } from './common/index.mjs'
 export * from './components/index.mjs'
 export * from './component.mjs'
