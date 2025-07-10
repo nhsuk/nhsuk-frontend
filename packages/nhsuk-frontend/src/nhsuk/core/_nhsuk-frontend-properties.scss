@@ -5,4 +5,9 @@
   // This variable is automatically overwritten during builds and releases.
   // It doesn't need to be updated manually.
   --nhsuk-frontend-version: "development";
+
+  // CSS custom property for each breakpoint
+  @each $name, $value in $nhsuk-breakpoints {
+    --nhsuk-breakpoint-#{$name}: #{nhsuk-px-to-rem($value)};
+  }
 }
