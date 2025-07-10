@@ -1,0 +1,8 @@
+@use "settings/breakpoints" as *;
+@use "tools" as *;
+
+:root {
+  // This variable is automatically overwritten during builds and releases.
+  // It doesn't need to be updated manually.
+  --nhsuk-frontend-version: "development";
+}

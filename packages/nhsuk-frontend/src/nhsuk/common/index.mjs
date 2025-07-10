@@ -113,3 +113,5 @@ export function isSupported($scope = document.body) {
 
   return $scope.classList.contains('nhsuk-frontend-supported')
 }
+
+export * from './nhsuk-frontend-version.mjs'
