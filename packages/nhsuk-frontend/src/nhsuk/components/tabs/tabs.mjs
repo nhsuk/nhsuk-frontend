@@ -55,6 +55,13 @@ export class Tabs extends Component {
   setupResponsiveChecks() {
     const breakpoint = getBreakpoint('tablet')
 
+    if (!breakpoint.value) {
+      throw new ElementError({
+        component: Tabs,
+        identifier: `CSS custom property (\`${breakpoint.property}\`) on pseudo-class \`:root\``
+      })
+    }
+
     // Media query list for NHS.UK frontend tablet breakpoint
     this.mql = window.matchMedia(`(min-width: ${breakpoint.value})`)
 
