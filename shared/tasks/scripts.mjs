@@ -1,9 +1,11 @@
 import { join, parse } from 'node:path'
 
+import * as config from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import terser from '@rollup/plugin-terser'
 import PluginError from 'plugin-error'
 import { rollup } from 'rollup'
@@ -40,6 +42,13 @@ export function compile(
       plugins: [
         nodeResolve(),
         commonjs(),
+        replace({
+          include: '**/common/nhsuk-frontend-version.mjs',
+          preventAssignment: true,
+
+          // Add NHS.UK frontend release version
+          development: config.version
+        }),
         babel({
           babelHelpers: 'bundled'
         })
