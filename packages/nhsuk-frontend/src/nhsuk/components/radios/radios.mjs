@@ -31,9 +31,9 @@ export class Radios extends Component {
     // event is fired, so we need to sync after the pageshow event.
     window.addEventListener('pageshow', () => this.syncAllConditionalReveals())
 
-    // Although we've set up handlers to sync state on the pageshow or
-    // DOMContentLoaded event, init could be called after those events have fired,
-    // for example if they are added to the page dynamically, so sync now too.
+    // Although we've set up handlers to sync state on the pageshow event, init
+    // could be called after those events have fired, for example if they are
+    // added to the page dynamically, so sync now too.
 
     // Attach event handler to radioInputs
     this.$inputs.forEach((radioButton) => {
