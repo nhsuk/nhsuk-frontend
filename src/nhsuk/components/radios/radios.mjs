@@ -84,7 +84,9 @@ export class Radios extends Component {
  */
 export function initRadios(options = {}) {
   const $scope = options.scope || document
-  const $radios = $scope.querySelectorAll('[data-module="nhsuk-radios"]')
+  const $radios = $scope.querySelectorAll(
+    `[data-module="${Radios.moduleName}"]`
+  )
 
   $radios.forEach(($root) => {
     new Radios($root)

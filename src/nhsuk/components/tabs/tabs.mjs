@@ -326,7 +326,7 @@ export class Tabs extends Component {
  */
 export function initTabs(options = {}) {
   const $scope = options.scope || document
-  const $tabs = $scope.querySelectorAll('[data-module="nhsuk-tabs"]')
+  const $tabs = $scope.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
 
   $tabs.forEach(($root) => {
     new Tabs($root)

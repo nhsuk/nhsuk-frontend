@@ -58,9 +58,7 @@ describe('Error summary', () => {
 
     const $container = document.querySelector('form')
 
-    $root = getByRole($container, 'alert', {
-      name: 'There is a problem'
-    })
+    $root = document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
 
     $links = getAllByRole($root, 'link')
 
@@ -126,11 +124,22 @@ describe('Error summary', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new ErrorSummary($root)).toThrow(
+      expect(() => new ErrorSummary($svg)).toThrow(
         'ErrorSummary: Root element (`$root`) is not of type HTMLElement'
       )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initErrorSummary()
+    })
+
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('There is a problem')
+      expect($root).toHaveRole('alert')
     })
   })
 

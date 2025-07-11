@@ -152,7 +152,7 @@ export class Checkboxes extends Component {
 export function initCheckboxes(options = {}) {
   const $scope = options.scope || document
   const $checkboxes = $scope.querySelectorAll(
-    '[data-module="nhsuk-checkboxes"]'
+    `[data-module="${Checkboxes.moduleName}"]`
   )
 
   $checkboxes.forEach(($root) => {

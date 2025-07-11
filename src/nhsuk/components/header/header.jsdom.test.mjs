@@ -67,7 +67,7 @@ describe('Header class', () => {
       }
     })
 
-    $root = document.querySelector('.nhsuk-header')
+    $root = document.querySelector(`[data-module="${Header.moduleName}"]`)
 
     $navigation = getByRole($root, 'navigation')
     $navigationList = getByRole($navigation, 'list')
@@ -200,9 +200,9 @@ describe('Header class', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Header($root)).toThrow(
+      expect(() => new Header($svg)).toThrow(
         'Header: Root element (`$root`) is not of type HTMLElement'
       )
     })
