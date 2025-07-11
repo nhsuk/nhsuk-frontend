@@ -131,7 +131,7 @@ describe('Radios', () => {
       $conditionals[0].remove()
 
       expect(() => initRadios()).toThrow(
-        `Radios: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+        `${Radios.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
       )
     })
 
@@ -141,7 +141,7 @@ describe('Radios', () => {
       }
 
       expect(() => initRadios()).toThrow(
-        'Radios: Form inputs (`<input type="radio">`) not found'
+        `${Radios.moduleName}: Form inputs (\`<input type="radio">\`) not found`
       )
     })
 
@@ -179,7 +179,7 @@ describe('Radios', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Radios()).toThrow(
-        'Radios: Root element (`$root`) not found'
+        `${Radios.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -187,7 +187,7 @@ describe('Radios', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new Radios($svg)).toThrow(
-        'Radios: Root element (`$root`) is not of type HTMLElement'
+        `${Radios.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })

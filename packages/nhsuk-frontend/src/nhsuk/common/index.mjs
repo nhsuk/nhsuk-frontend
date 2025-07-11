@@ -133,4 +133,19 @@ export function isSupported($scope = document.body) {
   return $scope.classList.contains('nhsuk-frontend-supported')
 }
 
+/**
+ * Format error message
+ *
+ * @param {ComponentConstructor} Component - Component that threw the error
+ * @param {string} message - Error message
+ * @returns {string} - Formatted error message
+ */
+export function formatErrorMessage(Component, message) {
+  return `${Component.moduleName}: ${message}`
+}
+
 export * from './nhsuk-frontend-version.mjs'
+
+/**
+ * @import { ComponentConstructor } from '../component.mjs'
+ */

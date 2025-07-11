@@ -64,7 +64,7 @@ describe('Button', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Button()).toThrow(
-        'Button: Root element (`$root`) not found'
+        `${Button.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -72,7 +72,7 @@ describe('Button', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new Button($svg)).toThrow(
-        'Button: Root element (`$root`) is not of type HTMLElement'
+        `${Button.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })

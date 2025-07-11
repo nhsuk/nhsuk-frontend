@@ -64,7 +64,7 @@ describe('Character count', () => {
       $textarea.remove()
 
       expect(() => initCharacterCounts()).toThrow(
-        'CharacterCount: Form field (`.nhsuk-js-character-count`) not found'
+        `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) not found`
       )
     })
 
@@ -72,7 +72,7 @@ describe('Character count', () => {
       $description.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
-        'CharacterCount: Count message (`id="example-info"`) not found'
+        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
       )
     })
 
@@ -102,7 +102,7 @@ describe('Character count', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new CharacterCount()).toThrow(
-        'CharacterCount: Root element (`$root`) not found'
+        `${CharacterCount.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -110,7 +110,7 @@ describe('Character count', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new CharacterCount($svg)).toThrow(
-        'CharacterCount: Root element (`$root`) is not of type HTMLElement'
+        `${CharacterCount.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })

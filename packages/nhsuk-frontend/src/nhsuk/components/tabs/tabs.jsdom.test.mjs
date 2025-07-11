@@ -102,7 +102,7 @@ describe('Tabs', () => {
       }
 
       expect(() => initTabs()).toThrow(
-        'Tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
+        `${Tabs.moduleName}: Links (\`<a class="nhsuk-tabs__tab">\`) not found`
       )
     })
 
@@ -112,7 +112,7 @@ describe('Tabs', () => {
       $list.classList.add('nhsuk-tabs__typo')
 
       expect(() => initTabs()).toThrow(
-        'Tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
+        `${Tabs.moduleName}: List (\`<ul class="nhsuk-tabs__list">\`) not found`
       )
     })
 
@@ -156,19 +156,21 @@ describe('Tabs', () => {
       document.documentElement.style.removeProperty('--nhsuk-breakpoint-tablet')
 
       expect(() => new Tabs($root)).toThrow(
-        'Tabs: CSS custom property (`--nhsuk-breakpoint-tablet`) on pseudo-class `:root` not found'
+        `${Tabs.moduleName}: CSS custom property (\`--nhsuk-breakpoint-tablet\`) on pseudo-class \`:root\` not found`
       )
     })
 
     it('should throw with missing $root element', () => {
-      expect(() => new Tabs()).toThrow('Tabs: Root element (`$root`) not found')
+      expect(() => new Tabs()).toThrow(
+        `${Tabs.moduleName}: Root element (\`$root\`) not found`
+      )
     })
 
     it('should throw with wrong $root element type', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new Tabs($svg)).toThrow(
-        'Tabs: Root element (`$root`) is not of type HTMLElement'
+        `${Tabs.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })
