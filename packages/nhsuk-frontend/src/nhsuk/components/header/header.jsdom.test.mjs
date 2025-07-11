@@ -133,7 +133,7 @@ describe('Header class', () => {
       $navigation.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Navigation (`<nav class="nhsuk-header__navigation">`) not found'
+        `${Header.moduleName}: Navigation (\`<nav class="nhsuk-header__navigation">\`) not found`
       )
     })
 
@@ -141,7 +141,7 @@ describe('Header class', () => {
       $navigationList.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: List (`<ul class="nhsuk-header__navigation-list">`) not found'
+        `${Header.moduleName}: List (\`<ul class="nhsuk-header__navigation-list">\`) not found`
       )
     })
 
@@ -149,7 +149,7 @@ describe('Header class', () => {
       $navigationList.innerHTML = ''
 
       expect(() => initHeader()).toThrow(
-        'Header: List items (`<li class="nhsuk-header__navigation-item">`) not found'
+        `${Header.moduleName}: List items (\`<li class="nhsuk-header__navigation-item">\`) not found`
       )
     })
 
@@ -157,7 +157,7 @@ describe('Header class', () => {
       $menuButton.parentElement.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Menu item (`<li class="nhsuk-header__menu" hidden>`) not found'
+        `${Header.moduleName}: Menu item (\`<li class="nhsuk-header__menu" hidden>\`) not found`
       )
     })
 
@@ -165,7 +165,7 @@ describe('Header class', () => {
       $menuButton.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Menu button (`<button class="nhsuk-header__menu-toggle">`) not found'
+        `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
       )
     })
 
@@ -195,7 +195,7 @@ describe('Header class', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Header()).toThrow(
-        'Header: Root element (`$root`) not found'
+        `${Header.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -203,7 +203,7 @@ describe('Header class', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new Header($svg)).toThrow(
-        'Header: Root element (`$root`) is not of type HTMLElement'
+        `${Header.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })

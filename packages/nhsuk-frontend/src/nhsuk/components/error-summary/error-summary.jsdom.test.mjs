@@ -119,7 +119,7 @@ describe('Error summary', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new ErrorSummary()).toThrow(
-        'ErrorSummary: Root element (`$root`) not found'
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -127,7 +127,7 @@ describe('Error summary', () => {
       const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
       expect(() => new ErrorSummary($svg)).toThrow(
-        'ErrorSummary: Root element (`$root`) is not of type HTMLElement'
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })
