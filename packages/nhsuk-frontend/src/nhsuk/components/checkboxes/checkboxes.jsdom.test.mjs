@@ -129,6 +129,14 @@ describe('Checkboxes', () => {
       }
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => initCheckboxes()).toThrow(
+        `Checkboxes: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
     it('should throw with missing checkboxes', () => {
       for (const $input of $inputs) {
         $input.remove()
@@ -137,6 +145,14 @@ describe('Checkboxes', () => {
       expect(() => initCheckboxes()).toThrow(
         'Checkboxes: Form inputs (`<input type="checkbox">`) not found'
       )
+    })
+
+    it('should not throw with missing checkbox `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => initCheckboxes()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
@@ -209,6 +225,27 @@ describe('Checkboxes', () => {
           'nhsuk-checkboxes__conditional--hidden'
         )
       }
+    })
+
+    it('should be visible when input is pre-checked (deferred initialisation)', () => {
+      const $input = $inputs[0]
+      const $conditional = $conditionals[0]
+
+      // Pre-check the first input
+      $input.click()
+
+      // Conditional content not visible
+      expect($input).not.toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
+
+      window.addEventListener('pageshow', initCheckboxes)
+      window.dispatchEvent(new Event('pageshow'))
+
+      // Conditional content visible
+      expect($input).toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).not.toHaveClass(
+        'nhsuk-checkboxes__conditional--hidden'
+      )
     })
 
     it('should be hidden when input is unchecked', () => {
