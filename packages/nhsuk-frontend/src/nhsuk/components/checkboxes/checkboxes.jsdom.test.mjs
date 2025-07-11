@@ -211,6 +211,27 @@ describe('Checkboxes', () => {
       }
     })
 
+    it('should be visible when input is pre-checked (deferred initialisation)', () => {
+      const $input = $inputs[0]
+      const $conditional = $conditionals[0]
+
+      // Pre-check the first input
+      $input.click()
+
+      // Conditional content not visible
+      expect($input).not.toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
+
+      window.addEventListener('pageshow', initCheckboxes)
+      window.dispatchEvent(new Event('pageshow'))
+
+      // Conditional content visible
+      expect($input).toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).not.toHaveClass(
+        'nhsuk-checkboxes__conditional--hidden'
+      )
+    })
+
     it('should be hidden when input is unchecked', () => {
       initCheckboxes()
 
