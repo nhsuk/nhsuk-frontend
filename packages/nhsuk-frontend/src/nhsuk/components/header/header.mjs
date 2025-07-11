@@ -286,6 +286,11 @@ export class Header extends Component {
       )
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-header'
 }
 
 /**

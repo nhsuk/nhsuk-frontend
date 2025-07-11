@@ -127,6 +127,11 @@ export class ErrorSummary extends Component {
       event.preventDefault()
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-error-summary'
 }
 
 /**
