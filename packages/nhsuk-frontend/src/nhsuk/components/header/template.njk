@@ -51,7 +51,7 @@
 <header class="nhsuk-header
   {%- if params.organisation %} nhsuk-header--organisation{% endif %}
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
-  {{- nhsukAttributes(params.attributes) }}>
+  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
     {% if logoHref %}
