@@ -104,7 +104,8 @@ export function compile(
         : undefined,
 
       // Enable source maps
-      sourcemap: true
+      sourcemap: true,
+      sourcemapExcludeSources: !!output.preserveModules
     })
   })
 }
