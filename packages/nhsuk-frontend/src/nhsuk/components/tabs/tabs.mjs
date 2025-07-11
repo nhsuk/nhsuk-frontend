@@ -311,6 +311,11 @@ export class Tabs extends Component {
       '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-tabs'
 }
 
 /**

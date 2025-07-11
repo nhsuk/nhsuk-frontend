@@ -69,6 +69,11 @@ export class Radios extends Component {
       toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-radios'
 }
 
 /**
