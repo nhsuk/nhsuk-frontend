@@ -8,10 +8,10 @@ describe('Checkboxes', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
+  /** @type {HTMLElement[]} */
   let $inputs
 
   beforeEach(() => {
@@ -92,11 +92,13 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+    )
 
-    $conditionals = [
+    $conditionals = /** @type {HTMLElement[]} */ ([
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
-    ]
+    ])
 
     const $input1 = getByRole($root, 'checkbox', {
       name: 'Email'

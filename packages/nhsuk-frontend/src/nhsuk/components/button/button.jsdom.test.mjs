@@ -11,7 +11,9 @@ describe('Button', () => {
       context: { text: 'Save and continue' }
     })
 
-    $root = document.querySelector(`[data-module="${Button.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Button.moduleName}"]`)
+    )
 
     jest.spyOn($root, 'addEventListener')
   })

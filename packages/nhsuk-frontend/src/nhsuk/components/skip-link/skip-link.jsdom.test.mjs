@@ -33,7 +33,10 @@ describe('Skip link', () => {
     `
 
     $main = document.querySelector('main')
-    $root = document.querySelector(`[data-module="${SkipLink.moduleName}"]`)
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${SkipLink.moduleName}"]`)
+    )
 
     jest.spyOn($root, 'addEventListener')
   })

@@ -77,6 +77,8 @@ describe('toggleConditionalInput util', () => {
     it('if no class is passed', () => {
       const $element = document.querySelector('.fake-class')
       expect($element).toBeNull()
+
+      // @ts-expect-error Parameter 'className' not provided
       toggleConditionalInput($element)
     })
 
