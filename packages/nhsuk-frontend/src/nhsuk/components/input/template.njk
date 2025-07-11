@@ -10,7 +10,8 @@
 
 <div class="nhsuk-form-group
   {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}
-  {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+  {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
     html: params.label.html,
     text: params.label.text,

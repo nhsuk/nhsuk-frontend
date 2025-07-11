@@ -79,7 +79,8 @@
   </div>
 {%- endset -%}
 
-<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}  {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}  {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
 {% if params.fieldset %}
 {#- We override the fieldset's role to 'group' because otherwise JAWS does not
     announce the description for a fieldset comprised of text inputs, but

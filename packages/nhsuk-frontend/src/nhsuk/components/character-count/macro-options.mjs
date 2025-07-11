@@ -58,6 +58,12 @@ export const params = {
         required: false,
         description:
           'Classes to add to the form group (for example to show error state for the whole group).'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the form group.'
       }
     }
   },
