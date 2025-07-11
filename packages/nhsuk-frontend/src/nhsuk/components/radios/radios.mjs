@@ -79,7 +79,7 @@ export class Radios extends Component {
  */
 export function initRadios(options = {}) {
   const $scope = options.scope || document
-  const $radios = $scope.querySelectorAll('.nhsuk-radios--conditional')
+  const $radios = $scope.querySelectorAll('[data-module="nhsuk-radios"]')
 
   $radios.forEach(($root) => {
     new Radios($root)

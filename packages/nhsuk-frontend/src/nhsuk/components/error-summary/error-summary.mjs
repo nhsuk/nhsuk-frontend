@@ -139,7 +139,7 @@ export class ErrorSummary extends Component {
  */
 export function initErrorSummary(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-error-summary')
+  const $root = $scope.querySelector('[data-module="nhsuk-error-summary"]')
 
   if (!$root) {
     return
