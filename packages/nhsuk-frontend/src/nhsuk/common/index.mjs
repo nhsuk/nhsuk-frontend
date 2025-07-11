@@ -42,6 +42,25 @@ export function toggleConditionalInput(input, className) {
 }
 
 /**
+ * Get NHS.UK frontend breakpoint value from CSS custom property
+ *
+ * @param {string} name - Breakpoint name
+ */
+export function getBreakpoint(name) {
+  const property = `--nhsuk-breakpoint-${name}`
+
+  // Get value from `<html>` with breakpoints on CSS :root
+  const value = window
+    .getComputedStyle(document.documentElement)
+    .getPropertyValue(property)
+
+  return {
+    property,
+    value: value || undefined
+  }
+}
+
+/**
  * Move focus to element
  *
  * Sets tabindex to -1 to make the element programmatically focusable,
