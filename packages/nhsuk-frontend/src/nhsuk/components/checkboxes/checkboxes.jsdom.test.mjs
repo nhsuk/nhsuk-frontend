@@ -129,6 +129,14 @@ describe('Checkboxes', () => {
       }
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => initCheckboxes()).toThrow(
+        `Checkboxes: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
     it('should throw with missing checkboxes', () => {
       for (const $input of $inputs) {
         $input.remove()
@@ -137,6 +145,14 @@ describe('Checkboxes', () => {
       expect(() => initCheckboxes()).toThrow(
         'Checkboxes: Form inputs (`<input type="checkbox">`) not found'
       )
+    })
+
+    it('should not throw with missing checkbox `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => initCheckboxes()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {

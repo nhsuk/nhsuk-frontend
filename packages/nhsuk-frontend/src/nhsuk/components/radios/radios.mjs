@@ -26,6 +26,23 @@ export class Radios extends Component {
 
     this.$inputs = $inputs
 
+    this.$inputs.forEach(($input) => {
+      const targetId = $input.getAttribute('aria-controls')
+
+      // Skip radios without aria-controls attributes
+      if (!targetId) {
+        return
+      }
+
+      // Throw if target conditional element does not exist.
+      if (!document.getElementById(targetId)) {
+        throw new ElementError({
+          component: Radios,
+          identifier: `Conditional reveal (\`id="${targetId}"\`)`
+        })
+      }
+    })
+
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
     // event is fired, so we need to sync after the pageshow event.
