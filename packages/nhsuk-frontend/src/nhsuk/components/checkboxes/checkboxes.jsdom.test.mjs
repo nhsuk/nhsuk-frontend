@@ -32,11 +32,13 @@ describe('Checkboxes', () => {
       examples[exampleName]
     )
 
-    $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+    )
 
-    $conditionals = [
+    $conditionals = /** @type {HTMLDivElement[]} */ ([
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
-    ]
+    ])
 
     $input1 = getByRole($root, 'checkbox', {
       name: 'Email'

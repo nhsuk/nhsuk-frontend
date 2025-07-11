@@ -8,7 +8,7 @@ import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
 import { examples } from './macro-options.mjs'
 
 describe('Error summary', () => {
-  /** @type {HTMLDivElement} */
+  /** @type {HTMLElement} */
   let $root
 
   /** @type {HTMLAnchorElement[]} */
@@ -30,7 +30,9 @@ describe('Error summary', () => {
 
     const $container = document.querySelector('form')
 
-    $root = document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+    )
 
     $links = getAllByRole($root, 'link')
 

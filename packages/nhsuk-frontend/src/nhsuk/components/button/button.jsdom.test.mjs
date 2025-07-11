@@ -10,7 +10,9 @@ describe('Button', () => {
   beforeEach(() => {
     document.body.innerHTML = components.render('button', examples.default)
 
-    $root = document.querySelector(`[data-module="${Button.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Button.moduleName}"]`)
+    )
 
     jest.spyOn($root, 'addEventListener')
   })

@@ -97,6 +97,7 @@ describe('toggleConditionalInput util', () => {
     })
 
     it('if no class is passed', () => {
+      // @ts-expect-error Parameter 'className' not provided
       expect(() => toggleConditionalInput($input)).not.toThrow()
     })
 
