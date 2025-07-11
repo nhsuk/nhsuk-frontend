@@ -70,7 +70,7 @@ export class SkipLink extends Component {
  */
 export function initSkipLinks(options = {}) {
   const $scope = options.scope || document
-  const $skipLinks = $scope.querySelectorAll('.nhsuk-skip-link')
+  const $skipLinks = $scope.querySelectorAll('[data-module="nhsuk-skip-link"]')
 
   $skipLinks.forEach(($root) => {
     new SkipLink($root)
