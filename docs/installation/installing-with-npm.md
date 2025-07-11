@@ -107,6 +107,22 @@ import { initAll } from 'nhsuk-frontend'
 initAll()
 ```
 
+#### Initialise only part of a page
+
+If you update a page with new markup, for example a modal dialogue box, you can initialise components on that part of the page only.
+
+For example, run `initAll` with a `scope` parameter to initialise the components on part of a page:
+
+```js
+import { initAll } from 'nhsuk-frontend'
+
+const $element = document.querySelector('.app-modal')
+
+if ($element) {
+  initAll({ scope: $element })
+}
+```
+
 #### Initialise individual components
 
 Rather than using `initAll`, you can initialise all instances of individual components used by your service. For example:
