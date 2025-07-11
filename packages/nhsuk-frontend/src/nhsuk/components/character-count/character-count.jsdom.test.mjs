@@ -27,7 +27,9 @@ describe('Character count', () => {
       }
     })
 
-    $root = document.querySelector('.nhsuk-character-count')
+    $root = document.querySelector(
+      `[data-module="${CharacterCount.moduleName}"]`
+    )
 
     $textarea = getByRole($root, 'textbox', {
       name: 'Can you provide more detail?'
@@ -105,9 +107,9 @@ describe('Character count', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new CharacterCount($root)).toThrow(
+      expect(() => new CharacterCount($svg)).toThrow(
         'CharacterCount: Root element (`$root`) is not of type HTMLElement'
       )
     })

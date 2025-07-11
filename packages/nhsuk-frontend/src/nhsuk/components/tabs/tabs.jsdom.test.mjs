@@ -58,7 +58,7 @@ describe('Tabs', () => {
       }
     })
 
-    $root = document.querySelector('.nhsuk-tabs')
+    $root = document.querySelector(`[data-module="${Tabs.moduleName}"]`)
 
     $list = getByRole($root, 'list')
     $listItems = getAllByRole($root, 'listitem')
@@ -165,9 +165,9 @@ describe('Tabs', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Tabs($root)).toThrow(
+      expect(() => new Tabs($svg)).toThrow(
         'Tabs: Root element (`$root`) is not of type HTMLElement'
       )
     })

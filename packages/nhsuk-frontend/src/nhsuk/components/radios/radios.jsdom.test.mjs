@@ -92,7 +92,7 @@ describe('Radios', () => {
       </form>
     `
 
-    $root = document.querySelector('.nhsuk-radios')
+    $root = document.querySelector(`[data-module="${Radios.moduleName}"]`)
 
     $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
 
@@ -184,9 +184,9 @@ describe('Radios', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Radios($root)).toThrow(
+      expect(() => new Radios($svg)).toThrow(
         'Radios: Root element (`$root`) is not of type HTMLElement'
       )
     })

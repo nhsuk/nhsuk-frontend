@@ -92,7 +92,7 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    $root = document.querySelector('.nhsuk-checkboxes')
+    $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
 
     $conditionals = [
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
@@ -186,9 +186,9 @@ describe('Checkboxes', () => {
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Checkboxes($root)).toThrow(
+      expect(() => new Checkboxes($svg)).toThrow(
         'Checkboxes: Root element (`$root`) is not of type HTMLElement'
       )
     })

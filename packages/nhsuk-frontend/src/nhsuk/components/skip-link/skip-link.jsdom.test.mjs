@@ -1,5 +1,4 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
@@ -34,10 +33,7 @@ describe('Skip link', () => {
     `
 
     $main = document.querySelector('main')
-
-    $root = getByRole(document.body, 'link', {
-      name: 'Skip to main content'
-    })
+    $root = document.querySelector(`[data-module="${SkipLink.moduleName}"]`)
 
     jest.spyOn($root, 'addEventListener')
   })
@@ -109,6 +105,17 @@ describe('Skip link', () => {
       expect(() => new SkipLink($root)).toThrow(
         'SkipLink: Root element (`$root`) is not of type HTMLAnchorElement'
       )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initSkipLinks()
+    })
+
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Skip to main content')
+      expect($root).toHaveRole('link')
     })
   })
 

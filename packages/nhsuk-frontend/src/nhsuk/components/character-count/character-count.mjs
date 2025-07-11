@@ -302,7 +302,7 @@ CharacterCount.prototype.defaults = {
 export function initCharacterCounts(options = {}) {
   const $scope = options.scope || document
   const $characterCounts = $scope.querySelectorAll(
-    '[data-module="nhsuk-character-count"]'
+    `[data-module="${CharacterCount.moduleName}"]`
   )
 
   $characterCounts.forEach(($root) => {

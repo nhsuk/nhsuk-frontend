@@ -301,7 +301,7 @@ export class Header extends Component {
  */
 export function initHeader(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('[data-module="nhsuk-header"]')
+  const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
     return
