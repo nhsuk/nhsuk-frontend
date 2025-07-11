@@ -281,6 +281,11 @@ export class CharacterCount extends Component {
     // Cancel value checking on blur
     clearInterval(this.valueChecker)
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-character-count'
 }
 
 CharacterCount.prototype.defaults = {
@@ -297,7 +302,7 @@ CharacterCount.prototype.defaults = {
 export function initCharacterCounts(options = {}) {
   const $scope = options.scope || document
   const $characterCounts = $scope.querySelectorAll(
-    '[data-module="nhsuk-character-count"]'
+    `[data-module="${CharacterCount.moduleName}"]`
   )
 
   $characterCounts.forEach(($root) => {

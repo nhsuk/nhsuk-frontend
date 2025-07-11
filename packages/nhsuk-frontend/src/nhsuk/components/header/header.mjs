@@ -286,6 +286,11 @@ export class Header extends Component {
       )
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-header'
 }
 
 /**
@@ -296,7 +301,7 @@ export class Header extends Component {
  */
 export function initHeader(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-header')
+  const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
     return

@@ -136,6 +136,11 @@ export class Checkboxes extends Component {
       this.unCheckExclusiveInputs(event.target)
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-checkboxes'
 }
 
 /**
@@ -146,7 +151,9 @@ export class Checkboxes extends Component {
  */
 export function initCheckboxes(options = {}) {
   const $scope = options.scope || document
-  const $checkboxes = $scope.querySelectorAll('.nhsuk-checkboxes')
+  const $checkboxes = $scope.querySelectorAll(
+    `[data-module="${Checkboxes.moduleName}"]`
+  )
 
   $checkboxes.forEach(($root) => {
     new Checkboxes($root)

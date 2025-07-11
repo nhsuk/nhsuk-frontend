@@ -92,7 +92,7 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    $root = document.querySelector('.nhsuk-checkboxes')
+    $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
 
     $conditionals = [
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
@@ -133,7 +133,7 @@ describe('Checkboxes', () => {
       $conditionals[0].remove()
 
       expect(() => initCheckboxes()).toThrow(
-        `Checkboxes: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+        `${Checkboxes.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
       )
     })
 
@@ -143,7 +143,7 @@ describe('Checkboxes', () => {
       }
 
       expect(() => initCheckboxes()).toThrow(
-        'Checkboxes: Form inputs (`<input type="checkbox">`) not found'
+        `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
       )
     })
 
@@ -181,15 +181,15 @@ describe('Checkboxes', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Checkboxes()).toThrow(
-        'Checkboxes: Root element (`$root`) not found'
+        `${Checkboxes.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Checkboxes($root)).toThrow(
-        'Checkboxes: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new Checkboxes($svg)).toThrow(
+        `${Checkboxes.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })
