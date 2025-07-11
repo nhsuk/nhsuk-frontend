@@ -117,6 +117,20 @@ export function setFocus($element, options = {}) {
 }
 
 /**
+ * Checks if component is already initialised
+ *
+ * @param {Element} $root - HTML element to be checked
+ * @param {string} moduleName - name of component module
+ * @returns {boolean} Whether component is already initialised
+ */
+export function isInitialised($root, moduleName) {
+  return (
+    $root instanceof HTMLElement &&
+    $root.hasAttribute(`data-${moduleName}-init`)
+  )
+}
+
+/**
  * Checks if NHS.UK frontend is supported on this page
  *
  * Some browsers will load and run our JavaScript but NHS.UK frontend

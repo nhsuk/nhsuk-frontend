@@ -173,6 +173,15 @@ describe('Tabs', () => {
         `${Tabs.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Tabs($root)
+        new Tabs($root)
+      }).toThrow(
+        `${Tabs.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Accessibility (mobile)', () => {
