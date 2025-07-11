@@ -68,6 +68,11 @@ export class Button extends Component {
       this.debounceFormSubmitTimer = null
     }, DEBOUNCE_TIMEOUT_IN_SECONDS * 1000)
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-button'
 }
 
 /**
