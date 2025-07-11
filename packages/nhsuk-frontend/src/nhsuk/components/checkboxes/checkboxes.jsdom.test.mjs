@@ -192,6 +192,15 @@ describe('Checkboxes', () => {
         `${Checkboxes.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Checkboxes($root)
+        new Checkboxes($root)
+      }).toThrow(
+        `${Checkboxes.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Conditional content', () => {
