@@ -8,27 +8,32 @@ describe('Tabs', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLUListElement} */
+  /** @type {HTMLElement} */
   let $list
 
-  /** @type {HTMLLIElement[]} */
+  /** @type {HTMLElement[]} */
   let $listItems
 
   /** @type {HTMLAnchorElement[]} */
   let $tabs
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $panels
 
   beforeEach(() => {
     document.body.innerHTML = components.render('tabs', examples.default)
 
-    $root = document.querySelector(`[data-module="${Tabs.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Tabs.moduleName}"]`)
+    )
 
     $list = getByRole($root, 'list')
     $listItems = getAllByRole($root, 'listitem')
     $tabs = getAllByRole($root, 'link')
-    $panels = [...document.querySelectorAll('.nhsuk-tabs__panel')]
+
+    $panels = /** @type {HTMLElement[]} */ ([
+      ...document.querySelectorAll('.nhsuk-tabs__panel')
+    ])
 
     $tabs.forEach(($tab) => jest.spyOn($tab, 'addEventListener'))
     jest.spyOn(window, 'addEventListener')

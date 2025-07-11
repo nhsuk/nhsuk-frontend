@@ -9,10 +9,10 @@ describe('Radios', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
+  /** @type {HTMLElement[]} */
   let $inputs
 
   beforeEach(() => {
@@ -22,9 +22,13 @@ describe('Radios', () => {
       </form>
     `
 
-    $root = document.querySelector(`[data-module="${Radios.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Radios.moduleName}"]`)
+    )
 
-    $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
+    $conditionals = /** @type {HTMLElement[]} */ ([
+      ...$root.querySelectorAll('.nhsuk-radios__conditional')
+    ])
 
     const $input1 = getByRole($root, 'radio', {
       name: 'Email'
