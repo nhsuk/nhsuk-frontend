@@ -206,6 +206,15 @@ describe('Header class', () => {
         `${Header.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Header($root)
+        new Header($root)
+      }).toThrow(
+        `${Header.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Menu button', () => {

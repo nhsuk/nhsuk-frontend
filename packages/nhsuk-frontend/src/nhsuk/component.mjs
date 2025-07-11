@@ -1,5 +1,5 @@
-import { isSupported } from './common/index.mjs'
-import { ElementError, SupportError } from './errors/index.mjs'
+import { isInitialised, isSupported } from './common/index.mjs'
+import { ElementError, InitError, SupportError } from './errors/index.mjs'
 
 /**
  * Base component class
@@ -42,6 +42,26 @@ export class Component {
     this.$root = /** @type {RootElementType} */ ($root)
 
     ComponentClass.checkSupport()
+
+    this.checkInitialised()
+
+    const { moduleName } = ComponentClass
+    this.$root.setAttribute(`data-${moduleName}-init`, '')
+  }
+
+  /**
+   * Validates whether component is already initialised
+   *
+   * @throws {InitError} when component is already initialised
+   */
+  checkInitialised() {
+    const ComponentClass = /** @type {ComponentConstructor} */ (
+      this.constructor
+    )
+
+    if (isInitialised(this.$root, ComponentClass.moduleName)) {
+      throw new InitError(ComponentClass)
+    }
   }
 
   /**

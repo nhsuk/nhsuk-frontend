@@ -106,6 +106,15 @@ describe('Skip link', () => {
         `${SkipLink.moduleName}: Root element (\`$root\`) is not of type HTMLAnchorElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new SkipLink($root)
+        new SkipLink($root)
+      }).toThrow(
+        `${SkipLink.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Accessibility', () => {

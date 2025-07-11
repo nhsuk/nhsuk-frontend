@@ -75,6 +75,15 @@ describe('Button', () => {
         `${Button.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Button($root)
+        new Button($root)
+      }).toThrow(
+        `${Button.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Accessibility', () => {
