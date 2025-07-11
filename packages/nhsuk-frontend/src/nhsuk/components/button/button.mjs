@@ -83,7 +83,9 @@ export class Button extends Component {
  */
 export function initButtons(options = {}) {
   const $scope = options.scope || document
-  const $buttons = $scope.querySelectorAll('[data-module="nhsuk-button"]')
+  const $buttons = $scope.querySelectorAll(
+    `[data-module="${Button.moduleName}"]`
+  )
 
   $buttons.forEach(($root) => {
     new Button($root)
