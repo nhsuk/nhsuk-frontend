@@ -1,4 +1,4 @@
-import { toggleConditionalInput } from '../../common.mjs'
+import { toggleConditionalInput } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 

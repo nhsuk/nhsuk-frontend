@@ -1,4 +1,4 @@
-import { getFragmentFromUrl } from '../../common.mjs'
+import { getFragmentFromUrl } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 
 /**

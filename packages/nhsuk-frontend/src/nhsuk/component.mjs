@@ -1,4 +1,4 @@
-import { isSupported } from './common.mjs'
+import { isSupported } from './common/index.mjs'
 import { ElementError, SupportError } from './errors/index.mjs'
 
 /**

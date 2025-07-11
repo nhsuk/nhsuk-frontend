@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
-import { getFragmentFromUrl, setFocus } from '../../common.mjs'
+import { getFragmentFromUrl, setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 

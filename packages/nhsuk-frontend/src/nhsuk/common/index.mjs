@@ -16,20 +16,6 @@ export function getFragmentFromUrl(url) {
 }
 
 /**
- * Toggle a boolean attribute on a HTML element
- *
- * @param {HTMLElement} element
- * @param {string} attr
- */
-export function toggleAttribute(element, attr) {
-  // Return without error if element or attr are missing
-  if (!element || !attr) return
-  // Toggle attribute value. Treat no existing attr same as when set to false
-  const value = element.getAttribute(attr) === 'true' ? 'false' : 'true'
-  element.setAttribute(attr, value)
-}
-
-/**
  * Toggle a toggle a class on conditional content for an input based on checked state
  *
  * @param {HTMLElement} input - input element
@@ -127,3 +113,5 @@ export function isSupported($scope = document.body) {
 
   return $scope.classList.contains('nhsuk-frontend-supported')
 }
+
+export * from './nhsuk-frontend-version.mjs'

@@ -1,9 +1,8 @@
 import {
   getFragmentFromUrl,
   isSupported,
-  toggleAttribute,
   toggleConditionalInput
-} from './common.mjs'
+} from './index.mjs'
 
 describe('getFragmentFromUrl util', () => {
   it.each([
@@ -62,46 +61,6 @@ describe('isSupported util', () => {
     // For example, running `initAll()` in `<head>` without `type="module"`
     // will see support checks run when document.body is still `null`
     expect(isSupported(null)).toBe(false)
-  })
-})
-
-describe('toggleAttribute util', () => {
-  const attr = 'test-attribute'
-
-  describe('does not throw an error', () => {
-    it('if the element does not exist', () => {
-      const $element = document.querySelector('.fake-class')
-      expect($element).toBeNull()
-      toggleAttribute($element, attr)
-    })
-  })
-
-  describe('adds attribute with value of "true"', () => {
-    it('if the element currently has no attribute', () => {
-      document.body.innerHTML = '<div />'
-      const $element = document.querySelector('div')
-      expect($element).not.toBeNull()
-      toggleAttribute($element, attr)
-      expect($element).toHaveAttribute(attr, 'true')
-    })
-
-    it('if the attributes current value is "false"', () => {
-      document.body.innerHTML = `<div ${attr}="false" />`
-      const $element = document.querySelector('div')
-      expect($element).not.toBeNull()
-      toggleAttribute($element, attr)
-      expect($element).toHaveAttribute(attr, 'true')
-    })
-  })
-
-  describe('Adds attribute with value of "false"', () => {
-    it('if the attributes current value is "true"', () => {
-      document.body.innerHTML = `<div ${attr}="true" />`
-      const $element = document.querySelector('div')
-      expect($element).not.toBeNull()
-      toggleAttribute($element, attr)
-      expect($element).toHaveAttribute(attr, 'false')
-    })
   })
 })
 

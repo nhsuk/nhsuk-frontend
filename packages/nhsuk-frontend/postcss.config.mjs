@@ -1,3 +1,4 @@
+import * as config from '@nhsuk/frontend-config'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import postcss from 'postcss'
@@ -17,6 +18,19 @@ export default (ctx = {}) => {
       autoprefixer({
         env: 'stylesheets'
       }),
+
+      // Add NHS.UK frontend release version
+      {
+        postcssPlugin: 'nhsuk-frontend-version',
+        Declaration: {
+          // Find CSS declaration for version, update value
+          // https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
+          // https://postcss.org/api/#declaration
+          '--nhsuk-frontend-version': (decl) => {
+            decl.value = `"${config.version}"`
+          }
+        }
+      },
 
       // Minify CSS only
       to?.endsWith('.min.css') &&
