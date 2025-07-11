@@ -69,7 +69,7 @@ export class ErrorSummary extends Component {
     }
 
     return (
-      document.querySelector(`label[for='${input.getAttribute('id')}']`) ||
+      document.querySelector(`label[for='${input.getAttribute('id')}']`) ??
       input.closest('label')
     )
   }
@@ -143,7 +143,7 @@ export class ErrorSummary extends Component {
  *   summary will not be focussed when the page loads.
  */
 export function initErrorSummary(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $root = $scope.querySelector(
     `[data-module="${ErrorSummary.moduleName}"]`
   )

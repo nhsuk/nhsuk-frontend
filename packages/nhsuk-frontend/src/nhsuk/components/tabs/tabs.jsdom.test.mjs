@@ -190,7 +190,9 @@ describe('Tabs', () => {
         matches: false,
         media: query,
         onchange: null,
+        addListener: jest.fn(),
         addEventListener: jest.fn(),
+        removeListener: jest.fn(),
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn()
       }))

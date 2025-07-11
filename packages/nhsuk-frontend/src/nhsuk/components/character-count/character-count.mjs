@@ -137,7 +137,7 @@ export class CharacterCount extends Component {
   count(text) {
     let length
     if (this.config.maxwords) {
-      const tokens = text.match(/\S+/g) || [] // Matches consecutive non-whitespace chars
+      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
       length = tokens.length // eslint-disable-line prefer-destructuring
     } else {
       length = text.length // eslint-disable-line prefer-destructuring
@@ -253,7 +253,7 @@ export class CharacterCount extends Component {
     const { maxLength } = this
 
     // Set threshold if presented in config
-    const thresholdPercent = config.threshold ? config.threshold : 0
+    const thresholdPercent = config.threshold ?? 0
     const thresholdValue = (maxLength * thresholdPercent) / 100
 
     return thresholdValue <= currentLength
@@ -312,7 +312,7 @@ export class CharacterCount extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initCharacterCounts(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $characterCounts = $scope.querySelectorAll(
     `[data-module="${CharacterCount.moduleName}"]`
   )

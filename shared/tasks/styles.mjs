@@ -34,11 +34,11 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
      * 1. PostCSS on Sass compiler result
      * 2. PostCSS on Sass sources (Autoprefixer only)
      */
-    map: {
+    map: /** @type {ProcessOptions['map']} */ ({
       annotation: true,
       inline: false,
       prev: false
-    },
+    }),
 
     // Sass syntax support
     syntax: output.file?.endsWith('.scss') ? scss : postcss
@@ -63,22 +63,20 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
       }))
 
       // Make source file:// paths relative
-      if (map?.sources) {
+      if (typeof options.map === 'object' && map?.sources) {
         map.sources = map.sources.map((path) =>
           path.startsWith('file:')
             ? relative(options.from, fileURLToPath(path))
             : path
         )
-      }
 
-      // Pass source maps to PostCSS
-      options.map.prev = map
+        // Pass source maps to PostCSS
+        options.map.prev = map
+      }
     }
 
     // Use Sass source when not compiling
-    if (!css) {
-      css = await readFile(options.from)
-    }
+    css ??= await readFile(options.from)
 
     // Locate PostCSS config
     const config = await postcssrc(options)
@@ -92,10 +90,7 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
     // Write to files
     await mkdir(dirname(options.to), { recursive: true })
     await writeFile(options.to, result.css)
-
-    if (result.map) {
-      await writeFile(`${options.to}.map`, result.map.toString())
-    }
+    await writeFile(`${options.to}.map`, result.map.toString())
   })
 }
 

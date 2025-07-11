@@ -65,8 +65,7 @@ export function compile(
 
     // Add minifier plugin (optional)
     if (output.compact) {
-      output.plugins ??= []
-      output.plugins.push(
+      output.plugins = [
         terser({
           format: { comments: false },
 
@@ -87,7 +86,7 @@ export function compile(
           // Compatibility workarounds
           safari10: true
         })
-      )
+      ]
     }
 
     // Write to output format

@@ -85,7 +85,7 @@ export class Button extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initButtons(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $buttons = $scope.querySelectorAll(
     `[data-module="${Button.moduleName}"]`
   )

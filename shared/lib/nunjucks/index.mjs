@@ -107,7 +107,7 @@ export * as filters from './filters/index.mjs'
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks mixed context (optional)
+ * @property {{ [param: string]: unknown }} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
@@ -116,7 +116,7 @@ export * as filters from './filters/index.mjs'
  * Nunjucks template render options
  *
  * @typedef {object} TemplateRenderOptions
- * @property {{ [param: string]: unknown } | unknown} [context] - Nunjucks context object (optional)
+ * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {{ [block: string]: string }} [blocks] - Nunjucks blocks content in template (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
