@@ -127,6 +127,14 @@ describe('Radios', () => {
       }
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => initRadios()).toThrow(
+        `Radios: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
     it('should throw with missing radios', () => {
       for (const $input of $inputs) {
         $input.remove()
@@ -135,6 +143,14 @@ describe('Radios', () => {
       expect(() => initRadios()).toThrow(
         'Radios: Form inputs (`<input type="radio">`) not found'
       )
+    })
+
+    it('should not throw with missing radio `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => initRadios()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
