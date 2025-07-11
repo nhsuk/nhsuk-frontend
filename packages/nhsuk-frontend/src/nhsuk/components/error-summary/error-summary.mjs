@@ -31,6 +31,10 @@ export class ErrorSummary extends Component {
    *   bottom of the input
    * - The first `<label>` that is associated with the input using for='inputId'
    * - The closest parent `<label>`
+   *
+   * @param {Element} input - The input
+   * @returns {Element | null} Associated legend or label, or null if no
+   *   associated legend or label can be found
    */
   getAssociatedLegendOrLabel(input) {
     const fieldset = input.closest('fieldset')
@@ -43,7 +47,10 @@ export class ErrorSummary extends Component {
 
         // If the input type is radio or checkbox, always use the legend if there
         // is one.
-        if (input.type === 'checkbox' || input.type === 'radio') {
+        if (
+          input instanceof HTMLInputElement &&
+          (input.type === 'checkbox' || input.type === 'radio')
+        ) {
           return candidateLegend
         }
 
@@ -88,10 +95,13 @@ export class ErrorSummary extends Component {
    * This also results in the label and/or legend being announced correctly in
    * NVDA - without this only the field type is announced
    * (e.g. 'Edit, has autocomplete').
+   *
+   * @param {EventTarget} target - Event target
+   * @returns {boolean} True if the target was able to be focussed
    */
   focusTarget(target) {
     // If the element that was clicked was not a link, return early
-    if (target.tagName !== 'A' || target.href === false) {
+    if (!(target instanceof HTMLAnchorElement)) {
       return false
     }
 
@@ -120,10 +130,13 @@ export class ErrorSummary extends Component {
   }
 
   /**
-   * Handle click events on the error summary
+   * Click event handler
+   *
+   * @param {MouseEvent} event - Click event
    */
   handleClick(event) {
-    if (this.focusTarget(event.target)) {
+    const $target = event.target
+    if ($target && this.focusTarget($target)) {
       event.preventDefault()
     }
   }

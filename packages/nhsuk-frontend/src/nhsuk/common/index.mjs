@@ -18,12 +18,12 @@ export function getFragmentFromUrl(url) {
 /**
  * Toggle a toggle a class on conditional content for an input based on checked state
  *
- * @param {HTMLElement} input - input element
+ * @param {Element | null | undefined} input - input element
  * @param {string} className - class to toggle
  */
 export function toggleConditionalInput(input, className) {
   // Return without error if input or class are missing
-  if (!input || !className) return
+  if (!input || !(input instanceof HTMLInputElement) || !className) return
   // If the input has conditional content it had a data-aria-controls attribute
   const conditionalId = input.getAttribute('aria-controls')
   if (conditionalId) {

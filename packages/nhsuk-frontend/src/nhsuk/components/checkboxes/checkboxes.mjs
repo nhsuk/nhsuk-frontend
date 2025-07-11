@@ -73,8 +73,14 @@ export class Checkboxes extends Component {
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
    * This is useful for when a “None of these" checkbox is checked.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckAllInputsExcept(input) {
+    if (!input.form) {
+      return
+    }
+
     const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
     )
@@ -95,8 +101,14 @@ export class Checkboxes extends Component {
    * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
    * and uncheck them. This helps prevent someone checking both a regular checkbox and a
    * "None of these" checkbox in the same fieldset.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckExclusiveInputs(input) {
+    if (!input.form) {
+      return
+    }
+
     const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute(
         'data-checkbox-exclusive-group'
@@ -119,21 +131,31 @@ export class Checkboxes extends Component {
    * @param {MouseEvent} event - Click event
    */
   handleClick(event) {
+    const $clickedInput = event.target
+
+    // Ignore clicks on things that aren't checkbox inputs
+    if (
+      !($clickedInput instanceof HTMLInputElement) ||
+      $clickedInput.type !== 'checkbox'
+    ) {
+      return
+    }
+
     // Toggle conditional content based on checked state
     toggleConditionalInput(
-      event.target,
+      $clickedInput,
       'nhsuk-checkboxes__conditional--hidden'
     )
 
-    if (!event.target.checked) {
+    if (!$clickedInput.checked) {
       return
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if (event.target.hasAttribute('data-checkbox-exclusive')) {
-      this.unCheckAllInputsExcept(event.target)
+    if ($clickedInput.hasAttribute('data-checkbox-exclusive')) {
+      this.unCheckAllInputsExcept($clickedInput)
     } else {
-      this.unCheckExclusiveInputs(event.target)
+      this.unCheckExclusiveInputs($clickedInput)
     }
   }
 
