@@ -20,15 +20,15 @@ describe('Character count', () => {
       examples.default
     )
 
-    $root = document.querySelector(
-      `[data-module="${CharacterCount.moduleName}"]`
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
     )
 
     $textarea = getByRole($root, 'textbox', {
       name: 'Can you provide more detail?'
     })
 
-    $description = document.querySelector(`#${$textarea.id}-info`)
+    $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
   })
