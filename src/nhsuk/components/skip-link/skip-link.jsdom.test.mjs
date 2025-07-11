@@ -57,7 +57,7 @@ describe('Skip link', () => {
       $root.setAttribute('href', 'https://example.com')
 
       expect(() => initSkipLinks()).toThrow(
-        'SkipLink: Target link (`href="https://example.com"`) hash fragment not found'
+        `${SkipLink.moduleName}: Target link (\`href="https://example.com"\`) hash fragment not found`
       )
     })
 
@@ -65,7 +65,7 @@ describe('Skip link', () => {
       $main.remove()
 
       expect(() => initSkipLinks()).toThrow(
-        'SkipLink: Target content (`id="maincontent"`) not found'
+        `${SkipLink.moduleName}: Target content (\`id="maincontent"\`) not found`
       )
     })
 
@@ -95,7 +95,7 @@ describe('Skip link', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new SkipLink()).toThrow(
-        'SkipLink: Root element (`$root`) not found'
+        `${SkipLink.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -103,7 +103,7 @@ describe('Skip link', () => {
       $root = document.createElement('div')
 
       expect(() => new SkipLink($root)).toThrow(
-        'SkipLink: Root element (`$root`) is not of type HTMLAnchorElement'
+        `${SkipLink.moduleName}: Root element (\`$root\`) is not of type HTMLAnchorElement`
       )
     })
   })

@@ -77,7 +77,7 @@ describe('Errors', () => {
 
       expect(error).toHaveProperty(
         'message',
-        'SkipLink: variableName not found'
+        `${SkipLink.moduleName}: variableName not found`
       )
     })
 
@@ -93,7 +93,7 @@ describe('Errors', () => {
 
       expect(error).toHaveProperty(
         'message',
-        'SkipLink: variableName is not of type HTMLAnchorElement'
+        `${SkipLink.moduleName}: variableName is not of type HTMLAnchorElement`
       )
     })
   })
