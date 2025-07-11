@@ -96,6 +96,38 @@ describe('Tabs', () => {
       }
     })
 
+    it('should throw with missing tab links', () => {
+      for (const $tab of $tabs) {
+        $tab.remove()
+      }
+
+      expect(() => initTabs()).toThrow(
+        'Tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
+      )
+    })
+
+    it('should throw with missing list', () => {
+      // Change selector instead of removing to ensure links are still found
+      $list.classList.remove('nhsuk-tabs__list')
+      $list.classList.add('nhsuk-tabs__typo')
+
+      expect(() => initTabs()).toThrow(
+        'Tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
+      )
+    })
+
+    it('should throw with missing list items', () => {
+      // Change selector instead of removing to ensure links are still found
+      for (const $listItem of $listItems) {
+        $listItem.classList.remove('nhsuk-tabs__list-item')
+        $listItem.classList.add('nhsuk-tabs__typo')
+      }
+
+      expect(() => initTabs()).toThrow(
+        'List items (`<li class="nhsuk-tabs__list-item">`) not found'
+      )
+    })
+
     it('should not throw with empty body', () => {
       document.body.innerHTML = ''
       expect(() => initTabs()).not.toThrow()
@@ -120,6 +152,14 @@ describe('Tabs', () => {
       )
     })
 
+    it('should throw with missing breakpoint CSS property', () => {
+      document.documentElement.style.removeProperty('--nhsuk-breakpoint-tablet')
+
+      expect(() => new Tabs($root)).toThrow(
+        'Tabs: CSS custom property (`--nhsuk-breakpoint-tablet`) on pseudo-class `:root` not found'
+      )
+    })
+
     it('should throw with missing $root element', () => {
       expect(() => new Tabs()).toThrow('Tabs: Root element (`$root`) not found')
     })
@@ -133,54 +173,63 @@ describe('Tabs', () => {
     })
   })
 
-  describe('Accessibility', () => {
+  describe('Accessibility (mobile)', () => {
+    beforeEach(() => {
+      jest.mocked(window.matchMedia).mockImplementationOnce((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn()
+      }))
+
+      initTabs()
+    })
+
+    it('should not add accessible name and role', () => {
+      expect($list).not.toHaveAttribute('role')
+
+      for (const $tab of $tabs) {
+        const index = $tabs.indexOf($tab)
+        const $item = $listItems.at(index)
+        const $panel = $panels.at(index)
+
+        expect($item).not.toHaveAttribute('role')
+
+        expect($tab).not.toHaveAttribute('id')
+        expect($tab).not.toHaveAttribute('role')
+        expect($tab).not.toHaveAttribute('aria-controls')
+
+        expect($panel).not.toHaveAttribute('role')
+        expect($panel).not.toHaveAttribute('aria-labelledby')
+      }
+    })
+  })
+
+  describe('Accessibility (tablet, desktop)', () => {
     beforeEach(() => {
       initTabs()
     })
 
-    it('should add to list the tablist role', async () => {
+    it('should add accessible name and role', () => {
       expect($list).toHaveAttribute('role', 'tablist')
 
-      for (const $listItem of $listItems) {
-        expect($listItem).toHaveAttribute('role', 'presentation')
-      }
-    })
-
-    it('should add to list items the presentation role', async () => {
-      for (const $listItem of $listItems) {
-        expect($listItem).toHaveAttribute('role', 'presentation')
-      }
-    })
-
-    it('should add to tab panels the tabpanel role', async () => {
-      for (const $panel of $panels) {
-        expect($panel).toHaveAttribute('role', 'tabpanel')
-      }
-    })
-
-    it('should add to tab links the tab role', async () => {
       for (const $tab of $tabs) {
-        expect($tab).toHaveAttribute('role', 'tab')
-      }
-    })
+        const index = $tabs.indexOf($tab)
+        const $item = $listItems.at(index)
+        const $panel = $panels.at(index)
 
-    it('should set the panel controlled by the tab link using aria-controls', async () => {
-      for (const $panel of $panels) {
-        const index = $panels.indexOf($panel)
-        const $tab = $tabs.at(index)
+        expect($item).toHaveAttribute('role', 'presentation')
 
-        expect($tab).toHaveAttribute('aria-controls', $panel.id)
-        expect($panel).toHaveAttribute('id')
-      }
-    })
-
-    it('should set the panel labelled by the tab link using aria-labelledby', async () => {
-      for (const $panel of $panels) {
-        const index = $panels.indexOf($panel)
-        const $tab = $tabs.at(index)
-
-        expect($panel).toHaveAttribute('aria-labelledby', $tab.id)
+        // Panel is controlled by the tab link
         expect($tab).toHaveAttribute('id')
+        expect($tab).toHaveAttribute('role', 'tab')
+        expect($tab).toHaveAttribute('aria-controls', $panel.id)
+
+        // Panel is labelled by the tab link
+        expect($panel).toHaveAttribute('role', 'tabpanel')
+        expect($panel).toHaveAttribute('aria-labelledby', $tab.id)
       }
     })
   })
