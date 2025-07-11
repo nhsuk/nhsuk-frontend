@@ -37,7 +37,7 @@ export class Radios extends Component {
 
     // Attach event handler to radioInputs
     this.$inputs.forEach((radioButton) => {
-      radioButton.addEventListener('change', () =>
+      radioButton.addEventListener('click', () =>
         this.syncAllConditionalReveals()
       )
     })
